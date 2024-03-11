@@ -1,0 +1,46 @@
+### YamlMime:FAQ
+metadata:
+  title: Customer Lockbox FAQ
+  description: Frequently asked questions about Customer Lockbox
+  services: information-protection
+  ms.service: information-protection
+  ms.topic: overview
+  ms.date: 03/15/2024
+  author: msmbaldwin
+  ms.author: mbaldwin
+title: Customer Lockbox FAQ
+summary: This article answers frequently asked questions about Customer Lockbox.
+
+sections:
+  - name: General
+    questions:
+      - question: |
+          How can I import a certificate in Azure Key Vault?
+        answer: |
+          For a certificate import operation, Azure Key Vault accepts two certificate file formats: PEM and PFX. Although there are PEM files with only the public portion, Key Vault requires and accepts only a PEM or PFX file with a private key. For more information, see [Import a certificate to Key Vault](./tutorial-import-certificate.md).
+           Certificate Authorities may provide with the option to either download certificate individually (root, intermediate, leaf) or download all of them in a single file. When you import certificates into Key Vault, Certificate Authorities allows you to import one or an entire whole chain.
+
+  - name: Alternative email feature (public preview)
+    questions:
+      - question: Can I add a different user email address as an alternate email to another user's account?
+        answer: |
+          Yes, you can add any email address in the other emails field to be used as alternate email for receiving lockbox notifications.
+      - question: If I add a second user's email address as an alternate email to an existing lockbox approver user's account, will the second user be able to see and approve/reject lockbox requests?
+        answer: |
+          No, this feature only allows customers to receive lockbox request notifications on alternate email addresses, but it does not provide the ability to configure other users as lockbox approvers. For example, Alice has the subscription owner role for subscription X and she adds Bob's email address as alternate email/other email in her user profile who has a reader role. When a lockbox request is created for a resource scoped to subscription 'X', Bob will receive the email notification, but he'll not be able to approve/reject the Lockbox request as he does not have the required privileges for it (subscription owner role).
+      - question: Can I add more than one alternate email address to a user account?
+        answer: |
+          You can add multiple email addresses in the other field but currently lockbox supports sending notifications only to the first email address in 'other emails' despite multiple email ids configured.
+      - question: Can I use alternate email notification functionality with Microsoft Purview Customer Lockbox or Customer Lockbox for Power Platform and Dynamics 365?
+        answer: |
+          No, this feature is limited to Customer Lockbox for Microsoft Azure.
+      - question: Will the alternate email notification work for both tenant-scoped and subscription-scoped lockbox requests?
+        answer: |
+          Yes, alternate email notifications will work for all lockbox requests.
+
+additionalContent: |
+
+  ## Next steps
+  
+  - [Azure Customer Lockbox overview](customer-lockbox-overview.md)
+  - [Azure Customer Lockbox alternate email feature](customer-lockbox-overview.md)

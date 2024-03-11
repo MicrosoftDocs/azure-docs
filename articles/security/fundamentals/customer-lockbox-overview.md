@@ -3,10 +3,9 @@ title: Customer Lockbox for Microsoft Azure
 description: Technical overview of Customer Lockbox for Microsoft Azure, which provides control over cloud provider access when Microsoft might need to access customer data.
 author: msmbaldwin
 ms.service: information-protection
-ms.subservice: aiplabels
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 08/14/2023
+ms.date: 03/15/2024
 ---
 
 # Customer Lockbox for Microsoft Azure
@@ -95,17 +94,18 @@ The following steps outline a typical workflow for a Customer Lockbox request.
 1. At the customer organization, designated lockbox approvers ([Azure Subscription Owner](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles)/[Microsoft Entra Global admin](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-ad-roles) receive an email from Microsoft to notify them about the pending access request.  
     
     Example email:
-    
-    ![Azure Customer Lockbox - email notification](./media/customer-lockbox-overview/customer-lockbox-email-notification.png)
+    :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-email-notification.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-email-notification.png" alt-text="Azure Customer Lockbox - email notification.":::
+
 1. The email notification provides a link to the **Customer Lockbox** blade in the Administration module. Using this link, the designated approver signs in to the Azure portal to view any pending requests that their organization has for Customer Lockbox:
+    :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-email-notification.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-email-notification.png" alt-text="Azure Customer Lockbox - email notification.":::
     ![Azure Customer Lockbox - landing page](./media/customer-lockbox-overview/customer-lockbox-landing-page.png)
    The request remains in the customer queue for four days. After this time, the access request automatically expires and no access is granted to Microsoft engineers.
 1. To get the details of the pending request, the designated approver can select the lockbox request from **Pending Requests**:
-    ![Azure Customer Lockbox - view the pending request](./media/customer-lockbox-overview/customer-lockbox-pending-requests.png)
+    :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-pending-requests.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-pending-requests.png" alt-text="Azure Customer Lockbox - view the pending request.":::
 1. The designated approver can also select the **SERVICE REQUEST ID** to view the support ticket request that was created by the original user. This information provides context for why Microsoft Support is engaged, and the history of the reported problem. For example:
-    ![Azure Customer Lockbox - view the support ticket request](./media/customer-lockbox-overview/customer-lockbox-support-ticket.png)
+    :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-support-ticket.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-support-ticket.png" alt-text="Azure Customer Lockbox - view the support ticket request.":::
 1. After reviewing the request, the designated approver selects **Approve** or **Deny**:
-    ![Azure Customer Lockbox - select Approve or Deny](./media/customer-lockbox-overview/customer-lockbox-approval.png)
+    :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-approval.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-approval.png" alt-text="Azure Customer Lockbox - select Approve or Deny.":::
     As a result of the selection:
     - **Approve**:  Access is granted to the Microsoft engineer. The access is granted for a default period of eight hours.
     - **Deny**: The elevated access request by the Microsoft engineer is rejected and no further action is taken.
@@ -122,7 +122,7 @@ Customer Lockbox logs are stored in activity logs. In the Azure portal, select *
 
 As an example:
 
-![Azure Customer Lockbox - activity logs](./media/customer-lockbox-overview/customer-lockbox-activitylogs.png)
+:::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-activitylogs.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-activitylogs.png" alt-text="Azure Customer Lockbox - activity logs.":::
 
 ## Customer Lockbox integration with the Microsoft cloud security benchmark
 
@@ -142,3 +142,6 @@ Customer Lockbox requests are also not triggered by external legal demands for d
 Customer Lockbox is available for all customers who have an [Azure support plan](https://azure.microsoft.com/support/plans/) with a minimal level of **Developer**. You can enable Customer Lockbox from the [Administration module](https://aka.ms/customerlockbox/administration) in the Customer Lockbox blade.
 
 Customer Lockbox requests are initiated by a Microsoft engineer if this action is needed to progress a support case.
+
+- [Azure Customer Lockbox alternate email feature](customer-lockbox-alternative-email.md)
+- [Azure Customer Lockbox FAQ](customer-lockbox-faq.yml)
