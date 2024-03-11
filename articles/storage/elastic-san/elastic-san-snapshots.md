@@ -11,7 +11,7 @@ ms.author: rogarana
 
 # Snapshot Azure Elastic SAN volumes (preview)
 
-Azure Elastic SAN volume snapshots (preview) are incremental point-in-time backups of your volumes. The first snapshot you take is a full copy of your volume but every subsequent snapshot consists only of the changes since the last snapshot. Snapshots of your volumes don't have any separate billing, but they reside in your elastic SAN and consume the SAN's capacity. Snapshots can't be used to change the state of an existing volume, you can only use them to either deploy a new volume or export the data to a managed disk snapshot.
+Azure Elastic SAN volume snapshots (preview) are incremental point-in-time backups of your volumes. The first snapshot you take occupies no space, and every subsequent snapshot consists only of the changes to the Elastic SAN volume since the last snapshot. This is different from a managed disk snapshot, wherein the first snapshot you take will be a full copy of the managed disk and each subsequent snapshot will consist of only the changes to the disk since the last snapshot. Snapshots of your volumes don't have any separate billing, but they reside in your elastic SAN and consume the SAN's capacity. Snapshots can't be used to change the state of an existing volume, you can only use them to either deploy a new volume or export the data to a managed disk snapshot.
 
 You can take as many snapshots of your volumes as you like, as long as there's available capacity in your elastic SAN. Snapshots persist until either the volume itself is deleted or the snapshots are deleted. Snapshots don't persist after the volume is deleted. If you need your data to persist after deleting a volume, [export your volume's snapshot to a managed disk snapshot](#export-volume-snapshot).
 
@@ -25,10 +25,10 @@ You can take as many snapshots of your volumes as you like, as long as there's a
 You can take a snapshot anytime, but if you’re taking snapshots while the VM is running, keep these things in mind:
 
 When the VM is running, data is still being streamed to the volumes. As a result, snapshots of a running VM might contain partial operations that were in flight.
-If there are several disks involved in a VM, snapshots of different disks might occur at different times.
+If there are several volumes attached to a VM, snapshots of different volumes might occur at different times.
 In the described scenario, snapshots weren't coordinated. This lack of coordination is a problem for striped volumes whose files might be corrupted if changes were being made during a backup. So the backup process must implement the following steps:
 
-- Freeze all the disks.
+- Freeze all the volumes.
 - Flush all the pending writes.
 - Create an incremental snapshot for each volume.
 
@@ -147,7 +147,7 @@ az elastic-san volume snapshot delete -g "resourceGroupName" -e "san_name" -v "v
 
 ## Export volume snapshot
 
-Elastic SAN volume snapshots are automatically deleted when the volume is deleted. If you need your snapshot's data to persist beyond deletion, export them to managed disk snapshots. Once you export an elastic SAN snapshot to a managed disk snapshot, the managed disk snapshot begins to incur billing charges. Elastic SAN snapshots don't have any extra billing associated with them, they only consume your elastic SAN's capacity.
+Elastic SAN volume snapshots are automatically deleted when the volume is deleted. If you need your snapshot's data to persist beyond deletion, export them to managed disk snapshots. The export process will take time and will depend on the size of the snapshot. You can check how much is left before completion by checking the CompletionPercentage property of the managed disk snapshot. Once you export an elastic SAN snapshot to a managed disk snapshot, the managed disk snapshot begins to incur billing charges. Elastic SAN snapshots don't have any extra billing associated with them, they only consume your elastic SAN's capacity.
 
 Currently, you can only export snapshots using the Azure portal. The Azure PowerShell module and the Azure CLI can't be used to export snapshots.
 

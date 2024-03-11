@@ -42,6 +42,8 @@ Key Data Processor features include:
 
 - As a data agnostic data processing platform, Data Processor can ingest data in any format, process the data, and then write it out to a destination. To support these capabilities, Data Processor can deserialize and serialize various formats. For example, it can serialize to parquet in order to write files to Microsoft Fabric.
 
+- Automatic and configurable retry policies to handle transient errors when sending data to cloud destinations.
+
 ## What is a pipeline?
 
 A Data Processor pipeline has an input source where it reads data from, a destination where it writes processed data to, and a variable number of intermediate stages to process the data.
@@ -64,18 +66,20 @@ Data Processor pipelines can use the following stages:
 | [Source - MQ](howto-configure-datasource-mq.md) | Retrieves data from an MQTT broker. |
 | [Source - HTTP endpoint](howto-configure-datasource-http.md) | Retrieves data from an HTTP endpoint. |
 | [Source - SQL](howto-configure-datasource-sql.md) | Retrieves data from a Microsoft SQL Server database. |
+| [Source - InfluxDB](howto-configure-datasource-influxdb.md) | Retrieves data from an InfluxDB database. |
 | [Filter](howto-configure-filter-stage.md) | Filters data coming through the stage. For example, filter out any message with temperature outside of the `50F-150F` range. |
 | [Transform](howto-configure-transform-stage.md) | Normalizes the structure of the data. For example, change the structure from `{"Name": "Temp", "value": 50}` to `{"temp": 50}`. |
 | [LKV](howto-configure-lkv-stage.md) | Stores selected metric values into an LKV store. For example, store only temperature and humidity measurements into LKV, ignore the rest. A subsequent stage can enrich a message with the stored LKV data. |
 | [Enrich](howto-configure-enrich-stage.md) | Enriches messages with data from the reference data store. For example, add an operator name and lot number from the operations dataset. |
 | [Aggregate](howto-configure-aggregate-stage.md) | Aggregates values passing through the stage. For example, when temperature values are sent every 100 milliseconds, emit an average temperature metric every 30 seconds. |
 | [Call out](howto-configure-grpc-callout-stage.md) | Makes a call to an external HTTP or gRPC service. For example, call an Azure Function to convert from a custom message format to JSON. |
-| [Destination - MQ](howto-configure-destination-mq-broker.md) | Writes your processed, clean and contextualized data to an MQTT topic. |
+| [Destination - MQ](howto-configure-destination-mq-broker.md) | Writes your processed, clean, and contextualized data to an MQTT topic. |
 | [Destination - Reference](howto-configure-destination-reference-store.md) | Writes your processed data to the built-in reference store. Other pipelines can use the reference store to enrich their messages. |
-| [Destination - gRPC](howto-configure-destination-grpc.md) | Sends your processed, clean and contextualized data to a gRPC endpoint. |
-| [Destination - Fabric Lakehouse](../connect-to-cloud/howto-configure-destination-fabric.md) | Sends your processed, clean and contextualized data to a Microsoft Fabric lakehouse in the cloud. |
-| [Destination - Azure Data Explorer](../connect-to-cloud/howto-configure-destination-data-explorer.md) | Sends your processed, clean and contextualized data to an Azure Data Explorer endpoint in the cloud. |
-
+| [Destination - gRPC](howto-configure-destination-grpc.md) | Sends your processed, clean, and contextualized data to a gRPC endpoint. |
+| [Destination - HTTP](howto-configure-destination-http.md) | Sends your processed, clean, and contextualized data to an HTTP endpoint. |
+| [Destination - Fabric Lakehouse](../connect-to-cloud/howto-configure-destination-fabric.md) | Sends your processed, clean, and contextualized data to a Microsoft Fabric lakehouse in the cloud. |
+| [Destination - Azure Data Explorer](../connect-to-cloud/howto-configure-destination-data-explorer.md) | Sends your processed, clean, and contextualized data to an Azure Data Explorer endpoint in the cloud. |
+| [Destination - Azure Blob Storage](../connect-to-cloud/howto-configure-destination-blob.md) | Sends your processed, clean, and contextualized data to an Azure Blob Storage endpoint in the cloud. |
 
 ## Next step
 
