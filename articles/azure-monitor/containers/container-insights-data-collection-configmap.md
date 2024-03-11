@@ -34,9 +34,6 @@ Use the following procedure to configure and deploy your ConfigMap configuration
 
 1. Download the [template ConfigMap YAML file](https://aka.ms/container-azm-ms-agentconfig) and open it in an editor. If you already have a ConfigMap file, then you can use that one.
 1. Edit the ConfigMap YAML file with your customizations using the settings described in [Data collection settings](#data-collection-settings)
-    
-3. Save your changes in the editor.
-
 1. Create a ConfigMap by running the following kubectl command: 
 
     ```azurecli
