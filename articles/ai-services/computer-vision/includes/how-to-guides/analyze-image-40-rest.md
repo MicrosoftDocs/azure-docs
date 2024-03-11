@@ -74,7 +74,7 @@ You can also do image analysis with a custom trained model. To create and train 
 
 To use a custom model, don't use the features query parameter. Instead, set the `model-name` parameter to the name of your model as shown here. Replace `MyCustomModelName` with your custom model name.
 
-`https://<endpoint>/computervision/imageanalysis:analyze?api-version=2024-02-01&model-name=MyCustomModelName`
+`https://<endpoint>/computervision/imageanalysis:analyze?api-version=2023-02-01&model-name=MyCustomModelName`
 
 
 ### Specify languages
