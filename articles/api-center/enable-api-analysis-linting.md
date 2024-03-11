@@ -22,7 +22,7 @@ In this scenario, you analyze API definitions in your API center by using the [S
 
 The following diagram shows the steps to enable linting and analysis in your API center.
 
-:::image type="content" source="media/enable-api-analysis-linting/scenario-overview.png" alt-text="Diagram showing how API linting works in Azure API Center.":::
+:::image type="content" source="media/enable-api-analysis-linting/scenario-overview.png" alt-text="Diagram showing how API linting works in Azure API Center." lightbox="media/enable-api-analysis-linting/scenario-overview.png":::
 
 1. You deploy an Azure Functions app that runs the Spectral linting engine on an API definition.
 
