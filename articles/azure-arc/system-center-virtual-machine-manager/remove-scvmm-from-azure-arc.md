@@ -93,7 +93,7 @@ You can remove your SCVMM resources from Azure Arc using either the deboarding s
 
 ### Remove SCVMM managed resources from Azure Arc using deboarding script
 
-Download the deboarding script to do a full cleanup of all the Arc-enabled SCVMM resources. The script removes all the Azure resources, including SCVMM management server, custom location, virtual machines, virtual templates, hosts, clusters, resource pools, datastores, virtual networks, Azure Resource Manager (ARM) resource of Appliance, and the appliance VM running on the SCVMM management server.
+Download the [deboarding script](https://download.microsoft.com/download/a/d/b/adb5650c-5c90-4e94-8a93-2a4707c2020a/arcscvmm-deboard-windows.ps1) to do a full cleanup of all the Arc-enabled SCVMM resources. The script removes all the Azure resources, including SCVMM management server, custom location, virtual machines, virtual templates, hosts, clusters, resource pools, datastores, virtual networks, Azure Resource Manager (ARM) resource of Appliance, and the appliance VM running on the SCVMM management server.
 
 #### Run the script
 
@@ -142,7 +142,7 @@ If you aren't using the deboarding script, follow these steps to remove the VMwa
 
     This action only removes these resource representations from Azure. The resources continue to remain in your vCenter.
 
-7. Do the steps 4, 5, and 6 for **Clouds**, **VM networks**, and **VM templates** by performing **Remove from Azure operation for resources** with **Azure Enabled** value as **Yes**.
+7. Do the steps 4, 5, and 6 for **Clouds**, **VM networks**, and **VM templates** by performing Remove from Azure operation for resources with **Azure Enabled** value as **Yes**.
 
 8. Once the deletion is complete, select **Overview**.
 
