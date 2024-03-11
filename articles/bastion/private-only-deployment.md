@@ -11,9 +11,9 @@ ms.author: cherylmc
 
 # Deploy Bastion as private-only (Preview)
 
-This article helps you deploy Bastion as private-only from the Azure portal. Most Azure Bastion deployments are created using an architecture that allows users to connect through Bastion via public IP address. **Private-only** Bastion deployments don't allow connections via public IP address. Instead, they lock down the workloads end-to-end by creating a non-internet routable deployment of Bastion that allows only private IP address access. In a private-only Bastion deployment, Bastion doesn't allow outbound access outside of the virtual network.
+This article helps you deploy Bastion as a private-only deployment. Private-only Bastion deployments don't allow connections through the bastion host via public IP address. Instead, they lock down workloads end-to-end by creating a non-internet routable deployment of Bastion that allows only private IP address access. In contrast, a typical Azure Bastion deployment allows users to connect through Bastion via public IP address.
 
-The following diagram shows the Bastion private-only deployment architecture. A user that's connected to Azure via ExpressRoute private-peering can securely connect to Bastion using the private IP address of the bastion host. Bastion can then make the connection via the private IP address of the virtual machine that is within the same virtual network as the bastion host.
+The following diagram shows the Bastion private-only deployment architecture. A user that's connected to Azure via ExpressRoute private-peering can securely connect to Bastion using the private IP address of the bastion host. Bastion can then make the connection via private IP address to a virtual machine that's within the same virtual network as the bastion host. In a private-only Bastion deployment, Bastion doesn't allow outbound access outside of the virtual network.
 
 :::image type="content" source="./media/private-only-deployment/private-only-architecture.png" alt-text="Diagram showing Azure Bastion architecture." lightbox="./media/private-only-deployment/private-only-architecture.png":::
 
@@ -28,7 +28,7 @@ Items to consider:
 The steps in this article assume you have the following prerequisites:
 
 * An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-* A [virtual network](../virtual-network/quick-create-portal.md). You can add the AzureBastionSubnet when you create your virtual network, or using the steps later in this article.
+* A [virtual network](../virtual-network/quick-create-portal.md) that doesn't have Azure Bastion deployment.
 
 ### <a name="values"></a>Example values
 
