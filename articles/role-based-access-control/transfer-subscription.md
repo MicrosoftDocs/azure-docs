@@ -398,6 +398,6 @@ If your intent is to remove access from users in the source directory so that th
 ## Next steps
 
 - [Transfer billing ownership of an Azure subscription to another account](../cost-management-billing/manage/billing-subscription-transfer.md)
-- [Transfer Azure subscriptions between subscribers and CSPs](../cost-management-billing/manage/transfer-subscriptions-subscribers-csp.md)
+- [Transfer Azure subscriptions between subscribers and CSPs](../cost-management-billing/manage/transfer-subscriptions-subscribers-csp.yml)
 - [Associate or add an Azure subscription to your Microsoft Entra tenant](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 - [Azure Lighthouse in enterprise scenarios](../lighthouse/concepts/enterprise.md)
