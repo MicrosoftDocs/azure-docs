@@ -4,7 +4,7 @@ description: Learn how to buy Azure Cosmos DB reserved capacity to save on your 
 author: seesharprun
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/26/2021
+ms.date: 03/11/2024
 ms.author: sidandrews
 ms.reviewer: jucocchi
 ---
@@ -14,19 +14,62 @@ ms.reviewer: jucocchi
 
 Azure Cosmos DB reserved capacity helps you save money by committing to a reservation for Azure Cosmos DB resources for either one year or three years. With Azure Cosmos DB reserved capacity, you can get a discount on the throughput provisioned for Azure Cosmos DB resources. Examples of resources are databases and containers (tables, collections, and graphs).
 
-Azure Cosmos DB reserved capacity can significantly reduce your Azure Cosmos DB costs&mdash;up to 65 percent on regular prices with a one-year or three-year upfront commitment. Reserved capacity provides a billing discount and doesn't affect the runtime state of your Azure Cosmos DB resources.
+Azure Cosmos DB reserved capacity can significantly reduce your Azure Cosmos DB costs, up to 68 percent on regular prices with a one-year or three-year upfront commitment. Reserved capacity provides a billing discount and doesn't affect the runtime state of your Azure Cosmos DB resources, including performance or availability.
 
 Azure Cosmos DB reserved capacity covers throughput provisioned for your resources. It doesn't cover the storage and networking charges. As soon as you buy a reservation, the throughput charges that match the reservation attributes are no longer charged at the pay-as-you go rates. For more information on reservations, see the [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) article.
 
-You can buy Azure Cosmos DB reserved capacity from the [Azure portal](https://portal.azure.com). Pay for the reservation [up front or with monthly payments](../cost-management-billing/reservations/prepare-buy-reservation.md). To buy reserved capacity:
+You can buy Azure Cosmos DB reserved capacity from the [Azure portal](https://portal.azure.com). Pay for the reservation [upfront or with monthly payments](../cost-management-billing/reservations/prepare-buy-reservation.md). To buy reserved capacity:
 
 * You must be in the Owner role for at least one Enterprise or individual  subscription with pay-as-you-go rates.  
 * For Enterprise subscriptions, **Add Reserved Instances** must be enabled in the [EA portal](https://ea.azure.com). Or, if that setting is disabled, you must be an EA Admin on the subscription.
 * For the Cloud Solution Provider (CSP) program, only admin agents or sales agents can buy Azure Cosmos DB reserved capacity.
 
-## Determine the required throughput before purchase
+## Overview
 
-The size of the reserved capacity purchase should be based on the total amount of throughput that the existing or soon-to-be-deployed Azure Cosmos DB resources will use on an hourly basis. For example: Purchase 30,000 RU/s reserved capacity if that's your consistent hourly usage pattern. In this example, any provisioned throughput above 30,000 RU/s will be billed using your Pay-as-you-go rate. If provisioned throughput is below 30,000 RU/s in an hour, then the extra reserved capacity for that hour will be wasted.
+The size of the reserved capacity purchase should be based on the total amount of throughput that the existing or soon-to-be-deployed Azure Cosmos DB resources will use on an hourly basis. For example: Purchase 10,000 RU/s reserved capacity if that's your consistent hourly usage pattern. In this example, any provisioned throughput above 10,000 RU/s will be billed using your Pay-as-you-go rate. If provisioned throughput is below 10,000 RU/s in an hour, then the extra reserved capacity for that hour will be wasted.
+
+It is possible to buy reservations in multiples of 100 RU/s, enabling savings for all sizes of customers and workloads.
+
+### Autoscale provisioned throughput
+
+Reserved capacity is applied to autoscale database operations at a rate of 100 RU/s x 1.5 x N regions. For the usable net RU/s per region of a reservation, the formula is inverted. Scenarios:
+
+| Scenario | Autoscale Rate | Regions |Formula | Net RU/s per region|
+|----------|---------|----------|---------|---------|
+| 10,000 RU/s | 1.5 | 1 | (10,000 / 1.5) / 1 | 6,666.66 |
+| 10,000 RU/s | 1.5 | 2 | (10,000 / 1.5) / 2 | 3,333.33 |
+| 15,000 RU/s | 1.5 | 1 | (15,000 / 1.5) / 1 | 10,000 |
+| 30,000 RU/s | 1.5 | 2 | (30,000 / 1.5) / 2 | 10,000 |
+
+
+### Standard provisioned throughput
+
+Reserved capacity is applied to standard database operations at a rate of 100 RU/s x N regions. For the usable net RU/s per region of a reservation, the formula is inverted. Scenarios:
+
+| Scenario |  Regions |Formula | Net RU/s per region|
+|----------|----------|---------|---------|
+| 10,000 RU/s | 1 | 10,000 / 1 | 10,000 |
+| 10,000 RU/s | 2 | 10,000 / 2 | 5,000 |
+| 15,000 RU/s | 1 | 15,000 / 1 | 15,000 |
+| 30,000 RU/s | 2 | 30,000 / 2 | 15,000 |
+
+
+## Discounts
+
+You can buy up to 9999 units of the 100 RU/s option with the discounts rates below.
+
+|Commitment  |Discount  |
+|---------|---------|
+| One-year | 20% | 
+| Three-years | 30% |
+
+Reserervations equal or bigger than 1 million RU/s get up to 68% discount. Please [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) to purchase bigger reservations.
+
+### Existing reservations
+
+
+
+## Determine the required throughput before purchase
 
 We calculate purchase recommendations based on your hourly usage pattern. Usage over last 7, 30 and 60 days is analyzed, and reserved capacity purchase that maximizes your savings is recommended. You can view recommended reservation sizes in the Azure portal using the following steps:
 
