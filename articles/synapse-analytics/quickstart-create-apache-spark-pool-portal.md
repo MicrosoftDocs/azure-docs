@@ -51,13 +51,13 @@ Sign in to the [Azure portal](https://portal.azure.com/)
 
 1. Enter the following details in the **Basics** tab:
 
- |Setting | Suggested value | Description |
- | :------ | :-------------- | :---------- |
- | **Apache Spark pool name** | A valid pool name, like `contosospark` | This is the name that the Apache Spark pool will have. |
- | **Node size** | Small (4 vCPU / 32 GB) | Set this to the smallest size to reduce costs for this quickstart |
- | **Autoscale** | Disabled | We don't need autoscale for this quickstart |
- | **Number of nodes** | 5 | Use a small size to limit costs for this quickstart |
-
+    |Setting | Suggested value | Description |
+    | :------ | :-------------- | :---------- |
+    | **Apache Spark pool name** | A valid pool name, like `contosospark` | This is the name that the Apache Spark pool will have. |
+    | **Node size** | Small (4 vCPU / 32 GB) | Set this to the smallest size to reduce costs for this quickstart |
+    | **Autoscale** | Disabled | We don't need autoscale for this quickstart |
+    | **Number of nodes** | 5 | Use a small size to limit costs for this quickstart |
+    
     :::image type="content" source="media/quickstart-create-apache-spark-pool/create-spark-pool-portal-02.png" alt-text="Screenshot from the Azure portal of the Apache Spark pool create flow - basics tab." lightbox="media/quickstart-create-apache-spark-pool/create-spark-pool-portal-02.png":::
    
     > [!IMPORTANT]

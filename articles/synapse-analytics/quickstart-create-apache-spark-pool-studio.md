@@ -61,14 +61,14 @@ From the workspace overview, select the **Workspace web URL** to open Synapse St
 
 1. Enter the following details in the **Basics** tab:
 
- | Setting | Suggested value | Description |
- | :------ | :-------------- | :---------- |
- | **Apache Spark pool name** | A valid pool name, like `contosospark` | This is the name that the Apache Spark pool will have. |
- | **Node size** | Small (4 vCPU / 32 GB) | Set this to the smallest size to reduce costs for this quickstart |
- | **Autoscale** | Disabled | We won't need autoscale in this quickstart |
- | **Number of nodes** | 8 | Use a small size to limit costs in this quickstart|
- | **Dynamically allocate executors** |  Disabled | This setting maps to the dynamic allocation property in Spark configuration for Spark Application executors allocation. We won't need autoscale in this quickstart.|
- 
+    | Setting | Suggested value | Description |
+    | :------ | :-------------- | :---------- |
+    | **Apache Spark pool name** | A valid pool name, like `contosospark` | This is the name that the Apache Spark pool will have. |
+    | **Node size** | Small (4 vCPU / 32 GB) | Set this to the smallest size to reduce costs for this quickstart |
+    | **Autoscale** | Disabled | We won't need autoscale in this quickstart |
+    | **Number of nodes** | 8 | Use a small size to limit costs in this quickstart|
+    | **Dynamically allocate executors** |  Disabled | This setting maps to the dynamic allocation property in Spark configuration for Spark Application executors allocation. We won't need autoscale in this quickstart.|
+     
     :::image type="content" source="media/quickstart-create-apache-spark-pool/create-spark-pool-studio-24.png" alt-text="Screenshot from the Azure portal of the Basics for Synapse Studio new Apache Spark pool." lightbox="media/quickstart-create-apache-spark-pool/create-spark-pool-studio-24.png":::
    
     > [!IMPORTANT]
