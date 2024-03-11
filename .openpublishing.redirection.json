@@ -6751,6 +6751,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/search/cognitive-search-tutorial-blob-python.md",
+            "redirect_url": "/azure/search/samples-python",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/search/semantic-ranking.md",
             "redirect_url": "/azure/search/semantic-search-overview",
             "redirect_document_id": true

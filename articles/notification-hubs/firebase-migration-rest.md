@@ -45,7 +45,12 @@ The first step is to add credentials via the Azure portal, a management-plane hu
 
    OR
 
-   If you want to create a service account with customized access permission, you can create a service account through the [IAM & Admin > Service Accounts page](https://console.cloud.google.com/iam-admin/serviceaccounts). Go to the page directly by clicking **Manage service account permissions**. You can create a service account that has **Firebase cloud messaging admin access** and use it for your notification hub credential update.
+   If you want to create a service account with customized access permission, you can create a service account through the [IAM & Admin > Service Accounts page](https://console.cloud.google.com/iam-admin/serviceaccounts). Go to the page directly by clicking **Manage service account permissions**. You can create a service account that has one of the following roles:
+
+    - Firebase Admin (roles/firebase.admin)
+    - Firebase Grow Admin (roles/firebase.growthAdmin)
+    - Firebase Admin SDK Administrator Service Agent (roles/firebase.sdkAdminServiceAgent)
+    - Firebase SDK Provisioning Service Agent (roles/firebase.sdkProvisioningServiceAgent)
 
    :::image type="content" source="media/firebase-migration-rest/service-accounts.png" alt-text="Screenshot showing IAM service account settings." lightbox="media/firebase-migration-rest/service-accounts.png":::
 
