@@ -15,7 +15,7 @@ ms.author: shamkh
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
+- An active Communication Services resource and connection string. [Create a Communication Services resource](../../../../create-communication-resource.md).
 - [Python](https://www.python.org/downloads/) 3.7+ for your operating system.
 
 ## Sample code
@@ -60,7 +60,7 @@ class MessagesQuickstart(object):
 
 ## Initialize the NotificationMessagesClient
 
-Messages sending is done using NotificationMessagesClient. NotificationMessagesClient is authenticated using your connection string acquired from Azure Communication Services resource in the Azure portal. For more information on connection strings, see [access-your-connection-strings-and-service-endpoints](../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints). NotificationMessagesClient is also authenticated using ManagedIdentity. For More information see [access-Azure-Communication-Resources-using-MI](https://learn.microsoft.com/en-us/azure/communication-services/how-tos/managed-identity?tabs=portal%2Cpython).
+Messages sending is done using NotificationMessagesClient. NotificationMessagesClient is authenticated using your connection string acquired from Azure Communication Services resource in the Azure portal. For more information on connection strings, see [access-your-connection-strings-and-service-endpoints](../../../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints). NotificationMessagesClient is also authenticated using TokenCredentials. For More information see [access-Azure-Communication-Resources-using-TokenCredentials](https://learn.microsoft.com/python/api/overview/azure/identity-readme?view=azure-python#environment-variables).
 Get Azure Communication Resource connection string from Azure Portal as given in screenshot:
 
 :::image type="content" source="../../media/get-started/get-communication-resource-connection-string.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Primary Key' field in the 'Keys' section.":::
@@ -119,7 +119,7 @@ if __name__ == '__main__':
     messages.send_template_send_message()
 ```
 
-## Run the code
+## Run the code for send template
 
 To run the code, make sure you are on the directory where your `messages-quickstart.py` file is.
 
@@ -166,7 +166,7 @@ if __name__ == '__main__':
     messages.send_text_send_message()
 ```
 
-## Run the code
+## Run the code for send text message
 
 To run the code, make sure you are on the directory where your `messages-quickstart.py` file is.
 
@@ -248,7 +248,4 @@ if __name__ == '__main__':
 > [!NOTE]
 > Sending text WhatsApp messages needs to be User-Intiated. For more information see [User Initiated WhatsApp Messages](https://developers.facebook.com/docs/whatsapp/pricing/#opening-conversations).
 
-## Reference documentation
-
-Read about the full set of capabilities of Azure Communication Services Advanced Messages from the [Python SDK reference](/python/api/overview/azure/communication-messages-readme) or [REST API reference](/rest/api/communication/messages).
 
