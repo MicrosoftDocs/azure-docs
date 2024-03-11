@@ -50,7 +50,7 @@ false  | No Evidence is returned
 **FindingOptions**
 - provideFocusedSentenceEvidence
 - type: boolean
-- Provide a single focused sentence as evidence for the finding, default is false.
+- Provide a single focused sentence as evidence for the finding, default is true.
 
 **FollowupRecommendationOptions**
 - includeRecommendationsWithNoSpecifiedModality
@@ -64,7 +64,7 @@ false  | No Evidence is returned
 
 - provideFocusedSentenceEvidence
     - type: boolean
-    - description: Provide a single focused sentence as evidence for the recommendation, default is false.
+    - description: Provide a single focused sentence as evidence for the recommendation, default is true.
 
 
 IncludeEvidence
