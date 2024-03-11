@@ -20,7 +20,9 @@ Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Wi
 
 *Date published: March 11, 2024*
 
-Fixed an issue that caused connections to stop working when users tried to connect from a Private Network to Azure Virtual Desktop environment.
+In this release, we've made the following change:
+
+- Fixed an issue that caused connections to stop working when users tried to connect from a Private Network to Azure Virtual Desktop environment.
 
 ## Updates for version 1.2.5254
 
