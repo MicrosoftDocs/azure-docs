@@ -12,13 +12,13 @@ appliesto: Microsoft Sentinel
 
 # Migrate to Microsoft Sentinel with the SIEM migration experience (preview)
 
-Migrate Security Monitoring use cases from other Security Information and Event Management (SIEM) systems to Microsoft Sentinel using the SIEM Migration experience. SIEM Migrations are often extremely resource intensive. With the automated assistance the SIEM Migration experience provides, the migration process is simplified. 
+Migrate your SIEM to Microsoft Sentinel with the SIEM Migration experience. With the automated assistance the SIEM Migration experience provides, the complexity of a migrating security monitoring use cases is simplified. 
 
 These features are currently included in the SIEM Migration experience: 
 
 **Splunk**
 - The experience focuses on migrating Splunk security monitoring to Microsoft Sentinel.
-- The experience only supports migration of Splunk detections to Microsoft Sentinel Analytics.|
+- The experience only supports migration of Splunk detections to Microsoft Sentinel Analytics.
 
 ## Prerequisites
 
@@ -31,18 +31,22 @@ You need the following from the source SIEM:
 
 You need the following on the target, Microsoft Sentinel:
 
-- Deployment of resources (Analytics rules) requires the **Microsoft Sentinel Contributor** role. For more information about other roles and permissions supported for Microsoft Sentinel, see [Permissions in Microsoft Sentinel](roles.md). 
-- Ingest security data previously used in your source SIEM into Microsoft Sentinel by enabling an out-of-the-box (OOTB) data connector. If the data connector isn't installed yet, find the relevant solution in **Content hub**. If no data connector exists, create a custom ingestion pipeline. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md) or [Custom data ingestion and transformation](data-transformation.md).
+- The SIEM migration experience deploys analytics rules which requires the **Microsoft Sentinel Contributor** role. For more information about other roles and permissions supported for Microsoft Sentinel, see [Permissions in Microsoft Sentinel](roles.md). 
+- Ingest security data previously used in your source SIEM into Microsoft Sentinel by enabling an out-of-the-box (OOTB) data connector. 
+- If the data connector isn't installed yet, find the relevant solution in **Content hub**. 
+- If no data connector exists, create a custom ingestion pipeline. 
+
+For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md) or [Custom data ingestion and transformation](data-transformation.md).
 
 ## Translate Splunk detection rules
 
-At the core of Splunk detection rules is the Search Processing Language (SPL). The SIEM migration experience systematically translates the SPL to Kusto query language (KQL) for each Splunk rule. Carefully review translations and make adjustments to ensure migrated rules function as intended in your Microsoft Sentinel workspace. For more information on the concepts important in translating detection rules, see [migrate Splunk detection rules](migration-splunk-detection-rules.md).
+At the core of Splunk detection rules is the Search Processing Language (SPL). The SIEM migration experience systematically translates SPL to Kusto query language (KQL) for each Splunk rule. Carefully review translations and make adjustments to ensure migrated rules function as intended in your Microsoft Sentinel workspace. For more information on the concepts important in translating detection rules, see [migrate Splunk detection rules](migration-splunk-detection-rules.md).
 
 Capabilities today:
 
-- Simple queries with a single data source
+- Translate simple queries with a single data source
 - Direct translations listed in the article, [Splunk to Kusto cheat sheet](/azure/data-explorer/kusto/query/splunk-cheat-sheet)
-- Translated queries feature specific error feedback with edit capability to save time in the detection translation process
+- Review translated query error feedback with edit capability to save time in the detection rule translation process
 
 Capabilities coming soon:
 
@@ -71,7 +75,7 @@ Capabilities on the roadmap:
 
 1. Run the following query: 
 
-`| rest splunk_server=local count=0 /services/saved/searches | search disabled=0 | table title,search ,*`
+    `| rest splunk_server=local count=0 /services/saved/searches | search disabled=0 | table title,search ,*`
 
 1. Select the export button and choose JSON as the format. 
 
@@ -79,10 +83,10 @@ Capabilities on the roadmap:
 
 1. Upload the exported Splunk JSON file.
 
-:::image type="content" source="media/siem-migration/upload-file.png" alt-text="Screenshot showing the upload files tab.":::
+> [!NOTE]
+> The Splunk export must be a valid JSON file and the upload size is limited to 50 MB.
 
-> [!TIP]
-> The migration expects Splunk export in a valid json format. The upload size of the json is limited to 50 MB.
+:::image type="content" source="media/siem-migration/upload-file.png" alt-text="Screenshot showing the upload files tab.":::
 
 ## Configure rules
 
@@ -95,8 +99,8 @@ Capabilities on the roadmap:
 
     :::image type="content" source="media/siem-migration/configure-rules.png" alt-text="Screenshot showing the results of the automatic rule mapping." lightbox="media/siem-migration/configure-rules.png":::
 
-> [!NOTE]
-> Check the schema of the data types and fields used in the rule logic. Microsoft Sentinel Analytics require that the data type be present in the Log Analytics Workspace before the rule is enabled. It's also important that the fields used in the query are accurate for the defined data type schema.
+    > [!NOTE]
+    > Check the schema of the data types and fields used in the rule logic. Microsoft Sentinel Analytics require that the data type be present in the Log Analytics Workspace before the rule is enabled. It's also important the fields used in the query are accurate for the defined data type schema.
 
 1. When the review is complete, select **Review and migrate**.
 
@@ -108,26 +112,23 @@ Capabilities on the roadmap:
    - For all OOTB matches, the corresponding solutions with the matched analytics rule is installed, and the matched rules will be deployed as active analytics rules.
    - All custom rules translated to Sentinel analytics rules are deployed as active analytics rules.
 
-1. View the properties of deployed Microsoft Sentinel analytics rules 
+1. View the properties of deployed Microsoft Sentinel analytics rules.
 
    - All migrated rules are deployed with the Prefix **[Splunk Migrated]** in the title in the Analytics gallery.
    - All migrated rules are deployed in a disabled state.
    - The following properties are retained from the Splunk export wherever possible:
-    
-     |Translated property|
-     |:---|
-     |Severity|
-     |queryFrequency|
-     |queryPeriod|
-     |triggerOperator|
-     |triggerThreshold|
-     |suppressionDuration|
+     `Severity`
+     `queryFrequency`
+     `queryPeriod`
+     `triggerOperator`
+     `triggerThreshold`
+     `suppressionDuration`
 
-1. Review the Splunk migrated rules and enable them from **Analytics**. 
+1. Review the Splunk migrated rules and enable them from Microsoft Sentinel **Analytics**. 
 
 ## Next step
 
 In this article, you learned how to use the SIEM migration experience. 
 
 > [!div class="nextstepaction"]
-> Continue to [migrate Splunk detection rules](migration-splunk-detection-rules.md)
+> To learn more about migrating detection rules, see [Migrate Splunk detection rules](migration-splunk-detection-rules.md).
