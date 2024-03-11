@@ -143,8 +143,10 @@ az aks nodepool add  -g $resourceGroup --cluster-name $clusterName \
 
 > [!NOTE]
 > Because Routing domain is not yet supported for ARM, CNI Overlay is not yet supported on ARM-based (ARM64) processor nodes.
->
- 
+
+> [!NOTE]
+> Upgrading an existing cluster to CNI Overlay is a non-reversible process.
+
 > [!WARNING]
 > Prior to Windows OS Build 20348.1668, there was a limitation around Windows Overlay pods incorrectly SNATing packets from host network pods, which had a more detrimental effect for clusters upgrading to Overlay. To avoid this issue, **use Windows OS Build greater than or equal to 20348.1668**.
 
