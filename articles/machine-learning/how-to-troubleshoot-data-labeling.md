@@ -79,6 +79,7 @@ When your workspace is secured with a virtual network, use these steps to set th
 1. Select the datastore you're using to access data in your labeling project.
 1. On the top toolbar, select **Update authentication**.
 1. Toggle on the entry for "Use workspace managed identity for data preview and profiling in Azure Machine Learning studio."
-Related resources
+
+## Related resources
 
 For information on how to troubleshoot project management issues, see [Troubleshoot project management issues](how-to-manage-labeling-projects.md#troubleshoot-issues).
