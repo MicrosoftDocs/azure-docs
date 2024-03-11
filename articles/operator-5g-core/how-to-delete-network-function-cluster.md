@@ -5,10 +5,10 @@ author: HollyCl
 ms.author: HollyCl
 ms.service: azure-operator-5g-core
 ms.custom: devx-track-azurecli
-ms.topic: quickstart #required; leave this attribute/value as-is
-ms.date: 02/21/2024
+ms.topic: how-to #required; leave this attribute/value as-is
+ms.date: 03/07/2024
 ---
-# Quickstart: Delete a network function deployment or ClusterServices in Azure Operator 5G Core Preview
+# Delete a network function deployment or ClusterServices in Azure Operator 5G Core Preview
 
 This quickstart shows you the Azure CLI commands you can use to delete a network function deployment or ClusterServices.
 
@@ -31,4 +31,4 @@ Use the following Azure CLI commands to delete the Azure Operator 5G Core (previ
  
 ## Related content
 
-- [Deploy a network function](quickstart-deploy-network-functions.md)
+- [Deploy a network function](how-to-deploy-network-functions.md)
