@@ -49,14 +49,14 @@ By default, the Container Apps resource provider doesn't have access to your key
 
 1. When finished with your selection, select **Select**, **Validate**, then **Add**.
 
-   When the operation completes, the certificate appears in the **Bring your own certificates** list. If the import fails with an error, the certificate doesn't meet the [requirements for Container Apps](#private-certificate-requirements).
+   When the operation completes, the certificate appears in the **Bring your own certificates** list. If the import fails with an error, the certificate doesn't meet the [requirements for Container Apps](./certificates-overview.md#private-certificate-requirements).
 
     TODO: add image
 
    > [!NOTE]
    > If you update your certificate in Key Vault with a new certificate, Container Apps automatically syncs your certificate within 24 hours.
 
-1. To secure a custom domain with this certificate, you still have to create a certificate binding. Follow the steps in [Secure a custom DNS name with a TLS/SSL binding in Azure Container Apps](configure-ssl-bindings.md).
+1. To secure a custom domain with this certificate, you still have to create a certificate binding. Follow the steps in [Secure a custom DNS name with a TLS/SSL binding in Azure Container Apps](certificates-manage.md).
 
 ## Upload a private certificate
 
@@ -132,4 +132,4 @@ You're now ready upload the certificate to Container Apps.
 
     TODO: add image
 
-1. To secure a custom domain with this certificate, you still have to create a certificate binding. Follow the steps in [Secure a custom DNS name with a TLS/SSL binding in Azure Container Apps](configure-ssl-bindings.md).
+1. To secure a custom domain with this certificate, you still have to create a certificate binding. Follow the steps in [Secure a custom DNS name with a TLS/SSL binding in Azure Container Apps](certificates-manage.md).
