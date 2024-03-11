@@ -41,7 +41,7 @@ When deploying to AKS, you deploy to an AKS cluster that's *connected to your wo
 
 - An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md).
 
-- A machine learning model registered in your workspace. If you don't have a registered model, see [How and where to deploy models](how-to-deploy-and-where.md).
+- A machine learning model registered in your workspace. If you don't have a registered model, see [Deploy machine learning models to Azure](how-to-deploy-and-where.md).
 
 - The [Azure CLI extension (v1) for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](../how-to-setup-vs-code.md).
 
@@ -55,7 +55,7 @@ When deploying to AKS, you deploy to an AKS cluster that's *connected to your wo
 
     For more information on setting these variables, see [How and where to deploy models](how-to-deploy-and-where.md).
 
-- The CLI snippets in this article assume that you already created an *inferenceconfig.json* document. For more information on creating this document, see [How and where to deploy models](how-to-deploy-and-where.md).
+- The CLI snippets in this article assume that you already created an *inferenceconfig.json* document. For more information on creating this document, see [Deploy machine learning models to Azure](how-to-deploy-and-where.md).
 
 - An AKS cluster connected to your workspace. For more information, see [Create and attach an Azure Kubernetes Service cluster](../how-to-create-attach-kubernetes.md).
 
@@ -368,11 +368,11 @@ print(token)
 >
 > Microsoft strongly recommends that you create your Azure Machine Learning workspace in the same region as your AKS cluster. To authenticate with a token, the web service makes a call to the region in which your Azure Machine Learning workspace is created. If your workspace's region is unavailable, then you can't to fetch a token for your web service even, if your cluster is in a different region than your workspace. This effectively results in token-based authentication being unavailable until your workspace's region is available again. In addition, the greater the distance between your cluster's region and your workspace's region, the longer it takes to fetch a token.
 >
-> To retrieve a token, you must use the Azure Machine Learning SDK or the [az ml service get-access-token](cli/azure/ml[v1]/service#az-ml(v1)-service-get-access-token) command.
+> To retrieve a token, you must use the Azure Machine Learning SDK or the [az ml service get-access-token](cli/azure/ml(v1)/service#az-ml(v1)-service-get-access-token) command.
 
 ### Vulnerability scanning
 
-Microsoft Defender for Cloud provides unified security management and advanced threat protection across hybrid cloud workloads. You should allow Microsoft Defender for Cloud to scan your resources and follow its recommendations. For more, see [Azure Kubernetes Services integration with Defender for Cloud](../../security-center/defender-for-kubernetes-introduction.md).
+Microsoft Defender for Cloud provides unified security management and advanced threat protection across hybrid cloud workloads. You should allow Microsoft Defender for Cloud to scan your resources and follow its recommendations. For more, see [Container security in Microsoft Defender for containers](/azure/defender-for-cloud/defender-for-containers-introduction).
 
 ## Related content
 
