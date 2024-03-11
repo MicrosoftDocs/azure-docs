@@ -1,5 +1,5 @@
 ---
-title: Configure Application Gateway with a frontend public IPv6 address using the Azure portal (Preview)
+title: Configure Application Gateway with a frontend public IPv6 address using the Azure portal
 titleSuffix: Azure Application Gateway
 description: Learn how to configure Application Gateway with a frontend public IPv6 address. 
 services: application-gateway
@@ -11,7 +11,10 @@ ms.service: application-gateway
 ms.custom: mvc, mode-ui
 ---
 
-# Configure Application Gateway with a frontend public IPv6 address using the Azure portal (Preview)
+# Configure Application Gateway with a frontend public IPv6 address using the Azure portal
+
+> [!IMPORTANT]
+> Application Gateway IPv6 support is generally available. However, Azure portal updates to support IPv6 are currently being rolled out and will be completely available within the next few weeks. In the meantime, continue using the [preview registration process](/azure/azure-resource-manager/management/preview-features?tabs=azure-portal) in the Azure portal to opt in for **Allow Application Gateway IPv6 Access**. 
 
 [Azure Application Gateway](overview.md) supports dual stack (IPv4 and IPv6) frontend connections from clients. To use IPv6 frontend connectivity, you need to create a new Application Gateway. Currently you can’t upgrade existing IPv4 only Application Gateways to dual stack (IPv4 and IPv6) Application Gateways. Also, currently backend IPv6 addresses aren't supported.
 
@@ -20,9 +23,6 @@ In this article, you use the Azure portal to create an IPv6 Azure Application Ga
 To support IPv6 connectivity, you must create a dual stack VNet. This dual stack VNet has subnets for both IPv4 and IPv6. Azure VNets already [provide dual-stack capability](../virtual-network/ip-services/ipv6-overview.md). 
 
 For more information about the components of an application gateway, see [Application gateway components](application-gateway-components.md).
-
-> [!IMPORTANT]
-> Application Gateway IPv6 support is now generally available. Portal support for IPv6 is currently being rolled out and will be completely available within the next few weeks. In the meantime, continue using the [preview registration process](/azure/azure-resource-manager/management/preview-features?tabs=azure-portal) in the Azure portal to opt in for **Allow Application Gateway IPv6 Access**. 
 
 ## Overview
 
