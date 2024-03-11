@@ -26,13 +26,17 @@ You can buy Azure Cosmos DB reserved capacity from the [Azure portal](https://po
 
 ## Overview
 
-The size of the reserved capacity purchase should be based on the total amount of throughput that the existing or soon-to-be-deployed Azure Cosmos DB resources will use on an hourly basis. For example: Purchase 10,000 RU/s reserved capacity if that's your consistent hourly usage pattern. In this example, any provisioned throughput above 10,000 RU/s will be billed using your Pay-as-you-go rate. If provisioned throughput is below 10,000 RU/s in an hour, then the extra reserved capacity for that hour will be wasted.
+The size of the reserved capacity purchase should be based on the total amount of throughput that the existing or soon-to-be-deployed Azure Cosmos DB resources will use on an hourly basis. For example: Purchase 10,000 RU/s reserved capacity if that's your consistent hourly usage pattern. 
+
+In this example, any provisioned throughput above 10,000 RU/s will be billed using your Pay-as-you-go rate. If provisioned throughput is below 10,000 RU/s in an hour, then the extra reserved capacity for that hour will be wasted.
 
 It is possible to buy reservations in multiples of 100 RU/s, enabling savings for all sizes of customers and workloads.
 
 ### Autoscale provisioned throughput
 
-Reserved capacity is applied to autoscale database operations at a rate of 100 RU/s x 1.5 x N regions. For the usable net RU/s per region of a reservation, the formula is inverted. Scenarios:
+Reserved capacity is applied to autoscale database operations at a rate of 100 RU/s x 1.5 x N regions. For the usable net RU/s per region of a reservation, the formula is inverted. 
+
+Examples:
 
 | Scenario | Autoscale Rate | Regions |Formula | Net RU/s per region|
 |----------|---------|----------|---------|---------|
@@ -44,7 +48,9 @@ Reserved capacity is applied to autoscale database operations at a rate of 100 R
 
 ### Standard provisioned throughput
 
-Reserved capacity is applied to standard database operations at a rate of 100 RU/s x N regions. For the usable net RU/s per region of a reservation, the formula is inverted. Scenarios:
+Reserved capacity is applied to standard database operations at a rate of 100 RU/s x N regions. For the usable net RU/s per region of a reservation, the formula is inverted. 
+
+Examples:
 
 | Scenario |  Regions |Formula | Net RU/s per region|
 |----------|----------|---------|---------|
