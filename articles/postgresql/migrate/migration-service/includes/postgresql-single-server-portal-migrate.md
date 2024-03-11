@@ -9,14 +9,14 @@ ms.topic: include
 
 #### [Offline](#tab/offline)
 
-[!INCLUDE [prerequisites-migration-service-postgresql](includes/prerequisites-migration-service-postgresql.md)]
+[!INCLUDE [prerequisites-migration-service-postgresql](prerequisites-migration-service-postgresql.md)]
 
 ## Configure your Azure Database for PostgreSQL Flexible Server
 
 > [!IMPORTANT]
 > To provide the best migration experience, performing migration using a burstable SKU of flexible server is not supported. Please use a general purpose or a memory-optimized SKU (4 VCore or higher) as your Target Flexible server to perform the migration. Once the migration is complete, you can downscale to a burstable instance if necessary.
 
-1. Create the target flexible server. For guided steps, refer to the quickstart [Create an Azure Database for PostgreSQL flexible server using the portal](../../flexible-server/quickstart-create-server-portal.md).
+1. Create the target flexible server. For guided steps, refer to the quickstart [Create an Azure Database for PostgreSQL flexible server using the portal](../../../flexible-server/quickstart-create-server-portal.md).
 
 1. Allowlist extensions whose libraries must be loaded at server start. It's essential that the extension is on the allowlist before you initiate a migration.
 
