@@ -5,7 +5,7 @@ ms.date: 02/06/2024
 description: Export cost savings in Azure Advisor and calculate the aggregated potential yearly savings by using the cost savings amount for each recommendation.
 ---
 
-# Export cost savings info
+# Export cost savings
 
 To calculate aggregated potential yearly savings, follow these steps: 
 
