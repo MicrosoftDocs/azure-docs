@@ -26,6 +26,7 @@
 - [Azure Key Vault](../event-schema-key-vault.md)
 - [Azure Kubernetes Service](../event-schema-aks.md)
 - [Azure Machine Learning](../event-schema-machine-learning.md)
+- [Azure Maintenance Configuration](../event-schema-maintenance-configuration.md)
 - [Azure Maps](../event-schema-azure-maps.md)
 - [Azure Media Services](../event-schema-media-services.md)
 - [Azure Resource Notifications](../event-schema-resource-notifications.md)

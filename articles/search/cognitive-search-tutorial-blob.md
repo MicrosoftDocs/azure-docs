@@ -46,7 +46,7 @@ Once content is extracted, the [skillset](cognitive-search-working-with-skillset
 
 + [Sample data files (mixed media)](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/ai-enrichment-mixed-media)
 
-+ [Sample REST file](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/skillset-tutorial)
++ [Sample REST file](https://github.com/Azure-Samples/azure-search-rest-samples/tree/main/skillset-tutorial)
 
 > [!NOTE]
 > You can use the free service for this tutorial. A free search service limits you to three indexes, three indexers, and three data sources. This tutorial creates one of each. Before starting, make sure you have room on your service to accept the new resources.
@@ -93,7 +93,7 @@ A valid API key establishes trust, on a per request basis, between the applicati
 
 ## Set up your REST file
 
-1. Start Visual Studio Code and open the [skillset-tutorial.rest](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/skillset-tutorial) file. See [Quickstart: Text search using REST](search-get-started-rest.md) if you need help with the REST client.
+1. Start Visual Studio Code and open the [skillset-tutorial.rest](https://github.com/Azure-Samples/azure-search-rest-samples/tree/main/skillset-tutorial) file. See [Quickstart: Text search using REST](search-get-started-rest.md) if you need help with the REST client.
 
 1. Provide values for the variables: search service endpoint, search service admin API key, an index name, a connection string to your Azure Storage account, and the blob container name.
 
