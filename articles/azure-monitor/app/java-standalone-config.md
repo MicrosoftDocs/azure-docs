@@ -209,7 +209,7 @@ If you want to collect some other Java Management Extensions (JMX) metrics:
 In the preceding configuration example:
 
 * `name` is the metric name that is assigned to this JMX metric (can be anything).
-* `objectName` is the [Object Name](https://docs.oracle.com/javase/8/docs/api/javax/management/ObjectName.html) of the `JMX MBean` that you want to collect.Wildcard character asterisk (*) is supported.
+* `objectName` is the [Object Name](https://docs.oracle.com/javase/8/docs/api/javax/management/ObjectName.html) of the `JMX MBean` that you want to collect. Wildcard character asterisk (*) is supported.
 * `attribute` is the attribute name inside of the `JMX MBean` that you want to collect.
 
 Numeric and Boolean JMX metric values are supported. Boolean JMX metrics are mapped to `0` for false and `1` for true.
@@ -251,7 +251,7 @@ Starting with version 3.2.0, you can set a custom dimension programmatically on 
 }
 ```
 
-And then at the beginning of each request, call:
+and then at the beginning of each request, call:
 
 ```java
 Span.current().setAttribute("mycustomer", "xyz");
@@ -322,7 +322,7 @@ add this property to your json configuration:
 }
 ```
 
-And add `applicationinsights-core` to your application:
+and add `applicationinsights-core` to your application:
 
 ```xml
 <dependency>
@@ -332,7 +332,7 @@ And add `applicationinsights-core` to your application:
 </dependency>
 ```
 
-And use the static `configure(String)` method in the class
+and use the static `configure(String)` method in the class
 `com.microsoft.applicationinsights.connectionstring.ConnectionString`.
 
 > [!NOTE]
