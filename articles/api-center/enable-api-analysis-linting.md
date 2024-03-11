@@ -3,7 +3,7 @@ title: Perform API linting and analysis - Azure API Center
 description: Configure linting of API definitions in your API center to analyze compliance of APIs with the organization's API style guide.
 ms.service: api-center
 ms.topic: how-to
-ms.date: 02/29/2024
+ms.date: 03/11/2024
 ms.author: danlep
 author: dlepow
 ms.custom:
@@ -162,7 +162,8 @@ Now create an event subscription in your API center to trigger the function app 
 
 #### [Portal](#tab/portal)
 
-1. In the Azure portal, navigate to your API center and select **Events**.
+1. Sign in to the Azure portal at [https://portal.azure.com/?Microsoft_Azure_ApiManagement=apicenterpreview](https://portal.azure.com/?Microsoft_Azure_ApiManagement=apicenterpreview). Currently for this scenario, you must access your API center in the portal at this feature flag.
+1. Navigate to your API center and select **Events**.
 1. Select **Azure Function**.
 1. On the **Create Event Subscription** page, do the following:
     1. Enter a descriptive **Name** for the event subscription, and select **Event Grid Schema**.
@@ -247,7 +248,8 @@ To test the event subscription, try uploading or updating an API definition file
 
 To confirm that the event subscription was triggered:
 
-1. In the portal, in your API center, select **Events** in the left menu.
+1. Sign in to the Azure portal at [https://portal.azure.com/?Microsoft_Azure_ApiManagement=apicenterpreview](https://portal.azure.com/?Microsoft_Azure_ApiManagement=apicenterpreview). 
+1. Navigate to your API center, and select **Events** in the left menu.
 1. Select the **Event Subscriptions** tab and select the event subscription for your function app.
 1. Review the metrics to confirm that the event subscription was triggered and that linting was invoked successfully.
 
@@ -262,7 +264,8 @@ After analyzing the API definition, the linting engine generates a report based 
 
 To view the API analysis report in your API center:
 
-1. In the portal, go to the API version in your API center where you added or updated an API definition.
+1. Sign in to the Azure portal at [https://portal.azure.com/?Microsoft_Azure_ApiManagement=apicenterpreview](https://portal.azure.com/?Microsoft_Azure_ApiManagement=apicenterpreview).
+1. Navigate to the API version in your API center where you added or updated an API definition.
 1. Select **Definitions**, and then select the API definition file that you uploaded or updated.
 1. Select the **Analysis** tab.
     :::image type="content" source="media/enable-api-analysis-linting/analyze-api-definition.png" alt-text="Screenshot of Analysis tab for API definition in the portal.":::
@@ -277,4 +280,5 @@ Learn more about Event Grid:
 
 * [System topics in Azure Event Grid](../event-grid/system-topics.md)
 * [Event Grid push delivery - concepts](../event-grid/concepts.md)
+* [Event Grid schema for API Center](../event-grid/event-schema-api-center.md)
 
