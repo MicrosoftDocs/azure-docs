@@ -25,7 +25,6 @@ For architectural guidance, see:
 * **Basic enterprise integration**: [Reference architecture](/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
 * **API Management landing zone accelerator**: [Reference architecture](/azure/architecture/example-scenario/integration/app-gateway-internal-api-management-function?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json) and [design guidance](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
 
-
 > [!NOTE]
 > This article has been updated to use the [Application Gateway WAF_v2 SKU](../application-gateway/application-gateway-autoscaling-zone-redundant.md).
 
@@ -42,8 +41,8 @@ To follow the steps described in this article, you must have:
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 * Certificates
-     - PFX files for API Management's custom host names: gateway, developer portal, and management endpoint.
-     - A CER file for the root certificate of the PFX certificates.
+     - Personal Information Exchange (PFX) files for API Management's custom host names: gateway, developer portal, and management endpoint.
+     - A Certificate (CER) file for the root certificate of the PFX certificates.
      
     For more information, see [Certificates for the back end](../application-gateway/certificates-for-backend-authentication.md). For testing purposes, optionally generate [self-signed certificates](../application-gateway/self-signed-certificates.md).
   
@@ -62,7 +61,7 @@ In the first setup example, all your APIs are managed only from within your virt
 * **Back-end server pool**: This server pool is the internal virtual IP address of API Management.
 * **Back-end server pool settings**: Every pool has settings like port, protocol, and cookie-based affinity. These settings are applied to all servers within the pool.
 * **Front-end port**: This public port is opened on the application gateway. Traffic that hits it gets redirected to one of the back-end servers.
-* **Listener**: The listener has a front-end port, a protocol (Http or Https, these values are case sensitive), and the TLS/SSL certificate name (if configuring TLS offload).
+* **Listener**: The listener has a front-end port, a protocol (Http or Https, these values are case sensitive), and the Transport Layer Security (TLS) certificate name (if configuring TLS offload).
 * **Rule**: The rule binds a listener to a back-end server pool.
 * **Custom health probe**: Application Gateway, by default, uses IP address-based probes to figure out which servers in `BackendAddressPool` are active. API Management only responds to requests with the correct host header, so the default probes fail. You define a custom health probe to help the application gateway determine that the service is alive and should forward requests.
 * **Custom domain certificates**: To access API Management from the internet, create DNS records to map its host names to the Application Gateway front-end IP address. This mapping ensures that the Host header and certificate sent to API Management are valid. In this example, we use three certificates. They're for API Management's gateway (the back end), the developer portal, and the management endpoint.
