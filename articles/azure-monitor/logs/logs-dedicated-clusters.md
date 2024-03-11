@@ -520,7 +520,7 @@ N/A
 ```azurecli
 az account set --subscription "cluster-subscription-id"
 
-az monitor log-analytics cluster update --resource-group "resource-group-name" --name "cluster-name"  --sku-capacity 100
+az monitor log-analytics cluster update --resource-group "resource-group-name" --name "cluster-name"  --sku-capacity 500
 ```
 
 #### [PowerShell](#tab/powershell)
@@ -528,7 +528,7 @@ az monitor log-analytics cluster update --resource-group "resource-group-name" -
 ```powershell
 Select-AzSubscription "cluster-subscription-id"
 
-Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -SkuCapacity 100
+Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -SkuCapacity 500
 ```
 
 #### [REST API](#tab/restapi)

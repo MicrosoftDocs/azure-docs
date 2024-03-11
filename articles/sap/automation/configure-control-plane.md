@@ -147,13 +147,14 @@ xxx_vm_image  = {
 This section defines the parameters used for defining the VM authentication.
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                                         | Description                                         | Type      |
-> | ------------------------------------------------ | --------------------------------------------------- | --------- |
-> | `deployer_vm_authentication_type`                | Defines the default authentication for the deployer | Optional  |
-> | `deployer_authentication_username`               | Administrator account name                          | Optional  |
-> | `deployer_authentication_password`               | Administrator password                              | Optional  |
-> | `deployer_authentication_path_to_public_key`     | Path to the public key used for authentication      | Optional  |
-> | `deployer_authentication_path_to_private_key`    | Path to the private key used for authentication     | Optional  |
+> | Variable                                         | Description                                                                              | Type      |
+> | ------------------------------------------------ | ---------------------------------------------------------------------------------------- | --------- | 
+> | `deployer_vm_authentication_type`                | Defines the default authentication for the deployer                                      | Optional  |
+> | `deployer_authentication_username`               | Administrator account name                                                               | Optional  |
+> | `deployer_authentication_password`               | Administrator password                                                                   | Optional  |
+> | `deployer_authentication_path_to_public_key`     | Path to the public key used for authentication                                           | Optional  |
+> | `deployer_authentication_path_to_private_key`    | Path to the private key used for authentication                                          | Optional  |
+> | `use_spn`                                        | If defined the deployment will be performed using a Service Principal, otherwise an MSI  | Optional  |
 
 ### Key vault parameters
 
@@ -185,13 +186,15 @@ This section defines the parameters used for defining the Azure Key Vault inform
 ### Other parameters
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                                     | Description                                                            | Type        | Notes                         |
-> | -------------------------------------------- | ---------------------------------------------------------------------- | ----------- | ----------------------------- |
-> | `firewall_deployment`	                       | Boolean flag that controls if an Azure firewall is to be deployed.        | Optional    |                               |
-> | `bastion_deployment`	                       | Boolean flag that controls if Azure Bastion host is to be deployed.       | Optional    |                               |
-> | `bastion_sku`	                               | SKU for Azure Bastion host to be deployed (Basic/Standard).             | Optional    |                               |
-> | `enable_purge_control_for_keyvaults`         | Boolean flag that controls if purge control is enabled on the key vault. | Optional    | Use only for test deployments. |
-> | `enable_firewall_for_keyvaults_and_storage`  | Restrict access to selected subnets.                                    | Optional    |
+> | Variable                                     | Description                                                                  | Type        | Notes                         |
+> | -------------------------------------------- | ---------------------------------------------------------------------------- | ----------- | ----------------------------- |
+> | `firewall_deployment`	                       | Boolean flag that controls if an Azure firewall is to be deployed.           | Optional    |                               |
+> | `bastion_deployment`	                       | Boolean flag that controls if Azure Bastion host is to be deployed.          | Optional    |                               |
+> | `bastion_sku`	                               | SKU for Azure Bastion host to be deployed (Basic/Standard).                  | Optional    |                               |
+> | `enable_purge_control_for_keyvaults`         | Boolean flag that controls if purge control is enabled on the key vault.     | Optional    | Use only for test deployments. |
+> | `enable_firewall_for_keyvaults_and_storage`  | Restrict access to selected subnets.                                         | Optional    |
+> | `Agent_IP`                                   | IP address of the agent.                                                     | Optional    |
+> | `add_Agent_IP`                               | Controls if Agent IP is added to the key vault and storage account firewalls | Optional    |
 
 ### Web App parameters
 

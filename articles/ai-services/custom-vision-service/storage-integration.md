@@ -17,7 +17,7 @@ You can integrate your Custom Vision project with an Azure blob storage queue to
 
 You can also use Azure storage to store backup copies of your published models.
 
-This guide shows you how to use these REST APIs with cURL. You can also use an HTTP request service like Postman to make the requests.
+This guide shows you how to use these REST APIs with cURL. You can also use an HTTP request service, like the [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) for Visual Studio Code, to make the requests.
 
 > [!NOTE]
 > Push notifications depend on the optional _notificationQueueUri_ parameter in the **CreateProject** API, and model backups require that you also use the optional _exportModelContainerUri_ parameter. This guide will use both for the full set of features.

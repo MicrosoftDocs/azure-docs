@@ -244,6 +244,8 @@
         href: sizes-compute.md
       - name: Fsv2-series
         href: fsv2-series.md
+      - name: Fasv6 and Falsv6-series
+        href: fasv6-falsv6-series.md
       - name: FX-series
         href: fx-series.md
     - name: Memory optimized
@@ -1216,6 +1218,8 @@
     href: managed-disks-overview.md
   - name: Disk types
     href: disks-types.md
+  - name: Understand Disk Storage billing
+    href: disks-understand-billing.md
   - name: Disk redundancy options
     href: disks-redundancy.md
   - name: What's new in Azure Disk Storage
