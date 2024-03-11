@@ -3,12 +3,12 @@ title: Role-based access control for the Language service
 titleSuffix: Azure AI services
 description: Learn how to use Azure RBAC for managing individual access to Azure resources.
 #services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 12/19/2023
-ms.author: aahi
+ms.author: jboback
 ---
 
 

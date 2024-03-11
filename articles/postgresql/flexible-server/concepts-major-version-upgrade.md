@@ -50,7 +50,9 @@ Here are some of the important considerations with in-place major version upgrad
 
 If in-place major version upgrade pre-check operations fail, then the upgrade aborts with a detailed error message for all the below limitations.
 
-- In-place major version upgrade currently doesn't support read replicas, so if you have a read replica enabled server, you need to delete the replica before performing the upgrade on the primary server. After the upgrade, you can recreate the replica. 
+- In-place major version upgrade currently doesn't support read replicas, so if you have a read replica enabled server, you need to delete the replica before performing the upgrade on the primary server. After the upgrade, you can recreate the replica.
+
+- Azure Database for PostgreSQL - Flexible Server requires the ability to send and receive traffic to destination ports 5432, and 6432 within VNET where Flexible Server is deployed, as well as to Azure storage for log archival. If you configure Network Security Groups (NSG) to restrict traffic to or from your Flexible Server within its deployed subnet, please make sure to allow traffic to destination ports 5432 and 6432 within the subnet and to Azure storage by using service tag **Azure Storage** as a destination.If network rules are not set up properly HA is not enabled automatically post a major version upgrade and you should manually enable HA. Please modify your NSG rules to allow traffic for the destination ports and storage as requested above and enable a high availability feature on the server.
 
 - In-place major version upgrade doesn't support certain extensions and there are some limitations to upgrading certain extensions. The extensions **Timescaledb**, **pgaudit**, **dblink**, **orafce**, **pg_partman**, and **postgres_fdw** are unsupported for all PostgreSQL versions. 
 

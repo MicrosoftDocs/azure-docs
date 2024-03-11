@@ -1,48 +1,45 @@
 ---
-title: "Set Immersive Reader Cookie Policy"
+title: "Set Immersive Reader cookie policy"
 titleSuffix: Azure AI services
-description: This article will show you how to set the cookie policy for the Immersive Reader.
+description: Learn how to set the cookie policy for the Immersive Reader app.
 #services: cognitive-services
-author: rwallerms
+author: sharmas
 manager: nitinme
 
 ms.service: azure-ai-immersive-reader
 ms.topic: how-to
-ms.date: 01/06/2020
-ms.author: rwaller
+ms.date: 02/26/2024
+ms.author: sharmas
 ms.custom:
 ---
 
 # How to set the cookie policy for the Immersive Reader
 
-The Immersive Reader will disable cookie usage by default. If you enable cookie usage, then the Immersive Reader may use cookies to maintain user preferences and track feature usage. If you enable cookie usage in the Immersive Reader, please consider the requirements of EU Cookie Compliance Policy. It is the responsibility of the host application to obtain any necessary user consent in accordance with EU Cookie Compliance Policy.
+The Immersive Reader disables cookie usage by default. If you enable cookie usage, then the Immersive Reader can use cookies to maintain user preferences and track feature usage. If you enable cookie usage in the Immersive Reader, consider the requirements of the EU Cookie Compliance Policy. It's the responsibility of the host application to obtain any necessary user consent in accordance with the EU Cookie Compliance Policy.
 
 The cookie policy can be set through the Immersive Reader [options](../reference.md#options).
 
-## Enable Cookie Usage
+## Enable cookie usage
 
 ```javascript
-var options = {
+const options = {
     'cookiePolicy': ImmersiveReader.CookiePolicy.Enable
 };
 
 ImmersiveReader.launchAsync(YOUR_TOKEN, YOUR_SUBDOMAIN, YOUR_DATA, options);
 ```
 
-## Disable Cookie Usage
+## Disable cookie usage
 
 ```javascript
-var options = {
+const options = {
     'cookiePolicy': ImmersiveReader.CookiePolicy.Disable
 };
 
 ImmersiveReader.launchAsync(YOUR_TOKEN, YOUR_SUBDOMAIN, YOUR_DATA, options);
 ```
 
-## Next steps
+## Next step
 
-* View the [Node.js quickstart](../quickstarts/client-libraries.md?pivots=programming-language-nodejs) to see what else you can do with the Immersive Reader SDK using Node.js
-* View the [Android tutorial](../how-to-launch-immersive-reader.md) to see what else you can do with the Immersive Reader SDK using Java or Kotlin for Android
-* View the [iOS tutorial](../how-to-launch-immersive-reader.md) to see what else you can do with the Immersive Reader SDK using Swift for iOS
-* View the [Python tutorial](../how-to-launch-immersive-reader.md) to see what else you can do with the Immersive Reader SDK using Python
-* Explore the [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) and the [Immersive Reader SDK Reference](../reference.md)
+> [!div class="nextstepaction"]
+> [View the quickstart guides](../quickstarts/client-libraries.md?pivots=programming-language-nodejs)

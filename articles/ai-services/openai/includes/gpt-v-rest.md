@@ -19,7 +19,7 @@ Use this article to get started using the Azure OpenAI REST APIs to deploy and u
 - <a href="https://www.python.org/" target="_blank">Python 3.7.1 or later version</a>.
 - The following Python libraries: `requests`, `json`.
 - An Azure OpenAI Service resource with a GPT-4 Turbo with Vision model deployed. See [GPT-4 and GPT-4 Turbo Preview model availability](../concepts/models.md#gpt-4-and-gpt-4-turbo-preview-model-availability) for available regions. For more information about resource creation, see the [resource deployment guide](/azure/ai-services/openai/how-to/create-resource).
-- For Vision enhancement (optional): An Azure Computer Vision resource in the same region as your Azure OpenAI resource, in the paid (S0) tier.
+- For Vision enhancement (optional): An Azure Computer Vision resource in the same region as your Azure OpenAI resource, in the paid (S1) tier.
 
 > [!NOTE]
 > It is currently not supported to turn off content filtering for the GPT-4 Turbo with Vision model.

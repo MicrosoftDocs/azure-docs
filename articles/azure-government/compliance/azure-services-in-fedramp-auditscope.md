@@ -85,6 +85,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Database for MySQL](../../mysql/index.yml) | &#x2705; | &#x2705; |
 | [Azure Database for PostgreSQL](../../postgresql/index.yml) | &#x2705; | &#x2705; |
 | [Azure Databricks](/azure/databricks/) **&ast;&ast;** | &#x2705; | &#x2705; |
+| [Azure Fluid Relay](../../azure-fluid-relay/index.yml) | &#x2705; | &#x2705; |
 | [Azure for Education](https://azureforeducation.microsoft.com/) | &#x2705; | &#x2705; |
 | [Azure Information Protection](/azure/information-protection/) | &#x2705; | &#x2705; |
 | [Azure Kubernetes Service (AKS)](../../aks/index.yml) | &#x2705; | &#x2705; |

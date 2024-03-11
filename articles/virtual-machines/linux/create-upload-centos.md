@@ -12,6 +12,9 @@ ms.reviewer: mattmcinnes
 ---
 # Prepare a CentOS-based virtual machine for Azure
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
 Learn to create and upload an Azure virtual hard disk (VHD) that contains a CentOS-based Linux operating system.

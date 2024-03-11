@@ -89,7 +89,7 @@ In the request body, provide a link to your template and parameter file.
 
 - [Agents](agents/resource-manager-agent.md): Deploy and configure the Log Analytics agent and a diagnostic extension.
 - Alerts:
-  - [Log alert rules](alerts/resource-manager-alerts-log.md): Configure alerts from log queries and Azure Activity Log.
+  - [Log search alert rules](alerts/resource-manager-alerts-log.md): Configure alerts from log queries and Azure Activity Log.
   - [Metric alert rules](alerts/resource-manager-alerts-metric.md): Configure alerts from metrics that use different kinds of logic.
 - [Application Insights](app/resource-manager-app-resource.md)
 - [Diagnostic settings](essentials/resource-manager-diagnostic-settings.md): Create diagnostic settings to forward logs and metrics from different resource types.
