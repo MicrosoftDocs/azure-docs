@@ -34,7 +34,7 @@ mkdir messages-quickstart && cd messages-quickstart
 
 ### Install the package
 
-You'll need to use the Azure Communication Job Router client library for Python [version 1.0.0](https://pypi.org/project/azure-communication-messages) or above.
+You'll need to use the Azure Communication Messages client library for Python [version 1.0.0](https://pypi.org/project/azure-communication-messages) or above.
 
 From a console prompt, execute the following command:
 
@@ -60,7 +60,7 @@ class MessagesQuickstart(object):
 
 ## Initialize the NotificationMessagesClient
 
-Messages sending is done using NotificationMessagesClient. NotificationMessagesClient is authenticated using your connection string acquired from Azure Communication Services resource in the Azure portal. For more information on connection strings, see [access-your-connection-strings-and-service-endpoints](../../../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints). NotificationMessagesClient is also authenticated using TokenCredentials. For More information see [access-Azure-Communication-Resources-using-TokenCredentials](https://learn.microsoft.com/python/api/overview/azure/identity-readme?view=azure-python#environment-variables).
+Messages sending is done using NotificationMessagesClient. NotificationMessagesClient is authenticated using your connection string acquired from Azure Communication Services resource in the Azure portal. For more information on connection strings, see [access-your-connection-strings-and-service-endpoints](../../../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints). NotificationMessagesClient is also authenticated using TokenCredentials. For More information see [access-Azure-Communication-Resources-using-TokenCredentials](https://learn.microsoft.com/python/api/overview/azure/identity-readme?view=azure-python&preserve-view=true#environment-variables).
 Get Azure Communication Resource connection string from Azure Portal as given in screenshot:
 
 :::image type="content" source="../../media/get-started/get-communication-resource-connection-string.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Primary Key' field in the 'Keys' section.":::
