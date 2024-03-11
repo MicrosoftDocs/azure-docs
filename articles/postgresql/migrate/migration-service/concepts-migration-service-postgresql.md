@@ -24,9 +24,14 @@ Some advantages for using the migration service include:
 - Simple to use portal/cli based migration experience.
 - No limitations in terms of size of databases it can handle.
 
-For information about migration from single server to flexible server, visit [Migration tool](../concepts-single-to-flexible.md).
+
+The below image provides a visual representation of the various PostgreSQL sources that can be migrated using migration service in Azure Database for PostgreSQL. It highlights the diversity of source environments, including on-premises databases, virtual machines, and cloud-hosted instances, which can be seamlessly transitioned to Azure Database for PostgreSQL.
 
 :::image type="content" source="media/concepts-migration-service-postgresql/migrate-postgresql-sources.png" alt-text="Screenshot of different PostgreSQL sources.":::
+
+Following is an overview of the migration process, specifically detailing the steps involved in migrating from Azure Database for PostgreSQL - Single Server to Azure Database for PostgreSQL - Flexible Server. The diagram illustrates the migration workflow and key stages of the migration, for a successful transition into the Azure Database for PostgreSQL - Flexible Server.
+
+:::image type="content" source="media/concepts-migration-service-postgresql/concepts-flow-diagram.png" alt-text="Diagram that shows the Migration from Single Server to Flexible Server." lightbox="media/concepts-migration-service-postgresql/concepts-flow-diagram.png":::
 
 ## Why choose flexible server?
 
@@ -49,6 +54,8 @@ Azure Database for PostgreSQL powered by the PostgreSQL community edition is ava
 - **[High Availability](../../flexible-server/concepts-high-availability.md)** - Flexible server supports HA within the same availability zone and across availability zones by configuring a warm standby server in sync with the primary.
 
 - **[Security](../../flexible-server/concepts-security.md)** - Flexible server offers multiple layers of information protection and encryption to protect your data.
+
+- **Vector Search + Azure AI Extension** - With the integration of Vector Search and Azure AI extension for PostgreSQL, users can perform advanced search operations and leverage AI-driven insights directly within the database, further enhancing query capabilities and application intelligence. 
 
 ## How to migrate to Azure Database for PostgreSQL flexible server?
 
