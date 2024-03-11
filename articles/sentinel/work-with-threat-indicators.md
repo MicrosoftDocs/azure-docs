@@ -32,7 +32,7 @@ This procedure describes how to view and manage your indicators in the **Threat 
 
 **To view your threat intelligence indicators in the Threat intelligence page**:
 
-1. For Microsoft Sentinel in the [Azure portal](https://portal.microsoft.com), under **Threat management**, select **Threat intelligence**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Threat management** > **Threat intelligence**.
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Threat management**, select **Threat intelligence**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Threat management** > **Threat intelligence**.
 
 1. From the grid, select the indicator for which you want to view more details. The indicator's details appear on the right, showing information such as confidence levels, tags, threat types, and more.
 

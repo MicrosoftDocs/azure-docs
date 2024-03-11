@@ -102,7 +102,7 @@ Tagging threat indicators is an easy way to group them together to make them eas
 
 :::image type="content" source="media/understand-threat-intelligence/threat-intel-tagging-indicators.png" alt-text="Apply tags to threat indicators" lightbox="media/understand-threat-intelligence/threat-intel-tagging-indicators.png":::
 
-To validate your indicators and view your successfully imported threat indicators, regardless of the source, go to the **Logs** page for Microsoft Sentinel in the [Azure portal](https://portal.microsoft.com). For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Advanced hunting**. In this Log Analytics view, the **ThreatIntelligenceIndicator** table under the **Microsoft Sentinel** schema is where all your Microsoft Sentinel threat indicators are stored. This table is the basis for threat intelligence queries performed by other Microsoft Sentinel features such as **Analytics** and **Workbooks**.
+To validate your indicators and view your successfully imported threat indicators, regardless of the source, go to the **Logs** page for Microsoft Sentinel in the [Azure portal](https://portal.azure.com). For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Advanced hunting**. In this Log Analytics view, the **ThreatIntelligenceIndicator** table under the **Microsoft Sentinel** schema is where all your Microsoft Sentinel threat indicators are stored. This table is the basis for threat intelligence queries performed by other Microsoft Sentinel features such as **Analytics** and **Workbooks**.
 
 Here is an example view of a basic query for threat indicators.
 
