@@ -311,9 +311,9 @@ If the request contains cookies, the **Cookies** tab can be selected to view the
 
 - Disable request body inspection
 
-   By setting **Inspect request body** to off, the request bodies of all traffic isn't evaluated by your WAF. This may be useful if you know that the request bodies aren’t malicious to your application.
+   By setting **Inspect request body** to off, the request bodies of your traffic aren't evaluated by your WAF. This may be useful if you know that the request bodies aren’t malicious to your application.
 
-   When you disable this option, only the request body isn't inspected. The headers and cookies remain inspected, unless individual ones are excluded using the exclusion list functionality.
+   When you disable this option, only the request body bypasses inspection. The headers and cookies are still inspected, unless individual ones are excluded using the exclusion list functionality.
 
 - Disable maximum request body limit
 
@@ -321,9 +321,9 @@ If the request contains cookies, the **Cookies** tab can be selected to view the
 
   When you disable this option, the request body will only be inspected up to the max request body inspection limit. If there is malicious content in the request beyond the max request body inspection limit the WAF will not detect it.
 
-- File size limits
+- Disable maximum file size limits
 
-   By limiting the file size for your WAF, you’re limiting the possibility of an attack happening to your web servers. By allowing large files to be uploaded, the risk of your backend being overwhelmed increases. Limiting the file size to a normal use case for your application is just another way to prevent attacks.
+   By disabling the file size limits for your WAF, large files can be uploaded without your WAF rejecting these file uploads. By allowing large files to be uploaded, the risk of your backend being overwhelmed increases. If you know the maximum size a file upload can be, you can set a size limit for file uploads slightly above your expected max size. Limiting the file size to a normal use case for your application is another way to prevent attacks. However, if your file uploads are regularly beyond the maximum enforceable file upload size limit you may need to disable file upload size limits entirely to avoid false positives.
 
    > [!NOTE]
    > If you know that your app will never need any file upload above a given size, you can restrict that by setting a limit.
