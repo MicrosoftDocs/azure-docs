@@ -46,7 +46,7 @@ The next sections describe the issue.
 Azure Monitor Agent for Linux buffers events to `/var/opt/microsoft/azuremonitoragent/events` prior to ingestion. On a default Azure Monitor Agent for Linux installation, this directory takes ~650 MB of disk space at idle. The size on disk increases when it's under sustained logging load. It gets cleaned up about every 60 seconds and reduces back to ~650 MB when the load returns to idle.
 
 #### Confirm the issue of a full disk
-The `df` command shows almost no space available on `/dev/sda1`, as shown here:
+The `df` command shows almost no space available on `/dev/sda1`, as shown here. Please note that the line item to examine should be the one that correlates to the log directory (i.e. /var/log or /var or /):
 
 ```bash
    df -h
