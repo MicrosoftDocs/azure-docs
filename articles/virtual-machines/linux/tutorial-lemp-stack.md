@@ -5,7 +5,7 @@ author: chasecrum
 ms.collection: linux
 ms.service: virtual-machines
 ms.devlang: azurecli
-ms.custom: innovation-engine, linux-related-content
+ms.custom: innovation-engine, linux-related-content, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 2/29/2024
 ms.author: chasecrum
@@ -66,9 +66,11 @@ export MY_AZURE_USER=$(az account show --query user.name --output tsv)
 export FQDN="${MY_DNS_LABEL}.${REGION}.cloudapp.azure.com"
 ```
 
-<!--```bash
+<!--
+```bash
 export MY_AZURE_USER_ID=$(az ad user list --filter "mail eq '$MY_AZURE_USER'" --query "[0].id" -o tsv)
-```-->
+```
+-->
 
 ## Create a resource group
 

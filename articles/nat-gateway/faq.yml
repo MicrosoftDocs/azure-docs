@@ -175,7 +175,7 @@ sections:
 
       - question: Can a zone-redundant public IP address be attached to a NAT gateway? 
         answer: |
-          A zone-redundant public IP address can be attached to either a no zone NAT gateway or a NAT gateway assigned to a specific availability zone. For more information, see [NAT Gateway and availability zones](/azure/nat-gateway/nat-availability-zones).
+          Zone-redundant public IP addresses and prefixes can be attached to either a no zone NAT gateway or a NAT gateway assigned to a specific availability zone. For more information, see [NAT Gateway and availability zones](/azure/nat-gateway/nat-availability-zones).
 
   - name: NAT gateway and basic SKU resources
     questions: 

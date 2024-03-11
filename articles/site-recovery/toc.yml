@@ -325,8 +325,6 @@
       items:
       - name: Set up the source environment
         href: vmware-azure-set-up-source.md
-      - name: For an added disk
-        href: vmware-azure-enable-replication-added-disk.md
       - name: Deploy the configuration server
         href: vmware-azure-deploy-configuration-server.md
       - name: Set up the target environment
@@ -339,6 +337,8 @@
         href: physical-server-enable-replication.md
       - name: Enable replication for VMware VMs
         href: vmware-azure-enable-replication.md
+      - name: For an added disk
+        href: vmware-azure-enable-replication-added-disk.md
       - name: Exclude disks from replication
         href: vmware-azure-exclude-disk.md
       - name: Walkthrough-Set up replication with multi-tenancy and CSP for VMware VMs
