@@ -6,7 +6,7 @@ author: dlepow
 ms.service: api-management
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 03/01/2024
+ms.date: 03/11/2024
 ms.author: danlep
 ---
 
@@ -48,7 +48,7 @@ API Management platform migration from `stv1` to `stv2` involves updating the un
 * A Standard SKU [public IPv4 address](../virtual-network/ip-services/public-ip-addresses.md#sku) resource in the same region(s) and subscription as your API Management instance.
 
 > [!IMPORTANT]
-> When you update the VNet configuration for migration to the `stv2` platform, you must provide a public IP address address resource (or resources, if your API Management is deployed to multiple Azure regions), or migration won't succeed. In internal VNet mode, this public IP address is used only for Azure internal management operations and doesn't expose your instance to the internet.
+> When you update the VNet configuration for migration to the `stv2` platform, you must provide a public IP address address resource (or resources, if your API Management is deployed to multiple Azure regions), or migration won't succeed. In internal VNet mode, this public IP address is used only for Azure internal management operations and doesn't expose your gateway to the internet.
 
 For details, see [Prerequisites for network connections](api-management-using-with-vnet.md#prerequisites).
 
@@ -63,7 +63,11 @@ You can also migrate to the `stv2` platform by enabling [zone redundancy](../rel
 
 ### Update network configuration
 
-To update the existing external or internal VNet configuration:
+You can use the Azure portal or other Azure tools such to migrate to a new VNet and subnet. The following image shows a high level overview of what happens during migration to a new VNet and subnet.
+
+:::image type="content" source="media/migrate-stv1-to-stv2-vnet/inplace-new-subnet.gif" alt-text="Diagram of in-place migration to a new subnet.":::
+
+For example, to use the portal:
 
 1. In the [portal](https://portal.azure.com), navigate to your API Management instance.
 1. In the left menu, select **Network** > **Virtual network**.
@@ -77,6 +81,10 @@ After you update the VNet configuration, the status of your API Management insta
 ## (Optional) Migrate back to original VNet and subnet
 
 You can optionally migrate back to the original VNet and subnet you used in each region before migration to the `stv2` platform. To do so, update the VNet configuration again, this time specifying the original VNet and subnet in each region. As in the preceding migration, expect a long-running operation, and expect the VIP address to change.
+
+The following image shows a high level overview of what happens during migration back to the original VNet and subnet.
+
+:::image type="content" source="media/migrate-stv1-to-stv2-vnet/inplace-oldg-subnet.gif" alt-text="Diagram of in-place migration back to original subnet.":::
 
 > [!IMPORTANT]
 > If the VNet and subnet are locked (because other `stv1` platform-based API Management instances are deployed there) or the resource group where the original VNet is deployed has a [resource lock](../azure-resource-manager/management/lock-resources.md), make sure to remove the lock before migrating back to the original VNet and subnet. Wait for lock removal to complete before attempting the migration to the original subnet. [Learn more](api-management-using-with-internal-vnet.md#challenges-encountered-in-reassigning-api-management-instance-to-previous-subnet).
@@ -177,7 +185,7 @@ After successful migration, update any network dependencies including DNS, firew
 
 - **Can I roll back the migration if required?**
 
-  Yes, you can. If there's a failure during the migration process, the instance will automatically roll back to the `stv1` platform. However, if you encounter any other issues post migration, you can roll back only if you have requested an extension to the old gateway purge. By default, the old gateway is purged in 15 minutes that can be extended up to 48 hours by contacting Azure support in advance. Make sure to contact support before the old gateway is purged, if a rollback is required.
+  If there's a failure during the migration process, the instance will automatically roll back to the `stv1` platform. However, if the service migrates successfully and if you encounter any other networking issues, you can only roll forward while the old gateway continues to serve traffic. By default, the old gateway is purged in 15 minutes that can be extended up to 48 hours by contacting Azure support in advance.
 
 - **Is there any change required in custom domain/private DNS zones?**
 

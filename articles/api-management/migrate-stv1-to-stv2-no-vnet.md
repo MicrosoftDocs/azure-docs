@@ -155,7 +155,7 @@ After successful migration to a new VIP address, update any network dependencies
 
 - **Can I roll back the migration if required?**
 
-    If there's a failure during the migration process, the instance will automatically roll back to the `stv1` platform. If the migration completes successfully, a rollback is not possible.
+    If there's a failure during the migration process, the instance will automatically roll back to the `stv1` platform. However, if the service migrates successfully and if you encounter any other networking issues, you can only roll forward while the old gateway continues to serve traffic. When migrating a non-VNet-injected instance, the old gateway is purged in 15 minutes.
 
 - **Is there any change required in custom domains/private DNS zones?**
 
