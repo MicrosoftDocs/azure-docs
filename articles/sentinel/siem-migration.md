@@ -18,7 +18,7 @@ These features are currently included in the SIEM Migration experience:
 
 **Splunk**
 - The experience focuses on migrating Splunk security monitoring to Microsoft Sentinel.
-- The experience only supports migration of Splunk detections to Microsoft Sentinel Analytics.
+- The experience only supports migration of Splunk detections to Microsoft Sentinel analytics rules.
 
 ## Prerequisites
 
