@@ -103,20 +103,9 @@ To start, create a yaml file that uses the following definitions:
           - name: mq-event-driven-dapr
             image: ghcr.io/azure-samples/explore-iot-operations/mq-event-driven-dapr:latest
 
-          # Container for the Pub/sub component
-          - name: aio-mq-pubsub-pluggable
-            image: ghcr.io/azure/iot-mq-dapr-components/pubsub:latest
-            volumeMounts:
-            - name: dapr-unix-domain-socket
-              mountPath: /tmp/dapr-components-sockets
-            - name: mqtt-client-token
-              mountPath: /var/run/secrets/tokens
-            - name: aio-ca-trust-bundle
-              mountPath: /var/run/certs/aio-mq-ca-cert/
-
-          # Container for the State Management component
-          - name: aio-mq-statestore-pluggable
-            image: ghcr.io/azure/iot-mq-dapr-components/statestore:latest
+          # Container for the pluggable component
+          - name: aio-mq-components
+            image: ghcr.io/azure/iot-mq-dapr-components:latest
             volumeMounts:
             - name: dapr-unix-domain-socket
               mountPath: /tmp/dapr-components-sockets

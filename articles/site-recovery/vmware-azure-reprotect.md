@@ -51,6 +51,9 @@ Enable replication. You can reprotect specific VMs, or a recovery plan:
 - If you want to fail back the Azure VM to an existing on-premises VM, mount the on-premises VM data stores with read/write access on the master target server's ESXi host.
 - If you want to fail back to an alternate location, for example if the on-premises VM doesn't exist, select the retention drive and data store that are configured for the master target server. When you fail back to the on-premises site, the VMware virtual machines in the failback protection plan use the same data store as the master target server. A new VM is then created in vCenter.
 
+> [!NOTE]
+> It is strongly recommended that the mobility service agent is not uninstalled from the failed over machine (which is running in Azure). Performing re-protect or failback operations will not be possible post that.  
+
 Enable reprotection as follows:
 
 1. Select **Vault** > **Replicated items**. Right-click the virtual machine that failed over, and then select **Re-protect**. Or, from the command buttons, select the machine, and then select **Re-protect**.

@@ -93,7 +93,13 @@ landingContent:
           - text: Configure role-based access control
             url: ../how-to-setup-rbac.md 
           - text: Configure customer-managed keys
-            url: ../how-to-setup-customer-managed-keys.md 
+            url: ../how-to-setup-customer-managed-keys.md
+  - title: Samples
+    linkLists:    
+    - linkListType: sample
+      links:
+        - text: Solution accelerators
+          url: ../solutions.md?pivots=api-nosql
   - title: Get training
     linkLists:
       - linkListType: learn
@@ -103,7 +109,7 @@ landingContent:
           - text: Build a Node.js app
             url: /training/modules/build-node-cosmos-app-vscode/
           - text: Build a Java app
-            url: /training/modules/build-cosmos-db-java-app/
+            url: /training/modules/build-cosmos-db-java-app/      
       - linkListType: video
         links:
           - text: Azure Friday - Extension for Azure Functions update with Microsoft Entra support

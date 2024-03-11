@@ -16,12 +16,13 @@ Application Gateway for Containers allows you to return a redirect response to t
 
 ## Usage details
 
-URL redirects take advantage of the [RequestRedirect rule filter](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1beta1.HTTPRequestRedirectFilter) as defined by Kubernetes Gateway API.
+URL redirects take advantage of the [RequestRedirect rule filter](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.HTTPRequestRedirectFilter) as defined by Kubernetes Gateway API.
 
 ## Redirection
+
 A redirect sets the response status code returned to clients to understand the purpose of the redirect. The following types of redirection are supported:
 
-- 301 (Moved permanently): Indicates that the target resource has been assigned a new permanent URI. Any future references to this resource uses one of the enclosed URIs. Use 301 status code for HTTP to HTTPS redirection.
+- 301 (Moved permanently): Indicates that the target resource is assigned a new permanent URI. Future references to this resource use one of the enclosed URIs. Use 301 status code for HTTP to HTTPS redirection.
 - 302 (Found): Indicates that the target resource is temporarily under a different URI. Since the redirection can change on occasion, the client should continue to use the effective request URI for future requests.
 
 ## Redirection capabilities
@@ -31,8 +32,8 @@ A redirect sets the response status code returned to clients to understand the p
 - Hostname redirection matches the fully qualified domain name (fqdn) of the request. This is commonly observed in redirecting an old domain name to a new domain name; such as `contoso.com` to `fabrikam.com`.
 
 - Path redirection has two different variants: `prefix` and `full`.
-  - `Prefix` redirection type will redirect all requests starting with a defined value.  For example, a prefix of /shop would match /shop and any text after.  For example, /shop, /shop/checkout, and /shop/item-a would all redirect to /shop as well.
-  - `Full` redirection type matches an exact value. For example, /shop could redirect to /store, but /shop/checkout wouldn't redirect to /store.
+  - `Prefix` redirection type will redirect all requests starting with a defined value. For example: a prefix of /shop would match /shop and any text after. For example, /shop, /shop/checkout, and /shop/item-a would all redirect to /shop as well.
+  - `Full` redirection type matches an exact value. For example: /shop could redirect to /store, but /shop/checkout wouldn't redirect to /store.
 
 The following figure illustrates an example of a request destined for _contoso.com/summer-promotion_ being redirected to _contoso.com/shop/category/5_. In addition, a second request initiated to contoso.com via http protocol is returned a redirect to initiate a new connection to its https variant.
 
@@ -40,9 +41,9 @@ The following figure illustrates an example of a request destined for _contoso.c
 
 ## Prerequisites
 
-1. If following the BYO deployment strategy, ensure you have set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md)
-2. If following the ALB managed deployment strategy, ensure you have provisioned your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and provisioned the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
-3. Deploy sample HTTP application
+1. If following the BYO deployment strategy, ensure you set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md).
+2. If following the ALB managed deployment strategy, ensure you provision your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and provision the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
+3. Deploy sample HTTP application:
 
     Apply the following deployment.yaml file on your cluster to deploy a sample TLS certificate to demonstrate redirect capabilities.
   
@@ -65,7 +66,7 @@ The following figure illustrates an example of a request destined for _contoso.c
 
     ```bash
     kubectl apply -f - <<EOF
-    apiVersion: gateway.networking.k8s.io/v1beta1
+    apiVersion: gateway.networking.k8s.io/v1
     kind: Gateway
     metadata:
       name: gateway-01
@@ -115,7 +116,7 @@ The following figure illustrates an example of a request destined for _contoso.c
 
     ```bash
     kubectl apply -f - <<EOF
-    apiVersion: gateway.networking.k8s.io/v1beta1
+    apiVersion: gateway.networking.k8s.io/v1
     kind: Gateway
     metadata:
       name: gateway-01
@@ -208,7 +209,7 @@ Create an HTTPRoute resource for `contoso.com` that handles traffic received via
 
 ```bash
 kubectl apply -f - <<EOF
-apiVersion: gateway.networking.k8s.io/v1beta1
+apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
   name: https-contoso
@@ -268,7 +269,7 @@ Once the gateway is created, create an HTTPRoute resource for `contoso.com` with
 
 ```bash
 kubectl apply -f - <<EOF
-apiVersion: gateway.networking.k8s.io/v1beta1
+apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
   name: http-to-https-contoso-redirect
@@ -331,7 +332,7 @@ Create an HTTPRoute resource for `contoso.com` that handles a redirect for the p
 
 ```bash
 kubectl apply -f - <<EOF
-apiVersion: gateway.networking.k8s.io/v1beta1
+apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
   name: summer-promotion-redirect

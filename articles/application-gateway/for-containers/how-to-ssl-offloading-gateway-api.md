@@ -48,7 +48,7 @@ Application Gateway for Containers enables SSL [offloading](/azure/architecture/
 
     ```bash
     kubectl apply -f - <<EOF
-    apiVersion: gateway.networking.k8s.io/v1beta1
+    apiVersion: gateway.networking.k8s.io/v1
     kind: Gateway
     metadata:
       name: gateway-01
@@ -80,45 +80,45 @@ Application Gateway for Containers enables SSL [offloading](/azure/architecture/
 
 1. Set the following environment variables
 
-```bash
-RESOURCE_GROUP='<resource group name of the Application Gateway For Containers resource>'
-RESOURCE_NAME='alb-test'
+    ```bash
+    RESOURCE_GROUP='<resource group name of the Application Gateway For Containers resource>'
+    RESOURCE_NAME='alb-test'
 
-RESOURCE_ID=$(az network alb show --resource-group $RESOURCE_GROUP --name $RESOURCE_NAME --query id -o tsv)
-FRONTEND_NAME='frontend'
-```
+    RESOURCE_ID=$(az network alb show --resource-group $RESOURCE_GROUP --name $RESOURCE_NAME --query id -o tsv)
+    FRONTEND_NAME='frontend'
+    ```
 
 2. Create a Gateway
 
-```bash
-kubectl apply -f - <<EOF
-apiVersion: gateway.networking.k8s.io/v1beta1
-kind: Gateway
-metadata:
-  name: gateway-01
-  namespace: test-infra
-  annotations:
-    alb.networking.azure.io/alb-id: $RESOURCE_ID
-spec:
-  gatewayClassName: azure-alb-external
-  listeners:
-  - name: https-listener
-    port: 443
-    protocol: HTTPS
-    allowedRoutes:
-      namespaces:
-        from: Same
-    tls:
-      mode: Terminate
-      certificateRefs:
-      - kind : Secret
-        group: ""
-        name: listener-tls-secret
-  addresses:
-  - type: alb.networking.azure.io/alb-frontend
-    value: $FRONTEND_NAME
-EOF
-```
+    ```bash
+    kubectl apply -f - <<EOF
+    apiVersion: gateway.networking.k8s.io/v1
+    kind: Gateway
+    metadata:
+      name: gateway-01
+      namespace: test-infra
+      annotations:
+        alb.networking.azure.io/alb-id: $RESOURCE_ID
+    spec:
+      gatewayClassName: azure-alb-external
+      listeners:
+      - name: https-listener
+        port: 443
+        protocol: HTTPS
+        allowedRoutes:
+          namespaces:
+            from: Same
+        tls:
+          mode: Terminate
+          certificateRefs:
+          - kind : Secret
+            group: ""
+            name: listener-tls-secret
+      addresses:
+      - type: alb.networking.azure.io/alb-frontend
+        value: $FRONTEND_NAME
+    EOF
+    ```
 
 ---
 
@@ -179,7 +179,7 @@ Once the gateway is created, create an HTTPRoute resource.
 
 ```bash
 kubectl apply -f - <<EOF
-apiVersion: gateway.networking.k8s.io/v1beta1
+apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
   name: https-route
