@@ -4,7 +4,7 @@ description: Learn about integrating ServiceNow with Microsoft Defender for Clou
 author: dcurwin
 ms.author: dacurwin
 ms.topic: overview
-ms.date: 02/28/2024
+ms.date: 03/11/2024
 ai-usage: ai-assisted
 #customer intent: As a user, I want to learn about the integration that exists between ServiceNow and Microsoft Defender for Cloud so that I can protect my Azure, hybrid, and multicloud machines.
 ---

@@ -6751,6 +6751,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/search/cognitive-search-tutorial-blob-python.md",
+            "redirect_url": "/azure/search/samples-python",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/search/semantic-ranking.md",
             "redirect_url": "/azure/search/semantic-search-overview",
             "redirect_document_id": true
@@ -9383,6 +9388,11 @@
         {
             "source_path_from_root": "/articles/dev-spaces/how-dev-spaces-works-local-process-kubernetes.md",
             "redirect_url": "/visualstudio/containers/overview-local-process-kubernetes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/docker/index.yml",
+            "redirect_url": "/dotnet/architecture/microservices/container-docker-introduction/docker-defined",
             "redirect_document_id": false
         },
         {

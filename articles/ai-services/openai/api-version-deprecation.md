@@ -5,7 +5,7 @@ services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: conceptual 
-ms.date: 02/29/2024
+ms.date: 03/07/2024
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
@@ -21,11 +21,12 @@ This article is to help you understand the support lifecycle for the Azure OpenA
 
 ## Latest preview API release
 
-Azure OpenAI API version [2024-02-15-preview](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2024-02-15-preview/inference.json)
+Azure OpenAI API version [2024-03-01-preview](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2024-03-01-preview/inference.json)
 is currently the latest preview release.
 
 This version contains support for all the latest Azure OpenAI features including:
 
+- [Embeddings `encoding_format` and `dimensions` parameters] [**Added in 2024-03-01-preview**]
 - [Assistants API](./assistants-reference.md). [**Added in 2024-02-15-preview**]
 - [DALL-E 3](./dall-e-quickstart.md). [**Added in 2023-12-01-preview**]
 - [Text to speech](./text-to-speech-quickstart.md). [**Added in 2024-02-15-preview**]
