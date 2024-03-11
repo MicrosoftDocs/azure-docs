@@ -56,7 +56,7 @@
       - name: Account administrator tasks
         href: manage/account-admin-tasks.md
       - name: Edit billing contact information
-        href: manage/change-azure-account-profile.md
+        href: manage/change-azure-account-profile.yml
       - name: Update tax details
         href: manage/manage-tax-information.md
       - name: Grant access to billing
