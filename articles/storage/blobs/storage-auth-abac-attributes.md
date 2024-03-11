@@ -509,11 +509,11 @@ Restricts information that can be included when listing blobs.
 > | Property | Value |
 > | --- | --- |
 > | **Display name** | List blob include |
-> | **Description** | Information that can be included with listing operations, such as metadata, snapshots, or versions.<br/>*Available only for storage accounts where hierarchical namespace is not enabled.* |
+> | **Description** | Information that can be included with a [List Blobs](/rest/api/storageservices/list-blobs) operation, such as metadata, snapshots, or versions.<br/>Use when you want to allow or restrict values for the `include` parameter when calling the [List Blobs](/rest/api/storageservices/list-blobs) operation.<br/>*Available only for storage accounts where hierarchical namespace is not enabled.* |
 > | **Attribute** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs:include` |
 > | **Attribute source** | [Request](../../role-based-access-control/conditions-format.md#request-attributes) |
 > | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
-> | **Examples** | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:include] ForAnyOfAnyValues:StringEqualsIgnoreCase {'metadata', 'snapshots', 'versions'}`<br/>[Example: Read or list blobs in named containers with a path](storage-auth-abac-examples.md#example-read-or-list-blobs-in-named-containers-with-a-path) |
+> | **Examples** | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:include] ForAnyOfAnyValues:StringEqualsIgnoreCase {'metadata', 'snapshots', 'versions'}`<br/>`@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:include] ForAnyOfAnyValues:StringNotEquals {'metadata'}`<br/>[Example: Allow list blob operation to include blob metadata, snapshots, or versions](storage-auth-abac-examples.md#example-allow-list-blob-operation-to-include-blob-metadata-snapshots-or-versions)<br/>[Example: Restrict list blob operation to not include blob metadata](storage-auth-abac-examples.md#example-restrict-list-blob-operation-to-not-include-blob-metadata) |
 
 ### Private endpoint
 

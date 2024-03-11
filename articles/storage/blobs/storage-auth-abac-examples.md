@@ -44,8 +44,8 @@ Use the following table to quickly locate an example that fits your ABAC scenari
 | [Delete old blob versions](#example-delete-old-blob-versions) | | | versionId | |
 | [Read current blob versions and any blob snapshots](#example-read-current-blob-versions-and-any-blob-snapshots) | | | snapshot | isCurrentVersion |
 | [Read current blob versions and any blob snapshots](#example-read-current-blob-versions-and-any-blob-snapshots) | | | snapshot | isCurrentVersion |
-| [Allow List Blobs requests to include blob metadata, snapshots, and versions](#example-list-include-metadata-snapshots) | | | include | |
-| [Restrict List Blobs requests from including blob metadata](#example-list-include-metadata-snapshots) | | | include | |
+| [Allow list blob operation to include blob metadata, snapshots, or versions](#example-list-blobs-and-allow-blob-metadata-snapshots-and-versions-to-be-included) | | | include | |
+| [Restrict list blob operation to not include blob metadata](#example-list-blobs-and-restrict-blob-metadata-from-being-included) | | | include | |
 | [Read only storage accounts with hierarchical namespace enabled](#example-read-only-storage-accounts-with-hierarchical-namespace-enabled) | | | | isHnsEnabled |
 | [Read blobs with specific encryption scopes](#example-read-blobs-with-specific-encryption-scopes) | | | | Encryption scope name |
 | [Read or write blobs in named storage account with specific encryption scope](#example-read-or-write-blobs-in-named-storage-account-with-specific-encryption-scope) | | | | Storage account name</br> Encryption scope name |
@@ -983,7 +983,7 @@ Here are the settings to add this condition using the Azure portal.
 > | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
 > | Value | {containerName} |
 
-:::image type="content" source="./media/storage-auth-abac-examples/containers-metadata-read-portal.png" alt-text="Screenshot of condition editor in Azure portal showing read blob in container with specific metadata named containers." lightbox="./media/storage-auth-abac-examples/containers-metadata-read-portal.png":::
+:::image type="content" source="./media/storage-auth-abac-examples/container-metadata-read-portal.png" alt-text="Screenshot of condition editor in Azure portal showing read blob in container with specific metadata." lightbox="./media/storage-auth-abac-examples/container-metadata-read-portal.png":::
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
@@ -1055,7 +1055,7 @@ Here are the settings to add this condition using the Azure portal.
 > | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
 > | Value | {containerName} |
 
-:::image type="content" source="./media/storage-auth-abac-examples/containers-metadata-write-delete-portal.png" alt-text="Screenshot of condition editor in Azure portal showing read blob in container with specific metadata named containers." lightbox="./media/storage-auth-abac-examples/containers-metadata-write-delete-portal.png":::
+:::image type="content" source="./media/storage-auth-abac-examples/container-metadata-write-delete-portal.png" alt-text="Screenshot of condition editor in Azure portal showing write and delete blob in container with specific metadata." lightbox="./media/storage-auth-abac-examples/container-metadata-write-delete-portal.png":::
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
@@ -1376,66 +1376,12 @@ Currently no example provided.
 
 ---
 
-### Example: Allow List Blobs requests to include blob metadata, snapshots, and versions
+### Example: Allow list blob operation to include blob metadata, snapshots, or versions
 
-This condition restricts a user from listing blobs where metadata is included in the request. The [List blobs include](storage-auth-abac-attributes.md#list-blob-include) attribute is available for storage accounts where hierarchical namespace isn't enabled.
+This condition allows a user to list blobs in a container and include metadata, snapshot, and version information. The [List blobs include](storage-auth-abac-attributes.md#list-blob-include) attribute is available for storage accounts where hierarchical namespace isn't enabled.
 
-You must add this condition to any role assignments that include the following action.
-
-> [!div class="mx-tableFixed"]
-> | Action | Notes |
-> | --- | --- |
-> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
-
-
-The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs to view the examples for your preferred portal editor.
-
-# [Portal: Visual editor](#tab/portal-visual-editor)
-
-Here are the settings to add this condition using the Azure portal.
-
-> [!div class="mx-tableFixed"]
-> | Condition #1 | Setting |
-> | --- | --- |
-> | Actions | [List blobs](storage-auth-abac-attributes.md#list-blobs)|
-> | Attribute source | Request |
-> | Attribute | [List blobs include](storage-auth-abac-attributes.md#list-blob-include) |
-> | Operator | [ForAnyOfAnyValues:StringNotEquals](../../role-based-access-control/conditions-format.md#foranyofanyvalues) |
-> | Value | {'metadata'} |
-
-# [Portal: Code editor](#tab/portal-code-editor)
-
-To add the condition using the code editor, copy the condition code sample and paste it into the code editor. After entering your code, switch back to the visual editor to validate it.
-
-**Storage Blob Data Reader**
-
-```
-(
- (
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.List'})
- )
- OR 
- (
-  @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:include] ForAnyOfAnyValues:StringNotEquals {'metadata'}
- )
-)
-
-
-```
-
-In this example, the condition restricts the read action when the suboperation is `Blob.List`. This means that a List Blobs operation is further evaluated against the expression that checks the include values, but all other read actions are allowed.
-
-[!INCLUDE [storage-abac-conditions-include](../../../includes/storage-abac-conditions-include.md)]
-
-# [PowerShell](#tab/azure-powershell)
-
-Currently no example provided.
-
----
-
-### Example: Allow List Blobs requests to include blob metadata, snapshots, and versions
-
-This condition allows a user to list blobs and include information such as metadata, snapshots, and versions. The [List blobs include](storage-auth-abac-attributes.md#list-blob-include) attribute is available for storage accounts where hierarchical namespace isn't enabled.
+> [!NOTE]
+>[List blobs include](storage-auth-abac-attributes.md#list-blob-include) is a request attribute, and works by allowing or restricting values in the `include` parameter when calling the [List Blobs](/rest/api/storageservices/list-blobs) operation. The values in the `include` parameter are compared against the values specified in the condition using [cross product comparison operators](/azure/role-based-access-control/conditions-format#cross-product-comparison-operators). If the comparison evaluates to true, the `List Blobs` request is allowed. If the comparison evaluates to false, the `List Blobs` request is denied.
 
 You must add this condition to any role assignments that include the following action.
 
@@ -1474,6 +1420,65 @@ To add the condition using the code editor, copy the condition code sample and p
  OR 
  (
   @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:include] ForAnyOfAnyValues:StringEqualsIgnoreCase {'metadata', 'snapshots', 'versions'}
+ )
+)
+
+```
+
+In this example, the condition restricts the read action when the suboperation is `Blob.List`. This means that a List Blobs operation is further evaluated against the expression that checks the include values, but all other read actions are allowed.
+
+[!INCLUDE [storage-abac-conditions-include](../../../includes/storage-abac-conditions-include.md)]
+
+# [PowerShell](#tab/azure-powershell)
+
+Currently no example provided.
+
+---
+
+### Example: Restrict list blob operation to not include blob metadata
+
+This condition restricts a user from listing blobs when metadata is included in the request. The [List blobs include](storage-auth-abac-attributes.md#list-blob-include) attribute is available for storage accounts where hierarchical namespace isn't enabled.
+
+> [!NOTE]
+>[List blobs include](storage-auth-abac-attributes.md#list-blob-include) is a request attribute, and works by allowing or restricting values in the `include` parameter when calling the [List Blobs](/rest/api/storageservices/list-blobs) operation. The values in the `include` parameter are compared against the values specified in the condition using [cross product comparison operators](/azure/role-based-access-control/conditions-format#cross-product-comparison-operators). If the comparison evaluates to true, the `List Blobs` request is allowed. If the comparison evaluates to false, the `List Blobs` request is denied.
+
+You must add this condition to any role assignments that include the following action.
+
+> [!div class="mx-tableFixed"]
+> | Action | Notes |
+> | --- | --- |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
+
+
+The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs to view the examples for your preferred portal editor.
+
+# [Portal: Visual editor](#tab/portal-visual-editor)
+
+Here are the settings to add this condition using the Azure portal.
+
+> [!div class="mx-tableFixed"]
+> | Condition #1 | Setting |
+> | --- | --- |
+> | Actions | [List blobs](storage-auth-abac-attributes.md#list-blobs)|
+> | Attribute source | Request |
+> | Attribute | [List blobs include](storage-auth-abac-attributes.md#list-blob-include) |
+> | Operator | [ForAnyOfAnyValues:StringNotEquals](../../role-based-access-control/conditions-format.md#foranyofanyvalues) |
+> | Value | {'metadata'} |
+
+# [Portal: Code editor](#tab/portal-code-editor)
+
+To add the condition using the code editor, copy the condition code sample and paste it into the code editor. After entering your code, switch back to the visual editor to validate it.
+
+**Storage Blob Data Reader**
+
+```
+(
+ (
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.List'})
+ )
+ OR 
+ (
+  @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:include] ForAnyOfAnyValues:StringNotEquals {'metadata'}
  )
 )
 
