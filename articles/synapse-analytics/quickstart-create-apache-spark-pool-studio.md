@@ -39,7 +39,7 @@ Sign in to the [Azure portal](https://portal.azure.com/)
 1. From the list of workspaces, type the name (or part of the name) of the workspace to open. For this example, we'll use a workspace named **contosoanalytics**.
 
     ![Listing of Synapse workspaces filtered to show those containing the name Contoso.](media/quickstart-create-sql-pool/create-sql-pool-00b.png)
-
+   
 ## Launch Synapse Studio 
 
 From the workspace overview, select the **Workspace web URL** to open Synapse Studio.
@@ -48,31 +48,30 @@ From the workspace overview, select the **Workspace web URL** to open Synapse St
 
 ## Create the Apache Spark pool in Synapse Studio
 > [!IMPORTANT]
-> Azure Synapse Runtime for Apache Spark 3.1 and 3.2 have reached their end of support. 3.1 had reached its end of support on January 26, 2023, with official support discontinued effective January 26, 2024, and no further addressing of support tickets, bug fixes, or security updates beyond this date. 3.2 had reached its end of support as of July 8, 2023, with no further bug or feature fixes, but security fixes may be backported based on risk assessment, and it will be retired and disabled as of July 8, 2024.
-
+> Azure Synapse Runtime for Apache Spark 2.4 has been deprecated and officially not supported since 09/29/2023. Given [Spark 3.1](/azure/synapse-analytics/spark/apache-spark-3-runtime) and [Spark 3.2](/azure/synapse-analytics/spark/apache-spark-32-runtime) are also End of Life announced (EOLA), we recommend customers migrate to Spark 3.3. Please refer to [this link](/azure/synapse-analytics/spark/apache-spark-33-runtime) for a migration guide.
 1. On the Synapse Studio home page, navigate to the **Management Hub** in the left navigation by selecting the **Manage** icon.
 
     ![Synapse Studio home page with Management Hub section highlighted.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-21.png)
-
+   
 1. Once in the Management Hub, navigate to the **Apache Spark pools** section to see the current list of Apache Spark pools that are available in the workspace.
-    
-    ![Synapse Studio management hub with Apache Spark pools navigation selected](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-22.png)
 
+    ![Synapse Studio management hub with Apache Spark pools navigation selected](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-22.png)
+   
 1. Select **+ New** and the new Apache Spark pool create wizard will appear. 
 
 1. Enter the following details in the **Basics** tab:
 
-    | Setting | Suggested value | Description |
-    | :------ | :-------------- | :---------- |
-    | **Apache Spark pool name** | contosospark | This is the name that the Apache Spark pool will have. |
-    | **Node size** | Small (4 vCPU / 32 GB) | Set this to the smallest size to reduce costs for this quickstart |
-    | **Autoscale** | Disabled | We won't need autoscale in this quickstart |
-    | **Number of nodes** | 8 | Use a small size to limit costs in this quickstart|
-    | **Dynamically allocate executors** |  Disabled | This setting maps to the dynamic allocation property in Spark configuration for Spark Application executors allocation. We won't need autoscale in this quickstart.|
-    
+ | Setting | Suggested value | Description |
+ | :------ | :-------------- | :---------- |
+ | **Apache Spark pool name** | contosospark | This is the name that the Apache Spark pool will have. |
+ | **Node size** | Small (4 vCPU / 32 GB) | Set this to the smallest size to reduce costs for this quickstart |
+ | **Autoscale** | Disabled | We won't need autoscale in this quickstart |
+ | **Number of nodes** | 8 | Use a small size to limit costs in this quickstart|
+ | **Dynamically allocate executors** |  Disabled | This setting maps to the dynamic allocation property in Spark configuration for Spark Application executors allocation. We won't need autoscale in this quickstart.|
+ 
     ![Basics for Synapse Studio new Apache Spark pool](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-24.png)
-    
-    > [!IMPORTANT]
+   
+       > [!IMPORTANT]
     > Note that there are specific limitations for the names that Apache Spark pools can use. Names must contain letters or numbers only, must be 15 or less characters, must start with a letter, not contain reserved words, and be unique in the workspace.
 
 1. In the next tab (Additional settings), leave all settings as defaults.
@@ -82,13 +81,13 @@ From the workspace overview, select the **Workspace web URL** to open Synapse St
 1. In the **Review + create** tab, make sure that the details look correct based on what was previously entered, and press **Create**. 
 
     ![Create Synapse Studio new Apache Spark pool](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-26.png)
-
+   
 1. The Apache Spark pool will start the provisioning process.
 
 1. Once the provisioning is complete, the new Apache Spark pool will appear in the list.
-    
-    ![Synapse Studio new Apache Spark pool list](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-28.png)
 
+    ![Synapse Studio new Apache Spark pool list](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-28.png)
+   
 ## Clean up Apache Spark pool resources using Synapse Studio
 
 Follow the steps below to delete the Apache Spark pool from the workspace using Synapse Studio.
@@ -101,7 +100,7 @@ If you want to delete the Apache Spark pool, do the following:
 1. Select the ellipsis next to the Apache pool to be deleted (in this case, **contosospark**) to show the commands for the Apache Spark pool.
 
     ![Listing of Apache Spark pools, with the recently created pool selected.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-29.png)
-
+   
 1. Press **delete**.
 1. Confirm the deletion, and press **Delete** button.
 1. When the process completes successfully, the Apache Spark pool will no longer be listed in the workspace resources. 
