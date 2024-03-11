@@ -5,7 +5,7 @@ author: chasecrum
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: quickstart
-ms.date: 02/28/2024
+ms.date: 03/11/2024
 ms.author: chasecrum
 ms.reviewer: jushiman
 ms.custom: mvc, devx-track-azurecli, mode-api, innovation-engine, linux-related-content
@@ -13,7 +13,7 @@ ms.custom: mvc, devx-track-azurecli, mode-api, innovation-engine, linux-related-
 
 # Create a Linux virtual machine on Azure
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/?Microsoft_Azure_CloudNative_clientoptimizations=false&feature.canmodifyextensions=true#view/Microsoft_Azure_CloudNative/SubscriptionSelectionPage.ReactView/tutorialKey/CreateLinuxVMAndSSH)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://go.microsoft.com/fwlink/?linkid=2263115)
 
 ## Define environment variables
 
