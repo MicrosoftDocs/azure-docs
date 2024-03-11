@@ -34,7 +34,7 @@ Azure provides two ways to implement network policy. You choose a network policy
 
 To enforce the specified policies, Azure Network Policy Manager for Linux uses Linux *IPTables*. Azure Network Policy Manager for Windows uses *Host Network Service (HNS) ACLPolicies*. Policies are translated into sets of allowed and disallowed IP pairs. These pairs are then programmed as `IPTable` or `HNS ACLPolicy` filter rules.
 
-## Compare Azure Network Policy Manager and Calico network policy
+## Differences between Azure Network Policy Manager and Calico network policy and their capabilities
 
 | Capability                               | Azure Network Policy Manager                    | Calico network policy                     |
 |------------------------------------------|----------------------------|-----------------------------|
@@ -74,10 +74,9 @@ To see network policies in action, you create an AKS cluster that supports netwo
 
 To use Azure Network Policy Manager, you must use the [Azure CNI plug-in][azure-cni]. Calico network policy could be used with either this same Azure CNI plug-in or with the Kubernetes CNI plug-in.
 
-The following example script:
+The following example script creates an AKS cluster with system-assigned identity and enables network policy by using Azure Network Policy Manager.
 
-- Creates an AKS cluster with system-assigned identity and enables network policy by using Azure Network Policy Manager.
-- To use Calico as the network policy option instead, use the `--network-policy calico` parameter. Calico could be used with either `--network-plugin azure` or `--network-plugin kubenet`.
+To use Calico as the network policy option instead, use the `--network-policy calico` parameter. Calico could be used with either `--network-plugin azure` or `--network-plugin kubenet`.
 
 Instead of using a system-assigned identity, you can also use a user-assigned identity. For more information, see [Use managed identities](use-managed-identity.md).
 
@@ -95,7 +94,7 @@ $LOCATION=canadaeast
 
 Create the AKS cluster and specify `azure` for the `network-plugin` and `network-policy`.
 
-Use the following command to create a cluster:
+To create a cluster, use the following command:
 
 ```azurecli
 az aks create \
@@ -161,7 +160,7 @@ $WINDOWS_USERNAME=myWindowsUserName
 $LOCATION=canadaeast
 ```
 
-Create a username to use as administrator credentials for your Windows Server containers on your cluster. The following command prompts you for a username. Set it to `$WINDOWS_USERNAME`. Remember that the commands in this article are entered into a BASH shell.
+Create a username to use as administrator credentials for your Windows Server containers on your cluster. The following command prompts you for a username. Set it to `$WINDOWS_USERNAME`. Remember that the commands in this article are entered into a Bash shell.
 
 ```azurecli-interactive
 echo "Please enter the username to use as administrator credentials for Windows Server containers on your cluster: " && read WINDOWS_USERNAME
@@ -201,7 +200,7 @@ If you plan on adding Windows node pools to your cluster, include the `windows-a
 >
 > For clusters with only Linux node pools running Kubernetes 1.20 with earlier versions of Calico, the Calico version automatically upgrades to 3.17.2.
 
-Create a username to use as administrator credentials for your Windows Server containers on your cluster. The following command prompts you for a username. Set it to `$WINDOWS_USERNAME`. Remember that the commands in this article are entered into a BASH shell.
+Create a username to use as administrator credentials for your Windows Server containers on your cluster. The following command prompts you for a username. Set it to `$WINDOWS_USERNAME`. Remember that the commands in this article are entered into a Bash shell.
 
 ```azurecli-interactive
 echo "Please enter the username to use as administrator credentials for Windows Server containers on your cluster: " && read WINDOWS_USERNAME
