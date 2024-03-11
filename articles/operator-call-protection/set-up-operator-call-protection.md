@@ -85,7 +85,7 @@ An element in your network, typically a session border controller (SBC), is set 
 
 Work with your onboarding team to produce a network architecture plan where an element in your network can act as an SRC for calls being routed to your Azure Operator Call Protection enabled subscribers.
 
-- If you decide that you need changes to Azure Communications Gateway, ask your onboarding team. Microsoft must make the changes for you.
+- If you decide that you need changes to Azure Communications Gateway or Azure Operator Call Protection, ask your onboarding team. Microsoft must make the changes for you.
 - If you need changes to the configuration of devices in your core network, you must make those changes.
 
 > [!NOTE]
