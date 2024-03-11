@@ -32,11 +32,11 @@ Azure Virtual Desktop for Azure Stack HCI extends the capabilities of the Micros
 
 For more information, see [Azure Virtual Desktop for Azure Stack HCI now available!](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/azure-virtual-desktop-for-azure-stack-hci-now-available/ba-p/4038030)
 
-### Azure Virtual Desktop web client version 2 is now available
+### New Azure Virtual Desktop web client is now available
 
-The Azure Virtual Desktop web client has now updated to web client version 2. All users automatically migrate to this new version of the web client to access their resources.
+We've updated the Azure Virtual Desktop web client to the new web client. All users automatically migrate to this new version of the web client to access their resources.
 
-For more information about the new features available in version 2, see [Use features of the Remote Desktop Web client](./users/client-features-web.md).  
+For more information about the new features available in the new web client, see [Use features of the Remote Desktop Web client](./users/client-features-web.md).  
 
 ## January 2024
 
