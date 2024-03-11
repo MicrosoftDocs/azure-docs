@@ -20,7 +20,7 @@ ms.custom: template-how-to, engagement-fy23
 
 This article introduces a PowerShell module that creates a Standard Load Balancer with the same configuration as the Basic Load Balancer, then associates the Virtual Machine Scale Set or Virtual Machine backend pool members with the new Load Balancer.
 
-For an in-depth walk-through of the upgrade module and process, please see the following video:
+For an in-depth walk-through of the upgrade module and process, see the following video:
 > [!VIDEO https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=8e203b99-41ff-4454-9cbd-58856708f1c6]
 [01:38 - Quick Demo](https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=8e203b99-41ff-4454-9cbd-58856708f1c6#time=0h0m35s) | [03:06 - Step-by-step](https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=8e203b99-41ff-4454-9cbd-58856708f1c6#time=0h3m06s) | [32:54 - Recovery](https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=8e203b99-41ff-4454-9cbd-58856708f1c6#time=0h32m45s) | [40:55 - Advanced Scenarios](https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=8e203b99-41ff-4454-9cbd-58856708f1c6#time=0h40m55s) | [57:54 - Resources](https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=8e203b99-41ff-4454-9cbd-58856708f1c6#time=0h57m54s)
 
@@ -30,7 +30,7 @@ The PowerShell module performs the following functions:
 
 - Verifies that the provided Basic Load Balancer scenario is supported for upgrade.
 - Backs up the Basic Load Balancer and Virtual Machine Scale Set configuration, enabling retry on failure or if errors are encountered.
-- For public load balancers, updates the front end public IP address(es) to Standard SKU and static assignment as required.
+- For public load balancers, updates the front end public IP addresses to Standard SKU and static assignment
 - Upgrades the Basic Load Balancer configuration to a new Standard Load Balancer, ensuring configuration and feature parity.
 - Migrates Virtual Machine Scale Set and Virtual Machine backend pool members from the Basic Load Balancer to the Standard Load Balancer.
 - Creates and associates a network security group with the Virtual Machine Scale Set or Virtual Machine to ensure load balanced traffic reaches backend pool members, following Standard Load Balancer's move to a default-deny network policy.
@@ -61,7 +61,7 @@ The PowerShell module performs the following functions:
 - **PowerShell**: A supported version of PowerShell version 7 or higher is recommended for use with the AzureBasicLoadBalancerUpgrade module on all platforms including Windows, Linux, and macOS. However, PowerShell 5.1 on Windows is supported. 
 - **Az PowerShell Module**: Determine whether you have the latest Az PowerShell module installed
   - Install the latest [Az PowerShell module](/powershell/azure/install-azure-powershell)
-- **Az.ResourceGraph PowerShell Module**: The Az.ResourceGraph PowerShell module is used to query resource configuration during upgrade and is a separate install from the Az PowerShell module. It will be automatically installed if you install the `AzureBasicLoadBalancerUpgrade` module using the `Install-Module` command as shown below. 
+- **Az.ResourceGraph PowerShell Module**: The Az.ResourceGraph PowerShell module is used to query resource configuration during upgrade and is a separate install from the Az PowerShell module. It is automatically added if you install the `AzureBasicLoadBalancerUpgrade` module using the `Install-Module` command. 
 
 ### Module Installation
 
@@ -78,7 +78,7 @@ PS C:\> Install-Module -Name AzureBasicLoadBalancerUpgrade -Scope CurrentUser -R
 - [Validate](#example-validate-a-scenario) that your scenario is supported
 - Plan for [application downtime](#how-long-does-the-upgrade-take) during migration
 - Develop inbound and outbound connectivity tests for your traffic
-- Plan for instance-level Public IP changes on Virtual Machine Scale Set instances (see note above)
+- Plan for instance-level Public IP changes on Virtual Machine Scale Set instances (see note)
 - [Recommended] Create Network Security Groups or add security rules to an existing Network Security Group for your backend pool members, allowing the traffic through the Load Balancer and any other traffic which will need to be explicitly allowed on public Standard SKU resources
 - [Recommended] Prepare your [outbound connectivity](../virtual-network/ip-services/default-outbound-access.md), taking one of the following approaches described in [How should I configure outbound traffic for my Load Balancer?](#how-should-i-configure-outbound-traffic-for-my-load-balancer)
 
