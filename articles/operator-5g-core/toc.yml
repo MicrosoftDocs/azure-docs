@@ -6,6 +6,16 @@ items:
   items:
   - name: What is Azure Operator 5G Core?
     href: overview-product.md
+- name: Concepts
+  items:
+  - name: Security in Azure Operator 5G Core
+    href: concept-security.md
+  - name: Centralized lifecycle management in Azure Operator 5G Core
+    href: concept-centralized-lifecycle-management.md
+  - name: Deployment order for clusters, network functions, and observability
+    href: concept-deployment-order.md
+  - name: Observability and analytics in Azure Operator 5G Core
+    href: concept-observability-analytics.md
 - name: Quickstarts
   expanded: false
   items:
@@ -21,16 +31,6 @@ items:
     href: quickstart-monitor-deployment-status.md
   - name: Peform health and configuration checks post-deployment in Azure Operator 5G Core
     href: quickstart-perform-checks-post-deployment.md
-- name: Concepts
-  items:
-  - name: Security in Azure Operator 5G Core
-    href: concept-security.md
-  - name: Centralized lifecycle management in Azure Operator 5G Core
-    href: concept-centralized-lifecycle-management.md
-  - name: Deployment order for clusters, network functions, and observability
-    href: concept-deployment-order.md
-  - name: Observability and analytics in Azure Operator 5G Core
-    href: concept-observability-analytics.md
 - name: How-to guides
   items:
   - name: Configure a network function
