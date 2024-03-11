@@ -368,7 +368,7 @@ print(token)
 >
 > Microsoft strongly recommends that you create your Azure Machine Learning workspace in the same region as your AKS cluster. To authenticate with a token, the web service makes a call to the region in which your Azure Machine Learning workspace is created. If your workspace's region is unavailable, then you can't to fetch a token for your web service even, if your cluster is in a different region than your workspace. This effectively results in token-based authentication being unavailable until your workspace's region is available again. In addition, the greater the distance between your cluster's region and your workspace's region, the longer it takes to fetch a token.
 >
-> To retrieve a token, you must use the Azure Machine Learning SDK or the [az ml service get-access-token](cli/azure/ml(v1)/service#az-ml(v1)-service-get-access-token) command.
+> To retrieve a token, you must use the Azure Machine Learning SDK or the [az ml service get-access-token](/cli/azure/ml(v1)/service#az-ml(v1)-service-get-access-token) command.
 
 ### Vulnerability scanning
 
