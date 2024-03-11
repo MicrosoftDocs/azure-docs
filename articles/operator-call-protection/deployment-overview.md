@@ -9,7 +9,7 @@ ms.date: 03/31/2024
 ms.custom:
     - update-for-call-protection-service-slug
 
-#CustomerIntent: As a someone planning a deployment, I want to understand what I need to do so that I can do it easily.
+#CustomerIntent: As someone planning a deployment, I want to understand what I need to do so that I can do it easily.
 ---
 # Overview of deploying Azure Operator Call Protection
 
