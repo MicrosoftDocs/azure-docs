@@ -161,7 +161,7 @@ For a 30,000 RU/s reservation, in standard provisioned throughput, you should bu
 
 6. Click on the **Add to cart** blue button on the lower righ corner, and then on **View Cart** when you are done. The quantities are defined next. Please note that you can add different options to the cart. Example: If you need 1,100,000 RU/s, you should add both the 1,000,000 RU/s and the 100 RU/s options to the cart. 
 
-7. In the **Purchase reservations** pane review the billing frequency, the quantity, the discount, and the price of the reservation. This reservation price applies to Azure Cosmos DB resources with throughput provisioned across all regions. Example: If you need 1,100,000 RU/s across all regions, you should set the 1,000,000 RU/s option quantity to 1 and the 100 RU/s option quantity to 1000.
+7. In the **Purchase reservations** pane, review the billing frequency, the quantity, the discount, and the price of the reservation. This reservation price applies to Azure Cosmos DB resources with throughput provisioned across all regions. Example: If you need 1,100,000 RU/s for one region, you should set the 1,000,000 RU/s option quantity to 1 and the 100 RU/s option quantity to 1000. But if you need 1,100,000 RU/s in each region, and you have 2 regions, then the total should be 2,200,000 RU/s. And for 2,2 million RU/s, the best option is one unit of the two million RU/s option and 2000 units of the 100 RU/s option.
 
    :::image type="content" source="./media/reserved-capacity/reserved-capacity-summary.png" alt-text="Reserved capacity summary":::
 
