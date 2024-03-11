@@ -79,7 +79,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Manage just-in-time access
-            url: just-in-time-access-usage.md
+            url: just-in-time-access-usage.yml
           - text: Set up adaptive application controls
             url: adaptive-application-controls.md
           - text: Implement adaptive network hardening

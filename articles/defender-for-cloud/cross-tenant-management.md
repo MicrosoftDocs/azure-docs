@@ -34,7 +34,7 @@ The views and actions are basically the same. Here are some examples:
 - **Remediate recommendations**: Monitor and remediate a [recommendation](review-security-recommendations.md) for many resources from various tenants at one time. You can then immediately tackle the vulnerabilities that present the highest risk across all tenants.
 - **Manage Alerts**: Detect [alerts](alerts-overview.md) throughout the different tenants. Take action on resources that are out of compliance with actionable [remediation steps](managing-and-responding-alerts.md).
 
-- **Manage advanced cloud defense features and more**: Manage the various threat protection services, such as [just-in-time (JIT) VM access](just-in-time-access-usage.md), [Adaptive network hardening](adaptive-network-hardening.md), [adaptive application controls](adaptive-application-controls.md), and more.
+- **Manage advanced cloud defense features and more**: Manage the various threat protection services, such as [just-in-time (JIT) VM access](just-in-time-access-usage.yml), [Adaptive network hardening](adaptive-network-hardening.md), [adaptive application controls](adaptive-application-controls.md), and more.
 
 ## Next steps
 

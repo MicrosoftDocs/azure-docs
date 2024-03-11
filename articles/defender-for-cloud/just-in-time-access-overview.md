@@ -9,7 +9,7 @@ ms.date: 06/29/2023
 
 This page explains the principles behind Microsoft Defender for Cloud's just-in-time (JIT) VM access feature and the logic behind the recommendation.
 
-To learn how to apply JIT to your VMs using the Azure portal (either Defender for Cloud or Azure Virtual Machines) or programmatically, see [How to secure your management ports with JIT](just-in-time-access-usage.md).
+To learn how to apply JIT to your VMs using the Azure portal (either Defender for Cloud or Azure Virtual Machines) or programmatically, see [How to secure your management ports with JIT](just-in-time-access-usage.yml).
 
 ## The risk of open management ports on a virtual machine
 
@@ -59,4 +59,4 @@ When Defender for Cloud finds a machine that can benefit from JIT, it adds that 
 This page explained why just-in-time (JIT) virtual machine (VM) access should be used. To learn how to enable JIT and request access to your JIT-enabled VMs:
 
 > [!div class="nextstepaction"]
-> [How to secure your management ports with JIT](just-in-time-access-usage.md)
+> [How to secure your management ports with JIT](just-in-time-access-usage.yml)

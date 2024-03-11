@@ -269,7 +269,7 @@ The changes are listed as follows:
 |JIT firewall rule collection names | ASC-JIT | MDC-JIT |
 |JIT firewall rules names | ASC-JIT | MDC-JIT |
 
-Learn how to [secure your management ports with Just-In-Time access](just-in-time-access-usage.md).
+Learn how to [secure your management ports with Just-In-Time access](just-in-time-access-usage.yml).
 
 ### Onboard selected AWS regions
 
@@ -4301,7 +4301,7 @@ This update brings the following changes to this feature:
 
 - The recommendation is triggered only if there are open management ports.
 
-Learn more about [the JIT access feature](just-in-time-access-usage.md).
+Learn more about [the JIT access feature](just-in-time-access-usage.yml).
 
 ### Custom recommendations have been moved to a separate security control
 
@@ -4468,7 +4468,7 @@ The features, operation, and UI for Azure Security Center's just-in-time tools t
 - **Justification field** - When requesting access to a virtual machine (VM) through the just-in-time page of the Azure portal, a new optional field is available to enter a justification for the request. Information entered into this field can be tracked in the activity log.
 - **Automatic cleanup of redundant just-in-time (JIT) rules** - Whenever you update a JIT policy, a cleanup tool automatically runs to check the validity of your entire ruleset. The tool looks for mismatches between rules in your policy and rules in the NSG. If the cleanup tool finds a mismatch, it determines the cause and, when it's safe to do so, removes built-in rules that aren't needed anymore. The cleaner never deletes rules that you've created.
 
-Learn more about [the JIT access feature](just-in-time-access-usage.md).
+Learn more about [the JIT access feature](just-in-time-access-usage.yml).
 
 ### Two security recommendations for web applications deprecated
 
