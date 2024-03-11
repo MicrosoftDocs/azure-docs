@@ -183,7 +183,7 @@ For more information about this command, use the `help` parameter:
 az postgres flexible-server migration list -- help
 ```
 
-## Monitor the migration
+## Monitor the migration CLI
 
 The `show` command helps you monitor ongoing migrations and gives the current state and substate of the migration.
 These details include information on the current state and substate of the migration.

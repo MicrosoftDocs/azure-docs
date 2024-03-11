@@ -1589,6 +1589,16 @@
         "source_path_from_root": "/articles/postgresql/migrate/concepts-single-to-flexible.md",
         "redirect_url": "/azure/postgresql/migrate/migration-service/concepts-migration-service-postgresql",
         "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "articles/postgresql/migrate/migration-service/tutorial-migration-service-offline-aws.md",
+        "redirect_url": "/azure/postgresql/migrate/migration-service/tutorial-migration-service-aws",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "articles/postgresql/migrate/migration-service/tutorial-migration-service-iaas.md",
+        "redirect_url": "/azure/postgresql/migrate/migration-service/tutorial-migration-service-iaas",
+        "redirect_document_id": true
     }
     ]
 }

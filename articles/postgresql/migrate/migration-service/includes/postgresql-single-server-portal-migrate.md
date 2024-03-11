@@ -129,7 +129,7 @@ The **Summary** tab summarizes all the details for creating the validation or mi
 
 :::image type="content" source="../media/tutorial-migration-service-single-to-flexible/flexible-migration-review.png" alt-text="Screenshot of details to review for the migration." lightbox="../media/tutorial-migration-service-single-to-flexible/flexible-migration-review.png":::
 
-## Monitor the migration
+## Monitor the migration portal
 
 After you select the start button, a notification appears in a few seconds to say that the validation or migration creation is successful. You're redirected automatically to the **Migration** page of Flexible Server. This has a new entry for the recently created validation or migration.
 
