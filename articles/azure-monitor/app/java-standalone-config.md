@@ -251,7 +251,7 @@ Starting with version 3.2.0, you can set a custom dimension programmatically on 
 }
 ```
 
-and then at the beginning of each request, call:
+And then at the beginning of each request, call:
 
 ```java
 Span.current().setAttribute("mycustomer", "xyz");
@@ -322,7 +322,7 @@ add this property to your json configuration:
 }
 ```
 
-and add `applicationinsights-core` to your application:
+Add `applicationinsights-core` to your application:
 
 ```xml
 <dependency>
@@ -332,7 +332,7 @@ and add `applicationinsights-core` to your application:
 </dependency>
 ```
 
-and use the static `configure(String)` method in the class
+Use the static `configure(String)` method in the class
 `com.microsoft.applicationinsights.connectionstring.ConnectionString`.
 
 > [!NOTE]
