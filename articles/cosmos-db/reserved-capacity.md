@@ -14,9 +14,7 @@ ms.reviewer: jucocchi
 
 Azure Cosmos DB reserved capacity helps you save money by committing to a reservation for Azure Cosmos DB resources for either one year or three years. With Azure Cosmos DB reserved capacity, you can get a discount on the throughput provisioned for Azure Cosmos DB resources. Examples of resources are databases and containers (tables, collections, and graphs).
 
-Azure Cosmos DB reserved capacity can significantly reduce your Azure Cosmos DB costs, up to 68 percent on regular prices with a one-year or three-year upfront commitment. Reserved capacity provides a billing discount and doesn't affect the runtime state of your Azure Cosmos DB resources, including performance or availability.
-
-Azure Cosmos DB reserved capacity covers throughput provisioned for your resources. It doesn't cover the storage and networking charges. As soon as you buy a reservation, the throughput charges that match the reservation attributes are no longer charged at the pay-as-you go rates. For more information on reservations, see the [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) article.
+Azure Cosmos DB reserved capacity can significantly reduce your Azure Cosmos DB costs, up to 63% on regular prices, with a one-year or three-year upfront commitment. Reserved capacity provides a billing discount and doesn't affect the runtime state of your Azure Cosmos DB resources, including performance or availability.
 
 You can buy Azure Cosmos DB reserved capacity from the [Azure portal](https://portal.azure.com). Pay for the reservation [upfront or with monthly payments](../cost-management-billing/reservations/prepare-buy-reservation.md). To buy reserved capacity:
 
@@ -32,9 +30,13 @@ In this example, any provisioned throughput above 10,000 RU/s will be billed usi
 
 It is possible to buy reservations in multiples of 100 RU/s, enabling savings for all sizes of customers and workloads.
 
+## Scenarios
+
+Azure Cosmos DB reserved capacity covers throughput provisioned for your resources. It doesn't cover the storage and networking charges. As soon as you buy a reservation, the throughput charges that match the reservation attributes are no longer charged at the pay-as-you go rates. For more information on reservations, see the [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) article.
+
 ### Autoscale provisioned throughput
 
-Reserved capacity is applied to autoscale database operations at a rate of 100 RU/s x 1.5 x N regions. For the usable net RU/s per region of a reservation, the formula is inverted. 
+Reserved capacity is consumed by autoscale database operations at a rate of 100 RU/s x 1.5 x N regions. For the usable net RU/s per region of a reservation, the formula is inverted. 
 
 Examples:
 
@@ -48,7 +50,7 @@ Examples:
 
 ### Standard provisioned throughput
 
-Reserved capacity is applied to standard database operations at a rate of 100 RU/s x N regions. For the usable net RU/s per region of a reservation, the formula is inverted. 
+Reserved capacity is consumed by standard database operations at a rate of 100 RU/s x N regions. For the usable net RU/s per region of a reservation, the formula is inverted. 
 
 Examples:
 
