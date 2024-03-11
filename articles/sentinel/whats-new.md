@@ -1,10 +1,10 @@
 ---
 title: What's new in Microsoft Sentinel
-description: This article describes new features in Microsoft Sentinel from the past few months.
+description: Learn about the latest new features and announcement in Microsoft Sentinel from the past few months.
 author: yelevin
 ms.author: yelevin
-ms.topic: conceptual
-ms.date: 02/28/2024
+ms.topic: concept
+ms.date: 03/11/2024
 ---
 
 # What's new in Microsoft Sentinel

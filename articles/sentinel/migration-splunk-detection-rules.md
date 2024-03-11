@@ -1,10 +1,12 @@
 ---
-title: Migrate Splunk detection rules to Microsoft Sentinel | Microsoft Docs
+title: Migrate Splunk detection rules to Microsoft Sentinel
+titleSuffix: Microsoft Sentinel
 description: Learn how to identify, compare, and migrate your Splunk detection rules to Microsoft Sentinel built-in rules.
 author: limwainstein
 ms.author: lwainstein
 ms.topic: how-to
-ms.date: 03/08/2024
+ms.date: 03/11/2024
+#customer intent: As a SOC administrator, I want to migrate Splunk detection rules to KQL so I can migrate to Microsoft Sentinel.
 ---
 
 # Migrate Splunk detection rules to Microsoft Sentinel
@@ -22,11 +24,12 @@ Microsoft Sentinel uses machine learning analytics to create high-fidelity and a
 - Check that you understand the [rule terminology](#compare-rule-terminology).
 - Review any rules that haven't triggered any alerts in the past 6-12 months, and determine whether they're still relevant.
 - Eliminate low-level threats or alerts that you routinely ignore.
-- Use existing functionality, and check whether Microsoft Sentinel’s [built-in analytics rules](https://github.com/Azure/Azure-Sentinel/tree/master/Detections) might address your current use cases. Because Microsoft Sentinel uses machine learning analytics to produce high-fidelity and actionable incidents, it’s likely that some of your existing detections won’t be required anymore.
+- Use existing functionality, and check whether Microsoft Sentinel's [built-in analytics rules](https://github.com/Azure/Azure-Sentinel/tree/master/Detections) might address your current use cases. Because Microsoft Sentinel uses machine learning analytics to produce high-fidelity and actionable incidents, it's likely that some of your existing detections won't be required anymore.
 - Confirm connected data sources and review your data connection methods. Revisit data collection conversations to ensure data depth and breadth across the use cases you plan to detect.
+- Test the capabilities of the [SIEM migration experience](siem-migration.md) to determine if the automated translation is suitable.
 - Explore community resources such as the [SOC Prime Threat Detection Marketplace](https://my.socprime.com/platform-overview/) to check whether  your rules are available.
 - Consider whether an online query converter such as Uncoder.io might work for your rules. 
-- If rules aren’t available or can’t be converted, they need to be created manually, using a KQL query. Review the [rules mapping](#map-and-compare-rule-samples) to create new queries. 
+- If rules aren't available or can't be converted, they need to be created manually, using a KQL query. Review the [rules mapping](#map-and-compare-rule-samples) to create new queries. 
 
 Learn more about [best practices for migrating detection rules](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/best-practices-for-migrating-detection-rules-from-arcsight/ba-p/2216417).
 
@@ -41,6 +44,10 @@ Learn more about [best practices for migrating detection rules](https://techcomm
     1. **Confirm that you have any required data sources connected,** and review your data connection methods.
 
 1. Verify whether your detections are available as built-in templates in Microsoft Sentinel:
+    
+    - **Use the SIEM migration experience** to automate translation and migration.
+
+        For more information, see [Use the SIEM migration experience](siem-migration.md).
 
     - **If the built-in rules are sufficient**, use built-in rule templates to create rules for your own workspace.
 
@@ -48,7 +55,7 @@ Learn more about [best practices for migrating detection rules](https://techcomm
 
         For more information, see [Detect threats out-of-the-box](detect-threats-built-in.md).
 
-    - **If you have detections that aren't covered by Microsoft Sentinel's built-in rules**, try an online query converter, such as [Uncoder.io](https://uncoder.io/) to convert your queries to KQL.
+    - **If you have detections that aren't covered by Microsoft Sentinel's built-in rules**, try an online query converter, such as [Uncoder.io](https://uncoder.io/) or [SPL2KQL](https://azure.github.io/spl2kql) to convert your queries to KQL.
 
         Identify the trigger condition and rule action, and then construct and review your KQL query.
 
