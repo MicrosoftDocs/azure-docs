@@ -48,6 +48,9 @@ The following table describes the categories from the `_LogOperation` function.
 
 Ingestion operations are issues that occurred during data ingestion and include notification about reaching the Log Analytics workspace limits. Error conditions in this category might suggest data loss, so they're important to monitor. For service limits for Log Analytics workspaces, see [Azure Monitor service limits](../service-limits.md#log-analytics-workspaces).
 
+> [!IMPORTANT]
+> If you're troubleshooting data collection for a scenario that uses a data collection rule (DCR) such as Azure Monitor agent or Logs ingestion API, see [Monitor and troubleshoot DCR data collection in Azure Monitor](../essentials/data-collection-monitor.md) for additional troubleshooting information.
+
 #### Operation: Data collection stopped
 
 "Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota"

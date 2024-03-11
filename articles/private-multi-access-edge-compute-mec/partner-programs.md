@@ -40,7 +40,7 @@ Our operator partners include:
 - Deutsche Telekom
 - Elisa
 - Etisalat
-- Tampnet
+- [Tampnet](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/tampnetas1686124551117.azure_tampnet_private_network?tab=Overview)
 - TIM Brasil
 
 ### Technology Partners
@@ -90,7 +90,6 @@ Our application ISV partners include:
 - [Red Viking](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/redviking1587070336894.rv_argonaut_on_mec?exp=ubp8&tab=Overview)
 - [Scenera](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/scenerainc1695952178961.scenera-maistro-saas-1?tab=Overview)
 - [Sensing Feeling](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/sensingfeelinglimited1671143541932.001?exp=ubp8)
--[Tampnet](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/tampnetas1686124551117.azure_tampnet_private_network?tab=Overview)
 - Taqtile
 - [Trilogy Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/trilogynetworksinc1688507869081.farmgrid-preview?tab=Overview&flightCodes=dec2dcd1-ef23-41d8-bf58-ce0c9d9b17c1)
 - [Unmanned Life](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/unmanned_life.robot-orchestration?tab=Overview)

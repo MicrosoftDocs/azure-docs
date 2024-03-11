@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 02/07/2024
+ms.date: 03/01/2024
 ms.custom: generated
 ---
 
@@ -364,6 +364,7 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | Microsoft.CognitiveServices/accounts/ContentSafety/text:detectjailbreak/action | A synchronous API for the analysis of text jailbreak. |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/text:adaptiveannotate/action | A remote procedure call (RPC) operation. |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/text:detectungroundedness/action | A synchronous API for the analysis of language model outputs to determine if they align with the information provided by the user or contain fictional content. |
+> | Microsoft.CognitiveServices/accounts/ContentSafety/text:detectinjectionattacks/action | A synchronous API for the analysis of text injection attacks. |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/blocklisthitcalls/read | Show blocklist hit request count at different timestamps. |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/blocklisttopterms/read | List top terms hit in blocklist at different timestamps. |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/categories/severities/requestcounts/read | List API request count number of a specific category and a specific severity given a time range. Default maxpagesize is 1000. |
@@ -1186,6 +1187,9 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | Microsoft.CognitiveServices/accounts/OpenAI/assistants/threads/runs/write | Create or update assistant thread run. |
 > | Microsoft.CognitiveServices/accounts/OpenAI/assistants/threads/runs/read | Retrieve assistant thread run. |
 > | Microsoft.CognitiveServices/accounts/OpenAI/assistants/threads/runs/steps/read | Retrieve assistant thread run step. |
+> | Microsoft.CognitiveServices/accounts/OpenAI/batch-jobs/write | Creates Batch Inference jobs. |
+> | Microsoft.CognitiveServices/accounts/OpenAI/batch-jobs/delete | Deletes Batch Inference jobs. |
+> | Microsoft.CognitiveServices/accounts/OpenAI/batch-jobs/read | Gets information about batch jobs. |
 > | Microsoft.CognitiveServices/accounts/OpenAI/deployments/search/action | Search for the most relevant documents using the current engine. |
 > | Microsoft.CognitiveServices/accounts/OpenAI/deployments/completions/action | Create a completion from a chosen model. |
 > | Microsoft.CognitiveServices/accounts/OpenAI/deployments/read | Gets information about deployments. |
@@ -1606,6 +1610,10 @@ Azure service: [Machine Learning](/azure/machine-learning/)
 > | Microsoft.MachineLearningServices/workspaces/connections/write | Creates or updates a Machine Learning Services connection(s) |
 > | Microsoft.MachineLearningServices/workspaces/connections/delete | Deletes the Machine Learning Services connection(s) |
 > | Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action | Gets the Machine Learning Services connection with secret values |
+> | Microsoft.MachineLearningServices/workspaces/connections/deployments/read | Gets the Machine Learning Services AzureOpenAI Connection deployment |
+> | Microsoft.MachineLearningServices/workspaces/connections/deployments/write | Creates or Updates the Machine Learning Services AzureOpenAI Connection deployment |
+> | Microsoft.MachineLearningServices/workspaces/connections/deployments/delete | Deletes the Machine Learning Services AzureOpenAI Connection deployment |
+> | Microsoft.MachineLearningServices/workspaces/connections/models/read | Gets the Machine Learning Services AzureOpenAI Connection model |
 > | Microsoft.MachineLearningServices/workspaces/data/read | Reads Data container in Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/data/write | Writes Data container in Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/data/delete | Deletes Data container in Machine Learning Services Workspace(s) |
@@ -1712,6 +1720,9 @@ Azure service: [Machine Learning](/azure/machine-learning/)
 > | Microsoft.MachineLearningServices/workspaces/managedstorages/claim/read | Get my claims on data |
 > | Microsoft.MachineLearningServices/workspaces/managedstorages/claim/write | Update my claims on data |
 > | Microsoft.MachineLearningServices/workspaces/managedstorages/quota/read | Get my data quota usage |
+> | Microsoft.MachineLearningServices/workspaces/marketplaceSubscriptions/read | Gets the Machine Learning Service Workspaces Marketplace Subscription(s) |
+> | Microsoft.MachineLearningServices/workspaces/marketplaceSubscriptions/write | Creates or Updates the Machine Learning Service Workspaces Marketplace Subscription(s) |
+> | Microsoft.MachineLearningServices/workspaces/marketplaceSubscriptions/delete | Deletes the Machine Learning Service Workspaces Marketplace Subscription(s) |
 > | Microsoft.MachineLearningServices/workspaces/metadata/artifacts/read | Gets artifacts in Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/metadata/artifacts/write | Creates or updates artifacts in Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/metadata/artifacts/delete | Deletes artifacts in Machine Learning Services Workspace(s) |

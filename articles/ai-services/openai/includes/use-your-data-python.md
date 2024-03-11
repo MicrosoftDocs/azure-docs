@@ -5,7 +5,7 @@ author: mrbullwinkle #travisw
 ms.author: mbullwin #travisw
 ms.service: azure-ai-openai
 ms.topic: include
-ms.date: 11/09/2023
+ms.date: 03/07/2024
 ---
 
 [!INCLUDE [Set up required variables](./use-your-data-common-variables.md)]
@@ -82,12 +82,12 @@ pip install python-dotenv
 
        openai.requestssession = session
 
-   aoai_deployment_id = os.environ.get("AZURE_OPEN_AI_DEPLOYMENT_ID")
+   aoai_deployment_id = os.environ.get("AZURE_OPENAI_DEPLOYMENT_ID")
    setup_byod(aoai_deployment_id)
 
    completion = openai.ChatCompletion.create(
-       messages=[{"role": "user", "content": "What are the differences between Azure Machine Learning and Azure AI services?"}],
-       deployment_id=os.environ.get("AZURE_OPEN_AI_DEPLOYMENT_ID"),
+       messages=[{"role": "user", "content": "What are my available health plans?"}],
+       deployment_id=os.environ.get("AZURE_OPENAI_DEPLOYMENT_ID"),
        dataSources=[  # camelCase is intentional, as this is the format the API expects
            {
                "type": "AzureCognitiveSearch",
@@ -113,7 +113,7 @@ dotenv.load_dotenv()
 
 endpoint = os.environ.get("AZURE_OPENAI_ENDPOINT")
 api_key = os.environ.get("AZURE_OPENAI_API_KEY")
-deployment = os.environ.get("AZURE_OPEN_AI_DEPLOYMENT_ID")
+deployment = os.environ.get("AZURE_OPENAI_DEPLOYMENT_ID")
 
 client = openai.AzureOpenAI(
     base_url=f"{endpoint}/openai/deployments/{deployment}/extensions",
@@ -126,7 +126,7 @@ completion = client.chat.completions.create(
     messages=[
         {
             "role": "user",
-            "content": "How is Azure machine learning different than Azure OpenAI?",
+            "content": "What are my available health plans?",
         },
     ],
     extra_body={
