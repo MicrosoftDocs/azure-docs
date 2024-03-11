@@ -45,7 +45,7 @@ Microsoft Sentinel gives you flexibility as you zero in on the right set of hunt
 
 ### Hypothesis - Suspicious behavior
 
-1. For Microsoft Sentinel in the [Azure portal](https://portal.microsoft.com), under **Threat management**, select **Hunting**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Threat management** > **Hunting**.
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Threat management**, select **Hunting**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Threat management** > **Hunting**.
 
 1. Select the **Queries** tab. To identify potentially malicious behaviors, run all the queries.
 1. Select **Run All queries** > wait for the queries to execute. This process might take a while.
