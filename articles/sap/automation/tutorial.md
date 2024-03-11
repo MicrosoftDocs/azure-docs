@@ -251,6 +251,7 @@ echo "App registration password:  ${TF_VAR_webapp_client_secret}"
 ```
 
 rm manifest.json
+```
 
 >[!NOTE]
 >Ensure that you're logged on by using a user account that has the required permissions to create application registrations. For more information about app registrations, see [Create an app registration](/cli/azure/ad/app#az-ad-app-create).
@@ -337,7 +338,7 @@ The output maps to the following parameters. You use these parameters in later s
     Note the Terraform variable file locations for future edits during deployment.
 
 > [!IMPORTANT]
-> Ensure that the `dns_label` matches your Azure Private DNS.
+> Ensure that the `dns_label` matches your instance of Azure Private DNS.
 
 ## Deploy the control plane
 
@@ -482,7 +483,7 @@ To connect to your deployer VM:
 
 1. Find and select the secret that contains **sshkey**. It might look like `LAB-[REGION]-DEP05-sshkey`.
 
-1. On the secret's page, select the current version. Then, copy the **Secret value**.
+1. On the secret's page, select the current version. Then, copy the secret value.
 
 1. Open a plain text editor. Copy in the secret value.
 
@@ -872,7 +873,7 @@ For this example configuration, the resource group is `LAB-SECE-DEP05-INFRASTRUC
     vi sap-parameters.yaml
     ```
 
-1. Update the `bom_base_name` with the name BOM and replace `<Deployer KeyVault Name>` with the name of the deployer resource group Azure key vault.
+1. Update the `bom_base_name` with the name BOM. Replace `<Deployer KeyVault Name>` with the name of the Azure key vault for the deployer resource group.
 
     Your file should look similar to the following example configuration:
 
@@ -1069,7 +1070,7 @@ ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-a
 
 ```
 
-### Playbook: SCS install
+### Playbook: SCS installation
 
 This playbook installs SAP Central Services. For highly available configurations, the playbook also installs the SAP ERS instance and configures Pacemaker.
 
