@@ -35,7 +35,47 @@ Dimensions for the Microsoft.HDInsight/clusters table include:
 
 HDInsight doesn't use Azure Monitor resource logs or diagnostic settings. Logs are collected by other methods, including the use of the Log Analytics agent.
 
-### Log table mapping
+[!INCLUDE [horz-monitor-ref-logs-tables](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
+
+### HDInsight Clusters
+Microsoft.HDInsight/Clusters
+
+The available logs and metrics vary depending on your HDInsight cluster type.
+
+- [HDInsightAmbariClusterAlerts](/azure/azure-monitor/reference/tables/hdinsightambariclusteralerts#columns)
+- [HDInsightAmbariSystemMetrics](/azure/azure-monitor/reference/tables/hdinsightambarisystemmetrics#columns)
+- [HDInsightGatewayAuditLogs](/azure/azure-monitor/reference/tables/hdinsightgatewayauditlogs#columns)
+- [HDInsightHBaseLogs](/azure/azure-monitor/reference/tables/hdinsighthbaselogs#columns)
+- [HDInsightHBaseMetrics](/azure/azure-monitor/reference/tables/hdinsighthbasemetrics#columns)
+- [HDInsightHadoopAndYarnLogs](/azure/azure-monitor/reference/tables/hdinsighthadoopandyarnlogs#columns)
+- [HDInsightHadoopAndYarnMetrics](/azure/azure-monitor/reference/tables/hdinsighthadoopandyarnmetrics#columns)
+- [HDInsightHiveAndLLAPLogs](/azure/azure-monitor/reference/tables/hdinsighthiveandllaplogs#columns)
+- [HDInsightHiveAndLLAPMetrics](/azure/azure-monitor/reference/tables/hdinsighthiveandllapmetrics#columns)
+- [HDInsightHiveQueryAppStats](/azure/azure-monitor/reference/tables/hdinsighthivequeryappstats#columns)
+- [HDInsightHiveTezAppStats](/azure/azure-monitor/reference/tables/hdinsighthivetezappstats#columns)
+- [HDInsightJupyterNotebookEvents](/azure/azure-monitor/reference/tables/hdinsightjupyternotebookevents#columns)
+- [HDInsightKafkaLogs](/azure/azure-monitor/reference/tables/hdinsightkafkalogs#columns)
+- [HDInsightKafkaMetrics](/azure/azure-monitor/reference/tables/hdinsightkafkametrics#columns)
+- [HDInsightKafkaServerLog](/azure/azure-monitor/reference/tables/hdinsightkafkaserverlog#columns)
+- [HDInsightOozieLogs](/azure/azure-monitor/reference/tables/hdinsightoozielogs#columns)
+- [HDInsightRangerAuditLogs](/azure/azure-monitor/reference/tables/hdinsightrangerauditlogs#columns)
+- [HDInsightSecurityLogs](/azure/azure-monitor/reference/tables/hdinsightsecuritylogs#columns)
+- [HDInsightSparkApplicationEvents](/azure/azure-monitor/reference/tables/hdinsightsparkapplicationevents#columns)
+- [HDInsightSparkBlockManagerEvents](/azure/azure-monitor/reference/tables/hdinsightsparkblockmanagerevents#columns)
+- [HDInsightSparkEnvironmentEvents](/azure/azure-monitor/reference/tables/hdinsightsparkenvironmentevents#columns)
+- [HDInsightSparkExecutorEvents](/azure/azure-monitor/reference/tables/hdinsightsparkexecutorevents#columns)
+- [HDInsightSparkExtraEvents](/azure/azure-monitor/reference/tables/hdinsightsparkextraevents#columns)
+- [HDInsightSparkJobEvents](/azure/azure-monitor/reference/tables/hdinsightsparkjobevents#columns)
+- [HDInsightSparkLogs](/azure/azure-monitor/reference/tables/hdinsightsparklogs#columns)
+- [HDInsightSparkSQLExecutionEvents](/azure/azure-monitor/reference/tables/hdinsightsparksqlexecutionevents#columns)
+- [HDInsightSparkStageEvents](/azure/azure-monitor/reference/tables/hdinsightsparkstageevents#columns)
+- [HDInsightSparkStageTaskAccumulables](/azure/azure-monitor/reference/tables/hdinsightsparkstagetaskaccumulables#columns)
+- [HDInsightSparkTaskEvents](/azure/azure-monitor/reference/tables/hdinsightsparktaskevents#columns)
+- [HDInsightStormLogs](/azure/azure-monitor/reference/tables/hdinsightstormlogs#columns)
+- [HDInsightStormMetrics](/azure/azure-monitor/reference/tables/hdinsightstormmetrics#columns)
+- [HDInsightStormTopologyMetrics](/azure/azure-monitor/reference/tables/hdinsightstormtopologymetrics#columns)
+
+## Log table mapping
 
 The new Azure Monitor integration implements new tables in the Log Analytics workspace. The following tables show the log table mappings from the classic Azure Monitor integration to the new one.
 
@@ -107,46 +147,6 @@ The **New table** column shows the name of the new table. The **Description** ro
 | New table | Description | Classic table |
 | --- | --- | --- |
 | HDInsightOozieLogs | All logs generated from the Oozie framework. | Log\_oozie\_CL |
-
-[!INCLUDE [horz-monitor-ref-logs-tables](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
-
-### HDInsight Clusters
-Microsoft.HDInsight/Clusters
-
-The available logs and metrics vary depending on your HDInsight cluster type.
-
-- [HDInsightAmbariClusterAlerts](/azure/azure-monitor/reference/tables/hdinsightambariclusteralerts#columns)
-- [HDInsightAmbariSystemMetrics](/azure/azure-monitor/reference/tables/hdinsightambarisystemmetrics#columns)
-- [HDInsightGatewayAuditLogs](/azure/azure-monitor/reference/tables/hdinsightgatewayauditlogs#columns)
-- [HDInsightHBaseLogs](/azure/azure-monitor/reference/tables/hdinsighthbaselogs#columns)
-- [HDInsightHBaseMetrics](/azure/azure-monitor/reference/tables/hdinsighthbasemetrics#columns)
-- [HDInsightHadoopAndYarnLogs](/azure/azure-monitor/reference/tables/hdinsighthadoopandyarnlogs#columns)
-- [HDInsightHadoopAndYarnMetrics](/azure/azure-monitor/reference/tables/hdinsighthadoopandyarnmetrics#columns)
-- [HDInsightHiveAndLLAPLogs](/azure/azure-monitor/reference/tables/hdinsighthiveandllaplogs#columns)
-- [HDInsightHiveAndLLAPMetrics](/azure/azure-monitor/reference/tables/hdinsighthiveandllapmetrics#columns)
-- [HDInsightHiveQueryAppStats](/azure/azure-monitor/reference/tables/hdinsighthivequeryappstats#columns)
-- [HDInsightHiveTezAppStats](/azure/azure-monitor/reference/tables/hdinsighthivetezappstats#columns)
-- [HDInsightJupyterNotebookEvents](/azure/azure-monitor/reference/tables/hdinsightjupyternotebookevents#columns)
-- [HDInsightKafkaLogs](/azure/azure-monitor/reference/tables/hdinsightkafkalogs#columns)
-- [HDInsightKafkaMetrics](/azure/azure-monitor/reference/tables/hdinsightkafkametrics#columns)
-- [HDInsightKafkaServerLog](/azure/azure-monitor/reference/tables/hdinsightkafkaserverlog#columns)
-- [HDInsightOozieLogs](/azure/azure-monitor/reference/tables/hdinsightoozielogs#columns)
-- [HDInsightRangerAuditLogs](/azure/azure-monitor/reference/tables/hdinsightrangerauditlogs#columns)
-- [HDInsightSecurityLogs](/azure/azure-monitor/reference/tables/hdinsightsecuritylogs#columns)
-- [HDInsightSparkApplicationEvents](/azure/azure-monitor/reference/tables/hdinsightsparkapplicationevents#columns)
-- [HDInsightSparkBlockManagerEvents](/azure/azure-monitor/reference/tables/hdinsightsparkblockmanagerevents#columns)
-- [HDInsightSparkEnvironmentEvents](/azure/azure-monitor/reference/tables/hdinsightsparkenvironmentevents#columns)
-- [HDInsightSparkExecutorEvents](/azure/azure-monitor/reference/tables/hdinsightsparkexecutorevents#columns)
-- [HDInsightSparkExtraEvents](/azure/azure-monitor/reference/tables/hdinsightsparkextraevents#columns)
-- [HDInsightSparkJobEvents](/azure/azure-monitor/reference/tables/hdinsightsparkjobevents#columns)
-- [HDInsightSparkLogs](/azure/azure-monitor/reference/tables/hdinsightsparklogs#columns)
-- [HDInsightSparkSQLExecutionEvents](/azure/azure-monitor/reference/tables/hdinsightsparksqlexecutionevents#columns)
-- [HDInsightSparkStageEvents](/azure/azure-monitor/reference/tables/hdinsightsparkstageevents#columns)
-- [HDInsightSparkStageTaskAccumulables](/azure/azure-monitor/reference/tables/hdinsightsparkstagetaskaccumulables#columns)
-- [HDInsightSparkTaskEvents](/azure/azure-monitor/reference/tables/hdinsightsparktaskevents#columns)
-- [HDInsightStormLogs](/azure/azure-monitor/reference/tables/hdinsightstormlogs#columns)
-- [HDInsightStormMetrics](/azure/azure-monitor/reference/tables/hdinsightstormmetrics#columns)
-- [HDInsightStormTopologyMetrics](/azure/azure-monitor/reference/tables/hdinsightstormtopologymetrics#columns)
 
 [!INCLUDE [horz-monitor-ref-activity-log](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
 
