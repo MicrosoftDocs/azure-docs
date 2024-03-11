@@ -5,7 +5,7 @@ author: roygara
 ms.service: azure-elastic-san-storage
 ms.custom: devx-track-azurepowershell
 ms.topic: conceptual
-ms.date: 02/13/2024
+ms.date: 03/11/2024
 ms.author: rogarana
 ---
 
@@ -149,8 +149,6 @@ az elastic-san volume snapshot delete -g "resourceGroupName" -e "san_name" -v "v
 
 Elastic SAN volume snapshots are automatically deleted when the volume is deleted. If you need your snapshot's data to persist beyond deletion, export them to managed disk snapshots. The export process will take time and will depend on the size of the snapshot. You can check how much is left before completion by checking the CompletionPercentage property of the managed disk snapshot. Once you export an elastic SAN snapshot to a managed disk snapshot, the managed disk snapshot begins to incur billing charges. Elastic SAN snapshots don't have any extra billing associated with them, they only consume your elastic SAN's capacity.
 
-Currently, you can only export snapshots using the Azure portal. The Azure PowerShell module and the Azure CLI can't be used to export snapshots.
-
 # [Portal](#tab/azure-portal)
 
 1. Navigate to your elastic SAN and select **Volume snapshots**.
@@ -159,11 +157,17 @@ Currently, you can only export snapshots using the Azure portal. The Azure Power
 
 # [PowerShell](#tab/azure-powershell)
 
+Replace the variables in the following script, then run it:
+
 ```azurepowershell
-$elasticSanVolumeSnapshotResourceId =  "<yourSnapshotResourceID>"
+$elasticSanName = <nameHere>
+$volGroupName = <nameHere>
 $region = <yourRegion>
 $rgName = <yourResourceGroupName>
+$elasticSanSnapshotName = <ElasticSanSnapshotName>
 $newSnapName = <NameOfNewSnapshot>
+
+$elasticSanVolumeSnapshotResourceId = (Get-AzElasticSanVolumeSnapshot -ElasticSanName $elasticSanName -ResourceGroupName $rgName -VolumeGroupName $volGroupName -name $elasticSanSnapshotName).Id
 
 $snapshotconfig = New-AzSnapshotConfig -Location $region -AccountType Standard_LRS -CreateOption CopyFromSanSnapshot -ElasticSanResourceId $elasticSanVolumeSnapshotResourceId
 New-AzSnapshot -ResourceGroupName $rgName -SnapshotName $newSnapName -Snapshot $snapshotconfig;
@@ -172,11 +176,19 @@ New-AzSnapshot -ResourceGroupName $rgName -SnapshotName $newSnapName -Snapshot $
 
 # [Azure CLI](#tab/azure-cli)
 
+Replace the variables in the following script, then run it:
+
 ```azurecli
+region=<yourRegion>
+rgName=<ResourceGroupName>
+sanName=<yourElasticSANName>
+vgName=<yourVolumeGroupName>
+sanSnapName=<yourElasticSANSnapshotName>
+diskSnapName=<nameForNewDiskSnapshot>
 
-snapID=$(az elastic-san volume snapshot show -g "rg" -e "san_name" -v "vg_name" -n "snapshot_name")
+snapID=$(az elastic-san volume snapshot show -g $rgName -e $sanName -v $vgName -n $sanSnapName --query 'id' |  tr -d \"~)
 
-az snapshot create -g "resourceGroupName" -n "snapshotName" --elastic-san-id <yourElasticSANSnapshotURI>
+az snapshot create -g $rgName --name $diskSnapName --elastic-san-id $snapID --location $region
 ```
 
 
@@ -186,15 +198,7 @@ az snapshot create -g "resourceGroupName" -n "snapshotName" --elastic-san-id <yo
 
 Currently, you can only use the Azure portal to create Elastic SAN volumes from managed disks snapshots. The Azure PowerShell module and the Azure CLI can't be used to create Elastic SAN volumes from managed disk snapshots. Managed disk snapshots must be in the same region as your elastic SAN to create volumes with them.
 
-# [Portal](#tab/azure-portal)
-
 1. Navigate to your SAN and select **volumes**.
 1. Select **Create volume**.
 1. For **Source type** select **Disk snapshot** and fill out the rest of the values.
 1. Select **Create**.
-
-# [PowerShell](#tab/azure-powershell)
-
-# [Azure CLI](#tab/azure-cli)
-
----
