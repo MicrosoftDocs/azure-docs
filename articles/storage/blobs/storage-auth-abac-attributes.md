@@ -6,7 +6,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 02/07/2024
+ms.date: 03/11/2024
 ms.reviewer: nachakra
 ---
 

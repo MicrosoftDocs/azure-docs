@@ -8,7 +8,7 @@ ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.reviewer: nachakra
 ms.custom: devx-track-azurepowershell
-ms.date: 02/08/2024
+ms.date: 03/11/2024
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
 ---
 
@@ -1028,7 +1028,7 @@ Set-AzRoleAssignment -InputObject $testRa -PassThru
 
 ---
 
-## Example: Write or delete blobs in container with specific metadata
+### Example: Write or delete blobs in container with specific metadata
 
 This condition allows users to write or delete blobs in storage containers named with a specific metadata key/value pair.
 
@@ -1419,10 +1419,9 @@ To add the condition using the code editor, copy the condition code sample and p
  )
  OR 
  (
-  @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:include] ForAnyOfAnyValues:StringEqualsIgnoreCase {'metadata', 'snapshots', 'versions'}
+  @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:include] ForAllOfAnyValues:StringEqualsIgnoreCase {'metadata', 'snapshots', 'versions'}
  )
 )
-
 ```
 
 In this example, the condition restricts the read action when the suboperation is `Blob.List`. This means that a List Blobs operation is further evaluated against the expression that checks the include values, but all other read actions are allowed.
@@ -1481,7 +1480,6 @@ To add the condition using the code editor, copy the condition code sample and p
   @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:include] ForAnyOfAnyValues:StringNotEquals {'metadata'}
  )
 )
-
 ```
 
 In this example, the condition restricts the read action when the suboperation is `Blob.List`. This means that a List Blobs operation is further evaluated against the expression that checks the include values, but all other read actions are allowed.
