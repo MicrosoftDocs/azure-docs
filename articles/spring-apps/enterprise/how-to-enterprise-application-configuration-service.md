@@ -443,13 +443,14 @@ And here is an example output of this command:
 You can also use this command with `--export-path {/path/to/target/folder}` parameter to export the configuration file to the specified folder. It supports both relative path and absolute path. If not specified, it will take the path of current directory.
 
 ## Check configuration file in the container
-After you bind the app to Application Configuration Service, and set the [Pattern](#pattern) for the app deployment accroding to [Use Application Configuration Service with applications](#use-application-configuration-service-with-applications) section, you can check the configuration files in the container for each instance of that app deployment with following steps:
+After you bind the app to Application Configuration Service, and set the [Pattern](#pattern) for the app deployment according to [Use Application Configuration Service with applications](#use-application-configuration-service-with-applications) section, the ConfigMap containing the configuration file for the pattern should be mounted to the application container, you can check the configuration files in each instance of that app deployment with following steps:
 
 1. Connect to one of the instances according to [Connect to an app instance for troubleshooting](./how-to-connect-to-app-instance-for-troubleshooting.md).
-2. Use the command `echo $SPRING_CONFIG_ADDITIONAL_LOCATION` to find the configuration files, and it will show you a list of locations separated by comma. Following is an exmaple, yours may vary.
+2. Use the command `echo $AZURE_SPRING_APPS_CONFIG_FILE_PATH` to find the folders containing the configuration files, it will show a list of locations separated by comma. Following is an example, yours may vary.
    - ```output
-     > echo $SPRING_CONFIG_ADDITIONAL_LOCATION
-     > file:/xxx/xxx/configmap/acs-default-example-service-blue-xxx/,file:/etc/azure-spring-cloud/context/azure-spring-apps.properties,file:/etc/azure-spring-cloud/context/azure-spring-apps-deployment.properties`
+     $ echo $AZURE_SPRING_APPS_CONFIG_FILE_PATH
+     /etc/azure-spring-cloud/configmap/acs-default-payment-default-e9d46,/etc/azure-spring-cloud/configmap/acs-default-catalog-default-616f4
+     ```
 3. Then check the content of configuration file with commands like `cat`.
 
 ## Check logs
@@ -547,7 +548,7 @@ If the latest changes aren't reflected in the applications, check the following 
   - Confirm that the branch of the desired config file changes is updated.
   - Confirm that the pattern configured in the Application Configuration Service matches the updated config files.
   - Confirm that the application is bound to the Application Configuration Service.
-- Confirm that the `ConfigMap` containing the configuration file for the [Pattern](#pattern) used by the application is updated accroding to [Check configuration file in the ConfigMap](#check-configuration-file-in-the-configmap) section. If it isn't updated, raise a ticket.
+- Confirm that the `ConfigMap` containing the configuration file for the [Pattern](#pattern) used by the application is updated according to [Check configuration file in the ConfigMap](#check-configuration-file-in-the-configmap) section. If it isn't updated, raise a ticket.
 - Confirm that the `ConfigMap` is mounted to the application as a file according to [Check configuration file in the container](#check-configuration-file-in-the-container) section. If the file isn't updated, wait for the Kubernetes refresh interval (1 minute), or force a refresh by restarting the application.
 
 After checking these items, the applications should be able to read the updated configurations. If the applications still aren't updated, raise a ticket.
