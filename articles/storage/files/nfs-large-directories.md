@@ -10,7 +10,7 @@ ms.author: kendownie
 
 # Working with large directories in NFS Azure file shares
 
-This article provides recommendations for working with NFS directories that contain large numbers of files. Although it's usually a good practice to reduce the number of files in a single directory by spreading the files over multiple directories, there are situations in which large directories can't be avoided. Consider the following suggestions when working with large directories on NFS Azure file shares that are mounted on Linux clients.
+This article provides recommendations for working with NFS directories that contain large numbers of files. It's usually a good practice to reduce the number of files in a single directory by spreading the files over multiple directories. However, there are situations in which large directories can't be avoided. Consider the following suggestions when working with large directories on NFS Azure file shares that are mounted on Linux clients.
 
 ## Applies to
 
@@ -26,18 +26,18 @@ The following mount options are specific to enumeration and can reduce latency w
 
 ### actimeo
 
-Specifying `actimeo` sets all of `acregmin`, `acregmax`, `acdirmin`, and `acdirmax` to the same value. We recommend setting `actimeo` between 30 and 60 seconds. Setting a higher value makes the attributes remain valid for a longer time period in the client's attribute cache, allowing operations to get file attributes from the cache instead of fetching them over the wire. This can reduce latency in situations where the cached attributes expire while the operation is still running. Experiment with different values until you get the desired performance benefit.
+Specifying `actimeo` sets all of `acregmin`, `acregmax`, `acdirmin`, and `acdirmax` to the same value. We recommend setting `actimeo` between 30 and 60 seconds. Setting a higher value makes the attributes remain valid for a longer time period in the client's attribute cache, allowing operations to get file attributes from the cache instead of fetching them over the wire. Therefore, higher values can reduce latency in situations where the cached attributes expire while the operation is still running. Experiment with different values until you get the desired performance benefit.
 
 ### nconnect
 
-`Nconnect` is a client-side mount option that allows you to use multiple TCP connections between the client and the Azure Premium Files service for NFSv4.1. We recommend the optimal setting of `nconnect=4` to reduce latency and improve performance. This can be especially useful for workloads that use asynchronous or synchronous I/O from multiple threads. [Learn more](nfs-performance.md#nconnect).
+`Nconnect` is a client-side mount option that allows you to use multiple TCP connections between the client and the Azure Premium Files service for NFSv4.1. We recommend the optimal setting of `nconnect=4` to reduce latency and improve performance. `Nconnect` can be especially useful for workloads that use asynchronous or synchronous I/O from multiple threads. [Learn more](nfs-performance.md#nconnect).
 
 ## Commands and operations
 
 The way commands and operations are specified can also affect performance. Listing all the files in a large directory using the `ls` command is a good example.
 
 > [!NOTE]
-> Some operations such as recursive `ls`, `find`, and `du` need both file names and file attributes, so they combine directory enumerations (to get the entries) with a stat on each entry (to get the attributes). We suggest using a high value for [actimeo](#actimeo) on mount points where such commands are likely to be run.
+> Some operations such as recursive `ls`, `find`, and `du` need both file names and file attributes, so they combine directory enumerations (to get the entries) with a stat on each entry (to get the attributes). We suggest using a high value for [actimeo](#actimeo) on mount points where you're likely to run such commands.
 
 ### Use unaliased ls
 
@@ -51,9 +51,9 @@ In some Linux distributions, the shell automatically sets default options for th
 
 ### Prevent ls from sorting its output
 
-When using `ls` with other commands, you can improve performance by preventing `ls` from sorting its output in situations where you don't care about the order that `ls` returns the files. Sorting the output adds significant overhead, as you can see from the performance chart.
+When using `ls` with other commands, you can improve performance by preventing `ls` from sorting its output in situations where you don't care about the order that `ls` returns the files. Sorting the output adds significant overhead.
 
-For example, instead of running `ls -l | wc -l` to get the total number of files, you can use the `-f` or `-U` options with `ls` to prevent the output from being sorted. The difference is that `-f` will also show hidden files, and `-U` will not.
+For example, instead of running `ls -l | wc -l` to get the total number of files, you can use the `-f` or `-U` options with `ls` to prevent the output from being sorted. The difference is that `-f` will also show hidden files, and `-U` won't.
 
 For example, if you're directly calling the `ls` binary in Ubuntu, you would run `/usr/bin/ls -1f | wc -l` or `/usr/bin/ls -1U | wc -l`.
 
@@ -63,11 +63,11 @@ When copying data from an NFS file share or backing up from NFS file shares to a
 
 ## Application-level recommendations
 
-When developing applications that will use large directories with NFS file shares, follow these recommendations.
+When developing applications that use large directories with NFS file shares, follow these recommendations.
 
 - **Skip file attributes.** If the application only needs the file name and not file attributes like file type or last modified time, you can use multiple calls to system calls such as `getdents64` with a good buffer size. This will get the entries in the specified directory without the file type, making the operation faster by avoiding extra operations that aren't needed.  
 
-- **Interleave stat calls.** If the application needs attributes as well as the files, we recommend interleaving the stat calls along with `getdents64`. This means that instead of getting all entries till EOF with `getdents64` and then doing a statx on all entries returned, it would be more efficient to do statx calls after each `getdents64`.
+- **Interleave stat calls.** If the application needs attributes and the file name, we recommend interleaving the stat calls along with `getdents64`. Instead of getting all entries until end of file with `getdents64` and then doing a statx on all entries returned, it would be more efficient to do statx calls after each `getdents64`.
 
 ## See also
 
