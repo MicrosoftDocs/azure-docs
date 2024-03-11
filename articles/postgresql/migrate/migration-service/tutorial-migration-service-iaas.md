@@ -20,7 +20,7 @@ This tutorial guides you in migrating a PostgreSQL instance from your on-premise
 
 The migration service in Azure Database for PostgreSQL is a fully managed service integrated into the Azure portal and Azure CLI. It's designed to simplify your migration journey to Azure Database for PostgreSQL flexible server.
 
-In this article, you learn:
+In this article, you learn to:
 > [!div class="checklist"]
 > - Prerequisites  
 > - Configure the migration task

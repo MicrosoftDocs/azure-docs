@@ -7,8 +7,8 @@ ms.reviewer: maghan
 ms.date: 03/19/2024
 ms.service: postgresql
 ms.subservice: flexible-server
-ms.custom: devx-track-azurecli
 ms.topic: tutorial
+#customer intent: As a developer, I want to learn how to migrate from AWS RDS to Azure Database for PostgreSQL using the migration service, so that I can simplify the transition and ensure data integrity.
 ---
 
 # Tutorial: Migrate from AWS RDS PostgreSQL to Azure Database for PostgreSQL using the migration service (offline)
@@ -19,7 +19,7 @@ This tutorial guides you in migrating a PostgreSQL instance from your AWS RDS to
 
 The migration service in Azure Database for PostgreSQL is a fully managed service that's integrated into the Azure portal and Azure CLI. It's designed to simplify your migration journey to Azure Database for PostgreSQL flexible server.
 
-In this article, you learn:
+In this article, you learn to:
 > [!div class="checklist"]
 > - Prerequisites  
 > - Configure the migration task
