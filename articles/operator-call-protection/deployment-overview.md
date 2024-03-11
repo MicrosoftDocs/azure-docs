@@ -24,10 +24,11 @@ You must deploy an Azure Communications Gateway resource and enable Azure Operat
 
 Your network must connect to Azure Communications Gateway and thus Azure Operator Call Protection over SIPREC.
 
-- Azure Operator Call Protection takes the role of the SIPREC Session Recording Server (SRS).
+- Azure Communications Gateway takes the role of the SIPREC Session Recording Server (SRS).
 - An element in your network, typically a session border controller (SBC), must be set up as a SIPREC Session Recording Client (SRC).
 
-This SIPREC connection is different to other services available through Azure Communication Gateway. Ensure your network design takes this into account.
+> [!IMPORTANT]
+> This SIPREC connection is different to other services available through Azure Communication Gateway. Ensure your network design takes this into account.
 
 When you deploy Azure Operator Call Protection, you can access Azure Communication's Gateway's _Included Benefits_ customer success and onboarding service. This onboarding service includes a project team to help you design and set up your network for success. For more information about Included Benefits, see [Onboarding with Included Benefits for Azure Communications Gateway](../communications-gateway/onboarding.md).
 
