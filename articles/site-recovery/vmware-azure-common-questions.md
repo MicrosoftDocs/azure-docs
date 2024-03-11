@@ -381,6 +381,9 @@ Yes. If you failed over to Azure, you can fail back to a different location if t
 
 When you fail back from Azure, data from Azure is copied back to your on-premises VM, and private access is required.
 
+### Can I use On-demand capacity reservation with VMware(also Physical) to IaaS scenario?
+
+No. ASR cannot use On-demand capacity reservation unless it's Azure to Azure scenario.
 
 ## Automation and scripting
 
