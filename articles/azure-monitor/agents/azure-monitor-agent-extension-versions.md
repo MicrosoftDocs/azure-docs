@@ -53,8 +53,8 @@ We strongly recommended to always update to the latest version, or opt in to the
 | July 2021 | <ul><li>Support for direct proxies</li><li>Support for Log Analytics gateway</li></ul> [Learn more](https://azure.microsoft.com/updates/general-availability-azure-monitor-agent-and-data-collection-rules-now-support-direct-proxies-and-log-analytics-gateway/) | 1.1.1 | 1.10.5.0 |
 | June 2021 | General availability announced. <ul><li>All features except metrics destination now generally available</li><li>Production quality, security, and compliance</li><li>Availability in all public regions</li><li>Performance and scale improvements for higher EPS</li></ul> [Learn more](https://azure.microsoft.com/updates/azure-monitor-agent-and-data-collection-rules-now-generally-available/) | 1.0.12 | 1.9.1.0 |
 
-<sup>Hotfix</sup> Don't use AMA Linux versions v1.10.7, v1.15.1, v1.25.2 and AMA Windows v1.1.3.1, v1.1.5.0. Use the hotfix versions.
-<sup>1</sup> Known issue: No data collected from Linux Arc-enabled servers
+<sup>Hotfix</sup> Don't use AMA Linux versions v1.10.7, v1.15.1, v1.25.2 and AMA Windows v1.1.3.1, v1.1.5.0. Use the hotfix versions.<br/>
+<sup>1</sup> Known issue: No data collected from Linux Arc-enabled servers<br/>
 <sup>2</sup> Known issue: Linux performance counters data stops flowing on restarting or rebooting the machines.
 
 ## Next steps
