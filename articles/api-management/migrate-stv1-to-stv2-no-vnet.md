@@ -1,6 +1,6 @@
 ---
 title: Migrate to stv2 platform - Azure API Management - Non-VNet injected
-description: Migrate your Azure API Management instance from the stv1 compute platform to the stv2 platform. Follow these migration steps if your API Management instance isn't deployed (injected) in an external or internal VNet.
+description: Migrate your Azure API Management instance in-place from the stv1 compute platform to the stv2 platform. Follow these migration steps if your API Management instance isn't deployed (injected) in an external or internal VNet.
 
 author: dlepow
 ms.service: api-management
@@ -12,7 +12,7 @@ ms.author: danlep
 
 # Migrate a non-VNet-injected API Management instance to the stv2 compute platform
 
-This article provides steps to migrate an API Management instance hosted on the `stv1` compute platform to the `stv2` platform when the instance *is not* injected (deployed) in an external or internal VNet. For this scenario, migrate your instance using the Azure portal or the [Migrate to stv2](/rest/api/apimanagement/current-ga/api-management-service/migratetostv2) REST API. [Find out if you need to do this](compute-infrastructure.md#how-do-i-know-which-platform-hosts-my-api-management-instance).  
+This article provides steps to migrate an API Management instance hosted on the `stv1` compute platform in-place to the `stv2` platform when the instance *is not* injected (deployed) in an external or internal VNet. For this scenario, migrate your instance using the Azure portal or the [Migrate to stv2](/rest/api/apimanagement/current-ga/api-management-service/migratetostv2) REST API. [Find out if you need to do this](compute-infrastructure.md#how-do-i-know-which-platform-hosts-my-api-management-instance).  
 
 If you need to migrate a *VNnet-injected* API Management hosted on the `stv1` platform, see [Migrate a VNet-injected API Management instance to the stv2 platform](migrate-stv1-to-stv2-vnet.md).
 

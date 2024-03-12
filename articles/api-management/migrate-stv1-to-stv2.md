@@ -12,17 +12,17 @@ ms.author: danlep
 
 # Migrate an API Management instance hosted on the stv1 platform to stv2
 
-Here we help you find guidance to migrate your API Management instance hosted on the `stv1` compute platform to the newer `stv2` platform. [Find out if you need to do this?](compute-infrastructure.md#how-do-i-know-which-platform-hosts-my-api-management-instance).
+Here we help you find guidance to migrate your API Management instance hosted on the `stv1` compute platform to the newer `stv2` platform. [Find out if you need to do this](compute-infrastructure.md#how-do-i-know-which-platform-hosts-my-api-management-instance).
 
 There are two different migration scenarios, depending on whether or not your API Management instance is currently deployed (injected) in an [external](api-management-using-with-vnet.md) or [internal](api-management-using-with-internal-vnet.md) VNet. Choose the migration guide for your scenario. Both scenarios migrate an existing instance in-place to the `stv2` platform.
 
 [!INCLUDE [api-management-migration-alert](../../includes/api-management-migration-alert.md)]
 
-## Migration scenarios
+## In-place migration scenarios
 
 * [**Scenario 1: Migrate a non-VNet-injected API Management instance**](migrate-stv1-to-stv2-no-vnet.md) - Migrate your instance to the `stv2` platform using the portal or the [Migrate to stv2](/rest/api/apimanagement/current-ga/api-management-service/migratetostv2) REST API.   
 
-* [**Scenario 2: Migrate a VNet-injected API Management instance**](migrate-stv1-to-stv2-vnet.md) - Migrate your instance to the `stv2` platform by upd.ating the VNet configuration settings
+* [**Scenario 2: Migrate a VNet-injected API Management instance**](migrate-stv1-to-stv2-vnet.md) - Migrate your instance to the `stv2` platform by updating the VNet configuration settings
 
 ## Alternative: Side-by-side deployment
 

@@ -1,6 +1,6 @@
 ---
 title: Migrate to stv2 platform - Azure API Management - VNet injected
-description: Migrate your Azure API Management instance from the stv1 compute platform to the stv2 platform. Follow these migration steps if your API Management instance is deployed (injected) in an external or internal VNet.
+description: Migrate your Azure API Management instance in-place from the stv1 compute platform to the stv2 platform. Follow these migration steps if your API Management instance is deployed (injected) in an external or internal VNet.
 
 author: dlepow
 ms.service: api-management
@@ -12,7 +12,7 @@ ms.author: danlep
 
 # Migrate a VNet-injected API Management instance hosted on the stv1 platform to stv2
 
-This article provides steps to migrate an API Management instance hosted on the `stv1` compute platform to the `stv2` platform when the instance is injected (deployed) in an [external](api-management-using-with-vnet.md) or [internal](api-management-using-with-internal-vnet.md) VNet. For this scenario, migrate your instance by updating the VNet configuration settings. [Find out if you need to do this](compute-infrastructure.md#how-do-i-know-which-platform-hosts-my-api-management-instance).
+This article provides steps to migrate an API Management instance hosted on the `stv1` compute platform in-place to the `stv2` platform when the instance is injected (deployed) in an [external](api-management-using-with-vnet.md) or [internal](api-management-using-with-internal-vnet.md) VNet. For this scenario, migrate your instance by updating the VNet configuration settings. [Find out if you need to do this](compute-infrastructure.md#how-do-i-know-which-platform-hosts-my-api-management-instance).
 
 If you need to migrate a *non-VNnet-injected* API Management hosted on the `stv1` platform, see [Migrate a non-VNet-injected API Management instance to the stv2 platform](migrate-stv1-to-stv2-no-vnet.md).
 
@@ -29,7 +29,7 @@ If you need to migrate a *non-VNnet-injected* API Management hosted on the `stv1
 
 API Management platform migration from `stv1` to `stv2` involves updating the underlying compute alone and has no impact on the service/API configuration persisted in the storage layer.
 
-* The upgrade process involves creating a new compute in parallel to the old compute. The old compute takes 15-45 minutes to be deleted with an option to delay it for up to 48 hours. The 48 hour delay option is only available for VNet-injected services.
+* The upgrade process involves creating a new compute in parallel to the old compute, which can take up to 45 minutes.
 * The API Management status in the Azure portal will be **Updating**.
 * The VIP address (or addresses, for a multi-region deployment) of the instance will change. 
 * Azure manages the management endpoint DNS, and updates to the new compute immediately on successful migration. 
@@ -38,6 +38,7 @@ API Management platform migration from `stv1` to `stv2` involves updating the un
 * For an instance in internal VNet mode, customer manages the DNS, so the DNS entries continue to point to old compute until updated by the customer.
 * It's the DNS that points to either the new or the old compute and hence no downtime to the APIs.
 * Changes are required to your firewall rules, if any, to allow the new compute subnet to reach the backends.
+* . After successful migration, the old compute is automatically decommissioned after approximately 15 minutes by default, with an option to delay it for up to 48 hours. *The 48 hour delay option is only available for VNet-injected services.* *The 48 hour delay option is only available for VNet-injected services.*
 
 ## Prerequisites
 
@@ -50,7 +51,10 @@ API Management platform migration from `stv1` to `stv2` involves updating the un
 > [!IMPORTANT]
 > When you update the VNet configuration for migration to the `stv2` platform, you must provide a public IP address address resource (or resources, if your API Management is deployed to multiple Azure regions), or migration won't succeed. In internal VNet mode, this public IP address is used only for Azure internal management operations and doesn't expose your gateway to the internet.
 
-For details, see [Prerequisites for network connections](api-management-using-with-vnet.md#prerequisites).
+    For details, see [Prerequisites for network connections](api-management-using-with-vnet.md#prerequisites).
+
+* (Optional) Contact Azure support to request that the original service infrastructure is maintained in parallel for up to 48 hours after successful migration. This option extends the period when the old infrastructure is available after migration beyond the default of 15 minutes before it is purged. This option is available only for VNet-injected services to allow service owners to update network settings and test applications to use the new infrastructure.
+
 
 ## Trigger migration of a network-injected API Management instance
 
