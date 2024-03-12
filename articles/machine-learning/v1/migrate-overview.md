@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.reviewer: larryfr
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 03/04/2024
+ms.date: 03/11/2024
 ---
 
 # Migrate to Azure Machine Learning from ML Studio (classic)

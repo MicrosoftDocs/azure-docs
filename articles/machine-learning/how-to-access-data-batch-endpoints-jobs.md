@@ -24,7 +24,7 @@ Batch endpoints can be used to perform long batch operations over large amounts 
 
 To successfully invoke a batch endpoint and create jobs, ensure you have the following:
 
-* You have permissions to run a batch endpoint deployment. Read [Authorization on batch endpoints](how-to-authenticate-batch-endpoint.md) to know the specific permissions needed.
+* You have permissions to run a batch endpoint deployment. **AzureML Data Scientist**, **Contributor**, and **Owner** roles can be used to run a deployment. For custom roles definitions read [Authorization on batch endpoints](how-to-authenticate-batch-endpoint.md) to know the specific permissions needed.
 
 * You have a valid Microsoft Entra ID token representing a security principal to invoke the endpoint. This principal can be a user principal or a service principal. In any case, once an endpoint is invoked, a batch deployment job is created under the identity associated with the token. For testing purposes, you can use your own credentials for the invocation as mentioned below.
 
