@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 03/06/2024
+ms.date: 03/10/2024
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -23,10 +23,39 @@ If you're looking for items older than six months, you can find them in the [Arc
 ## March 2024
 
 |Date | Update |
-|----------|----------|
+|--|--|
+| March 13 | [ServiceNow integration is now generally available (GA)](#servicenow-integration-is-now-generally-available-ga) |
+| March 13 | [Critical assets protection in Microsoft Defender for Cloud (Preview)](#critical-assets-protection-in-microsoft-defender-for-cloud-preview) |
+| March 13 | [General availability of Permissions Management in Defender for Cloud](#general-availability-of-permissions-management-in-defender-for-cloud) |
+| March 13 | [Enhanced AWS and GCP recommendations with automated remediation scripts](#enhanced-aws-and-gcp-recommendations-with-automated-remediation-scripts) |
 | March 6 | [(Preview) Compliance standards added to compliance dashboard](#preview-compliance-standards-added-to-compliance-dashboard)  |
 | March 5 | [Deprecation of two recommendations related to PCI](#deprecation-of-two-recommendations-related-to-pci) |
 | March 3 | [Defender for Cloud Containers Vulnerability Assessment powered by Qualys retirement](#defender-for-cloud-containers-vulnerability-assessment-powered-by-qualys-retirement) |
+
+### ServiceNow integration is now generally available (GA)
+
+March 13, 2024
+
+The ServiceNow integration with Defender for Cloud is now generally available (GA). This integration enables customers to [connect ServiceNow to their Defender for Cloud environment](connect-servicenow.md). As part of this connection, customers [can manually create and view ServiceNow tickets](create-ticket-servicenow.md) (linked to recommendations) from Defender for Cloud. You can also create governance rules that automatically [assign ownership of specific recommendations or all recommendations with a selected severity level](create-governance-rule-servicenow.md).
+
+### Critical assets protection in Microsoft Defender for Cloud (Preview)
+
+March 13, 2024
+
+Defender for Cloud now includes a business criticality feature, using Microsoft Security Exposure Management’s critical assets engine, to identify and protect important assets through risk prioritization, attack path analysis, and cloud security explorer. For more information, see [Critical assets protection in Microsoft Defender for Cloud (Preview)](critical-assets-protection.md).
+
+### General availability of Permissions Management in Defender for Cloud
+
+March 13, 2024
+
+We're announcing the general availability (GA) of [Permissions Management](permissions-management.md) in Defender for Cloud.
+
+### Enhanced AWS and GCP recommendations with automated remediation scripts
+
+March 13, 2024
+
+We're enhancing the AWS and GCP recommendations with automated remediation scripts that allow you to remediate them programmatically and at scale.
+Learn more about [automated remediation scripts](implement-security-recommendations.md#use-the-automated-remediation-scripts).
 
 ### (Preview) Compliance standards added to compliance dashboard
 
@@ -94,11 +123,10 @@ The Defender for Cloud Containers Vulnerability Assessment powered by Qualys is 
 
 February 28, 2024
 
-The updated experience for managing security policies, initially released in Preview for Azure, is expanding its support to cross cloud (AWS and GCP) environments. This Preview release includes:
-
+The updated experience for managing security policies, initially released in Preview for Azure, is expanding its support to cross cloud (AWS and GCP) environments. This Preview release includes: 
 - Managing [regulatory compliance standards](update-regulatory-compliance-packages.md) in Defender for Cloud across Azure, AWS, and GCP environments.
 - Same cross cloud interface experience for creating and managing [Microsoft Cloud Security Benchmark(MCSB) custom recommendations](manage-mcsb.md).
-- The updated experience is applied to AWS and GCP for [creating custom recommendations with a KQL query](create-custom-recommendations.md).
+- The updated experience is applied to AWS and GCP for [creating custom recommendations with a KQL query](create-custom-recommendations.md). 
 
 ### Cloud support for Defender for Containers
 
