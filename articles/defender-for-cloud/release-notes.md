@@ -24,35 +24,28 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 |Date | Update |
 |--|--|
-| March 13 | [ServiceNow integration is now generally available (GA)](#servicenow-integration-is-now-generally-available-ga) |
-| March 13 | [Critical assets protection in Microsoft Defender for Cloud (Preview)](#critical-assets-protection-in-microsoft-defender-for-cloud-preview) |
-| March 13 | [Permissions Management is now generally available (GA)](#permissions-management-is-now-generally-available-ga) |
-| March 13 | [Enhanced AWS and GCP recommendations with automated remediation scripts](#enhanced-aws-and-gcp-recommendations-with-automated-remediation-scripts) |
+| March 12 | [ServiceNow integration is now generally available (GA)](#servicenow-integration-is-now-generally-available-ga) |
+| March 12 | [Critical assets protection in Microsoft Defender for Cloud (Preview)](#critical-assets-protection-in-microsoft-defender-for-cloud-preview) |
+| March 12 | [Enhanced AWS and GCP recommendations with automated remediation scripts](#enhanced-aws-and-gcp-recommendations-with-automated-remediation-scripts) |
 | March 6 | [(Preview) Compliance standards added to compliance dashboard](#preview-compliance-standards-added-to-compliance-dashboard)  |
 | March 5 | [Deprecation of two recommendations related to PCI](#deprecation-of-two-recommendations-related-to-pci) |
 | March 3 | [Defender for Cloud Containers Vulnerability Assessment powered by Qualys retirement](#defender-for-cloud-containers-vulnerability-assessment-powered-by-qualys-retirement) |
 
 ### ServiceNow integration is now generally available (GA)
 
-March 13, 2024
+March 12, 2024
 
 We're announcing the general availability (GA) of the [ServiceNow integration](integration-servicenow.md).
 
 ### Critical assets protection in Microsoft Defender for Cloud (Preview)
 
-March 13, 2024
+March 12, 2024
 
 Defender for Cloud now includes a business criticality feature, using Microsoft Security Exposure Management’s critical assets engine, to identify and protect important assets through risk prioritization, attack path analysis, and cloud security explorer. For more information, see [Critical assets protection in Microsoft Defender for Cloud (Preview)](critical-assets-protection.md).
 
-### Permissions Management is now generally available (GA)
-
-March 13, 2024
-
-We're announcing the general availability (GA) of [Permissions Management](permissions-management.md) in Defender for Cloud.
-
 ### Enhanced AWS and GCP recommendations with automated remediation scripts
 
-March 13, 2024
+March 12, 2024
 
 We're enhancing the AWS and GCP recommendations with automated remediation scripts that allow you to remediate them programmatically and at scale.
 Learn more about [automated remediation scripts](implement-security-recommendations.md#use-the-automated-remediation-scripts).
