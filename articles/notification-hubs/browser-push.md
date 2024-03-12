@@ -149,6 +149,42 @@ The following examples show the registration request body for a native registrat
 }   
 ```
 
+### .NET SDK
+
+Create native registrations:
+
+```csharp
+await notificationHubClient.CreateBrowserNativeRegistrationAsync(subscriptionInfo, tagSet);
+```
+
+Create template registrations:
+
+```csharp
+await notificationHubClient.CreateBrowserTemplateRegistrationAsync(subscriptionInfo, template, tagSet);
+```
+
+Create browser installations:
+
+```csharp
+var browserPushSubscription = new BrowserPushSubscription 
+            { 
+                Endpoint = "", 
+                P256DH = "", 
+                Auth = "", 
+            }; 
+
+var browserInstallation = new BrowserInstallation 
+            { 
+                InstallationId = installationId, 
+                Tags = tags, 
+                Subscription = browserPushSubscription, 
+                UserId = userId, 
+                ExpirationTime = DateTime.UtcNow.AddDays(1), 
+            }; 
+
+await notificationHubClient.CreateOrUpdateInstallationAsync(browserInstallation);
+```
+
 ## Send push notifications
 
 After you [set credentials for browser push](#set-credentials) and [create registrations and installations](#create-registrations-and-installations) for the devices, you're ready to create push notifications. This section describes how to create a notification for a [direct send|](#create-direct-sends), [audience send](#create-audience-sends), and [debug (test) send](#create-debugtest-sends).
@@ -178,6 +214,19 @@ To create a direct send notification, follow these steps:
    You can specify other fields in the body; for example, `icon`, to change the icon per message.
 
 1. Send the notification.
+
+You can also use the .NET SDK to create a direct send:
+
+```csharp
+var browserSubscriptionEndpoint = ""; 
+var browserPushHeaders = new Dictionary<string, string> 
+            { 
+               { "P256DH", "" }, 
+               { "Auth", "" }, 
+            }; 
+
+var directSendOutcome = await notificationHubClient.SendDirectNotificationAsync(new BrowserNotification("payload", browserPushHeaders), browserSubscriptionEndpoint);
+```
 
 ### Create audience sends
 
