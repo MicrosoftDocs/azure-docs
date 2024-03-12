@@ -67,8 +67,7 @@ Create a bookmark to preserve the queries, results, your observations, and findi
 
 1. Select **Save** to commit your changes and add the bookmark. All bookmarked data is shared with other analysts, and is a first step toward a collaborative investigation experience.
 
-> [!NOTE]
-> The log query results support bookmarks whenever this pane is opened from Microsoft Sentinel. For example, you select **General** > **Logs** from the navigation bar, select event links in the investigations graph, or select an alert ID from the full details of an incident. You can't create bookmarks when the **Logs** pane is opened from other locations, such as directly from Azure Monitor.
+The log query results support bookmarks whenever this pane is opened from Microsoft Sentinel. For example, you select **General** > **Logs** from the navigation bar, select event links in the investigations graph, or select an alert ID from the full details of an incident. You can't create bookmarks when the **Logs** pane is opened from other locations, such as directly from Azure Monitor.
 
 ## View and update bookmarks
 
