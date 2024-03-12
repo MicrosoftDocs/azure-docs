@@ -95,7 +95,7 @@ Use the following steps to install [cert-manager](https://docs.cert-manager.io) 
         solvers:
           - http01:
                ingress:
-                  class: azure/application-gateway
+                  ingressclassName: azure/application-gateway
     EOF
     ```
 

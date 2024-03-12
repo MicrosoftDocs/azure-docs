@@ -37,13 +37,13 @@ Contoso also wants to reduce the amount of data at the edge and send the final d
 
 Complete the following tasks to prepare your environment.
 
-### Create a service principal
-
-[!INCLUDE [create-service-principal-fabric](../includes/create-service-principal-fabric.md)]
-
 ### Grant access to your Azure Data Explorer database
 
-To add the service principal to the database, navigate to the Azure Data Explorer portal and run the following query on your database. Replace the placeholders with the values you made a note of when you created the service principal:
+Before you can write to Azure Data Explorer from a data pipeline, enable access for the managed identity associated with the data processor in your database. The advantage of using the managed identity instead of creating your own service principal is that you don't need to manage the lifecycle of the service principal. The managed identity is automatically created and managed by the data processor extension.
+
+[!INCLUDE [get-managed-identity](../includes/get-managed-identity.md)]
+
+To add the managed identity to the database, navigate to the Azure Data Explorer portal and run the following query on your database. Replace the placeholders with the values you made a note of in the previous step:
 
 ```kusto
 .add database ['bakery_ops'] admins ('aadapp=<app-ID>;<tenant-ID>');
@@ -76,12 +76,6 @@ To add a table to the `bakery_ops` database to store the anomaly data, navigate 
 ['VibrationAnomaly']:bool
 )
 ```
-
-### Add a secret to your cluster
-
-To access the Azure Data Explorer database from a Data Processor pipeline, you need to enable your cluster to access the service principal details you created earlier. You need to configure your Azure Key Vault with the service principal details so that the cluster can retrieve them.
-
-[!INCLUDE [add-cluster-secret](../includes/add-cluster-secret.md)]
 
 ## Assets and measurements
 
@@ -445,10 +439,7 @@ The next step is to create a Data Processor pipeline that sends the transformed 
         "database": "bakery_ops",
         "table": "edge_data",
         "authentication": {
-            "type": "servicePrincipal",
-            "tenantId": "your tenant ID",
-            "clientId": "your client ID",
-            "clientSecret": "AIOFabricSecret"
+            "type": "managedIdentity"
         },
         "batch": {
             "time": "5s",

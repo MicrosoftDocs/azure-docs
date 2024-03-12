@@ -21,15 +21,6 @@ This article contains known issues for Azure IoT Operations Preview.
 
 - Uninstalling K3s: When you uninstall k3s on Ubuntu by using the `/usr/local/bin/k3s-uninstall.sh` script, you might encounter an issue where the script gets stuck on unmounting the NFS pod. A workaround for this issue is to run the following command before you run the uninstall script: `sudo systemctl stop k3s`.
 
-## Azure IoT Data Processor Preview
-
-If the data processor extension fails to uninstall, run the following commands and try the uninstall operation again:
-
-```bash
-kubectl delete pod  aio-dp-reader-worker-0 --grace-period=0 --force -n azure-iot-operations
-kubectl delete pod  aio-dp-reader-worker-0 --grace-period=0 --force -n azure-iot-operations
-```
-
 ## Azure IoT MQ (preview)
 
 - You can only access the default deployment by using the cluster IP, TLS, and a service account token. Clients outside the cluster need extra configuration before they can connect.
@@ -44,8 +35,7 @@ kubectl delete pod  aio-dp-reader-worker-0 --grace-period=0 --force -n azure-iot
 
 - You might encounter an error in the KafkaConnector StatefulSet event logs such as `Invalid value: "mq-to-eventhub-connector-<token>--connectionstring": must be no more than 63 characters`. Ensure your KafkaConnector name is of maximum 5 characters.
 
-- You may encounter timeout errors in the Kafka connector and Event Grid connector logs. Despite this, the connector will continue to function and forward messages. 
-
+- You may encounter timeout errors in the Kafka connector and Event Grid connector logs. Despite this, the connector will continue to function and forward messages.
 
 ## Layered Network Management (preview)
 
@@ -62,6 +52,10 @@ kubectl delete pod  aio-dp-reader-worker-0 --grace-period=0 --force -n azure-iot
 ## OPC UA Broker (preview)
 
 - All AssetEndpointProfiles in the cluster have to be configured with the same transport authentication certificate, otherwise the OPC UA Broker might exhibit random behavior. To avoid this issue when using transport authentication, configure all asset endpoints with the same thumbprint for the transport authentication certificate in the Azure IoT Operations portal.
+
+- If you deploy an AssetEndpointProfile into the cluster and the OPC UA Broker can't connect to the configured endpoint on the first attempt, then the OPC UA Broker never retries to connect.
+
+    As a workaround, first fix the connection problem. Then either restart all the pods in the cluster with pod names that start with "aio-opc-opc.tcp", or delete the AssetEndpointProfile and deploy it again.
 
 ## OPC PLC simulator
 
