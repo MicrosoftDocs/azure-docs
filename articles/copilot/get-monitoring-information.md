@@ -23,7 +23,7 @@ When you ask Microsoft Copilot for Azure (preview) for this information, it auto
 
 ## Answer questions about Azure Monitor platform metrics
 
-Use Microsoft Copilot for Azure (preview) to ask questions about your Azure Monitor metrics. When asked about metrics for a particular resource, Microsoft Copilot for Auzre (preview) generates a graph, summarizes the results, and allows you to further explore the data in Metrics Explorer. When asked about what metrics are available, Microsoft Copilot for Azure (preview) will describe the platform metrics available for the given resource type.
+Use Microsoft Copilot for Azure (preview) to ask questions about your Azure Monitor metrics. When asked about metrics for a particular resource, Microsoft Copilot for Azure (preview) generates a graph, summarizes the results, and allows you to further explore the data in Metrics Explorer. When asked about what metrics are available, Microsoft Copilot for Azure (preview) describes the platform metrics available for the given resource type.
 
 ### Sample prompts
 
