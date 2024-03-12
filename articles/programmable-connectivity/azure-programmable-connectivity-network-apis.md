@@ -4,7 +4,7 @@ titleSuffix: Azure Programmable Connectivity
 description: Network Application Programming Interfaces (APIs) can be utilized by software developers to build applications that can communicate with the underlying network.
 author: anzaman
 ms.author: alzam
-ms.service: azure-operator-nexus
+ms.service: azure-programmable-connectivity
 ms.topic: overview 
 ms.date: 01/08/2024
 ms.custom: template-overview
