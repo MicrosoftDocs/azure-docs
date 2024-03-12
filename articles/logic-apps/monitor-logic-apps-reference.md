@@ -18,7 +18,7 @@ See [Monitor Logic Apps](monitor-logic-apps.md) for details on the data you can 
 ### Supported metrics for Microsoft.Logic/IntegrationServiceEnvironments
 The following table lists the metrics available for the Microsoft.Logic/IntegrationServiceEnvironments resource type.
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-[!INCLUDE [Microsoft.Logic/IntegrationServiceEnvironments](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/logic-integrationserviceenvironments-metrics-include.md)]
+[!INCLUDE [Microsoft.Logic/IntegrationServiceEnvironments](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-logic-integrationserviceenvironments-metrics-include.md)]
 
 ### Supported metrics for Microsoft.Logic/Workflows
 The following table lists the metrics available for the Microsoft.Logic/Workflows resource type.
