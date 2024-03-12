@@ -1,6 +1,6 @@
 ---
 title: Edit and manage pipelines
-description: Use the advanced features in the Digital Operations portal to edit pipelines and import and export pipelines from Azure IoT Data Processor Preview.
+description: Use the advanced features in the Digital Operations portal to edit Azure IoT Data Processor pipelines and import and export pipelines.
 author: dominicbetts
 ms.author: dobett
 ms.subservice: data-processor
