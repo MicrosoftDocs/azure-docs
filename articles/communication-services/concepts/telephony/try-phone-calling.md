@@ -9,7 +9,7 @@ ms.author: boris.bazilevskiy
 ms.date: 03/13/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.subservice: telephony
+ms.subservice: pstn
 ---
 
 # Try Phone Calling
