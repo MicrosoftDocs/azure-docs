@@ -27,7 +27,7 @@ This article describes the Microsoft Sentinel experience in the Microsoft Defend
 
 ## Quick reference
 
-Some Microsoft Sentinel capabilities are integrated with Microsoft Defender XDR in the unified SOC platform like the unified incident queue. Many other Microsoft Sentinel capabilities are available in the **Microsoft Sentinel** section of the Defender portal.
+Some Microsoft Sentinel capabilities, like the unified incident queue, are integrated with Microsoft Defender XDR in the unified SOC platform. Many other Microsoft Sentinel capabilities are available in the **Microsoft Sentinel** section of the Defender portal.
 
 :::image type="content" source="media/microsoft-sentinel-defender-portal/sentinel-defender-portal.png" alt-text="Screenshot of the Defender portal left navigation with the Microsoft Sentinel section.":::
 
@@ -51,13 +51,15 @@ The **Threat management** section in the Azure portal includes the features list
 
 |Azure portal  |Defender portal  |
 |---------|---------|
-|Incidents    |   Investigation & response > Incidents & alerts       |
+|Incidents    |   Investigation & response > Incidents & alerts > Incidents      |
 |Workbooks     | Microsoft Sentinel > Threat management> Workbooks      |
 |Hunting     | Microsoft Sentinel > Threat management >  Hunting      |
 |Notebooks     | Microsoft Sentinel > Threat management >  Notebooks         |
-|Entity behavior     |  **Not available??** OR Microsoft Sentinel > Threat management >  Entity behavior       |
+|Entity behavior     |  Not available \*       |
 |Threat intelligence    | Microsoft Sentinel > Threat management >  Threat intelligence        |
 |MITRE ATT&CK|Microsoft Sentinel > Threat management > MITRE ATT&CK  |
+
+\* The Entity behavior search page is not available in the Defender platform. However, entity pages for the User, Device, IP, and Azure resource entity types can be found on the details page for each of those entities as they appear within incidents and alerts.
 
 ### Content management
 
