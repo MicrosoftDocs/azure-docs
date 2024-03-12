@@ -31,7 +31,7 @@ Use the following steps to enable distributed functions.
 
 1. Open your static web app in the Azure portal.
    
-1. From the Settings section, select APIs.
+1. From the *Settings* section, select **APIs**.
 
 1. Check the box labeled **Distributed functions**.
 
