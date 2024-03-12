@@ -35,14 +35,31 @@ The following table lists the metrics available for the Microsoft.NotificationHu
 [!INCLUDE [Microsoft.NotificationHubs/namespaces/notificationHubs](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-notificationhubs-namespaces-notificationhubs-logs-include.md)]
 
 [!INCLUDE [horz-monitor-ref-logs-tables](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
+<!-- No table(s) at https://learn.microsoft.com/azure/azure-monitor/reference/tables/tables-resourcetype. -->
 
-<!-- Find the table(s) for your service at https://learn.microsoft.com/azure/azure-monitor/reference/tables/tables-resourcetype. These files are auto generated from the REST API. -->
+Azure Notification Hubs supports activity and operational logs, which capture management operations that are performed on the Notification Hubs namespace. All logs are stored in JavaScript Object Notation (JSON) format in the following two locations:
 
-### Notification Hubs
-<ResourceType/namespace>
-- [TableName](/azure/azure-monitor/reference/tables/tablename#columns)
+- **AzureActivity**: Displays logs from operations and actions that are conducted against the namespace in the Azure portal or through Azure Resource Manager template deployments.
+- **AzureDiagnostics**: Displays logs from operations and actions that are conducted against the namespace by using the API, or through management clients on the language SDK.
+
+Diagnostic log JSON strings include the elements listed in the following table:
+
+| Name | Description |
+| ------- | ------- |
+| time | UTC timestamp of the log |
+| resourceId | Relative path to the Azure resource |
+| operationName | Name of the management operation |
+| category | Log category. Valid values: `OperationalLogs` |
+| callerIdentity | Identity of the caller who initiated the management operation |
+| resultType | Status of the management operation. Valid values: `Succeeded` or `Failed` |
+| resultDescription | Description of the management operation |
+| correlationId | Correlation ID of the management operation (if specified) |
+| callerIpAddress | The caller IP address. Empty for calls that originated from the Azure portal |
 
 [!INCLUDE [horz-monitor-ref-activity-log](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
+
+Operational logs capture all management operations that are performed on the Azure Notification Hubs namespace. Data operations aren't captured, because of the high volume of data operations that are conducted on notification hubs. The following management operations are captured in operational logs:
+
 - [Microsoft.NotificationHubs resource provider operations](/azure/role-based-access-control/permissions/integration#microsoftnotificationhubs)
 
 ## Related content

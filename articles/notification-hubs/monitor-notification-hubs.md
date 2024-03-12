@@ -25,7 +25,11 @@ For a list of available metrics for Notification Hubs, see [Notification Hubs mo
 
 [!INCLUDE [horz-monitor-resource-logs](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 
-For the available resource log categories, their associated Log Analytics tables, and the logs schemas for Notification Hubs, see [Notification Hubs monitoring data reference](monitor-notification-hubs-reference.md#resource-logs).
+Azure Notification Hubs supports activity and operational logs, which capture management operations that are performed on the Notification Hubs namespace.
+
+- For details about where the logs are stored, the logs schema, and how to enable operational logs, see [Notification Hubs diagnostics logs](notification-hubs-diagnostic-logs.md).
+
+- For the available resource log categories, associated Log Analytics tables, and the management operations captured in operational logs, see [Notification Hubs monitoring data reference](monitor-notification-hubs-reference.md#resource-logs).
 
 [!INCLUDE [horz-monitor-activity-log](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 

@@ -61,7 +61,7 @@ For calls originating from the Azure portal the `identity` field is empty. The l
 }
 ```
 
-For calls made through Azure Resource Manager the `identity` field will contain the username of the logged in user.
+For calls made through Azure Resource Manager the `identity` field contains the username of the logged in user.
 
 ```json
 {
@@ -70,7 +70,7 @@ For calls made through Azure Resource Manager the `identity` field will contain 
 }
 ```
 
-For calls to the Notification Hubs REST API the `identity` field will contain the name of the access policy used to generate the SharedAccessSignature token.
+For calls to the Notification Hubs REST API the `identity` field contains the name of the access policy used to generate the SharedAccessSignature token.
 
 ```json
 {
@@ -81,33 +81,11 @@ For calls to the Notification Hubs REST API the `identity` field will contain th
 
 ## Events and operations captured in operational logs
 
-Operational logs capture all management operations that are performed on the Azure Notification Hubs namespace. Data operations are not captured, because of the high volume of data operations that are conducted on Azure Notification Hubs.
+Operational logs capture all management operations that are performed on the Azure Notification Hubs namespace. Data operations aren't captured, because of the high volume of data operations that are conducted on notification hubs.
 
-The following management operations are captured in operational logs: 
+For a list of the management operations that are captured in operational logs, see [Activity log](monitor-notification-hubs-reference.md#activity-log).
 
-| Scope | Operation Name | Operation Description |
-| :-- | :-- | :-- |
-| Namespace | Microsoft.NotificationHubs/Namespaces/authorizationRules/action | List Authorization Rules |
-| Namespace | Microsoft.NotificationHubs/Namespaces/authorizationRules/delete | Delete Authorization Rule |
-| Namespace | Microsoft.NotificationHubs/Namespaces/authorizationRules/listkeys/action | List Keys |
-| Namespace | Microsoft.NotificationHubs/Namespaces/authorizationRules/read | Get Authorization Rule |
-| Namespace | Microsoft.NotificationHubs/Namespaces/authorizationRules/regenerateKeys/action | Regenerate Keys |
-| Namespace | Microsoft.NotificationHubs/Namespaces/authorizationRules/write | Create or Update Authorization Rule |
-| Namespace | Microsoft.NotificationHubs/Namespaces/delete | Delete Namespace |
-| Namespace | Microsoft.NotificationHubs/Namespaces/read | Get Namespace |
-| Namespace | Microsoft.NotificationHubs/Namespaces/write | Create or Update Namespace |
-| Notification Hub | Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules/action | List Authorization Rules |
-| Notification Hub | Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules/delete | Delete Authorization Rule |
-| Notification Hub | Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules/listkeys/action | List Keys |
-| Notification Hub | Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules/read | Read Authorization Rule |
-| Notification Hub | Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules/regenerateKeys/action | Regenerate Keys |
-| Notification Hub | Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules/write | Create or Update Authorization Rule |
-| Notification Hub | Microsoft.NotificationHubs/Namespaces/NotificationHubs/delete | Delete Notification Hub |
-| Notification Hub | Microsoft.NotificationHubs/Namespaces/NotificationHubs/pnsCredentials/action | Create, Update, or Get PNS Credentials |
-| Notification Hub | Microsoft.NotificationHubs/Namespaces/NotificationHubs/read | Get Notification Hub |
-| Notification Hub | Microsoft.NotificationHubs/Namespaces/NotificationHubs/write | Create or Update Notification Hub |
-
-## Enable operational logs
+### Enable operational logs
 
 Operational logs are disabled by default. To enable logs, do the following:
 
@@ -138,7 +116,7 @@ Operational logs are disabled by default. To enable logs, do the following:
 
 The new settings take effect in about 10 minutes. The logs are displayed in the configured archival target, in the **Diagnostics logs** pane.
 
-## Next steps
+## Related content
 
 To learn more about configuring diagnostics settings, see:
 * [Overview of Azure diagnostics logs](../azure-monitor/essentials/platform-logs-overview.md).
