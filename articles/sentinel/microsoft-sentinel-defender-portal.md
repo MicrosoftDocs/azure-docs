@@ -60,7 +60,7 @@ The following table lists the changes in navigation between the Azure and Defend
 
 ### Threat management
 
-The **Threat management** section in the Azure portal includes the features listed in the following table. This table lists the changes in navigation between the Azure and Defender portals for features in this section.
+The following table lists the changes in navigation between the Azure and Defender portals for the **Threat management**  section in the Azure portal.
 
 |Azure portal  |Defender portal  |
 |---------|---------|
@@ -68,14 +68,14 @@ The **Threat management** section in the Azure portal includes the features list
 |Workbooks     | Microsoft Sentinel > Threat management> Workbooks      |
 |Hunting     | Microsoft Sentinel > Threat management >  Hunting      |
 |Notebooks     | Microsoft Sentinel > Threat management >  Notebooks         |
-|Entity behavior     |  Not available. The entity pages for the User, Device, IP, and Azure resource entity types are found on the details page for each of those entities as they appear within incidents and alerts.      |
+|Entity behavior     |  Not available. Find the entity pages for the user, device, IP, and Azure resource entity types on the details page for each of those entities as they appear within incidents and alerts.      |
 |Threat intelligence    | Microsoft Sentinel > Threat management >  Threat intelligence        |
 |MITRE ATT&CK|Microsoft Sentinel > Threat management > MITRE ATT&CK  |
 
 
 ### Content management
 
-The **Content management** section in the Azure portal includes the features listed in the following table. This table lists the changes in navigation between the Azure and Defender portals for features in this section.
+The following table lists the changes in navigation between the Azure and Defender portals for the **Content management** section in the Azure portal.
 
 |Azure portal  |Defender portal  |
 |---------|---------|
@@ -85,7 +85,7 @@ The **Content management** section in the Azure portal includes the features lis
 
 ### Configuration
 
-The **Configuration** section in the Azure portal includes the features listed in the following table. This table lists the changes in navigation between the Azure and Defender portals for features in this section.
+The following table lists the changes in navigation between the Azure and Defender portals for the **Configuration**section in the Azure portal.
 
 |Azure portal  |Defender portal  |
 |---------|---------|
