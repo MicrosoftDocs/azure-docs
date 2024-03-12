@@ -14,9 +14,9 @@ ms.custom:
 # Overview of deploying Azure Operator Call Protection
 
 Azure Operator Call Protection is built on Azure Communications Gateway.
-You must deploy an Azure Communications Gateway resource and enable Azure Operator Call Protection on it.
 
-[!INCLUDE [operator-call-protection-ucaas-restriction](includes/operator-call-protection-ucaas-restriction.md)]
+- If you already have Azure Communications Gateway, you can enable Azure Operator Call Protection on it.
+- If you don't have Azure Communications Gateway, you must deploy it first and then configure Azure Operator Call Protection.
 
 ## Planning your deployment
 
@@ -36,10 +36,11 @@ When you deploy Azure Operator Call Protection, you can access Azure Communicati
 
 ## Deploying Operator Call Protection
 
-When you're ready to deploy Azure Operator Call Protection, follow:
+Deploy Azure Operator Call Protection with the following procedures.
 
-1. [Prepare to deploy Azure Communications Gateway](../communications-gateway/prepare-to-deploy.md?toc=/azure/operator-call-protection/toc.json&bc=/azure/operator-call-protection/breadcrumb/toc.json).
-1. [Deploy Azure Communications Gateway](../communications-gateway/deploy.md?toc=/azure/operator-call-protection/toc.json&bc=/azure/operator-call-protection/breadcrumb/toc.json).
+1. If you don't already have Azure Communications Gateway, deploy it.
+    1. [Prepare to deploy Azure Communications Gateway](../communications-gateway/prepare-to-deploy.md?toc=/azure/operator-call-protection/toc.json&bc=/azure/operator-call-protection/breadcrumb/toc.json).
+    1. [Deploy Azure Communications Gateway](../communications-gateway/deploy.md?toc=/azure/operator-call-protection/toc.json&bc=/azure/operator-call-protection/breadcrumb/toc.json).
 1. [Set up Azure Operator Call Protection](set-up-operator-call-protection.md), including provisioning subscribers using the Number Management Portal and testing your deployment.
 
 > [!TIP]

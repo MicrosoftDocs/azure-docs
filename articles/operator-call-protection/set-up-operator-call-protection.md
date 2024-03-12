@@ -24,10 +24,10 @@ Before you can launch your Azure Operator Call Protection service, you and your 
 
 ## Prerequisites
 
-You must complete the following procedures.
+If you don't already have Azure Communications Gateway, you must complete the following procedures.
 
 - [Prepare to deploy Azure Communications Gateway](../communications-gateway/prepare-to-deploy.md)
-- [Deploy Azure Communications Gateway](../communications-gateway/deploy.md) - with Azure Operator Call Protection enabled
+- [Deploy Azure Communications Gateway](../communications-gateway/deploy.md)
 
 ## Enable Azure Operator Call Protection
 
