@@ -11,7 +11,7 @@ ms.service: logic-apps
 
 [!INCLUDE [horz-monitor-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
 
-For a detailed guide describing how to monitor Azure Logic Apps workflow run status, review trigger and workflow run history, and set up alerts, see [Monitor workflows](monitor-workflows.md).
+For a detailed guide describing how to monitor Azure Logic Apps workflow run status, review trigger and workflow run history, and set up alerts, see [Monitor workflows](monitor-logic-apps.md).
 
 [!INCLUDE [horz-monitor-insights](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights.md)]
 
@@ -24,29 +24,29 @@ You can set up Application Insights for a workspace or for a logic app after cre
 If your logic app's creation and deployment settings support using Application Insights, you can optionally enable diagnostics logging and tracing for your logic app's workflow. For more information, see [Enable or open Application Insights after deployment](create-single-tenant-workflows-azure-portal.md#enable-open-application-insights).
 
 [!INCLUDE [horz-monitor-resource-types](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
-For more information about the resource types for Azure Logic Apps, see [Logic Apps monitoring data reference](monitor-logic-apps-reference.md).
+For more information about the resource types for Azure Logic Apps, see [Azure Logic Apps monitoring data reference](monitor-logic-apps-reference.md).
 
 [!INCLUDE [horz-monitor-data-storage](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-data-storage.md)]
 
 [!INCLUDE [horz-monitor-platform-metrics](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 
 - For a detailed guide showing how to check health and performance metrics for both Consumption and Standard logic app workflows, see [View metrics for workflow health and performance](view-workflow-metrics.md).
-- For a list of available metrics for Logic Apps, see [Logic Apps monitoring data reference](monitor-logic-apps-reference.md#metrics).
+- For a list of available metrics for Azure Logic Apps, see [Azure Logic Apps monitoring data reference](monitor-logic-apps-reference.md#metrics).
 
 [!INCLUDE [horz-monitor-resource-logs](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 
-- For a detailed walkthrough showing how to set up Azure Monitor Logs and a Log Analytics workspace for Logic Apps workflows, see [Monitor and collect diagnostic data for workflows in Azure Logic Apps](monitor-workflows-collect-diagnostic-data.md).
+- For a detailed walkthrough showing how to set up Azure Monitor Logs and a Log Analytics workspace for Azure Logic Apps workflows, see [Monitor and collect diagnostic data for workflows in Azure Logic Apps](monitor-workflows-collect-diagnostic-data.md).
 
 - To learn how to set up diagnostic logging and monitor logic apps in Microsoft Defender for Cloud, see [Set up logging to monitor logic apps in Microsoft Defender for Cloud](healthy-unhealthy-resource.md).
 
-- For the available resource log categories, their associated Log Analytics tables, and the logs schemas for Logic Apps, see [Logic Apps monitoring data reference](monitor-logic-apps-reference.md#resource-logs).
+- For the available resource log categories, their associated Log Analytics tables, and the logs schemas for Azure Logic Apps, see [Azure Logic Apps monitoring data reference](monitor-logic-apps-reference.md#resource-logs).
 
-## Integration account B2B workflow
+## Monitoring for B2B workflows
 
-Logic Apps includes built-in tracking that you can enable for parts of your workflow. To help you monitor the successful delivery or receipt, errors, and properties for business-to-business (B2B) messages, you can create and use AS2, X12, and custom tracking schemas in your integration account.
+Azure Logic Apps includes built-in tracking that you can enable for parts of your workflow. To help you monitor the successful delivery or receipt, errors, and properties for business-to-business (B2B) messages, you can create and use AS2, X12, and custom tracking schemas in your integration account.
 
-- To monitor an automated business-to-business (B2B) messaging workflow in a Logic Apps integration account, see [Set up Azure Monitor logs and collect diagnostics data for B2B messages](monitor-b2b-messages-log-analytics.md).
-- For a reference guide to the syntax and attributes for the tracking schemas, see [Tracking schemas for monitoring B2B messages](tracking-schemas-as2-x12-custom.md)
+- To monitor an automated business-to-business (B2B) messaging workflow in Azure Logic Apps, see [Set up Azure Monitor logs and collect diagnostics data for B2B messages](monitor-b2b-messages-log-analytics.md).
+- For a reference guide to the syntax and attributes for the tracking schemas, see [Tracking schemas for monitoring B2B messages](tracking-schemas-as2-x12-custom.md).
 
 [!INCLUDE [horz-monitor-activity-log](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 
@@ -56,11 +56,11 @@ Logic Apps includes built-in tracking that you can enable for parts of your work
 
 [!INCLUDE [horz-monitor-kusto-queries](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
 
-For a detailed guide showing how to view and create queries for Logic Apps, see [View and create queries for monitoring and tracking](create-monitoring-tracking-queries.md).
+For a detailed guide showing how to view and create queries for Azure Logic Apps, see [View and create queries for monitoring and tracking](create-monitoring-tracking-queries.md).
 
 ### Sample Kusto queries
 
-Here are some sample queries for analyzing Logic Apps workflow executions.
+Here are some sample queries for analyzing Azure Logic Apps workflow executions.
 
 #### Total executions
 Total billable executions by operation name.
@@ -74,7 +74,7 @@ AzureDiagnostics
 ```
 
 #### Execution distribution
-Hourly timechart for Logic App execution distribution by workflows.
+Hourly time chart for logic app execution distribution by workflow.
 
 ```kusto
 AzureDiagnostics 
@@ -97,7 +97,7 @@ AzureDiagnostics
 ```
 
 #### Triggered failures count
-Action/trigger failures for all Logic App executions by resource name.
+Action or trigger failures for all logic app workflow executions by resource name.
 
 ```kusto
 AzureDiagnostics
@@ -118,18 +118,18 @@ AzureDiagnostics
 > [!NOTE]
 > Available alert signals differ between Consumption and Standard logic apps. For example, Consumption logic apps have many trigger-related signals, such as **Triggers Completed** and **Triggers Failed**, while Standard workflows have the **Workflow Triggers Completed Count** and **Workflow Triggers Failure Rate** signals.
 
-### Logic Apps alert rules
+### Azure Logic Apps alert rules
 
-The following table lists some alert rules for Logic Apps. These alerts are just examples. You can set alerts for any metric, log entry, or activity log entry that's listed in the [Logic Apps monitoring data reference](monitor-logic-apps-reference.md).
+The following table lists some alert rules for Azure Logic Apps. These alerts are just examples. You can set alerts for any metric, log entry, or activity log entry that's listed in the [Azure Logic Apps monitoring data reference](monitor-logic-apps-reference.md).
 
-| Alert type | Condition | Description  |
+| Alert type | Condition | Description |
 |:---|:---|:---|
-| Metric | Triggers Failed | Whenever the count Triggers Failed is greater than or equal to 1 |
-| Activity Log | Workflow Deleted | Whenever the Activity Log has an event with Category='Administrative', Signal name='Delete Workflow (Workflow)' |
+| Metric | Triggers Failed | Whenever the count for **Triggers Failed** is greater than or equal to 1 |
+| Activity Log | Workflow Deleted | Whenever the Activity Log has an event with **Category='Administrative', Signal name='Delete Workflow (Workflow)'** |
 
 [!INCLUDE [horz-monitor-advisor-recommendations](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
 
 ## Related content
 
-- See [Logic Apps monitoring data reference](monitor-logic-apps-reference.md) for a reference of the metrics, logs, and other important values created for Logic Apps.
-- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for general details on monitoring Azure resources.
+- For reference information about the metrics, logs, and other important values created for Azure Logic Apps, see [Azure Logic Apps monitoring data reference](monitor-logic-apps-reference.md).
+- For general details on monitoring Azure resources, see [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource).

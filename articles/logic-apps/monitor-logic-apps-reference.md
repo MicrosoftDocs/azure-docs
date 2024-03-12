@@ -11,7 +11,7 @@ ms.service: logic-apps
 
 [!INCLUDE [horz-monitor-ref-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
 
-See [Monitor Logic Apps](monitor-logic-apps.md) for details on the data you can collect for Azure Logic Apps and how to use it.
+For details about the data you can collect for Azure Logic Apps and how to use that data, see [Monitor Azure Logic Apps](monitor-logic-apps.md).
 
 [!INCLUDE [horz-monitor-ref-metrics-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
 
@@ -39,7 +39,7 @@ The following table lists the metrics available for the Microsoft.Logic/Workflow
 
 [!INCLUDE [horz-monitor-ref-logs-tables](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 
-### Logic Apps
+### Azure Logic Apps
 Microsoft.Logic/workflows
 
 - [AzureActivity](/azure/azure-monitor/reference/tables/AzureActivity#columns)
@@ -57,5 +57,6 @@ Microsoft.Logic/integrationAccounts
 
 ## Related content
 
-- See [Monitor Logic Apps](monitor-logic-apps.md) for a description of monitoring Logic Apps.
-- See [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.
+- For an overview of monitoring Azure Logic Apps, see [Monitor Azure Logic Apps](monitor-logic-apps-overview.md).
+- For a description of monitoring workflow status and history and creating alerts, see [Monitor workflows](monitor-logic-apps.md).
+- For details about monitoring Azure resources, see [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource).
