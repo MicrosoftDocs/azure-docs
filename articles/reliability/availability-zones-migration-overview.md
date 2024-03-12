@@ -43,8 +43,11 @@ The table below lists each product that offers migration guidance and/or informa
 | --- | 
 | [Azure API Management](migrate-api-mgt.md)|
 | [Azure App Configuration](migrate-app-configuration.md)|
+| [Azure App Service](reliability-app-service.md/#availability-zone-support)|
+| [Azure Batch](reliability-batch.md#availability-zone-migration)|
 | [Azure Cache for Redis](migrate-cache-redis.md)|
 | [Azure AI Search](migrate-search-service.md)|
+| [Azure Container Apps](reliability-azure-container-apps.md#availability-zone-migration)|
 | [Azure Container Instances](migrate-container-instances.md)|
 | [Azure Container Registry](/azure/container-registry/zone-redundancy?toc=/azure/reliability) |
 | [Azure Cosmos DB](/azure/cosmos-db/high-availability?toc=/azure/reliability) |
