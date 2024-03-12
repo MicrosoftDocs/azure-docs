@@ -6074,7 +6074,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/cognitive-services/Translator/how-to-create-translator-resource.md",
+            "source_path_from_root": "/articles/cognitive-services/Translator/how-to-create-translator-resource.yml",
             "redirect_url": "/azure/ai-services/Translator/create-translator-resource",
             "redirect_document_id": false
         },
