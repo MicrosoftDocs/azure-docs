@@ -299,14 +299,18 @@
       items:
       - name: Overview
         href: java-overview.md
+        displayName: java
       - name: Automatic memory fitting
         href: java-memory-fit.md
+        displayName: java
       - name: Build environment variables
         href: java-build-environment-variables.md
+        displayName: java
       - name: Tutorials
         items:
           - name: Deploy a WAR file
             href: java-deploy-war-file.md
+            displayName: java
 - name: Billing & quotas
   items:
     - name: Billing

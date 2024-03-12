@@ -496,6 +496,11 @@
        "source_path_from_root": "/articles/healthcare-apis/dicom/dicom-change-feed-overview.md",
        "redirect_url": "/azure/healthcare-apis/dicom/change-feed-overview",
        "redirect_document_id": true   
+    },
+    {  
+       "source_path_from_root": "/articles/healthcare-apis/dicom/get-started-with-dicom.md",
+       "redirect_url": "/azure/healthcare-apis/dicom/dicom-data-lake",
+       "redirect_document_id": true   
     },     
       {
           "source_path_from_root": "/articles/healthcare-apis/fhir/configure-azure-rbac-for-fhir.md",
