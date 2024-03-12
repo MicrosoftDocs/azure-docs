@@ -13,7 +13,7 @@ Microsoft regularly applies important updates to the Azure VMware Solution for n
 
 ## March 2024
 
-Pure Cloud Block Store, offered by Pure Storage for Azure VMware Solution, is a third-party storage solution. The software runs entirely on the native Azure infrastructure.
+Pure Cloud Block Store for Azure VMware Solution is Generally Available. [Learn more](https://learn.microsoft.com/en-us/azure/azure-vmware/configure-pure-cloud-block-store)
 
 ## February 2024
 
