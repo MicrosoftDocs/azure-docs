@@ -105,19 +105,35 @@ For example, to exclude the namespaces `ns1` and `ns2`, use a comma-separated li
 az aks update --name myAKSCluster --resource-group myResourceGroup --deployment safeguards-level Warning --safeguards-excluded-ns ns1,ns2 
 ```
 
+## Verify compliance across cluster via your CLI/terminal
+
+After deploying your Kubernetes manifest, you will see warnings or a potential denial message in your CLI/terminal. Below are examples of what that experience might look like for you.
+
+**Warning**
+```
+PS C:\Users\testUser\Code>  kubectl apply -f pod.yml
+Warning: [azurepolicy-k8sazurev2containerenforceprob-0e8a839bcd103e7b96a8] Container <my-container> in your Pod <my-pod> has no <livenessProbe>. Required probes: ["readinessProbe", "livenessProbe"]
+Warning: [azurepolicy-k8sazurev2containerenforceprob-0e8a839bcd103e7b96a8] Container <my-container> in your Pod <my-pod> has no <readinessProbe>. Required probes: ["readinessProbe", "livenessProbe"]
+Warning: [azurepolicy-k8sazurev1restrictedlabels-67c4210cc58f28acdfdb] Label <{"kubernetes.azure.com"}> is reserved for AKS use only
+Warning: [azurepolicy-k8sazurev3containerlimits-a8754961dbd4c1d8b49d] container <my-container> has no resource limits
+Warning: [azurepolicy-k8sazurev1containerrestrictedi-bde07e1776cbcc9aa8b8] my-pod in default does not have imagePullSecrets. Unauthenticated image pulls are not recommended.
+pod/my-pod created
+```
+
+**Enforcement**
+
+
+
 ## Verify compliance across cluster via the Azure Policy Dashboard
 
 To verify deployment safeguards have been applied and to check on your cluster's compliance, navigate to the Azure portal page for your cluster and select **Policies**, then select **go to Azure Policy**.
 
-PICTURE HERE
-
-From the list of policies and initiatives, select the initiative associated with deployment safeguards. It will be named similarly to *"[Preview]: AKS deployment safeguards should help guide developers towards AKS best practices"*.
+From the list of policies and initiatives, select the initiative associated with deployment safeguards.
 
 You'll see a dashboard showing compliance state across your AKS cluster.
 
 > [!NOTE]
-> To properly assess compliance across your AKS cluster, the Azure Policy initiative must be scoped to your cluster's resource group
-:::image type="content" source="./media/deployment safeguards/compliance-dashboard-inline.png" alt-text="Screenshot of the Azure portal page for the deployment safeguards policy initiative. All the policies are in a compliant state, and there are no non-compliant resources." lightbox="./media/deployment safeguards/compliance-dashboard.png":::
+> To properly assess compliance across your AKS cluster, the Azure Policy initiative must be scoped to your cluster's resource group.
 
 ## Disable deployment safeguards
 
