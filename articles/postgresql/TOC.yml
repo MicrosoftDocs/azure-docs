@@ -415,18 +415,8 @@
         displayName: vector databases
 - name: Migration
   items:
-  - name: Migrate Single Server to Flexible Server
-    items:
-    - name: Migration tool - Concepts
-      href: migrate/concepts-single-to-flexible.md
-    - name: Migration tool - Azure portal
-      href: migrate/how-to-migrate-single-to-flexible-portal.md
-    - name: Migration tool - Azure CLI
-      href: migrate/how-to-migrate-single-to-flexible-cli.md
-    - name: Best practices for a seamless migration
-      href: migrate/best-practices-seamless-migration-single-to-flexible.md
-    - name: Troubleshoot networking and connectivity issues
-      href: migrate/troubleshooting-networking-and-connectivity-issues.md  
+  - name: Troubleshoot networking and connectivity issues
+    href: migrate/troubleshooting-networking-and-connectivity-issues.md  
   - name: Migration Service
     items:
     - name: Overview

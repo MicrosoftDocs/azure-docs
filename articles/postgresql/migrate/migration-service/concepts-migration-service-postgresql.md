@@ -31,7 +31,7 @@ The below image provides a visual representation of the various PostgreSQL sourc
 
 Following is an overview of the migration process, specifically detailing the steps involved in migrating from Azure Database for PostgreSQL - Single Server to Azure Database for PostgreSQL - Flexible Server. The diagram illustrates the migration workflow and key stages of the migration, for a successful transition into the Azure Database for PostgreSQL - Flexible Server.
 
-:::image type="content" source="media/concepts-migration-service-postgresql/concepts-flow-diagram.png" alt-text="Diagram that shows the Migration from Single Server to Flexible Server." lightbox="media/concepts-migration-service-postgresql/concepts-flow-diagram.png":::
+:::image type="content" source="media/concepts-migration-service-postgresql/concepts-flow-diagram.png" alt-text="Diagram that shows the migration from Single Server to Flexible Server." lightbox="media/concepts-migration-service-postgresql/concepts-flow-diagram.png":::
 
 ## Why choose flexible server?
 

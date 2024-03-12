@@ -1,5 +1,5 @@
 ---
-title: "Prerequisites for the migration service in Azure Database for PostgreSQL (offline)"
+title: "Prerequisites for the migration service in Azure Database for PostgreSQL (online)"
 description: Providing the prerequisites of the migration service in Azure Database for PostgreSQL
 author: apduvuri
 ms.author: adityaduvuri
@@ -54,7 +54,7 @@ The following table can help set up the network between the source and target.
 > [!NOTE]
 > The pg_hba.conf file is located in the data directory of the PostgreSQL installation. This file should be checked and configured if the source database is an on-premises PostgreSQL server or a PostgreSQL server hosted on an Azure VM. For PostgreSQL instances on AWS RDS or similar managed services, the pg_hba.conf file is not directly accessible or applicable. Instead, access is controlled through the service's provided security and network access configurations.
 
-For more information about network setup, visit [Network guide for migration service in Azure Database for PostgreSQL - Flexible Server](../how-to-network-setup-migration-service.md).
+For more information about network setup, visit [Network guide for migration service in Azure Database for PostgreSQL - Flexible Server](../../how-to-network-setup-migration-service.md).
 
 ### Extensions
 
@@ -66,7 +66,7 @@ Extensions are extra features that can be added to PostgreSQL to enhance its fun
 
 - Save the parameter changes and restart the Azure Database for PostgreSQL to apply the new configuration if necessary.
 
-  :::image type="content" source="../media/concepts-prerequisites-migration-service/extensions-enable-flexible-server.png" alt-text="Screenshot of extensions.":::
+  :::image type="content" source="../../media/concepts-prerequisites-migration-service/extensions-enable-flexible-server.png" alt-text="Screenshot of extensions.":::
 
 - Check if the list contains any of the following extensions:
     - PG_CRON
