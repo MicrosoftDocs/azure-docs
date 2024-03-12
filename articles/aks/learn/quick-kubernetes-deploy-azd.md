@@ -1,20 +1,21 @@
 ---
-title: 'Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using Azure Developer CLI (AZD)'
-description: Learn how to quickly deploy a Kubernetes cluster and deploy an application in Azure Kubernetes Service (AKS) using the AZD CLI.
+title: 'Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using the Azure Developer CLI (`azd`)'
+description: Learn how to quickly deploy a Kubernetes cluster and deploy an application in Azure Kubernetes Service (AKS) using `azd`.
 ms.topic: quickstart
 ms.date: 03/06/2024
 ms.custom: H1Hack27Feb2017, mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019, seo-python-october2019, devx-track-azurecli, contperf-fy21q1, mode-api, linux-related-content, devx-track-extended-azdevcli
 #Customer intent: As a developer or cluster operator, I want to deploy an AKS cluster and deploy an application so I can see how to run applications using the managed Kubernetes service in Azure.
 ---
 
-# Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using Azure Developer CLI (AZD)
+# Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using the Azure Developer CLI (`azd`)
 
 Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this quickstart, you learn to:
 
-- Download and run Azure Developer Templates.
-- Deploy an AKS cluster using the Azure Developer CLI (AZD).
+- Download and install the Azure Developer CLI (`azd`).
+- Clone applications from an Azure Developer CLI template (`azd` template).
+- Deploy an AKS cluster using the Azure Developer CLI (`azd`).
 - Run a sample multi-container application with a group of microservices that simulates a retail app.
-- Delete and cleanup containers made from AZD templates.
+- Delete and cleanup containers made from the `azd` template.
 
 > [!NOTE]
 > To get started with quickly provisioning an AKS cluster, this article includes steps to deploy a cluster with default settings for evaluation purposes only. Before deploying a production-ready cluster, we recommend that you familiarize yourself with our [baseline reference architecture][baseline-reference-architecture] to consider how it aligns with your business requirements.
@@ -25,11 +26,11 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
 
 - [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-- For ease of use, run this on Bash or PowerShell in the [Azure Cloud Shell](/azure/cloud-shell/overview). For more information, see [Quickstart for Azure Cloud Shell](/azure/cloud-shell/quickstart).
+- For ease of use, run this sample on Bash or PowerShell in the [Azure Cloud Shell](/azure/cloud-shell/overview). For more information, see [Quickstart for Azure Cloud Shell](/azure/cloud-shell/quickstart).
 
-- If you want to use AZD locally, then install the [Azure Developer CLI][azd-install].
+- To use `azd` locally, install version 1.6.1 or later of the [Azure Developer CLI][azd-install].
 
-- This article requires version 1.6.1 or later of the [Azure Developer CLI][azd-install]. If you're using the [Azure Cloud Shell](/azure/cloud-shell/overview), the latest version is already installed on there.
+- If you're using the [Azure Cloud Shell](/azure/cloud-shell/overview), the latest version is already installed on there.
 
 
 ## Sample Code
@@ -48,26 +49,25 @@ The quickstart application includes the following Kubernetes deployments and ser
 > [!NOTE]
 > We don't recommend running stateful containers, such as Rabbit MQ, without persistent storage for production use. These are used here for simplicity, but we recommend using managed services instead, such as Azure CosmosDB or Azure Service Bus.
 
-## Clone app with the Azure Developer Template
+## Clone the Azure Developer CLI Template
 
-The AZD CLI provides an interface to clone the files directly from GitHub or register existing folders as templates. 
-You can quickly clone the sample application with `azd init` followed by the name of the repository as the template argument.
+`azd` can clone files directly from a GitHub repository with azd init. For this quickstart, clone the sample `azd` template using the `--template` flag along with the owner and name of the repository.
 
-1. Create the AKS Store Demo by cloning from Azure-Samples/aks-store-demo through azd.
+1. Clone the AKS Store Demo template from the Azure-Samples repository by running the azd init command and specifying aks-store-demo.
 
     ```azurecli-interactive
-    azd init --template aks-store-demo
+    azd init --template Azure-Samples/aks-store-demo
     ```
 
-2. Choose an environment name for your project that uses only alphanumeric characters and hyphens.
+1. Choose an environment name for your project that uses only alphanumeric characters and hyphens.
 
     ```output
-    Enter a new environment name: [? for help] 
+    Enter a new environment name: aks-azdqs-1
     ```
 
 ## Sign in to your Azure Cloud account
 
-The Azure Development Template contains all the code needed to create the services, but you need to sign in to your Azure account in order to host the application on AKS.
+The `azd` template contains all the code needed to create the services, but you need to sign in to your Azure account in order to host the application on AKS.
 
 1. Sign in to your account with azd.
 
@@ -84,7 +84,7 @@ The Azure Development Template contains all the code needed to create the servic
 
 1. Authenticate with your credentials on your organization's sign in page.
 
-1. Confirm that it's you trying to connect to Azure CLI.
+1. Confirm that it's you trying to connect from the Azure CLI.
 
 1. Verify the message "Device code authentication completed. Logged in to Azure." appears in your original terminal.
 
@@ -98,14 +98,14 @@ The Azure Development Template contains all the code needed to create the servic
 
 ## Create and deploy resources for your cluster
 
-AZD runs all the hooks inside of the `azd-hooks` folder to pre-register, provision, then deploy these services. 
+`azd` runs all the hooks inside of the `azd-hooks` folder to preregister, provision, then deploy these services. 
 
-The AZD template creates a new resource group with an Azure Kubernetes cluster and Azure Kevault. The keyvault is used to store client secrets. Within the cluster, it runs your app's services in the pets namespace. 
+This `azd` template creates a new resource group with an Azure Kubernetes cluster and Azure Keyvault. The keyvault is used to store client secrets. Within the cluster, it runs your app's services in the pets namespace. 
 
 - **makeline-service**: Processes orders from the queue and completing them.
-- **order-service**: Place orders for products
+- **order-service**: Place orders for products.
 - **product-service**: Perform create, read, update, or delete operations on products.
-- **store-front**: Web app for customers to view products and place orders
+- **store-front**: Web app for customers to view products and place orders.
 - **rabbit-mq**: Message queue for an order queue.
 
 1. Create all your resources with the `azd up` command.
