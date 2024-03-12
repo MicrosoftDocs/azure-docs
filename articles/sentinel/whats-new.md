@@ -30,7 +30,6 @@ The listed features were released in the last three months. For information abou
 
 The new Microsoft Sentinel Migration experience helps customers and partners to automate the process of migrating their security monitoring use cases hosted in non-Microsoft products into Microsoft Sentinel.
 - This first version of the tool supports migrations from Splunk
-- Other products will be supported in the future.
 
 For more information, see [Migrate to Microsoft Sentinel with the SIEM migration experience](siem-migration.md)
 
