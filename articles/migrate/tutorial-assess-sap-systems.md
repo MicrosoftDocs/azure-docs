@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
-- Before you follow this tutorial to assess your SAP systems for migration to Azure, make sure you've discovered the SAP systems you want to assess using the Azure Migrate, [follow this tutorial](#tutorial-discover-sap-systems.md)
+- Before you follow this tutorial to assess your SAP systems for migration to Azure, make sure you've discovered the SAP systems you want to assess using the Azure Migrate, [follow this tutorial](./tutorial-assess-sap-systems.md)
 - If you want to try out this feature in an existing project, ensure you are currently within the same project.
 
 ## Create an assessment
