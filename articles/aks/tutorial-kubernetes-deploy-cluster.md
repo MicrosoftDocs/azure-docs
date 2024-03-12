@@ -72,7 +72,7 @@ You use the Kubernetes CLI, [`kubectl`][kubectl], to connect to your Kubernetes 
 
 ### [Azure Developer CLI](#tab/azure-azd)
 
-AZD Environments in a codespace automatically download all dependencies found in `./devcontainer/devcontainer.json`. The Kubernetes CLI is in the file, along with any ACR images.
+`azd` environments in a codespace automatically download all dependencies found in `./devcontainer/devcontainer.json`. This includes the Kubernetes CLI along with any Azure Container Registry (ACR) images.
 
 * To install `kubectl` locally, use the [`az aks install-cli`][az aks install-cli] command.
 
@@ -128,7 +128,7 @@ To avoid needing an **Owner** or **Azure account administrator** role, you can a
 
 ### [Azure Developer CLI](#tab/azure-azd)
 
-AZD packages the deployment of clusters with the application itself using `azd up`. This command is covered in the next tutorial.
+`azd` packages the deployment of clusters with the application itself using `azd up`. This command is covered in the next tutorial.
 
 ---
 
@@ -180,9 +180,9 @@ AZD packages the deployment of clusters with the application itself using `azd u
 
 ### [Azure Developer CLI](#tab/azure-azd)
 
-Sign in to your Azure Account through AZD configures your credentials.
+Signing in to your Azure Account through `azd` configures your credentials.
 
-1. Authenticate using AZD.
+1. Authenticate using `azd`.
 
     ```azurecli-interactive
     azd auth login 

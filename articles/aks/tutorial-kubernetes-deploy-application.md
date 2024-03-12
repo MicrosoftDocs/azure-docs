@@ -41,7 +41,7 @@ This tutorial requires Azure PowerShell version 5.9.0 or later. Check your versi
 
 ### [Azure Developer CLI](#tab/azure-azd)
 
-This tutorial requires Azure Developer CLI (AZD) version 1.5.1 or later. Check your version with `azd version`. To install or upgrade, see [Install Azure Developer CLI][azure-azd-install].
+This tutorial requires Azure Developer CLI (`azd`) version 1.5.1 or later. Check your version with `azd version`. To install or upgrade, see [Install Azure Developer CLI][azure-azd-install].
 
 ---
 
@@ -116,7 +116,7 @@ In these tutorials, your Azure Container Registry (ACR) instance stores the cont
 
 ### [Azure Developer CLI](#tab/azure-azd)
 
-AZD doesn't require a container registry step since it's in the template.
+`azd` doesn't require a container registry step since it's in the template.
 
 ---
 
@@ -178,7 +178,7 @@ AZD doesn't require a container registry step since it's in the template.
 
 ### [Azure Developer CLI](#tab/azure-azd)
 
-1. Deployment in AZD in broken down into multiple stages represented by hooks. By default, azd deploys with all hooks.
+1. Deployment in `azd` in broken down into multiple stages represented by hooks. By default, azd deploys with all hooks.
 
     ```azurecli-interactive
     azd up

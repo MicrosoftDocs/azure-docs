@@ -64,7 +64,7 @@ The [sample application][sample-application] used in this tutorial is a basic st
 
 ### [Azure Developer CLI](#tab/azure-azd)
 
-1. If you are using AZD locally, create an empty directory named `aks-store-demo` to host the azd template files.
+1. If you are using `azd` locally, create an empty directory named `aks-store-demo` to host the azd template files.
 
     ```azurecli-interactive
     mkdir aks-store-demo
@@ -242,7 +242,7 @@ Since you validated the application's functionality, you can stop and remove the
 
 ### [Azure Developer CLI](#tab/azure-azd)
 
-When you use AZD, there are no manual container image dependencies. AZD handles the provisioning, deployment, and cleans up of your applications and clusters with the `azd up` and `azd down` commands, similar to Docker.
+When you use `azd`, there are no manual container image dependencies. `azd` handles the provisioning, deployment, and cleans up of your applications and clusters with the `azd up` and `azd down` commands, similar to Docker.
 
 You can customize the preparation steps to use either Terraform or Bicep before deploying the cluster.
 
@@ -280,13 +280,13 @@ In the next tutorial, you learn how to store container images in an ACR.
 
 ### [Azure Developer CLI](#tab/azure-azd)
 
-In this tutorial, you cloned a sample application using AZD. You learned how to:
+In this tutorial, you cloned a sample application using `azd`. You learned how to:
 
 > [!div class="checklist"]
-> * Clone a sample azd template from GitHub.
+> * Clone a sample `azd` template from GitHub.
 > * View where container images are used from the sample application source.
 
-In the next tutorial, you learn how to create a cluster using the azd template you cloned.
+In the next tutorial, you learn how to create a cluster using the `azd` template you cloned.
 
 > [!div class="nextstepaction"]
 > [Create an AKS Cluster][aks-tutorial-deploy-cluster]
