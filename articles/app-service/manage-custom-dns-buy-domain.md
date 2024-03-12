@@ -134,7 +134,7 @@ The App Service domain you bought is valid for one year from the time of purchas
 
     > [!NOTE]
     > For .nl domains, you can only manually renew the domain starting 90 days ahead of domain expiration and up to the 20th of the month before the expiration date. You will not be able to renew the domain after this period even if the domain has not yet expired.
-    >
+    > 
 
 If you want to configure automatic renewal, or if you want to manually renew your domain, follow the steps here.
 
