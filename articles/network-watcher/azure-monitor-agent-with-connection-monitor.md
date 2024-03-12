@@ -67,7 +67,7 @@ To enable the Network Performance Monitor solution for on-premises machines, fol
 
 1. In **Enable Non-Azure**, select the subscription and workspace in which you want to enable the solution, and then select **Create**.
    
-   After you've enabled the solution, the workspace takes a couple of minutes to be displayed.
+   After you enable the solution, the workspace takes a few minutes to be displayed.
 
 Unlike Log Analytics agents, the Network Performance Monitor solution can be configured to send data only to a single Log Analytics workspace.
 
