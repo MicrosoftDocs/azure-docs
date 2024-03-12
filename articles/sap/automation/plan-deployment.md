@@ -256,19 +256,15 @@ The following example shows how to test the connectivity to the URLs by using an
 
 ```powershell
 
-
+$sdaf_path = Get-Location
 if ( $PSVersionTable.Platform -eq "Unix") {
-    if ( Test-Path "SDAF") {
-    }
-    else {
-        $sdaf_path = New-Item -Path "SDAF" -Type Directory
+    if ( -Not (Test-Path "SDAF") ) {
+      $sdaf_path = New-Item -Path "SDAF" -Type Directory
     }
 }
 else {
     $sdaf_path = Join-Path -Path $Env:HOMEDRIVE -ChildPath "SDAF"
-    if ( Test-Path $sdaf_path) {
-    }
-    else {
+    if ( -not (Test-Path $sdaf_path)) {
         New-Item -Path $sdaf_path -Type Directory
     }
 }
@@ -281,7 +277,12 @@ cd sap-automation
 cd deploy
 cd scripts
 
-Test-SDAFURLs.ps1
+if ( $PSVersionTable.Platform -eq "Unix") {
+ ./Test-SDAFURLs.ps1
+}
+else {
+ .\Test-SDAFURLs.ps1
+}
 
 ```
 
