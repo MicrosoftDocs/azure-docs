@@ -206,9 +206,11 @@ The following table lists the available settings for the cluster autoscaler prof
       --cluster-autoscaler-profile ""
     ```
 
-## Retrieve cluster autoscaler logs and status updates
+## Retrieve cluster autoscaler logs, status updates and metrics
 
 You can retrieve logs and status updates from the cluster autoscaler to help diagnose and debug autoscaler events. AKS manages the cluster autoscaler on your behalf and runs it in the managed control plane. You can enable control plane node to see the logs and operations from the cluster autoscaler.
+> [!NOTE]
+> You can now enable [cluster autoscaler metrics (Preview)](https://learn.microsoft.com/en-us/azure/aks/monitor-control-plane-metrics) with the Azure Monitor managed service for Prometheus add-on during cluster creation or for an existing cluster
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -224,8 +226,16 @@ You can retrieve logs and status updates from the cluster autoscaler to help dia
     As long as there are logs to retrieve, you should see logs similar to the following logs:
 
     :::image type="content" source="media/cluster-autoscaler/autoscaler-logs.png" alt-text="Screenshot of Log Analytics logs.":::
-
-    The cluster autoscaler also writes out the health status to a `configmap` named `cluster-autoscaler-status`. You can retrieve these logs using the following `kubectl` command:
+    
+4. View cluster autoscaler scale-up not triggered events on CLI 
+    ```bash
+    kubectl get events --field-selector source=cluster-autoscaler,reason=NotTriggerScaleUp
+    ```
+5. View cluster autoscaler warning events on CLI 
+    ```bash
+    kubectl get events --field-selector source=cluster-autoscaler,type=Warning
+    ```
+6. The cluster autoscaler also writes out the health status to a `configmap` named `cluster-autoscaler-status`. You can retrieve these logs using the following `kubectl` command:
 
     ```bash
     kubectl get configmap -n kube-system cluster-autoscaler-status -o yaml
