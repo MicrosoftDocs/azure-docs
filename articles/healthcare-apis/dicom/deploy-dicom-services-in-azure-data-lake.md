@@ -43,7 +43,7 @@ After deployment completes, you can use the Azure portal to see the details abou
 
 1. Select **Data Lake Storage (default)** for the storage location.  
 
-    :::image type="content" source="media/deploy-data-lake/create-dicom-service-data-lake-sml.png" alt-text="Screenshot showing the storage location option." lightbox="media/deploy-data-lake/create-dicom-service-data-lake-lrg":::
+    :::image type="content" source="media/deploy-data-lake/create-dicom-service-data-lake-sml.png" alt-text="Screenshot showing the storage location option." lightbox="media/deploy-data-lake/create-dicom-service-data-lake-lrg.png":::
 
 1. Select the **subscription** and **resource group** that contains the storage account.
 
