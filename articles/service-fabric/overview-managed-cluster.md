@@ -6,7 +6,7 @@ ms.author: tomcassidy
 author: tomvcassidy
 ms.service: service-fabric
 services: service-fabric
-ms.date: 07/11/2022
+ms.date: 03/12/2024
 ---
 
 # Service Fabric managed clusters

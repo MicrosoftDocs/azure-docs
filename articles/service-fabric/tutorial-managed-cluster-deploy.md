@@ -6,7 +6,7 @@ ms.author: tomcassidy
 author: tomvcassidy
 ms.service: service-fabric
 services: service-fabric
-ms.date: 07/14/2022
+ms.date: 03/12/2024
 ---
 
 # Tutorial: Deploy a Service Fabric managed cluster
