@@ -176,12 +176,12 @@ Azure now offers free egress for customers leaving Azure when taking out their d
     - An estimate of the amount of data you plan to egress
 1. Once your request is logged with Azure Support, you have 60 days from the date you indicate as your start data transfer date to egress your data out of Azure. If you need more than 60 days to egress your data, include an overview of your migration timeline in your initial Azure support request.
 1. After egressing your data, cancel all subscriptions associated with your account.
-1. Contact Azure Support and create a request to claim a credit or refund for your egress charges incurred during your exit. You can either reopen your initial support request (step 1) or create a new Azure Support request. An invoice-level credit adjustment is applied to the existing balance.
+1. Contact Azure Support and create a request to claim invoice-level credit for your egress charges incurred during your exit. You can either reopen your initial support request (step 1) or create a new Azure Support request. An invoice-level credit adjustment is applied to the existing balance.
 
 ### Qualifications
 
 - You must provide advance notice of your intention to leave Azure to Azure Support by creating a support request discussed previously [(Step 1)](#create-a-support-request).
-- You must cancel all Azure subscriptions associated with your account after your data is transferred out before you can request your credit or refund.
+- You must cancel all Azure subscriptions associated with your account after your data is transferred out before you can request your invoice-level credit.
 - You receive credit for a maximum of 60 calendar days of egress charges starting from the date you specified as your transfer start date.
 - Standard charges for Azure services and data transfer out from specialized services including Express Route, Express Route Direct, VPN, Azure Front Door, and Azure Content Delivery Network (CDN) aren't included in this credit offer. Only [egress charges](https://azure.microsoft.com/pricing/details/bandwidth/) as a result of moving Azure Storage data out of Azure are eligible for credits.
 - Azure reviews your request for adherence to the requirements. If we determine the customer request doesn't follow the documented process, we might not issue the credit request.
