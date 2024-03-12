@@ -116,12 +116,6 @@ display(df)
 
 ## Next steps
 
-The following articles demonstrate Spark integration with Azure Cosmos DB for Apache Cassandra. 
+The following articles demonstrate Spark integration with Azure Cosmos DB for MongoDB vCore. 
  
-* [DDL operations](spark-ddl-operations.md)
-* [Create/insert operations](spark-create-operations.md)
-* [Read operations](spark-read-operation.md)
-* [Upsert operations](spark-upsert-operations.md)
-* [Delete operations](spark-delete-operation.md)
-* [Aggregation operations](spark-aggregation-operations.md)
-* [Table copy operations](spark-table-copy-operations.md)
+* [How to Connect with Studio3T](how-to-connect-studio-3t.md)
