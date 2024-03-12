@@ -6706,6 +6706,21 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/role-based-access-control/deny-assignments-portal.md",
+            "redirect_url": "/azure/role-based-access-control/deny-assignments",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/role-based-access-control/deny-assignments-powershell.md",
+            "redirect_url": "/azure/role-based-access-control/deny-assignments",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/role-based-access-control/deny-assignments-rest.md",
+            "redirect_url": "/azure/role-based-access-control/deny-assignments",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/scheduler/scheduler-intro.md",
             "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
             "redirect_document_id": false
