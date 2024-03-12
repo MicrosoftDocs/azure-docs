@@ -38,7 +38,7 @@ Before you can install an extension, you must enable guest management on the SCV
 
    - is running a [supported operating system](../servers/prerequisites.md#supported-operating-systems).
 
-   - is able to connect through the firewall to communicate over the internet and these [URLs](../servers/network-requirements.md#urls) aren't blocked.
+   - can connect through the firewall to communicate over the internet and [these URLs](../servers/network-requirements.md#urls) aren't blocked.
 
    - has SCVMM tools installed and running.
 
