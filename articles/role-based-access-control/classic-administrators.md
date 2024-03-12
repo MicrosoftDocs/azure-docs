@@ -1,6 +1,6 @@
 ---
 title: Azure classic subscription administrators
-description: Describes how to remove or change the Azure Co-Administrator and Service Administrator roles, and how to view the Account Administrator.
+description: Describes how to remove or change the Azure Co-Administrator and Service Administrator roles.
 author: rolyon
 manager: amycolannino
 
@@ -18,7 +18,7 @@ ms.reviewer: bagovind
 
 Microsoft recommends that you manage access to Azure resources using Azure role-based access control (Azure RBAC). However, if you are still using the classic deployment model, you'll need to use a classic subscription administrator role: Service Administrator and Co-Administrator. For information about how to migrate your resources from classic deployment to Resource Manager deployment, see [Azure Resource Manager vs. classic deployment](../azure-resource-manager/management/deployment-models.md).
 
-This article describes how to remove or change the Co-Administrator and Service Administrator roles, and how to view the Account Administrator.
+This article describes how to remove or change the Co-Administrator and Service Administrator roles.
 
 ## Frequently asked questions
 
@@ -39,6 +39,8 @@ What should I do if I have a strong dependency on Co-Administrators?
 Use the following steps to help you prepare for the Co-Administrator role retirement.
 
 ### Step 1: Review your current Co-Administrators
+
+1. Sign in to the [Azure portal](https://portal.azure.com) as an [Owner](built-in-roles.md#owner) of a subscription.
 
 1. Use the Azure portal to [get a list of your Co-Administrators](#view-classic-administrators).
 
@@ -75,6 +77,34 @@ Some users might need more access than what a job function role can provide. If 
 1. Assign the [Owner role at subscription scope with conditions](role-assignments-portal-subscription-admin.md) to the user.
 
 1. [Remove Co-Administrator](#remove-a-co-administrator).
+
+## Prepare for Service Administrators retirement
+
+Use the following steps to help you prepare for Service Administrator role retirement. To remove the Service Administrator, you must have a user who is assigned the Owner role at subscription scope without conditions to avoid orphaning the subscription. A subscription Owner has the same access as the Service Administrator.
+
+### Step 1: Review your current Service Administrator
+
+1. Sign in to the [Azure portal](https://portal.azure.com) as an [Owner](built-in-roles.md#owner) of a subscription.
+
+1. Use the Azure portal to [get your Service Administrator](#view-classic-administrators).
+
+1. Review the [sign-in logs](/entra/identity/monitoring-health/concept-sign-ins) for your Service Administrator to assess whether they are an active user.
+
+### Step 2: Review your current Billing account owners
+
+1. Use the Azure portal to [get your Billing account owners](../cost-management-billing/manage/understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
+
+1. Ensure the list of Billing account owners is still accurate. If necessary, [update or add another Billing account owner](../cost-management-billing/manage/understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
+
+### Step 2: Replace existing Service Administrator with Owner role
+
+1. If Service Administrator user is a Microsoft account and you want this user to keep the same permissions, [assign the Owner role to this user at subscription scope](role-assignments-portal.md).
+
+1. If Service Administrator user is a Microsoft Entra account and you want this user to keep the same permissions, [assign the Owner role to this user at subscription scope](role-assignments-portal.md).
+
+1. If you want to change the Service Administrator user to a different user, [assign the Owner role to this new user at subscription scope](role-assignments-portal.md).
+
+1. [Remove the Service Administrator](#remove-the-service-administrator).
 
 ## View classic administrators
 
@@ -167,45 +197,6 @@ Note that the [Azure built-in roles](../role-based-access-control/built-in-roles
 
 For information that compares member users and guest users, see [What are the default user permissions in Microsoft Entra ID?](../active-directory/fundamentals/users-default-permissions.md).
 
-## Change the Service Administrator
-
-Only the Account Administrator can change the Service Administrator for a subscription. By default, when you sign up for an Azure subscription, the Service Administrator is the same as the Account Administrator.
-
-The user with the Account Administrator role can access the Azure portal and manage billing, but they can't cancel subscriptions. The user with the Service Administrator role has full access to the Azure portal and they can cancel subscriptions. The Account Administrator can make themself the Service Administrator.
-
-Follow these steps to change the Service Administrator in the Azure portal.
-
-1. Make sure your scenario is supported by checking the [limitations for changing the Service Administrator](#limitations-for-changing-the-service-administrator).
-
-1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Administrator.
-
-1. Open **Cost Management + Billing** and select a subscription.
-
-1. In the left navigation, click **Properties**.
-
-1. Click **Change service admin**.
-
-    ![Screenshot showing the subscription properties in the Azure portal](./media/classic-administrators/service-admin.png)
-
-1. In the **Edit service admin** page, enter the email address for the new Service Administrator.
-
-    ![Screenshot showing the Edit service admin page](./media/classic-administrators/service-admin-edit.png)
-
-1. Click **OK** to save the change.
-
-### Limitations for changing the Service Administrator
-
-There can only be one Service Administrator per Azure subscription. Changing the Service Administrator will behave differently depending on whether the Account Administrator is a Microsoft account or whether it is a Microsoft Entra account (work or school account).
-
-| Account Administrator account | Can change the Service Administrator to a different Microsoft account? | Can change the Service Administrator to a Microsoft Entra account in the same directory? | Can change the Service Administrator to a Microsoft Entra account in a different directory? |
-| --- | --- | --- | --- |
-| Microsoft account | Yes | No | No |
-| Microsoft Entra account | Yes | Yes | No |
-
-If the Account Administrator is a Microsoft Entra account, you can change the Service Administrator to a Microsoft Entra account in the same directory, but not in a different directory. For example, abby@contoso.com can change the Service Administrator to bob@contoso.com, but cannot change the Service Administrator to john@notcontoso.com unless john@notcontoso.com has a presence in the contoso.com directory.
-
-For more information about Microsoft accounts and Microsoft Entra accounts, see [What is Microsoft Entra ID?](../active-directory/fundamentals/active-directory-whatis.md).
-
 ## Remove the Service Administrator
 
 To remove the Service Administrator, you must have a user who is assigned the [Owner](built-in-roles.md#owner) role at subscription scope without conditions to avoid orphaning the subscription. A subscription Owner has the same access as the Service Administrator.
@@ -226,24 +217,8 @@ To remove the Service Administrator, you must have a user who is assigned the [O
 
     ![Screenshot that removes service administrator.](./media/classic-administrators/service-admin-remove.png)
 
-## View the Account Administrator
-
-The Account Administrator is the user that initially signed up for the Azure subscription, and is responsible as the billing owner of the subscription. To change the Account Administrator of a subscription, see [Transfer ownership of an Azure subscription to another account](../cost-management-billing/manage/billing-subscription-transfer.md).
-
-Follow these steps to view the Account Administrator.
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. Open **Cost Management + Billing** and select a subscription.
-
-1. In the left navigation, click **Properties**.
-
-    The Account Administrator of the subscription is displayed in the **Account Admin** box.
-
-    ![Screenshot showing the Account Administrator](./media/classic-administrators/account-admin.png)
-
 ## Next steps
 
-* [Understand the different roles](../role-based-access-control/rbac-and-directory-admin-roles.md)
-* [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md)
-* [Add or change Azure subscription administrators](../cost-management-billing/manage/add-change-subscription-administrator.md)
+- [Understand the different roles](../role-based-access-control/rbac-and-directory-admin-roles.md)
+- [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md)
+- [Understand Microsoft Customer Agreement administrative roles in Azure](../cost-management-billing/manage/understand-mca-roles.md)
