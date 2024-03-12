@@ -21,6 +21,8 @@
     href: flexible-server/concepts-reserved-pricing.md
   - name: Request quota increase
     href: flexible-server/how-to-request-quota-increase.md
+  - name: Resolve capacity errors
+    href: flexible-server/how-to-resolve-capacity-errors.md    
   - name: Known issues & limitations
     href: single-server/concepts-known-issues-limitations.md
     displayName: issues, limitations, postgresql
@@ -301,6 +303,8 @@
           href: flexible-server/how-to-server-logs-portal.md
         - name: Azure CLI
           href: flexible-server/how-to-server-logs-cli.md
+      - name: Relocate a server 
+        href: ../operational-excellence/relocation-postgresql-flexible-server.md?toc=/azure/postgresql/toc.json
     - name: Encryption with CMK
       items:
       - name: Azure CLI

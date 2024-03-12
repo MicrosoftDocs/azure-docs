@@ -44,7 +44,7 @@ As noted earlier, you can [set your startup page to Dashboard](set-preferences.m
 
 ## Getting around the portal
 
-The portal menu and page header are global elements that are always present in the Azure portal. These persistent features are the "shell" for the user interface associated with each individual service or feature. The header provides access to global controls. The configuration page (sometimes referred to as a "blade") for a resource or service may also have a resource menu specific to that area.
+The portal menu and page header are global elements that are always present in the Azure portal. These persistent features are the "shell" for the user interface associated with each individual service or feature. The header provides access to global controls. The working pane for a resource or service may also have a resource menu specific to that area.
 
 The figure below labels the basic elements of the Azure portal, each of which are described in the following table. In this example, the current focus is a virtual machine, but the same elements apply no matter what type of resource or service you're working with.
 

@@ -30,7 +30,7 @@ zone_pivot_groups: programming-languages-set-formre
 
 **This content applies to:** ![checkmark](../media/yes-icon.png) **v4.0 (preview)** **Earlier versions:** ![blue-checkmark](../media/blue-yes-icon.png) [v3.1 (GA)](?view=doc-intel-3.1.0&preserve-view=true) ![blue-checkmark](../media/blue-yes-icon.png) [v3.0 (GA)](?view=doc-intel-3.0.0&preserve-view=true)
 
-* Get started with Azure AI Document Intelligence latest preview version (2023-10-31-preview).
+* Get started with Azure AI Document Intelligence latest preview version (2024-02-29-preview).
 
 :::moniker-end
 

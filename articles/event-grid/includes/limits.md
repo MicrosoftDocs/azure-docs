@@ -17,32 +17,32 @@ ms.custom: include file, ignite-2023
 
 Event Grid offers a standard tier and basic tier. Event Grid standard tier enables pub-sub using MQTT broker functionality and pull-delivery of messages through the Event Grid namespace. Event Grid basic tier enables push delivery using Event Grid custom topics, Event Grid system topics, Event domains, and Event Grid partner topics. See [Choose the right Event Grid tier](../choose-right-tier.md). This article describes the quota and limits for both tiers.
 
-## Namespace resource limits
+## Event Grid Namespace resource limits
 
 [Azure Event Grid namespaces](../concepts-event-grid-namespaces.md#namespaces) is available in public preview and enables MQTT messaging, and HTTP pull delivery.
 The following limits apply to namespace resources in Azure Event Grid.
 
 | Limit description                      | Limit |
 |----------------------------------------|-------|
-| Namespaces per Azure subscription      | 50    |
-| Maximum throughput units per namespace | 40    |
-| IP Firewall rules per Namespace        | 16    |
+| Event Grid namespaces per Azure subscription      | 50    |
+| Maximum throughput units per Event Grid namespace | 40    |
+| IP Firewall rules per Event Grid namespace        | 16    |
 
-## MQTT limits in namespace
+## MQTT limits in Event Grid namespace
 
 The following limits apply to MQTT in Azure Event Grid namespace resource.
 
 | Limit description                            | Limit                                                                             |
 |----------------------------------------------|-----------------------------------------------------------------------------------|
-| MQTT sessions per namespace               | 10,000 per TU                                                                     |
-| Sessions per namespace                       | 10,000 per TU                                                                     |
-| Session Expiry Interval                      | 8 hours, [configurable on the namespace](../mqtt-support.md#maximum-session-expiry-interval-configuration)|
-| Inbound MQTT publish requests per namespace  | 1,000 messages per second per TU                                                         |
-| Inbound MQTT bandwidth per namespace         | 1 MB per second per TU                                                            |
+| MQTT sessions per Event Grid namespace               | 10,000 per TU                                                                     |
+| Sessions per Event Grid namespace                       | 10,000 per TU                                                                     |
+| Session Expiry Interval                      | 8 hours, [configurable on the Event Grid namespace](../mqtt-support.md#maximum-session-expiry-interval-configuration)|
+| Inbound MQTT publish requests per Event Grid namespace  | 1,000 messages per second per TU                                                         |
+| Inbound MQTT bandwidth per Event Grid namespace         | 1 MB per second per TU                                                            |
 | Inbound MQTT publish requests per session | 100 messages per second                                                           |
 | Inbound MQTT bandwidth per session        | 1 MB per second                                                                   |
-| Outbound MQTT publish requests per namespace | 1,000 messages per second per TU                                                         |
-| Outbound MQTT bandwidth per namespace        | 1 MB per second per TU                                                            |
+| Outbound MQTT publish requests per Event Grid namespace | 1,000 messages per second per TU                                                         |
+| Outbound MQTT bandwidth per Event Grid namespace        | 1 MB per second per TU                                                            |
 | Outbound MQTT publish requests per session| 100 messages per second                                                           |
 | Outbound MQTT bandwidth per session       | 1 MB per second                                                                   |
 | Max message size                             | 512 KB                                                                            |
@@ -57,11 +57,11 @@ The following limits apply to MQTT in Azure Event Grid namespace resource.
 | MQTTv5 authentication data size              | 8 KB                                                                              |
 | Maximum keep-alive interval                  | 1160                                                                              |
 | Topic filters per MQTT SUBSCRIBE packet      | 10                                                                                |
-| Subscribe and unsubscribe requests per namespace | 200 requests per second                                                       |
+| Subscribe and unsubscribe requests per Event Grid namespace | 200 requests per second                                                       |
 | Subscribe and unsubscribe requests per session | 5 requests per second                                                        |
 | Subscriptions per MQTT session            | 50                                                                                |
-| Subscriptions per namespace                  | 1 million                                                                         |
-| Subscriptions per MQTT topic                 | Unlimited, as long as they don't exceed the limit for subscriptions per namespace or session|
+| Subscriptions per Event Grid namespace                  | 1 million                                                                         |
+| Subscriptions per MQTT topic                 | Unlimited, as long as they don't exceed the limit for subscriptions per Event Grid namespace or session|
 | Registered client resources                  | 10,000 clients per TU                                                             |
 | CA certificates                              | 10                                                                                 |
 | Client groups                                | 10                                                                                |
@@ -69,17 +69,17 @@ The following limits apply to MQTT in Azure Event Grid namespace resource.
 | Topic templates                              | 10 per topic space                                                                |
 | Permission bindings                          | 100                                                                               |
 
-## Events limits in namespace
+## Events limits in Event Grid namespace
 
 The following limits apply to events in Azure Event Grid namespace resource.
 
 | Limit description                                                    | Limit                                                                              |
 |----------------------------------------------------------------------|------------------------------------------------------------------------------------|
-| Namespace topics                                                     | 100 per TU                                                                         |
+| Event Grid namespace topics                                                     | 100 per TU                                                                         |
 | Event ingress                                                        | 1,000 events per second or 1 MB per second per TU (whichever comes first)          |
 | Event egress  (push and pull APIs)                                   | Up to 2,000 events per second or 2 MB per second per TU                            |
 | Event egress  (acknowledge, release, reject, and renew lock APIs)    | Up to 2,000 events per second or 2 MB per second per TU                            |
-| Maximum event retention on namespace topics                          | 7 days                                                                             |
+| Maximum event retention on Event Grid namespace topics                          | 7 days                                                                             |
 | Subscriptions per topic                                              | 500                                                                                |
 | Maximum event size                                                   | 1 MB                                                                               |
 | Batch size                                                           | 1 MB                                                                               |

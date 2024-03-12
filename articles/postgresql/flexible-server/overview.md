@@ -99,7 +99,7 @@ One advantage of running your workload in Azure is global reach. Azure Database 
 | China North 3 | :heavy_check_mark: (v3/v4/v5 only) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | East Asia | :heavy_check_mark: (v3/v4/v5 only) | :heavy_check_mark: ** | :heavy_check_mark: | :heavy_check_mark: |
 | East US | :heavy_check_mark: (v3/v4/v5 only) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| East US 2 | :heavy_check_mark: (v3/v4 only) | :x: $ | :heavy_check_mark: | :heavy_check_mark: |
+| East US 2 | :heavy_check_mark: (v3/v4 only) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | France Central | :heavy_check_mark: (v3/v4/v5 only) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | France South | :heavy_check_mark: (v3/v4 only) | :x: | :heavy_check_mark: | :heavy_check_mark: |
 | Germany West Central | :heavy_check_mark: (v3/v4/v5 only) | :heavy_check_mark: | :heavy_check_mark: |  :heavy_check_mark: |

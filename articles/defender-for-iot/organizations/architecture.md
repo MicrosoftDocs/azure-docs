@@ -104,4 +104,4 @@ Defender for IoT provides hybrid network support using the following management 
 ## Next steps
 
 > [!div class="step-by-step"]
-> [Understand your network architecture »](architecture.md)
+> [Understand your network architecture »](best-practices/understand-network-architecture.md)

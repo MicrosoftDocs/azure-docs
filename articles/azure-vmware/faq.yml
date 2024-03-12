@@ -4,7 +4,7 @@ metadata:
   description: "Get answers to common questions about Azure VMware Solution."
   ms.topic: faq
   ms.service: azure-vmware
-  ms.date:  10/13/2023
+  ms.date:  2/29/2024
 title: Common questions about Azure VMware Solution
 summary: This article answers commonly asked questions about Azure VMware Solution.
 
@@ -109,21 +109,21 @@ sections:
         answer: |
           [!INCLUDE [vmware-software-versions](includes/vmware-software-versions.md)]
           
-      - question: How often is the VMware solution software (ESXi, vCenter Server, NSX-T Data Center) patched, updated, or upgraded in the Azure VMware Solution private cloud?
+      - question: How often is the VMware solution software (ESXi, vCenter Server, NSX) patched, updated, or upgraded in the Azure VMware Solution private cloud?
         answer: |
           [!INCLUDE [vmware-software-update-frequency](includes/vmware-software-update-frequency.md)]
 
-      - question: Do private clouds use VMware NSX Data Center? If so, which version is supported?
+      - question: Do private clouds use VMware NSX? If so, which version is supported?
         answer: |
-          Yes, NSX-T Data Center is the only supported version of VMware network virtualization software.   
+          Yes, NSX is the only supported version of VMware network virtualization software.   
           
-          NSX-T [!INCLUDE [nsxt-version](includes/nsxt-version.md)] is used for the software-defined networking in Azure VMware Solution private clouds.
+          VMware NSX [!INCLUDE [nsxt-version](includes/nsxt-version.md)] is used for the software-defined networking in Azure VMware Solution private clouds.
 
-      - question: Is NSX-T Data Center required in on-premises environments or networks that connect to a private cloud?
-        answer: No, you aren't required to use NSX-T Data Center on-premises. VMware HCX provides the necessary connectivity between on-premises vSphere and Azure VMware Solution.
+      - question: Is VMware NSX required in on-premises environments or networks that connect to a private cloud?
+        answer: No, you aren't required to use VMware NSX on-premises. VMware HCX provides the necessary connectivity between on-premises vSphere and Azure VMware Solution.
 
-      - question: Is NSX-T Data Center Identity Firewall supported with Azure VMware Solution?
-        answer: Yes, NSX-T Data Center Identity Firewall is supported with Azure VMware Solution.
+      - question: Is NSX Identity Firewall and distributed IDS/IPS supported with Azure VMware Solution?
+        answer: Yes with an add-on license. Azure VMware Solution supports distributed IDFW and distributed IDS/IPS with add-on firewall license. This add-on license needs to be bought from VMware and Microsoft will apply that license to the Azure VMware Solution private cloud with a support request.
         
       - question: Is VMware Horizon 8 2012 compatible with Azure VMware Solution?
         answer: Yes.
@@ -181,16 +181,6 @@ sections:
 
       - question: Can an existing ExpressRoute Gateway be used to connect to Azure VMware Solution?
         answer: Yes. Use an existing ExpressRoute Gateway to connect to Azure VMware Solution as long as it doesn't exceed the limit of four ExpressRoute circuits per virtual network. To access Azure VMware Solution from on-premises through ExpressRoute, you must have ExpressRoute Global Reach since the ExpressRoute Gateway doesn't provide transitive routing between its connected circuits.
-
-      - question: Why does Azure VMware Solution use a Public 4-byte Autonomous System Number (ASN)?
-        answer: Azure VMware Solution uses the officially registered Public 4-byte ASNs to ensure there is never a conflict with your on-premises use of Private ASNs in the customer's routing path to Azure VMware Solution.
-
-      - question: How can I use ExpressRoute to connect to Azure VMware Solution if the on-premises ExpressRoute-carrier partners/ISPs don't support 4-byte ASN?
-        answer: |
-          The only way to connect to Azure VMware Solution through ExpressRoute is for your environment and the on-premises ExpressRoute-carrier partners/ISPs support 4-byte ASN or have backward compatibility from 4-byte to 2-byte ASN in the BGP prefix ASN path advertisement.        
-
-          > [!NOTE]
-          > Currently, private ASN (64512 - 65534) prepending from a customer on-premises environment isn't supported by Azure VMware Solution. This scenario might lead to intermittent connection drops from on-premises to Azure VMware Solution. Also design your traffic path for private ASNs after the public ASN to be honored by Azure VMware Solution. The Azure VMware Solution ExpressRoute circuit doesn't strip any private ASNs that exist in the path after the public ASN is processed.
 
       - question: What network IP address planning is required to incorporate private clouds with on-premises environments?
         answer: A private network /22 address space is required to deploy an Azure VMware Solution private cloud. This private address space shouldn't overlap with other virtual networks in a subscription or with on-premises networks.

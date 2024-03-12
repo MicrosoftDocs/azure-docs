@@ -84,7 +84,7 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
 1. Create the following `ClusterResourcePlacement` in a file called `crp-2.yaml`. Notice we're selecting clusters in the `eastus` region:
 
     ```yaml
-    apiVersion: fleet.azure.com/v1alpha1
+    apiVersion: placement.kubernetes-fleet.io/v1beta1
     kind: ClusterResourcePlacement
     metadata:
       name: kuard-demo
@@ -97,10 +97,11 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
       policy:
         affinity:
           clusterAffinity:
-            clusterSelectorTerms:
-              - labelSelector:
-                  matchLabels:
-                    fleet.azure.com/location: eastus
+            requiredDuringSchedulingIgnoredDuringExecution:
+              clusterSelectorTerms:
+                - labelSelector:
+                    matchLabels:
+                      fleet.azure.com/location: eastus
     ```
 
 1. Apply the `ClusterResourcePlacement`:

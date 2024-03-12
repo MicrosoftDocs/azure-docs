@@ -18,7 +18,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ## Version 1.38 - February 2024
 
-Download for [Windows](https://download.microsoft.com/download/0/9/8/0981cd23-37aa-4cb3-8965-368586ab9fd8/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+Download for [Windows](https://download.microsoft.com/download/4/8/f/48f69eb1-f7ce-499f-b9d3-5087f330ae79/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### Known issues
 

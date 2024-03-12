@@ -232,14 +232,23 @@ See the article [Tracking Asynchronous Operations Using Azure CLI](./howto-track
 
 ## Cluster deployment validation
 
-View the status of the cluster:
+View the status of the cluster on the portal, or via the Azure CLI:
 
 ```azurecli
 az networkcloud cluster show --resource-group "$CLUSTER_RG" \
   --resource-name "$CLUSTER_RESOURCE_NAME"
 ```
 
+The Cluster deployment is in-progress when detailedStatus is set to `Deploying` and detailedStatusMessage shows the progress of deployment. 
+Some examples of deployment progress shown in detailedStatusMessage are `Hardware validation is in progress.` (if cluster is deployed with hardware validation) ,`Cluster is bootstrapping.`, `KCP initialization in progress.`, `Management plane deployment in progress.`, `Cluster extension deployment in progress.`, `waiting for "<rack-ids>" to be ready`, etc.
+
+:::image type="content" source="./media/nexus-deploy-kcp-status.png" lightbox="./media/nexus-deploy-kcp-status.png" alt-text="Screenshot of Azure portal showing cluster deploy progress kcp init.":::
+
+:::image type="content" source="./media/nexus-deploy-extention-status.png" lightbox="./media/nexus-deploy-extention-status.png" alt-text="Screenshot of Azure portal showing cluster deploy progress extenstion application.":::
+
 The Cluster deployment is complete when detailedStatus is set to `Running` and detailedStatusMessage shows message `Cluster is up and running`.
+
+:::image type="content" source="./media/nexus-deploy-complete-status.png" lightbox="./media/nexus-deploy-complete-status.png" alt-text="Screenshot of Azure portal showing cluster deploy complete.":::
 
 View the management version of the cluster:
 
@@ -253,3 +262,5 @@ Cluster create Logs can be viewed in the following locations:
 
 1. Azure portal Resource/ResourceGroup Activity logs.
 2. Azure CLI with `--debug` flag passed on command-line.
+
+:::image type="content" source="./media/nexus-deploy-activity-log.png" lightbox="./media/nexus-deploy-activity-log.png" alt-text="Screenshot of Azure portal showing cluster deploy progress activity log.":::
