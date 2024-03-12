@@ -188,7 +188,7 @@ The resource tag is cosmetic, and serves to confirm that the gateway has been pr
 
 ## Application Gateway Subnet 
 
-Application Gateway Sybnet is the subnet within the Virtual Network where the Application Gateway Resources will be deployed. In the Frontend Private Ip configuration is immportant that this subnet can reach privately the resources that want to connect to your exposed app or site.
+Application Gateway Subnet is the subnet within the Virtual Network where the Application Gateway Resources will be deployed. In the Frontend Private Ip configuration, is important that this subnet can reach privately the resources that want to connect to your exposed app or site.
 
 ## Outbound Internet connectivity
 
