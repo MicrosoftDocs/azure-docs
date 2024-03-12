@@ -18,7 +18,7 @@ Learn how to access Advisor through the Azure portal, get and manage recommendat
 
 ## Open Advisor
 
-To access Azure Advisor, sign in to the [Azure portal](https://portal.azure.com) and open [Advisor](https://aka.ms/azureadvisordashboard). The Advisor **Overview** page opens by default.
+To access Azure Advisor, sign in to the [Azure portal](https://portal.azure.com). From there, select the [Advisor](https://aka.ms/azureadvisordashboard) icon at the top of the page, use the search bar at the top to search for Advisor, or use the left navigation pane **Advisor** link.<br> The Advisor **Overview** page opens by default.
 
 You can also use the search bar at the top, or the left navigation pane, to find Advisor.
 
