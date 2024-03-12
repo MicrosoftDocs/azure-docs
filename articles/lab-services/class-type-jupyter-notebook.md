@@ -39,7 +39,7 @@ Follow these steps to [enable these Azure Marketplace images available to lab cr
 
 - Alternately, create a custom VM image:
 
-  The Data Science VMs images in the Azure Marketplace are already configured with [Jupyter Notebooks](https://jupyter-notebook.readthedocs.io/). These images also include other development and modeling tools for data science. If you don't want those extra tools and want a lightweight setup with only Jupyter notebooks, create a custom VM image. For an example, [Installing JupyterHub on Azure](http://tljh.jupyter.org/en/latest/install/azure.html).
+  The Data Science VMs images in the Azure Marketplace are already configured with [Jupyter Notebooks](https://jupyter-notebook.readthedocs.io/). These images also include other development and modeling tools for data science. If you don't want those extra tools and want a lightweight setup with only Jupyter notebooks, create a custom VM image. For an example, see [Installing JupyterHub on Azure](http://tljh.jupyter.org/en/latest/install/azure.html).
 
   After you create the custom image, upload the image to a compute gallery to use it with Azure Lab Services. Learn more about [using compute gallery in Azure Lab Services](how-to-attach-detach-shared-image-gallery.md).
 
@@ -165,7 +165,7 @@ Follow these steps to configure an SSH tunnel between a user's local machine and
 
     Learn more about [how to connect to a Linux VM](connect-virtual-machine.md#connect-to-a-linux-lab-vm-using-ssh).
 
-1. On your local computer, launch a terminal or command prompt, and copy the SSH connection string to it. Then, add `-L 8888:localhost:8888` to the command string, which creates the **tunnel** between the ports.
+1. On your local computer, launch a terminal or command prompt, and copy the SSH connection string to it. Then, add `-L 8888:localhost:8888` to the command string, which creates the tunnel between the ports.
 
     The final command should look like the following example.
 
