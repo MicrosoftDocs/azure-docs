@@ -24,7 +24,7 @@ As a third-party library, we must acknowledge that diagnostic data, crucial for 
 
 ### Call IDs
 
-Every Call made with the Calling SDK has a Call ID. These Call ID's can be used internally at Microsoft to diagnose issues with your call. Collecting and providing these is a first line of support, and can lead to faster investigations.
+Every Call made with the Calling SDK has a Call ID. These Call IDs can be used internally at Microsoft to diagnose issues with your call. Collecting and providing these is a first line of support, and can lead to faster investigations.
 
 In both the Calling Native and UI Sdk, API exists to help collect and retrieve these ID's. 
 
