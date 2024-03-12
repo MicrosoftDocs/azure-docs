@@ -11,8 +11,9 @@ ms.author: cshoe
 
 # Distributed managed functions in Azure Static Web Apps (preview)
 
-Enable distributed functions on your Static Web Apps to enable dynamic distribution of your Static Web Apps' managed functions to regions of high request load. Distributed functions replicate your managed functions 
-to regions close to your users to ensure minimal network latency and optimized application performance for your users. Distributed functions are only available on the [Standard hosting plan](plans.md).
+As requests to your APIs increase, you often want to distribute your APIs to the Azure regions getting the most demand. When you enable dynamic distribution, your API functions are automatically replicated to the regions closest to highest levels of incoming requests. For each request, Azure automatically directs traffic to the most appropriate region. Distributing your APIs reduces network latency and increases application performance and reliability of your static web app.
+
+Distributed functions are only available on the [Standard hosting plan](plans.md).
 
 
 Distributed functions can help reduce your network latency by up to 70%. Decreased network latency leads to improved performance and responsiveness of web applications with global audiences. Distributed functions can also improve application performance when quick response times are needed for responsive personalization, routing or authorization. 
