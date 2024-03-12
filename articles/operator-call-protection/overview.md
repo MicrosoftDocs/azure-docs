@@ -39,7 +39,7 @@ The notification and explanation enable the subscriber to make an informed decis
 
 ## Architecture
 
-Azure Operator Call Protection connects to your network over IP for the voice call. It uses the global SMS network to deliver fraud call notifications.
+Azure Operator Call Protection connects to your network over IP via Azure Communications Gateway for the voice call. It uses the global SMS network to deliver fraud call notifications.
 
 :::image type="complex" source="media/azure-operator-call-protection-architecture.svg" alt-text="Diagram of an operator network invoking Azure Operator Call Protection for a subscriber, showing SIP,  RTP and SMS flows" lightbox="media/azure-operator-call-protection-architecture.svg":::
     A subscriber in an operator network receives a call from an off-net or on-net calling party. The switch, TAS, or IMS core in the operator network causes a SIPREC recording client to contact Azure Communications Gateway with SIP and RTP. Azure Communications Gateway forwards the SIP and RTP to Azure Operator Call Protection. If Azure Operator Call Protection determines that the call might be a scam, it sends an SMS to the subscriber through the global SMS network to alert the subscriber to the potential scam.
@@ -52,7 +52,7 @@ Connection is over any means using public IP addressing including:
 
 Your network must connect to Azure Communications Gateway and thus Azure Operator Call Protection over SIPREC.
 
-- Azure Operator Call Protection takes the role of the SIPREC Session Recording Server (SRS).
+- Azure Communications Gateway takes the role of the SIPREC Session Recording Server (SRS).
 - An element in your network, typically a session border controller (SBC), must be set up as a SIPREC Session Recording Client (SRC).
 
 Azure Operator Call Protection is supported in many Microsoft Azure regions globally. Contact your account team to discuss which local regions support this service.

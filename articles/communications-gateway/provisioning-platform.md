@@ -27,14 +27,14 @@ The following table shows how you can use the Provisioning API for each  service
 |Operator Connect | Automatically set up if you use flow-through provisioning or the Number Management Portal | Recommended | Optional |
 |Teams Phone Mobile | Automatically set up if you use flow-through provisioning or the Number Management Portal | Recommended | Optional |
 |Zoom Phone Cloud Peering | Required | Not supported | Optional |
-|Azure Operator Call Protection Preview | Supported | Not required | Not supported |
+| Azure Operator Call Protection Preview | Supported | Automatic | Not supported |
 
 The flow-through provisioning for Operator Connect and Teams Phone Mobile interoperates with the Operator Connect APIs. It therefore allows you to meet the requirements for API-based provisioning from the Operator Connect and Teams Phone Mobile programs.
 
 > [!TIP]
 > Azure Communications Gateway's Number Management Portal (available in your browser through the Azure portal) provides an alternative for some services:
 > - Operator Connect and Teams Phone Mobile: only until you launch your service. See [Manage an enterprise with Azure Communications Gateway's Number Management Portal for Operator Connect and Teams Phone Mobile](manage-enterprise-operator-connect.md).
-> - Azure Operator Call Protection
+> - Azure Operator Call Protection.
 
 ## Associating numbers for specific communications services
 
