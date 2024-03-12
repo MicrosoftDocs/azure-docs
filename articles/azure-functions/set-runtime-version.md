@@ -4,7 +4,7 @@ description: Azure Functions supports multiple versions of the runtime. Learn ho
 ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.date: 01/25/2024
+ms.date: 03/11/2024
 zone_pivot_groups: app-service-platform-windows-linux
 ---
 
@@ -23,7 +23,7 @@ During local development, your installed version of Azure Functions Core Tools m
 
 When running on Windows, Azure Functions lets you use the `FUNCTIONS_EXTENSION_VERSION` application setting to target the runtime version used by a given function app. When you specify only the major version (`~4`), the function app is automatically updated to new minor versions of the runtime when they become available. Minor version updates are done automatically because new minor versions shouldn't introduce breaking changes. 
 
-When you specify a specific minor version (such as `4.0.12345`), the function app is pinned to that specific version of the runtime until you explicitly choose to move to a new version. You should only pin to a specific minor version long enough to resolve any issues with your function app that prevent you from targeting the major version. Older minor versions are regularly removed from the production environment. When you are pinned to a minor version that gets removed, your function app goes back to running on the major version instead of the version set in `FUNCTIONS_EXTENSION_VERSION`. Minor version removals are announced in [App Service announcements](https://github.com/Azure/app-service-announcements/issues).
+When you specify a specific minor version (such as `4.0.12345`), the function app is pinned to that specific version of the runtime until you explicitly choose to move to a new version. You should only pin to a specific minor version long enough to resolve any issues with your function app that prevent you from targeting the major version. Older minor versions are regularly removed from the production environment. When you are pinned to a minor version that gets removed, your function app is instead run on the closest existing version instead of the version set in `FUNCTIONS_EXTENSION_VERSION`. Minor version removals are announced in [App Service announcements](https://github.com/Azure/app-service-announcements/issues).
 
 > [!NOTE]
 > When you try to publish from Visual Studio to an app that is pinned to a specific minor version of the runtime, a dialog prompts you to update to the latest version or cancel the publish. To avoid this check when you must use a specific minor version, add the `<DisableFunctionExtensionVersionUpdate>true</DisableFunctionExtensionVersionUpdate>` property in your `.csproj` file.
