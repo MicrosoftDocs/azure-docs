@@ -197,9 +197,9 @@ The following table lists the available settings for the cluster autoscaler prof
 
 ### Configure cluster autoscaler profile for aggressive scale down
 > [!NOTE]
-> Scaling down aggressively is not recommended for clusters experiencing frequent scale-outs and scale-ins within short intervals, as it could potentially result in extended node provisioning times under these circumstances
+> Scaling down aggressively is not recommended for clusters experiencing frequent scale-outs and scale-ins within short intervals, as it could potentially result in extended node provisioning times under these circumstances. Increasing `scale-down-delay-after-add` can help in these circumstances by keeping the node around longer to handle incoming workloads.
 
-    ```
+    ```azurecli-interactive
     az aks update \
         --resource-group myResourceGroup \
         --name myAKSCluster \
