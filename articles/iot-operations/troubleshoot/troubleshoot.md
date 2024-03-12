@@ -111,7 +111,7 @@ If the data processor extension fails to uninstall, run the following commands a
 
 ```bash
 kubectl delete pod  aio-dp-reader-worker-0 --grace-period=0 --force -n azure-iot-operations
-kubectl delete pod  aio-dp-reader-worker-0 --grace-period=0 --force -n azure-iot-operations
+kubectl delete pod  aio-dp-runner-worker-0 --grace-period=0 --force -n azure-iot-operations
 ```
 
 ## Troubleshoot Layered Network Management
