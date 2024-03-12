@@ -239,7 +239,8 @@ export TF_VAR_app_registration_app_id=$(az ad app create \
     --required-resource-access @manifest.json            \
     --query "appId" --output tsv )
  
-#remove the placeholder manifest.jsonrm manifest.json
+#remove the placeholder manifest.json
+rm manifest.json
  
 export TF_VAR_webapp_client_secret=$(az ad app credential reset \
     --id $TF_VAR_app_registration_app_id --append               \
