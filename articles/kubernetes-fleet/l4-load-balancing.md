@@ -23,7 +23,7 @@ You can follow this document to set up layer 4 load balancing for such multi-clu
 
 [!INCLUDE [free trial note](../../includes/quickstarts-free-trial-note.md)]
 
-* Read the [conceptual overview of this feature](./concept-l4-load-balancing.md), which provides an explanation of `ServiceExport` and `MultiClusterService` objects referenced in this document.
+* Read the [conceptual overview of this feature](./concepts-l4-load-balancing.md), which provides an explanation of `ServiceExport` and `MultiClusterService` objects referenced in this document.
 
 * You must have a fleet resource with member clusters with deployed workload. If you don't have this resource, follow [Quickstart: Create a Fleet resource and join member clusters](quickstart-create-fleet-and-members.md) and [Propagate Kubernetes configurations from a Fleet resource to member clusters](resource-propagation.md).
 

@@ -26,8 +26,8 @@ Azure Kubernetes Fleet Manager (Fleet) enables at-scale management of multiple A
 
 ## Next steps
 
-* Concept: [Fleets and member clusters](./concept-fleet.md).
-* Concept: [Update orchestration across multiple member clusters](./concept-update-orchestration.md).
-* Concept: [Kubernetes resource propagation from hub cluster to member clusters](./concept-resource-propagation.md).
-* Concept: [Multi-cluster layer-4 load balancing](./concept-l4-load-balancing.md).
+* [Conceptual overview of Fleets and member clusters](./concepts-fleet.md).
+* [Conceptual overview of Update orchestration across multiple member clusters](./concepts-update-orchestration.md).
+* [Conceptual overview of Kubernetes resource propagation from hub cluster to member clusters](./concepts-resource-propagation.md).
+* [Conceptual overview of Multi-cluster layer-4 load balancing](./concepts-l4-load-balancing.md).
 * [Create a fleet and join member clusters](./quickstart-create-fleet-and-members.md).

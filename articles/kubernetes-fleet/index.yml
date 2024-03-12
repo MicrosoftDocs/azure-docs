@@ -19,13 +19,13 @@ landingContent:
       - linkListType: concept
         links:
           - text: Fleets and member clusters
-            url: concept-fleet.md
+            url: concepts-fleet.md
           - text: Update orchestration across multiple member clusters
-            url: concept-update-orchestration.md
+            url: concepts-update-orchestration.md
           - text: Kubernetes resource propagation from hub cluster to member clusters
-            url: concept-resource-propagation.md
+            url: concepts-resource-propagation.md
           - text: Multi-cluster layer-4 load balancing
-            url: concept-l4-load-balancing.md
+            url: concepts-l4-load-balancing.md
           - text: Frequently asked questions
             url: faq.md
 

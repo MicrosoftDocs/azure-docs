@@ -26,7 +26,7 @@ Fleet workload placement can deploy any Kubernetes objects to clusters In order 
 
 ## Requirements
 
-- Read the [conceptual overview of this feature](./concept-resource-propagation.md), which provides an explanation of `MemberCluster` and `ClusterResourcePlacement` referenced in this document.
+- Read the [conceptual overview of this feature](./concepts-resource-propagation.md), which provides an explanation of `MemberCluster` and `ClusterResourcePlacement` referenced in this document.
 - A Kubernetes Fleet with a hub cluster and member clusters (see the [quickstart](quickstart-create-fleet-and-members.md) for provisioning instructions).
 - Member clusters must be labeled appropriately in the hub cluster to match the desired selection criteria. Example labels could include region, environment, team, availability zones, node availability, or anything else desired.
 
