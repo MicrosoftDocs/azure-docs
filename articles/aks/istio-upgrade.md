@@ -13,7 +13,7 @@ This article addresses upgrade experiences for Istio-based service mesh add-on f
 
 ## Minor version upgrade
 
-Istio add-on allows upgrading the minor version using [canary upgrade process][istio-canary-upstream]. When an upgrade is initiated, the control plane of the new (canary) revision is deployed alongside the old (stable) revision's control plane. You can then manually roll over data plane workloads while using monitoring tools to track the health of workloads during this process. If you don't observe any issues with the health of your workloads, you can complete the upgrade so that only the new revision remains on the cluster. Else, you can roll back to the previous revision of Istio.
+Istio add-on allows upgrading the minor version using [canary upgrade process][istio-canary-upstream]. When an upgrade is initiated, the control plane of the new (canary) revision (minor version) is deployed alongside the old (stable) revision's control plane. You can then manually roll over data plane workloads while using monitoring tools to track the health of workloads during this process. If you don't observe any issues with the health of your workloads, you can complete the upgrade so that only the new revision remains on the cluster. Else, you can roll back to the previous revision of Istio.
 
 If the cluster is currently using a supported minor version of Istio, upgrades are only allowed one minor version at a time. If the cluster is using an unsupported version of Istio, you must upgrade to the lowest supported minor version of Istio for that Kubernetes version. After that, upgrades can again be done one minor version at a time.
 
