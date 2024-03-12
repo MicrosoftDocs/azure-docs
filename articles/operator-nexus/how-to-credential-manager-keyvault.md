@@ -11,7 +11,7 @@ ms.custom: template-how-to
 
 # Setting up Key Vault for Managed Credential Rotation in Operator Nexus
 
-Azure Operator Nexus utilizes secrets and certificates to manage component security across the platform. These secrets and certificates are rotated by the Operator Nexus platform. By default, Operator Nexus stores the credentials in a managed key vault. To keep the rotated credentials in their own key vault, the user has to set up the key vault for the Azure Operator Nexus instance. Once created, the user needs to add a role assignment on the customer key vault to allow the Operator Nexus Platform to write updated credentials, and additionally link the key vault to the Nexus cluster resource.
+Azure Operator Nexus utilizes secrets and certificates to manage component security across the platform. The Operator Nexus platform handles the rotation of these secrets and certificates. By default, Operator Nexus stores the credentials in a managed Key Vault. To keep the rotated credentials in their own key vault, the user has to set up the Key Vault for the Azure Operator Nexus instance. Once created, the user needs to add a role assignment on the Customer Key Vault to allow the Operator Nexus Platform to write updated credentials, and additionally link the Customer Key Vault to the Nexus Cluster Resource.
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ Azure Operator Nexus utilizes secrets and certificates to manage component secur
 az provider register --namespace 'Microsoft.NetworkCloud' --subscription <Subscription ID>
 ```
 
-- Assign the *Operator Nexus Key Vault Writer Service Role*. Ensure that *Azure role-based access control* is selected as the permission model for the key vault on the *Access configuration* view. Then from the *Access control (IAM) view, select to add a role assignment.
+- Assign the *Operator Nexus Key Vault Writer Service Role*. Ensure that *Azure role-based access control* is selected as the permission model for the key vault on the *Access configuration* view. Then from the *Access control (IAM)* view, select to add a role assignment.
 
 | Role Name                                              | Role Definition ID                   |
 |:-------------------------------------------------------|:-------------------------------------|
