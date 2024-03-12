@@ -14,7 +14,7 @@ ms.date: 09/28/2023
 
 VM insights includes a set of performance charts that target several key [performance indicators](vminsights-log-query.md#performance-records) to help you determine how well a virtual machine is performing. The charts show resource utilization over a period of time. You can use them to identify bottlenecks and anomalies. You can also switch to a perspective that lists each machine to view resource utilization based on the metric selected.
 
-VM insights monitors key operating system performance indicators related to processor, memory, network adapter, and disk utilization. Performance complements the health monitoring feature and helps to:
+VM insights monitors key operating system performance indicators related to processor, memory, network adapter, and disk utilization. Performance helps to:
 
 - Expose issues that indicate a possible system component failure.
 - Support tuning and optimization to achieve efficiency.
@@ -43,7 +43,7 @@ To access from Azure Monitor:
 <!-- convertborder later -->
 :::image type="content" source="media/vminsights-performance/vminsights-performance-aggview-01.png" lightbox="media/vminsights-performance/vminsights-performance-aggview-01.png" alt-text="Screenshot that shows a VM insights Performance Top N List view." border="false":::
 
-On the **Top N Charts** tab, if you have more than one Log Analytics workspace, select the workspace enabled with the solution from the **Workspace** selector at the top of the page. The **Group** selector returns subscriptions, resource groups, [computer groups](../logs/computer-groups.md), and virtual machine scale sets of computers related to the selected workspace that you can use to further filter results presented in the charts on this page and across the other pages. Your selection only applies to the Performance feature and doesn't carry over to Health or Map.
+On the **Top N Charts** tab, if you have more than one Log Analytics workspace, select the workspace enabled with the solution from the **Workspace** selector at the top of the page. The **Group** selector returns subscriptions, resource groups, [computer groups](../logs/computer-groups.md), and virtual machine scale sets of computers related to the selected workspace that you can use to further filter results presented in the charts on this page and across the other pages. Your selection only applies to the Performance feature and doesn't carry over to Map.
 
 By default, the charts show performance counters for the last hour. By using the **TimeRange** selector, you can query for historical time ranges of up to 30 days to show how performance looked in the past.
 
@@ -54,6 +54,10 @@ Five capacity utilization charts are shown on the page:
 * **Logical Disk Space Used %**: Shows the top five machines with the highest average disk space used percent across all disk volumes.
 * **Bytes Sent Rate**: Shows the top five machines with the highest average of bytes sent.
 * **Bytes Receive Rate**: Shows the top five machines with the highest average of bytes received.
+
+>[!NOTE]
+>Each chart described above only shows the top 5 machines.  
+>
 
 Selecting the pushpin icon in the upper-right corner of a chart pins it to the last Azure dashboard you viewed. From the dashboard, you can resize and reposition the chart. Selecting the chart from the dashboard redirects you to VM insights and loads the correct scope and view.
 

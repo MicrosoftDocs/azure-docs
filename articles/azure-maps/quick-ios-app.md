@@ -184,14 +184,13 @@ In this quickstart, you created your Azure Maps account and created a demo appli
 [Add a polygon layer to the map in the iOS SDK]: add-polygon-layer-map-ios.md
 [Add a polygon layer]: add-polygon-layer-map-ios.md
 [Add a symbol layer]: add-symbol-layer-ios.md
-[Azure Active Directory authentication]: azure-maps-authentication.md#azure-ad-authentication
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Azure portal]: https://portal.azure.com
 [Change map styles in iOS maps]: set-map-style-ios-sdk.md
 [Creating an Xcode Project for an App]: https://developer.apple.com/documentation/xcode/creating-an-xcode-project-for-an-app
 [free account]: https://azure.microsoft.com/free/
 [manage authentication in Azure Maps]: how-to-manage-authentication.md
-[Microsoft Entra ID]: /entra/fundamentals/whatis
+[Microsoft Entra authentication]: azure-maps-authentication.md#microsoft-entra-authentication
 [Shared Key authentication]: azure-maps-authentication.md#shared-key-authentication
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [‎Xcode]: https://apps.apple.com/cz/app/xcode/id497799835?mt=12

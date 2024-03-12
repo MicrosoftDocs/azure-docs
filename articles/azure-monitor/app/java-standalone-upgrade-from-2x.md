@@ -29,7 +29,7 @@ There are typically no code changes when upgrading to 3.x. The 3.x SDK dependenc
 Add the 3.x Java agent to your JVM command-line args, for example
 
 ```
--javaagent:path/to/applicationinsights-agent-3.4.19.jar
+-javaagent:path/to/applicationinsights-agent-3.5.0.jar
 ```
 
 If you're using the Application Insights 2.x Java agent, just replace your existing `-javaagent:...` with the aforementioned example.
@@ -85,9 +85,9 @@ The telemetry processors perform the following actions (in order):
    which means it applies to all telemetry that has attributes
    (currently `requests` and `dependencies`, but soon also `traces`).
 
-   It matches any telemetry that has attributes named `http.method` and `http.url`.
+   It matches any telemetry that has attributes named `http.request.method` and `url.path`.
 
-   Then it extracts the path portion of the `http.url` attribute into a new attribute named `tempName`.
+   Then it extracts `url.path` attribute into a new attribute named `tempName`.
 
 2. The second telemetry processor is a span processor (has type `span`),
    which means it applies to `requests` and `dependencies`.
@@ -111,13 +111,13 @@ The telemetry processors perform the following actions (in order):
         "include": {
           "matchType": "strict",
           "attributes": [
-            { "key": "http.method" },
-            { "key": "http.url" }
+            { "key": "http.request.method" },
+            { "key": "url.path" }
           ]
         },
         "actions": [
           {
-            "key": "http.url",
+            "key": "url.path",
             "pattern": "https?://[^/]+(?<tempPath>/[^?]*)",
             "action": "extract"
           }
@@ -132,7 +132,7 @@ The telemetry processors perform the following actions (in order):
           ]
         },
         "name": {
-          "fromAttributes": [ "http.method", "tempPath" ],
+          "fromAttributes": [ "http.request.method", "tempPath" ],
           "separator": " "
         }
       },
