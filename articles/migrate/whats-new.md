@@ -14,9 +14,11 @@ ms.custom: mvc, engagement-fy24
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
 
-## Update (February 2024)
+## Update (March 2024)
 
 - Public preview: Springboot Apps discovery and assessment is now available using Packaged solution to deploy Kubernetes appliance. 
+
+## Update (February 2024)
 
 - Public preview: Envision savings with Azure Hybrid Benefits by bringing your existing Enterprise Linux subscriptions to Azure using Azure VM assessments and business case.
 
