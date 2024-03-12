@@ -117,15 +117,21 @@ ce-eventName: connect
     * `204`: Success, with no content.
     * `200`: Success, the content SHOULD be a JSON format, with following properties allowed:
         * `subprotocols`
+
             The `connect` event forwards the subprotocol and authentication information to Upstream from the client. Web PubSub service uses the status code to determine if the request will be upgraded to WebSocket protocol.
 
             If the request contains the `subprotocols` property, the server should return one subprotocol it supports. If the server doesn't want to use any subprotocols, it should **not** send the `subprotocol` property in response. [Sending a blank header is invalid](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API/Writing_WebSocket_servers#Subprotocols).
 
         * `userId`: `{auth-ed user ID}`
+
             As the service allows anonymous connections, it's the `connect` event's responsibility to tell the service the user ID of the client connection. The service reads the user ID from the response payload `userId` if it exists. The connection is dropped if the user ID can't be read from the request claims nor the `connect` event's response payload.
+
         * `groups`: `{groups to join}`
+
             The property provides a convenient way for user to add this connection to one or multiple groups. In this way, there's no need to have another call to add this connection to some group.
+
         * `roles`: `{roles the client has}`
+        
             The property provides a way for the upstream Webhook to authorize the client.   There are different roles to grant initial permissions for PubSub WebSocket clients. Details about the permissions are described in [Client permissions](./concept-client-protocols.md#permissions).
 
 ```HTTP
