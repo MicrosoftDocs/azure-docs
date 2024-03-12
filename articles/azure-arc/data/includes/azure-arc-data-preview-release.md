@@ -5,14 +5,12 @@ ms.service: azure-arc
 ms.custom:
   - ignite-2023
 ms.topic: include
-ms.date: 12/12/2023
+ms.date: 03/12/2024
 ---
 
-<!--
 At this time, a test or preview build is not available for the next release.
---->
 
-
+<!---
 March, 2024 preview release is now available.
 
 |Component|Value|
@@ -48,3 +46,5 @@ Arc SQL Server | Backups | Configure backups at DB level for Arc enabled SQL Ser
 Arc SQL Server | Set feature flags via the Azure CLI | GA
 
 Arc SQL Server | Billing | Support unlimited virtualization benefit for PAYG and Software Assurance customers | GA
+
+-->

@@ -19,8 +19,6 @@ If you want to set up a custom domain using your own certificate, see [Custom do
 
 > [!NOTE]
 > If you configure a [custom environment DNS suffix](environment-custom-dns-suffix.md), you cannot add a custom domain that contains this suffix to your Container App.
->
-> The managed certificates feature in Azure Container Apps is currently in preview.
 
 ## Free certificate requirements
 
