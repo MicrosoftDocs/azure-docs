@@ -48,8 +48,6 @@ Azure:
 - [Microsoft cloud security benchmark](./azure-security-benchmark.md)
 - [Microsoft Cloud for Sovereignty Confidential](./mcfs-baseline-confidential.md)
 - [Microsoft Cloud for Sovereignty Global](./mcfs-baseline-global.md)
-- [New Zealand ISM Restricted](./new-zealand-ism.md)
-- [New Zealand ISM Restricted 3.5](./nz-ism-restricted-3-5.md)
 - [NIST SP 800-53 Rev. 4](./nist-sp-800-53-r4.md)
 - [NIST SP 800-53 Rev. 5](./nist-sp-800-53-r5.md)
 - [NIST SP 800-171 R2](./nist-sp-800-171-r2.md)

@@ -7,7 +7,7 @@ author: tomvcassidy
 ms.service: container-instances
 services: container-instances
 ms.date: 06/17/2022
-ms.custom: "seodec18, mvc, devx-track-azurecli"
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Tutorial: Deploy a container application to Azure Container Instances

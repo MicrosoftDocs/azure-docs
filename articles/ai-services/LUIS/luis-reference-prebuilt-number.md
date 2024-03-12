@@ -6,7 +6,6 @@ description: This article contains number prebuilt entity information in Languag
 ms.author: aahi
 author: aahill
 manager: nitinme
-ms.custom: seodec18
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.topic: reference
@@ -103,6 +102,6 @@ The following example shows a JSON response from LUIS, that includes the resolut
 
 ## Next steps
 
-Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
+
 
 Learn about the [currency](luis-reference-prebuilt-currency.md), [ordinal](luis-reference-prebuilt-ordinal.md), and [percentage](luis-reference-prebuilt-percentage.md).

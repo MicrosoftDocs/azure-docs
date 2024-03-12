@@ -61,7 +61,7 @@ Azure has a growing ecosystem of partners offering their network appliances for 
 
 **Brendan O’Flaherty - CEO**
 
-[Learn more](https://www.cpacket.com/azure-gateway-load-balancer/)
+[Learn more](https://www.cpacket.com/)
 
 ### F5
 

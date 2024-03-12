@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 11/30/2023
+ms.date: 01/31/2023
 ms.author: danlep 
 ms.custom: devx-track-azurepowershell
 ---
@@ -127,7 +127,7 @@ Backup-AzApiManagement -ResourceGroupName $apiManagementResourceGroup -Name $api
     -TargetBlobName $blobName -AccessType "UserAssignedManagedIdentity" ` -identityClientId $identityid
 ```
 
-Backup is a long-running operation that may take several minutes to complete.
+Backup is a long-running operation that may take several minutes to complete. During this time the API gateway continues to handle requests, but the state of the service is Updating.
 
 ### [REST](#tab/rest)
 
@@ -190,7 +190,7 @@ In the body of the request, specify the target storage account name, blob contai
 
 Set the value of the `Content-Type` request header to `application/json`.
 
-Backup is a long-running operation that may take several minutes to complete. If the request succeeded and the backup process began, you receive a `202 Accepted` response status code with a `Location` header. Make `GET` requests to the URL in the `Location` header to find out the status of the operation. While the backup is in progress, you continue to receive a `202 Accepted` status code. A Response code of `200 OK` indicates successful completion of the backup operation.
+Backup is a long-running operation that may take several minutes to complete. If the request succeeded and the backup process began, you receive a `202 Accepted` response status code with a `Location` header. Make `GET` requests to the URL in the `Location` header to find out the status of the operation. While the backup is in progress, you continue to receive a `202 Accepted` status code. During this time the API gateway continues to handle requests, but the state of the service is Updating. A Response code of `200 OK` indicates successful completion of the backup operation. 
 
 ---
 

@@ -5,7 +5,7 @@ ms.author: jeburke
 ms.service: container-registry
 ms.topic: overview
 ms.date: 10/31/2023
-ms.custom: references_regions, ignite-fall-2021
+ms.custom: references_regions
 ---
 
 # What is a connected registry? 

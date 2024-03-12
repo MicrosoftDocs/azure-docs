@@ -1,7 +1,7 @@
 ---
 title: Supported Azure Resource Manager resource types
 description: Provide a list of the Azure Resource Manager resource types supported by Azure Resource Graph and Change History.
-ms.date: 01/22/2023
+ms.date: 01/29/2023
 ms.topic: reference
 ms.custom: generated
 ---
@@ -330,10 +330,6 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.ClassicStorage/StorageAccounts (Storage accounts (classic))
 - microsoft.cloudes/accounts
 - microsoft.cloudsearch/indexes
-- microsoft.CloudTest/accounts (CloudTest Accounts)
-- microsoft.CloudTest/hostedpools (1ES Hosted Pools)
-- microsoft.CloudTest/images (CloudTest Images)
-- microsoft.CloudTest/pools (CloudTest Pools)
 - microsoft.ClusterStor/nodes (ClusterStors)
 - microsoft.codesigning/codesigningaccounts
 - microsoft.codespaces/plans
@@ -864,7 +860,6 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.sqlvirtualmachine/sqlvirtualmachinegroups
 - microsoft.SqlVirtualMachine/SqlVirtualMachines (SQL virtual machines)
 - microsoft.sqlvm/dwvm
-- microsoft.storage/datamovers
 - microsoft.Storage/StorageAccounts (Storage accounts)
   - Sample query: [Find storage accounts with a specific case-insensitive tag on the resource group](../samples/samples-by-category.md#find-storage-accounts-with-a-specific-case-insensitive-tag-on-the-resource-group)
   - Sample query: [Find storage accounts with a specific case-sensitive tag on the resource group](../samples/samples-by-category.md#find-storage-accounts-with-a-specific-case-sensitive-tag-on-the-resource-group)

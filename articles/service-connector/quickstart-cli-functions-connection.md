@@ -19,7 +19,7 @@ This quickstart shows you how to connect Azure Functions to other Cloud resource
 
 - This quickstart requires version 2.30.0 or higher of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 - This quickstart assumes that you already have an Azure Function. If you don't have one yet, [create an Azure Function](../azure-functions/create-first-function-cli-python.md).
-- This quickstart assumes that you already have an Azure Storage account. If you don't have one yet, [create a Azure Storage account](../storage/common/storage-account-create.md).
+- This quickstart assumes that you already have an Azure Storage account. If you don't have one yet, [create an Azure Storage account](../storage/common/storage-account-create.md).
 
 ## Initial set-up
 

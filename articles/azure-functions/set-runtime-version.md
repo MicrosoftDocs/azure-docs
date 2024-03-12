@@ -39,7 +39,6 @@ You can view the current runtime version of your function app in one of these wa
 
 [!INCLUDE [Set the runtime version in the portal](../../includes/functions-view-update-version-portal.md)]
 
-
 ### [Azure CLI](#tab/azurecli)
 
 You can view the `FUNCTIONS_EXTENSION_VERSION` from the Azure CLI.  

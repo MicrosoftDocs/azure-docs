@@ -13,6 +13,9 @@ ms.custom: engagement-fy23, linux-related-content
 
 # How to mount an Azure Blob Storage container on Linux with BlobFuse2
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 This article shows you how to install and configure BlobFuse2, mount an Azure blob container, and access data in the container. The basic steps are:
 
 > [Install BlobFuse2](#how-to-install-blobfuse2)

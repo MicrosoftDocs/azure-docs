@@ -6,8 +6,8 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 12/9/2019
 ms.author: sidandrews
-ms.reviewer: mjbrown 
-ms.custom: devx-track-azurepowershell, ignite-2022
+ms.reviewer: mjbrown
+ms.custom: devx-track-azurepowershell
 ---
 
 # Restrict user access to data operations in Azure Cosmos DB

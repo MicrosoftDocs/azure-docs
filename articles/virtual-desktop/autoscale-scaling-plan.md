@@ -6,7 +6,7 @@ ms.topic: how-to
 ms.date: 01/10/2024
 ms.author: helohr
 manager: femila
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurepowershell
 ---
 # Create and assign an autoscale scaling plan for Azure Virtual Desktop
 
@@ -364,6 +364,19 @@ Here's how to update a scaling plan using the Az.DesktopVirtualization PowerShel
     Update-AzWvdScalingPlanPersonalSchedule @scalingPlanPersonalScheduleParams
     ```
 
+* Update a pooled scaling plan schedule using [Update-AzWvdScalingPlanPooledSchedule](/powershell/module/az.desktopvirtualization/update-azwvdscalingplanpooledschedule). This example updates the peak hours start time.
+
+    ```azurepowershell
+    $scalingPlanPooledScheduleParams = @{
+        ResourceGroupName = 'resourceGroup'
+        ScalingPlanName = 'scalingPlanPooled'
+        ScalingPlanScheduleName = 'pooledSchedule1'
+        PeakStartTimeHour = '9'
+        PeakStartTimeMinute = '15'
+    }
+    
+    Update-AzWvdScalingPlanPooledSchedule @scalingPlanPooledScheduleParams
+    ```
 
 ---
 

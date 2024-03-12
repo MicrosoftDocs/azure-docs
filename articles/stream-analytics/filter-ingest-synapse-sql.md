@@ -5,7 +5,7 @@ author: xujxu
 ms.author: xujiang1
 ms.service: stream-analytics
 ms.topic: how-to
-ms.custom: mvc, event-tier1-build-2022, ignite-2022
+ms.custom: mvc
 ms.date: 10/12/2022
 ---
 

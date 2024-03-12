@@ -39,6 +39,10 @@ The default name of the **Change email** button in *selfAsserted.html* is **chan
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
+
+- The B2C Users need to have an authentication method specified for self-service password reset. Select the B2C User, in the left menu under **Manage**,  select **Authentication methods**, ensure **Authentication contact info** is set. B2C users created via a SignUp flow will have this set by default. For users created via Azure Portal or by Graph API need to have this set for SSPR to work. 
+
+
 ## Self-service password reset (recommended)
 
 The new password reset experience is now part of the sign-up or sign-in policy. When the user selects the **Forgot your password?** link, they are immediately sent to the Forgot Password experience. Your application no longer needs to handle the [AADB2C90118 error code](#password-reset-policy-legacy), and you don't need a separate policy for password reset.

@@ -5,7 +5,6 @@ author: srijang
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.collection: linux
-ms.workload: infrastructure-services
 ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 12/14/2022

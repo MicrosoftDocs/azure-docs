@@ -1,18 +1,16 @@
 ---
 title: 'Tutorial: Trigger Azure Functions on blob containers using an event subscription'
 description: This tutorial shows how to create a low-latency, event-driven trigger on an Azure Blob Storage container using an Event Grid event subscription. 
-author: cachai2
 ms.topic: tutorial
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
-ms.date: 8/22/2023
-ms.author: cachai
+ms.date: 02/27/2024
 zone_pivot_groups: programming-languages-set-functions
-#Customer intent: As an Azure Functions developer, I want learn how to create an Event Grid-based trigger on a Blob Storage container so that I can get a more rapid response to changes in the container.
+#Customer intent: As an Azure Functions developer, I want learn how to create an event-based trigger on a Blob Storage container so that I can get a more rapid response to changes in the container.
 ---
 
 # Tutorial: Trigger Azure Functions on blob containers using an event subscription
 
-If you're using earlier versions of the Blob Storage trigger with Azure Functions, you often get delayed executions because the trigger polls the blob container for updates. You can reduce latency by triggering your function using an event subscription to the same container. The event subscription forwards changes in the container as events that your function consumes by using Event Grid. You can implement this capability with Visual Studio Code with latest Azure Functions extension.
+If you're using earlier versions of the Blob Storage trigger with Azure Functions, you often get delayed executions because the trigger polls the blob container for updates. You can reduce latency by triggering your function using an event subscription to the same container. The event subscription uses Event Grid infrastructure to forward changes in the container as they occur. You can implement this capability using the latest Azure Functions extensions.
 
 This article shows how to create a function that runs based on events raised when a blob is added to a container. You'll use Visual Studio Code for local development and to check that the function works locally before deploying your project to Azure.
 
@@ -268,8 +266,8 @@ After you create the function, in the function.json configuration file, add `"so
        ) {
              context.getLogger().info("Java Blob trigger function processed a blob. Name: " + name + "\n  Size: " + content.length + " Bytes");
          }
-    }
-    ```
+   }
+   ```
 1. Remove the associated unit test file, which no longer applies to the new trigger type.
 ::: zone-end
 ::: zone pivot="programming-language-typescript"  

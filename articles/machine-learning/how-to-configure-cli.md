@@ -10,7 +10,7 @@ author: balapv
 ms.author: balapv
 ms.date: 01/08/2024
 ms.reviewer: larryfr
-ms.custom: devx-track-azurecli, devplatv2, event-tier1-build-2022, ignite-2022
+ms.custom: devx-track-azurecli, devplatv2
 ---
 
 # Install and set up the CLI (v2)
