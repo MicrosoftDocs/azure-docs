@@ -9,7 +9,7 @@ ms.topic: conceptual
 
 When a resource is created, updated, or deleted, a new change resource (Microsoft.Resources/changes) is created to extend the modified resource and represent the changed properties. Change records should be available in less than five minutes.
 
-Example change resource property bag:
+Example change resource properties:
 
 ```json
 {

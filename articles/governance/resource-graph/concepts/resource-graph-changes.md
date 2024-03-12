@@ -14,10 +14,9 @@ Change Analysis helps you:
 - Find when changes were detected on an Azure Resource Manager property.
 - View property change details.
 - Query changes at scale across your subscriptions, management group, or tenant.
-
-## Change Analysis architecture
-
-[Need: Some tech here. See current Change Analysis overview section for inspiration.]
+ 
+> [!IMPORTANT]
+> Change Analysis is in the process of migrating from [an Azure Monitor service](../../../azure-monitor/change/change-analysis.md) to an Azure Resource Graph service. 
 
 ## Azure Monitor Change Analysis vs. Azure Resource Graph Change Analysis
 
@@ -25,24 +24,42 @@ Currently in the Azure portal, you'll notice two entries for Change Analysis.
 
 [Need: screenshot]
 
-While this could be confusing, Change Analysis is migrating from an Azure Monitor service to an Azure Resource Graph service. You can expect the following differences:
+1. **Azure Monitor Change Analysis (GA)**
 
-### 1. Azure Monitor Change Analysis (GA)
+    The [Change Analysis (GA) service presented by Azure Monitor](../../../azure-monitor/change/change-analysis.md) requires you to query a resource provider, called `Microsoft.ChangeAnalysis`, which provides a simple API that abstracts resource change data from the Azure Resource Graph. 
+    
+    While this service has successfully helped thousands of Azure customers, the `Microsoft.ChangeAnalysis` resource provider has insurmountable limitations that prevent it from servicing the needs and scale of all Azure customers across all public and sovereign clouds.
 
-Currently, the [Change Analysis (GA) service presented by Azure Monitor](../../../azure-monitor/change/change-analysis.md) requires you to query a resource provider, called `Microsoft.ChangeAnalysis`, which provides a simple API that abstracts resource change data from the Azure Resource Graph. 
+1. **Azure Resource Graph Change Analysis (Preview)**
 
-While this service has successfully helped thousands of Azure customers, the `Microsoft.ChangeAnalysis` resource provider has insurmountable limitations that prevent it from servicing the needs and scale of all Azure customers across all public and sovereign clouds.
+    The Change Analysis (preview) service presented by Resource Graph sets a new direction for all Change Analysis user experiences, directly querying Azure Resource Graph for all resource change data. This experience of Change Analysis provides:
+    
+    - An onboarding-free experience, giving all subscriptions and resources access to change history
+    - Tenant-wide querying, rather than select subscriptions
+    - Change history summaries aggregated into cards at the top of the new Resource Graph Change Analysis blade
+    - More extensive filtering capabilities
+    - The ability to export change data to Log Analytics
+    - Improved accuracy and relevance of "changed by" change information 
 
-### 2. Azure Resource Graph Change Analysis (Preview)
+### Proxy vs. tracked resource change data
 
-The Change Analysis (preview) service presented by Resource Graph sets a new direction for all Change Analysis user experiences and queries, directly querying Azure Resource Graph for all resource change data. This experience of Change Analysis provides:
+One of the significant updates to Change Analysis during this migration is the resource change data collected by the service. In Azure Monitor, Change Analysis collects snapshots of "proxy" resources, while Azure Resource Graph Change Analysis collects snapshots of all "tracked" resources.
 
-- An onboarding-free experience, giving all subscriptions and resources access to change history
-- Tenant-wide querying, rather than select subscriptions
-- Change history summaries aggregated into cards at the top of the new Resource Graph Change Analysis blade
-- More extensive filtering capabilities
-- The ability to export change data to Log Analytics
-- Improved accuracy and relevance of "changed by" change information 
+#### Proxy resource change data 
+
+[The Azure Monitor Change Analysis](../../../azure-monitor/change/change-analysis.md) stores data collected as snapshots about proxy resources. Proxy resources include resources that Azure Resource Graph doesn’t know about, prompting Azure Resource Manager to proxy those calls to the appropriate resource provider when requested. Azure Monitor Change Analysis makes the appropriate `GET https://management.azure.com/{some_proxy_resource_id}` HTTP request and saves the JSON response payload for calculation of changes over time. 
+
+Proxy resource changes require opt-in, extra effor by resource providers, resulting in:
+- A different table to query
+- No guaranteed SLA
+- A limited availability of proxy resource change data
+
+#### Tracked resource change data
+
+Meanwhile, Azure Resource Graph Change Analysis works with their complex and highly scalable set of systems to provide quick and automatic tracked resource changes for many Azure resources. You can use queries provided by Resource Graph to retrieve and review resource change data over time. 
+
+Azure Resource Graph Change Analysis provides change information on tracked resources, which are tracked by Resource Graph via notifications sent from the resource providers (virtual machines, web applications, storage accounts, etc.) to Azure Resource Graph's systems. 
+Azure Resource Graph collects snapshots of all tracked resources, compiled in a JSON payload when you make a `GET https://management.azure.com/{some_resource_id}` HTTP request.
 
 ## Supported services
 
@@ -50,7 +67,7 @@ The Change Analysis (preview) service presented by Resource Graph sets a new dir
 
 ## Cost
 
-[Need: Relevant?]
+You can use Azure Resource Graph Change Analysis at no extra cost. 
 
 ## Limitations
 
@@ -70,9 +87,10 @@ With the transition from Azure Monitor to Azure Resource Graph comes a handful o
 
 ## To be announced
 
+The Change Analysis team anticipates the following items as they work on the migration during preview.
+
 - Deprecation for the `Microsoft.ChangeAnalysis` resource provider
 - Documentation for programmatic replacement of calling `Microsoft.ChangeAnalysis` APIs and how to query across the various tables within the `Microsoft.ResourceGraph/resources` API for tracked and proxy resources.
-
 
 ## Next steps
 
