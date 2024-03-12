@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 03/06/2024
+ms.date: 03/12/2024
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -33,7 +33,9 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 March 28 2024
 
-The following new agentless endpoint protection recommendations are now available if you have Defender for Servers Plan 2 or the Defender CSPM plan enabled on your subscription with the agentless machine scanning feature enabled. The recommendations support Azure and multicloud machines. On-premises machines are not supported. These new recommendations discover and assesses the configuration of supported endpoint detection and response solutions and offers remediation steps, if issues are found.
+We are announcing new endpoint detection and response recommendations that discover and assesses the configuration of supported endpoint detection and response solutions. If issues are found, these recommendations offer remediation steps. 
+
+The following new agentless endpoint protection recommendations are now available if you have Defender for Servers Plan 2 or the Defender CSPM plan enabled on your subscription with the agentless machine scanning feature enabled. The recommendations support Azure and multicloud machines. On-premises machines are not supported. 
 
 | Recommendation name | Description | Severity |
 |--|
