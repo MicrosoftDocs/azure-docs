@@ -53,7 +53,7 @@ The quickstart application includes the following Kubernetes deployments and ser
 
 `azd` can clone files directly from a GitHub repository with azd init. For this quickstart, clone the sample `azd` template using the `--template` flag along with the owner and name of the repository.
 
-1. Clone the AKS Store Demo template from the Azure-Samples repository by running the azd init command and specifying aks-store-demo.
+1. Clone the AKS Store Demo template from the **Azure-Samples** repository by running the `azd init` command and specifying `aks-store-demo`.
 
     ```azurecli-interactive
     azd init --template Azure-Samples/aks-store-demo
