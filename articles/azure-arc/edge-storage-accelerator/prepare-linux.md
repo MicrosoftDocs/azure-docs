@@ -4,7 +4,7 @@ description: Learn how to prepare Linux using AKS enabled by Azure Arc, Edge Ess
 author: sethmanheim
 ms.author: sethm
 ms.topic: how-to
-ms.date: 02/06/2024
+ms.date: 03/12/2024
 
 ---
 
@@ -16,6 +16,9 @@ The article describes how to prepare Linux using AKS enabled by Azure Arc, Edge 
 > The minimum supported version is 5.1. At this time, there are known issues with 6.4 and 6.2.
 
 ## Prerequisites
+
+> [!NOTE]
+> Edge Storage Accelerator is only available in the following regions: East US 2, West US 3, West Europe.
 
 ### Custom Kubernetes installation on Azure IoT Operations (AIO)
 

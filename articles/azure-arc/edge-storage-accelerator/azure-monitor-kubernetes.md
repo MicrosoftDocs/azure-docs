@@ -4,7 +4,7 @@ description: Learn how to monitor your deployment using Azure Monitor and Kubern
 author: sethmanheim
 ms.author: sethm
 ms.topic: how-to
-ms.date: 02/07/2024
+ms.date: 03/12/2024
 
 ---
 

@@ -4,7 +4,7 @@ description: Learn about Edge Storage Accelerator.
 author: sethmanheim
 ms.author: sethm
 ms.topic: overview
-ms.date: 02/06/2024
+ms.date: 03/12/2024
 
 ---
 
@@ -33,6 +33,14 @@ Edge Storage Accelerator (ESA) serves as a native persistent storage system for 
 The following diagram shows the end-to-end flow of the Edge Storage Accelerator configuration and installation experience.
 
 :::image type="content" source="media/arc-connected-aks-on-azure.png" alt-text="Diagram showing the flow of Edge Storage Accelerator." lightbox="media/arc-connected-aks-on-azure.png":::
+
+## Supported Azure Regions
+
+Edge Storage Accelerator is only available in the following Azure regions:
+
+- East US 2
+- West US 3
+- West Europe
 
 ## Next steps
 

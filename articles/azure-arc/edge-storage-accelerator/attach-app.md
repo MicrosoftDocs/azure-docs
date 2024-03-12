@@ -4,7 +4,7 @@ description: Learn how to attach your app using the Azure IoT Operations data pr
 author: sethmanheim
 ms.author: sethm
 ms.topic: how-to
-ms.date: 02/23/2024
+ms.date: 03/12/2024
 zone_pivot_groups: attach-app
 ---
 

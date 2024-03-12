@@ -4,7 +4,7 @@ description: Learn about creating persistent volumes.
 author: sethmanheim
 ms.author: sethm
 ms.topic: how-to
-ms.date: 02/06/2024
+ms.date: 03/12/2024
 zone_pivot_groups: identity-select
 
 ---
@@ -30,7 +30,7 @@ This article describes how to configure storage key authentication, which is the
 
 ### Storage key authentication configuration
 
-1. Create a file named **add-key.sh**. This file creates a secret named `{YOUR_STORAGE_ACCOUNT}-secret`. This secret is used when you configure your Persistent Volume (PV):
+1. Create a file named **add-key.sh**. This file creates a secret named `{YOUR_STORAGE_ACCOUNT}-secret`. This secret name is used for the `secretName` value when you configure your Persistent Volume (PV). No edits or changes to the following contents are necessary:
 
    ```bash
    #!/usr/bin/env bash
@@ -89,9 +89,9 @@ Note the name (`esa4` in this example), as you need to specify it in the `spec::
                protocol: edgecache
                edgecache-storage-auth: AccountKey
                ### Fill in the next two/three values with your information. ###
-               secretName: YOUR_SECRET_NAME_HERE
+               secretName: YOUR_SECRET_NAME_HERE ### From the previous step, this name is "{YOUR_STORAGE_ACCOUNT}-secret" ###
                ### If you use a non-default namespace, uncomment the following line and add your namespace. ###
-               #secretNamespace: YOUR_NAMESPACE_HERE
+               ### secretNamespace: YOUR_NAMESPACE_HERE
                containerName: YOUR_CONTAINER_NAME_HERE
    ```
 

@@ -4,7 +4,7 @@ description: Learn how to install Edge Storage Accelerator.
 author: sethmanheim
 ms.author: sethm
 ms.topic: how-to
-ms.date: 02/06/2024
+ms.date: 03/12/2024
 
 ---
 
