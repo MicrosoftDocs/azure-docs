@@ -17,9 +17,6 @@ Change Analysis helps you:
 - View property change details.
 - Query changes at scale across your subscriptions, management group, or tenant.
  
-> [!IMPORTANT]
-> Change Analysis is in the process of migrating from [an Azure Monitor service](../../../azure-monitor/change/change-analysis.md) to an Azure Resource Graph service. 
-
 ## Change Analysis architecture
 
 [Need: More technical background/context about Change Analysis in ARG]
