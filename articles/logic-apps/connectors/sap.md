@@ -1096,7 +1096,7 @@ You can control this tracing capability at the application level by adding the f
    * **SAP_RFC_TRACE_DIRECTORY**: The directory where to store the NCo trace files, for example, **C:\home\LogFiles\NCo**.
 
    * **SAP_RFC_TRACE_LEVEL**: The NCo trace level with **Level4** as the suggested value for typical verbose logging. SAP or Microsoft support might request that you set a [different trace level](#trace-levels).
-   * **SAP_CPIC_TRACE_LEVEL**: The CPIC Trace level with **Verbose** as the suggested value for typical verbose logging. SAP or Microsoft support might request that you set a [different trace level](#trace-levels).
+   * **SAP_CPIC_TRACE_LEVEL**: The Common Programming Interface for Communication (CPI-C) trace level with **Verbose** as the suggested value for typical verbose logging. SAP or Microsoft support might request that you set a [different trace level](#trace-levels).
 
    For more information about adding application settings, see [Edit host and app settings for Standard logic app workflows](../edit-app-settings-host-settings.md#manage-app-settings).
 
