@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 02/07/2024
+ms.date: 03/01/2024
 ms.custom: generated
 ---
 
@@ -397,7 +397,6 @@ The following table provides a brief description of each built-in role. Click th
 > | <a name='azure-connected-machine-onboarding'></a>[Azure Connected Machine Onboarding](./built-in-roles/management-and-governance.md#azure-connected-machine-onboarding) | Can onboard Azure Connected Machines. | b64e21ea-ac4e-4cdf-9dc9-5b892992bee7 |
 > | <a name='azure-connected-machine-resource-administrator'></a>[Azure Connected Machine Resource Administrator](./built-in-roles/management-and-governance.md#azure-connected-machine-resource-administrator) | Can read, write, delete and re-onboard Azure Connected Machines. | cd570a14-e51a-42ad-bac8-bafd67325302 |
 > | <a name='azure-connected-machine-resource-manager'></a>[Azure Connected Machine Resource Manager](./built-in-roles/management-and-governance.md#azure-connected-machine-resource-manager) | Custom Role for AzureStackHCI RP to manage hybrid compute machines and hybrid connectivity endpoints in a resource group | f5819b54-e033-4d82-ac66-4fec3cbf3f4c |
-> | <a name='azure-resource-bridge-deployment-role'></a>[Azure Resource Bridge Deployment Role](./built-in-roles/management-and-governance.md#azure-resource-bridge-deployment-role) | Azure Resource Bridge Deployment Role | 7b1f81f9-4196-4058-8aae-762e593270df |
 > | <a name='billing-reader'></a>[Billing Reader](./built-in-roles/management-and-governance.md#billing-reader) | Allows read access to billing data | fa23ad8b-c56e-40d8-ac0c-ce449e1d2c64 |
 > | <a name='blueprint-contributor'></a>[Blueprint Contributor](./built-in-roles/management-and-governance.md#blueprint-contributor) | Can manage blueprint definitions, but not assign them. | 41077137-e803-4205-871c-5a86e6a753b4 |
 > | <a name='blueprint-operator'></a>[Blueprint Operator](./built-in-roles/management-and-governance.md#blueprint-operator) | Can assign existing published blueprints, but cannot create new blueprints. Note that this only works if the assignment is done with a user-assigned managed identity. | 437d2ced-4a38-4302-8479-ed2bcb43d090 |
@@ -430,6 +429,7 @@ The following table provides a brief description of each built-in role. Click th
 > [!div class="mx-tableFixed"]
 > | Built-in role | Description | ID |
 > | --- | --- | --- |
+> | <a name='azure-resource-bridge-deployment-role'></a>[Azure Resource Bridge Deployment Role](./built-in-roles/hybrid-multicloud.md#azure-resource-bridge-deployment-role) | Azure Resource Bridge Deployment Role | 7b1f81f9-4196-4058-8aae-762e593270df |
 > | <a name='azure-stack-hci-administrator'></a>[Azure Stack HCI Administrator](./built-in-roles/hybrid-multicloud.md#azure-stack-hci-administrator) | Grants full access to the cluster and its resources, including the ability to register Azure Stack HCI and assign others as Azure Arc HCI VM Contributor and/or Azure Arc HCI VM Reader | bda0d508-adf1-4af0-9c28-88919fc3ae06 |
 > | <a name='azure-stack-hci-device-management-role'></a>[Azure Stack HCI Device Management Role](./built-in-roles/hybrid-multicloud.md#azure-stack-hci-device-management-role) | Microsoft.AzureStackHCI Device Management Role | 865ae368-6a45-4bd1-8fbf-0d5151f56fc1 |
 > | <a name='azure-stack-hci-vm-contributor'></a>[Azure Stack HCI VM Contributor](./built-in-roles/hybrid-multicloud.md#azure-stack-hci-vm-contributor) | Grants permissions to perform all VM actions | 874d1c73-6003-4e60-a13a-cb31ea190a85 |

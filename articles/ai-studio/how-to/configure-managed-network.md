@@ -322,6 +322,7 @@ The Azure AI managed VNet feature is free. However, you're charged for the follo
 
 ## Limitations
 
+* Azure AI Studio currently doesn't support bring your own virtual network, it only supports managed VNet isolation.
 * Azure AI services provisioned with Azure AI and Azure AI Search attached with Azure AI should be public.
 * The "Add your data" feature in the Azure AI Studio playground doesn't support private storage account.
 * Once you enable managed VNet isolation of your Azure AI, you can't disable it.

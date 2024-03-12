@@ -222,4 +222,4 @@ Permission required on [target Key vault](#required-user-permissions)
 
 ## Next steps
 
-[Learn more](site-recovery-test-failover-to-azure.md) about running a test failover.
+- [Learn more](site-recovery-test-failover-to-azure.md) about running a test failover.

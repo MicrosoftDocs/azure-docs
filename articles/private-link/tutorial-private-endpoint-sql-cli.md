@@ -15,6 +15,8 @@ ms.custom: template-tutorial, fasttrack-edit, devx-track-azurecli
 
 Azure Private endpoint is the fundamental building block for Private Link in Azure. It enables Azure resources, like virtual machines (VMs), to communicate with Private Link resources privately.
 
+:::image type="content" source="./media/create-private-endpoint-portal/private-endpoint-qs-resources-sql.png" alt-text="Diagram of resources created in private endpoint quickstart.":::
+
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]

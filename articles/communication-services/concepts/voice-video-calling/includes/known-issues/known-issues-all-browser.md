@@ -51,7 +51,7 @@ ms.custom: template-how-to
 Excessive use of mute/unmute is blocked in Azure Communication Services infrastructure. Throttling happens if the participant (or application on behalf of participant) attempts to mute/unmute continuously, every second, more than 15 times in a 30-second rolling window.
 <br>
 
-## All mobile browser
+## All mobile browsers
 
 
 ### It isn't possible to render multiple previews from multiple devices on web

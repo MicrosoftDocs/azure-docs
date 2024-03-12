@@ -1,13 +1,13 @@
 ---
-title: Azure resource logs 
-description: Learn how to stream Azure resource logs to a Log Analytics workspace in Azure Monitor.
+title: Stream Azure resource log data 
+description: Learn how to stream Azure resource logs to a Log Analytics workspace, event hub, or Azure Storage in Azure Monitor.
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 08/08/2023
 ms.reviewer: lualderm
 ---
 
-# Azure resource logs
+# Stream Azure resource log data
 
 Azure resource logs are [platform logs](../essentials/platform-logs-overview.md) that provide insight into operations that were performed within an Azure resource. The content of resource logs varies by the Azure service and resource type. Resource logs aren't collected by default. This article describes the [diagnostic setting](diagnostic-settings.md) required for each Azure resource to send its resource logs to different destinations. 
 

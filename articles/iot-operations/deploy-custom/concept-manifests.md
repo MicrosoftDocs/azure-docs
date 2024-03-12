@@ -116,7 +116,7 @@ To create a target resource for an Arc-enabled K8s cluster, add the resource def
 | scope      | Namespace of the cluster. |
 | components | List of components used during deployment and their details. For more information, see [Providers and components](./concept-providers.md). |
 | topologies | List of bindings, which connect a group of devices or targets to a role. For more information, see the following [topologies.bindings parameters table](#target-topologiesbindings-parameters). |
-| reconciliationPolicy | An interval period for how frequently the the Orchestrator resource manager checks for an updated desired state. The minimum period is one minute. |
+| reconciliationPolicy | An interval period for how frequently the Orchestrator resource manager checks for an updated desired state. The minimum period is one minute. |
 
 ### Target topologies.bindings parameters
 
@@ -244,7 +244,7 @@ To create an instance resource, add the resource definition JSON to an Azure Res
 | scope     | Namespace of the cluster. |
 | solution  | Name of the solution used for deployment. |
 | target    | Name of the target or targets on which the solution will be deployed. |
-| reconciliationPolicy | An interval period for how frequently the the Orchestrator resource manager checks for an updated desired state. The minimum period is one minute. |
+| reconciliationPolicy | An interval period for how frequently the Orchestrator resource manager checks for an updated desired state. The minimum period is one minute. |
 
 ## Components
 

@@ -51,7 +51,7 @@ In [multi-regional deployments](api-management-howto-deploy-multi-region.md), ea
 
 If your API Management service is inside a virtual network, it will have two types of IP addresses: public and private.
 
-* Public IP addresses are used for internal communication on port `3443` - for managing configuration (for example, through Azure Resource Manager). In the external VNet configuration, they are also used for runtime API traffic.
+* Public IP addresses are used for internal communication on port `3443` - for managing configuration (for example, through Azure Resource Manager). In the *external* VNet configuration, they are also used for runtime API traffic. In the *internal* VNet configuration, public IP addresses are only used for Azure internal management operations and don't expose your instance to the internet. 
 
 * Private virtual IP (VIP) addresses, available **only** in the [internal VNet mode](api-management-using-with-internal-vnet.md), are used to connect from within the network to API Management endpoints - gateways, the developer portal, and the management plane for direct API access. You can use them for setting up DNS records within the network.
 
@@ -131,7 +131,7 @@ In the Developer, Basic, Standard, and Premium tiers of API Management, the publ
 * The service subscription is disabled or warned (for example, for nonpayment) and then reinstated. [Learn more about subscription states](/azure/cost-management-billing/manage/subscription-states)
 * (Developer and Premium tiers) Azure Virtual Network is added to or removed from the service.
 * (Developer and Premium tiers) API Management service is switched between external and internal VNet deployment mode.
-* (Developer and Premium tiers) API Management service is moved to a different subnet, or [migrated](migrate-stv1-to-stv2.md) from the `stv1` to the `stv2` compute platform..
+* (Developer and Premium tiers) API Management service is moved to a different subnet, or [migrated](migrate-stv1-to-stv2.md) from the `stv1` to the `stv2` compute platform.
 * (Premium tier) [Availability zones](../reliability/migrate-api-mgt.md) are enabled, added, or removed.
 * (Premium tier) In [multi-regional deployments](api-management-howto-deploy-multi-region.md), the regional IP address changes if a region is vacated and then reinstated.
 

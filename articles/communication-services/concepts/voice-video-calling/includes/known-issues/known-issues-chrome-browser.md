@@ -21,7 +21,14 @@ ms.custom: template-how-to
 **Known issue reference:** This regression is a known issue introduced on [Chromium](https://bugs.chromium.org/p/chromium/issues/detail?id=1295815).<br>
 **Recommended workaround:** Updating Google Chrome to the latest version.<br>
   
-### Chrome Mobile Android
+## Chrome Mobile Android
+
+### Outgoing audio issue on Android 14 when browser is in background or device screen is locked
+**Android version:** Android 14.<br>
+**Browser version:** All.<br>
+**Azure Communication Service calling SDK version:** All.<br>
+**Description:** On Android 14, when the browser is put in the background or the device screen is locked, the outgoing audio disappears after approximately 5 seconds. This issue affects user experience as it interrupts the audio transmission during calls. Issue is not observed on Android 13 or other versions of Android.<br>
+**Recommended workaround:** Users are advised to keep the browser active in the foreground during calls.<br>
 
 ### Chrome M115 - No outgoing video in Group and Azure Communication Services-Microsoft Teams calls
 **Browser version:** Google Chrome version 115 (Jul 2023) installed on Android devices.<br>
@@ -60,6 +67,13 @@ In case camera is on and an interruption occurs, Azure Communication Services ca
 Occasionally, microphone or camera devices aren't released on time, and that can cause issues with the original call. For example, if the user tries to unmute while watching a YouTube video, or if a PSTN call is active simultaneously.
 <br>
 
+### Automatic microphone selection fails for wired headphones in WebRTC Calls on Android devices
+**Browser version:** All.<br>
+**Azure Communication Service calling SDK version:** All.<br>
+**Description:** When users connect wired headphones to their Android device and join a WebRTC call, the microphone option does not default to the wired headphones. This issue is consistently reproducible across different Android devices and Google Chrome versions. Similar behavior has been noted in other services like Twilio and Google's WebRTC sample.<br>
+**Known issue reference:** This is a known issue on [Chromium](https://issues.chromium.org/issues/40282142). <br>
+**Recommended workaround:** Users should manually select the wired headphones as the microphone option in the call settings after joining the WebRTC call.<br>
+
 ### A mobile Android user has dropped the call but is still showing up on the participant list
 **Browser version:** All.<br>
 **Azure Communication Service calling SDK version:** All.<br>
@@ -67,10 +81,11 @@ Occasionally, microphone or camera devices aren't released on time, and that can
 <br>
 
 ### Some Android devices (A326U, A125U and A215U) failing call scenarios except for group calls
-**Browser versions:** 
+**Devices affected:** 
 - Samsung Galaxy A32 (Model A326U)
 - Samsung Galaxy A12 (Model A125U)
 - Samsung Galaxy A21 (Model A215U)<br>
+
 **Description:**  Many specific Android devices fail to start, accept calls, and meetings. The devices that run into this issue, can't recover and fails on every attempt. These are mostly Samsung model A devices, particularly models A326U, A125U and A215U.<br>
     
 ### Rotation of a device can create poor video quality - Google Pixel 3a, Google Pixel 5
@@ -87,7 +102,7 @@ Occasionally, microphone or camera devices aren't released on time, and that can
 **Description:** When a Communication Services user joins a call by using the JavaScript calling SDK, and then selects the camera switch button, the UI might become unresponsive. The user must then refresh the application, or push the browser to the background.<br>
 
 
-## iOS Chrome
+## Chrome Mobile iOS
 
 ### No outgoing and incoming audio when switching browser to background or locking the device - fixed in iOS version 16.4+
 **iOS version:** All iOS versions up to iOS 16.3.<br>
