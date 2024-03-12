@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 12/06/2023
+ms.date: 03/12/2024
 
 #CustomerIntent: As an Azure administrator, I want to migrate my tests from Network performance monitor to the new Connection monitor so I avoid service disruption. 
 ---
@@ -16,7 +16,7 @@ ms.date: 12/06/2023
 In this article, you learn how to migrate your existing tests from Network performance monitor to the new Connection monitor with zero downtime. For more information, see [Connection monitor overview](connection-monitor-overview.md).
 
 > [!IMPORTANT]
-> Starting July 1, 2021, you won't be able to add new tests in an existing workspace or enable a new workspace with Network performance monitor. You can continue to use the tests created prior to July 1, 2021. To minimize service disruption to your current workloads, migrate your tests from Network performance monitor to the new Connection monitor in Azure Network Watcher before February 29, 2024.
+> Network performance monitor is deprecated and no longer available. To minimize service disruption to your current workloads, migrate your tests from Network performance monitor (classic) to the new Connection monitor.
 
 ## Key benefits of the new Connection monitor
 
@@ -79,7 +79,7 @@ The following table compares Network performance monitor and the new Connection 
 
 The migration helps produce the following results:
 
-- On-premises agents and firewall settings work as is. No changes are required. Log Analytics agents that are installed on Azure virtual machines need to be replaced with the [Network Watcher extension](../virtual-machines/extensions/network-watcher-windows.md?toc=/azure/network-watcher/toc.json).
+- On-premises agents and firewall settings work as is. No changes are required. Log Analytics agents that are installed on Azure virtual machines need to be replaced with the [Network Watcher extension](../virtual-machines/extensions/network-watcher-windows.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json).
 - Existing tests are mapped to Connection monitor > Test group > Test format. By selecting **Edit**, you can view and modify the properties of the new Connection monitor, download a template to make changes to it, and submit the template via Azure Resource Manager.
 - Agents send data to both the Log Analytics workspace and the metrics.
 - Data monitoring:
