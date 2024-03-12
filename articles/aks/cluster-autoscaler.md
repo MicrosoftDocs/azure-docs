@@ -199,19 +199,19 @@ The following table lists the available settings for the cluster autoscaler prof
 > [!NOTE]
 > Scaling down aggressively is not recommended for clusters experiencing frequent scale-outs and scale-ins within short intervals, as it could potentially result in extended node provisioning times under these circumstances. Increasing `scale-down-delay-after-add` can help in these circumstances by keeping the node around longer to handle incoming workloads.
 
-    ```azurecli-interactive
+   ```azurecli-interactive
     az aks update \
         --resource-group myResourceGroup \
         --name myAKSCluster \
         --cluster-autoscaler-profile scan-interval=30s, scale-down-delay-after-add=0s,scale-down-delay-after-failure=30s,scale-down-unneeded-time=3m,scale-down-unready-time=3m,max-graceful-termination-sec=30,skip-nodes-with-local-storage=false,max-empty-bulk-delete=1000,max-total-unready-percentage=100,ok-total-unready-count=1000,max-node-provision-time=15m
-    ```
+   ```
 ### Configure cluster autoscaler profile for bursty workloads
-    ```azurecli-interactive
+   ```azurecli-interactive
     az aks update \   
-        --resource-group "myResourceGroup"   
+        --resource-group "myResourceGroup" \
         --name myAKSCluster \ 
         --cluster-autoscaler-profile scan-interval=20s,scale-down-delay-after-add=10m,scale-down-delay-after-failure=1m,scale-down-unneeded-time=5m,scale-down-unready-time=5m,max-graceful-termination-sec=30,skip-nodes-with-local-storage=false,max-empty-bulk-delete=100,max-total-unready-percentage=100,ok-total-unready-count=1000,max-node-provision-time=15m
-    ```
+   ```
 
 ### Reset cluster autoscaler profile to default values
 
