@@ -25,7 +25,7 @@ During local development, your installed version of Azure Functions Core Tools m
 
 ## Update your runtime version
 
-When possible, you should always run your function apps on the latest supported version of the Azure Functions runtime. 
+When possible, you should always run your function apps on the latest supported version of the Azure Functions runtime. If your function app is currently running on a older version of the runtime, you should migrate your app to version 4.x
 
 [!INCLUDE [functions-migrate-apps](../../includes/functions-migrate-apps.md)]
 
@@ -71,7 +71,7 @@ You see the `FUNCTIONS_EXTENSION_VERSION` in the following output, which has bee
 ]
 ```
 
-Choose **Try it** in the previous code example to run the command in [Azure Cloud Shell](../cloud-shell/overview.md). You can also run the [Azure CLI locally](/cli/azure/install-azure-cli) to execute this command. When running locally, you must first run [`az login`](/cli/azure/reference-index#az-login) to sign in.
+Choose **Open Cloud Shell** in the previous code example to run the command in [Azure Cloud Shell](../cloud-shell/overview.md). You can also run the [Azure CLI locally](/cli/azure/install-azure-cli) to execute this command. When running locally, you must first run [`az login`](/cli/azure/reference-index#az-login) to sign in.
 
 ### [PowerShell](#tab/powershell)
 
@@ -136,7 +136,7 @@ Replace `<FUNCTION_APP>` with the name of your function app and `<RESOURCE_GROUP
 The function app restarts after the change is made to the application setting. 
 ::: zone-end
 ::: zone pivot="platform-linux" 
-To pin your function app to a specific host version on Linux, you set a version-specific base image URL in the [`linuxFxVersion` site setting][`linuxFxVersion`] in the format `DOCKER|<PINNED_VERSION_IMAGE_URI>`. 
+To pin your function app to a specific runtime version on Linux, you set a version-specific base image URL in the [`linuxFxVersion` site setting][`linuxFxVersion`] in the format `DOCKER|<PINNED_VERSION_IMAGE_URI>`. 
 
 > [!IMPORTANT]
 > Pinned function apps on Linux don't receive regular security and host functionality updates. Unless recommended by a support professional, use the [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version) setting and a standard [`linuxFxVersion`] value for your language and version, such as `Python|3.9`. For valid values, see the [`linuxFxVersion` reference article][`linuxFxVersion`].   
@@ -170,7 +170,7 @@ Use the following Azure CLI commands to view and set the [`linuxFxVersion`]. You
     
     Replace `<FUNCTION_APP>` with the name of your function app. Also replace `<RESOURCE_GROUP>` with the name of the resource group for your function app. Finally, replace `<LINUX_FX_VERSION>` with the value of a specific image provided to you by a support professional.
 
-You can run these commands from the [Azure Cloud Shell](../cloud-shell/overview.md) by choosing **Try it** in the preceding code examples. You can also use the [Azure CLI locally](/cli/azure/install-azure-cli) to execute this command after executing [`az login`](/cli/azure/reference-index#az-login) to sign in.
+You can run these commands from the [Azure Cloud Shell](../cloud-shell/overview.md) by choosing **Open Cloud Shell** in the preceding code examples. You can also use the [Azure CLI locally](/cli/azure/install-azure-cli) to execute this command after executing [`az login`](/cli/azure/reference-index#az-login) to sign in.
 
 The function app restarts after the change is made to the site config.
 ::: zone-end  
