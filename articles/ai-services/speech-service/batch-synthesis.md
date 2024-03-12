@@ -134,7 +134,7 @@ You should receive a response body in the following format:
     }
   },
   "outputs": {
-    "result": "https://stttssvcuse.blob.core.windows.net/batchsynthesis-output/29f2105f997c4bfea176d39d05ff201e/my-job-01/results.zip?skoid=e3eb71b6-2f74-4d2f-a299-c435e84ae6ad&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2024-03-12T06%3A36%3A14Z&ske=2024-03-18T06%3A41%3A14Z&sks=b&skv=2023-11-03&sv=2023-11-03&st=2024-03-12T07%3A20%3A31Z&se=2024-03-15T07%3A25%3A31Z&sr=b&sp=rl&sig=Masked"
+    "result": "https://stttssvcuse.blob.core.windows.net/batchsynthesis-output/29f2105f997c4bfea176d39d05ff201e/my-job-01/results.zip?SAS_Token"
   }
 }
 ```
@@ -181,7 +181,7 @@ You should receive a response body in the following format:
         }
       },
       "outputs": {
-        "result": "https://stttssvcuse.blob.core.windows.net/batchsynthesis-output/29f2105f997c4bfea176d39d05ff201e/my-job-03/results.zip?skoid=e3eb71b6-2f74-4d2f-a299-c435e84ae6ad&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2024-03-12T06%3A36%3A14Z&ske=2024-03-18T06%3A41%3A14Z&sks=b&skv=2023-11-03&sv=2023-11-03&st=2024-03-12T07%3A23%3A52Z&se=2024-03-15T07%3A28%3A52Z&sr=b&sp=rl&sig=Masked"
+        "result": "https://stttssvcuse.blob.core.windows.net/batchsynthesis-output/29f2105f997c4bfea176d39d05ff201e/my-job-03/results.zip?SAS_Token"
       }
     },
     {
@@ -211,7 +211,7 @@ You should receive a response body in the following format:
         }
       },
       "outputs": {
-        "result": "https://stttssvcuse.blob.core.windows.net/batchsynthesis-output/29f2105f997c4bfea176d39d05ff201e/my-job-02/results.zip?skoid=e3eb71b6-2f74-4d2f-a299-c435e84ae6ad&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2024-03-12T06%3A36%3A14Z&ske=2024-03-18T06%3A41%3A14Z&sks=b&skv=2023-11-03&sv=2023-11-03&st=2024-03-12T07%3A23%3A52Z&se=2024-03-15T07%3A28%3A52Z&sr=b&sp=rl&sig=Masked"
+        "result": "https://stttssvcuse.blob.core.windows.net/batchsynthesis-output/29f2105f997c4bfea176d39d05ff201e/my-job-02/results.zip?SAS_Token"
       }
     }
   ],
