@@ -171,9 +171,9 @@ Azure now offers free egress for customers leaving Azure when taking out their d
 ### Create a support request
 
 1. To signal your intent to exit Azure and allow us to accommodate your request, create an [Azure Support request](https://portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview) and provide:
-  - Your _Subscription ID_ or _Enrollment ID_
-  - The date you plan to start your transfer
-  - An estimate of the amount of data you plan to egress
+    - Your _Subscription ID_ or _Enrollment ID_
+    - The date you plan to start your transfer
+    - An estimate of the amount of data you plan to egress
 1. Once your request is logged with Azure Support, you have 60 days from the date you indicate as your start data transfer date to egress your data out of Azure. If you need more than 60 days to egress your data, include an overview of your migration timeline in your initial Azure support request.
 1. After egressing your data, cancel all subscriptions associated with your account.
 1. Contact Azure Support and create a request to claim a credit or refund for your egress charges incurred during your exit. You can either reopen your initial support request (step 1) or create a new Azure Support request. An invoice-level credit adjustment is applied to the existing balance.
