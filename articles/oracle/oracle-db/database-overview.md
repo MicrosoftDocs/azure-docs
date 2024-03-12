@@ -11,6 +11,7 @@ ms.custom: engagement-fy23
 ms.author: jacobjaygbay
 ---
 
+
 # Overview - Oracle Database@Azure 
 
 Oracle Database@Azure is an Oracle database service running on Oracle Cloud Infrastructure (OCI), colocated in Microsoft data centers. This ensures that the Oracle Database@Azure service has the fastest possible access to Azure resources and applications.
