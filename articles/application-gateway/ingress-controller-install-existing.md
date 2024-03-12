@@ -17,7 +17,7 @@ AGIC monitors the Kubernetes [Ingress](https://kubernetes.io/docs/concepts/servi
 resources, and creates and applies Application Gateway config based on the status of the Kubernetes cluster.
 
 > [!TIP]
-> Also see [What is Application Gateway for Containers?](for-containers/overview.md) currently in public preview.
+> Also see [What is Application Gateway for Containers](for-containers/overview.md).
 
 ## Outline
 

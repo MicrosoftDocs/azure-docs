@@ -8,13 +8,13 @@ brand: azure
 
 metadata:
   title: Azure Active Directory B2C documentation
-  description: Learn how to use Azure Active Directory B2C to customize and control how customers sign up, sign in, and manage their profiles when using your applications.
+  description: Learn how to use Azure Active Directory B2C to customize and control how your customers sign up, sign in, and manage profiles when using your applications.
   ms.service: active-directory
   ms.subservice: B2C
   ms.topic: hub-page
   author: kengaderdus
   ms.author: kengaderdus
-  ms.date: 03/08/2023
+  ms.date: 03/01/2024
 
 ## FRONT MATTER END
 
@@ -202,9 +202,9 @@ conceptualContent:
           - text: Security analytics with Microsoft Sentinel 
             url: configure-security-analytics-sentinel.md
             itemType: how-to-guide             
-          - text: Regulations
-            url: ../compliance/index.yml
-            itemType: concept 
+          - text: Enable CAPTCHA
+            url: add-captcha.md
+            itemType: how-to-guide
           #- text: 'Manage user access: Minors and parental consent'
            #  url: manage-user-access.md
             # itemType: how-to-guide 

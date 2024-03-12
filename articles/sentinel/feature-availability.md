@@ -6,7 +6,7 @@ ms.author: bagol
 ms.topic: feature-availability
 ms.custom: references_regions
 ms.service: microsoft-sentinel
-ms.date: 07/25/2023
+ms.date: 02/11/2024
 ---
 
 # Microsoft Sentinel feature support for Azure commercial/other clouds
@@ -22,7 +22,7 @@ This article describes the features available in Microsoft Sentinel across diffe
 |Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
 |---------|---------|---------|---------|---------|
 |[Analytics rules health](monitor-analytics-rule-integrity.md) |Public preview |&#x2705; |&#10060; |&#10060; |
-|[MITRE ATT&CK dashboard](mitre-coverage.md)	|Public preview |&#x2705; |&#10060; |&#10060; |
+|[MITRE ATT&CK dashboard](mitre-coverage.md)	|Public preview |&#x2705; |&#x2705; |&#x2705;  |
 |[NRT rules](near-real-time-rules.md) |GA |&#x2705; |&#x2705; |&#x2705; |
 |[Recommendations](detection-tuning.md) |Public preview |&#x2705; |&#x2705; |&#10060; |
 |[Scheduled](detect-threats-built-in.md) and [Microsoft rules](create-incidents-from-alerts.md) |GA |&#x2705; |&#x2705; |&#x2705; |
@@ -39,7 +39,7 @@ This article describes the features available in Microsoft Sentinel across diffe
 
 |Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
 |---------|---------|---------|---------|---------|
-|[Amazon Web Services](connect-aws.md?tabs=ct) |GA |&#x2705; |&#10060; |&#10060; |
+|[Amazon Web Services](connect-aws.md?tabs=ct) |GA |&#x2705; |&#x2705; |&#10060; |
 |[Amazon Web Services S3 (Preview)](connect-aws.md?tabs=s3) |Public preview |&#x2705; |&#x2705; |&#10060; |
 |[Microsoft Entra ID](connect-azure-active-directory.md) |GA |&#x2705; |&#x2705;|&#x2705; <sup>[1](#logsavailable)</sup> |
 |[Microsoft Entra ID Protection](connect-services-api-based.md) |GA |&#x2705;| &#x2705; |&#10060; |
@@ -68,7 +68,7 @@ This article describes the features available in Microsoft Sentinel across diffe
 |[Office 365](connect-services-api-based.md) |GA |&#x2705;|&#x2705; |&#x2705; |
 |[Security Events via Legacy Agent](connect-services-windows-based.md#log-analytics-agent-legacy) |GA |&#x2705; |&#x2705;|&#x2705; |
 |[Syslog](connect-syslog.md) |GA |&#x2705;| &#x2705;|&#x2705; |
-|[Windows DNS Events via AMA (Preview)](connect-dns-ama.md) |Public preview |&#x2705; |&#10060;|&#10060; |
+|[Windows DNS Events via AMA](connect-dns-ama.md) |GA |&#x2705; |&#x2705;|&#x2705; |
 |[Windows Firewall](data-connectors/windows-firewall.md) |GA |&#x2705; |&#x2705;|&#x2705; |
 |[Windows Forwarded Events](connect-services-windows-based.md) |GA |&#x2705;|&#x2705; |&#x2705; |
 |[Windows Security Events via AMA](connect-services-windows-based.md) |GA |&#x2705; |&#x2705;|&#x2705; |
@@ -90,7 +90,7 @@ This article describes the features available in Microsoft Sentinel across diffe
 
 |Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
 |---------|---------|---------|---------|---------|
-|[Add entities to threat intelligence](add-entity-to-threat-intelligence.md?tabs=incidents) |Public preview |&#x2705; |&#x2705; |&#10060; |
+|[Add entities to threat intelligence](add-entity-to-threat-intelligence.md?tabs=incidents) |Public preview |&#x2705; |&#x2705; |&#x2705; |
 |[Advanced and/or conditions](add-advanced-conditions-to-automation-rules.md) |GA |&#x2705; |&#x2705;| &#x2705; |
 |[Automation rules](automate-incident-handling-with-automation-rules.md)     |GA        |&#x2705; |&#x2705;| &#x2705;         |
 |[Automation rules health](monitor-automation-health.md) |Public preview |&#x2705; |&#x2705;| &#10060; |
@@ -126,8 +126,8 @@ This article describes the features available in Microsoft Sentinel across diffe
 
 |Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
 |---------|---------|---------|---------|---------|
-|[Notebooks](notebooks.md) |GA |&#x2705;|&#x2705; |&#x2705; |
-|[Notebook integration with Azure Synapse](notebooks-with-synapse.md) |Public preview |&#x2705;|&#x2705; |&#x2705; |
+|[Notebooks](notebooks.md) |GA |&#x2705; |&#x2705;  |&#x2705;  |
+|[Notebook integration with Azure Synapse](notebooks-with-synapse.md) |Public preview |&#x2705; |&#x2705;  |&#x2705; |
 
 ## SAP
 

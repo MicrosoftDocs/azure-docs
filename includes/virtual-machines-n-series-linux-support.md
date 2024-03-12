@@ -12,6 +12,9 @@ ms.author: jushiman
 
 ## Supported distributions and drivers
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 ### NVIDIA CUDA drivers
 
 For the latest CUDA drivers and supported operating systems, visit the [NVIDIA](https://developer.nvidia.com/cuda-zone) website. Ensure that you install or upgrade to the latest supported CUDA drivers for your distribution. 

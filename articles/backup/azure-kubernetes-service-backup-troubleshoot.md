@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Kubernetes Service backup
 description: Symptoms, causes, and resolutions of the Azure Kubernetes Service backup and restore operations.
 ms.topic: troubleshooting
-ms.date: 12/28/2023
+ms.date: 02/29/2024
 ms.service: backup
 ms.custom:
   - ignite-2023
@@ -63,10 +63,10 @@ The extension pods aren't exempt, and require the Microsoft Entra pod identity t
    kubectl get Azurepodidentityexceptions --all-namespaces
    ```
 
-3. To assign the *Storage Account Contributor* role to the extension identity, run the following command:
+3. To assign the *Storage Blob Data Contributor* role to the extension identity, run the following command:
 
    ```azurecli-interactive
-   az role assignment create --assignee-object-id $(az k8s-extension show --name azure-aks-backup --cluster-name aksclustername --resource-group aksclusterresourcegroup --cluster-type managedClusters --query aksAssignedIdentity.principalId --output tsv) --role 'Storage Account Contributor' --scope /subscriptions/subscriptionid/resourceGroups/storageaccountresourcegroup/providers/Microsoft.Storage/storageAccounts/storageaccountname
+   az role assignment create --assignee-object-id $(az k8s-extension show --name azure-aks-backup --cluster-name aksclustername --resource-group aksclusterresourcegroup --cluster-type managedClusters --query aksAssignedIdentity.principalId --output tsv) --role 'Storage Blob Data Contributor' --scope /subscriptions/subscriptionid/resourceGroups/storageaccountresourcegroup/providers/Microsoft.Storage/storageAccounts/storageaccountname
    ```
 
 ### Scenario 3
@@ -192,13 +192,13 @@ These error codes appear due to issues based on the Backup extension installed i
 
 ### UserErrorExtensionMSIMissingPermissionsOnBackupStorageLocation
 
-**Cause**: The Backup extension should have the *Storage Account Contributor* role on the Backup Storage Location (storage account). The Extension Identity gets this role assigned. 
+**Cause**: The Backup extension should have the *Storage Blob Data Contributor* role on the Backup Storage Location (storage account). The Extension Identity gets this role assigned. 
 
 **Recommended action**: If this role is missing, then use Azure portal or CLI to reassign this missing permission on the storage account.
 
 ### UserErrorBackupStorageLocationNotReady
 
-**Cause**: During extension installation, a Backup Storage Location is to be provided as input that includes a storage account and blob container. The Backup extension should have *Storage Account Contributor* role on the Backup Storage Location (storage account). The Extension Identity gets this role assigned.
+**Cause**: During extension installation, a Backup Storage Location is to be provided as input that includes a storage account and blob container. The Backup extension should have *Storage Blob Data Contributor* role on the Backup Storage Location (storage account). The Extension Identity gets this role assigned.
 
 **Recommended action**: The error appears if the Extension Identity doesn't have right permissions to access the storage account. This  error appears if AKS backup extension is installed the first time when configuring protection operation. This happens for the time taken for the granted permissions to propagate to the AKS backup extension. As a workaround, wait an hour and retry the protection configuration. Otherwise, use Azure portal or CLI to reassign this missing permission on the storage account.
 
@@ -221,6 +221,88 @@ This error code can appear while you enable AKS backup to store backups in a vau
    :::image type="content" source="./media/azure-kubernetes-service-backup-troubleshoot/clear-vault-standard-checkbox.png" alt-text="Screenshot shows clearing the vault-standard checkbox." lightbox="./media/azure-kubernetes-service-backup-troubleshoot/clear-vault-standard-checkbox.png":::
 
 3. Create a backup policy for operational tier backup (only snapshots for the AKS cluster).
+
+## AKS backup and restore jobs completed with warnings
+
+### UserErrorPVSnapshotDisallowedByPolicy
+
+**Error code**: UserErrorPVSnapshotDisallowedByPolicy
+
+**Cause**: An Azure policy is assigned over subscription that ceases the CSI driver to take the volume snapshot.
+
+**Recommended action**: Remove the Azure Policy ceasing the disk snapshot operation, and then perform an on-demand backup.
+
+### UserErrorPVSnapshotLimitReached
+
+**Error code**: UserErrorPVSnapshotLimitReached
+
+**Cause**: There is a limited number of snapshots for a Persistent Volume that can exist at a point-in-time. For Azure Disk-based Persistent Volumes, the limit is *500 snapshots*. This error appears when snapshots for specific Persistent Volumes aren't taken due to existence of snapshots higher than the supported limits.
+
+**Recommended action**: Update the Backup Policy to reduce the retention duration and wait for older recovery points to be deleted by the Backup vault.
+
+### CSISnapshottingTimedOut
+
+**Error code**: CSISnapshottingTimedOut
+
+**Cause**: Snapshot has failed because CSI Driver is getting timed out to fetch the snapshot handle.  
+
+**Recommended action**: Review the logs and retry the operation to get successful snapshots by running an on-demand backup, or wait for next scheduled backup.
+
+### UserErrorHookExecutionFailed
+
+**Error code**: UserErrorHookExecutionFailed
+
+**Cause**: When hooks applied to run along with backups and restores have encountered an error, and aren't successfully applied.
+
+**Recommended action**: Review the logs, update the hooks, and then retry backup/restore operation.
+
+### UserErrorNamespaceNotFound
+
+**Error code**: UserErrorNamespaceNotFound
+
+**Cause**: Namespaces provided in Backup Configuration is missing while performing backups. Either the namespace was wrongly provided or has been deleted.
+
+**Recommended action**: Check if the Namespaces to be backed up are correctly provided.
+
+### UserErrorPVCHasNoVolume
+
+**Error code**: UserErrorPVCHasNoVolume
+
+**Cause**: The Persistent Volume Claim (PVC) in context does not have a Persistent Volume attached to it. So, the PVC will not be backed up.
+
+**Recommended action**: Attach a volume to the PVC, if it needs to be backed up.
+
+### UserErrorPVCNotBoundToVolume
+
+**Error code**: UserErrorPVCNotBoundToVolume
+
+**Cause**: The PVC in context is in *Pending* state and doesn't have a Persistent Volume attached to it. So, the PVC will not be backed up. 
+
+**Recommended action**: Attach a volume to the PVC, if it needs to be backed up.
+
+### UserErrorPVNotFound
+
+**Error code**: UserErrorPVNotFound
+
+**Cause**: The underlying storage medium for the Persistent Volume is missing. 
+
+**Recommended action**: Check and attached a new Persistent Volume with actual storage medium attached.
+
+### UserErrorStorageClassMissingForPVC
+
+**Error code**: UserErrorStorageClassMissingForPVC
+
+**Cause**: AKS backup checks for the storage class being used and skips the Persistent Volume from taking snapshots due to unavailability of the class. 
+
+**Recommended action**: Update the PVC specifications with the storage class used.
+
+### UserErrorSourceandTargetClusterCRDVersionMismatch
+
+**Error code**: UserErrorSourceandTargetClusterCRDVersionMismatch
+
+**Cause**: The source AKS cluster and Target AKS cluster during restore have different versions of *FlowSchema* and *PriorityLevelConfigurations CRs*. Some Kubernetes resources aren't restored due to the mismatch in cluster versions.
+
+**Recommended action**: Use same cluster version for Target cluster as Source cluster or manually apply the CRs.
 
 ## Next steps
 

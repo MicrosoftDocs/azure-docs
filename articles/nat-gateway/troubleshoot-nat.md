@@ -59,7 +59,7 @@ To analyze outbound traffic from NAT gateway, use NSG flow logs. NSG flow logs p
 
 * To learn more about NSG flow logs, see [NSG flow log overview](../network-watcher/network-watcher-nsg-flow-logging-overview.md).
 
-* For guides on how to enable NSG flow logs, see [Enabling NSG flow logs](../network-watcher/network-watcher-nsg-flow-logging-overview.md#enabling-nsg-flow-logs).
+* For guides on how to enable NSG flow logs, see [Managing NSG flow logs](../network-watcher/network-watcher-nsg-flow-logging-overview.md#managing-nsg-flow-logs).
 
 * For guides on how to read NSG flow logs, see [Working with NSG flow logs](../network-watcher/network-watcher-nsg-flow-logging-overview.md#working-with-flow-logs).
 
@@ -182,7 +182,7 @@ NAT gateway can be used with public IP addresses designated to a specific zone, 
 | NAT gateway availability zone designation | Public IP address / prefix designation that can be used |
 |---|---|
 | No zone | Zone-redundant, No zone, or Zonal (the public IP zone designation can be any zone within a region in order to work with a no zone NAT gateway) |
-| Designated to a specific zone | The public IP address zone must match the zone of the NAT gateway |
+| Designated to a specific zone | Zone-redundant or Zonal Public IPs can be used |
 
 >[!NOTE]
 >If you need to know the zone that your NAT gateway resides in, make sure to designate it to a specific availability zone. 

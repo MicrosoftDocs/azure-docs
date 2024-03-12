@@ -51,7 +51,7 @@
         href: network-file-system-group-memberships.md
       - name: Understand file locking
         href: understand-file-locks.md  
-      - name: Under volume languages
+      - name: Understand volume languages
         href: understand-volume-languages.md
       - name: Understand file path lengths 
         href: understand-path-lengths.md 

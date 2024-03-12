@@ -4,7 +4,7 @@ description: Learn how to enable Federal Information Process Standard (FIPS) for
 author: rayoef
 ms.author: rayoflores
 ms.topic: how-to 
-ms.date: 06/28/2023
+ms.date: 02/29/2024
 ms.custom: template-how-to
 ---
 
@@ -22,6 +22,8 @@ The Federal Information Processing Standard (FIPS) 140-2 is a US government stan
   * FIPS-enabled node pools require Kubernetes version 1.19 and greater.
   * To update the underlying packages or modules used for FIPS, you must use [Node Image Upgrade][node-image-upgrade].
   * Container images on the FIPS nodes haven't been assessed for FIPS compliance.
+  * Mounting of a CIFS share fails because FIPS disables some authentication modules. To work around this issue, see [Errors when mounting a file share on a FIPS-enabled node pool][errors-mount-file-share-fips].
+
 
 > [!IMPORTANT]
 > The FIPS-enabled Linux image is a different image than the default Linux image used for Linux-based node pools. To enable FIPS on a node pool, you must create a new Linux-based node pool. You can't enable FIPS on existing node pools.
@@ -137,3 +139,4 @@ To learn more about AKS security, see [Best practices for cluster security and u
 [fips]: /azure/compliance/offerings/offering-fips-140-2
 [install-azure-cli]: /cli/azure/install-azure-cli
 [node-image-upgrade]: node-image-upgrade.md
+[errors-mount-file-share-fips]: /troubleshoot/azure/azure-kubernetes/fail-to-mount-azure-file-share#fipsnodepool

@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Returns the constant value of Pi. For more information, see [Pi](https://wikiped
   
 ## Syntax
   
-```sql
+```nosql
 PI()  
 ```  
 
@@ -32,7 +33,7 @@ Returns a numeric expression.
   
 The following example returns the constant value of Pi.
   
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/pi/query.sql" highlight="2":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/pi/query.sql" highlight="2":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/pi/result.json":::
 

@@ -2,7 +2,7 @@
 title: Azure Resource Manager overview
 description: Describes how to use Azure Resource Manager for deployment, management, and access control of resources on Azure.
 ms.topic: overview
-ms.date: 02/14/2024
+ms.date: 02/16/2024
 ms.custom: devx-track-arm-template
 ---
 # What is Azure Resource Manager?
@@ -128,13 +128,21 @@ The Azure Resource Manager service is designed for resiliency and continuous ava
 
 This resiliency applies to services that receive requests through Resource Manager. For example, Key Vault benefits from this resiliency.
 
-### Resource group location alignment
+## Resource group location alignment
 
 To reduce the impact of regional outages, we recommend that you locate resources in the same region as the resource group.
 
 The resource group location is where Azure Resource Manager stores metadata for the resources in the resource group. Azure Resource Manager uses this location for routing and caching. For example, when you list your resources at the subscription or resource group scopes, Azure Resource Manager gets the information from the cache.
 
 When the resource group's region is unavailable, Azure Resource Manager is unable to update your resource's metadata and blocks your write calls. By colocating your resource and resource group region, you reduce the risk of region unavailability because your resources and metadata exist in one region instead of multiple regions.
+
+## Resolve concurrent operations
+
+When two or more operations try to update the same resource at the same time, Azure Resource Manager detects the conflict and permits only one operation to complete successfully. Azure Resource Manager blocks the other operations and returns an error.
+
+Concurrent resource updates can cause unexpected results. This resolution ensures that your updates are deterministic and reliable. You know the status of your resources and avoid any inconsistency or data loss.  
+
+Suppose you have two requests (A and B) that try to update the same resource at the same time. If request A finishes before request B, request A succeeds and request B fails. Request B returns the 409 error. After getting that error code, you can get the updated status of the resource and determine if you want to resend request B.
 
 ## Next steps
 

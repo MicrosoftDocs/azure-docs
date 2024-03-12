@@ -43,7 +43,7 @@ The following table shows vector quotas by partition, and by service if all part
 
 ## How to determine service creation date
 
-Find out whether your search service was created before July 1, 2023. If it's an older service, consider creating a new search service to benefit from the higher limits. Newer services at the same tier offer at least twice as much vector storage.
+Services created after July 1, 2023 offer at least twice as much vector storage as older ones at the same tier.
 
 1. In Azure portal, open the resource group. 
 
@@ -74,13 +74,13 @@ Usage information can be found on the **Overview** page's **Usage** tab. Portal 
 
 The following screenshot is for a newer Standard 1 (S1) tier, configured for one partition and one replica. Vector index quota, measured in megabytes, refers to the internal vector indexes created for each vector field. Overall, indexes consume almost 460 megabytes of available storage, but the vector index component takes up just 93 megabytes of the 460 used on this search service.
 
-:::image type="content" source="media/vector-search-index-size/portal-vector-index-size.png" alt-text="Screenshot of the Overview page's usage tab showing vector index consumption against quota.":::
+:::image type="content" source="media/vector-search-index-size/portal-vector-index-size.png" lightbox="media/vector-search-index-size/portal-vector-index-size.png" alt-text="Screenshot of the Overview page's usage tab showing vector index consumption against quota.":::
 
 The tile on the Usage tab tracks vector index consumption at the search service level. If you increase or decrease search service capacity, the tile reflects the changes accordingly.
 
 ### [**REST**](#tab/rest-vector-quota)
 
-Use the following data plane REST APIs (version 2023-11-01 or later) for vector usage statistics:
+Use the following data plane REST APIs (version 2023-10-01-preview, 2023-11-01, and later) for vector usage statistics:
 
 + [GET Index Statistics](/rest/api/searchservice/indexes/get-statistics) returns usage for a given index.
 + [GET Service Statistics](/rest/api/searchservice/get-service-statistics/get-service-statistics) returns quota and usage for the search service all-up.

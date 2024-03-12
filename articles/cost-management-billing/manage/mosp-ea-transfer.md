@@ -46,7 +46,7 @@ You must have one of the following roles to create an EA account owner. For more
 
 ### Set EA authentication level
 
-EAs have an authentication level set that determines which types of users can be added as EA account owners for the enrollment. There are four authentication levels available, as described at [Authentication level types](ea-portal-troubleshoot.md#authentication-level-types).
+EAs have an authentication level set that determines which types of users can be added as EA account owners for the enrollment. There are four authentication levels available.
 
 Ensure that the authentication level set for the EA allows you to create a new EA account owner using the subscription account administrator noted previously. For example:
 
@@ -54,7 +54,7 @@ Ensure that the authentication level set for the EA allows you to create a new E
 - If the subscription account administrator has an email address domain of `@<YourAzureADTenantPrimaryDomain.com>`, then the EA must have its authentication level set to either **Work or School Account** or **Work or School Account Cross Tenant**. The ability to create a new EA account owner depends on whether the EA's default domain is the same as the subscription account administrator's email address domain.
 
 > [!NOTE]
-> When set correctly, changing the authentication level doesn't impact the transfer process. For more information, see [Authentication level types](ea-portal-troubleshoot.md#authentication-level-types).
+> When set correctly, changing the authentication level doesn't impact the transfer process.
 
 ## Transfer the subscription to the EA
 

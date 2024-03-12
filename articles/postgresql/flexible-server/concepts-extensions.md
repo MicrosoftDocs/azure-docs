@@ -3,7 +3,7 @@ title: Extensions
 description: Learn about the available PostgreSQL extensions in Azure Database for PostgreSQL - Flexible Server.
 author: varun-dhawan
 ms.author: varundhawan
-ms.date: 1/8/2024
+ms.date: 2/20/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -157,7 +157,7 @@ The following extensions are available in Azure Database for PostgreSQL flexible
 |[pg_prewarm](https://www.postgresql.org/docs/13/pgprewarm.html)                             |Prewarm relation data                                                                                                                                                      |1.2        |1.2        |1.2        |1.2        |1.2        |1.2         |
 |[pg_repack](https://reorg.github.io/pg_repack/)                                             |Lets you remove bloat from tables and indexes                                                                                                                              |1.4.7      |1.4.7      |1.4.7      |1.4.7      |1.4.7      |1.4.7       |
 |[pg_squeeze](https://github.com/cybertec-postgresql/pg_squeeze)                             |A tool to remove unused space from a relation.                                                                                                                             |1.6        |1.5        |1.5        |1.5        |1.5        |1.5         |
-|[pg_stat_statements](https://www.postgresql.org/docs/13/pgstatstatements.html)              |Track execution statistics of all SQL statements executed                                                                                                                  |1.1        |1.8        |1.8        |1.8        |1.7        |1.6         |
+|[pg_stat_statements](https://www.postgresql.org/docs/13/pgstatstatements.html)              |Track execution statistics of all SQL statements executed                                                                                                                  |1.10       |1.10       |1.9        |1.8        |1.7        |1.6         |
 |[pg_trgm](https://www.postgresql.org/docs/13/pgtrgm.html)                                   |Text similarity measurement and index searching based on trigrams                                                                                                          |1.6        |1.5        |1.5        |1.5        |1.4        |1.4         |
 |[pg_visibility](https://www.postgresql.org/docs/13/pgvisibility.html)                       |Examine the visibility map (VM) and page-level visibility info                                                                                                             |1.2        |1.2        |1.2        |1.2        |1.2        |1.2         |
 |[pgaudit](https://www.pgaudit.org/)                                                         |Provides auditing functionality                                                                                                                                            |N/A        |1.7        |1.6.2      |1.5        |1.4        |1.3.1       |
