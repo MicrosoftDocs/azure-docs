@@ -11,7 +11,7 @@ ms.custom: template-how-to
 
 # Setting up Key Vault for Managed Credential Rotation in Operator Nexus
 
-To keep the rotated credentials in their own key vault, the user has to set up the key vault for the Azure Operator Nexus instance. Once created, the user needs to add a role assignment on the Customer Key Vault to allow the credential manager to write updated credentials, and additionally link the key vault as a secret archive to the Nexus cluster resource.
+Azure Operator Nexus utilizes secrets and certificates to manage component security across the platform. These secrets and certificates are rotated by the Operator Nexus platform. By default, Operator Nexus stores the credentials in a managed key vault. To keep the rotated credentials in their own key vault, the user has to set up the key vault for the Azure Operator Nexus instance. Once created, the user needs to add a role assignment on the customer key vault to allow the Operator Nexus Platform to write updated credentials, and additionally link the key vault to the Nexus cluster resource.
 
 ## Prerequisites
 
@@ -40,8 +40,6 @@ az provider register --namespace 'Microsoft.NetworkCloud' --subscription <Subscr
 | Production  | AFOI-NC-RP-PME-PROD   | 05cf5e27-931d-47ad-826d-cb9028d8bd7a |
 | Production  | AFOI-NC-MGMT-PME-PROD | 3365d4ea-bb16-4bc9-86dd-f2c8cf6f1f56 |
 
-> **_NOTE:_** Searching by App ID will not work, use the App Name value.
-
 Example:
 
 ```console
@@ -50,7 +48,7 @@ az role assignment create --assignee 05cf5e27-931d-47ad-826d-cb9028d8bd7a --role
 az role assignment create --assignee 3365d4ea-bb16-4bc9-86dd-f2c8cf6f1f56 --role 44f0a1a8-6fea-4b35-980a-8ff50c487c97 --scope /subscriptions/<Subscription ID>/resourceGroups/<Resource Group Name>/providers/Microsoft.KeyVault/vaults/<Key Vault Name>
 ```
 
-- User associates the Customer Key Vault as a secret archive for the Nexus cluster. The key vault resource ID must be configured in the cluster and enabled for secrets archive to store the secrets of the cluster.
+- User associates the Customer Key Vault with the Operator Nexus cluster. The key vault resource ID must be configured in the cluster and enabled to store the secrets of the cluster.
 
 Example:
 
