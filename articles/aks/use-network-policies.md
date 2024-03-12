@@ -62,7 +62,7 @@ In Windows, Azure Network Policy Manager doesn't support:
 
 ## Scale
 
-With Azure Network Policy Manager for Linux, we don't allowed scaling beyond 250 nodes and 20,000 pods. If you attempt to scale beyond these limits, you might encounter "Out of Memory" (OOM) errors. To increase your memory limit, create a support ticket.
+With Azure Network Policy Manager for Linux, we don't allow scaling beyond 250 nodes and 20,000 pods. If you attempt to scale beyond these limits, you might encounter "Out of Memory" (OOM) errors. To increase your memory limit, create a support ticket.
 
 ## Create an AKS cluster and enable network policy
 
