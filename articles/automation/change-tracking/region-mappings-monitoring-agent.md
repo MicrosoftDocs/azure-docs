@@ -22,7 +22,6 @@ The following table shows the supported mappings:
 |**Australia**| AustraliaEast </br> AustraliaSoutheast |
 |**Brazil**| BrazilSouth|
 |**Canada**| CanadaCentral|
-|**China**| ChinaEast2|
 |**Europe**| NorthEurope </br> WestEurope|
 |**France**| FranceCentral|
 |**Germany** | Germany WestCentral|
@@ -34,9 +33,10 @@ The following table shows the supported mappings:
 |**Switzerland**| SwitzerlandNorth|
 |**United Arab Emirates**| UAENorth|
 |**United Kingdom**| UKSouth|
-|**US Gov**| USGovVirginia </br> USGovArizona|
+|**US Gov**| USGovVirginia </br> USGovArizona <sup>1</sup>|
 |**US**| EastUS</br> EastUS2</br> WestUS </br> WestUS2 </br> NorthCentralUS </br> CentralUS </br> SouthCentralUS </br> WestCentralUS|
 
+<sup>1</sup> Currently, in this region, we support onboarding via Azure portal and onboarding via policy will soon be supported.
 
 
 

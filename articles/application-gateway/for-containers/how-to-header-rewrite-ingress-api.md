@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: conceptual
-ms.date: 02/27/2024
+ms.date: 03/5/2024
 ms.author: greglin
 ---
 
@@ -43,7 +43,7 @@ The following figure illustrates an example of a request with a specific user ag
    - two services called `backend-v1` and `backend-v2` in the `test-infra` namespace
    - two deployments called `backend-v1` and `backend-v2` in the `test-infra` namespace
 
-## Deploy the required Gateway API resources
+## Deploy the required Ingress API resources
 
 # [ALB managed deployment](#tab/alb-managed)
 
@@ -200,7 +200,7 @@ spec:
 EOF
 ```
 
-Once the HTTPRoute resource is created, ensure the route has been _Accepted_ and the Application Gateway for Containers resource has been _Programmed_.
+Once the IngressExtension resource is created, ensure the resource returns _No validation errors_ and is valid.
 
 ```bash
 kubectl get IngressExtension header-rewrite -n test-infra -o yaml
@@ -333,4 +333,4 @@ Via the response we should see:
 }
 ```
 
-Congratulations, you have installed ALB Controller, deployed a backend application and modified header values via Gateway API on Application Gateway for Containers.
+Congratulations, you have installed ALB Controller, deployed a backend application and modified header values via Ingress API on Application Gateway for Containers.

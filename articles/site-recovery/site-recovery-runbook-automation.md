@@ -57,22 +57,20 @@ When a script runs, it injects a recovery plan context to the runbook. The conte
 
 The following example shows a context variable:
 
-```yaml
-{"RecoveryPlanName":"hrweb-recovery",
-
 ```json
 {
-"RecoveryPlanName":"hrweb-recovery",
-
-"FailoverType":"Test",
-"FailoverDirection":"PrimaryToSecondary",
-"GroupId":"1",
-"VmMap":{"7a1069c6-c1d6-49c5-8c5d-33bfce8dd183":
-    { "SubscriptionId":"7a1111111-c1d6-49c5-8c5d-111ce8dd183",
-    "ResourceGroupName":"ContosoRG",
-    "CloudServiceName":"pod02hrweb-Chicago-test",
-    "RoleName":"Fabrikam-Hrweb-frontend-test",
-    "RecoveryPointId":"TimeStamp"}
+    "RecoveryPlanName": "hrweb-recovery",
+    "FailoverType": "Test",
+    "FailoverDirection": "PrimaryToSecondary",
+    "GroupId": "1",
+    "VmMap": {
+        "7a1069c6-c1d6-49c5-8c5d-33bfce8dd183": {
+            "SubscriptionId": "7a1111111-c1d6-49c5-8c5d-111ce8dd183",
+            "ResourceGroupName": "ContosoRG",
+            "CloudServiceName": "pod02hrweb-Chicago-test",
+            "RoleName": "Fabrikam-Hrweb-frontend-test",
+            "RecoveryPointId": "TimeStamp"
+        }
     }
 }
 ```
@@ -85,6 +83,7 @@ param (
     [parameter(Mandatory=$false)]
     [Object]$RecoveryPlanContext
 )
+
 $VMinfo = $RecoveryPlanContext.VmMap | Get-Member | Where-Object MemberType -EQ NoteProperty | select -ExpandProperty Name
 $vmMap = $RecoveryPlanContext.VmMap
     foreach($VMID in $VMinfo)
