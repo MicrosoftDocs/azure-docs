@@ -211,9 +211,6 @@
         href: concept-easm.md
       - name: Critical assets protection
         href: critical-assets-protection.md
-      - name: Permissions Management
-        displayName: permissions, management, role-based access control, RBAC, azure, azure ad, active directory
-        href: permissions-management.md
       - name: Agentless machine scanning
         href: concept-agentless-data-collection.md
       - name: Integrations
