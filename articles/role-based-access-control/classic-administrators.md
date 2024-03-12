@@ -118,7 +118,7 @@ Follow these steps to view the Service Administrator and Co-Administrators for a
 
 1. Click the **Classic administrators** tab to view a list of the Co-Administrators.
 
-    ![Screenshot that opens Classic administrators.](./media/shared/classic-administrators.png)
+    :::image type="content" source="./media/shared/classic-administrators.png" alt-text="Screenshot of Access control (IAM) page with Classic administrators tab selected." lightbox="./media/shared/classic-administrators.png":::
 
 ## Remove a Co-Administrator
 
@@ -141,7 +141,7 @@ Follow these steps to remove a Co-Administrator.
 
 1. In the message box that appears, click **Yes**.
 
-    ![Screenshot that removes co-administrator.](./media/classic-administrators/remove-coadmin.png)
+    :::image type="content" source="./media/classic-administrators/remove-coadmin.png" alt-text="Screenshot of message box when removing a Co-Administrator." lightbox="./media/classic-administrators/remove-coadmin.png":::
 
 ## Add a Co-Administrator
 
@@ -160,7 +160,7 @@ Follow these steps to remove a Co-Administrator.
 
 1. Click the **Classic administrators** tab.
 
-    ![Screenshot that opens Classic administrators](./media/shared/classic-administrators.png)
+    :::image type="content" source="./media/shared/classic-administrators.png" alt-text="Screenshot of Access control (IAM) page with Classic administrators tab selected." lightbox="./media/shared/classic-administrators.png":::
 
 1. Click **Add** > **Add co-administrator** to open the Add co-administrators pane.
 
@@ -168,7 +168,7 @@ Follow these steps to remove a Co-Administrator.
 
 1. Select the user that you want to add and click **Add**.
 
-    ![Screenshot that adds co-administrator](./media/classic-administrators/add-coadmin.png)
+    :::image type="content" source="./media/classic-administrators/add-coadmin.png" alt-text="Screenshot of Add co-administrator pane to add a Co-Administrator." lightbox="./media/classic-administrators/add-coadmin.png":::
 
 ## Add a guest user as a Co-Administrator
 
@@ -215,7 +215,7 @@ To remove the Service Administrator, you must have a user who is assigned the [O
 
 1. In the message box that appears, click **Yes**.
 
-    ![Screenshot that removes service administrator.](./media/classic-administrators/service-admin-remove.png)
+    :::image type="content" source="./media/classic-administrators/service-admin-remove.png" alt-text="Screenshot of remove classic administrator message when removing a Service Administrator." lightbox="./media/classic-administrators/service-admin-remove.png":::
 
 ## Next steps
 
