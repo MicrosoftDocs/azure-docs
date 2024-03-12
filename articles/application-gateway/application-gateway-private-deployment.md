@@ -36,7 +36,7 @@ Each of these features can be configured independently. For example, a public IP
 
 The functionality of the new controls of private IP frontend configuration, control over NSG rules, and control over route tables, are currently in public preview.  To join the public preview, you can opt in to the experience using the Azure portal, PowerShell, CLI, or REST API.
 
-When you join the preview, all new Application Gateways will provision with the ability to define any combination of the NSG, Route Table, or private IP configuration features.  If you wish to opt out from the new functionality and return to the current generally available functionality of Application Gateway, you can do so by [unregistering from the preview](#unregister-from-the-preview).
+When you join the preview, all new Application Gateways provision with the ability to define any combination of the NSG, Route Table, or private IP configuration features.  If you wish to opt out from the new functionality and return to the current generally available functionality of Application Gateway, you can do so by [unregistering from the preview](#unregister-from-the-preview).
 
 For more information about preview features, see [Set up preview features in Azure subscription](../azure-resource-manager/management/preview-features.md)
 
@@ -192,7 +192,7 @@ Application Gateway Subnet is the subnet within the Virtual Network where the Ap
 
 ## Outbound Internet connectivity
 
-Application Gateway deployments that contain only a private frontend IP configuration (do not have a public IP frontend configuration) are not able to egress traffic destined to the Internet. This configuration affects communication to backend targets that are publicly accessible via the Internet.
+Application Gateway deployments that contain only a private frontend IP configuration (do not have a public IP frontend configuration) aren't able to egress traffic destined to the Internet. This configuration affects communication to backend targets that are publicly accessible via the Internet.
 
 To enable outbound connectivity from your Application Gateway to an Internet facing backend target, you can utilize [Virtual Network NAT](../virtual-network/nat-gateway/nat-overview.md) or forward traffic to a virtual appliance that has access to the Internet.
 
@@ -361,7 +361,7 @@ If Application Gateway has a backend target or key vault reference to a private 
 
 ### Network Watcher integration
 
-Connection troubleshoot and NSG diagnostics will return an error when running check and diagnostic tests.
+Connection troubleshoot and NSG diagnostics return an error when running check and diagnostic tests.
 
 ### Coexisting v2 Application Gateways created prior to enablement of enhanced network control
 
