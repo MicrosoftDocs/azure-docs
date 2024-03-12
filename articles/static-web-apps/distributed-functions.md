@@ -18,7 +18,7 @@ Distributed functions are only available on the [Standard hosting plan](plans.md
 
 Distributed functions can help reduce your network latency by up to 70%. Decreased network latency leads to improved performance and responsiveness of web applications with global audiences. Distributed functions can also improve application performance when quick response times are needed for responsive personalization, routing or authorization. 
 
-Distributed only functions apply to the production environment of your static web app.
+Distributed functions only apply to the production environment of your static web app.
 
 > [!NOTE]
 > Distributed functions is not compatible with Next.js hybrid rendering applications.
