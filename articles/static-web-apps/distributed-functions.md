@@ -27,7 +27,7 @@ Distributed functions apply to the production environment of your Static Web App
 
 Before enabling distributed functions, ensure that you have a Standard hosting plan Static Web Apps resource with managed functions.
 
-To enable distributed functions for your Static Web Apps resource, use the following steps:
+Use the following steps to enable distributed functions.
 
 1. Open your static web app in the Azure portal.
    
