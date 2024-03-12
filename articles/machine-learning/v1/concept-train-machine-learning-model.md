@@ -9,7 +9,7 @@ ms.author: magoswam
 ms.reviewer: ssalgado
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 03/11/2024
+ms.date: 08/30/2022
 ms.custom: UpdateFrequency5, devx-track-python, devx-track-azurecli
 ms.devlang: azurecli
 ---
@@ -44,7 +44,7 @@ The Azure Machine Learning SDK for Python allows you to build and run machine le
 
 ### Run configuration
 
-A generic training job with Azure Machine Learning can be defined using the [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig). The script run configuration is then used, along with your training script to train a model on a compute target.
+A generic training job with Azure Machine Learning can be defined using the [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig). The script run configuration is then used, along with your training script(s) to train a model on a compute target.
 
 You may start with a run configuration for your local computer, and then switch to one for a cloud-based compute target as needed. When changing the compute target, you only change the run configuration you use. A run also logs information about the training job, such as the inputs, outputs, and logs.
 
@@ -60,16 +60,18 @@ Define the iterations, hyperparameter settings, featurization, and other setting
 > [!TIP]
 > In addition to the Python SDK, you can also use Automated ML through [Azure Machine Learning studio](https://ml.azure.com).
 
-* [What is automated machine learning?](./concept-automated-ml.md)
+* [What is automated machine learning?](../concept-automated-ml.md)
+* [Tutorial: Create your first classification model with automated machine learning](../tutorial-first-experiment-automated-ml.md)
 * [Examples: Jupyter Notebook examples for automated machine learning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)
 * [How to: Configure automated ML experiments in Python](how-to-configure-auto-train.md)
-* [How to: Autotrain a time-series forecast model](how-to-auto-train-forecast.md)
-* [Train a small object detection model with AutoML (preview)](how-to-use-automl-small-object-detect.md)
+* [How to: Autotrain a time-series forecast model](../how-to-auto-train-forecast.md)
+* [How to: Create, explore, and deploy automated machine learning experiments with Azure Machine Learning studio](../how-to-use-automated-ml-for-ml-models.md)
 
 ### Machine learning pipeline
 
 Machine learning pipelines can use the previously mentioned training methods. Pipelines are more about creating a workflow, so they encompass more than just the training of models. In a pipeline, you can train a model using automated machine learning or run configurations.
 
+* [What are ML pipelines in Azure Machine Learning?](../concept-ml-pipelines.md)
 * [Create and run machine learning pipelines with Azure Machine Learning SDK](how-to-create-machine-learning-pipelines.md)
 * [Tutorial: Use Azure Machine Learning Pipelines for batch scoring](tutorial-pipeline-python-sdk.md)
 * [Examples: Jupyter Notebook examples for machine learning pipelines](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
@@ -87,15 +89,15 @@ The Azure training lifecycle consists of:
         - Custom docker steps (see [Deploy a model using a custom Docker base image](how-to-deploy-package-models.md))
         - The conda definition YAML (see [Create & use software environments in Azure Machine Learning](how-to-use-environments.md))
     1. The system uses this hash as the key in a lookup of the workspace Azure Container Registry (ACR)
-    1. If it isn't found, it looks for a match in the global ACR
-    1. If it isn't found, the system builds a new image (which will be cached and registered with the workspace ACR)
+    1. If it is not found, it looks for a match in the global ACR
+    1. If it is not found, the system builds a new image (which will be cached and registered with the workspace ACR)
 1. Downloading your zipped project file to temporary storage on the compute node
 1. Unzipping the project file
 1. The compute node executing `python <entry script> <arguments>`
 1. Saving logs, model files, and other files written to `./outputs` to the storage account associated with the workspace
 1. Scaling down compute, including removing temporary storage 
 
-If you choose to train on your local machine ("configure as local run"), you don't need to use Docker. You may use Docker locally if you choose (see the section [Configure ML pipeline](how-to-debug-pipelines.md) for an example).
+If you choose to train on your local machine ("configure as local run"), you do not need to use Docker. You may use Docker locally if you choose (see the section [Configure ML pipeline](how-to-debug-pipelines.md) for an example).
 
 ## Azure Machine Learning designer
 
