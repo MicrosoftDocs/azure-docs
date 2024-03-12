@@ -1,4 +1,4 @@
----
+![image](https://github.com/MicrosoftDocs/azure-docs/assets/98344078/2f7d9837-948a-4b74-8204-cbbc0d99fde4)---
 title: Automatically scale Apache Spark instances
 description: Use the Azure Synapse autoscale feature to automatically scale Apache Spark Instances
 author: guyhay
@@ -93,6 +93,9 @@ It can take 1 to 5 minutes for a scaling operation to complete.
 During the instance scaling down process, Autoscale will put the nodes in decommissioning state so that no new executors can launch on that node.
 
 The running jobs will continue to run and finish. The pending jobs will wait to be scheduled as normal with fewer available nodes.
+
+> [!NOTE]
+>  By default, spark.yarn.executor.decommission.enabled is set to true, enabling the automatic shutdown of underutilized nodes to optimize compute efficiency. If less aggressive scaling down is preferred, this configuration can be set to false.
 
 ## Next steps
 
