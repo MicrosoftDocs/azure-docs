@@ -27,6 +27,13 @@ This article provides reference documentation for Python and REST for the new Az
 POST {endpoint}/openai/deployments/{deployment-id}/chat/completions?api-version={api-version}
 ```
 
+**Supported versions**
+* `2024-02-15-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2024-02-15-preview/inference.json)
+* `2024-02-01` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2024-02-01).
+
+> [!NOTE]
+> [Azure Machine learning indexes](./azure-machine-learning.md), [Pinecone](./pinecone.md), and [Elasticsearch](./elasticsearch.md) are only supported in the `2024-02-15-preview` API version.
+
 ## URI parameters
 
 |Name               | In   | Type     | Required | Description                                                                           |
