@@ -217,8 +217,10 @@ db.command(
 )
 ```
 
-## Upload data to the collection
-A simple `insert_many()` to insert our data in JSON format into the newly created DB and collection.
+## Insert data to the collection
+Now insert the inventory data, which includes descriptions and their corresponding vector embeddings, into the newly created collection. To insert data into our collection, we use the `insert_many()` method provided by the `pymongo` library. This method allows us to insert multiple documents into the collection at once. Our data is stored in a JSON file, which we'll load and then insert into the database.
+
+Download the [shoes_with_vectors.json](https://github.com/jayanta-mondal/ignite-demo/blob/main/data/shoes_with_vectors.json) file from the GitHub repository and store it in a `data` directory within your project folder.
 
 ```
 data_file = open(file="./data/shoes_with_vectors.json", mode="r") 
@@ -230,9 +232,13 @@ result = collection.insert_many(data)
 print(f"Number of data points added: {len(result.inserted_ids)}")
 ```
 
-# Vector Search in Cosmos DB for MongoDB vCore
+## Vector Search in Cosmos DB for MongoDB vCore
+With our data successfully uploaded, we can now leverage the power of vector search to find the most relevant items based on a query. This is where the vector index we created earlier comes into play, enabling us to perform semantic search within our dataset.
 
-```
+### Conducting a Vector Search
+To perform a vector search, we define a function `vector_search` that takes a query and the number of results to return. This function generates a vector for the query using the `generate_embeddings` function we defined earlier, then uses Cosmos DB's `$search` functionality to find the closest matching items based on their vector embeddings.
+
+```python
 # Function to assist with vector search
 def vector_search(query, num_results=3):
     
@@ -255,8 +261,9 @@ def vector_search(query, num_results=3):
     return results
 ```
 ## Perform vector search query
+Finally, we execute our vector search function with a specific query and process the results to display them:
 
-```
+```python
 query = "Shoes for Seattle sweater weather"
 results = vector_search(query, 3)
 
@@ -270,11 +277,11 @@ for result in results:
     print(f"Purchase: {result['document']['purchase_url']}\n")
 ```
 
-# Generating Ad content with GPT-4 
+## Generating Ad content with GPT-4 and DALL.E
 
-Finally, we put it all together by creating an ad caption and an ad image via the `Completions` API and `DALL.E 3` API, and combine that with the vector search results.
+We combine all developed components to craft compelling ads, employing OpenAI's GPT-4 for text and DALL·E 3 for images. Together with vector search results, they form a complete ad. We also introduce Heelie, our intelligent assistant, tasked with creating engaging ad taglines. Through the upcoming code, you'll see Heelie in action, enhancing our ad creation process.
 
-```
+```python
 from openai import OpenAI
 
 def generate_ad_title(ad_topic):
@@ -360,9 +367,10 @@ def render_html_page(ad_topic):
     return html_content
 ```
 
-# Putting it all together
+## Putting it all together
+To make our advertisement generation interactive, we employ Gradio, a Python library for creating simple web UIs. We define a UI that allows users to input ad topics and then dynamically generates and displays the resulting advertisement.
 
-```
+```python
 import gradio as gr
 
 css = """
