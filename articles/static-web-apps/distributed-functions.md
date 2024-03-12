@@ -18,7 +18,7 @@ When a Static Web Apps with distributed functions gets high levels of backend tr
 
 Distributed functions can help reduce your network latency by up to 70%. Decreased network latency leads to improved performance and responsiveness of web applications with global audiences. Distributed functions can also improve application performance when quick response times are needed for responsive personalization, routing or authorization. 
 
-Distributed functions apply to the production environment of your Static Web Apps resource.
+Distributed only functions apply to the production environment of your static web app.
 
 > [!NOTE]
 > Distributed functions is not currently compatible with Next.js hybrid rendering sites
