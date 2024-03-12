@@ -181,7 +181,7 @@
     items:
     - name: Overview
       href: customer-lockbox-overview.md
-    - name: Alternate Email Feature
+    - name: Alternate email notifications
       href: customer-lockbox-alternative-email.md
     - name: FAQ
       href: customer-lockbox-faq.yml
