@@ -434,9 +434,9 @@ items:
   - name: Monitor
     items:
       - name: Monitor
-        href: monitor-logic-apps.md
+        href: monitor-logic-apps-overview.md
       - name: Monitor workflows
-        href: monitor-workflows.md
+        href: monitor-logic-apps.md
       - name: View health and performance metrics
         href: view-workflow-metrics.md
       - name: Enable and view enhanced telemetry for Standard workflows
