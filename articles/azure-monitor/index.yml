@@ -10,7 +10,7 @@ metadata:
   ms.service: azure-monitor
   author: rboucher
   ms.author: robb
-  ms.date: 03/14/2023
+  ms.date: 03/11/2024
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
@@ -147,5 +147,5 @@ landingContent:
             url:  /cli/azure/azure-cli-reference-for-monitor
           - text: PowerShell Reference
             url:  /powershell/module/az.monitor/?view=azps-9.5.0
-          - text: REST API Reference
-            url:  /rest/api/monitor/
+          - text: REST API Reference Index
+            url:  azure-monitor-rest-api-index.md  

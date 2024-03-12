@@ -49,6 +49,7 @@ Chaos Studio currently tests with the following version combinations.
 
 | Chaos Studio fault version | Kubernetes version | Chaos Mesh version | Notes |
 |:---:|:---:|:---:|:---:|
+| 2.1 | 1.27 | 2.6.3 | |
 | 2.1 | 1.25.11 | 2.5.1 | |
 
 The *Chaos Studio fault version* column refers to the individual fault version for each AKS Chaos Mesh fault used in the experiment JSON, for example `urn:csci:microsoft:azureKubernetesServiceChaosMesh:podChaos/2.1`. If a past version of the corresponding Chaos Studio fault remains available from the Chaos Studio API (for example, `...podChaos/1.0`), it is within support.

@@ -318,8 +318,7 @@ django-app  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 Now open a web browser to the external IP address of your service (`http://<service-external-ip-address>`) and view the Django application.  
 
 > [!NOTE]
-> - Currently the Django site isn't using HTTPS. It's recommended to [ENABLE TLS with your own certificates](../../aks/ingress-own-tls.md).
-> - You can enable [HTTP routing](../../aks/http-application-routing.md) for your cluster. When http routing is enabled, it configures an Ingress controller in your AKS cluster. As applications are deployed, the solution also creates publicly accessible DNS names for application endpoints.
+> - Currently the Django site isn't using HTTPS. For more information about HTTPS and how to configure application routing for AKS, see [Managed NGINX ingress with the application routing add-on](../../aks/app-routing.md).
 
 ## Run database migrations
 

@@ -12,7 +12,7 @@ ms.author: mbender
 
 # Deploy an IPv6 dual stack application using Basic Load Balancer - CLI
 
-This article shows you how to deploy a dual stack (IPv4 + IPv6) application with Basic Load Balancer using Azure CLI that includes a dual stack virtual network with a dual stack subnet, a Basic Load Balancer with dual (IPv4 + IPv6) front-end configurations, VMs with NICs that have a dual IP configuration, dual network security group rules, and dual public IPs.
+This article shows you how to deploy a dual stack (IPv4 + IPv6) application with Basic Load Balancer using Azure CLI that includes a dual stack virtual network with a dual stack subnet, a Basic Load Balancer with dual (IPv4 + IPv6) frontend configurations, VMs with NICs that have a dual IP configuration, dual network security group rules, and dual public IPs.
 
 To deploy a dual stack (IPV4 + IPv6) application using Standard Load Balancer, see [Deploy an IPv6 dual stack application with Standard Load Balancer using Azure CLI](../virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md).
 
@@ -80,7 +80,7 @@ az network public-ip create \
 
 ## Create Basic Load Balancer
 
-In this section, you configure dual frontend IP (IPv4 and IPv6) and the back-end address pool for the load balancer and then create a Basic Load Balancer.
+In this section, you configure dual frontend IP (IPv4 and IPv6) and the backend address pool for the load balancer and then create a Basic Load Balancer.
 
 ### Create load balancer
 
@@ -110,9 +110,9 @@ az network lb frontend-ip create \
 
 ```
 
-### Configure IPv6 back-end address pool
+### Configure IPv6 backend address pool
 
-Create a IPv6 back-end address pools with [az network lb address-pool create](/cli/azure/network/lb/address-pool#az-network-lb-address-pool-create). The following example creates back-end address pool named *dsLbBackEndPool_v6*  to include VMs with IPv6 NIC configurations:
+Create a IPv6 backend address pools with [az network lb address-pool create](/cli/azure/network/lb/address-pool#az-network-lb-address-pool-create). The following example creates backend address pool named *dsLbBackEndPool_v6*  to include VMs with IPv6 NIC configurations:
 
 ```azurecli-interactive
 az network lb address-pool create \
@@ -366,4 +366,4 @@ When no longer needed, you can use the [az group delete](/cli/azure/group#az-gro
 
 ## Next steps
 
-In this article, you created a Basic Load Balancer with a dual frontend IP configuration (IPv4 and IPv6). You also created a two virtual machines that included NICs with dual IP configurations (IPV4 + IPv6) that were added to the back-end pool of the load balancer. To learn more about IPv6 support in Azure virtual networks, see [What is IPv6 for Azure Virtual Network?](../../virtual-network/ip-services/ipv6-overview.md)
+In this article, you created a Basic Load Balancer with a dual frontend IP configuration (IPv4 and IPv6). You also created a two virtual machines that included NICs with dual IP configurations (IPV4 + IPv6) that were added to the backend pool of the load balancer. To learn more about IPv6 support in Azure virtual networks, see [What is IPv6 for Azure Virtual Network?](../../virtual-network/ip-services/ipv6-overview.md)

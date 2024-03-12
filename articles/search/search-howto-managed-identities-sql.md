@@ -1,7 +1,7 @@
 ---
 title: Connect to Azure SQL
 titleSuffix: Azure AI Search
-description: Learn how to set up an indexer connection to Azure SQL Database  using a managed identity
+description: Learn how to set up an indexer connection to Azure SQL Database  using a managed identity.
 author: gmndrg
 ms.author: gimondra
 manager: nitinme
@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 09/19/2022
+ms.date: 02/22/2024
 ---
 
 # Set up an indexer connection to Azure SQL using a managed identity
@@ -31,11 +31,11 @@ You can use a system-assigned managed identity or a user-assigned managed identi
 
 Follow the below steps to assign the search service or user-assigned managed identity permission to read the database.
 
-1. Connect to Visual Studio
+1. Connect to Visual Studio.
 
     ![Connect to Visual Studio](./media/search-managed-identities/connect-with-visual-studio.png "Connect to Visual Studio")
 
-2. Authenticate with your Microsoft Entra account
+2. Authenticate with your Microsoft Entra account.
 
     ![Authenticate](./media/search-managed-identities/visual-studio-authenticate.png "Authenticate")
 
@@ -97,7 +97,7 @@ When you're connecting with a system-assigned managed identity, the only change 
 Here's an example of how to create a data source to index data from a storage account using the [Create Data Source](/rest/api/searchservice/create-data-source) REST API and a managed identity connection string. The managed identity connection string format is the same for the REST API, .NET SDK, and the Azure portal.
 
 ```http
-POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
+POST https://[service name].search.windows.net/datasources?api-version=2023-11-01
 Content-Type: application/json
 api-key: [admin key]
 
@@ -119,7 +119,7 @@ The 2021-04-30-preview REST API supports connections based on a user-assigned ma
 
 * First, the format of the "credentials" property is an Initial Catalog or Database name and a ResourceId that has no account key or password. The ResourceId must include the subscription ID of Azure SQL Database, the resource group of SQL Database, and the name of the SQL database. This is the same format as the system-assigned managed identity.
 
-* Second, you'll add an "identity" property that contains the collection of user-assigned managed identities. Only one user-assigned managed identity should be provided when creating the data source. Set it to type "userAssignedIdentities".
+* Second, add an "identity" property that contains the collection of user-assigned managed identities. Only one user-assigned managed identity should be provided when creating the data source. Set it to type "userAssignedIdentities".
 
 Here's an example of how to create an indexer data source object using the [preview Create or Update Data Source](/rest/api/searchservice/preview-api/create-or-update-data-source) REST API:
 
@@ -151,7 +151,7 @@ The index specifies the fields in a document, attributes, and other constructs t
 Here's a [Create Index](/rest/api/searchservice/create-index) REST API call with a searchable `booktitle` field:   
 
 ```http
-POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
+POST https://[service name].search.windows.net/indexes?api-version=2023-11-01
 Content-Type: application/json
 api-key: [admin key]
 
@@ -168,10 +168,10 @@ api-key: [admin key]
 
 An indexer connects a data source with a target search index, and provides a schedule to automate the data refresh. Once the index and data source have been created, you're ready to create the indexer. If the indexer is successful, the connection syntax and role assignments are valid.
 
-Here's a [Create Indexer](/rest/api/searchservice/create-indexer) REST API call with an Azure SQL indexer definition. The indexer will run when you submit the request.
+Here's a [Create Indexer](/rest/api/searchservice/create-indexer) REST API call with an Azure SQL indexer definition. The indexer runs when you submit the request.
 
 ```http
-POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
+POST https://[service name].search.windows.net/indexers?api-version=2023-11-01
 Content-Type: application/json
 api-key: [admin key]
 
@@ -179,14 +179,11 @@ api-key: [admin key]
     "name" : "sql-indexer",
     "dataSourceName" : "sql-datasource",
     "targetIndexName" : "my-target-index"
+}
 ```
-
-## Troubleshooting
 
 If you get an error when the indexer tries to connect to the data source that says that the client isn't allowed to access the server, take a look at [common indexer errors](./search-indexer-troubleshooting.md).
 
-You can also rule out any firewall issues by trying the connection with and without restrictions in place.
-
 ## See also
 
-* [Azure SQL indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+[Azure SQL indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)

@@ -686,15 +686,17 @@ Sets the version of Node.js to use when running your function app on Windows. Yo
 
 ## WEBSITE\_OVERRIDE\_STICKY\_DIAGNOSTICS\_SETTINGS
 
-When performing [a slot swap](functions-deployment-slots.md#swap-slots) on Premium Functions it can fail to swap if the storage account associated with the Function App is network restricted. This is due to a legacy [application logging feature](../app-service/troubleshoot-diagnostic-logs.md#enable-application-logging-windows) that Functions and App Service share. This setting overrides that legacy logging feature and allows the swap to occur. Set to `0` in the production slot and mark it as a Deployment Slot setting (also known as sticky), or add to all slots to make sure that all version settings are also swapped.
+When performing [a slot swap](functions-deployment-slots.md#swap-slots) on a function app running on a Premium plan, the swap can fail when the dedicated storage account used by the app is network restricted. This failure is caused by a legacy [application logging feature](../app-service/troubleshoot-diagnostic-logs.md#enable-application-logging-windows), which is shared by both Functions and App Service. This setting overrides that legacy logging feature and allows the swap to occur.
 
 |Key|Sample value|
 |---|------------|
 |WEBSITE\_OVERRIDE\_STICKY\_DIAGNOSTICS\_SETTINGS|`0`| 
 
+Add `WEBSITE_OVERRIDE_STICKY_DIAGNOSTICS_SETTINGS` with a value of `0` to all slots to make sure that legacy diagnostic settings don't block your swaps. You can also add this setting and value to just the production slot as a [deployment slot (_sticky_) setting](functions-deployment-slots.md#create-a-deployment-setting). 
+
 ## WEBSITE\_OVERRIDE\_STICKY\_EXTENSION\_VERSIONS
 
-By default, the version settings for function apps are specific to each slot. This setting is used when upgrading functions by using [deployment slots](functions-deployment-slots.md). This prevents unanticipated behavior due to changing versions after a swap. Set to `0` in production and in the slot to make sure that all version settings are also swapped. For more information, see [Upgrade using slots](migrate-version-3-version-4.md#upgrade-using-slots). 
+By default, the version settings for function apps are specific to each slot. This setting is used when upgrading functions by using [deployment slots](functions-deployment-slots.md). This prevents unanticipated behavior due to changing versions after a swap. Set to `0` in production and in the slot to make sure that all version settings are also swapped. For more information, see [Upgrade using slots](migrate-version-3-version-4.md#update-using-slots). 
 
 |Key|Sample value|
 |---|------------|
@@ -808,7 +810,7 @@ This indicates the registry source of the deployed container. For more informati
 
 ### netFrameworkVersion
 
-Sets the specific version of .NET for C# functions. For more information, see [Upgrade your function app in Azure](migrate-version-3-version-4.md?pivots=programming-language-csharp#upgrade-your-function-app-in-azure). 
+Sets the specific version of .NET for C# functions. For more information, see [Update your function app in Azure](migrate-version-3-version-4.md?pivots=programming-language-csharp#update-your-function-app-in-azure). 
 
 ### powerShellVersion 
 
