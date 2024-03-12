@@ -24,9 +24,9 @@ Requirements:
  - AKS REST API version 2023-08-02-preview or later
 
 Notes:
- - The uninstall process does _not_ remove Custom Resource Definitions (CRDs) and Custom Resources (CRs) used by Calico. These all have names ending with either "projectcalico.org" or "tigera.io".
- These CRDs and associated CRs can be manually deleted _after_ Calico is successfully uninstalled (deleting the CRDs before removing Calico will break the cluster).
- - The upgrade will not remove any NetworkPolicy resources in the cluster, but after the uninstall these policies will no longer be enforced.
+ - The uninstall process does _not_ remove Custom Resource Definitions (CRDs) and Custom Resources (CRs) used by Calico. These CRDs and CRs all have names ending with either "projectcalico.org" or "tigera.io".
+ These CRDs and associated CRs can be manually deleted _after_ Calico is successfully uninstalled (deleting the CRDs before removing Calico breaks the cluster).
+ - The upgrade will not remove any NetworkPolicy resources in the cluster, but after the uninstall these policies are no longer enforced.
 
 > [!WARNING]
 > The upgrade process triggers each node pool to be re-imaged simultaneously. Upgrading each node pool separately isn't supported. Any disruptions to cluster networking are similar to a node image upgrade or [Kubernetes version upgrade](./upgrade-cluster.md) where each node in a node pool is re-imaged.
@@ -55,7 +55,7 @@ Azure provides three Network Policy engines for enforcing network policies:
 * *Azure Network Policy Manager*.
 * *Calico*, an open-source network and network security solution founded by [Tigera][tigera].
 
-Cilium is our recommended Network Policy engine. Cilium enforces network policy on the traffic using Linux BPF, which is generally more efficient than "IPTables". See more details in [Azure CNI Powered by Cilium documentation](./azure-cni-powered-by-cilium.md).  
+Cilium is our recommended Network Policy engine. Cilium enforces network policy on the traffic using Linux Berkeley Packet Filter (BPF), which is generally more efficient than "IPTables". See more details in [Azure CNI Powered by Cilium documentation](./azure-cni-powered-by-cilium.md).  
 To enforce the specified policies, Azure Network Policy Manager for Linux uses Linux *IPTables*. Azure Network Policy Manager for Windows uses *Host Network Service (HNS) ACLPolicies*. Policies are translated into sets of allowed and disallowed IP pairs. These pairs are then programmed as `IPTable` or `HNS ACLPolicy` filter rules.
 
 
@@ -339,7 +339,7 @@ In the client's shell, run the following command to verify connectivity with the
 
 ### Test connectivity with network policy
 
-Create a file named `demo-policy.yaml` and paste the following YAML manifest to add network policies:
+To add network policies create a file named `demo-policy.yaml` and paste the following YAML manifest:
 
 ```yaml
 apiVersion: networking.k8s.io/v1
