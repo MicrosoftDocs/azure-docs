@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article shows you how you can create and manage exported Cost Management data so that you can use it in external systems.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/09/2024
+ms.date: 03/11/2024
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -358,16 +358,7 @@ The file opens with the program or application set to open CSV file extensions. 
 
 ### Download an exported CSV data file
 
-You can also download the exported CSV file in the Azure portal. The following steps explain how to find it from cost analysis.
-
-1. In cost analysis, select **Settings**, and then select **Exports**.
-1. In the list of exports, select the storage account for an export.
-1. In your storage account, select **Containers**.
-1. In list of containers, select the container.
-1. Navigate through the directories and storage blobs to the date you want.
-1. Select the CSV file and then select **Download**.
-
-[![Example export download](./media/tutorial-export-acm-data/download-export.png)](./media/tutorial-export-acm-data/download-export.png#lightbox)
+To download the CSV file, browse to the file in Microsoft Azure Storage Explorer and download it.
 
 ## View export run history
 
