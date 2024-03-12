@@ -708,18 +708,7 @@ If you plan to continue working on and exploring the device client sample, don't
 
 ## Next steps
 
-In this quickstart, you've created a TPM simulated device on your machine and provisioned it to your IoT hub using the IoT Hub Device Provisioning Service. Next, learn how to enroll your TPM device programmatically.
+In this quickstart, you provisioned a single device to your IoT hub using an individual enrollment. Next, learn how to provision multiple devices across multiple hubs.
 
-::: zone-end
-::: zone pivot="programming-language-ansi-c, programming-language-csharp"
 > [!div class="nextstepaction"]
-> [Create an individual enrollment for a TPM device using the DPS service SDK](quick-enroll-device-tpm.md?pivots=programming-language-csharp)
-::: zone-end
-::: zone pivot="programming-language-nodejs"
-> [!div class="nextstepaction"]
-> [Create an individual enrollment for a TPM device using the DPS service SDK](quick-enroll-device-tpm.md?pivots=programming-language-nodejs)
-::: zone-end
-::: zone pivot="programming-language-java"
-> [!div class="nextstepaction"]
-> [Create an individual enrollment for a TPM device using the DPS service SDK](quick-enroll-device-tpm.md?pivots=programming-language-java)
-::: zone-end
+> [Tutorial: Manage IoT hub assignment with custom allocation policies](tutorial-custom-allocation-policies.md)
