@@ -29,7 +29,7 @@ The Operator Nexus Platform provides managed credential rotation for the followi
 - Pure Storage Array Administrator
 - Console User for emergency access
 
-The managed credential process automatically rotates these credentials every 60 days. The updated credentials are written to the key vault provided on the Cluster. The rotation timestamps are currently not visible to users, but this is a planned enhancement to the Operator Nexus Platform.
+The managed credential process automatically rotates these credentials every 60 days. The updated credentials are written to the key vault provided on the Cluster. The last rotation timestamps are currently not visible to users, but is a planned enhancement to the Operator Nexus Platform.
 
 Credential rotation support for Operator Nexus Fabric devices or a manual rotation of the above Platform credentials requires a support ticket. Instructions for generating a support request are described in the next section.
 
@@ -43,6 +43,6 @@ Users raise credential rotation requests by [contacting support](https://portal.
 - Provide Resource Group Name in which the target cluster or fabric resides based on type of credential that needs to be rotated.
 - Provide Target Cluster or Fabric Name based on type of credential that needs to be rotated.
 - Provide Target Cluster or Fabric Azure Resource Manager (ARM) ID based on type of credential that needs to be rotated.
-- Provide Customer Key Vault ID where rotated credentials will be written. Only applies to Operator Nexus Fabric devices. BMC, Pure Admin & Console User credential rotations use the key vault provided on the Cluster.
+- Provide the Customer Key Vault ID where rotated credentials are written. Only applies to Operator Nexus Fabric devices. BMC, Pure Admin & Console User credential rotations use the key vault provided on the Cluster.
 
 For more information about Support plans, see [Azure Support plans](https://azure.microsoft.com/support/plans/response/).
