@@ -94,7 +94,7 @@ Incident tasks, which help you standardize your incident investigation and respo
 
 Microsoft Sentinel data connectors for Amazon Web Services (AWS) and Google Cloud Platform (GCP) now include supporting configurations to ingest data into workspaces in Azure Government clouds.
 
-The configurations for these connectors for Azure Government customers differs slightly from the public cloud configuration. See the relevant documentation for details:
+The configurations for these connectors for Azure Government customers differ slightly from the public cloud configuration. See the relevant documentation for details:
 
 - [Connect Microsoft Sentinel to Amazon Web Services to ingest AWS service log data](connect-aws.md)
 - [Ingest Google Cloud Platform log data into Microsoft Sentinel](connect-google-cloud-platform.md)
