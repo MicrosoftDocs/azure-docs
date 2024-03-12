@@ -16,6 +16,13 @@ In the Azure portal, you can review *quotas* and *metrics* for an app and App Se
 
 ## Understand quotas
 
+[Azure App Service](./overview.md) provides
+built-in monitoring functionality for web apps, mobile, and API apps in the [Azure portal](https://portal.azure.com).
+
+In the Azure portal, you can review *quotas* and *metrics* for an app and App Service plan, and set up *alerts* and *autoscaling* rules based metrics.
+
+## Understand quotas
+
 Apps that are hosted in App Service are subject to certain limits on the resources they can use. The limits are defined by the App Service plan that's associated with the app.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
@@ -108,7 +115,7 @@ For an app, the available metrics are:
 For an App Service plan, the available metrics are:
 
 > [!NOTE]
-> App Service plan metrics are available only for plans in *Basic*, *Standard*, and *Premium* tiers.
+> App Service plan metrics are available only for plans in *Basic*, *Standard*, *Premium*, and *Isolated* tiers.
 > 
 
 | Metric | Description |
