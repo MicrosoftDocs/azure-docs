@@ -40,24 +40,11 @@ You need the following on the target, Microsoft Sentinel:
 
 At the core of Splunk detection rules is the Search Processing Language (SPL). The SIEM migration experience systematically translates SPL to Kusto query language (KQL) for each Splunk rule. Carefully review translations and make adjustments to ensure migrated rules function as intended in your Microsoft Sentinel workspace. For more information on the concepts important in translating detection rules, see [migrate Splunk detection rules](migration-splunk-detection-rules.md).
 
-Capabilities today:
+Capabilities in public preview:
 
 - Translate simple queries with a single data source
 - Direct translations listed in the article, [Splunk to Kusto cheat sheet](/azure/data-explorer/kusto/query/splunk-cheat-sheet)
 - Review translated query error feedback with edit capability to save time in the detection rule translation process
-
-Capabilities coming soon:
-
-- Splunk Common Information Model (CIM) to Microsoft Sentinel's Advanced Security Information Model (ASIM) translation support
-- Translated queries feature a completeness status with translation states  
-
-Capabilities on the roadmap:
-
-- Multiple data sources and index
-- Rule correlations
-- Support for macros
-- Support for lookups 
-- Complex queries with joins
 
 ## Start the SIEM migration experience
 
