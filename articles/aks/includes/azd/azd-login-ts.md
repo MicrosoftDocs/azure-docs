@@ -4,7 +4,7 @@ ms.topic: include
 ms.date: 02/21/2024
 ---
 
-### AZD login on GitHub Codespaces
+### Log in through GitHub Codespaces
 
 > [!IMPORTANT]
 > Certain Azure security policies cause conflicts when used to sign in with `azd auth login`. As a workaround, you can perform a curl request to the localhost url you were redirected to after you logged in.
