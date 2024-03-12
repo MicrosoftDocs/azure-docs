@@ -109,7 +109,7 @@ If you're an existing customer looking for information about these models, see [
 | code-search-babbage-code-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
 | code-search-babbage-text-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
 
-## Retirement and Deprecation History
+## Retirement and deprecation history
 
 ### March 13, 2024
 
