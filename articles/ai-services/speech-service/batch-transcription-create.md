@@ -255,7 +255,7 @@ Azure AI Speech supports OpenAI's Whisper model by using the batch transcription
 To use a Whisper model for batch transcription, you need to set the `model` property. Whisper is a display-only model, so the lexical field isn't populated in the response.
 
 > [!IMPORTANT]
-> Whisper models are currently in preview. You should always use [version 3.2](./migrate-v3-1-to-v3-2.md) of the speech to text API, which is available in a separate preview, for Whisper models.
+> For Whisper models, you should always use [version 3.2](./migrate-v3-1-to-v3-2.md) of the speech to text API.
 
 Whisper models by batch transcription are supported in the East US, Southeast Asia, and West Europe regions.
 
