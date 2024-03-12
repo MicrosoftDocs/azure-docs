@@ -433,10 +433,12 @@
       href: migrate/migration-service/concepts-migration-service-postgresql.md
     - name: Tutorials
       items:
-      - name: Migrate from on-premises and Azure VM
-        href: migrate/migration-service/tutorial-migration-service-offline-iaas.md
+      - name: Migrate from Single Server
+        href: migrate/migration-service/tutorial-migration-service-single-to-flexible.md
+      - name: Migrate from on-premises or Azure VM
+        href: migrate/migration-service/tutorial-migration-service-iaas.md
       - name: Migrate from AWS RDS
-        href: migrate/migration-service/tutorial-migration-service-offline-aws.md
+        href: migrate/migration-service/tutorial-migration-service-aws.md
     - name: Concepts
       items:
       - name: Premigration validation

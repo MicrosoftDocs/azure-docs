@@ -1,5 +1,5 @@
 ---
-title: "Prerequisites for the migration service in Azure Database for PostgreSQL (offline)"
+title: "Prerequisites for the migration service in Azure Database for PostgreSQL (online)"
 description: Providing the prerequisites of the migration service in Azure Database for PostgreSQL
 author: apduvuri
 ms.author: adityaduvuri
