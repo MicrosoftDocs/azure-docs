@@ -6,7 +6,7 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-Enabling user feedback within the Azure Communication Services (ACS) UI Library requires action on the developers part. Adding a `onUserReportedIssueEventHandler` to their integration of the library, developers can enable the built-in support form, allowing users to report issues directly. This section guides you through setting up the client-side feedback form.
+Enabling user feedback within the Azure Communication Services (ACS) UI Library requires action on the developers part. By utilizing the `onUserReportedIssueEventHandler` in the integration of the library, developers can enable the built-in support form, allowing users to report issues directly. This section guides you through setting up the client-side feedback form.
 
 ### Implementing Client-Side Feedback Capture in Android
 
@@ -24,7 +24,7 @@ Enabling user feedback within the Azure Communication Services (ACS) UI Library 
    - When users report issues through the enabled support form, the `onUserReportedIssueEventHandler` captures emitted events. These events encapsulate all necessary details related to the user-reported issue, such as descriptions, error logs, and potentially screenshots.
 
 2. **Data Preparation for Submission:**
-   - Upon capturing an event, the next step involves preparing the reported issue data for server submission. This preparation includes structuring the captured information into a format suitable for HTTP transmission, adhering to server expectations.
+   - Once a user reports an issue, the next step involves preparing the reported issue data for server submission. This preparation includes structuring the captured information into a format suitable for HTTP transmission, adhering to server expectations.
 
 #### Submitting Issue Data to the Server
 
@@ -32,7 +32,7 @@ Enabling user feedback within the Azure Communication Services (ACS) UI Library 
    - Utilize asynchronous mechanisms to transmit the prepared data to the designated server endpoint. This approach ensures that the application remains responsive, providing a smooth user experience while the data is being sent in the background.
 
 2. **Server Response Handling:**
-   - Upon data submission, it is crucial to handle server responses adeptly. This handling might involve parsing server feedback to confirm successful data transmission and possibly extracting a reference to the submitted issue (like a ticket number or URL) that can be communicated back to the user.
+   - Upon data submission, it's crucial to handle server responses adeptly. This handling might involve parsing server feedback to confirm successful data transmission and possibly extracting a reference to the submitted issue (like a ticket number or URL) that can be communicated back to the user.
 
 #### Providing User Feedback and Notifications
 
@@ -42,7 +42,7 @@ Enabling user feedback within the Azure Communication Services (ACS) UI Library 
 2. **Notification Strategy for Android O and newer:**
    - For devices running Android O (API level 26) and newer, ensure the implementation of a notification channel specific to report submissions. This setup is essential for delivering notifications effectively and is a requirement on these Android versions.
 
-By following these steps, developers can integrate a robust user feedback mechanism into their Android applications, using the `onUserReportedIssueEventHandler` for efficient issue reporting and tracking. This process not only facilitates the timely resolution of user issues but also significantly contributes to enhancing the overall user experience and satisfaction with the application.
+By following these steps, developer's can integrate a robust user feedback mechanism into their Android applications, using the `onUserReportedIssueEventHandler` for efficient issue reporting and tracking. This process not only facilitates the timely resolution of user issues but also significantly contributes to enhancing the overall user experience and satisfaction with the application.
 
 ### Android Code Sample
 
@@ -50,7 +50,7 @@ The Kotlin code snippet demonstrates the process of integrating a system for han
 
 1. **Event Capture**: The system listens for user-reported issues through the ACS UI Library. It utilizes the `onUserReportedIssueEventHandler` to capture feedback from the application's UI, including errors and user concerns.
 
-2. **Data Transmission to Server**: When an issue is reported, the system packages the relevant data, including user messages, error logs, versions, and diagnostic information. This data is then sent to a server endpoint using an asynchronous POST request, ensuring the process does not hinder the app's performance.
+2. **Data Transmission to Server**: When an issue is reported, the system packages the relevant data, including user messages, error logs, versions, and diagnostic information. This data is then sent to a server endpoint using an asynchronous POST request, ensuring the process doesn't hinder the app's performance.
 
 3. **User Feedback and Notification**: Following the submission, users are immediately informed about the status of their report through in-app notifications. For successful submissions, a notification includes a link or reference to the submitted ticket, allowing users to track the resolution progress.
 
