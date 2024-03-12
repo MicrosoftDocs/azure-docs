@@ -6,7 +6,7 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-Enabling user feedback within the Azure Communication Services (ACS) UI Library requires action on the developers part. By utilizing the `onUserReportedIssueEventHandler` in the integration of the library, developers can enable the built-in support form, allowing users to report issues directly. This section guides you through setting up the client-side feedback form.
+Enabling user feedback within the Azure Communication Services (ACS) UI Library requires action on the developers' part. By utilizing the `onUserReportedIssueEventHandler` in the integration of the library, developers can enable the built-in support form, allowing users to report issues directly. This section guides you through setting up the client-side feedback form.
 
 ### Implementing Client-Side Feedback Capture in Android
 
@@ -42,7 +42,7 @@ Enabling user feedback within the Azure Communication Services (ACS) UI Library 
 2. **Notification Strategy for Android O and newer:**
    - For devices running Android O (API level 26) and newer, ensure the implementation of a notification channel specific to report submissions. This setup is essential for delivering notifications effectively and is a requirement on these Android versions.
 
-By following these steps, developer's can integrate a robust user feedback mechanism into their Android applications, using the `onUserReportedIssueEventHandler` for efficient issue reporting and tracking. This process not only facilitates the timely resolution of user issues but also significantly contributes to enhancing the overall user experience and satisfaction with the application.
+By following these steps, developers can integrate a robust user feedback mechanism into their Android applications, using the `onUserReportedIssueEventHandler` for efficient issue reporting and tracking. This process not only facilitates the timely resolution of user issues but also significantly contributes to enhancing the overall user experience and satisfaction with the application.
 
 ### Android Code Sample
 

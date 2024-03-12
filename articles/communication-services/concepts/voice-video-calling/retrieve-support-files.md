@@ -1,5 +1,5 @@
 ---
-title: Collecting user feedback in native calling scenarios.
+title: Collecting user feedback in native calling scenarios
 description: Understand how to provide effective user feedback.
 author:      ahammer
 ms.author:   adamhammer
@@ -26,7 +26,7 @@ As a third-party library, we must acknowledge that diagnostic data, crucial for 
 
 Every Call made with the Calling SDK has a Call ID. Call IDs can be used internally at Microsoft to diagnose issues with your call. Collecting Call IDs is the frontline of support, and can lead to faster investigations.
 
-In both the Calling Native and UI SDK, APIs exists to retrieve Call IDs.
+In both the Calling Native and UI SDK, APIs exist to retrieve Call IDs.
 
 [Access Call IDs with the Native Calling SDK](../troubleshooting-info.md?tabs=csharp%2Cjavascript%2Cdotnet#access-your-client-call-id)
 
@@ -34,7 +34,7 @@ In both the Calling Native and UI SDK, APIs exists to retrieve Call IDs.
 
 The Native Calling SDK and its dependencies output encrypted `.blog` files into a temporary directory. These files can't be read outside of Microsoft. They're encrypted for privacy and compliance reasons. These files are the source of truth as to what is happening on that particular device with the Native SDK and its dependencies. These files are an important resource to developers and troubleshooters within Microsoft.
 
-Scenarios requiring `.blog` files should be more rare, however they form an important second line of defense. We encouraged developers to pro-actively collect them via your support flows.
+Scenarios requiring `.blog` files should be more rare, however they form an important second line of defense. We encourage developers to proactively collect them via your support flows.
 
 [Retrieve Log Files with the Native Calling SDK](../../tutorials/log-file-retrieval-tutorial.md)
 
@@ -42,13 +42,13 @@ Scenarios requiring `.blog` files should be more rare, however they form an impo
 
 ### Integrating user feedback tools
 
-Once you know what data to collect, you need to satisfy the following user story
+Once you know what data to collect, you need to satisfy the following user story.
 
 > As a user, I would like to report an issue
 
 Each application is free to implement user facing support in whatever way best fits the use case. Alternatively for UI SDK Users the built-in mechanism is available to help partially satisfy the story.
 
-- **Report an Issue Form**: A button and a form, click to submit. The UI Library offers an ready to use implementation of this form.
+- **Report an Issue Form**: A button and a form, click to submit. The UI Library offers a ready-to-use implementation of this form.
 - **End-of-Call Feedback**: Solicit feedback at the end of a call. The feedback form gives the user the opportunity to share issues they may have had with the call.
 
 It's crucial to design these feedback mechanisms with clear prompts for user consent, ensuring users are fully informed about the data being shared and its purpose. This transparency builds trust and encourages more users to report issues.
@@ -59,14 +59,14 @@ It's crucial to design these feedback mechanisms with clear prompts for user con
 
 Once feedback is collected locally, it needs to be submitted to a server. Submission would typically target a CRM or other tooling that can handle tasks like triaging, prioritizing, and assigning work to support specialists.
 
-While this document isn't meant to cover the entire premise of client/server communications and all the possible CRMs or Support tools out there, a basic overview would be.
+While this document isn't meant to cover the entire premise of client/server communications and all the possible CRMs or Support tools out there, please note the following:
 
 - Use secure transmission protocols (HTTPS)
 - Include the Logs and the Call IDs when creating support requests
 - Include any User submitted information (Message, Time of error, Device specifications)
 - Provide the User follow up information for their issue (Options: Notify in App, Email, Text Message).
 
-The appplication developer is free to decide how to transmit this data as it leaves the end users device and enters a server on the cloud. For a simplified example you can reference the [collecting user feedback](../../tutorials/collecting-user-feedback/collecting-user-feedback.md) tutorial, which offers insight into both client and server implementations of this process.
+The application developer is free to decide how to transmit this data as it leaves the end users device and enters a server on the cloud. For a simplified example you can reference the [collecting user feedback](../../tutorials/collecting-user-feedback/collecting-user-feedback.md) tutorial, which offers insight into both client and server implementations of this process.
 
 ### Implementing in Calling SDK and UI Library applications
 

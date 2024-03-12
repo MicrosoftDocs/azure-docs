@@ -83,7 +83,7 @@ UI Library provides the capability to join a call skipping the setup screen of t
 
 ### Audio Only Mode
 
-The Audio Only Mode in the UI Library allows participants to join calls using only their audio, without sharing or receiving video. This feature is can be used to conserve bandwidth and maximize privacy. When activated, the Audio Only Mode automatically disables the video functionalities for both sending and receiving streams, and adjusts the UI to reflect this change by removing video-related controls. This mode can be enabled through the CallComposite configuration, more information available through the [Audio Only Quick Start](../../../how-tos/ui-library-sdk/audio-only-mode.md)
+The Audio Only Mode in the UI Library allows participants to join calls using only their audio, without sharing or receiving video. This feature is used to conserve bandwidth and maximize privacy. When activated, the Audio Only Mode automatically disables the video functionalities for both sending and receiving streams, and adjusts the UI to reflect this change by removing video-related controls. This mode can be enabled through the CallComposite configuration, more information available through the [Audio Only Quick Start](../../../how-tos/ui-library-sdk/audio-only-mode.md)
 
 ### Orientation
 

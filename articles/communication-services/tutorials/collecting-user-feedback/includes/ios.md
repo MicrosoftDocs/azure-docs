@@ -8,9 +8,9 @@ ms.service: azure-communication-services
 
 ### iOS Support Overview 
 
-To integrate user feedback collection within iOS applications using the Azure Communication Services (ACS) UI Library, developers need to follow a structured approach. This process involves capturing user feedback, including error logs and user information.Once complete this information is submitted to a server for processing. In this section we detail the steps necessary to accomplish this.
+To integrate user feedback collection within iOS applications using the Azure Communication Services (ACS) UI Library, developers need to follow a structured approach. This process involves capturing user feedback, including error logs and user information. Once complete, this information is submitted to a server for processing. In this section we detail the steps necessary to accomplish this.
 
-In this example, we will are using the [Alamofire](https://github.com/Alamofire/Alamofire) library to handle sending a multi-part form, including log files, to the server.
+In this example, we're using the [Alamofire](https://github.com/Alamofire/Alamofire) library to handle sending a multi-part form, including log files, to the server.
 
 #### Implementing the Support Form
 
@@ -20,15 +20,15 @@ In this example, we will are using the [Alamofire](https://github.com/Alamofire/
 
 #### Capturing and Processing Support Requests
 
-1. **Event Emission on User Action**: When a user reports an issue through the support form, the event handler captures this action. The information such as the user's description of the problem, error logs, and any call ID's should be prepared to send to the server.
+1. **Event Emission on User Action**: When a user reports an issue through the support form, the event handler captures this action. The information such as the user's description of the problem, error logs, and any call IDs should be prepared to send to the server.
 
-2. **Data Structuring for Submission**: Organize the captured information into a structured format suitable for transmission. Preparing the data in a way that aligns with the expected format of the server endpoint that will receive and process the support request.
+2. **Data Structuring for Submission**: Organize the captured information into a structured format suitable for transmission. Prepare the data in a way that aligns with the expected format of the server endpoint that will receive and process the support request.
 
 #### Submitting Data to the Server
 
 1. **Asynchronous Submission**: Utilize asynchronous network calls to send the structured data to the server. This approach ensures that the application remains responsive, providing a seamless experience for the user while the data is transmitted in the background.
 
-2. **Handling Server Responses**: Upon submission, efficiently process server responses. Receive and parse the response to confirm successful receipt of the data. Extracting the support ticket link from the parsed response, which can be communicated back to the user for follow-up.
+2. **Handling Server Responses**: Upon submission, efficiently process server responses. Receive and parse the response to confirm successful receipt of the data. Extract the support ticket link from the parsed response, which can be communicated back to the user for follow-up.
 
 #### Feedback and Notifications to Users
 

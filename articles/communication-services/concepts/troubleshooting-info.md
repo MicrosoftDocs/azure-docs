@@ -195,13 +195,13 @@ AzureLogger.log = (...args) => {
 
 ### Native SDK (Android/iOS)
 
-For Android, iOS and Windows the Azure Communication Services Calling SDK Offers access to log files and support information the the SDK's functionality.
+For Android, iOS and Windows the Azure Communication Services Calling SDK offers access to log files.
 
 For Calling Native SDK's, refer to [the log file access tutorials](../tutorials/log-file-retrieval-tutorial.md)
 
 ### UI Libraries (Android, iOS)
 
-If you are using the Azure Communication Services UI Libraries for Android or iOS, user feedback can be solicited through the built in support form.
+If you are using the Azure Communication Services UI Libraries for Android or iOS, user feedback can be solicited through the built-in support form.
 
 For more information on how to use the support functionality of the Calling UI Support form, see the [Support Form integration tutorial](../tutorials/collecting-user-feedback/collecting-user-feedback.md). This document guides you through adding the necessary event handler, and creating a basic client/server implementation for centralized storage of support information. This guide is designed to guide you on your path towards an integration with the support services your organization uses.
 
