@@ -186,6 +186,10 @@ The resource tag is cosmetic, and serves to confirm that the gateway has been pr
 > [!TIP]
 > The **EnhancedNetworkControl** tag can be helpful when existing Application Gateways were deployed in the subscription prior to feature enablement and you would like to differentiate which gateway can utilize the new functionality.	
 
+## Application Gateway Subnet 
+
+Application Gateway Sybnet is the subnet within the Virtual Network where the Application Gateway Resources will be deployed. In the Frontend Private Ip configuration is immportant that this subnet can reach privately the resources that want to connect to your exposed app or site.
+
 ## Outbound Internet connectivity
 
 Application Gateway deployments that contain only a private frontend IP configuration (do not have a public IP frontend configuration) are not able to egress traffic destined to the Internet. This configuration affects communication to backend targets that are publicly accessible via the Internet.
