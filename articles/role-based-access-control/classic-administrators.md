@@ -78,7 +78,7 @@ Some users might need more access than what a job function role can provide. If 
 
 1. [Remove Co-Administrator](#remove-a-co-administrator).
 
-## Prepare for Service Administrators retirement
+## Prepare for Service Administrator retirement
 
 Use the following steps to help you prepare for Service Administrator role retirement. To remove the Service Administrator, you must have a user who is assigned the Owner role at subscription scope without conditions to avoid orphaning the subscription. A subscription Owner has the same access as the Service Administrator.
 
