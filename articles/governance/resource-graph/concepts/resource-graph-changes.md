@@ -11,7 +11,7 @@ Resources change through the course of daily use, reconfiguration, and even rede
 
 Change Analysis helps you:
 
-- Find when changes were detected on an Azure Resource Manager property.
+- Find when a resource changed due to a [control plane operation](../../../azure-resource-manager/management/control-plane-and-data-plane.md) sent to the Azure Resource Manager URL.
 - View property change details.
 - Query changes at scale across your subscriptions, management group, or tenant.
  
