@@ -15,7 +15,9 @@ Enable distributed functions on your Static Web Apps to enable dynamic distribut
 to regions close to your users to ensure minimal network latency and optimized application performance for your users. Distributed functions are only available on the [Standard hosting plan](plans.md).
 
 When a Static Web Apps with distributed functions gets high levels of backend traffic to a region other than your main functions region, Static Web Apps distributes your managed functions to this new region and direct traffic accordingly.
+
 Distributed functions can help reduce your network latency by up to 70%. Decreased network latency leads to improved performance and responsiveness of web applications with global audiences. Distributed functions can also improve application performance when quick response times are needed for responsive personalization, routing or authorization. 
+
 Distributed functions apply to the production environment of your Static Web Apps resource.
 
 > [!NOTE]
