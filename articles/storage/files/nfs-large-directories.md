@@ -4,7 +4,7 @@ description: Learn recommendations for working with large directories in NFS Azu
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 03/11/2024
+ms.date: 03/12/2024
 ms.author: kendownie
 ---
 
@@ -67,7 +67,11 @@ When developing applications that use large directories with NFS file shares, fo
 
 - **Skip file attributes.** If the application only needs the file name and not file attributes like file type or last modified time, you can use multiple calls to system calls such as `getdents64` with a good buffer size. This will get the entries in the specified directory without the file type, making the operation faster by avoiding extra operations that aren't needed.  
 
-- **Interleave stat calls.** If the application needs attributes and the file name, we recommend interleaving the stat calls along with `getdents64`. Instead of getting all entries until end of file with `getdents64` and then doing a statx on all entries returned, it would be more efficient to do statx calls after each `getdents64`.
+- **Interleave stat calls.** If the application needs attributes and the file name, we recommend interleaving the stat calls along with `getdents64` instead of getting all entries until end of file with `getdents64` and then doing a statx on all entries returned. Interleaving the stat calls instructs the NFS client to request both the file and its attributes at once, reducing the number of calls to the server. When combined with a high `actimeo` value, this can significantly improve performance. For example, instead of `[ getdents64, getdents64, ... , getdents64, statx (entry1), ... , statx(n) ]`, place the statx calls after each `getdents64` like this: `[ getdents64, (statx, statx, ... , statx), getdents64, (statx, statx, ... , statx), ... ]`.
+
+- **Increase I/O depth.** If possible, we suggest configuring `nconnect` to a non-zero value (greater than 1) and distributing the operation among multiple threads, or using asynchronous I/O. This will enable operations that can be asynchronous to benefit from multiple concurrent connections to the file share.
+
+- **Force-use cache.** If the application is querying the file attributes on a file share that only one client has mounted, use the statx system call with the `AT_STATX_DONT_SYNC` flag. This flag ensures that the cached attributes are retrieved from the cache without synchronizing with the server, avoiding extra network round trips to get the latest data.
 
 ## See also
 
