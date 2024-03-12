@@ -68,11 +68,10 @@ The **Threat management** section in the Azure portal includes the features list
 |Workbooks     | Microsoft Sentinel > Threat management> Workbooks      |
 |Hunting     | Microsoft Sentinel > Threat management >  Hunting      |
 |Notebooks     | Microsoft Sentinel > Threat management >  Notebooks         |
-|Entity behavior     |  Not available \*       |
+|Entity behavior     |  Not available. The entity pages for the User, Device, IP, and Azure resource entity types are found on the details page for each of those entities as they appear within incidents and alerts.      |
 |Threat intelligence    | Microsoft Sentinel > Threat management >  Threat intelligence        |
 |MITRE ATT&CK|Microsoft Sentinel > Threat management > MITRE ATT&CK  |
 
-\* The Entity behavior search page is not available in the Defender platform. However, entity pages for the User, Device, IP, and Azure resource entity types can be found on the details page for each of those entities as they appear within incidents and alerts.
 
 ### Content management
 
