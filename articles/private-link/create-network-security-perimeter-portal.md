@@ -31,6 +31,9 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 Before creating a network security perimeter, you create a resource group to hold all resources and a key vault that will be protected by the network security perimeter.
 
+> [!NOTE]
+> Azure Key Vault requires a unique name. If you receive an error that the name is already in use, try a different name. In our example, we use a unique name by appending Year (YYYY), Month (MM), and Day (DD) to the name - **key-vault-YYYYDDMM**.
+
 1. In the search box at the top of the portal, enter **Key vaults**. Select **Key vaults** in the search results.
 1. In the Key vaults accounts window that appears, select **Create +**.
 1. In the **Create a key vault** window, enter the following information:
@@ -39,10 +42,10 @@ Before creating a network security perimeter, you create a resource group to hol
     | --- | --- |
     | Subscription | Select the subscription you want to use for this key vault. |
     | Resource group | Select **Create new**, then enter **test-rg** as the name. |
-    | Key vault name |  Enter **demo-keyvault**. |
+    | Key vault name |  Enter **key-vault-<RandomNameInformation>**. |
     | Region | Select the region in which you want your key vault to be created. For this quickstart, **(US) West Central US** is used. |
 
-1. Leave the remaining default **setting**s, and select **Review > Create**.
+1. Leave the remaining default settings, and select **Review > Create**.
 
 ## Create a network security perimeter
 
@@ -60,19 +63,19 @@ Once you create a key vault, you can proceed to create a network security perime
     | --- | --- |
     | Subscription | Select the subscription you want to use for this network security perimeter. |
     | Resource group | Select **test-rg**. |
-    | Name | Enter **demo-networkSecurityPerimeter**. |
+    | Name | Enter **network-security-perimeter**. |
     | Region | Select the region in which you want your network security perimeter to be created. For this quickstart, **(US) West Central US** is used. |
-    | Profile name | Enter **demo-profile**. |
+    | Profile name | Enter **profile-1**. |
 
 1. Select the **Resources** tab or **Next** to proceed to the next step.
 1. In the **Resources** tab, select **Associate resource**.
-1. In the **Select resources** window, check **demo-keyvault** and choose **Select**.
+1. In the **Select resources** window, check **key-vault-YYYYDDMM** and choose **Select**.
 1. Select **Inbound access rules** and select **Add inbound access rule**.
 1. In the **Add inbound access rule** window, enter the following information, and select **Add**:
 
     | **Settings** | **Value** |
     | --- | --- |
-    | Rule name | Enter **demo-inboundRule**. |
+    | Rule name | Enter **inbound-rule**. |
     | Source type | Select **IP address ranges**. |
     | Allowed Sources | Enter **10.1.0.0/16** or another internal IP address range. |
 
@@ -81,7 +84,7 @@ Once you create a key vault, you can proceed to create a network security perime
 
     | **Settings** | **Value** |
     | --- | --- |
-    | Rule name | Enter **demo-outboundRule**. |
+    | Rule name | Enter **outbound-rule**. |
     | Destination type | Select **FQDN**. |
     | Allowed Destinations | Enter the FQDN of the service you want to allow. For example, **www.contoso.com**. |
 
@@ -93,10 +96,10 @@ Once you create a key vault, you can proceed to create a network security perime
 
 When you no longer need a network security perimeter, you remove any resources associated with the network security perimeter and then remove the perimeter following these steps:
 
-1. From your network security perimeter, select **Resources** under ****Setting**s**.
-2. Select **demo-keyvault** and select **... > Remove** from the action bar.
+1. From your network security perimeter, select **Resources** under **Settings**.
+2. Select **key-vault-YYYYDDMM** and select **Settings>Remove** from the action bar.
 3. Navigate back to the **Overview** page of your network security perimeter.
-4. Select **Delete** and confirm the deletion by entering **demo-networkSecurityPerimeter** in the text box for the name of the resource.
+4. Select **Delete** and confirm the deletion by entering **network-security-perimeter** in the text box for the name of the resource.
 
 
 ## Next steps

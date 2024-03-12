@@ -46,12 +46,14 @@ az account set --subscription "Azure Subscription"
 ## Create a resource group and key vault
 
 Before you can create a network security perimeter, you have to create a resource group and a key vault resource.  
-This example creates a resource group named `test-rg` in the WestCentralUS location and a key vault named `demo-keyvault-<DateTimeValue>` in the resource group with the following commands:
+This example creates a resource group named `test-rg` in the WestCentralUS location and a key vault named `key-vault-<DateTimeValue>` in the resource group with the following commands:
 
 ```azurecli-interactive
 az group create --name test-rg --location westcentralus
 
-key_vault_id=$(az keyvault create --name demo-keyvault-$(date +%s) --resource-group test-rg --location westcentralus --query 'id' --output tsv)
+# Create a key vault using a datetime value to ensure a unique name
+
+key_vault_id=$(az keyvault create --name key-vault-$(date +%s) --resource-group test-rg --location westcentralus --query 'id' --output tsv)
 
 ```
  
@@ -62,7 +64,7 @@ In this step, create a network security perimeter with the `az network perimeter
 > Please do not put any personal identifiable or sensitive data in the network security perimeter rules or other network security perimeter configuration.
 
 ```azurecli-interactive
-az network perimeter create -n demo-perimeter -g test-rg -l westcentralus
+az network perimeter create -n network-security-perimeter -g test-rg -l westcentralus
 ```
 
 ## Create and update PaaS resources’ association with a new profile
@@ -73,7 +75,7 @@ In this step, you create a new profile and associate the PaaS resource, the Azur
 
     ```azurecli-interactive
     
-    demo_profile_id=$(az network perimeter profile create --name demo-profile --resource-group test-rg --perimeter-name demo-perimeter --location westcentralus --query 'id' --output tsv)
+    demo_profile_id=$(az network perimeter profile create --name demo-profile --resource-group test-rg --perimeter-name network-security-perimeter --location westcentralus --query 'id' --output tsv)
     
     
     ```
@@ -81,14 +83,14 @@ In this step, you create a new profile and associate the PaaS resource, the Azur
 
     ```azurecli-interactive
     
-    az network perimeter association create -n MyAssociation --perimeter-name demo-perimeter -g test-rg --access-mode Learning  --private-link-resource $key_vault_id  --profile $demo_profile_id
+    az network perimeter association create -n MyAssociation --perimeter-name network-security-perimeter -g test-rg --access-mode Learning  --private-link-resource $key_vault_id  --profile $demo_profile_id
     
     ```
  
 3. Update association by changing the access mode to `enforced` with the `az network perimeter association create` command as follows:
 
     ```azurecli-interactive
-    az network perimeter association create -n MyAssociation --perimeter-name demo-perimeter -g test-rg --access-mode Enforced  --private-link-resource $key_vault_id  --profile $demo_profile_id
+    az network perimeter association create -n MyAssociation --perimeter-name network-security-perimeter -g test-rg --access-mode Enforced  --private-link-resource $key_vault_id  --profile $demo_profile_id
     ```
 
 ## Create and update network security perimeter access rules
@@ -98,14 +100,14 @@ In this step, you create and update network security perimeter access rules with
 1. Create an inbound access rule for the profile created with the following command:
 
     ```azurecli-interactive
-    az network perimeter profile access-rule create -n MyAccessRule --profile-name demo-profile --perimeter-name demo-perimeter -g test-rg --address-prefixes "[20.10.0.0/16]" 
+    az network perimeter profile access-rule create -n MyAccessRule --profile-name demo-profile --perimeter-name network-security-perimeter -g test-rg --address-prefixes "[20.10.0.0/16]" 
     ```
 
 1. Update your inbound access rule with an another IP address range with the following command:
 
     ```azurecli-interactive
     
-    az network perimeter profile access-rule create -n MyAccessRule --profile-name demo-profile --perimeter-name demo-perimeter -g test-rg --address-prefixes "['20.11.0.0/16', '20.10.0.0/16']"
+    az network perimeter profile access-rule create -n MyAccessRule --profile-name demo-profile --perimeter-name network-security-perimeter -g test-rg --address-prefixes "['20.11.0.0/16', '20.10.0.0/16']"
     
     ```
 
@@ -114,7 +116,7 @@ In this step, you create and update network security perimeter access rules with
 To delete a network security perimeter, use the `az network perimeter delete` command as follows:
 
 ```azurecli-interactive
-az network perimeter delete -g test-rg -n demo-perimeter
+az network perimeter delete -g test-rg -n network-security-perimeter
 ```
 
 ## Next steps
