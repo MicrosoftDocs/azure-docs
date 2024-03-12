@@ -1,7 +1,7 @@
 ---
 title: AI-Enhanced Advertisement Generation using Azure Cosmos DB for MongoDB vCore
 titleSuffix: Azure Cosmos DB
-description: Demonstrates the use of Azure Cosmos DB for MongoDB vCore's vector similarity search and OpenAI embeddings to generate advertising content aimed at boosting sales
+description: Demonstrates the use of Azure Cosmos DB for MongoDB vCore's vector similarity search and OpenAI embeddings to generate advertising content.
 author: khelanmodi
 ms.author: khelanmodi
 ms.reviewer: gahllevy
@@ -15,12 +15,14 @@ zone_pivot_groups: azure-cosmos-db-apis-nosql-mongodb
 # AI-Enhanced Advertisement Generation using Azure Cosmos DB for MongoDB vCore
 
 ## Overview
-Today we will demonstrate how you can generate advertizing content for your inventory to boost sales. We'll do this taking advantage of Azure Cosmos DB for Mongo DB vCore's [vector similarity search](https://learn.microsoft.com/azure/cosmos-db/mongodb/vcore/vector-search) functionality. We will use OpenAI embeddings to generate vectors for inventory description which expected to vastly enhance its semantics. The vectors are then stored and indexed in the Mongo vCore Database. During the content generation for the advertisement time we will also vectorize the advertisement topic and find matching inventory itmes. We will then use retrival augmented generation (RAG) by sending to top matches to OpenAI to generate a catchy advertisement.
+Today we will demonstrate how you can generate advertizing content for your inventory to boost sales. We'll do this taking advantage of Azure Cosmos DB for Mongo DB vCore's [vector similarity search](./vector-search.md) functionality. We will use OpenAI embeddings to generate vectors for inventory description which expected to vastly enhance its semantics. The vectors are then stored and indexed in the Mongo vCore Database. During the content generation for the advertisement time we will also vectorize the advertisement topic and find matching inventory itmes. We will then use retrival augmented generation (RAG) by sending to top matches to OpenAI to generate a catchy advertisement.
 
 ## Features
 - **Vector Similarity Search**: Utilizes Azure Cosmos DB for MongoDB vCore to enhance semantic search capabilities within inventory data.
 - **OpenAI Embeddings**: Leverages OpenAI embeddings to create vectors for inventory descriptions, enabling more nuanced matching with advertisement content.
 - **Content Generation**: Generates catchy, trend-focused advertisements using OpenAI's language models.
+
+> [!VIDEO https://www.youtube.com/live/MLY5Pc_tSXw?si=fQmAuQcZkVauhmu-&t=1078]
 
 ## Prerequisites
 - Azure OpenAI: Let's setup our Azure OpenAI resource Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access. Once you have access, complete the following steps:
@@ -110,7 +112,7 @@ client = AzureOpenAI(
 ```
 
 ## Solution architecture
-![solution architecture](./media/architecture.png)
+![solution architecture](./media/tutorial-adgen/architecture.png)
 
 
 # Create embeddings <a class="anchor" id="loaddata"></a>
@@ -388,7 +390,7 @@ if __name__ == "__main__":
 ```
 
 ## Output 
-![Output screen](./media/Output.png)
+![Output screen](./media/tutorial-adgen/Output.png)
 
 ## Next step
 
