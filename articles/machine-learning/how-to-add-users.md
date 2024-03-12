@@ -129,10 +129,10 @@ Send the following information to your labelers, after you fill in your workspac
 1. Open [Azure Machine Learning studio](https://ml.azure.com).
 1. Use the dropdown to select the workspace **\<workspace-name\>**.
 1. Select the **Label data** tool for **\<project-name\>**.
-    :::image type="content" source="media/how-to-add-users/label-data.png" alt-text="Screenshot showing the label data tool.":::
+    :::image type="content" source="media/how-to-add-users/label-data.png" alt-text="Screenshot shows the label data tool in a project.":::
 1. For more information about how to label data, see [Labeling images and text documents](how-to-label-data.md).
 
-## Next steps
+## Related content
 
 * Learn more about [working with a data labeling vendor company](how-to-outsource-data-labeling.md)
 * [Create an image labeling project and export labels](how-to-create-image-labeling-projects.md)
