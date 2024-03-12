@@ -18,7 +18,7 @@ Enabling user feedback within the Azure Communication Services (ACS) UI Library 
 2. **Form Visibility and Accessibility:**
    - The presence of the registered `onUserReportedIssueEventHandler` directly affects the support form's visibility. Without this handler, the form remains hidden from the user interface, rendering it inaccessible for issue reporting.
 
-#### Capturing and Handling Support Events
+#### Capturing and Processing Support Events
 
 1. **Event Emission Upon Issue Reporting:**
    - When users report issues through the enabled support form, the `onUserReportedIssueEventHandler` captures emitted events. These events encapsulate all necessary details related to the user-reported issue, such as descriptions, error logs, and potentially screenshots.
