@@ -44,7 +44,7 @@ Before you begin migrating from the Log Analytics agent to Azure Monitor Agent, 
 >        - Defender for Cloud natively deduplicates data when you use both agents, and [you'll be billed once per machine](../../defender-for-cloud/auto-deploy-azure-monitoring-agent.md#impact-of-running-with-both-the-log-analytics-and-azure-monitor-agents) when you run the agents side by side. 
 >        - For Sentinel, you can easily [disable the legacy connector](../../sentinel/ama-migrate.md#recommended-migration-plan) to stop ingestion of logs from legacy agents.    
 
-### Migration additional services and features
+### Migration services and features
 
 :::image type="content" source="media/azure-monitor-agent-migration/mma-to-ama-migration-steps.png" lightbox="media/azure-monitor-agent-migration/mma-to-ama-migration-steps.png" alt-text="Flow diagram that shows the steps involved in agent migration and how the migration tools help in generating Data Collection Rules (s) and tracking the entire migration process.":::  
 
@@ -92,7 +92,7 @@ Before you begin migrating from the Log Analytics agent to Azure Monitor Agent, 
 <sup>1</sup> The DCR generator only converts the configurations for Windows event logs, Linux syslog and performance counters. Support for more features and solutions will be available soon.  
 <sup>2</sup> You might need to deploy [extensions required for specific solutions](#migrate-additional-services-and-features) in addition to the Azure Monitor Agent extension.  
 
-## Migrate solutions and features
+## Migrate additional services and features
 
 Azure Monitor Agent is GA for data collection. Most services that used Log Analytics agent for data collection have migrated to Azure Monitor Agent. 
 
