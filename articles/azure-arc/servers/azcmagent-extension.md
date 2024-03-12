@@ -22,13 +22,13 @@ The extension manager must be stopped before running any of these commands. Stop
 
 Lists extensions installed on the machine.
 
-## Usage
+### Usage
 
 ```
 azcmagent extension list [flags]
 ```
 
-## Examples
+### Examples
 
 See which extensions are installed on your machine.
 
@@ -36,7 +36,7 @@ See which extensions are installed on your machine.
 azcmagent extension list
 ```
 
-## Flags
+### Flags
 
 [!INCLUDE [common-flags](includes/azcmagent-common-flags.md)]
 
@@ -44,13 +44,13 @@ azcmagent extension list
 
 Uninstalls extensions on the machine.
 
-## Usage
+### Usage
 
 ```
 azcmagent extension remove [flags]
 ```
 
-## Examples
+### Examples
 
 Remove the "AzureMonitorWindowsAgent" extension from the local machine.
 
@@ -64,7 +64,7 @@ Remove all extensions from the local machine.
 azcmagent extension remove --all
 ```
 
-## Flags
+### Flags
 
 `--all`, `-a`
 
