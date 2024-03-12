@@ -28,27 +28,6 @@ In this example, any provisioned throughput above 10,000 RU/s will be billed usi
 
 Please note that there is no limit to the number of reservations. You don't need to purchase all reservations in the same day.
 
-## Example
-
-Imagine this hypothetical scenario: A company is working in a new application but isn't sure about the requirements.
-
-* On day 1 they purchased reserved capacity for their DEV/Test environment:
-  * Total of 800 RU/s, or 8 units of the 100 RU/s SKU. 
-  * Scoped to the dev test resoure group.
-  * One year term, since the project will be ready in 9 months.
-  * Paid upfront, since it's a small value.
-* On day 30 they purchased reserved capacity for their QA environment:
-  * 750,000 RU/s for load tests.
-  * Scoped to the subscription, so that dev/test environment is also beneficiated.
-  * One year term, since the project will be ready in 9 months.
-  * Paid monthly.
-* On day 180 they purchased reserved capacity for the production environment:
-  * 3,500,000 RU/s, as suggested by their load test. That's 1 unit of the 3 million RU/s and 500 units of the 100 RU/s SKU.
-  * Scoped to the production subscription.
-  * Three-years term, to maximize the discounts.
-  * Paid Monthly.
-
-
 ## Reservations usage
 
 Azure Cosmos DB reserved capacity covers throughput provisioned for your resources. It doesn't cover the storage and networking charges. As soon as you buy a reservation, the throughput charges that match the reservation attributes are no longer charged at the pay-as-you go rates. For more information on reservations, see the [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) article.
@@ -126,9 +105,37 @@ You can buy up to 9999 units of the one-million SKUs, with the variable discount
 | 30,000,000 RU/s | 43.4% | 58.3% |
 | 30,000,000 Multi-master RU/s | 48.4% | 63.3% |
 
-You can save more when you maximize the SKU. Example: If you purchase 2 units of the 1,000,000 RU/s SKU, one year term, your discount will br 27.0%. If you purchase 1 unit of the 2,000,000 RU/s SKU, you will have exactly the same reserved capacity, but the a 28.5% discount.
+You can maximize savings with the biggest SKU for your scenario. Example: You need 2 million RU/s, one year term. If you purchase 2 units of the 1,000,000 RU/s SKU, your discount will br 27.0%. If you purchase 1 unit of the 2,000,000 RU/s SKU, you will have exactly the same reserved capacity, but a 28.5% discount.
 
 Please [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) to purchase any quantity of the reservations above.
+
+## Sample Scenario 1
+
+Imagine this hypothetical scenario: A company is working in a new application but isn't sure about the requirements.
+
+* On day 1 they purchased reserved capacity for their DEV/Test environment:
+  * Total of 800 RU/s, or 8 units of the 100 RU/s SKU. 
+  * Scoped to the dev test resoure group.
+  * One year term, since the project will be ready in 9 months.
+  * Paid upfront, since it's a small value.
+* On day 30 they purchased reserved capacity for their QA environment:
+  * 750,000 RU/s for load tests.
+  * Scoped to the subscription, so that dev/test environment is also beneficiated.
+  * One year term, since the project will be ready in 9 months.
+  * Paid monthly.
+* On day 180 they purchased reserved capacity for the production environment:
+  * 3,500,000 RU/s, as suggested by their load test. That's 1 unit of the 3 million RU/s and 500 units of the 100 RU/s SKU.
+  * Scoped to the production subscription.
+  * Three-years term, to maximize the discounts.
+  * Paid Monthly.
+
+## Sample Scenario 2
+
+Imagine this hypothetical scenario: A company needs a 10,950,000 three-years reservation. In the same purchase they got:
+
+ * One unit of the 10,000,000 RU/s SKU, paid monthly.
+ * 9000 units of the 100 RU/s SKU, paid monthly.
+ * 500 units of the 100 RU/s SKU, paid upfront.
 
 
 
