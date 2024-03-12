@@ -24,7 +24,7 @@ Try Phone Calling, now in public preview, is a tool in Azure portal to help cust
 
 ## Overview
 
-From the Try Phone Calling feature in [Preview Portal](https://preview.portal.azure.com/#home) **or ???** can simply type a phone number, select a caller ID for this call, and the tool generates the code. You can also select **Use my connection string** and Try Phone Calling automatically gets the *connection string* for the resource.
+From the Try Phone Calling feature in [Preview Portal](https://preview.portal.azure.com/#home) **or ???** can type a phone number, select a caller ID for this call, and the tool generates the code. You can also select **Use my connection string** and Try Phone Calling automatically gets the *connection string* for the resource.
 
 ![al text](../media/try-phone-calling.png "Make a phone call")
 
