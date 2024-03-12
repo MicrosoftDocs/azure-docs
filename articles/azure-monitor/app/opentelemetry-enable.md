@@ -219,21 +219,9 @@ from azure.monitor.opentelemetry import configure_azure_monitor
 # Import the tracing api from the `opentelemetry` package.
 from opentelemetry import trace
 
-# Configure OpenTelemetry to use Azure Monitor with the specified connection
-# string.
-configure_azure_monitor(
-    connection_string="<Your Connection String>",
-)
-
-# Get a tracer for the current module.
-tracer = trace.get_tracer(__name__)
-
-# Start a new span with the name "hello". This also sets this created span as the current span in this context. This span will be exported to Azure Monitor as part of the trace.
-with tracer.start_as_current_span("hello"):
-    print("Hello, World!")
-
-# Wait for export to take place in the background.
-input()
+# Configure OpenTelemetry to use Azure Monitor with the 
+# APPLICATIONINSIGHTS_CONNECTION_STRING environment variable.
+configure_azure_monitor()
 
 ```
 
