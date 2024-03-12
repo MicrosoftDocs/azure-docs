@@ -31,10 +31,10 @@ You need the following from the source SIEM:
 
 You need the following on the target, Microsoft Sentinel:
 
-- The SIEM migration experience deploys analytics rules. This capability requires the **Microsoft Sentinel Contributor** role.<br><br>For more information, see [Permissions in Microsoft Sentinel](roles.md). 
+- The SIEM migration experience deploys analytics rules. This capability requires the **Microsoft Sentinel Contributor** role. For more information, see [Permissions in Microsoft Sentinel](roles.md). 
 - Ingest security data previously used in your source SIEM into Microsoft Sentinel by enabling an out-of-the-box (OOTB) data connector. 
-- If the data connector isn't installed yet, find the relevant solution in **Content hub**. 
-- If no data connector exists, create a custom ingestion pipeline.<br><br>For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md) or [Custom data ingestion and transformation](data-transformation.md).
+    - If the data connector isn't installed yet, find the relevant solution in **Content hub**. 
+    - If no data connector exists, create a custom ingestion pipeline.<br>For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md) or [Custom data ingestion and transformation](data-transformation.md).
 
 ## Translate Splunk detection rules
 
