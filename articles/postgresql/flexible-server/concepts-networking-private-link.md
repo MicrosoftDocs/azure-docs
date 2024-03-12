@@ -77,7 +77,6 @@ Clients can connect to the private endpoint from the same VNet, peered VNet in s
 
 ### Limitations and Supported Features for Private Link  Preview with Azure Database for PostgreSQL flexible server
 
-In  Preview of Private Endpoint for Azure Database for PostgreSQL flexible server, there are certain limitations as explain in cross feature availability matrix below.
 
 Cross Feature Availability Matrix for Private Endpoint in Azure Database for PostgreSQL flexible server.
 
