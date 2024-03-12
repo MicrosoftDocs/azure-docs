@@ -76,6 +76,9 @@
     - name: Overview
       displayName: vms, public ip
       href: ./concepts/resource-graph-changes.md
+    - name: Why is Change Analysis moving?
+      displayName: vms, public ip
+      href: ./concepts/transitional-overview.md
     - name: Resource change properties
       displayName: vms, public ip
       href: ./concepts/changes-resource-spec.md
@@ -91,6 +94,9 @@
       href: /security/benchmark/azure/baselines/resource-graph-security-baseline?toc=/azure/governance/resource-graph/toc.json&bc=/azure/governance/resource-graph/breadcrumb/toc.json
 - name: How-to guides
   items:
+  - name: Access resource changes
+    displayName: resource, change, history, snapshot, details
+    href: ./how-to/view-resource-changes.md
   - name: Get resource changes
     displayName: resource, change, history, snapshot, details
     href: ./how-to/get-resource-changes.md
