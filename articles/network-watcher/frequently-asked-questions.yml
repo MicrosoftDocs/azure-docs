@@ -166,7 +166,7 @@ sections:
       - question: |
           Are there current limitations to using AMA and Arc Agents with connection monitor?
         answer: |
-          There is currently a regional boundary when an endpoint uses AMA and Arc agents with the associated log analytics workspace. As a result, this requires the associated log analytics workspace to be in the same region as the Arc endpoint. Data ingested into individual workspaces can be unionized for a single view, see [Query data across Log Analytics workspaces, applications, and resources in Azure Monitor](..azure-monitor/logs/cross-workspace-query.md).
+          There is currently a regional boundary when an endpoint uses AMA and Arc agents with the associated log analytics workspace. As a result, this requires the associated log analytics workspace to be in the same region as the Arc endpoint. Data ingested into individual workspaces can be unionized for a single view, see [Query data across Log Analytics workspaces, applications, and resources in Azure Monitor](../azure-monitor/logs/cross-workspace-query.md).
           
           
 
