@@ -90,7 +90,7 @@ In the following tables, the term alphanumeric refers to:
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | configurationStores* | global | 5-50 | Alphanumerics and hyphens.<br><br>Can’t contain a sequence of more than 2 hyphens.<br><br>Can’t start with or end with an hyphen. |
-> | configurationStores / replicas | configurationStore | 5-50 | 1-50<br><br>The combined length of the configurationStore name and the replica name can’t exceed 60 characters.|Alphanumerics only. |
+> | configurationStores / replicas | configurationStore | 1-50<br><br>The combined length of the configurationStore name and the replica name can’t exceed 60 characters.|Alphanumerics only. |
 
 * {storeName}-{replicaName} needs to be globally unique.
 
