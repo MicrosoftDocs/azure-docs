@@ -208,8 +208,8 @@ The following table lists the available settings for the cluster autoscaler prof
 ### Configure cluster autoscaler profile for bursty workloads
     ```azurecli-interactive
     az aks update \   
-        --resource-group "AKS_Selftune_CAS"   
-        --name selftunetest \ 
+        --resource-group "myResourceGroup"   
+        --name myAKSCluster \ 
         --cluster-autoscaler-profile scan-interval=20s,scale-down-delay-after-add=10m,scale-down-delay-after-failure=1m,scale-down-unneeded-time=5m,scale-down-unready-time=5m,max-graceful-termination-sec=30,skip-nodes-with-local-storage=false,max-empty-bulk-delete=100,max-total-unready-percentage=100,ok-total-unready-count=1000,max-node-provision-time=15m
     ```
 
