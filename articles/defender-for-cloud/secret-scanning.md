@@ -5,6 +5,13 @@ ms.topic: overview
 ms.date: 01/22/2024
 ---
 
+---
+title: Manage secrets with agentless secrets scanning
+description: Learn how to scan your servers for secrets with Defender for Server's agentless secrets scanning.
+ms.topic: overview
+ms.date: 01/22/2024
+---
+
 # Manage secrets with agentless secrets scanning
 
 Attackers can move laterally across networks, find sensitive data, and exploit vulnerabilities to damage critical information systems by accessing internet-facing workloads and exploiting exposed credentials and secrets.
@@ -84,6 +91,8 @@ The following secrets can also be accessed from the `Security Recommendations` a
 - Plaintext Google storage signed URL.
 
 The agentless scanner verifies whether SSH private keys can be used to move laterally in your network. Keys that aren't successfully verified are categorized as `unverified` on the Recommendations page.
+
+We are excluding directories that we recognize as containing test-related content. This is achieved by adjusting patterns that identify files with testing, sample, or example data.
 
 ## Prerequisites
 
