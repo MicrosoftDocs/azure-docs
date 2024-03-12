@@ -40,13 +40,13 @@ The following are key benefits of the new Connection monitor:
 
 - Visualize & measure end-to-end network path performance with the new Topology (preview)
 
-    - Deep insights into network performance metrics with synthetic monitoring across TCP, ICMP and HTTP protocols.
+    - Deep insights into network performance metrics with synthetic monitoring across TCP, ICMP, and HTTP protocols.
 
     - Enhanced visibility into end-to-end network path and connections with per hop latency and path loss across path components, highlighting links with high latency or packet loss.  
 
     - Geo meta data and ASN data available across internet hops.
 
-    - Highlight last mile, middle mile and last mile latency with Microsoft edge discovery.
+    - Highlight last mile, middle mile, and last mile latency with Microsoft edge discovery.
 
 - Enhanced troubleshooting with clear actionable insights  
 
@@ -92,7 +92,7 @@ The migration helps produce the following results:
 ## Prerequisites
 
 - Ensure that Network Watcher is enabled in the subscription and region of the Log Analytics workspace. If not done, you see an error stating "Before you attempt to migrate, enable Network watcher extension in subscription and location of LA workspace selected."
-- In case Azure virtual machine (VM) belongs to a different region/subscription than that of Log Analytics workspace is used as an endpoint, make sure Network Watcher is enabled for that subscription and region.
+- In case Azure virtual machine (VM) is in a different region/subscription than Log Analytics workspace that's used as an endpoint, make sure Network Watcher is enabled for that subscription and region.
 - Azure virtual machines with Log Analytics agents installed must be enabled with the Network Watcher extension.
 
 ## Migrate the tests
