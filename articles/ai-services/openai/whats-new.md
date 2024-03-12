@@ -35,6 +35,16 @@ For more information on the upgrade process refer to the [models page](./concept
 
 ## February 2024
 
+### DALL-E 3 general availability
+
+The REST API for the DALL-E 3 image generation model is now in GA. The client library SDKs are in private preview.
+
+Try out DALL-E 3 by following a [quickstart](./dall-e-quickstart.md).
+
+### New regional support for DALL-E 3
+
+You can now access DALL-E 3 with an Azure OpenAI resource in the `East US` or `AustraliaEast` Azure region, in addition to `SwedenCentral`.
+
 ### GPT-3.5-turbo-0125 model available
 
 This model has various improvements, including higher accuracy at responding in requested formats and a fix for a bug which caused a text encoding issue for non-English language function calls.
