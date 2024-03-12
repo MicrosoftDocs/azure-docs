@@ -5,7 +5,7 @@ author: Farha-Bano
 ms.author: v-farhabano
 manager: jsuri
 ms.topic: how-to
-ms.date: 03/11/2024
+ms.date: 03/12/2024
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
 ms.custom:
