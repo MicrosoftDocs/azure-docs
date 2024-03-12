@@ -1,6 +1,6 @@
 ---
 title: Use jq to transform data in a pipeline
-description: Configure a transform pipeline stage to configure a data transformation with jq in a Data Processor pipeline.
+description: Configure a transform pipeline stage to configure a data transformation with jq in an Azure IoT Data Processor pipeline.
 author: dominicbetts
 ms.author: dobett
 ms.subservice: data-processor
@@ -12,7 +12,7 @@ ms.date: 10/09/2023
 #CustomerIntent: As an operator, I want to transform data in a pipeline so that I can make structural transformations messages.
 ---
 
-# Transform data in a pipeline
+# Transform data in an Azure IoT Data Processor Preview pipeline
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
@@ -33,7 +33,7 @@ The transform stage uses [jq](concept-jq.md) to support data transformation:
 
 To configure and use a transform pipeline stage, you need:
 
-- A deployed instance of Azure IoT Data Processor (preview).
+- A deployed instance of Azure IoT Data Processor Preview.
 - An understanding of [jq expressions](concept-jq-expression.md).
 
 ### Configure the stage

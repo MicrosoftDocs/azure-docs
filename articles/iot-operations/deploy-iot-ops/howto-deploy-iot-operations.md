@@ -1,9 +1,9 @@
 ---
-title: Deploy extensions - Azure IoT Orchestrator
+title: Deploy extensions with Azure IoT Orchestrator
 description: Use the Azure portal, Azure CLI, or GitHub Actions to deploy Azure IoT Operations extensions with the Azure IoT Orchestrator
 author: kgremban
 ms.author: kgremban
-# ms.subservice: orchestrator
+ms.subservice: orchestrator
 ms.topic: how-to
 ms.custom: ignite-2023, devx-track-azurecli
 ms.date: 01/31/2024
@@ -11,9 +11,11 @@ ms.date: 01/31/2024
 #CustomerIntent: As an OT professional, I want to deploy Azure IoT Operations to a Kubernetes cluster.
 ---
 
-# Deploy Azure IoT Operations extensions to a Kubernetes cluster
+# Deploy Azure IoT Operations Preview extensions to a Kubernetes cluster
 
-Deploy Azure IoT Operations preview - enabled by Azure Arc to a Kubernetes cluster using the Azure portal, Azure CLI, or GitHub actions. Once you have Azure IoT Operations deployed, then you can use the Orchestrator service to manage and deploy additional workloads to your cluster.
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+
+Deploy Azure IoT Operations Preview to a Kubernetes cluster using the Azure portal, Azure CLI, or GitHub actions. Once you have Azure IoT Operations deployed, then you can use the Azure IoT Orchestrator Preview service to manage and deploy additional workloads to your cluster.
 
 ## Prerequisites
 
@@ -223,7 +225,7 @@ Now, you can deploy Azure IoT Operations to your cluster.
    | `simulatePLC` | Boolean | Set to `true` if you want to include a simulated component to generate test data. |
    | `dataProcessorSecrets` | object | Pass a secret to an Azure IoT Data Processor resource. |
    | `mqSecrets` | object | Pass a secret to an Azure IoT MQ resource. |
-   | `opcUaBrokerSecrets` | object | Pass a secret to an Azure OPC UA Broker resource. |
+   | `opcUaBrokerSecrets` | object | Pass a secret to an Azure IoT OPC UA Broker resource. |
    | `deployResourceSyncRules` | Set to `false` if you don't have **Microsoft.Authorization/roleAssignment/write** permissions in your Azure subscription. |
 
 1. Save your changes to the parameters file.
@@ -242,7 +244,7 @@ Now, you can deploy Azure IoT Operations to your cluster.
 
 ### Configure cluster network (AKS EE)
 
-On AKS Edge Essentials clusters, enable inbound connections to Azure IoT MQ broker and configure port forwarding:
+On AKS Edge Essentials clusters, enable inbound connections to Azure IoT MQ Preview broker and configure port forwarding:
 
 1. Enable a firewall rule for port 8883:
 
@@ -294,4 +296,4 @@ If you want to delete the Azure IoT Operations deployment on your cluster so tha
 
 ## Next steps
 
-If your components need to connect to Azure endpoints like SQL or Fabric, learn how to [Manage secrets for your Azure IoT Operations deployment](./howto-manage-secrets.md).
+If your components need to connect to Azure endpoints like SQL or Fabric, learn how to [Manage secrets for your Azure IoT Operations Preview deployment](./howto-manage-secrets.md).
