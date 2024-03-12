@@ -68,7 +68,7 @@ If you want a [cost-optimized profile](./cluster-autoscaler.md#configure-cluster
 * Increase `ok-total-unready-count`and `max-total-unready-percentage` 
 
 ## Common issues and mitigation recommendations
-View scaling failures and scale-up not triggered events on [CLI/ Portal](https://learn.microsoft.com/en-us/azure/aks/cluster-autoscaler?tabs=azure-cli#retrieve-cluster-autoscaler-logs-and-status-updates)
+View scaling failures and scale-up not triggered events on [CLI/ Portal](./cluster-autoscaler.md#retrieve-cluster-autoscaler-logs-and-status-updates)
 ### Not triggering scale up operations
 
 | Common causes | Mitigation recommendations |
