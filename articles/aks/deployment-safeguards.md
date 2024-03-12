@@ -23,13 +23,27 @@ Once you set the configuration level to 'Warning' or 'Enforcement' mode, Azure P
 
 - Azure Policy's Add-On for AKS must be enabled. For more details, see [enabling Azure Policy on your AKS cluster][policy-for-kubernetes].
 
-- Install the latest version of Azure CLI and the `aks-preview` CLI extension are installed
+- Deployment safeguards requires at least version `2.0.0b1` of the aks-preview extension. Please install the latest version of Azure CLI and the `aks-preview` CLI extension
 
 - In order to create and modify deployment safeguards-related configuration, you'll need a subscription with the [following permissions on your AKS cluster][Azure-Policy-RBAC-permissions]:
 
     - *Microsoft.Authorization/policyAssignments/write*
 
     - *Microsoft.Authorization/policyAssignments/read*
+
+#### Install the `aks-preview` CLI extension
+
+1. Install the `aks-preview` CLI extension using the [`az extension add`][az-extension-add] command.
+
+    ```azurecli-interactive
+    az extension add --name aks-preview
+    ```
+
+2. Update the extension to ensure you have the latest version installed using the [`az extension update`][az-extension-update] command.
+
+    ```azurecli-interactive
+    az extension update --name aks-preview
+    ```
 
 #### Register the 'deployment SafeguardsPreview' feature flag
 
@@ -175,6 +189,8 @@ To learn more, see [workload validation in Gatekeeper](https://open-policy-agent
 
 <!-- LINKS -->
 
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
 [best-practices]: ./best-practices.md
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [az-feature-register]: /cli/azure/feature#az-feature-register
