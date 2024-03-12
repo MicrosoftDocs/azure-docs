@@ -31,7 +31,7 @@ Once you set the configuration level to 'Warning' or 'Enforcement' mode, Azure P
 
     - *Microsoft.Authorization/policyAssignments/read*
 
-#### Register the 'deployment safeguardsPreview' feature flag
+#### Register the 'deployment SafeguardsPreview' feature flag
 
 Register the `SafeguardsPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
 
@@ -78,21 +78,21 @@ If you would like to submit an idea or request for deployment safeguards, open a
 > If you have enabled Azure Policy for the first time to use deployment safeguards, you may need to wait up to 35 minutes for Azure Policy to take effect.
 
 >[!NOTE]
-> By using deployment safeguard `Enforcement` mode, you are opting in to your deployments being blocked as well. Please be aware of how these policies will work with your AKS cluster before you enable `Enforcement`.
+> By using deployment safeguards `Enforcement` mode, you are opting in to your deployments being blocked as well. Please be aware of how these policies will work with your AKS cluster before you enable `Enforcement`.
 
-To enable deployment safeguards on a new cluster, use the `--safeguards-level` and `--safeguards-version` flags. Currently, the only available `--deployment safeguards-version` is `v1.0.0`.
+To enable deployment safeguards on a new cluster, use the `--safeguards-level` fkag.
 
-To receive "Warnings", set the --safeguard-level to "Warning".
-To deny all deployments that do not adhere to deployment safeguards, set the --safeguard-level to "Enforcement".
+To receive "Warnings", set the --safeguards-level to "Warning".
+To deny all deployments that do not adhere to deployment safeguards, set the --safeguards-level to "Enforcement".
 
 ```azurecli-interactive
-az aks create --name myAKSCluster --resource-group myResourceGroup --enable-addons azure-policy --safeguards-level Warning --safeguards-version v1.0.0
+az aks create --name myAKSCluster --resource-group myResourceGroup --enable-addons azure-policy --safeguards-level Warning
 ```
 
 You can also update an existing cluster to enable deployment safeguards, assuming Azure Policy has already been enabled.
 
 ```azurecli-interactive
-az aks update --name myAKSCluster --resource-group myResourceGroup --safeguards-level Enforcement --safeguards-version v1.0.0
+az aks update --name myAKSCluster --resource-group myResourceGroup --safeguards-level Enforcement
 ```
 
 ### Excluding namespaces
@@ -102,7 +102,7 @@ It's also possible to exclude certain namespaces from deployment safeguards. Thi
 For example, to exclude the namespaces `ns1` and `ns2`, use a comma-separated list.
 
 ```azurecli-interactive
-az aks update --name myAKSCluster --resource-group myResourceGroup --deployment safeguards-level Warning --safeguards-excluded-ns ns1,ns2 
+az aks update --name myAKSCluster --resource-group myResourceGroup --safeguards-level Warning --safeguards-excluded-ns ns1,ns2 
 ```
 
 ## Verify compliance across cluster via your CLI/terminal
@@ -145,7 +145,7 @@ You'll see a dashboard showing compliance state across your AKS cluster.
 
 ## Disable deployment safeguards
 
-To disable deployment safeguards on your cluster, set the `--deployment safeguards-level` to `Off`.
+To disable deployment safeguards on your cluster, set the `--safeguards-level` to `Off`.
 
 ```azurecli-interactive
 az aks update --name myAKSCluster --resource-group myResourceGroup --safeguards-level Off
