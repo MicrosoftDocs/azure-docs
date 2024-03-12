@@ -39,7 +39,7 @@ Follow these steps to create a storage pool with Azure Elastic SAN.
 1. Paste in the following code. The storage pool **name** value can be whatever you want. Adjust *storage* to reflect the storage capacity you want in Gi or Ti, and save the file. Azure Elastic SAN doesn't currently support resizing storage pools.
 
    ```yml
-   apiVersion: containerstorage.azure.com/v1alpha1
+   apiVersion: containerstorage.azure.com/v1
    kind: StoragePool
    metadata:
      name: managed

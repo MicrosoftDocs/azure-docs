@@ -50,7 +50,7 @@ Follow these steps to create a storage pool using local NVMe.
 1. Paste in the following code and save the file. The storage pool **name** value can be whatever you want.
 
    ```yml
-   apiVersion: containerstorage.azure.com/v1alpha1
+   apiVersion: containerstorage.azure.com/v1
    kind: StoragePool
    metadata:
      name: ephemeraldisk
@@ -89,7 +89,7 @@ Follow these steps to create a storage pool using temp SSD.
 1. Paste in the following code and save the file. The storage pool **name** value can be whatever you want.
 
    ```yml
-   apiVersion: containerstorage.azure.com/v1alpha1
+   apiVersion: containerstorage.azure.com/v1
    kind: StoragePool
    metadata:
      name: ephemeraldisk
@@ -278,7 +278,7 @@ Follow these steps to create a storage pool using local NVMe with replication.
 1. Paste in the following code and save the file. The storage pool **name** value can be whatever you want. Set replicas to 3 or 5.
 
    ```yml
-   apiVersion: containerstorage.azure.com/v1alpha1
+   apiVersion: containerstorage.azure.com/v1
    kind: StoragePool
    metadata:
      name: nvme

@@ -42,7 +42,7 @@ Follow these steps to create a storage pool for Azure Disks.
 1. Paste in the following code. The storage pool **name** value can be whatever you want. For **skuName**, specify the level of performance and redundancy. Acceptable values are Premium_LRS, Standard_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, PremiumV2_LRS, and StandardSSD_ZRS. For **storage**, specify the amount of storage capacity for the pool in Gi or Ti. Save the file.
 
    ```yml
-   apiVersion: containerstorage.azure.com/v1beta1
+   apiVersion: containerstorage.azure.com/v1
    kind: StoragePool
    metadata:
      name: azuredisk
@@ -91,7 +91,7 @@ Follow these steps to create a pre-provisioned storage pool for Azure Disks.
 1. Paste in the following code. The storage pool **name** value can be whatever you want. Replace `<resource-id>` with the resource ID of each managed disk. Save the file.
 
    ```yml
-   apiVersion: containerstorage.azure.com/v1beta1
+   apiVersion: containerstorage.azure.com/v1
    kind: StoragePool
    metadata:
      name: sp-preprovisioned
@@ -146,7 +146,7 @@ Follow these steps to create a storage pool using your own encryption key. All p
 1. Paste in the following code, supply the required parameters, and save the file. The storage pool **name** value can be whatever you want. For **skuName**, specify the level of performance and redundancy. Acceptable values are Premium_LRS, Standard_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, PremiumV2_LRS, and StandardSSD_ZRS. For **storage**, specify the amount of storage capacity for the pool in Gi or Ti. Be sure to supply the CMK encryption parameters.
 
    ```yml
-   apiVersion: containerstorage.azure.com/v1beta1
+   apiVersion: containerstorage.azure.com/v1
    kind: StoragePool
    metadata:
      name: azuredisk
