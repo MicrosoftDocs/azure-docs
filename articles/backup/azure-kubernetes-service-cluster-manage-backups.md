@@ -6,7 +6,7 @@ ms.service: backup
 ms.custom:
   - devx-track-azurecli
   - ignite-2023
-ms.date: 02/27/2024
+ms.date: 02/28/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -138,6 +138,22 @@ To enable Trusted Access between Backup vault and AKS cluster, use the following
    ```
 
 Learn more about [other commands related to Trusted Access](../aks/trusted-access-feature.md#trusted-access-feature-overview).
+
+## Monitor AKS backup jobs completed with warnings
+
+When a scheduled or an on-demand backup or restore operation is performed, a job is created corresponding to the operation to track its progress. In case of a failure, these jobs allow you to identify error codes and fix issues to run a successful job later. 
+
+For AKS backup, backup and restore jobs can show the status **Completed with Warnings**. This status appears when the backup and restore operation isn't fully successful due to issues in user-defined configurations or internal state of the workload.
+
+:::image type="content" source="./media/azure-kubernetes-service-cluster-manage-backups/backup-restore-jobs-completed-with-warnings.png" alt-text="Screenshot shows the backup and restore jobs completed with warnings." lightbox="./media/azure-kubernetes-service-cluster-manage-backups/backup-restore-jobs-completed-with-warnings.png":::
+
+For example, if a backup job for an AKS cluster completes with the status **Completed with Warnings**, a restore point will be created, but it might not have been able to back up all the resources in the cluster as per the backup configuration. The job will show warning details, providing the *issues* and *resources* that were impacted during the operation. 
+
+To view these warnings, select **View Details** next to **Warning Details**.
+
+:::image type="content" source="./media/azure-kubernetes-service-cluster-manage-backups/example-backup-job-with-warning-details.png" alt-text="Screenshot shows the job warming details." lightbox="./media/azure-kubernetes-service-cluster-manage-backups/example-backup-job-with-warning-details.png"::: 
+
+Learn [how to identify and resolve the error](azure-kubernetes-service-backup-troubleshoot.md#aks-backup-extension-installation-error-resolutions). 
 
 ## Next steps
 

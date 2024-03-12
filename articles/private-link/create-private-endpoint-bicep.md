@@ -19,6 +19,8 @@ In this quickstart, you'll use Bicep to create a private endpoint.
 
 You can also create a private endpoint by using the [Azure portal](create-private-endpoint-portal.md), [Azure PowerShell](create-private-endpoint-powershell.md), the [Azure CLI](create-private-endpoint-cli.md), or an [Azure Resource Manager Template](create-private-endpoint-template.md).
 
+:::image type="content" source="./media/create-private-endpoint-portal/private-endpoint-qs-resources-sql.png" alt-text="Diagram of resources created in private endpoint quickstart.":::
+
 ## Prerequisites
 
 You need an Azure account with an active subscription. If you don't already have an Azure account, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).

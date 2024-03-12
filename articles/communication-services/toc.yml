@@ -199,6 +199,8 @@ items:
     items: 
       - name: Submit a job for queuing and routing
         href: quickstarts/router/get-started-router.md
+      - name: Integrate Azure OpenAI with Job Router
+        href: quickstarts/router/job-router-azure-openai-integration.md
   - name: Network Traversal
     items:
     - name: Access TURN relays
@@ -667,7 +669,7 @@ items:
           - name: Security
             href: concepts/interop/guest/security.md
           - name: Known issues
-            href: concepts/interop/guest/limitations.md            
+            href: concepts/interop/guest/limitations.md
       - name: Communication as Teams user
         items:
           - name: Overview
@@ -752,6 +754,9 @@ items:
       - name: End of Call Survey
         href: concepts/voice-video-calling/end-of-call-survey-concept.md
         displayName: diagnostics, Survey, feedback, quality, reliability, users, end, call, quick
+      - name: Troubleshooting VoIP call quality
+        href: concepts/voice-video-calling/troubleshoot-web-voip-quality.md
+        displayName: diagnostics, Survey, feedback, quality, reliability, call, voip, troubleshooting
     - name: Analytics
       items:
       - name: Call logs
