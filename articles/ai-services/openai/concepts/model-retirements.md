@@ -37,7 +37,7 @@ Retirements are done on a rolling basis, region by region.
 
 ### Who is notified of upcoming retirements
 
-Azure OpenAI notifies those who are members of the following roles for each subbscription with a deployment of a model with an upcoming retirement.
+Azure OpenAI notifies those who are members of the following roles for each subscription with a deployment of a model with an upcoming retirement.
 
 * Owner
 * Contributor
@@ -49,13 +49,13 @@ Azure OpenAI notifies those who are members of the following roles for each subb
 
 To prepare for model retirements and version upgrades, we recommend that customers evaluate their applications with the new models and versions and evaluate their behavior. We also recommend that customers update their applications to use the new models and versions before the retirement date.
 
-For more inforation, see [How to upgrade to a new model or version](./model-versions.md).
+For more information, see [How to upgrade to a new model or version](./model-versions.md).
 
 ## Current models
 
 These models are currently available for use in Azure OpenAI Service.
 
-| Model | Version | Retirement Date |
+| Model | Version | Retirement date |
 | ---- | ---- | ---- |
 | `gpt-35-turbo` | 0301 | No earlier than June 13, 2024 |
 | `gpt-35-turbo`<br>`gpt-35-turbo-16k` | 0613 | No earlier than July 13, 2024 |
