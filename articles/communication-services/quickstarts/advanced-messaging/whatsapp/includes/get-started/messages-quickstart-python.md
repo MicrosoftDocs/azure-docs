@@ -60,14 +60,14 @@ class MessagesQuickstart(object):
 
 ## Initialize the NotificationMessagesClient
 
-Messages sending is done using NotificationMessagesClient. NotificationMessagesClient is authenticated using your connection string acquired from Azure Communication Services resource in the Azure Portal. For more information on connection strings, see [access-your-connection-strings-and-service-endpoints](../../../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints). NotificationMessagesClient is also authenticated using TokenCredentials. For more information see [access-Azure-Communication-Resources-using-TokenCredentials](https://learn.microsoft.com/python/api/overview/azure/identity-readme?view=azure-python&preserve-view=true#environment-variables).
-Get Azure Communication Resource connection string from Azure Portal as given in screenshot:
+Messages sending is done using NotificationMessagesClient. NotificationMessagesClient is authenticated using your connection string acquired from Azure Communication Services resource in the Azure portal. For more information on connection strings, see [access-your-connection-strings-and-service-endpoints](../../../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints). NotificationMessagesClient is also authenticated using TokenCredentials. For more information see [access-Azure-Communication-Resources-using-TokenCredentials](https://learn.microsoft.com/python/api/overview/azure/identity-readme?view=azure-python&preserve-view=true#environment-variables).
+Get Azure Communication Resource connection string from Azure portal as given in screenshot:
 
-:::image type="content" source="../../media/get-started/get-communication-resource-connection-string.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure Portal, viewing the 'Primary Key' field in the 'Keys' section.":::
+:::image type="content" source="../../media/get-started/get-communication-resource-connection-string.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Primary Key' field in the 'Keys' section.":::
 
-Then Get WhatsChannelId from Azure Portal as given in screenshot:
+Then Get WhatsChannelId from Azure portal as given in screenshot:
 
-:::image type="content" source="../../media/get-started/get-messages-channel-id.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure Portal, viewing the 'Channels' field in the 'Advanced Messaging' section.":::
+:::image type="content" source="../../media/get-started/get-messages-channel-id.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Channels' field in the 'Advanced Messaging' section.":::
 
 ```python
     # Get a connection string to our Azure Communication Services resource.
