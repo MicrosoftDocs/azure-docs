@@ -25,7 +25,7 @@ Distributed functions apply to the production environment of your Static Web App
 
 ## Enable distributed functions
 
-Before enabling distributed functions, ensure that you have a Standard hosting plan Static Web Apps resource with managed functions.
+Before enabling distributed functions, make sure your static web app is under the Standard hosting plan with managed functions.
 
 Use the following steps to enable distributed functions.
 
