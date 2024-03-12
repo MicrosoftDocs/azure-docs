@@ -40,7 +40,7 @@ The following table contrasts the differences between using managed and existing
 [!INCLUDE [APIs overview](../../includes/static-web-apps-apis-overview.md)]
 
 > [!NOTE]
-> [Distributed functions (preview)](./distributed-functions.md) is available with managed functions. Distributed functions automatically distribute your managed functions to regions of high request loads.
+> [Distributed functions](./distributed-functions.md) is available with managed functions. Distributed functions automatically distribute your managed functions to regions of high request loads.
 
 ## Configuration
 
