@@ -6,7 +6,7 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-Integrating user feedback within an Android application, particularly through the Azure Communication Services (ACS) UI Library, involves specific steps to ensure a seamless experience for both developers and users. By incorporating an `onUserReportedIssueEventHandler`, developers can enable a support form within their application, allowing users to report issues directly. This section guides you through setting up the client-side feedback capture mechanism, maintaining consistency with the document's structure and focus.
+Enabling user feedback within the Azure Communication Services (ACS) UI Library requires action on the developers part. Adding a `onUserReportedIssueEventHandler` to their integration of the library, developers can enable the built-in support form, allowing users to report issues directly. This section guides you through setting up the client-side feedback form.
 
 ### Implementing Client-Side Feedback Capture in Android
 
@@ -24,7 +24,7 @@ Integrating user feedback within an Android application, particularly through th
    - When users report issues through the enabled support form, the `onUserReportedIssueEventHandler` captures emitted events. These events encapsulate all necessary details related to the user-reported issue, such as descriptions, error logs, and potentially screenshots.
 
 2. **Data Preparation for Submission:**
-   - After capturing an event, the next step involves preparing the reported issue data for server submission. This preparation includes structuring the captured information into a format suitable for HTTP transmission, adhering to server expectations.
+   - Upon capturing an event, the next step involves preparing the reported issue data for server submission. This preparation includes structuring the captured information into a format suitable for HTTP transmission, adhering to server expectations.
 
 #### Submitting Issue Data to the Server
 
@@ -39,10 +39,10 @@ Integrating user feedback within an Android application, particularly through th
 1. **Immediate User Feedback:**
    - Notify users immediately about the status of their issue report submission through the application's user interface. For successful submissions, consider providing a reference to the submitted issue that allows users to track the progress of their report.
 
-2. **Notification Strategy for Android O and above:**
-   - For devices running Android O (API level 26) and above, ensure the implementation of a notification channel specific to report submissions. This setup is essential for delivering notifications effectively and is a requirement on these Android versions.
+2. **Notification Strategy for Android O and newer:**
+   - For devices running Android O (API level 26) and newer, ensure the implementation of a notification channel specific to report submissions. This setup is essential for delivering notifications effectively and is a requirement on these Android versions.
 
-By adhering to these steps, developers can integrate a robust user feedback mechanism into their Android applications, using the `onUserReportedIssueEventHandler` for efficient issue reporting and tracking. This process not only facilitates the timely resolution of user issues but also significantly contributes to enhancing the overall user experience and satisfaction with the application.
+By following these steps, developers can integrate a robust user feedback mechanism into their Android applications, using the `onUserReportedIssueEventHandler` for efficient issue reporting and tracking. This process not only facilitates the timely resolution of user issues but also significantly contributes to enhancing the overall user experience and satisfaction with the application.
 
 ### Android Code Sample
 
@@ -50,7 +50,7 @@ The Kotlin code snippet demonstrates the process of integrating a system for han
 
 1. **Event Capture**: The system listens for user-reported issues through the ACS UI Library. It utilizes the `onUserReportedIssueEventHandler` to capture feedback from the application's UI, including errors and user concerns.
 
-2. **Data Transmission to Server**: After an issue has been reported, the system packages the relevant data, including user messages, error logs, versions, and diagnostic information. This data is then sent to a server endpoint using an asynchronous POST request, ensuring the process does not hinder the app's performance.
+2. **Data Transmission to Server**: When an issue is reported, the system packages the relevant data, including user messages, error logs, versions, and diagnostic information. This data is then sent to a server endpoint using an asynchronous POST request, ensuring the process does not hinder the app's performance.
 
 3. **User Feedback and Notification**: Following the submission, users are immediately informed about the status of their report through in-app notifications. For successful submissions, a notification includes a link or reference to the submitted ticket, allowing users to track the resolution progress.
 
