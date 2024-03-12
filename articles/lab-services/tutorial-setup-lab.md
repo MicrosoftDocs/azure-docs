@@ -24,11 +24,11 @@ After you complete this tutorial, lab users can register for the lab using their
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a lab
-> * Customize the lab template
-> * Publish the lab to create lab VMs
-> * Add a recurring lab schedule
-> * Invite users to the lab via email
+> - Create a lab
+> - Customize the lab template
+> - Publish the lab to create lab VMs
+> - Add a recurring lab schedule
+> - Invite users to the lab by email
 
 ## Prerequisites
 
