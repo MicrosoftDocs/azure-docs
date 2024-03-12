@@ -164,7 +164,7 @@ Condition          : ((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobSe
 
 ## List a condition
 
-To list a role assignment condition, use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment). For more information, see [List Azure role assignments using Azure PowerShell](role-assignments-list-powershell.md).
+To list a role assignment condition, use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment). For more information, see [List Azure role assignments using Azure PowerShell](role-assignments-list-powershell.yml).
 
 ## Delete a condition
 

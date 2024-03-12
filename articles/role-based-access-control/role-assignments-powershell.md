@@ -380,6 +380,6 @@ CanDelegate        : False
 
 ## Next steps
 
-- [List Azure role assignments using Azure PowerShell](role-assignments-list-powershell.md)
+- [List Azure role assignments using Azure PowerShell](role-assignments-list-powershell.yml)
 - [Tutorial: Grant a group access to Azure resources using Azure PowerShell](tutorial-role-assignments-group-powershell.md)
 - [Manage resources with Azure PowerShell](../azure-resource-manager/management/manage-resources-powershell.md)
