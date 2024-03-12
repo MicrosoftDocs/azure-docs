@@ -65,4 +65,4 @@ Pricing tiers (and the amount you're billed) are based on the number of transact
 * Cost for a predefined number of transactions. Going above this number will cause an extra charge, as specified in the [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) for your service.
 
 > [!NOTE]
-> Many of the Azure AI services have a free tier that you can use to try the service. To use the free tier, use `F0` as the product for your resource.
+> Many of the Azure AI services have a free tier that you can use to try the service. To use the free tier, use `F0` as the pricing tier for your resource.
