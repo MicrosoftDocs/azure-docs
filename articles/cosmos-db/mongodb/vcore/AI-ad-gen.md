@@ -26,7 +26,7 @@ In this guide, we demonstrate how to create dynamic advertising content that res
 > [!VIDEO https://www.youtube.com/live/MLY5Pc_tSXw?si=fQmAuQcZkVauhmu-&t=1078]
 
 ## Prerequisites
-- Azure OpenAI: Let's setup the Azure OpenAI resource. Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access. Once you have access, complete the following steps:
+- Azure OpenAI: Let's setup the Azure OpenAI resource. Access to this service is currently available by application only. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access. Once you have access, complete the following steps:
     - Create an Azure OpenAI resource following this [quickstart](../../../ai-services/openai/how-to/create-resource.md?pivots=web-portal).
     - Deploy a `completions` and an `embeddings` model 
         - For more information on `completions`, go [here](../../../ai-services/openai/how-to/completions.md).
@@ -121,7 +121,7 @@ The function takes a text input — like a product description — and uses the 
 With our embeddings ready, the next step is to store and index them in a database that supports vector similarity search. Azure Cosmos DB for MongoDB vCore is a perfect fit for this task.
 
 ### Set up the connection
-To connect to Cosmos DB, we use the pymongo library, which allows us to interact with MongoDB easily. Below is the code snippet to establish a connection with our Cosmos DB instance:
+To connect to Cosmos DB, we use the pymongo library, which allows us to interact with MongoDB easily. The following code snippet establishes a connection with our Cosmos DB for MongoDB vCore instance:
 ```python
 import pymongo
 
@@ -132,15 +132,13 @@ mongo_client = pymongo.MongoClient(mongo_conn)
 
 Replace `<USERNAME>`, `<PASSWORD>`, and `<VCORE_CLUSTER_NAME>` with your actual MongoDB username, password, and vCore cluster name, respectively.
 
-By completing these steps, you've successfully created vector embeddings from your inventory descriptions and set up a connection to Azure Cosmos DB. These foundational elements enable us to move on to storing these embeddings, performing similarity searches, and generating AI-enhanced advertisements.
-
 ## Setting Up the Database and Vector Index in Cosmos DB
 
 Once you've established a connection to Azure Cosmos DB, the next steps involve setting up your database and collection, and then creating a vector index to enable efficient vector similarity searches. Let's walk through these steps.
 
 ### Set Up the Database and Collection
 
-First, we create a database and a collection within our Cosmos DB instance. If they already exist, we'll use them as they are. Here’s how:
+First, we create a database and a collection within our Cosmos DB instance. Here’s how:
 ```python
 DATABASE_NAME = "AdgenDatabase"
 COLLECTION_NAME = "AdgenCollection"
@@ -158,10 +156,10 @@ else:
 ```
 
 ### Create the vector index
-To perform efficient vector similarity searches within our collection, we need to create a vector index. Cosmos DB supports different types of vector indexes, and here we'll discuss two: IVF and HNSW.
+To perform efficient vector similarity searches within our collection, we need to create a vector index. Cosmos DB supports different types of vector indexes, and here we discuss two: IVF and HNSW.
 
 ### IVF
-IVF is the default vector indexing algorithm, which works on all cluster tiers. It's an approximate nearest neighbors (ANN) approach that uses clustering to speeding up the search for similar vectors in a dataset. To create an IVF index, use the following command:
+IVF stands for Inverted File Index, is the default vector indexing algorithm, which works on all cluster tiers. It's an approximate nearest neighbors (ANN) approach that uses clustering to speeding up the search for similar vectors in a dataset. To create an IVF index, use the following command:
 
 ```
 db.command({
@@ -188,9 +186,7 @@ db.command({
 
 ### HNSW 
 
-HNSW stands for Hierarchical Navigable Small World, a graph-based data structure that partitions vectors into clusters and subclusters. With HNSW, you can perform fast approximate nearest neighbor search at higher speeds with greater accuracy. HNSW is an approximate (ANN) method. 
-
-Note that HNSW indexing is only available on M40 cluster tiers and higher. Here's how to set it up:
+HNSW stands for Hierarchical Navigable Small World, a graph-based data structure that partitions vectors into clusters and subclusters. With HNSW, you can perform fast approximate nearest neighbor search at higher speeds with greater accuracy. HNSW is an approximate (ANN) method. Here's how to set it up:
 
 ```
 db.command(
@@ -214,6 +210,8 @@ db.command(
 }
 )
 ```
+> [!NOTE]
+> HNSW indexing is only available on M40 cluster tiers and higher. 
 
 ## Insert data to the collection
 Now insert the inventory data, which includes descriptions and their corresponding vector embeddings, into the newly created collection. To insert data into our collection, we use the `insert_many()` method provided by the `pymongo` library. The method allows us to insert multiple documents into the collection at once. Our data is stored in a JSON file, which we'll load and then insert into the database.
@@ -231,7 +229,7 @@ print(f"Number of data points added: {len(result.inserted_ids)}")
 ```
 
 ## Vector Search in Cosmos DB for MongoDB vCore
-With our data successfully uploaded, we can now leverage the power of vector search to find the most relevant items based on a query. The vector index we created earlier enables us to perform semantic searches within our dataset.
+With our data successfully uploaded, we can now apply the power of vector search to find the most relevant items based on a query. The vector index we created earlier enables us to perform semantic searches within our dataset.
 
 ### Conducting a Vector Search
 To perform a vector search, we define a function `vector_search` that takes a query and the number of results to return. The function generates a vector for the query using the `generate_embeddings` function we defined earlier, then uses Cosmos DB's `$search` functionality to find the closest matching items based on their vector embeddings.
@@ -277,7 +275,7 @@ for result in results:
 
 ## Generating Ad content with GPT-4 and DALL.E
 
-We combine all developed components to craft compelling ads, employing OpenAI's GPT-4 for text and DALL·E 3 for images. Together with vector search results, they form a complete ad. We also introduce Heelie, our intelligent assistant, tasked with creating engaging ad taglines. Through the upcoming code, you'll see Heelie in action, enhancing our ad creation process.
+We combine all developed components to craft compelling ads, employing OpenAI's GPT-4 for text and DALL·E 3 for images. Together with vector search results, they form a complete ad. We also introduce Heelie, our intelligent assistant, tasked with creating engaging ad taglines. Through the upcoming code, you see Heelie in action, enhancing our ad creation process.
 
 ```python
 from openai import OpenAI
