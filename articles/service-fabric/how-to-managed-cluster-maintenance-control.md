@@ -6,7 +6,7 @@ ms.author: ashank
 author: ashank
 ms.service: service-fabric
 services: service-fabric
-ms.date: 05/31/2023
+ms.date: 03/12/2024
 ---
 
 # (Preview) Introduction to MaintenanceControl on Service Fabric managed clusters
@@ -24,10 +24,6 @@ as per their needs. All background maintenance operations will be allowed to exe
 **Requirements:**
 * Maintenance window configuration needs to be defined only for the Service Fabric managed cluster resource
 * The minimum supported window size is 5 hours
-
->[!NOTE]
->* This should only be enabled in the listed regions. In all other regions, configuring this will not have any impact on the maintenance operations. There is work underway to block creation of maintenance configuration for SFMC, where it is not supported right now.
->* Supported Regions: eastus, eastus2, westus, westus2, westus3, southcentralus, centralus, westeurope, northeurope, ukwest, uksouth, australiaeast, australiasoutheast, northcentralus, eastasia, southeastasia, japaneast, japanwest, southindia, westindia, centralindia, brazilsouth, koreacentral, koreasouth, centralcanada, eastcanada, francecentral, francesouth, australiacentral, australiacentral2, southafricawest, southafricanorth, uaecentral, uaenorth, switzerlandwest, switzerlandnorth, germanynorth, germanywestcentral, norwayeast, norwaywest, brazilsoutheast, jioindiawest, jioindiacentral, swedensouth, swedencentral, qatarcentral, polandcentral
 
 ## How does MaintenanceControl work for SFMC
 * Customers need to define a maintenance configuration that contains the schedule and the recurrence rule for the maintenance window, by creating a maintenance configuration resource with the maintenance RP. [More details](../virtual-machines/maintenance-and-updates.md)

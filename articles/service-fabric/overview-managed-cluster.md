@@ -54,6 +54,9 @@ There is no additional cost for Service Fabric managed clusters beyond the cost 
 > [!NOTE]
 > There is no migration path from existing Service Fabric clusters to managed clusters. You will need to create a new Service Fabric managed cluster to use this new resource type.
 
+> [!IMPORTANT]
+> Manually making changes to the resources in a managed cluster isn't supported.
+
 ## Service Fabric managed cluster SKUs
 
 Service Fabric managed clusters are available in both Basic and Standard SKUs.

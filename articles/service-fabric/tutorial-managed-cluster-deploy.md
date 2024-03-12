@@ -105,6 +105,9 @@ This command may take a few minutes to complete.
 
 Once the deployment completes, find the Service Fabric Explorer value in the Service Fabric managed cluster resource overview page in Portal. When prompted for a certificate, use the certificate for which the client thumbprint was provided in the PowerShell command.
 
+> [!IMPORTANT]
+> Manually making changes to the resources in a managed cluster isn't supported.
+
 ## Next steps
 
 In this step we created and deployed our first Service Fabric managed cluster. To learn more about how to scale a cluster, see:
