@@ -32,8 +32,7 @@ You can join Azure Kubernetes Service (AKS) clusters to a fleet as member cluste
 
 Certain scenarios of fleet such as update runs don't require a Kubernetes API and thus don't require a hub cluster. Fleet can be created without the hub cluster for such scenarios. In this mode, Fleet just acts as a grouping entity in Azure Resource Manager.
 
-For other scenarios such as Kubernetes resource propagation, a hub cluster is required. This hub cluster is a special AKS cluster whose lifecycle (creation, upgrades, deletion) is managed by the fleet resource.
-
+For other scenarios such as Kubernetes resource propagation, a hub cluster is required. This hub cluster is a special AKS cluster whose lifecycle (creation, upgrades, deletion) is managed by the fleet resource. Any Kubernetes objects provided to the hub cluster are only stored as configurations on this cluster. Pod creation is disabled on this locked down hub cluster. Thus Fleet doesn't allow running any user workloads on the hub cluster and instead only allows using hub cluster for storing configurations that need to be propagated to other clusters or configurations that control cross-cluster orchestration.
 
 The following table lists the differences between a fleet without hub cluster and a fleet with hub cluster:
 
@@ -53,7 +52,7 @@ Hub clusters are exempted from Azure policies to avoid undesirable policy effect
 
 ## Billing
 
-The fleet resource is currently free of charge. If your fleet contains a hub cluster, the hub cluster is a standard tier AKS cluster created in the fleet subscription and paid by you.
+The fleet resource without hub cluster is currently free of charge. If your fleet contains a hub cluster, the hub cluster is a standard tier AKS cluster created in the fleet subscription and paid by you.
 
 ## FAQs
 
