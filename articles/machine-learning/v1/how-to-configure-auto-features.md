@@ -3,7 +3,7 @@ title: Data featurization with automated machine learning
 titleSuffix: Azure Machine Learning
 description: Learn how to customize data featurization settings for your automated ML experiments in Azure Machine Learning.
 author: manashgoswami
-ms.author: magoswam
+ms.author: manashgoswami
 ms.reviewer: ssalgado
 services: machine-learning
 ms.service: machine-learning
@@ -18,7 +18,7 @@ monikerRange: 'azureml-api-1'
 
 [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
-This article explains the data featurization settings in Azure Machine Learning, and how to customize those features for [automated machine learning experiments](../concept-automated-ml.md).
+This article explains how to customize the data featurization settings in Azure Machine Learning for your [automated machine learning (AutoML) experiments](../concept-automated-ml.md).
 
 ## Feature engineering and featurization
 
@@ -95,8 +95,8 @@ In every automated machine learning experiment, your data is automatically scale
 
 Data guardrails are applied:
 
-- **For SDK experiments**: When the parameters `"featurization": 'auto'` or `validation=auto` are specified in your `AutoMLConfig` object.
-- **For studio experiments**: When automatic featurization is enabled.
+- **For SDK experiments**: When the parameters `"featurization": 'auto'` or `validation=auto` are specified in your `AutoMLConfig` object
+- **For studio experiments**: When automatic featurization is enabled
 
 You can review the data guardrails for your experiment:
 
