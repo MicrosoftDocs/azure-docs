@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: process data from your OPC UA assets"
-description: "Quickstart: Use a Data Processor pipeline to process data from your OPC UA assets before sending the data to a Microsoft Fabric OneLake lakehouse."
+description: "Quickstart: Use an Azure IoT Data Processor pipeline to process data from your OPC UA assets before sending the data to a Microsoft Fabric OneLake lakehouse."
 author: dominicbetts
 ms.author: dobett
 ms.topic: quickstart
@@ -12,18 +12,18 @@ ms.date: 10/11/2023
 #CustomerIntent: As an OT user, I want to process and enrich my OPC UA data so that I can derive insights from it when I analyze it in the cloud.
 ---
 
-# Quickstart: Use Data Processor pipelines to process data from your OPC UA assets
+# Quickstart: Use Azure IoT Data Processor Preview pipelines to process data from your OPC UA assets
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In this quickstart, you use Azure IoT Data Processor (preview) pipelines to process and enrich messages from your OPC UA assets before you send the data to a Microsoft Fabric OneLake lakehouse for storage and analysis.
+In this quickstart, you use Azure IoT Data Processor Preview pipelines to process and enrich messages from your OPC UA assets before you send the data to a Microsoft Fabric OneLake lakehouse for storage and analysis.
 
 ## Prerequisites
 
 Before you begin this quickstart, you must complete the following quickstarts:
 
-- [Quickstart: Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](quickstart-deploy.md)
-- [Quickstart: Add OPC UA assets to your Azure IoT Operations cluster](quickstart-add-assets.md)
+- [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](quickstart-deploy.md)
+- [Quickstart: Add OPC UA assets to your Azure IoT Operations Preview cluster](quickstart-add-assets.md)
 
 You also need a Microsoft Fabric subscription. You can sign up for a free [Microsoft Fabric (Preview) Trial](/fabric/get-started/fabric-trial). In your Microsoft Fabric subscription, ensure that the following settings are enabled for your tenant:
 
@@ -60,7 +60,7 @@ Create a basic pipeline to pass through the data to a separate MQTT topic.
 
 In the following steps, leave all values at their default unless otherwise specified:
 
-1. In the [Azure IoT Operations portal](https://iotoperations.azure.com), navigate to **Data pipelines** in your cluster.  
+1. In the [Azure IoT Operations (preview)](https://iotoperations.azure.com) portal, navigate to **Data pipelines** in your cluster.  
 
 1. To create a new pipeline, select **+ Create pipeline**.
 
@@ -118,7 +118,7 @@ Create a reference data pipeline to temporarily store reference data in a refere
 
 In the following steps, leave all values at their default unless otherwise specified:
 
-1. In the [Azure IoT Operations portal](https://iotoperations.azure.com), navigate to **Data pipelines** in your cluster.  
+1. In the [Azure IoT Operations (preview)](https://iotoperations.azure.com) portal, navigate to **Data pipelines** in your cluster.  
 
 1. Select **+ Create pipeline** to create a new pipeline.
 
@@ -178,7 +178,7 @@ After you publish the message, the pipeline receives the message and stores the 
 
 Create a Data Processor pipeline to process and enrich your data before it sends it to your Microsoft Fabric lakehouse. This pipeline uses the data stored in the equipment data reference data set to enrich messages.
 
-1. In the [Azure IoT Operations portal](https://iotoperations.azure.com), navigate to **Data pipelines** in your cluster.  
+1. In the [Azure IoT Operations (preview)](https://iotoperations.azure.com) portal, navigate to **Data pipelines** in your cluster.  
 
 1. Select **+ Create pipeline** to create a new pipeline.
 
@@ -298,4 +298,4 @@ You can also delete your Microsoft Fabric workspace.
 
 ## Next step
 
-[Quickstart: Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](quickstart-get-insights.md)
+[Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](quickstart-get-insights.md)
