@@ -10,39 +10,26 @@ zone_pivot_groups: app-service-platform-windows-linux
 
 # How to target Azure Functions runtime versions
 
-A function app runs on a specific version of the Azure Functions runtime. By default, function apps are created in latest 4.x version of the Functions runtime. Apps are only supported when running on a [supported major version](functions-versions.md). This article explains how to configure a function app in Azure to run on a specific version you choose. 
+A function app runs on a specific version of the Azure Functions runtime. By default, function apps are created in latest 4.x version of the Functions runtime. Apps are only supported when running on a [supported major version](functions-versions.md). This article explains how to configure a function app in Azure to target, or _pin_ to, a specific version when required. 
+
+>[!IMPORTANT]
+>When possible, you should always run your functions on the latest supported version of the Azure Functions runtime. You should only pin your app to a specific version when instructed to do so because of an issue in the latest version. You should always move up to the latest runtime version as soon as your functions can run correctly.
+ 
 ::: zone pivot="platform-windows" 
-The way that you manually target a specific version depends on whether you're running Windows or Linux. This version of the article targets Windows. Choose your operating system at the top of the article.
+The way that you target a specific version depends on whether you're running Windows or Linux. This version of the article supports Windows. Choose your operating system at the top of the article.
 ::: zone-end
 ::: zone pivot="platform-linux" 
-The way that you manually target a specific version depends on whether you're running Windows or Linux. This version of the article targets Linux. Choose your operating system at the top of the article.
+The way that you target a specific version depends on whether you're running Windows or Linux. This version of the article supports Linux. Choose your operating system at the top of the article.
 ::: zone-end
-During local development, your installed version of Azure Functions Core Tools must match major runtime version targeted in Azure. For more information, see [Core TOols versions](functions-run-local.md#v2). 
-::: zone pivot="platform-windows" 
-## Automatic and manual version updates
+During local development, your installed version of Azure Functions Core Tools must match major runtime version targeted in Azure. For more information, see [Core Tools versions](functions-run-local.md#v2). 
 
-When running on Windows, Azure Functions lets you use the `FUNCTIONS_EXTENSION_VERSION` application setting to target the runtime version used by a given function app. When you specify only the major version (`~4`), the function app is automatically updated to new minor versions of the runtime when they become available. Minor version updates are done automatically because new minor versions shouldn't introduce breaking changes. 
+## Update your runtime version
 
-When you specify a specific minor version (such as `4.0.12345`), the function app is pinned to that specific version of the runtime until you explicitly choose to move to a new version. You should only pin to a specific minor version long enough to resolve any issues with your function app that prevent you from targeting the major version. Older minor versions are regularly removed from the production environment. When you are pinned to a minor version that gets removed, your function app is instead run on the closest existing version instead of the version set in `FUNCTIONS_EXTENSION_VERSION`. Minor version removals are announced in [App Service announcements](https://github.com/Azure/app-service-announcements/issues).
+When possible, you should always run your function apps on the latest supported version of the Azure Functions runtime. 
 
-> [!NOTE]
-> When you try to publish from Visual Studio to an app that is pinned to a specific minor version of the runtime, a dialog prompts you to update to the latest version or cancel the publish. To avoid this check when you must use a specific minor version, add the `<DisableFunctionExtensionVersionUpdate>true</DisableFunctionExtensionVersionUpdate>` property in your `.csproj` file.
+[!INCLUDE [functions-migrate-apps](../../includes/functions-migrate-apps.md)]
 
-When a new major version is publicly available, a prompt in the portal gives you the chance to move up to that version. After moving to a new version, you can always move back to a previous supported version.
-
-The following table shows the `FUNCTIONS_EXTENSION_VERSION` values for each supported major version that enable automatic updates:
-
-| Major version<sup>2</sup>  | `FUNCTIONS_EXTENSION_VERSION` value | Additional configuration  |
-| -------------  | ----------------------------------- | ------------------------- |
-| 4.x            | `~4`                                | [On Windows, enable .NET 6](./migrate-version-3-version-4.md#upgrade-your-function-app-in-azure)<sup>1</sup> |
-| 1.x<sup>3</sup>| `~1`                                |                           |
-
-<sup>1</sup> If using a later version with the .NET Isolated worker model, instead enable that version.  
-<sup>2</sup>For a detailed support statement about previous version that have reached end-of-support (not shown in this table), see [Retired versions](functions-versions.md#retired-versions).  
-<sup>3</sup>[Support for version 1.x of the Azure Functions runtime ends on September 14, 2026](https://aka.ms/azure-functions-retirements/hostv1). Before that date, [migrate your version 1.x apps to version 4.x](./migrate-version-1-version-4.md) to maintain full support.  
-
-A change to the runtime version causes your function app to restart. 
-::: zone-end
+To determine your current runtime version, see [View the current runtime version](#view-the-current-runtime-version). 
 
 ## View the current runtime version
 
@@ -98,22 +85,26 @@ Replace `<FUNCTION_APP>` with the name of your function app and `<RESOURCE_GROUP
 
 ---
 
+## <a name="manual-version-updates-on-linux"></a>Pinning to a specific version
+
+Azure Functions lets you use the `FUNCTIONS_EXTENSION_VERSION` application setting to target the runtime version used by a given function app. When you specify only the major version (`~4`), the function app is automatically updated to new minor versions of the runtime when they become available. Minor version updates are done automatically because new minor versions shouldn't introduce breaking changes. 
+::: zone pivot="platform-linux"
+Linux apps use the [`linuxFxVersion` site setting](./functions-app-settings.md#linuxfxversion) along with `FUNCTIONS_EXTENSION_VERSION` to determine the correct Linux base image in which to run your functions. When you specify a value of `~4` for `FUNCTIONS_EXTENSION_VERSION`, the runtime automatically chooses the latest base image for you based on the runtime version of your language stack.  
+::: zone-end
+Pinning to a specific runtime version causes your function app to restart.
 ::: zone pivot="platform-windows" 
-## Change the runtime version
+When you specify a specific minor version (such as `4.0.12345`) in `FUNCTIONS_EXTENSION_VERSION`, the function app is pinned to that specific version of the runtime until you explicitly choose to move back to automatic updates. You should only pin to a specific minor version long enough to resolve any issues with your function app that prevent you from targeting the major version. Older minor versions are regularly removed from the production environment. When you're pinned to a minor version that gets removed, your function app is instead run on the closest existing version instead of the version set in `FUNCTIONS_EXTENSION_VERSION`. Minor version removals are announced in [App Service announcements](https://github.com/Azure/app-service-announcements/issues).
 
-You can change the major version of the runtime used by your function app to another supported version. You can move forward to a later major version, downgrade to an earlier supported version, or temporarily pin your app to a specific minor version. 
+> [!NOTE]
+> When you try to publish from Visual Studio to an app that is pinned to a specific minor version of the runtime, a dialog prompts you to update to the latest version or cancel the publish. To avoid this check when you must use a specific minor version, add the `<DisableFunctionExtensionVersionUpdate>true</DisableFunctionExtensionVersionUpdate>` property in your `.csproj` file. 
 
-When setting the runtime version, keep these considerations in mind:
-
-+ Although the runtime version is determined by the `FUNCTIONS_EXTENSION_VERSION` setting, when possible you should only make this change in the Azure portal and not by changing the setting directly. This is because the portal validates your changes and makes other related changes as needed.   
-+ When you need to temporarily pin your function app to a specific minor version, it's OK to set the specific minor version by directly changing the `FUNCTIONS_EXTENSION_VERSION` setting.  
-+ Because of the potential of breaking changes, you can only downgrade the runtime version before you've created any functions in your function app. 
+Use one of these methods to temporarily pin your app to a specific version of the runtime: 
 
 ### [Portal](#tab/portal)
 
 [!INCLUDE [Set the runtime version in the portal](../../includes/functions-view-update-version-portal.md)]
 
-3. To pin your app to a specific minor version or downgrade a new .NET function app to version 1.x, select **Application settings** > **FUNCTIONS_EXTENSION_VERSION**, change **Value** to your required minor version or `~1` for downgrade, and select **OK**.
+3. To pin your app to a specific minor version, select **Application settings** > **FUNCTIONS_EXTENSION_VERSION**, change **Value** to your required minor version, and select **OK**.
 
 4. Select **Save** > **Continue** to apply changes and restart the app.
 
@@ -127,73 +118,64 @@ az functionapp config appsettings set --name <FUNCTION_APP> \
 --settings FUNCTIONS_EXTENSION_VERSION=<VERSION>
 ```
 
-Replace `<FUNCTION_APP>` with the name of your function app and `<RESOURCE_GROUP>` with the name of the resource group for your function app. Also, replace `<VERSION>` with either a supported major version (`~4` or `~1`—.NET-only) or a specific minor version you temporarily need to target.
+Replace `<FUNCTION_APP>` with the name of your function app and `<RESOURCE_GROUP>` with the name of the resource group for your function app. Also, replace `<VERSION>` with the specific minor version you temporarily need to target.
 
 Choose **Try it** in the previous code example to run the command in [Azure Cloud Shell](../cloud-shell/overview.md). You can also run the [Azure CLI locally](/cli/azure/install-azure-cli) to execute this command. When running locally, you must first run [`az login`](/cli/azure/reference-index#az-login) to sign in.
 
 ### [PowerShell](#tab/powershell)
 
-To check the Azure Functions runtime, use the following cmdlet: 
-
-```powershell
-Get-AzFunctionAppSetting -Name "<FUNCTION_APP>" -ResourceGroupName "<RESOURCE_GROUP>"
-```
-
-Replace `<FUNCTION_APP>` with the name of your function app and `<RESOURCE_GROUP>`. The current value of the `FUNCTIONS_EXTENSION_VERSION` setting is returned in the hash table.
-
-Use the following script to change the Functions runtime:
+Use this script to pin the Functions runtime:
 
 ```powershell
 Update-AzFunctionAppSetting -Name "<FUNCTION_APP>" -ResourceGroupName "<RESOURCE_GROUP>" -AppSetting @{"FUNCTIONS_EXTENSION_VERSION" = "<VERSION>"} -Force
 ```
 
-Replace `<FUNCTION_APP>` with the name of your function app and `<RESOURCE_GROUP>` with the name of the resource group for your function app. Also, replace `<VERSION>` with either a supported major version (`~4` or `~1`—.NET-only) or a specific minor version you temporarily need to target. You can verify the updated value of the `FUNCTIONS_EXTENSION_VERSION` setting in the returned hash table. 
+Replace `<FUNCTION_APP>` with the name of your function app and `<RESOURCE_GROUP>` with the name of the resource group for your function app. Also, replace `<VERSION>` with the specific minor version you temporarily need to target. You can verify the updated value of the `FUNCTIONS_EXTENSION_VERSION` setting in the returned hash table. 
 
 ---
 
 The function app restarts after the change is made to the application setting. 
 ::: zone-end
 ::: zone pivot="platform-linux" 
-## <a name="manual-version-updates-on-linux"></a>Pin to a specific version on Linux
-
-To pin a Linux function app to a specific host version, you set a version-specific base image URL in the [`linuxFxVersion` site setting][`linuxFxVersion`] in the format `DOCKER|<PINNED_VERSION_IMAGE_URI>`. 
+To pin your function app to a specific host version on Linux, you set a version-specific base image URL in the [`linuxFxVersion` site setting][`linuxFxVersion`] in the format `DOCKER|<PINNED_VERSION_IMAGE_URI>`. 
 
 > [!IMPORTANT]
 > Pinned function apps on Linux don't receive regular security and host functionality updates. Unless recommended by a support professional, use the [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version) setting and a standard [`linuxFxVersion`] value for your language and version, such as `Python|3.9`. For valid values, see the [`linuxFxVersion` reference article][`linuxFxVersion`].   
 >
 > Pinning to a specific runtime isn't currently supported for Linux function apps running in a Consumption plan. 
 
-The following is an example of the [`linuxFxVersion`] value required to pin a Node.js 18 function app to a specific runtime version of 4.11.2:
+The following is an example of the [`linuxFxVersion`] value required to pin a Node.js 16 function app to a specific runtime version of 4.14.0.3:
 
-`DOCKER|mcr.microsoft.com/azure-functions/node:4.11.2-node18-appservice` 
+`DOCKER|mcr.microsoft.com/azure-functions/node:4.14.0.3-node16` 
 
 When needed, a support professional can provide you with a valid base image URI for your application. 
 
 Use the following Azure CLI commands to view and set the [`linuxFxVersion`]. You can't currently set [`linuxFxVersion`] in the portal or by using Azure PowerShell. 
 
-To view the current runtime version, use with the [az functionapp config show](/cli/azure/functionapp/config) command.
++ To view the current runtime version, use with the [az functionapp config show](/cli/azure/functionapp/config) command.
 
-```azurecli-interactive
-az functionapp config show --name <function_app> \
---resource-group <my_resource_group> --query 'linuxFxVersion' -o tsv
-```
+    ```azurecli-interactive
+    az functionapp config show --name <function_app> \
+    --resource-group <my_resource_group> --query 'linuxFxVersion' -o tsv
+    ```
+    
+    In this code, replace `<function_app>` with the name of your function app. Also replace `<my_resource_group>` with the name of the resource group for your function app. The current value of [`linuxFxVersion`] is returned.
+    
++ To update the [`linuxFxVersion`] setting in the function app, use the [az functionapp config set](/cli/azure/functionapp/config) command.
 
-In this code, replace `<function_app>` with the name of your function app. Also replace `<my_resource_group>` with the name of the resource group for your function app. The current value of [`linuxFxVersion`] is returned.
+    ```azurecli-interactive
+    az functionapp config set --name <FUNCTION_APP> \
+    --resource-group <RESOURCE_GROUP> \
+    --linux-fx-version <LINUX_FX_VERSION>
+    ```
+    
+    Replace `<FUNCTION_APP>` with the name of your function app. Also replace `<RESOURCE_GROUP>` with the name of the resource group for your function app. Finally, replace `<LINUX_FX_VERSION>` with the value of a specific image provided to you by a support professional.
 
-To update the [`linuxFxVersion`] setting in the function app, use the [az functionapp config set](/cli/azure/functionapp/config) command.
-
-```azurecli-interactive
-az functionapp config set --name <FUNCTION_APP> \
---resource-group <RESOURCE_GROUP> \
---linux-fx-version <LINUX_FX_VERSION>
-```
-
-Replace `<FUNCTION_APP>` with the name of your function app. Also replace `<RESOURCE_GROUP>` with the name of the resource group for your function app. Finally, replace `<LINUX_FX_VERSION>` with the value of a specific image provided to you by a support professional.
-
-You can run this command from the [Azure Cloud Shell](../cloud-shell/overview.md) by choosing **Try it** in the preceding code sample. You can also use the [Azure CLI locally](/cli/azure/install-azure-cli) to execute this command after executing [`az login`](/cli/azure/reference-index#az-login) to sign in.
+You can run these commands from the [Azure Cloud Shell](../cloud-shell/overview.md) by choosing **Try it** in the preceding code examples. You can also use the [Azure CLI locally](/cli/azure/install-azure-cli) to execute this command after executing [`az login`](/cli/azure/reference-index#az-login) to sign in.
 
 The function app restarts after the change is made to the site config.
-::: zone-end
+::: zone-end  
+
 ## Next steps
 
 > [!div class="nextstepaction"]
