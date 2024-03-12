@@ -81,7 +81,7 @@ The platform metrics for these services in the following Azure clouds are suppor
 | NetApp files volumes => "Microsoft.NetApp/netAppAccounts/capacityPools/volumes"| Yes      | Yes    | Yes |
 | Azure Key Vault => "Microsoft.KeyVault/vaults"| Yes      | Yes    | Yes |
 | Azure Cache for Redis => "Microsoft.Cache/redis"| Yes      | Yes    | Yes |
-| Azure Stack Edge devices (There is no specific Resource provider for this resource. Because of how Stack edge devices work, **the metrics are retrieved from several resource providers**. You can check this documentation for more details regarding alerts for this resource:                [Review alerts on Azure Stack Edge | Microsoft Learn](/azure/databox-online/azure-stack-edge-alerts))| Yes      | Yes    | Yes |
+| Azure Stack Edge devices (There is no specific Resource provider for this resource. Because of how Stack edge devices work, **the metrics are retrieved from several resource providers**. You can check this documentation for more details regarding alerts for this resource: [Review alerts on Azure Stack Edge](https://learn.microsoft.com/en-us/azure/databox-online/azure-stack-edge-alerts)) | Yes      | Yes    | Yes |
 | Recovery Services vaults =>"Microsoft.RecoveryServices/Vaults"| Yes      | No     | No  |
 | Azure Database for PostgreSQL - Flexible Server => "Microsoft.DBforPostgreSQL/flexibleServers"| Yes      | Yes    | Yes |
 | Bare Metal Machines (Operator Nexus) => "Microsoft.NetworkCloud/bareMetalMachines"| Yes      | Yes    | Yes |
