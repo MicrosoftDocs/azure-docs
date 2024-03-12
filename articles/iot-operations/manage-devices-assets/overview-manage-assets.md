@@ -11,7 +11,7 @@ ms.date: 03/01/2024
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In Azure IoT Operations, a key task is to manage the assets that are part of your solution. This article defines what assets are, overviews the services you use to manage them, and explains the most common use cases for the services.
+In Azure IoT Operations Preview, a key task is to manage the assets that are part of your solution. This article defines what assets are, overviews the services you use to manage them, and explains the most common use cases for the services.
 
 ## Understand assets
 Assets are a core component of Azure IoT Operations.
@@ -27,10 +27,10 @@ The following diagram shows the high-level architecture of Azure IoT Operations.
 
 :::image type="content" source="media/overview-manage-assets/azure-iot-operations-architecture.png" alt-text="Diagram that highlights the services used to manage assets." lightbox="media/overview-manage-assets/azure-iot-operations-architecture.png":::
 
-- **Azure IoT Operations Experience (preview)**. The Operations Experience portal is a web app that lets you create and manage assets, and configure data processing pipelines. The portal simplifies the task of managing assets. Operations Experience is the recommended service to manage assets.
-- **Azure Device Registry (preview)**. The Device Registry is a service that projects industrial assets as Azure resources. It works together with the Operations Experience to streamline the process of managing assets. Device Registry lets you manage all your assets in the cloud, as true Azure resources contained in a single unified registry.
-- **Azure IoT Akri (preview)**. Azure IoT Akri is a service that discovers assets at the edge. The service can detect and create assets in the address space of an OPC UA Server.
-- **Azure IoT OPC UA Broker (preview)**. OPC UA Broker is a data ingress and protocol translation service that enables assets to ingress data into Azure IoT Operations, based on the widely used OPC UA standard. Azure IoT Operations uses OPC UA Broker to ingress data from OPC UA servers into the Azure IoT MQ service.
+- **Azure IoT Operations Experience Preview**. The Operations Experience portal is a web app that lets you create and manage assets, and configure data processing pipelines. The portal simplifies the task of managing assets. Operations Experience is the recommended service to manage assets.
+- **Azure Device Registry Preview**. The Device Registry is a service that projects industrial assets as Azure resources. It works together with the Operations Experience to streamline the process of managing assets. Device Registry lets you manage all your assets in the cloud, as true Azure resources contained in a single unified registry.
+- **Azure IoT Akri Preview**. Azure IoT Akri is a service that discovers assets at the edge. The service can detect and create assets in the address space of an OPC UA Server.
+- **Azure IoT OPC UA Broker Preview**. OPC UA Broker is a data ingress and protocol translation service that enables assets to ingress data into Azure IoT Operations, based on the widely used OPC UA standard. Azure IoT Operations uses OPC UA Broker to ingress data from OPC UA servers into the Azure IoT MQ Preview service.
 
 Each of these services is explained in greater detail in the following sections that discuss use cases for managing assets.
 
@@ -49,7 +49,7 @@ A [data pipeline](../process-data/overview-data-processor.md) is a sequence of s
 The Operations Experience portal lets users create assets and subscribe to OPC UA tags in a user-friendly interface. Users can create custom assets by providing asset details and configurations. Users can create or import tags, subscribe to them, and assign them to an asset. The portal also lets users create data pipelines by defining the sources, destinations, stages, and rules of the pipeline. Users can configure the parameters and logic of each stage using graphical tools or code editors.
 
 ## Manage assets as Azure resources in a centralized registry
-In an industrial edge environment with many assets, it's useful for IT and operations teams to have a single centralized registry for devices and assets. Azure Device Registry is a service that provides this capability, and projects industrial assets as Azure resources. Teams that use Device Registry together with the Operations Experience portal, gain a consistent deployment and management experience across cloud and edge environments.
+In an industrial edge environment with many assets, it's useful for IT and operations teams to have a single centralized registry for devices and assets. Azure Device Registry Preview is a service that provides this capability, and projects industrial assets as Azure resources. Teams that use Device Registry together with the Operations Experience portal, gain a consistent deployment and management experience across cloud and edge environments.
 
 Device Registry provides several capabilities that help teams to manage assets:
 - **Unified registry**. The Device Registry serves as the single source of truth for your asset metadata. Having a single registry can streamline and simplify the process of managing assets. It gives you a way to access and manage this data across Azure, partner, and customer applications running in the cloud or on the edge. 
@@ -67,7 +67,7 @@ The following features are supported in Azure Device Registry:
 
 
 ## Discover edge assets
-A common task in complex edge solutions is to discover assets and add them to your Kubernetes cluster. Azure IoT Akri provides this capability. It enables you to detect and add OPC UA assets to your cluster. For administrators who attach devices to or remove them from the cluster, using Azure IoT Akri reduces the level of coordination and manual configuration.
+A common task in complex edge solutions is to discover assets and add them to your Kubernetes cluster. Azure IoT Akri Preview provides this capability. It enables you to detect and add OPC UA assets to your cluster. For administrators who attach devices to or remove them from the cluster, using Azure IoT Akri reduces the level of coordination and manual configuration.
 
 An Azure IoT Akri deployment can include fixed-network discovery handlers. Discovery handlers enable assets from known network endpoints to find leaf devices as they appear on device interfaces or local subnets. Examples of network endpoints include OPC UA servers at a fixed IP (without network scanning), and network scanning discovery handlers.
 
