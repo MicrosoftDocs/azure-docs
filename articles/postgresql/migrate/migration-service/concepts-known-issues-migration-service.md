@@ -21,7 +21,9 @@ Here are common limitations that apply to migration scenarios:
 
 - You can have only one active migration or validation to your Flexible server.
 
-- The migration service doesn't migrate users and roles.
+- The migration service supports users and roles migration only when the source is Azure Database for PostgreSQL - Single Server, but not from other PostgreSQL sources.
+
+- For migrations involving Azure Database for PostgreSQL - Single Server as the source, it is required that both the source and the Azure Database for PostgreSQL - Flexible Server are in the same Azure region. Exceptions to this limitation are made for target servers situated in India, China, and UAE, where cross-region migrations are permitted.
 
 - The migration service shows the number of tables copied from source to target. You must manually check the data and PostgreSQL objects on the target server post-migration.
 
