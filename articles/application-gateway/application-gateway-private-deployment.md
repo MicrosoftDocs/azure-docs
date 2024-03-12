@@ -361,7 +361,7 @@ If Application Gateway has a backend target or key vault reference to a private 
 
 ### Network Watcher integration
 
-Connection troubleshoot and NSG diagnostics return an error when running check and diagnostic tests.
+Connection troubleshoots and NSG diagnostics return an error when running check and diagnostic tests.
 
 ### Coexisting v2 Application Gateways created prior to enablement of enhanced network control
 
