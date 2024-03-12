@@ -1,5 +1,5 @@
 ---
-title: SAP system discovery support in Azure Migrate
+title: SAP systems discovery support in Azure Migrate
 description: Learn about Azure Migrate and Modernize discovery and assessment support for SAP systems.
 author: MaryMichael-MS
 ms.author: v-michaelar
@@ -10,7 +10,7 @@ ms.date: 03/11/2024
 ms.custom: 
 ---
 
-# Import inventory by using CSV (preview)
+# SAP systems discovery support (preview)
 
 As part of your migration journey to Azure by performing an import-based assessments, you first discover on-premises inventory and SAP workloads.
 
