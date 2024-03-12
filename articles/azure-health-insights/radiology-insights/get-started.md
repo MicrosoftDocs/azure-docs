@@ -17,16 +17,16 @@ ms.author: janschietse
 This quickstart provides an overview on how to use the Radiology Insights (Preview).
 
 ## Prerequisites
-To use the Radiology Insights (Preview) model, you must have an Azure AI services account created. 
+To use the Radiology Insights (Preview) model, you must have an Azure Health Insights service created. 
 
-If you have no Azure AI services account, see [Deploy Azure AI Health Insights using the Azure portal.](../deploy-portal.md)
+If you have no Azure Health Insights service, see [Deploy Azure AI Health Insights using the Azure portal.](../deploy-portal.md)
 
-Once deployment is complete, you use the Azure portal to navigate to the newly created Azure AI services account to see the details, including your Service URL. 
+Once deployment is complete, you use the Azure portal to navigate to the newly created Azure Health Insights service to see the details, including your Service URL. 
 The Service URL to access your service is: https://```YOUR-NAME```.cognitiveservices.azure.com. 
 
 ## Example request and results
 
-To send an API request, you need your Azure AI services account endpoint and key. 
+To send an API request, you need the endpoint and key of your Azure Health Insights service. 
 
 
 <!-- You can also find a full view of the [request parameters here](/rest/api/cognitiveservices/healthinsights/radiology-insights/create-job). -->
@@ -46,7 +46,7 @@ You can use the data from this example, to test your first request to the Radiol
 
 ```url
 POST
-http://{cognitive-services-account-endpoint}/health-insights/radiology-insights/jobs?api-version=2023-09-01-preview
+https://{cognitive-services-account-endpoint}/health-insights/radiology-insights/jobs?api-version=2023-09-01-preview
 Content-Type: application/json
 Ocp-Apim-Subscription-Key: {cognitive-services-account-key}
 ```
@@ -141,7 +141,8 @@ Example code snippet:
 
 ```url
 GET
-http://{cognitive-services-account-endpoint}/health-insights/radiology-insights/jobs/d48b4f4d-939a-446f-a000-002a80aa58dc?api-version=2023-09-01-preview
+https://{cognitive-services-account-endpoint}/health-insights/radiology-insights/jobs/d48b4f4d-939a-446f-a000-002a80aa58dc?api-version=2023-09-01-preview
+Ocp-Apim-Subscription-Key: {cognitive-services-account-key}
 ```
 
 ```json
