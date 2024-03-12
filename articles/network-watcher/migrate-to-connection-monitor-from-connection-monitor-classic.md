@@ -94,8 +94,6 @@ The migration helps produce the following results:
 	
 1. Select your subscription and the connection monitors you want to migrate, and then select **Migrate selected**. 
 
-After you migrated from Connection monitor (classic) to Connection monitor, you won't be able to see the connection monitors under Connection monitor (classic)
-
 You can now customize Connection monitor properties, change the default workspace, download templates, and check the migration status. 
 
 After the migration begins, the following changes take place:
