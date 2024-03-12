@@ -1245,7 +1245,7 @@ items:
         - name: Set up alert rules
           items:
           - name: Metric alert rules
-            href: alerts/alerts-create-metric-alert-rule.md
+            href: alerts/alerts-create-metric-alert-rule.yml
           - name: Log search alert rules
             href: alerts/alerts-create-log-alert-rule.md
           - name: Activity log, service health or resource health alert rules
