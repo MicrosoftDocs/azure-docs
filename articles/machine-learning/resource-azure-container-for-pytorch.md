@@ -42,9 +42,9 @@ The following configurations are supported:
 
 | Environment Name | OS | GPU Version| Python Version | PyTorch Version | ORT-training Version | DeepSpeed Version | torch-ort Version | Nebula Version | 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-|acpt-pytorch-2.1-cuda12.1|Ubuntu 20.04|cu121|3.8|2.1.2|1.16.0|0.11.1|1.16.0|0.16.10|
-|acpt-pytorch-2.0-cuda11.7|Ubuntu 20.04|cu117|3.8|2.0.1|1.14.1|0.8.2|1.14.0|0.16.2|
-|acpt-pytorch-1.13-cuda11.7|Ubuntu 20.04|cu117|3.8|1.13.1|1.14.1|0.8.2|1.14.0|0.16.2|
+|acpt-pytorch-2.1-cuda12.1|Ubuntu 20.04|cu121|3.8|2.1.2|1.17.1|0.13.1|1.17.0|0.16.10|
+|acpt-pytorch-2.0-cuda11.7|Ubuntu 20.04|cu117|3.8|2.0.1|1.17.1|0.13.1|1.17.0|0.16.10|
+|acpt-pytorch-1.13-cuda11.7|Ubuntu 20.04|cu117|3.8|1.13.1|1.17.1|0.13.1|1.17.0|0.16.10|
 
 Other packages like fairscale, horovod, msccl, protobuf, pyspark, pytest, pytorch-lightning, tensorboard, NebulaML, torchvision, and torchmetrics are provided to support all training needs.
 
