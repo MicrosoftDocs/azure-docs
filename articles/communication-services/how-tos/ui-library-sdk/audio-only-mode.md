@@ -3,7 +3,7 @@
 # For more information, see https://review.learn.microsoft.com/en-us/help/platform/learn-editor-add-metadata?branch=main
 # For valid values of ms.service, ms.prod, and ms.topic, see https://review.learn.microsoft.com/en-us/help/platform/metadata-taxonomies?branch=main
 
-title: Enabling Audio Only Mode in the UI Library
+title: Enable audio only mode in the ACS UI library
 description: Enabling audio only calling experiences
 author:      ahammer # GitHub alias
 ms.author:   adamhammer # Microsoft alias
@@ -14,7 +14,7 @@ ms.subservice: calling
 zone_pivot_groups: acs-programming-languages-support-kotlin-swift
 ---
 
-# Enable audio only mode in the UI Library
+# Enable audio only mode in the ACS UI library
 
 The UI Library allows you to modify the Audio Video mode of a Call for a local user. 
 
