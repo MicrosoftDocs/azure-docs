@@ -5,6 +5,7 @@ author: yelevin
 ms.author: yelevin
 ms.topic: how-to
 ms.date: 03/12/2024
+ms.collection: usx-security
 appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
 ---
 
