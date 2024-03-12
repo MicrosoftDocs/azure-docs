@@ -51,7 +51,7 @@ To prepare for model retirements and version upgrades, we recommend that custome
 
 For more inforation, see [How to upgrade to a new model or version](./model-versions.md).
 
-## Current Models
+## Current models
 
 These models are currently available for use in Azure OpenAI Service.
 
