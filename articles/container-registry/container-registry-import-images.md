@@ -223,7 +223,7 @@ Import-AzContainerRegistryImage -RegistryName myregistry -ResourceGroupName myRe
 ### Import from a registry in a different subscription
 
 > [!NOTE]
-> To import an image from one registry to another, the source and target registries can be in different subscriptions, but the registries can belong to different subscriptions but need to have the same location registered for Azure Container Registry (ACR).
+> To import an image from one registry to another, the source and target registries must ensure that both regions are registered for Azure Container Registry (ACR) under the subscription’s resource providers.
 
 ### [Azure CLI](#tab/azure-cli)
 
