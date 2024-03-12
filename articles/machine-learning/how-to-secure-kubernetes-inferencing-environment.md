@@ -7,7 +7,7 @@ ms.author: bozhlin
 ms.reviewer: larryfr ssalgado
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 03/11/2024
+ms.date: 08/31/2022
 ms.topic: how-to
 ms.custom: build-spring-2022, cliv2, sdkv2
 # Customer intent: I would like to have machine learning with all private IP only
@@ -15,11 +15,9 @@ ms.custom: build-spring-2022, cliv2, sdkv2
 
 # Secure Azure Kubernetes Service inferencing environment
 
-In this article, you'll learn: 
+If you have an Azure Kubernetes (AKS) cluster behind of VNet, you would need to secure Azure Machine Learning workspace resources and a compute environment using the same or peered VNet. In this article, you'll learn: 
   * What is a secure AKS inferencing environment
   * How to configure a secure AKS inferencing environment
-
-If you have an Azure Kubernetes (AKS) cluster behind of VNet, you would need to secure Azure Machine Learning workspace resources and a compute environment using the same or peered VNet.
 
 ## Limitations
 
@@ -29,7 +27,7 @@ If you have an Azure Kubernetes (AKS) cluster behind of VNet, you would need to 
 
 ## What is a secure AKS inferencing environment
 
-Azure Machine Learning AKS inferencing environments consists of a workspace, your AKS cluster, and workspace associated resources - Azure Storage, Azure Key Vault, and Azure Container Services(ARC). The following table compares how services access different part of Azure Machine Learning network with or without a VNet.
+Azure Machine Learning AKS inferencing environment consists of workspace, your AKS cluster, and workspace associated resources - Azure Storage, Azure Key Vault, and Azure Container Services(ARC). The following table compares how services access different part of Azure Machine Learning network with or without a VNet.
 
 | Scenario | Workspace | Associated resources (Storage account, Key Vault, ACR) | AKS cluster |
 |-|-|-|-|-|
@@ -43,17 +41,17 @@ In a secure AKS inferencing environment, AKS cluster accesses different part of 
 
 ## How to configure a secure AKS inferencing environment
 
-To configure a secure AKS inferencing environment, you must have VNet information for AKS. [VNet](../virtual-network/quick-create-portal.md) can be created independently or during AKS cluster deployment. There are two options for an AKS cluster in a VNet:
-  * Deploy a default AKS cluster to your VNet
-  * Or create a private AKS cluster to your VNet
+To configure a secure AKS inferencing environment, you must have VNet information for AKS. [VNet](../virtual-network/quick-create-portal.md) can be created independently or during AKS cluster deployment. There are two options for AKS cluster in a VNet:
+  * Deploy default AKS cluster to your VNet
+  * Or create private AKS cluster to your VNet
 
-For a default AKS cluster, you can find VNet information under the resource group of `MC_[rg_name][aks_name][region]`. 
+For default AKS cluster, you can find VNet information under the resource group of `MC_[rg_name][aks_name][region]`. 
 
-After you have the VNet information for an AKS cluster and an available workspace, use following steps to configure a secure AKS inferencing environment:
+After you have VNet information for AKS cluster and if you already have workspace available, use following steps to configure a secure AKS inferencing environment:
   
-  1. Use your AKS cluster VNet information to add new private endpoints for the Azure Storage Account, Azure Key Vault, and Azure Container Registry used by your workspace. These private endpoints should exist in the same or peered VNet as AKS cluster. For more information, see the [secure workspace with private endpoint](./how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) article.
-  1. If you have other storage that is used by your Azure Machine Learning workloads, add a new private endpoint for that storage. The private endpoint should be in the same or peered VNet as AKS cluster and have private DNS zone integration enabled.
-  1. Add a new private endpoint to your workspace. This private endpoint should be in the same or peered VNet as your AKS cluster and have private DNS zone integration enabled.
+  * Use your AKS cluster VNet information to add new private endpoints for the Azure Storage Account, Azure Key Vault, and Azure Container Registry used by your workspace. These private endpoints should exist in the same or peered VNet as AKS cluster. For more information, see the [secure workspace with private endpoint](./how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) article.
+  * If you have other storage that is used by your Azure Machine Learning workloads, add a new private endpoint for that storage. The private endpoint should be in the same or peered VNet as AKS cluster and have private DNS zone integration enabled.
+  * Add a new private endpoint to your workspace. This private endpoint should be in the same or peered VNet as your AKS cluster and have private DNS zone integration enabled.
 
 If you have AKS cluster ready but don't have workspace created yet, you can use AKS cluster VNet when creating the workspace. Use the AKS cluster VNet information when following the [create secure workspace](./tutorial-create-secure-workspace.md) tutorial. Once the workspace has been created, add a new private endpoint to your workspace as the last step. For all the above steps, it's important to ensure that all private endpoints should exist in the same AKS cluster VNet and have private DNS zone integration enabled.
 
