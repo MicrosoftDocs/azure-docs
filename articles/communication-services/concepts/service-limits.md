@@ -84,7 +84,7 @@ Sending a high volume of messages has a set of limitations on the number of emai
 
 ### Rate Limits 
 
-|Operation|Scope|Timeframe (minutes)| AzureManagedDomain Limit (number of emails) | Custom Domain Limit (number of emails) |
+| Operation | Scope | Timeframe (minutes) | Azure Managed Domains Limit (number of emails) | Custom Domains Limit (number of emails) |
 |---------|-----|-------------|-------------------|-------------------|
 |Send Email|Per Subscription|1|5|30|
 |Send Email|Per Subscription|60|10|100|
