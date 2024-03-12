@@ -24,7 +24,15 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 
 * This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
 * You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Follow the instructions based on your command line interface.
+
+### [Azure CLI](#tab/azure-cli)
+
 * To learn more about creating a Windows Server node pool, see [Create an AKS cluster that supports Windows Server containers](quick-windows-container-deploy-cli.md).
+
+> [!NOTE]
+> The Azure Linux node pool is now in general availablility (GA). To learn about the benefits and deployment steps, see the [Introduction to the Azure Linux Container Host for AKS][intro-azure-linux].
+
 * [Install and configure Terraform](/azure/developer/terraform/quickstart-configure).
 * [Download kubectl](https://kubernetes.io/releases/download/).
 * Create a random value for the Azure resource group name using [random_pet](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/pet).
@@ -34,16 +42,45 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 * Create an AzAPI resource [azapi_resource](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_resource).
 * Create an AzAPI resource to generate an SSH key pair using [azapi_resource_action](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_resource_action).
 
-> [!NOTE]
-> The Azure Linux node pool is now generally available (GA). To learn about the benefits and deployment steps, see the [Introduction to the Azure Linux Container Host for AKS][intro-azure-linux].
+### [Azure Developer CLI](#tab/azure-azd)
+
+* [Install the Azure Developer CLI (AZD)][azd]
+* [Install and configure Terraform](/azure/developer/terraform/quickstart-configure).
+* Clone the [AKS-Store Demo][aks-store-demo].
+
+    ```azurecli-interactive
+    azd init --template aks-store-demo
+    ```
+
+---
 
 ## Login to your Azure account
+
+### [Azure CLI](#tab/azure-azd)
 
 First, log into your Azure account and authenticate using one of the methods described in the following section.
 
 [!INCLUDE [authenticate-to-azure.md](~/azure-dev-docs-pr/articles/terraform/includes/authenticate-to-azure.md)]
 
+### [Azure Developer CLI](#tab/azure-azd)
+
+1. Log into your Azure account using azd.
+
+    ```azurecli-interactive
+    azd auth login
+    ```
+
+2. Select your subscription and region.
+
+<!-- TODO: Add in output once code is merged -->
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+
+---
+
 ## Implement the Terraform code
+
+### [Azure CLI](#tab/azure-cli)
 
 > [!NOTE]
 > The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/201-k8s-cluster-with-tf-and-aks). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/201-k8s-cluster-with-tf-and-aks/TestRecord.md).
@@ -134,9 +171,15 @@ First, log into your Azure account and authenticate using one of the methods des
 * When you created the AKS cluster, monitoring was enabled to capture health metrics for both the cluster nodes and pods. These health metrics are available in the Azure portal. For more information on container health monitoring, see [Monitor Azure Kubernetes Service health](/azure/azure-monitor/insights/container-insights-overview).
 * Several key values classified as output when you applied the Terraform execution plan. For example, the host address, AKS cluster user name, and AKS cluster password are output.
 
+### [Azure Developer CLI](#tab/azure-azd)
+
+<!-- TODO: Steps for each file. -->
+
+---
+
 ## Deploy the application
 
-To deploy the application, you use a manifest file to create all the objects required to run the [AKS Store application](https://github.com/Azure-Samples/aks-store-demo). A [Kubernetes manifest file][kubernetes-deployment] defines a cluster's desired state, such as which container images to run. The manifest includes the following Kubernetes deployments and services:
+To deploy the application, you use a manifest file to create all the objects required to run the [AKS Store application][aks-store-demo]. A [Kubernetes manifest file][kubernetes-deployment] defines a cluster's desired state, such as which container images to run. The manifest includes the following Kubernetes deployments and services:
 
 :::image type="content" source="media/quick-kubernetes-deploy-terraform/aks-store-architecture.png" alt-text="Screenshot of Azure Store sample architecture." lightbox="media/quick-kubernetes-deploy-terraform/aks-store-architecture.png":::
 
@@ -147,6 +190,8 @@ To deploy the application, you use a manifest file to create all the objects req
 
 > [!NOTE]
 > We don't recommend running stateful containers, such as Rabbit MQ, without persistent storage for production. These are used here for simplicity, but we recommend using managed services, such as Azure CosmosDB or Azure Service Bus.
+
+### [Azure CLI](#tab/azure-cli)
 
 1. Create a file named `aks-store-quickstart.yaml` and copy in the following manifest:
 
@@ -402,6 +447,10 @@ To deploy the application, you use a manifest file to create all the objects req
     service/store-front created
     ```
 
+### [Azure Developer CLI](#tab/azure-azd)
+
+<!-- instructions for azd up, simplified ed. -->
+
 ### Test the application
 
 When the application runs, a Kubernetes service exposes the application front end to the internet. This process can take a few minutes to complete.
@@ -469,7 +518,7 @@ In this quickstart, you deployed a Kubernetes cluster and then deployed a simple
 To learn more about AKS and walk through a complete code-to-deployment example, continue to the Kubernetes cluster tutorial.
 
 > [!div class="nextstepaction"]
-> [Learn more about using AKS.](/azure/aks)
+> [Learn more about using AKS.][aks-home]
 
 <!-- LINKS - internal -->
 [kubernetes-concepts]: ../concepts-clusters-workloads.md
@@ -477,5 +526,8 @@ To learn more about AKS and walk through a complete code-to-deployment example, 
 [intro-azure-linux]: ../../azure-linux/intro-azure-linux.md
 [aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
 [baseline-reference-architecture]: /azure/architecture/reference-architectures/containers/aks/baseline-aks?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+[azd]: /azure/developer/azure-developer-cli/install-azd
+[aks-home]: /azure/aks
 
 <!-- LINKS - External -->
+[aks-store-demo]: https://github.com/Azure-Samples/aks-store-demo
