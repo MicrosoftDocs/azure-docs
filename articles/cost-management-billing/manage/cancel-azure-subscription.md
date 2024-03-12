@@ -59,7 +59,7 @@ The following table describes the permission required to cancel a subscription.
 |[Microsoft Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/) and [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)     |  Service administrator and subscription owner       |
 |[Azure plan](https://azure.microsoft.com/offers/ms-azr-0017g/) and [Azure plan for DevTest](https://azure.microsoft.com/offers/ms-azr-0148g/)     |  Subscription owners      |
 
-An account administrator without the service administrator or subscription owner role can’t cancel an Azure subscription. However, an account administrator can make themself the service administrator and then they can cancel a subscription. For more information, see [Change the Service Administrator](../../role-based-access-control/classic-administrators.md#change-the-service-administrator).
+An account administrator without the service administrator or subscription owner role can’t cancel an Azure subscription. However, an account administrator can make themself a subscription owner and then they can cancel a subscription. For more information, see [Assign a user as an administrator of an Azure subscription with conditions](../../role-based-access-control/role-assignments-portal-subscription-admin.md).
 
 ## Cancel a subscription in the Azure portal
 
