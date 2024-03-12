@@ -53,11 +53,11 @@ If you want to create a custom role, follow these steps. Make sure to define all
     1. In the **JSON** tab, above the edit box, select **Edit**.
     1. Select lines starting with **"actions:"** and **"notActions:"**.
 
-     :::image type="content" source="media/how-to-add-users/replace-lines.png" alt-text="Create custom role: select lines to replace them in the editor.":::
+        :::image type="content" source="media/how-to-add-users/replace-lines.png" alt-text="Create custom role: select lines to replace them in the editor.":::
 
     1. Replace these two lines with the `Actions` and `NotActions` from the appropriate role in the following tabs. Make sure to copy from `Actions` through the closing bracket, `],`.
 
-     [!INCLUDE [custom-role-data-labeling](includes/custom-role-data-labeling.md)]
+        [!INCLUDE [custom-role-data-labeling](includes/custom-role-data-labeling.md)]
 
     1. Select **Save** at the top of the edit box to save your changes.
 
@@ -117,7 +117,7 @@ To add users to your workspace, you must be an owner of the workspace.
 
 ## For your labelers
 
-Now, your labelers can begin labeling in your project. However, they still need information from you to access the project.
+Once labelers have been added as users in the workspace, they can begin labeling in your project. However, they still need information from you to access the project.
 
 Be sure to create your labeling project before you contact your labelers.
 
