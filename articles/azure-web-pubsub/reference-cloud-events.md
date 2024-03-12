@@ -227,7 +227,7 @@ ce-signature: sha256={connection-id-hash-primary},sha256={connection-id-hash-sec
 ce-userId: {userId}
 ce-connectionId: {connectionId}
 ce-hub: {hub}
-ce-eventName: disconnect
+ce-eventName: disconnected
 ce-subprotocol: abc
 ce-connectionState: eyJrZXkiOiJhIn0=
 
