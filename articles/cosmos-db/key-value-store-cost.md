@@ -7,7 +7,6 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.date: 08/23/2019
-ms.custom: seodec18, ignite-2022
 ---
 
 # Azure Cosmos DB as a key value store – cost overview

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 1/21/2024
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020, mode-other, devx-track-extended-java, devx-track-go
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, mode-other, devx-track-extended-java, devx-track-go
 zone_pivot_groups: programming-languages-speech-services
 keywords: text to speech
 ---

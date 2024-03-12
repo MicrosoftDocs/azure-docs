@@ -10,7 +10,7 @@ ms.date: 01/29/2024
 ms.author: eur
 ms.devlang: cpp
 # ms.devlang: cpp, csharp, golang, java, javascript, objective-c, python
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020, mode-other, devx-track-extended-java, devx-track-go
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, mode-other, devx-track-extended-java, devx-track-go
 zone_pivot_groups: programming-languages-speech-services
 keywords: text to speech
 #customer intent: As a user, I want to create speech output from text by using my choice of technologies which fit into my current processes.

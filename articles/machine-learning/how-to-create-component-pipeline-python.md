@@ -12,8 +12,6 @@ ms.date: 12/30/2023
 ms.custom:
   - devx-track-python
   - sdkv2
-  - event-tier1-build-2022
-  - ignite-2022
   - build-2023
   - ignite-2023
 ---

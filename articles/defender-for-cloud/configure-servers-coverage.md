@@ -7,7 +7,7 @@ ms.date: 02/05/2024
 
 # Configure Defender for Servers features
 
-Microsoft Defender for Cloud's Defender for Servers plans contains components that monitor your environments to provide extended coverage on your servers. Each of these components can be enabled, disabled or configured to your meet your specific requirements. 
+Microsoft Defender for Cloud's Defender for Servers plans contains components that monitor your environments to provide extended coverage on your servers. Each of these components can be enabled, disabled or configured to your meet your specific requirements.
 
 | Component | Availability | Description | Learn more |
 |--|--|--|--|
@@ -80,7 +80,7 @@ Vulnerability assessment for machines allows you to select between two vulnerabi
 
 ## Configure endpoint protection
 
-With Microsoft Defender for Servers, you enable the protections provided by [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint?view=o365-worldwide) to your server resources. Defender for Endpoint includes automatic agent deployment to your servers, and security data integration with Defender for Cloud.
+With Microsoft Defender for Servers, you enable the protections provided by [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint) to your server resources. Defender for Endpoint includes automatic agent deployment to your servers, and security data integration with Defender for Cloud.
 
 To configure endpoint protection:
 
@@ -162,7 +162,7 @@ You can also check the coverage for all of all your subscriptions and resources 
 
 ## Disable Defender for Servers plan or features
 
-To disable The Defender for Servers plan or any of the features of the plan, navigate to the Environment settings page of the relevant subscription or workspace and toggle the relevant switch to **Off**. 
+To disable The Defender for Servers plan or any of the features of the plan, navigate to the Environment settings page of the relevant subscription or workspace and toggle the relevant switch to **Off**.
 
 > [!NOTE]
 > When you disable the Defender for Servers plan on a subscription, it doesn't disable it on a workspace. To disable the plan on a workspace, you must navigate to the plans page for the workspace and toggle the switch to **Off**.

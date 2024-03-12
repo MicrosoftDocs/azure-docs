@@ -10,6 +10,9 @@
 
 # Frequently asked questions about the Azure Linux Container Host for AKS
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 This article answers common questions about the Azure Linux Container Host.
 
 ## General FAQs

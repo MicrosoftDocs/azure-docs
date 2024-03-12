@@ -8,7 +8,6 @@ ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 1/19/2024
 ms.author: eur
-ms.custom: ignite-fall-2021
 zone_pivot_groups: speech-studio-cli-rest
 ---
 

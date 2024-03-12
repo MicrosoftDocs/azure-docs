@@ -4,7 +4,6 @@ description: Describes how to create a new volume from a snapshot by using Azure
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: how-to
 ms.date: 02/22/2023
 ms.author: anfdocs

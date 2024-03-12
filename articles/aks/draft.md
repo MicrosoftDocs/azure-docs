@@ -5,7 +5,7 @@ author: qpetraroia
 ms.author: qpetraroia
 ms.topic: article
 ms.date: 06/22/2023
-ms.custom: devx-track-azurecli, build-spring-2022, event-tier1-build-2022
+ms.custom: devx-track-azurecli, build-spring-2022
 ---
 
 # Draft for Azure Kubernetes Service (AKS) (preview)

@@ -6,7 +6,7 @@ ms.author: allensu
 ms.subservice: aks-networking
 ms.topic: article
 ms.custom: references_regions, devx-track-azurecli, build-2023
-ms.date: 05/24/2023
+ms.date: 02/12/2024
 ---
 
 # Configure Azure CNI Powered by Cilium in Azure Kubernetes Service (AKS)
@@ -17,7 +17,7 @@ By making use of eBPF programs loaded into the Linux kernel and a more efficient
 
 - Functionality equivalent to existing Azure CNI and Azure CNI Overlay plugins
 
-- Faster service routing
+- Improved Service routing
 
 - More efficient network policy enforcement
 

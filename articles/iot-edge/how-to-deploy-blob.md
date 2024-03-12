@@ -3,7 +3,7 @@ title: Deploy blob storage on module to your device - Azure IoT Edge
 description: Deploy an Azure Blob Storage module to your IoT Edge device to store data at the edge.
 author: PatAltimore
 ms.author: patricka
-ms.date: 06/06/2023
+ms.date: 02/14/2024
 ms.topic: conceptual
 ms.service: iot-edge
 ms.reviewer: arduppal
@@ -24,7 +24,8 @@ There are several ways to deploy modules to an IoT Edge device and all of them w
 
 - [Visual Studio Code](https://code.visualstudio.com/).
 
-- The [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) extension and the [Azure IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) extension if deploying from Visual Studio Code.
+- [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) extension. The *Azure IoT Edge tools for Visual Studio Code* extension is in [maintenance mode](https://github.com/microsoft/vscode-azure-iot-edge/issues/639).
+- [Azure IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) extension if deploying from Visual Studio Code.
 
 ## Deploy from the Azure portal
 
@@ -165,6 +166,9 @@ It may take a few moments for the module to be started on the device and then re
 ## Deploy from Visual Studio Code
 
 Azure IoT Edge provides templates in Visual Studio Code to help you develop edge solutions. Use the following steps to create a new IoT Edge solution with a blob storage module and to configure the deployment manifest.
+
+> [!IMPORTANT]
+> The Azure IoT Edge Visual Studio Code extension is in [maintenance mode](https://github.com/microsoft/vscode-azure-iot-edge/issues/639).
 
 1. Select **View** > **Command Palette**.
 

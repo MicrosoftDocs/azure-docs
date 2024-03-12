@@ -6,11 +6,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: tutorial
-author: manashgoswami 
+author: manashgoswami
 ms.author: magoswam
-ms.reviewer: ssalgado 
+ms.reviewer: ssalgado
 ms.date: 11/25/2023
-ms.custom: automl, ignite-2022
+ms.custom: automl
 #Customer intent: As a non-coding data scientist, I want to use automated machine learning to build a demand forecasting model.
 ---
 

@@ -149,7 +149,7 @@ Virtual WAN supports up to 20-Gbps aggregate throughput both for VPN and Express
 
 ### How is Virtual WAN different from an Azure virtual network gateway?
 
-A virtual network gateway VPN is limited to 30 tunnels. For connections, you should use Virtual WAN for large-scale VPN. You can connect up to 1,000 branch connections per virtual hub with aggregate of 20 Gbps per hub. A connection is an active-active tunnel from the on-premises VPN device to the virtual hub. You can also have multiple virtual hubs per region, which means you can connect more than 1,000 branches to a single Azure Region by deploying multiple Virtual WAN hubs in that Azure Region, each with its own site-to-site VPN gateway.
+A virtual network gateway VPN is limited to 100 tunnels. For connections, you should use Virtual WAN for large-scale VPN. You can connect up to 1,000 branch connections per virtual hub with aggregate of 20 Gbps per hub. A connection is an active-active tunnel from the on-premises VPN device to the virtual hub. You can also have multiple virtual hubs per region, which means you can connect more than 1,000 branches to a single Azure Region by deploying multiple Virtual WAN hubs in that Azure Region, each with its own site-to-site VPN gateway.
 
 ### <a name="packets"></a>What is the recommended algorithm and Packets per second per site-to-site instance in Virtual WAN hub? How many tunnels is support per instance? What is the max throughput supported in a single tunnel?
 
@@ -459,6 +459,8 @@ There are several things to note with the virtual hub router upgrade:
 * If you have already configured BGP peering between your Virtual WAN hub and an NVA in a spoke VNet, then you'll have to [delete and then recreate the BGP peer](create-bgp-peering-hub-portal.md). Since the virtual hub router's IP addresses change after the upgrade, you'll also have to reconfigure your NVA to peer with the virtual hub router's new IP addresses. These IP addresses are represented as the "virtualRouterIps" field in the Virtual Hub's Resource JSON.
 
 * If you have a network virtual appliance (NVA) in the virtual hub, you'll have to work with your NVA partner to obtain instructions on how to upgrade your Virtual WAN hub.
+
+* If your virtual hub is configured with more than 15 routing infrastructure units, please scale in your virtual hub to 2 routing infrastructure units before attempting to upgrade. You can scale back out your hub to more than 15 routing infrastructure units after upgrading your hub. 
 
 If the update fails for any reason, your hub will be auto recovered to the old version to ensure there's still a working setup.
 

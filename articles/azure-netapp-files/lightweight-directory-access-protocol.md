@@ -1,10 +1,9 @@
 ---
 title: Understand the use of LDAP with Azure NetApp Files | Microsoft Learn
-description: This article helps you understand how Azure NetApp Files uses lightweight directory access protocol (LDAP).  
+description: This article helps you understand how Azure NetApp Files uses lightweight directory access protocol (LDAP).
 services: azure-netapp-files
 author: whyistheinternetbroken
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: conceptual
 ms.date: 08/05/2023
 ms.author: anfdocs

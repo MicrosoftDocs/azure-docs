@@ -4,16 +4,14 @@ description: In this article, you learn how to filter network traffic to a subne
 services: virtual-network
 author: asudbring
 
-tags: azure-resource-manager
-# Customer intent: I want to filter network traffic to virtual machines that perform similar functions, such as web servers.
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
-ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: allensu
 ms.custom: devx-track-azurecli
+# Customer intent: I want to filter network traffic to virtual machines that perform similar functions, such as web servers.
 ---
 
 # Filter network traffic with a network security group using the Azure CLI

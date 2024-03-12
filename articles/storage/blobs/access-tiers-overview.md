@@ -200,12 +200,8 @@ Changing the access tier for a blob when versioning is enabled, or if the blob h
 
 ## Cold tier
 
-The cold tier is now generally available in all public and Azure Government regions except Poland Central and Qatar Central.
-
 ### Limitations and known issues
 
-- The [change feed](storage-blob-change-feed.md) is not yet compatible with the cold tier.
-- [Object replication](object-replication-overview.md) is not yet compatible with the cold tier.
 - The default access tier setting of the account can't be set to cold tier.
 
 ### Required versions of REST, SDKs, and tools

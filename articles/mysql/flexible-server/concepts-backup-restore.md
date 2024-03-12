@@ -6,7 +6,6 @@ ms.subservice: flexible-server
 ms.topic: conceptual
 author: VandhanaMehta
 ms.author: vamehta
-ms.custom: event-tier1-build-2022
 ms.date: 07/26/2022
 ---
 
@@ -123,7 +122,7 @@ You can choose between latest restore point, custom restore point and fastest re
 The estimated time of recovery depends on several factors including the database sizes, the transaction log backup size, the compute size of the SKU, and the time of the restore as well. The transaction log recovery is the most time consuming part of the restore process. If the restore time is chosen closer to the snapshot backup schedule, the restore operations are faster since transaction log application is minimal. To estimate the accurate recovery time for your server, we highly recommend testing it in your environment as it has too many environment-specific variables.
 
 > [!IMPORTANT]
-> If you are restoring a Azure Database for MySQL flexible server instance configured with zone redundant high availability, the restored server is configured in the same region and zone as your primary server, and deployed as a single server in a non-HA mode. Refer to [zone redundant high availability](concepts-high-availability.md) for flexible server.
+> If you are restoring an Azure Database for MySQL flexible server instance configured with zone redundant high availability, the restored server is configured in the same region and zone as your primary server, and deployed as a single server in a non-HA mode. Refer to [zone redundant high availability](concepts-high-availability.md) for flexible server.
 
 > [!IMPORTANT]
 > You can recover a deleted Azure Database for MySQL flexible server resource within 5 days from the time of server deletion. For a detailed guide on how to restore a deleted server, [refer documented steps](../flexible-server/how-to-restore-dropped-server.md). To protect server resources post deployment from accidental deletion or unexpected changes, administrators can leverage [management locks](../../azure-resource-manager/management/lock-resources.md).
@@ -244,8 +243,3 @@ Azure portal supports Point In Time Restore for all servers, allowing users to r
 -   Learn about [business continuity](./concepts-business-continuity.md)
 -   Learn about [zone redundant high availability](./concepts-high-availability.md)
 -   Learn about [backup and recovery](./concepts-backup-restore.md)
-
-
-
-
-

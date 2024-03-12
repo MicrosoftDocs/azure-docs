@@ -4,7 +4,6 @@ description: Describes the storage hierarchy, including Azure NetApp Files accou
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: overview
 ms.date: 07/27/2023
 ms.author: anfdocs

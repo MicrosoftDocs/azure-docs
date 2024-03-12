@@ -2,7 +2,6 @@
 author: cephalin
 ms.service: app-service
 ms.devlang: java
-ms.custom: ignite-2022
 ms.topic: quickstart
 ms.date: 06/30/2022
 ms.author: cephalin

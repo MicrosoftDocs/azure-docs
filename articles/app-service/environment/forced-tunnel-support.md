@@ -6,7 +6,7 @@ ms.assetid: 384cf393-5c63-4ffb-9eb2-bfd990bc7af1
 ms.topic: quickstart
 ms.date: 03/29/2022
 ms.author: madsd
-ms.custom: mvc, seodec18, mode-other
+ms.custom: mvc, mode-other
 ---
 
 # Configure your App Service Environment with forced tunneling

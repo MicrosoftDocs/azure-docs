@@ -7,9 +7,7 @@ ms.service: service-connector
 ms.topic: how-to
 ms.date: 02/02/2024
 ms.custom:
-- ignite-fall-2021
-- kr2b-contr-experiment
-- event-tier1-build-2022
+  - kr2b-contr-experiment
 ---
 
 # Integrate Azure SignalR Service with Service Connector

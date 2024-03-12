@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 2/22/2024
 ms.reviewer: eur
 ms.author: eur
 author: eric-urban
@@ -17,7 +17,7 @@ author: eric-urban
 
 [!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 
-The Azure AI SDK is a family of packages that provide access to Azure AI services such as Azure OpenAI and Speech. 
+The Azure AI SDK is a family of packages that provide access to Azure AI services such as Azure OpenAI. 
 
 In this article, you'll learn how to get started with the Azure AI SDK for generative AI applications. You can either:
 - [Install the SDK into an existing development environment](#install-the-sdk-into-an-existing-development-environment) or
@@ -126,6 +126,6 @@ The Azure AI code samples in GitHub Codespaces help you quickly get started with
 
 ## Next steps
 
-- [Get started building a sample copilot application](https://github.com/azure/aistudio-copilot-sample)
+- [Build your own copilot using Azure AI CLI and SDK](../tutorials/deploy-copilot-sdk.md)
 - [Try the Azure AI CLI from Azure AI Studio in a browser](develop-in-vscode.md)
 - [Azure SDK for Python reference documentation](/python/api/overview/azure/ai)
