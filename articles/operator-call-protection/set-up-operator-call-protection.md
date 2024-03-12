@@ -41,8 +41,6 @@ If it's Disabled, update it to Enabled and notify your Microsoft onboarding team
 
 ## Provision subscribers
 
-[!INCLUDE [operator-call-protection-sub-ucaas-restriction](includes/operator-call-protection-sub-ucaas-restriction.md)]
-
 [!INCLUDE [communications-gateway-provisioning-permissions](../communications-gateway/includes/communications-gateway-provisioning-permissions.md)]
 
 You should use Azure Communications Gateway's Number Management Portal to provision subscribers.
@@ -77,7 +75,7 @@ You must create an *Account* for each group of subscribers that you manage with 
 ## Carry out integration testing and request changes
 
 Network integration includes identifying SIP interoperability requirements and configuring devices to meet these requirements.
-For example, this process often includes interworking header formats and/or the signaling & media flows used for call hold and session refresh.
+For example, this process often includes interworking header formats and/or the signaling and media flows used for call hold and session refresh.
 
 The connection to Azure Operator Call Protection is over SIPREC.
 The Call Protection service takes the role of the SIPREC Session Recording Server (SRS).
@@ -97,7 +95,7 @@ You must test that you can raise tickets in the Azure portal to report problems 
 
 ## Learn about monitoring Azure Operator Call Protection
 
-Your staff can use a selection of key metrics to monitor Azure Operator Call Protection through your Azure Communications Gateway.
+Your operations team can use a selection of key metrics to monitor Azure Operator Call Protection through your Azure Communications Gateway.
 These metrics are available to anyone with the Reader role on the subscription for Azure Communications Gateway.
 See [Monitoring Azure Communications Gateway](../communications-gateway/monitor-azure-communications-gateway.md).
 

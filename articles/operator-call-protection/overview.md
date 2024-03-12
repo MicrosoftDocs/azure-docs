@@ -47,7 +47,7 @@ Azure Operator Call Protection connects to your network over IP via Azure Commun
 
 Your network communicates with the Call Protection service deployed in Azure.
 Connection is over any means using public IP addressing including:
-* Azure Internet Peering for Communications Services ("MAPS for Voice")
+* Microsoft Azure Peering Services Voice (also known as MAPS Voice)
 * ExpressRoute Microsoft peering
 
 Your network must connect to Azure Communications Gateway and thus Azure Operator Call Protection over SIPREC.

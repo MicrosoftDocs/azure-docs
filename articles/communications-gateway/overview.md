@@ -42,7 +42,8 @@ For more information about the networking and call routing requirements, see [Yo
 Traffic from all enterprises shares a single SIP trunk, using a multitenant format. This multitenant format ensures the solution is suitable for both the SMB and Enterprise markets.
 
 > [!IMPORTANT]
-> Azure Communications Gateway doesn't store/process any data outside of the Azure Regions where you deploy it.
+> Azure Communications Gateway stores all data inside the Azure Regions where you deploy it.
+> When using the listed voice features, all data is also processed inside these Azure Regions.
 
 ## Voice features
 

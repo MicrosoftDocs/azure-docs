@@ -128,7 +128,7 @@ Your network must route calls for service verification testing and for integrati
 
 ## Carry out integration testing and request changes
 
-Network integration includes identifying SIP interoperability requirements and configuring devices to meet these requirements. For example, this process often includes interworking header formats and/or the signaling & media flows used for call hold and session refresh.
+Network integration includes identifying SIP interoperability requirements and configuring devices to meet these requirements. For example, this process often includes interworking header formats and/or the signaling and media flows used for call hold and session refresh.
 
 You must test typical call flows for your network. We recommend that you follow the example test plan from your onboarding team. Your test plan should include call flow, failover, and connectivity testing.
 
@@ -177,7 +177,7 @@ You must test that you can raise tickets in the Azure portal to report problems 
 
 ## Learn about monitoring Azure Communications Gateway
 
-Your staff can use a selection of key metrics to monitor Azure Communications Gateway. These metrics are available to anyone with the Reader role on the subscription for Azure Communications Gateway. See [Monitoring Azure Communications Gateway](monitor-azure-communications-gateway.md).
+Your operations team can use a selection of key metrics to monitor Azure Communications Gateway. These metrics are available to anyone with the Reader role on the subscription for Azure Communications Gateway. See [Monitoring Azure Communications Gateway](monitor-azure-communications-gateway.md).
 
 ## Verify API integration
 
