@@ -46,6 +46,16 @@ Capabilities in public preview:
 - Direct translations listed in the article, [Splunk to Kusto cheat sheet](/azure/data-explorer/kusto/query/splunk-cheat-sheet)
 - Review translated query error feedback with edit capability to save time in the detection rule translation process
 
+Here are some of the priorities that are important to us as we continue to develop the translation technology:
+
+- Splunk Common Information Model (CIM) to Microsoft Sentinel's Advanced Security Information Model (ASIM) translation support
+- Translated queries feature a completeness status with translation states 
+- Multiple data sources and index
+- Rule correlations
+- Support for macros
+- Support for lookups 
+- Complex queries with joins
+
 ## Start the SIEM migration experience
 
 1. Navigate to Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Content management**, select **Content hub**.
