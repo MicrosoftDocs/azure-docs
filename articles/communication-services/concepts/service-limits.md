@@ -80,11 +80,12 @@ If you have requirements that exceed the rate-limits, submit [a request to Azure
 For more information on the SMS SDK and service, see the [SMS SDK overview](./sms/sdk-features.md) page or the [SMS FAQ](./sms/sms-faq.md) page.
 
 ## Email
-Sending a high volume of messages has a set of limitations on the number of email messages you can send. If you hit these limits, your messages won't be queued to be sent. You can submit these requests again, once the Retry-After time expires.
+There is a limit on the number of email messages you can send. If you exceed the below limits on your subscription, your requests will be rejected. You can attempt these requests again, after the Retry-After time has passed. Please take the action and request to raise the sending volume limits.
 
 ### Rate Limits 
 
-Custom Domains
+[Custom Domains](../quickstarts/email/add-custom-verified-domains.md)
+
 | Operation | Scope | Timeframe (minutes) | Limit (number of emails) |
 |---------|-----|-------------|-------------------|
 |Send Email|Per Subscription|1|30|
@@ -92,7 +93,8 @@ Custom Domains
 |Get Email Status|Per Subscription|1|60|
 |Get Email Status|Per Subscription|60|200|
 
-Azure Managed Domains
+[Azure Managed Domains](../quickstarts/email/add-azure-managed-domains.md)
+
 | Operation | Scope | Timeframe (minutes) | Limit (number of emails) |
 |---------|-----|-------------|-------------------|
 |Send Email|Per Subscription|1|5|
