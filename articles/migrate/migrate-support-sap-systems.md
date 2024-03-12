@@ -14,7 +14,7 @@ ms.custom:
 
 As part of your migration journey to Azure by performing an import-based assessments, you first discover on-premises inventory and SAP workloads.
 
-# Key benefits
+## Key benefits
 
 -    A faster and easier way to discover and assess your SAP estates for planning your migration to Azure.
 - A comprehensive and integrated solution that covers both SAP and non-SAP workloads and provides a unified view of your migration readiness.
