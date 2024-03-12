@@ -209,6 +209,9 @@ For more information on components, see the following articles:
 * [How to use components in pipelines (CLI)](how-to-create-component-pipelines-cli.md)
 * [How to use components in pipelines (SDK)](how-to-create-component-pipeline-python.md)
 
+  > [!IMPORTANT]
+  > Registry only support to have named assets (data/model/component/environment). If you to reference an asset in a registry, you need to create it in the registry first. Especially for pipeline component case, if you want reference component or environment in pipeline component, you need first create the component or environment in the registry.
+
 # [Azure CLI](#tab/cli)
 
 Make sure you are in the folder `cli/jobs/pipelines-with-components/nyc_taxi_data_regression`. You'll find the component definition file `train.yml` that packages a Scikit Learn training script `train_src/train.py` and the [curated environment](resource-curated-environments.md) `AzureML-sklearn-0.24-ubuntu18.04-py37-cpu`. We'll use the Scikit Learn environment created in pervious step instead of the curated environment. You can edit `environment` field in the `train.yml` to refer to your Scikit Learn environment. The resulting component definition file `train.yml` will be similar to the following example: 
