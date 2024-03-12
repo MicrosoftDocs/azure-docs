@@ -68,11 +68,11 @@ Use this guide if you have already identified the Vercel projects or want to int
 
 7.	After the successful Try Azure Cosmos DB account creation, click on 'Continue'
 
-   :::image type="content" source="./media/integrations/vercel/account-continue.png" alt-text="Screenshot shows to continue with the integration." lightbox="./media/integrations/vercel/account-contiune.png":::
+   :::image type="content" source="./media/integrations/vercel/account-continue.png" alt-text="Screenshot shows to continue with the integration." lightbox="./media/integrations/vercel/account-continue.png":::
 
 8. Click on 'Accept' in the pop-up to access the Try Azure Cosmos DB account. (Mandatory to complete the Integration). 
 
-   :::image type="content" source="./media/integrations/vercel/accept.png" alt-text="Screenshot shows to confirm the integration." lightbox="./media/integrations/vercel/accept.png":::
+   :::image type="content" source="./media/integrations/vercel/accept.png" alt-text="Screenshot shows to accept the access." lightbox="./media/integrations/vercel/accept.png":::
 
 9. Select Integrate and you're done
 
