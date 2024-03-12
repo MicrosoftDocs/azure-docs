@@ -159,7 +159,7 @@ To perform efficient vector similarity searches within our collection, we need t
 ### IVF
 IVF stands for Inverted File Index, is the default vector indexing algorithm, which works on all cluster tiers. It's an approximate nearest neighbors (ANN) approach that uses clustering to speeding up the search for similar vectors in a dataset. To create an IVF index, use the following command:
 
-```
+```javascript
 db.command({
   'createIndexes': COLLECTION_NAME,
   'indexes': [
@@ -186,7 +186,7 @@ db.command({
 
 HNSW stands for Hierarchical Navigable Small World, a graph-based data structure that partitions vectors into clusters and subclusters. With HNSW, you can perform fast approximate nearest neighbor search at higher speeds with greater accuracy. HNSW is an approximate (ANN) method. Here's how to set it up:
 
-```
+```javascript
 db.command(
 { 
     "createIndexes": "ExampleCollection",
@@ -216,7 +216,7 @@ Now insert the inventory data, which includes descriptions and their correspondi
 
 Download the [shoes_with_vectors.json](https://github.com/jayanta-mondal/ignite-demo/blob/main/data/shoes_with_vectors.json) file from the GitHub repository and store it in a `data` directory within your project folder.
 
-```
+```python
 data_file = open(file="./data/shoes_with_vectors.json", mode="r") 
 data = json.load(data_file)
 data_file.close()
