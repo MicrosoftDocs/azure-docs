@@ -46,7 +46,7 @@ Endpoint discovery and recommendations are currently provided by the Defender fo
 
 Endpoint protection recommendations are constructed in two stages. The first stage is [discovery](#endpoint-detection-and-response-solution---discovery) of an endpoint detection and response solution. The second is [assessment](#endpoint-detection-and-response-solution---configuration-assessment) of the solution’s configuration. The following tables provide details of the current and new experiences for each stage.
 
-Learn how to how to [manage the new endpoint detection and response recommendations (agentless)](endpoint-detection-response.md).
+Learn how to [manage the new endpoint detection and response recommendations (agentless)](endpoint-detection-response.md).
 
 #### Endpoint detection and response solution - discovery
 

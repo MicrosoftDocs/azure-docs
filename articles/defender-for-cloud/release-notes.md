@@ -57,6 +57,8 @@ These public preview recommendations are now deprecated.
 
 The current generally available recommendations are still supported and will be until August 2024.
 
+Learn how to [prepare for the deprecation of the Log analytics agent](prepare-deprecation-log-analytics-mma-agent.md#endpoint-protection-recommendations-experience).
+
 ### (Preview) Compliance standards added to compliance dashboard
 
 March 6, 2024
