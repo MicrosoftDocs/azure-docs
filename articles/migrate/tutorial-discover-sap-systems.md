@@ -110,5 +110,5 @@ After you added information to the import template file, proceed to import the t
 
 
 ## Next steps
-[Assess SAP System for migration](#tutorial-assess-sap-systems.md).
+[Assess SAP System for migration](./#tutorial-assess-sap-systems.md).
 
