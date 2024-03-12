@@ -227,8 +227,6 @@ The following table lists the available settings for the cluster autoscaler prof
 ## Retrieve cluster autoscaler logs, status and metrics
 
 You can retrieve logs and status updates from the cluster autoscaler to help diagnose and debug autoscaler events. AKS manages the cluster autoscaler on your behalf and runs it in the managed control plane. You can enable control plane node to see the logs and operations from the cluster autoscaler.
-> [!NOTE]
-> You can now enable [cluster autoscaler metrics (Preview)](https://learn.microsoft.com/azure/aks/monitor-control-plane-metrics) with the Azure Monitor managed service for Prometheus add-on during cluster creation or for an existing cluster
 
 ### [Azure CLI](#tab/azure-cli)
 #### Logs
