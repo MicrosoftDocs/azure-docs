@@ -183,7 +183,7 @@ sections:
       - question: |
           What is the difference between NSG flow logs and NSG diagnostics?
         answer: |
-          NSG flow logs log traffic flowing through a network security group, while NSG diagnostics returns all network security groups that your traffic is traversing and the rules of each network security group that are applied to this traffic.
+          NSG flow logs log traffic flowing through a network security group, while NSG diagnostics returns all network security groups that your traffic is traversing and the rules of each network security group that are applied to this traffic. Use NSG diagnostics to verify that your network security group rules are being applied as expected.
 
       - question: |
           Can I log ESP and AH traffic using NSG flow logs?
