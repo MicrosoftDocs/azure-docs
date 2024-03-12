@@ -24,14 +24,14 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 |Date | Update |
 |----------|----------|
-| March 28 | [New endpoint detection and response recommendations](#new-endpoint-detection-and-response-recommendations) |
+| March 18 | [New endpoint detection and response recommendations](#new-endpoint-detection-and-response-recommendations) |
 | March 6 | [(Preview) Compliance standards added to compliance dashboard](#preview-compliance-standards-added-to-compliance-dashboard)  |
 | March 5 | [Deprecation of two recommendations related to PCI](#deprecation-of-two-recommendations-related-to-pci) |
 | March 3 | [Defender for Cloud Containers Vulnerability Assessment powered by Qualys retirement](#defender-for-cloud-containers-vulnerability-assessment-powered-by-qualys-retirement) |
 
 ### New endpoint detection and response recommendations
 
-March 28 2024
+March 18 2024
 
 We are announcing new endpoint detection and response recommendations that discover and assesses the configuration of supported endpoint detection and response solutions. If issues are found, these recommendations offer remediation steps. 
 
@@ -48,7 +48,7 @@ The following new agentless endpoint protection recommendations are now availabl
 
 Learn how to how to manage these new [endpoint detection and response recommendations (agentless)](endpoint-detection-response.md)
 
-These public preview recommendations are now deprecated.
+These public preview recommendations will be deprecated at the end March.
 
 | Recommendation | Agent |
 |--|--|
@@ -57,7 +57,7 @@ These public preview recommendations are now deprecated.
 
 The current generally available recommendations are still supported and will be until August 2024.
 
-Learn how to [prepare for the deprecation of the Log analytics agent](prepare-deprecation-log-analytics-mma-agent.md#endpoint-protection-recommendations-experience).
+Learn how to [prepare for the new endpoint detection recommendation experience](prepare-deprecation-log-analytics-mma-agent.md#endpoint-protection-recommendations-experience).
 
 ### (Preview) Compliance standards added to compliance dashboard
 
