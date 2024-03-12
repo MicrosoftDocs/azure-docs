@@ -5,7 +5,7 @@ author: cwatson-cat
 ms.author: cwatson
 ms.topic: conceptual
 ms.date: 03/09/2024
-appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+appliesto: Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
 ---
 
