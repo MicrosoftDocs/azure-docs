@@ -94,7 +94,7 @@ Capabilities in public preview:
 1. Select **Deploy** to start the deployment of analytics rules to your Microsoft Sentinel workspace. 
 
    The following resources are deployed:
-   - For all OOTB matches, the corresponding solutions with the matched analytics rule is installed, and the matched rules are deployed as active analytics rules.
+   - For all OOTB matches, the corresponding solutions with the matched analytics rule are installed, and the matched rules are deployed as active analytics rules.
    - All custom rules translated to Sentinel analytics rules are deployed as active analytics rules.
 
 1. View the properties of deployed rules from Microsoft Sentinel **Analytics**.
@@ -116,4 +116,5 @@ Capabilities in public preview:
 In this article, you learned how to use the SIEM migration experience. 
 
 > [!div class="nextstepaction"]
-> To learn more about migrating detection rules, see [Migrate Splunk detection rules](migration-splunk-detection-rules.md).
+> To learn more about migrating detection rules, see 
+> [Migrate Splunk detection rules](migration-splunk-detection-rules.md)
