@@ -141,7 +141,7 @@ sections:
       - question: |
           Does connection monitor support classic VMs?
         answer: |
-          No, connection monitor doesn't support classic VMs. We recommended that you migrate infrastructure as a service (IaaS) resources from classic to Azure Resource Manager because classic resources [will be deprecated](../virtual-machines/classic-vm-deprecation.md). For more information, see [Migrate IaaS resources from classic to Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-overview.md).
+          No, connection monitor doesn't support classic VMs. For more information, see [Migrate IaaS resources from classic to Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-overview.md).
 
       - question: |
           What if my topology isn't decorated or my hops have missing information?
@@ -166,7 +166,7 @@ sections:
       - question: |
           Are there any limitations to using Azure Monitor and Arc Agents with connection monitor?
         answer: |
-          There is currently a regional boundary when an endpoint uses Azure Monitor and Arc agents with the associated Log Analytics workspace. As a result to this limitation, the associated Log Analytics workspace must be in the same region as the Arc endpoint. Data ingested into individual workspaces can be unionized for a single view, see [Query data across Log Analytics workspaces, applications, and resources in Azure Monitor](../azure-monitor/logs/cross-workspace-query.md).
+          There's currently a regional boundary when an endpoint uses Azure Monitor and Arc agents with the associated Log Analytics workspace. As a result to this limitation, the associated Log Analytics workspace must be in the same region as the Arc endpoint. Data ingested into individual workspaces can be unionized for a single view, see [Query data across Log Analytics workspaces, applications, and resources in Azure Monitor](../azure-monitor/logs/cross-workspace-query.md).
 
   - name: Flow logs
     questions:
@@ -183,7 +183,7 @@ sections:
       - question: |
           What is the difference between NSG flow logs and NSG diagnostics?
         answer: |
-          NSG flow logs log traffic flowing through a network security group, while NSG diagnostics returns all network security groups that your traffic is traversing and the rules of each network security group that are applied to this traffic. Use NSG diagnostics to verify that your network security group rules are being applied as expected.
+          NSG flow logs log traffic flowing through a network security group. On the other hand, NSG diagnostics returns all network security groups that your traffic is traversing and the rules of each network security group that are applied to this traffic. Use NSG diagnostics to verify that your network security group rules are being applied as expected.
 
       - question: |
           Can I log ESP and AH traffic using NSG flow logs?
