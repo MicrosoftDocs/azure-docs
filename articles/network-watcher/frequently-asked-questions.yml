@@ -181,6 +181,11 @@ sections:
           Flow log data is collected outside the path of your network traffic, so it doesn't affect network throughput or latency. You can create or delete flow logs without any risk of impact to network performance.
 
       - question: |
+          What is the difference between NSG flow logs and NSG diagnostics?
+        answer: |
+          NSG flow logs log traffic flowing through a network security group, while NSG diagnostics returns all network security groups that your traffic is traversing and the rules of each network security group that are applied to this traffic.
+
+      - question: |
           Can I log ESP and AH traffic using NSG flow logs?
         answer: |
           No, NSG flow logs don't support ESP and AH protocols.
