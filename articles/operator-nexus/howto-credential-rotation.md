@@ -17,9 +17,9 @@ This article describes the Operator Nexus credential rotation lifecycle includin
 
 - Target cluster and fabric must be in running and healthy state.
 - BMC, Pure Admin & Console User credential updates are written to a user provided key vault, if provided. Users provide key vault information on the Cluster resource.
-  - For more information on adding key vault information to the Cluster, see [Create and provision a Cluster](./howto-configure-cluster).
+  - For more information on adding key vault information to the Cluster, see [Create and provision a Cluster](howto-configure-cluster).
   - Adding or updating key vault information to an active Cluster can also be provided via a Cluster update command.
-  - For information on configuring the key vault to receive credential rotation updates, see [Setting up Key Vault for Managed Credential Rotation](./how-to-credential-manager-keyvault.md).
+  - For information on configuring the key vault to receive credential rotation updates, see [Setting up Key Vault for Managed Credential Rotation](how-to-credential-manager-keyvault.md).
 
 ## Rotating credentials
 
