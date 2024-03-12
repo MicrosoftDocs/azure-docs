@@ -349,6 +349,8 @@ module.exports = async function (context, req) {
     }];
 };
 ```
+::: zone-end
+
 ::: zone pivot="programming-language-powershell"
 
 Complete PowerShell examples are pending.
@@ -510,6 +512,7 @@ module.exports = async function (context, req) {
   }];
 };
 ```
+::: zone-end
 
 ::: zone pivot="programming-language-powershell"
 

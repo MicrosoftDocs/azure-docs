@@ -173,7 +173,7 @@ The following table explains the properties of the `SignalRTrigger` attribute.
 
 There isn't currently a supported Java annotation for a SignalR trigger.
 ::: zone-end
-::: zone pivot="programming-language-javascript-V3,programming-language-powershell,programming-language-python"
+::: zone pivot="programming-language-powershell,programming-language-python"
 
 ## Configuration
 
