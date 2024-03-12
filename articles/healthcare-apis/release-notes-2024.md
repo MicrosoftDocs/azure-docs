@@ -15,6 +15,24 @@ ms.custom: references_regions
 
 This article describes features, enhancements, and bug fixes released in 2024 for the FHIR&reg; service, DICOM&reg; service, and MedTech service in Azure Health Data Services.
 
+## February 2024
+
+### FHIR service
+
+#### Counting all versions of resources is enabled
+
+The query parameter `_summary=count` and `_count=0` can be added to the `_history` endpoint to get a count of all versioned resources. This count includes historical and soft deleted resources.
+
+#### Revinclude search can reference all resources with wildcard character
+
+The FHIR service supports wildcard searches with `revinclude`. Add `*.*` to the query parameter in a `revinclude` query to direct the FHIR service to reference all resources mapped to the source resource. 
+
+#### Bug fixes
+
+- **Fixed: Improve FHIR query response time with performance enhancements**. To improve performance, a missing modifier can be specified for a search parameter that is used for sort. See [PR#3655](https://github.com/microsoft/fhir-server/pull/3655).
+
+- **Fixed: Import operation honors ingestion of non-sequential resource versions**. Before this change, incremental mode in the `import` operation assumed versions are sequential integers. After this bug fix, versions can be ingested in nonsequential order. See [PR#3685](https://github.com/microsoft/fhir-server/pull/3685).
+
 ## January 2024
 
 ### DICOM service
