@@ -18,6 +18,10 @@ recommendations: false
 
 ## March 2024
 
+### Model deprecations and retirements
+
+We have added a page to track [model deprecations and retirements](./concepts/model-retirements.md) in Azure OpenAI Service. This page provides information about the models that are currently available, deprecated, and retired.
+
 ### 2024-03-01-preview API released
 
 `2024-03-01-preview` has all the same functionality as `2024-02-15-preview` and adds two new parameters for embeddings:
