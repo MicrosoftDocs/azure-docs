@@ -26,7 +26,13 @@ The following mount options are specific to enumeration and can reduce latency w
 
 ### actimeo
 
-Specifying `actimeo` sets all of `acregmin`, `acregmax`, `acdirmin`, and `acdirmax` to the same value. We recommend setting `actimeo` between 30 and 60 seconds. Setting a higher value makes the attributes remain valid for a longer time period in the client's attribute cache, allowing operations to get file attributes from the cache instead of fetching them over the wire. Therefore, higher values can reduce latency in situations where the cached attributes expire while the operation is still running. Experiment with different values until you get the desired performance benefit.
+Specifying `actimeo` sets all of `acregmin`, `acregmax`, `acdirmin`, and `acdirmax` to the same value. If `actimeo` isn't specified, the NFS client uses the defaults for each of these options.
+
+We recommend setting `actimeo` higher than the default values. Setting a higher value (between 30 and 60 seconds) makes the attributes remain valid for a longer time period in the client's attribute cache, allowing operations to get file attributes from the cache instead of fetching them over the wire. Therefore, higher values can reduce latency in situations where the cached attributes expire while the operation is still running.
+
+The following graph compares the total time it takes to finish different operations with default mount versus setting an `actimeo` value of 30 for a workload that has 1 million files. The total completion time reduced by as much as 77% for some operations. All operations were done with [unaliased ls](#use-unaliased-ls).
+
+:::image type="content" source="media/nfs-large-directories/default-mount-versus-actimeo.png" alt-text="Graph comparing the time to finish different operations with default mount versus setting an actimeo value of 30 for a workload with 1 million files.":::
 
 ### nconnect
 
