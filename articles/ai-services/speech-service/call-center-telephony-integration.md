@@ -18,7 +18,7 @@ Typically, integration with the Speech service is handled by a telephony client 
 
 Usually the telephony client handles the incoming audio stream from the SIP/RTP processor, the conversion to PCM and connects the streams using continuous recognition. It also triages the processing of the results, for example, analysis of speech transcripts for Agent Assist or connect with a dialog processing engine (for example, Azure Botframework or Power Virtual Agent) for Virtual Agent.
 
-For easier integration the Speech service also supports “ALAW in WAV container” and “MULAW in WAV container” for audio streaming. To build this integration we recommend using the [Speech SDK](./speech-sdk.md).
+For easier integration the Speech service also supports “ALAW in WAV container” and “MULAW in WAV container” for audio streaming. To build this integration, we recommend using the [Speech SDK](./speech-sdk.md).
 
 ## Azure Communication Services 
 
