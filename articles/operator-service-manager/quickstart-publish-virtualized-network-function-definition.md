@@ -55,8 +55,6 @@ Here is a sample input-vnf-nfd.jsonc file:
     // Optional. Name of the storage account Artifact Store resource. 
     // Will be created if it does not exist (with a default name if none is supplied).
     "blob_artifact_store_name": "ubuntu-blob-store",
-    // The parameter name in the VM ARM template which specifies the name of the image to use for the VM.
-    "image_name_parameter": "imageName",
     // ARM template configuration. The ARM templates given here would deploy a VM if run. They will be used to generate the VNF.
     "arm_templates": [
         {
@@ -101,7 +99,6 @@ Here is a sample input-vnf-nfd.jsonc file:
 |**nf_name**     |Name of NF definition.         |
 |**version**     |Version of the NF definition in A.B.C format.         |
 |**blob_artifact_store_name**     |Name of the storage account Artifact Store resource. Created if it doesn't exist.         |
-|**image_name_parameter**     | The parameter name in the VM ARM template that specifies the name of the image to use for the VM.        |
 |**arm_template**     | artifact_name: Name of the artifact.|
 |    | *file_path*: Optional. File path of the artifact you wish to upload from your local disk. Delete if not required. Relative paths are relative to the configuration file. On Windows escape any backslash with another backslash.      |
 |  | *version*: Version of the artifact. For ARM templates version must be in format A.B.C.|
