@@ -1599,6 +1599,11 @@
         "source_path_from_root": "/articles/postgresql/migrate/migration-service/tutorial-migration-service-offline-iaas.md",
         "redirect_url": "/azure/postgresql/migrate/migration-service/tutorial-migration-service-iaas",
         "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/migrate/how-to-migrate-online.md",
+        "redirect_url": "/azure/postgresql/migrate/migration-service/tutorial-migration-service-single-to-flexible",
+        "redirect_document_id": false
     }
     ]
 }
