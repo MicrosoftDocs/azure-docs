@@ -254,13 +254,12 @@
       items:
         - name: Use Azure Monitoring Agent (AMA)
           items:
-            - name: Overview and known issues
+            - name: Overview
               items:
                 - name: About Change tracking and inventory
-                  href: change-tracking/enable-from-portal.md
+                  href: change-tracking/overview-monitoring-agent.md
                 - name: Change tracking extension version
                   href: change-tracking/extension-version-details.md
-              href: change-tracking/overview-monitoring-agent.md
             - name: Supported regions
               href: change-tracking/region-mappings-monitoring-agent.md
             - name: Enable change tracking from portal

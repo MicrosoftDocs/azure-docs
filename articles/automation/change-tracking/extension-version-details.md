@@ -29,6 +29,7 @@ This article explains the version details of change tracking extension.
 - For Windows, SvcDescription field is coming as base64 encoded string. As a workaround for now you must use base64_decode_tostring() kql function.
 
 **Windows** - None
+
 **Linux** - The Fix File content upload isn't working for Linux machines.
 
 ### Extension Version 2.21.0.0
