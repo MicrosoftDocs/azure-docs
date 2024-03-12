@@ -43,7 +43,6 @@ Use the following table to quickly locate an example that fits your ABAC scenari
 | [Read current blob versions and a specific blob version](#example-read-current-blob-versions-and-a-specific-blob-version) | | | versionId | isCurrentVersion |
 | [Delete old blob versions](#example-delete-old-blob-versions) | | | versionId | |
 | [Read current blob versions and any blob snapshots](#example-read-current-blob-versions-and-any-blob-snapshots) | | | snapshot | isCurrentVersion |
-| [Read current blob versions and any blob snapshots](#example-read-current-blob-versions-and-any-blob-snapshots) | | | snapshot | isCurrentVersion |
 | [Allow list blob operation to include blob metadata, snapshots, or versions](#example-allow-list-blob-operation-to-include-blob-metadata-snapshots-or-versions) | | | include | |
 | [Restrict list blob operation to not include blob metadata](#example-restrict-list-blob-operation-to-not-include-blob-metadata) | | | include | |
 | [Read only storage accounts with hierarchical namespace enabled](#example-read-only-storage-accounts-with-hierarchical-namespace-enabled) | | | | isHnsEnabled |
@@ -959,7 +958,7 @@ $content = Get-AzStorageBlobContent -Container $grantedContainer -Blob "logs/Alp
 
 ### Example: Read blobs in container with specific metadata
 
-This condition allows users to read blobs in storage containers with a specific metadata key/value pair.
+This condition allows users to read blobs in blob containers with a specific metadata key/value pair.
 
 You must add this condition to any role assignments that include the following action.
 
@@ -1030,7 +1029,7 @@ Set-AzRoleAssignment -InputObject $testRa -PassThru
 
 ### Example: Write or delete blobs in container with specific metadata
 
-This condition allows users to write or delete blobs in storage containers named with a specific metadata key/value pair.
+This condition allows users to write or delete blobs in blob containers with a specific metadata key/value pair.
 
 You must add this condition to any role assignments that include the following action.
 
@@ -1096,6 +1095,10 @@ $condition = "( `
   @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/metadata:testKey] StringEquals 'testValue' `
  ) `
 ) `
+$testRa = Get-AzRoleAssignment -Scope $scope -RoleDefinitionName $roleDefinitionName -ObjectId $userObjectID
+$testRa.Condition = $condition
+$testRa.ConditionVersion = "2.0"
+Set-AzRoleAssignment -InputObject $testRa -PassThru
 ```
 
 ---
@@ -1424,7 +1427,7 @@ To add the condition using the code editor, copy the condition code sample and p
 )
 ```
 
-In this example, the condition restricts the read action when the suboperation is `Blob.List`. This means that a List Blobs operation is further evaluated against the expression that checks the include values, but all other read actions are allowed.
+In this example, the condition restricts the read action when the suboperation is `Blob.List`. This means that a [List Blobs](/rest/api/storageservices/list-blobs) operation is further evaluated against the expression that checks the `include` values, but all other read actions are allowed.
 
 [!INCLUDE [storage-abac-conditions-include](../../../includes/storage-abac-conditions-include.md)]
 
@@ -1482,7 +1485,7 @@ To add the condition using the code editor, copy the condition code sample and p
 )
 ```
 
-In this example, the condition restricts the read action when the suboperation is `Blob.List`. This means that a List Blobs operation is further evaluated against the expression that checks the include values, but all other read actions are allowed.
+In this example, the condition restricts the read action when the suboperation is `Blob.List`. This means that a [List Blobs](/rest/api/storageservices/list-blobs) operation is further evaluated against the expression that checks the `include` values, but all other read actions are allowed.
 
 [!INCLUDE [storage-abac-conditions-include](../../../includes/storage-abac-conditions-include.md)]
 
