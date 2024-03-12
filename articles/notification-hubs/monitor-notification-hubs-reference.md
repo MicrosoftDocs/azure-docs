@@ -4,8 +4,8 @@ description: This article contains important reference material you need when yo
 ms.date: 03/11/2024
 ms.custom: horz-monitor
 ms.topic: reference
-author: GitHub-alias
-ms.author: microsoft-alias
+author: sethmanheim
+ms.author: sethm
 ms.service: notification-hubs
 ---
 
