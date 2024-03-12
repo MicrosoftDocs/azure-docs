@@ -7,14 +7,14 @@ ms.author: jinzhong
 ms.reviewer: larryfr ssalgado
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 10/10/2022
+ms.date: 03/10/2024
 ms.topic: how-to
 ms.custom: build-spring-2022, cliv2, sdkv2
 ---
 
 # Troubleshoot Azure Machine Learning extension
 
-In this article, learn how to troubleshoot common problems you may encounter with [Azure Machine Learning extension](./how-to-deploy-kubernetes-extension.md) deployment in your AKS or Arc-enabled Kubernetes.
+In this article, you learn how to troubleshoot common problems you may encounter with [Azure Machine Learning extension](./how-to-deploy-kubernetes-extension.md) deployment in your AKS or Arc-enabled Kubernetes.
 
 ## How is Azure Machine Learning extension installed
 Azure Machine Learning extension is released as a helm chart and installed by Helm V3. All components of Azure Machine Learning extension are installed in `azureml` namespace. You can use the following commands to check the extension status. 
@@ -315,3 +315,10 @@ To resolve this issue, you can:
 *  Increase the memory limit by using the parameter `nginxIngress.resources.controller.limits.memory=<new limit>`. 
 
 Ensure to adjust these two parameters according to your specific node specifications and workload requirements to optimize your workloads effectively.
+
+## Next steps
+
+* [Virtual network overview](how-to-network-security-overview.md)
+* [Secure the training environment](how-to-secure-training-vnet.md)
+* [Step 1: Deploy Azure Machine Learning extension](how-to-deploy-kubernetes-extension.md)
+* [Step 2: Attach Kubernetes cluster to workspace](how-to-attach-kubernetes-to-workspace.md)
