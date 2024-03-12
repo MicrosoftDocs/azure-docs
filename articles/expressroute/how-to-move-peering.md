@@ -83,7 +83,7 @@ By default, new Microsoft peering don't advertise any prefixes until a route fil
 ![Merge public peering](./media/how-to-move-peering/routefilter.jpg)
 
 > [!NOTE]
-> Public peering advertises all the Azure regions prefixes by default. Whereas, in the Microsoft peering you can select the regions in the route filter associated with Microsoft peering to limit the number of routes advertised to your on-premises network. 
+> Public peering advertises all the Azure regions prefixes by default. Whereas, in the Microsoft peering you can select the regions in the route filter associated with Microsoft peering to limit the number of routes advertised to your on-premises network. To get the same routing behavior as Public peering, select all the Azure regions and service prefixes.
 
 Configure route filters using any of the following articles:
 
