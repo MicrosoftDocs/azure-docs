@@ -110,7 +110,7 @@ This article describes how to configure workload identity.
 
 ### Configure the workload identity
 
-1. Download the **connectedk8s** CLI version **1.6.0_private** **.whl** file using the following command:
+1. Download the **connectedk8s** CLI version **1.6.0_private** **whl** file using the following command:
 
    ```bash
    curl -o connectedk8s-1.6.0_private-py2.py3-none-any.whl -L https://workloadidentityclirepo.blob.core.windows.net/connectedk8swhl/connectedk8s-1.6.0_private-py2.py3-none-any.whl
