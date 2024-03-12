@@ -38,7 +38,7 @@ In this guide, we demonstrate how to create dynamic advertising content that res
 
 - Python environment (>= 3.9 version) with packages such as `numpy`, `openai`, `pymongo`, `python-dotenv`, `azure-core`, `azure-cosmos`, `tenacity`, and `gradio`.
 
-- Download the [data file](https://github.com/jayanta-mondal/ignite-demo/blob/main/data/shoes_with_vectors.json) and save it in a designated data folder.
+<!-- - Download the [data file](https://github.com/jayanta-mondal/ignite-demo/blob/main/data/shoes_with_vectors.json) and save it in a designated data folder. -->
 
 ## Running the Script
 Before we dive into the exciting part of generating AI-enhanced advertisements, we need to set up our environment. This setup involves installing the necessary packages to ensure our script runs smoothly. Here’s a step-by-step guide to get everything ready.
@@ -218,7 +218,7 @@ db.command(
 ## Insert data to the collection
 Now insert the inventory data, which includes descriptions and their corresponding vector embeddings, into the newly created collection. To insert data into our collection, we use the `insert_many()` method provided by the `pymongo` library. The method allows us to insert multiple documents into the collection at once. Our data is stored in a JSON file, which we'll load and then insert into the database.
 
-Download the [shoes_with_vectors.json](https://github.com/jayanta-mondal/ignite-demo/blob/main/data/shoes_with_vectors.json) file from the GitHub repository and store it in a `data` directory within your project folder.
+<!-- Download the [shoes_with_vectors.json](https://github.com/jayanta-mondal/ignite-demo/blob/main/data/shoes_with_vectors.json) file from the GitHub repository and store it in a `data` directory within your project folder. -->
 
 ```
 data_file = open(file="./data/shoes_with_vectors.json", mode="r") 
