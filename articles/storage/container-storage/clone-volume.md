@@ -1,14 +1,14 @@
 ---
-title: Clone persistent volumes in Azure Container Storage
+title: Clone persistent volumes in Azure Container Storage Preview
 description: Clone persistent volumes in Azure Container Storage. You can only clone volumes of the same size that are in the same storage pool.
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 03/05/2024
+ms.date: 03/12/2024
 ms.author: kendownie
 ---
 
-# Clone persistent volumes in Azure Container Storage
+# Clone persistent volumes in Azure Container Storage Preview
 
 You can clone persistent volumes in [Azure Container Storage](container-storage-introduction.md). A cloned volume is a duplicate of an existing persistent volume. You can only clone volumes of the same size that are in the same storage pool.
 

@@ -1,21 +1,28 @@
 ---
-title: Introduction to Azure Container Storage
-description: An overview of Azure Container Storage, a service built natively for containers that enables customers to create and manage volumes for running production-scale stateful container applications.
+title: Introduction to Azure Container Storage Preview
+description: An overview of Azure Container Storage Preview, a service built natively for containers that enables customers to create and manage volumes for running production-scale stateful container applications.
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: overview
-ms.date: 03/05/2024
+ms.date: 03/12/2024
 ms.author: kendownie
 ms.custom:
   - references_regions
   - ignite-2023-container-storage
 ---
 
-# What is Azure Container Storage?
+# What is Azure Container Storage? Preview
 
 Azure Container Storage is a cloud-based volume management, deployment, and orchestration service built natively for containers. It integrates with Kubernetes, allowing you to dynamically and automatically provision persistent volumes to store data for stateful applications running on Kubernetes clusters.
 
+> [!IMPORTANT]
+> Azure Container Storage is currently in public preview and isn't available in all Azure regions. See [regional availability](#regional-availability).
+> This preview version is provided without a service level agreement, and isn't recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 To get started using Azure Container Storage, see [Use Azure Container Storage with Azure Kubernetes Service](container-storage-aks-quickstart.md) or watch the video.
+
+We'd like input on how you plan to use Azure Container Storage. Please complete this [short survey](https://aka.ms/AzureContainerStoragePreviewSignUp).
 
 :::row:::
     :::column:::
@@ -53,7 +60,7 @@ Feature support depends on which backing storage option you select. The followin
 | Ephemeral volumes | Supported | Supported | Supported | Preview |
 | Snapshots | Supported<sup>2</sup> | Supported | Supported | Not supported |
 
-<sup>1</sup> With explicit annotation that the data is not persistent.
+<sup>1</sup> With explicit annotation that the data isn't persistent.
 
 <sup>2</sup> Only with `replica_count` of 1. Not supported with higher replica counts.
 
@@ -63,7 +70,7 @@ Feature support depends on which backing storage option you select. The followin
 
 ## What's new in Azure Container Storage
 
-Based on feedback from customers, we've included the following capabilities:
+Based on feedback from customers, we've included the following capabilities with the latest preview update:
 
 - Improve stateful application availability by using [multi-zone storage pools and ZRS disks](enable-multi-zone-redundancy.md).
 - Enable server-side encryption with [customer-managed keys](use-container-storage-with-managed-disks.md#enable-server-side-encryption-with-customer-managed-keys) (Azure Disks only).

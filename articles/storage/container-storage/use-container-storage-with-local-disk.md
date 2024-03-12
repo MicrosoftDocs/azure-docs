@@ -1,15 +1,15 @@
 ---
-title: Use Azure Container Storage with Ephemeral Disk
+title: Use Azure Container Storage Preview with Ephemeral Disk
 description: Configure Azure Container Storage for use with Ephemeral Disk using either local NVMe or temp SSD on the Azure Kubernetes Service (AKS) cluster nodes. Create a storage pool, select a storage class, create a persistent volume claim, and attach the persistent volume to a pod.
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 03/05/2024
+ms.date: 03/12/2024
 ms.author: kendownie
 ms.custom: references_regions
 ---
 
-# Use Azure Container Storage with Ephemeral Disk
+# Use Azure Container Storage Preview with Ephemeral Disk
 
 [Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to configure Azure Container Storage to use Ephemeral Disk as back-end storage for your Kubernetes workloads. At the end, you'll have a pod that's using either local NVMe or temp SSD as its storage.
 

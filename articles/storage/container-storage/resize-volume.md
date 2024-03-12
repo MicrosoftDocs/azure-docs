@@ -1,14 +1,14 @@
 ---
-title: Resize persistent volumes in Azure Container Storage without downtime
+title: Resize persistent volumes in Azure Container Storage Preview without downtime
 description: Resize persistent volumes in Azure Container Storage without downtime. Scale up by expanding volumes backed by Azure Disk and local storage pools.
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 03/05/2024
+ms.date: 03/12/2024
 ms.author: kendownie
 ---
 
-# Resize persistent volumes in Azure Container Storage
+# Resize persistent volumes in Azure Container Storage Preview
 
 You can expand persistent volumes in [Azure Container Storage](container-storage-introduction.md) to scale up quickly and without downtime. Shrinking persistent volumes isn't currently supported.
 

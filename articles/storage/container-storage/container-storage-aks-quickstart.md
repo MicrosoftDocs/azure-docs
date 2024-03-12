@@ -1,17 +1,17 @@
 ---
-title: Quickstart for using Azure Container Storage with Azure Kubernetes Service (AKS)
+title: Quickstart for using Azure Container Storage Preview with Azure Kubernetes Service (AKS)
 description: Create a Linux-based Azure Kubernetes Service (AKS) cluster, install Azure Container Storage, and create a storage pool.
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: quickstart
-ms.date: 03/05/2024
+ms.date: 03/12/2024
 ms.author: kendownie
 ms.custom:
   - devx-track-azurecli
   - ignite-2023-container-storage
 ---
 
-# Quickstart: Use Azure Container Storage with Azure Kubernetes Service
+# Quickstart: Use Azure Container Storage Preview with Azure Kubernetes Service
 
 [Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This Quickstart shows you how to create a Linux-based [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md) cluster, install Azure Container Storage, and create a storage pool using Azure CLI.
 

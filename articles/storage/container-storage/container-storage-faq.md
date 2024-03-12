@@ -1,15 +1,15 @@
 ---
-title: Frequently asked questions (FAQ) for Azure Container Storage
+title: Frequently asked questions (FAQ) for Azure Container Storage Preview
 description: Get answers to Azure Container Storage frequently asked questions.
 author: khdownie
 ms.service: azure-container-storage
-ms.date: 03/05/2024
+ms.date: 03/12/2024
 ms.author: kendownie
 ms.topic: conceptual
 ms.custom: references_regions
 ---
 
-# Frequently asked questions (FAQ) about Azure Container Storage
+# Frequently asked questions (FAQ) about Azure Container Storage Preview
 
 [Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers.
 
