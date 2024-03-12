@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 03/10/2024
+ms.date: 03/12/2024
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -33,19 +33,19 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 ### ServiceNow integration is now generally available (GA)
 
-March 13, 2024
+March 12, 2024
 
-The ServiceNow integration with Defender for Cloud is now generally available (GA). This integration enables customers to [connect ServiceNow to their Defender for Cloud environment](connect-servicenow.md). As part of this connection, customers [can manually create and view ServiceNow tickets](create-ticket-servicenow.md) (linked to recommendations) from Defender for Cloud. You can also create governance rules that automatically [assign ownership of specific recommendations or all recommendations with a selected severity level](create-governance-rule-servicenow.md).
+We're announcing the general availability (GA) of the [ServiceNow integration](integration-servicenow.md).
 
 ### Critical assets protection in Microsoft Defender for Cloud (Preview)
 
-March 13, 2024
+March 12, 2024
 
 Defender for Cloud now includes a business criticality feature, using Microsoft Security Exposure Management’s critical assets engine, to identify and protect important assets through risk prioritization, attack path analysis, and cloud security explorer. For more information, see [Critical assets protection in Microsoft Defender for Cloud (Preview)](critical-assets-protection.md).
 
 ### Enhanced AWS and GCP recommendations with automated remediation scripts
 
-March 13, 2024
+March 12, 2024
 
 We're enhancing the AWS and GCP recommendations with automated remediation scripts that allow you to remediate them programmatically and at scale.
 Learn more about [automated remediation scripts](implement-security-recommendations.md#use-the-automated-remediation-scripts).
