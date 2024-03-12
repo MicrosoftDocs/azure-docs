@@ -32,6 +32,12 @@
   - name: Create a Private Link service - ARM template
     displayName: Azure Resource Manager
     href: create-private-link-service-template.md
+  - name: Create a network security perimeter - Azure portal
+    href: create-network-security-perimeter-portal.md
+  - name: Create a network security perimeter - PowerShell
+    href: create-network-security-perimeter-powershell.md
+  - name: Create a network security perimeter - Azure CLI
+    href: create-network-security-perimeter-cli.md
   expanded: true
 - name: Tutorials
   items: 
@@ -58,7 +64,13 @@
   - name: What is a private endpoint?
     href: private-endpoint-overview.md
   - name: Private Link service
-    href: private-link-service-overview.md    
+    href: private-link-service-overview.md
+  - name: Network Security Perimeter
+    items:
+    - name: What is a network security perimeter?
+      href: network-security-perimeter-overview.md
+    - name: Diagnostic logs
+      href: network-security-perimeter-diagnostic-logs.md   
   - name: DNS
     items:  
     - name: Private DNS zone values

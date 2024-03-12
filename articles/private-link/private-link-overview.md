@@ -21,6 +21,10 @@ Traffic between your virtual network and the service travels the Microsoft backb
 
 :::image type="content" source="./media/private-link-overview/private-link-center.png" alt-text="Screenshot of Azure Private Link center in Azure portal." :::
 
+For scenarios which involve public internet PaaS traffic, configure [network security perimeter](network-security-perimeter-overview.md) to setup a secure logical boundary. Network security perimeter restricts communication to services within it's perimeter, and it allows non-perimeter public traffic through inbound and outbound access rules.
+
+[!INCLUDE [network-security-perimeter-preview](../../includes/network-security-perimeter-preview.md)]
+
 ## Key benefits
 
 Azure Private Link provides the following benefits:  
