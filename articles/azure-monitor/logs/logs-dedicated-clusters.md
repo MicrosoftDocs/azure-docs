@@ -114,7 +114,7 @@ az resource wait --created --ids $clusterResourceId --include-response-body true
 #### [PowerShell](#tab/powershell)
 
 > [!NOTE]
-> The minimum commitment tier supported in CLI is 500 currently. Use REST to configure lower commitment tiers with minimum of 100.
+> The minimum commitment tier supported in PowerShell is 500 currently. Use REST to configure lower commitment tiers with minimum of 100.
 
 ```powershell
 Select-AzSubscription "cluster-subscription-id"
