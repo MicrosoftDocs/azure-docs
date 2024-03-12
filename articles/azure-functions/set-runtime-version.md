@@ -10,18 +10,18 @@ zone_pivot_groups: app-service-platform-windows-linux
 
 # How to target Azure Functions runtime versions
 
-A function app runs on a specific version of the Azure Functions runtime. By default, function apps are created in latest 4.x version of the Functions runtime. Apps are only supported when running on a [supported major version](functions-versions.md). This article explains how to configure a function app in Azure to target, or _pin_ to, a specific version when required. 
-
->[!IMPORTANT]
->When possible, you should always run your functions on the latest supported version of the Azure Functions runtime. You should only pin your app to a specific version when instructed to do so because of an issue in the latest version. You should always move up to the latest runtime version as soon as your functions can run correctly.
+A function app runs on a specific version of the Azure Functions runtime. By default, function apps are created in latest 4.x version of the Functions runtime. Your function apps are only supported when running on a [supported major version](functions-versions.md). This article explains how to configure a function app in Azure to target, or _pin_ to, a specific version when required. 
  
 ::: zone pivot="platform-windows" 
 The way that you target a specific version depends on whether you're running Windows or Linux. This version of the article supports Windows. Choose your operating system at the top of the article.
 ::: zone-end
 ::: zone pivot="platform-linux" 
 The way that you target a specific version depends on whether you're running Windows or Linux. This version of the article supports Linux. Choose your operating system at the top of the article.
-::: zone-end
-During local development, your installed version of Azure Functions Core Tools must match major runtime version targeted in Azure. For more information, see [Core Tools versions](functions-run-local.md#v2). 
+::: zone-end  
+>[!IMPORTANT]
+>When possible, you should always run your functions on the latest supported version of the Azure Functions runtime. You should only pin your app to a specific version when instructed to do so because of an issue in the latest version. You should always move up to the latest runtime version as soon as your functions can run correctly.
+
+During local development, your installed version of Azure Functions Core Tools must match major runtime version used by the function app in Azure. For more information, see [Core Tools versions](functions-run-local.md#v2). 
 
 ## Update your runtime version
 
@@ -88,7 +88,7 @@ Replace `<FUNCTION_APP>` with the name of your function app and `<RESOURCE_GROUP
 
 Azure Functions lets you use the `FUNCTIONS_EXTENSION_VERSION` application setting to target the runtime version used by a given function app. When you specify only the major version (`~4`), the function app is automatically updated to new minor versions of the runtime when they become available. Minor version updates are done automatically because new minor versions shouldn't introduce breaking changes. 
 ::: zone pivot="platform-linux"
-Linux apps use the [`linuxFxVersion` site setting](./functions-app-settings.md#linuxfxversion) along with `FUNCTIONS_EXTENSION_VERSION` to determine the correct Linux base image in which to run your functions. When you specify a value of `~4` for `FUNCTIONS_EXTENSION_VERSION`, the runtime automatically chooses the latest base image for you based on the runtime version of your language stack.  
+Linux apps use the [`linuxFxVersion` site setting](./functions-app-settings.md#linuxfxversion) along with `FUNCTIONS_EXTENSION_VERSION` to determine the correct Linux base image in which to run your functions. When you create a new funtion app on Linux, the runtime automatically chooses the correct base image for you based on the runtime version of your language stack. 
 ::: zone-end
 Pinning to a specific runtime version causes your function app to restart.
 ::: zone pivot="platform-windows" 
