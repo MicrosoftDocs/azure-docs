@@ -10,9 +10,9 @@ ms.date: 03/11/2024
 ms.custom: 
 ---
 
-# SAP systems discovery support (preview)
+# SAP Systems discovery support (preview)
 
-As part of your migration journey to Azure by performing an import-based assessments, you discover and assess on-premises inventory and SAP workloads.
+As part of your migration journey to Azure by performing import-based assessments, you discover and assess on-premises inventory and SAP workloads.
 
 ## Key benefits
 
@@ -25,3 +25,4 @@ As part of your migration journey to Azure by performing an import-based assessm
 ## Next steps
 
 * Learn how to [Discover SAP systems](./tutorial-discover-sap-systems.md).
+* Learn how to [Assess SAP systems](./tutorial-assess-sap-systems.md).
