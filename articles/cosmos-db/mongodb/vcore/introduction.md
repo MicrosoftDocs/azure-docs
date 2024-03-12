@@ -17,6 +17,11 @@ ms.date: 08/28/2023
 
 Azure Cosmos DB for MongoDB vCore provides developers with a fully managed MongoDB-compatible database service for building modern applications with a familiar architecture. With Cosmos DB for MongoDB vCore, developers can enjoy the benefits of native Azure integrations, low total cost of ownership (TCO), and the familiar vCore architecture when migrating existing applications or building new ones.
 
+## Build AI-Driven Applications with a Single Database Solution
+
+Azure Cosmos DB for MongoDB vCore empowers generative AI applications with an integrated **Vector Search** feature. This enables efficient indexing and querying of data by characteristics for advanced use cases such as generative AI, without the complexity of external integrations. Unlike MongoDB Atlas and similar platforms, Azure Cosmos DB for MongoDB vCore keeps all data within the database for vector searches, ensuring simplicity and security. Even our free tier offers this capability, making sophisticated AI features accessible without additional cost.
+
+
 ## Effortless integration with the Azure platform
 
 Azure Cosmos DB for MongoDB vCore provides a comprehensive and integrated solution for resource management, making it easy for developers to seamlessly manage their resources using familiar Azure tools. The service features deep integration into various Azure products, such as Azure Monitor and Azure CLI. This deep integration ensures that developers have everything they need to work efficiently and effectively.
@@ -31,11 +36,16 @@ Here are the current tiers for the service:
 
 | Cluster tier | Base storage | RAM | vCPUs |
 | --- | --- | --- | --- |
+| M25 | 32 GB | 8 GB | 2 burstable |
 | M30 | 128 GB | 8 GB | 2 |
 | M40 | 128 GB | 16 GB | 4 |
 | M50 | 128 GB | 32 GB | 8 |
 | M60 | 128 GB | 64 GB | 16 |
 | M80 | 128 GB | 128 GB | 32 |
+| M200 | 128 GB | 256 GB | 64 |
+| M300 | 128 GB | 324 GB | 48 |
+| M400 | 128 GB | 432 GB | 64 |
+| M600 | 128 GB | 640 GB | 80 |
 
 Azure Cosmos DB for MongoDB vCore is organized into easy to understand cluster tiers based on vCPUs, RAM, and attached storage. These tiers make it easy to lift and shift your existing workloads or build new applications.
 

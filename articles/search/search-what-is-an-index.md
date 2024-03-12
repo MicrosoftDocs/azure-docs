@@ -170,12 +170,14 @@ All indexing and query requests target an index. Endpoints are usually one of th
 | `<your-service>.search.windows.net/indexes` | Targets the indexes collection. Used when creating, listing, or deleting an index. Admin rights are required for these operations, available through admin [API keys](search-security-api-keys.md) or a [Search Contributor role](search-security-rbac.md#built-in-roles-used-in-search). |
 | `<your-service>.search.windows.net/indexes/<your-index>/docs` | Targets the documents collection of a single index. Used when querying an index or data refresh. For queries, read rights are sufficient, and available through query API keys or a data reader role. For data refresh, admin rights are required. |
 
-Search subscribers, or the person who created the search service, can manage the search service in the Azure portal. An Azure subscription requires Contributor or above permissions to create or delete services. You can [sign in to the Azure portal](https://portal.azure.com) for a direct connection to your search service.
+#### How to connect to Azure AI Search
 
-For other clients, we recommend reviewing the quickstarts for connection steps:
+1. [Start with the Azure portal](https://portal.azure.com). Azure subscribers, or the person who created the search service, can manage the search service in the Azure portal. An Azure subscription requires Contributor or above permissions to create or delete services. This permission level is sufficient for fully managing a search service in the Azure portal.
 
-+ [Quickstart: REST](search-get-started-rest.md)
-+ [Quickstart: Azure SDKs](search-get-started-text.md)
+1. Try other clients for programmatic access. We recommend the quickstarts for first steps:
+
+   + [Quickstart: REST](search-get-started-rest.md)
+   + [Quickstart: Azure SDKs](search-get-started-text.md)
 
 ## Next steps
 
@@ -184,11 +186,7 @@ You can get hands-on experience creating an index using almost any sample or wal
 But you'll also want to become familiar with methodologies for loading an index with data. Index definition and data import strategies are defined in tandem. The following articles provide more information about creating and loading an index.
 
 + [Create a search index](search-how-to-create-search-index.md)
-
 + [Create a vector store](vector-search-how-to-create-index.md)
-
 + [Create an index alias](search-how-to-alias.md)
-
 + [Data import overview](search-what-is-data-import.md)
-
 + [Load an index](search-how-to-load-search-index.md)

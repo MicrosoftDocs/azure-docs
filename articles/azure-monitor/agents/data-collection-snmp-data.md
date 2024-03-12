@@ -8,6 +8,9 @@ ms.reviewer: jeffwo
 ---
 
 # Collect SNMP trap data with Azure Monitor Agent
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
   
 Simple Network Management Protocol (SNMP) is a widely-deployed management protocol for monitoring and configuring Linux devices and appliances.  
   

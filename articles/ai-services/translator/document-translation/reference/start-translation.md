@@ -8,7 +8,7 @@ ms.author: lajanuar
 author: laujan
 ms.service: azure-ai-translator
 ms.topic: reference
-ms.date: 09/07/2023
+ms.date: 02/12/2024
 ---
 
 # Start translation
@@ -34,7 +34,7 @@ Send a `POST` request to:
 POST https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1/batches
 ```
 
-Learn how to find your [custom domain name](../quickstarts/document-translation-rest-api.md).
+Learn how to find your [custom domain name](../quickstarts/asynchronous-rest-api.md).
 
 > [!IMPORTANT]
 >
@@ -110,10 +110,10 @@ Definition for the source data.
 |**inputs.source** |`object`|True|&bullet; sourceUrl (string)</br></br>&bullet; filter (object)</br></br>&bullet; language (string)</br></br>&bullet; storageSource (string)|Source data for input documents.|
 |**inputs.source.sourceUrl**|`string`|True|&bullet; string|Container location for the source file or folder.|
 |**inputs.source.filter**|`object`|False|&bullet; prefix (string)</br></br>&bullet; suffix (string)|Case-sensitive strings to filter documents in the source path.|
-|**inputs.source.filter.prefix**|`string`|False|&bullet; string|Case-sensitive prefix string to filter documents in the source path for translation. Often used to designate sub-folders for translation. Example: "_FolderA_".|
+|**inputs.source.filter.prefix**|`string`|False|&bullet; string|Case-sensitive prefix string to filter documents in the source path for translation. Often used to designate subfolders for translation. Example: "_FolderA_".|
 |**inputs.source.filter.suffix**|`string`|False|&bullet; string|Case-sensitive suffix string to filter documents in the source path for translation. Most often used for file extensions. Example: "_.txt_"|
-|**inputs.source.language**|`string`|False|&bullet; string|The language code for the source documents. If not specified, auto-detect is implemented.
-|**inputs.source.storageSource**|`string`|False|&bullet; string|Storage source for inputs. Defaults to "AzureBlob".|
+|**inputs.source.language**|`string`|False|&bullet; string|The language code for the source documents. If not specified, autodetect is implemented.
+|**inputs.source.storageSource**|`string`|False|&bullet; string|Storage source for inputs. Defaults to `AzureBlob`.|
 
 ### inputs.targets
 
@@ -123,14 +123,14 @@ Definition for target and glossaries data.
 |--- |---|---|---|--|
 |**inputs.targets**|`array`|True|&bullet; targetUrl (string)</br></br>&bullet; category (string)</br></br>&bullet; language (string)</br></br>&bullet; glossaries (array)</br></br>&bullet; storageSource (string)|Targets and glossaries data for translated documents.|
 |**inputs.targets.targetUrl**|`string`|True|&bullet; string|Location of the container location for translated documents.|
-|**inputs.targets.category**|`string`|False|&bullet; string|Classification or category for the translation request. Example: "_general_".|
+|**inputs.targets.category**|`string`|False|&bullet; string|Classification or category for the translation request. Example: _general_.|
 |**inputs.targets.language**|`string`|True|&bullet; string|Target language code. Example: "_fr_".|
 |**inputs.targets.glossaries**|`array`|False|&bullet; glossaryUrl (string)</br></br>&bullet; format (string)</br></br>&bullet; version (string)</br></br>&bullet; storageSource (string)|_See_ [Create and use glossaries](../how-to-guides/create-use-glossaries.md)|
 |**inputs.targets.glossaries.glossaryUrl**|`string`|True (if using glossaries)|&bullet; string|Location of the glossary. The file extension is used to extract the formatting if the format parameter isn't supplied. If the translation language pair isn't present in the glossary, it isn't applied.|
 |**inputs.targets.glossaries.format**|`string`|False|&bullet; string|Specified file format for glossary. To check if your file format is supported, _see_ [Get supported glossary formats](get-supported-glossary-formats.md).|
 |**inputs.targets.glossaries.version**|`string`|False|&bullet; string|Version indicator. Example: "_2.0_".|
-|**inputs.targets.glossaries.storageSource**|`string`|False|&bullet; string|Storage source for glossaries. Defaults to "_AzureBlob_".|
-|**inputs.targets.storageSource**|`string`|False|&bullet; string|Storage source for targets.Defaults to "_AzureBlob_".|
+|**inputs.targets.glossaries.storageSource**|`string`|False|&bullet; string|Storage source for glossaries. Defaults to `_AzureBlob_`.|
+|**inputs.targets.storageSource**|`string`|False|&bullet; string|Storage source for targets.Defaults to `_AzureBlob_`.|
 
 ### inputs.storageType
 
@@ -147,7 +147,7 @@ Definition for the input batch translation request.
 |Key parameter|Type|Required|Request parameters|Description|
 |--- |---|---|---|--|
 |**options**|`object`|False|Source information for input documents.|
-|**options.experimental**|`boolean`|False|&bullet;`true`</br></br>&bullet; `false`|Indicates whether the request will include an experimental feature (if applicable). Only the booleans _`true`_ or _`false`_ are valid values.|
+|**options.experimental**|`boolean`|False|&bullet;`true`</br></br>&bullet; `false`|Indicates whether the request includes an experimental feature (if applicable). Only the booleans _`true`_ or _`false`_ are valid values.|
 
 ## Example request
 
@@ -206,7 +206,7 @@ The following are examples of batch requests.
 
 **Translating specific folder in a container**
 
-Make sure you've specified the folder name (case sensitive) as prefix in filter.
+Make sure you specify the folder name (case sensitive) as prefix in filter.
 
 ```json
 {
@@ -231,11 +231,11 @@ Make sure you've specified the folder name (case sensitive) as prefix in filter.
 
 **Translating specific document in a container**
 
-* Specify "storageType": "File"
+* Specify "storageType": `File`.
 * Create source URL & SAS token for the specific blob/document.
 * Specify the target filename as part of the target URL – though the SAS token is still for the container.
 
-This sample request shows a single document translated into two target languages
+This sample request shows a single document translated into two target languages.
 
 ```json
 {
@@ -271,8 +271,8 @@ The following are the possible HTTP status codes that a request returns.
 |401|Unauthorized. Check your credentials.|
 |429|Request rate is too high.|
 |500|Internal Server Error.|
-|503|Service is currently unavailable.  Try again later.|
-|Other Status Codes|<ul><li>Too many requests</li><li>Server temporary unavailable</li></ul>|
+|503|Service is currently unavailable. Try again later.|
+|Other Status Codes|&bullet; Too many requests<br>&bullet; Server temporary unavailable|
 
 ## Error response
 
@@ -280,7 +280,7 @@ The following are the possible HTTP status codes that a request returns.
 |--- |--- |--- |
 |code|`string`|Enums containing high-level error codes. Possible values:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Unauthorized</li></ul>|
 |message|`string`|Gets high-level error message.|
-|innerError|InnerTranslationError|New Inner Error format that conforms to Azure AI services API Guidelines. This error message contains required properties: ErrorCode, message and optional properties target, details(key value pair), and inner error(it can be nested).|
+|innerError|InnerTranslationError|New Inner Error format that conforms to Azure AI services API Guidelines. This error message contains required properties: ErrorCode, message, and optional properties target, details(key value pair), and inner error(it can be nested).|
 |inner.Errorcode|`string`|Gets code error string.|
 |innerError.message|`string`|Gets high-level error message.|
 |innerError.target|`string`|Gets the source of the error. For example, it would be `documents` or `document id` if the document is invalid.|
@@ -317,4 +317,4 @@ Operation-Location: https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/
 Follow our quickstart to learn more about using Document Translation and the client library.
 
 > [!div class="nextstepaction"]
-> [Get started with Document Translation](../quickstarts/document-translation-rest-api.md)
+> [Get started with Document Translation](../quickstarts/asynchronous-rest-api.md)

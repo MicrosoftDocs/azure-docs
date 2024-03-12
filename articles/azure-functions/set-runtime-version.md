@@ -30,7 +30,7 @@ The following table shows the `FUNCTIONS_EXTENSION_VERSION` values for each majo
 
 | Major version<sup>2</sup>  | `FUNCTIONS_EXTENSION_VERSION` value | Additional configuration  |
 | -------------  | ----------------------------------- | ------------------------- |
-| 4.x            | `~4`                                | [On Windows, enable .NET 6](./migrate-version-3-version-4.md#upgrade-your-function-app-in-azure)<sup>1</sup> |
+| 4.x            | `~4`                                | [On Windows, enable .NET 6](./migrate-version-3-version-4.md#update-your-function-app-in-azure)<sup>1</sup> |
 | 1.x<sup>3</sup>| `~1`                                |                           |
 
 <sup>1</sup> If using a later version with the .NET Isolated worker model, instead enable that version.  

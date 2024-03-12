@@ -41,7 +41,7 @@ Credit alerts notify you when your Azure Prepayment (previously called monetary 
 
 ## Department spending quota alerts
 
-Department spending quota alerts notify you when department spending reaches a fixed threshold of the quota. Spending quotas are configured in the EA portal. Whenever a threshold is met it generates an email to department owners and is shown in cost alerts. For example, 50% or 75% of the quota.
+Department spending quota alerts notify you when department spending reaches a fixed threshold of the quota. Spending quotas are configured in the Azure portal. Whenever a threshold is met it generates an email to department owners and is shown in cost alerts. For example, 50% or 75% of the quota.
 
 ## Supported alert features by offer categories
 

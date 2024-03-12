@@ -18,11 +18,11 @@ ms.topic: conceptual
 
 This article identifies the component versions with each release of Azure Arc-enabled data services.
 
-## February 12, 2024
+## February 13, 2024
 
 |Component|Value|
 |-----------|-----------|
-|Container images tag |`v1.27.0_2023-02-13`|
+|Container images tag |`v1.27.0_2024-02-13`|
 |**CRD names and version:**| |
 |`activedirectoryconnectors.arcdata.microsoft.com`| v1beta1, v1beta2, v1, v2|
 |`datacontrollers.arcdata.microsoft.com`| v1beta1, v1 through v5|

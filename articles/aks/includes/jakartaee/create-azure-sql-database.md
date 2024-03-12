@@ -16,3 +16,5 @@ Use the following steps to create an Azure SQL Database single database for use 
    > At the **Networking** step, set **Connectivity method** to **Public endpoint**, **Allow Azure services and resources to access this server** to **Yes**, and **Add current client IP address** to **Yes**.
    >
    > :::image type="content" source="media/create-azure-sql-database/create-sql-database-networking.png" alt-text="Screenshot of the Azure portal that shows the Networking tab of the Create SQL Database page with the Connectivity method and Firewall rules settings highlighted." lightbox="media/create-azure-sql-database/create-sql-database-networking.png":::
+   >
+   > Be aware that the [serverless compute tier](/azure/azure-sql/database/serverless-tier-overview) you selected for this database saves money by putting the database to sleep during periods of inactivity. The sample app will fail if the database is asleep when the app starts up. To force the database to wake up, you can execute a query using the query editor. Follow the steps in [Query the database](/azure/azure-sql/database/serverless-tier-overview). Here is an example query: `SELECT * FROM COFFEE;`.

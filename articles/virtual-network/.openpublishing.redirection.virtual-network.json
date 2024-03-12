@@ -1022,33 +1022,32 @@
         },
         {
             "source_path_from_root": "/articles/virtual-network/move-across-regions-nsg-portal.md",
-            "redirect_url": "/azure/resource-mover/move-region-within-resource-group",
+            "redirect_url": "/azure/operational-excellence/relocation-virtual-network-nsg",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-network/move-across-regions-nsg-powershell.md",
-            "redirect_url": "/azure/resource-mover/move-region-within-resource-group",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/virtual-network/move-across-regions-publicip-portal.md",
-            "redirect_url": "/azure/resource-mover/move-region-within-resource-group",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/virtual-network/move-across-regions-publicip-powershell.md",
-            "redirect_url": "/azure/resource-mover/move-region-within-resource-group",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/virtual-network/move-across-regions-vnet-powershell.md",
-            "redirect_url": "/azure/resource-mover/move-region-within-resource-group",
+            "redirect_url": "/azure/operational-excellence/relocation-virtual-network-nsg",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-network/move-across-regions-vnet-portal.md",
+            "redirect_url": "/azure/operational-excellence/relocation-virtual-network",
+            "redirect_document_id": false  
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/move-across-regions-vnet-powershell.md",
+            "redirect_url": "/azure/operational-excellence/relocation-virtual-network",
+            "redirect_document_id": false  
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/move-across-regions-publicip-portal.md",
             "redirect_url": "/azure/resource-mover/move-region-within-resource-group",
-            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/move-across-regions-publicip-powershell.md",
+            "redirect_url": "/azure/resource-mover/move-region-within-resource-group",
+            "redirect_document_id": false 
         },
         {
             "source_path_from_root": "/articles/virtual-network/scripts/virtual-network-powershell-sample-multi-tier-application.md",

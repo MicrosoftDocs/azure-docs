@@ -2,7 +2,7 @@
 title: Container Storage Interface (CSI) drivers on Azure Kubernetes Service (AKS)
 description: Learn about and deploy the Container Storage Interface (CSI) drivers for Azure Disks and Azure Files in an Azure Kubernetes Service (AKS) cluster
 ms.topic: article
-ms.date: 05/31/2023
+ms.date: 02/16/2024
 
 ---
 
@@ -29,7 +29,7 @@ The CSI storage driver support on AKS allows you to natively use:
 ## Prerequisites
 
 - You need the Azure CLI version 2.42 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
-- If the open-source CSI Blob storage driver is installed on your cluster, uninstall it before enabling the Azure Blob storage driver.
+- If the open-source CSI storage driver is installed on your cluster, uninstall it before enabling the Azure storage CSI driver.
 - To enforce the Azure Policy for AKS [policy definition][azure-policy-aks-definition] **Kubernetes clusters should use Container Storage Interface(CSI) driver StorageClass**, the Azure Policy add-on needs to be enabled on new and existing clusters. For an existing cluster, review the [Learn Azure Policy for Kubernetes][learn-azure-policy-kubernetes] to enable it.
 
 ## Disk encryption supported scenarios

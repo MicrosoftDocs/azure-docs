@@ -42,6 +42,9 @@ Global requests from clients can be processed by action group services in any re
 1. Configure basic action group settings. In the **Project details** section:
    - Select values for **Subscription** and **Resource group**.
    - Select the region.
+  
+   > [!NOTE]
+   > Service Health Alerts are only supported in public clouds within the global region. For Action Groups to properly function in response to a Service Health Alert the region of the action group must be set as "Global".
 
       | Option | Behavior |
       | ------ | -------- |
@@ -347,7 +350,7 @@ A notification email is sent only to the primary email address.
 
 If your primary email doesn't receive notifications, configure the email address for the Email Azure Resource Manager role:
 
-1. In the Azure portal, go to **Active Directory**.
+1. In the Azure portal, go to **Microsoft Entra ID**.
 1. On the left, select **All users**. On the right, a list of users appears.
 1. Select the user whose *primary email* you want to review.
 
