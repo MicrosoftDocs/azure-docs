@@ -1,12 +1,12 @@
 ### YamlMime:FAQ
 metadata:
   title: Microsoft Azure VMware Solution FAQ
-  description: "Get answers to common questions about Azure VMware Solution."
+  description: "Get answers to common questions about Azure VMware Solution."
   ms.topic: faq
   ms.service: azure-vmware
   ms.date:  2/29/2024
 title: Common questions about Azure VMware Solution
-summary: This article answers commonly asked questions about Azure VMware Solution.
+summary: This article answers commonly asked questions about Azure VMware Solution.
 
 sections:
   - name: General
@@ -101,6 +101,18 @@ sections:
           
       - question: Is a specific version of vSphere required in on-premises environments?
         answer: The on-premises environment must be running vSphere 6.5 or later if VMware HCX will be used to migrate VMs.
+      
+      - question: How do I migrate a VM to a different plan?
+        answer: |
+         To migrate an Azure Virtual Machine (VM) to a different plan, follow these steps:
+
+         1. Stop the VM in the Azure portal by selecting your VM and then selecting 'Stop' to deallocate resources.
+         2. With the VM stopped, access the 'Size' setting of the VM.
+         3. In the 'Choose a size' panel, select a new size that is compatible with either the current or desired series.
+         4. Select the 'Resize' button to apply the size change.
+         5. Restart the VM to finalize the migration.
+         
+         Remember that you can only resize a VM within the same series or to an available series in the same Azure region. Ensure the new plan supports your VM's storage and networking configurations.
 
       - question: Is VMware HCX supported on VPNs?
         answer: Yes, provided VMware HCX [Network Underlay Minimum Requirements](https://docs.vmware.com/en/VMware-HCX/4.2/hcx-user-guide/GUID-8128EB85-4E3F-4E0C-A32C-4F9B15DACC6D.html) are met.
