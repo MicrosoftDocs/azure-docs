@@ -44,27 +44,39 @@ Use this guide if you have already identified the Vercel project(s) or want to i
 
    :::image type="content" source="./media/integrations/vercel/add-integration.png" alt-text="Screenshot shows the Azure Cosmos DB integration page on Vercel's marketplace." lightbox="./media/integrations/vercel/add-integration.png":::
 
-2. Choose All projects or Specific projects for the integration. In this guide we proceed by choosing specific projects, select continue
+2. Choose All projects or Specific projects for the integration. In this guide we proceed by choosing specific projects. Select Install to continue. 
 
    :::image type="content" source="./media/integrations/vercel/continue.png" alt-text="Screenshot shows to select vercel projects." lightbox="./media/integrations/vercel/continue.png":::
 
-3. Next screen will show the required permissions for the integration, select Add Integration
-
-   :::image type="content" source="./media/integrations/vercel/permissions.png" alt-text="Screenshot shows the permissions required for the integration." lightbox="./media/integrations/vercel/permissions.png":::
-
-4. Log in to Azure using your credentials to select the existing Azure Cosmos DB account for the integration
+3. Sign in to your existing Microsoft account, or if you don’t have one, create a new account as depicted in next step.
 
    :::image type="content" source="./media/integrations/vercel/sign-in.png" alt-text="Screenshot shows to login to Azure account." lightbox="./media/integrations/vercel/sign-in.png":::
 
-5. Choose a Directory, subscription and the Azure Cosmos DB Account
+4. Click on “create one” to create a new Microsoft account.
+> [!NOTE]
+> Microsoft account is different from an Azure Cosmos DB account. We will be creating an Azure Cosmos DB account in following steps
+>
+   :::image type="content" source="./media/integrations/vercel/create-new.png" alt-text="Screenshot shows to create new Microsoft Account." lightbox="./media/integrations/vercel/create-new.png":::
 
-6. Verify Vercel Projects
+5. If you want to use an existing Azure Cosmos DB account, choose the existing Directory, subscription and the Azure Cosmos DB Account(Skip to step 9) . To create a new Azure Try Cosmos DB account, click on “Create new account”.
+ 
+   :::image type="content" source="./media/integrations/vercel/create-new-azure-cosmosdb.png" alt-text="Screenshot shows to create new Azure Try Cosmos DB Account." lightbox="./media/integrations/vercel/create-new-azure-cosmosdb.png":::
 
-   :::image type="content" source="./media/integrations/vercel/projects.png" alt-text="Screenshot shows to verify the vercel projects for the integration." lightbox="./media/integrations/vercel/projects.png":::
+6. Select API type (currently only NOSQL and MongoDB API are supported) and click on “Create Account”.
 
-7. Select Integrate
+   :::image type="content" source="./media/integrations/vercel/select-api.png" alt-text="Screenshot shows to select the type of API of the Azure Cosmos DB account." lightbox="./media/integrations/vercel/select-api.png":::
 
-   :::image type="content" source="./media/integrations/vercel/integrate.png" alt-text="Screenshot shows to confirm the integration." lightbox="./media/integrations/vercel/integrate.png":::
+7.	After the successful Try Azure Cosmos DB account creation, click on “Continue”
+
+   :::image type="content" source="./media/integrations/vercel/account-continue.png" alt-text="Screenshot shows to continue with the integration." lightbox="./media/integrations/vercel/account-contiune.png":::
+
+8. Click on “Accept” in the pop-up to access the Try Azure Cosmos DB account. (Mandatory to complete the Integration). 
+
+   :::image type="content" source="./media/integrations/vercel/accept.png" alt-text="Screenshot shows to confirm the integration." lightbox="./media/integrations/vercel/accept.png":::
+
+9. Select Integrate and you're done
+
+   :::image type="content" source="./media/integrations/vercel/integrate-new.png" alt-text="Screenshot shows to confirm the integration." lightbox="./media/integrations/vercel/integrate-new.png":::
 
 ## Integrate Cosmos DB with Vercel via npm & Command Line
 
