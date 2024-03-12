@@ -184,7 +184,7 @@ ce-signature: sha256={connection-id-hash-primary},sha256={connection-id-hash-sec
 ce-userId: {userId}
 ce-connectionId: {connectionId}
 ce-hub: {hub}
-ce-eventName: connect
+ce-eventName: connected
 ce-subprotocol: abc
 ce-connectionState: eyJrZXkiOiJhIn0=
 
