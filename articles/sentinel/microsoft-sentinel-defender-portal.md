@@ -15,10 +15,10 @@ Combine the power of Microsoft Sentinel with Microsoft Defender XDR into the Mic
 
 - Advanced hunting that spans Microsoft Sentinel and Microsoft Defender XDR
 - Unified incidents across both Microsoft Sentinel and Microsoft Defender XDR
-- AI
+- AI (What is this? Copilot?)
 - Automation, including Microsoft Sentinel analytics rules, automation rules, and playbooks
-- Guided experiences
-- Curated threat intelligence
+- Guided experiences (Also ?)
+- Curated threat intelligence (Is this new?)
 
 This article describes the Microsoft Sentinel experience in the Microsoft Defender portal.
 
