@@ -11,11 +11,6 @@ ms.topic: conceptual
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: Windows Registry :heavy_check_mark: Windows Files :heavy_check_mark: Linux Files :heavy_check_mark: Windows Software :heavy_check_mark: Windows Services & Linux Daemons
 
-> [!Important]
-> - Currently, Change tracking and inventory uses Log Analytics Agent and this is scheduled to retire by 31.August.2024. We recommend that you use Azure Monitoring Agent as the new supporting agent.
-> - Guidance on migration from Change Tracking & Inventory using Log Analytics agent to Azure Monitoring Agent will be available once it is generally available. [Learn more](guidance-migration-log-analytics-monitoring-agent.md).
-> - We recommend that you use Change Tracking with Azure Monitoring Agent with the Change tracking extension version 2.20.0.0 (or above) to access the GA version of this service.
-
 This article explains the version details of change tracking extension.
 
 
@@ -30,7 +25,7 @@ This article explains the version details of change tracking extension.
 
 **Windows** - None
 
-**Linux** - The Fix File content upload isn't working for Linux machines.
+**Linux** - The Fix file content upload isn't working for Linux machines.
 
 ### Extension Version 2.21.0.0
 
@@ -39,7 +34,7 @@ This article explains the version details of change tracking extension.
 - SvcName or SoftwareName are displayed as garbled string for Japanese, or Chinese lang vms. The issue is fixed in latest version of AMA windows (1.24.0). We recommend that you upgrade to Azure Monitoring Agent.
 For Windows SvcDescription is coming as base64 encoded string. As a workaround for now you must use base64_decode_tostring() kql function.
 
-**Windows** - The Fix Windows Services data isn't getting uploaded for machines in some languages (Japanese, Chinese).
+**Windows** - The Fix Windows services data isn't getting uploaded for machines in some languages (Japanese, Chinese).
 
 **Linux** - None
 
