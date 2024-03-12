@@ -77,4 +77,4 @@ If you no longer need the VM, you can delete it.
 
 ## Next steps
 
-[Create a Virtual Machine on SCVMM managed on-premises hosts](./create-virtual-machine.md.md).
+[Create a Virtual Machine on SCVMM managed on-premises hosts](./create-virtual-machine.md).
