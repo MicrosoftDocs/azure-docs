@@ -1,5 +1,5 @@
 ---
-title: PostgreSQL - Single SErver to Flexible Server portal offline and online
+title: PostgreSQL - Single Server to Flexible Server portal offline and online
 author: markingmyname
 ms.author: maghan
 ms.date: 03/19/2024
@@ -16,11 +16,11 @@ ms.topic: include
 > [!IMPORTANT]
 > To provide the best migration experience, performing migration using a burstable SKU of flexible server is not supported. Please use a general purpose or a memory-optimized SKU (4 VCore or higher) as your Target Flexible server to perform the migration. Once the migration is complete, you can downscale to a burstable instance if necessary.
 
-1. Create the target flexible server. For guided steps, refer to the quickstart [Create an Azure Database for PostgreSQL flexible server using the portal](../../../flexible-server/quickstart-create-server-portal.md).
+- Create the target flexible server. For guided steps, refer to the quickstart [Create an Azure Database for PostgreSQL flexible server using the portal](../../../flexible-server/quickstart-create-server-portal.md).
 
-1. Allowlist extensions whose libraries must be loaded at server start. It's essential that the extension is on the allowlist before you initiate a migration.
+- Allowlist extensions whose libraries must be loaded at server start. It's essential that the extension is on the allowlist before you initiate a migration.
 
-1. Check if the data distribution among a database's tables is skewed, with most of the data present in a single (or few) tables. If it's skewed, the migration speed could be slower than expected. In this case, the migration speed can be increased by [migrating the large table in parallel](../best-practices-migration-service-postgresql.md#improve-migration-speed---parallel-migration-of-tables).
+- Check if the data distribution among a database's tables is skewed, with most of the data present in a single (or few) tables. If it's skewed, the migration speed could be slower than expected. In this case, the migration speed can be increased by [migrating the large table in parallel](../best-practices-migration-service-postgresql.md#improve-migration-speed---parallel-migration-of-tables).
 
 ## Configure the migration task
 

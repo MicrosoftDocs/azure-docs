@@ -1,5 +1,5 @@
 ---
-title: PostgreSQL - Single SErver to Flexible Server CLI offline and online
+title: PostgreSQL - Single Server to Flexible Server CLI offline and online
 author: markingmyname
 ms.author: maghan
 ms.date: 03/19/2024
