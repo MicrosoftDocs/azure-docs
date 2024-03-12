@@ -1,6 +1,6 @@
 ---
 title: Configure the Microsoft Security DevOps GitHub action
-description: Learn how to configure the Microsoft Security DevOps GitHub action.
+description: Learn how to configure the Microsoft Security DevOps GitHub action to enhance your project's security and DevOps processes.
 ms.date: 06/18/2023
 ms.topic: how-to
 ---
@@ -31,7 +31,7 @@ Microsoft Security DevOps uses the following Open Source tools:
 
 - Open the [Microsoft Security DevOps GitHub action](https://github.com/marketplace/actions/security-devops-action) in a new window.
 
-- Ensure that [Workflow permissions are set to Read and Write](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#setting-the-permissions-of-the-github_token-for-your-repository) on the GitHub repository.
+- Ensure that [Workflow permissions are set to Read and Write](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#setting-the-permissions-of-the-github_token-for-your-repository) on the GitHub repository. This includes setting "id-token: write" permissions in the GitHub Workflow for federation with Defender for Cloud.
 
 ## Configure the Microsoft Security DevOps GitHub action
 
@@ -71,7 +71,11 @@ Microsoft Security DevOps uses the following Open Source tools:
         # MSDO runs on windows-latest.
         # ubuntu-latest also supported
         runs-on: windows-latest
-
+    
+        permissions:
+          contents: read
+          id-token: write
+    
         steps:
 
           # Checkout your code repository to scan
@@ -101,9 +105,9 @@ Microsoft Security DevOps uses the following Open Source tools:
             name: alerts
             path: ${{ steps.msdo.outputs.sarifFile }}
     ```
+
     > [!NOTE]
     >  For additional tool configuration options, see [the Microsoft Security DevOps wiki](https://github.com/microsoft/security-devops-action/wiki)
-
 
 1. Select **Start commit**
 
@@ -137,7 +141,7 @@ Code scanning findings will be filtered by specific MSDO tools in GitHub. These 
 
 - Learn how to [deploy apps from GitHub to Azure](/azure/developer/github/deploy-to-azure).
 
-## Next steps
+## Related content
 
 Learn more about [DevOps security in Defender for Cloud](defender-for-devops-introduction.md).
 

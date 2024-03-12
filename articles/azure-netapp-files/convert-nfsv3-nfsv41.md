@@ -23,7 +23,7 @@ Converting a volume between NFSv3 and NFSv4.1 does not require that you create a
 >    * Before conversion, you need to unmount the volume from all clients. This operation might require shutdown of your applications that access the volume. 
 >    * After successful volume conversion, you need to reconfigure each of the clients that access the volume before you can remount the volume. 
 >
-> If you convert from NFSv4.1 to NFSv3, all advanced NFSv4.1 features such as Access Control Lists (ACLs) and file locking will become unavailable.
+> If you convert from NFSv4.1 to NFSv3, all advanced NFSv4.1 features such as Access Control Lists (ACLs) and file locking become unavailable.
 
 ## Considerations
 
@@ -32,8 +32,8 @@ Converting a volume between NFSv3 and NFSv4.1 does not require that you create a
 * You cannot convert a single-protocol NFS volume to a dual-protocol volume, or the other way around. 
 * You cannot convert a destination volume in a cross-region replication relationship. 
 * Converting an NFSv4.1 volume to NFSv3 will cause all advanced NFSv4.1 features such as ACLs and file locking to become unavailable. 
-* Converting a volume from NFSv3 to NFSv4.1 will cause the `.snapshot` directory to be hidden from NFSv4.1 clients. The directory will still be accessible.
-* Converting a volume from NFSv4.1 to NFSv3 will cause the `.snapshot` directory to be visible. You can modify the properties of the volume to [hide the snapshot path](snapshots-edit-hide-path.md).
+* Converting a volume from NFSv3 to NFSv4.1 causes the `.snapshot` directory to be hidden from NFSv4.1 clients. The directory remains accessible.
+* Converting a volume from NFSv4.1 to NFSv3 causes the `.snapshot` directory to be visible. You can modify the properties of the volume to [hide the snapshot path](snapshots-edit-hide-path.md).
 
 ## Register the option 
 
@@ -100,7 +100,7 @@ In this example, you have an existing NFSv4.1 volume that you want to convert to
 This section shows you how to convert the NFSv4.1 volume to NFSv3.
 
 > [!IMPORTANT]
-> Converting a volume from NFSv4.1 to NFSv3 will result in all NFSv4.1 features such as ACLs and file locking to become unavailable. 
+> Converting a volume from NFSv4.1 to NFSv3 results in all NFSv4.1 features such as ACLs and file locking to become unavailable. 
 
 1. Before converting the volume:
     1. Unmount it from the clients in preparation. See [Mount or unmount a volume](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).  

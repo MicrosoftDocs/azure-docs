@@ -235,7 +235,8 @@ The bulk import feature enables importing FHIR data to the FHIR server at high t
 
 ### Azure Health Data Services 
 
-**Private Link is available**
+#### Private Link is available
+
 With Private Link, you can access Azure Health Data Services securely from your virtual network as a first-party service without having to go through a public Domain Name System (DNS). For more information, see [Configure Private Link for Azure Health Data Services](./../healthcare-apis/healthcare-apis-configure-private-link.md). 
 
 ### FHIR service

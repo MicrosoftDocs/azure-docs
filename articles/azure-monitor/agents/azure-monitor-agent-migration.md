@@ -100,26 +100,28 @@ The following features and services now have an Azure Monitor Agent version (som
     
 |	Service or feature	|	Migration recommendation	|	Current state	|	More information	|
 |	:---	|	:---	|	:---	|	:---	|
-|	[VM insights, Service Map, and Dependency agent](../vm/vminsights-overview.md)	|	Migrate to Azure Monitor Agent 	| Generally Available	|	[Enable VM Insights](../vm/vminsights-enable-overview.md)	|
-|	[Container insights](../containers/container-insights-overview.md)	|	Migrate to Azure Monitor Agent 	| **Linux**: Generally available<br>**Windows**:Public preview 	|	[Enable Container Insights](../containers/container-insights-onboard.md)	|
-|   [Microsoft Sentinel](../../sentinel/overview.md)	| Migrate to Azure Monitor Agent |	Public Preview |  See [AMA migration for Microsoft Sentinel](../../sentinel/ama-migrate.md). Only CEF and Firewall collection remain for GA status |
-|	 [Change Tracking and Inventory](../../automation/change-tracking/overview-monitoring-agent.md) |	 Migrate to Azure Monitor Agent 	| Generally Available	|	[Migration guidance from Change Tracking and inventory using Log Analytics to Change Tracking and inventory using Azure Monitoring Agent version](../../automation/change-tracking/guidance-migration-log-analytics-monitoring-agent.md) |
-|	[Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md)	|	Migrate to new service called Connection Monitor with Azure Monitor Agent	|	Generally Available	|	[Monitor network connectivity using Azure Monitor agent with connection monitor](../../network-watcher/azure-monitor-agent-with-connection-monitor.md)	|
-|	Azure Stack HCI Insights	|	Migrate to Azure Monitor Agent 	| Generally Available|	[Monitor Azure Stack HCI with Insights](/azure-stack/hci/manage/monitor-hci-single)	|
-|	[Azure Virtual Desktop (AVD) Insights](../../virtual-desktop/insights.md) |	Migrate to Azure Monitor Agent	|Generally Available	| [Use Azure Virtual Desktop Insights to monitor your deployment](../../virtual-desktop/insights.md#session-host-data-settings)	|
+| [VM insights, Service Map, and Dependency agent](../vm/vminsights-overview.md)	|	Migrate to Azure Monitor Agent 	| Generally Available	|	[Enable VM Insights](../vm/vminsights-enable-overview.md)	|
+| [Microsoft Sentinel](../../sentinel/overview.md)	| Migrate to Azure Monitor Agent |	Public Preview |  [AMA migration for Microsoft Sentinel](../../sentinel/ama-migrate.md). |
+| [Change Tracking and Inventory](../../automation/change-tracking/overview-monitoring-agent.md) |	 Migrate to Azure Monitor Agent 	| Generally Available	|	[Migration for Change Tracking and inventory](../../automation/change-tracking/guidance-migration-log-analytics-monitoring-agent.md) |
+| [Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md)	|	Migrate to new service called Connection Monitor with Azure Monitor Agent	|	Generally Available	|	[Monitor network connectivity using connection monitor](../../network-watcher/azure-monitor-agent-with-connection-monitor.md)	|
+| Azure Stack HCI Insights	|	Migrate to Azure Monitor Agent 	| Generally Available|	[Monitor Azure Stack HCI with Insights](/azure-stack/hci/manage/monitor-hci-single)	|
+| [Azure Virtual Desktop (AVD) Insights](../../virtual-desktop/insights.md) |	Migrate to Azure Monitor Agent	|Generally Available	| [Azure Virtual Desktop Insights](../../virtual-desktop/insights.md#session-host-data-settings)	|
 | [Container Monitoring Solution](../containers/containers.md) | Migrate to new service called Container Insights with Azure Monitor Agent | Generally Available | [Enable Container Insights](../containers/container-insights-transition-solution.md) |
 | [DNS Collector](../../sentinel/connect-dns-ama.md) | Use new Sentinel Connector | Generally Available | [Enable DNS Connector](../../sentinel/connect-dns-ama.md)|
-
-> [!NOTE]
-> Features and services listed above in preview **may not be available in Azure Government and China clouds**. They will be available typically within a month *after* the features/services become generally available.
 
 When you migrate the following services, which currently use Log Analytics agent, to their respective replacements (v2), you no longer need either of the monitoring agents:
 
 |	Service	|	Migration recommendation	|	Current state	|	More information	|
 |	:---	|	:---	|	:---	|	:---	|
-|   [Microsoft Defender for Cloud, Servers, SQL, and Endpoint](../../security-center/security-center-introduction.md)	| Migrate to Microsoft Defender for Cloud (No dependency on Log Analytics agents or Azure Monitor Agent)	|	Generally available	| [Defender for Cloud plan and strategy for the Log Analytics agent deprecation](../../defender-for-cloud/upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation)|
+|   [Microsoft Defender for Cloud, Servers, SQL, and Endpoint](../../security-center/security-center-introduction.md)	| Migrate to Microsoft Defender for Cloud (No dependency on Log Analytics agents or Azure Monitor Agent)	|	Generally available	| [Defender for Cloud plan for Log Analytics agent deprecation](../../defender-for-cloud/upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation)|
 |	 [Update Management](../../automation/update-management/overview.md)	|	 Migrate to Azure Update Manager  (No dependency on Log Analytics agents or Azure Monitor Agent)	|	Generally available	|	[Update Manager documentation](../../update-manager/update-manager-faq.md#la-agent-also-known-as-mma-is-retiring-and-will-be-replaced-with-ama-is-it-necessary-to-move-to-update-manager-or-can-i-continue-to-use-automation-update-management-with-ama)	|
-|	 [Automation Hybrid Runbook Worker overview](../../automation/automation-hybrid-runbook-worker.md)	|	 Automation Hybrid Worker Extension (no dependency on Log Analytics agents or Azure Monitor Agent)	|	Generally available	|	[Migrate an existing Agent based to Extension based Hybrid Workers](../../automation/extension-based-hybrid-runbook-worker-install.md#migrate-an-existing-agent-based-to-extension-based-hybrid-workers)	|
+|	 [Automation Hybrid Runbook Worker overview](../../automation/automation-hybrid-runbook-worker.md)	|	 Automation Hybrid Worker Extension (no dependency on Log Analytics agents or Azure Monitor Agent)	|	Generally available	|	[Migrate to Extension based Hybrid Workers](../../automation/extension-based-hybrid-runbook-worker-install.md#migrate-an-existing-agent-based-to-extension-based-hybrid-workers)	|
+
+## Known parity gaps for solutions that may impact your migration
+- ***Sentinel***: CEF and Windows firewall logs are not yet GA
+- ***SQL Assessment Solution***: This is now part of SQL best practice assessment. The deployment policies require one Log Analytics Workspace per subscription, which is not the best practice recommended by the AMA team. 
+- ***Microsoft Defender for cloud***: Some features for the new agentless solution are in development. Your migration maybe impacted if you use FIM, Endpoint protection discovery recommendations, OS Misconfigurations (ASB recommendations) and Adaptive Application controls.
+- ***Container Insights***: The Windows version is in public preview.
 
 ## Frequently asked questions
 
