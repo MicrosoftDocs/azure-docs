@@ -20,7 +20,7 @@ Distributed functions can help reduce your network latency by up to 70%. Decreas
 Distributed only functions apply to the production environment of your static web app.
 
 > [!NOTE]
-> Distributed functions is not currently compatible with Next.js hybrid rendering sites
+> Distributed functions is not compatible with Next.js hybrid rendering applications.
 
 ## Enable distributed functions
 
