@@ -23,7 +23,7 @@ Distributed functions apply to the production environment of your Static Web App
 > [!NOTE]
 > Distributed functions is not currently compatible with Next.js hybrid rendering sites
 
-# Enable distributed functions
+## Enable distributed functions
 
 Before enabling distributed functions, ensure that you have a Standard hosting plan Static Web Apps resource with managed functions.
 
@@ -37,7 +37,7 @@ To enable distributed functions for your Static Web Apps resource, use the follo
 
 1. Select **Confirm**.
 
-# Next steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Use preview environments](preview-environments.md)
