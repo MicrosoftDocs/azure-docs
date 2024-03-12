@@ -161,9 +161,9 @@ If you aren't using the deboarding script, follow these steps to remove the VMwa
 
 10. Select **Remove from Azure** to remove the vCenter resource from Azure.
 
-11. Go to the **Custom location** resource and select **Delete**
+11. Go to the **Custom location** resource and select **Delete**.
 
-12. Go to the **Azure Arc Resource bridge** resource and select **Delete**
+12. Go to the **Azure Arc Resource bridge** resource and select **Delete**.
 
 At this point, all your Arc-enabled VMware vSphere resources are removed from Azure.
 
