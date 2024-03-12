@@ -53,18 +53,19 @@ It's important to note that the cluster autoscaler profile settings are cluster-
 
 #### Example 1: Optimizing for performance
 
-For clusters that handle substantial and bursty workloads with a primary focus on performance, we recommend increasing the `scan-interval` and decreasing the `scale-down-utilization-threshold`. These settings help batch multiple scaling operations into a single call, optimizing scaling time and the utilization of compute read/write quotas. It also helps mitigate the risk of swift scale down operations on underutilized nodes, enhancing the pod scheduling efficiency.
+For clusters that handle substantial and bursty workloads with a primary focus on performance, we recommend increasing the `scan-interval` and decreasing the `scale-down-utilization-threshold`. These settings help batch multiple scaling operations into a single call, optimizing scaling time and the utilization of compute read/write quotas. It also helps mitigate the risk of swift scale down operations on underutilized nodes, enhancing the pod scheduling efficiency. Also increase `ok-total-unready-count`and `max-total-unready-percentage`. 
 
-For clusters with daemonset pods, we recommend setting `ignore-daemonset-utilization` to `true`, which effectively ignores node utilization by daemonset pods and minimizes unnecessary scale down operations.
+For clusters with daemonset pods, we recommend setting `ignore-daemonset-utilization` to `true`, which effectively ignores node utilization by daemonset pods and minimizes unnecessary scale down operations. See [profile for bursty workloads](./cluster-autoscaler.md#configure-cluster-autoscaler-profile-for-bursty-workloads)
 
 #### Example 2: Optimizing for cost
 
-If you want a cost-optimized profile, we recommend setting the following parameter configurations:
-
+If you want a [cost-optimized profile](./cluster-autoscaler.md#configure-cluster-autoscaler-profile-for-aggressive-scale-down), we recommend setting the following parameter configurations:
 * Reduce `scale-down-unneeded-time`, which is the amount of time a node should be unneeded before it's eligible for scale down.
 * Reduce `scale-down-delay-after-add`, which is the amount of time to wait after a node is added before considering it for scale down.
 * Increase `scale-down-utilization-threshold`, which is the utilization threshold for removing nodes.
 * Increase `max-empty-bulk-delete`, which is the maximum number of nodes that can be deleted in a single call.
+* Set `skip-nodes-with-local-storage` to false.
+* Increase `ok-total-unready-count`and `max-total-unready-percentage` 
 
 ## Common issues and mitigation recommendations
 View scaling failures and scale-up not triggered events on [CLI/ Portal](https://learn.microsoft.com/en-us/azure/aks/cluster-autoscaler?tabs=azure-cli#retrieve-cluster-autoscaler-logs-and-status-updates)
