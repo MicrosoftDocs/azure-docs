@@ -49,23 +49,18 @@ To submit a batch synthesis request, construct the HTTP PUT request path and bod
 - Optionally you can set the `description`, `timeToLiveInHours`, and other properties. For more information, see [batch synthesis properties](batch-synthesis-properties.md).
 
 > [!NOTE]
-> The maximum JSON payload size that will be accepted is 500 kilobytes. Each Speech resource can have up to 200 batch synthesis jobs that are running concurrently. (@TODO)
+> The maximum JSON payload size that will be accepted is 2 megabytes. Each Speech resource can have up to 300 batch synthesis jobs that are running concurrently.
 
 Make an HTTP PUT request using the URI as shown in the following example. Replace `YourSpeechKey` with your Speech resource key, replace `YourSpeechRegion` with your Speech resource region, and set the request body properties as previously described.
 
 ```azurecli-interactive
 curl -v -X PUT -H "Ocp-Apim-Subscription-Key: YourSpeechKey" -H "Content-Type: application/json" -d '{
-    "displayName": "batch synthesis sample",
     "description": "my ssml test",
     "inputKind": "SSML",
     "inputs": [
         {
-            "text": "<speak version='\''1.0'\'' xml:lang='\''en-US'\''>
-				<voice name='\''en-US-JennyNeural'\''>
-					The rainbow has seven colors.
-				</voice>
-			</speak>",
-        },
+            "content": "<speak version=\"1.0\" xml:lang=\"en-US\"><voice name=\"en-US-JennyNeural\">The rainbow has seven colors.</voice></speak>"
+        }
     ],
     "properties": {
         "outputFormat": "riff-24khz-16bit-mono-pcm",
@@ -73,31 +68,29 @@ curl -v -X PUT -H "Ocp-Apim-Subscription-Key: YourSpeechKey" -H "Content-Type: a
         "sentenceBoundaryEnabled": false,
         "concatenateResult": false,
         "decompressOutputFiles": false
-    },
-}'  "https://YourSpeechRegion.api.cognitive.microsoft.com/texttospeech/batchsyntheses?api-version=2024-04-01"
+    }
+}'  "https://YourSpeechRegion.api.cognitive.microsoft.com/texttospeech/batchsyntheses/my-job-01?api-version=2024-04-01"
 ```
 
 You should receive a response body in the following format:
 
 ```json
 {
+  "id": "my-job-01",
+  "internalId": "7ab84171-9070-4d3b-88d4-1b8cc1cb928a",
+  "status": "NotStarted",
+  "createdDateTime": "2024-03-12T07:23:18.0097387Z",
+  "lastActionDateTime": "2024-03-12T07:23:18.0097388Z",
   "inputKind": "SSML",
-  "synthesisConfig": {},
   "customVoices": {},
   "properties": {
-    "timeToLiveInHours": "P31D",
+    "timeToLiveInHours": 744,
     "outputFormat": "riff-24khz-16bit-mono-pcm",
     "concatenateResult": false,
     "decompressOutputFiles": false,
     "wordBoundaryEnabled": false,
     "sentenceBoundaryEnabled": false
-  },
-  "lastActionDateTime": "2022-11-16T15:07:04.121Z",
-  "status": "NotStarted",
-  "id": "1e2e0fe8-e403-417c-a382-b55eb2ea943d",
-  "createdDateTime": "2022-11-16T15:07:04.121Z",
-  "displayName": "batch synthesis sample",
-  "description": "my ssml test"
+  }
 }
 ```
 
@@ -105,45 +98,44 @@ The `status` property should progress from `NotStarted` status, to `Running`, an
 
 ## Get batch synthesis
 
-To get the status of the batch synthesis job, make an HTTP GET request using the URI as shown in the following example. Replace `YourSynthesisId` with your batch synthesis ID, replace `YourSpeechKey` with your Speech resource key, and replace `YourSpeechRegion` with your Speech resource region.
+To get the status of the batch synthesis job, make an HTTP GET request using the URI as shown in the following example. Replace `YourSpeechKey` with your Speech resource key, and replace `YourSpeechRegion` with your Speech resource region.
 
 ```azurecli-interactive
-curl -v -X GET "https://YourSpeechRegion.api.cognitive.microsoft.com/texttospeech/batchsyntheses/YourSynthesisId?api-version=2024-04-01" -H "Ocp-Apim-Subscription-Key: YourSpeechKey"
+curl -v -X GET "https://YourSpeechRegion.api.cognitive.microsoft.com/texttospeech/batchsyntheses/my-job-01?api-version=2024-04-01" -H "Ocp-Apim-Subscription-Key: YourSpeechKey"
 ```
 
 You should receive a response body in the following format:
 
 ```json
 {
+  "id": "my-job-01",
+  "internalId": "7ab84171-9070-4d3b-88d4-1b8cc1cb928a",
+  "status": "Succeeded",
+  "createdDateTime": "2024-03-12T07:23:18.0097387Z",
+  "lastActionDateTime": "2024-03-12T07:23:18.7979669",
   "inputKind": "SSML",
-  "synthesisConfig": {},
   "customVoices": {},
   "properties": {
-    "audioSize": 100000,
-    "durationInTicks": 31250000,
-    "succeededAudioCount": 1,
-    "failedAudioCount": 0,
-    "duration": "PT3.125S",
-    "billingDetails": {
-      "customNeural": 0,
-      "neural": 33
-    },
-    "timeToLiveInHours": "P31D",
+    "timeToLiveInHours": 744,
     "outputFormat": "riff-24khz-16bit-mono-pcm",
     "concatenateResult": false,
     "decompressOutputFiles": false,
     "wordBoundaryEnabled": false,
-    "sentenceBoundaryEnabled": false
+    "sentenceBoundaryEnabled": false,
+    "audioSizeInBytes": 120000,
+    "succeededAudioCount": 1,
+    "failedAudioCount": 0,
+    "durationInMilliseconds": 2500,
+    "billingDetails": {
+      "neuralCharacters": 29,
+      "customNeuralCharacters": 0,
+      "neuralHDCharacters": 0,
+      "personalVoiceCharacters": 0
+    }
   },
   "outputs": {
-    "result": "https://cvoiceprodeus.blob.core.windows.net/batch-synthesis-output/41b83de2-380d-45dc-91af-722b68cfdc8e/results.zip?SAS_Token"
-  },
-  "lastActionDateTime": "2022-11-05T14:00:32.523Z",
-  "status": "Succeeded",
-  "id": "41b83de2-380d-45dc-91af-722b68cfdc8e",
-  "createdDateTime": "2022-11-05T14:00:31.523Z",
-  "displayName": "batch synthesis sample",
-  "description": "my test"
+    "result": "https://stttssvcuse.blob.core.windows.net/batchsynthesis-output/29f2105f997c4bfea176d39d05ff201e/my-job-01/results.zip?skoid=e3eb71b6-2f74-4d2f-a299-c435e84ae6ad&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2024-03-12T06%3A36%3A14Z&ske=2024-03-18T06%3A41%3A14Z&sks=b&skv=2023-11-03&sv=2023-11-03&st=2024-03-12T07%3A20%3A31Z&se=2024-03-15T07%3A25%3A31Z&sr=b&sp=rl&sig=Masked"
+  }
 }
 ```
 
@@ -154,7 +146,7 @@ From `outputs.result`, you can download a ZIP file that contains the audio (such
 To list all batch synthesis jobs for the Speech resource, make an HTTP GET request using the URI as shown in the following example. Replace `YourSpeechKey` with your Speech resource key and replace `YourSpeechRegion` with your Speech resource region. Optionally, you can set the `skip` and `maxpagesize` (up to 100) query parameters in URL. The default value for `skip` is 0 and the default value for `maxpagesize` is 100.
 
 ```azurecli-interactive
-curl -v -X GET "https://YourSpeechRegion.api.cognitive.microsoft.com/texttospeech/batchsyntheses?api-version=2024-04-01&skip=0&maxpagesize=2" -H "Ocp-Apim-Subscription-Key: YourSpeechKey"
+curl -v -X GET "https://YourSpeechRegion.api.cognitive.microsoft.com/texttospeech/batchsyntheses?api-version=2024-04-01&skip=1&maxpagesize=2" -H "Ocp-Apim-Subscription-Key: YourSpeechKey"
 ```
 
 You should receive a response body in the following format:
@@ -163,76 +155,67 @@ You should receive a response body in the following format:
 {
   "value": [
     {
+      "id": "my-job-03",
+      "internalId": "5f7e9ab6-2c92-4dcb-b5ee-ec0983ee4db0",
+      "status": "Succeeded",
+      "createdDateTime": "2024-03-12T07:28:32.5690441Z",
+      "lastActionDateTime": "2024-03-12T07:28:33.0042293",
       "inputKind": "SSML",
-      "synthesisConfig": {},
       "customVoices": {},
       "properties": {
-        "audioSize": 100000,
-        "durationInTicks": 31250000,
-        "succeededAudioCount": 1,
-        "failedAudioCount": 0,
-        "duration": "PT3.125S",
-        "billingDetails": {
-          "customNeural": 0,
-          "neural": 33
-        },
-        "timeToLiveInHours": "P31D",
+        "timeToLiveInHours": 744,
         "outputFormat": "riff-24khz-16bit-mono-pcm",
         "concatenateResult": false,
         "decompressOutputFiles": false,
         "wordBoundaryEnabled": false,
-        "sentenceBoundaryEnabled": false
-      },
-      "outputs": {
-        "result": "https://cvoiceprodeus.blob.core.windows.net/batch-synthesis-output/41b83de2-380d-45dc-91af-722b68cfdc8e/results.zip?SAS_Token"
-      },
-      "lastActionDateTime": "2022-11-05T14:00:32.523Z",
-      "status": "Succeeded",
-      "id": "41b83de2-380d-45dc-91af-722b68cfdc8e",
-      "createdDateTime": "2022-11-05T14:00:31.523Z",
-      "displayName": "batch synthesis sample",
-      "description": "my test"
-    }
-    {
-      "inputKind": "PlainText",
-      "synthesisConfig": {
-        "voice": "en-US-JennyNeural",
-        "style": "chat",
-        "rate": "+30.00%",
-        "pitch": "x-high",
-        "volume": "80"
-      },
-      "customVoices": {},
-      "properties": {
-        "audioSize": 79384,
-        "durationInTicks": 24800000,
+        "sentenceBoundaryEnabled": false,
+        "audioSizeInBytes": 120000,
         "succeededAudioCount": 1,
         "failedAudioCount": 0,
-        "duration": "PT2.48S",
+        "durationInMilliseconds": 2500,
         "billingDetails": {
-          "customNeural": 0,
-          "neural": 33
-        },
-        "timeToLiveInHours": "P31D",
-        "outputFormat": "riff-24khz-16bit-mono-pcm",
-        "concatenateResult": false,
-        "decompressOutputFiles": false,
-        "wordBoundaryEnabled": false,
-        "sentenceBoundaryEnabled": false
+          "neuralCharacters": 29,
+          "customNeuralCharacters": 0,
+          "neuralHDCharacters": 0,
+          "personalVoiceCharacters": 0
+        }
       },
       "outputs": {
-        "result": "https://cvoiceprodeus.blob.core.windows.net/batch-synthesis-output/38e249bf-2607-4236-930b-82f6724048d8/results.zip?SAS_Token"
-      },
-      "lastActionDateTime": "2022-11-05T18:52:23.210Z",
-      "status": "Succeeded",
-      "id": "38e249bf-2607-4236-930b-82f6724048d8",
-      "createdDateTime": "2022-11-05T18:52:22.807Z",
-      "displayName": "batch synthesis sample",
-      "description": "my test"
+        "result": "https://stttssvcuse.blob.core.windows.net/batchsynthesis-output/29f2105f997c4bfea176d39d05ff201e/my-job-03/results.zip?skoid=e3eb71b6-2f74-4d2f-a299-c435e84ae6ad&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2024-03-12T06%3A36%3A14Z&ske=2024-03-18T06%3A41%3A14Z&sks=b&skv=2023-11-03&sv=2023-11-03&st=2024-03-12T07%3A23%3A52Z&se=2024-03-15T07%3A28%3A52Z&sr=b&sp=rl&sig=Masked"
+      }
     },
+    {
+      "id": "my-job-02",
+      "internalId": "5577585f-4710-4d4f-aab6-162d14bd7ee0",
+      "status": "Succeeded",
+      "createdDateTime": "2024-03-12T07:28:29.6418211Z",
+      "lastActionDateTime": "2024-03-12T07:28:30.0910306",
+      "inputKind": "SSML",
+      "customVoices": {},
+      "properties": {
+        "timeToLiveInHours": 744,
+        "outputFormat": "riff-24khz-16bit-mono-pcm",
+        "concatenateResult": false,
+        "decompressOutputFiles": false,
+        "wordBoundaryEnabled": false,
+        "sentenceBoundaryEnabled": false,
+        "audioSizeInBytes": 120000,
+        "succeededAudioCount": 1,
+        "failedAudioCount": 0,
+        "durationInMilliseconds": 2500,
+        "billingDetails": {
+          "neuralCharacters": 29,
+          "customNeuralCharacters": 0,
+          "neuralHDCharacters": 0,
+          "personalVoiceCharacters": 0
+        }
+      },
+      "outputs": {
+        "result": "https://stttssvcuse.blob.core.windows.net/batchsynthesis-output/29f2105f997c4bfea176d39d05ff201e/my-job-02/results.zip?skoid=e3eb71b6-2f74-4d2f-a299-c435e84ae6ad&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2024-03-12T06%3A36%3A14Z&ske=2024-03-18T06%3A41%3A14Z&sks=b&skv=2023-11-03&sv=2023-11-03&st=2024-03-12T07%3A23%3A52Z&se=2024-03-15T07%3A28%3A52Z&sr=b&sp=rl&sig=Masked"
+      }
+    }
   ],
-  // The next page link of the list of batch synthesis.
-  "nextLink": "https://{region}.api.cognitive.microsoft.com/texttospeech/batchsyntheses?api-version=2024-04-01&skip=0&maxpagesize=2"
+  "nextLink": "https://{region}.api.cognitive.microsoft.com/texttospeech/batchsyntheses?skip=3&maxpagesize=2&api-version=2024-04-01"
 }
 ```
 
@@ -271,23 +254,22 @@ The summary file contains the synthesis results for each text input. Here's an e
 
 ```json
 {
-  "jobID": "41b83de2-380d-45dc-91af-722b68cfdc8e",
+  "jobID": "7ab84171-9070-4d3b-88d4-1b8cc1cb928a",
   "status": "Succeeded",
   "results": [
     {
       "texts": [
-        "<speak version='1.0' xml:lang='en-US'>\n\t\t\t\t<voice name='en-US-JennyNeural'>\n\t\t\t\t\tThe rainbow has seven colors.\n\t\t\t\t</voice>\n\t\t\t</speak>"
+        "<speak version=\"1.0\" xml:lang=\"en-US\"><voice name=\"en-US-JennyNeural\">The rainbow has seven colors.</voice></speak>"
       ],
       "status": "Succeeded",
       "billingDetails": {
         "CustomNeural": "0",
-        "Neural": "33"
+        "Neural": "29"
       },
       "audioFileName": "0001.wav",
       "properties": {
-        "audioSize": "100000",
-        "duration": "PT3.1S",
-        "durationInTicks": "31250000"
+        "sizeInBytes": "120000",
+        "durationInMilliseconds": "2500"
       }
     }
   ]
@@ -301,29 +283,34 @@ Here's an example word data file with both audio offset and duration in millisec
 ```json
 [
   {
-    "Text": "the",
-    "AudioOffset": 38,
-    "Duration": 153
+    "Text": "The",
+    "AudioOffset": 50,
+    "Duration": 137
   },
   {
     "Text": "rainbow",
-    "AudioOffset": 201,
-    "Duration": 326
+    "AudioOffset": 200,
+    "Duration": 350
   },
   {
     "Text": "has",
-    "AudioOffset": 567,
-    "Duration": 96
+    "AudioOffset": 562,
+    "Duration": 175
   },
   {
     "Text": "seven",
-    "AudioOffset": 673,
-    "Duration": 96
+    "AudioOffset": 750,
+    "Duration": 300
   },
   {
     "Text": "colors",
-    "AudioOffset": 778,
-    "Duration": 451
+    "AudioOffset": 1062,
+    "Duration": 625
+  },
+  {
+    "Text": ".",
+    "AudioOffset": 1700,
+    "Duration": 100
   }
 ]
 ```
@@ -338,9 +325,9 @@ The latency in batch synthesis depends on various factors, including the complex
 
 The latency for batch synthesis is as follows (approximately):
 
-- The latency of 50% of the synthesized speech outputs is within 10-20 seconds. (@TODO)
+- The latency of 50% of the synthesized speech outputs is within 10-20 seconds.
 
-- The latency of 95% of the synthesized speech outputs is within 120 seconds. (@TODO)
+- The latency of 95% of the synthesized speech outputs is within 120 seconds.
 
 ### Best practices
 
@@ -370,12 +357,10 @@ An HTTP 204 error indicates that the request was successful, but the resource do
 Here are examples that can result in the 400 error:
 
 - The `outputFormat` is unsupported or invalid. Provide a valid format value, or leave `outputFormat` empty to use the default setting.
-- The number of requested text inputs exceeded the limit of 1,000.
-- The `maxpagesize` query parameter exceeded the limit of 100. (@TODO)
+- The number of requested text inputs exceeded the limit of 10,000.
 - You tried to use an invalid deployment ID or a custom voice that isn't successfully deployed. Make sure the Speech resource has access to the custom voice, and the custom voice is successfully deployed. You must also ensure that the mapping of `{"your-custom-voice-name": "your-deployment-ID"}` is correct in your batch synthesis request.
-- You tried to delete a batch synthesis job that isn't started or hasn't completed running. You can only delete batch synthesis jobs that have a status of "Succeeded" or "Failed".
 - You tried to use a _F0_ Speech resource, but the region only supports the _Standard_ Speech resource pricing tier.
-- You tried to create a new batch synthesis job that would exceed the limit of 200 active jobs. Each Speech resource can have up to 200 batch synthesis jobs that don't have a status of "Succeeded" or "Failed".
+- You tried to create a new batch synthesis job that would exceed the limit of 300 active jobs. Each Speech resource can have up to 300 batch synthesis jobs that don't have a status of "Succeeded" or "Failed".
 
 ### HTTP 404 error
 
@@ -383,15 +368,7 @@ The specified entity can't be found. Make sure the synthesis ID is correct.
 
 ### HTTP 429 error
 
-There are too many recent requests. Each client application can submit up to 50 requests per 5 seconds for each Speech resource. Reduce the number of requests per second.
-
-You can check the rate limit and quota remaining via the HTTP headers as shown in the following example:
-
-```http
-X-RateLimit-Limit: 50 (@TODO)
-X-RateLimit-Remaining: 49
-X-RateLimit-Reset: 2022-11-11T01:49:43Z
-```
+There are too many recent requests. Each client application can submit up to 100 requests per 10 seconds for each Speech resource. Reduce the number of requests per second.
 
 ### HTTP 500 error
 
@@ -399,11 +376,12 @@ HTTP 500 Internal Server Error indicates that the request failed. The response b
 
 ### HTTP error example
 
-(@TODO)
-Here's an example request that results in an HTTP 400 error, because the `maxpagesize` query parameter is set to a value greater than 100.
+Here's an example request that results in an HTTP 400 error, because the `inputs` property is required to create a job.
 
 ```console
-curl -v -X GET "https://YourSpeechRegion.api.cognitive.microsoft.com/texttospeech/batchsyntheses?api-version=2024-04-01&skip=0&maxpagesize=200" -H "Ocp-Apim-Subscription-Key: YourSpeechKey"
+curl -v -X PUT -H "Ocp-Apim-Subscription-Key: YourSpeechKey" -H "Content-Type: application/json" -d '{
+    "inputKind": "SSML"
+}'  "https://YourSpeechRegion.api.cognitive.microsoft.com/texttospeech/batchsyntheses/my-job-01?api-version=2024-04-01"
 ```
 
 In this case, the response headers include `HTTP/1.1 400 Bad Request`.
@@ -412,11 +390,9 @@ The response body resembles the following JSON example:
 
 ```json
 {
-  "code": "InvalidRequest",
-  "message": "The maxpagesize parameter should not be greater than 100.",
-  "innerError": {
-    "code": "InvalidParameter",
-    "message": "The maxpagesize parameter should not be greater than 100."
+  "error": {
+    "code": "BadRequest",
+    "message": "The inputs is required."
   }
 }
 ```

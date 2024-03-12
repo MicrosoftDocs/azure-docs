@@ -35,7 +35,7 @@ Batch synthesis properties are described in the following table.
 |`outputs.result`|The location of the batch synthesis result files with audio output and logs.<br/><br/>This property is read-only.|
 |`properties`|A defined set of optional batch synthesis configuration settings.|
 |`properties.audioSizeInBytes`|The audio output size in bytes.<br/><br/>This property is read-only.|
-|`properties.billingDetails`|The number of words that were processed and billed by `customNeural` versus `neural` (prebuilt) voices.<br/><br/>This property is read-only.|
+|`properties.billingDetails`|The number of words that were processed and billed by `customNeuralCharacters` versus `neuralCharacters` (prebuilt) voices.<br/><br/>This property is read-only.|
 |`properties.concatenateResult`|Determines whether to concatenate the result. This optional `bool` value ("true" or "false") is "false" by default.|
 |`properties.decompressOutputFiles`|Determines whether to unzip the synthesis result files in the destination container. This property can only be set when the `destinationContainerUrl` property is set. This optional `bool` value ("true" or "false") is "false" by default.|
 |`properties.destinationContainerUrl`|The batch synthesis results can be stored in a writable Azure container. If you don't specify a container URI with [shared access signatures (SAS)](../../storage/common/storage-sas-overview.md) token, the Speech service stores the results in a container managed by Microsoft. SAS with stored access policies isn't supported. When the synthesis job is deleted, the result data is also deleted.<br/><br/>This optional property isn't included in the response when you get the synthesis job.|
@@ -99,16 +99,15 @@ An HTTP 204 error indicates that the request was successful, but the resource do
 - You tried to get or delete a synthesis job that doesn't exist. 
 - You successfully deleted a synthesis job. 
 
-### HTTP 400 error 
+### HTTP 400 error
 
 Here are examples that can result in the 400 error:
+
 - The `outputFormat` is unsupported or invalid. Provide a valid format value, or leave `outputFormat` empty to use the default setting.
-- The number of requested text inputs exceeded the limit of 1,000.
-- The `top` query parameter exceeded the limit of 100.
+- The number of requested text inputs exceeded the limit of 10,000.
 - You tried to use an invalid deployment ID or a custom voice that isn't successfully deployed. Make sure the Speech resource has access to the custom voice, and the custom voice is successfully deployed. You must also ensure that the mapping of `{"your-custom-voice-name": "your-deployment-ID"}` is correct in your batch synthesis request.
-- You tried to delete a batch synthesis job that isn't started or hasn't completed running. You can only delete batch synthesis jobs that have a status of "Succeeded" or "Failed".
-- You tried to use a *F0* Speech resource, but the region only supports the *Standard* Speech resource pricing tier. 
-- You tried to create a new batch synthesis job that would exceed the limit of 200 active jobs. Each Speech resource can have up to 200 batch synthesis jobs that don't have a status of "Succeeded" or "Failed".
+- You tried to use a _F0_ Speech resource, but the region only supports the _Standard_ Speech resource pricing tier.
+- You tried to create a new batch synthesis job that would exceed the limit of 300 active jobs. Each Speech resource can have up to 300 batch synthesis jobs that don't have a status of "Succeeded" or "Failed".
 
 ### HTTP 404 error
 
@@ -132,10 +131,12 @@ HTTP 500 Internal Server Error indicates that the request failed. The response b
 
 ### HTTP error example
 
-Here's an example request that results in an HTTP 400 error, because the `top` query parameter is set to a value greater than 100.
+Here's an example request that results in an HTTP 400 error, because the `inputs` property is required to create a job.
 
 ```console
-curl -v -X GET "https://YourSpeechRegion.customvoice.api.speech.microsoft.com/api/texttospeech/3.1-preview1/batchsynthesis?skip=0&top=200" -H "Ocp-Apim-Subscription-Key: YourSpeechKey"
+curl -v -X PUT -H "Ocp-Apim-Subscription-Key: YourSpeechKey" -H "Content-Type: application/json" -d '{
+    "inputKind": "SSML"
+}'  "https://YourSpeechRegion.api.cognitive.microsoft.com/texttospeech/batchsyntheses/my-job-01?api-version=2024-04-01"
 ```
 
 In this case, the response headers include `HTTP/1.1 400 Bad Request`.
@@ -144,11 +145,9 @@ The response body resembles the following JSON example:
 
 ```json
 {
-  "code": "InvalidRequest",
-  "message": "The top parameter should not be greater than 100.",
-  "innerError": {
-    "code": "InvalidParameter",
-    "message": "The top parameter should not be greater than 100."
+  "error": {
+    "code": "BadRequest",
+    "message": "The inputs is required."
   }
 }
 ```

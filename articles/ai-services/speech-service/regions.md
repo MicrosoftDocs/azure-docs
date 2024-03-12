@@ -51,15 +51,15 @@ The following regions are supported for Speech service features such as speech t
 | Middle East   | UAE North            | `uaenorth` <sup>6</sup>                 |
 | South America | Brazil South         | `brazilsouth` <sup>6</sup>              |
 | Qatar         | Qatar Central        | `qatarcentral`<sup>3,8</sup>            |
-| US            | Central US           | `centralus`                             |
+| US            | Central US           | `centralus`                 |
 | US            | East US              | `eastus` <sup>1,2,4,5,7,9</sup>         |
 | US            | East US 2            | `eastus2` <sup>1,2,4,5</sup>            |
 | US            | North Central US     | `northcentralus` <sup>4,6</sup>         |
 | US            | South Central US     | `southcentralus` <sup>1,2,4,5,6,7</sup> |
-| US            | West Central US      | `westcentralus` <sup>5</sup>            |
+| US            | West Central US      | `westcentralus` <sup>3,5</sup>            |
 | US            | West US              | `westus` <sup>2,5</sup>                 |
 | US            | West US 2            | `westus2` <sup>1,2,4,5,7</sup>          |
-| US            | West US 3            | `westus3`                               |
+| US            | West US 3            | `westus3` <sup>3</sup>                  |
 
 <sup>1</sup> The region has dedicated hardware for custom speech training. If you plan to train a custom model with audio data, use one of the regions with dedicated hardware for faster training. Then you can [copy the trained model](how-to-custom-speech-train-model.md#copy-a-model) to another region.
 
