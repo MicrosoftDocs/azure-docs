@@ -11,8 +11,6 @@ ms.subservice: calling
 ms.custom: mode-other
 ---
 
-[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
-
 The proxy feature will *not* be available for Teams identities and Azure Communication Services Teams interoperability actions.
 
 ## Proxy calling media traffic

@@ -11,6 +11,10 @@ ms.date: 12/21/2023
 
 Microsoft regularly applies important updates to the Azure VMware Solution for new features and software lifecycle management. You should receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](concepts-private-clouds-clusters.md#host-maintenance-and-lifecycle-management).
 
+## March 2024
+
+Pure Cloud Block Store, offered by Pure Storage for Azure VMware Solution, is a third-party storage solution. The software runs entirely on the native Azure infrastructure.
+
 ## February 2024
 
 All new Azure VMware Solution private clouds are being deployed with VMware NSX version 4.1.1. 
