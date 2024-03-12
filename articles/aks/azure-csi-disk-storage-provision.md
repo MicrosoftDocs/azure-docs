@@ -272,7 +272,7 @@ When you create an Azure disk for use with AKS, you can create the disk resource
 
 ### Mount disk as a volume
 
-1. Create a *pv-azuredisk.yaml* file with a *PersistentVolume*. Update `volumeHandle` with disk resource ID from the previous step.
+1. Create a *pv-azuredisk.yaml* file with a *PersistentVolume*. Update `volumeHandle` with disk resource ID from the previous step. For Windows Server containers, specify *ntfs* for the parameter *fsType*.
 
     ```yaml
     apiVersion: v1
@@ -332,7 +332,7 @@ When you create an Azure disk for use with AKS, you can create the disk resource
     pvc-azuredisk   Bound    pv-azuredisk   20Gi        RWO                           5s
     ```
 
-5. Create an *azure-disk-pod.yaml* file to reference your *PersistentVolumeClaim*.
+5. Create an *azure-disk-pod.yaml* file to reference your *PersistentVolumeClaim*. For Windows Server containers, specify a *mountPath* using the Windows path convention, such as *'D:'*.
 
     ```yaml
     apiVersion: v1

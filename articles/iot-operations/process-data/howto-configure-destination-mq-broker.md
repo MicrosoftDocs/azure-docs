@@ -1,6 +1,6 @@
 ---
 title: Publish data to an MQTT broker from a pipeline
-description: Configure a pipeline destination stage to publish the pipeline output to an MQTT broker and make it available to other subscribers.
+description: Configure a pipeline destination stage to publish the pipeline output to an MQTT broker and make it available to other subscribers using Azure IoT Data Processor.
 author: dominicbetts
 ms.author: dobett
 ms.subservice: data-processor
@@ -13,15 +13,15 @@ ms.date: 10/09/2023
 ---
 
 
-# Publish data to an MQTT broker
+# Publish data to an MQTT broker using Azure IoT Data Processor Preview
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Use the _MQ_ destination to publish processed messages to an MQTT broker, such as an Azure IoT MQ instance, on the edge. The data processor connects to an MQTT broker by using MQTT v5.0. The destination publishes messages to the MQTT broker as the stage receives them. The MQ destination doesn't support batching.
+Use the _MQ_ destination to publish processed messages to an MQTT broker, such as an Azure IoT MQ Preview instance, on the edge. The data processor connects to an MQTT broker by using MQTT v5.0. The destination publishes messages to the MQTT broker as the stage receives them. The MQ destination doesn't support batching.
 
 ## Prerequisites
 
-To configure and use a destination pipeline stage, you need a deployed instance of Azure IoT Data Processor (preview).
+To configure and use a destination pipeline stage, you need a deployed instance of Azure IoT Data Processor Preview.
 
 ## Configure the destination stage
 
