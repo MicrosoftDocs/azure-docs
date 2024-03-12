@@ -68,6 +68,7 @@ User-Agent: value3
 The following limitations apply:
 
 - Removal of `Server` header is not supported.
+- Headers: `Connection`, `ContentLength`, `KeepAlive`, `TransferEncoding` cannot be modified or deleted. 
 
 ## Examples
 
