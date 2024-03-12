@@ -116,5 +116,4 @@ Capabilities in public preview:
 In this article, you learned how to use the SIEM migration experience. 
 
 > [!div class="nextstepaction"]
-> To learn more about migrating detection rules, see 
 > [Migrate Splunk detection rules](migration-splunk-detection-rules.md)
