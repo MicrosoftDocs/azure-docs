@@ -17,7 +17,7 @@ Migrating from the Azure Maps Android SDK to the Web SDK in a WebView involves t
 >
 > **Azure Maps Android SDK retirement**
 >
-> The Azure Maps Native SDK for Android is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps Android SDK migration guide](android-sdk-migration-guide.md).
+> The Azure Maps Native SDK for Android is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25.
 
 ## Prerequisites
 
