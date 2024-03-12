@@ -228,29 +228,28 @@ Replace LAB with your environment, as necessary.
 
 ```bash
 export            env_code="LAB"
-
-
+ 
+ 
 echo '[{"resourceAppId":"00000003-0000-0000-c000-000000000000","resourceAccess":[{"id":"e1fe6dd8-ba31-4d61-89e7-88639da4683d","type":"Scope"}]}]' >> manifest.json
-
+ 
 export TF_VAR_app_registration_app_id=$(az ad app create \
     --display-name ${env_code}-webapp-registration       \
     --enable-id-token-issuance true                      \
     --sign-in-audience AzureADMyOrg                      \
     --required-resource-access @manifest.json            \
     --query "appId" --output tsv )
-
+ 
+#remove the placeholder manifest.jsonrm manifest.json
+ 
 export TF_VAR_webapp_client_secret=$(az ad app credential reset \
     --id $TF_VAR_app_registration_app_id --append               \
     --query "password" --output tsv )
-
+ 
 export TF_use_webapp=true
-
-
+ 
+ 
 echo "App registration ID:  ${TF_VAR_app_registration_app_id}"
 echo "App registration password:  ${TF_VAR_webapp_client_secret}"
-```
-
-rm manifest.json
 ```
 
 >[!NOTE]
