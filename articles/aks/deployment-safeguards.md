@@ -13,7 +13,7 @@ It's well known that Kubernetes can be difficult to understand and use. Througho
 
 Deployment safeguards offers two levels of configuration. `Warning`  will populate warning messages in the code terminal when a cluster isn't following best practices, letting you know your cluster configuration is non-compliant but allowing the request to go through. `Enforcement` will provide enforcement of compliant configurations, denying deployments if they are not following best practices.
 
-Once you set the configuration level to 'Warning' or 'Enforcement' mode, Azure Policy programmatically assesses your clusters at creation/update time and also displays aggregated compliance across your workloads at a per resource level via Azure Policy's compliance dashboard in the [Azure portal][Azure Policy compliance portal] as well as your CLI/terminal. Running a non-compliant workload indicates that your cluster isn't following best practices and that workloads on your cluster are at risk of experiencing issues caused by your cluster configuration.
+Once you set the configuration level to 'Warning' or 'Enforcement' mode, Azure Policy programmatically assesses your clusters at creation/update time and also displays aggregated compliance across your workloads at a per resource level via Azure Policy's compliance dashboard in the [Azure portal][Azure-Policy-compliance-portal] as well as your CLI/terminal. Running a non-compliant workload indicates that your cluster isn't following best practices and that workloads on your cluster are at risk of experiencing issues caused by your cluster configuration.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -25,7 +25,7 @@ Once you set the configuration level to 'Warning' or 'Enforcement' mode, Azure P
 
 - Install the latest version of Azure CLI and the `aks-preview` CLI extension are installed
 
-- In order to create and modify deployment safeguards-related configuration, you'll need a subscription with the [following permissions on your AKS cluster][Azure Policy RBAC permissions]:
+- In order to create and modify deployment safeguards-related configuration, you'll need a subscription with the [following permissions on your AKS cluster][Azure-Policy-RBAC-permissions]:
 
     - *Microsoft.Authorization/policyAssignments/write*
 
@@ -53,7 +53,7 @@ az provider register --namespace Microsoft.ContainerService
 
 ## Deployment safeguards policies
 
-Below is the list of deployment safeguard policies. These are the policies that will be active when you enable deployment safeguards. You can see the [currently available deployment safeguards][deployment safeguards-list] in the Azure portal as an Azure Policy definition, or view them at [Azure Policy built-in definitions for Azure Kubernetes Service][Azure Policy built-in definition docs]. The intention behind this collection is to create a common and generic list of best practices applicable to most users and use cases.
+Below is the list of deployment safeguard policies. These are the policies that will be active when you enable deployment safeguards. You can see the [currently available deployment safeguards][deployment-safeguards-list] in the Azure portal as an Azure Policy definition, or view them at [Azure Policy built-in definitions for Azure Kubernetes Service][Azure-Policy-built-in-definition-docs]. The intention behind this collection is to create a common and generic list of best practices applicable to most users and use cases.
 
 |  Deployment safeguard policies |
 |--------------|
@@ -157,7 +157,7 @@ To learn more, see [workload validation in Gatekeeper](https://open-policy-agent
 [az-feature-show]: /cli/azure/feature#az-feature-show
 [aks-gh-repo]: https://github.com/Azure/AKS
 [policy-for-kubernetes]: /azure/governance/policy/concepts/policy-for-kubernetes#install-azure-policy-add-on-for-aks
-[deployment safeguards-list]: https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/InitiativeDetail.ReactView/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2Fc047ea8e-9c78-49b2-958b-37e56d291a44/scopes/
-[Azure Policy built-in definition docs]: https://learn.microsoft.com/azure/aks/policy-reference#policy-definitions
-[Azure Policy compliance portal]: https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyMenuBlade/~/Compliance
-[Azure Policy RBAC permissions]: https://learn.microsoft.com/azure/governance/policy/overview#azure-rbac-permissions-in-azure-policy
+[deployment-safeguards-list]: https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/InitiativeDetail.ReactView/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2Fc047ea8e-9c78-49b2-958b-37e56d291a44/scopes/
+[Azure-Policy-built-in-definition-docs]: https://learn.microsoft.com/azure/aks/policy-reference#policy-definitions
+[Azure-Policy-compliance-portal]: https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyMenuBlade/~/Compliance
+[Azure-Policy-RBAC-permissions]: https://learn.microsoft.com/azure/governance/policy/overview#azure-rbac-permissions-in-azure-policy
