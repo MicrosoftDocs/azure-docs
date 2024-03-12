@@ -12,7 +12,7 @@ ms.custom:
 
 # SAP systems discovery support (preview)
 
-As part of your migration journey to Azure by performing an import-based assessments, you first discover on-premises inventory and SAP workloads.
+As part of your migration journey to Azure by performing an import-based assessments, you discover and assess on-premises inventory and SAP workloads.
 
 ## Key benefits
 
