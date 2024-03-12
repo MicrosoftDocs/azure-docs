@@ -125,7 +125,7 @@ Go up, down, or pause your server. Use the Azure portal or have total control on
 
 ### Scale out resources for fast query response
 
-With scale-out, client queries are distributed among multiple *query replicas* in a query pool. Query replicas have synchronized copies of your tabular models. By spreading the query workload, response times during high query workloads can be reduced. Model processing operations can be separated from the query pool, ensuring client queries are not adversely affected by processing operations. 
+With scale-out, client queries are distributed among multiple *query replicas* in a query pool. Query replicas have synchronized copies of your tabular models. By spreading the query workload, you can reduce response times during high query workloads. Model processing operations can be separated from the query pool, ensuring client queries are not adversely affected by processing operations. 
 
 You can create a query pool with up to seven additional query replicas (eight total, including your server). The number of query replicas you can have in your pool depend on your chosen plan and region. Query replicas cannot be spread outside your server's region. Query replicas are billed at the same rate as your server.
 
@@ -172,7 +172,7 @@ User authentication is handled by [Microsoft Entra ID](../active-directory/funda
 
 ### Data security
 
-Azure Analysis Services uses Azure Blob storage to persist storage and metadata for Analysis Services databases. Data files within Blob are encrypted using [Azure Blob Server Side Encryption (SSE)](../storage/common/storage-service-encryption.md). When using Direct Query mode, only metadata is stored. The actual data is accessed through encrypted protocol from the data source at query time.
+Azure Analysis Services uses Azure Blob storage to persist storage and metadata for Analysis Services databases. Data files within Blob are encrypted using [Azure Blob Server Side Encryption (SSE)](../storage/common/storage-service-encryption.md). When you use Direct Query mode, only metadata is stored. The actual data is accessed through encrypted protocol from the data source at query time.
 
 Secure access to data sources on-premises in your organization is achieved by installing and configuring an [On-premises data gateway](analysis-services-gateway.md). Gateways provide access to data for both DirectQuery and in-memory modes.
 
@@ -184,7 +184,7 @@ Non-administrative users who query data are granted access through database role
 
 ### Row-level security
 
-Tabular models at all compatibility levels support row-level security. Row-level security is configured in the model by using DAX expressions that define the rows in a table, and any rows in the many direction of a related table that a user can query. Row filters using DAX expressions are defined for the Read and Read and Process permissions. 
+Tabular models at all compatibility levels support row-level security. Row-level security is configured in the model by using DAX expressions that define the rows in a table, and any rows in the many directions of a related table that a user can query. Row filters using DAX expressions are defined for the **Read** and **Read and Process** permissions. 
 
 ### Object-level security 
 
@@ -215,7 +215,7 @@ Manage your servers and model databases by using [SQL Server Management Studio (
 
 ### Open-source tools
 
-Analysis Services has a vibrant community of developers who create tools. [DAX Studio](https://daxstudio.org/), is a great open-source tool for DAX authoring, diagnosis, performance tuning, and analysis.
+Analysis Services has a vibrant community of developers who create tools. [DAX Studio](https://daxstudio.org/) is a great open-source tool for DAX authoring, diagnosis, performance tuning, and analysis.
 
 ### PowerShell
 
@@ -234,7 +234,7 @@ Modern data exploration and visualization tools like Power BI, Excel, Reporting 
 
 ## Monitoring and diagnostics
 
-Azure Analysis Services is integrated with Azure Monitor metrics, providing an extensive number of resource-specific metrics to help you monitor the performance and health of your servers. To learn more, see [Monitor server metrics](analysis-services-monitor.md). Record metrics with [resource platform logs](../azure-monitor/essentials/platform-logs-overview.md). Monitor and send logs to [Azure Storage](https://azure.microsoft.com/services/storage/), stream them to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), and export them to [Azure Monitor logs](https://azure.microsoft.com/services/log-analytics/), a service of [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). To learn more, see [Setup diagnostic logging](analysis-services-logging.md).
+Azure Analysis Services is integrated with Azure Monitor metrics, providing an extensive number of resource-specific metrics to help you monitor the performance and health of your servers. Record metrics with [resource platform logs](/azure/azure-monitor/essentials/platform-logs-overview). Monitor and send logs to [Azure Storage](https://azure.microsoft.com/services/storage/), stream them to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), and export them to [Azure Monitor logs](https://azure.microsoft.com/services/log-analytics/), a service of the [Azure secure and well-managed cloud](https://www.microsoft.com/cloud-platform/operations-management-suite). To learn more, see [Monitor Analysis Services](monitor-analysis-services.md).
 
 Azure Analysis Services also supports using [Dynamic Management Views (DMVs)](/analysis-services/instances/use-dynamic-management-views-dmvs-to-monitor-analysis-services). Based on SQL syntax, DMVs interface schema rowsets that return metadata and monitoring information about server instance.
 

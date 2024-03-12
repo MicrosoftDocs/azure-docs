@@ -3,12 +3,11 @@ title: Tutorial - Define an Azure IoT Central gateway device type
 description: This tutorial shows you, as a builder, how to define a new IoT gateway device type in your Azure IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/26/2022
+ms.date: 03/04/2024
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-manager: peterpr
 ---
 
 # Tutorial - Define a new IoT gateway device type in your Azure IoT Central application
@@ -19,7 +18,7 @@ In this tutorial, you create a **Smart Building** gateway device template. A **S
 
 :::image type="content" source="media/tutorial-define-gateway-device-type/gatewaypattern.png" alt-text="Diagram that shows the relationship between a gateway device and its downstream devices." border="false":::
 
-As well as enabling downstream devices to communicate with your IoT Central application, a gateway device can also:
+A gateway device can also:
 
 * Send its own telemetry, such as temperature.
 * Respond to writable property updates made by an operator. For example, an operator could change the telemetry send interval.
@@ -66,7 +65,7 @@ You now have device templates for the two downstream device types:
 
 ## Create a gateway device template
 
-In this tutorial you create a device template for a gateway device from scratch. You use this template later to create a simulated gateway device in your application.
+In this tutorial, you create a device template for a gateway device from scratch. You use this template later to create a simulated gateway device in your application.
 
 To add a new gateway device template to your application:
 
@@ -148,7 +147,7 @@ To publish the gateway device template:
 
 After a device template is published, it's visible on the **Devices** page and to the operator. The operator can use the template to create device instances or establish rules and monitoring. Editing a published template could affect behavior across the application.
 
-To learn more about modifying a device template after it's published, see [Edit an existing device template](howto-edit-device-template.md).
+To learn more about modifying a device template after you publish it, see [Edit an existing device template](howto-edit-device-template.md).
 
 ## Create the simulated devices
 

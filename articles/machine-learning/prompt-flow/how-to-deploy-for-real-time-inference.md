@@ -11,7 +11,7 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.reviewer: lagayhar
-ms.date: 11/02/2023
+ms.date: 02/22/2024
 ---
 
 
@@ -268,6 +268,10 @@ The `chat_input` was set during development of the chat flow. You can input the 
 ## Consume the endpoint
 
 In the endpoint detail page, switch to the **Consume** tab. You can find the REST endpoint and key/token to consume your endpoint. There is also sample code for you to consume the endpoint in different languages.
+
+Note that you need to fill the data values according to your flow inputs. Take the sample flow used in this article **Web Classification** as example, you need to specify `data = {"url": "<the_url_to_be_classified>"}` and fill the key or token in the sample consumption code.
+
+:::image type="content" source="./media/how-to-deploy-for-real-time-inference/consume-endpoint.png" alt-text="Screenshot of the endpoint detail page with consumption code. " lightbox = "./media/how-to-deploy-for-real-time-inference/consume-endpoint.png":::
 
 ## View endpoint metrics 
 

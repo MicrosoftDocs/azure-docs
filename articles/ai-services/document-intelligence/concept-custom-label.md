@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
-ms.date: 01/19/2024
+ms.date: 02/29/2024
 ms.author: vikurpad
 ms.custom:
   - references_regions
@@ -39,7 +39,7 @@ A labeled dataset consists of several files:
 
 * The following video is the first of two presentations intended to help you build custom models with higher accuracy (The second presentation examines [Best practices for labeling documents](concept-custom-label-tips.md#video-custom-labels-best-practices)).
 
-* Here, we explore how to create a balanced data set and select the right documents to label. This process sets you on the path to higher quality models.
+* We explore how to create a balanced data set and select the right documents to label. This process sets you on the path to higher quality models.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWWHru]
 
@@ -47,7 +47,7 @@ A labeled dataset consists of several files:
 
 Before you start labeling, it's a good idea to look at a few different samples of the document to identify which samples you want to use in your labeled dataset. A balanced dataset represents all the typical variations you would expect to see for the document. Creating a balanced dataset results in a model with the highest possible accuracy. A few examples to consider are:
 
-* **Document formats**: If you expect to analyze both digital and scanned documents, add a few examples of each type to the training dataset
+* **Document formats**: If you expect to analyze both digital and scanned documents, add a few examples of each type to the training dataset.
 
 * **Variations (template model)**:  Consider splitting the dataset into folders and train a model for each of variation. Any variations that include either structure or layout should be split into different models. You can then compose the individual models into a single [composed model](concept-composed-models.md).
 
@@ -80,12 +80,13 @@ Use the following guidelines to define the fields:
 
 Custom neural models currently only support key-value pairs, structured fields (tables), and selection marks.
 
-| Model type | Form fields | Selection marks | Tabular fields | Signature | Region |
-|--|--|--|--|--|--|
-| Custom neural | ✔️Supported | ✔️Supported | ✔️Supported | Unsupported | ✔️Supported<sup>1</sup> |
-| Custom template | ✔️Supported| ✔️Supported | ✔️Supported | ✔️Supported | ✔️Supported |
+| Model type | Form fields | Selection marks | Tabular fields | Signature | Region | Overlapping fields |
+|---|---|---|---|---|---|
+| Custom neural | ✔️Supported | ✔️Supported | ✔️Supported | Unsupported | ✔️Supported<sup>1</sup> | ✔️Supported<sup>2</sup> |
+| Custom template | ✔️Supported| ✔️Supported | ✔️Supported | ✔️Supported | ✔️Supported | Unsupported |
 
 <sup>1</sup> Region labeling implementation differs between template and neural models. For template models, the training process injects synthetic data at training time if no text is found in the region labeled. With neural models, no synthetic text is injected and the recognized text is used as is.
+<sup>2</sup> Overlapping fields are supported starting with the API version ```2024-02-29-preview```. Overlapping fields have some limits. For more information, *see* [overlapping fields](concept-custom-neural.md#overlapping-fields).
 
 ## Tabular fields
 
@@ -102,13 +103,15 @@ Tabular fields are also useful when extracting repeating information within a do
 
 * **Labeling values is required.** Don't include the surrounding text. For example when labeling a checkbox, name the field to indicate the check box selection for example ```selectionYes``` and ```selectionNo``` rather than labeling the yes or no text in the document.
 
-* **Don't provide interleaving field values** The value of words and/or regions of one field must be either a consecutive sequence in natural reading order without interleaving with other fields or in a region that doesn't cover any other fields
+* **Don't provide interleaving field values** The value of words and/or regions of one field must be either a consecutive sequence in natural reading order.
 
 * **Consistent labeling**. If a value appears in multiple contexts withing the document, consistently pick the same context across documents to label the value.
 
 * **Visually repeating data**. Tables support visually repeating groups of information not just explicit tables. Explicit tables are identified in tables section of the analyzed documents as part of the layout output and don't need to be labeled as tables. Only label a table field if the information is visually repeating and not identified as a table as part of the layout response. An example would be the repeating work experience section of a resume.
 
 * **Region labeling (custom template)**. Labeling specific regions allows you to define a value when none exists. If the value is optional, ensure that you leave a few sample documents with the region not labeled. When labeling regions, don't include the surrounding text with the label.
+
+* **Overlapping fields (custom neural)**. Label the field overlaps using region labeling. Ensure that you have at least on sample that describes how the fields can overlap in your training dataset.
 
 ## Next steps
 
@@ -130,7 +133,7 @@ Tabular fields are also useful when extracting repeating information within a do
 * View the REST APIs:
 
     > [!div class="nextstepaction"]
-    > [Document Intelligence API v4.0:2023-10-31-preview](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP)
+    > [Document Intelligence API v4.0:2024-02-29-preview](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-02-29-preview&preserve-view=true)
 
     > [!div class="nextstepaction"]
     > [Document Intelligence API v3.1:2023-07-31 (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)

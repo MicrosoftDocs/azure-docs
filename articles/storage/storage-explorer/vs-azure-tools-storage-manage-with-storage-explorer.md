@@ -36,7 +36,7 @@ Additional requirements include:
 
 The following versions of macOS support Storage Explorer:
 
-* macOS 10.13 High Sierra and later versions
+* macOS 10.15 Catalina and later versions
 
 Starting with Storage Explorer version 1.31.0, both x64 (Intel) and ARM64 (Apple Silicon) versions of Storage Explorer are available for download.
 

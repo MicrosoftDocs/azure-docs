@@ -74,7 +74,7 @@ ms.author: eur
 | `es-PR` | Spanish (Puerto Rico) | Plain text<br/><br/>Structured text<br/><br/>Pronunciation |
 | `es-PY` | Spanish (Paraguay) | Plain text<br/><br/>Structured text<br/><br/>Pronunciation |
 | `es-SV` | Spanish (El Salvador) | Plain text<br/><br/>Pronunciation |
-| `es-US` | Spanish (United States) | Plain text<br/><br/>Structured text<br/><br/>Pronunciation<br/><br/>Phrase list |
+| `es-US` | Spanish (United States)<sup>1</sup> | Plain text<br/><br/>Structured text<br/><br/>Pronunciation<br/><br/>Phrase list |
 | `es-UY` | Spanish (Uruguay) | Plain text<br/><br/>Structured text<br/><br/>Pronunciation |
 | `es-VE` | Spanish (Venezuela) | Plain text<br/><br/>Structured text<br/><br/>Pronunciation |
 | `et-EE` | Estonian (Estonia) | Plain text<br/><br/>Pronunciation |
@@ -83,7 +83,7 @@ ms.author: eur
 | `fi-FI` | Finnish (Finland) | Plain text<br/><br/>Output format<br/><br/>Pronunciation |
 | `fil-PH` | Filipino (Philippines) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Pronunciation |
 | `fr-BE` | French (Belgium) | Audio + human-labeled transcript<br/><br/>Plain text |
-| `fr-CA` | French (Canada) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Structured text<br/><br/>Output format<br/><br/>Pronunciation<br/><br/>Phrase list |
+| `fr-CA` | French (Canada)<sup>1</sup> | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Structured text<br/><br/>Output format<br/><br/>Pronunciation<br/><br/>Phrase list |
 | `fr-CH` | French (Switzerland) | Plain text<br/><br/>Pronunciation |
 | `fr-FR` | French (France) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Structured text<br/><br/>Output format<br/><br/>Pronunciation<br/><br/>Phrase list |
 | `ga-IE` | Irish (Ireland) | Plain text<br/><br/>Pronunciation |
@@ -151,3 +151,5 @@ ms.author: eur
 | `zh-HK` | Chinese (Cantonese, Traditional) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Output format<br/><br/>Phrase list |
 | `zh-TW` | Chinese (Taiwanese Mandarin, Traditional) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Phrase list |
 | `zu-ZA` | Zulu (South Africa) | Plain text |
+
+<sup>1</sup> The model is bilingual and also supports English.

@@ -21,7 +21,7 @@ landingContent:
           - text: What is Azure Cosmos DB for MongoDB?
             url: introduction.md
           - text: FAQ
-            url: mongodb-faq.yml
+            url: faq.yml
       - linkListType: concept
         links:  
           - text: API version 4.2

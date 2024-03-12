@@ -21,9 +21,6 @@ ms.custom: devx-track-azurepowershell
 
 Learn how to use connection troubleshoot to verify whether a direct TCP connection from a virtual machine to a given endpoint can be established.
 
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ## Before you begin
 
 * An instance of Network Watcher in the region you want to troubleshoot a connection.

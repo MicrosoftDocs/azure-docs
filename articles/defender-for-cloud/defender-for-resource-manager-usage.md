@@ -23,7 +23,7 @@ Security alerts from Defender for Resource Manager are based on threats detected
 
 Defender for Resource Manager provides visibility into activity that comes from third party service providers that have delegated access as part of the resource manager alerts. For example, `Azure Resource Manager operation from suspicious proxy IP address - delegated access`.
 
-`Delegated access` refers to access with [Azure Lighthouse](/azure/lighthouse/overview) or with [Delegated administration privileges](/partner-center/dap-faq).
+`Delegated access` refers to access with [Azure Lighthouse](../lighthouse/overview.md) or with [Delegated administration privileges](/partner-center/dap-faq).
 
 Alerts that show `Delegated access` also include a customized description and remediation steps.
 

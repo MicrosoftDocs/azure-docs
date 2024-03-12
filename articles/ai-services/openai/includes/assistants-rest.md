@@ -51,7 +51,7 @@ Create and assign persistent environment variables for your key and endpoint.
 
 ```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants?api-version=2024-02-15-preview \
-  -H "api-key: $AZURE_OPENAI_KEY" \
+  -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "instructions": "You are an AI assistant that can write code to help answer math questions.",
@@ -71,7 +71,7 @@ An individual assistant can access up to 128 tools including `code interpreter`,
 ```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads \
   -H "Content-Type: application/json" \
-  -H "api-key: $AZURE_OPENAI_KEY" \
+  -H "api-key: $AZURE_OPENAI_API_KEY" \
   -d ''
 
 ```
@@ -81,7 +81,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads \
 ```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/thread_abc123/messages \
   -H "Content-Type: application/json" \
-  -H "api-key: $AZURE_OPENAI_KEY" \
+  -H "api-key: $AZURE_OPENAI_API_KEY" \
   -d '{
       "role": "user",
       "content": "I need to solve the equation `3x + 11 = 14`. Can you help me?"
@@ -92,7 +92,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/thread_abc123/me
 
 ```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/thread_abc123/runs \
-  -H "api-key: $AZURE_OPENAI_KEY" \
+  -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "assistant_id": "asst_abc123",
@@ -103,7 +103,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/thread_abc123/ru
 
 ```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/thread_abc123/runs/run_abc123 \
-  -H "api-key: $AZURE_OPENAI_KEY" \
+  -H "api-key: $AZURE_OPENAI_API_KEY" \
 ```
 
 ### Assistant response
@@ -111,7 +111,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/thread_abc123/ru
 ```
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/thread_abc123/messages \
   -H "Content-Type: application/json" \
-  -H "api-key: $AZURE_OPENAI_KEY" \
+  -H "api-key: $AZURE_OPENAI_API_KEY" \
 ```
 
 
