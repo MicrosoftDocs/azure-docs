@@ -21,14 +21,14 @@ This documentation is designed for developers seeking to effectively combine the
 
 This integration enables developers to apply the benefits of a versatile and high-performance NoSQL database, while capitalizing on Vercel's serverless architecture and development platform.
 
-There are two ways to integrate Cosmos DB
+There are two ways to integrate Azure Cosmos DB.
 
 - [Via Vercel Integrations Marketplace](https://vercel.com/integrations/azurecosmosdb)
 - Via Command Line
 
 ## Integrate Cosmos DB with Vercel via Integration Marketplace
 
-Use this guide if you have already identified the Vercel project(s) or want to integrate an existing vercel project with
+Use this guide if you have already identified the Vercel projects or want to integrate an existing vercel project with
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ Use this guide if you have already identified the Vercel project(s) or want to i
 
 - Azure Cosmos DB - [Quickstart: Create an Azure Cosmos DB account](../cosmos-db/nosql/quickstart-portal.md) or Create a free [Try Cosmos DB Account](https://aka.ms/trycosmosdbvercel)
 
-- Some basic knowledge on Next.js, React and TypeScript
+- Some basic knowledge on Next.js, React, and TypeScript
 
 ## Steps for Integrating Azure Cosmos DB with Vercel
 
@@ -52,25 +52,25 @@ Use this guide if you have already identified the Vercel project(s) or want to i
 
    :::image type="content" source="./media/integrations/vercel/sign-in.png" alt-text="Screenshot shows to login to Azure account." lightbox="./media/integrations/vercel/sign-in.png":::
 
-4. Click on “create one” to create a new Microsoft account.
+4. Click on 'create one' to create a new Microsoft account.
 > [!NOTE]
 > Microsoft account is different from an Azure Cosmos DB account. We will be creating an Azure Cosmos DB account in following steps
 >
    :::image type="content" source="./media/integrations/vercel/create-new.png" alt-text="Screenshot shows to create new Microsoft Account." lightbox="./media/integrations/vercel/create-new.png":::
 
-5. If you want to use an existing Azure Cosmos DB account, choose the existing Directory, subscription and the Azure Cosmos DB Account(Skip to step 9) . To create a new Azure Try Cosmos DB account, click on “Create new account”.
+5. If you want to use an existing Azure Cosmos DB account, choose the existing Directory, subscription and the Azure Cosmos DB Account(Skip to step 9) . To create a new Azure Try Cosmos DB account, click on 'Create new account'.
  
    :::image type="content" source="./media/integrations/vercel/create-new-azure-cosmosdb.png" alt-text="Screenshot shows to create new Azure Try Cosmos DB Account." lightbox="./media/integrations/vercel/create-new-azure-cosmosdb.png":::
 
-6. Select API type (currently only NOSQL and MongoDB API are supported) and click on “Create Account”.
+6. Select API type (currently only NOSQL and MongoDB API are supported) and click on 'Create Account'.
 
    :::image type="content" source="./media/integrations/vercel/select-api.png" alt-text="Screenshot shows to select the type of API of the Azure Cosmos DB account." lightbox="./media/integrations/vercel/select-api.png":::
 
-7.	After the successful Try Azure Cosmos DB account creation, click on “Continue”
+7.	After the successful Try Azure Cosmos DB account creation, click on 'Continue'
 
    :::image type="content" source="./media/integrations/vercel/account-continue.png" alt-text="Screenshot shows to continue with the integration." lightbox="./media/integrations/vercel/account-contiune.png":::
 
-8. Click on “Accept” in the pop-up to access the Try Azure Cosmos DB account. (Mandatory to complete the Integration). 
+8. Click on 'Accept' in the pop-up to access the Try Azure Cosmos DB account. (Mandatory to complete the Integration). 
 
    :::image type="content" source="./media/integrations/vercel/accept.png" alt-text="Screenshot shows to confirm the integration." lightbox="./media/integrations/vercel/accept.png":::
 
@@ -100,7 +100,7 @@ Use this guide if you have already identified the Vercel project(s) or want to i
 
 - COSMOSDB_CONNECTION_STRING - You need your Cosmos DB connection string. You can find these in the Azure portal in the keys section.
 
-- COSMOSDB_DATABASE_NAME - Name of the database you plan to use. This should already exist in the Cosmos DB account.
+- COSMOSDB_DATABASE_NAME - Name of the database you plan to use. This should already exist in the Azure Cosmos DB account.
 
 - COSMOSDB_CONTAINER_NAME - Name of the container you plan to use. This should already exist in the previous database.
 
