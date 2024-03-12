@@ -373,7 +373,7 @@ If a subnet shares Application Gateway v2 deployments that were created both pri
 ### Unknown Backend Health status
 
 If backend health is _Unknown_, you may see the following error:
-   + The backend health status could not be retrieved. This happens when an NSG/UDR/Firewall on the application gateway subnet is blocking traffic on ports 65503-65534 in case of v1 SKU, and ports 65200-65535 in case of the v2 SKU or if the FQDN configured in the backend pool could not be resolved to an IP address. To learn more visit - https://aka.ms/UnknownBackendHealth.
+   + The backend health status could not be retrieved. This happens when an NSG/UDR/Firewall on the application gateway subnet is blocking traffic on ports 65503-65534 if there is v1 SKU, and ports 65200-65535 if there is v2 SKU or if the FQDN configured in the backend pool could not be resolved to an IP address. To learn more visit - https://aka.ms/UnknownBackendHealth.
 
 This error can be ignored and will be clarified in a future release.
 
