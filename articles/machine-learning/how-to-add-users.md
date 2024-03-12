@@ -28,7 +28,11 @@ You need certain permission levels to follow the steps in this article. If you c
 
 ## Add custom role
 
-To add a custom role, you must have `Microsoft.Authorization/roleAssignments/write` permissions for your subscription - for example, [User Access Administrator](../../articles/role-based-access-control/built-in-roles.md).
+There is a built-in role for a data labeler.  Skip this section and proceed to [add guest user](#add-guest-user) if you want to use that built-in role. 
+
+If you want to create a custom role, follow these steps.
+
+ To add a custom role, you must have `Microsoft.Authorization/roleAssignments/write` permissions for your subscription - for example, [User Access Administrator](../../articles/role-based-access-control/built-in-roles.md).
 
 1. Open your workspace in [Azure Machine Learning studio](https://ml.azure.com)
 1. Open the menu on the top right, and select **View all properties in Azure Portal**. You use the Azure portal for the remaining steps in this article.
@@ -46,7 +50,9 @@ To add a custom role, you must have `Microsoft.Authorization/roleAssignments/wri
 
     :::image type="content" source="media/how-to-add-users/replace-lines.png" alt-text="Create custom role: select lines to replace them in the editor.":::
 
-1. Replace these two lines with the `Actions` and `NotActions` from the appropriate role listed at [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md#data-labeling). Make sure to copy from `Actions` through the closing bracket, `],`
+1. Replace these two lines with the `Actions` and `NotActions` from the appropriate role in the following tabs. Make sure to copy from `Actions` through the closing bracket, `],`
+
+[!INCLUDE [custom-role-data-labeling](includes/custom-role-data-labeling.md)]
 
 1. Select **Save** at the top of the edit box to save your changes.
 
@@ -59,7 +65,7 @@ To add a custom role, you must have `Microsoft.Authorization/roleAssignments/wri
 
 ## Add guest user
 
-If your labelers are outside of your organization, add them, so they can access your workspace. If labelers are already inside your organization, skip this step.
+If your labelers are outside of your organization, add them, so they can access your workspace. If labelers are already inside your organization, skip this step and proceed to [add users to your workspace](#add-users-to-your-workspace).
 
 To add a guest user, your organization's external collaboration settings need the correct configuration to allow you to invite guests.
 
@@ -83,7 +89,7 @@ Repeat these steps for each of your labelers. You can also use the link at the b
 
 ## Add users to your workspace
 
-Now that you added your labelers to the system, you can add them to your workspace. 
+Once you have the appropriate users in your system and roles defined, you can add them to your workspace to access your data labeling project.
 
 To add users to your workspace, you must be an owner of the workspace.
 
@@ -97,7 +103,7 @@ To add users to your workspace, you must be an owner of the workspace.
 
     :::image type="content" source="media/how-to-add-users/add-role-assignment.png" alt-text="Add role assignment from your workspace.":::
 
-1. Select the **Labeler** or **Labeling Team Lead** role in the list. Use **Search** if necessary to find it.
+1. Select the role you want to use from the list. Use **Search** if necessary to find it.
 1. Select **Next**.
 1. In the middle of the page, next to **Members**, select the **+ Select members** link.
 1. Select each of the users you want to add. Use **Search** if necessary to find them.
