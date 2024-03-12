@@ -103,14 +103,14 @@ To create an HSM backup, you'll need:
 - A storage account where the backup will be stored
 - A blob storage container in this storage account where the backup process will create a new folder to store encrypted backup
 
-We use `az keyvault backup` command to the HSM backup in the storage container **mhsmbackupcontainer**, which is in the storage account **ContosoBackup** in the following example. We create a SAS token that expires in 30 minutes and provide that to Managed HSM to write the backup.
+We use `az keyvault backup` command to the HSM backup in the storage container **mhsmbackupcontainer**, which is in the storage account **mhsmdemobackup** in the following example. We create a SAS token that expires in 30 minutes and provide that to Managed HSM to write the backup.
 
 ```azurecli-interactive
 end=$(date -u -d "500 minutes" '+%Y-%m-%dT%H:%MZ')
-skey=$(az storage account keys list --query '[0].value' -o tsv --account-name ContosoBackup)
+skey=$(az storage account keys list --query '[0].value' -o tsv --account-name mhsmdemobackup)
 az storage container create --account-name  mhsmdemobackup --name mhsmbackupcontainer  --account-key $skey
-sas=$(az storage container generate-sas -n mhsmbackupcontainer --account-name ContosoBackup --permissions crdw --expiry $end --account-key $skey -o tsv)
-az keyvault backup start --hsm-name ContosoMHSM2 --storage-account-name ContosoBackup --blob-container-name mhsmdemobackupcontainer --storage-container-SAS-token $sas
+sas=$(az storage container generate-sas -n mhsmbackupcontainer --account-name mhsmdemobackup --permissions crdw --expiry $end --account-key $skey -o tsv)
+az keyvault backup start --hsm-name ContosoMHSM2 --storage-account-name mhsmdemobackup --blob-container-name mhsmdemobackupcontainer --storage-container-SAS-token $sas
 
 ```
 
@@ -121,6 +121,7 @@ For this step you need:
 - The storage account and the blob container in which the source HSM's backups are stored.
 - The folder name from where you want to restore the backup. If you create regular backups, there will be many folders inside this container.
 
+We use `az keyvault restore` command to the new HSM **ContosoMHSM2**, using the backup of the source MHSM we are trying to restore, which is in the folder name **mhsm-ContosoMHSM-2020083120161860** found in the storage container **mhsmdemobackupcontainer** of the storage account **ContosoBackup** in the following example. We create a SAS token that expires in 30 minutes and provide that to Managed HSM to write the restore.
 
 ```azurecli-interactive
 end=$(date -u -d "500 minutes" '+%Y-%m-%dT%H:%MZ')
