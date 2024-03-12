@@ -14,13 +14,14 @@ ms.custom: devx-track-csharp
 
 # Migrate code from Long Audio API to Batch synthesis API
 
-The [Batch synthesis API](batch-synthesis.md) (Preview) provides asynchronous synthesis of long-form text to speech. This article describes the benefits of upgrading from Long Audio API to Batch synthesis API, and details about how to do so.
+The [Batch synthesis API](batch-synthesis.md) provides asynchronous synthesis of long-form text to speech. This article describes the benefits of upgrading from Long Audio API to Batch synthesis API, and details about how to do so.
 
-> [!IMPORTANT] > [Batch synthesis API](batch-synthesis.md) is currently in public preview. Once it's generally available, the Long Audio API will be deprecated.
+> [!IMPORTANT]
+> [Batch synthesis API](batch-synthesis.md) is generally available. the Long Audio API will be retired on April 1st, 2027.
 
 ## Base path and version
 
-Update the endpoint from `https://YourSpeechRegion.customvoice.api.speech.microsoft.com` to `https://YourSpeechRegion.api.cognitive.microsoft.com`.
+Update the endpoint from `https://YourSpeechRegion.customvoice.api.speech.microsoft.com` to `https://YourSpeechRegion.api.cognitive.microsoft.com` or you can custom domain instead: `https://{customDomainName}.cognitiveservices.azure.com/`.
 
 Update the base path in your code from `/texttospeech/v3.0/longaudiosynthesis` to `/texttospeech/batchsyntheses`.
 
@@ -30,7 +31,7 @@ For example, to list synthesis jobs for your Speech resource in the `eastus` reg
 
 ## Regions and endpoints
 
-Batch synthesis API is available in all [Speech regions](regions.md).
+Batch synthesis API is available in more [Speech regions](regions.md).
 
 The Long Audio API is limited to the following regions:
 
@@ -52,7 +53,7 @@ The Long Audio API is limited to the set of voices returned by a GET request to 
 
 ## Text inputs
 
-Batch synthesis text inputs are sent in a JSON payload of up to 500 kilobytes (TODO).
+Batch synthesis text inputs are sent in a JSON payload of up to 2 megabytes.
 
 Long Audio API text inputs are uploaded from a file that meets the following requirements:
 
