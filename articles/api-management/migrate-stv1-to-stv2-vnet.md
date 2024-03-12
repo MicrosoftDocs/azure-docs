@@ -46,12 +46,10 @@ API Management platform migration from `stv1` to `stv2` involves updating the un
 
 * A new subnet in the current virtual network, in each region where the API Management instance is deployed. (Alternatively, set up a subnet in a different virtual network in the same regions and subscription as your API Management instance). A network security group must be attached to the subnet, and [NSG rules](api-management-using-with-vnet.md#configure-nsg-rules) for API Management must be configured.
 
-* A Standard SKU [public IPv4 address](../virtual-network/ip-services/public-ip-addresses.md#sku) resource in the same region(s) and subscription as your API Management instance.
+* A Standard SKU [public IPv4 address](../virtual-network/ip-services/public-ip-addresses.md#sku) resource in the same region(s) and subscription as your API Management instance. For details, see [Prerequisites for network connections](api-management-using-with-vnet.md#prerequisites).
 
 > [!IMPORTANT]
 > When you update the VNet configuration for migration to the `stv2` platform, you must provide a public IP address address resource (or resources, if your API Management is deployed to multiple Azure regions), or migration won't succeed. In internal VNet mode, this public IP address is used only for Azure internal management operations and doesn't expose your gateway to the internet.
-
-    For details, see [Prerequisites for network connections](api-management-using-with-vnet.md#prerequisites).
 
 * (Optional) Contact Azure support to request that the original service infrastructure is maintained in parallel for up to 48 hours after successful migration. This option extends the period when the old infrastructure is available after migration beyond the default of 15 minutes before it is purged. This option is available only for VNet-injected services to allow service owners to update network settings and test applications to use the new infrastructure.
 
