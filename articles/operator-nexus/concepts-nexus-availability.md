@@ -125,7 +125,7 @@ For more information about the upgrade process, see [this article](./howto-clust
 
 Workloads should ideally follow a cloud-native design, with N+k clusters that can be deployed across multiple nodes and racks within a site, using the Operator Nexus zone concept.
 
-The Well Architected Framework guidance on [mission critical](/well-architected/mission-critical/) and [carrier grade](/well-architected/carrier-grade/) workloads on Azure also applies to workloads on Operator Nexus.
+The Well Architected Framework guidance on [mission critical](/azure/well-architected/mission-critical/) and [carrier grade](/azure/well-architected/carrier-grade/) workloads on Azure also applies to workloads on Operator Nexus.
 
 Designing and implementing highly available workloads on any platform requires a top-down approach. Start with an understanding of the availability required from the solution as a whole. Consider the key elements of the solution and their predicted availability. Then determine how these attributes need to be combined in order to achieve the solution level goals.
 
