@@ -22,15 +22,19 @@ This article describes how to remove or change the Co-Administrator and Service 
 
 ## Frequently asked questions
 
-Will Co-Administrators lose access after August 31, 2024?
+Will Co-Administrators and Service Administrator lose access after August 31, 2024?
 
-- Starting on August 31, 2024, Microsoft will start the process to remove access for Co-Administrators.
+- Starting on August 31, 2024, Microsoft will start the process to remove access for Co-Administrators and Service Administrator.
 
 What is the equivalent Azure role I should assign for Co-Administrators?
 
 - [Owner](built-in-roles.md#owner) role at subscription scope has the equivalent access. However, Owner is a [privileged administrator role](role-assignments-steps.md#privileged-administrator-roles) and grants full access to manage Azure resources. You should consider a job function role with fewer permissions, reduce the scope, or add a condition.
 
-What should I do if I have a strong dependency on Co-Administrators?
+What is the equivalent Azure role I should assign for Service Administrator?
+
+- [Owner](built-in-roles.md#owner) role at subscription scope has the equivalent access.
+
+What should I do if I have a strong dependency on Co-Administrators or Service Administrator?
 
 - Email ACARDeprecation@microsoft.com and describe your scenario.
 
@@ -96,7 +100,7 @@ Use the following steps to help you prepare for Service Administrator role retir
 
 1. Ensure the list of Billing account owners is still accurate. If necessary, [update or add another Billing account owner](../cost-management-billing/manage/understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
 
-### Step 2: Replace existing Service Administrator with Owner role
+### Step 3: Replace existing Service Administrator with Owner role
 
 1. If Service Administrator user is a Microsoft account and you want this user to keep the same permissions, [assign the Owner role to this user at subscription scope](role-assignments-portal.md).
 
