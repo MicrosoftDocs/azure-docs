@@ -8,7 +8,7 @@ metadata:
   ms.date: 03/15/2024
   author: msmbaldwin
   ms.author: mbaldwin
-title: Customer Lockbox FAQ
+title: Customer Lockbox frequently Asked questions
 summary: This article answers frequently asked questions about Customer Lockbox.
 
 sections:
@@ -42,4 +42,4 @@ additionalContent: |
   ## Next steps
   
   - [Azure Customer Lockbox overview](customer-lockbox-overview.md)
-  - [Azure Customer Lockbox alternate email feature](customer-lockbox-overview.md)
+  - [Azure Customer Lockbox alternate email notifications](customer-lockbox-overview.md)

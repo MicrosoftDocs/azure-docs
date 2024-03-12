@@ -8,7 +8,7 @@ ms.author: mbaldwin
 ms.date: 03/15/2024
 ---
 
-# Azure Lockbox alternate email feature (public preview)
+# Azure Lockbox alternate email notifications (public preview)
 
 > [!NOTE]
 > To use this feature, your organization must have an [Azure support plan](https://azure.microsoft.com/support/plans/) with a minimal level of **Developer**.
@@ -69,5 +69,5 @@ Below are the known issues with this feature at the moment:
 
 ## Next steps
 
-- [Azure Customer Lockbox alternate email feature](customer-lockbox-overview.md)
-- [Azure Customer Lockbox FAQ](customer-lockbox-faq.yml)
+- [Customer Lockbox for Microsoft Azure](customer-lockbox-overview.md)
+- [Frequently asked questions](customer-lockbox-faq.yml)

@@ -84,14 +84,15 @@ The following steps outline a typical workflow for a Customer Lockbox request.
 1. When the request requires direct access to customer data, a Customer Lockbox request is initiated. For example, remote desktop access to a customer's virtual machine.
     
     The request is now in a **Customer Notified** state, waiting for the customer's approval before granting access.
-1. The approver(s) at the customer organization for a given Lockbox request are determined as follows: 
-    - For Subscription scoped requests (requests to access specific resources contained within a subscription), users who have been assigned the Owner role on the associated subscription. 
+1. The approver(s) at the customer organization for a given Lockbox request are determined as follows:
+    - For Subscription scoped requests (requests to access specific resources contained within a subscription), users who have been assigned the Owner role or the [Azure Customer Lockbox Approver for Subscription](customer-lockbox-alternative-email.md) role (currently in public preview) on the associated subscription.
     - For Tenant scope requests (requests to access the Microsoft Entra tenant), users who have been assigned the Global Administrator role on the Tenant. 
     > [!NOTE]
     > Role assignments must be in place before Lockbox starts to process a request. Any role assignments made after Lockbox starts to process a given request will not be recognized by Lockbox.  Because of this, to use PIM eligible assignments for the Subscription Owner role, users are required to activate the role before the Customer Lockbox request is initiated. Refer to [Activate Microsoft Entra roles in PIM](../../active-directory/privileged-identity-management/pim-how-to-activate-role.md) / [Activate Azure resource roles in PIM](../../active-directory/privileged-identity-management/pim-resource-roles-activate-your-roles.md#activate-a-role) for more information on activating PIM eligible roles.
     > 
     > **Role assignments scoped to management groups are not supported in Lockbox at this time.**
-1. At the customer organization, designated lockbox approvers ([Azure Subscription Owner](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles)/[Microsoft Entra Global admin](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-ad-roles) receive an email from Microsoft to notify them about the pending access request.  
+1. At the customer organization, designated lockbox approvers ([Azure Subscription Owner](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles)/[Microsoft Entra Global admin](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-ad-roles)/[Azure Customer Lockbox Approver for Subscription](customer-lockbox-alternative-email.md) receive an email from Microsoft to notify them about the pending access request.  You can also use the [Azure Lockbox alternate email notifications](customer-lockbox-alternative-email.md) feature (currently in public preview) to configure an alternate email addresses to receive lockbox notifications in scenarios where Azure account is not email enabled or if a service principal is defined as the lockbox approver.
+
     
     Example email:
     :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-email-notification.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-email-notification.png" alt-text="Azure Customer Lockbox - email notification.":::
@@ -139,9 +140,7 @@ Customer Lockbox requests are also not triggered by external legal demands for d
 
 ## Next steps
 
-Customer Lockbox is available for all customers who have an [Azure support plan](https://azure.microsoft.com/support/plans/) with a minimal level of **Developer**. You can enable Customer Lockbox from the [Administration module](https://aka.ms/customerlockbox/administration) in the Customer Lockbox blade.
+Enable customer lockbox from the [Administration module](https://ms.portal.azure.com/#view/Microsoft_Azure_Lockbox/LockboxMenu/~/Overview) in the Customer Lockbox blade. Customer Lockbox is available for all customers who have an [Azure support plan](https://azure.microsoft.com/en-us/support/plans/) with a minimal level of Developer.
 
-Customer Lockbox requests are initiated by a Microsoft engineer if this action is needed to progress a support case.
-
-- [Azure Customer Lockbox alternate email feature](customer-lockbox-alternative-email.md)
+- [Azure Customer Lockbox alternate email notifications](customer-lockbox-alternative-email.md)
 - [Azure Customer Lockbox FAQ](customer-lockbox-faq.yml)
