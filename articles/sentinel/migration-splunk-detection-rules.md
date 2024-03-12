@@ -91,7 +91,7 @@ This table helps you to clarify the concept of a rule in Microsoft Sentinel comp
 |**Rule type** |• Scheduled<br>• Real-time |• Scheduled query<br>• Fusion<br>• Microsoft Security<br>• Machine Learning (ML) Behavior Analytics |
 |**Criteria** |Define in SPL |Define in KQL |
 |**Trigger condition** |• Number of results<br>• Number of hosts<br>• Number of sources<br>• Custom |Threshold: Number of query results |
-|**Action** |• Add to triggered alerts<br>• Log Event<br>• Output results to lookup<br>• And more |• Create alert or incident<br>• Integrates with Logic Apps |
+|**Action** |• Add to triggered alerts<br>• Log Event<br>• Output results to look up<br>• And more |• Create alert or incident<br>• Integrates with Logic Apps |
 
 ## Map and compare rule samples
 
