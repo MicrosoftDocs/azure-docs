@@ -111,7 +111,7 @@ To learn more about Windows containers on AKS, see the following resources:
 [azure-cni-choose-network-model]: ./azure-cni-overlay.md#choosing-a-network-model-to-use
 [network-concepts-for-aks-applications]: ./concepts-network.md
 [windows-vs-linux]: ./windows-vs-linux-containers.md
-[azurenpm-vs-calico]: ./use-network-policies.md#differences-between-azure-network-policy-manager-and-calico-network-policy-and-their-capabilities
+[azurenpm-vs-calico]: ./use-network-policies.md#compare-azure-network-policy-manager-and-calico-network-policy
 [network-policies-aks]: ./use-network-policies.md
 [dsr]: ../load-balancer/load-balancer-multivip-overview.md#rule-type-2-backend-port-reuse-by-using-floating-ip
 [upgrade-aks-cluster]: ./upgrade-cluster.md
