@@ -2,7 +2,7 @@
 title: Use GPUs for Windows node pools on Azure Kubernetes Service (AKS)
 description: Learn how to use Windows GPUs for high performance compute or graphics-intensive workloads on Azure Kubernetes Service (AKS).
 ms.topic: article
-ms.date: 03/11/2024
+ms.date: 03/12/2024
 #Customer intent: As a cluster administrator or developer, I want to create an AKS cluster that can use high-performance GPU-based VMs for compute-intensive workloads using a Windows os.
 ---
 
@@ -94,13 +94,14 @@ To create a Windows GPU-enabled node pool, you need to use a supported GPU-enabl
     ```
 
 2. Check that your [GPUs are schedulable](#confirm-that-gpus-are-schedulable).
+3. Once you confirm that your GPUs are schedulable, you can run your GPU workload.
 
 ## Using Windows GPU with manual driver installation
 
 When creating a Windows node pool with N-series (NVIDIA GPU) VM sizes in AKS, the GPU driver and Kubernetes DirectX device plugin are installed automatically. To bypass this automatic installation, use the following steps:
 
-1) [Skip GPU driver installation (preview)](#skip-gpu-driver-installation-preview) using `--skip-gpu-driver-install`, and
-2) [Manual installation of the Kubernetes DirectX device plugin](#manually-install-the-kubernetes-directx-device-plugin).
+1. [Skip GPU driver installation (preview)](#skip-gpu-driver-installation-preview) using `--skip-gpu-driver-install`, and
+2. [Manual installation of the Kubernetes DirectX device plugin](#manually-install-the-kubernetes-directx-device-plugin).
 
 ### Skip GPU driver installation (preview)
 
@@ -127,7 +128,7 @@ AKS has automatic GPU driver installation enabled by default. In some cases, suc
         --name gpunp \
         --node-count 1 \
         --os-type windows \
-        --os sku windows2022 \
+        --os-sku windows2022 \
         --skip-gpu-driver-install
     ```
 
@@ -147,7 +148,7 @@ You can deploy a DaemonSet for the Kubernetes DirectX device plugin, which runs 
         --name gpunp \
         --node-count 1 \
         --os-type windows \
-        --os sku windows2022
+        --os-sku windows2022
     ```
 
 ## Create a namespace and deploy the Kubernetes DirectX device plugin
