@@ -32,6 +32,8 @@ The tool provides the following details:
 * RPO that can be achieved for a given bandwidth
 * Impact on the desired RPO if lower bandwidth is provisioned.
 
+> [!NOTE]
+> The recommended bandwidth in Deployment planner is applicable only for compatible Hyper-V VMs. 
     
 **Azure infrastructure requirements**
 

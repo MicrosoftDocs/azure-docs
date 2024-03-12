@@ -7,7 +7,6 @@ ms.reviewer: makromer
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
-ms.custom: seo-lt-2019
 ms.date: 08/10/2023
 ---
 

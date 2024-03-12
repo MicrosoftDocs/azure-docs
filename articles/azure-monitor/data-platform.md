@@ -3,8 +3,6 @@ title: Azure Monitor data platform
 description: Overview of the Azure Monitor data platform and collection of observability data.
 author: bwren
 ms.topic: conceptual
-ms.custom: ignite-2022
-ms.workload: infrastructure-services
 ms.date: 08/09/2023
 ms.reviewer: bwren
 ---
@@ -42,7 +40,7 @@ Logs in Azure Monitor are stored in a Log Analytics workspace that's based on [A
 >
 >Azure Monitor Logs is a log data platform that collects Activity logs and resource logs along with other monitoring data to provide deep analysis across your entire set of resources.
 
- You can work with [log queries](logs/log-query-overview.md) interactively with [Log Analytics](logs/log-query-overview.md) in the Azure portal. You can also add the results to an [Azure dashboard](app/overview-dashboard.md#create-custom-kpi-dashboards-using-application-insights) for visualization in combination with other data. You can create [log alerts](alerts/alerts-log.md), which will trigger an alert based on the results of a schedule query.
+ You can work with [log queries](logs/log-query-overview.md) interactively with [Log Analytics](logs/log-query-overview.md) in the Azure portal. You can also add the results to an [Azure dashboard](app/overview-dashboard.md#create-custom-kpi-dashboards-using-application-insights) for visualization in combination with other data. You can create [log search alerts](alerts/alerts-log.md), which will trigger an alert based on the results of a schedule query.
 
 Read more about Azure Monitor logs including their sources of data in [Logs in Azure Monitor](logs/data-platform-logs.md).
 
@@ -50,9 +48,9 @@ Read more about Azure Monitor logs including their sources of data in [Logs in A
 
 Traces are series of related events that follow a user request through a distributed system. They can be used to determine the behavior of application code and the performance of different transactions. While logs will often be created by individual components of a distributed system, a trace measures the operation and performance of your application across the entire set of components.
 
-Distributed tracing in Azure Monitor is enabled with the [Application Insights SDK](app/distributed-tracing-telemetry-correlation.md). Trace data is stored with other application log data collected by Application Insights. This way it's available to the same analysis tools as other log data including log queries, dashboards, and alerts.
+Distributed tracing in Azure Monitor is enabled with the [Application Insights SDK](app/distributed-trace-data.md). Trace data is stored with other application log data collected by Application Insights. This way it's available to the same analysis tools as other log data including log queries, dashboards, and alerts.
 
-Read more about distributed tracing at [What is distributed tracing?](app/distributed-tracing-telemetry-correlation.md).
+Read more about distributed tracing at [What is distributed tracing?](app/distributed-trace-data.md).
 
 ### Changes
 

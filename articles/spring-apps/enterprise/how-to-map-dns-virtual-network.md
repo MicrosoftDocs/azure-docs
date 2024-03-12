@@ -6,7 +6,7 @@ ms.author: wenhaozhang
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 6/29/2023
-ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022, engagement-fy23
+ms.custom: devx-track-java, devx-track-azurecli, engagement-fy23
 ---
 
 # Map DNS names to applications in multiple Azure Spring Apps service instances in the same virtual network

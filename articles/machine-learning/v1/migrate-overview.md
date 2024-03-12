@@ -4,12 +4,12 @@ description: Migrate from Studio (classic) to Azure Machine Learning for a moder
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
-ms.custom: UpdateFrequency5, event-tier1-build-2022
+ms.custom: UpdateFrequency5
 ms.topic: how-to
 ms.reviewer: larryfr
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 11/30/2022
+ms.date: 03/11/2024
 ---
 
 # Migrate to Azure Machine Learning from ML Studio (classic)

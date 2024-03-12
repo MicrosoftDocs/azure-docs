@@ -1,6 +1,6 @@
 ---
-title: Azure AI Extension
-description: Azure AI Extension in Azure Database for PostgreSQL - Flexible Server.
+title: Generate vector embeddings with Azure OpenAI in Azure Databae for PostgreSQL.
+description: Use vector indexes and OpenAI embeddings in PostgreSQL for retrieval augmented generation (RAG) patterns.
 author: mulander
 ms.author: adamwolk
 ms.date: 02/02/2024
@@ -110,18 +110,18 @@ azure_ai.version()
 
 ### Examples
 
-#### Set the Endpoint and an API Key for Azure Open AI
+#### Set the Endpoint and an API Key for Azure OpenAI
 
 ```postgresql
 select azure_ai.set_setting('azure_openai.endpoint','https://<endpoint>.openai.azure.com'); 
 select azure_ai.set_setting('azure_openai.subscription_key', '<API Key>'); 
 ```
 
-#### Get the Endpoint and API Key for Azure Open AI
+#### Get the Endpoint and API Key for Azure OpenAI
 
 ```postgresql
 select azure_ai.get_setting('azure_openai.endpoint');
-select azure_ai.get_setting('azure_openai. subscription_key');
+select azure_ai.get_setting('azure_openai.subscription_key');
 ```
 
 #### Check the Azure AI extension version

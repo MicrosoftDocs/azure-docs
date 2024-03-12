@@ -6,13 +6,11 @@ author: duongau
 manager: kumudd
 ms.assetid: bef53fcc-bb13-4002-9324-9edee9da8288
 ms.service: azure-cdn
-ms.workload: media
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.topic: how-to
 ms.date: 02/27/2023
 ms.author: duau
-
 ---
 # Manage expiration of web content in Azure CDN
 > [!div class="op_single_selector"]

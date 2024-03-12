@@ -6,7 +6,6 @@ ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.topic: overview
 ms.date: 01/19/2024
-ms.custom: cog-serv-seo-aug-2020, ignite-fall-2021
 ms.author: aahi
 author: aahill
 ms.manager: nitinme

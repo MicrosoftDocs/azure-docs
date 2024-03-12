@@ -3,7 +3,7 @@ title: Configure a managed identity for Azure Deployment Environments
 titleSuffix: Azure Deployment Environments
 description: Learn how to configure a managed identity to deploy environments in your Azure Deployment Environments dev center.
 ms.service: deployment-environments
-ms.custom: ignite-2022, build-2023
+ms.custom: build-2023
 author: RoseHJM
 ms.author: rosemalcolm
 ms.date: 12/04/2023

@@ -6,7 +6,7 @@ services: iot
 author: dominicbetts
 ms.author: dobett
 ms.topic: overview
-ms.date: 05/04/2023
+ms.date: 02/28/2024
 ms.custom: template-overview, devx-track-azurecli, devx-track-bicep
 # Customer intent: As a solution builder, I want a high-level overview of the options for managing an IoT solution so that I can easily find relevant content for my scenario.
 ---
@@ -21,6 +21,8 @@ The following diagram shows a high-level view of the components in a typical IoT
 
 There are many options for managing your IoT solution including the Azure portal, PowerShell, and ARM templates. This article summarizes the main options.
 
+To learn about securing your IoT solution, see [Secure your IoT solution](iot-overview-security.md).
+
 ## Monitoring
 
 While there are tools specifically for [monitoring devices](iot-overview-device-management.md#device-monitoring) in your IoT solution, you also need to be able to monitor the health of your IoT services:
@@ -32,6 +34,8 @@ While there are tools specifically for [monitoring devices](iot-overview-device-
 | IoT Edge | [Use Azure Monitor to monitor your IoT Edge fleet](../iot-edge/how-to-collect-and-transport-metrics.md) </br> [Monitor IoT Edge deployments](../iot-edge/how-to-monitor-iot-edge-deployments.md) |
 | IoT Central | [Use audit logs to track activity in your IoT Central application](../iot-central/core/howto-use-audit-logs.md) </br> [Use Azure Monitor to monitor your IoT Central application](../iot-central/core/howto-manage-iot-central-from-portal.md#monitor-application-health) |
 | Azure Digital Twins | [Use Azure Monitor to monitor Azure Digital Twins resources](../digital-twins/how-to-monitor.md) |
+
+To learn more about the Azure Monitor service, see [Azure Monitor overview](../azure-monitor/overview.md).
 
 ## Azure portal
 

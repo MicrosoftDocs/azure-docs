@@ -19,7 +19,7 @@ Many of the samples below require a specific hardware device and the prerequisit
 
 ## Use the SDK for Embedded C
 
-The SDK for Embedded C offers a lightweight solution to connect constrained devices to Azure IoT services, including using the [IoT Plug and Play conventions](../articles/iot-develop/concepts-convention.md). The following links include samples for MCU-based devices and for educational and debugging purposes.
+The SDK for Embedded C offers a lightweight solution to connect constrained devices to Azure IoT services, including using the [IoT Plug and Play conventions](../articles/iot/concepts-convention.md). The following links include samples for MCU-based devices and for educational and debugging purposes.
 
 ### Use an MCU-based device
 

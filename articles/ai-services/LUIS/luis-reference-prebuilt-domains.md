@@ -6,7 +6,6 @@ description: Reference for the prebuilt domains, which are prebuilt collections 
 ms.author: aahi
 author: aahill
 manager: nitinme
-ms.custom: seodec18
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.topic: reference

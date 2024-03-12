@@ -6,7 +6,7 @@ ms.subservice: managed-hsm
 ms.topic: concept-article
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 12/18/2023
+ms.date: 02/20/2024
 ---
 
 # Security domain in Managed HSM overview

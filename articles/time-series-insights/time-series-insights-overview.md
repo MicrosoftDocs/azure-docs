@@ -8,7 +8,6 @@ manager: cnovak
 ms.reviewer: orspodek
 ms.topic: overview
 ms.date: 09/30/2020
-ms.custom: seodec18
 ---
 
 # What is Azure Time Series Insights Gen1?

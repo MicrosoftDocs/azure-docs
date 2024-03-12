@@ -3,12 +3,10 @@ title: 'SAP on Azure: Supported Scenarios with Azure VMs'
 description: Azure Virtual Machines supported scenarios with SAP workload
 author: msjuergent
 manager: bburns
-tags: azure-resource-manager
 ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.workload: infrastructure-services
 ms.date: 01/27/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017

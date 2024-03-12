@@ -8,7 +8,6 @@ manager: dcscontentpm
 ms.service: virtual-network
 ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
-ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: allensu
 ---

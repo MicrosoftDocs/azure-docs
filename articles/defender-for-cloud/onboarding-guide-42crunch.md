@@ -24,11 +24,11 @@ Because the quality of the API specification largely determines the scan coverag
 > [!NOTE]
 > The following steps walk through the process of setting up the free version of 42Crunch. See the [FAQ section](#faq) to learn about the differences between the free and paid versions of 42Crunch and how to purchase 42Crunch on the Azure Marketplace.
 
-Through relying on the 42Crunch [Audit](https://42crunch.com/api-security-audit) and [Scan](https://42crunch.com/api-conformance-scan/) services, developers can proactively test and harden APIs within their CI/CD pipelines through static and dynamic testing of APIs against the top OWASP API risks and Open API specification best practices. The security scan results from 42Crunch are now available within Defender for Cloud, ensuring central security teams have visibility into the health of APIs within the Defender for Cloud recommendation experience, and can take governance steps natively available through Defender for Cloud recommendations.
+Through relying on the 42Crunch [Audit](https://42crunch.com/api-security-audit) and [Scan](https://42crunch.com/api-conformance-scan/) services, developers can proactively test and harden APIs within their CI/CD pipelines through static and dynamic testing of APIs against the top OWASP API risks and OpenAPI specification best practices. The security scan results from 42Crunch are now available within Defender for Cloud, ensuring central security teams have visibility into the health of APIs within the Defender for Cloud recommendation experience, and can take governance steps natively available through Defender for Cloud recommendations.
 
 ## Connect your GitHub repositories to Microsoft Defender for Cloud
 
-This feature requires a GitHub connector in Defender for Cloud. See [how to onboard your GitHub organizations](quickstart-onboard-github.md)
+This feature requires a GitHub connector in Defender for Cloud. See [how to onboard your GitHub organizations](quickstart-onboard-github.md).
 
 ## Configure 42Crunch Audit service
 
@@ -40,15 +40,15 @@ Install the 42Crunch API Security Audit plugin within your CI/CD pipeline throug
 
 1. Sign in to GitHub.
 1. Select a repository you want to configure the GitHub action to.
-1. Select **Actions**
-1. Select **New Workflow**
+1. Select **Actions**.
+1. Select **New Workflow**.
 
    :::image type="content" source="media/onboarding-guide-42crunch/new-workflow.png" alt-text="Screenshot showing new workflow selection." lightbox="media/onboarding-guide-42crunch/new-workflow.png":::
 
 To create a new default workflow:
 
-1. Choose "Setup a workflow yourself"
-1. Rename the workflow from main.yaml to 42crunch-audit.yml
+1. Choose **Setup a workflow yourself**.
+1. Rename the workflow from `main.yaml` to `42crunch-audit.yml`.
 1. Go to [https://github.com/marketplace/actions/42crunch-rest-api-static-security-testing-freemium#full-workflow-example](https://github.com/marketplace/actions/42crunch-rest-api-static-security-testing-freemium#full-workflow-example).
 1. Copy the full sample workflow and paste it in the workflow editor.
 
@@ -60,14 +60,14 @@ To create a new default workflow:
 1. Select **Commit changes**. You can either directly commit to the main branch or create a pull request. We would recommend following GitHub best practices by creating a PR, as the default workflow launches when a PR is opened against the main branch.
 1. Select **Actions** and verify the new action is running.
 
-   :::image type="content" source="media/onboarding-guide-42crunch/new-action.png" alt-text="Screenshow showing new action running." lightbox="media/onboarding-guide-42crunch/new-action.png":::
+   :::image type="content" source="media/onboarding-guide-42crunch/new-action.png" alt-text="Screenshot showing new action running." lightbox="media/onboarding-guide-42crunch/new-action.png":::
 
 1. After the workflow completes, select **Security**, then select **Code scanning** to view the results.
 1. Select a Code Scanning alert detected by 42Crunch REST API Static Security Testing. You can also filter by tool in the Code scanning tab. Filter on **42Crunch REST API Static Security Testing**.
 
    :::image type="content" source="media/onboarding-guide-42crunch/code-scanning-alert.png" alt-text="Screenshot showing code scanning alert." lightbox="media/onboarding-guide-42crunch/code-scanning-alert.png":::
 
-You have now verified that the Audit results are showing in GitHub Code Scanning. Next, we verify that these Audit results are available within Defender for Cloud. It might take up to 30 minutes for results to show in Defender for Cloud.
+You now verified that the Audit results are showing in GitHub Code Scanning. Next, we verify that these Audit results are available within Defender for Cloud. It might take up to 30 minutes for results to show in Defender for Cloud.
 
 ## Navigate to Defender for Cloud
 
@@ -76,7 +76,7 @@ You have now verified that the Audit results are showing in GitHub Code Scanning
 1. Filter by searching for **API security testing**.
 1. Select the recommendation **GitHub repositories should have API security testing findings resolved**.
 
-The selected recommendation shows all 42Crunch Audit findings. You have completed the onboarding for the 42Crunch Audit step.
+The selected recommendation shows all 42Crunch Audit findings. You completed the onboarding for the 42Crunch Audit step.
 
 :::image type="content" source="media/onboarding-guide-42crunch/api-recommendations.png" alt-text="Screenshot showing API summary." lightbox="media/onboarding-guide-42crunch/api-recommendations.png":::
 
@@ -84,7 +84,7 @@ The selected recommendation shows all 42Crunch Audit findings. You have complete
 
 API Scan continually scans the API to ensure conformance to the OpenAPI contract and detect vulnerabilities at testing time. It detects OWASP API Security Top 10 issues early in the API lifecycle and validates that your APIs can handle unexpected requests.
 
-The scan requires a non-production live API endpoint, and the required credentials (API key/access token). [Follow these steps](https://github.com/42Crunch/apisecurity-tutorial) to configure the 42Crunch Scan.
+The scan requires a nonproduction live API endpoint, and the required credentials (API key/access token). [Follow these steps](https://github.com/42Crunch/apisecurity-tutorial) to configure the 42Crunch Scan.
 
 ## FAQ
 
@@ -94,13 +94,13 @@ The 42Crunch security Audit and Conformance scan identify potential vulnerabilit
 
 ### Can 42Crunch be used to enforce compliance with minimum quality and security standards for developers?
 
-Yes. 42Crunch includes the ability to enforce compliance using [Security Quality Gates (SQG)](https://docs.42crunch.com/latest/content/concepts/security_quality_gates.htm). SQGs are comprised of certain criteria that must be met to successfully pass an Audit or Scan. For example, an SQG can ensure that an Audit or Scan with one or more critical severity issues does not pass. In CI/CD, the 42Crunch Audit or Scan can be configured to fail a build if it fails to pass an SQG, thus requiring a developer to resolve the underlying issue before pushing their code.
+Yes. 42Crunch includes the ability to enforce compliance using [Security Quality Gates (SQG)](https://docs.42crunch.com/latest/content/concepts/security_quality_gates.htm). SQGs are composed of certain criteria that must be met to successfully pass an Audit or Scan. For example, an SQG can ensure that an Audit or Scan with one or more critical severity issues doesn't pass. In CI/CD, the 42Crunch Audit or Scan can be configured to fail a build if it fails to pass an SQG, thus requiring a developer to resolve the underlying issue before pushing their code.
 
 The free version of 42Crunch uses default SQGs for both Audit and Scan whereas the paid enterprise version allows for customization of SQGs and tags, which allow SQGs to be applied selectively to groupings of APIs.
 
 ### What data is stored within 42Crunch's SaaS service?
 
-A limited free trial version of the 42Crunch security Audit and Conformance scan can be deployed in CI/CD, which generates reports locally without the need for a 42Crunch SaaS connection. In this version, there is no data shared with the 42Crunch platform.
+A limited free trial version of the 42Crunch security Audit and Conformance scan can be deployed in CI/CD, which generates reports locally without the need for a 42Crunch SaaS connection. In this version, there's no data shared with the 42Crunch platform.
 
 For the full enterprise version of the 42Crunch platform, the following data is stored in the SaaS platform:
 
@@ -110,13 +110,13 @@ For the full enterprise version of the 42Crunch platform, the following data is 
 
 ### How is 42Crunch licensed?
 
-42Crunch is licensed based on a combination of the number of APIs and the number of developers that are provisioned on the platform. For example pricing bundles, see [this marketplace listing](https://azuremarketplace.microsoft.com/marketplace/apps/42crunch1580391915541.42crunch_developer_first_api_security_platform?tab=overview). Custom pricing is available through private offers on the Azure commercial marketplace. For a custom quote, reach out to sales@42crunch.com.
+42Crunch is licensed based on a combination of the number of APIs and the number of developers that are provisioned on the platform. For example pricing bundles, see [this marketplace listing](https://azuremarketplace.microsoft.com/marketplace/apps/42crunch1580391915541.42crunch_developer_first_api_security_platform?tab=overview). Custom pricing is available through private offers on the Azure commercial marketplace. For a custom quote, reach out to <mailto:sales@42crunch.com>.
 
 ### What's the difference between the free and paid version of 42Crunch?
 
 42Crunch offers both a free limited version and paid enterprise version of the security Audit and Conformance scan.
 
-For the free version of 42Crunch, the 42Crunch CI/CD plugins work standalone, with no requirement to sign in to the 42Crunch platform. Audit and scanning results are then made available in Microsoft Defender for Cloud, as well as within the CI/CD platform. Audits and scans are limited to up to 25 executions per month each, per repo, with a maximum of 3 repositories.
+For the free version of 42Crunch, the 42Crunch CI/CD plugins work standalone, with no requirement to sign in to the 42Crunch platform. Audit and scanning results are then made available in Microsoft Defender for Cloud, as well as within the CI/CD platform. Audits and scans are limited to up to 25 executions per month each, per repo, with a maximum of three repositories.
 
 For the paid enterprise version of 42Crunch, Audits and scans are still executed locally in CI/CD but can sync with the 42Crunch platform service, where you can use several advanced features including customizable security quality gates, data dictionaries, and tagging. While the enterprise version is licensed for a certain number of APIs, there are no limits to the number of Audits and scans that can be run on a monthly basis.
 

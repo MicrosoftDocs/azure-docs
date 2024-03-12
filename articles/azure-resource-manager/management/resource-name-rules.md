@@ -325,7 +325,7 @@ In the following tables, the term alphanumeric refers to:
 > | --- | --- | --- | --- |
 > | factories | global | 3-63 | Alphanumerics and hyphens.<br><br>Start and end with alphanumeric. |
 > | factories / dataflows | factory | 1-260 | Can't use:<br>`<>*#.%&:\\+?/` or control characters<br><br>Start with alphanumeric. |
-> | factories / datasets | factory | 1-260 | Can't use:<br>`<>*#.%&:\\+?/` or control characters<br><br>Start with alphanumeric. |
+> | factories / datasets | factory | 1-260 | Can't use:<br>`<>*#.%&:\\+?/-` or control characters<br><br>Start with alphanumeric. |
 > | factories / integrationRuntimes | factory | 3-63 | Alphanumerics and hyphens.<br><br>Start and end with alphanumeric. |
 > | factories / linkedservices | factory | 1-260 | Can't use:<br>`<>*#.%&:\\+?/` or control characters<br><br>Start with alphanumeric. |
 > | factories / pipelines | factory | 1-260 | Can't use:<br>`<>*#.%&:\\+?/` or control characters<br><br>Start with alphanumeric. |

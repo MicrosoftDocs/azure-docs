@@ -31,7 +31,7 @@ You can access your Purview account through the Azure portal by going to `https:
 
 To begin to catalog a data product in this account, [create a collection](../purview/how-to-create-and-manage-collections.md) to hold the Data Product.
 
-Provide the user-assigned managed identity (UAMI) for your Azure Operator Insights Data Product with necessary roles in the Microsoft Purview compliance portal. This UAMI was set up when the Data Product was created. For information on how to set up this UAMI, see [Set up user-assigned managed identity](data-product-create.md#set-up-user-assigned-managed-identity). At the desired collection, assign this UAMI to the **Collection admin**, **Data source admin**, and **Data curator** roles. Alternately, you can apply the UAMI at the root collection/account level. All collections would inherit these role assignments by default.
+Provide the user-assigned managed identity (UAMI) for your Azure Operator Insights Data Product with necessary roles in the Microsoft Purview compliance portal. This UAMI was set up when the Data Product was created. For information on how to set up this UAMI, see [Set up a user-assigned managed identity](data-product-create.md#set-up-a-user-assigned-managed-identity). At the desired collection, assign this UAMI to the **Collection admin**, **Data source admin**, and **Data curator** roles. Alternately, you can apply the UAMI at the root collection/account level. All collections would inherit these role assignments by default.
 
 :::image type="content" source="media/purview-setup/data-product-role-assignments.png" alt-text="Screenshot of collections with Role assignment tab open and icon to add the UAMI to the collection admins role highlighted.":::
 

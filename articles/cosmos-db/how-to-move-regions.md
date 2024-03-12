@@ -5,7 +5,7 @@ author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
-ms.custom: subject-moving-resources, ignite-2022
+ms.custom: subject-moving-resources
 ms.date: 03/15/2022
 ms.author: sidandrews
 ms.reviewer: mjbrown

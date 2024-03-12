@@ -3,12 +3,12 @@ title: What is Azure OpenAI Service?
 titleSuffix: Azure AI services
 description: Apply advanced language models to variety of use cases with Azure OpenAI
 manager: nitinme
-author: mrbullwinkle    
+author: mrbullwinkle
 ms.author: mbullwin
 ms.service: azure-ai-openai
 ms.topic: overview
-ms.date: 10/16/2023
-ms.custom: event-tier1-build-2022, build-2023, build-2023-dataai
+ms.date: 02/15/2024
+ms.custom: build-2023, build-2023-dataai
 recommendations: false
 ---
 
@@ -47,7 +47,7 @@ Apply here for access:
 
 ## Comparing Azure OpenAI and OpenAI
 
-Azure OpenAI Service gives customers advanced language AI with OpenAI GPT-4, GPT-3, Codex, DALL-E, and Whisper models with the security and enterprise promise of Azure. Azure OpenAI co-develops the APIs with OpenAI, ensuring compatibility and a smooth transition from one to the other.
+Azure OpenAI Service gives customers advanced language AI with OpenAI GPT-4, GPT-3, Codex, DALL-E, Whisper, and text to speech models with the security and enterprise promise of Azure. Azure OpenAI co-develops the APIs with OpenAI, ensuring compatibility and a smooth transition from one to the other.
 
 With Azure OpenAI, customers get the security capabilities of Microsoft Azure while running the same models as OpenAI. Azure OpenAI offers private networking, regional availability, and responsible AI content filtering.  
 
@@ -126,6 +126,8 @@ The service provides users access to several different models. Each model provid
 The DALL-E models, currently in preview, generate images from text prompts that the user provides.
 
 The Whisper models, currently in preview, can be used to transcribe and translate speech to text.
+
+The text to speech models, currently in preview, can be used to synthesize text to speech.
 
 Learn more about each model on our [models concept page](./concepts/models.md).
 

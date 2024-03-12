@@ -4,7 +4,6 @@ description: Learn how to configure DFS-N and DFS Root Consolidation with Azure 
 services: azure-netapp-files
 author: seanluce
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: how-to
 ms.date: 06/30/2022
 ms.author: anfdocs

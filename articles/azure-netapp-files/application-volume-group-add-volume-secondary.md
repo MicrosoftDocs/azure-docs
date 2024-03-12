@@ -4,7 +4,6 @@ description: Describes using application volume group to add volumes for an SAP 
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: how-to
 ms.date: 11/19/2021
 ms.author: anfdocs

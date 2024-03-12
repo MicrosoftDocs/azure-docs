@@ -4,7 +4,7 @@ description: Learn about the SAP logs, tables, and functions available from the 
 author: batamig
 ms.author: bagol
 ms.topic: reference
-ms.custom: mvc, ignite-fall-2021
+ms.custom: mvc
 ms.date: 01/15/2024
 ---
 

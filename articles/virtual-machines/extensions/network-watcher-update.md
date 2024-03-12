@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: virtual-machines
 ms.topic: concept-article
-ms.date: 08/30/2023
+ms.date: 02/18/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 

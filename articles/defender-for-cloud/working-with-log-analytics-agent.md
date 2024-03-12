@@ -4,7 +4,6 @@ description: Learn about how the Log Analytics agent collects data from your wor
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
-ms.custom: ignite-2022
 ms.date: 07/31/2023
 ---
 

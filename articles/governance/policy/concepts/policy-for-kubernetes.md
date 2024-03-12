@@ -10,7 +10,7 @@ ms.custom: devx-track-azurecli
 Azure Policy extends [Gatekeeper](https://open-policy-agent.github.io/gatekeeper) v3, an _admission
 controller webhook_ for [Open Policy Agent](https://www.openpolicyagent.org/) (OPA), to apply at-scale enforcements and safeguards on your cluster components in a centralized, consistent manner. Cluster components include pods, containers, and namespaces.
 
-Azure Policy makes it possible to manage and report on the compliance state of your Kubernetes cluster components from one place. By using Azure Policy's Add-On or Extension, governing your cluster components is enhanced with Azure Policy features, like the ability to use [selectors](./assignment-structure.md#resource-selectors-preview) and [overrides](./assignment-structure.md#overrides-preview) for safe policy rollout and rollback.
+Azure Policy makes it possible to manage and report on the compliance state of your Kubernetes cluster components from one place. By using Azure Policy's Add-On or Extension, governing your cluster components is enhanced with Azure Policy features, like the ability to use [selectors](./assignment-structure.md#resource-selectors) and [overrides](./assignment-structure.md#overrides) for safe policy rollout and rollback.
 
 Azure Policy for Kubernetes supports the following cluster environments:
 
@@ -123,7 +123,7 @@ kubectl get pods -n gatekeeper-system
 Lastly, verify that the latest add-on is installed by running this Azure CLI command, replacing
 `<rg>` with your resource group name and `<cluster-name>` with the name of your AKS cluster:
 `az aks show --query addonProfiles.azurepolicy -g <rg> -n <cluster-name>`. The result should look
-similar to the following output:
+similar to the following output for clusters using service principals:
 
 ```output
 {
@@ -132,7 +132,18 @@ similar to the following output:
   "identity": null
 }
 ```
-
+And the following output for clusters using managed identity:
+```output
+ {
+   "config": null,
+   "enabled": true,
+   "identity": {
+     "clientId": "########-####-####-####-############",
+     "objectId": "########-####-####-####-############",
+     "resourceId": "<resource-id>"
+   }
+ }
+```
 ## Install Azure Policy Extension for Azure Arc enabled Kubernetes
 
 [Azure Policy for Kubernetes](./policy-for-kubernetes.md) makes it possible to manage and report on the compliance state of your Kubernetes clusters from one place. With Azure Policy's Extension for Arc-enabled Kubernetes clusters, you can govern your Arc-enabled Kubernetes cluster components, like pods and containers.
@@ -447,6 +458,8 @@ kubectl logs <azure-policy pod name> -n kube-system
 kubectl logs <gatekeeper pod name> -n gatekeeper-system
 ```
 
+If you are attempting to troubleshoot a particular ComplianceReasonCode that is appearing in your compliance results, you can search the azure-policy pod logs for that code to see the full accompanying error.
+
 For more information, see
 [Debugging Gatekeeper](https://open-policy-agent.github.io/gatekeeper/website/docs/debug/) in the
 Gatekeeper documentation.
@@ -588,6 +601,11 @@ To identify the Gatekeeper version that your Azure Policy Add-On is using, you c
 Finally, to identify the AKS cluster version that you are using, follow the linked AKS guidance for this.
 
 ### Add-On versions available per each AKS cluster version
+#### 1.3.0
+Introduces error state for policies in error, enabling them to be distinguished from policies in noncompliant states. Adds support for v1 constraint templates and use of the excludedNamespaces parameter in mutation policies. Adds an error status check on constraint templates post-installation.
+- Released February 2024
+- Kubernetes 1.25+
+- Gatekeeper 3.14.0
 
 #### 1.2.1
 - Released October 2023

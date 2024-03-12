@@ -6,7 +6,7 @@ ms.service:  synapse-analytics
 ms.reviewer: sngun 
 ms.topic: tutorial
 ms.subservice: machine-learning
-ms.date: 02/15/2022
+ms.date: 02/29/2024
 ms.author: negust
 ms.custom: subject-rbac-steps
 
@@ -73,10 +73,15 @@ Because the raw data is in a Parquet format, you can use the Spark context to pu
     ```python
     from azureml.opendatasets import NycTlcYellow
 
-    end_date = parser.parse('2018-06-06')
-    start_date = parser.parse('2018-05-01')
+    from datetime import datetime
+    from dateutil import parser
+    
+    end_date = parser.parse('2018-05-08 00:00:00')
+    start_date = parser.parse('2018-05-01 00:00:00')
+    
     nyc_tlc = NycTlcYellow(start_date=start_date, end_date=end_date)
-    filtered_df = nyc_tlc.to_spark_dataframe()
+    filtered_df = spark.createDataFrame(nyc_tlc.to_pandas_dataframe())
+
     ```
 
 2. The downside to simple filtering is that, from a statistical perspective, it might introduce bias into the data. Another approach is to use the sampling built into Spark. 
