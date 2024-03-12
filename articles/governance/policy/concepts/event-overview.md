@@ -23,7 +23,7 @@ To learn more, see [Event Grid message delivery and retry](../../../event-grid/d
 > [evaluation trigger](../how-to/get-compliance-data.md#evaluation-triggers) finishes resource
 > evaluation.
 > 
-> EventGrid notifications for resource compliance state changes can take up to 20 minutes.
+> Event Grid notifications for resource compliance state changes can take up to 20 minutes.
 
 ## Event Grid Benefits
 Event Grid has a few benefits for customers and services in the Azure ecosystem:
