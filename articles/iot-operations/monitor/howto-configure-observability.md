@@ -8,11 +8,10 @@ ms.custom:
   - ignite-2023
 ms.date: 02/27/2024
 
-# CustomerIntent: As an IT admin or operator, I want to be able to monitor and visualize data
-# on the health of my industrial assets and edge environment.
+# CustomerIntent: As an IT admin or operator, I want to be able to monitor and visualize data on the health of my industrial assets and edge environment.
 ---
 
-# Get started: configure observability
+# Get started: configure observability in Azure IoT Operations Preview
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
@@ -20,7 +19,7 @@ Observability provides visibility into every layer of your Azure IoT Operations 
 
 ## Prerequisites
 
-- Azure IoT Operations installed. For more information, see [Quickstart: Deploy Azure IoT Operations – to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md).
+- Azure IoT Operations Preview installed. For more information, see [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md).
 
 ## Configure your subscription
 
