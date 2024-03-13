@@ -279,7 +279,7 @@ endpoint = ManagedOnlineEndpoint(
 )
 ```
 
-The previous code uses `key` for key-based authentication. To use Azure Machine Learning token-based authentication, use `aml_token`. A key doesn't expire, but a token does expire. For more information on authenticating, see [Authenticate clients for online endpoints](how-to-authenticate-online-endpoint.md).
+The previous code uses `key` for key-based authentication. To use Azure Machine Learning token-based authentication, use `aml_token`. To use Microsoft Entra token-based authentication (preview), use `aad_token`. For more information on authenticating, see [Authenticate clients for online endpoints](how-to-authenticate-online-endpoint.md).
 
 # [Studio](#tab/azure-studio)
 
@@ -335,7 +335,10 @@ For more information about the YAML schema, see the [online endpoint YAML refere
 > 1. Create and attach your Kubernetes cluster as a compute target to your Azure Machine Learning workspace by using [Azure Machine Learning studio](how-to-attach-kubernetes-to-workspace.md).
 > 1. Use the [endpoint YAML](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/kubernetes/kubernetes-endpoint.yml) to target Kubernetes, instead of the managed endpoint YAML. You need to edit the YAML to change the value of `target` to the name of your registered compute target. You can use this [deployment.yaml](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/kubernetes/kubernetes-blue-deployment.yml) that has additional properties applicable to a Kubernetes deployment.
 >
-> All the commands that are used in this article (except the optional SLA monitoring and Azure Log Analytics integration) can be used either with managed online endpoints or with Kubernetes endpoints.
+> All the commands that are used in this article for managed online endpoints also apply to Kubernetes endpoints, except for the following capabilities that don't apply to Kubernetes endpoints:
+> - The optional [SLA monitoring and Azure Log Analytics integration, using Azure Monitor](#optional-monitor-sla-by-using-azure-monitor)
+> - Use of Microsoft Entra token
+> - Autoscaling as described in the optional [Configure autoscaling](#optional-configure-autoscaling) section
 
 # [Python SDK](#tab/python)
 
@@ -794,7 +797,7 @@ One way to create a managed online endpoint in the studio is from the **Models**
 
 1. Enter an __Endpoint name__ that's unique in the Azure region. For more information on the naming rules, see [endpoint limits](how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints).
 1. Keep the default selection: __Managed__ for the compute type.
-1. Keep the default selection: __key-based authentication__ for the authentication type. A `key` doesn't expire, but a token does expire. For more information on authenticating, see [Authenticate clients for online endpoints](how-to-authenticate-online-endpoint.md).
+1. Keep the default selection: __key-based authentication__ for the authentication type. For more information on authenticating, see [Authenticate clients for online endpoints](how-to-authenticate-online-endpoint.md).
 1. Select __Next__, until you get to the "Deployment" page. Here, toggle __Application Insights diagnostics__ to Enabled to allow you to view graphs of your endpoint's activities in the studio later and analyze metrics and logs using Application Insights.
 1. Select __Next__ to go to the "Environment" page. Here, select the following options:
 
