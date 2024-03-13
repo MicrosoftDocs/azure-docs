@@ -19,6 +19,7 @@ This article shows how to query resource configuration changes through Resource 
 
 - To enable Azure PowerShell to query Azure Resource Graph, [add the module](../first-query-powershell.md#add-the-resource-graph-module).
 - To enable Azure CLI to query Azure Resource Graph, [add the extension](../first-query-azurecli.md#add-the-resource-graph-extension).
+- Review the [change resource properties spec](../concepts/changes-resource-spec.md).
 
 ## Get change events using Resource Graph
 
@@ -209,6 +210,11 @@ Review the following best practices before querying and analyzing changes in you
 - Resource configuration changes support changes to resource types from the Resource Graph tables [resources](../reference/supported-tables-resources.md#resources), [resourcecontainers](../reference/supported-tables-resources.md#resourcecontainers), and [healthresources](../reference/supported-tables-resources.md#healthresources). Changes are queryable for 14 days. For longer retention, you can [integrate your Resource Graph query with Azure Logic Apps](../tutorials/logic-app-calling-arg.md) and export query results to any of the Azure data stores like [Log Analytics](../../../azure-monitor/logs/log-analytics-overview.md) for your desired retention.
 
 ## Next steps
+
+> [!div class="nextstepaction"]
+> [Access and view resource changes](../how-to/view-resource-changes.md)
+
+## Related links
 
 - [Starter Resource Graph query samples](../samples/starter.md)
 - [Guidance for throttled requests](../concepts/guidance-for-throttled-requests.md)

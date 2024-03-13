@@ -38,10 +38,6 @@ Meanwhile, Azure Resource Graph Change Analysis works with their complex and hig
 
 Azure Resource Graph Change Analysis provides change information on tracked resources, which are tracked by Resource Graph via notifications sent from the resource providers (virtual machines, web applications, storage accounts, etc.) to Azure Resource Graph's systems. Azure Resource Graph collects snapshots of all tracked resources, compiled in a JSON payload when you make a `GET https://management.azure.com/{some_resource_id}` HTTP request.
 
-## Supported services
-
-[Need: Same as AzMon?]
-
 ## Cost
 
 You can use Azure Resource Graph Change Analysis at no extra cost. 
@@ -61,13 +57,6 @@ With the transition from Azure Monitor to Azure Resource Graph comes a handful o
   - Environment variables changes
   - File changes
 - Programmatic callers need to use the `Microsoft.ResourceGraph/resources` API, instead of the `Microsoft.ChangeAnalysis/*` APIs 
-
-## To be announced
-
-The Change Analysis team anticipates the following items as they work on the migration during preview.
-
-- Deprecation for the `Microsoft.ChangeAnalysis` resource provider
-- Documentation for programmatic replacement of calling `Microsoft.ChangeAnalysis` APIs and how to query across the various tables within the `Microsoft.ResourceGraph/resources` API for tracked and proxy resources.
 
 ## Next steps
 

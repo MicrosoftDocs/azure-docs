@@ -36,3 +36,5 @@ The Change Analysis (preview) service presented by Resource Graph sets a new dir
 
 ## Next steps
 
+> [!div class="nextstepaction"]
+> [Get resource changes](../how-to/get-resource-changes.md)
