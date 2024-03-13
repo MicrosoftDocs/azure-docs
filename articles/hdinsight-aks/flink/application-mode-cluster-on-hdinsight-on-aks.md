@@ -97,9 +97,9 @@ Flink AppMode clusters can be created once cluster pool deployment completed, le
 
 1. Enabling Hive catalog for Flink SQL:
 
-    |Property|Description|
+    |Property |Description |
     |-|-|
-    |Use Hive catalog ||Enable this option to use an external Hive metastore. |
+    |Use Hive catalog |Enable this option to use an external Hive metastore. |
     |SQL Database for Hive |From the drop-down list, select the SQL Database in which to add hive-metastore tables. |
     |SQL admin username |Enter the SQL server admin username. This account is used by metastore to communicate to SQL database. |
     |Key vault |From the drop-down list, select the Key Vault, which contains a secret with password for SQL server admin username. You need to set up an access policy with all required permissions such as key permissions, secret permissions, and certificate permissions to the MSI, which is being used for the cluster creation. The MSI needs a Key Vault Administrator role. Add the required permissions using IAM. |
