@@ -96,21 +96,21 @@ Requirements:
    ```json
    {
     "baseResourceStatus" :[
-    {
-     "resourceName": "sfmccluster1"
-     "resourceType": "Microsoft.Storage/storageAccounts"
-     "isZoneResilient": false
-    },
-    {
-     "resourceName": "PublicIP-sfmccluster1"
-     "resourceType": "Microsoft.Network/publicIPAddresses"
-     "isZoneResilient": false
-    },
-    {
-     "resourceName": "primary"
-     "resourceType": "Microsoft.Compute/virutalmachinescalesets"
-     "isZoneResilient": false
-    },
+      {
+      "resourceName": "sfmccluster1"
+      "resourceType": "Microsoft.Storage/storageAccounts"
+      "isZoneResilient": false
+      },
+      {
+      "resourceName": "PublicIP-sfmccluster1"
+      "resourceType": "Microsoft.Network/publicIPAddresses"
+      "isZoneResilient": false
+      },
+      {
+      "resourceName": "primary"
+      "resourceType": "Microsoft.Compute/virutalmachinescalesets"
+      "isZoneResilient": false
+      }
     ],
     "isClusterZoneResilient": false
    }
@@ -120,41 +120,33 @@ Requirements:
    
 2) Initiate conversion of the underlying storage account created for managed cluster from LRS to ZRS using [customer-initiated conversion](../storage/common/redundancy-migration.md#customer-initiated-conversion). The resource group of storage account that needs to be migrated would be of the form "SFC_ClusterId"(ex SFC_9240df2f-71ab-4733-a641-53a8464d992d) under the same subscription as the managed cluster resource.
 
-3) Add a new primary node type which spans across availability zones
+3) Add zones property to existing node types
 
-   This step triggers the resource provider to perform the migration of the primary node type and Public IP along with a cluster FQDN DNS update, if needed, to become zone resilient. Use the above API to understand implication of this step.
-
-* Use apiVersion 2022-02-01-preview or higher.
-* Add a new primary node type to the cluster with zones parameter set to ["1," "2," "3"] as show below:
-```json
-{
-  "apiVersion": "2022-02-01-preview",
-  "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
-  "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
-  "location": "[resourcegroup().location]",
-  "dependsOn": [
-    "[concat('Microsoft.ServiceFabric/managedclusters/', parameters('clusterName'))]"
-  ],
-  "properties": {
-    ...
-    "isPrimary": true,
-    "zones": ["1", "2", "3"]
-    ...
-  }
-}
-```
-
-4) Add secondary node type which spans across availability zones.
-   This step will add a secondary node type which spans across availability zones similar to the primary node type. Once created, customers need to migrate existing services from the old node types to the new ones by [using placement properties](./service-fabric-cluster-resource-manager-cluster-description.md).
+  This step will mark the managed Virtual Machine Scale Set associated with the node type as zone resilient and any new Vms added to it will be zonal. If it is a primary node type, the resource provider will perform the migration of the Public IP along with a cluster FQDN DNS update, if needed, to become zone resilient. Use the getazresiliencystatus API above to understand implication of this step.
 
 * Use apiVersion 2022-02-01-preview or higher.
-* Add a new secondary node type to the cluster with zones parameter set to ["1", "2", "3"] as show below:
+* Add zones parameter set to ["1", "2", "3"] to existing node types as show below:
 
    ```json
    {
-     "apiVersion": "2022-02-01-preview",
+     "apiVersion": "2024-02-01-preview",
      "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
      "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
+     "location": "[resourcegroup().location]",
+     "dependsOn": [
+       "[concat('Microsoft.ServiceFabric/managedclusters/', parameters('clusterName'))]"
+     ],
+     "properties": {
+       ...
+       "isPrimary": true,
+       "zones": ["1", "2", "3"]
+       ...
+     }
+   },
+   {
+     "apiVersion": "2024-02-01-preview",
+     "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
+     "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeNameSecondary'))]",
      "location": "[resourcegroup().location]",
      "dependsOn": [
        "[concat('Microsoft.ServiceFabric/managedclusters/', parameters('clusterName'))]"
@@ -168,13 +160,50 @@ Requirements:
    }
    ```
 
-5) Start removing older non az spanning node types from the cluster
+5) Scale Node types to add **Zonal** nodes and remove **Regional** nodes
 
-   Once all your services are not present on your non zone spanned node types, you must remove the old node types. Start by [removing the old node types from the cluster](./how-to-managed-cluster-modify-node-type.md) using Portal or cmdlet. As a last step, remove any old node types from your template.
+   At this point the VMSS is marked as zone resilient so on scaling up, the new node added will be Zonal and on scaling down, Regional nodes will be removed. So you can scale up and down in any order that fits your needs based on the your capacity restrictions by updating **vmInstanceCount** property on the node types. 
+   For example if you have initialy vmInstanceCount set to 6 (6 regional nodes), you can do 2 deployments:
+    - First deployment: Add the 6 **Zonal** nodes by setting vmInstanceCount to 12
+    - Second deployment: Remove all **Reginal** nodes by setting vmInstanceCount to 6
+
+  At any point of the process you can check the getazresiliencystatus api that will retrun the progress status as shown below. The process is considered complete when there are a minimum of 6 zonal nodes and 0 regional nodes in each node type.
+
+   ```json
+   {
+    "baseResourceStatus" :[
+      {
+      "resourceName": "sfmccluster1"
+      "resourceType": "Microsoft.Storage/storageAccounts"
+      "isZoneResilient": true
+      },
+      {
+      "resourceName": "PublicIP-sfmccluster1"
+      "resourceType": "Microsoft.Network/publicIPAddresses"
+      "isZoneResilient": true
+      },
+      {
+      "resourceName": "ntPrimary"
+      "resourceType": "Microsoft.Compute/virutalmachinescalesets"
+      "isZoneResilient": false
+      "details": "Status: InProgress, ZonalNodes: 6, RegionalNodes: 6"
+      },
+      {
+      "resourceName": "ntSecondary"
+      "resourceType": "Microsoft.Compute/virutalmachinescalesets"
+      "isZoneResilient": true
+      "details": "Status: Done, ZonalNodes: 6, RegionalNodes: 0"
+      }
+    ],
+    "isClusterZoneResilient": false
+   }
+   ```
+>[!NOTE]
+> The scale process on the primary node type will take longer because adding and removing each node will trigger a service fabric cluster upgrade
 
 6) Mark the cluster resilient to zone failures
 
-   This step helps in future deployments, since it ensures all future deployments of node types span across availability zones and thus cluster remains tolerant to AZ failures. Set `zonalResiliency: true` in the cluster ARM template and do a deployment to mark cluster as zone resilient and ensure all new node type deployments span across availability zones. 
+   This step helps in future deployments, since it ensures all future deployments of node types span across availability zones and thus cluster remains tolerant to AZ failures. Set `zonalResiliency: true` in the cluster ARM template and do a deployment to mark cluster as zone resilient and ensure all new node type deployments span across availability zones. This will only be allowed if all node types have at least 6 zonal nodes and 0 regional nodes.
 
    ```json
    {
@@ -196,21 +225,28 @@ Requirements:
    ```json
    {
     "baseResourceStatus" :[
-    {
-     "resourceName": "sfmccluster1"
-     "resourceType": "Microsoft.Storage/storageAccounts"
-     "isZoneResilient": true
-    },
-    {
-     "resourceName": "PublicIP-sfmccluster1"
-     "resourceType": "Microsoft.Network/publicIPAddresses"
-     "isZoneResilient": true
-    },
-    {
-     "resourceName": "primary"
-     "resourceType": "Microsoft.Compute/virutalmachinescalesets"
-     "isZoneResilient": true
-    },
+      {
+      "resourceName": "sfmccluster1"
+      "resourceType": "Microsoft.Storage/storageAccounts"
+      "isZoneResilient": true
+      },
+      {
+      "resourceName": "PublicIP-sfmccluster1"
+      "resourceType": "Microsoft.Network/publicIPAddresses"
+      "isZoneResilient": true
+      },
+      {
+        "resourceName": "ntPrimary"
+        "resourceType": "Microsoft.Compute/virutalmachinescalesets"
+        "isZoneResilient": true
+        "details": "Status: Done, ZonalNodes: 6, RegionalNodes: 0"
+      },
+      {
+        "resourceName": "ntSecondary"
+        "resourceType": "Microsoft.Compute/virutalmachinescalesets"
+        "isZoneResilient": true
+        "details": "Status: Done, ZonalNodes: 6, RegionalNodes: 0"
+      }
     ],
     "isClusterZoneResilient": true
    }
