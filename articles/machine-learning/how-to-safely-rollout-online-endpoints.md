@@ -252,7 +252,7 @@ In the `blue-deployment.yaml` file, we specify the `path` (where to upload files
 
 For registration, you can extract the YAML definitions of `model` and `environment` into separate YAML files and use the commands `az ml model create` and `az ml environment create`. To learn more about these commands, run `az ml model create -h` and `az ml environment create -h`.
 
-For more information on registering your model as an asset, see [Register your model as an asset in Machine Learning by using the CLI](how-to-manage-models.md#register-your-model-as-an-asset-in-machine-learning-by-using-the-cli). For more information on creating an environment, see [Manage Azure Machine Learning environments with the CLI & SDK (v2)](how-to-manage-environments-v2.md#create-an-environment).
+For more information on registering your model as an asset, see [Register your model as an asset in Machine Learning by using the CLI](how-to-manage-models.md#register-your-model-as-an-asset-in-machine-learning-by-using-the-cli). For more information on creating an environment, see [Manage Azure Machine Learning environments with the CLI & SDK (v2)](how-to-manage-environments-v2.md#create-a-custom-environment).
 
 # [Python](#tab/python)
 
@@ -284,7 +284,7 @@ The following table describes the attributes of a `deployment`:
 
     For more information on registering your model as an asset, see [Register your model as an asset in Machine Learning by using the SDK](how-to-manage-models.md#register-your-model-as-an-asset-in-machine-learning-by-using-the-sdk).
 
-    For more information on creating an environment, see [Manage Azure Machine Learning environments with the CLI & SDK (v2)](how-to-manage-environments-v2.md#create-an-environment).
+    For more information on creating an environment, see [Manage Azure Machine Learning environments with the CLI & SDK (v2)](how-to-manage-environments-v2.md#create-a-custom-environment).
 
     > [!NOTE]
     > To create a deployment for a Kubernetes online endpoint, use the `KubernetesOnlineDeployment` class.
@@ -321,7 +321,7 @@ To register the example model, follow these steps:
 
 For more information on working with registered models, see [Register and work with models](how-to-manage-models.md).
 
-For information on creating an environment in the studio, see [Create an environment](how-to-manage-environments-in-studio.md#create-an-environment).
+For information on creating an environment in the studio, see [Create an environment](how-to-manage-environments-in-studio.md#create-a-custom-environment).
 
 ### Create a managed online endpoint and the 'blue' deployment
 
