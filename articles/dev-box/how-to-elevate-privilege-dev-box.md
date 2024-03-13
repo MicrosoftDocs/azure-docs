@@ -33,7 +33,7 @@ Endpoint Privilege Management requires either a stand-alone license that adds on
 
 In this section, you configure EPM licensing and assign the EPM license to a user.
 
-1. Configure the Azure tenant administrator for EPM purchasing:
+1. License EPM in your tenant as an Intune add-on:
 
     1. Open the [Microsoft Intune admin center](https://intune.microsoft.com), and navigate to **Tenant admin** >  **Intune add-ons**.
     1. Select **Endpoint Privilege Management**.
@@ -58,7 +58,7 @@ In this section, you configure EPM licensing and assign the EPM license to a use
 
 ## Deploy an elevation settings policy 
 
-A dev box must have an elevation settings policy that enables support for EPM to process an elevation rules policy or manage elevation requests. When support is enabled, the `C:\Program Files\Microsoft EPM Agent folder` is added to the dev box along with the EPM Microsoft Agent, which processes the EPM policies.
+A dev box must have an elevation settings policy that enables support for EPM to process an elevation rules policy or manage elevation requests. When support is enabled, the EPM Microsoft Agent, which processes the EPM policies, is installed.
 
 In this section, you create a dev box and an Intune group that you use to test the EPM policy configuration. Then, you create an EPM elevation settings policy and assign the policy to the group.
 
