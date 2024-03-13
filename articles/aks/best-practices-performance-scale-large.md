@@ -89,7 +89,7 @@ As you scale your AKS clusters to larger scale points, keep the following featur
   * [Troubleshoot the Kubernetes control plane](/troubleshoot/azure/azure-kubernetes/troubleshoot-apiserver-etcd)
   *  If you still have a problem with scaling upto 5000 nodes, please raise a [support ticket](https://portal.azure.com/#create/Microsoft.Support/Parameters/%7B%0D%0A%09%22subId%22%3A+%22%22%2C%0D%0A%09%22pesId%22%3A+%225a3a423f-8667-9095-1770-0a554a934512%22%2C%0D%0A%09%22supportTopicId%22%3A+%2280ea0df7-5108-8e37-2b0e-9737517f0b96%22%2C%0D%0A%09%22contextInfo%22%3A+%22AksLabelDeprecationMarch22%22%2C%0D%0A%09%22caller%22%3A+%22Microsoft_Azure_ContainerService+%2B+AksLabelDeprecationMarch22%22%2C%0D%0A%09%22severity%22%3A+%223%22%0D%0A%7D)
 > [!NOTE]
-> During the scaling of the control plane, you may encounter elevated API server latency or timeouts for a maximum duration of 15 minutes.
+> During the scaling of the control plane, you may encounter elevated API server latency or timeouts for upto 15 minutes.
 * [Azure Network Policy Manager (Azure npm)][azure-npm] only supports up to 250 nodes.
 * You can't use the Stop and Start feature with clusters that have more than 100 nodes. For more information, see [Stop and start an AKS cluster](./start-stop-cluster.md).
 
