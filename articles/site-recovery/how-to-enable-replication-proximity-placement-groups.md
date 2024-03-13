@@ -232,7 +232,7 @@ You can easily update your selection of a proximity placement group in the DR re
 ### VMware to Azure
 
 1. [Prepare your on-premises VMware servers](./vmware-azure-tutorial-prepare-on-premises.md) for disaster recovery to Azure.
-2. [Sign in to your account and set your subscription](./vmware-azure-disaster-recovery-powershell.md#log-into-azure).
+2. [Sign in to your account and set your subscription](./vmware-azure-disaster-recovery-powershell.md#log-in-to-azure).
 3. [Set up a Recovery Services vault](./vmware-azure-disaster-recovery-powershell.md#set-up-a-recovery-services-vault) and [set a vault context](./vmware-azure-disaster-recovery-powershell.md#set-the-vault-context).
 4. [Validate your vault registration](./vmware-azure-disaster-recovery-powershell.md#validate-vault-registration).
 5. [Create a replication policy](./vmware-azure-disaster-recovery-powershell.md#create-a-replication-policy).

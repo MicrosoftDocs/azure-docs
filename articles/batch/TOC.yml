@@ -198,6 +198,8 @@
       href: simplified-node-communication-pool-no-public-ip.md
     - name: Create a pool with ephemeral OS disk nodes
       href: create-pool-ephemeral-os-disk.md
+    - name: Create an Azure Batch pool with Auto OS Upgrade
+      href: batch-upgrade-policy.md
     - name: Use extensions with pools
       href: create-pool-extensions.md
     - name: Configure managed identities
