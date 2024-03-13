@@ -2,7 +2,7 @@
 title: What's new in Azure Backup
 description: Learn about the new features in the Azure Backup service.
 ms.topic: conceptual
-ms.date: 03/15/2024
+ms.date: 03/13/2024
 ms.service: backup
 ms.custom:
   - ignite-2023
@@ -19,7 +19,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 ## Updates summary
 
 - March 2024
-  - [Agentless multi-disk crash consistent backups for Azure VMs (preview)](#agentless-multi-disk-crash-consistent-backups-for-azure-vms-preview)
+  - [Agentless multi-disk crash-consistent backups for Azure VMs (preview)](#agentless-multi-disk-crash-consistent-backups-for-azure-vms-preview)
   - [Azure Files vaulted backup (preview)](#azure-files-vaulted-backup-preview)
   - [Support for long-term Retention for Azure Database for MySQL - Flexible Server (preview)](#support-for-long-term-retention-for-azure-database-for-mysql---flexible-server-preview)
 - January 2024
@@ -86,11 +86,11 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
 
-## Agentless multi-disk crash consistent backups for Azure VMs (preview)
+## Agentless multi-disk crash-consistent backups for Azure VMs (preview)
 
-Azure Backup now supports agentless VM backups by using multi-disk crash consistent restore points (preview). Crash consistent backups are OS agnostic, do not require any agent, and quiesce VM I/O for a shorter period of time compared to application or file-system consistent backups for performance sensitive workloads.
+Azure Backup now supports agentless VM backups by using multi-disk crash consistent restore points (preview). Crash consistent backups are OS agnostic, do not require any agent, and quiesce VM I/O for a shorter period compared to application or file-system consistent backups for performance sensitive workloads.
 
-For more information, see [About agentless multi-disk crash consistent backup for Azure VMs (preview)](backup-azure-vms-agentless-multi-disk-crash-consistent-overview.md).
+For more information, see [About agentless multi-disk crash-consistent backup for Azure VMs (preview)](backup-azure-vms-agentless-multi-disk-crash-consistent-overview.md).
 
 ## Azure Files vaulted backup (preview)
 

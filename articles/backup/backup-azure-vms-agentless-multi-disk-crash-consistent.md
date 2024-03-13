@@ -1,23 +1,23 @@
 ---
-title: Back up Azure VM with agentless multi-disk crash consistent backup by using Azure Backup
-description: Learn how to configure backup for Azure VMs with agentless multi-disk crash consistent backup via Azure portal.
+title: Back up Azure VM with agentless multi-disk crash-consistent backup by using Azure Backup
+description: Learn how to configure backup for Azure VMs with agentless multi-disk crash-consistent backup via Azure portal.
 ms.topic: how-to
-ms.date: 03/15/2024
+ms.date: 03/13/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Back up Azure VM with agentless multi-disk crash consistent backup (preview)
+# Back up Azure VM with agentless multi-disk crash-consistent backup (preview)
 
-This article describes how to configure backup for Azure VMs with agentless multi-disk crash consistent backup (preview) and back up VM by using the Azure portal.
+This article describes how to configure backup for Azure VMs with agentless multi-disk crash-consistent backup (preview) and back up VM by using the Azure portal.
 
-Azure Backup supports agentless VM backups by using multi-disk crash-consistent restore points (preview). The Enhanced VM backup policy now enables you to configure the consistency type of the backups (application-consistent restore points or crash-consistent restore points preview) for Azure VMs. This feature also enables Azure VM backup to retry the backup operation with *crash consistent snapshots* (for *supported VMs*) if the application-consistent snapshot fails. 
+Azure Backup supports agentless VM backups by using multi-disk crash-consistent restore points (preview). The Enhanced VM backup policy now enables you to configure the consistency type of the backups (application-consistent restore points or crash-consistent restore points preview) for Azure VMs. This feature also enables Azure VM backup to retry the backup operation with *crash-consistent snapshots* (for *supported VMs*) if the application-consistent snapshot fails. 
 
-## Configure backup for a new Azure VM with agentless multi-disk crash consistent backup
+## Configure backup for a new Azure VM with agentless multi-disk crash-consistent backup
 
-The agentless crash consistent backup is available the *Enhanced VM backup policy* only. You need to set *crash-consistent backup* explicitly in this policy because *application/file-system consistent backup* is the default setting.
+The agentless crash-consistent backup is available with the *Enhanced VM backup policy* only. You need to set *crash-consistent backup* explicitly in this policy because *application/file-system-consistent backup* is the default setting.
 
-To configure backup for a new Azure VM with agentless multi-disk crash consistent backup enabled, [create a Recovery Services vault](backup-create-recovery-services-vault.md#create-a-recovery-services-vault) and follow these steps:
+To configure backup for a new Azure VM with agentless multi-disk crash-consistent backup enabled, [create a Recovery Services vault](backup-create-recovery-services-vault.md#create-a-recovery-services-vault) and follow these steps:
 
 1. On the **Configure backup** blade, under **Policy sub type**, select **Enhanced** > **Create a new policy**. 
 
@@ -25,21 +25,21 @@ To configure backup for a new Azure VM with agentless multi-disk crash consisten
 
 3. Select **OK**.
 
-## Move a VM from application/file-system consistent to crash consistent backup.
+## Move a VM from application/file-system-consistent to crash-consistent backup.
 
-If you have VMs backed up with Enhanced Policy, you can move them from agent based application/file-system consistent backups to agentless crash consistent backups by:
+If you have VMs backed up with Enhanced Policy, you can move them from agent based application/file-system-consistent backups to agentless crash-consistent backups by:
 
 - Changing their associated backup policy (recommended)
 - Editing the policy setting directly
 
-### Option 1: Change the VM backup policy to switch from application/file-system consistent backup to crash-consistent backup (recommended)
+### Option 1: Change the VM backup policy to switch from application/file-system-consistent backup to crash-consistent backup (recommended)
 
 Follow these steps:
 
 1. Go to a **Recovery Services vault**, and then select **Manage** > **Backup policies** to check the policy for the VMs you want to move to *crash-consistent backup*.
 
 
-2. Select the *backup policy*, and then on the **Modify policy** blade, select **Associated Items** to identify the VMs that you want to move to crash consistent backup.
+2. Select the *backup policy*, and then on the **Modify policy** blade, select **Associated Items** to identify the VMs that you want to move to crash-consistent backup.
  
    >[!Note]
    >Ensure that the VMs are supported for crash-consistent backups. Learn about the [supported scenarios](backup-azure-vms-agentless-multi-disk-crash-consistent.md#supported-scenarios-for-agentless-multi-disk-crash-consistent-vm-backup-preview).
@@ -64,9 +64,9 @@ SetCrashConsistent.png <highlight setting crash consistent option>
 
    A **Modifying protection** notification and a **Configure backup** job in your vault for the VM is triggered. Monitor the notification or job to check if the crash-consistent backup policy is added successfully.
 
-### Option 2: Modify the backup policy to change from application/file-system consistent backup to crash consistent backup
+### Option 2: Modify the backup policy to change from application/file-system-consistent backup to crash-consistent backup
 
-If you don't want to create a new policy and move specific VMs, edit the **Consistency type** option in the existing policy.
+If you don't want to create a new policy and move only specific VMs, edit the **Consistency type** option in the existing policy.
 
 Follow these steps:
 
@@ -86,4 +86,4 @@ Follow these steps:
 
 ## Next steps
 
-- [Run an on-demand backup of Azure VM](backup-azure-vms-first-look-arm.md#run-a-backup-immediately).
+[Run an on-demand backup of Azure VM](backup-azure-vms-first-look-arm.md#run-a-backup-immediately).

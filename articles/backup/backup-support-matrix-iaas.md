@@ -26,7 +26,7 @@ Here's how you can back up and restore Azure VMs by using the Azure Backup servi
 
 **Scenario** | **Backup** | **Agent** |**Restore**
 --- | --- | --- | ---
-Direct backup of Azure VMs  | Back up the entire VM.  | For application or file-system consistent backups, no additional agent is needed on the Azure VM. Azure Backup installs and uses an extension to the [Azure VM agent](../virtual-machines/extensions/agent-windows.md) that's running on the VM.    <br><br>  You can also use agentless crash consistent backups. [Learn more](backup-azure-vms-agentless-multi-disk-crash-consistent-overview.md).   | Restore as follows:<br/><br/> - **Create a basic VM**. This is useful if the VM has no special configuration, such as multiple IP addresses.<br/><br/> - **Restore the VM disk**. Restore the disk. Then attach it to an existing VM, or create a new VM from the disk by using PowerShell.<br/><br/> - **Replace the VM disk**. If a VM exists and it uses managed disks (unencrypted), you can restore a disk and use it to replace an existing disk on the VM.<br/><br/> - **Restore specific files or folders**. You can restore files or folders from a VM instead of restoring the entire VM.
+Direct backup of Azure VMs  | Back up the entire VM.  | For application or file-system consistent backups, no additional agent is needed on the Azure VM. Azure Backup installs and uses an extension to the [Azure VM agent](../virtual-machines/extensions/agent-windows.md) that's running on the VM.    <br><br>  You can also use agentless crash-consistent backups. [Learn more](backup-azure-vms-agentless-multi-disk-crash-consistent-overview.md).   | Restore as follows:<br/><br/> - **Create a basic VM**. This is useful if the VM has no special configuration, such as multiple IP addresses.<br/><br/> - **Restore the VM disk**. Restore the disk. Then attach it to an existing VM, or create a new VM from the disk by using PowerShell.<br/><br/> - **Replace the VM disk**. If a VM exists and it uses managed disks (unencrypted), you can restore a disk and use it to replace an existing disk on the VM.<br/><br/> - **Restore specific files or folders**. You can restore files or folders from a VM instead of restoring the entire VM.
 Direct backup of Azure VMs (Windows only)  | Back up specific files, folders, or volumes. | Install the [Azure Recovery Services agent](backup-azure-file-folder-backup-faq.yml).<br/><br/> You can run the MARS agent alongside the backup extension for the Azure VM agent to back up the VM at the file or folder level. | Restore specific files or folders.
 Backup of Azure VMs to the backup server  | Back up files, folders, or volumes; system state or bare metal files; and app data to System Center DPM or to Microsoft Azure Backup Server (MABS).<br/><br/> DPM or MABS then backs up to the backup vault. | Install the DPM or MABS protection agent on the VM. The MARS agent is installed on DPM or MABS.| Restore files, folders, or volumes; system state or bare metal files; and app data.
 
@@ -36,7 +36,7 @@ Learn more about [using a backup server](backup-architecture.md#architecture-bac
 
 **Action** | **Support**
 --- | ---
-Back up a VM that's shut down or offline | Supported.<br/><br/> Snapshot is crash consistent only, not app consistent.
+Back up a VM that's shut down or offline | Supported.<br/><br/> Snapshot is crash-consistent only, not app consistent.
 Back up disks after migrating to managed disks | Supported.<br/><br/> Backup will continue to work. No action is required.
 Back up managed disks after enabling a resource group lock | Not supported.<br/><br/> Azure Backup can't delete the older restore points. Backups will start to fail when the limit of restore points is reached.
 Modify backup policy for a VM | Supported.<br/><br/> The VM will be backed up according to the schedule and retention settings in the new policy. If retention settings are extended, existing recovery points are marked and kept. If they're reduced, existing recovery points will be pruned in the next cleanup job and eventually deleted.
@@ -60,7 +60,7 @@ The following table summarizes the supported operating systems when you're backi
 **Scenario** | **OS support**
 --- | ---
 Back up with the Azure VM agent extension for application-consistent backup | - Windows 11 client (64 bit only) <br/><br/> - Windows 10 client (64 bit only) <br/><br/>- Windows Server 2022 (Datacenter, Datacenter Core, and Standard)   <br/><br/>- Windows Server 2019 (Datacenter, Datacenter Core, and Standard) <br/><br/> - Windows Server 2016 (Datacenter, Datacenter Core, and Standard) <br/><br/> - Windows Server 2012 R2 (Datacenter and Standard) <br/><br/> - Windows Server 2012 (Datacenter and Standard) <br/><br/> - Windows Server 2008 R2 (RTM and SP1 Standard)  <br/><br/> - Windows Server 2008 (64 bit only) <br><br> Note that *32 bit Operating Systems* aren't supported.
-[Back up Azure VM directly using agentless crash-consistent backup]() | Agentless crash consistent backups are operating system agnostic. 
+[Back up Azure VM directly using agentless crash-consistent backup]() | Agentless crash-consistent backups are operating system agnostic. 
 Back up with the MARS agent | [Supported](backup-support-matrix-mars-agent.md#supported-operating-systems) operating systems
 Back up with DPM or MABS | Supported operating systems for backup with [MABS](backup-mabs-protection-matrix.md) and [DPM](/system-center/dpm/dpm-protection-matrix)
 
@@ -71,7 +71,7 @@ Here's what's supported if you want to back up Linux machines.
 **Action** | **Support**
 --- | ---
 Back up Linux Azure VMs with the Linux Azure VM agent | Supported for file-consistent backup.<br/><br/> Also supported for app-consistent backup that uses [custom scripts](backup-azure-linux-app-consistent.md).<br/><br/> During restore, you can create a new VM, restore a disk and use it to create a VM, or restore a disk and use it to replace a disk on an existing VM. You can also restore individual files and folders.
-[Back up Azure VM directly by using agentless crash consistent backup]() | Agentless crash consistent backups are operating system agnostic.
+[Back up Azure VM directly by using agentless crash-consistent backup]() | Agentless crash-consistent backups are operating system agnostic.
 Back up Linux Azure VMs with the MARS agent | Not supported.<br/><br/> The MARS agent can be installed only on Windows machines.
 Back up Linux Azure VMs with DPM or MABS | Not supported.
 Back up Linux Azure VMs with Docker mount points | Currently, Azure Backup doesn't support exclusion of Docker mount points because these are mounted at different paths every time.
@@ -85,7 +85,7 @@ For Linux VM backups by using the Linux Azure VM agent, Azure Backup supports th
 - Agent-based VM backup doesn't support 32-bit operating systems.
 - Other bring-your-own Linux distributions might work as long as the [Azure VM agent for Linux](../virtual-machines/extensions/agent-linux.md) is available on the VM, and as long as Python is supported.
 - Agent-based VM backup doesn't support a proxy-configured Linux VM if it doesn't have Python version 2.7 or later installed.
-- Agentless crash consistent backups are operating system agnostic and can be used to back up VMs whose operating system isn't supported for agent-based backups.
+- Agentless crash-consistent backups are operating system agnostic and can be used to back up VMs whose operating system isn't supported for agent-based backups.
 - Azure Backup doesn't support backing up Network File System (NFS) files that are mounted from storage, or from any other NFS server, to Linux or Windows machines. It backs up only disks that are locally attached to the VM.
 
 ## Support matrix for managed pre and post scripts for Linux databases
@@ -98,11 +98,11 @@ Azure Backup provides the following support for customers to author their own pr
 
 
 
-## Support for agentless multi-disk crash consistent VM backup (preview)
+## Support for agentless multi-disk crash-consistent VM backup (preview)
 
 [!INCLUDE [backup-azure-agentless-multi-disk-crash-consistent-vm-backup-support-scenarios.md](../../includes/backup-azure-agentless-multi-disk-crash-consistent-vm-backup-support-scenarios.md)]
 
-[Learn more about Agentless multi-disk crash consistent VM backup](backup-azure-vms-agentless-multi-disk-crash-consistent-overview.md).
+[Learn more about Agentless multi-disk crash-consistent VM backup](backup-azure-vms-agentless-multi-disk-crash-consistent-overview.md).
 
 ## Backup frequency and retention
 
