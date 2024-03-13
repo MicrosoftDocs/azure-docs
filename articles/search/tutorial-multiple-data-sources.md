@@ -49,7 +49,7 @@ A finished version of the code in this tutorial can be found in the following pr
 + [Azure AI Search](search-create-service-portal.md)
 
 > [!NOTE]
-> You can use the free service for this tutorial. A free search service limits you to three indexes, three indexers, and three data sources. This tutorial creates one index, two indexers, and two data sources. Before starting, make sure you have room on your service to accept the new resources.
+> You can use a free search service for this tutorial. The free tier limits you to three indexes, three indexers, and three data sources. This tutorial creates one of each. Before starting, make sure you have room on your service to accept the new resources.
 
 ## 1 - Create services
 

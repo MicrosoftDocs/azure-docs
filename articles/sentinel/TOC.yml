@@ -64,7 +64,9 @@
   - name: Plan and design your migration
     items:
     - name: Plan your migration
-      href: migration.md      
+      href: migration.md
+    - name: Use the SIEM migration experience
+      href: siem-migration.md
     - name: Track migration with a workbook
       href: migration-track.md                
   - name: Migrate from ArcSight      
