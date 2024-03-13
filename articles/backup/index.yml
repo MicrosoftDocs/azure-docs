@@ -12,7 +12,7 @@ metadata:
   ms.topic: landing-page
   author: AbhishekMallick-MS
   ms.author: v-abhmallick 
-  ms.date: 03/08/2024
+  ms.date: 03/04/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -63,6 +63,8 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
+          - text: Azure Files vaulted backup (preview)
+            url: azure-file-share-backup-overview.md?tabs=vault-standard
           - text: Azure Database for MySQL - Flexible Server long-term retention (preview)
             url: backup-azure-mysql-flexible-server-about.md
           - text: Cross Region Restore for Azure PostgreSQL Database
@@ -71,8 +73,6 @@ landingContent:
             url: azure-kubernetes-service-backup-overview.md
           - text: Back up database instance snapshots
             url: sap-hana-database-about.md#back-up-database-instance-snapshots
-          - text: Multiple backups per day for Azure VMs
-            url: backup-azure-vms-enhanced-policy.md
           - text: Multi-user authorization for Backup vault 
             url: multi-user-authorization-concept.md?tabs=backup-vault
           - text: Enhanced soft delete
