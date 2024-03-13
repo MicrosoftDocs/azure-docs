@@ -117,14 +117,6 @@ The specified entity can't be found. Make sure the synthesis ID is correct.
  
 There are too many recent requests. Each client application can submit up to 50 requests per 5 seconds for each Speech resource. Reduce the number of requests per second.
 
-You can check the rate limit and quota remaining via the HTTP headers as shown in the following example:
-
-```http
-X-RateLimit-Limit: 50
-X-RateLimit-Remaining: 49
-X-RateLimit-Reset: 2022-11-11T01:49:43Z
-```
-
 ### HTTP 500 error
 
 HTTP 500 Internal Server Error indicates that the request failed. The response body contains the error message.
