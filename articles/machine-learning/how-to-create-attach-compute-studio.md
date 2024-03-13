@@ -12,6 +12,7 @@ ms.date: 03/04/2024
 ms.topic: how-to
 ms.custom: build-2023
 ---
+
 # Manage compute resources for model training and deployment in studio
 
 In this article, learn how to manage the compute resources you use for model training and deployment in Azure Machine studio.  
