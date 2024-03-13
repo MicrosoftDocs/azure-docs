@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Azure Operator Call Protection documentation
-summary: Learn about Azure Operator Call Protection for telecommunications operators.
+title: Azure Operator Call Protection Preview documentation
+summary: Learn about Azure Operator Call Protection Preview for telecommunications operators. It uses real-time AI to help protect subscribers from voice call scams.
 
 metadata:
-  title: Azure Operator Call Protection documentation
-  description: Learn about Azure Operator Call Protection for telecommunications operators.
+  title: Azure Operator Call Protection Preview documentation
+  description: Learn about Azure Operator Call Protection Preview for telecommunications operators.
   ms.service: azure
   ms.topic: landing-page
   author:  rcdun
