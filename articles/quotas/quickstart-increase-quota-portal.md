@@ -13,7 +13,7 @@ For more information about quotas, see [Quotas overview](quotas-overview.md).
 
 ## Prerequisites
 
-An Azure account with the Contributor role (or another role that includes contributor access).
+An Azure account with the Contributor role (or another role that includes Contributor access).
 
 If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -36,7 +36,7 @@ You can submit a request for a quota increase directly from **My quotas**. Follo
 
    :::image type="content" source="media/quickstart-increase-quota-portal/enter-new-quota-limit.png" alt-text="Screenshot of the Enter a new limit option in My quotas in the Azure portal.":::
 
-1. In the **Request quota increase** pane, enter a numerical value for your new quota limit, then select **Submit**.
+1. In the **New Quota Request** pane, enter a numerical value for your new quota limit, then select **Submit**.
 
 Your request will be reviewed, and you'll be notified if the request can be fulfilled. This usually happens within a few minutes.
 
