@@ -122,10 +122,10 @@ Requirements:
 
 3) Add zones property to existing node types
 
-  This step will mark the managed Virtual Machine Scale Set associated with the node type as zone resilient and any new Vms added to it will be zonal. If it is a primary node type, the resource provider will perform the migration of the Public IP along with a cluster FQDN DNS update, if needed, to become zone resilient. Use the getazresiliencystatus API above to understand implication of this step.
+  This step configures the managed Virtual Machine Scale Set associated with the node type as zone-resilient, ensuring that any new VMs added to it will be deployed across availability zones (Zonal VMs). If the specified node type is primary, the resource provider will perform the migration of the Public IP along with a cluster FQDN DNS update, if needed, to become zone resilient. Use the `getazresiliencystatus` API above to understand implication of this step.
 
 * Use apiVersion 2022-02-01-preview or higher.
-* Add zones parameter set to ["1", "2", "3"] to existing node types as show below:
+* Add the `zones` parameter set to `["1", "2", "3"]` to existing node types as show below:
 
    ```json
    {
@@ -162,12 +162,13 @@ Requirements:
 
 5) Scale Node types to add **Zonal** nodes and remove **Regional** nodes
 
-   At this point the VMSS is marked as zone resilient so on scaling up, the new node added will be Zonal and on scaling down, Regional nodes will be removed. So you can scale up and down in any order that fits your needs based on the your capacity restrictions by updating **vmInstanceCount** property on the node types. 
-   For example if you have initialy vmInstanceCount set to 6 (6 regional nodes), you can do 2 deployments:
-    - First deployment: Add the 6 **Zonal** nodes by setting vmInstanceCount to 12
-    - Second deployment: Remove all **Reginal** nodes by setting vmInstanceCount to 6
+   At this stage, the VMSS is marked as zone-resilient. Consequently, when scaling up, newly added nodes will be zonal, and when scaling down, regional nodes will be removed. This provides the flexibility to scale in any order that aligns with your capacity requirements by adjusting the `vmInstanceCount` property on the node types.
+   
+   For example, if the initial vmInstanceCount is set to 6 (indicating 6 regional nodes), you can perform 2 deployments:
+    - First deployment: Increase the vmInstanceCount to 12 to add 6 **Zonal** nodes.
+    - Second deployment: Decrease the vmInstanceCount to 6 to remove all **Regional** nodes.
 
-  At any point of the process you can check the getazresiliencystatus api that will retrun the progress status as shown below. The process is considered complete when there are a minimum of 6 zonal nodes and 0 regional nodes in each node type.
+Throughout the process, you can check the `getazresiliencystatus` API to retrieve the progress status, as illustrated below. The process is considered complete once each node type has a minimum of 6 zonal nodes and 0 regional nodes.
 
    ```json
    {
