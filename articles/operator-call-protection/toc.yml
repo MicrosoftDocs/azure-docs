@@ -20,3 +20,7 @@ items:
     href: ../communications-gateway/deploy.md?toc=/azure/operator-call-protection/toc.json&bc=/azure/operator-call-protection/breadcrumb/toc.json
   - name: Set up Azure Operator Call Protection
     href: set-up-operator-call-protection.md
+- name: Responsible AI
+  items:
+  - name: Responsible AI FAQ
+    href: responsible-ai-faq.md
