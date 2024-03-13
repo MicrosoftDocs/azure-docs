@@ -99,7 +99,7 @@ Below are the key benefits of using this service for your PostgreSQL migrations:
 
 Get started with the migration service by using any of the following methods:
 
-- [Migration from Azure Database for PostgreSQL - Single Server](tutorial-migration-service-single-to-flexible)
+- [Migration from Azure Database for PostgreSQL - Single Server](tutorial-migration-service-single-to-flexible.md)
 - [Migration from on-premises or IaaS](tutorial-migration-service-iaas.md)
 - [Migration from AWS RDS for PostgreSQL](tutorial-migration-service-aws.md)
 
@@ -110,7 +110,7 @@ The migration service is a hosted solution where we use binary called [pgcopydb]
 ## Related content
 
 - [Premigration validations](concepts-premigration-migration-service.md)
-- [Migration from Azure Database for PostgreSQL - Single Server](tutorial-migration-service-single-to-flexible)
+- [Migration from Azure Database for PostgreSQL - Single Server](tutorial-migration-service-single-to-flexible.md)
 - [Migrate from on-premises and Azure VMs](tutorial-migration-service-iaas.md)
 - [Migrate from AWS RDS for PostgreSQL](tutorial-migration-service-aws.md)
 - [Network setup](how-to-network-setup-migration-service.md)
