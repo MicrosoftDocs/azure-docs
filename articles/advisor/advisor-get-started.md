@@ -20,17 +20,18 @@ Learn how to access Advisor through the Azure portal, get and manage recommendat
 
 To access Azure Advisor, sign in to the [Azure portal](https://portal.azure.com). From there, select the [Advisor](https://aka.ms/azureadvisordashboard) icon at the top of the page, use the search bar at the top to search for Advisor, or use the left navigation pane **Advisor** link.<br> The Advisor **Overview** page opens by default.
 
-## Advisor recommendations overview
+## View the Advisor dashboard
 
 See personalized and actionable recommendations on the Advisor **Overview** page.
 
 :::image type="content" source="./media/advisor-get-started/advisor-overview-page-m1.png" alt-text="Screenshot of the Azure Advisor opening **Overview** page." lightbox="./media/advisor-get-started/advisor-overview-page-m1.png":::
 
-* The filters at the top focus the recommendations.
-* The tiles represent the different recommendation categories.
+* The links at the top offer options for **Feedback**, downloading recommendations as comma-separated or PDFs, and a quick-link to Advisor **Workbooks**.
+* The blue filter buttons below them focus the recommendations.
+* The tiles represent the different recommendation categories and include your current score in that category.
 * The **Get started** link takes you to options for direct access to Advisor workbooks, recommendations, and the Well Architected Framework main page.
 
-### Get recommendations
+### Filter and access recommendations
 
 The tiles on the Advisor **Overview** page show the different categories of recommendations for all the subscriptions that you have access to, by default.
 
@@ -48,9 +49,9 @@ To display a specific list of recommendations, select a category tile.
 
 Each tile provides information about the recommendations for that category:
 
-* Your overall score for the category
-* The total number of recommendations for the category, and the specific number per impact
-* The number of impacted resources by the recommendations
+* Your overall score for the category.
+* The total number of recommendations for the category, and the specific number per impact.
+* The number of impacted resources by the recommendations.
 
 For detailed graphics and information on your Advisor score, see [Optimize Azure workloads by using Advisor score](/azure/advisor/azure-advisor-score).
 
