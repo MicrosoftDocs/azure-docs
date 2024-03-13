@@ -113,27 +113,27 @@ POST {{baseUrl}}/datasources?api-version=2023-11-01  HTTP/1.1
     }
 ```
 
-1. Send the request. The response should look like:
+Send the request. The response should look like:
 
-    ```json
-    {
-        "@odata.context": "https://exampleurl.search.windows.net/$metadata#datasources/$entity",
-        "@odata.etag": "\"0x8D505FBC3856C9E\"",
-        "name": "clinical-trials-json-ds",
-        "description": null,
-        "type": "azureblob",
-        "subtype": null,
-        "credentials": {
-            "connectionString": "DefaultEndpointsProtocol=https;AccountName=[mystorageaccounthere];AccountKey=[[myaccountkeyhere]]];"
-        },
-        "container": {
-            "name": "[mycontainernamehere]",
-            "query": null
-        },
-        "dataChangeDetectionPolicy": null,
-        "dataDeletionDetectionPolicy": null
-    }
-    ```
+```json
+{
+    "@odata.context": "https://exampleurl.search.windows.net/$metadata#datasources/$entity",
+    "@odata.etag": "\"0x8D505FBC3856C9E\"",
+    "name": "clinical-trials-json-ds",
+    "description": null,
+    "type": "azureblob",
+    "subtype": null,
+    "credentials": {
+        "connectionString": "DefaultEndpointsProtocol=https;AccountName=[mystorageaccounthere];AccountKey=[[myaccountkeyhere]]];"
+    },
+    "container": {
+        "name": "[mycontainernamehere]",
+        "query": null
+    },
+    "dataChangeDetectionPolicy": null,
+    "dataDeletionDetectionPolicy": null
+}
+```
 
 ## Create an index
 
@@ -171,45 +171,46 @@ POST {{baseUrl}}/indexes?api-version=2023-11-01  HTTP/1.1
     }
 ```
 
-1. Send the request. The response should look like:
+Send the request. The response should look like:
 
-    ```json
-    {
-        "@odata.context": "https://exampleurl.search.windows.net/$metadata#indexes/$entity",
-        "@odata.etag": "\"0x8D505FC00EDD5FA\"",
-        "name": "clinical-trials-json-index",
-        "fields": [
-            {
-                "name": "FileName",
-                "type": "Edm.String",
-                "searchable": false,
-                "filterable": false,
-                "retrievable": true,
-                "sortable": true,
-                "facetable": false,
-                "key": false,
-                "indexAnalyzer": null,
-                "searchAnalyzer": null,
-                "analyzer": null,
-                "synonymMaps": []
-            },
-            {
-                "name": "Description",
-                "type": "Edm.String",
-                "searchable": true,
-                "filterable": false,
-                "retrievable": false,
-                "sortable": false,
-                "facetable": false,
-                "key": false,
-                "indexAnalyzer": null,
-                "searchAnalyzer": null,
-                "analyzer": null,
-                "synonymMaps": []
-            },
-            ...
-          }
-    ```
+```json
+{
+    "@odata.context": "https://exampleurl.search.windows.net/$metadata#indexes/$entity",
+    "@odata.etag": "\"0x8D505FC00EDD5FA\"",
+    "name": "clinical-trials-json-index",
+    "fields": [
+        {
+            "name": "FileName",
+            "type": "Edm.String",
+            "searchable": false,
+            "filterable": false,
+            "retrievable": true,
+            "sortable": true,
+            "facetable": false,
+            "key": false,
+            "indexAnalyzer": null,
+            "searchAnalyzer": null,
+            "analyzer": null,
+            "synonymMaps": []
+        },
+        {
+            "name": "Description",
+            "type": "Edm.String",
+            "searchable": true,
+            "filterable": false,
+            "retrievable": false,
+            "sortable": false,
+            "facetable": false,
+            "key": false,
+            "indexAnalyzer": null,
+            "searchAnalyzer": null,
+            "analyzer": null,
+            "synonymMaps": []
+        },
+        ...
+    ]
+}
+```
 
 ## Create and run an indexer
 
@@ -229,31 +230,31 @@ POST {{baseUrl}}/indexers?api-version=2023-11-01  HTTP/1.1
     }
 ```
 
-1. Send the request. The request is processed immediately. The response should look like:
+Send the request. The request is processed immediately. The response should look like:
 
-    ```json
-    {
-        "@odata.context": "https://exampleurl.search.windows.net/$metadata#indexers/$entity",
-        "@odata.etag": "\"0x8D505FDE143D164\"",
-        "name": "clinical-trials-json-indexer",
-        "description": null,
-        "dataSourceName": "clinical-trials-json-ds",
-        "targetIndexName": "clinical-trials-json-index",
-        "schedule": null,
-        "parameters": {
-            "batchSize": null,
-            "maxFailedItems": null,
-            "maxFailedItemsPerBatch": null,
-            "base64EncodeKeys": null,
-            "configuration": {
-                "parsingMode": "jsonArray"
-            }
-        },
-        "fieldMappings": [],
-        "enrichers": [],
-        "disabled": null
-    }
-    ```
+```json
+{
+    "@odata.context": "https://exampleurl.search.windows.net/$metadata#indexers/$entity",
+    "@odata.etag": "\"0x8D505FDE143D164\"",
+    "name": "clinical-trials-json-indexer",
+    "description": null,
+    "dataSourceName": "clinical-trials-json-ds",
+    "targetIndexName": "clinical-trials-json-index",
+    "schedule": null,
+    "parameters": {
+        "batchSize": null,
+        "maxFailedItems": null,
+        "maxFailedItemsPerBatch": null,
+        "base64EncodeKeys": null,
+        "configuration": {
+            "parsingMode": "jsonArray"
+        }
+    },
+    "fieldMappings": [],
+    "enrichers": [],
+    "disabled": null
+}
+```
 
 ## Run queries
 
@@ -271,43 +272,45 @@ POST {{baseUrl}}/indexes/cog-search-demo-idx/docs/search?api-version=2023-11-01 
   }
 ```
 
-1. Send the request. This is an unspecified full text search query that returns all of the fields marked as retrievable in the index, along with a document count. The response should look like:
+Send the request. This is an unspecified full text search query that returns all of the fields marked as retrievable in the index, along with a document count. The response should look like:
 
-    ```json
-    {
-        "@odata.context": "https://exampleurl.search.windows.net/indexes('clinical-trials-json-index')/$metadata#docs(*)",
-        "@odata.count": 100,
-        "value": [
-            {
-                "@search.score": 1.0,
-                "FileName": "NCT00000102.txt",
-                "MinimumAge": 14,
-                "Title": "Congenital Adrenal Hyperplasia: Calcium Channels as Therapeutic Targets",
-                "MyURL": "https://azure.storagedemos.com/clinical-trials/NCT00000102.txt",
-                "Gender": "Both",
-                "MaximumAge": 35,
-                "Summary": "This study will test the ability of extended release nifedipine (Procardia XL), a blood pressure medication, to permit a decrease in the dose of glucocorticoid medication children take to treat congenital adrenal hyperplasia (CAH).",
-                "NCTID": "NCT00000102",
-                "Phase": "Phase 1/Phase 2",
-                "Date": "ClinicalTrials.gov processed this data on October 25, 2016",
-                "OverallStatus": "Completed",
-                "OrgStudyId": "NCRR-M01RR01070-0506",
-                "HealthyVolunteers": "No",
-                "Keywords": [],
-                "metadata_storage_last_modified": "2019-04-09T18:16:24Z",
-                "metadata_storage_size": "33060",
-                "metadata_content_type": null
-            },
-            . . . 
-    ```
+```json
+{
+    "@odata.context": "https://exampleurl.search.windows.net/indexes('clinical-trials-json-index')/$metadata#docs(*)",
+    "@odata.count": 100,
+    "value": [
+        {
+            "@search.score": 1.0,
+            "FileName": "NCT00000102.txt",
+            "MinimumAge": 14,
+            "Title": "Congenital Adrenal Hyperplasia: Calcium Channels as Therapeutic Targets",
+            "MyURL": "https://azure.storagedemos.com/clinical-trials/NCT00000102.txt",
+            "Gender": "Both",
+            "MaximumAge": 35,
+            "Summary": "This study will test the ability of extended release nifedipine (Procardia XL), a blood pressure medication, to permit a decrease in the dose of glucocorticoid medication children take to treat congenital adrenal hyperplasia (CAH).",
+            "NCTID": "NCT00000102",
+            "Phase": "Phase 1/Phase 2",
+            "Date": "ClinicalTrials.gov processed this data on October 25, 2016",
+            "OverallStatus": "Completed",
+            "OrgStudyId": "NCRR-M01RR01070-0506",
+            "HealthyVolunteers": "No",
+            "Keywords": [],
+            "metadata_storage_last_modified": "2019-04-09T18:16:24Z",
+            "metadata_storage_size": "33060",
+            "metadata_content_type": null
+        },
+    ]
+        . . .
+}
+```
 
-1. Add the `$select` query parameter to limit the results to fewer fields: `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&$select=Gender,metadata_storage_size&api-version=2023-11-01&$count=true`.  For this query, 100 documents match, but by default, Azure AI Search only returns 50 in the results.
+Add the `$select` query parameter to limit the results to fewer fields: `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&$select=Gender,metadata_storage_size&api-version=2023-11-01&$count=true`.  For this query, 100 documents match, but by default, Azure AI Search only returns 50 in the results.
 
-   :::image type="content" source="media/search-semi-structured-data/lastquery.png" alt-text="Screenshot of a parameterized query." border="false":::
+:::image type="content" source="media/search-semi-structured-data/lastquery.png" alt-text="Screenshot of a parameterized query." border="false":::
 
-1. An example of more complex query would include `$filter=MinimumAge ge 30 and MaximumAge lt 75`, which returns only results where the parameters MinimumAge is greater than or equal to 30 and MaximumAge is less than 75. Replace the `$select` expression with the `$filter` expression.
+An example of more complex query would include `$filter=MinimumAge ge 30 and MaximumAge lt 75`, which returns only results where the parameters MinimumAge is greater than or equal to 30 and MaximumAge is less than 75. Replace the `$select` expression with the `$filter` expression.
 
-   :::image type="content" source="media/search-semi-structured-data/metadatashort.png" alt-text="Screenshot of a semi-structured search." border="false":::
+:::image type="content" source="media/search-semi-structured-data/metadatashort.png" alt-text="Screenshot of a semi-structured search." border="false":::
 
 You can also use Logical operators (and, or, not) and comparison operators (eq, ne, gt, lt, ge, le). String comparisons are case-sensitive. For more information and examples, see [Create a query](search-query-simple-examples.md).
 
@@ -330,13 +333,7 @@ https://[service name].search.windows.net/indexers('{indexerName}')/search.run?a
 
 When you're working in your own subscription, at the end of a project, it's a good idea to remove the resources that you no longer need. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
 
-You can use the portal to delete indexes, indexers, and data sources. Or use **DELETE** and provide URLs to each object. The following command deletes an indexer.
-
-```http
-DELETE https://[YOUR-SERVICE-NAME].search.windows.net/indexers/clinical-trials-indexer?api-version=2023-11-01
-```
-
-Status code 204 is returned on successful deletion.
+You can use the portal to delete indexes, indexers, and data sources.
 
 ## Next steps
 

@@ -21,10 +21,10 @@ Skillsets add AI processing to raw content, making that content more uniform and
 This tutorial helps you learn how to:
 
 > [!div class="checklist"]
-> + Define objects in an enrichment pipeline
-> + Build a skillset that invokes OCR, language detection, entity recognition, and key phrase extraction
-> + Execute the pipeline to invoke transformations, and to create and load a search index
-> + Check the results using full text search
+> + Define objects in an enrichment pipeline.
+> + Build a skillset. Invoke OCR, language detection, entity recognition, and key phrase extraction.
+> + Execute the pipeline. Create and load a search index.
+> + Check the results using full text search.
 
 If you don't have an Azure subscription, open a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -66,20 +66,14 @@ Once content is extracted, the [skillset](cognitive-search-working-with-skillset
    1. Copy the connection string for either key one or key two. The connection string is similar to the following example:
 
       ```http
-      DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=<your account key>;EndpointSuffix=core.windows.net
+      DefaultEndpointsProtocol=https;AccountName=<your account name>;AccountKey=<your account key>;EndpointSuffix=core.windows.net
       ```
 
 ### Azure AI services
 
-AI enrichment is backed by Azure AI services, including Language service and Azure AI Vision for natural language and image processing. For small workloads like this tutorial, you can use the free allocation of twenty transactions per indexer. For larger workloads, [attach an Azure AI Services multi-region resource to a skillset](cognitive-search-attach-cognitive-services.md) for pay-as-you-go pricing.
+Built-in AI enrichment is backed by Azure AI services, including Language service and Azure AI Vision for natural language and image processing. For small workloads like this tutorial, you can use the free allocation of twenty transactions per indexer. For larger workloads, [attach an Azure AI Services multi-region resource to a skillset](cognitive-search-attach-cognitive-services.md) for pay-as-you-go pricing.
 
-### Azure AI Search
-
-The third component is Azure AI Search, which you can [create in the portal](search-create-service-portal.md) or [find an existing search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in your subscription.
-
-You can use the Free tier to complete this walkthrough.
-
-### Copy a key and URL
+### Copy a search service URL and API key
 
 For this tutorial, connections to Azure AI Search require an endpoint and an API key. You can get these values from the Azure portal.
 
@@ -88,8 +82,6 @@ For this tutorial, connections to Azure AI Search require an endpoint and an API
 1. Under **Settings** > **Keys**, copy an admin key. Admin keys are used to add, modify, and delete objects. There are two interchangeable admin keys. Copy either one.
 
    :::image type="content" source="media/search-get-started-rest/get-url-key.png" alt-text="Screenshot of the URL and API keys in the Azure portal.":::
-
-A valid API key establishes trust, on a per request basis, between the application sending the request and the search service handling it.
 
 ## Set up your REST file
 
