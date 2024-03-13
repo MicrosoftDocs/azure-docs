@@ -13,7 +13,7 @@ ms.custom:
 
 # Tutorial: Assess SAP systems for migration to Azure
 
-As part of your migration journey to Azure, assess your on-premises inventory and workloads.
+As part of your migration journey to Azure, assess your on-premises SAP inventory and workloads.
 
 This tutorial explains how you can perform import-based assessments for your on-premises SAP systems using Azure Migrate to generate an assessment report, featuring cost, and sizing recommendations based on cost and performance. 
 
@@ -76,12 +76,14 @@ Create an assessment for the discovered SAP systems as follows:
 
 ## Review an assessment
 
-**To view an assessment**, do the following steps:
+To view an assessment, use these steps:
 
 1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment** > **Assess**, select **SAP® Systems (Preview)**.
 1. Select the assessment name that you wish to view.
-1. On the **Overview** screen, you can view the details of **Essentials**, **Assessed entities** and cost estimates.
-1. Select **SAP on Azure** from the left pane to view the drill-down assessment details at the SID level.
+1. On the **Overview** screen, you can view the details of **Essentials**, **Assessed entities** and **SAP® on Azure** cost estimates.
+1. Select **SAP on Azure** from the left pane to view the drill-down assessment details at the System ID (SID) level.
 1. Select any SID to further drill-down to the cost view of the SID, including its ASCS, App, and DB server assessments. Additionally, you can view the storage details for the DB server assessments.
-1. Review the assessment summary.
+1. Review the assessment summary. You can also edit the assessment properties or recalculate the assessment.
+> [!NOTE]
+> When adjusting the assessment settings, a new assessment is triggered, which takes a few minutes to complete and update the results on the screen.
 
