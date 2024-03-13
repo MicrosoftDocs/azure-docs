@@ -41,7 +41,7 @@ If it's Disabled, update it to Enabled and notify your Microsoft onboarding team
 
 ## Provision subscribers
 
-[!INCLUDE [operator-call-protection-sub-ucaas-restriction](includes/operator-call-protection-sub-ucaas-restriction.md)]
+[!INCLUDE [operator-call-protection-subscriber-restriction](includes/operator-call-protection-subscriber-restriction.md)]
 
 [!INCLUDE [communications-gateway-provisioning-permissions](../communications-gateway/includes/communications-gateway-provisioning-permissions.md)]
 

@@ -20,7 +20,7 @@ Azure Operator Call Protection is built on Azure Communications Gateway.
 
 ## Planning your deployment
 
-[!INCLUDE [operator-call-protection-tsp-restriction](includes/operator-call-protection-tsp-restriction.md)]
+[!INCLUDE [operator-call-protection-provider-restriction](includes/operator-call-protection-provider-restriction.md)]
 
 Your network must connect to Azure Communications Gateway and thus Azure Operator Call Protection over SIPREC.
 
