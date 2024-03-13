@@ -20,12 +20,13 @@ The following table summarizes the support matrix for VM restore points.
 --- | ---
 **VMs using Managed disks** | Yes
 **VMs using unmanaged disks** | No
-**VMs using Ultra Disks** | No. Exclude these disks and create a VM restore point.
+**VMs using Ultra Disks** | Yes. Supported for application consistency. Not supported for crash consistency. Exclude these disks and create a VM restore point when using crash consistency.
+**VMs using Premium SSD v2 Disks** | Yes. Supported for application consistency. Not supported for crash consistency. Exclude these disks and create a VM restore point when using crash consistency.
 **VMs using Ephemeral OS Disks** | No. Exclude these disks and create a VM restore point.
 **VMs using shared disks** | No. Exclude these disks and create a VM restore point.
 **VMs with extensions** | Yes
 **VMs with trusted launch** | Yes
-**Confidential VMs** | Yes
+**Confidential VMs** | No
 **Generation 2 VMs (UEFI boot)** | Yes
 **VMs with NVMe disks (Storage optimized - Lsv2-series)** | Yes
 **VMs in Proximity placement groups** | Yes
