@@ -271,7 +271,7 @@ An attribute processor is applied only to telemetry that matches its `include` c
 _and_ don't match its `exclude` criteria (if it's available).
 
 To configure this option, under `include` or `exclude` (or both), specify at least one `matchType` and either `spanNames` or `attributes`.
-The include-exclude configuration allows more than one specified condition.
+The `include` or `exclude` configuration allows more than one specified condition.
 All specified conditions must evaluate to true to result in a match. 
 
 * **Required fields**:
@@ -334,7 +334,7 @@ The span processor modifies either the span name or attributes of a span based o
 
 The `name` section requires the `fromAttributes` setting. The values from these attributes are used to create a new name, concatenated in the order that the configuration specifies. The processor changes the span name only if all of these attributes are present on the span.
 
-The `separator` setting is optional. This setting is a string. You specify the setting to split values.
+The `separator` setting is optional. This setting is a string, and you can use split values.
 > [!NOTE]
 > If renaming relies on the attributes processor to modify attributes, ensure the span processor is specified after the attributes processor in the pipeline specification.
 
@@ -423,7 +423,7 @@ A span processor is applied only to telemetry that matches its `include` criteri
 _and_ don't match its `exclude` criteria (if it's available).
 
 To configure this option, under `include` or `exclude` (or both), specify at least one `matchType` and either `spanNames` or  span `attributes`.
-The include-exclude configuration allows more than one specified condition.
+The `include` or `exclude` configuration allows more than one specified condition.
 All specified conditions must evaluate to true to result in a match. 
 
 * **Required fields**:
@@ -546,7 +546,7 @@ A log processor is applied only to telemetry that matches its `include` criteria
 _and_ don't match its `exclude` criteria (if it's available).
 
 To configure this option, under `include` or `exclude` (or both), specify the `matchType` and `attributes`.
-The include-exclude configuration allows more than one specified condition.
+The `include` or `exclude` configuration allows more than one specified condition.
 All specified conditions must evaluate to true to result in a match. 
 
 * **Required field**: 
