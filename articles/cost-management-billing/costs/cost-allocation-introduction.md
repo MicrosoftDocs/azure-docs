@@ -13,18 +13,18 @@ ms.reviewer: sadoulta
 
 # Introduction to cost allocation
 
-Cost allocation, as defined by the [FinOps foundation](https://www.finops.org/), is the set of practices to divide up a consolidated invoice. Or, to bill the people responsible for its various component parts. It's the process of assigning costs to different groups within an organization based on their consumption of resources and application of benefits. By providing visibility into costs to groups who are responsible for it, cost allocation helps organizations track and optimize their spending, improve budgeting and forecasting, and increase accountability and transparency.
+Cost allocation, as defined by the [FinOps Foundation](../manage/finops/capabilities-allocation.md), is the set of practices to divide up a consolidated invoice. Or, to bill the people responsible for its various component parts. It's the process of assigning costs to different groups within an organization based on their consumption of resources and application of benefits. By providing visibility into costs to groups who are responsible for it, cost allocation helps organizations track and optimize their spending, improve budgeting and forecasting, and increase accountability and transparency.
 
 This article introduces you to different Azure tools and features to enable you to allocate costs effectively and efficiently.
 
 - Azure resource hierarchy, including management groups, subscriptions, and resource groups
-- Azure Billing hierarchy
+- Azure billing hierarchy
 - Tags
 - Cost allocation rules
 
-Together, they can help to cover a considerable proportion of the expenses for the most complicated Azure infrastructure. They help organizations reach an elevated level of maturity as defined by the FinOps foundation at [Cost Allocation (Metadata & Hierarchy)](https://www.finops.org/framework/capabilities/cost-allocation/).
+Together, they can help to cover a considerable proportion of the expenses for the most complicated Azure infrastructure. They help organizations reach an elevated level of maturity as defined by the FinOps Foundation at [Cost Allocation (Metadata & Hierarchy)](https://www.finops.org/framework/capabilities/cost-allocation/).
 
-## Azure Resource Hierarchy
+## Azure Resource hierarchy
 
 Here's a diagram of the Azure resource hierarchy with management groups.
 
@@ -35,7 +35,7 @@ Here's a diagram of the Azure resource hierarchy with management groups.
 Management groups are logical containers that hold subscriptions and other management groups, forming a hierarchy that can be used to apply policies and access controls across multiple subscriptions. Management groups can also facilitate cost allocation by allowing organizations to group their subscriptions according to business units, departments, environments, or any other criteria that reflect their cost structure and reporting needs. For example, an organization can create a management group for each of its business divisions, and then assign budgets, tags, and cost alerts to each management group. This way, the organization can track and control the spending of each division and generate reports that show the breakdown of costs by management group.
 
 For more information on management groups, see the following articles:
-- [Azure Management Groups](https://azure.microsoft.com/get-started/azure-portal/management-groups)
+- [Azure management groups](https://azure.microsoft.com/get-started/azure-portal/management-groups)
 - [Organize your resources with management groups](../../governance/management-groups/overview.md)
 - [Organize subscriptions into management groups and assign roles to users](/azure/defender-for-cloud/management-groups-roles)
 
@@ -48,7 +48,7 @@ You can view and manage your subscriptions in the Azure portal, PowerShell, CLI,
 - [Best Practices - Subscriptions](/azure/cloud-adoption-framework/ready/azure-best-practices/initial-subscriptions) 
 - [Organize Subscriptions](/azure/cloud-adoption-framework/ready/azure-best-practices/organize-subscriptions)
 
-### Resource Groups
+### Resource groups
 
 A resource group is a logical container that holds related resources for an Azure solution. You can use resource groups to organize your resources by category, project, environment, or any other criteria that make sense for your organization. For example, you can create a resource group for each department, application, or stage of the development lifecycle.
 
@@ -56,11 +56,11 @@ Resource groups aren't only useful for managing your resources, but also for all
 
 Like subscriptions, you can view and manage your resource groups in the Azure portal, PowerShell, CLI, or REST API. You can also use tools like Cost Management and Advisor to monitor and optimize your resource group spending.
 
-- [Manage Resource Groups](../../azure-resource-manager/management/manage-resource-groups-portal.md)
+- [Manage resource groups](../../azure-resource-manager/management/manage-resource-groups-portal.md)
 
 ## Azure billing hierarchies
 
-The Azure billing hierarchy differs between Enterprise Agreements (EA) Microsoft Customer Agreements (MCA). 
+The Azure billing hierarchy differs between Enterprise Agreements (EA) and Microsoft Customer Agreements (MCA). 
 
 An EA consists of three levels for billing:
 
@@ -80,7 +80,7 @@ An MCA consists of three levels for billing:
 
 The billing hierarchy enables organizations to ensure that the right organizational units are paying for the services.
 
-Knowing how Azure Billing and Resource hierarchies differ is essential for effective cost and resource management in the cloud. Azure Billing hierarchy reflects the organizational structure of the account owner, while Azure Resource hierarchy reflects the logical grouping of the resources used in Azure. The account owner can improve their cloud governance and cost management strategies by knowing the difference between Billing and Resource hierarchies. They can match the billing hierarchy with their organizational goals and preferences, and the resource hierarchy with their technical and operational needs.
+Knowing how Azure billing and resource hierarchies differ is essential for effective cost and resource management in the cloud. Azure billing hierarchy reflects the organizational structure of the account owner, while Azure resource hierarchy reflects the logical grouping of the resources used in Azure. The account owner can improve their cloud governance and cost management strategies by knowing the difference between billing and resource hierarchies. They can match the billing hierarchy with their organizational goals and preferences, and the resource hierarchy with their technical and operational needs.
 
 For more information, watch the [Cost Management setup, organization, and tagging](https://www.youtube.com/watch?time_continue=319&v=n3TLRaYJ1NY&embeds_referring_euri=https%3A%2F%2Flearn.microsoft.com%2F) video.
 
@@ -98,7 +98,7 @@ For more information about tag inheritance and billing tags, see [Apply billing 
 
 With cost allocation rules, you can split the costs of shared services by moving costs between subscriptions, resource groups, and tags. Splitting costs is especially useful in scenarios where you have central subscriptions hosting shared infrastructure services used by different teams within your organization. Creating the right cost allocation rules ensures that the teams consuming the shared services get visibility into their portion of the costs. And, they can also be accountable for those costs.
 
-For more information about how to manage and allocate shared costs, see [Allocate Azure costs](allocate-costs.md).
+For more information about how to manage and allocate shared costs, see [Allocate costs](allocate-costs.md).
 
 ## Next steps
 
