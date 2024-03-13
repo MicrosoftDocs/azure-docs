@@ -66,6 +66,6 @@
     - name: Known issues
       href: known-issues.md
 - name: GitHub projects
-      href: github-projects.md
+  href: github-projects.md
 - name: FAQ
   href: healthcare-apis-faqs.md
