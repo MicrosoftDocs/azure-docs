@@ -49,6 +49,10 @@ This article provides onboarding guidance for the following types of clusters. A
   - If you previously installed monitoring for AKS, ensure that you have [disabled monitoring](kubernetes-monitoring-disable.md) before proceeding to avoid issues during the extension install.
   - If you previously installed monitoring on a cluster using a script without cluster extensions, follow the instructions at [Disable monitoring of your Kubernetes cluster](kubernetes-monitoring-disable.md) to delete this Helm chart.
 
+> [!NOTE]
+  > The Managed Prometheus Arc-Enabled Kubernetes extension does not support the following configurations:
+  > * Red Hat Openshift distributions
+  > * Windows nodes
 
 
 ## Workspaces
