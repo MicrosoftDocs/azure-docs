@@ -805,7 +805,18 @@ Here's the last query in the collection: a hybrid query, with semantic ranking, 
 
 ## Clean up
 
-Azure AI Search is a billable resource. If it's no longer needed, delete it from your subscription to avoid charges.
+When you're working in your own subscription, it's a good idea at the end of a project to identify whether you still need the resources you created. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
+
+You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
+
+You can also try this DELETE command:
+
+```http
+### Delete an index
+DELETE  {{baseUrl}}/indexes/hotels-vector-quickstart?api-version=2023-11-01 HTTP/1.1
+    Content-Type: application/json
+    api-key: {{apiKey}}
+```
 
 ## Next steps
 
