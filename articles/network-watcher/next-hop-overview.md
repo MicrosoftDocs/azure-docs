@@ -18,7 +18,7 @@ Next hop is a feature of Azure Network Watcher that gives you the *Next hop type
 If the route is defined using a user-defined route, next hop returns the route table that has the route. Otherwise, it returns *System Route* as the route table.
 
 
-:::image type="content" source="./media/network-watcher-next-hop-overview/next-hop-view.png" alt-text="Screenshot of Azure Network Watcher next hop view in Azure portal.":::
+:::image type="content" source="./media/next-hop-overview/next-hop-view.png" alt-text="Screenshot of Azure Network Watcher next hop view in Azure portal.":::
 
 ## Next hop types
 
