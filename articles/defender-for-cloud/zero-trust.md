@@ -52,7 +52,7 @@ With Defender for Cloud enabled on your subscription, and Microsoft Defender for
 
 Use [Azure Logic Apps](../logic-apps/index.yml) to build automated scalable workflows, business processes, and enterprise orchestrations to integrate your apps and data across cloud services and on-premises systems.
 
-Defender for Cloud's [workflow automation](workflow-automation.md) feature lets you automate responses to Defender for Cloud triggers.
+Defender for Cloud's [workflow automation](workflow-automation.yml) feature lets you automate responses to Defender for Cloud triggers.
 
 This is great way to define and respond in an automated, consistent manner when threats are discovered. For example, to notify relevant stakeholders, launch a change management process, and apply specific remediation steps when a threat is detected.
 

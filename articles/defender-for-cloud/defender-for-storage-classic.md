@@ -47,7 +47,7 @@ Defender for Storage (classic) provides:
 
 - **Rich detection suite** - Powered by Microsoft Threat Intelligence, the detections in Defender for Storage (classic) cover the top storage threats such as unauthenticated access, compromised credentials, social engineering attacks, data exfiltration, privilege abuse, and malicious content.
 
-- **Response at scale** - Defender for Cloud's automation tools make it easier to prevent and respond to identified threats. Learn more in [Automate responses to Defender for Cloud triggers](workflow-automation.md).
+- **Response at scale** - Defender for Cloud's automation tools make it easier to prevent and respond to identified threats. Learn more in [Automate responses to Defender for Cloud triggers](workflow-automation.yml).
 
 :::image type="content" source="media/defender-for-storage-introduction/defender-for-storage-high-level-overview.png" alt-text="Diagram that shows a high-level overview of the features of Microsoft Defender for Storage (classic).":::
 

@@ -140,5 +140,5 @@ Results for both the agent-based and agentless scanner appear on the Security al
 In this document, you learned how to view security alerts. See the following pages for related material:
 
 - [Configure alert suppression rules](alerts-suppression-rules.md)
-- [Automate responses to Defender for Cloud triggers](workflow-automation.md)
+- [Automate responses to Defender for Cloud triggers](workflow-automation.yml)
 - [Security alerts - a reference guide](alerts-reference.md)

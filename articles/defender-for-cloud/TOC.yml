@@ -342,7 +342,7 @@
           href: governance-rules.md
         - name: Automate remediation responses
           displayName: workflow, triggers, logic app, automation, policies, breaking change
-          href: workflow-automation.md
+          href: workflow-automation.yml
         - name: View recommendations and alerts in Windows Admin Center
           displayName: windows, admin, center
           href: windows-admin-center-integration.md
@@ -431,7 +431,7 @@
           href: alert-validation.md
         - name: Automate responses to alerts
           displayName: workflow
-          href: workflow-automation.md
+          href: workflow-automation.yml
 
 - name: Protect your workloads
   items:
