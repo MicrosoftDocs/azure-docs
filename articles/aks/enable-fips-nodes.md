@@ -16,6 +16,9 @@ The Federal Information Processing Standard (FIPS) 140-2 is a US government stan
 
 * Azure CLI version 2.32.0 or later installed and configured. Run `az --version` to find the version. For more information about installing or upgrading the Azure CLI, see [Install Azure CLI][install-azure-cli].
 
+> [!NOTE]
+>   AKS Monitoring Addon supports FIPS enabled node pools with Ubuntu, Azure Linux, and Windows starting with Agent version 3.1.17 (Linux) and Win-3.1.17 (Windows).
+
 ## Limitations
 
 * FIPS-enabled node pools have the following limitations:
