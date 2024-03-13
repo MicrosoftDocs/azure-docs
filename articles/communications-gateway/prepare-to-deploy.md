@@ -60,8 +60,8 @@ For more information about your options, see [Connectivity for Azure Communicati
 
 For Teams Phone Mobile and Azure Operator Call Protection (preview), you must decide how your network should determine whether a call involves a relevant subscriber and therefore route the call correctly. You can:
 
-- Use Azure Communications Gateway's integrated Mobile Control Point (MCP). Only for Teams Phone Mobile.
-- Connect to an on-premises version of Mobile Control Point (MCP) from Metaswitch. Only for Teams Phone Mobile.
+- Use Azure Communications Gateway's integrated Mobile Control Point (MCP).
+- Connect to an on-premises version of Mobile Control Point (MCP) from Metaswitch.
 - Use other routing capabilities in your core network.
 
 For more information on these options for Teams Phone Mobile, see [Call control integration for Teams Phone Mobile](interoperability-operator-connect.md#call-control-integration-for-teams-phone-mobile) and [Mobile Control Point in Azure Communications Gateway](mobile-control-point.md).
