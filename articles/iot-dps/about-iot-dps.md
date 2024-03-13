@@ -48,7 +48,7 @@ There are many provisioning scenarios in which DPS is an excellent choice for ge
 
 Provisioning of nested IoT Edge devices (parent/child hierarchies) isn't currently supported by DPS.
 
-## Prepare for provisioning
+## Provisioning process
 
 There are two steps that take place ahead of a device provisioning with DPS:
 
