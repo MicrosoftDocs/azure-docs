@@ -7,7 +7,7 @@ metadata:
   ms.service: firewall
   ms.custom: devx-track-azurepowershell
   ms.topic: conceptual
-  ms.date: 01/04/2023
+  ms.date: 02/29/2024
   ms.author: victorh
 title: Azure Firewall FAQ
 summary: |
@@ -52,7 +52,7 @@ sections:
         answer: |
          Yes,  Azure Firewall Basic supports forced tunneling.
 
-      - question: Which logging and analytics services are supported by the Azure Firewall?
+      - question: Which logging and analytics services does Azure Firewall support?
         answer: |
           Azure Firewall is integrated with Azure Monitor for viewing and analyzing firewall logs. Logs can be sent to Log Analytics, Azure Storage, or Event Hubs. They can be analyzed in Log Analytics or by different tools such as Excel and Power BI. For more information, see [Tutorial: Monitor Azure Firewall logs](./firewall-diagnostics.md).
 
@@ -198,12 +198,12 @@ sections:
         answer: |
          - **URL** - Asterisks work when placed on the right-most or left-most side. If it is on the left, it can't be part of the FQDN.
          - **FQDN** - Asterisks work when placed on the left-most side.
-         - **GENERAL** - Asterisks on the left-most side mean literally _anything_ to the left matches, meaning multiple subdomains and/or potentially unwanted domain name variations are matched - see examples below.
+         - **GENERAL** - Asterisks on the left-most side mean literally _anything_ to the left matches, meaning multiple subdomains and/or potentially unwanted domain name variations are matched - see the following examples.
 
          Examples:
 
 
-           |Type  |Rule  |Supported?  |Positive examples  |
+           |Type  |Rule  |Supported?|Positive examples  |
            |---------|---------|---------|---------|
            |TargetURL  |`www.contoso.com` |Yes|`www.contoso.com`<br>`www.contoso.com/`|
            |TargetURL  |`*.contoso.com` |Yes|`any.contoso.com/`<br>`sub1.any.contoso.com`|
@@ -259,7 +259,7 @@ sections:
 
       - question: How does Azure Firewall handle VM instance shutdowns during Virtual Machine Scale Set scale in (scale down) or fleet software upgrades?
         answer: |
-         An Azure Firewall VM instance shutdown might occur during Virtual Machine Scale Set scale in (scale down) or during fleet software upgrade. In these cases, new incoming connections are load balanced to the remaining firewall instances and aren't forwarded to the down firewall instance. After 45 seconds the firewall starts rejecting existing connections by sending TCP RST packets. After another 45 seconds the firewall VM shuts down. For more information, see [Load Balancer TCP Reset and Idle Timeout](../load-balancer/load-balancer-tcp-reset.md).
+         An Azure Firewall VM instance shutdown might occur during Virtual Machine Scale Set scale in (scale down) or during fleet software upgrade. In these cases, new incoming connections are load balanced to the remaining firewall instances and aren't forwarded to the down firewall instance. After 45 seconds, the firewall starts rejecting existing connections by sending TCP RST packets. After another 45 seconds the firewall VM shuts down. For more information, see [Load Balancer TCP Reset and Idle Timeout](../load-balancer/load-balancer-tcp-reset.md).
 
       - question: Does Azure Firewall allow access to Active Directory by default?
         answer: |

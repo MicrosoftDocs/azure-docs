@@ -8,7 +8,7 @@ metadata:
   ms.service: container-apps
   ms.custom:
     - ignite-2023
-  ms.date: 04/14/2023
+  ms.date: 02/27/2024
   ms.author: cshoe
 title: Azure Container Apps frequently asked questions (FAQs)
 summary: This article lists commonly asked questions about Azure Container Apps together with related answers.
@@ -120,19 +120,21 @@ sections:
   - name: Deploy Java applications
     questions:
       - question: |
-          Which JDK versions are supported?
+          Which JDK versions are supported and how can I configure the JDK version?
         answer: |
           Container Apps supports four LTS JDK versions: JDK 8, JDK 11, JDK 17 and JDK 21. 
           For source code build, the default version is JDK 17.
           For a JAR file build, the JDK version is read from the file location *META-INF\MANIFEST.MF* in the JAR, but uses the default JDK version 17 if the specified version isn't available.
+
+          You can configure JDK version to override the default version via [build environment variables](java-build-environment-variables.md).
       - question: |
           Which Java build tools are supported?
         answer: |
           Maven
       - question: |
-          Are build environment variables supported?
+          How can I customize a Java image build from source code?
         answer: |
-          No. Container Apps automatically selects the Maven version.
+          You can customize a Java image build via [build environment variables](java-build-environment-variables.md).
       - question: |
           How do I ensure the build and image of my Docker-less build are available in the same region as my app?
         answer: |

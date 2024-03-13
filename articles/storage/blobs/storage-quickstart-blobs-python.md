@@ -8,7 +8,7 @@ ms.date: 02/22/2024
 ms.topic: quickstart
 ms.service: azure-blob-storage
 ms.devlang: python
-ms.custom: devx-track-python, mode-api, passwordless-python, ai-video-demo
+ms.custom: devx-track-python, mode-api, passwordless-python, ai-video-demo, devx-track-extended-azdevcli
 ai-usage: ai-assisted
 zone_pivot_groups: azure-blob-storage-quickstart-options
 ---

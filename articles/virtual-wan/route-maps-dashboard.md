@@ -6,7 +6,7 @@ description: Learn how to use the Route Map dashboard to monitor routes, AS Path
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 05/31/2023
+ms.date: 03/04/2024
 ms.author: cherylmc
 
 ---
@@ -14,11 +14,11 @@ ms.author: cherylmc
 
 This article helps you use the Route Map dashboard to monitor Route-maps. Using the Route Map dashboard, you can monitor routes, AS Path, and BGP communities for routes in your Virtual WAN.
 
-[!INCLUDE [Preview text](../../includes/virtual-wan-route-maps-preview.md)]
+> [!IMPORTANT]
+> Route-maps is currently in Public Preview and is provided without a service-level agreement. At this time, **Route-maps shouldn't be used for production workloads**. Certain features might not be supported, might have constrained capabilities, or might not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
 
 ## Dashboard view
-
-[!INCLUDE [Route-maps email](../../includes/virtual-wan-route-maps-preview-email.md)]
 
 The following steps walk you through how to navigate to the Route Map dashboard.
 
@@ -38,7 +38,7 @@ After you open the Route Map dashboard, you can view the details of your connect
 
 1. From the drop-down, select the **Connection type** that you want to view. The connections types are VPN (Site-to-Site and Point-to-Site), ExpressRoute, and Virtual Network.
 1. From the drop-down, select **Connection** you want to view.
-1. Select the direction from the two options: **In the inbound direction.** or **In the outbound direction.**You can view inbound from a VNet or inbound to the virtual hub router from ExpressRoute, Branch or User connections. You can also view routes outbound from a VNet or outbound from the virtual hub router to ExpressRoute, Branch or User connections.
+1. Select the direction from the two options: **In the inbound direction.** or **In the outbound direction.** You can view inbound from a VNet or inbound to the virtual hub router from ExpressRoute, Branch or User connections. You can also view routes outbound from a VNet or outbound from the virtual hub router to ExpressRoute, Branch or User connections.
 1. On the Route Map dashboard, the following values are available:
 
    |Value | Description|
@@ -56,7 +56,7 @@ In this example, you can use the Route Map Dashboard to view the routes on **Con
 1. Go to the **Route Map** Dashboard.
 1. From the **Choose connection type** drop-down, select "VPN".
 1. From the **Connection** drop-down, select the connection. In this example, the connection is "Connection 1".
-1. For **View routs for Route-maps applied**, select **In the outbound direction**.
+1. For **View routes for Route-maps applied**, select **In the outbound direction**.
 
 ## Next steps
 

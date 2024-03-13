@@ -6,6 +6,7 @@ ms.date: 04/21/2023
 ms.custom: devx-track-arm-template, devx-track-python
 content_well_notification: 
   - AI-contribution
+ai-usage: ai-assisted
 ---
 
 # Manage Azure resources by using Python

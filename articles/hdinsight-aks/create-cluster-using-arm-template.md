@@ -2,7 +2,7 @@
 title: Export cluster ARM template
 description: Learn how to Create cluster ARM template using Azure CLI
 ms.service: hdinsight-aks
-ms.custom: devx-track-arm-template
+ms.custom: devx-track-arm-template, devx-track-azurecli
 ms.topic: how-to
 ms.date: 02/12/2024
 ---

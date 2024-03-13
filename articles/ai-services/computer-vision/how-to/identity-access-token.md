@@ -9,25 +9,25 @@ manager: nitinme
 ms.service: azure-ai-vision
 ms.subservice: azure-ai-face
 ms.topic: how-to
-ms.date: 05/11/2023
+ms.date: 03/07/2024
 ms.author: pafarley
 ---
 
 # Use limited access tokens for Face
 
-Independent software vendors (ISVs) can manage the Face API usage of their clients by issuing access tokens that grant access to Face features which are normally gated. This allows client companies to use the Face API without having to go through the formal approval process.
+Independent software vendors (ISVs) can manage the Face API usage of their clients by issuing access tokens that grant access to Face features which are normally gated. This allows their client companies to use the Face API without having to go through the formal approval process.
 
 This guide shows you how to generate the access tokens, if you're an approved ISV, and how to use the tokens if you're a client. 
 
-The LimitedAccessToken feature is a part of the existing [Azure AI services token service](https://westus.dev.cognitive.microsoft.com/docs/services/57346a70b4769d2694911369/operations/issueScopedToken).  We have added a new operation for the purpose of bypassing the Limited Access gate for approved scenarios. Only ISVs that pass the gating requirements will be given access to this feature.
+The limited access token feature is a part of the existing [Azure AI services token service](https://westus.dev.cognitive.microsoft.com/docs/services/57346a70b4769d2694911369/operations/issueScopedToken).  We have added a new operation for the purpose of bypassing the Limited Access gate for approved scenarios. Only ISVs that pass the gating requirements will be given access to this feature.
 
 ## Example use case
 
-A company sells software that uses the Azure AI Face service to operate door access security systems. Their clients, individual manufacturers of door devices, subscribe to the software and run it on their devices. These client companies want to make Face API calls from their devices to perform Limited Access operations like face identification. By relying on access tokens from the ISV, they can bypass the formal approval process for face identification. The ISV, which has already been approved, can grant the client just-in-time access tokens.
+An example company sells software that uses the Azure AI Face service to operate door access security systems. Their clients, individual manufacturers of door devices, subscribe to the software and run it on their devices. These client companies want to make Face API calls from their devices to perform Limited Access operations like face identification. By relying on access tokens from the ISV, they can bypass the formal approval process for face identification. The ISV, which has already been approved, can grant the client just-in-time access tokens.
 
 ## Expectation of responsibility
 
-The issuing ISV  is responsible for ensuring that the tokens are used only for the approved purpose.
+The token-issuing ISV is responsible for ensuring that the tokens are used only for the approved purpose.
 
 If the ISV learns that a client is using the LimitedAccessToken for non-approved purposes, the ISV should stop generating tokens for that customer. Microsoft can track the issuance and usage of LimitedAccessTokens, and we reserve the right to revoke an ISV's access to the **issueLimitedAccessToken** API if abuse is not addressed.
 
@@ -80,7 +80,7 @@ The API should return a `200` response with the token in the form of a JSON web 
 
 ## Step 3: Client application uses the token
 
-The ISV's application can then pass the LimitedAccessToken as an HTTP request header for future Face API requests on behalf of the client. This works independently of other authentication mechanisms, so no personal information of the client's is ever leaked to the ISV. 
+The ISV's application can then pass the limited access token as an HTTP request header for future Face API requests on behalf of the client. This works independently of other authentication mechanisms, so no personal information of the client's is ever leaked to the ISV. 
 
 > [!CAUTION]
 > The client doesn't need to be aware of the token value, as it can be passed in the background. If the client were to use a web monitoring tool to intercept the traffic, they'd be able to view the LimitedAccessToken header. However, because the token expires after a short period of time, they are limited in what they can do with it. This risk is known and considered acceptable.

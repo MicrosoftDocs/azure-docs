@@ -57,9 +57,10 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
     For sample log search alert queries that query ARG or ADX, see [Log search alert query samples](./alerts-log-alert-query-samples.md)
 
    For limitations:
-   * [Cross-service query limitations](https://learn.microsoft.co/azure/azure-monitor/logs/azure-monitor-data-explorer-proxy#limitations)
-   * [Combine Azure Resource Graph tables with a Log Analytics workspace](https://learn.microsoft.com/azure/azure-monitor/logs/azure-monitor-data-explorer-proxy#combine-azure-resource-graph-tables-with-a-log-analytics-workspace) limitations
-   * Not suppprted in Gov clouds
+   * [Cross-service query limitations](../logs/azure-monitor-data-explorer-proxy.md#limitations)
+   * [Combine Azure Resource Graph tables with a Log Analytics workspace](../logs/azure-monitor-data-explorer-proxy.md#combine-azure-resource-graph-tables-with-a-log-analytics-workspace)
+   * Not supported in government clouds
+
 1. Select **Run** to run the alert.
 1. The **Preview** section shows you the query results. When you're finished editing your query, select **Continue Editing Alert**.
 1. The **Condition** tab opens populated with your log query. By default, the rule counts the number of results in the last five minutes. If the system detects summarized query results, the rule is automatically updated with that information.

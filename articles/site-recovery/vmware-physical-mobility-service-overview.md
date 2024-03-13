@@ -6,7 +6,7 @@ manager: gaggupta
 ms.service: site-recovery
 ms.topic: how-to
 ms.author: ankitadutta
-ms.date: 03/07/2024
+ms.date: 03/13/2024
 ms.custom: engagement-fy23, linux-related-content
 ---
 
@@ -242,7 +242,7 @@ See information about [upgrading the mobility services](upgrade-mobility-service
 
 1.  Open command prompt and navigate to the folder where the installer file has been placed. Extract the installer:
       ```cmd
-       Microsoft-ASR_UA*Windows*release.exe /q /x:C:\Program Files (x86)\Microsoft Azure Site Recovery
+       Microsoft-ASR_UA*Windows*release.exe /q /x:'C:\Program Files (x86)\Microsoft Azure Site Recovery'
       ```
 1. Run the below command to launch the installation wizard for the agent.
    ```cmd
@@ -407,7 +407,7 @@ As a **prerequisite to update or protect SUSE Linux Enterprise Server 11 SP3 or 
 3. Navigate to Configuration server, copy the SUSE Linux Enterprise Server 11 SP3 or SUSE 11 SP4 agent installer on the path - INSTALL_DIR\home\svsystems\pushinstallsvc\repository
 1. After copying the latest installer, restart InMage PushInstall service.
 1. Now, navigate to associated scale-out process servers, repeat step 3 and step 4.
-1. **For example**, if install path is  C:\Program Files (x86)\Microsoft Azure Site Recovery, then the above mentioned directories will be
+1. **For example**, if install path is  C:\Program Files (x86)\Microsoft Azure Site Recovery, then the above mentioned directories are
     1. C:\Program Files (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository
 
 ### RHEL 5 Or CentOS 5 server
@@ -443,7 +443,7 @@ As a **prerequisite to update or protect Ubuntu 14.04 machines** from 9.42 versi
 3. Navigate to Configuration server, copy the Ubuntu 14.04 agent installer on the path - INSTALL_DIR\home\svsystems\pushinstallsvc\repository
 1. After copying the latest installer, restart InMage PushInstall service.
 1. Now, navigate to associated scale-out process servers, repeat step 3 and step 4.
-1. **For example**, if install path is  C:\Program Files (x86)\Microsoft Azure Site Recovery, then the above mentioned directories will be
+1. **For example**, if install path is  C:\Program Files (x86)\Microsoft Azure Site Recovery, then the above mentioned directories are
     1. C:\Program Files (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository
 
 
