@@ -140,7 +140,7 @@ procedureSection:
 
 relatedContent:
   - text: Use workflow automation to automate a security response
-    url: (/training/modules/resolve-threats-with-azure-security-center/
+    url: /training/modules/resolve-threats-with-azure-security-center/
   - text: Security recommendations in Microsoft Defender for Cloud
     url: review-security-recommendations.md
   - text: Security alerts in Microsoft Defender for Cloud
