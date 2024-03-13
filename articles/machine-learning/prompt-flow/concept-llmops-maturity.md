@@ -43,7 +43,7 @@ To better understand LLMOps, consider available MS Learning courses and workshop
 - [***Microsoft Azure AI Fundaments: GenAI***](/training/paths/introduction-generative-ai/)
 - [***GenAI for Beginners Course***](https://techcommunity.microsoft.com/t5/educator-developer-blog/generative-ai-for-beginners-a-12-lesson-course/ba-p/3968583)
 
-## <a name="level2"> Level 2 - systemizing LLMops development
+## <a name="level2"></a> Level 2 - systemizing LLMops development
 
 **Description:** Your organization has started to systematize LLM operations, with a focus on structured development and experimentation. However, there's room for more sophisticated integration and optimization.
 
@@ -61,7 +61,7 @@ To improve your capabilities and skills, learn how to develop more complex promp
 - [***Azure Content Safety***](/azure/ai-services/content-safety/overview)
 - [***Responsible AI Tools and Practices***](https://azure.microsoft.com/blog/infuse-responsible-ai-tools-and-practices-in-your-llmops/#:~:text=Azure%20AI%20offers%20robust%20tools,or%20build%20your%20own%20metrics)
 
-## <a name="level3"> Level 3 - managing advanced workflows
+## <a name="level3"></a> Level 3 - managing advanced workflows
 
 **Description:** Your organization is managing advanced LLM workflows with proactive monitoring and structured deployment strategies. You're close to achieving operational excellence.
 
@@ -74,7 +74,7 @@ To expand your base knowledge, focus on continuous improvement and innovation in
 - [***GenAI Model Monitoring***](/azure/machine-learning/prompt-flow/how-to-monitor-generative-ai-applications)
 - [***Elevate LLM Apps to Production with LLMOps***](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/elevate-your-llm-applications-to-production-via-llmops/ba-p/3979114)
 
-## <a name="level4"> Level 4 - achieved operational excellence
+## <a name="level4"></a> Level 4 - achieved operational excellence
 
 **Description:** Your organization demonstrates operational excellence in LLMOps. You have a sophisticated approach to LLM application development, deployment, and monitoring.
 
