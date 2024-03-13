@@ -241,51 +241,42 @@ With Private Link, you can access Azure Health Data Services securely from your 
 
 ### FHIR service
 
-**FHIRPath Patch operation available**
-|This new feature enables you to use the FHIRPath Patch operation on FHIR resources. For more information, see [FHIR REST API capabilities for Azure Health Data Services FHIR service](./../healthcare-apis/fhir/fhir-rest-api-capabilities.md). 
+#### FHIRPath Patch operation available
+|This feature enables you to use the FHIRPath Patch operation on FHIR resources. For more information, see [FHIR REST API capabilities for Azure Health Data Services FHIR service](./../healthcare-apis/fhir/fhir-rest-api-capabilities.md). 
 
+#### Bug fixes
 
-**SQL timeout that returns 408 status code**
-Previously, a SQL timeout would return a 500. Now a timeout in SQL returns a FHIR OperationOutcome with a 408 status code. For more information, see [PR #2497](https://github.com/microsoft/fhir-server/pull/2497). 
+- **Fixed: SQL timeout returns 408 status code**.
+Before the bug fix, a SQL timeout returned a 500 error. With the bug fix, a timeout in SQL returns a `FHIR OperationOutcome` with a 408 status code. See [PR#2497](https://github.com/microsoft/fhir-server/pull/2497). 
 
-**Fixed issue related to duplicate resources in search with `_include`**
-Fixed issue where a single resource can be returned twice in a search that has `_include`. For more information, see [PR #2448](https://github.com/microsoft/fhir-server/pull/2448). 
+- **Fixed: Issue duplicate resources in search with `_include`**. Fixed issue where a single resource are returned twice in a search that has `_include`. See [PR#2448](https://github.com/microsoft/fhir-server/pull/2448). 
 
+- **Fixed: Issue with PUT creates on versioned update**. Fixed issue where PUT creates resulted in an error when the versioning policy is configured to `versioned-update`. See [PR#2457](https://github.com/microsoft/fhir-server/pull/2457). 
 
-**Fixed issue PUT creates on versioned update**
-Fixed issue where creates with PUT resulted in an error when the versioning policy is configured to `versioned-update`. For more information, see [PR #2457](https://github.com/microsoft/fhir-server/pull/2457). 
+- **Fixed: Invalid header handling on versioned update**. Fixed issue where invalid `if-match` header would result in an HTTP 500 error. Now an HTTP Bad Request is returned instead. For more information, see [PR#2467](https://github.com/microsoft/fhir-server/pull/2467). 
 
-**Invalid header handling on versioned update**
+### Azure Health Data Services
 
- Fixed issue where invalid `if-match` header would result in an HTTP 500 error. Now an HTTP Bad Request is returned instead. For more information, see [PR #2467](https://github.com/microsoft/fhir-server/pull/2467). 
-
-### MedTech service
-
-**The Events feature within Health Data Services is generally available (GA).**
+#### Events capability in Azure Health Data Services is generally available (GA)
 
  The Events feature allows customers to receive notifications and triggers when FHIR observations are created, updated, or deleted. For more information, see [Events message structure](./../healthcare-apis/events/events-message-structure.md) and [What are events?](./../healthcare-apis/events/events-overview.md). 
 
-**Events documentation for Azure Health Data Services**
-Updated docs to allow for better understanding, knowledge, and help for Events as it went GA. Updated troubleshooting for ease of use for the customer. 
-
-**One touch deploy button for MedTech service launch in the portal**
-Enables easier deployment and use of MedTech service for customers without the need to go back and forth between pages or interfaces. 
-
 ## January 2022
 
+### Azure Health Data Services
 
-**Export FHIR data behind firewalls**
-This new feature enables exporting FHIR data to storage accounts behind firewalls. For more information, see [Configure export settings and set up a storage account](./././fhir/configure-export-data.md). 
+#### Deploy Azure Health Data Services with Azure Bicep
+This feature enables you to deploy Azure Health Data Services by using Azure Bicep. For more information, see [Deploy Azure Health Data Services using Azure Bicep](deploy-healthcare-apis-using-bicep.md). 
 
-**Deploy Azure Health Data Services with Azure Bicep**
-This new feature enables you to deploy Azure Health Data Services using Azure Bicep. For more information, see [Deploy Azure Health Data Services using Azure Bicep](deploy-healthcare-apis-using-bicep.md). 
+#### Customers can define their own query tags using the Extended Query Tags feature
 
-### DICOM service
+With Extended Query Tags, customers query non-DICOM metadata for capabilities like multi-tenancy and cohorts. It's available for all customers in Azure Health Data Services. 
 
+### FHIR service
 
-**Customers can define their own query tags using the Extended Query Tags feature**
+#### Export FHIR data behind firewalls
 
-With Extended Query Tags feature, customers efficiently query non-DICOM metadata for capabilities like multi-tenancy and cohorts. It's available for all customers in Azure Health Data Services. 
+This feature enables exporting FHIR data to storage accounts behind firewalls. For more information, see [Configure export settings and set up a storage account](./././fhir/configure-export-data.md). 
 
 ## Related content
 
