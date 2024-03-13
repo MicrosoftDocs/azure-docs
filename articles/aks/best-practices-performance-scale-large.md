@@ -114,7 +114,7 @@ As you scale your AKS clusters to larger scale points, keep the following node p
 
 ## Cluster upgrade considerations and best practices
 
-* The hard limit of 5000 nodes per AKS cluster prevents clusters at this limit from performing upgrades. This limit prevents these upgrades from performing because there's no more capacity to perform rolling updates with the max surge property. If you have a cluster at this limit, we recommend [scaling the cluster down](./concepts-scale.md) below 3000 nodes before doing cluster upgrades to provide extra capacity for node churn, and to minimize the control plane load.
+* The hard limit of 5,000 nodes per AKS cluster prevents clusters at this limit from performing upgrades. This limit prevents upgrades because there is no more node capacity to perform rolling updates within the max surge property limit. If you have a cluster at this limit, we recommend [scaling the cluster down](./concepts-scale.md) below 3,000 nodes before doing cluster upgrades to provide extra capacity for node churn, and to minimize the control plane load.
 * When upgrading clusters with more than 500 nodes, it is recommended to use a [max surge configuration](./upgrade-aks-cluster.md#set-max-surge-value) of 10-20% of the node pool's capacity. AKS configures upgrades with a default value of 10% for max surge. You can customize the max surge settings per node pool to enable a trade-off between upgrade speed and workload disruption. When you increase the max surge settings, the upgrade process completes faster, but you might experience disruptions during the upgrade process. For more information, see [Customize node surge upgrade][max surge].
 * For more cluster upgrade information, see [Upgrade an AKS cluster][cluster upgrades].
 
