@@ -136,7 +136,7 @@ completion = client.chat.completions.create(
         },
         {
             "role": "assistant",
-            "content": "DRI stands for Directly Responsible Individual of a service. Which service are you asking about?",
+            "content": "DRI stands for Directly Responsible Individual of a service. Which service are you asking about?"
         },
         {
             "role": "user",
@@ -187,14 +187,11 @@ az rest --method POST \
     "messages": [
         {
             "role": "user",
-            "content": "Who is DRI?",
+            "content": "Who is DRI?"
         },
         {
             "role": "assistant",
-            "content": "DRI stands for Directly Responsible Individual of a service. Which service are you asking about?",
-            "context": {
-              "intent": "[\"Who is DRI?\", \"What is the meaning of DRI?\", \"Define DRI\"]"
-            }
+            "content": "DRI stands for Directly Responsible Individual of a service. Which service are you asking about?"
         },
         {
             "role": "user",
