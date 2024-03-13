@@ -252,7 +252,7 @@ The reference for the endpoint YAML format is described in the following table. 
 | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `$schema`   | (Optional) The YAML schema. To see all available options in the YAML file, you can view the schema in the preceding code snippet in a browser.                                                                                                                   |
 | `name`      | The name of the endpoint.                                               |
-| `auth_mode` | Use `key` for key-based authentication.<br>Use `aml_token` for Azure Machine Learning token-based authentication. To get the most recent token, use the `az ml online-endpoint get-credentials` command.<br>A key doesn't expire, but a token does expire. For more information on authenticating, see [Authenticate clients for online endpoints](how-to-authenticate-online-endpoint.md). |
+| `auth_mode` | Use `key` for key-based authentication.<br>Use `aml_token` for Azure Machine Learning token-based authentication.<br>Use `aad_token` for Microsoft Entra token-based authentication (preview). To get the most recent token, use the `az ml online-endpoint get-credentials` command for key or Azure Machine Learning token, or `az account get-access-token` command for Microsoft Entra token.<br>For more information on authenticating, see [Authenticate clients for online endpoints](how-to-authenticate-online-endpoint.md). |
 
 # [Python SDK](#tab/python)
 
