@@ -24,7 +24,7 @@ With a network security perimeter:
 
 :::image type="content" source="media/create-network-security-perimeter-portal/network-security-perimeter-overview.png" alt-text="Diagram of network security perimeter and private network for Azure services.":::
 
-[!INCLUDE [network-security-perimeter-preview](../../includes/network-security-perimeter-preview.md)]
+[!INCLUDE [network-security-perimeter-preview-message](../../includes/network-security-perimeter-preview-message.md)]
 
 ## Features of Network Security Perimeter
 

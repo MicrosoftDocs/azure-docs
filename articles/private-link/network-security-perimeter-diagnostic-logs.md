@@ -13,7 +13,7 @@ ms.date: 02/05/2023
 
 In this article, you will learn about the diagnostic logs for network security perimeter and how to enable logging. You'll learn access logs categories used. Then, you'll discover the options for storing diagnostic logs and how to enable logging through the Azure portal.
 
-[!INCLUDE [network-security-perimeter-preview](../../includes/network-security-perimeter-preview.md)]
+[!INCLUDE [network-security-perimeter-preview-message](../../includes/network-security-perimeter-preview-message.md)]
 
 ## Access logs categories
 

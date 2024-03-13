@@ -15,7 +15,7 @@ Get started with network security perimeter by creating a network security perim
 
 In this quickstart, you create a network security perimeter for an Azure key vault, one of many [Azure Platform as a Service (PaaS) accounts supported by network security perimeter](./network-security-perimeter-overview.md#supported-paas-services), using the Azure CLI. Next, You learn to create and update a PaaS resources association in a network security perimeter profile, as well as how to create and update network security perimeter access rules. To finish, you delete all resources created in this quickstart.
 
-[!INCLUDE [network-security-perimeter-preview](../../includes/network-security-perimeter-preview.md)]
+[!INCLUDE [network-security-perimeter-preview-message](../../includes/network-security-perimeter-preview-message.md)]
 
 ## Prerequisites
 

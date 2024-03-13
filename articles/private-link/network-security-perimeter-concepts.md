@@ -20,6 +20,8 @@ o	Public outbound can be approved using FQDNs (Fully Qualified Domain Names) of 
 •	Diagnostic Logs is enabled for PaaS resources within perimeter for Audit and Compliance. 
 •	Resources in Private Endpoints can additionally accept communication from customer virtual networks, both network security perimeter and Private Endpoints are independent controls. 
 
+[!INCLUDE [network-security-perimeter-preview-message](../../includes/network-security-perimeter-preview-message.md)]
+
 ## Network security perimeter properties
 
 ## Concepts within network security perimeter
