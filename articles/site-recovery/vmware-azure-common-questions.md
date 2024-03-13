@@ -383,7 +383,7 @@ When you fail back from Azure, data from Azure is copied back to your on-premise
 
 ### Can I use On-demand capacity reservation with VMware(also Physical) to IaaS scenario?
 
-No. ASR cannot use On-demand capacity reservation unless it's Azure to Azure scenario.
+No. Azure Site Recovery cannot use On-demand capacity reservation unless it's Azure to Azure scenario.
 
 ## Automation and scripting
 
