@@ -36,6 +36,9 @@ Use rooms when you need any of the following capabilities:
 | Interactive participants | 350 | 350 | 350 |
 | Ephemeral ID to distribute to participants | ❌ | ✔️ <br>(Group ID)</br> | ✔️ <br>(Room ID)</br> |
 | Invitee only participation   | ❌ | ❌ | ✔️ |
+| Ability to dial-out to PSTN user | ✔️ | ✔️ | ✔️ <br>public preview</br> |
+| Call captions | ✔️ <br>private preview</br>| ✔️ <br>private preview</br>| ✔️ <br>private preview</br> |
+| Call recording | ✔️ | ✔️ | ✔️ <br>public preview</br>|
 | All users in communication service resource to join a call   | ❌ | ✔️ | ✔️ |
 | Set validity period for a call   | ❌ | ❌ | ✔️ <br> Up to six months </br> |
 | Set user roles and permissions for a call   | ❌ | ❌ | ✔️ |
@@ -50,8 +53,10 @@ Use rooms when you need any of the following capabilities:
 |----------------------------------------------|--------|--------|
 | Join a room call with voice and video        | ✔️ | ❌ |
 | List participants that joined the rooms call | ✔️ | ❌ |
+| Allow/disallow dial-out to a PSTN user at virtual Rooms level            | Virtual Rooms SDK|
 | Create room                                  | ❌ | ✔️ |
 | List all participants that are invited to the room | ❌ | ✔️ |
+| Start, pause, stop call recording | ✔️ | ❌|
 | Add or remove a VoIP participant             |  ❌ | ✔️ |
 | Assign roles to room participants            |  ❌ | ✔️ |
 
@@ -59,7 +64,7 @@ The picture below illustrates the concept of managing and joining the rooms.
 
 :::image type="content" source="../media/rooms/rooms-join-call.png" alt-text="Diagram showing Rooms Management.":::
 
-### Rooms API/SDKs
+### Virtual Rooms API/SDKs
 
 Rooms are created and managed via rooms APIs or SDKs. Use the rooms API/SDKs in your server application for `room` operations:
 - Create
@@ -68,6 +73,15 @@ Rooms are created and managed via rooms APIs or SDKs. Use the rooms API/SDKs in 
 - Set and update the list of participants
 - Set and modify the Room validity
 - Assign roles and permissions to users. Details below.
+
+|Virtual Rooms SDK | Version | State|
+|-------------------| :-----------------------: | :-----------------------------: |
+| Virtual Rooms SDKs | 2023-06-14 | Generally Available - Fully supported |
+| Virtual Rooms SDKs | 2023-10-30 | Public Preview - Fully supported |
+| Virtual Rooms SDKs | 2023-03-31 | Will be retired on April 30, 2024 |
+| Virtual Rooms SDKs | 2022-02-01 | Will be retired on April 30, 2024 |
+| Virtual Rooms SDKs | 2021-04-07 | Will be retired on April 30, 2024 |
+
 
 ### Calling SDKs
 
@@ -86,6 +100,7 @@ The tables below provide detailed capabilities mapped to the roles. At a high le
 | **Mid call controls** | | |
 | - Turn video on/off | ✔️ | ✔️ | ❌ |
 | - Mute/Unmute mic | ✔️ | ✔️ | ❌ |
+| - Mute remote user | ✔️ | ❌ | ❌ |
 | - Switch between cameras | ✔️ | ✔️ | ❌ |
 | - Active speaker | ✔️ | ✔️ | ✔️ |
 | - Choose speaker for calls | ✔️ | ✔️ | ✔️ |

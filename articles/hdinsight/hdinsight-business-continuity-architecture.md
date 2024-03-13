@@ -1,7 +1,6 @@
 ---
 title: Azure HDInsight business continuity architectures
 description: This article discusses the different possible business continuity architectures for HDInsight
-keywords: hadoop high availability
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/08/2023

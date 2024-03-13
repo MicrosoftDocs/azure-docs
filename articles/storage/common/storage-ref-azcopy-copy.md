@@ -282,7 +282,7 @@ Copy a subset of buckets by using a wildcard symbol (*) in the bucket name from 
 
 `--include-before`    (string)    Include only those files modified before or on the given date/time. The value should be in ISO8601 format. If no timezone is specified, the value is assumed to be in the local timezone of the machine running AzCopy. for example, `2020-08-19T15:04:00Z` for a UTC time, or `2020-08-19` for midnight (00:00) in the local timezone. As of AzCopy 10.7, this flag applies only to files, not folders, so folder properties won't be copied when using this flag with `--preserve-smb-info` or `--preserve-smb-permissions`.
 
-`--include-directory-stub`    False by default to ignore directory stubs. Directory stubs are blobs with metadata `hdi_isfolder:true`. Setting value to true will preserve directory stubs during transfers.
+`--include-directory-stub`    False by default to ignore directory stubs. Directory stubs are blobs with metadata `hdi_isfolder:true`. Setting value to true will preserve directory stubs during transfers. Including this flag with no value defaults to true (*e.g,* `azcopy copy --include-directory-stub` is the same as `azcopy copy --include-directory-stub=true`).
 
 `--include-path` (string)    Include only these paths when copying. This option doesn't support wildcard characters (*). Checks relative path prefix (For example: myFolder;myFolder/subDirName/file.pdf).
 

@@ -1,5 +1,5 @@
 ---
-title: Sign container images with Notation and Azure Key vault using a CA-issued certificate (Preview)
+title: Sign container images with Notation and Azure Key vault using a CA-issued certificate
 description: In this tutorial learn to create a CA-issued certificate in Azure Key Vault, build and sign a container image stored in Azure Container Registry (ACR) with notation and AKV, and then verify the container image using notation.
 author: yizha1
 ms.author: yizha1
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 10/31/2023
 ---
 
-# Sign container images with Notation and Azure Key Vault using a CA-issued certificate (Preview)
+# Sign container images with Notation and Azure Key Vault using a CA-issued certificate
 
 Signing and verifying container images with a certificate issued by a trusted Certificate Authority (CA) is a valuable security practice. This security measure will help you to responsibly identify, authorize, and validate the identity of both the publisher of the container image and the container image itself. The Trusted Certificate Authorities (CAs) such as GlobalSign, DigiCert, and others play a crucial role in the validation of a user's or organization's identity, maintaining the security of digital certificates, and revoking the certificate immediately upon any risk or misuse.
 
@@ -21,9 +21,6 @@ Here are some essential components that help you to sign and verify container im
 * The Azure Container Registry (ACR) allows you to attach these signatures to the signed image and helps you to store and manage these container images.
 
 When you verify the image, the signature is used to validate the integrity of the image and the identity of the signer. This helps to ensure that the container images are not tampered with and are from a trusted source.
-
-> [!IMPORTANT]
-> This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
 
 In this article:
 
@@ -45,34 +42,27 @@ In this article:
 
 ## Install the notation CLI and AKV plugin
 
-1. Install `Notation v1.0.0` on a Linux amd64 environment. Follow the [Notation installation guide](https://notaryproject.dev/docs/user-guides/installation/cli/) to download the package for other environments.
+1. Install Notation v1.1.0 on a Linux amd64 environment. Follow the [Notation installation guide](https://notaryproject.dev/docs/user-guides/installation/cli/) to download the package for other environments.
 
     ```bash
     # Download, extract and install
-    curl -Lo notation.tar.gz https://github.com/notaryproject/notation/releases/download/v1.0.0/notation_1.0.0_linux_amd64.tar.gz
+    curl -Lo notation.tar.gz https://github.com/notaryproject/notation/releases/download/v1.1.0/notation_1.1.0_linux_amd64.tar.gz
     tar xvzf notation.tar.gz
 
     # Copy the notation cli to the desired bin directory in your PATH, for example
     cp ./notation /usr/local/bin
     ```
 
-2. Install the notation Azure Key Vault plugin on a Linux environment for remote signing. You can also download the package for other environments by following the [Notation AKV plugin installation guide](https://github.com/Azure/notation-azure-kv#installation-the-akv-plugin).
+2. Install the Notation Azure Key Vault plugin `azure-kv` v1.0.2 on a Linux amd64 environment.
+
+    > [!NOTE]
+    > The URL and SHA256 checksum for the Notation Azure Key Vault plugin can be found on the plugin's [release page](https://github.com/Azure/notation-azure-kv/releases).
 
     ```bash
-    # Create a directory for the plugin
-    mkdir -p ~/.config/notation/plugins/azure-kv
-                    
-    # Download the plugin
-    curl -Lo notation-azure-kv.tar.gz https://github.com/Azure/notation-azure-kv/releases/download/v1.0.1/notation-azure-kv_1.0.1_linux_amd64.tar.gz 
-                    
-    # Extract to the plugin directory
-    tar xvzf notation-azure-kv.tar.gz -C ~/.config/notation/plugins/azure-kv
+    notation plugin install --url https://github.com/Azure/notation-azure-kv/releases/download/v1.0.2/notation-azure-kv_1.0.2_linux_amd64.tar.gz --sha256sum f2b2e131a435b6a9742c202237b9aceda81859e6d4bd6242c2568ba556cee20e
     ```
 
-> [!NOTE]
-> The plugin directory varies depending upon the operating system in use. The directory path assumes Ubuntu. For more information, see [Notation directory structure for system configuration.](https://notaryproject.dev/docs/user-guides/how-to/directory-structure/)
-
-3. List the available plugins.
+3. List the available plugins and confirm that the `azure-kv` plugin with version `1.0.2` is included in the list.
     
     ```bash
     notation plugin ls
@@ -137,6 +127,9 @@ Here are the requirements for certificates issued by a CA:
 - Key properties:
   - The `exportable` property must be set to `false`.
   - Select a supported key type and size from the [Notary Project specification](https://github.com/notaryproject/specifications/blob/v1.0.0/specs/signature-specification.md#algorithm-selection).
+
+> [!IMPORTANT]
+> To ensure successful integration with [Image Integrity](/azure/aks/image-integrity), the content type of certificate should be set to PEM.
 
 > [!NOTE]
 > This guide uses version 1.0.1 of the AKV plugin. Prior versions of the plugin had a limitation that required a specific certificate order in a certificate chain. Version 1.0.1 of the plugin does not have this limitation so it is recommended that you use version 1.0.1 or later.

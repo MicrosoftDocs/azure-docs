@@ -10,7 +10,7 @@ author: ManojBableshwar
 ms.reviewer: larryfr
 ms.date: 06/14/2023
 ms.topic: conceptual
-ms.custom: ignite-2022, build-2023
+ms.custom: build-2023
 ---
 
 # Machine Learning registries for MLOps

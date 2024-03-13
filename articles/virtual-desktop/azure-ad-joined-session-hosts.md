@@ -3,7 +3,6 @@ title: Microsoft Entra joined session hosts in Azure Virtual Desktop
 description: Learn about using Microsoft Entra joined session hosts in Azure Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
-manager: femila
 
 ms.service: virtual-desktop
 ms.topic: how-to

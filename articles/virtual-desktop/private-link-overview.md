@@ -21,7 +21,11 @@ Azure Virtual Desktop has three workflows with three corresponding resource type
 
 3. **Connections to host pools**: every connection to a host pool has two sides - clients and session host virtual machines (VMs). To enable connections, you need to create a private endpoint for the *connection* sub-resource for each host pool you want to use with Private Link.
 
-The following table summarizes the private endpoints you need to create:
+The following high-level diagram shows how Private Link securely connects a local client to the Azure Virtual Desktop service. For more detailed information about client connections, see [Client connection sequence](#client-connection-sequence).
+
+:::image type="content" source="media/private-link-diagram.png" alt-text="A high-level diagram that shows Private Link connecting a local client to the Azure Virtual Desktop service.":::
+
+The following table summarizes the private endpoints required:
 
 | Purpose | Resource type | Target sub-resource | Quantity |
 |--|--|--|--|
@@ -30,10 +34,6 @@ The following table summarizes the private endpoints you need to create:
 | Connections to host pools | Microsoft.DesktopVirtualization/hostpools | connection | One per host pool |
 
 You can either share these private endpoints across your network topology or you can isolate your virtual networks so that each has their own private endpoint to the host pool or workspace.
-
-The following high-level diagram shows how Private Link securely connects a local client to the Azure Virtual Desktop service. For more detailed information about client connections, see [Client connection sequence](#client-connection-sequence).
-
-:::image type="content" source="media/private-link-diagram.png" alt-text="A high-level diagram that shows Private Link connecting a local client to the Azure Virtual Desktop service.":::
 
 ## Supported scenarios
 
@@ -81,21 +81,22 @@ When a user connects to Azure Virtual Desktop over Private Link, and Azure Virtu
 
 1. Your private DNS zone for **privatelink.wvd.microsoft.com** returns the private IP address for the Remote Desktop gateway to use for the host pool providing the remote session.
 
-## Limitations
+## Known issues and limitations
 
 Private Link with Azure Virtual Desktop has the following limitations:
 
-- Before you use Private Link for Azure Virtual Desktop, you need to [enable the feature](private-link-setup.md#enable-the-feature) on each Azure subscription you want to Private Link with Azure Virtual Desktop.
+- Before you use Private Link for Azure Virtual Desktop, you need to [enable Private Link with Azure Virtual Desktop](private-link-setup.md#enable-private-link-with-azure-virtual-desktop-on-a-subscription) on each Azure subscription you want to Private Link with Azure Virtual Desktop.
 
 - All [Remote Desktop clients to connect to Azure Virtual Desktop](users/remote-desktop-clients-overview.md) can be used with Private Link. If you're using the [Remote Desktop client for Windows](./users/connect-windows.md) on a private network without internet access and you're subscribed to both public and private feeds, you aren't able to access your feed.
 
 - After you've changed a private endpoint to a host pool, you must restart the *Remote Desktop Agent Loader* (*RDAgentBootLoader*) service on each session host in the host pool. You also need to restart this service whenever you change a host pool's network configuration. Instead of restarting the service, you can restart each session host.
 
-- Using both Private Link and [RDP Shortpath](./shortpath.md) at the same time isn't currently supported.
+- Using both Private Link and [RDP Shortpath](./shortpath.md) has the following limitations:
+
+   - Using Private Link and [RDP Shortpath for public networks](rdp-shortpath.md?tabs=public-networks) isn't supported.
+   - Using Private Link and [RDP Shortpath for managed networks](rdp-shortpath.md?tabs=managed-networks) isn't supported, but they can work together. You can use Private Link and RDP Shortpath for managed networks at your own risk. You can follow the steps to [Disable RDP Shortpath for managed networks](configure-rdp-shortpath.md?tabs=managed-networks#disable-rdp-shortpath).
 
 - Early in the preview of Private Link with Azure Virtual Desktop, the private endpoint for the initial feed discovery (for the *global* sub-resource) shared the private DNS zone name of `privatelink.wvd.microsoft.com` with other private endpoints for workspaces and host pools. In this configuration, users are unable to establish private endpoints exclusively for host pools and workspaces. Starting September 1, 2023, sharing the private DNS zone in this configuration will no longer be supported. You need to create a new private endpoint for the *global* sub-resource to use the private DNS zone name of `privatelink-global.wvd.microsoft.com`. For the steps to do this, see [Initial feed discovery](private-link-setup.md#initial-feed-discovery).
-
-- Azure PowerShell cmdlets for Azure Virtual Desktop that support Private Link are in preview. You need to download and install the [preview version of the Az.DesktopVirtualization module](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/5.0.0-preview) to use these cmdlets, which have been added in version 5.0.0.
 
 ## Next steps
 

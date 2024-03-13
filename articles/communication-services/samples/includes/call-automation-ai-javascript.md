@@ -56,9 +56,9 @@ Open the `.env` file to configure the following settings
 1. `CONNECTION_STRING`: Azure Communication Service resource's connection string.
 2. `CALLBACK_URI`: Base url of the app. (For local development replace the dev tunnel url)
 3. `COGNITIVE_SERVICE_ENDPOINT`: Azure AI Service endpoint
-4. `AZURE_OPENAI_SERVICE_KEY`: Azure Open AI service key
-5. `AZURE_OPENAI_SERVICE_ENDPOINT`: Azure Open AI endpoint
-6. `AZURE_OPENAI_DEPLOYMENT_MODEL_NAME`: Azure Open AI deployment name
+4. `AZURE_OPENAI_SERVICE_KEY`: Azure OpenAI service key
+5. `AZURE_OPENAI_SERVICE_ENDPOINT`: Azure OpenAI endpoint
+6. `AZURE_OPENAI_DEPLOYMENT_MODEL_NAME`: Azure OpenAI deployment name
 6. `AGENT_PHONE_NUMBER`: Agent phone number to transfer the call to resolve queries
 
 

@@ -7,7 +7,7 @@ author: aahill
 ms.manager: nitinme
 ms.subservice: azure-ai-luis
 ms.topic: how-to
-ms.date: 07/19/2022
+ms.date: 01/19/2024
 ---
 # Sign in to the LUIS portal and create an app
 

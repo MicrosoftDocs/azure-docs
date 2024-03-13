@@ -71,7 +71,7 @@ This page will walk you through the steps to trigger an alert for one of your AP
 
 1. In the value field enter **javascript:**.
 
-    :::image type="content" source="media/defender-for-apis-validation/postman-keys.png" alt-text="Screenshot that shows where to enter the keys and their values in Postman."::: 
+    :::image type="content" source="media/defender-for-apis-validation/postman-keys.png" alt-text="Screenshot that shows where to enter the keys and their values in Postman.":::
 
 1. Select **Send**
 

@@ -4,7 +4,7 @@ description: Learn about supported configurations and limitations of Oracle virt
 author: jjaygbay1
 ms.service: virtual-machines
 ms.subservice: oracle
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 ms.collection: linux
 ms.topic: article
 ms.date: 04/11/2023

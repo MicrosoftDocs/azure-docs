@@ -5,7 +5,7 @@ keywords: azure app service, web app, windows, oss, java, tomcat, jboss
 ms.devlang: java
 ms.topic: article
 ms.date: 04/12/2019
-ms.custom: seodec18, devx-track-java, devx-track-azurecli, devx-track-extended-java
+ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
 author: cephalin
@@ -13,6 +13,9 @@ ms.author: cephalin
 ---
 
 # Configure a Java app for Azure App Service
+
+> [!NOTE]
+> For Spring applications, we recommend using Azure Spring Apps. However, you can still use Azure App Service as a destination. 
 
 Azure App Service lets Java developers to quickly build, deploy, and scale their Java SE, Tomcat, and JBoss EAP web applications on a fully managed service. Deploy applications with Maven plugins, from the command line, or in editors like IntelliJ, Eclipse, or Visual Studio Code.
 
@@ -1082,6 +1085,85 @@ You don't need to incrementally add instances (scaling out), you can add multipl
 <a id="jboss-eap-hardware-options"></a>
 
 JBoss EAP is only available on the Premium v3 and Isolated v2 App Service Plan types. Customers that created a JBoss EAP site on a different tier during the public preview should scale up to Premium or Isolated hardware tier to avoid unexpected behavior.
+
+## Tomcat Baseline Configuration On App Services
+
+Java developers can customize the server settings, troubleshoot issues, and deploy applications to Tomcat with confidence if they know about the server.xml file and configuration details of Tomcat. Some of these may be:
+* Customizing Tomcat configuration: By understanding the server.xml file and Tomcat's configuration details, developers can fine-tune the server settings to match the needs of their applications.
+* Debugging: When an application is deployed on a Tomcat server, developers need to know the server configuration to debug any issues that may arise. This includes checking the server logs, examining the configuration files, and identifying any errors that might be occurring.
+* Troubleshooting Tomcat issues: Inevitably, Java developers will encounter issues with their Tomcat server, such as performance problems or configuration errors. By understanding the server.xml file and Tomcat's configuration details, developers can quickly diagnose and troubleshoot these issues, which can save time and effort.
+* Deploying applications to Tomcat: To deploy a Java web application to Tomcat, developers need to know how to configure the server.xml file and other Tomcat settings. Understanding these details is essential for deploying applications successfully and ensuring that they run smoothly on the server.
+
+As you provision an App Service with Tomcat to host your Java workload (a WAR file or a JAR file), there are certain settings that you get out of the box for Tomcat configuration. You can refer to the [Official Apache Tomcat Documentation](https://tomcat.apache.org/) for detailed information, including the default configuration for Tomcat Web Server.
+
+Additionally, there are certain transformations that are further applied on top of the server.xml for Tomcat distribution upon start. These are transformations to the Connector, Host, and Valve settings.
+
+Please note that the latest versions of Tomcat will have these server.xml. (8.5.58 and 9.0.38 onward). Older versions of Tomcat do not use transforms and may have different behavior as a result.
+
+### Connector
+
+```xml 
+<Connector port="${port.http}" address="127.0.0.1" maxHttpHeaderSize="16384" compression="on" URIEncoding="UTF-8" connectionTimeout="${site.connectionTimeout}" maxThreads="${catalina.maxThreads}" maxConnections="${catalina.maxConnections}" protocol="HTTP/1.1" redirectPort="8443"/>
+ ```
+* `maxHttpHeaderSize` is set to `16384`
+* `URIEncoding` is set to `UTF-8`
+* `conectionTimeout` is set to `WEBSITE_TOMCAT_CONNECTION_TIMEOUT`, which defaults to `240000`
+* `maxThreads` is set to `WEBSITE_CATALINA_MAXTHREADS`, which defaults to `200`
+* `maxConnections` is set to `WEBSITE_CATALINA_MAXCONNECTIONS`, which defaults to `10000`
+ 
+> [!NOTE]
+> The connectionTimeout, maxThreads and maxConnections settings can be tuned with app settings
+
+Following are example CLI commands that you may use to alter the values of conectionTimeout, maxThreads, or maxConnections:
+
+```azurecli-interactive
+az webapp config appsettings set --resource-group myResourceGroup --name myApp --settings WEBSITE_TOMCAT_CONNECTION_TIMEOUT=120000
+```
+```azurecli-interactive
+az webapp config appsettings set --resource-group myResourceGroup --name myApp --settings WEBSITE_CATALINA_MAXTHREADS=100
+```
+```azurecli-interactive
+az webapp config appsettings set --resource-group myResourceGroup --name myApp --settings WEBSITE_CATALINA_MAXCONNECTIONS=5000
+```
+* Connector uses the address of the container instead of 127.0.0.1
+ 
+### Host
+
+```xml
+<Host appBase="${site.appbase}" xmlBase="${site.xmlbase}" unpackWARs="${site.unpackwars}" workDir="${site.tempdir}" errorReportValveClass="com.microsoft.azure.appservice.AppServiceErrorReportValve" name="localhost" autoDeploy="true">
+```
+
+* `appBase` is set to `AZURE_SITE_APP_BASE`, which defaults to local `WebappsLocalPath`
+* `xmlBase` is set to `AZURE_SITE_HOME`, which defaults to `/site/wwwroot`
+* `unpackWARs` is set to `AZURE_UNPACK_WARS`, which defaults to `true`
+* `workDir` is set to `JAVA_TMP_DIR`, which defaults `TMP`
+* errorReportValveClass uses our custom error report valve
+ 
+### Valve
+
+```xml
+<Valve prefix="site_access_log.${catalina.instance.name}" pattern="%h %l %u %t &quot;%r&quot; %s %b %D %{x-arr-log-id}i" directory="${site.logdir}/http/RawLogs" maxDays="${site.logRetentionDays}" className="org.apache.catalina.valves.AccessLogValve" suffix=".txt"/>
+ ```
+* `directory` is set to `AZURE_LOGGING_DIR`, which defaults to `home\logFiles`
+* `maxDays` is to `WEBSITE_HTTPLOGGING_RETENTION_DAYS`, which defaults to `0` [forever]
+ 
+On Linux, it has all of the same customization, plus:
+ 
+* Adds some error and reporting pages to the valve:
+ ```xml
+                <xsl:attribute name="appServiceErrorPage">
+                    <xsl:value-of select="'${appService.valves.appServiceErrorPage}'"/>
+                </xsl:attribute>
+ 
+                <xsl:attribute name="showReport">
+                    <xsl:value-of select="'${catalina.valves.showReport}'"/>
+                </xsl:attribute>
+                
+                <xsl:attribute name="showServerInfo">
+                    <xsl:value-of select="'${catalina.valves.showServerInfo}'"/>
+                </xsl:attribute>
+ ```
+
 
 ::: zone-end
 

@@ -3,7 +3,7 @@ title: Azure Tables bindings for Azure Functions
 description: Understand how to use Azure Tables bindings in Azure Functions.
 ms.topic: reference
 ms.date: 11/11/2022
-ms.custom: devx-track-csharp, devx-track-python, ignite-2022, devx-track-extended-java, devx-track-js
+ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
  
@@ -52,10 +52,10 @@ Using the .NET CLI:
 
 ```dotnetcli
 # Install the Azure Tables extension
-dotnet add package Microsoft.Azure.WebJobs.Extensions.Tables --version 1.0.0
+dotnet add package Microsoft.Azure.WebJobs.Extensions.Tables
 
 # Update the combined Azure Storage extension (to a version which no longer includes Azure Tables)
-dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 5.0.0
+dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage
 ``` 
 
 [!INCLUDE [functions-bindings-storage-extension-v5-tables-note](../../includes/functions-bindings-storage-extension-v5-tables-note.md)]

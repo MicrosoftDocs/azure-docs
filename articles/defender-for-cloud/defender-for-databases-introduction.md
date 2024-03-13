@@ -1,5 +1,5 @@
 ---
-title: Microsoft Defender for open-source relational databases - the benefits and features
+title: Microsoft Defender for open-source relational databases
 description: Learn about the benefits and features of Microsoft Defender for open-source relational databases such as PostgreSQL, MySQL, and MariaDB
 ms.date: 06/19/2022
 ms.topic: overview
@@ -53,9 +53,7 @@ Threat intelligence enriched security alerts are triggered when there are:
 - **Brute-force attacks** – With the ability to separate simple brute force from brute force on a valid user or a successful brute force
 
 > [!TIP]
-> View the full list of security alerts for database servers [in the alerts reference page](alerts-reference.md#alerts-osrdb).
-
-
+> View the full list of security alerts for database servers [in the alerts reference page](alerts-reference.md#alerts-for-open-source-relational-databases).
 
 ## Next steps
 

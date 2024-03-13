@@ -3,13 +3,11 @@ title: Azure OpenAI Service provisioned throughput
 description: Learn about provisioned throughput and Azure OpenAI. 
 ms.service: azure-ai-openai
 ms.topic: conceptual 
-ms.date: 1/16/2024
-ms.custom: 
+ms.date: 1/16/2024 
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
 ms.author: mbullwin #chrhoder
 recommendations: false
-keywords: 
 ---
 
 # What is provisioned throughput?
@@ -38,6 +36,10 @@ An Azure OpenAI Deployment is a unit of management for a specific OpenAI Model. 
 | Utilization | Provisioned-managed Utilization measure provided in Azure Monitor. |
 | Estimating size | Provided calculator in the studio & benchmarking script. |
 
+## How do I get access to Provisioned?
+
+You need to speak with your Microsoft sales/account team to acquire provisioned throughput. If you don't have a sales/account team, unfortunately at this time, you cannot purchase provisioned throughput.
+
 ## Key concepts
 
 ### Provisioned throughput units
@@ -64,9 +66,18 @@ az cognitiveservices account deployment create \
 
 Provisioned throughput quota represents a specific amount of total throughput you can deploy. Quota in the Azure OpenAI Service is managed at the subscription level. All Azure OpenAI resources within the subscription share this quota. 
 
-Quota is specific to a (deployment type, model, region) triplet and isn't interchangeable. Meaning you can't use quota for GPT-4 to deploy GPT-35-turbo. You can raise a support request to move quota across deployment types, models, or regions but the swap isn't guaranteed.
+Quota is specified in Provisioned throughput units and is specific to a (deployment type, model, region) triplet. Quota isn't interchangeable. Meaning you can't use quota for GPT-4 to deploy GPT-35-turbo. You can raise a support request to move quota across deployment types, models, or regions but the swap isn't guaranteed.
 
 While we make every attempt to ensure that quota is deployable, quota doesn't represent a guarantee that the underlying capacity is available. The service assigns capacity during the deployment operation and if capacity is unavailable the deployment fails with an out of capacity error.
+
+
+### Determining the number of PTUs needed for a workload
+
+PTUs represent an amount of model processing capacity. Similar to your computer or databases, different workloads or requests to the model will consume different amounts of underlying processing capacity. The conversion from call shape characteristics (prompt size, generation size and call rate) to PTUs is complex and non-linear. To simplify this process, you can use the [Azure OpenAI Capacity calculator](https://oai.azure.com/portal/calculator) to size specific workload shapes. 
+
+A few high-level considerations:
+- Generations require more capacity than prompts
+- Larger calls are progressively more expensive to compute. For example, 100 calls of with a 1000 token prompt size will require less capacity than 1 call with 100,000 tokens in the prompt. This also means that the distribution of these call shapes is important in overall throughput. Traffic patterns with a wide distribution that includes some very large calls may experience lower throughput per PTU than a narrower distribution with the same average prompt & completion token sizes. 
 
 
 ### How utilization enforcement works
@@ -87,7 +98,7 @@ We use a variation of the leaky bucket algorithm to maintain utilization below 1
 
     a.	When the current utilization is above 100%, the service returns a 429 code with the `retry-after-ms` header set to the time until utilization is below 100%
      
-    b.	Otherwise, the service estimates the incremental change to utilization required to serve the request by combining prompt tokens and the specified max_tokens in the call.
+    b.	Otherwise, the service estimates the incremental change to utilization required to serve the request by combining prompt tokens and the specified `max_tokens` in the call. If the `max_tokens` parameter is not specified, the service will estimate a value. This estimation can lead to lower concurrency than expected when the number of actual generated tokens is small.  For highest concurrency, ensure that the `max_tokens` value is as close as possible to the true generation size. 
 
 3.	When a request finishes, we now know the actual compute cost for the call. To ensure an accurate accounting, we correct the utilization using the following logic:
 
@@ -96,12 +107,15 @@ We use a variation of the leaky bucket algorithm to maintain utilization below 1
 
 4.	The overall utilization is decremented down at a continuous rate based on the number of PTUs deployed. 
 
-Since calls are accepted until utilization reaches 100%, you're allowed to burst over 100% utilization when first increasing traffic. For sizeable calls and small sized deployments, you might then be over 100% utilization for up to several minutes.
+> [!NOTE]
+> Calls are accepted until utilization reaches 100%. Bursts just over 100% maybe permitted in short periods, but over time, your traffic is capped at 100% utilization.
 
 
 :::image type="content" source="../media/provisioned/utilization.jpg" alt-text="Diagram showing how subsequent calls are added to the utilization." lightbox="../media/provisioned/utilization.jpg":::
 
+#### How many concurrent calls can I have on my deployment?
 
+The number of concurrent calls you can achieve depends on each call's shape (prompt size, max_token parameter, etc). The service will continue to accept calls until the utilization reach 100%. To determine the approximate number of concurrent calls you can model out the maximum requests per minute for a particular call shape in the [capacity calculator](https://oai.azure.com/portal/calculator). If the system generates less than the number of samplings tokens like max_token, it will accept more requests.
 
 ## Next steps
 

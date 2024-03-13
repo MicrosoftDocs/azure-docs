@@ -3,10 +3,9 @@ title: Windows container considerations in Azure Kubernetes Service
 titleSuffix: Azure Kubernetes Service
 description: See the Windows container considerations with Azure Kubernetes Service (AKS).
 ms.topic: article
-ms.date: 12/13/2023
+ms.date: 01/12/2024
 ms.author: schaffererin
 author: schaffererin
-
 ---
 
 # Windows container considerations with Azure Kubernetes Service
@@ -28,7 +27,7 @@ This article covers important considerations to keep in mind when using Windows 
 
 | Feature | Windows considerations |
 |-----------|:-----------|
-| [Cluster creation][cluster-configuration] | • The first system node pool *must* be Linux.<br/> • AKS Windows clusters have a maximum limit of 10 node pools.<br/> • AKS Windows clusters have a maximum limit of 100 nodes in each node pool.<br/> • The Windows Server node pool name has a limit of six characters. |
+| [Cluster creation][cluster-configuration] | • The first system node pool *must* be Linux.<br/> • The maximum number of nodes per cluster is 5000.<br/> • The Windows Server node pool name has a limit of six characters. |
 | [Privileged containers][privileged-containers] | Not supported. The equivalent is **HostProcess Containers (HPC) containers**. |
 | [HPC containers][hpc-containers] | • HostProcess containers are the Windows alternative to Linux privileged containers. For more information, see [Create a Windows HostProcess pod](https://kubernetes.io/docs/tasks/configure-pod-container/create-hostprocess-pod/). |
 | [Azure Network Policy Manager (Azure)][azure-network-policy] | Azure Network Policy Manager doesn't support:<br/> • Named ports<br/> • SCTP protocol<br/> • Negative match labels or namespace selectors (all labels except "debug=true")<br/> • "except" CIDR blocks (a CIDR with exceptions)<br/> • Windows Server 2019<br/> |

@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: conceptual
-ms.date: 06/18/2020
+ms.date: 1/18/2024
 ms.author: eur
 ms.custom: cogserv-non-critical-speech
 ---
@@ -30,7 +30,7 @@ Parameters are information required by the commands to complete a task. In compl
 Completion rules are a series of rules to be executed after the command is ready to be fulfilled, for example, when all the conditions of the rules are satisfied.
 
 ###	Interaction rules
-Interaction rules are additional rules to handle more specific or complex situations. You can add additional validations or configure advanced features such as confirmations or a one-step correction. You can also build your own custom interaction rules.
+Interaction rules are extra rules to handle more specific or complex situations. You can add more validations or configure advanced features such as confirmations or a one-step correction. You can also build your own custom interaction rules.
 
 ## Parameters configuration
 
@@ -42,7 +42,7 @@ A parameter is identified by the name property. You should always give a descrip
 ### Required
 This check box indicates whether a value for this parameter is required for command fulfillment or completion. You must configure responses to prompt the user to provide a value if a parameter is marked as required.
 
-Note that, if you configured a **required parameter** to have a **Default value**, the system will still explicitly prompt for the parameter's value.
+If you configured a **required parameter** to have a **Default value**, the system still prompts for the parameter's value.
 
 ### Type
 Custom Commands supports the following parameter types:
@@ -88,7 +88,7 @@ A rule in Custom Commands is defined by a set of *conditions* that, when met, ex
 Custom Commands supports the following rule categories:
 
 * **Completion rules**: These rules must be executed upon command fulfillment. All the rules configured in this section for which the conditions are true will be executed.
-* **Interaction rules**: These rules can be used to configure additional custom validations, confirmations, and a one-step correction, or to accomplish any other custom dialog logic. Interaction rules are evaluated at each turn in the processing and can be used to trigger completion rules.
+* **Interaction rules**: These rules can be used to configure extra custom validations, confirmations, and a one-step correction, or to accomplish any other custom dialog logic. Interaction rules are evaluated at each turn in the processing and can be used to trigger completion rules.
 
 The different actions configured as part of a rule are executed in the order in which they appear in the authoring portal.
 
@@ -101,7 +101,7 @@ Conditions are the requirements that must be met for a rule to execute. Rules co
 * **All required parameters**: All the parameters that were marked as required have a value.
 * **Updated parameters**: One or more parameter values were updated as a result of processing the current input (utterance or activity).
 * **Confirmation was successful**: The input utterance or activity was a successful confirmation (yes).
-* **Confirmation was denied**: The input utterance or activity was not a successful confirmation (no).
+* **Confirmation was denied**: The input utterance or activity wasn't a successful confirmation (no).
 * **Previous command needs to be updated**: This condition is used in instances when you want to catch a negated confirmation along with an update. Behind the scenes, this condition is configured for when the dialog engine detects a negative confirmation where the intent is the same as the previous turn, and the user has responded with an update.
 
 ### Actions
@@ -121,7 +121,7 @@ Expectations are used to configure hints for the processing of the next user inp
 The post-execution state is the dialog state after processing the current input (utterance or activity). It's of the following types:
 
 * **Keep current state**: Keep current state only.
-* **Complete the command**: Complete the command and no additional rules of the command will be processed.
+* **Complete the command**: Complete the command and no more rules of the command are processed.
 * **Execute completion rules**: Execute all the valid completion rules.
 * **Wait for user's input**: Wait for the next user input.
 

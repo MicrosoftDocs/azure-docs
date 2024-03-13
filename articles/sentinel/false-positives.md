@@ -1,10 +1,10 @@
 ---
 title: Handle false positives in Microsoft Sentinel
 description: Learn how to resolve false positives in Microsoft Sentinel by creating automation rules or modifying analytics rules to specify exceptions.
-author: yelevin
-ms.author: yelevin
+author: batamig
+ms.author: bagol
 ms.topic: how-to
-ms.date: 01/09/2023
+ms.date: 01/15/2024
 ---
 
 # Handle false positives in Microsoft Sentinel
@@ -27,7 +27,6 @@ This article describes two methods for avoiding false positives:
 - **Scheduled analytics rules modifications** permit more detailed and permanent exceptions.
 
 The following table describes characteristics of each method:
-
 
 |Method|Characteristic|
 |-|-|
@@ -140,6 +139,19 @@ You can also do subnet filtering by using a watchlist. For example, in the prece
 ```kusto
 let subnets = _GetWatchlist('subnetallowlist');
 ```
+
+## Example: Manage exceptions for the Microsoft Sentinel solution for SAP® applications
+
+The [Microsoft Sentinel solution for SAP® applications](sap/solution-overview.md) provides functions you can use to exclude users or systems from triggering alerts.
+
+- **Exclude users**.  Use the [**SAPUsersGetVIP**](sap/sap-solution-log-reference.md#sapusersgetvip) function to:
+
+   - Call tags for users you want to exclude from triggering alerts. Tag users in the *SAP_User_Config* watchlist, using asterisks (*) as wildcards to tag all users with a specified naming syntax.
+   - List specific SAP roles and/or profiles you want to exclude from triggering alerts.
+
+- **Exclude systems**. Use functions that support the *SelectedSystemRoles* parameter to determine that only specific types of systems trigger alerts, including only *Production* systems, only *UAT* systems, or both.  
+
+For more information, see [Microsoft Sentinel solution for SAP® applications data reference](sap/sap-solution-log-reference.md).
 
 ## Next steps
 

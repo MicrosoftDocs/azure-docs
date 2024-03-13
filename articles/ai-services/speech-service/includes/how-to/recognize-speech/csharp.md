@@ -45,7 +45,7 @@ You can initialize `SpeechConfig` in a few other ways:
 
 ## Recognize speech from a microphone
 
-To recognize speech by using your device microphone, create an [`AudioConfig`](/dotnet/api/microsoft.cognitiveservices.speech.audio.audioconfig) instance by using the `FromDefaultMicrophoneInput()` method. Then initialize the[`SpeechRecognizer`](/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer) object by passing `audioConfig` and `speechConfig`.
+To recognize speech by using your device microphone, create an [`AudioConfig`](/dotnet/api/microsoft.cognitiveservices.speech.audio.audioconfig) instance by using the `FromDefaultMicrophoneInput()` method. Then initialize the [`SpeechRecognizer`](/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer) object by passing `speechConfig` and `audioConfig`.
 
 ```csharp
 using System;
@@ -271,13 +271,13 @@ The [`SpeechRecognitionLanguage`](/dotnet/api/microsoft.cognitiveservices.speech
 
 ## Language identification
 
-You can use [language identification](../../../language-identification.md?pivots=programming-language-csharp#speech-to-text) with speech to text recognition when you need to identify the language in an audio source and then transcribe it to text.
+You can use [language identification](../../../language-identification.md?pivots=programming-language-csharp#use-speech-to-text) with speech to text recognition when you need to identify the language in an audio source and then transcribe it to text.
 
-For a complete code sample, see [Language identification](../../../language-identification.md?pivots=programming-language-csharp#speech-to-text).
+For a complete code sample, see [Language identification](../../../language-identification.md?pivots=programming-language-csharp#use-speech-to-text).
 
 ## Use a custom endpoint
 
-With [Custom Speech](../../../custom-speech-overview.md), you can upload your own data, test and train a custom model, compare accuracy between models, and deploy a model to a custom endpoint. The following example shows how to set a custom endpoint.
+With [custom speech](../../../custom-speech-overview.md), you can upload your own data, test and train a custom model, compare accuracy between models, and deploy a model to a custom endpoint. The following example shows how to set a custom endpoint.
 
 ```csharp
 var speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");

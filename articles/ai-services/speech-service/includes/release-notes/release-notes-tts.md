@@ -2,9 +2,23 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 12/1/2023
+ms.date: 2/7/2024
 ms.author: eur
+ms.custom: references_regions
 ---
+
+### February 2024 release
+
+#### OpenAI voices
+
+The Azure AI Speech service supports OpenAI text to speech voices in the following regions: North Central US and Sweden Central. Like Azure AI Speech voices, OpenAI text to speech voices deliver high-quality speech synthesis to convert written text into natural sounding spoken audio. This unlocks a wide range of possibilities for immersive and interactive user experiences. For more information, see [What are OpenAI text to speech voices?](../../openai-voices.md). 
+
+> [!NOTE]
+> OpenAI text to speech voices are also available in [Azure OpenAI Service](../../../openai/reference.md#text-to-speech). 
+
+#### Personal voice
+
+The personal voice feature now supports `DragonLatestNeural` and `PhoenixLatestNeural` models. These new models enhance the naturalness of synthesized voices, better resembling the speech characteristics of the voice in the prompt. For more details, refer to [Integrate personal voice in your application](../../personal-voice-how-to-use.md#integrate-personal-voice-in-your-application).
 
 ### December 2023 release
 
@@ -15,6 +29,40 @@ The custom voice API is available for creating and managing [professional](../..
 #### Custom neural voice
 
 The newly trained voice models now support 48 kHz sample rate, irrespective of the model version. For previously trained voice models, it's necessary to [upgrade the engine version](../../how-to-custom-voice-create-voice.md?tabs=neural#update-engine-version-for-your-voice-model) to at least **2023.11.13.0** version to enhance the sample rate to 48 kHz.
+
+#### Prebuilt neural voice
+- Introducing new multilingual voices for public preview:
+
+| Locale (BCP-47) | Language | Text to speech voices |
+| ----- | ----- | ----- |
+| `de-DE` | German (Germany) | `de-DE-FlorianMultilingualNeural` (Male) |
+| `de-DE` | German (Germany) | `de-DE-SeraphinaMultilingualNeural` (Female) |
+| `en-US` | English (United States) | `en-US-AvaMultilingualNeural` (Female) |
+| `en-US` | English (United States) | `en-US-EmmaMultilingualNeural` (Female) |
+| `fr-FR` | French (France) | `fr-FR-RemyMultilingualNeural` (Male) |
+| `en-US` | English (United States) | `en-US-BrianMultilingualNeural` (Male) |
+| `en-US` | English (United States) | `en-US-AndrewMultilingualNeural` (Male) |
+| `fr-FR` | French (France) | `fr-FR-VivienneMultilingualNeural` (Female) |
+| `zh-CN` | Chinese (Mandarin, Simplified) | `zh-CN-XiaoxiaoMultilingualNeural` (Female) |
+| `zh-CN` | Chinese (Mandarin, Simplified) | `zh-CN-XiaochenMultilingualNeural` (Female) |
+| `zh-CN` | Chinese (Mandarin, Simplified) | `zh-CN-YunyiMultilingualNeural` (Male) |
+
+- Introducing new `zh-CN-XiaoxiaoDialectsNeural` voices for public preview which support several Chinese dialects and accents:
+
+| Voicename | Secondary language | Dialect/Accent |
+| ----- | ----- | ----- |
+| `zh-CN-XiaoxiaoDialectsNeural` | `zh-CN-shaanxi` | Chinese (Zhongyuan Mandarin Shaanxi, Simplified) |
+|  | `zh-CN-sichuan` | Chinese (Southwestern Mandarin, Simplified) |
+|  | `zh-CN-shanxi` | Chinese (Shanxi Accent Mandarin, Simplified) |
+|  | `nan-CN` | Chinese (Southern Min, Simplified) |
+|  | `zh-CN-anhui` | Chinese (Jianghuai Mandarin Anhui, Simplified) |
+|  | `zh-CN-hunan` | Chinese (Hunan Accent Mandarin, Simplified) |
+|  | `zh-CN-gansu` | Chinese (Lanyin Mandarin Gansu, Simplified) |
+|  | `zh-CN-shandong` | Chinese (Jilu Mandarin, Simplified) |
+|  | `zh-CN-henan` | Chinese (Zhongyuan Mandarin Henan, Simplified) |
+|  | `zh-CN-liaoning` | Chinese (Northeastern Mandarin, Simplified) |
+|  | `zh-TW` | Chinese (Taiwanese Mandarin, Traditional) |
+
 
 ### November 2023 release
 

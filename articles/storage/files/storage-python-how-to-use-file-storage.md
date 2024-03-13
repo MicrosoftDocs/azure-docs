@@ -38,7 +38,7 @@ Learn the basics of using Python to develop apps or services that use Azure File
 > [!NOTE]
 > If you are upgrading from the Azure Storage SDK for Python version 0.36 or earlier, uninstall the older SDK using `pip uninstall azure-storage` before installing the latest package.
 
-The [Azure Files client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-share) requires Python 3.7+.
+The [Azure Files client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-share) requires Python 3.8+.
 
 ## Install via PyPI
 

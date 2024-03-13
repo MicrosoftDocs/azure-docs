@@ -4,7 +4,6 @@ description: Generalized or deprovision VM to remove machine specific informatio
 author: ju-shim
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 03/15/2023
 ms.author: jushiman
@@ -12,6 +11,9 @@ ms.custom: portal
 ---
 
 # Remove machine specific information by deprovisioning or generalizing a VM before creating an image
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
 
 Generalizing or deprovisioning a VM is not necessary for creating an image in an [Azure Compute Gallery](shared-image-galleries.md#generalized-and-specialized-images) unless you specifically want to create an image that has no machine specific information, like user accounts. Generalizing is still required when creating a managed image outside of a gallery.
 

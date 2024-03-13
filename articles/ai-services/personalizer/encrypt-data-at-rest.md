@@ -6,7 +6,7 @@ author: jcodella
 manager: venkyv
 ms.service: azure-ai-personalizer
 ms.topic: conceptual
-ms.date: 06/02/2022
+ms.date: 01/19/2024
 ms.author: jacodel
 ms.custom: kr2b-contr-experiment
 #Customer intent: As a user of the Personalizer service, I want to learn how encryption at rest works.

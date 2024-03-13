@@ -13,6 +13,8 @@ ms.service: azure-communication-services
 
 # What is Azure Communication Services?
 
+[!INCLUDE [Survey Request](./includes/survey-request.md)]
+
 Azure Communication Services are cloud-based services with REST APIs and client library SDKs available to help you integrate communication into your applications. You can add communication to your applications without being an expert in underlying technologies such as media encoding or telephony. Azure Communication Service is available in multiple [Azure geographies](concepts/privacy.md) and Azure for government.
 
 >[!VIDEO https://www.youtube.com/embed/chMHVHLFcao]
@@ -34,6 +36,8 @@ Scenarios for Azure Communication Services include:
 - **Consumer to Consumer (C2C).** Build engaging consumer-to-consumer interaction with voice, video, and rich text chat. Any type of user interface can be built on Azure Communication Services SDKs, or use complete application samples and an open-source UI toolkit to help you get started quickly.
 
 To learn more, check out our [Microsoft Mechanics video](https://www.youtube.com/watch?v=apBX7ASurgM) or the resources linked next.
+
+
 
 ## Common scenarios
 

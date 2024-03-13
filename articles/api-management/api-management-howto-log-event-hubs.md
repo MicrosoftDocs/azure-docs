@@ -189,7 +189,7 @@ Use the API Management [REST API](/rest/api/apimanagement/current-preview/logger
 {
   "properties": {
     "loggerType": "azureEventHub",
-    "description": "adding a new logger with system assigned managed identity",
+    "description": "adding a new logger with user-assigned managed identity",
     "credentials": {
          "endpointAddress":"<EventHubsNamespace>.servicebus.windows.net",
          "identityClientId":"<ClientID>",

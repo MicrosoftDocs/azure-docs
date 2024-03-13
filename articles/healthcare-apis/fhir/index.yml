@@ -6,11 +6,10 @@ summary: FHIR service is a managed, standards-based, compliant API for clinical 
 metadata:
   title: Azure Health Data Services FHIR service
   description: FHIR service is a managed, standards-based, compliant API for clinical health data that enables solutions for actionable analytics and machine learning. 
-  services: healthcare-apis
   ms.service: healthcare-apis
   ms.subservice: fhir
   ms.topic: landing-page 
-  ms.collection: collection
+
   author: msjasteppe
   ms.author: jasteppe
   ms.date: 09/01/2023

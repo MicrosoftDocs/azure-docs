@@ -5,13 +5,13 @@ services: payment-hsm
 author: msmbaldwin
 ms.service: payment-hsm
 ms.topic: overview
-ms.date: 09/12/2022
+ms.date: 01/30/2024
 ms.author: mbaldwin
 
 ---
 # Tutorial: Remove a commissioned payment HSM
 
-Before deleting a payment HSM that has been commissioned, it must first be decommissioned.
+Before deleting a commissioned payment HSM, it must first be decommissioned.
 
 In this tutorial, you learn how to:
 
@@ -21,7 +21,7 @@ In this tutorial, you learn how to:
 
 ## Remove a payment HSM from the payShield manager
 
-Navigate to the payShield manager, following the steps in [Access the payShield manager](access-payshield-manager.md#access-the-payshield-manager). From there, select "Remove device".
+Navigate to the payShield manager, following the steps in [Access the payShield manager](access-payshield-manager.md). From there, select "Remove device".
 
 :::image type="content" source="./media/payshield-manager-remove-device.png" alt-text="Screenshot of the payShield manager for Azure Payment HSM, remove device screen.":::
 
@@ -30,7 +30,7 @@ Navigate to the payShield manager, following the steps in [Access the payShield 
 
 ## Delete the payment HSM
 
-Once the payment HSM has been released, you can delete it using Azure CLI or Azure PowerShell.
+Once the payment HSM is released, you can delete it using Azure CLI or Azure PowerShell.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -46,7 +46,7 @@ Afterward, you can verify that the payment HSM was deleted with the Azure CLI [a
 az dedicated-hsm show --resource-group "myResourceGroup" --name "myPaymentHSM"
 ```
 
-This will return a "resource not found" error.
+This returns a "resource not found" error.
 
 # [Azure PowerShell](#tab/azure-powershell)
 
@@ -62,7 +62,7 @@ Afterward, you can verify that the payment HSM was deleted with the Azure PowerS
 Get-AzDedicatedHsm -Name "myPaymentHSM" -ResourceGroup "myResourceGroup"
 ```
 
-This will return a "resource not found" error.
+This returns a "resource not found" error.
 
 ---
 

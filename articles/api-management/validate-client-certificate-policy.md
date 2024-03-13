@@ -35,7 +35,7 @@ For more information about custom CA certificates and certificate authorities, s
     validate-not-after="true | false" 
     ignore-error="true | false">
     <identities>
-        <identity 
+        <identity
             thumbprint="certificate thumbprint"
             serial-number="certificate serial number"
             common-name="certificate common name"
@@ -43,7 +43,7 @@ For more information about custom CA certificates and certificate authorities, s
             dns-name="certificate DNS name"
             issuer-subject="certificate issuer"
             issuer-thumbprint="certificate issuer thumbprint"
-            issuer-certificate-id="certificate identifier" />
+            issuer-certificate-id="certificate identifier"/>
     </identities>
 </validate-client-certificate> 
 ```

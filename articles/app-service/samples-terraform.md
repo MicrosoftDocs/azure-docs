@@ -10,7 +10,6 @@ ms.date: 11/18/2022
 author: ericgre
 ms.author: ericg
 ms.service: app-service
-ms.workload: web
 ---
 # Terraform samples for Azure App Service
 

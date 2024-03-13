@@ -1,8 +1,6 @@
 ---
 title: Guidance for throttled requests in Azure Resource Graph
 description: Learn to group, stagger, paginate, and query in parallel to avoid requests being throttled in Azure Resource Graph.
-author: davidsmatlak
-ms.author: davidsmatlak
 ms.date: 01/04/2024
 ms.topic: conceptual
 ms.custom: devx-track-csharp

@@ -5,11 +5,11 @@ description: Learn how Azure Machine Learning's AutoML creates calendar and holi
 services: machine-learning
 author: nivi09
 ms.author: nivmishra
-ms.reviewer: ssalgado 
+ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: conceptual
-ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack, sdkv1, event-tier1-build-2022
+ms.custom: automl, sdkv1
 ms.date: 08/15/2023
 ---
 

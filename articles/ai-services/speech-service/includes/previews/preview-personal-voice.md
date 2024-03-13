@@ -1,12 +1,12 @@
 ---
- title: include file
- description: include file
- author: eur
- ms.author: eric-urban
- ms.service: azure-ai-services
- ms.topic: include
+title: include file
+description: include file
+author: eric-urban
+ms.author: eur
+ms.service: azure-ai-speech
+ms.topic: include
 ms.date: 1/10/2024
- ms.custom: include
+ms.custom: include
 ---
 
 > [!NOTE]

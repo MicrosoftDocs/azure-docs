@@ -2,15 +2,11 @@
 title: Check Azure resource usage against limits | Microsoft Docs
 description: Learn how to check your Azure resource usage against Azure subscription limits.
 services: networking
-documentationcenter: na
 author: mbender-ms
 ms.author: mbender
-tags: azure-resource-manager
 ms.custom: devx-track-azurecli
 ms.service: azure
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 06/05/2018
 ---
 # Check resource usage against limits

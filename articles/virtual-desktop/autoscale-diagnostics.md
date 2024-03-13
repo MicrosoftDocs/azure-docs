@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 11/01/2023
 ms.author: helohr
-manager: femila
 ---
 # Set up diagnostics for autoscale in Azure Virtual Desktop
 

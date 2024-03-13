@@ -1,13 +1,12 @@
 ---
 title: include file
 description: supported connectors for Lookup Activity
-services: data-factory
 author: jianleishen
 ms.service: data-factory
 ms.topic: include
 ms.date: 10/20/2023
 ms.author: jianleishen
-ms.custom: include file, ignite-2022
+ms.custom: include file
 ---
 
 | Category | Data store |

@@ -4,7 +4,7 @@ description: Learn about bring-your-own-subscription images for Red Hat Enterpri
 author: ju-shim
 ms.service: virtual-machines
 ms.subservice: redhat
-ms.custom: devx-track-azurecli, devx-track-linux, devx-track-azurepowershell
+ms.custom: devx-track-azurecli, linux-related-content, devx-track-azurepowershell
 ms.collection: linux
 ms.topic: article
 ms.date: 06/10/2020
@@ -13,7 +13,7 @@ ms.author: jushiman
 
 # Red Hat Enterprise Linux bring-your-own-subscription Gold Images in Azure
 
-**Applies to:** :heavy_check_mark: Linux VMs 
+**Applies to:** :heavy_check_mark: Linux VMs
 
 Red Hat Enterprise Linux (RHEL) images are available in Azure via a pay-as-you-go or bring-your-own-subscription (BYOS) (Red Hat Gold Image) model. This article provides an overview of the Red Hat Gold Images in Azure.
 
@@ -76,7 +76,7 @@ The following instructions walk you through the initial deployment process for a
     ```
 
 1. Accept the image terms.
-  
+
     Option 1
     ```azurecli
     az vm image terms accept --publisher redhat --offer rhel-byos --plan <SKU value here> -o=jsonc
@@ -87,7 +87,7 @@ The following instructions walk you through the initial deployment process for a
     ```
     Option2
     ```azurecli
-    az vm image terms accept --urn <SKU value here> 
+    az vm image terms accept --urn <SKU value here>
     ```
     Example
     ```azurecli
@@ -196,7 +196,7 @@ The following script is an example. Replace the resource group, location, VM nam
     $cred = New-Object System.Management.Automation.PSCredential("azureuser",$securePassword)
     Get-AzMarketplaceTerms -Publisher redhat -Product rhel-byos -Name rhel-lvm87
     Set-AzMarketplaceTerms -Accept  -Publisher redhat -Product rhel-byos -Name rhel-lvm87
-	
+
     # Create a resource group
     New-AzResourceGroup -Name $resourceGroup -Location $location
 
@@ -205,7 +205,7 @@ The following script is an example. Replace the resource group, location, VM nam
 
     # Create a virtual network
     $vnet = New-AzVirtualNetwork -ResourceGroupName $resourceGroup -Location $location -Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
-	
+
     # Create a public IP address and specify a DNS name
     $pip = New-AzPublicIpAddress -ResourceGroupName $resourceGroup -Location $location -Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
 
@@ -221,7 +221,7 @@ The following script is an example. Replace the resource group, location, VM nam
     # Create a virtual machine configuration
     $vmConfig = New-AzVMConfig -VMName $vmName -VMSize Standard_D3_v2 |
     Set-AzVMOperatingSystem -Linux -ComputerName $vmName -Credential $cred |
-    Set-AzVMSourceImage -PublisherName redhat -Offer rhel-byos -Skus rhel-lvm87 -Version latest | 
+    Set-AzVMSourceImage -PublisherName redhat -Offer rhel-byos -Skus rhel-lvm87 -Version latest |
 	Add-AzVMNetworkInterface -Id $nic.Id
     Set-AzVMPlan -VM $vmConfig -Publisher redhat -Product rhel-byos -Name "rhel-lvm87"
 

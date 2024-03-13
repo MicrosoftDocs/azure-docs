@@ -2,8 +2,8 @@
 title: Enable monitoring for Azure Kubernetes Service (AKS) cluster
 description: Learn how to enable Container insights and Managed Prometheus on an Azure Kubernetes Service (AKS) cluster.
 ms.topic: conceptual
-ms.date: 11/14/2023
-ms.custom: ignite-2022
+ms.date: 03/11/2024
+ms.custom: devx-track-azurecli
 ms.reviewer: aul
 ---
 
@@ -26,7 +26,6 @@ This article provides onboarding guidance for the following types of clusters. A
 
 - [Azure Kubernetes clusters (AKS)](../../aks/intro-kubernetes.md)
 - [Arc-enabled Kubernetes clusters](../../azure-arc/kubernetes/overview.md)
-- [AKS hybrid clusters (preview)](/azure/aks/hybrid/aks-hybrid-options-overview)
 
 ## Prerequisites
 
@@ -48,7 +47,7 @@ This article provides onboarding guidance for the following types of clusters. A
   - Prerequisites for [Azure Arc-enabled Kubernetes cluster extensions](../../azure-arc/kubernetes/extensions.md#prerequisites).
   - Verify the [firewall requirements](kubernetes-monitoring-firewall.md) in addition to the [Azure Arc-enabled Kubernetes network requirements](../../azure-arc/kubernetes/network-requirements.md).
   - If you previously installed monitoring for AKS, ensure that you have [disabled monitoring](kubernetes-monitoring-disable.md) before proceeding to avoid issues during the extension install.
-  - If you previously installed monitoring on a cluster using a script without cluster extensions, follow the instructions at [Disable Container insights on your hybrid Kubernetes cluster](container-insights-optout-hybrid.md) to delete this Helm chart.
+  - If you previously installed monitoring on a cluster using a script without cluster extensions, follow the instructions at [Disable monitoring of your Kubernetes cluster](kubernetes-monitoring-disable.md) to delete this Helm chart.
 
 
 
@@ -352,7 +351,7 @@ az aks enable-addons -a monitoring -n <cluster-name> -g <cluster-resource-group-
 **Example**
 
 ```azurecli
-az aks enable-addons -a monitoring -n <cluster-name> -g <cluster-resource-group-name> --workspace-resource-id "/subscriptions/my-subscription/resourceGroups/my-resource-group/providers/Microsoft.OperationalInsights/workspaces/my-workspace"
+az aks enable-addons -a monitoring -n "my-cluster" -g "my-resource-group" --workspace-resource-id "/subscriptions/my-subscription/resourceGroups/my-resource-group/providers/Microsoft.OperationalInsights/workspaces/my-workspace"
 ```
 
 
@@ -371,25 +370,35 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 ### Use advanced configuration settings
 az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings  amalogs.resources.daemonset.limits.cpu=150m amalogs.resources.daemonset.limits.memory=600Mi amalogs.resources.deployment.limits.cpu=1 amalogs.resources.deployment.limits.memory=750Mi
 
-### On Azure Stack Edge
-az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings amalogs.logsettings.custommountpath=/home/data/docker
+### With custom mount path for container stdout & stderr logs
+### Custom mount path not required for Azure Stack Edge version > 2318. Custom mount path must be /home/data/docker for Azure Stack Edge cluster with version <= 2318
+az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings amalogs.logsettings.custommountpath=<customMountPath>
 
 ```
+
+See the [resource requests and limits section of Helm chart](https://github.com/microsoft/Docker-Provider/blob/ci_prod/charts/azuremonitor-containers/values.yaml) for the available configuration settings.
 
 
 **Example**
 
 ```azurecli
-az aks enable-addons -a monitoring -n my-cluster -g my-resource-group --workspace-resource-id "/subscriptions/my-subscription/resourceGroups/my-resource-group/providers/Microsoft.OperationalInsights/workspaces/my-workspace"
+az k8s-extension create --name azuremonitor-containers --cluster-name "my-cluster" --resource-group "my-resource-group" --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings logAnalyticsWorkspaceResourceID="/subscriptions/my-subscription/resourceGroups/my-resource-group/providers/Microsoft.OperationalInsights/workspaces/my-workspace"
 ```
 
-
-See the [resource requests and limits section of Helm chart](https://github.com/microsoft/Docker-Provider/blob/ci_prod/charts/azuremonitor-containers/values.yaml) for the available configuration settings.
+**Arc-enabled cluster with forward proxy**
 
 If the cluster is configured with a forward proxy, then proxy settings are automatically applied to the extension. In the case of a cluster with AMPLS + proxy, proxy config should be ignored. Onboard the extension with the configuration setting `amalogs.ignoreExtensionProxySettings=true`.
 
 ```azurecli
 az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings amalogs.ignoreExtensionProxySettings=true
+```
+
+**Arc-enabled cluster with ARO or OpenShift or Windows nodes**
+
+Managed identity authentication is not supported for Arc-enabled Kubernetes clusters with ARO (Azure Red Hat OpenShift) or OpenShift or Windows nodes. Use legacy authentication by specifying `amalogs.useAADAuth=false` as in the following example.
+
+```azurecli
+az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings amalogs.useAADAuth=false
 ```
 
 **Delete extension instance**
@@ -398,34 +407,6 @@ The following command only deletes the extension instance, but doesn't delete th
 
 ```azurecli
 az k8s-extension delete --name azuremonitor-containers --cluster-type connectedClusters --cluster-name <cluster-name> --resource-group <resource-group>
-```
-
-#### AKS hybrid cluster
-
-
-```azurecli
-### Use default Log Analytics workspace
-az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type provisionedclusters --cluster-resource-provider "microsoft.hybridcontainerservice" --extension-type Microsoft.AzureMonitor.Containers --configuration-settings amalogs.useAADAuth=true
-
-### Use existing Log Analytics workspace
-az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type provisionedclusters --cluster-resource-provider "microsoft.hybridcontainerservice" --extension-type Microsoft.AzureMonitor.Containers --configuration-settings amalogs.useAADAuth=true --configuration-settings logAnalyticsWorkspaceResourceID=<workspace-resource-id>
-
-```
-
-See the [resource requests and limits section of Helm chart](https://github.com/microsoft/Docker-Provider/blob/ci_prod/charts/azuremonitor-containers/values.yaml) for the available configuration settings.
-
-**Example**
-
-```azurecli
-az aks enable-addons -a monitoring -n <cluster-name> -g <cluster-resource-group-name> --workspace-resource-id "/subscriptions/my-subscription/resourceGroups/my-resource-group/providers/Microsoft.OperationalInsights/workspaces/my-workspace"
-```
-
-**Delete extension instance**
-
-The following command only deletes the extension instance, but doesn't delete the Log Analytics workspace. The data in the Log Analytics resource is left intact.
-
-```azurecli
-az k8s-extension delete --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type provisionedclusters --cluster-resource-provider "microsoft.hybridcontainerservice" --name azuremonitor-containers --yes
 ```
 
 ### [Azure Resource Manager](#tab/arm)
@@ -640,6 +621,8 @@ As of version 6.4.0-main-02-22-2023-3ee44b9e of the Managed Prometheus addon con
    * `memory`
    * `process`
    * `cpu_info`
+   
+   For more collectors, please see [Prometheus exporter for Windows metrics](https://github.com/prometheus-community/windows_exporter#windows_exporter).
 
    Deploy the [windows-exporter-daemonset YAML](https://github.com/prometheus-community/windows_exporter/blob/master/kubernetes/windows-exporter-daemonset.yaml) file:
 
@@ -652,7 +635,7 @@ As of version 6.4.0-main-02-22-2023-3ee44b9e of the Managed Prometheus addon con
 
    * If onboarding using the CLI, include the option `--enable-windows-recording-rules`.
    * If onboarding using an ARM template, Bicep, or Azure Policy, set `enableWindowsRecordingRules` to `true` in the parameters file.
-   * If the cluster is already onboarded, use [this ARM template](https://github.com/Azure/prometheus-collector/blob/kaveesh/windows_recording_rules/AddonArmTemplate/WindowsRecordingRuleGroupTemplate/WindowsRecordingRules.json) and [this parameter file](https://github.com/Azure/prometheus-collector/blob/kaveesh/windows_recording_rules/AddonArmTemplate/WindowsRecordingRuleGroupTemplate/WindowsRecordingRulesParameters.json) to create the rule groups.
+   * If the cluster is already onboarded, use [this ARM template](https://github.com/Azure/prometheus-collector/blob/main/AddonArmTemplate/WindowsRecordingRuleGroupTemplate/WindowsRecordingRules.json) and [this parameter file](https://github.com/Azure/prometheus-collector/blob/main/AddonArmTemplate/WindowsRecordingRuleGroupTemplate/WindowsRecordingRulesParameters.json) to create the rule groups.
 
 
 
@@ -719,37 +702,37 @@ The number of pods should be equal to the number of Linux nodes on the cluster. 
 
 ```output
 User@aksuser:~$ kubectl get ds ama-logs --namespace=kube-system
-NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
-ama-logs   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
+NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
+ama-logs   2         2         2         2            2           <none>          1d
 ```
 
 **Verify that Windows nodes were deployed properly**
 
 ```
-kubectl get ds ama-metrics-win-node --namespace=kube-system
+kubectl get ds ama-logs-windows --namespace=kube-system
 ```
 
 The number of pods should be equal to the number of Windows nodes on the cluster. The output should resemble the following example:
 
 ```output
 User@aksuser:~$ kubectl get ds ama-logs-windows --namespace=kube-system
-NAME                   DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                   AGE
-ama-logs-windows           2         2         2         2            2           beta.kubernetes.io/os=windows   1d
+NAME                   DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR     AGE
+ama-logs-windows           2         2         2         2            2       <none>            1d
 ```
 
 
 **Verify deployment of the Container insights solution**
 
 ```
-kubectl get deployment ama-logs-rs -n=kube-system
+kubectl get deployment ama-logs-rs --namespace=kube-system
 ```
 
 The output should resemble the following example:
 
 ```output
-User@aksuser:~$ kubectl get deployment ama-logs-rs -n=kube-system
-NAME       DESIRED   CURRENT   UP-TO-DATE   AVAILABLE    AGE
-ama-logs-rs   1         1         1            1            3h
+User@aksuser:~$ kubectl get deployment ama-logs-rs --namespace=kube-system
+NAME          READY   UP-TO-DATE   AVAILABLE   AGE
+ama-logs-rs   1/1     1            1           24d
 ```
 
 **View configuration with CLI**

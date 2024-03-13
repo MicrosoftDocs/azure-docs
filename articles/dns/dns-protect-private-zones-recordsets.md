@@ -245,7 +245,7 @@ Azure PowerShell
 $lvl = "<lock level>"
 $lnm = "<lock name>"
 $rnm = "<zone name>/<record set name>"
-$rty = "Microsoft.Network/privateDnsZones"
+$rty = "Microsoft.Network/privateDnsZones/<record type>"
 $rsg = "<resource group name>"
 
 New-AzResourceLock -LockLevel $lvl -LockName $lnm -ResourceName $rnm -ResourceType $rty -ResourceGroupName $rsg

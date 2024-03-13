@@ -2,7 +2,7 @@
 title: Application Insights logging with .NET
 description: Learn how to use Application Insights with the ILogger interface in .NET.
 ms.topic: conceptual
-ms.date: 08/11/2023
+ms.date: 01/31/2024
 ms.devlang: csharp
 ms.custom: devx-track-dotnet
 ms.reviewer: mmcc

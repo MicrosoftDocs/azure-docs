@@ -14,6 +14,9 @@ ms.custom: devx-track-js
 ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+#Customer Intent: As a developer customizing the user interface of an application in Azure Active Directory B2C, I want to enable JavaScript and page layout versions, so that I can create a more interactive and customized user experience for my users.
+
 ---
 
 # Enable JavaScript and page layout versions in Azure Active Directory B2C

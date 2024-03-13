@@ -35,6 +35,8 @@ items:
     href: data-factory-tutorials.md
   - name: Copy and ingest data
     items:
+    - name: Copy data to and from a Fabric Lakehouse
+      href: /fabric/data-factory/how-to-ingest-data-into-fabric-from-azure-data-factory?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
     - name: From Azure Blob Storage to Azure SQL Database
       items:
       - name: Copy data tool
@@ -308,6 +310,8 @@ items:
     href: concepts-data-redundancy.md
 - name: How-to guides
   items:
+  - name: Create a data factory in UI
+    href: quickstart-create-data-factory.md
   - name: Create Data Factory Programmatically
     items:
     - name: Create data factory - Azure CLI
@@ -470,7 +474,11 @@ items:
     - name: Google Ads
       href: connector-google-adwords.md
     - name: Google BigQuery
-      href: connector-google-bigquery.md
+      items:
+      - name: Google BigQuery
+        href: connector-google-bigquery.md
+      - name: Google BigQuery (Legacy)
+        href: connector-google-bigquery-legacy.md
     - name: Google Cloud Storage
       href: connector-google-cloud-storage.md
     - name: Google Sheets
@@ -509,6 +517,8 @@ items:
       href: connector-microsoft-access.md
     - name: Microsoft Fabric Lakehouse
       href: connector-microsoft-fabric-lakehouse.md
+    - name: Microsoft Fabric Warehouse
+      href: connector-microsoft-fabric-warehouse.md
     - name: MongoDB
       href: connector-mongodb.md
       items:
@@ -555,9 +565,16 @@ items:
       href: connector-rest.md
       displayName: timeout
     - name: Salesforce
-      href: connector-salesforce.md
+      items:
+      - name: Salesforce
+        href: connector-salesforce.md
+      - name: Salesforce (legacy)
+        href: connector-salesforce-legacy.md
     - name: Salesforce Service Cloud
       href: connector-salesforce-service-cloud.md
+      items:
+      - name: Salesforce Service Cloud (legacy)
+        href: connector-salesforce-service-cloud-legacy.md
     - name: Salesforce Marketing Cloud
       href: connector-salesforce-marketing-cloud.md
     - name: SAP Business Warehouse Open Hub
@@ -591,7 +608,11 @@ items:
     - name: Smartsheet
       href: connector-smartsheet.md
     - name: Snowflake
-      href: connector-snowflake.md
+      items:
+      - name: Snowflake
+        href: connector-snowflake.md
+      - name: Snowflake (legacy)
+        href: connector-snowflake-legacy.md
     - name: Spark
       href: connector-spark.md
     - name: SQL Server
@@ -1220,6 +1241,9 @@ items:
       - name: FTP, SFTP, and HTTP
         href: connector-troubleshoot-ftp-sftp-http.md
         displayName: troubleshooting
+      - name: Google Ads
+        href: connector-troubleshoot-google-ads.md
+        displayName: troubleshooting      
       - name: Hive
         href: connector-troubleshoot-hive.md
         displayName: troubleshooting

@@ -1,10 +1,9 @@
 ---
-title: Troubleshoot Azure Load Balancer outbound connectivity issues  
+title: Troubleshoot Azure Load Balancer outbound connectivity issues
 description: Learn troubleshooting guidance for outbound connections in Azure Load Balancer. This includes issues of SNAT exhaustion and connection timeouts.
 services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
-ms.custom: ignite-2022
 ms.topic: troubleshooting
 ms.date: 08/24/2023
 ms.author: mbender

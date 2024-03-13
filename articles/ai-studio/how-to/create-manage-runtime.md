@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 2/22/2024
 ms.reviewer: eur
 ms.author: eur
 author: eric-urban
@@ -56,7 +56,7 @@ Automatic is the default option for a runtime. You can start an automatic runtim
 
 1. Sign in to [Azure AI Studio](https://ai.azure.com) and select your project from the **Build** page. If you don't have a project, create one.
 
-1. On the collapsible left menu, select **Settings**.
+1. On the collapsible left menu, select **AI project settings**.
 
 1. In the **Compute instances** section, select **View all**.
 
@@ -98,7 +98,8 @@ Automatic is the default option for a runtime. You can start an automatic runtim
 
 On a flow page, you can use the following options to manage an automatic runtime:
 
-- **Install packages** triggers `pip install -r requirements.txt` in the flow folder. The process can take a few minutes, depending on the packages that you install.
+- **Install packages** Open `requirements.txt` in prompt flow UI, you can add packages in it.
+- **View installed packages** shows the packages that are installed in the runtime. It includes the packages baked to base image and packages specify in the `requirements.txt` file in the flow folder.
 - **Reset** deletes the current runtime and creates a new one with the same environment. If you encounter a package conflict, you can try this option.
 - **Edit** opens the runtime configuration page, where you can define the VM side and the idle time for the runtime.
 - **Stop** deletes the current runtime. If there's no active runtime on the underlying compute, the compute resource is also deleted.
@@ -139,6 +140,18 @@ If you want to use a private feed in Azure DevOps, follow these steps:
 
     :::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-advanced-setting-msi.png" alt-text="Screenshot that shows the toggle for using a workspace user-assigned managed identity." lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-advanced-setting-msi.png":::
 
+#### Change the base image for automatic runtime (preview)
+
+By default, we use the latest prompt flow image as the base image. If you want to use a different base image, you need build your own base image, this docker image should be built from prompt flow base image that is `mcr.microsoft.com/azureml/promptflow/promptflow-runtime-stable:<newest_version>`. If possible use the [latest version of the base image](https://mcr.microsoft.com/v2/azureml/promptflow/promptflow-runtime-stable/tags/list). To use the new base image, you need to reset the runtime via the `reset` command. This process takes several minutes as it pulls the new base image and reinstalls packages.
+
+:::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-creation-automatic-image-flow-dag.png" alt-text="Screenshot of actions for customizing a base image for an automatic runtime on a flow page." lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-creation-automatic-image-flow-dag.png":::
+
+```yaml
+environment:
+    image: <your-custom-image>
+    python_requirements_txt: requirements.txt
+```
+
 ### Update a compute instance runtime on a runtime page
 
 Azure AI Studio gets regular updates to the base image (`mcr.microsoft.com/azureml/promptflow/promptflow-runtime-stable`) to include the latest features and bug fixes. To get the best experience and performance, periodically update your runtime to the [latest version](https://mcr.microsoft.com/v2/azureml/promptflow/promptflow-runtime-stable/tags/list).
@@ -146,6 +159,17 @@ Azure AI Studio gets regular updates to the base image (`mcr.microsoft.com/azure
 Go to the page for runtime details and select **Update**. On the **Edit compute instance runtime** pane, you can update the runtime environment. If you select **Use default environment**, the system tries to update your runtime to the latest version.
 
 Every time you open the page for runtime details, AI Studio checks whether there are new versions of the runtime. If new versions are available, a notification appears at the top of the page. You can also manually check the latest version by selecting the **Check version** button.
+
+## Switch compute instance runtime to automatic runtime
+
+Automatic runtime has following advantages over compute instance runtime:
+- Automatic manage lifecycle of runtime and underlying compute. You don't need to manually create and managed them anymore.
+- Easily customize packages by adding packages in the `requirements.txt` file in the flow folder, instead of creating a custom environment.
+
+We would recommend you to switch to automatic runtime if you're using compute instance runtime. If you have a compute instance runtime, you can switch it to an automatic runtime (preview) by using the following steps:
+- Prepare your `requirements.txt` file in the flow folder. Make sure that you don't pin the version of `promptflow` and `promptflow-tools` in `requirements.txt`, because we already include them in the runtime base image. Packages specified in `requirements.txt` will be installed when the runtime is started. 
+- If you want to keep the automatic runtime (preview) as long running compute like compute instance, you can disable the idle shutdown toggle under automatic runtime (preview) `edit` option.
+
 
 ## Next steps
 

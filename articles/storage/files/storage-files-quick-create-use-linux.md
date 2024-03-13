@@ -3,7 +3,7 @@ title: Tutorial - Create an NFS Azure file share and mount it on a Linux VM usin
 description: This tutorial covers how to use the Azure portal to deploy a Linux virtual machine, create an Azure file share using the NFS protocol, and mount the file share so that it's ready to store files.
 author: khdownie
 ms.service: azure-file-storage
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 ms.topic: tutorial
 ms.date: 10/10/2023
 ms.author: kendownie
@@ -76,7 +76,7 @@ Next, create an Azure VM running Linux to represent the on-premises server. When
     :::image type="content" source="media/storage-files-quick-create-use-linux/create-vm-inbound-port-rules.png" alt-text="Screenshot showing how to configure the inbound port rules for a new V M." lightbox="media/storage-files-quick-create-use-linux/create-vm-inbound-port-rules.png" border="true":::
 
    > [!IMPORTANT]
-   > Setting SSH port(s) open to the internet is only recommended for testing. If you want to change this setting later, go back to the **Basics** tab.  
+   > Setting SSH port(s) open to the internet is only recommended for testing. If you want to change this setting later, go back to the **Basics** tab.
 
 1. Select the **Review + create** button at the bottom of the page.
 
@@ -187,7 +187,7 @@ If you encounter a warning that the authenticity of the host can't be establishe
 
 Now that you've created an NFS share, to use it you have to mount it on your Linux client.
 
-1. Select **Home** and then **Storage accounts**. 
+1. Select **Home** and then **Storage accounts**.
 
 1. Select the storage account you created.
 

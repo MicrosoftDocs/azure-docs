@@ -1,16 +1,9 @@
 ---
 title: Understand NFS file permissions in Azure NetApp Files
-description: Learn about mode bits in NFS workloads on Azure NetApp Files. 
+description: Learn about mode bits in NFS workloads on Azure NetApp Files.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-ahibbard
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2023
 ms.author: anfdocs
@@ -36,7 +29,7 @@ Mode bit permissions in NFS provide basic permissions for files and folders, usi
 
 Numeric values are applied to different segments of an access control: owner, group and everyone else, meaning that there are no granular user access controls in place for basic NFSv3. The following image shows an example of how a mode bit access control might be constructed for use with an NFSv3 object.
 
-:::image type="content" source="../media/azure-netapp-files/control-number-diagram.png" alt-text="." lightbox="../media/azure-netapp-files/control-number-diagram.png":::
+:::image type="content" source="./media/network-attached-file-permissions-nfs/control-number-diagram.png" alt-text="." lightbox="./media/network-attached-file-permissions-nfs/control-number-diagram.png":::
 
 Azure NetApp Files doesn't support POSIX ACLs. Thus granular ACLs are only possible with NFSv3 when using an NTFS security style volume with valid UNIX to Windows name mappings via a name service such as Active Directory LDAP. Alternately, you can use NFSv4.1 with Azure NetApp Files and NFSv4.1 ACLs.
 

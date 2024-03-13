@@ -2,7 +2,6 @@
 title: Quickstart for Azure App Configuration with .NET Framework | Microsoft Docs
 description: In this article, create a .NET Framework app with Azure App Configuration to centralize storage and management of application settings separate from your code.
 services: azure-app-configuration
-documentationcenter: ''
 author: maud-lv
 ms.service: azure-app-configuration
 ms.devlang: csharp
@@ -24,7 +23,7 @@ In this quickstart, a .NET Framework console app is used as an example, but the 
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 - An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
-- [Visual Studio](https://visualstudio.microsoft.com/vs)
+- [Visual Studio](https://visualstudio.microsoft.com/downloads)
 - [.NET Framework 4.7.2 or later](https://dotnet.microsoft.com/download/dotnet-framework)
 
 ## Add a key-value

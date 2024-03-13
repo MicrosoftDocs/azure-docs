@@ -7,17 +7,17 @@ ms.author: eur
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: overview
-ms.date: 02/22/2023
+ms.date: 1/21/2024
 keywords: intent recognition
 ---
 
 # What is intent recognition?
 
-In this overview, you will learn about the benefits and capabilities of intent recognition. The Azure AI Speech SDK provides two ways to recognize intents, both described below. An intent is something the user wants to do: book a flight, check the weather, or make a call. Using intent recognition, your applications, tools, and devices can determine what the user wants to initiate or do based on options you define in the Intent Recognizer or Conversational Language Understanding (CLU) model.
+In this overview, you learn about the benefits and capabilities of intent recognition. An intent is something the user wants to do: book a flight, check the weather, or make a call. With intent recognition, your applications, tools, and devices can determine what the user wants to initiate or do based on options. You define user intent in the intent recognizer or conversational language understanding (CLU) model.
 
 ## Pattern matching
 
-The Speech SDK provides an embedded pattern matcher that you can use to recognize intents in a very strict way. This is useful for when you need a quick offline solution. This works especially well when the user is going to be trained in some way or can be expected to use specific phrases to trigger intents. For example: "Go to floor seven", or "Turn on the lamp" etc. It is recommended to start here and if it no longer meets your needs, switch to using [CLU](#conversational-language-understanding) or a combination of the two. 
+The Speech SDK provides an embedded pattern matcher that you can use to recognize intents in a strict way. This is useful for when you need a quick offline solution. This works especially well when the user is going to be trained in some way or can be expected to use specific phrases to trigger intents. For example: "Go to floor seven", or "Turn on the lamp" etc. It's recommended to start here and if it no longer meets your needs, switch to using [CLU](#conversational-language-understanding) or a combination of the two. 
 
 Use pattern matching if: 
 * You're only interested in matching strictly what the user said. These patterns match more aggressively than [conversational language understanding (CLU)](../language-service/conversational-language-understanding/overview.md).
@@ -39,7 +39,7 @@ Both a Speech resource and Language resource are required to use CLU with the Sp
 For information about how to use conversational language understanding without the Speech SDK and without speech recognition, see the [Language service documentation](../language-service/conversational-language-understanding/overview.md).
 
 > [!IMPORTANT]
-> LUIS will be retired on October 1st 2025 and starting April 1st 2023 you will not be able to create new LUIS resources. We recommend [migrating your LUIS applications](../language-service/conversational-language-understanding/how-to/migrate-from-luis.md) to [conversational language understanding](../language-service/conversational-language-understanding/overview.md) to benefit from continued product support and multilingual capabilities.
+> LUIS will be retired on October 1st 2025. As of April 1st 2023 you can't create new LUIS resources. We recommend [migrating your LUIS applications](../language-service/conversational-language-understanding/how-to/migrate-from-luis.md) to [conversational language understanding](../language-service/conversational-language-understanding/overview.md) to benefit from continued product support and multilingual capabilities.
 > 
 > Conversational Language Understanding (CLU) is available for C# and C++ with the [Speech SDK](speech-sdk.md) version 1.25 or later. See the [quickstart](get-started-intent-recognition-clu.md) to recognize intents with the Speech SDK and CLU.
 
