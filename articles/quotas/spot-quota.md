@@ -52,7 +52,7 @@ To request quota increases, you must have an Azure account with the Contributor 
 
 1. If you selected **Enter a new limit**: In the **New Quota Request** pane, enter a numerical value for each new quota limit.
 
-1. If you selected **Adjust the usage %**: In hte **New Quota Request** pane, adjust the slider to a new usage percent. Adjusting the percentage automatically calculates the new limit for each quota to be increased. This option is particularly useful when the selected quotas have very high usage.
+1. If you selected **Adjust the usage %**: In the **New Quota Request** pane, adjust the slider to a new usage percent. Adjusting the percentage automatically calculates the new limit for each quota to be increased. This option is particularly useful when the selected quotas have very high usage.
 
 1. When you're finished, select **Submit**.
 
