@@ -143,8 +143,6 @@ items:
       href: discovered-metadata.md
     - name: Dependency analysis overview
       href: concepts-dependency-visualization.md
-    - name: SAP Systems discovey support
-      href: migrate-support-sap-systems.md
   - name: Decide
     items:
     - name: Business case overview
@@ -163,6 +161,8 @@ items:
       href: concepts-azure-vmware-solution-assessment-calculation.md
     - name: Assessment best practices
       href: best-practices-assessment.md
+    - name: Assessment overview (discover and assess SAP Systems)
+      href: concepts-azure-sap-systems-assessment.md
   - name: Migrate
     items:
     - name: Build a migration plan
