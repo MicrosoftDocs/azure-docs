@@ -160,7 +160,7 @@
     href: voip-apns.md  
   - name: Monitor
     href: monitor-notification-hubs.md
-  - name: Diagnostic logs
+  - name: Enable diagnostic logs
     href: notification-hubs-diagnostic-logs.md
 - name: Reference
   items:  

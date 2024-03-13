@@ -25,24 +25,26 @@ For a list of available metrics for Notification Hubs, see [Notification Hubs mo
 
 [!INCLUDE [horz-monitor-resource-logs](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 
+### Notification Hubs logs
+
 Notification Hubs supports activity and operational logs, which capture management operations that are performed on the Notification Hubs namespace. Data operations aren't captured, because of the high volume of data operations that are conducted on notification hubs.
 
-You can archive the diagnostic logs to a storage account or stream them to an event hub. Sending the logs to a Log Analytics workspace currently isn't supported.
+You can archive the diagnostic logs to a storage account or stream them to an event hub. Sending the logs to a Log Analytics workspace isn't currently supported.
 
-- For more details about the logs and how to enable log collection, see [Enable diagnostics logs for Notification Hubs](notification-hubs-diagnostic-logs.md).
+- For more information about the logs and instructions for enabling log collection, see [Enable diagnostics logs for Notification Hubs](notification-hubs-diagnostic-logs.md).
 
 - For the available resource log categories, associated Log Analytics tables, and the management operations captured in operational logs, see [Notification Hubs monitoring data reference](monitor-notification-hubs-reference.md#resource-logs).
 
 [!INCLUDE [horz-monitor-activity-log](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 
-## Azure Notification Hubs REST APIs telemetry
+## Azure Notification Hubs REST APIs
 
 The [Notification Hubs REST APIs](/rest/api/notificationhubs) fall into the following categories:
 
 - **Azure Resource Manager:** APIs that perform Resource Manager operations, and have `/providers/Microsoft.NotificationHubs/` as part of the request URI.
 - **Notification Hubs service:** APIs that enable operations directly on the Notification Hubs service, and have `<namespaceName>.servicebus.windows.net/` in the request URI.
 
-The [Get notification message telemetry](/rest/api/notificationhubs/get-notification-message-telemetry) API helps monitor push notifications sent from a hub by providing more telemetry on the finished states of outgoing push notifications. The Notification ID that this API uses can be retrieved from the HTTP Location header included in the response of the REST API used to send the notification.
+The [Get notification message telemetry](/rest/api/notificationhubs/get-notification-message-telemetry) API helps monitor push notifications sent from a hub by providing telemetry on the finished states of outgoing push notifications. The Notification ID that this API uses can be retrieved from the HTTP Location header included in the response of the REST API used to send the notification.
 
 [!INCLUDE [horz-monitor-analyze-data](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
 
@@ -88,4 +90,6 @@ The following table lists some suggested alert rules for Notification Hubs. Thes
 ## Related content
 
 - See [Notification Hubs monitoring data reference](monitor-notification-hubs-reference.md) for a reference of the metrics, logs, and other important values created for Notification Hubs.
+- See [Enable diagnostics logs for Notification Hubs](notification-hubs-diagnostic-logs.md) for information about diagnostic logs for Notification Hubs and how to enable them.
+- See [Get notification message telemetry](/rest/api/notificationhubs/get-notification-message-telemetry) for information about using the API to monitor push notification success.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for general details on monitoring Azure resources.
