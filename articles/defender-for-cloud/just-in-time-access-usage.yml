@@ -321,8 +321,8 @@ procedureSection:
       - |
         To download the log information, select **Download as CSV**.
 
+        <!-- preamble to the next step: <In this article, you learned how to configure and use just-in-time VM access. To learn why you should use JIT, read the article that explains the threats JIT defends against:> -->
 nextStep:
-  In this article, you learned how to configure and use just-in-time VM access. To learn why you should use JIT, read the article that explains the threats JIT defends against:
   text: JIT explained
   url: just-in-time-access-overview.md
 
