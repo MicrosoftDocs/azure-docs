@@ -6706,6 +6706,21 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/role-based-access-control/deny-assignments-portal.md",
+            "redirect_url": "/azure/role-based-access-control/deny-assignments",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/role-based-access-control/deny-assignments-powershell.md",
+            "redirect_url": "/azure/role-based-access-control/deny-assignments",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/role-based-access-control/deny-assignments-rest.md",
+            "redirect_url": "/azure/role-based-access-control/deny-assignments",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/scheduler/scheduler-intro.md",
             "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
             "redirect_document_id": false
@@ -6748,6 +6763,11 @@
         {
             "source_path_from_root": "/articles/scheduler/get-started-portal.md",
             "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/search/cognitive-search-tutorial-blob-python.md",
+            "redirect_url": "/azure/search/samples-python",
             "redirect_document_id": false
         },
         {
@@ -9386,6 +9406,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/docker/index.yml",
+            "redirect_url": "/dotnet/architecture/microservices/container-docker-introduction/docker-defined",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/vs-azure-tools-docker-edit-and-refresh.md",
             "redirect_url": "/visualstudio/docker/vs-azure-tools-docker-edit-and-refresh",
             "redirect_document_id": false
@@ -10928,6 +10953,11 @@
         {
             "source_path_from_root": "/articles/azure-health-insights/response-info.md",
             "redirect_url": "/azure/azure-health-insights/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-monitor-log-analytics.md",
+            "redirect_url": "/azure/azure-functions/monitor-functions",
             "redirect_document_id": false
         },
         {

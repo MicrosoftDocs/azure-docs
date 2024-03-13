@@ -5,7 +5,6 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: overview
-ms.date: 3/31/2024
 ms.custom: template-overview
 ---
 

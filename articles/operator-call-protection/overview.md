@@ -16,7 +16,7 @@ ms.custom:
 
 Azure Operator Call Protection is a service targeted at telecommunications operators. It uses AI to perform real-time analysis of consumer phone calls to detect potential phone scams and alert subscribers when they are at risk of being scammed.
 
-[!INCLUDE [operator-call-protection-tsp-restriction](includes/operator-call-protection-tsp-restriction.md)]
+[!INCLUDE [operator-call-protection-provider-restriction](includes/operator-call-protection-provider-restriction.md)]
 
 Azure Operator Call Protection harnesses the power and responsible AI safeguards of Azure speech-to-text and Azure OpenAI.
 

@@ -9,7 +9,7 @@ ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-trac
 ms.topic: quickstart
 author: aahill
 ms.author: aahi
-ms.date: 11/22/2023
+ms.date: 03/04/2024
 recommendations: false
 zone_pivot_groups: openai-use-your-data
 ---
@@ -54,6 +54,8 @@ In this quickstart you can use your own data with Azure OpenAI models. Using Azu
 - An Azure OpenAI resource deployed in a [supported region](./concepts/use-your-data.md#regional-availability-and-model-support) with a [supported model](./concepts/use-your-data.md#supported-models).
 
 - Be sure that you are assigned at least the [Cognitive Services Contributor](./how-to/role-based-access-control.md#cognitive-services-contributor) role for the Azure OpenAI resource.
+
+- Download the example data from [GitHub](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/openai/contoso_benefits_document_example.pdf) if you don't have your own data.
 
 ::: zone pivot="programming-language-javascript"
 
