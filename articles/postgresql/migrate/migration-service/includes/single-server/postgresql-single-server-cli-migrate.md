@@ -7,11 +7,9 @@ ms.service: postgresql
 ms.topic: include
 ---
 
-You can migrate using Azure CLI.
-
-To begin migrating using Azure CLI, you need to install the Azure CLI on your local machine.
-
 #### [Offline](#tab/offline)
+
+You can migrate using Azure CLI.
 
 [!INCLUDE [prerequisites-migration-service-postgresql](../prerequisites/prerequisites-migration-service-postgresql-offline.md)]
 
@@ -287,5 +285,3 @@ For more information about this command, use the `help` parameter:
 The command gives you the following output:
 
 :::image type="content" source="../../media/tutorial-migration-service-single-to-flexible/az-postgres-flexible-server-migration-update-cancel-help.png" alt-text="Screenshot of Azure Command Line Interface Cancel." lightbox="../../media/tutorial-migration-service-single-to-flexible/az-postgres-flexible-server-migration-update-cancel-help.png":::
-
----
