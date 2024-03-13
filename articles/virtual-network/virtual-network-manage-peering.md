@@ -4,7 +4,7 @@ description: Learn how to create, change, or delete a virtual network peering. W
 author: asudbring
 ms.service: virtual-network
 ms.topic: how-to
-ms.date: 08/24/2023
+ms.date: 03/13/2024
 ms.author: allensu
 ms.custom: template-how-to, engagement-fy23, devx-track-azurepowershell, devx-track-azurecli
 ---
@@ -336,6 +336,8 @@ az network vnet peering delete \
 - Point-to-Site VPN clients must be downloaded again after virtual network peering has been successfully configured to ensure the new routes are downloaded to the client.
 
 - There's a nominal charge for ingress and egress traffic that utilizes a virtual network peering. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/virtual-network).
+
+- Application Gateways that do not have [Network Isolation](application-gateway-private-deployment.md?tabs=portal) enabled don't allow traffic to be sent between peered VNETs when **Allow traffic to remote virtual network** is disabled.
 
 ## Permissions
 
