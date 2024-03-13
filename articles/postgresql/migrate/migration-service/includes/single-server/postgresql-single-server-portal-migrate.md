@@ -7,6 +7,8 @@ ms.service: postgresql
 ms.topic: include
 ---
 
+You can migrate using the Azure portal.
+
 #### [Offline](#tab/offline)
 
 [!INCLUDE [prerequisites-migration-service-postgresql](../prerequisites/prerequisites-migration-service-postgresql.md)]
@@ -194,9 +196,6 @@ You can see the results of **Validate and Migrate** once the operation is comple
 #### [Online (preview)](#tab/online)
 
 [!INCLUDE [prerequisites-migration-service-postgresql-online](../prerequisites/prerequisites-migration-service-postgresql-online.md)]
-
-> [!NOTE]  
-> **Online migrations preview** is currently available in Central US, France Central, Germany West Central, North Central US, South Central US, North Europe, all West US regions, UK South, South Africa North, UAE North, and all regions across Asia and Australia. In other regions, the user can enable Online migration at a subscription level by registering for the **Online PostgreSQL migrations to Azure PostgreSQL Flexible server** preview feature, as shown in the image.
 
 :::image type="content" source="../../media/tutorial-migration-service-single-to-flexible/online-migration-feature-switch.png" alt-text="Screenshot of online PostgreSQL migrations to Azure PostgreSQL Flexible server." lightbox="../../media/tutorial-migration-service-single-to-flexible/online-migration-feature-switch.png":::
 

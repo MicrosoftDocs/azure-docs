@@ -7,11 +7,15 @@ ms.service: postgresql
 ms.topic: include
 ---
 
-#### [Offline](#tab/offline)
+You can migrate using Azure CLI.
 
 To begin migrating using Azure CLI, you need to install the Azure CLI on your local machine.
 
-[!INCLUDE [setup-azure-cli-commands-postgresql](../setup-azure-cli-commands-postgresql.md)]
+[!INCLUDE [prerequisites-setup-azure-CLI-commands-postgresql](../prerequisites/prerequisites-setup-azure-cli-commands-postgresql.md)]
+
+#### [Offline](#tab/offline)
+
+[!INCLUDE [prerequisites-migration-service-postgresql](../prerequisites/prerequisites-migration-service-postgresql.md)]
 
 ## Get started
 
@@ -222,6 +226,8 @@ The following tables describe the migration states and substates.
 | `Completed` | cutover was successful, and migration is complete. |
 
 #### [Online (preview)](#tab/online)
+
+[!INCLUDE [prerequisites-migration-service-postgresql-online](../prerequisites/prerequisites-migration-service-postgresql-online.md)]
 
 ## Cutover the migration
 

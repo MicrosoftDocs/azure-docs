@@ -1,6 +1,6 @@
 ---
 title: Best practices to migrate into Flexible Server
-description: Best practices for a seamless migration into Azure database for PostgreSQL.
+description: Best practices for a seamless migration into Azure Database for PostgreSQL, including premigration validation, target server configuration, migration timeline, and migration speed benchmarking.
 author: hariramt
 ms.author: hariramt
 ms.reviewer: maghan
@@ -39,7 +39,7 @@ The quickstart to [Create an Azure Database for PostgreSQL flexible server using
 
 Each migration has a maximum lifetime of seven days (168 hours) once it starts and will time out after seven days. You can complete your migration and application cutover once the data validation and all checks are complete to avoid the migration from timing out. In Online migrations, after the initial base copy is complete, the cutover window lasts three days (72 hours) before timing out. In offline migrations, the applications should stop writing to the Database to prevent data loss. Similarly, for Online migration, keep traffic low throughout the migration.
 
-Most nonprod servers (dev, UAT, test, staging) are migrated using offline migrations. Since these servers have less data than the production servers, the migration completes fast. For production server migration, you need to know the time it would take to complete the migration to plan for it in advance.
+Most non-prod servers (dev, UAT, test, staging) are migrated using offline migrations. Since these servers have less data than the production servers, the migration completes fast. For production server migration, you need to know the time it would take to complete the migration to plan for it in advance.
 
 The time taken for a migration to complete depends on several factors. It includes the number of databases, size, number of tables inside each database, number of indexes, and data distribution across tables. It also depends on the SKU of the target server and the IOPS available on the source instance and target server. Given the many factors that can affect the migration time, it's hard to estimate the total time for the migration to complete. The best approach would be to perform a test migration with your workload.
 
@@ -165,6 +165,10 @@ Regularly incorporating these vacuuming strategies ensures a well-maintained Pos
 ## Special consideration
 
 There are special conditions that typically refer to unique circumstances, configurations, or prerequisites that learners need to be aware of before proceeding with a tutorial or module. These conditions could include specific software versions, hardware requirements, or additional tools that are necessary for successful completion of the learning content.
+
+### Use of Replica Identity for Online migration
+
+Online migration makes use of logical replication, which has a few [restrictions](https://www.postgresql.org/docs/current/logical-replication-restrictions.html). In addition, it's recommended to have a primary key in all the tables of a database undergoing Online migration. If primary key is absent, the deficiency may result in only insert operations being reflected during migration, excluding updates or deletes. Add a temporary primary key to the relevant tables before proceeding with the online migration. Another option is to use the [REPLICA IDENTIY](https://www.postgresql.org/docs/current/sql-altertable.html#SQL-ALTERTABLE-REPLICA-IDENTITY) action with `ALTER TABLE`. If none of these options work, perform an offline migration as an alternative.
 
 ### Database with postgres_fdw extension
 

@@ -7,6 +7,8 @@ ms.service: postgresql
 ms.topic: include
 ---
 
+You can migrate using the Azure portal.
+
 ## Configure the migration task
 
 The migration service comes with a simple, wizard-based experience on the Azure portal.

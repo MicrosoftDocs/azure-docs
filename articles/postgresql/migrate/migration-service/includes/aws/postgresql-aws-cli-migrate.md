@@ -7,11 +7,11 @@ ms.service: postgresql
 ms.topic: include
 ---
 
-## Flow tutorial
+You can migrate using Azure CLI.
 
 To begin migrating using Azure CLI, you need to install the Azure CLI on your local machine.
 
-[!INCLUDE [setup-azure-CLI-commands-postgresql](../setup-azure-cli-commands-postgresql.md)]
+[!INCLUDE [prerequisites-setup-azure-CLI-commands-postgresql](../prerequisites/prerequisites-setup-azure-cli-commands-postgresql.md)]
 
 ## Connect to the source
 
