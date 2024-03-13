@@ -42,7 +42,7 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 
     ### [Workload identity](#tab/UMI)
 
-    Select **Workload identity** to authenticate through [Microsoft Entra workload identity](/entra/workload-id/workload-identities-overview.md) to one or more instances of an Azure service. You need choose a user assigned managed identity to enable workload identity with this option.
+    Select **Workload identity** to authenticate through [Microsoft Entra workload identity](/entra/workload-id/workload-identities-overview) to one or more instances of an Azure service. You need choose a user assigned managed identity to enable workload identity with this option.
 
     ### [Connection string](#tab/CS)
     
