@@ -28,7 +28,7 @@ POST {endpoint}/openai/deployments/{deployment-id}/chat/completions?api-version=
 ```
 
 **Supported versions**
-* `2024-02-15-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2024-02-15-preview/inference.json)
+* `2024-02-15-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2024-02-15-preview/inference.json).
 * `2024-02-01` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2024-02-01).
 
 > [!NOTE]
@@ -66,7 +66,7 @@ The response assistant message schema inherits from the chat completions assista
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
 | `citations` | [Citation](#citation)[] | False | The data source retrieval result, used to generate the assistant message in the response. Clients can render references from the citations. |
-| `intent` | string | False | The detected intent from the chat history. Passing back the previous intent is no longer needed. Please ignore this property. |
+| `intent` | string | False | The detected intent from the chat history. Passing back the previous intent is no longer needed. Ignore this property. |
 
 ## Citation
 
