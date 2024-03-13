@@ -6,13 +6,13 @@ author: kgaddam10
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 03/123/2024
+ms.date: 03/13/2024
 ms.author: kavitagaddam
 ---
 
 # Known issues: Azure Health Data Services
 
-This article describes known issues with Azure Health Data Services and the FHIR&reg;, DICOM&reg;, and MedTech services.
+This article describes known issues with Azure Health Data Services, which includes the FHIR&reg;, DICOM&reg;, and MedTech services.
 
 Refer to the table for details about resolution dates or possible workarounds. 
 
