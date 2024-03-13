@@ -5,7 +5,6 @@ author: rcdun
 ms.author: rdunstan
 ms.service: azure
 ms.topic: concept-article #Required; leave this attribute/value as-is.
-ms.date: 03/31/2024
 ms.custom:
     - update-for-call-protection-service-slug
 
