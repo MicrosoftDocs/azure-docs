@@ -290,5 +290,5 @@ For more information, see these resources:
 
 - [Potential errors when enabling Microsoft Entra Kerberos authentication for hybrid users](files-troubleshoot-smb-authentication.md#potential-errors-when-enabling-azure-ad-kerberos-authentication-for-hybrid-users)
 - [Overview of Azure Files identity-based authentication support for SMB access](storage-files-active-directory-overview.md)
-- [Create a profile container with Azure Files and Microsoft Entra ID](../../virtual-desktop/create-profile-container-azure-ad.md)
+- [Create a profile container with Azure Files and Microsoft Entra ID](../../virtual-desktop/create-profile-container-azure-ad.yml)
 - [FAQ](storage-files-faq.md)
