@@ -40,6 +40,10 @@ Try out DALL-E 3 by following a [quickstart](./dall-e-quickstart.md).
 
 You can now access DALL-E 3 with an Azure OpenAI resource in the `East US` or `AustraliaEast` Azure region, in addition to `SwedenCentral`.
 
+### Model deprecations and retirements
+
+We have added a page to track [model deprecations and retirements](./concepts/model-retirements.md) in Azure OpenAI Service. This page provides information about the models that are currently available, deprecated, and retired.
+
 ### 2024-03-01-preview API released
 
 `2024-03-01-preview` has all the same functionality as `2024-02-15-preview` and adds two new parameters for embeddings:
