@@ -36,7 +36,7 @@ Four different configmaps can be configured to provide scrape configuration and 
 
 ## Custom Resource Definitions
 The Azure Monitor metrics add-on supports scraping Prometheus metrics using Prometheus - Pod Monitors and Service Monitors, similar to the OSS Prometheus operator. Enabling the add-on will deploy the Pod and Service Monitor custom resource definitions to allow you to create your own custom resources. 
-Follow the instructions to [create and apply custom resources]() on your cluster.
+Follow the instructions to [create and apply custom resources](prometheus-metrics-scrape-crd.md) on your cluster.
 
 ## Metrics add-on settings configmap
 
