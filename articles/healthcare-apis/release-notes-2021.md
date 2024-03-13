@@ -49,9 +49,9 @@ We started the process of providing PowerShell, CLI scripts, and ARM templates t
 
 ### FHIR service
 
-#### Process Patient-everything links
+#### Process patient-everything links
 
-We expanded the Patient-everything capabilities to process patient links [PR #2305](https://github.com/microsoft/fhir-server/pull/2305). For more information, see [Patient-everything in FHIR](./../healthcare-apis/fhir/patient-everything.md#processing-patient-links).
+We expanded the atient-everything capabilities to process patient links [PR #2305](https://github.com/microsoft/fhir-server/pull/2305). For more information, see [Patient-everything in FHIR](./../healthcare-apis/fhir/patient-everything.md#processing-patient-links).
 
 ### Bug fixes
 
@@ -76,19 +76,21 @@ This enhancement enables the user to know which transfer syntax is used in case 
 
 ### Azure Health Data Services 
 
-**Test Data Generator tool**
+#### Test Data Generator tool*
 
 We updated Azure Health Data Services GitHub samples repo to include a [Test Data Generator tool](https://github.com/microsoft/healthcare-apis-samples/blob/main/docs/HowToRunPerformanceTest.md) using Synthea data. This tool is an improvement to the open source [public test projects](https://github.com/ShadowPic/PublicTestProjects), based on Apache JMeter that can be deployed to Azure AKS for performance tests. 
 
 ### FHIR service
 
-**Added support for [_sort](././../healthcare-apis/fhir/overview-of-search.md#search-result-parameters) on strings and dateTime.**
-[PR #2169](https://github.com/microsoft/fhir-server/pull/2169) 
+#### Bug fixes
+
+- **Fixed:  Added support for [_sort](././../healthcare-apis/fhir/overview-of-search.md#search-result-parameters) on strings and dateTime**. See
+[PR #2169](https://github.com/microsoft/fhir-server/pull/2169).
 
 
-**Fixed issue where [Conditional Delete](././../healthcare-apis/fhir/fhir-rest-api-capabilities.md#conditional-delete) could result in an infinite loop.**[PR #2269](https://github.com/microsoft/fhir-server/pull/2269) 
+- **Fixed: [Conditional Delete](././../healthcare-apis/fhir/fhir-rest-api-capabilities.md#conditional-delete) results in an infinite loop**. See [PR #2269](https://github.com/microsoft/fhir-server/pull/2269).
 
-**Resolved 500 error possibly caused by a malformed transaction body in a bundle POST.** We added a check that the URL is populated in the [transaction bundle](././..//healthcare-apis/fhir/fhir-features-supported.md#rest-api) requests.**[PR #2255](https://github.com/microsoft/fhir-server/pull/2255) 
+- **Fixed: Resolved 500 error possibly caused by a malformed transaction body in a bundle POST**. We added a check that the URL is populated in the [transaction bundle](././..//healthcare-apis/fhir/fhir-features-supported.md#rest-api) requests. See [PR #2255](https://github.com/microsoft/fhir-server/pull/2255).
 
 ### DICOM service
 

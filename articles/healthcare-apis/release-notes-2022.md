@@ -51,7 +51,9 @@ Customers can determine if their mappings are working as intended, as they can s
 
 ## September 2022
 
-### Azure Health Data Services toolkit is available for public preview
+### Azure Health Data Services
+
+#### Azure Health Data Services toolkit is available for public preview
 
 The [Azure Health Data Services toolkit](https://github.com/microsoft/azure-health-data-services-toolkit) is open-source and allows you to customize and extend the functionality of your Azure Health Data Services implementations. 
 
@@ -63,7 +65,7 @@ The [Azure Health Data Services toolkit](https://github.com/microsoft/azure-heal
 
 - **Fixed: Provided an error message for failure in export resulting from a long timespan**. With failure in an export job due to a long timespan, a customer sees `RequestEntityTooLarge` HTTP status code. See [PR #2790](https://github.com/microsoft/fhir-server/pull/2790).
 
-- **Fixed: In a query sort, the system throws an error when chained search is performed with the same field value**. The functionality returns a response. See [#2794](https://github.com/microsoft/fhir-server/pull/2794). 
+- **Fixed: In a query sort, the system throws an error when chained search is performed with the same field value**. The functionality returns a response. [PR #2794](https://github.com/microsoft/fhir-server/pull/2794). 
 
 - **Fixed: Server doesn't indicate `_text` not supported**. When passed as URL parameter,`_text` returns an error response when using the `Prefer` heading with `value handling=strict`. See [PR #2779](https://github.com/microsoft/fhir-server/pull/2779).
 
@@ -116,10 +118,9 @@ The analytics pipeline can process FHIR extensions to generate parquet data. See
 
 #### Bug fixes
 
-- **Fixed: History bundles sorted with the oldest version first**. 
-There was an issue with the sorting order of history bundles on the FHIR server. History bundles were sorted with the oldest version first. Per FHIR specification, the sorting of versions defaults to the oldest version last. This bug fix addresses FHIR server behavior for sorting the history bundle. 
+- **Fixed: History bundles sorted with the oldest version first**. There was an issue with the sorting order of history bundles on the FHIR server. History bundles were sorted with the oldest version first. Per FHIR specification, the sorting of versions defaults to the oldest version last. This bug fix addresses FHIR server behavior for sorting the history bundle. 
   
-  To keep the sorting per existing behavior (oldest version first), we recommend you append `_sort=_lastUpdated` to the HTTP GET command utilized for retrieving history. For example: `<server URL>/_history?_sort=_lastUpdated`. See [#2689](https://github.com/microsoft/fhir-server/pull/2689).
+  To keep the sorting per existing behavior (oldest version first), we recommend you append `_sort=_lastUpdated` to the HTTP GET command utilized for retrieving history. For example: `<server URL>/_history?_sort=_lastUpdated`. See [PR #2689](https://github.com/microsoft/fhir-server/pull/2689).
 
 - **Fixed: Queries weren't providing a consistent result count after being appended with `_sort` operator**. The issue is fixed and queries should provide consistent result count, with and without sort operator. 
 
@@ -165,7 +166,7 @@ Added articles to enable customers to take advantage of the events improvements.
 
 - **Fixed: Export job not queued for execution**. Fixes issue with export job not getting queued due to duplicate job definition in reference to container URL. See [PR #2648](https://github.com/microsoft/fhir-server/pull/2648). 
 
-- **Fixed; Queries not providing a consistent result count after appended with the `_sort` operator**. Fixes the issue with the help of distinct operator to resolve inconsistency and record duplication in response. For more information, see [#2680](https://github.com/microsoft/fhir-server/pull/2680). 
+- **Fixed; Queries not providing a consistent result count after appended with the `_sort` operator**. Fixes the issue with the help of distinct operator to resolve inconsistency and record duplication in response. See [PR #2680](https://github.com/microsoft/fhir-server/pull/2680). 
 
 ## May 2022
 
@@ -191,7 +192,7 @@ DICOMcast supports Azure Health Data Services workspaces that are configured to 
 
 Modality worklist (UPS-RS) endpoints were added to support change and retrieve operations for work items. 
 
-#### **API version is required as part of the URI
+#### API version is required as part of the URI
 
 All REST API requests to the DICOM service must include the API version in the URI. For more information, see [API versioning for the DICOM service](./../healthcare-apis/dicom/api-versioning-dicom-service.md). 
 
@@ -224,7 +225,7 @@ The bulk import feature enables importing FHIR data to the FHIR server at high t
 
 - **Fixed: Correctly parse a range of input in the content negotiation headers**. WADO with Accept: multipart/related; type=application/dicom throws an error. It accepts Accept: multipart/related; type="application/dicom", but they must be equivalent. See [PR #1462](https://github.com/microsoft/dicom-server/pull/1462). 
 
-- **Fixed: parallel upload of images in a study might fail**. Handle race conditions during parallel instance inserts in the same study. See [PR #1491](https://github.com/microsoft/dicom-server/pull/1491) and [PR #1496](https://github.com/microsoft/dicom-server/pull/1496). 
+- **Fixed: Parallel upload of images in a study fails**. Handle race conditions during parallel instance inserts in the same study. See [PR #1491](https://github.com/microsoft/dicom-server/pull/1491) and [PR #1496](https://github.com/microsoft/dicom-server/pull/1496). 
 
 ## March 2022
 
@@ -248,7 +249,7 @@ Before the bug fix, a SQL timeout returned a 500 error. With the bug fix, a time
 
 - **Fixed: Issue with PUT creates on versioned update**. Fixed issue where PUT creates resulted in an error when the versioning policy is configured to `versioned-update`. See [PR #2457](https://github.com/microsoft/fhir-server/pull/2457). 
 
-- **Fixed: Invalid header handling on versioned update**. Fixed issue where invalid `if-match` header would result in an HTTP 500 error. Now an HTTP Bad Request is returned instead. For more information, see [PR #2467](https://github.com/microsoft/fhir-server/pull/2467). 
+- **Fixed: Invalid header handling on versioned update**. Fixed issue where invalid `if-match` header would result in an HTTP 500 error. Now an HTTP Bad Request is returned instead. See [PR #2467](https://github.com/microsoft/fhir-server/pull/2467). 
 
 ### Azure Health Data Services
 
@@ -263,9 +264,9 @@ Before the bug fix, a SQL timeout returned a 500 error. With the bug fix, a time
 #### Deploy Azure Health Data Services with Azure Bicep
 This feature enables you to deploy Azure Health Data Services by using Azure Bicep. For more information, see [Deploy Azure Health Data Services using Azure Bicep](deploy-healthcare-apis-using-bicep.md). 
 
-#### Customers can define their own query tags using the Extended Query Tags feature
+#### Define query tags using the Extended Query Tags feature
 
-With Extended Query Tags, customers query non-DICOM metadata for capabilities like multi-tenancy and cohorts. It's available for all customers in Azure Health Data Services. 
+With Extended Query Tags, customers can query non-DICOM metadata for capabilities like multi-tenancy and cohorts. 
 
 ### FHIR service
 
