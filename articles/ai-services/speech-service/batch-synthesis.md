@@ -250,14 +250,10 @@ The summary file contains the synthesis results for each text input. Here's an e
   "status": "Succeeded",
   "results": [
     {
-      "texts": [
+      "contents": [
         "<speak version=\"1.0\" xml:lang=\"en-US\"><voice name=\"en-US-JennyNeural\">The rainbow has seven colors.</voice></speak>"
       ],
       "status": "Succeeded",
-      "billingDetails": {
-        "CustomNeural": "0",
-        "Neural": "29"
-      },
       "audioFileName": "0001.wav",
       "properties": {
         "sizeInBytes": "120000",
