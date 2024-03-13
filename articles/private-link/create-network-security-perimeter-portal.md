@@ -42,7 +42,7 @@ Before creating a network security perimeter, you create a resource group to hol
     | --- | --- |
     | Subscription | Select the subscription you want to use for this key vault. |
     | Resource group | Select **Create new**, then enter **test-rg** as the name. |
-    | Key vault name |  Enter **key-vault-<RandomNameInformation>**. |
+    | Key vault name |  Enter **key-vault-`<RandomNameInformation>`**. |
     | Region | Select the region in which you want your key vault to be created. For this quickstart, **(US) West Central US** is used. |
 
 1. Leave the remaining default settings, and select **Review > Create**.
