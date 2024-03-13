@@ -63,7 +63,7 @@ sections:
           How can I ensure that DMS has migrated all the data from the source database to Azure SQL Targets?
         answer: |
           a)	For Azure SQL VM and Azure SQL MI targets: 
-              DMS uses physical migration i.e. using Backup and restore. Data consistency between source and target is ensured as explained below depending on the migration mode chosen-
+              DMS uses physical migration i.e. using Backup and restore. Data consistency between source and target is ensured as explained below depending on the migration mode chosen.
               
               * Offline migration: During offline migration to Azure SQL VM and Azure SQL MI targets, application downtime starts when the migration starts, DMS will ensure that all the backup files get restored to the Target provided the last backup file/s from source is copied to SMB network storage or to blob container (as per the migration configuration).
               You can verify the last backup file name from source with the last applied backup file applied on target shown on DMS migration monitoring page.
