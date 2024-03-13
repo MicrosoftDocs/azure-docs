@@ -70,7 +70,7 @@ curl -v -X PUT -H "Ocp-Apim-Subscription-Key: YourSpeechKey" -H "Content-Type: a
         "concatenateResult": false,
         "decompressOutputFiles": false
     }
-}'  "https://YourSpeechRegion.api.cognitive.microsoft.com/texttospeech/batchsyntheses/my-job-01?api-version=2024-04-01"
+}'  "https://YourSpeechRegion.api.cognitive.microsoft.com/texttospeech/batchsyntheses/YourSynthesisId?api-version=2024-04-01"
 ```
 
 You should receive a response body in the following format:
