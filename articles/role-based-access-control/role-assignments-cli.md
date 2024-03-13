@@ -83,7 +83,7 @@ Here's how to list the details of a particular role.
 az role definition list --name "{roleName}"
 ```
 
-For more information, see [List Azure role definitions](role-definitions-list.md#azure-cli).
+For more information, see [List Azure role definitions](role-definitions-list.yml#azure-cli).
  
 ### Step 3: Identify the needed scope
 

@@ -247,7 +247,7 @@ To reduce the number of role assignments in the subscription, replace multiple b
 
 1. Use **AllRD** to see the built-in roles that can potentially be combined into a custom role.
 
-1. List the actions and data actions for the built-in roles. For more information, see [List Azure role definitions](role-definitions-list.md) or [Azure built-in roles](./built-in-roles.md)
+1. List the actions and data actions for the built-in roles. For more information, see [List Azure role definitions](role-definitions-list.yml) or [Azure built-in roles](./built-in-roles.md)
 
 1. Create a custom role that includes all the actions and data actions as the built-in roles. To make it easier to create the custom role, you can start by cloning one of the built-in roles. For more information, see [Create or update Azure custom roles using the Azure portal](custom-roles-portal.md).
 
