@@ -43,7 +43,7 @@ The table below lists each product that offers migration guidance and/or informa
 | --- | 
 | [Azure API Management](migrate-api-mgt.md)|
 | [Azure App Configuration](migrate-app-configuration.md)|
-| [Azure App Service](https://reliability-app-service.md/#availability-zone-support)|
+| [Azure App Service](reliability-app-service.md#availability-zone-support)|
 | [Azure Batch](reliability-batch.md#availability-zone-migration)|
 | [Azure Cache for Redis](migrate-cache-redis.md)|
 | [Azure AI Search](migrate-search-service.md)|
