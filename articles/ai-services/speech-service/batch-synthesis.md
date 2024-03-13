@@ -216,7 +216,7 @@ You should receive a response body in the following format:
       }
     }
   ],
-  "nextLink": "https://{region}.api.cognitive.microsoft.com/texttospeech/batchsyntheses?skip=3&maxpagesize=2&api-version=2024-04-01"
+  "nextLink": "https://YourSpeechRegion.api.cognitive.microsoft.com/texttospeech/batchsyntheses?skip=3&maxpagesize=2&api-version=2024-04-01"
 }
 ```
 
