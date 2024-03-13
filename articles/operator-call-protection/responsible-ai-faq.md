@@ -9,7 +9,7 @@ ms.date: 01/31/2024
 ms.custom:
     - update-for-call-protection-service-slug
 
-#CustomerIntent: As a user, I want to understand the role of AI in this service so that I can be reassured Microsoft is providing an effective service.
+#CustomerIntent: As a user, I want to understand the role of AI to reassure me that Microsoft is providing this AI service responsibly.
 ---
 
 # Responsible AI FAQ for Azure Operator Call Protection (preview)
