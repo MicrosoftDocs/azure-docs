@@ -46,8 +46,6 @@ To learn how to move your virtual network using Resource Mover, see [Move Azure 
     - [DDOS Protection Plan](/azure/ddos-protection/)
     - [Network Security Group (NSG)](./relocation-virtual-network-nsg.md)
     - [Reserved private IP address (public static IP address)](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip)
-      >[!IMPORTANT]
-      >A reserved private IP address must be configured during or before virtual network relocation.
     - [Application Security Groups (ASG)](/azure/virtual-network/application-security-groups)
 
 - Confirm that your virtual network is in the source Azure region.
