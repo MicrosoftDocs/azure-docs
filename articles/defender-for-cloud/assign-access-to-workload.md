@@ -1,22 +1,26 @@
 ---
 title: Assign access to workload owners
-description: Learn how to use Defender for Cloud to assign access to a workload owner of an AWS or GCP connector so that they can view the suggested recommendations provided by Defender for Cloud.
+description: Learn how to assign access to a workload owner of an Amazon Web Service or Google Cloud Project connector.
 ms.author: dacurwin
 ms.topic: how-to
-ms.date: 02/19/2024
+ms.date: 03/13/2024
+#customer intent: As a workload owner, I want to learn how to assign access to my AWS or GCP connector so that I can view the suggested recommendations provided by Defender for Cloud.
 ---
 
 # Assign access to workload owners
-
 
 When you onboard your AWS or GCP environments, Defender for Cloud automatically creates a security connector as an Azure resource inside the connected subscription and resource group. Defender for cloud also creates the identity provider as an IAM role it requires during the onboarding process.
 
 
 Assign permission to users, on specific security connectors, below the parent connector? Yes, you can. You need to determine to which AWS accounts or GCP projects you want users to have access to. Meaning, you need to identify the security connectors that correspond to the AWS account or GCP project to which you want to assign users access.
 
+## Prerequisites
+
+- 
+
 ## Configure permissions on the security connector
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Navigate to **Microsoft Defender for Cloud** > **Environment settings**
 
@@ -97,7 +101,7 @@ Assign permission to users, on specific security connectors, below the parent co
     
 1. Select **+ Select members**.
     
-    :::image type="content" source="media/assign-access-to-workload/select-members.png" alt-text="Screenshot that shows where the button is on the screen to select + select members.":::
+    :::image type="content" source="media/assign-access-to-workload/select-members.png" alt-text="Screenshot that shows where the button is on the screen to select the + select members button.":::
     
 1. Search for and select the relevant user or group.
     
@@ -111,8 +115,7 @@ Assign permission to users, on specific security connectors, below the parent co
 
 After setting the permission for the security connector, the workload owners will be able to view recommendations in Defender for Cloud for the AWS and GCP resources that are associated with the security connector.
 
-## Next steps
+## Next step
 
-Learn more about [available RBAC permissions](permissions.md).
-
-
+> [!div class="nextstepaction"]
+> [RBAC permissions](permissions.md).
