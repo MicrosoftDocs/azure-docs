@@ -55,7 +55,6 @@ This article provides onboarding guidance for the following types of clusters. A
   > * Windows nodes
 
 
-
 ## Workspaces
 
 The following table describes the workspaces that are required to support Managed Prometheus and Container insights. You can create each workspace as part of the onboarding process or use an existing workspace. See [Design a Log Analytics workspace architecture](../logs/workspace-design.md) for guidance on how many workspaces to create and where they should be placed.
