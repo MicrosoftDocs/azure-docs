@@ -61,6 +61,7 @@ If in-place major version upgrade pre-check operations fail, then the upgrade ab
 
 -	Servers configured with logical replication slots aren't supported. 
 
+- In-place major version upgrade doesn't yet support upgrading to version 16, our team is actively working on this feature.
  
 ## Next steps
 
