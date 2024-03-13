@@ -34,6 +34,10 @@ Four different configmaps can be configured to provide scrape configuration and 
     This config map can be used to provide Prometheus scrape config for addon DaemonSet that runs on every **Windows** node in the cluster, and node level targets on each node can be scraped by providing scrape jobs in this configmap. When you use this configmap, you can use `$NODE_IP` variable in your scrape config, which will be substituted by corresponding  node's ip address in DaemonSet pod running on each node. This way you get access to scrape anything that runs on that node from the metrics addon DaemonSet. **Please be careful when you use discoveries in scrape config in this node level config map, as every node in the cluster will setup & discover the target(s) and will collect redundant metrics**.
     You can take the sample configmap from the above git hub repo, add scrape jobs that you  would need and apply/deploy the config map to `kube-system` namespace for your cluster
 
+## Custom Resource Definitions
+The Azure Monitor metrics add-on supports scraping Prometheus metrics using Prometheus - Pod Monitors and Service Monitors, similar to the OSS Prometheus operator. Enabling the add-on will deploy the Pod and Service Monitor custom resource definitions to allow you to create your own custom resources. 
+Follow the instructions to [create and apply custom resources]() on your cluster.
+
 ## Metrics add-on settings configmap
 
 The [ama-metrics-settings-configmap](https://aka.ms/azureprometheus-addon-settings-configmap) can be downloaded, edited, and applied to the cluster to customize the out-of-the-box features of the metrics add-on.
@@ -146,6 +150,8 @@ You can configure the metrics add-on to scrape targets other than the default on
 
 Follow the instructions to [create, validate, and apply the configmap](prometheus-metrics-scrape-validate.md) for your cluster.
 
+Additionally, you can also scrape Prometheus metrics using Prometheus - Pod Monitors and Service Monitors, similar to the OSS Prometheus operator.
+Follow the instructions to [create and apply custom resources]() on your cluster.
 
 
 ## Prometheus configuration tips and examples
