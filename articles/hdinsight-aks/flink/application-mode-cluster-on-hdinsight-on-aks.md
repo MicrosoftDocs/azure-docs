@@ -1,9 +1,9 @@
 ---
 title: Flink® Application Mode Cluster on HDInsight on AKS
-description: Learn about  Flink® Application Mode Cluster on HDInsight on AKS
+description: Learn about  Flink® Application Mode Cluster on HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 03/14/2024
+ms.date: 03/13/2024
 ---
 
 # Application Mode Cluster on HDInsight on AKS
@@ -47,13 +47,13 @@ HDInsight on AKS offers a Flink Application mode cluster. This cluster lets you 
 
 **Complete the prerequisites in the following sections:
 
-1. [Subscription prerequisites](../prerequisites-subscription.md)
+1. [Subscription prerequisites.](../prerequisites-subscription.md)
 
-1. [Resource prerequisites](../prerequisites-resources.md)
+1. [Resource prerequisites.](../prerequisites-resources.md)
 
-1. [Create a cluster pool](../prerequisites-resources.md)
+1. [Create a cluster pool].(../prerequisites-resources.md)
 
-1. Add job jar in Storage Account
+1. Add job jar in Storage Account.
 
     Before setting up a Flink App Mode Cluster, several preparatory steps required. One of these steps involves placing the App Mode job JAR in the cluster's storage account. 
 
@@ -83,10 +83,10 @@ Flink AppMode clusters can be created once cluster pool deployment completed, le
     |Property |Description |
     |-|-|
     |Subscription |This field autopopulated with the Azure subscription that was registered for the Cluster Pool.| 
-    |Resource Group |This field autopopulated and shows the resource group on the cluster pool. |
-    |Region |This field autopopulated and shows the region selected on the cluster pool.| 
-    |Cluster Pool |This field autopopulated and shows the cluster pool name on which the cluster is now getting created. To create a cluster in a different pool, find the cluster pool in the portal and click + New cluster.| 
-    |HDInsight on AKS Pool Version |This field autopopulated and shows the cluster pool version on which the cluster is now getting created. |
+    |Resource Group |This field autopopulates and shows the resource group on the cluster pool. |
+    |Region |This field autopopulates and shows the region selected on the cluster pool.| 
+    |Cluster Pool |This field autopopulates and shows the cluster pool name on which the cluster is now getting created. To create a cluster in a different pool, find the cluster pool in the portal and click + New cluster.| 
+    |HDInsight on AKS Pool Version |This field autopopulates and shows the cluster pool version on which the cluster is now getting created. |
     |HDInsight on AKS Version |Select the minor or patch version of the HDInsight on AKS of the new cluster. |
     |Cluster type |From the drop-down list, select Flink. |
     |Cluster name |Enter the name of the new cluster.| 
@@ -95,14 +95,14 @@ Flink AppMode clusters can be created once cluster pool deployment completed, le
     |Virtual network |The virtual network for the cluster. |
     |Subnet |The virtual subnet for the cluster.|
 
-1. Enabling Hive catalog for Flink SQL.
+1. Enabling Hive catalog for Flink SQL:
 
-    |Property |Description|
+    |Property|Description|
     |-|-|
     |Use Hive catalog ||Enable this option to use an external Hive metastore. |
     |SQL Database for Hive |From the drop-down list, select the SQL Database in which to add hive-metastore tables. |
     |SQL admin username |Enter the SQL server admin username. This account is used by metastore to communicate to SQL database. |
-    |Key vault |From the drop-down list, select the Key Vault, which contains a secret with password for SQL server admin username. You need to set up an access policy with all required permissions such as key permissions, secret permissions, and certificate permissions to the MSI, which is being used for the cluster creation. The MSI needs a Key Vault Administrator role, add the required permissions using IAM. |
+    |Key vault |From the drop-down list, select the Key Vault, which contains a secret with password for SQL server admin username. You need to set up an access policy with all required permissions such as key permissions, secret permissions, and certificate permissions to the MSI, which is being used for the cluster creation. The MSI needs a Key Vault Administrator role. Add the required permissions using IAM. |
     |SQL password secret name |Enter the secret name from the Key Vault where the SQL database password is stored. |
 
     :::image type="content" source="./media/application-mode-cluster-on-hdinsight-on-aks/create-cluster-page.png" alt-text="Screenshot showing Apache Flink create cluster page." lightbox="./media/application-mode-cluster-on-hdinsight-on-aks/create-cluster-page.png":::
@@ -131,7 +131,7 @@ Flink AppMode clusters can be created once cluster pool deployment completed, le
     |Upgrade mode |Select default Upgrade option. This option  used when major version upgrade is happening for cluster. There are three options available. **UPDATE:** Used when a user wants to recover from the last savepoint after upgrade. **STATELESS_UPDATE:** Used when a user wants fresh restart for job after upgrade. **LAST_STATE_UPDATE:** Used when a user wants to recover job from last checkpoint after upgrade |
     |Flink job configuration |Add add more configuration required for Flink job. |
 
-1. Select 'Job log aggregation.' Check box if you want to upload your job log to remote storage. It  helps debugging the job issues. Default location for job log is “StorageAccount/Container/DeploymentId/logs.” You can change the default log directory by configuring “pipeline.remote.log.dir.” Default interval for log collection is 600 sec. User can change by configuring “pipeline.log.aggregation.interval”.
+1. Select 'Job log aggregation.' Check box if you want to upload your job log to remote storage. It  helps debugging the job issues. Default location for job log is 'StorageAccount/Container/DeploymentId/logs.' You can change the default log directory by configuring “pipeline.remote.log.dir.” Default interval for log collection is 600 sec. User can change by configuring “pipeline.log.aggregation.interval”.
 
 1. On the Service Configuration section, provide the following information:
 
@@ -175,7 +175,7 @@ The Deployment in process page displayed which the cluster is created. It ta
 
 ## Manage Application Job in from Portal  
 
-HDInsight AKS provides ways to manage Flink jobs. You can relaunch failed job, , restart job from portal.
+HDInsight AKS provides ways to manage Flink jobs. You can relaunch a failed job.  Restart the job from portal.
 
 To run the Flink job from portal, go to:
 
@@ -186,7 +186,7 @@ Portal > HDInsight on AKS Cluster Pool > Flink Cluster > Settings > Flink Jobs.
 1. Stop: Stop job didn't require any parameters. User can stop the job by selecting the action. Once the job is stopped, the job status on the portal to be STOPPED. 
 1. Start: Starts the job from savepoint. To start the job, select the stopped job and start it.
 1. Update: Update helps to restart jobs with updated job code. Users need to update the latest job jar in storage location and update the job from portal. This action stops the job with savepoint and start again with latest jar.
-1. Stateless Update: This is like an update, but it involves a fresh restart of the job with the latest code. Once the job is updated, the job status on the portal a shows as **Running.**
+1. Stateless Update: Stateless is like an update, but it involves a fresh restart of the job with the latest code. Once the job is updated, the job status on the portal a shows as **Running.**
 1. Savepoint: Take the savepoint for the Flink Job.
 1. Cancel: Terminate the job.
 1. Delete: Delete AppMode cluster.
