@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: private-link
 ms.topic: quickstart
-ms.date: 03/07/2024
+ms.date: 03/13/2024
 #CustomerIntent: As a cloud architect, I want to create a network security perimeter for an Azure resource using Azure CLI, so that I can control the network traffic to and from the resource.
 ---
 
