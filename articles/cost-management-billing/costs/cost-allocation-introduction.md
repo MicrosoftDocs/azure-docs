@@ -24,7 +24,7 @@ This article introduces you to different Azure tools and features to enable you 
 
 Together, they can help to cover a considerable proportion of the expenses for the most complicated Azure infrastructure. They help organizations reach an elevated level of maturity as defined by the FinOps Foundation at [Cost Allocation (Metadata & Hierarchy)](https://www.finops.org/framework/capabilities/cost-allocation/).
 
-## Azure Resource hierarchy
+## Azure resource hierarchy
 
 Here's a diagram of the Azure resource hierarchy with management groups.
 
