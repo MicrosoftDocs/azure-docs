@@ -1,10 +1,10 @@
 ---
-title: Deploy Azure Communications Gateway 
+title: Deploy Azure Communications Gateway
 description: This article guides you through planning for and deploying an Azure Communications Gateway.
 author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
-ms.topic: how-to 
+ms.topic: how-to
 ms.date: 01/08/2024
 ---
 
@@ -91,6 +91,8 @@ For Zoom Phone Cloud Peering:
 | Whether to add a custom SIP header to messages entering your network by using Azure Communications Gateway's Provisioning API | **Options common to multiple communications services: Add custom SIP header** |
 | (Only if you choose to add a custom SIP header) The name of any custom SIP header | **Options common to multiple communications services: Custom SIP header name** |
 
+There are no configuration options required for Azure Operator Call Protection (preview).
+
 ## Collect values for service verification numbers
 
 Collect all of the values in the following table for all the service verification numbers required by Azure Communications Gateway.
@@ -109,7 +111,7 @@ For Zoom Phone Cloud Peering:
 |---------|---------|
 |The phone number for the test line, in E.164 format and including the country code. |**Phone Number**|
 
-Microsoft Teams Direct Routing doesn't require service verification numbers.
+Microsoft Teams Direct Routing and Azure Operator Call Protection don't require service verification numbers.
 
 ## Decide if you want tags
 
@@ -122,7 +124,7 @@ If you believe tagging would be useful for your organization, design your naming
 Use the Azure portal to create an Azure Communications Gateway resource.
 
 1. Sign in to the [Azure portal](https://azure.microsoft.com/).
-1. In the search bar at the top of the page, search for Communications Gateway and select **Communications Gateways**.  
+1. In the search bar at the top of the page, search for Communications Gateway and select **Communications Gateways**.
 
     :::image type="content" source="media/deploy/search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for Azure Communications Gateway.":::
 
@@ -135,7 +137,7 @@ Use the Azure portal to create an Azure Communications Gateway resource.
 1. Select the communications services that you want to support in the **Communications Services** configuration tab, use the information that you collected in [Collect configuration values for each communications service](#collect-configuration-values-for-each-communications-service) to fill out the fields, and then select **Next: Test Lines**.
 1. Use the information that you collected in [Collect values for service verification numbers](#collect-values-for-service-verification-numbers) to fill out the fields in the **Test Lines** configuration tab and then select **Next: Tags**.
     - Don't configure numbers for integration testing.
-    - Microsoft Teams Direct Routing doesn't require service verification numbers.
+    - Microsoft Teams Direct Routing and Azure Operator Call Protection don't require service verification numbers.
 1. (Optional) Configure tags for your Azure Communications Gateway resource: enter a **Name** and **Value** for each tag you want to create.
 1. Select **Review + create**.
 
@@ -169,6 +171,7 @@ When your resource has been provisioned, you can connect Azure Communications Ga
     1. The root CA certificate for Azure Communications Gateway's certificate is the DigiCert Global Root G2 certificate. If your network doesn't have this root certificate, download it from https://www.digicert.com/kb/digicert-root-certificates.htm and install it in your network.
 1. Configure your infrastructure to meet the call routing requirements described in [Reliability in Azure Communications Gateway](reliability-communications-gateway.md).
     * Depending on your network, you might need to configure SBCs, softswitches and access control lists (ACLs).
+    * If you are using Azure Operator Call Protection, a component in your network (typically an SBC), must act as a SIPREC Session Recording Client (SRC).
     * Your network needs to send SIP traffic to per-region FQDNs for Azure Communications Gateway. To find these FQDNs:
         1. Sign in to the [Azure portal](https://azure.microsoft.com/).
         1. In the search bar at the top of the page, search for your Communications Gateway resource.

@@ -1,133 +1,51 @@
 ---
 title: Learn about deploying and setting up Azure Operator Call Protection
-description: Understand how to get started with Azure Operator Call Protection to protect your customers against fraud
+description: Understand how to get started with Azure Operator Call Protection to protect your customers against fraud.
 author: rcdun
 ms.author: rdunstan
 ms.service: azure
 ms.topic: concept-article #Required; leave this attribute/value as-is.
-ms.date: 01/31/2024
 ms.custom:
     - update-for-call-protection-service-slug
 
-#CustomerIntent: As a <type of user>, I want <what?> so that <why?>.
+#CustomerIntent: As someone planning a deployment, I want to understand what I need to do so that I can do it easily.
 ---
+# Overview of deploying Azure Operator Call Protection
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the  main branch.
+Azure Operator Call Protection is built on Azure Communications Gateway.
 
-This template provides the basic structure of a Concept article pattern. See the [instructions - Concept](../level4/article-concept.md) in the pattern library.
+- If you already have Azure Communications Gateway, you can enable Azure Operator Call Protection on it.
+- If you don't have Azure Communications Gateway, you must deploy it first and then configure Azure Operator Call Protection.
 
-You can provide feedback about this template at: https://aka.ms/patterns-feedback
+## Planning your deployment
 
-Concept is an article pattern that defines what something is or explains an abstract idea.
+[!INCLUDE [operator-call-protection-provider-restriction](includes/operator-call-protection-provider-restriction.md)]
 
-There are several situations that might call for writing a Concept article, including:
+Your network must connect to Azure Communications Gateway and thus Azure Operator Call Protection over SIPREC.
 
-* If there's a new idea that's central to a service or product, that idea must be explained so that customers understand the value of the service or product as it relates to their circumstances. A good recent example is the concept of containerization or the concept of scalability.
-* If there's optional information or explanations that are common to several Tutorials or How-to guides, this information can be consolidated and single-sourced in a full-bodied Concept article for you to reference.
-* If a service or product is extensible, advanced users might modify it to better suit their application. It's better that advanced users fully understand the reasoning behind the design choices and everything else "under the hood" so that their variants are more robust, thereby improving their experience.
+- Azure Communications Gateway takes the role of the SIPREC Session Recording Server (SRS).
+- An element in your network, typically a session border controller (SBC), must be set up as a SIPREC Session Recording Client (SRC).
 
--->
+> [!IMPORTANT]
+> This SIPREC connection is different to other services available through Azure Communication Gateway. Ensure your network design takes this into account.
 
-<!-- 1. H1
------------------------------------------------------------------------------
+When you deploy Azure Operator Call Protection, you can access Azure Communication's Gateway's _Included Benefits_ customer success and onboarding service. This onboarding service includes a project team to help you design and set up your network for success. For more information about Included Benefits, see [Onboarding with Included Benefits for Azure Communications Gateway](../communications-gateway/onboarding.md).
 
-Required. Set expectations for what the content covers, so customers know the content meets their needs. The H1 should NOT begin with a verb.
+[Get started with Azure Communications Gateway](../communications-gateway/get-started.md) provides links to more information about deploying Azure Communications Gateway.
 
-Reflect the concept that undergirds an action, not the action itself. The H1 must start with:
+## Deploying Operator Call Protection
 
-* "\<noun phrase\> concept(s)", or
-* "What is \<noun\>?", or
-* "\<noun\> overview"
+Deploy Azure Operator Call Protection with the following procedures.
 
-Concept articles are primarily distinguished by what they aren't:
+1. If you don't already have Azure Communications Gateway, deploy it.
+    1. [Prepare to deploy Azure Communications Gateway](../communications-gateway/prepare-to-deploy.md?toc=/azure/operator-call-protection/toc.json&bc=/azure/operator-call-protection/breadcrumb/toc.json).
+    1. [Deploy Azure Communications Gateway](../communications-gateway/deploy.md?toc=/azure/operator-call-protection/toc.json&bc=/azure/operator-call-protection/breadcrumb/toc.json).
+1. [Set up Azure Operator Call Protection](set-up-operator-call-protection.md), including provisioning subscribers using the Number Management Portal and testing your deployment.
 
-* They aren't procedural articles. They don't show how to complete a task.
-* They don't have specific end states, other than conveying an underlying idea, and don't have concrete, sequential actions for the user to take.
-
-One clear sign of a procedural article would be the use of a numbered list. With rare exception, numbered lists shouldn't appear in Concept articles.
-
--->
-
-# [\<noun phrase\> concept(s)]
-TODO: Add your heading
-
-<!-- 2. Introductory paragraph
-----------------------------------------------------------
-
-Required. Lead with a light intro that describes what the article covers. Answer the fundamental "why would I want to know this?" question. Keep it short.
-
-* Answer the fundamental "Why do I want this knowledge?" question.
-* Don't start the article with a bunch of notes or caveats.
-* Don't link away from the article in the introduction.
-* For definitive concepts, it's better to lead with a sentence in the form, "X is a (type of) Y that does Z."
-
--->
-
-[Introductory paragraph]
-TODO: Add your introductory paragraph
-
-<!-- 3. Prerequisites --------------------------------------------------------------------
-
-Optional: Make **Prerequisites** your first H2 in the article. Use clear and unambiguous
-language and use a unordered list format. 
-
--->
-
-## Prerequisites
-TODO: [List the prerequisites if appropriate]
-
-<!-- 4. H2s (Article body)
---------------------------------------------------------------------
-
-Required: In a series of H2 sections, the article body should discuss the ideas that explain how "X is a (type of) Y that does Z":
-
-* Give each H2 a heading that sets expectations for the content that follows.
-* Follow the H2 headings with a sentence about how the section contributes to the whole.
-* Describe the concept's critical features in the context of defining what it is.
-* Provide an example of how it's used where, how it fits into the context, or what it does. If it's complex and new to the user, show at least two examples.
-* Provide a non-example if contrasting it will make it clearer to the user what the concept is.
-* Images, code blocks, or other graphical elements come after the text block it illustrates.
-* Don't number H2s.
-
--->
-
-## [Section 1 heading]
-TODO: add your content
-
-## [Section 2 heading]
-TODO: add your content
-
-## [Section n heading]
-TODO: add your content
-
-<!-- 5. Next step/Related content ------------------------------------------------------------------------ 
-
-Optional: You have two options for manually curated links in this pattern: Next step and Related content. You don't have to use either, but don't use both.
-  - For Next step, provide one link to the next step in a sequence. Use the blue box format
-  - For Related content provide 1-3 links. Include some context so the customer can determine why they would click the link. Add a context sentence for the following links.
-
--->
+> [!TIP]
+> You can also use Azure Communication Gateway's Provisioning API to provision subscribers. To do this, you must [integrate with the Provisioning API](../communications-gateway/integrate-with-provisioning-api.md).
 
 ## Next step
 
 > [!div class="nextstepaction"]
 > [Prepare to deploy Operator Call Protection on Azure Communications Gateway](../communications-gateway/prepare-to-deploy.md?toc=/azure/operator-call-protection/toc.json&bc=/azure/operator-call-protection/breadcrumb/toc.json)
-
-
-<!-- OR -->
-
-<!--
-## Related content
-
-TODO: Add your next step link(s)
-
-- [Write concepts](article-concept.md)
-- 
---->
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
-
--->
