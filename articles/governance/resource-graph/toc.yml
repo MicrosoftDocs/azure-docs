@@ -75,13 +75,13 @@
     items:
     - name: Overview
       displayName: vms, public ip
-      href: ./concepts/resource-graph-changes.md
+      href: ./changes/resource-graph-changes.md
     - name: Why is Change Analysis moving?
       displayName: vms, public ip
-      href: ./concepts/transitional-overview.md
+      href: ./changes/transitional-overview.md
     - name: Resource change properties
       displayName: vms, public ip
-      href: ./concepts/changes-resource-spec.md
+      href: ./changes/changes-resource-spec.md
   - name: Work with large data sets
     displayName: page, first, skip, token
     href: ./concepts/work-with-data.md
@@ -96,10 +96,10 @@
   items:
   - name: Get resource changes
     displayName: resource, change, history, snapshot, details
-    href: ./how-to/get-resource-changes.md
+    href: ./changes/get-resource-changes.md
   - name: Access resource changes
     displayName: resource, change, history, snapshot, details
-    href: ./how-to/view-resource-changes.md
+    href: ./changes/view-resource-changes.md
 - name: Troubleshoot
   items:
   - name: Alerts
