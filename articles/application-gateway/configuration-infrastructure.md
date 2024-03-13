@@ -157,7 +157,7 @@ You can block all other incoming traffic by using a **Deny All** rule.
 |Any|Any|Internet|Any|Any|Allow|
 
 > [!NOTE]
-> Application Gateways that do not have [Network Isolation](application-gateway-private-deployment.md#route-table-control) enabled don't allow traffic to be sent between peered VNets when **Allow traffic to remote virtual network** is disabled.
+> Application Gateways that don't have [Network Isolation](application-gateway-private-deployment.md#route-table-control) enabled don't allow traffic to be sent between peered VNets when **Allow traffic to remote virtual network** is disabled.
 
 ## Supported user-defined routes
 
