@@ -29,9 +29,11 @@ You need certain permission levels to follow the steps in this article. If you c
 
 ## Add custom role
 
-There's a built-in role for a data labeler. If you want to use just that built-in role, skip this section and proceed to [add guest user](#add-guest-user).  
+When you add a user to your project, you assign them a role to define their level of access. Before you add users, define the roles you want to use.
 
-If you want to create a custom role, follow these steps. Make sure to define all the roles you want to use before moving on. 
+There is a built-in role for data labeling, scoped only to labeling data. If you want to use the built-in role for all your labelers, skip this section and proceed to [add guest user](#add-guest-user).  
+
+The following custom roles give other levels of access for a data labeling project. Define all the roles you want to use before moving on to add the users.
 
  To add a custom role, you must have `Microsoft.Authorization/roleAssignments/write` permissions for your subscription - for example, [User Access Administrator](../../articles/role-based-access-control/built-in-roles.md).
 
