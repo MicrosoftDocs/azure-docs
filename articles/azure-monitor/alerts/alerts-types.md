@@ -93,5 +93,5 @@ The platform metrics for these services in the following Azure clouds are suppor
   > [!NOTE]
   > Multi-resource metric alerts aren't supported for:
   > - Alerting on VM guest metrics.
-  > - Alerting on VM network metrics (Network In Total, Network Out Total, Inbound Flows, Outbound Flows, Inbound Flows Maximum Creation Rate, and Outbound Flows Maximum Creation Rate).
+  > - VM network metrics (Network In Total, Network Out Total, Inbound Flows, Outbound Flows, Inbound Flows Maximum Creation Rate, and Outbound Flows Maximum Creation Rate).
 
