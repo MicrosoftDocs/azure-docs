@@ -77,7 +77,7 @@ You should receive a response body in the following format:
 
 ```json
 {
-  "id": "my-job-01",
+  "id": "YourSynthesisId",
   "internalId": "7ab84171-9070-4d3b-88d4-1b8cc1cb928a",
   "status": "NotStarted",
   "createdDateTime": "2024-03-12T07:23:18.0097387Z",
@@ -102,14 +102,14 @@ The `status` property should progress from `NotStarted` status, to `Running`, an
 To get the status of the batch synthesis job, make an HTTP GET request using the URI as shown in the following example. Replace `YourSpeechKey` with your Speech resource key, and replace `YourSpeechRegion` with your Speech resource region.
 
 ```azurecli-interactive
-curl -v -X GET "https://YourSpeechRegion.api.cognitive.microsoft.com/texttospeech/batchsyntheses/my-job-01?api-version=2024-04-01" -H "Ocp-Apim-Subscription-Key: YourSpeechKey"
+curl -v -X GET "https://YourSpeechRegion.api.cognitive.microsoft.com/texttospeech/batchsyntheses/YourSynthesisId?api-version=2024-04-01" -H "Ocp-Apim-Subscription-Key: YourSpeechKey"
 ```
 
 You should receive a response body in the following format:
 
 ```json
 {
-  "id": "my-job-01",
+  "id": "YourSynthesisId",
   "internalId": "7ab84171-9070-4d3b-88d4-1b8cc1cb928a",
   "status": "Succeeded",
   "createdDateTime": "2024-03-12T07:23:18.0097387Z",
@@ -135,7 +135,7 @@ You should receive a response body in the following format:
     }
   },
   "outputs": {
-    "result": "https://stttssvcuse.blob.core.windows.net/batchsynthesis-output/29f2105f997c4bfea176d39d05ff201e/my-job-01/results.zip?SAS_Token"
+    "result": "https://stttssvcuse.blob.core.windows.net/batchsynthesis-output/29f2105f997c4bfea176d39d05ff201e/YourSynthesisId/results.zip?SAS_Token"
   }
 }
 ```
@@ -382,7 +382,7 @@ Here's an example request that results in an HTTP 400 error, because the `inputs
 ```console
 curl -v -X PUT -H "Ocp-Apim-Subscription-Key: YourSpeechKey" -H "Content-Type: application/json" -d '{
     "inputKind": "SSML"
-}'  "https://YourSpeechRegion.api.cognitive.microsoft.com/texttospeech/batchsyntheses/my-job-01?api-version=2024-04-01"
+}'  "https://YourSpeechRegion.api.cognitive.microsoft.com/texttospeech/batchsyntheses/YourSynthesisId?api-version=2024-04-01"
 ```
 
 In this case, the response headers include `HTTP/1.1 400 Bad Request`.
