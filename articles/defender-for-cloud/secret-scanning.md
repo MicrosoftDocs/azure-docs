@@ -7,7 +7,6 @@ ms.date: 01/22/2024
 
 ---
 title: Manage secrets with agentless secrets scanning
-ms.topic: overview
 
 # Manage secrets with agentless secrets scanning
 
