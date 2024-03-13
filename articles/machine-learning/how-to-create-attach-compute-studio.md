@@ -38,7 +38,7 @@ To see all compute targets for your workspace, use the following steps:
 
 1. Select tabs at the top to show each type of compute target.
 
-    :::image type="content" source="media/how-to-create-attach-studio/compute-targets.png" alt-text="View list of compute targets" lightbox="media/how-to-create-attach-studio/compute-targets.png":::
+    :::image type="content" source="media/how-to-create-attach-studio/compute-targets.png" alt-text="Screenshot of view list of compute targets." lightbox="media/how-to-create-attach-studio/compute-targets.png":::
 
 [!INCLUDE [retiring vms](./includes/retiring-vms.md)]
 
