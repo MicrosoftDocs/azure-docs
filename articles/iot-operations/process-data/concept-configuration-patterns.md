@@ -1,6 +1,6 @@
 ---
 title: Data Processor configuration patterns
-description: Understand the common patterns such as path, batch, templates, retry, and duration that you use to configure pipeline stages.
+description: Understand the common patterns such as path, batch, templates, retry, and duration that you use to configure Azure IoT Data Processor pipeline stages.
 author: dominicbetts
 ms.author: dobett
 ms.subservice: data-processor
@@ -12,7 +12,7 @@ ms.date: 02/13/2024
 #CustomerIntent: As an operator I want to understand common configuration patterns so I can configure a pipeline to process my data.
 ---
 
-# What are configuration patterns?
+# What are configuration patterns in Azure IoT Data Processor Preview?
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
