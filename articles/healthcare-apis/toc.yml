@@ -65,10 +65,7 @@
       href: release-notes-2021.md
     - name: Known issues
       href: known-issues.md
-- name: Resources
-  expanded: true
-  items: 
-    - name: GitHub projects
+- name: GitHub projects
       href: github-projects.md
 - name: FAQ
   href: healthcare-apis-faqs.md
