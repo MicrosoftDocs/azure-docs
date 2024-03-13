@@ -27,14 +27,13 @@ author: mrbullwinkle
 1. Sign in to [Azure AI Studio](https://ai.azure.com).
 1. Go to your project or [create a new project](../../../ai-studio//how-to/create-projects.md) in Azure AI Studio.
 1. From the Azure AI Studio Home page, select **Build** > **Playground**.
-1. Select your deployment from the **Deployments** dropdown.
-1. Select **Assistants** from the **Mode** dropdown menu.
 
-## Playground
+    The Assistants playground allows you to explore, prototype, and test AI Assistants without needing to run any code. From this page, you can quickly iterate and experiment with new ideas.
 
-The Assistants playground allows you to explore, prototype, and test AI Assistants without needing to run any code. From this page, you can quickly iterate and experiment with new ideas.
-
-:::image type="content" source="../media/quickstarts/assistants-ai-studio-playground.png" alt-text="Screenshot of the Assistant configuration screen without all the values filled in." lightbox="../media/quickstarts/assistants-ai-studio-playground.png":::
+    1. Select your deployment from the **Deployments** dropdown.
+    1. Select **Assistants** from the **Mode** dropdown menu.
+    
+    :::image type="content" source="../media/quickstarts/assistants-ai-studio-playground.png" alt-text="Screenshot of the Assistant configuration screen without all the values filled in." lightbox="../media/quickstarts/assistants-ai-studio-playground.png":::
 
 ### Assistant setup
 
@@ -49,35 +48,10 @@ Use the **Assistant setup** pane to create a new AI assistant or to select an ex
 | **Code interpreter** | Code interpreter provides access to a sandboxed Python environment that can be used to allow the model to test and execute code. |
 | **Files** | You can upload up to 20 files, with a max file size of 512 MB to use with tools. |
 
-### Tools
-
-An individual assistant can access up to 128 tools including `code interpreter`, as well as any custom tools you create via [functions](../how-to/assistant-functions.md).
-
-### Chat session
-
-Chat session also known as a *thread* within the Assistant's API is where the conversation between the user and assistant occurs. Unlike traditional chat completion calls there is no limit to the number of messages in a thread. The assistant will automatically compress requests to fit the input token limit of the model.
-
-This also means that you are not controlling how many tokens are passed to the model during each turn of the conversation. Managing tokens is abstracted away and handled entirely by the Assistants API.
-
-Select the **Clear chat** button to delete the current conversation history.
-
-Underneath the text input box there are two buttons:
-
-- Add a message without run.
-- Add and run.
-
-### Logs
-
-Logs provide a detailed snapshot of what the assistant API activity.
-
-### Show panels
-
-By default there are three panels: assistant setup, chat session, and Logs. **Show panels** allows you to add, remove, and rearrange the panels. If you ever close a panel and need to get it back, use **Show panels** to restore the lost panel.
-
 ## Create your first assistant
 
-1. From the assistant setup drop-down, select **New**
-2. Give your Assistant a name
+1. From the assistant setup drop-down, select **New**.
+2. Give your Assistant a name.
 3. Enter the following instructions "You are an AI assistant that can write code to help answer math questions"
 4. Select a model deployment. We recommend testing with one of the latest gpt-4 models.
 5. Select the toggle enabling code interpreter.
@@ -114,6 +88,35 @@ By default there are three panels: assistant setup, chat session, and Logs. **Sh
     :::image type="content" source="../media/quickstarts/assistant-ai-studio-session.png" alt-text="Screenshot of conversation session in the Assistant playground." lightbox="../media/quickstarts/assistant-ai-studio-session.png":::
 
 You could also consult the logs in the right-hand panel to confirm that code interpreter was used and to validate the code that was run to generate the response. It is important to remember that while code interpreter gives the model the capability to respond to more complex math questions by converting the questions into code and running in a sandboxed Python environment, you still need to validate the response to confirm that the model correctly translated your question into a valid representation in code.
+
+## Key concepts
+
+While using the Assistants playground, keep the following concepts im mind. 
+
+### Tools
+
+An individual assistant can access up to 128 tools including `code interpreter`, as well as any custom tools you create via [functions](../how-to/assistant-functions.md).
+
+### Chat session
+
+Chat session also known as a *thread* within the Assistant's API is where the conversation between the user and assistant occurs. Unlike traditional chat completion calls there is no limit to the number of messages in a thread. The assistant will automatically compress requests to fit the input token limit of the model.
+
+This also means that you are not controlling how many tokens are passed to the model during each turn of the conversation. Managing tokens is abstracted away and handled entirely by the Assistants API.
+
+Select the **Clear chat** button to delete the current conversation history.
+
+Underneath the text input box there are two buttons:
+
+- Add a message without run.
+- Add and run.
+
+### Logs
+
+Logs provide a detailed snapshot of what the assistant API activity.
+
+### Show panels
+
+By default there are three panels: assistant setup, chat session, and Logs. **Show panels** allows you to add, remove, and rearrange the panels. If you ever close a panel and need to get it back, use **Show panels** to restore the lost panel.
 
 ## Clean up resources
 
