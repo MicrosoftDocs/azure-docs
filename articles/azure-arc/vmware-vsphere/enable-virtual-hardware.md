@@ -2,7 +2,7 @@
 title:  Enable additional capabilities on Arc-enabled Server machines by linking to vCenter
 description: Enable additional capabilities on Arc-enabled Server machines by linking to vCenter.
 ms.topic: how-to 
-ms.date: 03/11/2024
+ms.date: 03/13/2024
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
 author: Farha-Bano
@@ -17,13 +17,13 @@ If you have VMware machines connected to Azure via Arc-enabled Servers route, yo
 Follow these steps [here](./quick-start-connect-vcenter-to-arc-using-script.md) to deploy the Arc Resource Bridge and connect vCenter to Azure.
 
 >[!IMPORTANT]
-> This article is applicable only if you've installed Arc agents directly in VMware machines before onboarding to Azure Arc-enabled VMware vSphere by deploying Arc resource bridge. 
+> This article applies only if you've directly installed Arc agents on the VMware machines, and those machines are onboarded as *Microsoft.HybridCompute/machines* ARM resources before connecting vCenter to Azure by deploying Resource Bridge. 
 
 ## Prerequisites
 
 - An Azure subscription and resource group where you have *Azure Arc VMware Administrator role*. 
 - Your vCenter instance must be [onboarded](quick-start-connect-vcenter-to-arc-using-script.md) to Azure Arc.
-- Arc-enabled Server resource and vCenter resource must be in the same Azure region.
+- Arc-enabled Servers machines and vCenter resource must be in the same Azure region.
 
 ## Link Arc-enabled Servers machines to vCenter from Azure portal
 

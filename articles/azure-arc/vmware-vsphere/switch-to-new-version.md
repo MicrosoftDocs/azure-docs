@@ -2,7 +2,7 @@
 title: Switch to the new version
 description: Learn how to switch to the new version of Azure Arc-enabled VMware vSphere and use its capabilities.
 ms.topic: how-to 
-ms.date: 03/08/2024
+ms.date: 03/13/2024
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
 author: Farha-Bano
