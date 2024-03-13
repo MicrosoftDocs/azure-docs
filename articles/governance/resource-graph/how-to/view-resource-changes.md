@@ -1,6 +1,6 @@
 ---
 title: View resource configuration changes (Preview)
-description: View resource configuration changes in the Azure portal
+description: View resource configuration changes in the Azure portal.
 author: iancarter-msft
 ms.author: iancarter
 ms.date: 03/11/2024
@@ -33,7 +33,7 @@ Realistically, you only want to see the change history results for the resources
 
 To narrow down the change history results to your specific needs, start by using any of the filters available on the **All Resources** blade. 
 
-:::image type="content" source="/media/view-resource-changes/all-resources-filter.png" alt-text="Screenshot of the filters available on the All Resources blade that will help narrow down the Change Analysis results.":::
+:::image type="content" source="/media/view-resource-changes/all-resources-filter.png" alt-text="Screenshot of the filters available on the All Resources blade that help narrow down the Change Analysis results.":::
 
 | Filter | Description |
 | ------ | ----------- |
@@ -41,12 +41,12 @@ To narrow down the change history results to your specific needs, start by using
 | Resource group | Select the resource group to scope to all resources within that group. By default, all resource groups are selected. |
 | Type | Filter resources to specific Azure services/resource types, like Logic App or Virtual Machine.  |
 | Location | Limit results to resources based on the location in which they were created. |
-| Name | Select **Add filter** to add this filter. </br> Search for resources by their resource name. |
-| Kind | Select **Add filter** to add this filter. </br> Filter results based on their resource account. |
-| Edge zone | Select **Add filter** to add this filter. </br> Filter resource results by their edge zones, which are small, localized Azure footprints designed to provide low latency connectivity. |
-| Tags | Select **Add filter** to add a tag filter. </br> Select the tag associated with the resources you'd like to see. |
+| Name | Select **Add filter** to add this filter.</br> Search for resources by their resource name. |
+| Kind | Select **Add filter** to add this filter.</br> Filter results based on their resource account. |
+| Edge zone | Select **Add filter** to add this filter.</br> Filter resource results by their edge zones, which are small, localized Azure footprints designed to provide low latency connectivity. |
+| Tags | Select **Add filter** to add a tag filter.</br> Select the tag associated with the resources you'd like to see. |
 
-Once you've narrowed down the **All resources** results, select the **Changed resources** card to view the change history for those resources. For example, with the **Location** filter set to **East US**, the Change Analysis blade is limited to 15 total changes. 
+Once you narrow down the **All resources** results, select the **Changed resources** card to view the change history for those resources. For example, with the **Location** filter set to **East US**, the Change Analysis blade is limited to 15 total changes. 
 
 :::image type="content" source="/media/view-resource-changes/location-filter-changes.png" alt-text="Screenshot of the Change Analysis results based on the Location filter being set to East US.":::
 
@@ -54,7 +54,7 @@ Once you've narrowed down the **All resources** results, select the **Changed re
 
 In the **Change Analysis** blade, you can organize the results into groups using the **Group by...** drop-down menu.
 
-:::image type="content" source="/media/view-resource-changes/change-grouping.png" alt-text="Screenshot of the drop-down for selecing how to group Change Analysis results.":::
+:::image type="content" source="/media/view-resource-changes/change-grouping.png" alt-text="Screenshot of the drop-down for selecting how to group Change Analysis results.":::
 
 | Group by... | Description |
 | ------ | ----------- |
