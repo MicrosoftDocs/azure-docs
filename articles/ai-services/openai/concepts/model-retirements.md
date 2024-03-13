@@ -14,9 +14,11 @@ recommendations: false
 
 # Azure OpenAI Service model deprecations and retirements
 
+## Overview
+
 Azure OpenAI Service models are continually refreshed with newer and more capable models. As part of this process, we deprecate and retire older models. This document provides information about the models that are currently available, deprecated, and retired.
 
-## Terminology
+### Terminology
 
 * Retirement
 	* When a model is retired, it's no longer available for use. Azure OpenAI Service deployments of a retired model always return error responses.
