@@ -222,6 +222,8 @@
     - name: Checking for pool and node errors
       displayName: troubleshoot, failure
       href: batch-pool-node-error-checking.md
+    - name: Deallocating and starting nodes
+      href: start-deallocate-node.md
   - name: Create a CI/CD pipeline for Batch
     displayName: Azure DevOps, devops, continuous
     href: batch-ci-cd.md
