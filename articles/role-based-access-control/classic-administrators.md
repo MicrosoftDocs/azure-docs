@@ -213,8 +213,6 @@ The user with the Account Administrator role can access the Azure portal and man
 
 Follow these steps to change the Service Administrator in the Azure portal.
 
-1. Make sure your scenario is supported by checking the [limitations for changing the Service Administrator](#limitations-for-changing-the-service-administrator).
-
 1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Administrator.
 
 1. Open **Cost Management + Billing** and select a subscription.
