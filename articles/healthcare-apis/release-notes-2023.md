@@ -74,19 +74,19 @@ Learn more:
 
 #### Import operation supports soft deleted resources
 
-The capability to import soft deleted resources is useful during migration from Azure API for FHIR to Azure Health Data Services. See [PR#3530](https://github.com/microsoft/fhir-server/pull/3530)
+The capability to import soft deleted resources is useful during migration from Azure API for FHIR to Azure Health Data Services. See [PR #3530](https://github.com/microsoft/fhir-server/pull/3530)
 
 #### Performance improvement for queries
 
-We improved performance of FHIR queries with the `_include` parameter. See [PR#3572](https://github.com/microsoft/fhir-server/pull/3572).
+We improved performance of FHIR queries with the `_include` parameter. See [PR #3572](https://github.com/microsoft/fhir-server/pull/3572).
 
 #### Bug fixes
 
-- **Fixed: Searching with `_include` and wildcard results in query failure**. The issue is fixed and permits only the wild character  `*` to be present for `_include` and `_revinclude` searches. [PR#3541](https://github.com/microsoft/fhir-server/pull/3541).
+- **Fixed: Searching with `_include` and wildcard results in query failure**. The issue is fixed and permits only the wild character  `*` to be present for `_include` and `_revinclude` searches. [PR #3541](https://github.com/microsoft/fhir-server/pull/3541).
 
- - **Fixed: Multiple export jobs created results in increase data storage volume**. Due to a bug, export jobs created multiple child jobs when used with the typefilter parameter. The fix addresses the issue. See [PR#3567](https://github.com/microsoft/fhir-server/pull/3567).
+ - **Fixed: Multiple export jobs created results in increase data storage volume**. Due to a bug, export jobs created multiple child jobs when used with the typefilter parameter. The fix addresses the issue. See [PR #3567](https://github.com/microsoft/fhir-server/pull/3567).
 
-- **Fixed: Retriable exception for import operation when using duplicate files**. If there are duplicate files during import, an exception would be thrown. This exception was considered as a retriable exception. The fix addresses the issue. Import operations with same file are no longer retriable. See [PR#3557](https://github.com/microsoft/fhir-server/pull/3557).
+- **Fixed: Retriable exception for import operation when using duplicate files**. If there are duplicate files during import, an exception would be thrown. This exception was considered as a retriable exception. The fix addresses the issue. Import operations with same file are no longer retriable. See [PR #3557](https://github.com/microsoft/fhir-server/pull/3557).
 
 ## October 2023
 
@@ -142,7 +142,7 @@ Learn more:
 
 - **Fixed: Decimal value precision aligns with the FHIR specification.** Before the fix, FHIR service allowed precision value of [18,6]. The service was updated to support decimal value precision of [36,18] per the FHIR specification. See [FHIR specification data types](https://www.hl7.org/fhir/datatypes.html).
 
-- **Fixed: Reindex on targeted search parameter sets the status correctly.** We identified a bug where after performing targeted search parameter reindex, resource data with search parameter wasn't searchable. This bug was addressed by changing the status of the search parameter. See [PR#3400](https://github.com/microsoft/fhir-server/pull/3400).
+- **Fixed: Reindex on targeted search parameter sets the status correctly.** We identified a bug where after performing targeted search parameter reindex, resource data with search parameter wasn't searchable. This bug was addressed by changing the status of the search parameter. See [PR #3400](https://github.com/microsoft/fhir-server/pull/3400).
 
 ## July 2023
 
@@ -150,9 +150,9 @@ Learn more:
 
 #### Bug fixes
 
-- **Fixed: Continuous retry on the import operation.** We observed an issue where $import kept retrying when the NDJSON file size is greater than 2 GB. The issue is fixed. See [PR#3342](https://github.com/microsoft/fhir-server/pull/3342).
+- **Fixed: Continuous retry on the import operation.** We observed an issue where $import kept retrying when the NDJSON file size is greater than 2 GB. The issue is fixed. See [PR #3342](https://github.com/microsoft/fhir-server/pull/3342).
 
-- **Fixed: Patient and group level export job restart.** Patient and group level exports on interruption would restart from the beginning. This bug is fixed to restart the export jobs from the last successfully completed page of results. See [PR#3205](https://github.com/microsoft/fhir-server/pull/3205).
+- **Fixed: Patient and group level export job restart.** Patient and group level exports on interruption would restart from the beginning. This bug is fixed to restart the export jobs from the last successfully completed page of results. See [PR #3205](https://github.com/microsoft/fhir-server/pull/3205).
 
 ### DICOM service
 
@@ -171,11 +171,11 @@ Learn more:
 
 #### Bug fixes
 
-- **Fixed: Reindex operation provides job status at resource level.** The `reindex` operation supports determining the status of the `reindex` operation with help of the API call `GET {{FHIR_URL}}/_operations/reindex/{{reindexJobId}}`. To see how many resources were reindexed, look for the **resourceReindexProgressByResource** field in the response. This field shows the progress for each resource type. See [PR#3286](https://github.com/microsoft/fhir-server/pull/3286).
+- **Fixed: Reindex operation provides job status at resource level.** The `reindex` operation supports determining the status of the `reindex` operation with help of the API call `GET {{FHIR_URL}}/_operations/reindex/{{reindexJobId}}`. To see how many resources were reindexed, look for the **resourceReindexProgressByResource** field in the response. This field shows the progress for each resource type. See [PR #3286](https://github.com/microsoft/fhir-server/pull/3286).
 
-- **Fixed: Optimization of complex search queries.** Some organizations experienced issues where complex FHIR queries with reference search parameters would time out. The issue was fixed by updating the SQL query generator to use an INNER JOIN for reference search parameters. See [PR#3295](https://github.com/microsoft/fhir-server/pull/3295).
+- **Fixed: Optimization of complex search queries.** Some organizations experienced issues where complex FHIR queries with reference search parameters would time out. The issue was fixed by updating the SQL query generator to use an INNER JOIN for reference search parameters. See [PR #3295](https://github.com/microsoft/fhir-server/pull/3295).
 
-- **Fixed: Metadata endpoint URL in the capability statement is a relative URL.** According to the FHIR specification, the metadata endpoint URL in the capability statement needs to be an absolute URL. The fix addresses the issue. See [PR#3265](https://github.com/microsoft/fhir-server/pull/3265).
+- **Fixed: Metadata endpoint URL in the capability statement is a relative URL.** According to the FHIR specification, the metadata endpoint URL in the capability statement needs to be an absolute URL. The fix addresses the issue. See [PR #3265](https://github.com/microsoft/fhir-server/pull/3265).
 
 Learn more:
 - [FHIR Capability Statement](https://www.hl7.org/fhir/capabilitystatement-definitions.html#CapabilityStatement.url). 
@@ -190,7 +190,7 @@ Learn more:
 
 - **Fixed: Issue where DICOM events and the change feed may miss changes.** The DICOM change feed API returned results that incorrectly skipped pending changes when the DICOM server was under load. Identical calls to the change feed resource resulted in new change events appearing in the middle of the result set. 
 
-  For example, if the first call returned sequence numbers `1`, `2`, `3`, and `5`, then the second identical call might incorrectly return `1`, `2`, `3`, `4`, and `5`. This behavior also impacted the DICOM events sent to Azure Event Grid system topics, and resulted in missing events in downstream event handlers. See [PR#2611](https://github.com/microsoft/dicom-server/pull/2611).
+  For example, if the first call returned sequence numbers `1`, `2`, `3`, and `5`, then the second identical call might incorrectly return `1`, `2`, `3`, `4`, and `5`. This behavior also impacted the DICOM events sent to Azure Event Grid system topics, and resulted in missing events in downstream event handlers. See [PR #2611](https://github.com/microsoft/dicom-server/pull/2611).
 
 ### MedTech service 
 
@@ -205,9 +205,9 @@ Device messages can have encounter identifiers that match the ones in FHIR encou
 #### Bug fixes
 
 - **Fixed: SMART on FHIR clinical scope mapping for applications.** This bug fix addresses an issue with clinical scope not interpreted correctly for backend applications. 
-See [PR#3250](https://github.com/microsoft/fhir-server/pull/3250).
+See [PR #3250](https://github.com/microsoft/fhir-server/pull/3250).
 
-- **Fixed: Duplicate key error when passed in request parameters and body.** This fix handles the issue when using the POST {resourcetype}/search endpoint to query FHIR resources, the server returns `415 Unsupported Media Type`. This issue is due to repeating a query parameter in the URL query string and the request body. The fix considers all the query parameters from request and body as input. See [PR#3232](https://github.com/microsoft/fhir-server/pull/3232).
+- **Fixed: Duplicate key error when passed in request parameters and body.** This fix handles the issue when using the POST {resourcetype}/search endpoint to query FHIR resources, the server returns `415 Unsupported Media Type`. This issue is due to repeating a query parameter in the URL query string and the request body. The fix considers all the query parameters from request and body as input. See [PR #3232](https://github.com/microsoft/fhir-server/pull/3232).
 
 ## April 2023
 
@@ -222,9 +222,9 @@ Azure Health Data Services is generally available in the West Central US region.
 #### Bug fixes
 
 - **Fixed: Performance for search queries with identifiers.** This bug fix addresses timeout issues observed for search queries with identifiers by using the OPTIMIZE clause.
-See [PR#3207](https://github.com/microsoft/fhir-server/pull/3207)
+See [PR #3207](https://github.com/microsoft/fhir-server/pull/3207)
 
-- **Fixed: Transient issues associated with loading custom search parameters.** This bug fix addresses the issue where the FHIR service wouldn't load the latest SearchParameter status in a failure. See [PR#3222](https://github.com/microsoft/fhir-server/pull/3222)
+- **Fixed: Transient issues associated with loading custom search parameters.** This bug fix addresses the issue where the FHIR service wouldn't load the latest SearchParameter status in a failure. See [PR #3222](https://github.com/microsoft/fhir-server/pull/3222)
 
 ## March 2023
 
@@ -249,13 +249,13 @@ Learn more:
 
 #### Bug fixes
 
-- **Fixed: Chained search with :contains modifier results but no resources.** This bug fix addresses the issue and identified resources, per search criteria with :contains modifier are returned. See [PR#2990](https://github.com/microsoft/fhir-server/pull/2990). 
+- **Fixed: Chained search with :contains modifier results but no resources.** This bug fix addresses the issue and identified resources, per search criteria with :contains modifier are returned. See [PR #2990](https://github.com/microsoft/fhir-server/pull/2990). 
 
-- **Fixed: The ability to tweak continuation token size limit header.** Before this change, during pagination a Cosmos DB continuation token had a default limit of 3 KB. With this change, you can send a Cosmos DB continuation token limit in the header. Valid range is set to 1-3 KB. The header value to send the value is `x-ms-documentdb-responsecontinuationtokenlimitinkb`. See [PR#2971](https://github.com/microsoft/fhir-server/pull/2971/files).
+- **Fixed: The ability to tweak continuation token size limit header.** Before this change, during pagination a Cosmos DB continuation token had a default limit of 3 KB. With this change, you can send a Cosmos DB continuation token limit in the header. Valid range is set to 1-3 KB. The header value to send the value is `x-ms-documentdb-responsecontinuationtokenlimitinkb`. See [PR #2971](https://github.com/microsoft/fhir-server/pull/2971/files).
 
-- **Fixed: HTTP Status code 500 encountered when :not modifier is used with chained searches.** This bug fix addresses the issue. Identified resources are returned per search criteria with :contains modifier. See [PR#3041](https://github.com/microsoft/fhir-server/pull/3041).
+- **Fixed: HTTP Status code 500 encountered when :not modifier is used with chained searches.** This bug fix addresses the issue. Identified resources are returned per search criteria with :contains modifier. See [PR #3041](https://github.com/microsoft/fhir-server/pull/3041).
 
-- **Fixed: Versioning policy enabled at resource level required If-match header for transaction requests.** The fix addresses the issue. Versioned policy at the resource level doesn't require if-match header. See [PR#2994](https://github.com/microsoft/fhir-server/pull/2994).
+- **Fixed: Versioning policy enabled at resource level required If-match header for transaction requests.** The fix addresses the issue. Versioned policy at the resource level doesn't require if-match header. See [PR #2994](https://github.com/microsoft/fhir-server/pull/2994).
 
 ### MedTech service
 
