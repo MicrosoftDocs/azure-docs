@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: vijetaj
 author: vijetajo
 ms.reviewer: sgilley
-ms.date: 03/04/2024
+ms.date: 03/13/2024
 ---
 
 # Customize the compute instance with a script
@@ -73,7 +73,7 @@ Once you store the script, specify it during creation of your compute instance:
 1. [Fill out the form](how-to-create-compute-instance.md?tabs=azure-studio#create).
 1. On the second page of the form, open **Show advanced settings**.
 1. Turn on **Provision with setup script**.
-1. Select either **Creation script** or **Startup script** tab.
+1. Toggle on **Creation script** or **Startup script** (or both).
 1. Browse to the shell script you saved. Or upload a script from your computer.
 1. Add command arguments as needed.
 
