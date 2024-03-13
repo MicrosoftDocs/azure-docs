@@ -125,7 +125,7 @@ Be sure to set this configuration for the *edgeAgent* and *edgeHub* modules as w
 
 If IoT Edge is installed as a snap, use the `--container-engine-config-file` parameter to specify the location of the Docker configuration file. For example, if the Docker configuration file is located at `/var/snap/docker/current/config/daemon.json`, run the following command: `iotedge check --container-engine-config-file '/var/snap/docker/current/config/daemon.json'`.
 
-Currently, the warning message continues to appear in the output of *iotedge check* even after you've set the configuration file location. Check reports the error because the IoT Edge snap doesn't have read access to the Docker snap. If you use *iotedge check* in your release process, you can suppress the the warning message by using the `--ignore container-engine-dns container-engine-logrotate` parameter.
+Currently, the warning message continues to appear in the output of *iotedge check* even after you've set the configuration file location. Check reports the error because the IoT Edge snap doesn't have read access to the Docker snap. If you use *iotedge check* in your release process, you can suppress the warning message by using the `--ignore container-engine-dns container-engine-logrotate` parameter.
 
 ### Edge Agent module with LTE connection reports 'empty edge agent config' and causes 'transient network error'
 
