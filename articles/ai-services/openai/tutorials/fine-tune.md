@@ -1,7 +1,7 @@
 ---
 title: Azure OpenAI Service fine-tuning gpt-3.5-turbo
 titleSuffix: Azure OpenAI
-description: Learn how to use Azure OpenAI's latest fine-tuning capabilities with gpt-3.5-turbo
+description: Learn how to use Azure OpenAI's latest fine-tuning capabilities with gpt-3.5-turbo.
 #services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
@@ -13,7 +13,7 @@ recommendations: false
 ms.custom:
 ---
 
-# Azure OpenAI GPT 3.5 Turbo fine-tuning tutorial
+# Azure OpenAI GPT-3.5 Turbo fine-tuning tutorial
 
 This tutorial walks you through fine-tuning a `gpt-35-turbo-0613` model.
 
@@ -118,7 +118,7 @@ For this example we'll modify this slightly by changing to:
 
 While these three examples are helpful to give you the general format, if you want to steer your custom fine-tuned model to respond in a similar way you would need more examples. Generally you want **at least 50 high quality examples** to start out. However, it is entirely possible to have a use case that might require 1,000's of high quality training examples to be successful.
 
-In general, doubling the dataset size can lead to a linear increase in model quality. But keep in mind, low quality examples can negatively impact performance. If you train the model on a large amount of internal data, without first pruning the dataset for only the highest quality examples you could end up with a model that performs much worse than expected.
+In general, doubling the dataset size can lead to a linear increase in model quality. But keep in mind, low quality examples can negatively impact performance. If you train the model on a large amount of internal data, without first pruning the dataset for only the highest quality examples, you could end up with a model that performs much worse than expected.
 
 You'll need to create two files `training_set.jsonl` and `validation_set.jsonl`.
 
@@ -564,7 +564,7 @@ Alternatively, you can deploy your fine-tuned model using any of the other commo
 | resource_group | The resource group name for your Azure OpenAI resource |
 | resource_name | The Azure OpenAI resource name |
 | model_deployment_name | The custom name for your new fine-tuned model deployment. This is the name that will be referenced in your code when making chat completion calls. |
-| fine_tuned_model | Retrieve this value from your fine-tuning job results in the previous step. It will look like `gpt-35-turbo-0613.ft-b044a9d3cf9c4228b5d393567f693b83`. You will need to add that value to the deploy_data json. |
+| fine_tuned_model | Retrieve this value from your fine-tuning job results in the previous step. It will look like `gpt-35-turbo-0613.ft-b044a9d3cf9c4228b5d393567f693b83`. You'll need to add that value to the deploy_data json. |
 
 [!INCLUDE [Fine-tuning deletion](../includes/fine-tune.md)]
 
@@ -667,7 +667,7 @@ print(response['choices'][0]['message']['content'])
 
 ## Delete deployment
 
-Unlike other types of Azure OpenAI models, fine-tuned/customized models have [an hourly hosting cost](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/#pricing) associated with them once they are deployed. It is **strongly recommended** that once you're done with this tutorial and have tested a few chat completion calls against your fine-tuned model, that you **delete the model deployment**.
+Unlike other types of Azure OpenAI models, fine-tuned/customized models have [an hourly hosting cost](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/#pricing) associated with them once they're deployed. It's **strongly recommended** that once you're done with this tutorial and have tested a few chat completion calls against your fine-tuned model, that you **delete the model deployment**.
 
 Deleting the deployment won't affect the model itself, so you can re-deploy the fine-tuned model that you trained for this tutorial at any time.
 

@@ -86,7 +86,7 @@ source /etc/environment
 
 ---
 
-After setting the environment variables, you may need to close and reopen Jupyter notebooks or whatever IDE you're using in order for the environment variables to be accessible. While we strongly recommend using Jupyter Notebooks, if for some reason you cannot you'll need to modify any code that is returning a pandas dataframe by using `print(dataframe_name)` rather than just calling the `dataframe_name` directly as is often done at the end of a code block.
+After setting the environment variables, you might need to close and reopen Jupyter notebooks or whatever IDE you're using in order for the environment variables to be accessible. While we strongly recommend using Jupyter Notebooks, if for some reason you can't you'll need to modify any code that is returning a pandas dataframe by using `print(dataframe_name)` rather than just calling the `dataframe_name` directly as is often done at the end of a code block.
 
 Run the following code in your preferred Python IDE:
 
@@ -339,9 +339,9 @@ len(decode)
 1466
 ```
 
-Now that we understand more about how tokenization works we can move on to embedding. It is important to note, that we haven't actually tokenized the documents yet. The `n_tokens` column is simply a way of making sure none of the data we pass to the model for tokenization and embedding exceeds the input token limit of 8,192. When we pass the documents to the embeddings model, it will break the documents into tokens similar (though not necessarily identical) to the examples above and then convert the tokens to a series of floating point numbers that will be accessible via vector search. These embeddings can be stored locally or in an [Azure Database to support Vector Search](../../../cosmos-db/mongodb/vcore/vector-search.md). As a result, each bill will have its own corresponding embedding vector in the new `ada_v2` column on the right side of the DataFrame.
+Now that we understand more about how tokenization works we can move on to embedding. It's important to note, that we haven't actually tokenized the documents yet. The `n_tokens` column is simply a way of making sure none of the data we pass to the model for tokenization and embedding exceeds the input token limit of 8,192. When we pass the documents to the embeddings model, it will break the documents into tokens similar (though not necessarily identical) to the examples above and then convert the tokens to a series of floating point numbers that will be accessible via vector search. These embeddings can be stored locally or in an [Azure Database to support Vector Search](../../../cosmos-db/mongodb/vcore/vector-search.md). As a result, each bill will have its own corresponding embedding vector in the new `ada_v2` column on the right side of the DataFrame.
 
-In the example below we are calling the embedding model once per every item that we want to embed. When working with large embedding projects you can alternatively pass the model an array of inputs to embed rather than one input at a time. When you pass the model an array of inputs the max number of input items per call to the embedding endpoint is 2048.
+In the example below we're calling the embedding model once per every item that we want to embed. When working with large embedding projects you can alternatively pass the model an array of inputs to embed rather than one input at a time. When you pass the model an array of inputs the max number of input items per call to the embedding endpoint is 2048.
 
 # [OpenAI Python 1.x](#tab/python-new)
 
