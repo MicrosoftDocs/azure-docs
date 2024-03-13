@@ -17,7 +17,7 @@ This deployment model allows leveraging the Application Gateway's reverse proxy 
 Cloud Next-Generation Firewall by Palo Alto Networks - an Azure Native ISV Service is Palo Alto Networks Next-Generation Firewall (NGFW) delivered as a cloud-native service on Azure. You can discover Cloud NGFW in the Azure Marketplace and consume it in your Azure Virtual Networks (VNet) and in the Azure Virtual WAN (vWAN). With Cloud NGFW, you can access the core NGFW capabilities such as App-ID and URL filtering-based technologies. It provides threat prevention and detection through cloud-delivered security services and threat prevention signatures.
 
 More details about the Cloud NGFW by Palo Alto Networks - an Azure Native ISV
-Service can be found here: [https://learn.microsoft.com/en-ca/azure/partner-solutions/palo-alto/palo-alto-overview](https://learn.microsoft.com/en-ca/azure/partner-solutions/palo-alto/palo-alto-overview)
+Service can be found here: [https://learn.microsoft.com/azure/partner-solutions/palo-alto/palo-alto-overview](https://learn.microsoft.com/en-ca/azure/partner-solutions/palo-alto/palo-alto-overview)
 
 ## Architecture
 
@@ -29,9 +29,9 @@ For web applications, users may benefit from using Azure Application Gateway (Ap
 
 The AppGW also offers Web Application Firewall (WAF) capabilities to look for patterns that indicate an attack at the web application layer.
 
-:::image type="content" source="media/palo-alto-app-gw/app-gw-cngfw.png" alt-text="Diagram shows a high-level architecture with Application Gateway.":::
+:::image type="content" source="media/palo-alto-app-gw/palo-alto-app-gw.png" alt-text="Diagram shows a high-level architecture with Application Gateway.":::
 
-More details about Application Gateway features can be found here: [https://learn.microsoft.com/en-us/azure/application-gateway](https://learn.microsoft.com/en-us/azure/application-gateway)
+More details about Application Gateway features can be found here: [https://learn.microsoft.com/azure/application-gateway](https://learn.microsoft.com/en-us/azure/application-gateway)
 
 
 Cloud NGFW for Azure supports two deployment architectures:
@@ -84,7 +84,7 @@ In some cases, this may not be desirable. For example, when there are other appl
 
 You can locate the Next Hop IP address of the Cloud NGFW by looking at the effective routes of a workload in a spoke VNet, for example, a Virtual Machine Network interface:
 
-:::image type="content" source="media/palo-alto-app-gw/palo-alto-route-effective-routes.png" alt-text="Screenshot shows spoke VM effective routes.":::
+:::image type="content" source="media/palo-alto-app-gw/palo-alto-effective-routes.png" alt-text="Screenshot shows spoke VM effective routes.":::
 
 ## Security Policy Considerations
 
@@ -112,6 +112,6 @@ Special considerations need to be applied to the zone-based policies to ensure t
 ## References
 
 https://docs.paloaltonetworks.com/cloud-ngfw/azure/cloud-ngfw-for-azure
-https://learn.microsoft.com/en-us/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall
-https://learn.microsoft.com/en-us/azure/architecture/example-scenario/gateway/firewall-application-gateway
-https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-palo-alto-cloud-ngfw
+https://learn.microsoft.com/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall
+https://learn.microsoft.com/azure/architecture/example-scenario/gateway/firewall-application-gateway
+https://learn.microsoft.com/azure/virtual-wan/how-to-palo-alto-cloud-ngfw
