@@ -14,6 +14,8 @@ ms.custom:
 
 This article shows how to enable linting to analyze API definitions in your organization's [API center](overview.md) for conformance with your organizations's API style rules. Linting generates an analysis report that you can access in your API center. Use API linting and analysis to detect common errors and inconsistencies in your API definitions.
 
+> [!VIDEO https://www.youtube.com/embed/0XATQaVhxA]
+
 [!INCLUDE [api-center-preview-feedback](includes/api-center-preview-feedback.md)]
 
 ## Scenario overview
