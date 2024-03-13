@@ -1,8 +1,9 @@
 ---
 title: Start/Deallocate Batch nodes
 description: Extensions are small applications that facilitate post-provisioning configuration and setup on Batch compute nodes.
-ms.topic: how-to
-ms.custom: TODO benjaminli fill in
+ms.devlang: csharp
+ms.topic: tutorial
+ms.custom: linux-related-content
 ms.date: 03/08/2024
 ---
 
