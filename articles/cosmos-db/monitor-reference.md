@@ -165,7 +165,7 @@ Microsoft.DocumentDB/mongoClusters
 
 - [VCoreMongoRequests](/azure/azure-monitor/reference/tables/VCoreMongoRequests#columns)
 
-### Azure CosmosDB resource logs properties
+### Azure Cosmos DB resource logs properties
 
 The following table lists properties of resource logs in Azure Cosmos DB. The resource logs are collected into Azure Monitor Logs or Azure Storage.
 
