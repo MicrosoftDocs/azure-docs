@@ -52,7 +52,6 @@ Here are some concepts to be familiar with when you're using virtual networks wh
 
   > [!IMPORTANT]
   > The names `AzureFirewallSubnet`, `AzureFirewallManagementSubnet`, `AzureBastionSubnet`, and `GatewaySubnet` are reserved within Azure. Don't use any of these as your subnet name.
-  > For Azure Storage connection please make sure the Azure Database for PostgreSQL flexible server delegated subnet has Service Endpoints for Azure Storage in the region of the VNet. The endpoints are created by default, but please take care not to remove these manually.
 
 * **Network security group (NSG)**. Security rules in NSGs enable you to filter the type of network traffic that can flow in and out of virtual network subnets and network interfaces. For more information, see the [NSG overview](../../virtual-network/network-security-groups-overview.md).
 

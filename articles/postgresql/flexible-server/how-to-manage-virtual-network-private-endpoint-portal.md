@@ -30,31 +30,7 @@ You can use [Private Link](../../private-link/private-link-overview.md) to acces
 
 Traffic between your virtual network and a service traverses the Microsoft backbone network, which eliminates exposure to the public internet.
 
-> [!NOTE]
-> Azure Database for PostgreSQL flexible server supports Private Link based networking in General Availability in following regions:
-> * Canada East
-> *	Poland Central
-> *	Italy North
-> *	South India
-> *	UK West
-> *	Japan West
-> *	France South
-> *	Qatar Central
-> *	Jio India West
-> *	Australia Central
-> *	Korea South
-> *	Switzerland West
-> *	UAE Central
-> *	Australia Central 2
-> *	Germany North
-> *	Norway West
-> *	Brazil Southeast
-> *	South Africa West
->
-> **You can create new Azure Database for PostgreSQL - Flexible Server, with Azure Private Link based networking utilizing Private Endpoints in these above listed regions under General Availability.**
-> **In the rest of Azure regions where Azure Database for PostgreSQL - Flexible Server is available, Azure Database for PostgreSQL flexible server supports Private Link based networking in Preview at this time.**
->
-> **Important Prerequisite for regions where this feature is in Preview** Azure Database for PostgreSQL flexible server support for Private Endpoints in Preview requires enablement of [**Azure Database for PostgreSQL flexible server Private Endpoint capability** preview feature in your subscription](../../azure-resource-manager/management/preview-features.md). Only **after preview feature is enabled** you can create servers which are PE capable, i.e. can be networked using Private Link.
+
 
 ## Prerequisites
 
@@ -63,7 +39,7 @@ To add an Azure Database for PostgreSQL flexible server instance to a virtual ne
 * A [virtual network](../../virtual-network/quick-create-portal.md#create-a-virtual-network). The virtual network and subnet should be in the same region and subscription as your Azure Database for PostgreSQL flexible server instance.
 
   Be sure to remove any locks (**Delete** or **Read only**) from your virtual network and all subnets before you add a server to the virtual network, because locks might interfere with operations on the network and DNS. You can reset the locks after server creation.
-* Registration of the [PostgreSQL private endpoint preview feature in your subscription](../../azure-resource-manager/management/preview-features.md) if you are creating server in one of the regions where feature is in Preview.
+
 
 ## Create an Azure Database for PostgreSQL flexible server instance with a private endpoint
 
