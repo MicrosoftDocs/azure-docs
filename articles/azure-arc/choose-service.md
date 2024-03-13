@@ -1,7 +1,7 @@
 ---
 title: Choosing the right Azure Arc service for machines
 description: Learn about the different services offered by Azure Arc and how to choose the right one for your machines.
-ms.date: 02/26/2024
+ms.date: 03/13/2024
 ms.topic: conceptual
 ---
 
@@ -12,23 +12,23 @@ Azure Arc offers different services based on your existing IT infrastructure and
 There are several different ways you can connect your existing Windows and Linux machines to Azure Arc:
 
 - Azure Arc-enabled servers
-- Azure Arc-enabled VM Sphere
+- Azure Arc-enabled VMware vSphere
 - Azure Arc-enabled System Center Virtual Machine Manager (SCVMM)
 - Arc-enabled Azure Stack HCI
 
-Each of these services extends the Azure control plane to your existing infrastructure and enables the use of [Azure security, governance, and management capabilities](/azure/azure-arc/servers/overview). These services all use [Azure Arc resource bridge](/azure/azure-arc/resource-bridge/overview), a part of the core Azure Arc platform that provides self-servicing and additional management capabilities for VMs hosted on these services.
+Each of these services extends the Azure control plane to your existing infrastructure and enables the use of [Azure security, governance, and management capabilities using the Connected Machine agent](/azure/azure-arc/servers/overview). Other services besides Arc-enabled servers use [Azure Arc resource bridge](/azure/azure-arc/resource-bridge/overview), a part of the core Azure Arc platform that provides self-servicing and additional management capabilities for VMs hosted on these services.
 
 General recommendations about the right service to use are as follows:
 
 |If your machine is a... |...connect to Azure with... |
 |---------|---------|
-|VMware VM (not running on AVS) |Azure Arc-enabled VMware vSphere |
-|Azure VMware Solution (AVS) VM |Azure Arc-enabled Azure VMware Solution |
-|VM managed by System Center Virtual Machine Manager |Azure Arc-enabled SCVMM |
-|Azure Stack HCI VM |Arc-enabled Azure Stack HCI |
-|Physical server |Azure Arc-enabled servers |
-|VM on another hypervisor |Azure Arc-enabled servers |
-|VM on another cloud provider |Azure Arc-enabled servers |
+|VMware VM (not running on AVS) |[Azure Arc-enabled VMware vSphere](vmware-vsphere/overview.md) |
+|Azure VMware Solution (AVS) VM |[Azure Arc-enabled VMware vSphere for Azure VMware Solution](/azure/azure-vmware/deploy-arc-for-azure-vmware-solution?tabs=windows) |
+|VM managed by System Center Virtual Machine Manager |[Azure Arc-enabled SCVMM](vmware-vsphere/overview.md) |
+|Azure Stack HCI VM |[Arc-enabled Azure Stack HCI](/azure-stack/hci/overview) |
+|Physical server |[Azure Arc-enabled servers](servers/overview.md) |
+|VM on another hypervisor |[Azure Arc-enabled servers](servers/overview.md) |
+|VM on another cloud provider |[Azure Arc-enabled servers](servers/overview.md) |
 
 If you're unsure about which of these services to use, you can start with Azure Arc-enabled servers and add a resource bridge for additional management capabilities later. Azure Arc-enabled servers allows you to connect servers containing all of the types of VMs supported by the other services and provides a wide range of capabilities such as Azure Policy and monitoring, while adding resource bridge can extend additional capabilities.
 
