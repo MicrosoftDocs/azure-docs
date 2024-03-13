@@ -12,10 +12,8 @@ ms.date: 03/12/2024
 ---
 
 # AI-Enhanced Advertisement Generation using Azure Cosmos DB for MongoDB vCore
-
 ## Overview
 In this guide, we demonstrate how to create dynamic advertising content that resonates with your audience, using the power of AI. Utilizing Azure Cosmos DB for MongoDB vCore, we harness the [vector similarity search](./vector-search.md) functionality to semantically analyze and match inventory descriptions with advertisement topics. The process is made possible by generating vectors for inventory descriptions using OpenAI embeddings, which significantly enhance their semantic depth. These vectors are then stored and indexed within the Cosmos DB for MongoDB vCore resource. When generating content for advertisements, we vectorize the advertisement topic to find the best-matching inventory items. This is followed by a retrieval augmented generation (RAG) process, where the top matches are sent to OpenAI to craft a compelling advertisement. The entire codebase for the application is available in a [GitHub repository](https://aka.ms/adgen) for your reference.
-
 
 ## Features
 - **Vector Similarity Search**: Uses Azure Cosmos DB for MongoDB vCore's powerful vector similarity search to improve semantic search capabilities, making it easier to find relevant inventory items based on the content of advertisements.
