@@ -18,21 +18,19 @@ This comprehensive guide is designed to assist developers in integrating enhance
 
 ## Prerequisites
 
-To prepare for this tutorial, ensure these requirements have been met:
-
 - **Azure Subscription:** You need an active Azure subscription. If you don't have one, you can create a free account at [Azure Free Account](https://azure.microsoft.com/free/).
 - **Azure Communication Services Resource:** An ACS resource is required to use calling and chat functionalities. You can create one in the Azure portal.
 - **Development Environment Setup:** Ensure that your development environment is set up for one or more target platforms – Android, iOS, or web.
 - **Azure Storage Account:** For storing user feedback and related data securely, an Azure Storage account is necessary. 
 - **Node.js and Express.js:** Basic knowledge of Node.js and Express.js is helpful for setting up the server-side application to receive and process support requests.
-- **Knowledge of RESTful APIs:** Understanding how to create and consume RESTful APIs will aid in deployment and configuration of both the Client and Server. 
+- **Knowledge of RESTful APIs:** Understanding how to create and consume RESTful APIs aid in deployment and configuration of both the Client and Server. 
 - **Client Development Skills:** Proficiency in the development of Android or iOS applications
 
 Having these prerequisites in place ensures a smooth start to integrating a comprehensive user feedback system using Azure Communication Services and other Azure resources.
 
-## What you will learn
+## What you learn
 
-In this guide, you gain comprehensive insights into integrating user feedback mechanisms within your Azure Communication Services (ACS) applications. The focus is on enhancing customer support through the ACS UI Library, using Azure backend services for processing. By following this guide, developers will learn to:
+In this guide, you gain comprehensive insights into integrating user feedback mechanisms within your Azure Communication Services (ACS) applications. The focus is on enhancing customer support through the ACS UI Library, using Azure backend services for processing. By following this guide, developers learn to:
 
 - **Implement Client-Side Feedback Capture:** Learn how to capture user feedback, error logs, and support requests directly from Android and iOS applications using the ACS UI Library.
 - **Set Up a Server-Side Application:** Step-by-step instructions on setting up a Node.js application using Express.js to receive, process, and store support requests in Azure Blob Storage. This server includes handling multipart/form-data for file uploads and securely managing user data.
@@ -58,7 +56,7 @@ Before you begin, ensure your development environment is ready with Node.js inst
 
 1. **Install Node.js:** Make sure Node.js is installed on your system. You can download it from [Node.js](https://nodejs.org/).
 
-2. **Create an Azure Blob Storage Account:** If you haven't already, create an Azure Storage account through the Azure Portal. This account will be used to store the support request data.
+2. **Create an Azure Blob Storage Account:** If you haven't already, create an Azure Storage account through the Azure Portal. This account is used to store the support request data.
 
 3. **Gather Necessary Credentials:** Ensure you have the connection string for your Azure Blob Storage account. It is required for the application to authenticate and store data in the cloud.
 
@@ -72,8 +70,8 @@ Before you begin, ensure your development environment is ready with Node.js inst
      ```
 
 2. **Server Implementation:**
-   - Use Express.js to set up a basic web server that listens for POST requests on a specific endpoint (e.g., `/receiveEvent`).
-   - Use Formidable for parsing incoming form data, handling multipart/form-data content types which may include files.
+   - Use Express.js to set up a basic web server that listens for POST requests on a specific endpoint.
+   - Use Formidable for parsing incoming form data, handling multipart/form-data content.
    - Generate a unique ticket number for each support request, which can be used to organize data in Azure Blob Storage and provide a reference for users.
    - Store structured data, such as user messages and log file metadata, in a JSON file within the Blob Storage. Store actual log files and any screenshots or attachments in separate blobs within the same ticket's directory.
    - Provide an endpoint to retrieve support details, which involves fetching and displaying data from Azure Blob Storage.
@@ -92,7 +90,7 @@ Before you begin, ensure your development environment is ready with Node.js inst
    - Use tools like Postman or write client-side code (as provided in the Android and iOS samples) to test the server's functionality. Ensure that the server correctly receives data, stores it in Azure Blob Storage, and can retrieve and display support details.
 
 #### Server Code:
-Provided here is a working implementation to start with. This is a basic implementation tailored to demonstrate ticket creation from the ACS UI Sample applications. 
+Provided here is a working implementation to start with. This code is a basic implementation tailored to demonstrate ticket creation from the ACS UI Sample applications. 
 
 ```javascript
 const express = require('express');
@@ -231,9 +229,11 @@ app.listen(port, () => {
 
 ## Client Side Setup 
 
-The following section will explain how to take the events generated feedback and consume deploy the issue to your servers.
+The following section explains how to take the events generated feedback and consume deploy the issue to your servers.
 
-You will learn how to register for the event, serialize the data over the wire and receive it on your server. The result is that your ACS project will be able to dispatch these events to the Server we created in the first step and retrieve a link to the results.
+Learn how to register for the event, serialize the data over the wire and receive it on your server.
+
+The result will have the developer receive a link, which can be presented to the user in your application.
 
 ::: zone pivot="programming-language-kotlin"
 [!INCLUDE [Android](./includes/android.md)]
@@ -245,8 +245,8 @@ You will learn how to register for the event, serialize the data over the wire a
 
 
 ## Conclusion
-Integrating user feedback mechanisms into applications using Azure Communication Services (ACS) is crucial for developing responsive and user-focused apps. This guide has provided a clear pathway for setting up both server-side processing with Node.js and client-side feedback capture for Android and iOS applications. Through such integration, developers can enhance application reliability and user satisfaction while utilizing Azure's cloud services for efficient data management.
+Integrating user feedback mechanisms into applications using Azure Communication Services (ACS) is crucial for developing responsive and user-focused apps. This guide provides a clear pathway for setting up both server-side processing with Node.js and client-side feedback capture for Android and iOS applications. Through such integration, developers can enhance application reliability and user satisfaction while utilizing Azure's cloud services for efficient data management.
 
 The guide outlines practical steps for capturing user feedback, error logs, and support requests directly from applicationss. Integration of support events ensures a secure and organized way to handle feedback, allowing developers to quickly address and resolve user issues, leading to an improved overall user experience.
 
-By following the instructions detailed in this guide, developers can improve the responsiveness of their applications and better meet user needs. This not only helps in understanding user feedback more effectively but also utilizes cloud services to ensure a smooth and effective feedback collection and processing mechanism. Ultimately, integrating user feedback mechanisms is essential for creating engaging and reliable applications that prioritize user satisfaction.
+By following the instructions detailed in this guide, developers can improve the responsiveness of their applications and better meet user needs. These integrations not only help in understanding user feedback more effectively but also utilizes cloud services to ensure a smooth and effective feedback collection and processing mechanism. Ultimately, integrating user feedback mechanisms is essential for creating engaging and reliable applications that prioritize user satisfaction.
