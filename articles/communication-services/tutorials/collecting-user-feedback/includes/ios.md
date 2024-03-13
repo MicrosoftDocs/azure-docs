@@ -8,7 +8,7 @@ ms.service: azure-communication-services
 
 ### iOS Support Overview 
 
-To integrate user feedback collection within iOS applications using the Azure Communication Services (ACS) UI Library, developers need to follow a structured approach. This process involves capturing user feedback, including error logs and user information. Once complete, this information is submitted to a server for processing. In this section we detail the steps necessary to accomplish this.
+To integrate user feedback collection within iOS applications using the Azure Communication Services (ACS) UI Library, developers need to follow a structured approach. This process involves capturing user feedback, including error logs and user information. Once complete, this information is submitted to a server for processing. In this section, we detail the steps necessary to accomplish this task.
 
 In this example, we're using the [Alamofire](https://github.com/Alamofire/Alamofire) library to handle sending a multi-part form, including log files, to the server.
 
@@ -22,7 +22,7 @@ In this example, we're using the [Alamofire](https://github.com/Alamofire/Alamof
 
 1. **Event Emission on User Action**: When a user reports an issue through the support form, the event handler captures this action. The information such as the user's description of the problem, error logs, and any call IDs should be prepared to send to the server.
 
-2. **Data Structuring for Submission**: Organize the captured information into a structured format suitable for transmission. Prepare the data in a way that aligns with the expected format of the server endpoint that will receive and process the support request.
+2. **Data Structuring for Submission**: Organize the captured information into a structured format suitable for transmission. Prepare the data in a way that aligns with the expected format of the server endpoint that receives and processes the support request.
 
 #### Submitting Data to the Server
 
@@ -34,11 +34,11 @@ In this example, we're using the [Alamofire](https://github.com/Alamofire/Alamof
 
 1. **Immediate Acknowledgment**: Immediately acknowledge the submission of a support request within the application, providing users with confirmation that their report was received.
 
-2. **Notification Strategy**: Implement a strategy for delivering notifications to users, especially on devices running iOS versions that support specific notification frameworks. You can leverage the use of local notifications to inform users about the status of their report or providing updates as their issue is addressed.
+2. **Notification Strategy**: Implement a strategy for delivering notifications to users, especially on devices running iOS versions that support specific notification frameworks. You can use local notifications to inform users about the status of their report or providing updates as their issue is addressed.
 
 ### iOS Code Sample
 
-The Swift code sample below outlines a basic implementation for capturing user-reported issues and submitting them to a server for processing. This example shows how to construct a support event handler, including user feedback and application diagnostic information and delivery to the server. The code also includes error handling and user notification strategies to ensure a smooth user experience.
+This Swift code sample outlines a basic implementation for capturing user-reported issues and submitting them to a server for processing. This example shows how to construct a support event handler, including user feedback and application diagnostic information and delivery to the server. The code also includes error handling and user notification strategies to ensure a smooth user experience.
 
 The following example is designed to be a hook to be installed within your Event Handler. 
 

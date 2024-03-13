@@ -38,10 +38,14 @@ In this tutorial, you learn how to access the Log Files stored on the device wit
 
 ## Next steps
 
-Refer to the [integrating support document](../concepts/voice-video-calling/retrieve-support-files.md) for more in depth look at how to structure an end to end support flow. This document will help direct you to the tools available to you in order to create an effective support flow in your Applications.
+Refer to the [integrating support document](../concepts/voice-video-calling/retrieve-support-files.md) for more in depth look at how to structure an end to end support flow. This document helps direct you to the tools available to you in order to create an effective support flow in your Applications.
 
 ## You may also like
 
-- [Provide Support to the end user](../concepts/voice-video-calling/retrieve-support-files.md)
+## Tutorials
 - [End of call Survey](./end-of-call-survey-tutorial.md)
+- [Support form integration with the ACS UI Library](./collecting-user-feedback/collecting-user-feedback.md)
+
+## Concept Docs
+- [User feedback in native calling scenarios](../concepts/voice-video-calling/retrieve-support-files.md)
 - [User Facing Diagnostics](../concepts/voice-video-calling/user-facing-diagnostics.md)
