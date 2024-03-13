@@ -118,9 +118,6 @@ As you scale your AKS clusters to larger scale points, keep the following node p
 * When upgrading clusters with more than 500 nodes, it is recommended to use a [max surge configuration](./upgrade-aks-cluster.md#set-max-surge-value) of 10-20% of the node pool's capacity. AKS configures upgrades with a default value of 10% for max surge. You can customize the max surge settings per node pool to enable a trade-off between upgrade speed and workload disruption. When you increase the max surge settings, the upgrade process completes faster, but you might experience disruptions during the upgrade process. For more information, see [Customize node surge upgrade][max surge].
 * For more cluster upgrade information, see [Upgrade an AKS cluster][cluster upgrades].
 
-> [!NOTE]
-> You can't use [Azure Network Policy Manager (Azure NPM)][azure-npm] with clusters that have more than 500 nodes.
-
 <!-- LINKS - Internal --->
 [run-aks-at-scale]: ./operator-best-practices-run-at-scale.md
 [managed-nat-gateway]: ./nat-gateway.md
