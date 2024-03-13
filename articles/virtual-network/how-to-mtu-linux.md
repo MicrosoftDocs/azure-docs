@@ -33,7 +33,9 @@ The following table shows the largest MTU size supported on the Azure Network In
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-- A Linux virtual machine in Azure.
+- Two Linux virtual machines in the same virtual network in Azure. For more information about creating a Linux virtual machine, see [Create a Linux virtual machine in the Azure portal](/azure/virtual-machines/linux/quick-create-portal).
+
+    - For the purposes of this article, the virtual machines are named **vm-1** and **vm-2**. Replace these values with your values.
 
 ## Precautions
 
@@ -47,264 +49,22 @@ The following table shows the largest MTU size supported on the Azure Network In
 
 A shell script is used to determine the largest MTU size that can be used for a specific network path. The script uses ICMP ping to determine the maximum frame size that can be sent between the source and destination.
 
-**Steps**:
+Use the following steps to determine the largest MTU size that can be used for a specific network path:
 
-1. Set maximum MTU on source and destination address.
+1. Sign-in to the [Azure portal](https://portal.azure.com).
 
-1. Run the script to determine the largest MTU size that can be used for a specific network path.
+1. In the search box, enter **Virtual machines** and select **Virtual machines** from the search results.
 
-1. Based on the output of the script, adjust the MTU settings appropriately on the source and destination.
+1. Select **vm-2**.
 
-## MTU discovery script
+1. In the **Overview** of **vm-2**, determine the private IP address of the virtual machine. 
 
-Copy and paste the following shell script into a file on your Linux virtual machine named `LinuxVmUtilities.sh`. 
-
-```bash
-#!/bin/bash
-
-#Note: to run the script remove initial carriage returns by running command  "sed -i 's/\r//g' LinuxVmUtilities.sh"
-
-ErrorMsg1="Not a valid input"
-ErrorMsg2="Not a valid interface"
-ErrorMsg3="Provide interface name"
-ErrorMsg4="Provide interface name and processors"
-ErrorMsg5="Initial ping failed"
-
-
-#################
-#Function to get IRQ for passed interface
-#In		: Interface name
-#Out	: IRQ list specific to Mellanox and Mana
-#################
-#How to use this function
-# examples
-# source LinuxVmUtilities.sh;Get-Irqs enP30832p0s0
-
-function Get-Irqs() {
-	ifname=$1
-    if [ -z "$ifname" ]
-    then
-        echo $ErrorMsg1
-        echo "provide interface-name"
-        return
-    fi
-	
-    s_dir=/sys/class/net/$ifname/device/msi_irqs
-    if [ ! -d $s_dir ]
-    then
-        echo $ErrorMsg2
-        return
-    fi
-
-    RET=''
-    irqs=$(ls $s_dir)
-
-    for irq in ${irqs[@]}; do
-        irq_detail=$(ls /proc/irq/$irq/ 2>/dev/null)
-        if [[ -z $irq_detail ]]; then continue; fi
-
-        #check interface specific irq's 
-        mlx4_comp_ch="$(grep -oP '(?<=mlx4-)[0-9]+(?=@)'<<<$irq_detail)"
-        mlx5_comp_ch="$(grep -oP '(?<=mlx5_comp)[0-9]+(?=@pci)'<<<$irq_detail)"
-        mana_queue_ch="$(grep -oP '(?<=mana_q)[0-9]+(?=@pci)'<<<$irq_detail)"
-        
-        if [[ $mlx4_comp_ch ]]; then
-            comp_ch=$(( mlx4_comp_ch - 1 ))
-        elif [[ $mlx5_comp_ch ]]; then            
-            comp_ch=$mlx5_comp_ch
-        else
-            comp_ch=$mana_queue_ch
-        fi
-        
-        if [[ -z $comp_ch ]]; then continue;fi
-        
-        RET+=" $irq"
-    done
-    echo $RET	
-}
-
-
-#Function to get affinity list of passed interface
-#In 	: Interface name
-#Out 	: smp_affirnity_list 
-#################
-#How to use this function
-# examples
-# source LinuxVmUtilities.sh;Get-RssProcessors enP30832p0s0
-
-function Get-RssProcessors() {
-
-	if [ "$#" = 0 ]; then
-		echo $ErrorMsg3
-        echo "provide interface-name"
-		return
-	fi
-	
-    ifname=$1
-
-	s_dir=$home/sys/class/net/$ifname/device/msi_irqs
-	RES=''
-	if [ -d $s_dir ]; then
-		first=1
-		#Get valid irqs
-		irqs=$(Get-Irqs $1)
-		IFS=' ' read -r -a array <<< "$irqs"
-		for irq in ${array[@]}; do
-			irq_a="$(cat $home/proc/irq/$irq/smp_affinity_list)"
-			if [ $first = 1 ];then
-				RES+="${irq_a}"
-				first=0
-			else
-				RES+=" ${irq_a}"
-			fi
-		done
-	else
-		echo $ErrorMsg2
-	fi
-	echo $RES
-}
-
-
-#Function to set affinity list of passed interface
-#In 	: Interface name, VPs to set the IRQs
-#Out 	: update smp_affirnity_list with VP number 
-#################
-#How to use this function
-# examples
-# source LinuxVmUtilities.sh;Set-RssIndirectiontable enP45104s1 36 38 40 42 44 46 48 50 52 54 56 58 60 62
-
-function Set-RssIndirectiontable() {	
-	if [ "$#" = 0 ]; then
-		echo $ErrorMsg4
-		return
-	elif [ "$#" = 1 ]; then
-		echo $ErrorMsg5
-		return
-	fi
-
-	ifname=$1
-	if [ "$ifname" = "lo" ]; then
-		echo $ErrorMsg1
-		return
-	fi
-	shift
-	
-	procs=("$@")
-	procIndex=0
-
-	#skip negative value if passed
-	for p in ${procs[@]}
-        do
-                if [ $p -lt 0 ]; then
-                        procs=(${procs[@]/$p})
-                fi
-        done
-
-	#Get melox specifi irqs
-	irqs=$(Get-Irqs $ifname)
-	#Update  affinity list for gather irqs base on user input
-	updated=''
-	IFS=' ' read -r -a array <<< "$irqs"
-	first=1
-	for irq in "${array[@]}" ; do
-		su - root -c "echo ${procs[$procIndex]} > /proc/irq/${irq}/smp_affinity_list"
-		if [ $first = 1 ];then
-			updated+=${procs[$procIndex]}
-			first=0
-		else
-			updated+=" ${procs[$procIndex]}"
-		fi
-		procIndex=$((procIndex+1))
-		if [[ $procIndex -ge ${#procs[@]} ]]; then procIndex=0; fi
-	done
-
-	#validate 
-	current=$(Get-RssProcessors $ifname)
-	if [ "${current}" = "${updated}" ];then 
-		echo "Successfully updated Table!"
-	else 
-		echo "Fail to update Table"
-	fi
-}
-
-#Function to set affinity list of passed interface
-#In 	: destination Ip
-#Out 	: Get-PathMtu
-#################
-#How to use this function
-# examples
-# source LinuxVmUtilities.sh;Get-PathMtu <destination-ip> <initial-packet-size> <interface-name>
-# source LinuxVmUtilities.sh;Get-PathMtu 8.8.8.8 1200 eth0
-# note: 
-# 1. give initial packet size (1200 in above example) always a successfull ping packet-size
-# 2. give correct interface name, code failes if interface name is wrong
-
-function Get-PathMtu() {
-    
-    destinationIp="$1"
-    startSendBufferSize=$2 
-    interfaceName="$3" 
-
-	if [[ -z "$interfaceName" ]]; then
-		initialPingOutput=$(ping -4 -M do -c 1 -s $startSendBufferSize $destinationIp)
-	else
-		initialPingOutput=$(ping -4 -M do -c 1 -s $startSendBufferSize $destinationIp -I $interfaceName)
-	fi
-
-	if [[ $initialPingOutput = *'0 received'* ]]; then
-		echo $ErrorMsg5
-		echo "Initial ping should be successfull, check Destination-IP or lower initial size"
-		return
-	fi
-
-    sendBufferSize=0
-    tempPassedBufferSize=$startSendBufferSize
-	echo -n "Test started ...."
-    while [ $tempPassedBufferSize -ne $sendBufferSize ]; do
-
-        sendBufferSize=$tempPassedBufferSize
-
-        counter=0
-        tempSendBufferSize=$sendBufferSize
-        successfullBufferSize=$sendBufferSize
-        while [ true ]; do
-		
-            if [[ -z "$interfaceName" ]]; then
-                ping -4 -M do -c 1 -s $tempSendBufferSize $destinationIp &> /dev/null
-            else
-                ping -4 -M do -c 1 -s $tempSendBufferSize $destinationIp -I $interfaceName &> /dev/null
-            fi
-            
-            if [ $? -eq 1 ]
-            then
-                break
-            fi
-			echo -n "...."
-            successfullBufferSize=$tempSendBufferSize
-            tempSendBufferSize=$(($tempSendBufferSize + 2**$counter))
-            counter=$(($counter + 1))
-        done
-        tempPassedBufferSize=$successfullBufferSize
-    done
-    finalMtuInTopology=$(($sendBufferSize + 28))          
-	echo ""
-    echo  "$finalMtuInTopology"
-}
-```
 
 ## Change MTU size on a Linux virtual machine
 
 Use the following steps to change the MTU size on a Linux virtual machine:
 
 1. Sign-in to your Linux virtual machine.
-
-1. Copy and paste the `LinuxVmUtilities.sh` script into a file on your Linux virtual machine.
-
-1. Run the following command to make the script executable:
-
-```bash
-chmod +x LinuxVmUtilities.sh
-```
 
 1. Use the `ip` commmand to show the current network interfaces and their MTU settings:
 
