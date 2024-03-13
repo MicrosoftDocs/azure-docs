@@ -43,7 +43,7 @@ For more information on management groups, see the following articles:
 
 Subscriptions are a way of grouping Azure resources that might or might not share a common billing relationship. They can also be used to implement access control, governance, and cost allocation policies. For example, you can create subscriptions for different departments, projects, or environments within your organization. This increased flexibility comes with more management overhead.
 
-You can view and manage your subscriptions in the Azure portal, PowerShell, CLI, or REST API. In the Azure portal, you can also use tools like Cost Management and Advisor to monitor and optimize your subscription costs.
+You can view and manage your subscriptions in the Azure portal, PowerShell, CLI, or REST API. In the Azure portal, you can also use tools like Microsoft Cost Management and Advisor to monitor and optimize your subscription costs.
 
 - [Best Practices - Subscriptions](/azure/cloud-adoption-framework/ready/azure-best-practices/initial-subscriptions) 
 - [Organize Subscriptions](/azure/cloud-adoption-framework/ready/azure-best-practices/organize-subscriptions)
@@ -54,7 +54,7 @@ A resource group is a logical container that holds related resources for an Azur
 
 Resource groups aren't only useful for managing your resources, but also for allocating costs. When you create a resource group, you can also specify a budget to control the costs.
 
-Like subscriptions, you can view and manage your resource groups in the Azure portal, PowerShell, CLI, or REST API. You can also use tools like Cost Management and Advisor to monitor and optimize your resource group spending.
+Like subscriptions, you can view and manage your resource groups in the Azure portal, PowerShell, CLI, or REST API. You can also use tools like Microsoft Cost Management and Advisor to monitor and optimize your resource group spending.
 
 - [Manage resource groups](../../azure-resource-manager/management/manage-resource-groups-portal.md)
 
@@ -82,13 +82,13 @@ The billing hierarchy enables organizations to ensure that the right organizatio
 
 Knowing how Azure billing and resource hierarchies differ is essential for effective cost and resource management in the cloud. Azure billing hierarchy reflects the organizational structure of the account owner, while Azure resource hierarchy reflects the logical grouping of the resources used in Azure. The account owner can improve their cloud governance and cost management strategies by knowing the difference between billing and resource hierarchies. They can match the billing hierarchy with their organizational goals and preferences, and the resource hierarchy with their technical and operational needs.
 
-For more information, watch the [Cost Management setup, organization, and tagging](https://www.youtube.com/watch?time_continue=319&v=n3TLRaYJ1NY&embeds_referring_euri=https%3A%2F%2Flearn.microsoft.com%2F) video.
+For more information, watch the [Microsoft Cost Management setup, organization, and tagging](https://www.youtube.com/watch?time_continue=319&v=n3TLRaYJ1NY&embeds_referring_euri=https%3A%2F%2Flearn.microsoft.com%2F) video. The video refers to Azure Cost Management, but it has since been renamed Microsoft Cost Management.
 
 ## Tags
 
 Tags are key-value pairs that you can apply to Azure resources to group and allocate costs based on business needs. They're a great way to augment the resources and usage data with business context. You can create [Azure policies](../../governance/policy/tutorials/create-and-manage.md) to ensure that all your resources are tagged in a certain way to comply with your tagging strategy.
 
-However, even with a comprehensive tagging mechanism in place, you might find that some usage records are missing tags because not all Azure resources emit tags in their usage. To ensure all usage records are tagged, enable tag inheritance in Cost Management to apply subscription and resource group tags to underlying child resources. You don't need to rely on resources emitting tags in their usage or tag every resource for your cost allocation needs.
+However, even with a comprehensive tagging mechanism in place, you might find that some usage records are missing tags because not all Azure resources emit tags in their usage. To ensure all usage records are tagged, enable tag inheritance in Microsoft Cost Management to apply subscription and resource group tags to underlying child resources. You don't need to rely on resources emitting tags in their usage or tag every resource for your cost allocation needs.
 
 MCA customers can also use tag inheritance to apply billing profile and invoice section tags to their usage records for cost reporting.
 
