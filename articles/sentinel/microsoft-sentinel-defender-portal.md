@@ -4,7 +4,7 @@ description: Learn about changes in the Microsoft Defender portal with the integ
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: conceptual
-ms.date: 03/12/2024
+ms.date: 03/13/2024
 appliesto: Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
 ---
@@ -35,6 +35,30 @@ The following table describes the new or improved capabilities available in the 
 |SOC optimizations   | Get high-fidelity and actionable recommendations to help you identify areas to:<br>- Reduce costs <br>- Add security controls<br>- Add missing data<br>SOC optimizations are available in the Defender portal only, are tailored to your environment, and are based on your current coverage and threat landscape.  <br><br>For more information, see the following articles:<br>- [Optimize your security operations with Microsoft Defender XDR](/microsoft-365/security/defender/soc-optimization-access) <br>- [SOC optimization reference of recommendations](/microsoft-365/security/defender/soc-optimization-reference)   |
 |Unified entities| TBD  <br><br>For more information, see  <br>- []()|
 |Unified incidents| Manage and investigate security information and event management (SIEM), and extended detection and response (XDR) incidents from a single place with a unfied queue.<br><br> For more information, see  <br>- []()|
+
+## Capability differences between portals
+
+ Most Microsoft Sentinel capabilites are available in both the Azure and Defender portals. In the Defender portal, some Microsoft Sentinel experiences open out to the Azure portal for you to complete a task.
+
+This section covers the Microsoft Sentinel capabilities or unified SOC platform integrations that are only available in either the Azure portal or Defender portal. It excludes the Microsoft Sentinel experiences that open the Azure portal from the Defender portal.
+
+## Defender portal only
+
+The following capabilities are only available in the Defender portal.
+
+|Capability  |Learn more  |
+|---------|---------|
+|Attack disrupt for SAP  |  [Automatic attack disruption in Microsoft Defender XDR](/microsoft-365/security/defender/automatic-attack-disruption)         |
+|SOC optimization   |   [Optimize your security operations with Microsoft Defender XDR](/microsoft-365/security/defender/soc-optimization-access)      |
+
+## Azure portal only
+
+The following capabilities are only available in the Azure portal.
+
+|Capability  |Learn more  |
+|---------|---------|
+|Tasks   |     [Use tasks to manage incidents in Microsoft Sentinel](incident-tasks.md)    |
+
 
 ## Quick reference
 
