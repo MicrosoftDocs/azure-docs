@@ -27,7 +27,7 @@ The "_isparallel" query parameter can be added to the export operation to enhanc
 > There is a known issue with the $export operation that could result in incomplete exports with status success. Issue occurs when the is_parallel flag was used. Export jobs executed with _isparallel query parameter starting February 13th, 2024 are impacted with this issue. 
 
 **Change in name nomenclature for exported file name and default storage account**
-With this change exported file names follow the format '{FHIR Resource Name}-{Number}-{Number}.ndjson'. The order of the files is not guaranteed to correspond to any ordering of the resources in the database.Default storage account name is updated to 'Export-{Number}'. There is no change to number of resources added in individual exported files. 
+With this change, exported file names follow the format '{FHIR Resource Name}-{Number}-{Number}.ndjson'. The order of the files is not guaranteed to correspond to any ordering of the resources in the database. Default storage account name is updated to 'Export-{Number}'. There is no change to number of resources added in individual exported files. 
 
 
 **Performance Enhancement**
@@ -51,15 +51,6 @@ Bulk delete operation is currently in public preview. Review disclaimer for deta
 **Bug Fix: FHIR queries using pagination and revinclude resulted in an error on using next link**
 
 Issue is now addressed and FHIR queries using continuation token with include/ revinclude, no longer report an exception. For details on fix, visit [#3525](https://github.com/microsoft/fhir-server/pull/3525).
-
-## **July 2023**
-**Feature enhancement: Change to the exported file name format**
-
-FHIR service enables customers to export data with $export operation. Export can be conducted across various levels, such as System, Patient and Group of patients. There are name changes with exported file and default storage account name.
-* Exported file names will follow the format \<FHIR Resource Name\>-\<Number\>- \<Number\>.ndjson. The order of the files is not guaranteed to correspond to any ordering of the resources in the database.
-* Default storage account name is updated to Export-\<Number\>.
-
-There is no change to number of resources added in individual exported files.
 
 ## **June 2023**
 **Bug Fix: Metadata endpoint URL in capability statement is relative URL**
