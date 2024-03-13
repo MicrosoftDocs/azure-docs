@@ -22,7 +22,11 @@ This article introduces a PowerShell module that creates a Standard Load Balance
 
 For an in-depth walk-through of the upgrade module and process, see the following video:
 > [!VIDEO https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=8e203b99-41ff-4454-9cbd-58856708f1c6]
-<a href="https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=8e203b99-41ff-4454-9cbd-58856708f1c6#time=0h0m35s" target="_blank">01:38 - Quick Demo</a> | <a href="https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=8e203b99-41ff-4454-9cbd-58856708f1c6#time=0h3m06s" target="_blank">03:06 - Step-by-step</a> | <a href="https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=8e203b99-41ff-4454-9cbd-58856708f1c6#time=0h32m45s" target="_blank">32:54 - Recovery</a> | <a href="https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=8e203b99-41ff-4454-9cbd-58856708f1c6#time=0h40m55s" target="_blank">40:55 - Advanced Scenarios</a> | <a href="https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=8e203b99-41ff-4454-9cbd-58856708f1c6#time=0h57m54s" target="_blank">57:54 - Resources</a>
+
+- 03:06 - <a href="https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=8e203b99-41ff-4454-9cbd-58856708f1c6#time=0h3m06s" target="_blank">Step-by-step</a>
+- 32:54 - <a href="https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=8e203b99-41ff-4454-9cbd-58856708f1c6#time=0h32m45s" target="_blank">Recovery</a>
+- 40:55 - <a href="https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=8e203b99-41ff-4454-9cbd-58856708f1c6#time=0h40m55s" target="_blank">Advanced Scenarios</a>
+- 57:54 - <a href="https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=8e203b99-41ff-4454-9cbd-58856708f1c6#time=0h57m54s" target="_blank">Resources</a>
 
 ## Upgrade Overview
 
