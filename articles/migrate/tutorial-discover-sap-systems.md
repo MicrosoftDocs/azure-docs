@@ -35,7 +35,7 @@ To set up a migration project, use these steps:
 1. Under **Services**, select **Azure Migrate**.
 1. Select **Discover, Assess and Migrate**.
 1. In **Get started**, select **Create project**.
-1. In **Create project**, select your Azure subscription and resource group. Create a resource group if you don't have one.
+1. In **Create project**, select your Azure subscription and resource group. If you don't have a resource group, select **Create New** to create one.
 1. In **Project Details**, specify the project name and geography in which you want to create the project.
 
     :::image type="content" source="./media/tutorial-discover-sap-systems/create_project.PNG" alt-text="Screenshot that shows how to create a project." lightbox="./media/tutorial-discover-sap-systems/create_project.PNG":::
@@ -62,7 +62,7 @@ To download the template, use these steps:
 ### Add on-premises SAP infrastructure
 
 Collect on-premises SAP system inventory and add it into the template file.
-- To gather data, you can export it from system and fill in the template with the relevant on-premises SAP system inventory [available here](https://microsoftapc.sharepoint.com/teams/SAPEmbrace95/Shared%20Documents/Forms/AllItems.aspx?id=%2Fteams%2FSAPEmbrace95%2FShared%20Documents%2FGeneral%2FEngineering%20New%2FFeature%20Discussions%2FAZ%2DMigrate%2FSAP%5FCOLLECTOR%5FADVISOR%2FE2E%20Tests%2FCases%20V3%20%28SelfHost%29&p=true&ga=1&LOF=1).
+- To collect data, you can export it from system and fill in the template with the relevant on-premises SAP system inventory [available here](https://microsoftapc.sharepoint.com/teams/SAPEmbrace95/Shared%20Documents/Forms/AllItems.aspx?id=%2Fteams%2FSAPEmbrace95%2FShared%20Documents%2FGeneral%2FEngineering%20New%2FFeature%20Discussions%2FAZ%2DMigrate%2FSAP%5FCOLLECTOR%5FADVISOR%2FE2E%20Tests%2FCases%20V3%20%28SelfHost%29&p=true&ga=1&LOF=1).
 - To review sample data, download our [sample import file](https://github.com/Azure/Discovery-and-Assessment-for-SAP-systems-with-AzMigrate/tree/main/Import%20file%20samples).
 
 
