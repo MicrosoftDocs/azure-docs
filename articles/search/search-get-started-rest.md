@@ -56,7 +56,7 @@ If you're not familiar with the REST client for Visual Studio Code, this section
 1. Paste in the following example. Replace the base URL and API key with the values you copied earlier.
 
    ```http
-   @baseUrl = https://PUT-YOUR-SERVICE-NAME-HERE.search.windows.net
+   @baseUrl = PUT-YOUR-SEARCH-SERVICE-ENDPOINT-HERE
    @apiKey = PUT-YOUR-API-KEY-HERE
     
     ### List existing indexes by name
@@ -322,7 +322,14 @@ When you're working in your own subscription, it's a good idea at the end of a p
 
 You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
 
-On a free service, remember the limitation of three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit.
+You can also try this DELETE command:
+
+```http
+### Delete an index
+DELETE  {{baseUrl}}/indexes/hotels-quickstart?api-version=2023-11-01 HTTP/1.1
+    Content-Type: application/json
+    api-key: {{apiKey}}
+```
 
 ## Next steps
 
