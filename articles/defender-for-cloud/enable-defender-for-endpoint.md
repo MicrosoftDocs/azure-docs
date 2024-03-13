@@ -4,7 +4,8 @@ description: Learn how to deploy the Microsoft Defender for Endpoint integration
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
-ms.date: 02/14/2024
+ms.date: 03/13/2024
+#customer intent: As a user, I want to learn how to enable the Defender for Endpoint integration in Defender for Cloud so that I can protect my Azure, hybrid, and multicloud machines.
 ---
 
 # Enable the Defender for Endpoint integration
