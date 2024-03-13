@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.topic: tutorial
 author: manashgoswami
-ms.author: magoswam
+ms.author: manashg
 ms.reviewer: ssalgado
 ms.date: 08/08/2023
 ms.custom: automl, build-2023
