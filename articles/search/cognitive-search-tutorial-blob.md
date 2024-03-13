@@ -44,20 +44,20 @@ Once content is extracted, the [skillset](cognitive-search-working-with-skillset
 
 + [Azure AI Search](search-create-app-portal.md)
 
-+ [Sample data files (mixed media)](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/ai-enrichment-mixed-media)
+> [!NOTE]
+> You can use a free search service for this tutorial. The free tier limits you to three indexes, three indexers, and three data sources. This tutorial creates one of each. Before starting, make sure you have room on your service to accept the new resources.
+
+### Download files
+
++ [Sample data files (mixed media)](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/ai-enrichment-mixed-media). Download a zip file of the sample data repository and extract the contents.
 
 + [Sample REST file](https://github.com/Azure-Samples/azure-search-rest-samples/tree/main/skillset-tutorial)
-
-> [!NOTE]
-> You can use the free service for this tutorial. A free search service limits you to three indexes, three indexers, and three data sources. This tutorial creates one of each. Before starting, make sure you have room on your service to accept the new resources.
 
 ### Upload sample data to Azure Storage
 
 1. In Azure Storage, create a new container and name it *cog-search-demo*.
 
 1. [Upload the sample data files](/azure/storage/blobs/storage-quickstart-blobs-portal).
-
-   :::image type="content" source="media/cognitive-search-tutorial-blob/sample-files.png" alt-text="Screenshot of the files in File Explorer." border="true":::
 
 1. Get a storage connection string so that you can formulate a connection in Azure AI Search.
 
