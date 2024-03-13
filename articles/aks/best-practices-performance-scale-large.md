@@ -85,7 +85,7 @@ Always upgrade your Kubernetes clusters to the latest version. Newer versions co
 As you scale your AKS clusters to larger scale points, keep the following feature limitations in mind:
 
 * AKS supports up to 5,000 node scale by default for all Standard Tier/ LTS clusters. AKS will scale your cluster's control plane at runtime based on cluster size and Api server load. If you cannot scale beyond 5000 nodes, enable [control plane metrics (Preview)](./monitor-control-plane-metrics.md) with the Azure Monitor managed service for Prometheus add-on and troubleshoot with the following troubleshooting guides:
-  * [AKS at scale troubleshooting guide](https://learn.microsoft.com/en-us/troubleshoot/azure/azure-kubernetes/aks-at-scale-troubleshoot-guide) 
+  * [AKS at scale troubleshooting guide](https://learn.microsoft.com/troubleshoot/azure/azure-kubernetes/aks-at-scale-troubleshoot-guide) 
   * [Troubleshoot the Kubernetes control plane](/troubleshoot/azure/azure-kubernetes/troubleshoot-apiserver-etcd)
   *  If you still have a problem with scaling upto 5000 nodes, please raise a [support ticket](https://portal.azure.com/#create/Microsoft.Support/Parameters/%7B%0D%0A%09%22subId%22%3A+%22%22%2C%0D%0A%09%22pesId%22%3A+%225a3a423f-8667-9095-1770-0a554a934512%22%2C%0D%0A%09%22supportTopicId%22%3A+%2280ea0df7-5108-8e37-2b0e-9737517f0b96%22%2C%0D%0A%09%22contextInfo%22%3A+%22AksLabelDeprecationMarch22%22%2C%0D%0A%09%22caller%22%3A+%22Microsoft_Azure_ContainerService+%2B+AksLabelDeprecationMarch22%22%2C%0D%0A%09%22severity%22%3A+%223%22%0D%0A%7D)
 > [!NOTE]
