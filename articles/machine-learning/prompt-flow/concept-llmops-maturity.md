@@ -14,7 +14,7 @@ ms.date: 03/12/2024
 
 # Advance your maturity level for Large Language Model Operations (LLMOps)
 
-Large Language Operations, or **LLMOps**, describes the operational practices and strategies for managing large language models (LLMs) in production. This article  provides guidance on how to advance your capabilities in LLMOps, based on your organization's current maturity level.
+Large Language Model Operations, or **LLMOps**, describes the operational practices and strategies for managing large language models (LLMs) in production. This article  provides guidance on how to advance your capabilities in LLMOps, based on your organization's current maturity level.
 
 :::image type="content" source="../media/concept-llmops-maturity/llmopsml.png" alt-text="Diagram shows maturity level of LLMOps" lightbox="../media/concept-llmops-maturity/llmopsml.png":::
 
