@@ -136,7 +136,7 @@ Here's an example request that results in an HTTP 400 error, because the `inputs
 ```console
 curl -v -X PUT -H "Ocp-Apim-Subscription-Key: YourSpeechKey" -H "Content-Type: application/json" -d '{
     "inputKind": "SSML"
-}'  "https://YourSpeechRegion.api.cognitive.microsoft.com/texttospeech/batchsyntheses/my-job-01?api-version=2024-04-01"
+}'  "https://YourSpeechRegion.api.cognitive.microsoft.com/texttospeech/batchsyntheses/YourSynthesisId?api-version=2024-04-01"
 ```
 
 In this case, the response headers include `HTTP/1.1 400 Bad Request`.
