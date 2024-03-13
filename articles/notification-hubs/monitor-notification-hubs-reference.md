@@ -37,7 +37,7 @@ The following table lists the metrics available for the Microsoft.NotificationHu
 [!INCLUDE [horz-monitor-ref-logs-tables](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 <!-- No table(s) at https://learn.microsoft.com/azure/azure-monitor/reference/tables/tables-resourcetype. -->
 
-Azure Notification Hubs supports activity and operational logs, which capture management operations that are performed on the Notification Hubs namespace. All logs are stored in JavaScript Object Notation (JSON) format in the following two locations:
+Azure Notification Hubs supports operational logs, which capture management operations that are performed on the Notification Hubs namespace. All logs are stored in JavaScript Object Notation (JSON) format in the following two locations:
 
 - **AzureActivity**: Displays logs from operations and actions that are conducted against the namespace in the Azure portal or through Azure Resource Manager template deployments.
 - **AzureDiagnostics**: Displays logs from operations and actions that are conducted against the namespace by using the API, or through management clients on the language SDK.
@@ -58,9 +58,9 @@ Diagnostic log JSON strings include the elements listed in the following table:
 
 [!INCLUDE [horz-monitor-ref-activity-log](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
 
-Operational logs capture all management operations that are performed on the Azure Notification Hubs namespace. Data operations aren't captured, because of the high volume of data operations that are conducted on notification hubs. The following management operations are captured in operational logs:
+Operational logs capture all management operations that are performed on the Azure Notification Hubs namespace. Data operations aren't captured, because of the high volume of data operations that are conducted on notification hubs.
 
-- [Microsoft.NotificationHubs resource provider operations](/azure/role-based-access-control/permissions/integration#microsoftnotificationhubs)
+[Microsoft.NotificationHubs resource provider operations](/azure/role-based-access-control/permissions/integration#microsoftnotificationhubs) lists all the management operations that are captured in operational logs.
 
 ## Related content
 

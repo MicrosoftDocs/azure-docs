@@ -1,11 +1,11 @@
 ---
 title: Azure Notification Hubs diagnostics logs | Microsoft Docs
-description: This article provides an overview of all the operational and diagnostics logs that are available for Azure Notification Hubs. 
+description: Learn about the operational and diagnostics logs that are available for Azure Notification Hubs, and how to enable diagnostic logging.
 author: sethmanheim
 ms.author: sethm
 ms.service: notification-hubs
 ms.topic: article
-ms.date: 10/23/2023
+ms.date: 03/12/2024
 ---
 
 # Enable diagnostics logs for Notification Hubs
@@ -83,7 +83,7 @@ For calls to the Notification Hubs REST API the `identity` field contains the na
 
 Operational logs capture all management operations that are performed on the Azure Notification Hubs namespace. Data operations aren't captured, because of the high volume of data operations that are conducted on notification hubs.
 
-For a list of the management operations that are captured in operational logs, see [Activity log](monitor-notification-hubs-reference.md#activity-log).
+For a list of the management operations that are captured in operational logs, see [Microsoft.NotificationHubs resource provider operations](/azure/role-based-access-control/permissions/integration#microsoftnotificationhubs).
 
 ### Enable operational logs
 
@@ -93,7 +93,7 @@ Operational logs are disabled by default. To enable logs, do the following:
 
    ![The "Diagnostic settings" link](./media/notification-hubs-diagnostic-logs/image-1.png)
 
-1. In the **Diagnostics settings** pane, select **Add diagnostic setting**.  
+1. In the **Diagnostics settings** pane, select **Add diagnostic setting**.
 
    ![The "Add diagnostic setting" link](./media/notification-hubs-diagnostic-logs/image-2.png)
 

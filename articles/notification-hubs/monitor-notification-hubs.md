@@ -25,13 +25,24 @@ For a list of available metrics for Notification Hubs, see [Notification Hubs mo
 
 [!INCLUDE [horz-monitor-resource-logs](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 
-Azure Notification Hubs supports activity and operational logs, which capture management operations that are performed on the Notification Hubs namespace.
+Notification Hubs supports activity and operational logs, which capture management operations that are performed on the Notification Hubs namespace. Data operations aren't captured, because of the high volume of data operations that are conducted on notification hubs.
 
-- For details about where the logs are stored, the logs schema, and how to enable operational logs, see [Notification Hubs diagnostics logs](notification-hubs-diagnostic-logs.md).
+You can archive the diagnostic logs to a storage account or stream them to an event hub. Sending the logs to a Log Analytics workspace currently isn't supported.
+
+- For more details about the logs and how to enable log collection, see [Enable diagnostics logs for Notification Hubs](notification-hubs-diagnostic-logs.md).
 
 - For the available resource log categories, associated Log Analytics tables, and the management operations captured in operational logs, see [Notification Hubs monitoring data reference](monitor-notification-hubs-reference.md#resource-logs).
 
 [!INCLUDE [horz-monitor-activity-log](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
+
+## Azure Notification Hubs REST APIs telemetry
+
+The [Notification Hubs REST APIs](/rest/api/notificationhubs) fall into the following categories:
+
+- **Azure Resource Manager:** APIs that perform Resource Manager operations, and have `/providers/Microsoft.NotificationHubs/` as part of the request URI.
+- **Notification Hubs service:** APIs that enable operations directly on the Notification Hubs service, and have `<namespaceName>.servicebus.windows.net/` in the request URI.
+
+The [Get notification message telemetry](/rest/api/notificationhubs/get-notification-message-telemetry) API helps monitor push notifications sent from a hub by providing more telemetry on the finished states of outgoing push notifications. The Notification ID that this API uses can be retrieved from the HTTP Location header included in the response of the REST API used to send the notification.
 
 [!INCLUDE [horz-monitor-analyze-data](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
 
@@ -39,7 +50,27 @@ Azure Notification Hubs supports activity and operational logs, which capture ma
 
 [!INCLUDE [horz-monitor-kusto-queries](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
 
-Add short information or links to specific articles that outline how to analyze data for your service. -->
+### Sample Kusto queries
+
+Failed operations:
+
+```kusto
+// List all reports of failed operations over the past hour. 
+AzureActivity 
+| where TimeGenerated > ago(1h)  
+| where ActivityStatus == "Failed"
+```
+
+Errors:
+
+```kusto
+// List all the errors for the past 7 days. 
+AzureDiagnostics
+| where TimeGenerated > ago(7d)
+| where ResourceProvider =="MICROSOFT.NOTIFICATIONHUBS"
+| where Category == "OperationalLogs"
+| summarize count() by "EventName", _ResourceId
+```
 
 [!INCLUDE [horz-monitor-alerts](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
 
@@ -47,10 +78,10 @@ Add short information or links to specific articles that outline how to analyze 
 
 The following table lists some suggested alert rules for Notification Hubs. These alerts are just examples. You can set alerts for any metric, log entry, or activity log entry that's listed in the [Notification Hubs monitoring data reference](monitor-notification-hubs-reference.md).
 
-| Alert type | Condition | Description  |
+| Alert type | Condition | Description |
 |:---|:---|:---|
-| | | |
-| | | |
+| Platform metric | Payload Errors | Whenever the count of pushes that failed because the push notification service (PNS) returned a bad payload error is greater than a dynamic threshold |
+| Activity log | Delete Namespace (Namespace) | Whenever the Activity Log has an event with Category='Administrative', Signal name='Delete Namespace (Namespace)' |
 
 [!INCLUDE [horz-monitor-advisor-recommendations](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
 
