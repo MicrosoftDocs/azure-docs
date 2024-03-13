@@ -17,7 +17,7 @@ Before you start your migration with migration service in Azure Database for Pos
 
 Source PostgreSQL version should be `>= 9.5`. If the source PostgreSQL version is less than `9.5`, upgrade the source PostgreSQL version to `9.5` or higher before migration.
 
-Target setup
+### Target setup
 
 - Azure Database for PostgreSQL must be set up in Azure before migration.
 

@@ -11,7 +11,7 @@ You can migrate using the Azure portal.
 
 #### [Offline](#tab/offline)
 
-[!INCLUDE [prerequisites-migration-service-postgresql](../prerequisites/prerequisites-migration-service-postgresql.md)]
+[!INCLUDE [prerequisites-migration-service-postgresql](../prerequisites/prerequisites-migration-service-postgresql-offline.md)]
 
 ## Configure your Azure Database for PostgreSQL Flexible Server
 

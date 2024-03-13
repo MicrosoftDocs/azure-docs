@@ -11,11 +11,9 @@ You can migrate using Azure CLI.
 
 To begin migrating using Azure CLI, you need to install the Azure CLI on your local machine.
 
-[!INCLUDE [prerequisites-setup-azure-CLI-commands-postgresql](../prerequisites/prerequisites-setup-azure-cli-commands-postgresql.md)]
-
 #### [Offline](#tab/offline)
 
-[!INCLUDE [prerequisites-migration-service-postgresql](../prerequisites/prerequisites-migration-service-postgresql.md)]
+[!INCLUDE [prerequisites-migration-service-postgresql](../prerequisites/prerequisites-migration-service-postgresql-offline.md)]
 
 ## Get started
 
