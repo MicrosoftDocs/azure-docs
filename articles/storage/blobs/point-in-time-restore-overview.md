@@ -33,7 +33,7 @@ The following diagram shows how point-in-time restore works. One or more contain
 
 Only one restore operation can be run on a storage account at a time. A restore operation can't be canceled once it is in progress, but a second restore operation can be performed to undo the first operation.
 
-The **Restore Blob Ranges** operation returns a restore ID that uniquely identifies the operation. To check the status of a point-in-time restore, call the **Get Restore Status** operation with the restore ID returned from the **Restore Blob Ranges** operation.
+The **Restore Blob Ranges** operation returns a restore ID that uniquely identifies the operation. To check the status of a point-in-time restore, call the **Storage Accounts - Get Properties** operation by passing $expand parameter in request. You can check the response of restore ID returned from the **Storage Accounts - Get Properties** operation.
 
 > [!IMPORTANT]
 > When you perform a restore operation, Azure Storage blocks data operations on the blobs in the ranges being restored for the duration of the operation. Read, write, and delete operations are blocked in the primary location. For this reason, operations such as listing containers in the Azure portal may not perform as expected while the restore operation is underway.
