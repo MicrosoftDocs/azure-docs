@@ -6,7 +6,7 @@ ms.author: guyhay
 ms.service: synapse-analytics 
 ms.topic: conceptual
 ms.subservice: spark
-ms.date: 03/11/2023
+ms.date: 03/11/2024
 ---
 
 # Automatically scale Azure Synapse Analytics Apache Spark pools
