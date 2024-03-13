@@ -178,7 +178,7 @@ When switching deployment safeguard levels, you may need to wait up to 15 minute
 
 ### Why did my deployment resource get admitted even though it wasn't following best practices?
 
-Deployment safeguards enforces best practice standards through Azure Policy controls. To evaluate and enforce cluster components (i.e. pods, namespaces), Azure Policy extends [Gatekeeper](https://open-policy-agent.github.io/gatekeeper/website/). Gatekeeper validation policies enforce against Pods, because of this, all deployment safeguards policies will be validated against your Pods. Gatekeeper enforcement also currently operates in a [`fail-open` model](https://open-policy-agent.github.io/gatekeeper/website/docs/failing-closed/#considerations). As there is no guarantee that Gatekeeper will respond to our networking call, we make sure that in that case, the validation will be skipped so that the deny does not block your deployments.
+Deployment safeguards enforces best practice standards through Azure Policy controls and has policies that validate against pods as well as deployments. To evaluate and enforce cluster components (i.e. pods, namespaces), Azure Policy extends [Gatekeeper](https://open-policy-agent.github.io/gatekeeper/website/). Gatekeeper enforcement also currently operates in a [`fail-open` model](https://open-policy-agent.github.io/gatekeeper/website/docs/failing-closed/#considerations). As there is no guarantee that Gatekeeper will respond to our networking call, we make sure that in that case, the validation will be skipped so that the deny does not block your deployments.
 
 To learn more, see [workload validation in Gatekeeper](https://open-policy-agent.github.io/gatekeeper/website/docs/workload-resources/).
 
