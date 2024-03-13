@@ -802,6 +802,8 @@ items:
                 href: ../virtual-machines/extensions/diagnostics-linux-v3.md?toc=/azure/azure-monitor/toc.json
               - name: Collect metrics with Telegraf
                 href: essentials/collect-custom-metrics-linux-telegraf.md
+    - name: Custom metrics ingestion using REST
+      href: essentials/metrics-store-custom-rest-api.md
     - name: Logs ingestion API
       items:
       - name: Overview
@@ -883,8 +885,6 @@ items:
       href: essentials/data-platform-metrics.md
     - name: Custom metrics
       href: essentials/metrics-custom-overview.md
-    - name: Metrics REST API
-      href: essentials/metrics-store-custom-rest-api.md
     - name: Prometheus metrics
       items:
       - name: Overview
@@ -1139,6 +1139,13 @@ items:
         href: essentials/metric-chart-samples.md
       - name: Troubleshooting metric charts
         href: essentials/metrics-troubleshoot.md
+  - name: REST API for metrics
+    items:
+    - name: Metrics REST API Walkthrough
+      displayName: metrics, analyze
+      href: essentials/rest-api-walkthrough.md
+    - name: Migrate to the metrics getBatch API
+      href: essentials/migrate-to-batch-api.md
   - name: Log Analytics
     items:
     - name: Overview
@@ -1222,6 +1229,8 @@ items:
             href: logs/api/prefer-options.md
           - name: Errors
             href: logs/api/errors.md
+  - name: Get the Activity log using the REST API
+    href: essentials/rest-activity-log.md
   - name: Change Analysis
     items:
     - name: Overview
