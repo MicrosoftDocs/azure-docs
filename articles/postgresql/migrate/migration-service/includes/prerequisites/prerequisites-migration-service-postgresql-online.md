@@ -9,7 +9,7 @@ ms.service: postgresql
 ms.topic: include
 ---
 
-## Prerequisites (online)
+### Prerequisites (online)
 
 Before you start your migration with migration service in Azure Database for PostgreSQL, fulfilling the following prerequisites, which apply to offline migration scenarios is essential.
 

@@ -4,10 +4,9 @@ description: "Learn to migrate seamlessly from on-premises or an Azure VM to Azu
 author: apduvuri
 ms.author: adityaduvuri
 ms.reviewer: maghan
-ms.date: 03/19/2024
+ms.date: 03/13/2024
 ms.service: postgresql
 ms.subservice: flexible-server
-ms.custom: devx-track-azurecli
 ms.topic: tutorial
 # CustomerIntent: As a user, I want to learn how to perform offline migration from on-premises and Azure virtual machines to Azure Database for PostgreSQL - Flexible Server using the migration service in Azure, so that I can simplify the transition and ensure data integrity and efficient deployment.
 ---
@@ -28,7 +27,7 @@ The migration service in Azure Database for PostgreSQL is a fully managed servic
 > - Cancel the migration
 > - Post migration
 
-[!INCLUDE [prerequisites-migration-service-postgresql](../prerequisites/prerequisites-migration-service-postgresql-offline.md)]
+[!INCLUDE [prerequisites-migration-service-postgresql-offline](includes/prerequisites/prerequisites-migration-service-postgresql-offline.md)]
 
 #### [Portal](#tab/portal)
 
