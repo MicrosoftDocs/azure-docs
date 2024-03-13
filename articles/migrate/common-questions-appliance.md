@@ -165,6 +165,25 @@ Azure Migrate will encrypt the communication between Azure Migrate appliance and
 
 If no certificate has been provisioned on the server when it starts up, SQL Server generates a self-signed certificate that is used to encrypt login packets. [Learn more](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
 
+## How do I extend the validity of Azure Migrate Appliance AD application certificate that’s nearing expiry?
+
+For a newly created Migrate appliance, the default expiry period for the associated AD APP (Entra Application) will be one year.  To extend the validity of the Azure AD app, follow these steps:
+
+1. On the appliance VM, open an elevated privileged PowerShell Command Prompt.
+1. Navigate to the Config Manager installation folder: 
+
+    ```cd C:\’Program Files’\’Microsoft Azure Appliance Configuration Manager’\Scripts\PowerShell\AzureMigrateCertificateRotation ```
+
+1. Execute the following script to rotate the AAD app certificate and extend its validity for an additional 6 months:
+
+    ```PS C:\Program Files\Microsoft Azure Appliance Configuration Manager\Scripts\PowerShell\AzureMigrateCertificateRotation>.\AzureMigrateRotateCertificate.ps1```
+
+1. If you want to further extend the validity, provide the numberOfMonths as a parameter to the script. For example, to extend by 12 months:
+
+    ```PS C:\Program Files\Microsoft Azure Appliance Configuration Manager\Scripts\PowerShell\AzureMigrateCertificateRotation>.\AzureMigrateRotateCertificate.ps1 12``` 
+
+    ```C:\’Program Files’\’Microsoft Azure Appliance Configuration Manager’\Scripts\PowerShell\AzureMigrateCertificateRotation```
+
 ## Next steps
 
 Read the [Azure Migrate overview](migrate-services-overview.md).
