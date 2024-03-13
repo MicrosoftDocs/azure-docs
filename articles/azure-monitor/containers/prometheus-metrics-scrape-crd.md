@@ -109,6 +109,8 @@ kubectl apply -f https://github.com/Azure/prometheus-collector/blob/main/otelcol
 ### Troubleshooting
 Once the pod or service monitors are successfully applied, if you want to make sure that the pod/service monitor targets are picked up by the addon, follow the instructions here to ensure the targets show up in 127.0.0.1/targets
 
+![alt text](image.png)
+
 ## Next steps
 
 - [Learn more about collecting Prometheus metrics](../essentials/prometheus-metrics-overview.md).
