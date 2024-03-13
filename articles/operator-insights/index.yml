@@ -96,5 +96,5 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Data Product Factory
+          - text: Data Product Factory (preview)
             url: data-product-factory.md

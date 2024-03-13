@@ -47,7 +47,7 @@ We provide the following Data Products.
 
 If you prefer, you can provide your own ingestion agent to upload data to your chosen Data Product.
 
-Azure Operator Insights also offers the Data Product Factory to allow partners and operators to build new Data Products. For more information, see [What is the Data Product Factory for Azure Operator Insights?](data-product-factory.md).
+Azure Operator Insights also offers the Data Product Factory (preview) to allow partners and operators to build new Data Products. For more information, see [What is the Data Product Factory (preview) for Azure Operator Insights?](data-product-factory.md).
 
 ## How do I get access to Azure Operator Insights?
 
