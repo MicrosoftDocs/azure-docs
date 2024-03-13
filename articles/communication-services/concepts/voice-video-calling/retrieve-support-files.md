@@ -28,15 +28,16 @@ Every Call made with the Calling SDK has a Call ID. Call IDs can be used interna
 
 In both the Calling Native and UI SDK, APIs exist to retrieve Call IDs.
 
-[Access Call IDs with the Native Calling SDK](../troubleshooting-info.md?tabs=csharp%2Cjavascript%2Cdotnet#access-your-client-call-id)
+- [Native SDK: Access Call IDs](../troubleshooting-info.md?tabs=csharp%2Cjavascript%2Cdotnet#access-your-client-call-id)
 
 ### Log files
 
 The Native Calling SDK and its dependencies output encrypted `.blog` files into a temporary directory. These files can't be read outside of Microsoft. They're encrypted for privacy and compliance reasons. These files are the source of truth as to what is happening on that particular device with the Native SDK and its dependencies. These files are an important resource to developers and troubleshooters within Microsoft.
 
-Scenarios requiring `.blog` files should be more rare, however they form an important second line of defense. We encourage developers to proactively collect them via your support flows.
+Scenarios requiring `.blog` files should be more rare. These files form an important second line of defense for troubleshooting. We encourage developers to proactively collect them via your support flows.
 
-[Retrieve Log Files with the Native Calling SDK](../../tutorials/log-file-retrieval-tutorial.md)
+- [Native SDK: Retrieve Log Files](../../tutorials/log-file-retrieval-tutorial.md)
+- [UI Library: Collecting User Feedback](../../tutorials/collecting-user-feedback/collecting-user-feedback.md)
 
 ## Enabling feedback from the customer
 
@@ -49,7 +50,7 @@ Once you know what data to collect, you need to satisfy the following user story
 Each application is free to implement user facing support in whatever way best fits the use case. Alternatively for UI SDK Users the built-in mechanism is available to help partially satisfy the story.
 
 - **Report an Issue Form**: A button and a form, click to submit. The UI Library offers a ready-to-use implementation of this form.
-- **End-of-Call Feedback**: Solicit feedback at the end of a call. The feedback form gives the user the opportunity to share issues they may have had with the call.
+- **End-of-Call Feedback**: Solicit feedback at the end of a call. The feedback form gives the user the opportunity to share issues they had with the call.
 
 It's crucial to design these feedback mechanisms with clear prompts for user consent, ensuring users are fully informed about the data being shared and its purpose. This transparency builds trust and encourages more users to report issues.
 
@@ -57,14 +58,14 @@ It's crucial to design these feedback mechanisms with clear prompts for user con
 
 ### Transmitting the support information
 
-Once feedback is collected locally, it needs to be submitted to a server. Submission would typically target a CRM or other tooling that can handle tasks like triaging, prioritizing, and assigning work to support specialists.
+Once feedback is collected locally, it needs to be submitted to a server. Submission would typically target a CRM (Customer Relationship Management) or other tooling that can handle tasks like triaging, prioritizing, and assigning work to support specialists.
 
-While this document isn't meant to cover the entire premise of client/server communications and all the possible CRMs or Support tools out there, please note the following:
+While this document isn't meant to cover the entire premise of client/server communications and all the possible CRMs or Support tools out there, note the following points:
 
-- Use secure transmission protocols (HTTPS)
+- Use secure transmission protocols
 - Include the Logs and the Call IDs when creating support requests
 - Include any User submitted information (Message, Time of error, Device specifications)
-- Provide the User follow up information for their issue (Options: Notify in App, Email, Text Message).
+- Provide the User follow up information for their issue (Options: Notify in App, Email, Text Message)
 
 The application developer is free to decide how to transmit this data as it leaves the end users device and enters a server on the cloud. For a simplified example you can reference the [collecting user feedback](../../tutorials/collecting-user-feedback/collecting-user-feedback.md) tutorial, which offers insight into both client and server implementations of this process.
 
