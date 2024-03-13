@@ -8,7 +8,7 @@ manager: CelesteDG
 
 ms.service: active-directory
 
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/08/2023
 ms.author: godonnell
 ms.subservice: B2C
