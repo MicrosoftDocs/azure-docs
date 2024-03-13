@@ -98,25 +98,11 @@ Azure Backup provides the following support for customers to author their own pr
 
 
 
-## Support for agentless multi-disk crash consistent VM backup
+## Support for agentless multi-disk crash consistent VM backup (preview)
 
-The following table lists the supported scenarios for agentless multi-disk crash consistent VM backup:
-
-Scenario | Supportability
---- | ---
-**Region availability** | Available in all public Azure regions.
-**Backup policy type** | Agentless crash-consistent backup is supported only with Enhanced Policy.
-**VM type and size** | - Supported for VM sizes that are premium storage capable (VM size that includes in their name) such as DSv2.   <br> - Trusted Launch VMs are supported. <br> - VMs with Ultra-disks, Premium v2 SSD, Ephemeral OS disks, Shared disks, and Write Accelerated disks aren't supported. <br> - Managed disks with paid bursting (striped disks) aren't supported.
-**Pre/post script** | Not supported for Linux VM backup.
+[!INCLUDE [backup-azure-agentless-multi-disk-crash-consistent-vm-backup-support-scenarios.md](../../includes/backup-azure-agentless-multi-disk-crash-consistent-vm-backup-support-scenarios.md)]
 
 [Learn more about Agentless multi-disk crash consistent VM backup](backup-azure-vms-agentless-multi-disk-crash-consistent-overview.md).
-
-
-
-
-
-
-
 
 ## Backup frequency and retention
 
