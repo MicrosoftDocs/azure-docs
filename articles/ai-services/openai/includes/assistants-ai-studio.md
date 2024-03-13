@@ -35,9 +35,9 @@ author: mrbullwinkle
     
     :::image type="content" source="../media/quickstarts/assistants-ai-studio-playground.png" alt-text="Screenshot of the Assistant configuration screen without all the values filled in." lightbox="../media/quickstarts/assistants-ai-studio-playground.png":::
 
-### Assistant setup
+## Create your first Assistant
 
-Use the **Assistant setup** pane to create a new AI assistant or to select an existing assistant. 
+Azure AI Studio provides several options to configure your Assistant. In the following steps, you will use the **Assistant setup** pane to create a new AI assistant.
 
 | **Name** | **Description** |
 |:---|:---|
@@ -48,9 +48,7 @@ Use the **Assistant setup** pane to create a new AI assistant or to select an ex
 | **Code interpreter** | Code interpreter provides access to a sandboxed Python environment that can be used to allow the model to test and execute code. |
 | **Files** | You can upload up to 20 files, with a max file size of 512 MB to use with tools. |
 
-## Create your first assistant
-
-1. From the assistant setup drop-down, select **New**.
+1. From the Assistant setup drop-down, select **New**.
 2. Give your Assistant a name.
 3. Enter the following instructions "You are an AI assistant that can write code to help answer math questions"
 4. Select a model deployment. We recommend testing with one of the latest gpt-4 models.
