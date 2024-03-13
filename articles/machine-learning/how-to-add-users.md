@@ -44,9 +44,10 @@ The following custom roles give other levels of access for a data labeling proje
 1. Add a custom role
     1. On the left, select **Access control (IAM)**.
     1. At the top, select **+ Add > Add custom role**.
-    1. For the **Custom role name**, type the name you want to use. For example, **Labeler**.
-    1. In the **Description** box, add a description. For example, **Labeler access for data labeling projects**.
+    1. For the **Custom role name**, type the name you want to use. For example, **Labeling team lead**.
+    1. In the **Description** box, add a description. For example, **Team leader for tlabeling projects**.
     1. Select **Start from JSON**.
+    1. Ignore the **Select a file** entry, even though it is starred.  You'll create the JSON in a future step.
     1. At the bottom of the page, select **Next**.
 1. Skip tabs.
     1. Don't do anything for the **Permissions** tab. You add permissions in a later step. Select **Next**.
