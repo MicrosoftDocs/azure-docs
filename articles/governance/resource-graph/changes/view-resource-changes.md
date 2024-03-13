@@ -15,15 +15,15 @@ Change Analysis provides data for various management and troubleshooting scenari
 
 Change Analysis automatically collects snapshots of change data for all Azure resources, without  needing to limit to a specific subscription or service. To view change data, navigate to **All Resources** from the main menu on the portal dashboard.
 
-:::image type="content" source="/media/view-resource-changes/all-resources-menu.png" alt-text="Screenshot of finding All Resources in the portal menu.":::
+:::image type="content" source="./media/view-resource-changes/all-resources-menu.png" alt-text="Screenshot of finding All Resources in the portal menu.":::
 
 Select the **Changed resources** card. In this example, all Azure resources are returned with no specific subscription selected. 
 
-:::image type="content" source="/media/view-resource-changes/change-analysis-card.png" alt-text="Screenshot of the All Resources page and highlighting the Changed resources card.":::
+:::image type="content" source="./media/view-resource-changes/change-analysis-card.png" alt-text="Screenshot of the All Resources page and highlighting the Changed resources card.":::
 
 Review the results in the **Changed resources** blade.
 
-:::image type="content" source="/media/view-resource-changes/change-history-results.png" alt-text="Screenshot of the Azure Resource Graph Change Analysis resources blade.":::
+:::image type="content" source="./media/view-resource-changes/change-history-results.png" alt-text="Screenshot of the Azure Resource Graph Change Analysis resources blade.":::
 
 ## Filter and sort Change Analysis results
 
@@ -33,7 +33,7 @@ Realistically, you only want to see the change history results for the resources
 
 To narrow down the change history results to your specific needs, start by using any of the filters available on the **All Resources** blade. 
 
-:::image type="content" source="/media/view-resource-changes/all-resources-filter.png" alt-text="Screenshot of the filters available on the All Resources blade that help narrow down the Change Analysis results.":::
+:::image type="content" source="./media/view-resource-changes/all-resources-filter.png" alt-text="Screenshot of the filters available on the All Resources blade that help narrow down the Change Analysis results.":::
 
 | Filter | Description |
 | ------ | ----------- |
@@ -48,13 +48,13 @@ To narrow down the change history results to your specific needs, start by using
 
 Once you narrow down the **All resources** results, select the **Changed resources** card to view the change history for those resources. For example, with the **Location** filter set to **East US**, the Change Analysis blade is limited to 15 total changes. 
 
-:::image type="content" source="/media/view-resource-changes/location-filter-changes.png" alt-text="Screenshot of the Change Analysis results based on the Location filter being set to East US.":::
+:::image type="content" source="./media/view-resource-changes/location-filter-changes.png" alt-text="Screenshot of the Change Analysis results based on the Location filter being set to East US.":::
 
 ### Sort
 
 In the **Change Analysis** blade, you can organize the results into groups using the **Group by...** drop-down menu.
 
-:::image type="content" source="/media/view-resource-changes/change-grouping.png" alt-text="Screenshot of the drop-down for selecting how to group Change Analysis results.":::
+:::image type="content" source="./media/view-resource-changes/change-grouping.png" alt-text="Screenshot of the drop-down for selecting how to group Change Analysis results.":::
 
 | Group by... | Description |
 | ------ | ----------- |
