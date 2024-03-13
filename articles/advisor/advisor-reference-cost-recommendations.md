@@ -488,7 +488,7 @@ Learn more about [App Service plans](../app-service/overview-hosting-plans.md).
 
 ### Unused/Empty App Service plans
 
-The App Service plan you have does not have any running applications associated with it. You may want to delete the resource to reduce expenses or add new apps under it to utilize its capabilities.
+Your App Service plan does not have any running applications associated with it. Consider deleting the resource to reduce expenses, or add new applications under it to utilize its capabilities.
  
 Learn more about [App Service plans](../app-service/overview-hosting-plans.md).
 
