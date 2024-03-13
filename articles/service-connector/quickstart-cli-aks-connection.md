@@ -74,11 +74,11 @@ Use the Azure CLI command to create a service connection to a Blob Storage with 
 
 ```azurecli
 az aks connection create storage-blob \
-    --user-identity client-id="<your-user-assigned-identity-client-id>" subs-id="<your-user-assigned-identity-subscription-id>"
+    --workload-identity client-id="<your-user-assigned-identity-client-id>" subs-id="<your-user-assigned-identity-subscription-id>"
 ```
 
 > [!NOTE]
-> If you don't have a Blob Storage, you can run `az aks connection create storage-blob --new --user-identity client-id="<your-user-assigned-identity-client-id>" subs-id="<your-user-assigned-identity-subscription-id>"` to provision a new one and get connected to your function app straightaway.
+> If you don't have a Blob Storage, you can run `az aks connection create storage-blob --new --workload-identity client-id="<your-user-assigned-identity-client-id>" subs-id="<your-user-assigned-identity-subscription-id>"` to provision a new one and get connected to your function app straightaway.
 
 ---
 
@@ -102,9 +102,6 @@ Go to the following tutorials to start connecting AKS cluster to Azure services 
 
 > [!div class="nextstepaction"]
 > [Tutorial: Connect to Azure Key Vault using CSI driver](./tutorial-python-aks-keyvault-csi-driver.md)
-
-> [!div class="nextstepaction"]
-> [Tutorial: Connect to Azure OpenAI service using workload identity](./tutorial-python-aks-openai-workload-identity.md)
 
 > [!div class="nextstepaction"]
 > [Tutorial: Connect to Azure Storage using workload identity](./tutorial-python-aks-storage-workload-identity.md)

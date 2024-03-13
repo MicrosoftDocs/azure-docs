@@ -71,7 +71,4 @@ Follow the following tutorials to start connecting to Azure services on AKS clus
 > [Tutorial: Connect to Azure Key Vault using CSI driver](./tutorial-python-aks-keyvault-csi-driver.md)
 
 > [!div class="nextstepaction"]
-> [Tutorial: Connect to Azure OpenAI service using workload identity](./tutorial-python-aks-openai-workload-identity.md)
-
-> [!div class="nextstepaction"]
 > [Tutorial: Connect to Azure Storage using workload identity](./tutorial-python-aks-storage-workload-identity.md)

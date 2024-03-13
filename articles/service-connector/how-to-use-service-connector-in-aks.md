@@ -47,7 +47,7 @@ If target service is Azure Key Vault and the Secret Store CSI Driver is enabled 
 
 :::image type="content" source="./media/aks-tutorial/keyvault-csi.png" alt-text="Screenshot of the Azure portal, enabling CSI driver for keyvault when creating a connection.":::
 
-Follow the [tutorial ](./tutorial-python-aks-keyvault-csi-driver.md)to set up a connection to Azure Key Vault using Secret Store CSI driver.
+Follow the [tutorial](./tutorial-python-aks-keyvault-csi-driver.md)to set up a connection to Azure Key Vault using Secret Store CSI driver.
 
 4. **Enable workload identity and OIDC issuer**
 
@@ -55,7 +55,7 @@ If the authentication type is `Workload Identity` when creating a service connec
 
 :::image type="content" source="./media/aks-tutorial/workload-identity.png" alt-text="Screenshot of the Azure portal, using workload identity to create a connection.":::
 
-When the authentication type is `Workload Identity`, a user-assigned managed identity is needed to create the federated identity credential. Learn more from [what are workload identities](/entra/workload-id/workload-identities-overview), or follow the [tutorial ](./tutorial-python-aks-storage-workload-identity.md)to set up a connection to Azure Storage using workload identity.
+When the authentication type is `Workload Identity`, a user-assigned managed identity is needed to create the federated identity credential. Learn more from [what are workload identities](/entra/workload-id/workload-identities-overview), or follow the [tutorial](./tutorial-python-aks-storage-workload-identity.md)to set up a connection to Azure Storage using workload identity.
 
 ## How to use the Service Connector created kubernetes resources
 
