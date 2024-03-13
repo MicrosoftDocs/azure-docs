@@ -9,7 +9,7 @@ ms.date: 03/08/2024
 
 # Use Start/Deallocate operation with Batch nodes
 
-As of the {API_VERSION} API version, users can now deallocate their Batch nodes. Deallocated nodes retain their memory contents and do not contribute to the user's billing account. This is an effective cost management feature, and is the same as the one listed [here](https://learn.microsoft.com/en-us/azure/virtual-machines/hibernate-resume?tabs=osLimitsLinux%2CenablehiberPortal%2CcheckhiberPortal%2CenableWithPortal%2CcliLHE%2CUbuntu18HST%2CPortalDoHiber%2CPortalStatCheck%2CPortalStartHiber%2CPortalImageGallery).
+As of the {API_VERSION} API version, users can now deallocate their Batch nodes. Deallocated nodes retain their memory contents and users are not billed for the VM usage. This is an effective cost management feature, and is the same as the one listed [here](https://learn.microsoft.com/en-us/azure/virtual-machines/hibernate-resume?tabs=osLimitsLinux%2CenablehiberPortal%2CcheckhiberPortal%2CenableWithPortal%2CcliLHE%2CUbuntu18HST%2CPortalDoHiber%2CPortalStatCheck%2CPortalStartHiber%2CPortalImageGallery).
 
 After a node has been deallocated, it can be started to resume activity.
 
