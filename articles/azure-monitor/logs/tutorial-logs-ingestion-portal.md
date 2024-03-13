@@ -2,7 +2,7 @@
 title: 'Tutorial: Send data to Azure Monitor Logs with Logs ingestion API (Azure portal)'
 description: Tutorial on how sending data to a Log Analytics workspace in Azure Monitor using the Logs ingestion API. Supporting components configured using the Azure portal.
 ms.topic: tutorial
-ms.date: 09/14/2023
+ms.date: 03/12/2024
 author: bwren
 ms.author: bwren
 
@@ -160,13 +160,13 @@ Instead of directly configuring the schema of the table, you can upload a file w
     :::image type="content" source="media/tutorial-logs-ingestion-portal/custom-log-create.png" lightbox="media/tutorial-logs-ingestion-portal/custom-log-create.png" alt-text="Screenshot that shows custom log create.":::
 
 ## Collect information from the DCR
-With the DCR created, you need to collect its ID, which is needed in the API call.
+With the DCR created, you need to collect its ID and endpoint, which are needed in the API call.
 
 1. On the **Monitor** menu in the Azure portal, select **Data collection rules** and select the DCR you created. From **Overview** for the DCR, select **JSON View**.
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/data-collection-rule-json-view.png" lightbox="media/tutorial-logs-ingestion-portal/data-collection-rule-json-view.png" alt-text="Screenshot that shows the DCR JSON view.":::
 
-1. Copy the **immutableId** value.
+1. Copy the **immutableId** and **logsIngestion** values.
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/data-collection-rule-immutable-id.png" lightbox="media/tutorial-logs-ingestion-portal/data-collection-rule-immutable-id.png" alt-text="Screenshot that shows collecting the immutable ID from the JSON view.":::
 
@@ -205,7 +205,7 @@ The following PowerShell script generates sample data to configure the custom ta
 1. Update the values of `$tenantId`, `$appId`, and `$appSecret` with the values you noted for **Directory (tenant) ID**, **Application (client) ID**, and secret **Value**. Then save it with the file name *LogGenerator.ps1*.
 
     ``` PowerShell
-    param ([Parameter(Mandatory=$true)] $Log, $Type="file", $Output, $DcrImmutableId, $DceURI, $Table)
+    param ([Parameter(Mandatory=$true)] $Log, $Type="file", $Output, $DcrImmutableId, $URI, $Table)
     ################
     ##### Usage
     ################
@@ -215,13 +215,13 @@ The following PowerShell script generates sample data to configure the custom ta
     #                                API call. Data will be written to a file by default.
     #   [-Output <String>]         - Path to resulting JSON sample
     #   [-DcrImmutableId <string>] - DCR immutable ID
-    #   [-DceURI]                  - Data collection endpoint URI
+    #   [-endpointURI]             - Logs ingestion URI or DCE URI
     #   [-Table]                   - The name of the custom log table, including "_CL" suffix
 
 
     ##### >>>> PUT YOUR VALUES HERE <<<<<
     # Information needed to authenticate to Azure Active Directory and obtain a bearer token
-    $tenantId = "<put tenant ID here>"; #the tenant ID in which the Data Collection Endpoint resides
+    $tenantId = "<put tenant ID here>"; #the tenant ID in which the DCR resides
     $appId = "<put application ID here>"; #the app ID created and granted permissions
     $appSecret = "<put secret value here>"; #the secret created for the above app - never store your secrets in the source code
     ##### >>>> END <<<<<
@@ -260,8 +260,8 @@ The following PowerShell script generates sample data to configure the custom ta
             $DcrImmutableId = Read-Host "Enter DCR Immutable ID" 
         };
 
-        if ($null -eq $DceURI) {
-            $DceURI = Read-Host "Enter data collection endpoint URI" 
+        if ($null -eq $endpointURI) {
+            $endpointURI = Read-Host "Enter endpoint URI" 
         }
 
         if ($null -eq $Table) {
@@ -287,7 +287,7 @@ The following PowerShell script generates sample data to configure the custom ta
             # Sending the data to Log Analytics via the DCR!
             $body = $log_entry | ConvertTo-Json -AsArray;
             $headers = @{"Authorization" = "Bearer $bearerToken"; "Content-Type" = "application/json" };
-            $uri = "$DceURI/dataCollectionRules/$DcrImmutableId/streams/Custom-$Table"+"?api-version=2023-01-01";
+            $uri = "$endpointURI/dataCollectionRules/$DcrImmutableId/streams/Custom-$Table"+"?api-version=2023-01-01";
             $uploadResponse = Invoke-RestMethod -Uri $uri -Method "Post" -Body $body -Headers $headers;
 
             # Let's see how the response looks
@@ -312,10 +312,10 @@ The following PowerShell script generates sample data to configure the custom ta
 ## Send sample data
 Allow at least 30 minutes for the configuration to take effect. You might also experience increased latency for the first few entries, but this activity should normalize.
 
-1. Run the following command providing the values that you collected for your DCR and DCE. The script will start ingesting data by placing calls to the API at the pace of approximately one record per second.
+1. Run the following command providing the values that you collected for your DCR. The script will start ingesting data by placing calls to the API at the pace of approximately one record per second.
 
     ```PowerShell
-    .\LogGenerator.ps1 -Log "sample_access.log" -Type "API" -Table "ApacheAccess_CL" -DcrImmutableId <immutable ID> -DceUri <data collection endpoint URL> 
+    .\LogGenerator.ps1 -Log "sample_access.log" -Type "API" -Table "ApacheAccess_CL" -DcrImmutableId <immutable ID> -Uri <data collection endpoint URL> 
     ```
 
 1. From Log Analytics, query your newly created table to verify that data arrived and that it's transformed properly.

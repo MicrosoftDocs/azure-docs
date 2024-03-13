@@ -2,7 +2,7 @@
 title: 'Sample code to send data to Azure Monitor using Logs ingestion API'
 description: Sample code using REST API and client libraries for Logs ingestion API in Azure Monitor.
 ms.topic: tutorial
-ms.date: 10/27/2023
+ms.date: 03/12/2024s
 ---
 
 # Sample code to send data to Azure Monitor using Logs ingestion API
@@ -10,7 +10,6 @@ ms.date: 10/27/2023
 This article provides sample code using the [Logs ingestion API](logs-ingestion-api-overview.md). Each sample requires the following components to be created before the code is run. See [Tutorial: Send data to Azure Monitor using Logs ingestion API (Resource Manager templates)](tutorial-logs-ingestion-api.md) for a complete walkthrough of creating these components configured to support each of these samples.
 
 - Custom table in a Log Analytics workspace
-- Data collection endpoint (DCE) to receive data
 - Data collection rule (DCR) to direct the data to the target table
 - Microsoft Entra application with access to the DCR
 
@@ -33,7 +32,7 @@ The following script uses the [Azure Monitor Ingestion client library for .NET](
    - `AZURE_CLIENT_ID`
    - `AZURE_CLIENT_SECRET`
 
-2. Replace the variables in the following sample code with values from your DCE and DCR. You may also want to replace the sample data with your own.
+2. Replace the variables in the following sample code with values from your DCR. You may also want to replace the sample data with your own.
 
     ```csharp
     using Azure;
@@ -143,7 +142,7 @@ The following sample code uses the [Azure Monitor Ingestion client module for Go
    - `AZURE_CLIENT_ID`
    - `AZURE_CLIENT_SECRET`
 
-1. Replace the variables in the following sample code with values from your DCE and DCR. You might also want to replace the sample data with your own.
+1. Replace the variables in the following sample code with values from your DCR. You might also want to replace the sample data with your own.
 
     ```go
     package main
@@ -158,7 +157,7 @@ The following sample code uses the [Azure Monitor Ingestion client module for Go
         "github.com/Azure/azure-sdk-for-go/sdk/monitor/azingest"
     )
     
-    // data collection endpoint (DCE)
+    // logs ingestion URI 
     const endpoint = "https://logs-ingestion-rzmk.eastus2-1.ingest.monitor.azure.com"
     // data collection rule (DCR) immutable ID
     const ruleID = "dcr-00000000000000000000000000000000"
@@ -242,7 +241,7 @@ The following sample code uses the [Azure Monitor Ingestion client library for J
    - `AZURE_CLIENT_ID`
    - `AZURE_CLIENT_SECRET`
 
-1. Replace the variables in the following sample code with values from your DCE and DCR. You may also want to replace the sample data with your own.
+1. Replace the variables in the following sample code with values from your DCR. You may also want to replace the sample data with your own.
 
     ```java
     import com.azure.identity.DefaultAzureCredentialBuilder; 
@@ -315,7 +314,7 @@ The following sample code uses the [Azure Monitor Ingestion client library for J
    - `AZURE_CLIENT_ID`
    - `AZURE_CLIENT_SECRET`
 
-1. Replace the variables in the following sample code with values from your DCE and DCR. You might also want to replace the sample data with your own.
+1. Replace the variables in the following sample code with values from your DCR. You might also want to replace the sample data with your own.
 
     ```javascript
     const { DefaultAzureCredential } = require("@azure/identity");
@@ -391,7 +390,7 @@ The following PowerShell code sends data to the endpoint by using HTTP REST fund
     Add-Type -AssemblyName System.Web
     ```
 
-1. Replace the parameters in the **Step 0** section with values from your application, DCE, and DCR. You might also want to replace the sample data in the **Step 2** section with your own.
+1. Replace the parameters in the **Step 0** section with values from your application and DCR. You might also want to replace the sample data in the **Step 2** section with your own.
 
     ```powershell
     ### Step 0: Set variables required for the rest of the script.
@@ -402,12 +401,12 @@ The following PowerShell code sends data to the endpoint by using HTTP REST fund
     $appSecret = "0000000000000000000000000000000000000000" #Secret created for the application
     
     # information needed to send data to the DCR endpoint
-    $dceEndpoint = "https://logs-ingestion-rzmk.eastus2-1.ingest.monitor.azure.com" #the endpoint property of the Data Collection Endpoint object
+    $endpoint_uri = "https://logs-ingestion-rzmk.eastus2-1.ingest.monitor.azure.com" #Logs ingestion URI for the DCR
     $dcrImmutableId = "dcr-00000000000000000000000000000000" #the immutableId property of the DCR object
     $streamName = "Custom-MyTableRawData" #name of the stream in the DCR that represents the destination table
     
     
-    ### Step 1: Obtain a bearer token used later to authenticate against the DCE.
+    ### Step 1: Obtain a bearer token used later to authenticate against the DCR.
     
     $scope= [System.Web.HttpUtility]::UrlEncode("https://monitor.azure.com//.default")   
     $body = "client_id=$appId&scope=$scope&client_secret=$appSecret&grant_type=client_credentials";
@@ -448,11 +447,11 @@ The following PowerShell code sends data to the endpoint by using HTTP REST fund
     "@;
     
     
-    ### Step 3: Send the data to the Log Analytics workspace via the DCE.
+    ### Step 3: Send the data to the Log Analytics workspace.
     
     $body = $staticData;
     $headers = @{"Authorization"="Bearer $bearerToken";"Content-Type"="application/json"};
-    $uri = "$dceEndpoint/dataCollectionRules/$dcrImmutableId/streams/$($streamName)?api-version=2023-01-01"
+    $uri = "$endpoint_uri/dataCollectionRules/$dcrImmutableId/streams/$($streamName)?api-version=2023-01-01"
     
     $uploadResponse = Invoke-RestMethod -Uri $uri -Method "Post" -Body $body -Headers $headers
     ```
@@ -479,11 +478,11 @@ The following sample code uses the [Azure Monitor Ingestion client library for P
    - `AZURE_CLIENT_ID`
    - `AZURE_CLIENT_SECRET`
 
-1. Replace the variables in the following sample code with values from your DCE and DCR. You might also want to replace the sample data in the **Step 2** section with your own.
+1. Replace the variables in the following sample code with values from your DCR. You might also want to replace the sample data in the **Step 2** section with your own.
 
     ```python
     # information needed to send data to the DCR endpoint
-    dce_endpoint = "https://logs-ingestion-rzmk.eastus2-1.ingest.monitor.azure.com" # ingestion endpoint of the Data Collection Endpoint object
+    endpoint_uri = "https://logs-ingestion-rzmk.eastus2-1.ingest.monitor.azure.com" # logs ingestion endpoint of the DCR
     dcr_immutableid = "dcr-00000000000000000000000000000000" # immutableId property of the Data Collection Rule
     stream_name = "Custom-MyTableRawData" #name of the stream in the DCR that represents the destination table
     
@@ -494,7 +493,7 @@ The following sample code uses the [Azure Monitor Ingestion client library for P
     from azure.core.exceptions import HttpResponseError
     
     credential = DefaultAzureCredential()
-    client = LogsIngestionClient(endpoint=dce_endpoint, credential=credential, logging_enable=True)
+    client = LogsIngestionClient(endpoint=endpoint_uri, credential=credential, logging_enable=True)
     
     body = [
             {
