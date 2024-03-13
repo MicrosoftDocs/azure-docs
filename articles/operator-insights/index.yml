@@ -89,4 +89,12 @@ landingContent:
           - text: Data types
             url: concept-data-types.md
           - text: Data visualization
-            url: concept-data-visualization.md 
+            url: concept-data-visualization.md
+
+  # Card
+  - title: Develop Data Products
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Data Product Factory
+            url: data-product-factory.md
