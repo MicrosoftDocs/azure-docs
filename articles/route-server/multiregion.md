@@ -5,7 +5,7 @@ services: route-server
 author: halkazwini
 ms.author: halkazwini
 ms.service: route-server
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/13/2024
 
 #CustomerIntent: As an Azure administrator, I want to use Azure Route Server in a multi-region topology where I have hub and spokes in each region and the Route Server exchange routes with NVAs and dynamically adapt to any topology changes.
