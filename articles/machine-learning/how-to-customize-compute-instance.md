@@ -71,9 +71,7 @@ Once you store the script, specify it during creation of your compute instance:
 1. On the left, select **Compute**.
 1. Select **+New** to create a new compute instance.
 1. [Fill out the form](how-to-create-compute-instance.md?tabs=azure-studio#create).
-1. On the second page of the form, open **Show advanced settings**.
-1. Turn on **Provision with setup script**.
-1. Toggle on **Creation script** or **Startup script** (or both).
+1. On the **Applications** page of the form, toggle on the type of script you want to use, creation script (run once when creating the compute instance) or startup script (run every time the compute instance is started).
 1. Browse to the shell script you saved. Or upload a script from your computer.
 1. Add command arguments as needed.
 
