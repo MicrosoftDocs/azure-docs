@@ -138,7 +138,7 @@ Properties, telemetry, and commands are grouped into interfaces. This section de
 
 Every interface has a unique digital twin model identifier (DTMI). Complex models use DTMIs to identify components. Applications can use the DTMIs that devices send to locate model definitions in a repository.
 
-DTMIs should follow the naming convention required by the [IoT Plug and Play model repository](https://github.com/Azure/iot-plugandplay-models):
+DTMIs should use the following the naming convention:
 
 - The DTMI prefix is `dtmi:`.
 - The DTMI suffix is version number for the model such as `;2`.
@@ -656,14 +656,6 @@ When you've installed the extension, use it to help you author DTDL model files 
 
 - Create a new DTDL interface. The **DTDL: Create Interface** command creates a JSON file with a new interface. The interface includes example telemetry, property, and command definitions.
 
-### Publish
-
-To make your DTML models shareable and discoverable, you publish them in a device models repository.
-
-Before you publish a model in the public repository, you can use the `dmr-client` tools to validate your model.
-
-To learn more, see [Device models repository](concepts-model-repository.md).
-
 ### Use
 
 Applications, such as IoT Central, use device models. In IoT Central, a model is part of the device template that describes the capabilities of the device. IoT Central uses the device template to dynamically build a UI for the device, including dashboards and analytics.
@@ -696,4 +688,4 @@ The following list summarizes some key constraints and limits on models:
 Now that you've learned about device modeling, here are some more resources:
 
 - [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/README.md)
-- [Model repositories](./concepts-model-repository.md)
+- [Model repositories](./concepts-model-discovery.md)

@@ -92,12 +92,12 @@
     },
     {
       "source_path_from_root": "/articles/iot-pnp/howto-manage-models.md",
-      "redirect_url": "/azure/iot-develop/concepts-model-discovery",
+      "redirect_url": "/azure/iot/concepts-model-discovery",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/howto-use-iot-pnp-cli.md",
-      "redirect_url": "/azure/iot-develop/concepts-model-repository",
+      "redirect_url": "/azure/iot/concepts-model-discovery",
       "redirect_document_id": false
     },
     {
@@ -342,18 +342,18 @@
     },
     {
       "source_path_from_root": "/articles/iot-pnp/concepts-model-discovery.md",
-      "redirect_url": "/azure/iot-develop/concepts-model-discovery",
-      "redirect_document_id": true
+      "redirect_url": "/azure/iot/concepts-model-discovery",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/concepts-model-parser.md",
-      "redirect_url": "/azure/iot-develop/concepts-model-parser",
-      "redirect_document_id": true
+      "redirect_url": "/azure/iot/concepts-model-parser",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/concepts-model-repository.md",
-      "redirect_url": "/azure/iot-develop/concepts-model-repository",
-      "redirect_document_id": true
+      "redirect_url": "/azure/iot/concepts-model-discovery",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/connect-web.md",
@@ -493,12 +493,12 @@
     {
       "source_path_from_root": "/articles/iot-develop/concepts-model-discovery.md",
       "redirect_url": "/azure/iot/concepts-model-discovery",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-develop/concepts-model-repository.md",
-      "redirect_url": "/azure/iot/concepts-model-repository",
-      "redirect_document_id": true
+      "redirect_url": "/azure/iot/concepts-model-discovery",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-develop/concepts-model-parser.md",
@@ -569,6 +569,11 @@
       "source_path_from_root": "/articles/iot-develop/quickstart-send-telemetry-central.md",
       "redirect_url": "/azure/iot-central/core/tutorial-connect-device",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot/concepts-model-repository.md",
+      "redirect_url": "/azure/iot/concepts-model-discovery",
+      "redirect_document_id": true
     }
   ]
 }
