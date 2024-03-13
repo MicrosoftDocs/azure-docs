@@ -7,7 +7,7 @@ manager: CelesteDG
 
 ms.service: app-service
 ms.topic: tutorial
-ms.date: 02/23/2024
+ms.date: 03/12/2024
 ms.author: ryanwi
 ms.reviewer: mahender
 ms.custom: azureday1, AppServiceIdentity

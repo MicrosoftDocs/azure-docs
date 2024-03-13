@@ -63,7 +63,7 @@ During creation of the app registration, collect the following information which
 - Client secret (optional, but recommended)
 - Application ID URI
 
-The instructions for creating an app registration depend on if you're using [a workforce tenant](../active-directory/fundamentals/active-directory-whatis.md) or [a customer tenant (Preview)][Azure Active Directory for customers (Preview)]. Use the tabs below to select the right set of instructions for your scenario.
+The instructions for creating an app registration depend on if you're using [a workforce tenant](../active-directory/fundamentals/active-directory-whatis.md) or [a customer tenant][Azure Active Directory for customers (Preview)]. Use the tabs below to select the right set of instructions for your scenario.
 
 To register the app, perform the following steps:
 
@@ -74,7 +74,7 @@ To register the app, perform the following steps:
 
     From the portal menu, select **Microsoft Entra ID**. If the tenant you're using is different from the one you use to configure the App Service application, you'll need to [change directories][Switch your directory] first.
 
-    # [Customer tenant (Preview)](#tab/customer-tenant)
+    # [Customer tenant](#tab/customer-tenant)
 
     1. If you do not already have a customer tenant, create one by following the instructions in [Create a customer identity and access management (CIAM) tenant](../active-directory/external-identities/customers/how-to-create-customer-tenant-portal.md).
 
@@ -117,7 +117,7 @@ To register the app, perform the following steps:
 
     No other steps are required for a workforce tenant.
 
-    # [Customer tenant (Preview)](#tab/customer-tenant)
+    # [Customer tenant](#tab/customer-tenant)
     
     1. Create a user flow, which defines an authentication experience that can be shared across app registrations in the tenant:
     
@@ -156,7 +156,7 @@ To register the app, perform the following steps:
 
     The **authentication endpoint** for a workforce tenant should be a [value specific to the cloud environment](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints). For example, a workforce tenant in global Azure would use "https://login.microsoftonline.com" as its authentication endpoint. Make note of the authentication endpoint value, as it's needed to construct the right **Issuer URL**.
 
-    # [Customer tenant (Preview)](#tab/customer-tenant)
+    # [Customer tenant](#tab/customer-tenant)
 
     For a customer tenant, you must manually fill in the configuration values according to the following table.
 
