@@ -511,8 +511,6 @@ All of the tokens in the output column exist in the index. If our query includes
         }
     ```
 
-<!-- With the custom analyzer defined, recreate the index so that the custom analyzer will be available for testing in the next step. For simplicity, the Postman collection creates a new index named `tutorial-first-analyzer` with the analyzer we defined. -->
-
 ### Test the custom analyzer
 
 After recreating the index, you can now test out the analyzer using the following request:

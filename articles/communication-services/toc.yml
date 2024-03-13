@@ -282,6 +282,8 @@ items:
     - name: Survey users
       href: tutorials/end-of-call-survey-tutorial.md
       displayName: diagnostics, Survey, feedback, quality, reliability, users, end, call, quick
+    - name: Collecting user feedback with the mobile UI Library
+      href: tutorials/collecting-user-feedback/collecting-user-feedback.md
     - name: Virtual appointments
       items:      
       - name: Sample builder
@@ -418,6 +420,8 @@ items:
           href: how-tos/ui-library-sdk/callkit.md
         - name: Set up one-to-one calling and push notifications
           href: how-tos/ui-library-sdk/one-to-one-calling.md
+        - name: Audio Only Mode
+          href: how-tos/ui-library-sdk/audio-only-mode.md
         - name: Troubleshoot
           href: how-tos/ui-library-sdk/troubleshooting.md
     - name: Events
@@ -779,7 +783,7 @@ items:
         href: concepts/ui-library/ui-library-use-cases.md
       - name: Design with UI Library Design Kit
         href: quickstarts/ui-library/get-started-ui-kit.md  
-    - name: Log File Access
+    - name: Providing end user support
       href: ./concepts/voice-video-calling/retrieve-support-files.md
     - name: User experience
       href: concepts/voice-video-calling/user-experience.md
@@ -1129,6 +1133,7 @@ items:
       href: https://azure.github.io/azure-sdk-for-ios/AzureCommunicationUIChat
     - name: UI Library for Chat (Android)
       href: https://azure.github.io/azure-sdk-for-android/azure-communication-ui-chat/index.html
+    
   - name: Advanced Messaging
     items:
     - name: Advanced Messaging (.NET)
