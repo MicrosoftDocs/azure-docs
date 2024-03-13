@@ -23,6 +23,8 @@ The query parameter _summary=count and _count=0 can be added to _history endpoin
 
 **Improve throughput for export operation**
 The "_isparallel" query parameter can be added to the export operation to enhance its throughput. It is important to note that using this parameter may result in an increase in Request Units consumption over the life of export. For more information, see [Export operation query parameters](././../azure-api-for-fhir/export-data.md).
+> [!NOTE]
+> There is a known issue with the $export operation that could result in incomplete exports with status success. Issue occurs when the is_parallel flag was used. Export jobs executed with _isparallel query parameter starting February 13th, 2024 are impacted with this issue. 
 
 **Change in name nomenclature for exported file name and default storage account**
 With this change exported file names follow the format '{FHIR Resource Name}-{Number}-{Number}.ndjson'. The order of the files is not guaranteed to correspond to any ordering of the resources in the database.Default storage account name is updated to 'Export-{Number}'. There is no change to number of resources added in individual exported files. 
