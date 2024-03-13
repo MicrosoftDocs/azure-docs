@@ -5,7 +5,7 @@ description: This article shows how to add support for Azure CLI in PowerShell 7
 services: automation
 ms.date: 01/17/2024
 ms.topic: conceptual
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 ---
 
 # Run Azure CLI commands in PowerShell 7.2 runbooks

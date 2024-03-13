@@ -105,7 +105,7 @@ To get started:
 
     * **azureSubscription**: Name of the authorized service connection to your Azure subscription.
     * **appName**: Name of your existing app.
-    * **package**: Fike path to the package or a folder containing your app service contents. Wildcards are supported.
+    * **package**: File path to the package or a folder containing your app service contents. Wildcards are supported.
 
 # [Classic](#tab/classic/)
 

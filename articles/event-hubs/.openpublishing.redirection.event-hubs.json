@@ -1,6 +1,11 @@
 {
   "redirections": [
   {
+      "source_path": "event-hubs-event-processor-host.md",
+      "redirect_url": "/azure/event-hubs/event-processor-balance-partition-load",
+      "redirect_document_id": false
+  },
+  {
     "source_path": "use-blob-storage-checkpoint-store-azure-stack-hub.md",
     "redirect_url": "/azure/event-hubs/troubleshoot-checkpoint-store-issues",
     "redirect_document_id": false

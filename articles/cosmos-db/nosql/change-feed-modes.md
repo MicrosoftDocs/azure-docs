@@ -24,7 +24,7 @@ Latest version mode is a persistent record of changes made to items from creates
 
 ## All versions and deletes change feed mode (preview)
 
-All versions and deletes mode (preview) is a persistent record of all changes to items from create, update, and delete operations. You get a record of each change to items in the order that it occurred, including intermediate changes to an item between change feed reads. For example, if an item is created and then updated before you read the change feed, both the create and the update versions of the item appear in the change feed. To read from the change feed in all versions and deletes mode, you must have [continuous backups](../continuous-backup-restore-introduction.md) configured for your Azure Cosmos DB account. Turning on continuous backups creates the all versions and deletes change feed. You can only read changes that occurred within the continuous backup period when using this change feed mode. This mode is only compatible with Azure Cosmos DB for NoSQL accounts. Learn more about how to [sign up for the preview](#get-started).
+All versions and deletes mode (preview) is a persistent record of all changes to items from create, update, and delete operations. You get a record of each change to items in the order that it occurred, including intermediate changes to an item between change feed reads. For example, if an item is created and then updated before you read the change feed, both the create and the update versions of the item appear in the change feed. To read from the change feed in all versions and deletes mode, you must have [continuous backups](../continuous-backup-restore-introduction.md) configured for your Azure Cosmos DB account. Turning on continuous backups creates the all versions and deletes change feed. You can only read changes that occurred within the continuous backup period when using this change feed mode. This mode is only compatible with Azure Cosmos DB for NoSQL accounts. Learn more about how to [sign up for the preview](?tabs=all-versions-and-deletes#get-started).
 
 ## Change feed use cases
 
@@ -152,7 +152,7 @@ The response object is an array of items that represent each change. The array l
          },  
         "metadata": {
             "lsn": <A number that represents the batch ID. Many items can have the same lsn.>, 
-            "changeType": <The type of change, either 'create', 'replace', or 'delete'.>, 
+            "operationType": <The type of change, either 'create', 'replace', or 'delete'.>, 
             "previousImageLSN" : <A number that represents the batch ID of the change prior to this one.>, 
             "timeToLiveExpired" : <For delete changes, it will be 'true' if it was deleted due to a TTL expiration and 'false' if it wasn't.>, 
             "crts": <A number that represents the Conflict Resolved Timestamp. It has the same format as _ts.> 

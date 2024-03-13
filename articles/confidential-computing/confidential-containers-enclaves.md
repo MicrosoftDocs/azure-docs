@@ -8,7 +8,6 @@ ms.date: 7/15/2022
 ms.author: ananyagarg
 ms.service: virtual-machines
 ms.subservice: confidential-computing
-ms.custom: ignite-fall-2021
 ---
 
 # Confidential containers on Azure Kubernetes Service(AKS) with Intel SGX enclaves

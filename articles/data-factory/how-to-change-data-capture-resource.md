@@ -4,9 +4,7 @@ description: Get step-by-step instructions on how to capture changed data from A
 author: n0elleli
 ms.author: noelleli
 ms.service: data-factory
-ms.subservice:
 ms.topic: conceptual
-ms.custom: seo-lt-2019
 ms.date: 01/05/2024
 ---
 

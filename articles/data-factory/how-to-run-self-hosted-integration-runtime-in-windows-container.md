@@ -6,7 +6,6 @@ author: lrtoyou1223
 ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
-ms.custom: seo-lt-2019
 ms.date: 07/20/2023
 ---
 

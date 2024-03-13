@@ -6,7 +6,6 @@ ms.assetid: be4580d7-aa1b-4b6b-89a3-0991c0cda897
 ms.service: dns
 ms.topic: conceptual
 ms.custom: H1Hack27Feb2017
-ms.workload: infrastructure-services
 ms.date: 11/21/2023
 ms.author: greglin
 ---

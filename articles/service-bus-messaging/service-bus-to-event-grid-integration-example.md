@@ -1,7 +1,6 @@
 ---
 title: Handle Service Bus events via Event Grid using Azure Logic Apps
 description: This article provides steps for handling Service Bus events via Event Grid using Azure Logic Apps.
-documentationcenter: .net
 author: spelluru
 ms.topic: tutorial
 ms.date: 10/10/2023

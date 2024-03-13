@@ -5,7 +5,6 @@ author: KumariSupriya
 manager: paulmey
 ms.service: virtual-machines
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.custom: linux-related-content
 ms.date: 04/11/2023
 ms.author: frdavid

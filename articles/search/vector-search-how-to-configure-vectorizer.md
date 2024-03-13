@@ -35,7 +35,7 @@ You can use the [**Import and vectorize data wizard**](search-get-started-portal
 
 + A skillset that performs data chunking and vectorization of those chunks. You can omit a skillset if you only want integrated vectorization at query time, or if you don't need chunking or [index projections](index-projections-concept-intro.md) during indexing. This article assumes you already know how to [create a skillset](cognitive-search-defining-skillset.md).
 
-+ An index that specifies vector and non-vector fields. This article assumes you already know how to [create a vector index](vector-search-how-to-create-index.md) and covers just the steps for adding vectorizers and field assignments.
++ An index that specifies vector and non-vector fields. This article assumes you already know how to [create a vector store](vector-search-how-to-create-index.md) and covers just the steps for adding vectorizers and field assignments.
 
 + An [indexer](search-howto-create-indexers.md) that drives the pipeline.
 

@@ -6,7 +6,6 @@ manager: KumuD
 ms.service: dns
 ms.topic: article
 ms.custom: linux-related-content
-ms.workload: infrastructure-services
 ms.date: 04/27/2023
 ms.author: greglin
 ---

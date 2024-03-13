@@ -3,12 +3,10 @@ title: include file
 description: include file
 #services: cognitive-services
 manager: nitinme
-ms.custom: seodec18
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.date: 01/19/2024
 ms.topic: include
-
 ---
 ## Sign in to LUIS portal
 
@@ -31,5 +29,3 @@ A new user to LUIS needs to follow this procedure:
     * **Azure resource group name** - a custom resource group name you choose or create. Resource groups allow you to group Azure resources for access and management.
     * **Azure resource name** - a custom name you choose, used as part of the URL for your authoring and prediction endpoint queries.
     * **Pricing tier** - the pricing tier determines the maximum transaction per second and month.
-
-

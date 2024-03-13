@@ -3,7 +3,7 @@ title: Frequently asked questions (FAQ) for Azure Files
 description: Get answers to Azure Files frequently asked questions. You can mount Azure file shares concurrently on cloud or on-premises Windows, Linux, or macOS deployments.
 author: khdownie
 ms.service: azure-file-storage
-ms.date: 01/05/2024
+ms.date: 01/26/2024
 ms.author: kendownie
 ms.topic: conceptual
 ---
@@ -174,7 +174,7 @@ ms.topic: conceptual
 * <a id="backup-nfs-data"></a>
 **How do I backup data stored in NFS shares?**
 
-    Backing up your data on NFS shares can either be orchestrated using familiar tooling like rsync or products from one of our third-party backup partners. Multiple backup partners including [Commvault](https://documentation.commvault.com/index.html), [Veeam](https://www.veeam.com/blog/?p=123438), and [Veritas](https://players.brightcove.net/4396107486001/default_default/index.html?videoId=6189967101001) have extended their solutions to work with both SMB 3.x and NFS 4.1 for Azure Files. You can also use [NFS file share snapshots (preview)](storage-files-how-to-mount-nfs-shares.md#nfs-file-share-snapshots-preview).
+    Backing up your data on NFS shares can either be orchestrated using familiar tooling like rsync or products from one of our third-party backup partners. Multiple backup partners including [Commvault](https://documentation.commvault.com/index.html), [Veeam](https://www.veeam.com/blog/?p=123438), and [Veritas](https://players.brightcove.net/4396107486001/default_default/index.html?videoId=6189967101001) have extended their solutions to work with both SMB 3.x and NFS 4.1 for Azure Files. You can also use [NFS Azure file share snapshots](storage-files-how-to-mount-nfs-shares.md#nfs-file-share-snapshots).
 
 * <a id="migrate-nfs-data"></a>
 **Can I migrate existing data to an NFS share?**

@@ -2,13 +2,12 @@
 title: "Quickstart: Get started with Language Studio"
 titleSuffix: Azure AI services
 description: Use this article to learn about Language Studio, and testing features of Azure AI Language
-author: aahill
-ms.author: aahi
+author: jboback
+ms.author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.date: 12/19/2023
 ms.topic: quickstart
-ms.custom: ignite-fall-2021
 ---
 
 # Quickstart: Get started with Language Studio

@@ -539,6 +539,38 @@ Clients will get the following response:
 > [!WARNING]
 > The custom status payload is limited to 16 KB of UTF-16 JSON text because it needs to be able to fit in an Azure Table Storage column. You can use external storage if you need larger payload.
 
+## Distributed Tracing
+
+Distributed Tracing tracks requests and shows how different services interact with each other. In Durable Functions, it also correlates orchestrations and activities together. This is helpful to understand how much time steps of the orchestration take relative to the entire orchestration. It is also useful to understand where an application is having an issue or where an exception was thrown. This feature is supported for all languages and storage providers.
+
+> [!NOTE]
+> Distributed Tracing V2 requires [Durable Functions v2.12.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask/2.12.0) or greater. Also, Distributed Tracing V2 is in a preview state and therefore some Durable Functions patterns are not instrumented. For example, Durable Entities operations are not instrumented and traces will not show up in Application Insights.
+
+### Setting up Distributed Tracing
+
+To set up distributed tracing, please update the host.json and set up an Application Insights resource.
+
+#### host.json
+```
+"durableTask": {
+  "tracing": {
+    "distributedTracingEnabled": true,
+    "Version": "V2"
+  }
+}
+```
+
+#### Application Insights
+If the Function app is not configured with an Application Insights resource, then please configure it following the instructions [here](../configure-monitoring.md#enable-application-insights-integration).
+
+### Inspecting the traces
+In the Application Insights resource, navigate to **Transaction Search**. In the results, check for `Request` and `Dependency` events that start with Durable Functions specific prefixes (e.g. `orchestration:`, `activity:`, etc.). Selecting one of these events will open up a Gantt chart that will show the end to end distributed trace.
+
+[![Gantt Chart showing Application Insights Distributed Trace.](./media/durable-functions-diagnostics/app-insights-distributed-trace-gantt-chart.png)](./media/durable-functions-diagnostics/app-insights-distributed-trace-gantt-chart.png#lightbox)
+
+### Troubleshooting
+If you don't see the traces in Application Insights, please make sure to wait about five minutes after running the application to ensure that all of the data is propagated to the Application Insights resource.
+
 ## Debugging
 
 Azure Functions supports debugging function code directly, and that same support carries forward to Durable Functions, whether running in Azure or locally. However, there are a few behaviors to be aware of when debugging:

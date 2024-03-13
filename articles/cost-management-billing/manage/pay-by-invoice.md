@@ -3,13 +3,11 @@ title: Pay for Azure subscriptions by wire transfer
 description: Learn how to pay for Azure subscriptions by wire transfer.
 author: bandersmsft
 ms.reviewer: lishepar
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
 ms.date: 01/08/2024
 ms.author: banders
-ms.custom: contperf-fy21q2
 ---
 
 # Pay for your Azure subscription by wire transfer

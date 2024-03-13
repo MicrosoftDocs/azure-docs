@@ -57,8 +57,8 @@ Due to increased GPU memory I/O footprint, the NC A100 v4 requires the use of [G
 
 | Size | vCPU | Memory (GiB) | Temp Disk  NVMe (GiB) | GPU | GPU Memory (GiB) | Max data disks | Max uncached disk throughput (IOPS / MBps) | Max NICs/network bandwidth (MBps) |
 |---|---|---|---|---|---|---|---|---|
-| Standard_NC40ads_H100_v5   | 40  | 320 | 3576| 1 | 94  | 8 | 30000/1000 | 2/40,000  |
-| Standard_NC80adis_H100_v5   | 80 | 640 | 7152 | 2 | 188 | 16 | 60000/2000 | 4/80,000  | 
+| Standard_NC40ads_H100_v5   | 40  | 320 | 3576| 1 | 94  | 8 | 100000/3000 | 2/40,000  |
+| Standard_NC80adis_H100_v5   | 80 | 640 | 7152 | 2 | 188 | 16 | 240000/7000 | 4/80,000  | 
 
 <sup>1</sup> 1 GPU = one H100 card <br>
 <sup>2</sup> Local NVMe disks are ephemeral. Data is lost on these disks if you stop/deallocate your VM. Local NVMe disks aren't encrypted by Azure Storage encryption, even if you enable encryption at host. <br>

@@ -14,7 +14,12 @@ The Nexus service is engineered to uphold control plane resiliency across variou
 
 ## Instances with three or more compute racks
 
-Operator Nexus ensures the availability of three active control plane nodes in instances with three or more compute racks. For configurations exceeding two compute racks, an extra spare node is also maintained. These nodes are strategically distributed across different racks to guarantee control plane resiliency, when possible.
+Operator Nexus ensures the availability of three active Kubernetes control plane (KCP) nodes in instances with three or more compute racks. For configurations exceeding two compute racks, an extra spare node is also maintained. These nodes are strategically distributed across different racks to guarantee control plane resiliency, when possible.
+
+> [!TIP]
+> The Kubernetes control plane is a set of components that manage the state of a Kubernetes cluster, schedule workloads, and respond to cluster events. It includes the API server, etcd storage, scheduler, and controller managers.
+>
+> The remaining management nodes contain various operators which run the platform software as well as other components performing support capabilities for monitoring, storage and networking.
 
 During runtime upgrades, Operator Nexus implements a sequential upgrade of the control plane nodes, thereby preserving resiliency throughout the upgrade process.
 
@@ -22,8 +27,8 @@ Three compute racks:
   
 |  Rack 1    | Rack 2  | Rack 3   | 
 |------------|---------|----------|
-| KCP        | KCP    | KCP       |
-| KCP-spare  | MGMT   |  MGMT     |
+| KCP        | KCP     | KCP      |
+| KCP-spare  | MGMT    | MGMT     |
 
 Four or more compute racks:
 
@@ -43,12 +48,19 @@ Two compute racks:
 | KCP        | KCP-spare|
 | MGMT       | MGMT     |
 
-> [!NOTE] 
-> Operator Nexus supports control plane resiliency in single rack configurations by having three management nodes within the rack. For example, a single rack configuration with three management servers will provide an equivalent number of active control planes to ensure resiliency within a rack.
+Single compute rack:
 
-## Impacts to on-premises instance
+Operator Nexus supports control plane resiliency in single rack configurations by having three management nodes within the rack. For example, a single rack configuration with three management servers will provide an equivalent number of active control planes to ensure resiliency within a rack.
 
-In disaster situations when the control plane loses quorum, there are impacts to the Kubernetes API across the instance. This scenario can impact a workload's ability to read and write Customer Resources (CRs) and talk across racks. 
+| Rack 1     |
+|------------|
+| KCP        |
+| KCP        |
+| KCP        |
+
+## Resiliency implications of lost quorum
+
+In disaster situations when the control plane loses quorum, there are impacts to the Kubernetes API across the instance. This scenario can affect a workload's ability to read and write Custom Resources (CRs) and talk across racks. 
 
 ## Related Links
 

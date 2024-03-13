@@ -7,7 +7,6 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 10/13/2023
 ms.author: cherylmc
-ms.custom: ignite-fall-2021
 ---
 
 # Create an SSH connection to a Windows VM using Azure Bastion

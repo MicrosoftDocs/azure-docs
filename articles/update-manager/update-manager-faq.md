@@ -3,7 +3,7 @@ title: Azure Update Manager FAQ
 description: This article gives answers to frequently asked questions about Azure Update Manager
 ms.service: azure-update-manager
 ms.topic: conceptual
-ms.date: 01/23/2024
+ms.date: 01/31/2024
 author: snehasudhirG
 ms.author: sudhirsneha
 #Customer intent: As an implementer, I want answers to various questions.
@@ -121,11 +121,11 @@ An Arc-enabled server is considered managed by Azure Update Manager for days on 
 
 An Arc-enabled server managed with Azure Update Manager is not charged in following scenarios:
  - If the machine is enabled for delivery of Extended Security Updates (ESUs) enabled by Azure Arc.
- - Microsoft Defender for Servers Plan 2 is enabled for the subscription hosting the Arc-enabled server.
+ - Microsoft Defender for Servers Plan 2 is enabled for the subscription hosting the Arc-enabled server. However, if customer is using Defender using Security connector, they will be charged.
 
 ### Will I be charged if I move from Automation Update Management to Update Manager? 
 
-Customers will not be charged if they onboard their Arc enabled servers to the same subscription that contains their Automation accounts until the LA agent is retired.
+Customers will not be charged for already existing Arc-enabled servers which were using Automation Update Management for free as of Sep 1, 2023. Any new Arc-enabled machines which will be onboarded to Azure Update Manager in the same subscription will also be exempted from charge. This exception will be provided till LA agent retires. Post that date, these customers will be charged.
 
 ### I'm a Defender for Server customer and use update recommendations powered by Azure Update Manager namely "periodic assessment should be enabled on your machines" and "system updates should be installed on your machines". Would I be charged for Azure Update Manager? 
 

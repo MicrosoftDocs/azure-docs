@@ -27,12 +27,15 @@ Extra usage fees might apply for using GPT-4 Turbo with Vision and Azure AI Visi
 
 ## Prerequisites
 
+[!INCLUDE [Limited AI services](../includes/limited-ai-services.md)]
+
 - An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>.
 - Access granted to Azure OpenAI in the desired Azure subscription.
 
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 
-- An [Azure AI resource](../how-to/create-azure-ai-resource.md) with a GPT-4 Turbo with Vision model deployed in one of the regions that support GPT-4 Turbo with Vision: Australia East, Switzerland North, Sweden Central, and West US. When you deploy from your project's **Deployments** page, select: `gpt-4` as the model name and `vision-preview` as the model version.
+- An [Azure AI hub resource](../how-to/create-azure-ai-resource.md) with a GPT-4 Turbo with Vision model deployed in one of the [regions that support GPT-4 Turbo with Vision](../../ai-services/openai/concepts/models.md#gpt-4-and-gpt-4-turbo-preview-model-availability): Australia East, Switzerland North, Sweden Central, and West US. When you deploy from your Azure AI project's **Deployments** page, select: `gpt-4` as the model name and `vision-preview` as the model version.
+- An [Azure AI project](../how-to/create-projects.md) in Azure AI Studio. 
 
 ## Start a chat session to analyze images or video
 
@@ -47,6 +50,7 @@ You need a video up to three minutes in length to complete the video quickstart.
 In this chat session, you instruct the assistant to aid in understanding images that you input. 
 
 1. Sign in to [Azure AI Studio](https://ai.azure.com).
+1. Go to your project or [create a new project](../how-to/create-projects.md) in Azure AI Studio.
 1. Select **Build** from the top menu and then select **Playground** from the collapsible left menu.
 1. Make sure that **Chat** is selected from the **Mode** dropdown. Select your deployed GPT-4 Turbo with Vision model from the **Deployment** dropdown. Under the chat session text box, you should now see the option to select a file.
 

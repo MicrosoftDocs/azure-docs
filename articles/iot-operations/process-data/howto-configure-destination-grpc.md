@@ -1,6 +1,6 @@
 ---
 title: Send data to a gRPC endpoint from a pipeline
-description: Configure a pipeline destination stage to send the pipeline output to a gRPC endpoint for further processing.
+description: Configure a pipeline destination stage to send the pipeline output to a gRPC endpoint for further processing with Azure IoT Data Processor.
 author: dominicbetts
 ms.author: dobett
 ms.subservice: data-processor
@@ -12,7 +12,7 @@ ms.date: 10/09/2023
 #CustomerIntent: As an operator, I want to send data from a pipeline to a gRPC endpoint so that I can run custom processing on the output from the pipeline.
 ---
 
-# Send data to a gRPC endpoint
+# Send data to a gRPC endpoint with Azure IoT Data Processor Preview
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
@@ -28,7 +28,7 @@ When you send data to a gRPC endpoint from a destination stage:
 
 To configure and use a destination pipeline stage, you need:
 
-- A deployed instance of Azure IoT Data Processor (preview).
+- A deployed instance of Azure IoT Data Processor Preview.
 - A [gRPC](https://grpc.io/docs/what-is-grpc/) server that's accessible from the Data Processor instance.
 - The `protoc` tool to generate the descriptor.
 
@@ -46,11 +46,12 @@ The gRPC destination stage JSON configuration defines the details of the stage. 
 | Authentication | string | The authentication type to use. `None`/`Metadata`. | Yes | `None` | `None` |
 | Metadata key   | string | The metadata key to use when `Authentication` is set to `Metadata`. | No | `authorization` | `authorization` |
 | Secret | string | The [secret reference](../deploy-iot-ops/howto-manage-secrets.md) to use when `Authentication` is set to `Metadata`. | No | - | `mysecret` |
+| Retry | [Retry](concept-configuration-patterns.md#retry) | The retry policy to use.  | No | `default` | `fixed` |
 | API request&nbsp;>&nbsp;Body path | [Path](concept-configuration-patterns.md#path) | The path to the portion of the Data Processor message that should be serialized and set as the request body. Leave empty if you don't need to send a request body. | No | - | `.payload.gRPCRequest` |
 | API request&nbsp;>&nbsp;Metadata&nbsp;>&nbsp;Key<sup>2</sup> | [Static/Dynamic field](concept-configuration-patterns.md#static-and-dynamic-fields) | The metadata key to set in the request. | No |  | [Static/Dynamic field](concept-configuration-patterns.md#static-and-dynamic-fields) |
 | API request&nbsp;>&nbsp;Metadata&nbsp;>&nbsp;Value<sup>2</sup> | [Static/Dynamic field](concept-configuration-patterns.md#static-and-dynamic-fields) | The metadata value to set in the request. | No |  | [Static/Dynamic field](concept-configuration-patterns.md#static-and-dynamic-fields) |
 
-**Descriptor<sup>1</sup>**: To serialize the request body, you need a base 64 encoded descriptor of the .proto file.
+**<sup>1</sup>Descriptor**: To serialize the request body, you need a base 64 encoded descriptor of the .proto file.
 
 Use the following command to generate the descriptor, replace `<proto-file>` with the name of your .proto file:
 
@@ -60,11 +61,13 @@ protoc --descriptor_set_out=/dev/stdout --include_imports <proto-file> | base64 
 
 Use the output from the previous command as the `descriptor` in the configuration.
 
-**API request&nbsp;>&nbsp;Metadata<sup>2</sup>**: Each element in the metadata array is a key value pair. You can set the key or value dynamically based on the content of the incoming message or as a static string.
+**<sup>2</sup>API request&nbsp;>&nbsp;Metadata**: Each element in the metadata array is a key value pair. You can set the key or value dynamically based on the content of the incoming message or as a static string.
 
 ## Related content
 
 - [Send data to Azure Data Explorer](../connect-to-cloud/howto-configure-destination-data-explorer.md)
 - [Send data to Microsoft Fabric](../connect-to-cloud/howto-configure-destination-fabric.md)
+- [Send data to Azure Blob Storage](../connect-to-cloud/howto-configure-destination-blob.md)
+- [Send data to an HTTP endpoint](howto-configure-destination-http.md)
 - [Publish data to an MQTT broker](howto-configure-destination-mq-broker.md)
 - [Send data to the reference data store](howto-configure-destination-reference-store.md)
