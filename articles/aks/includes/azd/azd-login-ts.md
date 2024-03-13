@@ -4,30 +4,40 @@ ms.topic: include
 ms.date: 02/21/2024
 ---
 
-### Log in through GitHub Codespaces
+### azd auth workaround
 
 > [!IMPORTANT]
-> Certain Azure security policies cause conflicts when used to sign in with `azd auth login`. As a workaround, you can perform a curl request to the localhost url you were redirected to after you logged in.
+> If you are using an out-of-network virtual machine, or GitHub Codespace, certain Azure security policies cause conflicts when used to sign in with `azd auth login`. As a workaround, you can perform a curl request to the localhost url you were redirected to after you logged in.
 
-The workaround requires the Azure CLI for authentication. If you don't have it or aren't using GitHub Codespaces, install the [Azure CLI][install-azure-cli].
+This workaround requires you to have the [Azure CLI][install-azure-cli] and run `azd auth login` prior.
 
-1. Inside a terminal, login with Azure CLI.
+1. Open a terminal window and  log in with the Azure CLI through the browser. Use the `az login` command with the `--scope` parameter set to `https://graph.microsoft.com/.default`. This is required to workaround certain device related policies that may cause the issue.
 
     ```azurecli-interactive
     az login --scope https://graph.microsoft.com/.default
     ```
 
-1. Copy the "localhost" URL from the failed redirect.
+    You should be redirected to an authenthication page in a new tab to create a browser access token:
 
-1. In a new terminal window,  type `curl` and paste your url.
+    ```output
+    https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize?clientid=<your_client_id>.
+    ```
 
-    ```azurecli-interactive
+1. Copy the localhost URL of the webpage after signing in with `azd auth login`.
+
+    ```output
+    http://localhost:<port>/?code=<token>
+    ```
+
+1. In a new terminal window, use the following curl request to log in. Make sure you replace the `<localhost>` placeholder with the localhost URL you copied in the previous step.
+
+    ```console
     curl <localhost>
     ```
 
-1. If it works, code for a webpage saying "You have logged into Microsoft Azure!" appears.
+    A successful login outputs an HTML webpage:
 
-    ```html
+    ```output
     <!DOCTYPE html>
     <html>
     <head>
