@@ -15,7 +15,7 @@ This article shows you how to apply a template YAML configuration file to scan y
 
 - For Microsoft Security DevOps, set up the GitHub action or the Azure DevOps extension based on your source code management system:
   - If your repository is in GitHub, set up the [Microsoft Security DevOps GitHub action](github-action.md).
-  - If you manage your source code in Azure DevOps, set up the [Microsoft Security DevOps Azure DevOps extension](azure-devops-extension.md).
+  - If you manage your source code in Azure DevOps, set up the [Microsoft Security DevOps Azure DevOps extension](azure-devops-extension.yml).
 - Ensure that you have an IaC template in your repository.
 
 <a name="configure-iac-scanning-and-view-the-results-in-github"></a>

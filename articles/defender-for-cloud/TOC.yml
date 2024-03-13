@@ -834,7 +834,7 @@
           - name: Connect your GitLab environment
             href: quickstart-onboard-gitlab.md
           - name: Configure the Microsoft Security DevOps Azure DevOps extension
-            href: azure-devops-extension.md
+            href: azure-devops-extension.yml
           - name: Configure the Microsoft Security DevOps GitHub action
             href: github-action.md
           - name: Configure pull request annotations
