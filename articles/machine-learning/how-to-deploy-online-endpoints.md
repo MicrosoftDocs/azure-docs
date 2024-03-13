@@ -441,7 +441,7 @@ To register the example model, follow these steps:
 
 For more information on working with registered models, see [Register and work with models](how-to-manage-models.md).
 
-For information on creating an environment in the studio, see [Create an environment](how-to-manage-environments-in-studio.md#create-a-custom-environment).
+For information on creating an environment in the studio, see [Create an environment](how-to-manage-environments-in-studio.md#create-an-environment).
 
 # [ARM template](#tab/arm)
 
