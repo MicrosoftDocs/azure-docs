@@ -34,7 +34,7 @@ Batch synthesis properties are described in the following table.
 |`lastActionDateTime`|The most recent date and time when the `status` property value changed.<br/><br/>This property is read-only.|
 |`outputs.result`|The location of the batch synthesis result files with audio output and logs.<br/><br/>This property is read-only.|
 |`properties`|A defined set of optional batch synthesis configuration settings.|
-|`properties.audioSizeInBytes`|The audio output size in bytes.<br/><br/>This property is read-only.|
+|`properties.sizeInBytes`|The audio output size in bytes.<br/><br/>This property is read-only.|
 |`properties.billingDetails`|The number of words that were processed and billed by `customNeuralCharacters` versus `neuralCharacters` (prebuilt) voices.<br/><br/>This property is read-only.|
 |`properties.concatenateResult`|Determines whether to concatenate the result. This optional `bool` value ("true" or "false") is "false" by default.|
 |`properties.decompressOutputFiles`|Determines whether to unzip the synthesis result files in the destination container. This property can only be set when the `destinationContainerUrl` property is set. This optional `bool` value ("true" or "false") is "false" by default.|

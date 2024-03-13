@@ -123,15 +123,12 @@ You should receive a response body in the following format:
     "decompressOutputFiles": false,
     "wordBoundaryEnabled": false,
     "sentenceBoundaryEnabled": false,
-    "audioSizeInBytes": 120000,
+    "sizeInBytes": 120000,
     "succeededAudioCount": 1,
     "failedAudioCount": 0,
     "durationInMilliseconds": 2500,
     "billingDetails": {
-      "neuralCharacters": 29,
-      "customNeuralCharacters": 0,
-      "neuralHDCharacters": 0,
-      "personalVoiceCharacters": 0
+      "neuralCharacters": 29
     }
   },
   "outputs": {
@@ -170,15 +167,12 @@ You should receive a response body in the following format:
         "decompressOutputFiles": false,
         "wordBoundaryEnabled": false,
         "sentenceBoundaryEnabled": false,
-        "audioSizeInBytes": 120000,
+        "sizeInBytes": 120000,
         "succeededAudioCount": 1,
         "failedAudioCount": 0,
         "durationInMilliseconds": 2500,
         "billingDetails": {
-          "neuralCharacters": 29,
-          "customNeuralCharacters": 0,
-          "neuralHDCharacters": 0,
-          "personalVoiceCharacters": 0
+          "neuralCharacters": 29
         }
       },
       "outputs": {
@@ -200,15 +194,12 @@ You should receive a response body in the following format:
         "decompressOutputFiles": false,
         "wordBoundaryEnabled": false,
         "sentenceBoundaryEnabled": false,
-        "audioSizeInBytes": 120000,
+        "sizeInBytes": 120000,
         "succeededAudioCount": 1,
         "failedAudioCount": 0,
         "durationInMilliseconds": 2500,
         "billingDetails": {
-          "neuralCharacters": 29,
-          "customNeuralCharacters": 0,
-          "neuralHDCharacters": 0,
-          "personalVoiceCharacters": 0
+          "neuralCharacters": 29
         }
       },
       "outputs": {
