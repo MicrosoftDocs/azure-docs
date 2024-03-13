@@ -16,8 +16,7 @@ introduction: |
 
 prerequisites:
   summary: |
-    ## Before you start
-
+    Before you start:
     - You need **Security admin role** or **Owner** on the resource group.
     - You must also have write permissions for the target resource.
     - To work with Azure Logic Apps workflows, you must also have the following Logic Apps roles/permissions:
