@@ -1,7 +1,6 @@
 ---
 title: Build an event-driven app with Dapr
-titleSuffix: Azure IoT MQ
-description: Learn how to create a Dapr application that aggregates data and publishing on another topic.
+description: Learn how to create a Dapr application that aggregates data and publishing on another topic using Azure IoT MQ Preview.
 author: timlt
 ms.author: timlt
 ms.subservice: mq
@@ -11,11 +10,11 @@ ms.date: 11/13/2023
 #CustomerIntent: As an operator, I want to configure IoT MQ to bridge to Azure Event Grid MQTT broker PaaS so that I can process my IoT data at the edge and in the cloud.
 ---
 
-# Build an event-driven app with Dapr
+# Tutorial: Build an event-driven app with Dapr and Azure IoT MQ Preview
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In this walkthrough, you deploy a Dapr application to the cluster. The Dapr application consumes simulated MQTT data published to Azure IoT MQ, applies a windowing function, and then publishes the result back to IoT MQ. The published output represents how high volume data can be aggregated on the edge to reduce message frequency and size. The Dapr application is stateless, and uses the IoT MQ state store to cache past values needed for the window calculations.
+In this walkthrough, you deploy a Dapr application to the cluster. The Dapr application consumes simulated MQTT data published to Azure IoT MQ Preview, applies a windowing function, and then publishes the result back to IoT MQ. The published output represents how high volume data can be aggregated on the edge to reduce message frequency and size. The Dapr application is stateless, and uses the IoT MQ state store to cache past values needed for the window calculations.
 
 The Dapr application performs the following steps:
 
@@ -30,7 +29,7 @@ The Dapr application performs the following steps:
 
 ## Prerequisites
 
-* Azure IoT Operations installed - [Deploy Azure IoT Operations](../get-started/quickstart-deploy.md)
+* Azure IoT Operations Preview installed - [Deploy Azure IoT Operations](../get-started/quickstart-deploy.md)
 * IoT MQ Dapr components installed - [Install IoT MQ Dapr Components](./howto-deploy-dapr.md)
  
 ## Deploy the Dapr application
