@@ -51,11 +51,11 @@ The quickstart application includes the following Kubernetes deployments and ser
 
 ## Clone the Azure Developer CLI Template
 
-`azd` can clone files directly from a GitHub repository with azd init. For this quickstart, clone the sample `azd` template using the `--template` flag along with the owner and name of the repository.
+`azd` can clone files directly from a GitHub repository with `azd init`. For this quickstart, clone the sample `azd` template using the `--template` flag along with the owner and name of the repository.
 
 1. Clone the AKS Store Demo template from the **Azure-Samples** repository by running the `azd init` command and specifying `aks-store-demo`.
 
-    ```azurecli-interactive
+    ```azdeveloper
     azd init --template Azure-Samples/aks-store-demo
     ```
 
@@ -71,14 +71,14 @@ The `azd` template contains all the code needed to create the services, but you 
 
 1. Sign in to your account with azd.
 
-    ```azurecli-interactive
+    ```azdeveloper
     azd auth login
     ```
 
 1. Copy the device code that appears then press enter to sign-in.
 
     ```output
-    Start by copying the next code: B8APV276M
+    Start by copying the next code: XXXXXXXXX
     Then press enter and continue to log in from your browser...
     ```
 
@@ -110,7 +110,7 @@ This `azd` template creates a new resource group with an Azure Kubernetes cluste
 
 1. Create all your resources with the `azd up` command.
 
-    ```azurecli-interactive
+    ```azdeveloper
     azd up
     ```
 
@@ -207,7 +207,7 @@ Once you're finished with the quickstart, remember to clean up all your resource
 
 1. Use `azd down` to delete all your resources used in the quickstart, which includes your resource group, cluster, and related Azure Services.
 
-    ```azurecli-interactive
+    ```azdeveloper
     azd down
     ```
 

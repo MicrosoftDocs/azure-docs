@@ -180,7 +180,7 @@ In these tutorials, your Azure Container Registry (ACR) instance stores the cont
 
 1. Deployment in `azd` in broken down into multiple stages represented by hooks. By default, azd deploys with all hooks.
 
-    ```azurecli-interactive
+    ```azdeveloper
     azd up
     ```
 

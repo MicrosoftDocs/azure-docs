@@ -184,7 +184,7 @@ Signing in to your Azure Account through `azd` configures your credentials.
 
 1. Authenticate using `azd`.
 
-    ```azurecli-interactive
+    ```azdeveloper
     azd auth login 
     ```
 
