@@ -229,10 +229,9 @@ Here's an example of the entire contents of a valid *sentinel-deployment.config*
 
 ## Next steps
 
-A sample repository is available with demonstrating the deployment config file and all three parameter mapping methods. 
+A sample repository is available demonstrating the deployment config file and all three parameter mapping methods. For more information, see [Sentinel CICD repositories sample](https://github.com/SentinelCICD/RepositoriesSampleContent)
 
-For more information, see:
+Consider these resources for more information about ARM templates:
 
-- [Sentinel CICD repositories sample](https://github.com/SentinelCICD/RepositoriesSampleContent)
 - [Create Resource Manager parameter file](../azure-resource-manager/templates/parameter-files.md)
 - [Parameters in ARM templates](../azure-resource-manager/templates/parameters.md)
