@@ -19,7 +19,7 @@ Our third party partners featured in this article have introduction guides to he
 | DevOps             | [Advantech](#advantech) <br> [Hashicorp](#hashicorp) <br> [Akuity](#akuity) <br> [Kong](#kong) |
 | Networking         | [Buoyant](#buoyant) <br> [Isovalent](#isovalent) <br> [Tetrate](#tetrate)                      |
 | Observability      | [Buoyant](#buoyant) <br> [Isovalent](#isovalent) <br> [Dynatrace](#dynatrace)                  |
-| Security           | [Buoyant](#buoyant) <br> [Isovalent](#isovalent) <br> [Kong](#kong) <br> [Tetrate](#tetrate)   |
+| Security           | [Buoyant](#buoyant) <br> [Isovalent](#isovalent) <br> [Kong](#kong) <br> [Tetrate](#tetrate) <br> [Wiz](#wiz)  |
 | Storage            | [Catalogic](#catalogic) <br> [Veeam](#veeam)                                                   |
 | Config Management  | [Corent](#corent)                                                                              |
 | Migration          | [Catalogic](#catalogic)                                                                        |
@@ -180,6 +180,18 @@ TID enforces fetching certified versions of Istio and enables only compatible ve
 </details>
 
 For more information, see [Tetrate Solutions](https://istio.tetratelabs.io/download/) and [Tetrate on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/tetrate1598353087553.tetrateistio?tab=Overview).
+
+### Wiz
+
+:::image type="icon" source="./media/azure-linux-aks-partner-solutions/wiz.png":::
+
+| Solution | Categories |
+|----------|------------|
+| WIZ Cloud Infrastructure Security Platform | Security |
+
+Wiz is the unified cloud security platform for cloud security and development teams that includes prevention, active detection and response. Use Wiz solution to reduce risk, gain unmatched visibility, accurate prioritization and business agility.
+
+For more information, see [Wiz Solutions](https://wiz.io/) and [Wiz on Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/wizinc1627338511749.wiz-azure-marketplace?tab=overview).
 
 ## Storage
 
