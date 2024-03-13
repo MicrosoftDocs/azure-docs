@@ -13,7 +13,7 @@ metadata:
   ms.devlang: azurecli
 title: |
   Remove Azure role assignments
-introduction: 
+introduction: |
   [Azure role-based access control (Azure RBAC)](overview.md) is the authorization system you use to manage access to Azure resources. To remove access from an Azure resource, you remove a role assignment. This article describes how to remove roles assignments using the Azure portal, Azure PowerShell, Azure CLI, and REST API.
 
 prerequisites:
