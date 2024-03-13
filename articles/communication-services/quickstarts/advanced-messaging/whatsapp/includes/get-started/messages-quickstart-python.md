@@ -125,7 +125,10 @@ To run the code, make sure you are on the directory where your `messages-quickst
 
 ```console
 python messages-quickstart.py
+```
 
+```console
+Output:
 Azure Communication Services - Advanced Messages Quickstart
 Message with message id <GUID> was successful sent to <TOPhonenumber>
 ```
@@ -172,7 +175,10 @@ To run the code, make sure you are on the directory where your `messages-quickst
 
 ```console
 python messages-quickstart.py
+```
 
+```console
+Output:
 Azure Communication Services - Advanced Messages Quickstart
 Message with message id <GUID> was successful sent to <TOPhonenumber>
 ```
