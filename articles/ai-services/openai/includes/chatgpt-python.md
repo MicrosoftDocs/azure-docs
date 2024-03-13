@@ -18,7 +18,7 @@ ms.date: 11/15/2023
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true)
 - Access granted to Azure OpenAI Service in the desired Azure subscription.
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true).
-- [Python 3.7.1 or later version](https://www.python.org?azure-portal=true).
+- [Python 3.8 or later version](https://www.python.org?azure-portal=true).
 - The following Python libraries: os.
 - An Azure OpenAI Service resource with either the `gpt-35-turbo` or the `gpt-4` models deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
 
@@ -69,7 +69,7 @@ import openai
 openai.api_type = "azure"
 openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT") 
 openai.api_key = os.getenv("AZURE_OPENAI_API_KEY")
-openai.api_version = "2023-05-15"
+openai.api_version = "2024-02-01"
 
 response = openai.ChatCompletion.create(
     engine="gpt-35-turbo", # engine = "deployment_name".
@@ -96,7 +96,7 @@ from openai import AzureOpenAI
 client = AzureOpenAI(
   azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
   api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-  api_version="2023-05-15"
+  api_version="2024-02-01"
 )
 
 response = client.chat.completions.create(

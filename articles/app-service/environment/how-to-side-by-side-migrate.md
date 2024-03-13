@@ -36,7 +36,11 @@ Since scaling is blocked during the migration, you should scale your environment
 
 Follow the steps described here in order and as written, because you're making Azure REST API calls. We recommend that you use the Azure CLI to make these API calls. For information about other methods, see [Azure REST API reference](/rest/api/azure/).
 
-For this guide, [install the Azure CLI](/cli/azure/install-azure-cli) or use [Azure Cloud Shell](https://shell.azure.com/).
+For this guide, [install the Azure CLI](/cli/azure/install-azure-cli) or use [Azure Cloud Shell](https://shell.azure.com/) and use a Bash shell. 
+
+> [!NOTE]
+> We recommend that you use a Bash shell to run the commands given in this guide. The commands might not be compatible with PowerShell conventions and escape characters.
+>
 
 > [!IMPORTANT]
 > During the migration, the Azure portal might show incorrect information about your App Service Environment and your apps. Don't go to the Migration experience in the Azure portal since the side-by-side migration feature isn't available there. We recommend that you use the Azure CLI to check the status of your migration. If you have any questions about the status of your migration or your apps, contact support.
