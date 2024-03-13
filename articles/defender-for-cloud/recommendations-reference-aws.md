@@ -2,7 +2,7 @@
 title: Reference table for all security recommendations for AWS resources
 description: This article lists all Microsoft Defender for Cloud security recommendations that help you harden and protect your Amazon Web Services (AWS) resources.
 ms.topic: reference
-ms.date: 02/06/2024
+ms.date: 03/13/2024
 ms.custom: generated
 ai-usage: ai-assisted
 ---

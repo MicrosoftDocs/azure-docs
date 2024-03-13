@@ -4,7 +4,7 @@ description: Identify and remediate security gaps in endpoint detection and resp
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
-ms.date: 02/26/2024
+ms.date: 03/13/2024
 ai-usage: ai-assisted
 #customer intent: As a user, I want to learn how to review and remediate endpoint detection and response recommendations in order to ensure the security of my virtual machine.
 ---

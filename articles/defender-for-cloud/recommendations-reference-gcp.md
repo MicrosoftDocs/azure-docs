@@ -2,7 +2,7 @@
 title: Reference table for all security recommendations for GCP resources
 description: This article lists all Microsoft Defender for Cloud security recommendations that help you harden and protect your Google Cloud Platform (GCP) resources.
 ms.topic: reference
-ms.date: 03/12/2024
+ms.date: 03/13/2024
 ms.custom: generated
 ai-usage: ai-assisted
 ---

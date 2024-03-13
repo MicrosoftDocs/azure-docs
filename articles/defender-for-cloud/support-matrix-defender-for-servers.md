@@ -1,10 +1,10 @@
 ---
 title: Support for the Defender for Servers plan
-description: Review support requirements for the Defender for Servers plan in Microsoft Defender for Cloud.
+description: Review support requirements for the Defender for Servers plan in Defender for Cloud and learn how to configure and manage the Defender for Servers features.
 ms.topic: limits-and-quotas
 author: dcurwin
 ms.author: dacurwin
-ms.date: 02/01/2024
+ms.date: 03/13/2024
 ---
 
 # Defender for Servers support

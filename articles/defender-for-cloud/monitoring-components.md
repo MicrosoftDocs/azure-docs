@@ -3,8 +3,8 @@ title: Overview of the extensions that collect data from your workloads
 description: Protect your workloads with Microsoft Defender for Cloud by learning about the extensions that collect data from your workloads.
 author: dcurwin
 ms.author: dacurwin
-ms.topic: conceptual
-ms.date: 03/11/2024
+ms.topic: conceptual-article
+ms.date: 03/13/2024
 ---
 
 # How does Defender for Cloud collect data?
@@ -101,10 +101,10 @@ The following use cases explain how deployment of the Log Analytics agent works 
 
 Learn more about [working with the Log Analytics agent](working-with-log-analytics-agent.md).
 
-| ### Microsoft Defender for Endpoint |
+### Microsoft Defender for Endpoint
 
 | Aspect | Linux | Windows |
-| ------------------------------------------------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|--|--|--|
 | Release state: | Generally available (GA) | Generally available (GA) |
 | Relevant Defender plan: | [Microsoft Defender for Servers](defender-for-servers-introduction.md) | [Microsoft Defender for Servers](defender-for-servers-introduction.md) |
 | Required roles and permissions (subscription-level): | - To enable/disable the integration: [Security Admin](../role-based-access-control/built-in-roles.md#security-admin) or [Owner](../role-based-access-control/built-in-roles.md#owner)<br>- To view Defender for Endpoint alerts in Defender for Cloud: [Security reader](../role-based-access-control/built-in-roles.md), [Reader](../role-based-access-control/built-in-roles.md), **Resource Group Contributor**, **Resource Group Owner**, [Security Admin](../role-based-access-control/built-in-roles.md#security-admin), **Subscription owner**, or **Subscription Contributor** | - To enable/disable the integration: [Security Admin](../role-based-access-control/built-in-roles.md#security-admin) or [Owner](../role-based-access-control/built-in-roles.md#owner)<br>- To view Defender for Endpoint alerts in Defender for Cloud: [Security reader](../role-based-access-control/built-in-roles.md), [Reader](../role-based-access-control/built-in-roles.md), **Resource Group Contributor**, **Resource Group Owner**, [Security Admin](../role-based-access-control/built-in-roles.md#security-admin), **Subscription owner**, or **Subscription Contributor** |

@@ -3,8 +3,9 @@ title: Understand endpoint detection and response
 description: Learn about deploying Microsoft Defender for Endpoint from Microsoft Defender for Cloud to protect Azure, hybrid, and multicloud machines.
 author: dcurwin
 ms.author: dacurwin
-ms.topic: how-to
-ms.date: 01/22/2024
+ms.topic: concept-article
+ms.date: 03/13/2024
+#customer intent: As a reader, I want to understand how to deploy Microsoft Defender for Endpoint from Microsoft Defender for Cloud to protect Azure, hybrid, and multicloud machines.
 ---
 
 # Understand endpoint detection and response
@@ -54,6 +55,6 @@ A Defender for Endpoint tenant is automatically created, when you use Defender f
 
 - **Moving subscriptions:** If you've moved your Azure subscription between Azure tenants, some manual preparatory steps are required before Defender for Cloud will deploy Defender for Endpoint. For full details, [contact Microsoft support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
-## Next step
+## Related content
 
-[Enable the Microsoft Defender for Endpoint integration](enable-defender-for-endpoint.md)
+- [Enable the Microsoft Defender for Endpoint integration](enable-defender-for-endpoint.md)
