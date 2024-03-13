@@ -54,11 +54,11 @@ To improve your capabilities and skills, learn how to develop more complex promp
 - [***Prompt Flow in Azure AI Studio***](/azure/ai-studio/how-to/prompt-flow)
 - [***How to Build with Prompt Flow***](/azure/ai-studio/how-to/flow-develop)
 - [***Deploy a Flow as a Managed Online endpoint for Real-Time Inference***](/azure/ai-studio/how-to/flow-deploy?tabs=azure-studio)
-- [***Integrate Prompt Flow with LLMOps***](/azure/machine-learning/prompt-flow/how-to-integrate-with-llm-app-devops?view=azureml-api-2&tabs=cli)
+- [***Integrate Prompt Flow with LLMOps***](/azure/machine-learning/prompt-flow/how-to-integrate-with-llm-app-devops?tabs=cli)
 - [***GenAI Evaluation with Azure AI Studio***]( /azure/ai-studio/concepts/evaluation-approach-gen-ai)
 - [***GenAI Evaluation and Monitoring Metrics***](/azure/ai-studio/concepts/evaluation-metrics-built-in)
 - [***Azure Content Safety***](/azure/ai-services/content-safety/overview)
-- [***Responsible AI Tools and Practices***](https://azure.microsoft.com/en-us/blog/infuse-responsible-ai-tools-and-practices-in-your-llmops/#:~:text=Azure%20AI%20offers%20robust%20tools,or%20build%20your%20own%20metrics)
+- [***Responsible AI Tools and Practices***](https://azure.microsoft.com/blog/infuse-responsible-ai-tools-and-practices-in-your-llmops/#:~:text=Azure%20AI%20offers%20robust%20tools,or%20build%20your%20own%20metrics)
 
 ## Level 3 - managing advanced workflows
 
@@ -70,7 +70,7 @@ To expand your base knowledge, focus on continuous improvement and innovation in
 
 - [***Fine-tuning with Azure ML Learning***](/training/modules/finetune-foundation-model-with-azure-machine-learning/)
 - [***Model Customization with Fine-tuning***](/azure/ai-services/openai/how-to/fine-tuning?tabs=turbo%2Cpython&pivots=programming-language-studio)
-- [***GenAI Model Monitoring***]( /azure/machine-learning/prompt-flow/how-to-monitor-generative-ai-applications?view=azureml-api-2)
+- [***GenAI Model Monitoring***](/azure/machine-learning/prompt-flow/how-to-monitor-generative-ai-applications)
 - [***Elevate LLM Apps to Production with LLMOps***](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/elevate-your-llm-applications-to-production-via-llmops/ba-p/3979114)
 
 ## Level 4 - achieved operational excellence
