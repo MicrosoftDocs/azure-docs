@@ -14,7 +14,7 @@ Extended Security Updates (ESUs) provide a way for customers to continue to run 
 
 Only in Azure, which includes Azure VMware Solution (AVS), are ESUs free of charge for additional years past their end-of-support. For more information on timelines, see [Extended Security updates for SQL Server and Windows Server]. 
 
-For ESU considerations specific to Windows Server and SQL Server reference:
+For additional information about ESUs for Window Server and SQL Server, see the following articles 
 
 - [What are Extended Security Updates - SQL Server ](/sql/sql-server/end-of-support/sql-server-extended-security-updates)
 
