@@ -43,13 +43,14 @@ For code samples, see [GitHub](https://github.com/Azure-Samples/cognitive-servic
 
 To submit a batch synthesis request, construct the HTTP PUT request path and body according to the following instructions:
 
-- Set the required `YourSynthesisId` in path. The `YourSynthesisId` have to be unique. It must be 3-64 long, contains only numbers, letters, hyphens, underscores and dots, starts and ends with a letter or number.
 - Set the required `inputKind` property.
 - If the `inputKind` property is set to "PlainText", then you must also set the `voice` property in the `synthesisConfig`. In the example below, the `inputKind` is set to "SSML", so the `synthesisConfig` isn't set.
 - Optionally you can set the `description`, `timeToLiveInHours`, and other properties. For more information, see [batch synthesis properties](batch-synthesis-properties.md).
 
 > [!NOTE]
 > The maximum JSON payload size that will be accepted is 2 megabytes. Each Speech resource can have up to 300 batch synthesis jobs that are running concurrently.
+
+Set the required `YourSynthesisId` in path. The `YourSynthesisId` have to be unique. It must be 3-64 long, contains only numbers, letters, hyphens, underscores and dots, starts and ends with a letter or number.
 
 Make an HTTP PUT request using the URI as shown in the following example. Replace `YourSpeechKey` with your Speech resource key, replace `YourSpeechRegion` with your Speech resource region, and set the request body properties as previously described.
 
