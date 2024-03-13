@@ -31,7 +31,7 @@ In this tutorial you learn how to:
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true).
 - Access granted to Azure OpenAI in the desired Azure subscription Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access. 
-- Python 3.7.1 or later version
+- Python 3.8 or later version
 - The following Python libraries: `json`, `requests`, `os`, `tiktoken`, `time`, `openai`.
 - The OpenAI Python library should be at least version: `0.28.1`.
 - [Jupyter Notebooks](https://jupyter.org/)
@@ -47,18 +47,18 @@ In this tutorial you learn how to:
 
 ### Python libraries
 
+# [OpenAI Python 1.x](#tab/python-new)
+
+```cmd
+pip install openai requests tiktoken
+```
+
 # [OpenAI Python 0.28.1](#tab/python)
 
 If you haven't already, you need to install the following libraries:
 
 ```cmd
-pip install "openai==0.28.1" json requests os tiktoken time
-```
-
-# [OpenAI Python 1.x](#tab/python-new)
-
-```cmd
-pip install openai json requests os tiktoken time
+pip install "openai==0.28.1" requests tiktoken
 ```
 
 ---
@@ -283,37 +283,6 @@ p5 / p95: 11.6, 20.9
 
 ## Upload fine-tuning files
 
-# [OpenAI Python 0.28.1](#tab/python)
-
-```Python
-# Upload fine-tuning files
-import openai
-import os
-
-openai.api_key = os.getenv("AZURE_OPENAI_API_KEY") 
-openai.api_base =  os.getenv("AZURE_OPENAI_ENDPOINT")
-openai.api_type = 'azure'
-openai.api_version = '2023-12-01-preview' # This API version or later is required to access fine-tuning for turbo/babbage-002/davinci-002
-
-training_file_name = 'training_set.jsonl'
-validation_file_name = 'validation_set.jsonl'
-
-# Upload the training and validation dataset files to Azure OpenAI with the SDK.
-
-training_response = openai.File.create(
-    file=open(training_file_name, "rb"), purpose="fine-tune", user_provided_filename="training_set.jsonl"
-)
-training_file_id = training_response["id"]
-
-validation_response = openai.File.create(
-    file=open(validation_file_name, "rb"), purpose="fine-tune", user_provided_filename="validation_set.jsonl"
-)
-validation_file_id = validation_response["id"]
-
-print("Training file ID:", training_file_id)
-print("Validation file ID:", validation_file_id)
-```
-
 # [OpenAI Python 1.x](#tab/python-new)
 
 ```python
@@ -347,6 +316,37 @@ print("Training file ID:", training_file_id)
 print("Validation file ID:", validation_file_id)
 ```
 
+# [OpenAI Python 0.28.1](#tab/python)
+
+```Python
+# Upload fine-tuning files
+import openai
+import os
+
+openai.api_key = os.getenv("AZURE_OPENAI_API_KEY") 
+openai.api_base =  os.getenv("AZURE_OPENAI_ENDPOINT")
+openai.api_type = 'azure'
+openai.api_version = '2023-12-01-preview' # This API version or later is required to access fine-tuning for turbo/babbage-002/davinci-002
+
+training_file_name = 'training_set.jsonl'
+validation_file_name = 'validation_set.jsonl'
+
+# Upload the training and validation dataset files to Azure OpenAI with the SDK.
+
+training_response = openai.File.create(
+    file=open(training_file_name, "rb"), purpose="fine-tune", user_provided_filename="training_set.jsonl"
+)
+training_file_id = training_response["id"]
+
+validation_response = openai.File.create(
+    file=open(validation_file_name, "rb"), purpose="fine-tune", user_provided_filename="validation_set.jsonl"
+)
+validation_file_id = validation_response["id"]
+
+print("Training file ID:", training_file_id)
+print("Validation file ID:", validation_file_id)
+```
+
 ---
 
 **Output:**
@@ -359,25 +359,6 @@ Validation file ID: file-70a3f525ed774e78a77994d7a1698c4b
 ## Begin fine-tuning
 
 Now that the fine-tuning files have been successfully uploaded you can submit your fine-tuning training job:
-
-# [OpenAI Python 0.28.1](#tab/python)
-
-```python
-response = openai.FineTuningJob.create(
-    training_file=training_file_id,
-    validation_file=validation_file_id,
-    model="gpt-35-turbo-0613",
-)
-
-job_id = response["id"]
-
-# You can use the job ID to monitor the status of the fine-tuning job.
-# The fine-tuning job will take some time to start and complete.
-
-print("Job ID:", response["id"])
-print("Status:", response["status"])
-print(response)
-```
 
 # [OpenAI Python 1.x](#tab/python-new)
 
@@ -396,6 +377,26 @@ job_id = response.id
 print("Job ID:", response.id)
 print("Status:", response.status)
 print(response.model_dump_json(indent=2))
+```
+
+
+# [OpenAI Python 0.28.1](#tab/python)
+
+```python
+response = openai.FineTuningJob.create(
+    training_file=training_file_id,
+    validation_file=validation_file_id,
+    model="gpt-35-turbo-0613",
+)
+
+job_id = response["id"]
+
+# You can use the job ID to monitor the status of the fine-tuning job.
+# The fine-tuning job will take some time to start and complete.
+
+print("Job ID:", response["id"])
+print("Status:", response["status"])
+print(response)
 ```
 
 ---
@@ -424,39 +425,6 @@ Status: pending
 
 If you would like to poll the training job status until it's complete, you can run:
 
-# [OpenAI Python 0.28.1](#tab/python)
-
-```python
-# Track training status
-
-from IPython.display import clear_output
-import time
-
-start_time = time.time()
-
-# Get the status of our fine-tuning job.
-response = openai.FineTuningJob.retrieve(job_id)
-
-status = response["status"]
-
-# If the job isn't done yet, poll it every 10 seconds.
-while status not in ["succeeded", "failed"]:
-    time.sleep(10)
-    
-    response = openai.FineTuningJob.retrieve(job_id)
-    print(response)
-    print("Elapsed time: {} minutes {} seconds".format(int((time.time() - start_time) // 60), int((time.time() - start_time) % 60)))
-    status = response["status"]
-    print(f'Status: {status}')
-    clear_output(wait=True)
-
-print(f'Fine-tuning job {job_id} finished with status: {status}')
-
-# List all fine-tuning jobs for this resource.
-print('Checking other fine-tune jobs for this resource.')
-response = openai.FineTuningJob.list()
-print(f'Found {len(response["data"])} fine-tune jobs.')
-```
 
 # [OpenAI Python 1.x](#tab/python-new)
 
@@ -492,6 +460,40 @@ response = client.fine_tuning.jobs.list()
 print(f'Found {len(response.data)} fine-tune jobs.')
 ```
 
+# [OpenAI Python 0.28.1](#tab/python)
+
+```python
+# Track training status
+
+from IPython.display import clear_output
+import time
+
+start_time = time.time()
+
+# Get the status of our fine-tuning job.
+response = openai.FineTuningJob.retrieve(job_id)
+
+status = response["status"]
+
+# If the job isn't done yet, poll it every 10 seconds.
+while status not in ["succeeded", "failed"]:
+    time.sleep(10)
+    
+    response = openai.FineTuningJob.retrieve(job_id)
+    print(response)
+    print("Elapsed time: {} minutes {} seconds".format(int((time.time() - start_time) // 60), int((time.time() - start_time) % 60)))
+    status = response["status"]
+    print(f'Status: {status}')
+    clear_output(wait=True)
+
+print(f'Fine-tuning job {job_id} finished with status: {status}')
+
+# List all fine-tuning jobs for this resource.
+print('Checking other fine-tune jobs for this resource.')
+response = openai.FineTuningJob.list()
+print(f'Found {len(response["data"])} fine-tune jobs.')
+```
+
 ---
 
 **Output:**
@@ -524,6 +526,17 @@ Found 2 fine-tune jobs.
 
 To get the full results, run the following:
 
+# [OpenAI Python 1.x](#tab/python-new)
+
+```python
+#Retrieve fine_tuned_model name
+
+response = client.fine_tuning.jobs.retrieve(job_id)
+
+print(response.model_dump_json(indent=2))
+fine_tuned_model = response.fine_tuned_model
+```
+
 # [OpenAI Python 0.28.1](#tab/python)
 
 ```python
@@ -535,16 +548,6 @@ print(response)
 fine_tuned_model = response["fine_tuned_model"]
 ```
 
-# [OpenAI Python 1.x](#tab/python-new)
-
-```python
-#Retrieve fine_tuned_model name
-
-response = client.fine_tuning.jobs.retrieve(job_id)
-
-print(response.model_dump_json(indent=2))
-fine_tuned_model = response.fine_tuned_model
-```
 
 ---
 
@@ -611,30 +614,6 @@ It isn't uncommon for this process to take some time to complete when dealing wi
 
 After your fine-tuned model is deployed, you can use it like any other deployed model in either the [Chat Playground of Azure OpenAI Studio](https://oai.azure.com), or via the chat completion API. For example, you can send a chat completion call to your deployed model, as shown in the following Python example. You can continue to use the same parameters with your customized model, such as temperature and max_tokens, as you can with other deployed models.
 
-# [OpenAI Python 0.28.1](#tab/python)
-
-```python
-import os
-import openai
-openai.api_type = "azure"
-openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT") 
-openai.api_version = "2023-05-15"
-openai.api_key = os.getenv("AZURE_OPENAI_API_KEY")
-
-response = openai.ChatCompletion.create(
-    engine="gpt-35-turbo-ft", # engine = "Custom deployment name you chose for your fine-tuning model"
-    messages=[
-        {"role": "system", "content": "You are a helpful assistant."},
-        {"role": "user", "content": "Does Azure OpenAI support customer managed keys?"},
-        {"role": "assistant", "content": "Yes, customer managed keys are supported by Azure OpenAI."},
-        {"role": "user", "content": "Do other Azure AI services support this too?"}
-    ]
-)
-
-print(response)
-print(response['choices'][0]['message']['content'])
-```
-
 # [OpenAI Python 1.x](#tab/python-new)
 
 ```python
@@ -658,6 +637,30 @@ response = client.chat.completions.create(
 )
 
 print(response.choices[0].message.content)
+```
+
+# [OpenAI Python 0.28.1](#tab/python)
+
+```python
+import os
+import openai
+openai.api_type = "azure"
+openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT") 
+openai.api_version = "2023-05-15"
+openai.api_key = os.getenv("AZURE_OPENAI_API_KEY")
+
+response = openai.ChatCompletion.create(
+    engine="gpt-35-turbo-ft", # engine = "Custom deployment name you chose for your fine-tuning model"
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": "Does Azure OpenAI support customer managed keys?"},
+        {"role": "assistant", "content": "Yes, customer managed keys are supported by Azure OpenAI."},
+        {"role": "user", "content": "Do other Azure AI services support this too?"}
+    ]
+)
+
+print(response)
+print(response['choices'][0]['message']['content'])
 ```
 
 ---
