@@ -1,6 +1,8 @@
 ---
 title: Get resource configuration changes (Preview)
 description: Get resource configuration changes at scale
+author: iancarter-msft
+ms.author: iancarter
 ms.date: 03/11/2024
 ms.topic: how-to
 ---

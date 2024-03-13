@@ -1,6 +1,8 @@
 ---
 title: Why is Change Analysis moving to Resource Graph? (Preview)
 description: Learn the differences between Azure Monitor and Azure Resource Graph Change Analysis.
+author: iancarter-msft
+ms.author: iancarter
 ms.date: 03/11/2024
 ms.topic: conceptual
 ---
@@ -17,7 +19,7 @@ Currently in the Azure portal, you'll notice two entries for Change Analysis.
 1. [Azure Monitor Change Analysis (GA)](#azure-monitor-change-analyis)
 1. [Azure Resource Graph Change Analysis (Preview)](#azure-resource-graph-change-analysis)
 
-## Azure Monitor Change Analyis
+## Azure Monitor Change Analysis
 
 The [Change Analysis (GA) service presented by Azure Monitor](../../../azure-monitor/change/change-analysis.md) requires you to query a resource provider, called `Microsoft.ChangeAnalysis`, which provides a simple API that abstracts resource change data from the Azure Resource Graph. 
     

@@ -1,5 +1,7 @@
 ---
 ms.service: resource-graph
+author: iancarter-msft
+ms.author: iancarter
 ms.topic: include
 ms.date: 03/12/2024
 ---

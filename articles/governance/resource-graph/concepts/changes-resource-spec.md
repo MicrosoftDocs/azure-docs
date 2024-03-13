@@ -1,6 +1,8 @@
 ---
 title: Change Analysis event properties (Preview)
-description: Properties spec for Change Analysis in Azure Resource Graph.
+description: Properties spec for Change Analysis in Azure Resource Graph
+author: iancarter-msft
+ms.author: iancarter
 ms.date: 03/11/2024
 ms.topic: conceptual
 ---
