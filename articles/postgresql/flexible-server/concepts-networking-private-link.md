@@ -91,6 +91,7 @@ When you use private endpoints, traffic is secured to a **private-link resource*
 **Private endpoints** provide a privately accessible IP address for the Azure service, but don't necessarily restrict public network access to it. All other Azure services require another [access controls](../../event-hubs/event-hubs-ip-filtering.md), however. These controls provide an extra network security layer to your resources, providing protection that helps prevent access to the Azure service associated with the private-link resource.
 
 Private endpoints support network policies. Network policies enable support for Network Security Groups (NSG), User Defined Routes (UDR), and Application Security Groups (ASG). For more information about enabling network policies for a private endpoint, see [Manage network policies for private endpoints](../../private-link/disable-private-endpoint-network-policy.md). To use an ASG with a private endpoint, see [Configure an application security group (ASG) with a private endpoint](../../private-link/configure-asg-private-endpoint.md).
+
 ## Private Link and DNS
 
 When using a private endpoint, you need to connect to the same Azure service but use the private endpoint IP address. The intimate endpoint connection requires separate DNS settings to resolve the private IP address to the resource name.
@@ -99,6 +100,8 @@ Private DNS zones provide domain name resolution within a virtual network withou
 Private DNS zones provide separate DNS zone names for each Azure service. For example, if you configured a private DNS zone for the storage account blob service in the previous image, the DNS zones name is **privatelink.blob.core.windows.net**. Check out the Microsoft documentation here to see more of the private DNS zone names for all Azure services.
 > [!NOTE]  
 > Private endpoint private DNS zone configurations will only automatically generate if you use the recommended naming scheme: **privatelink.postgres.database.azure.com**
+> On newly provisioned public access (non VNET injected) servers there is a temporary DNS layout change. The server's FQDN will now be a CName, resolving to A record, in format **servername.privatelink.postgres.database.azure.com**. In the near future, this format will apply  only when private endpoints are created on the server.
+
 
 ## Private Link and Network Security Groups
 
