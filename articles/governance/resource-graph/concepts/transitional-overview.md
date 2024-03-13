@@ -16,7 +16,7 @@ Currently in the Azure portal, when you search for Change Analysis, you see two 
 
 [Need: screenshot, will number each entry to correlate with below numbered links]
 
-1. [Azure Monitor Change Analysis (GA)](#azure-monitor-change-analyis)
+1. [Azure Monitor Change Analysis (GA)](#azure-monitor-change-analysis)
 1. [Azure Resource Graph Change Analysis (Preview)](#azure-resource-graph-change-analysis)
 
 ## Azure Monitor Change Analysis
