@@ -51,7 +51,7 @@ To improve your capabilities and skills, learn how to develop more complex promp
 
 ### ***Suggested references for level 2 advancement***
 
-- Take our [step-by-step workshop to elevate your LLMOps practices](https://github.com/microsoft/llmops-workshop?tab=readme-ov-file) 
+- Take our [***step-by-step workshop to elevate your LLMOps practices***](https://github.com/microsoft/llmops-workshop?tab=readme-ov-file) 
 - [***Prompt Flow in Azure AI Studio***](/azure/ai-studio/how-to/prompt-flow)
 - [***How to Build with Prompt Flow***](/azure/ai-studio/how-to/flow-develop)
 - [***Deploy a Flow as a Managed Online endpoint for Real-Time Inference***](/azure/ai-studio/how-to/flow-deploy?tabs=azure-studio)
