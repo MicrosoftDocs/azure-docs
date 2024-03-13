@@ -130,6 +130,7 @@ As you scale your AKS clusters to larger scale points, keep the following node p
 [cluster-autoscaler]: cluster-autoscaler.md
 [azure-npm]: ../virtual-network/kubernetes-network-policies.md
 [cluster upgrades]: upgrade-cluster.md
+[max surge]: upgrade-aks-cluster.md#customize-node-surge-upgrade
 
 <!-- LINKS - External -->
 [throttling-policies]: https://azure.microsoft.com/blog/api-management-advanced-caching-and-throttling-policies/
