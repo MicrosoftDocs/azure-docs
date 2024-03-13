@@ -6,7 +6,7 @@ manager: amycolannino
 
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.date: 03/08/2024
+ms.date: 03/14/2024
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -96,21 +96,21 @@ Use the following steps to help you prepare for Service Administrator role retir
 
 ### Step 2: Review your current Billing account owners
 
-Since the user that is assigned the Service Administrator role might also be the same user that is the administrator for your billing account, you should review your current Billing account owners.
+The user that is assigned the Service Administrator role might also be the same user that is the administrator for your billing account. You should review your current Billing account owners to ensure they are still accurate.
 
 1. Use the Azure portal to [get your Billing account owners](../cost-management-billing/manage/understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
 
-1. Ensure the list of Billing account owners is still accurate. If necessary, [update or add another Billing account owner](../cost-management-billing/manage/understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
+1. Review your list of Billing account owners. If necessary, [update or add another Billing account owner](../cost-management-billing/manage/understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
 
 ### Step 3: Replace existing Service Administrator with Owner role
 
 Your Service Administrator might be a Microsoft account or a Microsoft Entra account. A Microsoft account is a personal account such as Outlook, OneDrive, Xbox LIVE, or Microsoft 365. A Microsoft Entra account is an identity created through Microsoft Entra ID.
 
-1. If Service Administrator user is a Microsoft account and you want this user to keep the same permissions, [assign the Owner role to this user at subscription scope](role-assignments-portal.md).
+1. If Service Administrator user is a Microsoft account and you want this user to keep the same permissions, [assign the Owner role](role-assignments-portal.md) to this user at subscription scope without conditions.
 
-1. If Service Administrator user is a Microsoft Entra account and you want this user to keep the same permissions, [assign the Owner role to this user at subscription scope](role-assignments-portal.md).
+1. If Service Administrator user is a Microsoft Entra account and you want this user to keep the same permissions, [assign the Owner role](role-assignments-portal.md) to this user at subscription scope without conditions.
 
-1. If you want to change the Service Administrator user to a different user, [assign the Owner role to this new user at subscription scope](role-assignments-portal.md).
+1. If you want to change the Service Administrator user to a different user, [assign the Owner role](role-assignments-portal.md) to this new user at subscription scope without conditions.
 
 1. [Remove the Service Administrator](#remove-the-service-administrator).
 
