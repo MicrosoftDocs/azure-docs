@@ -66,7 +66,7 @@ The response assistant message schema inherits from the chat completions assista
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
 | `citations` | [Citation](#citation)[] | False | The data source retrieval result, used to generate the assistant message in the response. Clients can render references from the citations. |
-| `intent` | string | False | The detected intent from the chat history. This is deprecated. |
+| `intent` | string | False | The detected intent from the chat history. Passing back the previous intent is no longer needed. Please ignore this property. |
 
 ## Citation
 
