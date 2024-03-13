@@ -8,7 +8,7 @@ ms.service: route-server
 ms.topic: concept-article
 ms.date: 03/13/2024
 
-#CustomerIntent: As an Azure administrator, I want to learn how to use Azure Route Server to dynamically inject routes in virtual networks.
+#CustomerIntent: As an Azure administrator, I want to use Azure Route Server so it dynamically injects routes in spoke virtual networks (VNets).
 ---
 
 # Default route injection in spoke virtual networks
