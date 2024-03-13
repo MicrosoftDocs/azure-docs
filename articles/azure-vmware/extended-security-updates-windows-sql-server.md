@@ -14,10 +14,11 @@ Extended Security Updates (ESUs) provide a way for customers to continue to run 
 
 Only in Azure, which includes Azure VMware Solution (AVS), are ESUs free of charge for additional years past their end-of-support. For more information on timelines, see [Extended Security updates for SQL Server and Windows Server]. 
 
-For ESU considerations specific to Windows Server and SQL Server reference:
+For additional information about ESUs for Window Server and SQL Server, see the following articles 
 
-- [What are Extended Security Updates - SQL Server] 
-- [Extend Security Updates for Windows Server Overview]
+- [What are Extended Security Updates - SQL Server ](/sql/sql-server/end-of-support/sql-server-extended-security-updates)
+
+- [Extended Security Updates for Windows Server Overview](/windows-server/get-started/extended-security-updates-overview)
 
 The way to configure Windows Server and SQL Server virtual machines for no-cost ESUs in Azure VMware Solution is provided in the following sections. The process is distinct to the Azure VMware Solution private cloud architecture.  
 
@@ -62,7 +63,3 @@ For machines running SQL Server where **Guest Management** is enabled the Azure 
  
 
 [Microsoft Support]: https://ms.portal.azure.com/#view/Microsoft_Azure_Support/NewSupportRequestV3Blade/assetId/%2Fsubscriptions%2F5a79c43b-b03d-4610-bc59-627d8a6744d1%2FresourceGroups%2FABM_CSS_Lab_Enviroment%2Fproviders%2FMicrosoft.AVS%2FprivateClouds%2FBareMetal_CSS_Lab/callerWorkflowId/a7ecc9f7-8578-4820-abdf-1db09a2bdb47/callerName/Microsoft_Azure_Support%2FAurora.ReactView/subscriptionId/5a79c43b-b03d-4610-bc59-627d8a6744d1/productId/e7b24d57-0431-7d60-a4bf-e28adc11d23e/summary/Issue/topicId/9e078285-e10f-0365-31e3-6b31e5871794/issueType/technical
-[Extended Security updates for SQL Server and Windows Server]: https://www.microsoft.com/en-us/windows-server/extended-security-updates
-[What are Extended Security Updates - SQL Server]: /sql/sql-server/end-of-support/sql-server-extended-security-updates?tabs=portal
-[Extend Security Updates for Windows Server Overview]: /windows-server/get-started/extended-security-updates-overview
-
