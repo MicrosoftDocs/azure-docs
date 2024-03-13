@@ -518,7 +518,7 @@ df = tbl.to_pandas_dataframe()
 
 > [!IMPORTANT]
 > **Limitation**: `mltable` doesn't support extracting partition keys when reading data from Delta Lake.
-> The `mltable` API `extract_columns_from_partition_format() ` won't work when you are reading Delta Lake data via `mltable`.
+> The `mltable` transformation `extract_columns_from_partition_format` won't work when you are reading Delta Lake data via `mltable`.
 
 > [!IMPORTANT]
 > `mltable` handles user credential passthrough for paths on Azure Storage and Azure Machine Learning datastores. If you don't have permission to the data on the underlying storage, you can't access the data.
