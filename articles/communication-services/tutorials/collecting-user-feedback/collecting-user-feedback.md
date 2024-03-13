@@ -64,7 +64,8 @@ Before you begin, ensure your development environment is ready with Node.js inst
 
 1. **Initialize a New Node.js Project:**
    - Create a new directory for your project and initialize it with `npm init` to create a `package.json` file.
-   - Install Express.js, Formidable, the Azure Storage Blob SDK, and other necessary libraries using npm. For example:
+   - Install Express.js, Formidable, the Azure Storage Blob SDK, and other necessary libraries using npm.
+   
      ```bash
      npm install express formidable @azure/storage-blob uuid
      ```
@@ -74,7 +75,7 @@ Before you begin, ensure your development environment is ready with Node.js inst
    - Use Formidable for parsing incoming form data, handling multipart/form-data content.
    - Generate a unique ticket number for each support request, which can be used to organize data in Azure Blob Storage and provide a reference for users.
    - Store structured data, such as user messages and log file metadata, in a JSON file within the Blob Storage. Store actual log files and any screenshots or attachments in separate blobs within the same ticket's directory.
-   - Provide an endpoint to retrieve support details, which involves fetching and displaying data from Azure Blob Storage.
+   - Provide an endpoint to retrieve support details, which involve fetching and displaying data from Azure Blob Storage.
 
 3. **Security Considerations:**
    - Ensure that your application validates the incoming data to protect against malicious payloads.
@@ -87,7 +88,7 @@ Before you begin, ensure your development environment is ready with Node.js inst
 
 2. **Running the Server:**
    - Start your Node.js application by running `node <filename>.js`, where `<filename>` is the name of your main server file.
-   - Use tools like Postman or write client-side code (as provided in the Android and iOS samples) to test the server's functionality. Ensure that the server correctly receives data, stores it in Azure Blob Storage, and can retrieve and display support details.
+   - Validate the server with a suitable tool for web development.
 
 #### Server Code:
 Provided here's a working implementation to start with. This code is a basic implementation tailored to demonstrate ticket creation from the ACS UI Sample applications. 
@@ -229,7 +230,7 @@ app.listen(port, () => {
 
 ## Client Side Setup 
 
-This section covers the client side setup, and how to acheive the following goals:
+This section covers the client side setup, and how to achieve the following goals:
 
 1. Register for user reported issues.
 1. Serialize the data.
