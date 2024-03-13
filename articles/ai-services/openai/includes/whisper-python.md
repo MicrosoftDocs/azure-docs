@@ -1,7 +1,7 @@
 ---
 services: ai-services
-author: soferreira
-ms.author: soferreira
+author: mrbullwinkle
+ms.author: mbullwin
 ms.service: openai
 ms.topic: include
 ms.date: 1/25/2024
