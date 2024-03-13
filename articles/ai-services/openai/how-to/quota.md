@@ -135,7 +135,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 **Request body**
 
-This is only a subset of the available request body parameters. For the full list of the parameters, you can refer to the [REST API reference documentation](/rest/api/cognitiveservices/accountmanagement/deployments/create-or-update?tabs=HTTP).
+This is only a subset of the available request body parameters. For the full list of the parameters, you can refer to the [REST API reference documentation](/rest/api/aiservices/accountmanagement/deployments/create-or-update?tabs=HTTP).
 
 |Parameter|Type| Description |
 |--|--|--|
@@ -154,7 +154,7 @@ curl -X PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-0
 > [!NOTE]
 > There are multiple ways to generate an authorization token. The easiest method for initial testing is to launch the Cloud Shell from the [Azure portal](https://portal.azure.com). Then run [`az account get-access-token`](/cli/azure/account?view=azure-cli-latest#az-account-get-access-token&preserve-view=true). You can use this token as your temporary authorization token for API testing.
 
-For more information, refer to the REST API reference documentation for [usages](/rest/api/cognitiveservices/accountmanagement/usages/list?branch=main&tabs=HTTP) and [deployment](/rest/api/cognitiveservices/accountmanagement/deployments/create-or-update).
+For more information, refer to the REST API reference documentation for [usages](/rest/api/aiservices/accountmanagement/usages/list?branch=main&tabs=HTTP) and [deployment](/rest/api/aiservices/accountmanagement/deployments/create-or-update).
 
 ### Usage
 
