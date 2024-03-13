@@ -33,4 +33,4 @@ Refer to this document for crafting Start/Deallocate requests [INSERT_LINK]()
 ## Next steps
 
 - Learn more about working with [nodes and pools](nodes-and-pools.md).
-- Learn about [deallocating virtual machines](https://learn.microsoft.com/en-us/azure/virtual-machines/hibernate-resume?tabs=osLimitsLinux%2CenablehiberPortal%2CcheckhiberPortal%2CenableWithPortal%2CcliLHE%2CUbuntu18HST%2CPortalDoHiber%2CPortalStatCheck%2CPortalStartHiber%2CPortalImageGallery).
+- Learn about [deallocating virtual machines](https://learn.microsoft.com/en-us/azure/virtual-machines/hibernate-resume?tabs=osLimitsLinux%2CenablehiberPortal%2CcheckhiberPortal%2CenableWithPortal%2CcliLHE%2CUbuntu18HST%2CPortalDoHiber%2CPortalStatCheck%2CPortalStartHiber%2CPortalImageGallery) and the benefits of doing so.
