@@ -58,14 +58,14 @@ Before you begin, ensure your development environment is ready with Node.js inst
 
 2. **Create an Azure Blob Storage Account:** If you haven't already, create an Azure Storage account through the Azure portal. This account is used to store the support request data.
 
-3. **Gather Necessary Credentials:** Ensure you have the connection string for your Azure Blob Storage account. It's required for the application to authenticate and store data in the cloud.
+3. **Gather Necessary Credentials:** Ensure you have the connection string for your Azure Blob Storage account.
 
 #### Step 2: Application Setup
 
 1. **Initialize a New Node.js Project:**
    - Create a new directory for your project and initialize it with `npm init` to create a `package.json` file.
    - Install Express.js, Formidable, the Azure Storage Blob SDK, and other necessary libraries using npm.
-   
+
      ```bash
      npm install express formidable @azure/storage-blob uuid
      ```
