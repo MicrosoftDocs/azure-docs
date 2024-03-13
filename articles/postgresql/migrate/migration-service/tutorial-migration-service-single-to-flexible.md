@@ -28,11 +28,11 @@ Using the Azure portal, you can migrate an instance of Azure Database for Postgr
 
 #### [Portal](#tab/portal)
 
-[!INCLUDE [postgresql-single-server-portal-migrate](includes/postgresql-single-server-portal-migrate.md)]
+[!INCLUDE [postgresql-single-server-portal-migrate](includes/single-server/postgresql-single-server-portal-migrate.md)]
 
 #### [CLI](#tab/cli)
 
-[!INCLUDE [postgresql-single-server-CLI-migrate-offline-online](includes/postgresql-single-server-cli-migrate.md)]
+[!INCLUDE [postgresql-single-server-cli-migrate](includes/single-server/postgresql-single-server-cli-migrate.md)]
 
 ---
 
