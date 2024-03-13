@@ -42,7 +42,7 @@ Follow these steps:
 2. Select the *backup policy*, and then on the **Modify policy** blade, select **Associated Items** to identify the VMs that you want to move to crash-consistent backup.
  
    >[!Note]
-   >Ensure that the VMs are supported for crash-consistent backups. Learn about the [supported scenarios](backup-azure-vms-agentless-multi-disk-crash-consistent.md#supported-scenarios-for-agentless-multi-disk-crash-consistent-vm-backup-preview).
+   >Ensure that the VMs are supported for crash-consistent backups. Learn about the [supported scenarios](backup-azure-vms-agentless-multi-disk-crash-consistent-overview.md#supported-scenarios-for-agentless-multi-disk-crash-consistent-vm-backup-preview).
 
 3. Go to the **Modify policy** blade, and then make a note of the settings in the policy to use the same in the new backup policy.
 
@@ -54,7 +54,6 @@ Follow these steps:
 6. On the **Create policy** blade, select **Enhanced** as the **Policy sub type**, and then configure the new policy with the same backup frequency and retention as the existing policy. 
 
 7. Set the **Consistency type** to **Only crash consistent snapshot (Preview)**, and then select **Create**.
-SetCrashConsistent.png <highlight setting crash consistent option>
 
 8. Go to the *existing policy*, select **Associated Items**, and then select **View details** corresponding to the VM you want to move to crash consistent backup.
 
@@ -75,7 +74,7 @@ Follow these steps:
 2. On the **Modify policy** blade, select **Associated Items**. 
 
    >[!Note]
-   >Ensure that all the VMs in the policy are supported for crash-consistent backups. Learn about the [supported scenarios](backup-azure-vms-agentless-multi-disk-crash-consistent.md#supported-scenarios-for-agentless-multi-disk-crash-consistent-vm-backup-preview).
+   >Ensure that all the VMs in the policy are supported for crash-consistent backups. Learn about the [supported scenarios](backup-azure-vms-agentless-multi-disk-crash-consistent-overview.md#supported-scenarios-for-agentless-multi-disk-crash-consistent-vm-backup-preview).
 
 3. Go to the **Modify policy** blade, and set the **Consistency type** to **Only crash consistent snapshot (Preview)**, and then select **Update**.
 
