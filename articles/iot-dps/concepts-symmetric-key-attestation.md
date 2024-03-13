@@ -28,7 +28,7 @@ You can also provide your own symmetric keys for enrollments by disabling this o
 
 Symmetric key attestation with the Device Provisioning Service is performed using the same [security tokens](../iot-hub/iot-hub-dev-guide-sas.md#sas-token-structure) supported by IoT hubs to identify devices. These security tokens are Shared Access Signature (SAS) tokens.
 
-SAS tokens have a hashed *signature* that is created using the symmetric key. The Device Provisioning Service receates the signature to verify whether or not a security token presented during attestation is authentic.
+SAS tokens have a hashed *signature* that is created using the symmetric key. The Device Provisioning Service recreates the signature to verify whether or not a security token presented during attestation is authentic.
 
 SAS tokens have the following form:
 

@@ -28,11 +28,11 @@ Before the device provisioning flow begins, there are two manual steps to prepar
 
 Once the device and cloud are set up for provisioning, the following steps kick off automatically as soon as the device powers on for the first time:
 
-1. When the device first powers on, it connects to the DPS endpoint and presents it authentication credentials.
+1. The device powers on for the first time, then connects to the DPS endpoint and presents it authentication credentials.
 1. The DPS instance checks the identity of the device against its enrollment list. Once the device identity is verified, DPS assigns the device to an IoT hub and registers it in the hub.
 1. The DPS instance receives the device ID and registration information from the assigned hub and passes that information back to the device.
 1. The device uses its registration information to connect directly to its assigned IoT hub and authenticate.
-1. Once authenticated, the device and IoT hub begin communicating directly. The DPS instance has no further role as an intermediary unless the device needs to reprovision.
+1. The device and IoT hub begin communicating directly. The DPS instance has no further role as an intermediary unless the device needs to reprovision.
 
 ## When to use Device Provisioning Service
 
@@ -46,11 +46,11 @@ There are many provisioning scenarios in which DPS is an excellent choice for ge
 * Reprovisioning based on a change in the device
 * Rolling the keys used by the device to connect to IoT Hub (when not using X.509 certificates to connect)
 
-Provisioning of nested IoT Edge devices (parent/child hierarchies) is not currently supported by DPS.
+Provisioning of nested IoT Edge devices (parent/child hierarchies) isn't currently supported by DPS.
 
 ## Prepare for provisioning
 
-There are two distinct steps in the deployment process of a device that will provision with DPS:
+There are two steps that take place ahead of a device provisioning with DPS:
 
 * The **manufacturing step** in which the device is created and prepared at the factory, and
 * The **cloud setup step** in which the Device Provisioning Service is configured for automated provisioning.
@@ -61,17 +61,17 @@ Both of these steps can be incorporated into existing manufacturing and deployme
 
 This step is all about what happens on the manufacturing line. The roles involved in this step include silicon designer, silicon manufacturer, integrator and/or the end manufacturer of the device. This step is concerned with creating the hardware itself.
 
-DPS doesn't introduce a new step in the manufacturing process; rather, it ties into the existing step that installs the initial software and (ideally) the HSM on the device. Instead of creating a device ID in this step, the device is programmed with the provisioning service information, enabling it to call the provisioning service to get its connection info/IoT solution assignment when it's switched on.
+DPS doesn't introduce a new step in the manufacturing process; rather, it ties into the existing step that installs the initial software and (ideally) the hardware security module (HSM) on the device. Instead of creating a device ID in this step, the device is programmed with the provisioning service information, enabling it to call the provisioning service to get its connection info/IoT solution assignment when it's switched on.
 
-Also in this step, the manufacturer supplies the device deployer/operator with identifying key information. Supplying that information could be as simple as confirming that all devices have an X.509 certificate generated from a signing certificate provided by the device deployer/operator, or as complicated as extracting the public portion of a TPM endorsement key from each TPM device. These services are offered by many silicon manufacturers today.
+Also in this step, the manufacturer supplies the device deployer/operator with identifying key information. Supplying that information could be as simple as confirming that all devices have an X.509 certificate generated from a signing certificate provided by the device deployer/operator, or as complicated as extracting the public portion of a TPM endorsement key from each TPM device. Many silicon manufacturers offer these services.
 
 ### Cloud setup step
 
 This step is about configuring the cloud for proper automatic provisioning. Generally there are two types of users involved in the cloud setup step: someone who knows how devices need to be initially set up (a device operator), and someone else who knows how devices are to be split among the IoT hubs (a solution operator).
 
-There's a one-time initial setup of the provisioning service, which is usually handled by the solution operator. Once the provisioning service is configured, it doesn't have to be modified unless the use case changes.
+There's a one-time initial setup of the provisioning service, which the solution operator usually handles. Once the provisioning service is configured, it doesn't have to be modified unless the use case changes.
 
-After the service has been configured for automatic provisioning, it must be prepared to enroll devices. This step is done by the device operator, who knows the desired configuration of the devices and is in charge of making sure the provisioning service can properly attest to a device's identity when it looks for its IoT hub. The device operator takes the identifying key information from the manufacturer and adds it to the enrollment list. There can be subsequent updates to the enrollment list as new entries are added or existing entries are updated with the latest information about the devices.
+After the service is configured for automatic provisioning, it must be prepared to enroll devices. This step is done by the device operator, who knows the desired configuration of the devices and makes sure that the provisioning service can properly attest to a device's identity. The device operator takes the identifying key information from the manufacturer and adds it to the enrollment list. There can be subsequent updates to the enrollment list as new entries are added or existing entries are updated with the latest information about the devices.
 
 ## Registration and provisioning
 
@@ -118,13 +118,13 @@ For resiliency and reliability, we recommend deploying to one of the regions tha
 
 Device Provisioning Service stores customer data. By default, customer data is replicated to a secondary region to support disaster recovery scenarios. For deployments in Southeast Asia and Brazil South, customers can choose to keep their data only within that region by [disabling disaster recovery](./iot-dps-ha-dr.md). For more information, see [Cross-region replication in Azure](../availability-zones/cross-region-replication-azure.md).
 
-DPS uses the same [device provisioning endpoint](concepts-service.md#device-provisioning-endpoint) for all provisioning service instances, and performs traffic load balancing to the nearest available service endpoint. As a result, authentication secrets may be temporarily transferred outside of the region where the DPS instance was initially created. However, once the device is connected, the device data flows directly to the original region of the DPS instance. To ensure that your data doesn't leave the original or secondary region, use a private endpoint.  To learn how to set up private endpoints, see [DPS support for virtual networks](virtual-network-support.md#private-endpoint-limitations).
+DPS uses the same [device provisioning endpoint](concepts-service.md#device-provisioning-endpoint) for all provisioning service instances, and performs traffic load balancing to the nearest available service endpoint. As a result, authentication secrets may be temporarily transferred outside of the region where the DPS instance was initially created. However, once the device is connected, the device data flows directly to the original region of the DPS instance. To ensure that your data doesn't leave the original or secondary region, use a private endpoint. To learn how to set up private endpoints, see [DPS support for virtual networks](virtual-network-support.md#private-endpoint-limitations).
 
 ## Quotas and Limits
 
-Each Azure subscription has default quota limits in place that could impact the scope of your IoT solution. The current limit on a per-subscription basis is 10 Device Provisioning Services per subscription.
+Each Azure subscription has default quota limits in place that could impact the scope of your IoT solution. The current limit is 10 Device Provisioning Service instances per subscription.
 
-For more details on quota limits, see [Azure Subscription Service Limits](../azure-resource-manager/management/azure-subscription-service-limits.md).
+For more information about quota limits, see [Azure Subscription Service Limits](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 [!INCLUDE [azure-iotdps-limits](../../includes/iot-dps-limits.md)]
 
