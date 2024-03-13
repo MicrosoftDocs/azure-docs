@@ -1329,6 +1329,8 @@ items:
           href: alerts/alerts-manage-alert-instances.md
         - name: Update alerts for region moves
           href: alerts/alerts-resource-move.md
+        - name: Query alerts using ARG
+          href: alerts/migrate-from-alerts-summary-api.md
     - name: Tutorials
       items:
       - name: Create a metric alert
@@ -1564,8 +1566,6 @@ items:
       href: essentials/rest-activity-log.md
     - name: Migrate to the metrics getBatch API
       href: essentials/migrate-to-batch-api.md
-    - name: Migrate from the alertsSummary API
-      href: alerts/migrate-from-alerts-summary-api.md
   - name: Azure alerts management SDK for Python
     href: /python/api/azure-mgmt-monitor/azure.mgmt.monitor.monitormanagementclient
   - name: Resource Manager templates
