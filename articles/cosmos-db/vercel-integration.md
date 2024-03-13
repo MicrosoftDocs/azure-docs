@@ -50,7 +50,7 @@ Use this guide if you have already identified the Vercel projects or want to int
 
 3. Sign in to your existing Microsoft account, or if you don’t have one, create a new account as depicted in next step.
 
-   :::image type="content" source="./media/integrations/vercel/sign-in.png" alt-text="Screenshot shows to login to Azure account." lightbox="./media/integrations/vercel/sign-in.png":::
+   :::image type="content" source="./media/integrations/vercel/sign-in.png" alt-text="Screenshot shows to log in to Azure account." lightbox="./media/integrations/vercel/sign-in.png":::
 
 4. Click on 'create one' to create a new Microsoft account.
 > [!NOTE]
@@ -74,7 +74,7 @@ Use this guide if you have already identified the Vercel projects or want to int
 
    :::image type="content" source="./media/integrations/vercel/accept.png" alt-text="Screenshot shows to accept the access." lightbox="./media/integrations/vercel/accept.png":::
 
-9. Select Integrate and you're done
+9. Select Integrate and you're done.
 
    :::image type="content" source="./media/integrations/vercel/integrate-new.png" alt-text="Screenshot shows to confirm the integration." lightbox="./media/integrations/vercel/integrate-new.png":::
 
