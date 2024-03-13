@@ -12,7 +12,7 @@ Azure Resource Manager enforces two types of vCPU quotas for virtual machines:
 - standard vCPU quotas
 - spot vCPU quotas
 
-Standard vCPU quotas apply to pay-as-you-go VMs and reserved VM instances. They are enforced at two tiers, for each subscription, in each region:
+Standard vCPU quotas apply to pay-as-you-go VMs and reserved VM instances. They're enforced at two tiers, for each subscription, in each region:
 
 - The first tier is the total regional vCPU quota.
 - The second tier is the VM-family vCPU quota such as D-series vCPUs.
@@ -47,11 +47,11 @@ You can submit a request for a standard vCPU quota increase per VM-family from *
 
 1. If you selected **Enter a new limit**: In the **New Quota Request** pane, enter a numerical value for each new quota limit.
 
-1. If you selected **Adjust the usage %**: In hte **New Quota Request** pane, adjust the slider to a new usage percent. Adjusting the percentage automatically calculates the new limit for each quota to be increased. This option is particularly useful when the selected quotas have very high usage.
+1. If you selected **Adjust the usage %**: In the **New Quota Request** pane, adjust the slider to a new usage percent. Adjusting the percentage automatically calculates the new limit for each quota to be increased. This option is particularly useful when the selected quotas have very high usage.
 
 1. When you're finished, select **Submit**.
 
-Your request will be reviewed, and you'll be notified if the request can be fulfilled. This usually happens within a few minutes. If your request is not fulfilled, you'll see a link where you can [open a support request](../azure-portal/supportability/how-to-create-azure-support-request.md) so that a support engineer can assist you with the increase.
+Your request will be reviewed, and you'll be notified if the request can be fulfilled. This usually happens within a few minutes. If your request isn't fulfilled, you'll see a link where you can [open a support request](../azure-portal/supportability/how-to-create-azure-support-request.md) so that a support engineer can assist you with the increase.
 
 > [!NOTE]
 > If your request to increase your VM-family quota is approved, Azure will automatically increase the regional vCPU quota for the region where your VM is deployed.
@@ -61,9 +61,9 @@ Your request will be reviewed, and you'll be notified if the request can be fulf
 
 ## Request an increase when a quota isn't available
 
-At times you may see a message that a selected quota isn’t available for an increase. To see which quotas are not available, look for the Information icon next to the quota name.
+At times you may see a message that a selected quota isn’t available for an increase. To see which quotas are unavailable, look for the Information icon next to the quota name.
 
-:::image type="content" source="media/per-vm-quota-requests/per-vm-quota-not-available.png" alt-text="Screenshot showing a quota that is not available in the Azure portal.":::
+:::image type="content" source="media/per-vm-quota-requests/per-vm-quota-not-available.png" alt-text="Screenshot showing a quota that isn't available in the Azure portal.":::
 
 If a quota you want to increase isn't currently available, the quickest solution may be to consider other series or regions. If you want to continue and receive assistance for your specified quota, you can submit a support request for the increase.
 

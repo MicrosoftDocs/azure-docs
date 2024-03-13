@@ -40,7 +40,7 @@ You can submit a request for a quota increase directly from **My quotas**. Follo
 
 Your request will be reviewed, and you'll be notified if the request can be fulfilled. This usually happens within a few minutes.
 
-If your request is not fulfilled, you'll see a link to create a support request. When you use this link, a support engineer will assist you with your increase request.
+If your request isn't fulfilled, you'll see a link to create a support request. When you use this link, a support engineer will assist you with your increase request.
 
 > [!TIP]
 > You can request an increase for a quota that is non-adjustable by submitting a support request. For more information, see [Request an increase for non-adjustable quotas](per-vm-quota-requests.md#request-an-increase-for-non-adjustable-quotas).

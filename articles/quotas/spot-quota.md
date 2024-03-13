@@ -12,7 +12,7 @@ Azure Resource Manager enforces two types of vCPU quotas for virtual machines:
 - standard vCPU quotas
 - spot vCPU quotas
 
-Standard vCPU quotas apply to pay-as-you-go VMs and reserved VM instances. They are enforced at two tiers, for each subscription, in each region:
+Standard vCPU quotas apply to pay-as-you-go VMs and reserved VM instances. They're enforced at two tiers, for each subscription, in each region:
 
 - The first tier is the total regional vCPU quota.
 - The second tier is the VM-family vCPU quota such as D-series vCPUs.
@@ -56,7 +56,7 @@ To request quota increases, you must have an Azure account with the Contributor 
 
 1. When you're finished, select **Submit**.
 
-Your request will be reviewed, and you'll be notified if the request can be fulfilled. This usually happens within a few minutes. If your request is not fulfilled, you'll see a link where you can [open a support request](../azure-portal/supportability/how-to-create-azure-support-request.md) so that a support engineer can assist you with the increase.
+Your request will be reviewed, and you'll be notified if the request can be fulfilled. This usually happens within a few minutes. If your request isn't fulfilled, you'll see a link where you can [open a support request](../azure-portal/supportability/how-to-create-azure-support-request.md) so that a support engineer can assist you with the increase.
 
 ## Next steps
 
