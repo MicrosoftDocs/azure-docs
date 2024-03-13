@@ -140,7 +140,7 @@ Customer Lockbox requests are also not triggered by external legal demands for d
 
 ## Next steps
 
-Enable customer lockbox from the [Administration module](https://ms.portal.azure.com/#view/Microsoft_Azure_Lockbox/LockboxMenu/~/Overview) in the Customer Lockbox blade. Customer Lockbox is available for all customers who have an [Azure support plan](https://azure.microsoft.com/en-us/support/plans/) with a minimal level of Developer.
+Enable customer lockbox from the [Administration module](https://ms.portal.azure.com/#view/Microsoft_Azure_Lockbox/LockboxMenu/~/Overview) in the Customer Lockbox blade. Customer Lockbox is available for all customers who have an [Azure support plan](https://azure.microsoft.com/support/plans/) with a minimal level of Developer.
 
 - [Azure Customer Lockbox alternate email notifications](customer-lockbox-alternative-email.md)
 - [Azure Customer Lockbox FAQ](customer-lockbox-faq.yml)
