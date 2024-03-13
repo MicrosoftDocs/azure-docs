@@ -23,7 +23,7 @@ Traffic between your virtual network and the service travels the Microsoft backb
 
 For scenarios which involve public internet PaaS traffic, configure [network security perimeter](network-security-perimeter-overview.md) to setup a secure logical boundary. Network security perimeter restricts communication to services within it's perimeter, and it allows non-perimeter public traffic through inbound and outbound access rules.
 
-[!INCLUDE [network-security-perimeter-preview](../../includes/network-security-perimeter-preview.md)]
+[!INCLUDE [network-security-perimeter-preview-message](../../includes/network-security-perimeter-preview-message.md)]
 
 ## Key benefits
 
