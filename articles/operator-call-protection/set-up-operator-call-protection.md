@@ -34,10 +34,10 @@ If you don't already have Azure Communications Gateway, you must complete the fo
 > [!NOTE]
 > If you selected Azure Operator Call Protection when you [deployed Azure Communications Gateway](../communications-gateway/deploy.md), skip this step and go to [Provision subscribers](#provision-subscribers).
 
-Navigate to your Azure Communications Gateway resource and find the "Call Protection" tab.
-If it's Disabled, update it to Enabled and notify your Microsoft onboarding team.
+Navigate to your Azure Communications Gateway resource and find the **Call Protection** option on the **Overview**.
+If Call Protection is **Disabled**, update it to **Enabled** and notify your Microsoft onboarding team.
 
-![Azure Operator Call Protection on the Azure Communications Gateway resource](media/enable-azure-operator-call-protection-on-existing.png)
+:::image type="content" source="media/enable-azure-operator-call-protection-on-existing.png" alt-text="Screenshot of Azure Operator Call Protection on the Overview pane of Azure Communications Gateway." lightbox="media/enable-azure-operator-call-protection-on-existing.png":::
 
 ## Provision subscribers
 
