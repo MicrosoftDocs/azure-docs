@@ -84,22 +84,6 @@ Follow these steps:
 >[!Note]
 >If the job fails for an unsupported VM, revert the policy to opt out of crash-consistent backup and retry the update after you remove all unsupported VMs from the policy.
 
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-.
-
 ## Next steps
 
-- [Back up Azure VM with agentless multi-disk crash consistent backup (preview)](backup-azure-vms-agentless-multi-disk-crash-consistent.md)
+- [Run an on-demand backup of Azure VM](backup-azure-vms-first-look-arm.md#run-a-backup-immediately).
