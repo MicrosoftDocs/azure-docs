@@ -5,7 +5,7 @@ description: In this quickstart, you learn how to use Terraform to create an Azu
 services: application-gateway
 author: greg-lindsay
 ms.author: greglin
-ms.date: 09/26/2023
+ms.date: 02/28/2024
 ms.topic: quickstart
 ms.service: application-gateway
 ms.custom: devx-track-terraform
@@ -30,6 +30,8 @@ In this quickstart, you use Terraform to create an Azure Application Gateway. Th
 > * Create an Azure network interface application gateway backend address pool association using [azurerm_network_interface_application_gateway_backend_address_pool_association](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface_application_gateway_backend_address_pool_association)
 > * Create an Azure Windows Virtual Machine using [azurerm_windows_virtual_machine](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/windows_virtual_machine)
 > * Create an Azure Virtual Machine Extension using [azurerm_virtual_machine_extension](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_machine_extension)
+
+![Conceptual diagram of the quickstart setup.](./media/quick-create-portal/application-gateway-qs-resources.png)
 
 ## Prerequisites
 

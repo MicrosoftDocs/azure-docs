@@ -61,11 +61,12 @@ You can use the Azure portal to enable cost optimization on your existing cluste
 ### Cost presets
 When you use the Azure portal to configure cost optimization, you can select from the following preset configurations. You can select one of these or provide your own customized settings. By default, Container insights uses the *Standard* preset.
 
-| Cost preset | Collection frequency | Namespace filters | Syslog collection |
-| --- | --- | --- | --- |
-| Standard | 1 m | None | Not enabled |
-| Cost-optimized | 5 m | Excludes kube-system, gatekeeper-system, azure-arc | Not enabled |
-| Syslog | 1 m | None | Enabled by default |
+| Cost preset | Collection frequency | Namespace filters | Syslog collection | Collected data |
+| --- | --- | --- | --- | --- |
+| Standard | 1 m | None | Not enabled | All standard container insights tables |
+| Cost-optimized | 5 m | Excludes kube-system, gatekeeper-system, azure-arc | Not enabled | All standard container insights tables |
+| Syslog | 1 m | None | Enabled by default | All standard container insights tables |
+| Logs and Events | 1 m | None | Not enabled | ContainerLog/ContainerLogV2<br> KubeEvents<br>KubePodInventory |
 
 ### Collected data
 The **Collected data** option allows you to select the tables that are populated for the cluster. This is the equivalent of the `streams` parameter when performing the configuration with CLI or ARM. If you select any option other than **All (Default)**, the Container insights experience becomes unavailable, and you must use Grafana or other methods to analyze collected data.

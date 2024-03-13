@@ -6,7 +6,7 @@ ms.author: sidneyshiba
 ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 02/15/2024
-ms.custom: template-how-to, devx-track-azurecli
+ms.custom: template-how-to
 ---
 
 # Introduction to the Microsoft Defender for Endpoint runtime protection service

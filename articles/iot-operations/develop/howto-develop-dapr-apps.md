@@ -1,6 +1,5 @@
 ---
 title: Use Dapr to develop distributed applications
-titleSuffix: Azure IoT MQ
 description: Develop distributed applications that talk with Azure IoT MQ using Dapr.
 author: timlt
 ms.author: timlt
@@ -13,11 +12,11 @@ ms.date: 11/14/2023
 # CustomerIntent: As a developer, I want to understand how to use Dapr to develop distributed apps that talk with Azure IoT MQ.
 ---
 
-# Use Dapr to develop distributed application workloads
+# Use Dapr to develop distributed application workloads that talk with Azure IoT MQ Preview
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-To use the IoT MQ Dapr pluggable components, deploy both the pub/sub and state store components in your application deployment along with your Dapr application. This guide shows you how to deploy an application using the Dapr SDK and IoT MQ pluggable components.
+To use the Azure IoT MQ Preview Dapr pluggable components, deploy both the pub/sub and state store components in your application deployment along with your Dapr application. This guide shows you how to deploy an application using the Dapr SDK and IoT MQ pluggable components.
 
 ## Prerequisites
 
@@ -119,20 +118,9 @@ To start, create a yaml file with the following definitions:
           - name: mq-dapr-app
             image: <YOUR_DAPR_APPLICATION>
 
-          # Container for the Dapr Pub/sub component
-          - name: aio-mq-pubsub-pluggable
-            image: ghcr.io/azure/iot-mq-dapr-components/pubsub:latest
-            volumeMounts:
-            - name: dapr-unix-domain-socket
-              mountPath: /tmp/dapr-components-sockets
-            - name: mqtt-client-token
-              mountPath: /var/run/secrets/tokens
-            - name: aio-ca-trust-bundle
-              mountPath: /var/run/certs/aio-mq-ca-cert/
-
-          # Container for the Dapr State store component
-          - name: aio-mq-statestore-pluggable
-            image: ghcr.io/azure/iot-mq-dapr-components/statestore:latest
+          # Container for the pluggable component
+          - name: aio-mq-components
+            image: ghcr.io/azure/iot-mq-dapr-components:latest
             volumeMounts:
             - name: dapr-unix-domain-socket
               mountPath: /tmp/dapr-components-sockets
@@ -155,7 +143,7 @@ To start, create a yaml file with the following definitions:
     pod/dapr-workload created
     NAME                          READY   STATUS              RESTARTS   AGE
     ...
-    dapr-workload                 4/4     Running             0          30s
+    dapr-workload                 3/3     Running             0          30s
     ```
 
 ## Troubleshooting
