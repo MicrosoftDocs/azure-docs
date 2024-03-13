@@ -29,24 +29,25 @@ author: mrbullwinkle
 1. From the Azure AI Studio Home page, select **Build** > **Playground**.
 
     The Assistants playground allows you to explore, prototype, and test AI Assistants without needing to run any code. From this page, you can quickly iterate and experiment with new ideas.
-
-    1. Select your deployment from the **Deployments** dropdown.
-    1. Select **Assistants** from the **Mode** dropdown menu.
+    
+    The playground provides several options to configure your Assistant. In the following steps, you will use the **Assistant setup** pane to create a new AI assistant.
+    
+    | **Name** | **Description** |
+    |:---|:---|
+    | **Assistant name** | Your deployment name that is associated with a specific model. |
+    | **Instructions** | Instructions are similar to system messages this is where you give the model guidance about how it should behave and any context it should reference when generating a response. You can describe the assistant's personality, tell it what it should and shouldn't answer, and tell it how to format responses. You can also provide examples of the steps it should take when answering responses. |
+    | **Deployment** | This is where you set which model deployment to use with your assistant. |
+    | **Functions**| Create custom function definitions for the models to formulate API calls and structure data outputs based on your specifications |
+    | **Code interpreter** | Code interpreter provides access to a sandboxed Python environment that can be used to allow the model to test and execute code. |
+    | **Files** | You can upload up to 20 files, with a max file size of 512 MB to use with tools. |
+    
+    
+1. Select your deployment from the **Deployments** dropdown.
+1. Select **Assistants** from the **Mode** dropdown menu.
     
     :::image type="content" source="../media/quickstarts/assistants-ai-studio-playground.png" alt-text="Screenshot of the Assistant configuration screen without all the values filled in." lightbox="../media/quickstarts/assistants-ai-studio-playground.png":::
 
 ## Create your first Assistant
-
-Azure AI Studio provides several options to configure your Assistant. In the following steps, you will use the **Assistant setup** pane to create a new AI assistant.
-
-| **Name** | **Description** |
-|:---|:---|
-| **Assistant name** | Your deployment name that is associated with a specific model. |
-| **Instructions** | Instructions are similar to system messages this is where you give the model guidance about how it should behave and any context it should reference when generating a response. You can describe the assistant's personality, tell it what it should and shouldn't answer, and tell it how to format responses. You can also provide examples of the steps it should take when answering responses. |
-| **Deployment** | This is where you set which model deployment to use with your assistant. |
-| **Functions**| Create custom function definitions for the models to formulate API calls and structure data outputs based on your specifications |
-| **Code interpreter** | Code interpreter provides access to a sandboxed Python environment that can be used to allow the model to test and execute code. |
-| **Files** | You can upload up to 20 files, with a max file size of 512 MB to use with tools. |
 
 1. From the Assistant setup drop-down, select **New**.
 2. Give your Assistant a name.
