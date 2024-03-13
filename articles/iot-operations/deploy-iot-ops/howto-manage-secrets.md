@@ -107,7 +107,7 @@ az keyvault show --name "<your unique key vault name>" --resource-group "<the na
 
 The newly created service principal needs **Secret** `list` and `get` access policy for the Azure IoT Operations to work with the secret store. 
 
-To assign these permissions, the service principal logged in to the CLI needs an access policy with at least permissions to `get` secrets. 
+To manage key vault access policies, the principal logged in to the CLI needs sufficient Azure permissions. In the Role Based Access Control (RBAC) model, this permission is included in key vault contributor or higher roles.
 
 >[!TIP]
 >If you used the logged-in CLI principal to create the Key Vault, then you probably already have the right permissions. However, if you're pointing to a different or existing Key Vault then you should check that you have sufficient permissions to set access policies.
