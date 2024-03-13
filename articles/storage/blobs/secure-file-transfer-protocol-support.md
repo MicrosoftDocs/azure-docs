@@ -104,7 +104,7 @@ The IDs required for changing owner and group are part of new properties for Loc
 | GroupId | <li>Identifer for a group of Local Users</li> |
 | AllowAclAuthorization | <li>Allow authorizing this Local User's requests with ACLs</li> |
 
-Once the desired ACLs have been configured and the Local User enables `AllowAclAuthorization`, they may use ACLs to authorize their requests. Similar to RBAC, container permissions can interoperate with ACLs. Only if the local user doesn't have sufficient container permissions will ACLs be evaluated. See [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.m) for more information on ADLS Gen2 ACLs.
+Once the desired ACLs have been configured and the Local User enables `AllowAclAuthorization`, they may use ACLs to authorize their requests. Similar to RBAC, container permissions can interoperate with ACLs. Only if the local user doesn't have sufficient container permissions will ACLs be evaluated. To learn more, see [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md).
 
 ## Home directory
 
