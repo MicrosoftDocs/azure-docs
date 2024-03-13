@@ -18,7 +18,7 @@ zone_pivot_groups: acs-programming-languages-java-swift-csharp
 # Log File Access tutorial
 [!INCLUDE [Public Preview](../includes/public-preview-include-document.md)]
 
-In this tutorial, you learn how to access the Log Files stored on the device with the Calling SDK
+In this tutorial, you learn how to access the Log Files stored on the device with the Calling SDK.
 
 ## Prerequisites
 
