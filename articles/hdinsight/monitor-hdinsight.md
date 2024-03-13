@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure HDInsight
 description: Start here to learn how to monitor Azure HDInsight.
-ms.date: 03/07/2024
+ms.date: 03/13/2024
 ms.custom: horz-monitor
 ms.topic: conceptual
 ms.service: hdinsight
@@ -55,6 +55,10 @@ HDInsight stores its log files both in the cluster file system and in Azure Stor
 For a list of metrics automatically collected for HDInsight, see [HDInsight monitoring data reference](monitor-hdinsight-reference.md#metrics).
 
 [!INCLUDE [horz-monitor-resource-logs](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
+
+### Agent-collected logs
+
+HDInsight doesn't produce resource logs by the usual method. Instead, it collects logs from inside the HDInsight cluster and sends them to Azure Monitor Logs / Log Analytics tables using the [Log Analytics Agent](/azure/azure-monitor/agents/log-analytics-agent).
 
 An HDInsight cluster produces many log files, such as:
 
