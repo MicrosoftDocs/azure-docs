@@ -10,7 +10,6 @@ title: Manage secrets with agentless secrets scanning
 description: Learn how to scan your servers for secrets with Defender for Server's agentless secrets scanning.
 ms.topic: overview
 ms.date: 01/22/2024
----
 
 # Manage secrets with agentless secrets scanning
 
