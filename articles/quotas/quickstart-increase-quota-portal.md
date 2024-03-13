@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Request a quota increase in the Azure portal
 description: This quickstart shows you how to increase a quota in the Azure portal.
-ms.date: 07/22/2022
+ms.date: 03/13/2024
 ms.topic: how-to
 ---
 
@@ -13,7 +13,9 @@ For more information about quotas, see [Quotas overview](quotas-overview.md).
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+An Azure account with the Contributor role (or another role that includes contributor access).
+
+If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Request a quota increase
 
@@ -30,7 +32,7 @@ You can submit a request for a quota increase directly from **My quotas**. Follo
    > For all providers other than Compute, you'll see a **Request increase** column instead of the **Adjustable** column described below. There, you can request an increase for a specific quota, or create a support request for the increase.
 
 1. On the **My quotas** page, under **Quota name**, select the quota you want to increase. Make sure that the **Adjustable** column shows **Yes** for this quota.
-1. Near the top of the page, select **Request quota increase**, then select **Enter a new limit**.
+1. Near the top of the page, select **New Quota Request**, then select **Enter a new limit**.
 
    :::image type="content" source="media/quickstart-increase-quota-portal/enter-new-quota-limit.png" alt-text="Screenshot of the Enter a new limit option in My quotas in the Azure portal.":::
 
