@@ -1,0 +1,148 @@
+### YamlMime:Hub 
+
+title: Azure Hybrid Benefit documentation
+summary: Learn about the Azure Hybrid Benefit product and deployment documentation.
+brand: azure ## Used for color theming of icons and hero area - example from /networking/security
+
+metadata: 
+  title: Azure Hybrid Benefit documentation
+  description: Learn about the Azure Hybrid Benefit product and deployment documentation.
+  ms.service: cost-management-billing
+  ms.topic: hub-page
+  author: bandersmsft
+  ms.author: banders
+  ms.reviewer: kyleikeda
+  ms.date: 03/11/2024
+
+highlightedContent:
+# top-level single cards with predefined symbols
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | training | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+  items: 
+    - title: Benefits of the Hybrid Licensing offer - Windows Server
+      itemType: training
+      url: /training/modules/understand-windows-server-iaas-vm-cost-management/5-describe-azure-hybrid-license-benefits
+    - title: SQL Server in Azure Virtual Machines
+      itemType: download
+      url: https://msazurecourses.azurewebsites.net/eBooks/SQL%20Server%20on%20Azure%20Virtual%20Machines.pdf
+    - title: Explore Azure Hybrid Benefit for SQL VMs
+      itemType: reference
+      url: /azure/azure-sql/virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change#azure-hybrid-benefit
+    
+
+
+# additionalContent section (optional)
+# Card with links style
+additionalContent:
+  # Supports up to 4 sections
+  sections:
+    - title: Windows Server VMs in Azure  # < 60 chars (optional)
+      items:
+        # Card
+        - title: General guidance
+          links:
+            - text: Explore Azure Hybrid Benefit for Windows VMs
+              url: ../../virtual-machines/windows/hybrid-use-benefit-licensing.md
+        # Card
+        - title: Additional guidance and benefits
+          links:
+            - text: Explore Azure Hybrid Benefit for Windows Server VMs in Azure, Stack HCI, and AKS
+              url: /windows-server/get-started/azure-hybrid-benefit
+        # Card
+        - title: Deployment options
+          links:
+            - text: Azure Hybrid Benefit for Azure Kubernetes Service - AKS hybrid
+              url: /azure/aks/hybrid/azure-hybrid-benefit
+            - text: Azure Hybrid Benefit for Azure Stack HCI - Azure Stack HCI
+              url: /azure-stack/hci/concepts/azure-hybrid-benefit-hci
+            - text: Azure Hybrid Benefit for Windows Server, SQL Server, or Linux subscriptions
+              url: ../../azure-vmware/sql-server-hybrid-benefit.md
+            - text: Overview of Azure Dedicated Hosts for virtual machines
+              url: ../../virtual-machines/dedicated-hosts.md
+    - title: SQL Server VMs in Azure  # < 60 chars (optional)
+      items:
+        # Card
+        - title: General guidance
+          links:
+            - text: Explore Azure Hybrid Benefit for SQL VMs
+              url: /azure/azure-sql/virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change#azure-hybrid-benefit
+        # Card
+        - title: Additional guidance and benefits
+          links:
+            - text: Register with SQL IaaS Agent Extension (Windows)
+              url: /azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm
+            - text: Explore Centrally Managed Azure Hybrid Benefit for SQL Server
+              url: ../scope-level/index.yml
+            - text: High availability, disaster recovery, business continuity - SQL Server on Azure VMs
+              url: /azure/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview#free-dr-replica-in-azure
+        # Card
+        - title: Deployment options
+          links:
+            - text: Azure Hybrid Benefit - Azure SQL Database and SQL Managed Instance
+              url: /azure/azure-sql/azure-hybrid-benefit
+            - text: Azure Hybrid Benefit for Windows Server, SQL Server, or Linux subscriptions
+              url: /azure/azure-vmware/sql-server-hybrid-benefit
+            - text: Enable Azure Hybrid Benefit for SQL Server in Azure VMware Solution
+              url: ../../azure-vmware/enable-sql-azure-hybrid-benefit.md
+            - text: Run SQL Server VM on an Azure Dedicated Host - SQL Server on Azure VMs
+              url: /azure/azure-sql/virtual-machines/windows/dedicated-host
+    - title: Linux Server VMs in Azure  # < 60 chars (optional)
+      items:
+        # Card
+        - title: General guidance
+          links:
+            - text: Explore Azure Hybrid Benefit for Linux VMs
+              url: ../../virtual-machines/linux/azure-hybrid-benefit-linux.md
+        - title: Additional guidance and benefits
+          links:
+            - text: Azure Hybrid Benefit for Linux Virtual Machine Scale Sets
+              url: ../../virtual-machine-scale-sets/azure-hybrid-benefit-linux.md
+            - text: RHEL subscription mobility with Azure Hybrid Benefit for Linux
+              url: /shows/inside-azure-for-it/rhel-subscription-mobility-with-azure-hybrid-benefit-for-linux
+        - title: Deployment options
+          links:
+            - text: Azure Hybrid Benefit for Windows Server, SQL Server, or Linux subscriptions
+              url: ../../azure-vmware/sql-server-hybrid-benefit.md
+            - text: Overview of Azure Dedicated Hosts for virtual machines
+              url: ../../virtual-machines/dedicated-hosts.md
+    - title: Additional resources  # < 60 chars (optional)
+      items:
+        # Card
+        - title: Windows Server VMs in Azure
+          links:
+            - text: Secure Windows Server 2012/R2 workloads with options from Azure
+              url: https://cloudblogs.microsoft.com/windowsserver/2023/10/10/secure-windows-server-2012-r2-workloads-with-options-from-azure/
+            - text: New options for Windows Server 2012/R2 end of support from Azure
+              url: https://cloudblogs.microsoft.com/windowsserver/2023/07/18/new-options-for-windows-server-2012-r2-end-of-support-from-azure/
+            - text: Get the most out of Windows Server with these 5 best practices
+              url: https://cloudblogs.microsoft.com/windowsserver/2022/03/01/get-the-most-out-of-windows-server-with-these-5-best-practices/
+            - text: Maximize your Windows Server investments with new benefits and more flexibility
+              url: https://cloudblogs.microsoft.com/windowsserver/2022/10/12/maximize-your-windows-server-investments-with-new-benefits-and-more-flexibility/
+        - title: SQL Server VMs in Azure
+          links:
+            - text: The Latest from Azure Hybrid Benefit
+              url: /shows/data-exposed/the-latest-from-azure-hybrid-benefit-data-exposed
+            - text: Azure Enablement Show - Reduce costs and increase SQL license utilization using Azure Hybrid Benefit
+              url: https://youtu.be/ReoLB9N76Lo?si=izGi35mBvGrGP2yC
+            - text: Capitalize on your investments with the new centrally managed Azure Hybrid Benefit for SQL Server
+              url: https://cloudblogs.microsoft.com/sqlserver/2023/04/26/capitalize-on-your-investments-with-the-new-centrally-managed-azure-hybrid-benefit-for-sql-server/
+        - title: Linux Server VMs in Azure
+          links:
+            - text: RHEL subscription mobility with Azure Hybrid Benefit for Linux
+              url: /shows/inside-azure-for-it/rhel-subscription-mobility-with-azure-hybrid-benefit-for-linux
+        # Card
+        - title: Pricing
+          links:
+            - text: Windows Server 2022 - Pricing
+              url: https://www.microsoft.com/windows-server/pricing
+            - text: SQL Server 2022 - Pricing
+              url: https://www.microsoft.com/sql-server/sql-server-2022-pricing
+            - text: Linux Server VMs in Azure - Pricing
+              url: https://azure.microsoft.com/pricing/details/virtual-machines/linux/
+        # Card
+        - title: Other ways to save on Azure services
+          links:
+            - text: Save with Azure savings plans
+              url: ../savings-plan/index.yml
+            - text: What are Azure Reservations?
+              url: ../reservations/save-compute-costs-reservations.md

@@ -9,4 +9,4 @@ ms.date: 10/28/2021
 ms.author: pafarley
 ---
 
-You must create your first Face, Language service, or Azure AI Vision resources from the Azure portal to review and acknowledge the terms and conditions. You can do so here: [Face](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace), [Language service](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics), [Azure AI Vision](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision). After that, you can create subsequent resources using any deployment tool (SDK, CLI, or ARM template, etc) under the same Azure subscription.
+You must create your first [Azure AI Face](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace), [Azure AI Language](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics), or [Azure AI Vision](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision) resources from the Azure portal so that you can review and acknowledge the terms and conditions. After that, you can create resources by using any deployment tool (for example, SDK, Azure CLI, or ARM template) under the same Azure subscription.

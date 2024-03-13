@@ -3,7 +3,7 @@ title: Azure Programmable Connectivity Billing
 description: Azure Programmable Connectivity provides a consolidated bill.
 author: anzaman
 ms.author: alzam
-ms.service: azure-operator-nexus
+ms.service: azure-programmable-connectivity
 ms.topic: overview 
 ms.date: 02/16/2024
 ms.custom: template-overview
