@@ -20,13 +20,11 @@ Learn how to access Advisor through the Azure portal, get and manage recommendat
 
 To access Azure Advisor, sign in to the [Azure portal](https://portal.azure.com). From there, select the [Advisor](https://aka.ms/azureadvisordashboard) icon at the top of the page, use the search bar at the top to search for Advisor, or use the left navigation pane **Advisor** link.<br> The Advisor **Overview** page opens by default.
 
-You can also use the search bar at the top, or the left navigation pane, to find Advisor.
-
-:::image type="content" source="./media/advisor-get-started/advisor-overview-page-m.png" alt-text="Screenshot of the Azure Advisor opening **Overview** page." lightbox="./media/advisor-get-started/advisor-overview-page-m.png":::
-
 ## Advisor recommendations overview
 
-See personalized and actionable recommendations.
+See personalized and actionable recommendations on the Advisor **Overview** page.
+
+:::image type="content" source="./media/advisor-get-started/advisor-overview-page-m1.png" alt-text="Screenshot of the Azure Advisor opening **Overview** page." lightbox="./media/advisor-get-started/advisor-overview-page-m1.png":::
 
 * The filters at the top focus the recommendations.
 * The tiles represent the different recommendation categories.
@@ -54,7 +52,7 @@ Each tile provides information about the recommendations for that category:
 * The total number of recommendations for the category, and the specific number per impact
 * The number of impacted resources by the recommendations
 
-For detailed graphics and information on your Advisor score, go to the [Optimize Azure workloads by using Advisor score](/azure/advisor/azure-advisor-score) page.
+For detailed graphics and information on your Advisor score, see [Optimize Azure workloads by using Advisor score](/azure/advisor/azure-advisor-score).
 
 ### Get recommendation details and solution options
 
@@ -85,13 +83,13 @@ You can exclude subscriptions or resources, such as 'test' resources, from Advis
 > [!NOTE]
 > To change subscriptions or Advisor compute rules, you must be a subscription owner.  If you do not have the required permissions, the option is disabled in the user interface. For information on permissions, see [Permissions in Azure Advisor](permissions.md). For details on right sizing VMs, see [Reduce service costs by using Azure Advisor](advisor-cost-recommendations.md).
 
-From any Azure Advisor page, select **Configuration** in the left navigation pane. The Advisor Configuration page opens with the **Resources** tab selected, by default. 
+From any Azure Advisor page, select **Configuration** in the left navigation pane. The Advisor Configuration page opens with the **Resources** tab selected, by default.
+
+Use the **Resources** tab to select or unselect subscriptions for Advisor recommendations. When ready, select **Apply**. The page refreshes.
 
 :::image type="content" source="./media/advisor-get-started/advisor-configure-resources.png" alt-text="Screenshot of Azure Advisor configuration option for resources." lightbox="./media/advisor-get-started/advisor-configure-resources.png":::
 
-* **Resources**: Uncheck any subscriptions you don't want to receive Advisor recommendations for, select **Apply**. The page refreshes.
-
-* **VM/VMSS right sizing**: You can adjust Advisor virtual machine (VM) and virtual machine scale sets (VMSS) recommendations. Specifically, you can set up a filter for each subscription to only show recommendations for machines with certain CPU utilization. This setting filters recommendations but doesn't change how they're generated.
+Use the **VM/VMSS right sizing** tab to adjust Advisor virtual machine (VM) and virtual machine scale sets (VMSS) recommendations. Specifically, you can set up a filter for each subscription to only show recommendations for machines with certain CPU utilization. This setting filters recommendations by machine, but doesn't change how they're generated. Follow these steps.
 
 1. Select the subscriptions you’d like to set up a filter for average CPU utilization, and then select **Edit**. Not all subscriptions can be edited for VM/VMSS right sizing and certain privileges are required; for more information on permissions, see [Permissions in Azure Advisor](permissions.md).
 
