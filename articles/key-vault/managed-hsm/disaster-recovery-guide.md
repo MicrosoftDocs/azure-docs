@@ -110,7 +110,7 @@ end=$(date -u -d "500 minutes" '+%Y-%m-%dT%H:%MZ')
 skey=$(az storage account keys list --query '[0].value' -o tsv --account-name mhsmdemobackup)
 az storage container create --account-name  mhsmdemobackup --name mhsmbackupcontainer  --account-key $skey
 sas=$(az storage container generate-sas -n mhsmbackupcontainer --account-name mhsmdemobackup --permissions crdw --expiry $end --account-key $skey -o tsv)
-az keyvault backup start --hsm-name ContosoMHSM2 --storage-account-name mhsmdemobackup --blob-container-name mhsmdemobackupcontainer --storage-container-SAS-token $sas
+az keyvault backup start --hsm-name ContosoMHSM2 --storage-account-name mhsmdemobackup --blob-container-name mhsmbackupcontainer --storage-container-SAS-token $sas
 
 ```
 
