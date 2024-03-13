@@ -189,7 +189,7 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
 
 1. You should see the following outputs in the console.
 
-    ![Background service](./media/dotnet-background-service-run.png)
+    ![Screenshot of the background service.](./media/dotnet-background-service-run.png)
 
 1. In the Azure portal, navigate to the **Configuration explorer** of your App Configuration store, and update the value of the following key.
 
@@ -199,7 +199,7 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
 
 1. Wait for about 30 seconds. You should see the console outputs changed.
 
-    ![Background service refresh](./media/dotnet-background-service-refresh.png)
+    ![Screenshot of the refreshed background service.](./media/dotnet-background-service-refresh.png)
 
 ## Clean up resources
 

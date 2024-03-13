@@ -70,7 +70,7 @@
         - name: .NET Framework
           href: enable-dynamic-configuration-dotnet.md
         - name: .NET Background Service
-          hred: enable-dynamic-configuration-dotnet-background-service.md
+          href: enable-dynamic-configuration-dotnet-background-service.md
         - name: Azure Functions
           href: enable-dynamic-configuration-azure-functions-csharp.md
         - name: Spring Boot
