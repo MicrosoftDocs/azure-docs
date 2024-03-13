@@ -3,8 +3,7 @@ title: "Quickstart: Document Translation C#"
 description: 'Document Translation processing using the REST API and C# programming language'
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.topic: include
 ms.date: 07/18/2023
 ms.author: lajanuar
@@ -137,6 +136,3 @@ Upon successful completion:
 * The translated documents can be found in your target container.
 * The successful POST method returns a `202 Accepted`  response code indicating that the service created the batch request.
 * The POST request also returns response headers including `Operation-Location` that provides a value used in subsequent GET requests.
-
-> [!div class="nextstepaction"]
-> [I successfully translated my document.](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Translate-documents)

@@ -1,20 +1,18 @@
 ---
-title: Upgrade your Durable Functions app to version 4 of the Node.js programming model
+title: Migrate your Durable Functions app to version 4 of the Node.js programming model
 description: This article shows you how to upgrade your existing Durable Functions apps running on v3 of the Node.js programming model to v4.
 author: hossam-nasr
 ms.service: azure-functions
 ms.date: 04/06/2023
-ms.devlang: javascript, typescript
+ms.devlang: javascript
+# ms.devlang: javascript, typescript
 ms.custom: devx-track-extended-java, devx-track-js
 ms.author: azfuncdf
 ms.topic: how-to
 zone_pivot_groups: programming-languages-set-functions-nodejs
 ---
 
-# Upgrade your Durable Functions app to version 4 of the Node.js programming model
-
->[!NOTE]
-> Version 4 of the Node.js programming model is currently in public preview. Learn more by visiting the Node [Functions developer guide](../functions-reference-node.md?pivots=nodejs-model-v4).
+# Migrate your Durable Functions app to version 4 of the Node.js programming model
 
 This article provides a guide to upgrade your existing Durable Functions app to version 4 of the Node.js programming model. Note that this article uses "TIP" banners to summarize the key steps needed to upgrade your app.
 
@@ -29,8 +27,8 @@ Before following this guide, make sure you follow these steps first:
 
 - Install [Node.js](https://nodejs.org/en/download/releases) version 18.x+.
 - Install [TypeScript](https://www.typescriptlang.org/) version 4.x+.
-- Run your app on [Azure Functions Runtime](../functions-versions.md?tabs=v4&pivots=programming-language-javascript) version 4.16.5+.
-- Install [Azure Functions Core Tools](../functions-run-local.md?tabs=v4) version 4.0.5095+.
+- Run your app on [Azure Functions Runtime](../functions-versions.md?tabs=v4&pivots=programming-language-javascript) version 4.25+.
+- Install [Azure Functions Core Tools](../functions-run-local.md?tabs=v4) version 4.0.5382+.
 - Review the general [Azure Functions Node.js programming model v4 upgrade guide](../functions-node-upgrade-v4.md).
 
 ## Upgrade the `durable-functions` npm package
@@ -38,13 +36,13 @@ Before following this guide, make sure you follow these steps first:
 >[!NOTE]
 >The programming model version should not be confused with the `durable-functions` package version. `durable-functions` package version 3.x is required for the v4 programming model, while `durable-functions` version 2.x is required for the v3 programming model.
 
-The v4 programming model is supported by the v3.x of the `durable-functions` npm package. In your programming model v3 app, you likely had `durable-functions` v2.x listed in your dependencies. Make sure to update to the (currently in preview) v3.x of the `durable-functions` package.
+The v4 programming model is supported by the v3.x of the `durable-functions` npm package. In your programming model v3 app, you likely had `durable-functions` v2.x listed in your dependencies. Make sure to update to the v3.x of the `durable-functions` package.
 
 >[!TIP]
-> Upgrade to the preview v3.x of the `durable-functions` npm package. You can do this with the following command:
+> Upgrade to v3.x of the `durable-functions` npm package. You can do this with the following command:
 >
 > ```bash
-> npm install durable-functions@preview
+> npm install durable-functions
 > ```
 
 ## Register your Durable Functions Triggers
@@ -54,7 +52,7 @@ In the v4 programming model, declaring triggers and bindings in a separate `func
 **Migrating an orchestration**
 
 :::zone pivot="programming-language-javascript"
-# [v4 model](#tab/v4)
+# [Model v4](#tab/nodejs-v4)
 
 ```javascript
 const df = require('durable-functions');
@@ -71,7 +69,7 @@ df.app.orchestration('durableOrchestrator', function* (context) {
 });
 ```
 
-# [v3 model](#tab/v3)
+# [Model v3](#tab/nodejs-v3)
 
 ```javascript
 const df = require("durable-functions");
@@ -104,7 +102,7 @@ module.exports = df.orchestrator(function* (context) {
 :::zone-end
 
 :::zone pivot="programming-language-typescript"
-# [v4 model](#tab/v4)
+# [Model v4](#tab/nodejs-v4)
 
 ```typescript
 import * as df from 'durable-functions';
@@ -123,7 +121,7 @@ const durableHello1Orchestrator: OrchestrationHandler = function* (context: Orch
 df.app.orchestration('durableOrchestrator', durableHello1Orchestrator);
 ```
 
-# [v3 model](#tab/v3)
+# [Model v3](#tab/nodejs-v3)
 
 ```typescript
 import * as df from "durable-functions"
@@ -163,7 +161,7 @@ export default orchestrator;
 
 :::zone pivot="programming-language-javascript"
 
-# [v4 model](#tab/v4)
+# [Model v4](#tab/nodejs-v4)
 
 ```javascript
 const df = require('durable-functions');
@@ -185,7 +183,7 @@ df.app.entity('Counter', (context) => {
 });
 ```
 
-# [v3 model](#tab/v3)
+# [Model v3](#tab/nodejs-v3)
 
 ```javascript
 const df = require("durable-functions");
@@ -224,7 +222,7 @@ module.exports = df.entity(function (context) {
 
 :::zone pivot="programming-language-typescript"
 
-# [v4 model](#tab/v4)
+# [Model v4](#tab/nodejs-v4)
 
 ```typescript
 import * as df from 'durable-functions';
@@ -248,7 +246,7 @@ const counterEntity: EntityHandler<number> = (context: EntityContext<number>) =>
 df.app.entity('Counter', counterEntity);
 ```
 
-# [v3 model](#tab/v3)
+# [Model v3](#tab/nodejs-v3)
 
 ```typescript
 import * as df from "durable-functions"
@@ -292,7 +290,7 @@ export default entity;
 
 :::zone pivot="programming-language-javascript"
 
-# [v4 model](#tab/v4)
+# [Model v4](#tab/nodejs-v4)
 
 ```javascript
 const df = require('durable-functions');
@@ -304,7 +302,7 @@ df.app.activity('hello', {
 });
 ```
 
-# [v3 model](#tab/v3)
+# [Model v3](#tab/nodejs-v3)
 
 ```javascript
 module.exports = async function (context) {
@@ -328,7 +326,7 @@ module.exports = async function (context) {
 :::zone-end
 
 :::zone pivot="programming-language-typescript"
-# [v4 model](#tab/v4)
+# [Model v4](#tab/nodejs-v4)
 
 ```typescript
 import * as df from 'durable-functions';
@@ -341,7 +339,7 @@ const helloActivity: ActivityHandler = (input: string): string => {
 df.app.activity('hello', { handler: helloActivity });
 ```
 
-# [v3 model](#tab/v3)
+# [Model v3](#tab/nodejs-v3)
 
 ```typescript
 import { AzureFunction, Context } from "@azure/functions"
@@ -379,7 +377,7 @@ In the v4 model, registering secondary input bindings, like durable clients, is 
 
 :::zone pivot="programming-language-javascript"
 
-# [v4 model](#tab/v4)
+# [Model v4](#tab/nodejs-v4)
 
 ```javascript
 const { app } = require('@azure/functions');
@@ -395,7 +393,7 @@ app.http('durableHttpStart', {
 });
 ```
 
-# [v3 model](#tab/v3)
+# [Model v3](#tab/nodejs-v3)
 
 ```javascript
 const df = require("durable-functions");
@@ -439,7 +437,7 @@ module.exports = async function (context, req) {
 
 :::zone pivot="programming-language-typescript"
 
-# [v4 model](#tab/v4)
+# [Model v4](#tab/nodejs-v4)
 
 ```typescript
 import { app, HttpHandler, HttpRequest, HttpResponse, InvocationContext } from '@azure/functions';
@@ -457,7 +455,7 @@ app.http('durableHttpStart', {
 });
 ```
 
-# [v3 model](#tab/v3)
+# [Model v3](#tab/nodejs-v3)
 
 ```typescript
 import * as df from "durable-functions"
@@ -512,7 +510,7 @@ In `v3.x` of `durable-functions`, multiple APIs on the `DurableClient` class (re
 
 :::zone pivot="programming-language-javascript"
 
-# [v4 model](#tab/v4)
+# [Model v4](#tab/nodejs-v4)
 
 ```javascript
 const client = df.getClient(context)
@@ -523,7 +521,7 @@ const status = await client.getStatus('instanceId', {
 });
 ```
 
-# [v3 model](#tab/v3)
+# [Model v3](#tab/nodejs-v3)
 
 ```javascript
 const client = df.getClient(context);
@@ -535,7 +533,7 @@ const status = await client.getStatus('instanceId', false, false, true);
 
 :::zone pivot="programming-language-typescript"
 
-# [v4 model](#tab/v4)
+# [Model v4](#tab/nodejs-v4)
 
 ```typescript
 const client: DurableClient = df.getClient(context);
@@ -546,7 +544,7 @@ const status: DurableOrchestrationStatus = await client.getStatus('instanceId', 
 });
 ```
 
-# [v3 model](#tab/v3)
+# [Model v3](#tab/nodejs-v3)
 
 ```typescript
 const client: DurableOrchestrationClient = df.getClient(context);
@@ -796,7 +794,7 @@ If your orchestrations used the `callHttp` API, make sure to update these API ca
 
 :::zone pivot="programming-language-javascript"
 
-# [v4 model](#tab/v4)
+# [Model v4](#tab/nodejs-v4)
 
 ```javascript
 const restartResponse = yield context.df.callHttp({
@@ -807,7 +805,7 @@ const restartResponse = yield context.df.callHttp({
 });
 ```
 
-# [v3 model](#tab/v3)
+# [Model v3](#tab/nodejs-v3)
 
 ```javascript
 const response = yield context.df.callHttp(
@@ -825,7 +823,7 @@ const response = yield context.df.callHttp(
 
 :::zone pivot="programming-language-typescript"
 
-# [v4 model](#tab/v4)
+# [Model v4](#tab/nodejs-v4)
 
 ```typescript
 const restartResponse = yield context.df.callHttp({
@@ -836,7 +834,7 @@ const restartResponse = yield context.df.callHttp({
 });
 ```
 
-# [v3 model](#tab/v3)
+# [Model v3](#tab/nodejs-v3)
 
 ```javascript
 const response = yield context.df.callHttp(
@@ -875,7 +873,7 @@ Below are some of the new exported types:
 
 ## Troubleshooting
 
-If you see the following error when running your orchestration code, make sure you are running on at least `v4.16.5` of the [Azure Functions Runtime](../functions-versions.md?tabs=v4&pivots=programming-language-javascript) or at least `v4.0.5095` of [Azure Functions Core Tools](../functions-run-local.md?tabs=v4) if running locally.
+If you see the following error when running your orchestration code, make sure you are running on at least `v4.25` of the [Azure Functions Runtime](../functions-versions.md?tabs=v4&pivots=programming-language-javascript) or at least `v4.0.5382` of [Azure Functions Core Tools](../functions-run-local.md?tabs=v4) if running locally.
 
 ```bash
 Exception: The orchestrator can not execute without an OrchestratorStarted event.

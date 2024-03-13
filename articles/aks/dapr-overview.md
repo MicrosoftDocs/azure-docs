@@ -4,7 +4,6 @@ description: Learn more about using Dapr on your Azure Kubernetes Service (AKS) 
 ms.author: nickoman
 ms.topic: article
 ms.date: 07/07/2023
-ms.custom: event-tier1-build-2022
 ---
 
 # Dapr
@@ -75,9 +74,11 @@ Lastly, the Dapr extension is an extension of AKS, therefore you can expect the 
 
 [Learn more about migrating from Dapr OSS to the Dapr extension for AKS][dapr-migration].
 
-### How can I authenticate Dapr components with Azure AD using managed identities?
+<a name='how-can-i-authenticate-dapr-components-with-azure-ad-using-managed-identities'></a>
 
-- Learn how [Dapr components authenticate with Azure AD][dapr-msi].
+### How can I authenticate Dapr components with Microsoft Entra ID using managed identities?
+
+- Learn how [Dapr components authenticate with Microsoft Entra ID][dapr-msi].
 - Learn about [using managed identities with AKS][aks-msi].
 
 ### How can I switch to using the Dapr extension if I’ve already installed Dapr via a method, such as Helm?

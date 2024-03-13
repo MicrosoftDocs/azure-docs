@@ -33,6 +33,8 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
+          - text: Start a free trial
+            url: dynatrace-free-trial.md
           - text: Create a new Dynatrace resource
             url: dynatrace-create.md
           - text: Link to an existing Dynatrace environment

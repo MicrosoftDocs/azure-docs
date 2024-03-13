@@ -3,8 +3,11 @@ title: 'Tutorial: Send email with Azure Logic Apps'
 description: Learn how to invoke business processes from your App Service app. Send emails, tweets, and Facebook posts, add to mailing lists, and much more.
 ms.topic: tutorial
 ms.date: 04/08/2020
-ms.devlang: csharp, javascript, php, python, ruby
-ms.custom: "devx-track-csharp, mvc"
+ms.devlang: csharp
+# ms.devlang: csharp, javascript, php, python
+ms.custom: devx-track-csharp, mvc, AppServiceConnectivity
+author: cephalin
+ms.author: cephalin
 ---
 
 # Tutorial: Send email and invoke other business processes from App Service
@@ -41,10 +44,6 @@ Deploy an app with the language framework of your choice to App Service. To foll
 ### [Python](#tab/python)
 
 [Tutorial: Run a Python (Django) web app with PostgreSQL in Azure App Service](tutorial-python-postgresql-app.md)
-
-### [Ruby](#tab/ruby)
-
-[Build a Ruby and Postgres app in Azure App Service on Linux](tutorial-ruby-postgres-app.md)
 
 ---
 
@@ -118,7 +117,7 @@ Deploy an app with the language framework of your choice to App Service. To foll
 
 1. In the search box, search for **response**, then select the **Response** action.
 
-   ![Screenshot that shows the the search bar and Response action highlighted.](./media/tutorial-send-email/choose-response-action.png)
+   ![Screenshot that shows the search bar and Response action highlighted.](./media/tutorial-send-email/choose-response-action.png)
 
    By default, the response action sends an HTTP 200. That's good enough for this tutorial. For more information, see the [HTTP request/response reference](../connectors/connectors-native-reqres.md).
 
@@ -149,7 +148,7 @@ In your code, make a standard HTTP post to the URL using any HTTP client languag
 - The request contains the heading `Content-Type: application/json`. 
 - To optimize performance, send the request asynchronously if possible.
 
-Click on the preferred language/framework tab below to see an example.
+Select the preferred language/framework tab below to see an example.
 
 ### [ASP.NET](#tab/dotnet)
 
@@ -295,28 +294,11 @@ async with aiohttp.post('http://httpbin.org/post', data=json.dump(payload)) as r
 
 If you're testing this code on the sample app for [Tutorial: Run a Python (Django) web app with PostgreSQL in Azure App Service](tutorial-python-postgresql-app.md), you could use it to send an email confirmation in the [Route::post function](https://github.com/Azure-Samples/laravel-tasks/blob/master/routes/web.php#L30-L48), just before the return statement.
 
-### [Ruby](#tab/ruby)
-
-In Ruby, you can send the HTTP post easily with JSONClient. For example:
-
-```ruby
-clnt = JSONClient.new
-body = { 
-    'email' => 'a-valid@emailaddress.com',
-    'due' => '4/1/2020',
-    'task' => "My new task!"
-}
-
-connection = clnt.post_async(ENV['LOGIC_APP_URL'], body)
-```
-
-If you're testing this code on the sample app for [Build a Ruby and Postgres app in Azure App Service on Linux](tutorial-ruby-postgres-app.md), you could use it to send an email confirmation in the [create](https://github.com/Azure-Samples/rubyrails-tasks/blob/master/app/controllers/tasks_controller.rb#L26-L38) action, [when @task.save succeeds](https://github.com/Azure-Samples/rubyrails-tasks/blob/master/app/controllers/tasks_controller.rb#L30).
-
 ---
 
 ## Next steps
 
 - [Tutorial: Host a RESTful API with CORS in Azure App Service](app-service-web-tutorial-rest-api.md)
 - [HTTP request/response reference for Logic Apps](../connectors/connectors-native-reqres.md)
-- [Quickstart: Create an example Consumption workflow in multi-tenant Azure Logic Apps - Azure portal](../logic-apps/quickstart-create-example-consumption-workflow.md)
+- [Quickstart: Create an example Consumption workflow in multitenant Azure Logic Apps - Azure portal](../logic-apps/quickstart-create-example-consumption-workflow.md)
 - [Environment variables and app settings reference](reference-app-settings.md)

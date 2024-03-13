@@ -21,7 +21,7 @@ The application routing add-on exposes the Prometheus metrics endpoint at `/metr
 ## Prerequisites
 
 - An Azure Kubernetes Service (AKS) cluster with the [application routing add-on enabled][app-routing].
-- A Prometheus instance, such as [Azure Monitor managed service for Prometheus][managed-prometheus-configure].
+- A Prometheus instance, such as Azure Monitor managed service for Prometheus.
 - A Grafana instance, such as [Azure Managed Grafana][managed-grafana].
 
 ## Validating the metrics endpoint
@@ -58,7 +58,7 @@ You can now terminate the `port-forward` process to close the forwarding.
 
 ## Configuring Azure Monitor managed service for Prometheus and Azure Managed Grafana using Container Insights
 
-Azure Monitor managed service for Prometheus is a fully managed Prometheus-compatible service that supports industry standard features such as PromQL, Grafana dashboards, and Prometheus alerts. This service requires configuring the metrics addon for the Azure Monitor agent, which sends data to Prometheus. If your cluster isn't configured with the add-on, you can follow this article to [configure your Azure Kubernetes Service (AKS) cluster to send data to Azure Monitor managed service for Prometheus][managed-prometheus-configure] and send the collected metrics to [an Azure Managed Grafana instance][create-grafana].
+Azure Monitor managed service for Prometheus is a fully managed Prometheus-compatible service that supports industry standard features such as PromQL, Grafana dashboards, and Prometheus alerts. This service requires configuring the metrics addon for the Azure Monitor agent, which sends data to Prometheus. If your cluster isn't configured with the add-on, you can follow this article to configure your Azure Kubernetes Service (AKS) cluster to send data to Azure Monitor managed service for Prometheus and send the collected metrics to [an Azure Managed Grafana instance][create-grafana].
 
 ### Enable pod annotation based scraping
 
@@ -210,5 +210,5 @@ Then upload the desired dashboard file and click on **Load**.
 [external-dns]: https://github.com/kubernetes-incubator/external-dns
 [kubectl]: https://kubernetes.io/docs/reference/kubectl/
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
-[grafana-nginx-dashboard]: https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/grafana/dashboards/request-handling-performance.json
+[grafana-nginx-dashboard]: https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/grafana/dashboards/nginx.json
 [grafana-nginx-request-performance-dashboard]: https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/grafana/dashboards/request-handling-performance.json

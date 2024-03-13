@@ -9,7 +9,7 @@ ms.reviewer: larryfr
 ms.topic: reference
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 09/27/2022
+ms.date: 09/13/2023
 ms.metadata: product-dependency
 ---
 

@@ -1,12 +1,11 @@
 ---
-title: Monitoring Azure Stream Analytics data reference 
-description: Important reference material needed when you monitor Azure Stream Analytics 
+title: Monitoring Azure Stream Analytics data reference
+description: Important reference material needed when you monitor Azure Stream Analytics
 author: xujxu
 ms.author: xujiang1
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 07/10/2023
-ms.custom: seodec18
 ---
 
 # Monitoring Azure Stream Analytics data reference
@@ -65,4 +64,3 @@ See [all the possible resource provider operations in the activity log](/azure/r
 * [Analyze Stream Analytics job performance by using metrics and dimensions](./stream-analytics-job-analysis-with-metric-dimensions.md)
 * [Monitor a Stream Analytics job with the Azure portal](./stream-analytics-monitoring.md)
 * [Get started with Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-

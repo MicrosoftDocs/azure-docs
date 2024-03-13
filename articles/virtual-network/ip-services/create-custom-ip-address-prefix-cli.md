@@ -1,14 +1,14 @@
 ---
 title: Create a custom IPv4 address prefix - Azure CLI
 titleSuffix: Azure Virtual Network
-description: Learn about how to create a custom IP address prefix using the Azure CLI
-author: asudbring
+description: Learn how to create a custom IP address prefix using the Azure CLI
+author: mbender-ms
+ms.author: mbender
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 03/31/2022
-ms.author: allensu
+ms.date: 08/24/2023
 ---
 
 # Create a custom IPv4 address prefix using the Azure CLI
@@ -42,12 +42,12 @@ To utilize the Azure BYOIP feature, you must perform the following steps prior t
 
 ### Requirements and prefix readiness
 
-* The address range must be owned by you and registered under your name with the one of the 5 major Regional Internet Registries:
-      * [American Registry for Internet Numbers (ARIN)](https://www.arin.net/)
-      * [Réseaux IP Européens Network Coordination Centre (RIPE NCC)](https://www.ripe.net/)
-      * [Asia Pacific Network Information Centre Regional Internet Registries (APNIC)](https://www.apnic.net/)
-      * [Latin America and Caribbean Network Information Centre (LACNIC)](https://www.lacnic.net/)
-      * [African Network Information Centre (AFRINIC)](https://afrinic.net/)
+* The address range must be owned by you and registered under your name with the one of the five major Regional Internet Registries:
+    * [American Registry for Internet Numbers (ARIN)](https://www.arin.net/)
+    * [Réseaux IP Européens Network Coordination Centre (RIPE NCC)](https://www.ripe.net/)
+    * [Asia Pacific Network Information Centre Regional Internet Registries (APNIC)](https://www.apnic.net/)
+    * [Latin America and Caribbean Network Information Centre (LACNIC)](https://www.lacnic.net/)
+    * [African Network Information Centre (AFRINIC)](https://afrinic.net/)
 
 * The address range must be no smaller than a /24 so it will be accepted by Internet Service Providers.
 

@@ -16,7 +16,7 @@ The Azure Functions hosting plan you choose dictates the following behaviors:
 * The resources available to each function app instance.
 * Support for advanced functionality, such as Azure Virtual Network connectivity.
 
-In addition to Azure Functions hosting, you can also host containerized function apps in containers can also be deployed to Kubernetes clusters and to Azure Container Apps. If you choose to host your functions in a Kubernetes cluster, consider using an [Azure Arc-enabled Kubernetes cluster](../azure-arc/kubernetes/overview.md). To learn more about deploying custom container apps, see [Azure Container Apps hosting of Azure Functions](./functions-container-apps-hosting.md).  
+In addition to Azure Functions hosting, you can also host containerized function apps in containers that can be deployed to Kubernetes clusters or to Azure Container Apps. If you choose to host your functions in a Kubernetes cluster, consider using an [Azure Arc-enabled Kubernetes cluster](../azure-arc/kubernetes/overview.md). To learn more about deploying custom container apps, see [Azure Container Apps hosting of Azure Functions](./functions-container-apps-hosting.md).  
 
 This article provides a detailed comparison between the various hosting plans, including container-based hosting options.
 
@@ -102,7 +102,7 @@ In some cases, when trying to create a new hosting plan for your function app in
 
 This can happen when the following conditions are met:
 
-* You create a function app in an existing resource group that has ever contained another function app or web app.
+* You create a function app in an existing resource group that has ever contained another function app or web app. For example, Linux Consumption apps are not supported in the same resource group as Linux Dedicated or Linux Premium plans.
 * Your new function app is created in the same region as the previous app.
 * The previous app is in some way incompatible with your new app. This can happen between SKUs, operating systems, or due to other platform-level features, such as availability zone support.
 

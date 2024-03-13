@@ -31,13 +31,13 @@ Review the security design for the workspace and compare it with the information
 
 Serverless SQL pools and Apache Spark tables store their data in an Azure Data Lake Gen2 (ADLS Gen2) container that's associated with the workspace. User-installed Apache Spark libraries are also managed in this same storage account. To enable these use cases, both users and the workspace managed service identity (MSI) must be added to the **Storage Blob Data Contributor** role of the ADLS Gen2 storage container. Verify this requirement against your security requirements.
 
-Dedicated SQL pools provide a rich set of security features to encrypt and mask sensitive data. Both dedicated and serverless SQL pools enable the full surface area of SQL Server permissions including built-in roles, user-defined roles, SQL authentication, and Azure Active Directory (Azure AD) authentication. Review the security design for your solution's dedicated SQL pool and serverless SQL pool access and data.
+Dedicated SQL pools provide a rich set of security features to encrypt and mask sensitive data. Both dedicated and serverless SQL pools enable the full surface area of SQL Server permissions including built-in roles, user-defined roles, SQL authentication, and Microsoft Entra authentication. Review the security design for your solution's dedicated SQL pool and serverless SQL pool access and data.
 
 Review the security plan for your data lake and all the ADLS Gen2 storage accounts (and others) that will form part of your Azure Synapse Analytics solution. ADLS Gen2 storage isn't itself a compute engine and so it doesn't have a built-in ability to selectively mask data attributes. You can apply ADLS Gen2 permissions at the storage account or container level by using role-based access control (RBAC) and/or at the folder or file level by using access control lists (ACLs). Review the design carefully and strive to avoid unnecessary complexity.
 
 Here are some points to consider for the security design.
 
-- Make sure Azure AD set up requirements are included in the design.
+- Make sure Microsoft Entra ID set up requirements are included in the design.
 - Check for cross-tenant scenarios. Such issues may arise because some data is in another Azure tenant, or it needs to move to another tenant, or it needs to be accessed by users from another tenant. Ensure these scenarios are considered in your design.
 - What are the roles for each workspace? How will they use the workspace?
 - How is the security designed within the workspace?

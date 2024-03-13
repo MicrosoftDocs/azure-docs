@@ -6,7 +6,7 @@ ms.author: yexu
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: quickstart
-ms.date: 10/24/2022
+ms.date: 10/20/2023
 ms.custom: mode-other
 ---
 
@@ -100,5 +100,5 @@ The steps below will walk you through how to easily copy data with the copy data
 
 1. On the Activity runs page, select the **Details** link (eyeglasses icon) under the **Activity name** column for more details about copy operation. For details about the properties, see [Copy Activity overview](copy-activity-overview.md). 
 
-## Next steps
+## Related content
 The pipeline in this sample copies data from one location to another location in Azure Blob storage. To learn about using Data Factory in more scenarios, go through the [tutorials](tutorial-copy-data-portal.md). 

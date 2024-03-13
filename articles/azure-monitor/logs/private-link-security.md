@@ -28,7 +28,7 @@ For more information, see [Key benefits of Private Link](../../private-link/priv
 ## How it works: Main principles
 An Azure Monitor private link connects a private endpoint to a set of Azure Monitor resources made up of Log Analytics workspaces and Application Insights resources. That set is called an Azure Monitor Private Link Scope.
 
-![Diagram that shows basic resource topology.](./media/private-link-security/private-link-basic-topology.png)
+:::image type="content" source="./media/private-link-security/private-link-basic-topology.png" lightbox="./media/private-link-security/private-link-basic-topology.png" alt-text="Diagram that shows basic resource topology.":::
 
 An AMPLS:
 

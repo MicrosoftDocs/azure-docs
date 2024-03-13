@@ -1,6 +1,6 @@
 ---
 author: eric-urban
-ms.service: cognitive-services
+ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 01/24/2022
 ms.author: eur
@@ -88,7 +88,7 @@ If speaker identification or differentiate is enabled, then even if you have alr
     
     var speechTranslationConfig = sdk.SpeechTranslationConfig.fromSubscription(subscriptionKey, region);
     var audioConfig = sdk.AudioConfig.fromWavFileInput(fs.readFileSync(filepath));
-    speechTranslationConfig.setProperty("MeetingTranscriptionInRoomAndOnline", "true");
+    speechTranslationConfig.setProperty("ConversationTranscriptionInRoomAndOnline", "true");
 
     // en-us by default. Adding this code to specify other languages, like zh-cn.
     speechTranslationConfig.speechRecognitionLanguage = "en-US";
@@ -142,7 +142,3 @@ If speaker identification or differentiate is enabled, then even if you have alr
     });
 }()); 
 ```
-
-See more samples on GitHub:
-- [ROOBO device sample code](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Java/Android/Speech%20Devices%20SDK%20Starter%20App/example/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/sdsdkstarterapp/MeetingTranscription.java)
-- [Azure Kinect Dev Kit sample code](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Java/Windows_Linux/SampleDemo/src/com/microsoft/cognitiveservices/speech/samples/Cts.java)

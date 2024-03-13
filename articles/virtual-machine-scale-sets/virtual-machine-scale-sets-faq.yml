@@ -52,6 +52,15 @@ sections:
           Create and capture a VM image, and then use that as the source for your scale set. For a tutorial on how to create and use a custom VM image, you can use the [Azure CLI](tutorial-use-custom-image-cli.md) or [Azure PowerShell](tutorial-use-custom-image-powershell.md).
 
       - question: |
+          What is the difference betweeen OS Image Upgrade and Reimage?
+        answer: |
+          OS Image Upgrade is a gradual and non-disruptive process that updates the OS image for the entire Virtual Machine Scale Set over time, ensuring minimal impact on running workloads. 
+          
+          Reimage is a more immediate and disruptive action that affects only the selected VM instance, stopping it temporarily and reinstalling the OS.
+
+          Learn more about the [difference between OS Image Upgrade and Reimage](virtual-machine-scale-sets-automatic-upgrade.md#os-image-upgrade-versus-reimage).
+
+      - question: |
           If I reduce my scale set capacity from 20 to 15, which VMs are removed?
         answer: |
           By default, virtual machines are removed from the scale set evenly across availability zones (if the scale set is deployed in zonal configuration) and fault domains, to maximize availability. VMs with the highest IDs are removed first.
@@ -133,7 +142,7 @@ sections:
         answer: |
           You can create alerts on metrics for Virtual Machine Scale Sets via PowerShell or the Azure CLI. For more information, see [Azure Monitor PowerShell quickstart samples](../azure-monitor/powershell-samples.md#create-metric-alerts) and [Azure Monitor cross-platform CLI quickstart samples](../azure-monitor/cli-samples.md#work-with-alerts).
 
-          The `TargetResourceId` of the Virtual Machine Scale Set looks like this:
+          The `TargetResourceId` of the Virtual Machine Scale Set looks like:
 
           */subscriptions/yoursubscriptionid/resourceGroups/yourresourcegroup/providers/Microsoft.Compute/virtualMachineScaleSets/yourvmssname*
 
@@ -225,7 +234,7 @@ sections:
       - question: |
           How do I remove deprecated certificates?
         answer: |
-          To remove deprecated certificates, remove the old certificate from the vault certificates list. Leave all the certificates that you want to remain on your computer in the list. This doesn't remove the certificate from all your VMs. It also doesn't add the certificate to new VMs that are created in the Virtual Machine Scale Set.
+          To remove deprecated certificates, remove the old certificate from the vault certificates list. Leave all the certificates that you want to remain on your computer in the list. This action doesn't remove the certificate from all your VMs. It also doesn't add the certificate to new VMs that are created in the Virtual Machine Scale Set.
 
           To remove the certificate from existing VMs, use a custom script extension to manually remove the certificate from your certificate store.
 
@@ -260,7 +269,7 @@ sections:
       - question: |
           When I run `Update-AzVmss` after adding more than one certificate from the same key vault, why do I get an error message?
         answer: |
-          This can happen if you try to re-add the same vault instead of using a new vault certificate for the existing source vault. The `Add-AzVmssSecret` command doesn't work correctly if you're adding more secrets.
+          This error can happen if you try to re-add the same vault instead of using a new vault certificate for the existing source vault. The `Add-AzVmssSecret` command doesn't work correctly if you're adding more secrets.
 
           To add more secrets from the same key vault, update the following list: `$vmss.properties.osProfile.secrets[0].vaultCertificates`.
 
@@ -330,7 +339,7 @@ sections:
         answer: |
           The purpose is to make it clear to the user what certificate is deployed on their VMs.
 
-          If you create a VM and then update your secret in the key vault, the new certificate isn't downloaded to your VMs. But your VMs appear to reference it, and new VMs get the new secret. To avoid this, you're required to reference a secret version.
+          If you create a VM and then update your secret in the key vault, the new certificate isn't downloaded to your VMs. But your VMs appear to reference it, and new VMs get the new secret. To avoid this issue, you're required to reference a secret version.
 
       - question: |
           My team works with several certificates that are distributed to us as .cer public keys. What is the recommended approach for deploying these certificates to a Virtual Machine Scale Set?
@@ -556,7 +565,7 @@ sections:
       - question: |
           How do I do a virtual IP (VIP) swap for Virtual Machine Scale Sets in the same subscription and same region?
         answer: |
-          If you have two Virtual Machine Scale Sets with Azure Load Balancer, and they are in the same subscription and region, you can deallocate the public IP addresses from each one, and assign to the other. For more information, see [VIP swap: Blue-green deployment in Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/). This does imply a delay, though, because the resources are deallocated or allocated at the network level. A faster option is to use Azure Application Gateway with two back-end pools, and a routing rule. Alternatively, you can host your application with [Azure App Service](https://azure.microsoft.com/services/app-service/), which supports fast switching between staging and production slots.
+          If you have two Virtual Machine Scale Sets with Azure Load Balancer, and they are in the same subscription and region, you can deallocate the public IP addresses from each one, and assign to the other. For more information, see [VIP swap: Blue-green deployment in Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/). You may experience a delay, though, because the resources are deallocated or allocated at the network level. A faster option is to use Azure Application Gateway with two back-end pools, and a routing rule. Alternatively, you can host your application with [Azure App Service](https://azure.microsoft.com/services/app-service/), which supports fast switching between staging and production slots.
 
       - question: |
           How do I specify a range of private IP addresses to use for static private IP address allocation?
@@ -767,7 +776,7 @@ sections:
         answer: |
           Gaps are because your Virtual Machine Scale Set `overprovision` property is set to the default value of `true`. If overprovisioning is set to `true`, more VMs than requested are created. Extra VMs are then deleted. In this case, you gain increased deployment reliability, but at the expense of contiguous naming and contiguous network address translation (NAT) rules.
 
-          You can set this property to `false`. For small Virtual Machine Scale Sets, this doesn't significantly affect deployment reliability.
+          You can set this property to `false`. For small Virtual Machine Scale Sets, deployment reliability won't be significantly affected.
 
       - question: |
           What's the difference between deleting a VM in a Virtual Machine Scale Set and deallocating the VM? When should I choose one over the other?
@@ -777,7 +786,7 @@ sections:
           - You want to stop paying compute costs, but you want to keep the disk state of the VMs.
           - You want to start a set of VMs more quickly than you can scale out a Virtual Machine Scale Set.
             - Related to this scenario, you might have created your own autoscale engine and want a faster end-to-end scale.
-          - You have a Virtual Machine Scale Set that is unevenly distributed across fault domains or update domains. This might be because you selectively deleted VMs, or because VMs were deleted after overprovisioning. Running `stop deallocate` followed by `start` on the Virtual Machine Scale Set evenly distributes the VMs across fault domains or update domains.
+          - You have a Virtual Machine Scale Set that is unevenly distributed across fault domains or update domains. This uneven distribution might be because you selectively deleted VMs, or because VMs were deleted after overprovisioning. Running `stop deallocate` followed by `start` on the Virtual Machine Scale Set evenly distributes the VMs across fault domains or update domains.
 
       - question: |
           How do I take a snapshot of a Virtual Machine Scale Set instance?

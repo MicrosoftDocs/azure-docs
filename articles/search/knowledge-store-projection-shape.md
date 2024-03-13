@@ -1,17 +1,19 @@
 ---
-title: Shaping data for knowledge store 
-titleSuffix: Azure Cognitive Search
+title: Shaping data for knowledge store
+titleSuffix: Azure AI Search
 description: Define the data structures in a knowledge store by creating data shapes and passing them to a projection.
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 01/31/2023
 ---
 
 # Shaping data for projection into a knowledge store
 
-In Azure Cognitive Search, "shaping data" describes a step in the [knowledge store workflow](knowledge-store-concept-intro.md) that creates a data representation of the content that you want to project into tables, objects, and files in Azure Storage.
+In Azure AI Search, "shaping data" describes a step in the [knowledge store workflow](knowledge-store-concept-intro.md) that creates a data representation of the content that you want to project into tables, objects, and files in Azure Storage.
 
 As skills execute, the outputs are written to an enrichment tree in a hierarchy of nodes, and while you might want to view and consume the enrichment tree in its entirety, it's more likely that you'll want a finer grain, creating subsets of nodes for different scenarios, such as placing the nodes related to translated text or extracted entities in specific tables.
 

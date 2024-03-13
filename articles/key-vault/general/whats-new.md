@@ -3,12 +3,10 @@ title: What's new for Azure Key Vault
 description: Recent updates for Azure Key Vault
 services: key-vault
 author: msmbaldwin
-tags: azure-resource-manager
-
 ms.service: key-vault
 ms.subservice: general
 ms.topic: reference
-ms.date: 01/17/2023
+ms.date: 01/30/2024
 ms.author: mbaldwin
 
 #Customer intent: As an Azure Key Vault administrator, I want to react to soft-delete being turned on for all key vaults.
@@ -116,7 +114,7 @@ Private endpoints now available in preview. Azure Private Link Service enables y
 - Release of the next-generation Azure Key Vault SDKs. For examples of their use, see the Azure Key Vault secret quickstarts for [Python](../secrets/quick-create-python.md), [.NET](../secrets/quick-create-net.md), [Java](../secrets/quick-create-java.md), and [Node.js](../secrets/quick-create-node.md)
 - New Azure policies to manage key vault certificates. See the [Azure Policy built-in definitions for Key Vault](../policy-reference.md).
 - Azure Key Vault Virtual Machine extension now generally available.  See [Key Vault virtual machine extension for Linux](../../virtual-machines/extensions/key-vault-linux.md) and [Key Vault virtual machine extension for Windows](../../virtual-machines/extensions/key-vault-windows.md).
-- Event-driven secrets management for Azure Key Vault now available in Azure Event Grid. For more information, see [the Event Grid schema for events in Azure Key Vault](../../event-grid/event-schema-key-vault.md], and learn how to [Receive and respond to key vault notifications with Azure Event Grid](event-grid-tutorial.md).
+- Event-driven secrets management for Azure Key Vault now available in Azure Event Grid. For more information, see [the Event Grid schema for events in Azure Key Vault](../../event-grid/event-schema-key-vault.md), and learn how to [Receive and respond to key vault notifications with Azure Event Grid](event-grid-tutorial.md).
 
 ## 2018
 

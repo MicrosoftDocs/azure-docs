@@ -78,7 +78,7 @@ The following example first establishes a connection to Azure Storage using the 
 
 ```powershell
 $queueName = "howtoqueue"
-$queue = New-AzStorageQueue –Name $queueName -Context $ctx
+$queue = New-AzStorageQueue -Name $queueName -Context $ctx
 ```
 
 For information on naming conventions for Azure Queue Storage, see [Naming queues and metadata](/rest/api/storageservices/naming-queues-and-metadata).
@@ -89,7 +89,7 @@ You can query and retrieve a specific queue or a list of all the queues in a sto
 
 ```powershell
 # Retrieve a specific queue
-$queue = Get-AzStorageQueue –Name $queueName –Context $ctx
+$queue = Get-AzStorageQueue -Name $queueName -Context $ctx
 # Show the properties of the queue
 $queue
 
@@ -163,7 +163,7 @@ To delete a queue and all the messages contained in it, call the `Remove-AzStora
 
 ```powershell
 # Delete the queue
-Remove-AzStorageQueue –Name $queueName –Context $ctx
+Remove-AzStorageQueue -Name $queueName -Context $ctx
 ```
 
 ## Clean up resources

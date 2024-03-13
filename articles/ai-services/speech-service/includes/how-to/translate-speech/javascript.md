@@ -1,8 +1,8 @@
 ---
 author: eric-urban
-ms.service: cognitive-services
+ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 07/14/2020
+ms.date: 1/21/2024
 ms.author: eur
 ms.custom: devx-track-js
 ---
@@ -33,7 +33,7 @@ const speechTranslationConfig = SpeechTranslationConfig.fromSubscription("YourSu
 
 ## Initialize a translator
 
-After you've created a [`SpeechTranslationConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechtranslationconfig) instance, the next step is to initialize [`TranslationRecognizer`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer). When you initialize `TranslationRecognizer`, you need to pass it your `speechTranslationConfig` instance. The configuration object provides the credentials that the translation service requires to validate your request.
+After you created a [`SpeechTranslationConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechtranslationconfig) instance, the next step is to initialize [`TranslationRecognizer`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer). When you initialize `TranslationRecognizer`, you need to pass it your `speechTranslationConfig` instance. The configuration object provides the credentials that the translation service requires to validate your request.
 
 If you're translating speech provided through your device's default microphone, here's what `TranslationRecognizer` should look like:
 

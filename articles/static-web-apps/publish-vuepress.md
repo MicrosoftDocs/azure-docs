@@ -5,14 +5,14 @@ services: static-web-apps
 author: aaronpowell
 ms.service: static-web-apps
 ms.topic: tutorial
-ms.date: 05/11/2021
+ms.date: 01/10/2024
 ms.author: aapowell
 ms.custom:
 ---
 
 # Tutorial: Publish a VuePress site to Azure Static Web Apps
 
-This article demonstrates how to create and deploy a [VuePress](https://vuepress.vuejs.org/) web application to [Azure Azure Static Web Apps](overview.md). The final result is a new Azure Static Web Apps application with the associated GitHub Actions that give you control over how the app is built and published.
+This article demonstrates how to create and deploy a [VuePress](https://vuepress.vuejs.org/) web application to [Azure Static Web Apps](overview.md). The final result is a new Azure Static Web Apps application with the associated GitHub Actions that give you control over how the app is built and published.
 
 In this tutorial, you learn how to:
 

@@ -2,8 +2,8 @@
 title: Add a symbol layer to iOS maps
 titleSuffix: Microsoft Azure Maps
 description: Learn how to add a marker to a map. See an example that uses the Azure Maps iOS SDK to add a symbol layer that contains point-based data from a data source.
-author: dubiety
-ms.author: yuchungchen 
+author: sinnypan
+ms.author: sipa
 ms.date: 11/19/2021
 ms.topic: how-to
 ms.service: azure-maps

@@ -62,14 +62,14 @@ You see the number of analytics rules in Microsoft Sentinel, by enabled, disable
 
 ## Use workbooks templates<a name="dashboards"></a>
 
-Workbook templates provide integrated data from your connected data sources to let you deep dive into the events generated in those services. Workbook templates include Azure Active Directory (Azure AD), Azure activity events, and on-premises, which can be data from Windows Events from servers, from first party alerts, from any third-party including firewall traffic logs, Office 365, and insecure protocols based on Windows events. The workbooks are based on Azure Monitor Workbooks to provide you with enhanced customizability and flexibility in designing your own workbook. For more information, see [Workbooks](../azure-monitor/visualize/workbooks-overview.md).
+Workbook templates provide integrated data from your connected data sources to let you deep dive into the events generated in those services. Workbook templates include Microsoft Entra ID, Azure activity events, and on-premises, which can be data from Windows Events from servers, from first party alerts, from any third-party including firewall traffic logs, Office 365, and insecure protocols based on Windows events. The workbooks are based on Azure Monitor Workbooks to provide you with enhanced customizability and flexibility in designing your own workbook. For more information, see [Workbooks](../azure-monitor/visualize/workbooks-overview.md).
 
 1. Under **Settings**, select **Workbooks**. Under **My workbooks**, you can see all your saved workbook. Under **Templates**, you can see the workbooks templates that are installed. To find more workbook templates, go to the **Content hub** in Microsoft Sentinel to install product solutions or standalone content.
 2. Search for a specific workbook to see the whole list and description of what each offers. 
-3. Assuming you use Azure AD, to get up and running with Microsoft Sentinel, we recommend that you install the Azure AD solution for Microsoft Sentinel and use the following workbooks:
-   - **Azure AD**: Use either or both of the following:
-       - **Azure AD sign-ins** analyzes sign-ins over time to see if there are anomalies. This workbooks provides failed sign-ins by applications, devices, and locations so that you can notice, at a glance if something unusual happens. Pay attention to multiple failed sign-ins. 
-       - **Azure AD audit logs** analyzes admin activities, such as changes in users (add, remove, etc.), group creation, and modifications.  
+3. Assuming you use Microsoft Entra ID, to get up and running with Microsoft Sentinel, we recommend that you install the Microsoft Entra solution for Microsoft Sentinel and use the following workbooks:
+   - **Microsoft Entra ID**: Use either or both of the following:
+       - **Microsoft Entra sign-ins** analyzes sign-ins over time to see if there are anomalies. This workbooks provides failed sign-ins by applications, devices, and locations so that you can notice, at a glance if something unusual happens. Pay attention to multiple failed sign-ins. 
+       - **Microsoft Entra audit logs** analyzes admin activities, such as changes in users (add, remove, etc.), group creation, and modifications.  
 
    - Install the appropriate solution to add a workbook for your firewall. For example, install the Palo Alto firewall solution for Microsoft Sentinel to add the Palo Alto workbooks. The workbooks analyze your firewall traffic, providing you with correlations between your firewall data and threat events, and highlights suspicious events across entities. Workbooks provide you with information about trends in your traffic and let you drill down into and filter results. 
 
@@ -108,7 +108,7 @@ SecurityEvent
 | extend Week = iff(TimeGenerated>ago(7d), "This Week", "Last Week"), TimeGenerated = iff(TimeGenerated>ago(7d), TimeGenerated, TimeGenerated + 7d)
 ```
 
-You might want to create a query that incorporates data from multiples sources. You can create a query that looks at Azure Active Directory audit logs for new users that were just created, and then checks your Azure logs to see if the user started making role assignment changes within 24 hours of creation. That suspicious activity would show up on this dashboard:
+You might want to create a query that incorporates data from multiples sources. You can create a query that looks at Microsoft Entra audit logs for new users that were just created, and then checks your Azure logs to see if the user started making role assignment changes within 24 hours of creation. That suspicious activity would show up on this dashboard:
 
 ```console
 AuditLogs
@@ -120,7 +120,7 @@ AuditLogs
 | project-away user1
 ```
 
-You can create different workbooks based on role of person looking at the data and what they're looking for. For example, you can create a workbook for your network admin that includes the firewall data. You can also create workbooks based on how frequently you want to look at them, whether there are things you want to review daily, and others items you want to check once an hour, for example, you might want to look at your Azure AD sign-ins every hour to search for anomalies. 
+You can create different workbooks based on role of person looking at the data and what they're looking for. For example, you can create a workbook for your network admin that includes the firewall data. You can also create workbooks based on how frequently you want to look at them, whether there are things you want to review daily, and others items you want to check once an hour, for example, you might want to look at your Microsoft Entra sign-ins every hour to search for anomalies. 
 
 ## Create new detections
 

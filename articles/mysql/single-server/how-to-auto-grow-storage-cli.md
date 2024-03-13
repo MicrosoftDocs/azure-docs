@@ -4,8 +4,8 @@ description: This article describes how you can enable auto grow storage using t
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: how-to
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.custom: devx-track-azurecli
 ms.date: 06/20/2022
 ---

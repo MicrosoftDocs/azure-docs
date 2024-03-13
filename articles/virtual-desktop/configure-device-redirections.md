@@ -3,9 +3,8 @@ title: Configure device redirection - Azure
 description: How to configure device redirection for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/06/2023
+ms.date: 01/08/2024
 ms.author: helohr
-manager: femila
 ---
 # Configure device redirection
 
@@ -69,14 +68,12 @@ Set the following RDP property to configure COM port redirection:
 ### USB redirection
 
 >[!IMPORTANT]
->To redirect a mass storage USB device connected to your local computer to a remote session host that uses a supported operating system for Azure Virtual Desktop, you'll need to configure the **Drive/storage redirection** RDP property. Enabling the **USB redirection** RDP property by itself won't work.
-
+>To redirect a mass storage USB device connected to your local computer to a remote session host that uses a supported operating system for Azure Virtual Desktop, you'll need to configure the **Drive/storage redirection** RDP property. Enabling the **USB redirection** RDP property by itself won't work. For more information, see [Local drive redirection](#local-drive-redirection).
+  
 To configure the property, open the Azure portal and set the following RDP property to enable USB device redirection:
 
 - `usbdevicestoredirect:s:*` enables USB device redirection for all supported devices on the client.
 - `usbdevicestoredirect:s:` disables USB device redirection.
-
-For more information, see [Local drive redirection](#local-drive-redirection).
 
 In order to use USB redirection, you'll need to enable Plug and Play device redirection on your session host first. To enable Plug and Play:
 
@@ -172,55 +169,50 @@ Set the following RDP property to configure WebAuthn redirection:
 - `redirectwebauthn:i:1` enables WebAuthn redirection.
 - `redirectwebauthn:i:0` disables WebAuthn redirection.
 
-When enabled, WebAuthn requests from the session are sent to the local PC to be completed using the local Windows Hello for Business or security devices like FIDO keys. For more information, see [In-session passwordless authentication](authentication.md#in-session-passwordless-authentication-preview).
+When enabled, WebAuthn requests from the session are sent to the local PC to be completed using the local Windows Hello for Business or security devices like FIDO keys. For more information, see [In-session passwordless authentication](authentication.md#in-session-passwordless-authentication).
 
-## Disable drive redirection
+## Disable redirection on the local device
 
-If you're making RDP connections from personal resources to corporate ones on the Terminal Server or Windows Desktop clients, you can disable drive redirection for security purposes. To disable drive redirection:
+If you're connecting from personal resources to corporate ones using the Windows Desktop clients, you can disable drive, printer, and clipboard redirection on your local device for security purposes by overriding the configuration from your administrator.
 
-1. Open the **Registry Editor (regedit)**.
+### Disable drive redirection
 
-2. Go to **HKEY_LOCAL_MACHINE** > **SOFTWARE** > **Microsoft** > **Terminal Server Client**.
-
-3. Create the following registry key:
-
-   - **Key**: HKLM\\Software\\Microsoft\\Terminal Server Client
-   - **Type**: REG_DWORD
-   - **Name**: DisableDriveRedirection
-
-4. Set the value of the registry key to **0**.
-
-## Disable printer redirection
-
-If you're making RDP connections from personal resources to corporate ones on the Terminal Server or Windows Desktop clients, you can disable printer redirection for security purposes. To disable printer redirection:
+To disable drive redirection:
 
 1. Open the **Registry Editor (regedit)**.
 
-1. Go to **HKEY_LOCAL_MACHINE** > **SOFTWARE** > **Microsoft** > **Terminal Server Client**.
+1. Go to the following registry key and create or set the value:
 
-1. Create the following registry key:
+   - **Key**: `HKLM\Software\Microsoft\Terminal Server Client`
+   - **Type**: `REG_DWORD`
+   - **Value name**: `DisableDriveRedirection`
+   - **Value data**: `1`
 
-   - **Key**: HKLM\\Software\\Microsoft\\Terminal Server Client
-   - **Type**: REG_DWORD
-   - **Name**: DisablePrinterRedirection
+### Disable printer redirection
 
-1. Set the value of the registry key to **0**.
-
-## Disable clipboard redirection
-
-If you're making RDP connections from personal resources to corporate ones on the Terminal Server or Windows Desktop clients, you can disable clipboard redirection for security purposes. To disable clipboard redirection:
+To disable printer redirection:
 
 1. Open the **Registry Editor (regedit)**.
 
-1. Go to **HKEY_LOCAL_MACHINE** > **SOFTWARE** > **Microsoft** > **Terminal Server Client**.
+1. Go to the following registry key and create or set the value:
 
-1. Create the following registry key:
+   - **Key**: `HKLM\Software\Microsoft\Terminal Server Client`
+   - **Type**: `REG_DWORD`
+   - **Value name**: `DisablePrinterRedirection`
+   - **Value data**: `1`
 
-   - **Key**: HKLM\\Software\\Microsoft\\Terminal Server Client
-   - **Type**: REG_DWORD
-   - **Name**: DisableClipboardRedirection
+### Disable clipboard redirection
 
-1. Set the value of the registry key to **0**.
+To disable clipboard redirection:
+
+1. Open the **Registry Editor (regedit)**.
+
+1. Go to the following registry key and create or set the value:
+
+   - **Key**: `HKLM\Software\Microsoft\Terminal Server Client`
+   - **Type**: `REG_DWORD`
+   - **Value name**: `DisableClipboardRedirection`
+   - **Value data**: `1`
 
 ## Next steps
 

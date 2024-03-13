@@ -12,7 +12,7 @@ ms.subservice: calling
 ---
 
 iOS WKWebView allows you to embed web content seamlessly into your app UI.
-If you want to develop an ACS calling application on iOS, besides using the Azure Communication Calling iOS SDK, you can also use Azure Communication Calling Web SDK with iOS WKWebView. In this quickstart, you'll learn how to run webapps developed with the Azure Communication Calling Web SDK in an iOS WKWebView environment.
+If you want to develop an Azure Communication Services calling application on iOS, besides using the Azure Communication Calling iOS SDK, you can also use Azure Communication Calling Web SDK with iOS WKWebView. In this quickstart, you'll learn how to run webapps developed with the Azure Communication Calling Web SDK in an iOS WKWebView environment.
 
 ## Prerequisites
 [!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
@@ -21,7 +21,7 @@ If you want to develop an ACS calling application on iOS, besides using the Azur
 - [XCode](https://developer.apple.com/xcode/), for creating your iOS application.
 - A web application using the Azure Communication Calling Web SDK. [Get started with the web calling sample](../../../../samples/web-calling-sample.md).
 
-This quickstart guide assumes that you're familiar with iOS application development. We'll mention the necessary configuration and tips when developing iOS WKWebView application for ACS Calling SDK.
+This quickstart guide assumes that you're familiar with iOS application development. We'll mention the necessary configuration and tips when developing iOS WKWebView application for Azure Communication Services Calling SDK.
 
 ## Add keys in Info.plist
 
@@ -115,7 +115,7 @@ let webView = WKWebView(frame: CGRect(), configuration: configuration)
 
 ### Microphone is muted when app goes to background
 When a user locks the screen or WkWebView app goes to background, the microphone input will be muted until the app comes back to foreground.
-This is iOS WkWebView system behavior, and the microphone isn't muted by ACS Calling Web SDK.
+This is iOS WkWebView system behavior, and the microphone isn't muted by Azure Communication Services Calling Web SDK.
 
 ### Connection drops soon after the app goes to background
 This is also iOS app behavior. When we switch to other audio/video app, the connection will drop around 30 seconds later.

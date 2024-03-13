@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/31/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -22,7 +23,7 @@ When ``OFFSET LIMIT`` is used with an ``ORDER BY`` clause, the result set is pro
 
 ## Syntax
 
-```sql  
+```nosql  
 OFFSET <offset_amount> LIMIT <limit_amount>
 ```  
 
@@ -41,7 +42,7 @@ For the example in this section, this reference set of items is used. Each item 
 
 This example includes a query using the ``OFFSET LIMIT`` clause to return a subset of the matching items by skipping **one** item and taking the next **three**.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/offset-limit/query.sql" range="1-5,8-10" highlight="8":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/offset-limit/query.sql" range="1-5,8-10" highlight="8":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/offset-limit/result.json":::
 
@@ -51,7 +52,7 @@ This example includes a query using the ``OFFSET LIMIT`` clause to return a subs
 - The RU charge of a query with ``OFFSET LIMIT`` increases as the number of terms being offset increases. For queries that have [multiple pages of results](pagination.md), we typically recommend using [continuation tokens](pagination.md#continuation-tokens). Continuation tokens are a "bookmark" for the place where the query can later resume. If you use ``OFFSET LIMIT``, there's no "bookmark." If you wanted to return the query's next page, you would have to start from the beginning.
 - You should use ``OFFSET LIMIT`` for cases when you would like to skip items entirely and save client resources. For example, you should use ``OFFSET LIMIT`` if you want to skip to the 1000th query result and have no need to view results 1 through 999. On the backend, ``OFFSET LIMIT`` still loads each item, including those items that are skipped. The performance advantage is measured in reducing client resources by avoiding processing items that aren't needed.
 
-## Next steps
+## Related content
 
 - [``GROUP BY`` clause](group-by.md)
 - [``ORDER BY`` clause](order-by.md)

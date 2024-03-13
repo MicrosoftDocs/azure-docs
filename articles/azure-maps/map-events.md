@@ -2,8 +2,8 @@
 title: Handle map events
 titleSuffix: Microsoft Azure Maps
 description: Learn which events are fired when users interact with maps. View a list of all supported map events. See how to use the Azure Maps Web SDK to handle events.
-author: dubiety
-ms.author: yuchungchen
+author: sinnypan
+ms.author: sipa
 ms.date: 06/12/2023
 ms.topic: how-to
 ms.service: azure-maps
@@ -20,8 +20,7 @@ The [Map Events] sample highlights the name of the events that are firing as you
 :::image type="content" source="./media/map-events/map-events.png"alt-text="A screenshot showing a map with a list of map events that are highlighted anytime your actions on the map trigger that event.":::
 
 <!-----------------------------------------------------------------------
-<iframe height='600' scrolling='no' title='Interacting with the map – mouse events' src='//codepen.io/azuremaps/embed/bLZEWd/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/bLZEWd/'>Interact with the map – mouse events</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/bLZEWd/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 ----------------------------------------------------------------------->
 
 ## Interact with map layers
@@ -31,8 +30,7 @@ The [Layer Events] sample highlights the name of the events that are firing as y
 :::image type="content" source="./media/map-events/layer-events.png"alt-text="A screenshot showing a map with a list of layer events that are highlighted anytime you interact with the Symbol Layer.":::
 
 <!-----------------------------------------------------------------------
-<iframe height='600' scrolling='no' title='Interacting with the map – Layer Events' src='//codepen.io/azuremaps/embed/bQRRPE/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/bQRRPE/'>Interacting with the map – Layer Events</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/bQRRPE/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 ----------------------------------------------------------------------->
 
 ## Interact with HTML Marker
@@ -42,8 +40,7 @@ The [HTML marker layer events] sample highlights the name of the events that are
 :::image type="content" source="./media/map-events/html-marker-layer-events.png"alt-text="A screenshot showing a map with a list of HTML marker layer events that are highlighted anytime your actions on the map trigger that event.":::
 
 <!-----------------------------------------------------------------------
-<iframe height='500' scrolling='no' title='Interacting with the map - HTML Marker events' src='//codepen.io/azuremaps/embed/VVzKJY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/VVzKJY/'>Interacting with the map - HTML Marker events</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/VVzKJY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 ----------------------------------------------------------------------->
 
 The following table lists all supported map class events.
@@ -97,7 +94,7 @@ The following table lists all supported map class events.
 | `sourceremoved`     | Fired when a `DataSource` or `VectorTileSource` is removed from the map.|
 | `styledata`         | Fired when the map's style loads or changes.|
 | `styleimagemissing` | Fired when a layer tries to load an image from the image sprite that doesn't exist |
-| `tokenacquired`     | Fired when an Azure Active Directory access token is obtained.|
+| `tokenacquired`     | Fired when a Microsoft Entra access token is obtained.|
 | `touchcancel`       | Fired when a `touchcancel` event occurs within the map.|
 | `touchend`          | Fired when a `touchend` event occurs within the map.|
 | `touchmove`         | Fired when a `touchmove` event occurs within the map.|

@@ -10,7 +10,7 @@ author: amibp
 ms.reviewer: ssalgado
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, sdkv1
 ---
 
 [//]: # (needs PM review; Do URL Links names change if it includes 'Run')
@@ -140,8 +140,6 @@ compute_target.wait_for_completion(show_output=True, min_node_count=None)
 # use get_status() to get a detailed status for the current cluster. 
 # print(compute_target.get_status().serialize())
 ```
-
-[!INCLUDE [low-pri-note](../includes/machine-learning-low-pri-vm.md)]
 
 ### Configure and submit training job
 

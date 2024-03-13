@@ -63,7 +63,7 @@
       href: documentation-government-get-started-connect-to-storage.md
     - name: Azure AI services
       href: documentation-government-cognitiveservices.md
-    - name: Integrate Azure AD authentication
+    - name: Integrate Microsoft Entra authentication
       href: documentation-government-aad-auth-qs.md
     - name: SQL Server Management Studio
       href: documentation-government-connect-ssms.md

@@ -10,7 +10,7 @@ ms.service: microsoft-sentinel
 
 # Prioritize your data connectors for Microsoft Sentinel
 
-In this article, you learn how to plan and prioritize which data sources to use for your Microsoft Sentinel deployment.
+In this article, you learn how to plan and prioritize which data sources to use for your Microsoft Sentinel deployment. This article is part of the [Deployment guide for Microsoft Sentinel](deploy-overview.md).
 
 ## Determine which connectors you need
 

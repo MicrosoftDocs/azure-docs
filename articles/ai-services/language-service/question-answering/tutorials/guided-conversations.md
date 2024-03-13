@@ -1,13 +1,12 @@
 ---
 title: Add guided conversations with multi-turn prompts
 description: In this tutorial, learn how to make guided conversations with multi-turn prompts.
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: tutorial
 author: jboback
 ms.author: jboback
-ms.date: 11/02/2021
-ms.custom: language-service-question-answering, ignite-fall-2021
+ms.date: 12/19/2023
+ms.custom: language-service-question-answering
 ---
 
 # Add guided conversations with multi-turn prompts
@@ -23,13 +22,13 @@ In this tutorial, you learn how to:
 
  In this tutorial, we use [Surface Pen FAQ](https://support.microsoft.com/surface/how-to-use-your-surface-pen-8a403519-cd1f-15b2-c9df-faa5aa924e98) to create a project.
 
-If you have never created a question answering project before we recommend starting with the [getting started](../how-to/create-test-deploy.md) article, which will take you step-by-step through the process.
+If you have never created a custom question answering project before we recommend starting with the [getting started](../how-to/create-test-deploy.md) article, which will take you step-by-step through the process.
 
 ## View question answer pair context
 
 For this example, let's assume that users are asking for additional details about the Surface Pen product, particularly how to troubleshoot their Surface Pen, but they are not getting the correct answers. So, we add more prompts to support additional scenarios and guide the users to the correct answers using multi-turn prompts.
 
-Multi-turn prompts that are associated with question and answer pairs, can be viewed by selecting **Show columns** > **Context**. By default this should already be enabled on the **Edit project** page in the Language Studio question answering interface.
+Multi-turn prompts that are associated with question and answer pairs, can be viewed by selecting **Show columns** > **Context**. By default this should already be enabled on the **Edit project** page in the Language Studio custom question answering interface.
 
 > [!div class="mx-imgBorder"]
 > [ ![Screenshot of show columns UI with context highlighted in red]( ../media/guided-conversations/context.png) ]( ../media/guided-conversations/context.png#lightbox)
@@ -90,4 +89,3 @@ Using the editor, we add a new QnA pair with a follow-up prompt by clicking on *
     > [ ![Screenshot of chat test UI]( ../media/guided-conversations/test.png) ]( ../media/guided-conversations/test.png#lightbox)
 
 ## Next steps
-

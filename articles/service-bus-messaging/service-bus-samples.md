@@ -4,12 +4,14 @@ description: Azure Service Bus messaging samples or examples that demonstrate ke
 author: spelluru
 ms.topic: article
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
-ms.date: 10/19/2022
+ms.date: 11/28/2023
 ms.author: spelluru
 ---
 
 # Service Bus messaging samples or examples
-The Service Bus messaging samples demonstrate key features in [Service Bus messaging](https://azure.microsoft.com/services/service-bus/). Currently, you can find the samples in the following places:
+The Service Bus messaging samples demonstrate key features in [Service Bus messaging](https://azure.microsoft.com/services/service-bus/). Currently, you can find the samples in the following places.
+
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
 
 ## .NET samples
 

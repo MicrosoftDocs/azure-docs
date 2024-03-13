@@ -2,14 +2,13 @@
 title: Integrate custom question answering and conversational language understanding with orchestration workflow
 description: Learn how to connect different projects with orchestration workflow. 
 keywords: conversational language understanding, bot framework, bot, language understanding, nlu
-author: aahill
-ms.author: aahi
+author: jboback
+ms.author: jboback
 manager: nitinme
 ms.reviewer: cahann, hazemelh
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: tutorial
-ms.date: 05/25/2022
+ms.date: 12/19/2023
 ---
 
 # Connect different services with Orchestration workflow

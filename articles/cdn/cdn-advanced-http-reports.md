@@ -6,8 +6,6 @@ author: duongau
 manager: kumudd
 ms.assetid: ef90adc1-580e-4955-8ff1-bde3f3cafc5d
 ms.service: azure-cdn
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 02/27/2023
 ms.author: duau

@@ -1,12 +1,13 @@
 ---
 title: Ransomware protection in Azure
 description: Ransomware protection in Azure
-author: msmbaldwin
+author: TerryLanfear
+manager: rkarlin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.author: mbaldwin
-ms.date: 01/10/2022
+ms.author: terrylan
+ms.date: 8/31/2023
 
 ---
 
@@ -22,7 +23,7 @@ This article lays out key Azure native capabilities and defenses for ransomware 
 
 ## A growing threat
 
-Ransomware attacks have become one of the biggest security challenges facing businesses today. When successful, ransomware attacks can cripple a business core IT infrastructure, and cause destruction that could have a debilitating impact on the physical, economic security or safety of a business. Ransomware attacks are targeted to businesses of all types. This requires that all businesses take preventive measures to ensure protection.
+Ransomware attacks have become one of the biggest security challenges facing businesses today. When successful, ransomware attacks can disable a business core IT infrastructure, and cause destruction that could have a debilitating impact on the physical, economic security or safety of a business. Ransomware attacks are targeted to businesses of all types. This requires that all businesses take preventive measures to ensure protection.
 
 Recent trends on the number of attacks are quite alarming. While 2020 wasn't a good year for ransomware attacks on businesses, 2021 started on a bad trajectory.  On May 7, the Colonial pipeline (Colonial) attack shut down services such as pipeline transportation of diesel, gasoline, and jet fuel were temporary halted. Colonial shut the critical fuel network supplying the populous eastern states.
 

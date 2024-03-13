@@ -6,10 +6,8 @@ author: MartinPankraz
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 07/19/2022
 ms.author: mapankra
-
 ---
 # Expose SAP legacy middleware securely with Azure PaaS
 
@@ -89,7 +87,7 @@ Compared to the scenarios for inbound and outbound connectivity, the introductio
 - [Throttling](../../api-management/api-management-sample-flexible-throttling.md).
 - [API governance](/azure/architecture/example-scenario/devops/automated-api-deployments-apiops).
 - Additional security options like [modern authentication flows](../../api-management/api-management-howto-protect-backend-with-aad.md).
-- [Azure Active Directory](../../active-directory/develop/active-directory-v2-protocols.md) integration.
+- [Microsoft Entra ID](../../active-directory/develop/active-directory-v2-protocols.md) integration.
 - The opportunity to add SAP APIs to a central API solution across the company.
 
 :::image type="content" source="media/expose-sap-process-orchestration-on-azure/inbound-api-management-2.png" alt-text="Diagram that shows an inbound scenario with Azure API Management and SAP Process Orchestration on Azure.":::
@@ -126,7 +124,7 @@ For insights into Network File System (NFS) file shares as an alternative to Blo
 
 SAP RISE deployments are technically identical to the scenarios described earlier, with the exception that SAP itself manages the target SAP workload. The described concepts can be applied here.
 
-The following diagrams show two setups as examples. For more information, see the [SAP RISE reference guide](rise-integration.md#virtual-network-peering-with-sap-riseecs).
+The following diagrams show two setups as examples. For more information, see the [SAP RISE reference guide](rise-integration-network.md#virtual-network-peering-with-sap-riseecs).
 
 > [!IMPORTANT]
 > Contact SAP to ensure that communication ports for your scenario are allowed and opened in NSGs.

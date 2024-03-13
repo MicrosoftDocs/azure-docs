@@ -2,8 +2,7 @@
 title: Create, validate and troubleshoot custom configuration file for Prometheus metrics in Azure Monitor
 description: Describes how to create custom configuration file Prometheus metrics in Azure Monitor and use validation tool before applying to Kubernetes cluster.
 ms.topic: conceptual
-ms.custom: ignite-2022
-ms.date: 09/28/2022
+ms.date: 2/28/2024
 ms.reviewer: aul
 ---
 
@@ -12,9 +11,9 @@ ms.reviewer: aul
 In addition to the default scrape targets that Azure Monitor Prometheus agent scrapes by default, use the following steps to provide more scrape config to the agent using a configmap. The Azure Monitor Prometheus agent doesn't understand or process operator [CRDs](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) for scrape configuration, but instead uses the native Prometheus configuration as defined in [Prometheus configuration](https://aka.ms/azureprometheus-promioconfig-scrape).
 
 The three configmaps that can be used for custom target scraping are -
-- ama-metrics-prometheus-config - When a configmap with this name is created, scrape jobs defined in it are run from the Azure monitor metrics replica pod running in the cluster.
-- ama-metrics-prometheus-config-node - When a configmap with this name is created, scrape jobs defined in it are run from each **Linux** DaemonSet pod running in the cluster. For more information, see [Advanced Setup](prometheus-metrics-scrape-configuration.md#advanced-setup-configure-custom-prometheus-scrape-jobs-for-the-daemonset).
-- ama-metrics-prometheus-config-node-windows - When a configmap with this name is created, scrape jobs defined in it are run from each **windows** DaemonSet. For more information, see [Advanced Setup](prometheus-metrics-scrape-configuration.md#advanced-setup-configure-custom-prometheus-scrape-jobs-for-the-daemonset).
+- ama-metrics-prometheus-config (**Recommended**) - When a configmap with this name is created, scrape jobs defined in it are run from the Azure monitor metrics replica pod running in the cluster.
+- ama-metrics-prometheus-config-node (**Advanced**) - When a configmap with this name is created, scrape jobs defined in it are run from each **Linux** DaemonSet pod running in the cluster. For more information, see [Advanced Setup](#advanced-setup-configure-custom-prometheus-scrape-jobs-for-the-daemonset).
+- ama-metrics-prometheus-config-node-windows (**Advanced**) - When a configmap with this name is created, scrape jobs defined in it are run from each **windows** DaemonSet. For more information, see [Advanced Setup](#advanced-setup-configure-custom-prometheus-scrape-jobs-for-the-daemonset).
 
 ## Create Prometheus configuration file
 
@@ -33,7 +32,7 @@ Create a Prometheus scrape configuration file named `prometheus-config`. For mor
 
 Here is a sample Prometheus scrape config file:
 
-```
+```yaml
 global:
   scrape_interval: 30s
 scrape_configs:
@@ -58,13 +57,13 @@ The agent uses a custom `promconfigvalidator` tool to validate the Prometheus co
 
 The `promconfigvalidator` tool is shipped inside the Azure Monitor metrics addon pod(s). You can use any of the `ama-metrics-node-*` pods in `kube-system` namespace in your cluster to download the tool for validation. Use `kubectl cp` to download the tool and its configuration:
 
-```
+```bash
 for podname in $(kubectl get pods -l rsName=ama-metrics -n=kube-system -o json | jq -r '.items[].metadata.name'); do kubectl cp -n=kube-system "${podname}":/opt/promconfigvalidator ./promconfigvalidator;  kubectl cp -n=kube-system "${podname}":/opt/microsoft/otelcollector/collector-config-template.yml ./collector-config-template.yml; chmod 500 promconfigvalidator; done
 ```
 
 After copying the executable and the yaml, locate the path of your Prometheus configuration file that you authored. Then replace `<config path>`  in the command and run the validator with the command:
 
-```
+```bash
 ./promconfigvalidator/promconfigvalidator --config "<config path>" --otelTemplate "./promconfigvalidator/collector-config-template.yml"
 ```
 
@@ -74,20 +73,20 @@ Running the validator generates the merged configuration file `merged-otel-confi
 Your custom Prometheus configuration file is consumed as a field named `prometheus-config` inside metrics addon configmap(s) `ama-metrics-prometheus-config` (or) `ama-metrics-prometheus-config-node` (or) `ama-metrics-prometheus-config-node-windows`  in the `kube-system` namespace. You can create a configmap from the scrape config file you created above, by renaming your Prometheus configuration file to `prometheus-config` (with no file extension) and running one or more of the following commands, depending on which configmap you want to create for your custom scrape job(s) config.
 
 Ex;- to create configmap to be used by replicsset
-```
+```bash
 kubectl create configmap ama-metrics-prometheus-config --from-file=prometheus-config -n kube-system
 ```
 This creates a configmap named `ama-metrics-prometheus-config` in `kube-system` namespace. The Azure Monitor metrics replica pod restarts in 30-60 secs to apply the new config. To see if there any issues with the config validation, processing, or merging, you can look at the `ama-metrics` replica pods
 
 Ex;- to create configmap to be used by linux DaemonSet
-```
+```bash
 kubectl create configmap ama-metrics-prometheus-config-node --from-file=prometheus-config -n kube-system
 ```
 This creates a configmap named `ama-metrics-prometheus-config-node` in `kube-system` namespace. Every Azure Monitor metrics Linux DaemonSet pod restarts in 30-60 secs to apply the new config. To see if there any issues with the config validation, processing, or merging, you can look at the `ama-metrics-node` linux deamonset pods
 
 
 Ex;- to create configmap to be used by windows DaemonSet
-```
+```bash
 kubectl create configmap ama-metrics-prometheus-config-node-windows --from-file=prometheus-config -n kube-system
 ```
 
@@ -102,6 +101,33 @@ A sample of the `ama-metrics-prometheus-config` configmap is [here](https://gith
 
 ### Troubleshooting
 If you successfully created the configmap (ama-metrics-prometheus-config or ama-metrics-prometheus-config-node) in the **kube-system** namespace and still don't see the custom targets being scraped, check for errors in the **replica pod** logs for **ama-metrics-prometheus-config** configmap or **DaemonSet pod** logs for **ama-metrics-prometheus-config-node** configmap) using *kubectl logs* and make sure there are no errors in the *Start Merging Default and Custom Prometheus Config* section with prefix *prometheus-config-merger*
+
+> [!NOTE]
+> ### Advanced setup: Configure custom Prometheus scrape jobs for the DaemonSet
+>
+> The `ama-metrics` Replica pod consumes the custom Prometheus config and scrapes the specified targets. For a cluster with a large number of nodes and pods and a large volume of metrics to scrape, some of the applicable custom scrape targets can be off-loaded from the single `ama-metrics` Replica pod to the `ama-metrics` DaemonSet pod.
+>
+> The [ama-metrics-prometheus-config-node configmap](https://aka.ms/azureprometheus-addon-ds-configmap), is similar to the replica-set configmap, and can be created to have static scrape configs on each node. The scrape config should only target a single node and shouldn't use service discovery/pod annotations. Otherwise, each node tries to scrape all targets and makes many calls to the Kubernetes API server.
+>
+> Custom scrape targets can follow the same format by using `static_configs` with targets and using the `$NODE_IP` environment variable and specifying the port to scrape. Each pod of the DaemonSet takes the config, scrapes the metrics, and sends them for that node.
+>
+> Example:- The following `node-exporter` config is one of the default targets for the DaemonSet pods. It uses the `$NODE_IP` environment variable, which is already set for every `ama-metrics` add-on container to target a specific port on the node.
+>
+> ```yaml
+> - job_name: nodesample
+>   scrape_interval: 30s
+>   scheme: http
+>   metrics_path: /metrics
+>   relabel_configs:
+>   - source_labels: [__metrics_path__]
+>     regex: (.*)
+>     target_label: metrics_path
+>   - source_labels: [__address__]
+>     replacement: '$NODE_NAME'
+>     target_label: instance
+>   static_configs:
+>   - targets: ['$NODE_IP:9100']
+> ```
 
 ## Next steps
 

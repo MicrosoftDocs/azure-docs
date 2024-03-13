@@ -1,12 +1,12 @@
 ---
 title: Anomaly Detector Python client library quickstart
 titleSuffix: Azure AI services
-services: cognitive-services
+#services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-anomaly-detector
 ms.topic: include
-ms.date: 12/16/2022
+ms.date: 01/18/2024
 ms.author: mbullwin
 recommendations: false
 ---
@@ -185,6 +185,7 @@ To visualize the anomalies and change points in relation to the sample data seri
     import pandas as pd
     import matplotlib.pyplot as plt
     import matplotlib.dates as mdates
+    import os
 
     API_KEY = os.environ['ANOMALY_DETECTOR_API_KEY']
     ENDPOINT = os.environ['ANOMALY_DETECTOR_ENDPOINT']

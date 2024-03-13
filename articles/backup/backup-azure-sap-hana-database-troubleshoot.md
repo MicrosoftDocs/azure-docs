@@ -99,8 +99,8 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 
 **Error message** | `Unable to connect to the AAD service from the HANA system.`
 --------- | --------
-**Possible causes** | Firewall or proxy settings as Backup extension's plugin service account is not allowing the outbound connection to Azure Active Directory.
-**Recommended action** | Fix the firewall or proxy settings for the outbound connection to Azure Active Directory to succeed.
+**Possible causes** | Firewall or proxy settings as Backup extension's plugin service account is not allowing the outbound connection to Microsoft Entra ID.
+**Recommended action** | Fix the firewall or proxy settings for the outbound connection to Microsoft Entra ID to succeed.
 
 ### UserErrorMisConfiguredSslCaStore
 

@@ -2,8 +2,8 @@
 title:  Add an Open Geospatial Consortium (OGC) map layer
 titleSuffix: Microsoft Azure Maps
 description: Learn how to overlay an OGC map layer on the map, and how to use the different options in the OgcMapLayer class.
-author: dubiety
-ms.author: yuchungchen
+author: sinnypan
+ms.author: sipa
 ms.date: 06/16/2023
 ms.topic: how-to
 ms.service: azure-maps
@@ -50,7 +50,7 @@ The [OGC map layer] sample shows how to overlay an OGC map layer on the map. For
 :::image type="content" source="./media/spatial-io-add-ogc-map-layer/ogc-map-layer.png"alt-text="A screenshot that shows the snap grid on map.":::
 
 <!----------------------------------------------
-<iframe height='700' scrolling='no' title='OGC Map layer example' src='//codepen.io/azuremaps/embed/xxGLZWB/?height=700&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/xxGLZWB/'>OGC Map layer example</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/xxGLZWB/?height=700&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 ---------------------------------------------->
 ## OGC map layer options
 
@@ -59,7 +59,7 @@ The [OGC map layer options] sample demonstrates the different OGC map layer opti
 :::image type="content" source="./media/spatial-io-add-ogc-map-layer/ogc-map-layer-options.png"alt-text="A screenshot that shows a map along with the OGC map layer options.":::
 
 <!----------------------------------------------
-<iframe height='700' scrolling='no' title='OGC map layer options' src='//codepen.io/azuremaps/embed/abOyEVQ/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/abOyEVQ/'>OGC map layer options</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/abOyEVQ/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true]
 ---------------------------------------------->
 
 ## OGC Web Map Service explorer
@@ -69,7 +69,7 @@ The [OGC Web Map Service explorer] sample overlays imagery from the Web Map Serv
 :::image type="content" source="./media/spatial-io-add-ogc-map-layer/ogc-web-map-service-explorer.png"alt-text="A screenshot that shows a map with a WMTS layer that comes from the world geology survey. Left of the map is a drop-down list showing the OGC services that can be selected.":::
 
 <!----------------------------------------------
-<iframe height='750' scrolling='no' title='OGC Web Map Service explorer' src='//codepen.io/azuremaps/embed/YzXxYdX/?height=750&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/YzXxYdX/'>OGC Web Map Service explorer</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/YzXxYdX/?height=750&theme-id=0&default-tab=result&embed-version=2&editable=true]
 ---------------------------------------------->
 
 You may also specify the map settings to use a proxy service. The proxy service lets you load resources that are hosted on domains that don't have CORS enabled.

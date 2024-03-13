@@ -4,7 +4,10 @@ description: Build and deploy your app to Azure Container Apps with az container
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - ignite-2023
 ms.topic: tutorial
 ms.date: 05/11/2022
 ms.author: cshoe
@@ -88,6 +91,21 @@ Use the following git command to clone your forked repo into the *code-to-cloud*
 ```git
 git clone https://github.com/$GITHUB_USERNAME/containerapps-albumapi-go.git code-to-cloud
 ```
+
+# [Java](#tab/java)
+
+Select the **Fork** button at the top of the [album API repo](https://github.com/azure-samples/containerapps-albumapi-java) to fork the repo to your account.
+
+Now you can clone your fork of the sample repository.
+
+Use the following git command to clone your forked repo into the *code-to-cloud* folder:
+
+```git
+git clone https://github.com/$GITHUB_USERNAME/containerapps-albumapi-java.git code-to-cloud
+```
+
+> [!NOTE]
+> The Java sample only supports a Maven build, which results in an executable JAR file. The build uses the default settings, as passing in environment variables is not supported.
 
 # [JavaScript](#tab/javascript)
 
@@ -314,7 +332,7 @@ az containerapp create \
   --resource-group $RESOURCE_GROUP \
   --environment $ENVIRONMENT \
   --image $ACR_NAME.azurecr.io/$API_NAME \
-  --target-port 3500 \
+  --target-port 8080 \
   --ingress 'external' \
   --registry-server $ACR_NAME.azurecr.io \
   --query properties.configuration.ingress.fqdn
@@ -322,7 +340,7 @@ az containerapp create \
 
 * By setting `--ingress` to `external`, your container app is accessible from the public internet.
 
-* The `target-port` is set to `3500` to match the port that the container is listening to for requests.
+* The `target-port` is set to `8080` to match the port that the container is listening to for requests.
 
 * Without a `query` property, the call to `az containerapp create` returns a JSON response that includes a rich set of details about the application. Adding a query parameter filters the output to just the app's fully qualified domain name (FQDN).
 
@@ -376,7 +394,7 @@ $AppArgs = @{
     TemplateContainer = $TemplateObj
     ConfigurationRegistry = $RegistryObj
     ConfigurationSecret = $SecretObj
-    IngressTargetPort = 3500
+    IngressTargetPort = 8080
     IngressExternal = $true
 }
 $MyApp = New-AzContainerApp @AppArgs
@@ -386,7 +404,7 @@ $MyApp.IngressFqdn
 ```
 
 * By setting `IngressExternal` to `external`, your container app is accessible from the public internet.
-* The `IngressTargetPort` parameter is set to `3500` to match the port that the container is listening to for requests.
+* The `IngressTargetPort` parameter is set to `8080` to match the port that the container is listening to for requests.
 
 ---
 

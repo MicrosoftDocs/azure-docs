@@ -1,7 +1,7 @@
 ---
 title: Deploy ML models to FPGAs
 titleSuffix: Azure Machine Learning
-description: Learn about field-programmable gate arrays. You can deploy a web service on an FPGA with Azure Machine Learning for ultra-low latency inference. 
+description: Learn about field-programmable gate arrays. You can deploy a web service on an FPGA with Azure Machine Learning for ultra-low latency inference.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: inferencing
@@ -10,7 +10,7 @@ author: bozhong68
 ms.reviewer: larryfr
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: UpdateFrequency5, contperf-fy21q2, deploy, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, deploy, sdkv1
 ---
 
 # Deploy ML models to field-programmable gate arrays (FPGAs) with Azure Machine Learning 
@@ -221,7 +221,7 @@ Before you can deploy to FPGAs, convert the model to the [ONNX](https://onnx.ai/
 
 ### Containerize and deploy the model
 
-Next, create a Docker image from the converted model and all dependencies.  This Docker image can then be deployed and instantiated.  Supported deployment targets include Azure Kubernetes Service (AKS) in the cloud or an  edge device such as [Azure Azure Stack Edge](../../databox-online/azure-stack-edge-overview.md).  You can also add tags and descriptions for your registered Docker image.
+Next, create a Docker image from the converted model and all dependencies.  This Docker image can then be deployed and instantiated.  Supported deployment targets include Azure Kubernetes Service (AKS) in the cloud or an  edge device such as [Azure Stack Edge](../../databox-online/azure-stack-edge-overview.md).  You can also add tags and descriptions for your registered Docker image.
 
    ```python
    from azureml.core.image import Image
@@ -295,7 +295,7 @@ Next, create a Docker image from the converted model and all dependencies.  This
 
 #### Deploy to a local edge server
 
-All [Azure Azure Stack Edge devices](../../databox-online/azure-stack-edge-overview.md) contain an FPGA for running the model. Only one model can be running on the FPGA at one time. To run a different model, just deploy a new container. Instructions and sample code can be found in [this Azure Sample](https://github.com/Azure-Samples/aml-hardware-accelerated-models).
+All [Azure Stack Edge devices](../../databox-online/azure-stack-edge-overview.md) contain an FPGA for running the model. Only one model can be running on the FPGA at one time. To run a different model, just deploy a new container. Instructions and sample code can be found in [this Azure Sample](https://github.com/Azure-Samples/aml-hardware-accelerated-models).
 
 ### Consume the deployed model
 

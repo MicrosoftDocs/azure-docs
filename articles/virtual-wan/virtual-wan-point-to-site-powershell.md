@@ -8,7 +8,7 @@ author: cherylmc
 ms.service: virtual-wan
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 07/05/2022
+ms.date: 08/24/2023
 ms.author: cherylmc
 ---
 # Create a P2S User VPN connection using Azure Virtual WAN - PowerShell
@@ -55,7 +55,7 @@ In the following steps, when selecting the authentication method, you have three
 
 * **Radius-based authentication:** Obtain the Radius server IP, Radius server secret, and certificate information.
 
-* **Azure Active Directory authentication:** See [Configure a User VPN connection - Azure Active Directory authentication](virtual-wan-point-to-site-azure-ad.md).
+* **Microsoft Entra authentication:** See [Configure a User VPN connection - Microsoft Entra authentication](virtual-wan-point-to-site-azure-ad.md).
 
 ### Configuration steps using Azure Certificate authentication
 

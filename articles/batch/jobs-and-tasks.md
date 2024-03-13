@@ -137,8 +137,7 @@ For a detailed discussion on running MPI jobs in Batch by using the Batch .NET l
 
 [Task dependencies](batch-task-dependencies.md), as the name implies, allow you to specify that a task depends on the completion of other tasks before its execution. This feature provides support for situations in which a "downstream" task consumes the output of an "upstream" task, or when an upstream task performs some initialization that is required by a downstream task.
 
-To use this feature, you must first [enable task dependencies](batch-task-dependencies.md#enable-task-dependencies
-) on your Batch job. Then, for each task that depends on another (or many others), you specify the tasks which that task depends on.
+To use this feature, you must first [enable task dependencies](batch-task-dependencies.md#enable-task-dependencies) on your Batch job. Then, for each task that depends on another (or many others), you specify the tasks which that task depends on.
 
 With task dependencies, you can configure scenarios like the following:
 

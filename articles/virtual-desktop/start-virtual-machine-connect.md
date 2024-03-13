@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 03/14/2023
 ms.author: helohr
-manager: femila
 ms.custom: subject-rbac-steps
 ---
 # Set up Start VM on Connect

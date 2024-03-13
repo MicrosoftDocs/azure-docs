@@ -6,7 +6,7 @@ ms.author: lle
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
-ms.date: 08/02/2023
+ms.date: 08/11/2023
 ---
 
 # Tutorial: How to access SQL Managed Instance from Data Factory Managed VNET using Private Endpoint
@@ -290,7 +290,7 @@ link service list.
 
     :::image type="content" source="./media/tutorial-managed-virtual-network/linked-service-mi-3.png" alt-text="Screenshot that shows the SQL MI linked service creation page.":::
 
-## Next steps
+## Related content
 
 Advance to the following tutorial to learn about accessing on premises SQL Server from Data Factory 
 Managed VNET using Private Endpoint：

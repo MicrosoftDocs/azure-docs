@@ -14,8 +14,6 @@ ms.service: azure-communication-services
 
 # How to customize how workers are ranked for the best worker distribution mode
 
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
-
 The `best-worker` distribution mode selects the workers that are best able to handle the job first. The logic to rank Workers can be customized, with an expression or Azure function to compare two workers. The following example shows how to customize this logic with your own Azure Function.
 
 ## Scenario: Custom scoring rule in best worker distribution mode
@@ -213,48 +211,48 @@ var queue = await administrationClient.CreateQueueAsync(
     ) { Name = "XBox Hardware Support Queue" });
 
 // Create workers
-var worker1 = await client.CreateWorkerAsync(new CreateWorkerOptions(workerId: "Worker_1", totalCapacity: 100)
+var worker1 = await client.CreateWorkerAsync(new CreateWorkerOptions(workerId: "Worker_1", capacity: 100)
     {
-        QueueAssignments = { [queue.Value.Id] = new RouterQueueAssignment() },
-        ChannelConfigurations = { ["Xbox_Chat_Channel"] = new ChannelConfiguration(capacityCostPerJob: 10) },
+        Queues = { queue.Value.Id },
+        Channels = { new RouterChannel(channelId: "Xbox_Chat_Channel", capacityCostPerJob: 10) },
         Labels =
         {
-            ["English"] = new LabelValue(10),
-            ["HighPrioritySupport"] = new LabelValue(true),
-            ["HardwareSupport"] = new LabelValue(true),
-            ["Support_XBOX_SERIES_X"] = new LabelValue(true),
-            ["ChatSupport"] = new LabelValue(true),
-            ["XboxSupport"] = new LabelValue(true)
+            ["English"] = new RouterValue(10),
+            ["HighPrioritySupport"] = new RouterValue(true),
+            ["HardwareSupport"] = new RouterValue(true),
+            ["Support_XBOX_SERIES_X"] = new RouterValue(true),
+            ["ChatSupport"] = new RouterValue(true),
+            ["XboxSupport"] = new RouterValue(true)
         }
     });
 
-var worker2 = await client.CreateWorkerAsync(new CreateWorkerOptions(workerId: "Worker_2", totalCapacity: 100)
+var worker2 = await client.CreateWorkerAsync(new CreateWorkerOptions(workerId: "Worker_2", capacity: 100)
     {
-        QueueAssignments = { [queue.Value.Id] = new RouterQueueAssignment() },
-        ChannelConfigurations = { ["Xbox_Chat_Channel"] = new ChannelConfiguration(capacityCostPerJob: 10) },
+        Queues = { queue.Value.Id },
+        Channels = { new RouterChannel(channelId: "Xbox_Chat_Channel", capacityCostPerJob: 10) },
         Labels =
         {
-            ["English"] = new LabelValue(8),
-            ["HighPrioritySupport"] = new LabelValue(true),
-            ["HardwareSupport"] = new LabelValue(true),
-            ["Support_XBOX_SERIES_X"] = new LabelValue(true),
-            ["ChatSupport"] = new LabelValue(true),
-            ["XboxSupport"] = new LabelValue(true)
+            ["English"] = new RouterValue(8),
+            ["HighPrioritySupport"] = new RouterValue(true),
+            ["HardwareSupport"] = new RouterValue(true),
+            ["Support_XBOX_SERIES_X"] = new RouterValue(true),
+            ["ChatSupport"] = new RouterValue(true),
+            ["XboxSupport"] = new RouterValue(true)
         }
     });
 
-var worker3 = await client.CreateWorkerAsync(new CreateWorkerOptions(workerId: "Worker_3", totalCapacity: 100)
+var worker3 = await client.CreateWorkerAsync(new CreateWorkerOptions(workerId: "Worker_3", capacity: 100)
     {
-        QueueAssignments = { [queue.Value.Id] = new RouterQueueAssignment() },
-        ChannelConfigurations = { ["Xbox_Chat_Channel"] = new ChannelConfiguration(capacityCostPerJob: 10) },
+        Queues = { queue.Value.Id },
+        Channels = { new RouterChannel(channelId: "Xbox_Chat_Channel", capacityCostPerJob: 10) },
         Labels =
         {
-            ["English"] = new LabelValue(7),
-            ["HighPrioritySupport"] = new LabelValue(true),
-            ["HardwareSupport"] = new LabelValue(true),
-            ["Support_XBOX_SERIES_X"] = new LabelValue(true),
-            ["ChatSupport"] = new LabelValue(true),
-            ["XboxSupport"] = new LabelValue(true)
+            ["English"] = new RouterValue(7),
+            ["HighPrioritySupport"] = new RouterValue(true),
+            ["HardwareSupport"] = new RouterValue(true),
+            ["Support_XBOX_SERIES_X"] = new RouterValue(true),
+            ["ChatSupport"] = new RouterValue(true),
+            ["XboxSupport"] = new RouterValue(true)
         }
     });
 
@@ -266,19 +264,19 @@ var job = await client.CreateJobAsync(
         ChannelReference = "ChatChannel",
         RequestedWorkerSelectors =
         {
-            new RouterWorkerSelector(key: "English", labelOperator: LabelOperator.GreaterThanEqual, value: new LabelValue(7)),
-            new RouterWorkerSelector(key: "ChatSupport", labelOperator: LabelOperator.Equal, value: new LabelValue(true)),
-            new RouterWorkerSelector(key: "XboxSupport", labelOperator: LabelOperator.Equal, value: new LabelValue(true))
+            new RouterWorkerSelector(key: "English", labelOperator: LabelOperator.GreaterThanEqual, value: new RouterValue(7)),
+            new RouterWorkerSelector(key: "ChatSupport", labelOperator: LabelOperator.Equal, value: new RouterValue(true)),
+            new RouterWorkerSelector(key: "XboxSupport", labelOperator: LabelOperator.Equal, value: new RouterValue(true))
         },
         Labels =
         {
-            ["CommunicationType"] = new LabelValue("Chat"),
-            ["IssueType"] = new LabelValue("XboxSupport"),
-            ["Language"] = new LabelValue("en"),
-            ["HighPriority"] = new LabelValue(true),
-            ["SubIssueType"] = new LabelValue("ConsoleMalfunction"),
-            ["ConsoleType"] = new LabelValue("XBOX_SERIES_X"),
-            ["Model"] = new LabelValue("XBOX_SERIES_X_1TB")
+            ["CommunicationType"] = new RouterValue("Chat"),
+            ["IssueType"] = new RouterValue("XboxSupport"),
+            ["Language"] = new RouterValue("en"),
+            ["HighPriority"] = new RouterValue(true),
+            ["SubIssueType"] = new RouterValue("ConsoleMalfunction"),
+            ["ConsoleType"] = new RouterValue("XBOX_SERIES_X"),
+            ["Model"] = new RouterValue("XBOX_SERIES_X_1TB")
         }
     });
 

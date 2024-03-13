@@ -5,7 +5,7 @@ author: nabhishek
 ms.service: data-factory
 ms.subservice: security
 ms.topic: conceptual
-ms.date: 09/22/2022
+ms.date: 08/10/2023
 ms.author: abnarain
 ---
 
@@ -108,5 +108,5 @@ Select **Azure Key Vault** for secret fields while creating the connection to yo
 }
 ```
 
-## Next steps
+## Related content
 For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

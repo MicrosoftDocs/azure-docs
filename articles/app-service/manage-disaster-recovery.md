@@ -1,6 +1,8 @@
 ---
 title: Recover from region-wide failure
 description: Learn how Azure App Service helps you maintain business continuity and disaster recovery (BCDR) capabilities. Recover your app from a region-wide failure in Azure.
+author: cephalin
+ms.author: cephalin
 
 ms.topic: how-to
 ms.date: 03/31/2023

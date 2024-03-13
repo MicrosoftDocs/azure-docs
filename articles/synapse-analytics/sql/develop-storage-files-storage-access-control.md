@@ -14,17 +14,17 @@ ms.custom: devx-track-azurepowershell
 # Control storage account access for serverless SQL pool in Azure Synapse Analytics
 
 A serverless SQL pool query reads files directly from Azure Storage. Permissions to access the files on Azure storage are controlled at two levels:
-- **Storage level** - User should have permission to access underlying storage files. Your storage administrator should allow Azure AD principal to read/write files, or generate shared access signature (SAS) key that will be used to access storage.
+- **Storage level** - User should have permission to access underlying storage files. Your storage administrator should allow Microsoft Entra principal to read/write files, or generate shared access signature (SAS) key that will be used to access storage.
 - **SQL service level** - User should have granted permission to read data using [external table](develop-tables-external-tables.md) or to execute the `OPENROWSET` function. Read more about [the required permissions in this section](develop-storage-files-overview.md#permissions).
 
-This article describes the types of credentials you can use and how credential lookup is enacted for SQL and Azure AD users.
+This article describes the types of credentials you can use and how credential lookup is enacted for SQL and Microsoft Entra users.
 
 ## Storage permissions
 
 A serverless SQL pool in Synapse Analytics workspace can read the content of files stored in Azure Data Lake storage. You need to configure permissions on storage to enable a user who executes a SQL query to read the files. There are three methods for enabling the access to the files:
-- **[Role based access control (RBAC)](../../role-based-access-control/overview.md)** enables you to assign a role to some Azure AD user in the tenant where your storage is placed. A reader must be a member of the Storage Blob Data Reader, Storage Blob Data Contributor, or Storage Blob Data Owner role on the storage account. A user who writes data in the Azure storage must be a member of the Storage Blob Data Contributor or Storage Blob Data Owner role. The Storage Owner role does not imply that a user is also Storage Data Owner.
-- **Access Control Lists (ACL)** enable you to define a fine grained [Read(R), Write(W), and Execute(X) permissions](../../storage/blobs/data-lake-storage-access-control.md#levels-of-permission) on the files and directories in Azure storage. ACL can be assigned to Azure AD users. If readers want to read a file on a path in Azure Storage, they must have Execute(X) ACL on every folder in the file path, and Read(R) ACL on the file. [Learn more how to set ACL permissions in storage layer](../../storage/blobs/data-lake-storage-access-control.md#how-to-set-acls).
-- **Shared access signature (SAS)** enables a reader to access the files on the Azure Data Lake storage using the time-limited token. The reader doesn't even need to be authenticated as Azure AD user. SAS token contains the permissions granted to the reader as well as the period when the token is valid. SAS token is good choice for time-constrained access to any user that doesn't even need to be in the same Azure AD tenant. SAS token can be defined on the storage account or on specific directories. Learn more about [granting limited access to Azure Storage resources using shared access signatures](../../storage/common/storage-sas-overview.md).
+- **[Role based access control (RBAC)](../../role-based-access-control/overview.md)** enables you to assign a role to some Microsoft Entra user in the tenant where your storage is placed. A reader must be a member of the Storage Blob Data Reader, Storage Blob Data Contributor, or Storage Blob Data Owner role on the storage account. A user who writes data in the Azure storage must be a member of the Storage Blob Data Contributor or Storage Blob Data Owner role. The Storage Owner role does not imply that a user is also Storage Data Owner.
+- **Access Control Lists (ACL)** enable you to define a fine grained [Read(R), Write(W), and Execute(X) permissions](../../storage/blobs/data-lake-storage-access-control.md#levels-of-permission) on the files and directories in Azure storage. ACL can be assigned to Microsoft Entra users. If readers want to read a file on a path in Azure Storage, they must have Execute(X) ACL on every folder in the file path, and Read(R) ACL on the file. [Learn more how to set ACL permissions in storage layer](../../storage/blobs/data-lake-storage-access-control.md#how-to-set-acls).
+- **Shared access signature (SAS)** enables a reader to access the files on the Azure Data Lake storage using the time-limited token. The reader doesn't even need to be authenticated as Microsoft Entra user. SAS token contains the permissions granted to the reader as well as the period when the token is valid. SAS token is good choice for time-constrained access to any user that doesn't even need to be in the same Microsoft Entra tenant. SAS token can be defined on the storage account or on specific directories. Learn more about [granting limited access to Azure Storage resources using shared access signatures](../../storage/common/storage-sas-overview.md).
 
 As an alternative, you can make your files publicly available by allowing anonymous access. This approach should NOT be used if you have non-public data. 
 
@@ -33,14 +33,14 @@ As an alternative, you can make your files publicly available by allowing anonym
 A user that has logged into a serverless SQL pool must be authorized to access and query the files in Azure Storage if the files aren't publicly available. You can use four authorization types to access non-public storage: [user identity](?tabs=user-identity), [shared access signature](?tabs=shared-access-signature), [service principal](?tab/service-principal), and [managed identity](?tabs=managed-identity).
 
 > [!NOTE]
-> **Azure AD pass-through** is the default behavior when you create a workspace.
+> **Microsoft Entra pass-through** is the default behavior when you create a workspace.
 
 ### [User identity](#tab/user-identity)
 
-**User identity**, also known as "Azure AD pass-through", is an authorization type where the identity of the Azure AD user that logged into serverless SQL pool is used to authorize data access. Before accessing the data, the Azure Storage administrator must grant permissions to the Azure AD user. As indicated in the [Supported authorization types for database users table](#supported-authorization-types-for-databases-users), it's not supported for the SQL user type.
+**User identity**, also known as "Microsoft Entra pass-through", is an authorization type where the identity of the Microsoft Entra user that logged into serverless SQL pool is used to authorize data access. Before accessing the data, the Azure Storage administrator must grant permissions to the Microsoft Entra user. As indicated in the [Supported authorization types for database users table](#supported-authorization-types-for-databases-users), it's not supported for the SQL user type.
 
 > [!IMPORTANT]
-> An Azure Active Directory authentication token might be cached by the client applications. For example, Power BI caches Azure Active Directory tokens and reuses the same token for an hour. Long-running queries might fail if the token expires in the middle of the query execution. If you are experiencing query failures caused by the Azure Active Directory access token that expires in the middle of the query, consider switching to a [service principal](develop-storage-files-storage-access-control.md?tabs=service-principal#supported-storage-authorization-types), [managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) or [shared access signature](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#supported-storage-authorization-types).
+> A Microsoft Entra authentication token might be cached by the client applications. For example, Power BI caches Microsoft Entra tokens and reuses the same token for an hour. Long-running queries might fail if the token expires in the middle of the query execution. If you are experiencing query failures caused by the Microsoft Entra access token that expires in the middle of the query, consider switching to a [service principal](develop-storage-files-storage-access-control.md?tabs=service-principal#supported-storage-authorization-types), [managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) or [shared access signature](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#supported-storage-authorization-types).
 
 You need to be a member of the Storage Blob Data Owner, Storage Blob Data Contributor, or Storage Blob Data Reader role to use your identity to access the data. As an alternative, you can specify fine-grained ACL rules to access files and folders. Even if you are an Owner of a Storage Account, you still need to add yourself into one of the Storage Blob Data roles.
 To learn more about access control in Azure Data Lake Store Gen2, review the [Access control in Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-access-control.md) article.
@@ -60,13 +60,13 @@ You can get an SAS token by navigating to the **Azure portal -> Storage Account 
 To enable access using an SAS token, you need to create a database-scoped or server-scoped credential 
 
 > [!IMPORTANT]
-> You cannot access private storage accounts with the SAS token. Consider switching to [Managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) or [Azure AD pass-through](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) authentication to access protected storage.
+> You cannot access private storage accounts with the SAS token. Consider switching to [Managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) or [Microsoft Entra pass-through](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) authentication to access protected storage.
 
 ### [Service principal](#tab/service-principal)
 
-A **service principal** is the local representation of a global application object in a particular Azure Active Directory tenant. This authentication method is appropriate in cases where storage access is to be authorized for a user application, service, or automation tool. For more information on service principals in Azure Active Directory, see [Application and service principal objects in Azure Active Directory](/azure/active-directory/develop/app-objects-and-service-principals).
+A **service principal** is the local representation of a global application object in a particular Microsoft Entra tenant. This authentication method is appropriate in cases where storage access is to be authorized for a user application, service, or automation tool. For more information on service principals in Microsoft Entra ID, see [Application and service principal objects in Microsoft Entra ID](/azure/active-directory/develop/app-objects-and-service-principals).
 
-The application needs to be registered in Azure Active Directory. For more information on the registration process, follow [Quickstart: Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-register-app.md). Once the application is registered, its service principal can be used for authorization. 
+The application needs to be registered in Microsoft Entra ID. For more information on the registration process, follow [Quickstart: Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-register-app.md). Once the application is registered, its service principal can be used for authorization. 
 
 The service principal should be assigned to the Storage Blob Data Owner, Storage Blob Data Contributor, and Storage Blob Data Reader roles in order for the application to access the data. Even if the service principal is the Owner of a storage account, it still needs to be granted an appropriate Storage Blob Data role. As an alternative way of granting access to storage files and folders, fine-grained ACL rules for service principal can be defined. 
 
@@ -74,9 +74,9 @@ To learn more about access control in Azure Data Lake Store Gen2, review [Access
 
 ### [Managed service identity](#tab/managed-identity)
 
-**Managed service identity** or managed identity is also known as an MSI. An MSI is a feature of Azure Active Directory that provides Azure services to an Azure service, in this case, for your serverless SQL pool. The MSI is created automatically in Azure AD. This identity can be used to authorize the request for data access in Azure Storage.
+**Managed service identity** or managed identity is also known as an MSI. An MSI is a feature of Microsoft Entra ID that provides Azure services to an Azure service, in this case, for your serverless SQL pool. The MSI is created automatically in Microsoft Entra ID. This identity can be used to authorize the request for data access in Azure Storage.
 
-Before accessing the data, the Azure Storage administrator must grant permissions to the managed service identity for accessing data. Granting permissions to MSI is done the same way as granting permission to any other Azure AD user.
+Before accessing the data, the Azure Storage administrator must grant permissions to the managed service identity for accessing data. Granting permissions to MSI is done the same way as granting permission to any other Microsoft Entra user.
 
 ### [Anonymous access](#tab/public-access)
 
@@ -99,7 +99,7 @@ In cases when Azure Storage is in a different tenant from the Synapse serverless
 
 The following table provides available Azure Storage authorization types for different sign-in methods into an Azure Synapse Analytics serverless SQL endpoint:
 
-| Authorization type                    | *SQL user*    | *Azure AD user*     | *Service principal* |
+| Authorization type                    | *SQL user*    | *Microsoft Entra user*     | *Service principal* |
 | ------------------------------------- | ------------- | -----------    | -------- |
 | [User Identity](?tabs=user-identity#supported-storage-authorization-types)       |  Not Supported | Supported      | Supported|
 | [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)       | Supported     | Supported      | Supported|
@@ -138,7 +138,7 @@ You can configure storage accounts to allow access to a specific serverless SQL 
 
 The following table provides available firewall-protected Azure Storage authorization types for different sign-in methods into an Azure Synapse Analytics serverless SQL endpoint:
 
-| Authorization type                    | *SQL user*    | *Azure AD user*     | *Service principal* |
+| Authorization type                    | *SQL user*    | *Microsoft Entra user*     | *Service principal* |
 | ------------------------------------- | ------------- | -----------    | -------- |
 | [User Identity](?tabs=user-identity#supported-storage-authorization-types)       |  Not Supported | Supported      | Supported|
 | [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)       | Not Supported     | Not Supported      | Not Supported|
@@ -187,7 +187,7 @@ Follow these steps to configure your storage account and add an exception for th
 
     - Resource group name - you can find this in Azure portal in the **Overview** of your storage account.
     - Account Name - name of the storage account that is protected by firewall rules.
-    - Tenant ID - you can find this in [Azure portal in Azure Active Directory](/azure/active-directory/fundamentals/how-to-find-tenant), under **Properties**, in **Tenant properties**.
+    - Tenant ID - you can find this in [Azure portal in Microsoft Entra ID](/azure/active-directory/fundamentals/how-to-find-tenant), under **Properties**, in **Tenant properties**.
     - Workspace Name - Name of the Azure Synapse workspace.
     
     ```powershell
@@ -275,13 +275,13 @@ To query a file located in Azure Storage, your serverless SQL pool endpoint need
 
 To grant the ability manage credentials:
 
-- To allow a user to create or drop a server-level credential, an administrator must grant the `ALTER ANY CREDENTIAL` permission to the user. For example:
+- To allow a user to create or drop a server-level credential, an administrator must grant the `ALTER ANY CREDENTIAL` permission to its login in the master database. For example:
 
     ```sql
-    GRANT ALTER ANY CREDENTIAL TO [user_name];
+    GRANT ALTER ANY CREDENTIAL TO [login_name];
     ```
     
-- To allow a user to create or drop a database scoped credential, an administrator must grant the `CONTROL` permission on the database to the user. For example:
+- To allow a user to create or drop a database scoped credential, an administrator must grant the `CONTROL` permission on the database to the database user in the user database. For example:
 
     ```sql
     GRANT CONTROL ON DATABASE::[database_name] TO [user_name];
@@ -291,16 +291,16 @@ To grant the ability manage credentials:
 
 Database users who access external storage must have permission to use credentials. To use the credential, a user must have the `REFERENCES` permission on a specific credential. 
 
-To grant the `REFERENCES` permission on a server-level credential for a user, use the following T-SQL query:
+To grant the `REFERENCES` permission on a server-level credential for a login, use the following T-SQL query in the master database:
 
 ```sql
-GRANT REFERENCES ON CREDENTIAL::[server-level_credential] TO [user];
+GRANT REFERENCES ON CREDENTIAL::[server-level_credential] TO [login_name];
 ```
 
-To grant a `REFERENCES` permission on a database-scoped credential for a user, use the following T-SQL query:
+To grant a `REFERENCES` permission on a database-scoped credential for a database user, use the following T-SQL query in the user database:
 
 ```sql
-GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::[database-scoped_credential] TO [user];
+GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::[database-scoped_credential] TO [user_name];
 ```
 
 ## Server-level credential
@@ -324,9 +324,9 @@ Server-level credentials are then able to access Azure storage using the followi
 
 ### [User identity](#tab/user-identity)
 
-Azure Active Directory users can access any file on Azure storage if they are members of the Storage Blob Data Owner, Storage Blob Data Contributor, or Storage Blob Data Reader role. Azure AD users don't need credentials to access storage. 
+Microsoft Entra users can access any file on Azure storage if they are members of the Storage Blob Data Owner, Storage Blob Data Contributor, or Storage Blob Data Reader role. Microsoft Entra users don't need credentials to access storage. 
 
-SQL authenticated users can't use Azure AD authentication to access storage. They can access storage through a database credential using Managed Identity, SAS Key, Service Principal or if there is public access to the storage.
+SQL authenticated users can't use Microsoft Entra authentication to access storage. They can access storage through a database credential using Managed Identity, SAS Key, Service Principal or if there is public access to the storage.
 
 ### [Shared access signature](#tab/shared-access-signature)
 
@@ -345,7 +345,7 @@ Optionally, you can use just the base URL of the storage account, without contai
 
 ### [Service principal](#tab/service-principal)
 
-The following script creates a server-level credential that can be used to access files in a storage using Service principal for authentication and authorization. **AppID** can be found by visiting App registrations in Azure portal and selecting the App requesting storage access. **Secret** is obtained during the App registration. **AuthorityUrl** is URL of Azure Active Directory Oauth2.0 authority.
+The following script creates a server-level credential that can be used to access files in a storage using Service principal for authentication and authorization. **AppID** can be found by visiting App registrations in Azure portal and selecting the App requesting storage access. **Secret** is obtained during the App registration. **AuthorityUrl** is URL of Microsoft Entra ID Oauth2.0 authority.
 
 ```sql
 CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]
@@ -376,9 +376,11 @@ Database-scoped credentials are used when any principal calls `OPENROWSET` funct
 
 Database-scoped credentials enable access to Azure storage using the following authentication types:
 
-### [Azure AD Identity](#tab/user-identity)
+<a name='azure-ad-identity'></a>
 
-Azure AD users can access any file on Azure storage if they are members of the Storage Blob Data Owner, Storage Blob Data Contributor, or Storage Blob Data Reader roles. Azure AD users don't need credentials to access storage.
+### [Microsoft Entra identity](#tab/user-identity)
+
+Microsoft Entra users can access any file on Azure storage if they are members of the Storage Blob Data Owner, Storage Blob Data Contributor, or Storage Blob Data Reader roles. Microsoft Entra users don't need credentials to access storage.
 
 ```sql
 CREATE EXTERNAL DATA SOURCE mysample
@@ -386,7 +388,7 @@ WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<containe
 )
 ```
 
-SQL authenticated users can't use Azure AD authentication to access storage. They can access storage through a database credential using Managed Identity, SAS Key, Service Principal or if there is public access to the storage.
+SQL authenticated users can't use Microsoft Entra authentication to access storage. They can access storage through a database credential using Managed Identity, SAS Key, Service Principal or if there is public access to the storage.
 
 
 ### [Shared access signature](#tab/shared-access-signature)
@@ -408,7 +410,7 @@ WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<containe
 ```
 
 ### [Service principal](#tab/service-principal)
-The following script creates a database-scoped credential that can be used to access files in a storage using service principal for authentication and authorization. **AppID** can be found by visiting App registrations in Azure portal and selecting the App requesting storage access. **Secret** is obtained during the App registration. **AuthorityUrl** is URL of Azure Active Directory Oauth2.0 authority.
+The following script creates a database-scoped credential that can be used to access files in a storage using service principal for authentication and authorization. **AppID** can be found by visiting App registrations in Azure portal and selecting the App requesting storage access. **Secret** is obtained during the App registration. **AuthorityUrl** is URL of Microsoft Entra ID Oauth2.0 authority.
 
 ```sql
 -- Optional: Create MASTER KEY if not exists in database:
@@ -426,7 +428,7 @@ WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<containe
 
 ### [Managed Identity](#tab/managed-identity)
 
-The following script creates a database-scoped credential that can be used to impersonate current Azure AD user as Managed Identity of service. The script creates a sample external data source that uses workspace identity to access storage.
+The following script creates a database-scoped credential that can be used to impersonate current Microsoft Entra user as Managed Identity of service. The script creates a sample external data source that uses workspace identity to access storage.
 
 ```sql
 -- Optional: Create MASTER KEY if not exists in database:
@@ -496,7 +498,7 @@ GO
 
 ### Access a data source using credentials
 
-Modify the following script to create an external table that accesses Azure storage using SAS token, Azure AD identity of user, or managed identity of workspace.
+Modify the following script to create an external table that accesses Azure storage using SAS token, Microsoft Entra identity of user, or managed identity of workspace.
 
 ```sql
 -- Create master key in databases with some password (one-off per database)

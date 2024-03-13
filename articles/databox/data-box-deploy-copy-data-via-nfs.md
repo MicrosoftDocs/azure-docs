@@ -2,13 +2,13 @@
 title: Tutorial to copy data to Azure Data Box via NFS| Microsoft Docs
 description: In this tutorial, learn how to connect to and copy data from your host computer to Azure Data Box by using NFS with the local web UI.
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
 ms.date: 08/26/2022
-ms.author: alkohli
+ms.author: shaas
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---
 # Tutorial: Copy data to Azure Data Box via NFS

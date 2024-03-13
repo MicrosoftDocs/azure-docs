@@ -5,8 +5,7 @@ description: This guide shows you how to use an Azure function to trigger the pr
 author: laujan
 manager: nitinme
 
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: tutorial
 ms.date: 07/18/2023
 ms.author: lajanuar
@@ -231,7 +230,7 @@ Next, you'll add your own code to the Python script to call the Document Intelli
     The following code parses the returned Document Intelligence response, constructs a .csv file, and uploads it to the **output** container.
 
     > [!IMPORTANT]
-    > You will likely need to edit this code to match the structure of your own form documents.
+    > You will likely need to edit this code to match the structure of your own documents.
 
     ```python
         # The code below extracts the json format into tabular data.

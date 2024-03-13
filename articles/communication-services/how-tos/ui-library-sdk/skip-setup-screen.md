@@ -1,7 +1,7 @@
 ---
-title: Skip setup screen of the UI Library
+title: Skip the setup screen by using the UI Library
 titleSuffix: An Azure Communication Services how-to guide
-description: Use Azure Communication Services UI Library for Mobile native to skip the setup screen
+description: Use the Azure Communication Services UI Library to skip the setup screen in an application.
 author: mbellah
 ms.author: mbellah
 ms.service: azure-communication-services
@@ -10,30 +10,32 @@ ms.date: 03/21/2023
 ms.custom: template-how-to
 zone_pivot_groups: acs-plat-ios-android
 
-#Customer intent: As a developer, I want to skip setup screen of the library in my application
+#Customer intent: As a developer, I want to skip the setup screen in my application so users can join a call directly.
 ---
 
-# Skip setup screen
+# Skip the setup screen in an application
 
-The feature enables the option to join a call without passing through the setup screen. It empowers developers to build their communication application using UI Library in a way that users can join a call directly without any user interaction. The feature also provides capability to configure camera and microphone default state. We're providing APIs to turn the camera and microphone on or off so that developers have the capability to configure the default state of the camera and microphone before joining a call.
+The Azure Communication Services UI Library offers the option to join a call without passing through the setup screen. It empowers developers to build a communication application in a way that enables users to join a call directly, without any user interaction. The feature also provides the capability to configure the default state of the camera and microphone (on or off) before users join a call.
 
-Learn how to set up the skip setup screen feature correctly in your application.
+In this article, you learn how to set up the feature correctly in your application.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
-- A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../quickstarts/access-tokens.md)
-- Optional: Complete the quickstart for [getting started with the UI Library composites](../../quickstarts/ui-library/get-started-composites.md)
+- A user access token to enable the call client. [Get a user access token](../../quickstarts/access-tokens.md).
+- Optional: Completion of the [quickstart for getting started with the UI Library composites](../../quickstarts/ui-library/get-started-composites.md).
+
+## Set up the feature
 
 ::: zone pivot="platform-android"
-[!INCLUDE [Skip Setup Screen over the Android UI library](./includes/skip-setup-screen/android.md)]
+[!INCLUDE [Skip setup screen over the Android UI Library](./includes/skip-setup-screen/android.md)]
 ::: zone-end
 
 ::: zone pivot="platform-ios"
-[!INCLUDE [Skip Setup Screen over the iOS UI library](./includes/skip-setup-screen/ios.md)]
+[!INCLUDE [Skip setup screen over the iOS UI Library](./includes/skip-setup-screen/ios.md)]
 ::: zone-end
 
 ## Next steps
 
-- [Learn more about UI Library](../../concepts/ui-library/ui-library-overview.md)
+- [Learn more about the UI Library](../../concepts/ui-library/ui-library-overview.md)

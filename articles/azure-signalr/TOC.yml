@@ -57,6 +57,8 @@
     href: concept-service-mode.md
   - name: Connection string
     href: concept-connection-string.md
+  - name: Client negotiation
+    href: signalr-concept-client-negotiation.md
   - name: Scale ASP.NET Core SignalR
     href: signalr-concept-scale-aspnet-core.md
   - name: Serverless
@@ -85,9 +87,9 @@
     href: signalr-concept-performance.md
   - name: Authentication
     href: signalr-concept-authenticate-oauth.md
-  - name: Authorization with Azure AD
+  - name: Authorization with Microsoft Entra ID
     items:
-      - name: Overview of Azure AD for Azure SignalR Service
+      - name: Overview of Microsoft Entra ID for Azure SignalR Service
         href: signalr-concept-authorize-azure-active-directory.md
   - name: Event handling
     href: signalr-concept-event-grid-integration.md
@@ -99,6 +101,14 @@
       href: ./security-controls-policy.md
 - name: How-to guides
   items:
+  - name: Develop
+    items:
+    - name: Use the Azure SignalR SDK
+      href: signalr-howto-use.md
+    - name: Use the Management SDK
+      href: signalr-howto-use-management-sdk.md
+    - name: Local emulator for serverless development
+      href: signalr-howto-emulator.md
   - name: Scale and geo-replicate
     items:
     - name: Single instance

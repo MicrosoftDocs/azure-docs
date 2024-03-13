@@ -1,12 +1,11 @@
 ---
-author: aahill
+author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: include
-ms.date: 01/25/2023
-ms.author: aahi
-ms.custom: language-service-custom-classification, ignite-fall-2021, event-tier1-build-2022
+ms.date: 12/19/2023
+ms.author: jboback
+ms.custom: language-service-custom-classification
 ---
 
 ## Prerequisites
@@ -112,5 +111,3 @@ After your model is deployed successfully, you can start using it to classify yo
 ## Clean up resources
 
 [!INCLUDE [Delete project using the REST API](../rest-api/delete-project.md)]
-
-

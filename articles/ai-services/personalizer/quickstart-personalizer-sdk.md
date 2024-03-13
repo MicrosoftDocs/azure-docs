@@ -4,17 +4,19 @@ description: This quickstart shows you how to create and manage a Personalizer l
 author: jcodella
 ms.author: jacodel
 ms.manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
+ms.service: azure-ai-personalizer
 ms.topic: quickstart
-ms.date: 02/02/2023
-ms.devlang: csharp, javascript, python
-ms.custom: cog-serv-seo-aug-2020, mode-api, devx-track-extended-java, devx-track-js, devx-track-python
+ms.date: 01/19/2024
+ms.devlang: csharp
+# ms.devlang: csharp, javascript, python
+ms.custom: mode-api, devx-track-extended-java, devx-track-js, devx-track-python
 keywords: personalizer, Azure AI Personalizer, machine learning
 zone_pivot_groups: programming-languages-set-six
 ---
 
 # Quickstart: Personalizer client library
+
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 Get started with the Azure AI Personalizer client libraries to set up a basic learning loop. A learning loop is a system of decisions and feedback: an application requests a decision ranking from the service, then it uses the top-ranked choice and calculates a reward score from the outcome. It returns the reward score to the service. Over time, Personalizer uses AI algorithms to  make better decisions for any given context. Follow these steps to set up a sample application.
 

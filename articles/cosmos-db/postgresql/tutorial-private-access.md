@@ -5,7 +5,7 @@ ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
-ms.custom: ignite-2022, devx-track-azurecli
+ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 06/05/2023
 ---
@@ -63,7 +63,7 @@ az vm create \
 	--subnet link-demo-subnet \
 	--nsg link-demo-nsg \
 	--public-ip-address link-demo-net-ip \
-	--image debian \
+	--image Debian11 \
 	--admin-username azureuser \
 	--generate-ssh-keys
 

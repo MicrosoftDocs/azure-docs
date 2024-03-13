@@ -3,7 +3,7 @@ title: MedTech service and Azure Machine Learning Service - Azure Health Data Se
 description: Learn how to use the MedTech service and the Azure Machine Learning Service
 author: msjasteppe
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: iomt
 ms.topic: conceptual
 ms.date: 07/21/2023
 ms.author: jasteppe
@@ -11,14 +11,11 @@ ms.author: jasteppe
 
 # MedTech service and Azure Machine Learning Service
 
-> [!NOTE]
-> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
-
 In this article, learn about using the MedTech service and the Azure Machine Learning Service.
 
 ## The MedTech service and Azure Machine Learning Service reference architecture
 
-The MedTech service enables IoT devices to seamlessly integrate with FHIR services. This reference architecture is designed to accelerate adoption of Internet of Things (IoT) projects. This solution uses Azure Databricks for the Machine Learning (ML) compute. However, Azure Machine Learning Services with Kubernetes or a partner ML solution could fit into the Machine Learning Scoring Environment.
+The MedTech service enables IoT devices to seamlessly integrate with FHIR&reg; services. This reference architecture is designed to accelerate adoption of Internet of Things (IoT) projects. This solution uses Azure Databricks for the Machine Learning (ML) compute. However, Azure Machine Learning Services with Kubernetes or a partner ML solution could fit into the Machine Learning Scoring Environment.
 
 The four line colors show the different parts of the data journey.
 
@@ -57,9 +54,9 @@ The four line colors show the different parts of the data journey.
 12. Azure Databricks sends a payload to an Azure Function (ML Output).
 13. RiskAssessment and/or Flag resource submitted to FHIR service. 
     1. For each observation window, a RiskAssessment resource is submitted to the FHIR service. 
-    2. For observation windows where the risk assessment is outside the acceptable range a Flag resource should also be submitted to the FHIR service.
+    2. For observation windows where the RiskAssessment is outside the acceptable range a Flag Resource should also be submitted to the FHIR service.
 14. Scored data sent to data repository for routing to appropriate care team. Azure SQL Server is the data repository used in this design because of its native interaction with Power BI.
-15. Power BI Dashboard is updated with Risk Assessment output in under 15 minutes.
+15. Power BI Dashboard is updated with RiskAssessment output in under 15 minutes.
 
 **Warm path**
 
@@ -68,22 +65,11 @@ The four line colors show the different parts of the data journey.
 18. Care Coordination through Microsoft Teams for Healthcare Patient App.
 
 ## Next steps
-
-In this article, you learned about the MedTech service and Machine Learning service integration. 
-
-For an overview of the MedTech service, see
-
-> [!div class="nextstepaction"]
-> [What is the MedTech service?](overview.md)
-
-To learn about the MedTech service device message data transformation, see
-
-> [!div class="nextstepaction"]
-> [Understand the MedTech service device data processing stages](overview-of-device-data-processing-stages.md)
-
-To learn about methods for deploying the MedTech service, see
-
-> [!div class="nextstepaction"]
-> [Choose a deployment method for the MedTech service](deploy-new-choose.md)
-
-FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+ 
+[What is the MedTech service?](overview.md)
+ 
+[Understand the MedTech service device data processing stages](overview-of-device-data-processing-stages.md)
+ 
+[Choose a deployment method for the MedTech service](deploy-new-choose.md)
+ 
+[!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

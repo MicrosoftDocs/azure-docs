@@ -2,11 +2,10 @@
 title: "What is a workspace and project? - Custom Translator"
 titleSuffix: Azure AI services
 description: This article will explain the differences between a workspace and a project as well as project categories and labels for the Custom Translator service.
-services: cognitive-services
+#services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.date: 07/18/2023
 ms.author: lajanuar
 ms.topic: conceptual

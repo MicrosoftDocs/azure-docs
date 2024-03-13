@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: nat-gateway
 ms.topic: tutorial
-ms.date: 05/24/2022
+ms.date: 01/30/2024
 ms.custom: template-tutorial
 ---
 
@@ -17,6 +17,8 @@ In this tutorial, you learn how to integrate a NAT gateway with a public load ba
 By default, an Azure Standard Load Balancer is secure. Outbound connectivity is explicitly defined by enabling outbound SNAT (Source Network Address Translation). SNAT is enabled in a load-balancing rule or outbound rules. 
 
 The NAT gateway integration replaces the need for outbound rules for backend pool outbound SNAT. 
+
+:::image type="content" source="./media/tutorial-nat-gateway-load-balancer-public-portal/resources-diagram.png" alt-text="Diagram of Azure resources created in tutorial." lightbox="./media/tutorial-nat-gateway-load-balancer-public-portal/resources-diagram.png":::
 
 In this tutorial, you learn how to:
 

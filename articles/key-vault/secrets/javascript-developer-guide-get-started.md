@@ -43,7 +43,7 @@ This article shows you how to connect to Azure Key Vault by using the Azure Key 
     npm install @azure/keyvault-secrets
     ```
 
-1. If you want to use passwordless connections using Azure AD, install the Azure Identity client library for JavaScript:
+1. If you want to use passwordless connections using Microsoft Entra ID, install the Azure Identity client library for JavaScript:
 
     ```bash
     npm install @azure/identity
@@ -51,7 +51,7 @@ This article shows you how to connect to Azure Key Vault by using the Azure Key 
 
 ## Authorize access and connect to Key Vault
 
-Azure Active Directory (Azure AD) provides the most secure connection by managing the connection identity ([**managed identity**](../../active-directory/managed-identities-azure-resources/overview.md)). This **passwordless** functionality allows you to develop an application that doesn't require any secrets (keys or connection strings) stored in the code.
+Microsoft Entra ID provides the most secure connection by managing the connection identity ([**managed identity**](../../active-directory/managed-identities-azure-resources/overview.md)). This **passwordless** functionality allows you to develop an application that doesn't require any secrets (keys or connection strings) stored in the code.
 
 Before programmatically authenticating to Azure to use Azure Key Vault secrets, make sure you set up your environment. 
 

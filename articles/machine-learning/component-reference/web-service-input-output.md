@@ -1,6 +1,6 @@
 ---
 title: "Web Service Input/Output: Component reference"
-description: Learn how to use the the web service components in Azure Machine Learning designer to manage inputs and outputs.
+description: Learn how to use the web service components in Azure Machine Learning designer to manage inputs and outputs.
 titleSuffix: Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning

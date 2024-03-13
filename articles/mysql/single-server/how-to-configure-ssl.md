@@ -3,10 +3,11 @@ title: Configure SSL - Azure Database for MySQL
 description: Instructions for how to properly configure Azure Database for MySQL and associated applications to correctly use SSL connections
 ms.service: mysql
 ms.subservice: single-server
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: how-to
-ms.devlang: csharp, golang, java, javascript, php, python, ruby
+ms.devlang: csharp
+# ms.devlang: csharp, golang, java, javascript, php, python, ruby
 ms.custom: devx-track-csharp
 ms.date: 06/20/2022
 ---
@@ -280,4 +281,4 @@ conn.connect(function(err) {
 ## Next steps
 
 * To learn about certificate expiry and rotation, refer [certificate rotation documentation](concepts-certificate-rotation.md)
-* Review various application connectivity options following [Connection libraries for Azure Database for MySQL](concepts-connection-libraries.md)
+* Review various application connectivity options following [Connection libraries for Azure Database for MySQL](../flexible-server/concepts-connection-libraries.md)

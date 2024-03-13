@@ -4,11 +4,9 @@ description: Learn how to use Azure AI Vision in Azure Synapse Analytics.
 ms.service: synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial
-ms.reviewer: 
 ms.date: 11/02/2021
 author: ruixinxu
 ms.author: ruxu
-ms.custom: ignite-fall-2021
 ---
 
 # Tutorial: Vision with Azure AI services
@@ -182,4 +180,3 @@ To ensure the Spark instance is shut down, end any connected sessions(notebooks)
 
 * [Check out Synapse sample notebooks](https://github.com/Azure-Samples/Synapse/tree/main/MachineLearning) 
 * [SynapseML GitHub Repo](https://github.com/Azure/mmlspark)
-* [SynapseML documentation](https://microsoft.github.io/SynapseML/docs/documentation/transformers/transformers_cognitive/)

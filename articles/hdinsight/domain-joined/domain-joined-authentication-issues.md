@@ -10,7 +10,7 @@ ms.date: 04/28/2023
 
 This article describes troubleshooting steps and possible resolutions for issues when interacting with Azure HDInsight clusters.
 
-On secure clusters backed by Azure Data Lake (Gen1 or Gen2), when domain users sign in to the cluster services through HDI Gateway (like signing in to the Apache Ambari portal), HDI Gateway tries to obtain an OAuth token from Azure Active Directory (Azure AD) first, and then get a Kerberos ticket from Azure AD DS. Authentication can fail in either of these stages. This article is aimed at debugging some of those issues.
+On secure clusters backed by Azure Data Lake (Gen1 or Gen2), when domain users sign in to the cluster services through HDI Gateway (like signing in to the Apache Ambari portal), HDI Gateway tries to obtain an OAuth token from Microsoft Entra first, and then get a Kerberos ticket from Microsoft Entra Domain Services. Authentication can fail in either of these stages. This article is aimed at debugging some of those issues.
 
 When the authentication fails, you gets prompted for credentials. If you cancel this dialog, the error message is printed. Here are some of the common error messages:
 
@@ -26,11 +26,11 @@ Reason: Bad Request, Detailed Response: {"error":"invalid_grant","error_descript
 
 ### Cause
 
-Azure AD error code 50126 means the `AllowCloudPasswordValidation` policy not set by the tenant.
+Microsoft Entra error code 50126 means the `AllowCloudPasswordValidation` policy not set by the tenant.
 
 ### Resolution
 
-The Global Administrator of the Azure AD tenant should enable Azure AD to use password hashes for ADFS backed users.  Apply the `AllowCloudPasswordValidationPolicy` as shown in the article [Use Enterprise Security Package in HDInsight](../domain-joined/apache-domain-joined-architecture.md).
+The Global Administrator of the Microsoft Entra tenant should enable Microsoft Entra ID to use password hashes for ADFS backed users.  Apply the `AllowCloudPasswordValidationPolicy` as shown in the article [Use Enterprise Security Package in HDInsight](../domain-joined/apache-domain-joined-architecture.md).
 
 ---
 
@@ -106,7 +106,7 @@ The conditional access policy or MFA is being applied to the user. Since interac
 
 ### Resolution
 
-Use conditional access policy and exempt the HDInsight clusters from MFA as shown in [Configure a HDInsight cluster with Enterprise Security Package by using Azure Active Directory Domain Services](./apache-domain-joined-configure-using-azure-adds.md).
+Use conditional access policy and exempt the HDInsight clusters from MFA as shown in [Configure a HDInsight cluster with Enterprise Security Package by using Microsoft Entra Domain Services](./apache-domain-joined-configure-using-azure-adds.md).
 
 ---
 
@@ -118,7 +118,7 @@ Sign in denied.
 
 ### Cause
 
-To get to this stage, your OAuth authentication isn't an issue, but Kerberos authentication is. If this cluster is backed by ADLS, OAuth sign in has succeeded before Kerberos auth is attempted. On WASB clusters, OAuth sign in isn't attempted. There could be many reasons for Kerberos failure - like password hashes are out of sync, user account locked out in Azure AD DS, and so on. Password hashes sync only when the user changes password. When you create the Azure AD DS instance, it will start syncing passwords that are changed after the creation. It can't retroactively sync passwords that were set before its inception.
+To get to this stage, your OAuth authentication isn't an issue, but Kerberos authentication is. If this cluster is backed by ADLS, OAuth sign in has succeeded before Kerberos auth is attempted. On WASB clusters, OAuth sign in isn't attempted. There could be many reasons for Kerberos failure - like password hashes are out of sync, user account locked out in Microsoft Entra Domain Services, and so on. Password hashes sync only when the user changes password. When you create the Microsoft Entra Domain Services instance, it will start syncing passwords that are changed after the creation. It can't retroactively sync passwords that were set before its inception.
 
 ### Resolution
 

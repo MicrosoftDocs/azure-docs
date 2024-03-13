@@ -6,18 +6,18 @@ ms.author: duau
 ms.custom: subject-cost-optimization
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 12/27/2022
+ms.date: 12/28/2023
 ---
 
 # Plan and manage costs for Azure ExpressRoute
 
 This article describes how you can plan for and manage costs for Azure ExpressRoute. First, you use the Azure pricing calculator to help plan for ExpressRoute costs before you add any resources for the service to estimate costs. Next, as you add Azure resources, review the estimated costs. 
 
-After you've started using Azure ExpressRoute resources, use the Cost Management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act. The costs for Azure ExpressRoute are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan for and manage costs for Azure ExpressRoute, you're billed for all Azure services and resources used in your Azure subscription, including any third-party services.
+After you started using Azure ExpressRoute resources, use the Cost Management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act. The costs for Azure ExpressRoute are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan for and manages costs for Azure ExpressRoute, you get billed for all Azure services and resources used in your Azure subscription, including any partner services.
 
 ## Prerequisites
 
-Cost analysis in Cost Management supports most Azure account types, but not all of them. To view the full list of supported account types, see [Understand Cost Management data](../cost-management-billing/costs/understand-cost-mgt-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn). To view cost data, you need at least read access for an Azure account. For information about assigning access to Azure Cost Management data, see [Assign access to data](../cost-management-billing/costs/assign-access-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+Cost analysis in Cost Management supports most Azure account types, but not all of them. To view the full list of supported account types, see [Understand Cost Management data](../cost-management-billing/costs/understand-cost-mgt-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn). To view cost data, you need at least read access for an Azure account. For information about assigning access to Microsoft Cost Management data, see [Assign access to data](../cost-management-billing/costs/assign-access-acm-data.md).
 
 ## Local vs. Standard vs. Premium
 
@@ -81,13 +81,13 @@ If you have an ExpressRoute gateway after deleting the ExpressRoute circuit, you
 
 ### Using Azure Prepayment credit
 
-You can pay for ExpressRoute charges with your Azure Prepayment (previously called monetary commitment) credit. However, you can't use Azure Prepayment credit to pay for charges for third-party products and services including the ones from the Azure Marketplace.
+You can pay for ExpressRoute charges with your Azure Prepayment (previously called monetary commitment) credit. However, you can't use Azure Prepayment credit to pay for charges for partner products and services including the ones from the Azure Marketplace.
 
 ## Monitor costs
 
 As you use Azure resources with ExpressRoute, you incur costs. Azure resource usage unit costs vary by time intervals (seconds, minutes, hours, and days) or by unit usage (bytes, megabytes, and so on.) As soon as ExpressRoute use starts, costs are incurred and you can see the costs in [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
-When you use cost analysis, you view ExpressRoute circuit costs in graphs and tables for different time intervals. Some examples are by day, current and prior month, and year. You also view costs against budgets and forecasted costs. Switching to longer views over time can help you identify spending trends. And you see where overspending might have occurred. If you've created budgets, you can also easily see where they're exceeded.
+When you use cost analysis, you view ExpressRoute circuit costs in graphs and tables for different time intervals. Some examples are by day, current and prior month, and year. You also view costs against budgets and forecasted costs. Switching to longer views over time can help you identify spending trends. And you see where overspending might occur. If you created budgets, you can also easily see where they're exceeded.
 
 To view ExpressRoute costs in cost analysis:
 
@@ -121,7 +121,7 @@ You can also [export your cost data](../cost-management-billing/costs/tutorial-e
 ## Next steps
 
 - Learn more on how pricing works with Azure ExpressRoute. See [Azure ExpressRoute Overview pricing](https://azure.microsoft.com/pricing/details/expressroute/).
-- Learn [how to optimize your cloud investment with Azure Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
-- Learn more about managing costs with [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
-- Learn about how to [prevent unexpected costs](../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
-- Take the [Cost Management](/training/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.
+- Learn [how to optimize your cloud investment with Microsoft Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md).
+- Learn more about managing costs with [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md).
+- Learn about how to [prevent unexpected costs](../cost-management-billing/cost-management-billing-overview.md).
+- Take the [Cost Management](/training/paths/control-spending-manage-bills) guided learning course.

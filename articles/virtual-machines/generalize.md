@@ -1,18 +1,19 @@
 ---
 title: Deprovision or generalize a VM before creating an image
-description: Generalized or deprovision VM to remove machine specific information before creating an image. 
-author: cynthn
+description: Generalized or deprovision VM to remove machine specific information before creating an image.
+author: ju-shim
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 03/15/2023
-ms.author: cynthn
+ms.author: jushiman
 ms.custom: portal
-
 ---
 
 # Remove machine specific information by deprovisioning or generalizing a VM before creating an image
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
 
 Generalizing or deprovisioning a VM is not necessary for creating an image in an [Azure Compute Gallery](shared-image-galleries.md#generalized-and-specialized-images) unless you specifically want to create an image that has no machine specific information, like user accounts. Generalizing is still required when creating a managed image outside of a gallery.
 
@@ -103,7 +104,7 @@ To generalize your Windows VM, follow these steps:
 
 5. Then change the directory to %windir%\system32\sysprep, and then run:
    ```
-   sysprep.exe /oobe /generalize /shutdown
+   sysprep.exe /generalize /shutdown
    ```
 6. The VM will shut down when Sysprep is finished generalizing the VM. Do not restart the VM.
  

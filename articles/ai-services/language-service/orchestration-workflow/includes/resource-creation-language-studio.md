@@ -1,14 +1,13 @@
 ---
 titleSuffix: Azure AI services
-services: cognitive-services
-author: aahill
+#services: cognitive-services
+author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: include
-ms.date: 10/12/2022
-ms.author: aahi
-ms.custom: language-service-custom-classification, references_regions, ignite-fall-2021
+ms.date: 12/19/2023
+ms.author: jboback
+ms.custom: language-service-custom-classification, references_regions
 ---
 
 
@@ -27,8 +26,5 @@ Create a Language resource with following details.
 |Pricing tier     | Learn more about [supported pricing tiers](../service-limits.md#language-resource-limits).        |
 
 > [!IMPORTANT]
-> * Make sure to to enable **Managed Identity** when you create a Language resource. 
+> * Make sure to enable **Managed Identity** when you create a Language resource. 
 > * Read and confirm Responsible AI notice
-
-
-

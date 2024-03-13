@@ -1,7 +1,6 @@
 ---
 author: eric-urban
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 11/29/2022
 ms.author: eur
@@ -18,6 +17,7 @@ Although you don't indicate whether the dataset is for testing or training, you 
 |Language     |Training data: Plain text         |
 |LanguageMarkdown     |Training data: Structured text in markdown format         |
 |Pronunciation     |Training data: Pronunciation         |
+|OutputFormatting |Training data: Output format |
 
 > [!NOTE]
 > Structured text in markdown format training datasets are not supported by version 3.0 of the Speech to text REST API. You must use the [Speech to text REST API v3.1](~/articles/ai-services/speech-service/rest-speech-to-text.md). For more information, see [Migrate code from v3.0 to v3.1 of the REST API](~/articles/ai-services/speech-service/migrate-v3-0-to-v3-1.md).

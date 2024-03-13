@@ -8,7 +8,7 @@ ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/27/2023
-ms.custom: seo-nov-2020, cosmos-db-video, ignite-2022
+ms.custom: cosmos-db-video
 ---
 
 # Request Units in Azure Cosmos DB
@@ -17,9 +17,9 @@ ms.custom: seo-nov-2020, cosmos-db-video, ignite-2022
 
 Azure Cosmos DB supports many APIs, such as SQL, MongoDB, Cassandra, Gremlin, and Table. Each API has its own set of database operations. These operations range from simple point reads and writes to complex queries. Each database operation consumes system resources based on the complexity of the operation.
 
-Azure Cosmos DB normalizes the cost of all database operations using Request Units (or RUs, for short). Request unit is a performance currency abstracting the system resources such as CPU, IOPS, and memory that are required to perform the database operations supported by Azure Cosmos DB.
+Azure Cosmos DB normalizes the cost of all database operations using Request Units (or RUs, for short) and measures cost based on throughput (Request Units per second, RU/s).
 
-The cost to do a [point read](optimize-cost-reads-writes.md#point-reads) (fetching a single item by its ID and partition key value) for a 1-KB item is one Request Unit (or one RU). All other database operations are similarly assigned a cost using RUs. No matter which API you use to interact with your Azure Cosmos DB container, RUs measure the actual costs of using that API. Whether the database operation is a write, point read, or query, costs are always measured in RUs.
+Request unit is a performance currency abstracting the system resources such as CPU, IOPS, and memory that are required to perform the database operations supported by Azure Cosmos DB. Whether the database operation is a write, point read, or query, operations are always measured in RUs. For example, a [point read](optimize-cost-reads-writes.md#point-reads) (fetching a single item by its ID and partition key value) for a 1-KB item is one Request Unit (or one RU), no matter which API you use to interact with your Azure Cosmos DB container. You can model your throughput costs using the [Azure Cosmos DB Capacity Calculator](https://cosmos.azure.com/capacitycalculator/).
 
 > [!VIDEO https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=772fba63-62c7-488c-acdb-a8f686a3b5f4]
 

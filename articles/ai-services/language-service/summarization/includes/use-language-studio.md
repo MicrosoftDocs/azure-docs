@@ -1,12 +1,12 @@
 ---
  title: include file
  description: include file
- services: cognitive-services
+ #services: cognitive-services
  author: jboback
- ms.service: cognitive-services
+ ms.service: azure-ai-language
  ms.topic: include
- ms.date: 08/15/2022
- ms.author: aahi
+ ms.date: 12/19/2023
+ ms.author: jboback
  ms.custom: include
 ---
 

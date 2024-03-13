@@ -1,8 +1,8 @@
 ---
 author: eric-urban
-ms.service: cognitive-services
+ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 04/13/2020
+ms.date: 1/21/2024
 ms.author: eur
 ---
 
@@ -80,7 +80,7 @@ With every call to [`add_target_language`][addlang], a new target translation la
 
 ## Initialize a translation recognizer
 
-After you've created a [`SpeechTranslationConfig`][speechtranslationconfig] instance, the next step is to initialize [`TranslationRecognizer`][translationrecognizer]. When you initialize `TranslationRecognizer`, you need to pass it your `translation_config` instance. The configuration object provides the credentials that the Speech service requires to validate your request.
+After you created a [`SpeechTranslationConfig`][speechtranslationconfig] instance, the next step is to initialize [`TranslationRecognizer`][translationrecognizer]. When you initialize `TranslationRecognizer`, you need to pass it your `translation_config` instance. The configuration object provides the credentials that the Speech service requires to validate your request.
 
 If you're recognizing speech by using your device's default microphone, here's what `TranslationRecognizer` should look like:
 
@@ -135,7 +135,7 @@ def translate_speech_to_text():
 
 ## Translate speech
 
-To translate speech, the Speech SDK relies on a microphone or an audio file input. Speech recognition occurs before speech translation. After all objects have been initialized, call the recognize-once function and get the result:
+To translate speech, the Speech SDK relies on a microphone or an audio file input. Speech recognition occurs before speech translation. After all objects are initialized, call the recognize-once function and get the result:
 
 ```python
 import os
@@ -293,9 +293,9 @@ For more information about speech synthesis, see [the basics of speech synthesis
 
 ## Multi-lingual translation with language identification
 
-In many scenarios, you might not know which input languages to specify. Using [language identification](../../../language-identification.md?pivots=programming-language-python#speech-translation) you can detect up to 10 possible input languages and automatically translate to your target languages. 
+In many scenarios, you might not know which input languages to specify. Using [language identification](../../../language-identification.md?pivots=programming-language-python#run-speech-translation) you can detect up to 10 possible input languages and automatically translate to your target languages. 
 
-For a complete code sample, see [language identification](../../../language-identification.md?pivots=programming-language-python#speech-translation).
+For a complete code sample, see [language identification](../../../language-identification.md?pivots=programming-language-python#run-speech-translation).
 
 [speechtranslationconfig]: /python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.translation.speechtranslationconfig
 [audioconfig]: /python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.audioconfig

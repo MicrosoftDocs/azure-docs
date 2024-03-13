@@ -4,7 +4,7 @@ description: Learn how to about common errors returned by WebHCat on HDInsight a
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive
-ms.date: 12/07/2022
+ms.date: 01/04/2024
 ---
 
 # Understand and resolve errors received from WebHCat on HDInsight
@@ -13,7 +13,7 @@ Learn about errors received when using WebHCat with HDInsight, and how to resolv
 
 ## What is WebHCat
 
-[WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) is a REST API for [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), a table, and storage management layer for Apache Hadoop. WebHCat is enabled by default on HDInsight clusters, and is used by various tools to submit jobs, get job status, and so on, without logging in to the cluster.
+[WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) is a REST API for [`HCatalog`](https://cwiki.apache.org/confluence/display/Hive/HCatalog), a table, and storage management layer for Apache Hadoop. WebHCat is enabled by default on HDInsight clusters, and is used by various tools to submit jobs, get job status, and so on, without logging in to the cluster.
 
 ## Modifying configuration
 
@@ -26,7 +26,7 @@ If the following default values are exceeded, it can degrade WebHCat performance
 | Setting | What it does | Default value |
 | --- | --- | --- |
 | [yarn.scheduler.capacity.maximum-applications][maximum-applications] |The maximum number of jobs that can be active concurrently (pending or running) |10,000 |
-| [templeton.exec.max-procs][max-procs] |The maximum number of requests that can be served concurrently |20 |
+| [`templeton.exec.max-procs`][max-procs] |The maximum number of requests that can be served concurrently |20 |
 | [mapreduce.jobhistory.max-age-ms][max-age-ms] |The number of days that job history are retained |seven days |
 
 ## Too many requests
@@ -51,8 +51,8 @@ If the following default values are exceeded, it can degrade WebHCat performance
 
 | Cause | Resolution |
 | --- | --- |
-| Job details have been cleaned up by the job history cleaner |The default retention period for job history is seven days. The default retention period can be changed by modifying `mapreduce.jobhistory.max-age-ms`. For more information, see [Modifying configuration](#modifying-configuration) |
-| Job has been killed because of a failover |Retry job submission for up to two minutes |
+| Job details have cleaned up by the job history cleaner  | The default retention period for job history is seven days. The default retention period can be changed by modifying `mapreduce.jobhistory.max-age-ms`. For more information, see [Modifying configuration](#modifying-configuration) |
+| Job killed because of a failover |Retry job submission for up to two minutes |
 | An Invalid job ID was used |Check if the job ID is correct |
 
 ## Bad gateway

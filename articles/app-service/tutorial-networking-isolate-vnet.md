@@ -6,6 +6,8 @@ ms.custom: devx-track-azurecli
 ms.date: 10/26/2021
 
 ms.reviewer: madsd
+author: cephalin
+ms.author: cephalin
 ---
 
 # Tutorial: Isolate back-end communication in Azure App Service with Virtual Network integration

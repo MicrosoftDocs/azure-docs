@@ -2,8 +2,8 @@
 title: Show information about a coordinate on a map
 titleSuffix: Microsoft Azure Maps
 description: Learn how to display information about an address on the map when a user selects a coordinate.
-author: dubiety
-ms.author: yuchungchen
+author: sinnypan
+ms.author: sipa
 ms.date: 07/01/2023
 ms.topic: how-to
 ms.service: azure-maps
@@ -86,11 +86,10 @@ document.body.onload = onload;
 ```
 
 <!-----------------------------------------------------
-<iframe height='500' scrolling='no' title='Get information from a coordinate (Service Module)' src='//codepen.io/azuremaps/embed/ejEYMZ/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/ejEYMZ/'>Get information from a coordinate (Service Module)</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/ejEYMZ/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 --------------------------------------------------------->
 
-In the previous code example, the first block constructs a map object and sets the authentication mechanism to use Azure Active Directory. For more information, see [Create a map].
+In the previous code example, the first block constructs a map object and sets the authentication mechanism to use Microsoft Entra ID. For more information, see [Create a map].
 
 The second block of code creates an object that implements the [TokenCredential] interface to authenticate HTTP requests to Azure Maps with the access token. It then passes the credential object to [MapsSearch] and creates an instance of the client.
 
@@ -167,11 +166,10 @@ document.body.onload = onload;
 ```
 
 <!-----------------------------------------------------
-<iframe height='500' scrolling='no' title='Get information from a coordinate' src='//codepen.io/azuremaps/embed/ddXzoB/?height=516&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/ddXzoB/'>Get information from a coordinate</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/ddXzoB/?height=516&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 --------------------------------------------------------->
 
-In the previous code example, the first block of code constructs a map object and sets the authentication mechanism to use Azure Active Directory. You can see [Create a map] for instructions.
+In the previous code example, the first block of code constructs a map object and sets the authentication mechanism to use Microsoft Entra ID. You can see [Create a map] for instructions.
 
 The second block of code updates the style of the mouse cursor to a pointer. It instantiates a [popup](/javascript/api/azure-maps-control/atlas.popup#open) object. For more information, see [Add a popup on the map].
 
@@ -204,13 +202,13 @@ See the following articles for full code examples:
 > [!div class="nextstepaction"]
 > [Show traffic](./map-show-traffic.md)
 
-[Reverse Address Search API]: /rest/api/maps/search/getsearchaddressreverse
+[Reverse Address Search API]: /rest/api/maps/search/getsearchaddressreverse?view=rest-maps-1.0&preserve-view=true
 [Fetch API]: https://fetch.spec.whatwg.org/
 [Create a map]: map-create.md
 [popup]: /javascript/api/azure-maps-control/atlas.popup#open
 [Add a popup on the map]: map-add-popup.md
 [event listener]: /javascript/api/azure-maps-control/atlas.map#events
-[Get Search Address Reverse API]: /rest/api/maps/search/getsearchaddressreverse
+[Get Search Address Reverse API]: /rest/api/maps/search/getsearchaddressreverse?view=rest-maps-1.0&preserve-view=true
 [load event listener]: /javascript/api/azure-maps-control/atlas.map#events
 [setOptions]: /javascript/api/azure-maps-control/atlas.popup#setoptions-popupoptions-
 [@azure-rest/maps-search]: https://www.npmjs.com/package/@azure-rest/maps-search

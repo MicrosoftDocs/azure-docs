@@ -5,7 +5,7 @@ author: roygara
 ms.service: azure-disk-storage
 ms.collection: windows
 ms.topic: how-to
-ms.date: 07/28/2023
+ms.date: 02/06/2020
 ms.author: rogarana
 
 ---
@@ -22,7 +22,7 @@ This article shows you how to attach a new managed data disk to a Windows virtua
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for and select **Virtual machines**.
 1. Select a virtual machine from the list.
-1. On the **Virtual machine** pane, select **Disks** under **Settings**.
+1. On the **Virtual machine** pane, select **Disks**.
 1. On the **Disks** pane, select **Create and attach a new disk**.
 1. In the drop-downs for the new disk, make the selections you want, and name the disk.
 1. Select **Save** to create and attach the new data disk to the VM.
@@ -33,6 +33,10 @@ This article shows you how to attach a new managed data disk to a Windows virtua
 1. Select the Windows **Start** menu inside the running VM and enter **diskmgmt.msc** in the search box. The **Disk Management** console opens.
 1. Disk Management recognizes that you have a new, uninitialized disk and the **Initialize Disk** window appears.
 1. Verify the new disk is selected and then select **OK** to initialize it.
+
+    > [!NOTE]
+    > If your disk is two tebibytes (TiB) or larger, you must use GPT partitioning. If it's under two TiB, you can use either MBR or GPT.
+
 1. The new disk appears as **unallocated**. Right-click anywhere on the disk and select **New simple volume**. The **New Simple Volume Wizard** window opens.
 1. Proceed through the wizard, keeping all of the defaults, and when you're done select **Finish**.
 1. Close **Disk Management**.

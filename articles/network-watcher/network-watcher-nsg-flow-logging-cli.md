@@ -167,7 +167,7 @@ az network watcher flow-log delete --name 'myFlowLog' --location 'eastus' --no-w
 > [!NOTE]
 > Deleting a flow log does not delete the flow log data from the storage account. Flow logs data stored in the storage account follow the configured retention policy.  
 
-## Next Steps
+## Next steps
 
 - To learn how to use Azure built-in policies to audit or deploy NSG flow logs, see [Manage NSG flow logs using Azure Policy](nsg-flow-logs-policy-portal.md).
 - To learn about traffic analytics, see [Traffic analytics](traffic-analytics.md).

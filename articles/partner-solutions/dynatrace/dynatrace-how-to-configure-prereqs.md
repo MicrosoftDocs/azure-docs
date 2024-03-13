@@ -9,7 +9,7 @@ ms.date: 02/02/2023
 
 # Configure pre-deployment
 
-This article describes the prerequisites that must be completed in your Azure subscription or Azure Active Directory before you create your first Dynatrace resource in Azure.
+This article describes the prerequisites that must be completed in your Azure subscription or Microsoft Entra ID before you create your first Dynatrace resource in Azure.
 
 ## Access control
 
@@ -19,7 +19,7 @@ To set up Dynatrace for Azure, you must have **Owner** or **Contributor** access
 
 To use the Security Assertion Markup Language (SAML) based single sign-on (SSO) feature within the Dynatrace resource, you must set up an enterprise application. To add an enterprise application, you need one of these roles: Global administrator, Cloud Application Administrator, or Application Administrator.
 
-1. Go to Azure portal. Select **Azure Active Directory,** then **Enterprise App** and then **New Application**.
+1. Go to Azure portal. Select **Microsoft Entra ID,** then **Enterprise App** and then **New Application**.
 
 1. Under **Add from the gallery**, type in `Dynatrace`. Select the search result then select **Create**.
 

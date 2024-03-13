@@ -3,9 +3,9 @@ title: 'Quickstart: Connect using Python - Azure Database for MySQL'
 description: This quickstart provides several Python code samples you can use to connect and query data from Azure Database for MySQL.
 ms.service: mysql
 ms.subservice: single-server
-author: savjani
-ms.author: pariks
-ms.custom: mvc, seo-python-october2019, devx-track-python, mode-api
+author: SudheeshGH
+ms.author: sunaray
+ms.custom: mvc, devx-track-python, mode-api
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 06/20/2022
@@ -301,4 +301,3 @@ az group delete \
 
 > [!div class="nextstepaction"]
 > [Manage Azure Database for MySQL server using CLI](./how-to-manage-single-server-cli.md)
-

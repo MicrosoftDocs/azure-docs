@@ -5,8 +5,7 @@ author: xujxu
 ms.author: xujiang1
 ms.service: stream-analytics
 ms.topic: tutorial
-ms.date: 08/02/2022
-ms.custom: seodec18
+ms.date: 08/03/2023
 ---
 
 # Tutorial: Capture Event Hubs data in parquet format and analyze with Azure Synapse Analytics

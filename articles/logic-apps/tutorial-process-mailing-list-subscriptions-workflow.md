@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 08/20/2022
+ms.date: 01/04/2024
 ---
 
 # Tutorial: Create automated approval-based workflows by using Azure Logic Apps

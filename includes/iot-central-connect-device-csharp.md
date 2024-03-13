@@ -20,7 +20,7 @@ To complete the steps in this article, you need the following resources:
 
 ## Review the code
 
-In the copy of the Microsoft Azure IoT SDK for C# repository you downloaded previously, open the *azure-iot-sdk-csharp-main\azureiot.sln"* solution file in Visual Studio. In **Solution Explorer**, expand the *PnpDeviceSamples > TemperatureController* folder and open the *Program.cs* and *TemperatureControllerSample.cs* files to view the code for this sample.
+In the copy of the Microsoft Azure IoT SDK for C# repository you downloaded previously, open the *azure-iot-sdk-csharp-main\azureiot.sln* solution file in Visual Studio. In **Solution Explorer**, expand the *PnpDeviceSamples > TemperatureController* folder and open the *Program.cs* and *TemperatureControllerSample.cs* files to view the code for this sample.
 
 The sample implements the multiple-component [Temperature Controller](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) Digital Twin Definition Language model.
 

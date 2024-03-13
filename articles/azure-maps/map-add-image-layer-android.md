@@ -1,8 +1,8 @@
 ---
 title: Add an Image layer to an Android map | Microsoft Azure Maps
 description: Learn how to add images to a map. See how to use the Azure Maps Android SDK to customize image layers and overlay images on fixed sets of coordinates.
-author: dubiety
-ms.author: yuchungchen 
+author: sinnypan
+ms.author: sipa
 ms.date: 02/26/2021
 ms.topic: conceptual
 ms.service: azure-maps

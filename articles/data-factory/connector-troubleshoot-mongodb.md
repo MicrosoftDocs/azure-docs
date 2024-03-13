@@ -40,7 +40,7 @@ This article provides suggestions to troubleshoot common problems with the Mongo
 - **Resolution**: 
     Upgrade your MongoDB linked service to the latest version. Refer to this [article](connector-mongodb.md#upgrade-the-mongodb-linked-service).
 
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 

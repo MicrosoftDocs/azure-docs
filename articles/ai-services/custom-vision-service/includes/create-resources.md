@@ -1,6 +1,6 @@
 ---
  author: PatrickFarley
- ms.service: cognitive-services
+ ms.service: azure-ai-custom-vision
  ms.topic: include
  ms.date: 09/03/2019
  ms.author: pafarley

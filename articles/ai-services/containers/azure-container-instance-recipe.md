@@ -1,18 +1,17 @@
 ---
 title: Azure Container Instance recipe
 titleSuffix: Azure AI services
-description: Learn how to deploy Azure AI services containers on Azure Container Instance
-services: cognitive-services
+description: Learn how to deploy Azure AI containers on Azure Container Instance
+#services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18, devx-track-azurecli
-ms.service: cognitive-services
+ms.custom: devx-track-azurecli
+ms.service: azure-ai-services
 ms.topic: how-to
-ms.date: 12/18/2020
+ms.date: 02/22/2024
 ms.author: aahi
-#Customer intent: As a potential customer, I want to know more about how Azure AI services provides and supports Docker containers for each service.
-
 # https://github.com/Azure/cognitiveservices-aci
+#Customer intent: As a potential customer, I want to know more about how Azure AI services provides and supports Docker containers for each service.
 ---
 
 # Deploy and run container on Azure Container Instance
@@ -67,7 +66,7 @@ All variables in angle brackets, `<>`, need to be replaced with your own values.
 
 1. Select **Execute** to send the request to your Container Instance.
 
-    You have successfully created and used Azure AI services containers in Azure Container Instance.
+    You have successfully created and used Azure AI containers in Azure Container Instance.
 
 # [CLI](#tab/cli)
 

@@ -87,7 +87,9 @@ public class App
 }
 ```
 
-### Step 1: Receive the Azure Active Directory user token and object ID via the MSAL library
+<a name='step-1-receive-the-azure-active-directory-user-token-and-object-id-via-the-msal-library'></a>
+
+### Step 1: Receive the Microsoft Entra user token and object ID via the MSAL library
 
 The first step in the token exchange flow is getting a token for your Teams user by using [Microsoft.Identity.Client](../../../active-directory/develop/reference-v2-libraries.md). It's essential to configure the MSAL client with the correct authority, based on the `tenantId` variable, to be able to retrieve the Object ID (`oid`) claim corresponding with a user in Fabrikam's tenant and initialize the `userObjectId` variable.
 
@@ -137,7 +139,9 @@ CommunicationIdentityClient communicationIdentityClient = new CommunicationIdent
     .buildClient();
 ```
 
-### Step 3: Exchange the Azure AD access token of the Teams User for a Communication Identity access token
+<a name='step-3-exchange-the-azure-ad-access-token-of-the-teams-user-for-a-communication-identity-access-token'></a>
+
+### Step 3: Exchange the Microsoft Entra access token of the Teams User for a Communication Identity access token
 
 Use the `getTokenForTeamsUser` method to issue an access token for the Teams user that can be used with the Azure Communication Services SDKs.
 

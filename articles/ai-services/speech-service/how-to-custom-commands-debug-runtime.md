@@ -2,13 +2,11 @@
 title: 'Troubleshooting guide for a Custom Commands application at runtime'
 titleSuffix: Azure AI services
 description: In this article, you learn how to debug runtime errors in a Custom Commands application.
-services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 06/18/2020
+ms.date: 1/18/2024
 ms.author: eur
 ms.custom: cogserv-non-critical-speech
 ---
@@ -21,7 +19,7 @@ This article describes how to debug when you see errors while running Custom Com
 
 ## Connection failed
 
-If your run Custom Commands application from [client application (with Speech SDK)](./how-to-custom-commands-setup-speech-sdk.md) or [Windows Voice Assistant Client](./how-to-custom-commands-developer-flow-test.md), you may experience connection errors as listed below:
+If your run Custom Commands application from [client application (with Speech SDK)](./how-to-custom-commands-setup-speech-sdk.md) or [Windows Voice Assistant Client](./how-to-custom-commands-developer-flow-test.md), you might experience connection errors as listed below:
 
 | Error code | Details |
 | ------- | -------- |
@@ -79,7 +77,7 @@ The CancelledDialog event consists of cancellation code and description, as list
 The dialog is canceled when a required slot isn't successfully updated after certain number of turns. The build-in max number is 3.
 
 ### Recognizer usage quota exceeded
-Language Understanding (LUIS) has limits on resource usage. Usually "Recognizer usage quota exceeded error" can be caused by: 
+Language Understanding (LUIS) has limits on resource usage. Usually "Recognizer usage quota exceeded error" is caused by: 
 - Your LUIS authoring exceeds the limit
 
     Add a prediction resource to your Custom Commands application: 
@@ -99,10 +97,10 @@ Usually it means transient connection failure to Language Understanding (LUIS) r
 Your subscription isn't authorized to access the LUIS application. 
 
 ### Input exceeds the maximum supported length
-Your input has exceeded 500 characters. We only allow at most 500 characters for input utterance.
+Your input exceeded 500 characters. We only allow at most 500 characters for input utterance.
 
 ### Invalid query for the recognizer
-Your input has exceeded 500 characters. We only allow at most 500 characters for input utterance.
+Your input exceeded 500 characters. We only allow at most 500 characters for input utterance.
 
 ### Recognizer return an error
 The LUIS recognizer returned an error when trying to recognize your input.
@@ -112,7 +110,7 @@ Can't find the recognizer type specified in your custom commands dialog model. C
 
 ## Other common errors
 ### Unexpected response
-Unexpected responses may be caused multiple things. 
+Unexpected responses result from many different reasons.
 A few checks to start with:
 - Yes/No Intents in example sentences
 
@@ -120,7 +118,7 @@ A few checks to start with:
 
 - Similar intents and examples sentences among commands
 
-    The LUIS recognition accuracy may get affected when two commands share similar intents and examples sentences. You can try to make commands functionality and example sentences as distinct as possible.
+    The LUIS recognition accuracy might get affected when two commands share similar intents and examples sentences. You can try to make commands functionality and example sentences as distinct as possible.
 
     For best practice of improving recognition accuracy, refer [LUIS best practice](../luis/faq.md).
 

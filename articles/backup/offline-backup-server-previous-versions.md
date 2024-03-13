@@ -95,10 +95,10 @@ Ensure that the following prerequisites are met before you start the offline bac
 
 ## Upload an offline backup certificate manually
 
-To manually upload the offline backup certificate to a previously created Azure Active Directory application meant for offline backup, follow these steps:
+To manually upload the offline backup certificate to a previously created Microsoft Entra application meant for offline backup, follow these steps:
 
 1. Sign in to the Azure portal.
-1. Go to **Azure Active Directory** > **App registrations**.
+1. Go to **Microsoft Entra ID** > **App registrations**.
 1. On the **Owned applications** tab, locate an application with the display name format `AzureOfflineBackup _<Azure User Id`.
 
     ![Screenshot shows how to locate application on Owned applications tab.](./media/offline-backup-dpm-mabs-previous-versions/owned-applications.png)

@@ -1,6 +1,6 @@
 ---
 author: trrwilson
-ms.service: cognitive-services
+ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 05/25/2020
 ms.author: trrwilson

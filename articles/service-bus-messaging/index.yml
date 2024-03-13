@@ -6,14 +6,11 @@ summary: Learn how to set up messaging that connects applications and services a
 metadata:
   title: Azure Service Bus Messaging documentation
   description: Learn how to set up messaging that connects applications and services across on-premises and cloud environments.
-  services: service-bus-messaging
   ms.service: service-bus-messaging
-  ms.subservice: 
   ms.topic: landing-page
-  ms.collection: collection
   author: spelluru
   ms.author: spelluru
-  ms.date: 01/13/2023
+  ms.date: 02/22/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -27,7 +24,7 @@ landingContent:
         links:
           - text: What is Service Bus Messaging?
             url: service-bus-messaging-overview.md
-          - text: Use Service Bus with JMS 2.0
+          - text: Use Service Bus with Java Message Service (JMS) 2.0
             url: how-to-use-java-message-service-20.md
       - linkListType: concept
         links:
@@ -83,8 +80,6 @@ landingContent:
             url: service-bus-nodejs-how-to-use-queues.md
           - text: Python
             url: service-bus-python-how-to-use-queues.md
-          - text: PHP
-            url: service-bus-php-how-to-use-queues.md
   # Card
   - title: Publish and subscribe for messages - topics and subscriptions
     linkLists:
@@ -100,8 +95,6 @@ landingContent:
             url: service-bus-nodejs-how-to-use-topics-subscriptions.md
           - text: Python
             url: service-bus-python-how-to-use-topics-subscriptions.md
-          - text: PHP
-            url: service-bus-php-how-to-use-topics-subscriptions.md
 
   # Card
   - title: Tutorials
@@ -145,7 +138,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide      
         links:
-          - text: Use PowerShell to provision entities
+          - text: Use PowerShell to create entities
             url: service-bus-manage-with-ps.md        
           - text: Monitor Service Bus using Azure Monitor
             url: monitor-service-bus-reference.md
@@ -165,9 +158,9 @@ landingContent:
             url: service-bus-authentication-and-authorization.md
           - text: Authenticate with Shared Access Signature
             url: service-bus-sas.md
-          - text: Authenticate managed identities with Azure Active Directory
+          - text: Authenticate managed identities with Microsoft Entra ID
             url: service-bus-managed-service-identity.md            
-          - text: Authenticate an application with Azure Active Directory
+          - text: Authenticate an application with Microsoft Entra ID
             url: authenticate-application.md
-          - text: Enforce minimum required TLS version
+          - text: Enforce minimum required Transport Layer Security (TLS) version
             url: transport-layer-security-enforce-minimum-version.md

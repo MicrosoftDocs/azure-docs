@@ -2,15 +2,14 @@
 title: How to label your data for Custom Named Entity Recognition (NER)
 titleSuffix: Azure AI services
 description: Learn how to label your data for use with Custom Named Entity Recognition (NER).
-services: cognitive-services
-author: aahill
+#services: cognitive-services
+author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
-ms.date: 05/24/2022
-ms.author: aahi
-ms.custom: language-service-custom-ner, ignite-fall-2021, event-tier1-build-2022
+ms.date: 12/19/2023
+ms.author: jboback
+ms.custom: language-service-custom-ner
 ---
 
 # Label your data in Language Studio

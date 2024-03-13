@@ -11,7 +11,7 @@ ms.date: 07/14/2022
 
 # Connect to a secure cluster
 
-When a client connects to a Service Fabric cluster node, the client can be authenticated and secure communication established using certificate security or Azure Active Directory (AAD). This authentication ensures that only authorized users can access the cluster and deployed applications and perform management tasks.  Certificate or AAD security must have been previously enabled on the cluster when the cluster was created.  For more information on cluster security scenarios, see [Cluster security](service-fabric-cluster-security.md). If you are connecting to a cluster secured with certificates, [set up the client certificate](service-fabric-connect-to-secure-cluster.md#connectsecureclustersetupclientcert) on the computer that connects to the cluster. 
+When a client connects to a Service Fabric cluster node, the client can be authenticated and secure communication established using certificate security or Microsoft Entra ID. This authentication ensures that only authorized users can access the cluster and deployed applications and perform management tasks.  Certificate or Microsoft Entra security must have been previously enabled on the cluster when the cluster was created.  For more information on cluster security scenarios, see [Cluster security](service-fabric-cluster-security.md). If you are connecting to a cluster secured with certificates, [set up the client certificate](service-fabric-connect-to-secure-cluster.md#connectsecureclustersetupclientcert) on the computer that connects to the cluster. 
 
 <a id="connectsecureclustercli"></a> 
 
@@ -80,9 +80,11 @@ To connect to an unsecure cluster, provide the cluster endpoint address to the *
 Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 
 ```
 
-### Connect to a secure cluster using Azure Active Directory
+<a name='connect-to-a-secure-cluster-using-azure-active-directory'></a>
 
-To connect to a secure cluster that uses Azure Active Directory to authorize cluster administrator access, provide the cluster certificate thumbprint and use the *AzureActiveDirectory* flag.  
+### Connect to a secure cluster using Microsoft Entra ID
+
+To connect to a secure cluster that uses Microsoft Entra ID to authorize cluster administrator access, provide the cluster certificate thumbprint and use the *AzureActiveDirectory* flag.  
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
@@ -207,9 +209,11 @@ static X509Credentials GetCredentials(string clientCertThumb, string serverCertT
 }
 ```
 
-### Connect to a secure cluster interactively using Azure Active Directory
+<a name='connect-to-a-secure-cluster-interactively-using-azure-active-directory'></a>
 
-The following example uses Azure Active Directory for client identity and server certificate for server identity.
+### Connect to a secure cluster interactively using Microsoft Entra ID
+
+The following example uses Microsoft Entra ID for client identity and server certificate for server identity.
 
 A dialog window automatically pops up for interactive sign-in upon connecting to the cluster.
 
@@ -233,11 +237,13 @@ catch (Exception e)
 }
 ```
 
-### Connect to a secure cluster non-interactively using Azure Active Directory
+<a name='connect-to-a-secure-cluster-non-interactively-using-azure-active-directory'></a>
+
+### Connect to a secure cluster non-interactively using Microsoft Entra ID
 
 The following example relies on Microsoft.Identity.Client, Version: 4.37.0.
 
-For more information on AAD token acquisition, see [Microsoft.Identity.Client](/dotnet/api/microsoft.identity.client?view=azure-dotnet&preserve-view=true).
+For more information on Microsoft Entra token acquisition, see [Microsoft.Identity.Client](/dotnet/api/microsoft.identity.client?view=azure-dotnet&preserve-view=true).
 
 ```csharp
 string tenantId = "C15CFCEA-02C1-40DC-8466-FBD0EE0B05D2";
@@ -277,9 +283,11 @@ catch (Exception e)
 }
 ```
 
-### Connect to a secure cluster without prior metadata knowledge using Azure Active Directory
+<a name='connect-to-a-secure-cluster-without-prior-metadata-knowledge-using-azure-active-directory'></a>
 
-The following example uses non-interactive token acquisition, but the same approach can be used to build a custom interactive token acquisition experience. The Azure Active Directory metadata needed for token acquisition is read from cluster configuration.
+### Connect to a secure cluster without prior metadata knowledge using Microsoft Entra ID
+
+The following example uses non-interactive token acquisition, but the same approach can be used to build a custom interactive token acquisition experience. The Microsoft Entra metadata needed for token acquisition is read from cluster configuration.
 
 ```csharp
 string serverCertThumb = "A8136758F4AB8962AF2BF3F27921BE1DF67F4326";
@@ -333,13 +341,15 @@ The full URL is also available in the cluster essentials pane of the Azure porta
 
 For connecting to a secure cluster on Windows or OS X using a browser, you can import the client certificate, and the browser will prompt you for the certificate to use for connecting to the cluster.  On Linux machines, the certificate will have to be imported using advanced browser settings (each browser has different mechanisms) and point it to the certificate location on disk. Read [Set up a client certificate](#connectsecureclustersetupclientcert) for more information.
 
-### Connect to a secure cluster using Azure Active Directory
+<a name='connect-to-a-secure-cluster-using-azure-active-directory'></a>
 
-To connect to a cluster that is secured with AAD, point your browser to:
+### Connect to a secure cluster using Microsoft Entra ID
+
+To connect to a cluster that is secured with Microsoft Entra ID, point your browser to:
 
 `https://<your-cluster-endpoint>:19080/Explorer`
 
-You are automatically be prompted to sign in with AAD.
+You are automatically be prompted to sign in with Microsoft Entra ID.
 
 ### Connect to a secure cluster using a client certificate
 

@@ -4,12 +4,15 @@ description: Learn how to deploy Azure SQL Edge using the Azure portal
 author: rwestMSFT
 ms.author: randolphwest
 ms.reviewer: kendalv
-ms.date: 01/13/2023
+ms.date: 09/14/2023
 ms.service: sql-edge
 ms.topic: conceptual
 keywords: deploy SQL Edge
 ---
 # Deploy Azure SQL Edge
+
+> [!IMPORTANT]  
+> Azure SQL Edge no longer supports the ARM64 platform.
 
 Azure SQL Edge is a relational database engine optimized for IoT and Azure IoT Edge deployments. It provides capabilities to create a high-performance data storage and processing layer for IoT applications and solutions. This quickstart shows you how to get started with creating an Azure SQL Edge module through Azure IoT Edge using the Azure portal.
 
@@ -52,7 +55,7 @@ Azure Marketplace is an online applications and services marketplace where you c
 
 1. On the *Environment Variables* section of the **Update IoT Edge Module** pane, specify the desired values for the environment variables. For a complete list of Azure SQL Edge environment variables, see [Configure using environment variables](configure.md#configure-by-using-environment-variables). The following default environment variables are defined for the module.
 
-   | **Parameter** | **Description** |
+   | Parameter | Description |
    | --- | --- |
    | MSSQL_SA_PASSWORD | Change the default value to specify a strong password for the SQL Edge admin account. |
    | MSSQL_LCID | Change the default value to set the desired language ID to use for SQL Edge. For example, 1036 is French. |
@@ -69,7 +72,7 @@ Azure Marketplace is an online applications and services marketplace where you c
 
    - **Binds** and **Mounts**
 
-     If you need to deploy more than one SQL Edge module, ensure that you update the mounts option to create a new source and target pair for the persistent volume. For more information on mounts and volume, refer [Use volumes](https://docs.docker.com/storage/volumes/) on Docker documentation.
+     If you need to deploy more than one SQL Edge module, ensure that you update the mounts option to create a new source and target pair for the persistent volume. For more information on mounts and volume, see [Use volumes](https://docs.docker.com/storage/volumes/) on Docker documentation.
 
    ```json
    {
@@ -104,13 +107,13 @@ Azure Marketplace is an online applications and services marketplace where you c
    ```
 
    > [!IMPORTANT]  
-   > Do not change the `PlanId` environment variable defined in the create config setting. If this value is changed, the Azure SQL Edge container will fail to start.
+   > Don't change the `PlanId` environment variable defined in the create config setting. If this value is changed, the Azure SQL Edge container will fail to start.
 
    > [!WARNING]  
    > If you reinstall the module, remember to remove any existing bindings first, otherwise your environment variables will not be updated.
 
 1. On the **Update IoT Edge Module** pane, select **Update**.
-1. On the **Set modules on device** page select **Next: Routes >** if you need to define routes for your deployment. Otherwise select **Review + Create**. For more information on configuring routes, see [Deploy modules and establish routes in IoT Edge](../iot-edge/module-composition.md).
+1. On the **Set modules on device** page, select **Next: Routes >** if you need to define routes for your deployment. Otherwise select **Review + Create**. For more information on configuring routes, see [Deploy modules and establish routes in IoT Edge](../iot-edge/module-composition.md).
 1. On the **Set modules on device** page, select **Create**.
 
 ## Connect to Azure SQL Edge
@@ -118,7 +121,7 @@ Azure Marketplace is an online applications and services marketplace where you c
 The following steps use the Azure SQL Edge command-line tool, **sqlcmd**, inside the container to connect to Azure SQL Edge.
 
 > [!NOTE]  
-> SQL Server command line tools, including **sqlcmd**, are not available inside the ARM64 version of Azure SQL Edge containers.
+> SQL Server command line tools, including **sqlcmd**, aren't available inside the ARM64 version of Azure SQL Edge containers.
 
 1. Use the `docker exec -it` command to start an interactive bash shell inside your running container. In the following example, `AzureSQLEdge` is name specified by the `Name` parameter of your IoT Edge Module.
 
@@ -149,14 +152,14 @@ The following steps create a new database named `TestDB`.
 
    ```sql
    CREATE DATABASE TestDB;
-   Go
+   GO
    ```
 
 1. On the next line, write a query to return the name of all of the databases on your server:
 
    ```sql
-   SELECT Name from sys.databases;
-   Go
+   SELECT name from sys.databases;
+   GO
    ```
 
 ### Insert data
@@ -178,7 +181,11 @@ Next, create a new table called `Inventory`, and insert two new rows.
 1. Insert data into the new table:
 
    ```sql
-   INSERT INTO Inventory VALUES (1, 'banana', 150); INSERT INTO Inventory VALUES (2, 'orange', 154);
+   INSERT INTO Inventory
+   VALUES (1, 'banana', 150);
+
+   INSERT INTO Inventory
+   VALUES (2, 'orange', 154);
    ```
 
 1. Type `GO` to execute the previous commands:
@@ -215,7 +222,7 @@ Now, run a query to return data from the `Inventory` table.
 
 ## Connect from outside the container
 
-You can connect and run SQL queries against your Azure SQL Edge instance from any external Linux, Windows, or macOS tool that supports SQL connections. For more information on connecting to a SQL Edge container from outside, refer [Connect and Query Azure SQL Edge](./connect.md).
+You can connect and run SQL queries against your Azure SQL Edge instance from any external Linux, Windows, or macOS tool that supports SQL connections. For more information on connecting to a SQL Edge container from outside, see [Connect and Query Azure SQL Edge](connect.md).
 
 In this quickstart, you deployed a SQL Edge Module on an IoT Edge device.
 

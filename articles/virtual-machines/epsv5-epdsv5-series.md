@@ -13,7 +13,7 @@ ms.custom: template-sizes
 
 # Epsv5 and Epdsv5-series
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows Client VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 The Epsv5-series and Epdsv5-series virtual machines are based on the Arm architecture, delivering outstanding price-performance for memory-intensive workloads. These virtual machines feature the Ampere® Altra® Arm-based processor operating at 3.0 GHz, which provides an entire physical core for each virtual machine vCPU. These virtual machines offer a range of vCPU sizes, up to 8 GiB of memory per vCPU, and are best suited for memory-intensive scale-out and enterprise workloads, such as relational database servers, large databases, data analytics engines, in-memory caches, and more.
 

@@ -21,3 +21,6 @@
     - name: Blobs
       tocHref: /azure/developer/python/sdk/
       topicHref: /azure/storage/blobs/storage-blobs-introduction
+    - name: Blobs
+      tocHref: /azure/developer/java/sdk/
+      topicHref: /azure/storage/blobs/storage-blobs-introduction

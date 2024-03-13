@@ -3,13 +3,13 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 05/23/2022
+ ms.date: 08/11/2023
  ms.author: cherylmc
 
  # this file is used for both virtual wan and vpn gateway. When modifying, make sure that your changes work for both environments.
 ---
 
-A new feature of the Windows 10 or later VPN client, Always On, is the ability to maintain a VPN connection. With Always On, the active VPN profile can connect automatically and remain connected based on triggers, such as user sign-in, network state change, or device screen active.
+The Always On feature was introduced in the Windows 10 VPN client. Always On is the ability to maintain a VPN connection. With Always On, the active VPN profile can connect automatically and remain connected based on triggers, such as user sign-in, network state change, or device screen active.
 
 You can use gateways with Always On to establish persistent user tunnels and device tunnels to Azure.
 

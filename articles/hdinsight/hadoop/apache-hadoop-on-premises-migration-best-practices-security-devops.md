@@ -19,15 +19,15 @@ ESP is available on the following cluster types: Apache Hadoop, Apache Spark, Ap
 
 Use the following steps to deploy the Domain-joined HDInsight cluster:
 
-- Deploy Azure Active Directory (AAD) by passing the Domain name.
-- Deploy Azure Active Directory Domain Services (AAD DS).
+- Deploy Microsoft Entra ID by passing the Domain name.
+- Deploy Microsoft Entra Domain Services.
 - Create the required Virtual Network and subnet.
-- Deploy a VM in the Virtual Network to manage AAD DS.
+- Deploy a VM in the Virtual Network to manage Microsoft Entra Domain Services.
 - Join the VM to the domain.
 - Install AD and DNS tools.
-- Have the AAD DS Administrator create an Organizational Unit (OU).
-- Enable LDAPS for AAD DS.
-- Create a service account in Azure Active Directory with delegated read & write admin permission to the OU, so that it can. This service account can then join machines to the domain and place machine principals within the OU. It can also create service principals within the OU that you specify during cluster creation.
+- Have the Microsoft Entra Domain Services Administrator create an Organizational Unit (OU).
+- Enable LDAPS for Microsoft Entra Domain Services.
+- Create a service account in Microsoft Entra ID with delegated read & write admin permission to the OU, so that it can. This service account can then join machines to the domain and place machine principals within the OU. It can also create service principals within the OU that you specify during cluster creation.
 
     > [!Note]
     > The service account does not need to be AD domain admin account.
@@ -36,8 +36,8 @@ Use the following steps to deploy the Domain-joined HDInsight cluster:
 
     |Parameter |Description |
     |---|---|
-    |Domain name|The domain name that's associated with Azure AD DS.|
-    |Domain user name|The service account in the Azure AD DS DC-managed domain that you created in the previous section, for example: `hdiadmin@contoso.onmicrosoft.com`. This domain user will be the administrator of this HDInsight cluster.|
+    |Domain name|The domain name that's associated with Microsoft Entra Domain Services.|
+    |Domain user name|The service account in the Microsoft Entra Domain Services DC-managed domain that you created in the previous section, for example: `hdiadmin@contoso.onmicrosoft.com`. This domain user will be the administrator of this HDInsight cluster.|
     |Domain password|The password of the service account.|
     |Organizational unit|The distinguished name of the OU that you want to use with the HDInsight cluster, for example: `OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com`. If this OU doesn't exist, the HDInsight cluster tries to create the OU using the privileges of the service account.|
     |LDAPS URL|for example, `ldaps://contoso.onmicrosoft.com:636`.|
@@ -47,8 +47,8 @@ For more information, see the following articles:
 
 - [An introduction to Apache Hadoop security with domain-joined HDInsight clusters](../domain-joined/hdinsight-security-overview.md)
 - [Plan Azure domain-joined Apache Hadoop clusters in HDInsight](../domain-joined/apache-domain-joined-architecture.md)
-- [Configure a domain-joined HDInsight cluster by using Azure Active Directory Domain Services](../domain-joined/apache-domain-joined-configure-using-azure-adds.md)
-- [Synchronize Azure Active Directory users to an HDInsight cluster](../hdinsight-sync-aad-users-to-cluster.md)
+- [Configure a domain-joined HDInsight cluster by using Microsoft Entra Domain Services](../domain-joined/apache-domain-joined-configure-using-azure-adds.md)
+- [Synchronize Microsoft Entra users to an HDInsight cluster](../hdinsight-sync-aad-users-to-cluster.md)
 - [Configure Apache Hive policies in Domain-joined HDInsight](../domain-joined/apache-domain-joined-run-hive.md)
 - [Run Apache Oozie in domain-joined HDInsight Hadoop clusters](../domain-joined/hdinsight-use-oozie-domain-joined-clusters.md)
 
@@ -60,7 +60,7 @@ End to end enterprise security can be achieved using the following controls:
     - Perimeter level Security can be achieved through Azure Virtual Networks, Network Security Groups, and Gateway service.
 
 **Authentication and authorization for data access**
-    - Create Domain-joined HDInsight cluster using Azure Active Directory Domain Services. (Enterprise Security Package).
+    - Create Domain-joined HDInsight cluster using Microsoft Entra Domain Services. (Enterprise Security Package).
     - Use Ambari to provide role-based access to cluster resources for AD users.
     - Use Apache Ranger to set access control policies for Hive at the table / column / row level.
     - SSH access to the cluster can be restricted only to the administrator.

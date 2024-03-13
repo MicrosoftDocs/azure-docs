@@ -1,12 +1,10 @@
 ---
-author: aahill
+author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
-ms.custom: event-tier1-build-2022
+ms.service: azure-ai-language
 ms.topic: include
-ms.date: 04/05/2022
-ms.author: aahi
+ms.date: 12/19/2023
+ms.author: jboback
 ---
 
 Use the following **GET** request to get the status of your importing your project. Replace the placeholder values below with your own values. 

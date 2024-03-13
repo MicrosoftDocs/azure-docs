@@ -1,8 +1,8 @@
 ---
 title: Create an iOS app
 description: Steps to create an Azure Maps account and the first iOS App.
-author: dubiety
-ms.author: yuchungchen
+author: sinnypan
+ms.author: sipa
 ms.date: 11/23/2021
 ms.topic: quickstart
 ms.service: azure-maps
@@ -63,11 +63,11 @@ Once your Maps account is successfully created, retrieve the primary key that en
 3. Copy the **Primary Key** to your clipboard. Save it locally to use later in this tutorial.
 
 >[!NOTE]
-> This quickstart uses [Shared Key authentication] for demonstration purposes, but the preferred approach for any production environment is to use [Azure Active Directory authentication].
+> This quickstart uses [Shared Key authentication] for demonstration purposes, but the preferred approach for any production environment is to use [Microsoft Entra authentication].
 <!--
 > If you use the Azure subscription key instead of the Azure Maps primary key, your map won't render properly. Also, for security purposes, it is recommended that you rotate between your primary and secondary keys. To rotate keys, update your app to use the secondary key, deploy, then press the cycle/refresh button beside the primary key to generate a new primary key. The old primary key will be disabled. For more information on key rotation, see [Set up Azure Key Vault with key rotation and auditing](../key-vault/secrets/tutorial-rotation-dual.md)
 -->
-![Get the subscription key.](./media/ios-sdk/quick-ios-app/get-key.png)
+:::image type="content" border="false" source="./media/shared/get-key.png" alt-text="Screenshot showing your Azure Maps subscription key in the Azure portal." lightbox="./media/shared/get-key.png":::
 
 ## Create a project in Xcode
 
@@ -184,13 +184,13 @@ In this quickstart, you created your Azure Maps account and created a demo appli
 [Add a polygon layer to the map in the iOS SDK]: add-polygon-layer-map-ios.md
 [Add a polygon layer]: add-polygon-layer-map-ios.md
 [Add a symbol layer]: add-symbol-layer-ios.md
-[Azure Active Directory authentication]: azure-maps-authentication.md#azure-ad-authentication
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Azure portal]: https://portal.azure.com
 [Change map styles in iOS maps]: set-map-style-ios-sdk.md
 [Creating an Xcode Project for an App]: https://developer.apple.com/documentation/xcode/creating-an-xcode-project-for-an-app
 [free account]: https://azure.microsoft.com/free/
 [manage authentication in Azure Maps]: how-to-manage-authentication.md
+[Microsoft Entra authentication]: azure-maps-authentication.md#microsoft-entra-authentication
 [Shared Key authentication]: azure-maps-authentication.md#shared-key-authentication
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [‎Xcode]: https://apps.apple.com/cz/app/xcode/id497799835?mt=12

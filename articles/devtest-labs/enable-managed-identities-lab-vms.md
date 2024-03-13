@@ -11,7 +11,7 @@ ms.custom: UpdateFrequency2
 # Enable user-assigned managed identities on lab virtual machines in Azure DevTest Labs
 As a lab owner, you can enable user-assigned managed identities on your lab virtual machines (VMs) in Azure DevTest Labs.
 
-A managed identity can be used to authenticate to any service that supports Azure Active Directory (AD) authentication, including Key Vault, without passing any credentials in the code. For more information on managed identities, see [What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md).
+A managed identity can be used to authenticate to any service that supports Microsoft Entra authentication, including Key Vault, without passing any credentials in the code. For more information on managed identities, see [What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md).
 
 With this feature, lab users can share Azure resources such as Azure SQL Database in the context of the lab. The authentication to the resource is taken care by the identity itself. Once configured, every existing/newly created lab VM will be enabled with this identity. Lab users can access resources once logged in to their machines.
 

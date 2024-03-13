@@ -2,15 +2,14 @@
 title: Entity components in Conversational Language Understanding
 titleSuffix: Azure AI services
 description: Learn how Conversational Language Understanding extracts entities from text
-services: cognitive-services
-author: aahill
+#services: cognitive-services
+author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: conceptual
-ms.date: 10/11/2022
-ms.author: aahi
-ms.custom: language-service-clu, ignite-fall-2021
+ms.date: 12/19/2023
+ms.author: jboback
+ms.custom: language-service-clu
 ---
 
 # Entity components

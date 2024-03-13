@@ -2,14 +2,16 @@
 title: 'Tutorial: Design an Azure Database for MariaDB - Azure portal'
 description: This tutorial explains how to create and manage an Azure Database for MariaDB server and database by using the Azure portal.
 ms.service: mariadb
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: tutorial
 ms.date: 06/24/2022
 ms.custom: mvc
 ---
 
 # Tutorial: Design an Azure Database for MariaDB database by using the Azure portal
+
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
 
 Azure Database for MariaDB is a managed service you can use to run, manage, and scale highly available MySQL databases in the cloud. By using the Azure portal, you can easily manage your server and design a database.
 

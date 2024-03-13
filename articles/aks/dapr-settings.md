@@ -4,7 +4,7 @@ description: Learn how to configure the Dapr extension specifically for your Azu
 author: hhunter-ms
 ms.author: hannahhunter
 ms.topic: article
-ms.custom: build-2023
+ms.custom: build-2023, devx-track-azurecli
 ms.date: 06/08/2023
 ---
 
@@ -65,7 +65,7 @@ az k8s-extension create --cluster-type managedClusters \
 --auto-upgrade-minor-version true \
 --configuration-settings "global.ha.enabled=true" \
 --configuration-settings "dapr_operator.replicaCount=2" \
---configuration-settings "global.nodeSelector.kubernetes\.io/zone: us-east-1c"
+--configuration-settings "global.nodeSelector.kubernetes\.io/zone=us-east-1c"
 ```
 
 For managing OS and architecture, use the [supported versions](https://github.com/dapr/dapr/blob/b8ae13bf3f0a84c25051fcdacbfd8ac8e32695df/docker/docker.mk#L50) of the `global.daprControlPlaneOs` and `global.daprControlPlaneArch` configuration:
@@ -189,16 +189,33 @@ If you want to use an outbound proxy with the Dapr extension for AKS, you can do
    - `NO_PROXY`
 1. [Installing the proxy certificate in the sidecar](https://docs.dapr.io/operations/configuration/install-certificates/).
 
+## Updating your Dapr installation version
+
+If you are on a specific Dapr version and you don't have `--auto-upgrade-minor-version` available, you can use the following command to upgrade or downgrade Dapr:
+
+```azurecli
+az k8s-extension update --cluster-type managedClusters \
+--cluster-name myAKSCluster \
+--resource-group myResourceGroup \
+--name dapr \
+--version 1.12.0 # Version to upgrade or downgrade to
+```
+
+The preceding command updates the Dapr control plane *only.* To update the Dapr sidecars, restart your application deployments:
+
+```bash
+kubectl rollout restart deploy/<DEPLOYMENT-NAME>
+```
+
 ## Using Azure Linux-based images
 
 From Dapr version 1.8.0, you can use Azure Linux images with the Dapr extension. To use them, set the`global.tag` flag:
 
 ```azurecli
-az k8s-extension upgrade --cluster-type managedClusters \
+az k8s-extension update --cluster-type managedClusters \
 --cluster-name myAKSCluster \
 --resource-group myResourceGroup \
 --name dapr \
---extension-type Microsoft.Dapr \
 --set global.tag=1.10.0-mariner
 ```
 
@@ -211,16 +228,10 @@ az k8s-extension upgrade --cluster-type managedClusters \
 With Dapr version 1.9.2, CRDs are automatically upgraded when the extension upgrades. To disable this setting, you can set `hooks.applyCrds` to `false`. 
 
 ```azurecli
-az k8s-extension upgrade --cluster-type managedClusters \
+az k8s-extension update --cluster-type managedClusters \
 --cluster-name myAKSCluster \
 --resource-group myResourceGroup \
 --name dapr \
---extension-type Microsoft.Dapr \
---auto-upgrade-minor-version true \
---configuration-settings "global.ha.enabled=true" \
---configuration-settings "dapr_operator.replicaCount=2" \
---configuration-settings "global.daprControlPlaneOs=linux” \
---configuration-settings "global.daprControlPlaneArch=amd64” \
 --configuration-settings "hooks.applyCrds=false"
 ```
 
@@ -230,7 +241,10 @@ az k8s-extension upgrade --cluster-type managedClusters \
 
 ## Meet network requirements
 
-The Dapr extension for AKS and Arc for Kubernetes requires outbound URLs on `https://:443` to function. In addition to the `https://mcr.microsoft.com/daprio` URL for pulling Dapr artifacts, verify you've included the [outbound URLs required for AKS or Arc for Kubernetes](../azure-arc/kubernetes/network-requirements.md). 
+The Dapr extension for AKS and Arc for Kubernetes requires the following outbound URLs on `https://:443` to function:
+1. `https://mcr.microsoft.com/daprio` URL for pulling Dapr artifacts.
+2. `https://linuxgeneva-microsoft.azurecr.io/` URL for pulling some Dapr dependencies.
+3. The [outbound URLs required for AKS or Arc for Kubernetes](../azure-arc/kubernetes/network-requirements.md). 
 
 ## Next Steps
 

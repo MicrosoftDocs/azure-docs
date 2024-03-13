@@ -1,16 +1,14 @@
 ---
 title: include file
 description: include file
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 ms.author: aahi
 manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.date: 01/25/2022
-ms.subservice: language-understanding
+ms.service: azure-ai-language
+ms.date: 01/19/2024
+ms.subservice: azure-ai-luis
 ms.topic: include
-
 ---
 
 1. In the top-right side of the LUIS website, select the **Train** button.

@@ -5,12 +5,12 @@ author: tomarchermsft
 ms.service: virtual-machines
 ms.collection: windows
 ms.topic: quickstart
-ms.workload: infrastructure
 ms.date: 07/24/2023
 ms.author: tarcher
 ms.custom: devx-track-terraform
 content_well_notification: 
   - AI-contribution
+ai-usage: ai-assisted
 ---
 
 # Quickstart: Create a Windows VM cluster in Azure using Terraform
@@ -34,7 +34,7 @@ This article shows you how to create a Windows VM cluster (containing three Wind
 ## Implement the Terraform code
 
 > [!NOTE]
-> The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/UserStory89540/quickstart/101-vm-cluster-windows). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/UserStory89540/quickstart/101-vm-cluster-windows/TestRecord.md).
+> The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-vm-cluster-windows). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-vm-cluster-windows/TestRecord.md).
 >
 > See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform)
 
@@ -67,6 +67,8 @@ This article shows you how to create a Windows VM cluster (containing three Wind
 ## Apply a Terraform execution plan
 
 [!INCLUDE [terraform-apply-plan.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-apply-plan.md)]
+
+Cost information isn't presented during the virtual machine creation process for Terraform like it is for the [Azure portal](quick-create-portal.md). If you want to learn more about how cost works for virtual machines, see the [Cost optimization Overview page](../cost-optimization-plan-to-manage-costs.md).
 
 ## Verify the results
 

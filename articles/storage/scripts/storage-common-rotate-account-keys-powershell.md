@@ -5,7 +5,7 @@ description: Create an Azure Storage account, then retrieve and rotate one of it
 services: storage
 author: stevenmatthew
 
-ms.service: storage
+ms.service: azure-storage
 ms.devlang: powershell
 ms.topic: sample
 ms.date: 12/04/2019

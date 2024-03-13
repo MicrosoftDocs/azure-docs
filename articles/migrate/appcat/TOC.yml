@@ -1,0 +1,21 @@
+items:
+- name: Azure Migrate application and code assessment
+  href: index.yml
+- name: Overview
+  expanded: true
+  items: 
+  - name: Overview
+    href: overview.md
+  - name: Assess Java applications and code
+    href: java.md
+  - name: Assess .NET applications and code
+    href: dotnet.md
+- name: Resources
+  expanded: true
+  items:
+  - name: FAQ
+    href: faq.yml
+  - name: CLI usage guide
+    href: https://azure.github.io/appcat-docs/cli/
+  - name: Rules development guide
+    href: https://azure.github.io/appcat-docs/rules-development-guide/

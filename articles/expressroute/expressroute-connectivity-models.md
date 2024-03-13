@@ -5,20 +5,20 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/31/2022
+ms.date: 12/28/2023
 ms.author: duau
 ---
 
 # ExpressRoute connectivity models
 
-ExpressRoute allows you to create a connection between your on-premises network and the Microsoft cloud in four different ways, [CloudExchange Co-location](#CloudExchange), [Point-to-point Ethernet Connection](#Ethernet), [Any-to-any (IPVPN) Connection](#IPVPN), and [ExpressRoute Direct](#Direct). Connectivity providers may offer more than one connectivity models. You can work with your connectivity provider to pick the model that works best for you.
+ExpressRoute allows you to create a connection between your on-premises network and the Microsoft cloud in four different ways, [CloudExchange Colocation](#CloudExchange), [Point-to-point Ethernet Connection](#Ethernet), [Any-to-any (IPVPN) Connection](#IPVPN), and [ExpressRoute Direct](#Direct). Connectivity providers might offer more than one connectivity models. You can work with your connectivity provider to pick the model that works best for you.
 <br><br>
 
 :::image type="content" source="./media/expressroute-connectivity-models/expressroute-connectivity-models-diagram.png" alt-text="ExpressRoute connectivity model diagram":::
 
-## <a name="CloudExchange"></a>Co-located at a cloud exchange
+## <a name="CloudExchange"></a>Colocated at a cloud exchange
 
-If you're co-located in a facility with a cloud exchange, you can request for virtual cross-connections to the Microsoft cloud through the co-location provider’s Ethernet exchange. Co-location providers can offer either Layer 2 cross-connections, or managed Layer 3 cross-connections between your infrastructure in the co-location facility and the Microsoft cloud.
+If you're colocated in a facility with a cloud exchange, you can request for virtual cross-connections to the Microsoft cloud through the colocation provider’s Ethernet exchange. Colocation providers can offer either Layer 2 cross-connections, or managed Layer 3 cross-connections between your infrastructure in the colocation facility and the Microsoft cloud.
 
 ## <a name="Ethernet"></a>Point-to-point Ethernet connections
 
@@ -41,4 +41,4 @@ You can connect directly into the Microsoft global network at a peering location
 * Configure your ExpressRoute connection.
   * [Create an ExpressRoute circuit](expressroute-howto-circuit-portal-resource-manager.md)
   * [Configure routing](expressroute-howto-routing-portal-resource-manager.md)
-  * [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-portal-resource-manager.md)
+  * [Link a virtual network to an ExpressRoute circuit](expressroute-howto-linkvnet-portal-resource-manager.md)

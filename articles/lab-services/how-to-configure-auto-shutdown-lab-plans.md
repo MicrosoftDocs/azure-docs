@@ -15,7 +15,7 @@ ms.date: 03/01/2023
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
 > [!NOTE]
-> If using a version of Azure Lab Services prior to the [August 2022 Update](lab-services-whats-new.md), see how to [configure automatic shutdown of VMs for a lab account](./how-to-configure-lab-accounts.md).
+> If you're using [lab accounts](concept-lab-accounts-versus-lab-plans.md), see how to [configure automatic shutdown of VMs for a lab account](./how-to-configure-lab-accounts.md).
 
 You can enable several auto-shutdown cost control features to avoid extra costs when the virtual machines aren't being used.
 

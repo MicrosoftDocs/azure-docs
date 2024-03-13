@@ -31,6 +31,9 @@ Before you start configuration, confirm the following criteria:
    * If your subscription owns both circuits, you can choose either circuit to run the configuration in the following sections.
    * If the two circuits are in different Azure subscriptions, you need authorization from one Azure subscription. Then you pass in the authorization key when you run the configuration command in the other Azure subscription.
 
+> [!NOTE]
+> ExpressRoute Global Reach configurations can only be seen from the configured circuit.
+
 ## Enable connectivity
 
 Enable connectivity between your on-premises networks. There are separate sets of instructions for circuits that are in the same Azure subscription, and circuits that are different subscriptions.

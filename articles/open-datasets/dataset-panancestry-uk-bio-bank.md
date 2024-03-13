@@ -19,7 +19,7 @@ This dataset is a mirror of the data store at https://pan.ukbb.broadinstitute.or
 
 ## Data volumes and update frequency
 
-This dataset includes approximately 756 TB of data, and is updated monthly during the first week of every month.
+This dataset includes approximately 144 TB of data, and is updated monthly during the first week of every month.
 
 ## Storage location
 

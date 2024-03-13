@@ -10,7 +10,7 @@ ms.reviewer: lagayhar
 ms.author: mithigpe
 author: minthigpen
 ms.date: 11/09/2022
-ms.custom: responsible-ml, event-tier1-build-2022, devx-track-python
+ms.custom: responsible-ml, devx-track-python
 ---
 
 # Generate a Responsible AI insights with YAML and Python
@@ -36,7 +36,7 @@ The core components for constructing the Responsible AI dashboard in Azure Machi
 
 The `RAI Insights dashboard constructor` and `Gather RAI Insights dashboard` components are always required, plus at least one of the tool components. However, it isn't necessary to use all the tools in every Responsible AI dashboard.  
 
-In the following sections are specifications of the Responsible AI components and examples of code snippets in YAML and Python. To view the full code, see [sample YAML and Python notebook](https://aka.ms/RAIsamplesProgrammer).
+In the following sections are specifications of the Responsible AI components and examples of code snippets in YAML and Python.
 
 > [!IMPORTANT]
 > Items marked (preview) in this article are currently in public preview.

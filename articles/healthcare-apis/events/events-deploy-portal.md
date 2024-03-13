@@ -1,6 +1,6 @@
 ---
-title: Deploy Events using the Azure portal - Azure Health Data Services
-description: Learn how to deploy the Events feature using the Azure portal.
+title: Deploy events using the Azure portal - Azure Health Data Services
+description: Learn how to deploy the events feature using the Azure portal.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
@@ -10,16 +10,16 @@ ms.date: 06/23/2022
 ms.author: jasteppe
 ---
 
-# Quickstart: Deploy Events using the Azure portal
+# Quickstart: Deploy events using the Azure portal
 
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-In this quickstart, learn how to deploy the Azure Health Data Services Events feature in the Azure portal to send FHIR and DICOM event messages.
+In this quickstart, learn how to deploy the events feature in the Azure portal to send FHIR and DICOM event messages.
 
 ## Prerequisites
 
-It's important that you have the following prerequisites completed before you begin the steps of deploying the Events feature in Azure Health Data Services.
+It's important that you have the following prerequisites completed before you begin the steps of deploying the events feature.
 
 * [An active Azure account](https://azure.microsoft.com/free/search/?OCID=AID2100131_SEM_c4b0772dc7df1f075552174a854fd4bc:G:s&ef_id=c4b0772dc7df1f075552174a854fd4bc:G:s&msclkid=c4b0772dc7df1f075552174a854fd4bc)
 * [Microsoft Azure Event Hubs namespace and an event hub deployed in the Azure portal](../../event-hubs/event-hubs-create.md)
@@ -27,14 +27,14 @@ It's important that you have the following prerequisites completed before you be
 * [FHIR service deployed in the workspace](../fhir/fhir-portal-quickstart.md) or [DICOM service deployed in the workspace](../dicom/deploy-dicom-services-in-azure.md)
 
 > [!IMPORTANT]
-> You will also need to make sure that the Microsoft.EventGrid resource provider has been successfully registered with your Azure subscription to deploy the Events feature. For more information, see [Azure resource providers and types - Register resource provider](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
+> You will also need to make sure that the Microsoft.EventGrid resource provider has been successfully registered with your Azure subscription to deploy the events feature. For more information, see [Azure resource providers and types - Register resource provider](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
 > [!NOTE]
-> For the purposes of this quickstart, we'll be using a basic Events set up and an event hub as the endpoint for Events messages. To learn how to deploy Azure Event Hubs, see [Quickstart: Create an event hub using Azure portal](../../event-hubs/event-hubs-create.md).
+> For the purposes of this quickstart, we'll be using a basic events set up and an event hub as the endpoint for events messages. To learn how to deploy Azure Event Hubs, see [Quickstart: Create an event hub using Azure portal](../../event-hubs/event-hubs-create.md).
 
-## Deploy Events 
+## Deploy events 
 
-1. Browse to the workspace that contains the FHIR or DICOM service you want to send Events messages from and select the **Events** button on the left hand side of the portal.
+1. Browse to the workspace that contains the FHIR or DICOM service you want to send events messages from and select the **Events** button on the left hand side of the portal.
  
    :::image type="content" source="media/events-deploy-in-portal/events-workspace-select.png" alt-text="Screenshot of workspace and select Events button." lightbox="media/events-deploy-in-portal/events-workspace-select.png":::
 
@@ -44,14 +44,14 @@ It's important that you have the following prerequisites completed before you be
  
 3. In the **Create Event Subscription** box, enter the following subscription information. 
 
-    * **Name**: Provide a name for your Events subscription.
-    * **System Topic Name**: Provide a name for your System Topic.
+    * **Name**: Provide a name for your events subscription.
+    * **System Topic Name**: Provide a name for your system topic.
    
    > [!NOTE]
-   > The first time you set up the Events feature, you will be required to enter a new **System Topic Name**. Once the system topic for the workspace is created, the **System Topic Name** will be used for any additional Events subscriptions that you create within the workspace.
+   > The first time you set up the events feature, you will be required to enter a new **System Topic Name**. Once the system topic for the workspace is created, the **System Topic Name** will be used for any additional events subscriptions that you create within the workspace.
 
     * **Event types**: Type of FHIR or DICOM events to send messages for (for example: create, updated, and deleted).
-    * **Endpoint Details**: Endpoint to send Events messages to (for example: an Azure Event Hubs namespace + an event hub).
+    * **Endpoint Details**: Endpoint to send events messages to (for example: an Azure Event Hubs namespace + an event hub).
 
    >[!NOTE]
    > For the purposes of this quickstart, we'll use the **Event Schema** and the **Managed Identity Type** settings at their default values.
@@ -79,16 +79,16 @@ It's important that you have the following prerequisites completed before you be
 
 ## Next steps
 
-In this quickstart, you learned how to deploy Events using the Azure portal. 
+In this quickstart, you learned how to deploy events using the Azure portal. 
 
-To learn how to enable the Events metrics, see
+To learn how to enable the events metrics, see
 
 > [!div class="nextstepaction"]
-> [How to use Events metrics](events-use-metrics.md)
+> [How to use events metrics](events-use-metrics.md)
 
 To learn how to export Event Grid system diagnostic logs and metrics, see
 
 > [!div class="nextstepaction"]
-> [How to enable diagnostic settings for Events](events-enable-diagnostic-settings.md)
+> [How to enable diagnostic settings for events](events-enable-diagnostic-settings.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

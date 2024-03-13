@@ -4,7 +4,7 @@ description: Learn how to use Azure DevTest Labs with continuous integration (CI
 ms.topic: conceptual
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 12/28/2022
+ms.date: 09/30/2023
 ms.custom: UpdateFrequency2
 ---
 

@@ -1,13 +1,13 @@
 ---
 title: Extend app at runtime - LUIS
 description: Learn how to extend an already published prediction endpoint to pass new information.
-ms.service: cognitive-services
+ms.service: azure-ai-language
 ms.author: aahi
 author: aahill
 manager: nitinme
-ms.subservice: language-understanding
+ms.subservice: azure-ai-luis
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 01/19/2024
 ---
 # Extend app at prediction runtime
 
@@ -32,7 +32,7 @@ External entities are the mechanism for extending any entity type while still be
 
 This is useful for an entity that has data available only at query prediction runtime. Examples of this type of data are constantly changing data or specific per user. You can extend a LUIS contact entity with external information from a user's contact list.
 
-External entities are part of the V3 authoring API. Learn more about [migrating](luis-migration-api-v3.md) to this version.
+External entities are part of the V3 authoring API.
 
 ### Entity already exists in app
 
@@ -207,4 +207,3 @@ The prediction response includes that list entity, with all the other predicted 
 ## Next steps
 
 * [Prediction score](luis-concept-prediction-score.md)
-* [Authoring API V3 changes](luis-migration-api-v3.md)

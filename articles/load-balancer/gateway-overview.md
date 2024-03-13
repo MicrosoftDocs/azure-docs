@@ -7,7 +7,7 @@ author: mbender-ms
 ms.author: mbender
 ms.date: 04/20/2023
 ms.topic: conceptual
-ms.custom: template-concept, ignite-fall-2021, engagement-fy23
+ms.custom: template-concept, engagement-fy23
 ---
 
 # Gateway Load Balancer
@@ -77,7 +77,6 @@ For pricing, see [Load Balancer pricing](https://azure.microsoft.com/pricing/det
 
 * Gateway Load Balancer doesn't work with the Global Load Balancer tier.
 * Cross-tenant chaining isn't supported through the Azure portal.
-* Gateway Load Balancer doesn't currently support IPv6
 
 ## Next steps
 

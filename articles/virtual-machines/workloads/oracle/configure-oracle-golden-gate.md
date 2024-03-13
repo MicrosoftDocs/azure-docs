@@ -4,7 +4,7 @@ description: Quickly get an Oracle Golden Gate up and running in your Azure envi
 author: jjaygbay1
 ms.service: virtual-machines
 ms.subservice: oracle
-ms.custom: devx-track-azurecli, devx-track-linux
+ms.custom: devx-track-azurecli, linux-related-content
 ms.collection: linux
 ms.topic: article
 ms.date: 08/02/2018
@@ -17,7 +17,7 @@ ms.author: jacobjaygbay
 
 The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This guide details how to use the Azure CLI to deploy an Oracle 19c database from the Azure Marketplace gallery image.
 
-This document shows you step-by-step how to create, install, and configure Oracle Golden Gate on an Azure VM. In this tutorial, two virtual machines are set up in an availability set in a single region. The same tutorial can be used to setup OracleGolden Gate for VMs in different Availability Zones in a single Azure region or for VMs set up in two different regions.
+This document shows you step-by-step how to create, install, and configure Oracle Golden Gate on an Azure VM. In this tutorial, two virtual machines are set up in an availability set in a single region. The same tutorial can be used to set up OracleGolden Gate for VMs in different Availability Zones in a single Azure region or for VMs set up in two different regions.
 
 Before you start, make sure that the Azure CLI has been installed. For more information, see [Azure CLI installation guide](/cli/azure/install-azure-cli).
 
@@ -25,7 +25,9 @@ Before you start, make sure that the Azure CLI has been installed. For more info
 
 GoldenGate is a logical replication software that enables real-time replication, filtering, and transformation of data from a source database to a target database. This feature ensures that changes in the source database are replicated in real-time, making it possible for the target database to be up-to-date with the latest data.
 
-GoldenGate is mainly used for heterogeneous replication cases, such as replicating data from different source databases to a single database (like a data warehouse), cross-platform migrations (such as from SPARC and AIX to Linux x86 environments), and advanced high availability and scalability scenarios. Additionally, GoldenGate is also suitable for near-zero downtime migrations since it supports online migrations with minimal disruption to the source systems.
+Use GoldenGate mainly for heterogeneous replication cases, such as replicating data from different source databases to a single database. For example, a data warehouse. You can also use it for cross-platform migrations, such as from SPARC and AIX to Linux x86 environments, and advanced high availability and scalability scenarios.
+
+Additionally, GoldenGate is also suitable for near-zero downtime migrations since it supports online migrations with minimal disruption to the source systems.
 
 While GoldenGate facilitates bi-directional replication, the application must be configured accordingly. Additionally, the software permits filtering and transformation of data to meet specific business requirements, enabling users to make use of the replicated data for various purposes.
 
@@ -57,7 +59,7 @@ The following table is a summary of the environment configuration:
     $ az login
     ```
 
-3. Ensure you are connected to the correct subscription by verifying subscription name and/or ID.
+3. Ensure you're connected to the correct subscription by verifying subscription name and/or ID.
 
     ```azurecli
     $ az account show
@@ -88,7 +90,7 @@ We use key file based authentication with ssh to connect to the Oracle Database 
 Location of key files depends on your source system.
 
 Windows: %USERPROFILE%\.ssh
-Linux: ~/.ssh 
+Linux: ~/.ssh
 
 If they don't exist you can create a new keyfile pair.
 
@@ -166,7 +168,7 @@ $ az network vnet create \
         --resource-group GoldenGateOnAzureLab \
         --name AzureBastionSubnet \
         --vnet-name ggVnet \
-        --address-prefixes 10.0.1.0/24 
+        --address-prefixes 10.0.1.0/24
     ```
 
 2. Create public IP for Bastion
@@ -175,7 +177,7 @@ $ az network vnet create \
     $ az network public-ip create \
         --resource-group GoldenGateOnAzureLab \
         --name ggBastionIP \
-        --sku Standard 
+        --sku Standard
     ```
 
 3. Create Azure Bastion resource. It takes about 10 minutes for the resource to deploy.
@@ -228,7 +230,7 @@ X Server is required for later steps of this lab. Perform following steps to ins
 
 1. [Download Xming X Server for Windows](https://sourceforge.net/projects/xming/) to **ggXServer** and install with all default options.
 
-2. Ensure that you did not select **Launch** at the end of installation
+2. Ensure that you didn't select **Launch** at the end of installation
 
 3. Launch "XLAUNCH" application from start menu.
 
@@ -252,9 +254,9 @@ If you restart your **ggXServer** VM, follow steps 2-6 above to restart X Server
 
 ### Create Oracle database virtual machines
 
-For this lab, we create virtual machines `ggVM1` and `ggVM2` from Oracle Database 19c image. If they do not already exist in the default key location, this command also creates SSH keys. To use a specific set of keys, use the `--ssh-key-value` option. If you have already created your SSH keys in [Generate authentication keys](#generate-authentication-keys) section, those keys will be used.
+For this lab, we create virtual machines `ggVM1` and `ggVM2` from Oracle Database 19c image. If they don't already exist in the default key location, this command also creates SSH keys. To use a specific set of keys, use the `--ssh-key-value` option. If you have already created your SSH keys in [Generate authentication keys](#generate-authentication-keys) section, those keys will be used.
 
-When creating a new virtual machine `size` parameter indicates the size and type of virtual machine created. Depending on the Azure region you selected to create virtual machine and your subscription settings, some virtual machine sizes and types may not be available for you to use. Below example uses minimum required size for this lab `Standard_DS1_v2`. If you want to change specs of virtual machine, select one of the available sizes from [Azure VM Sizes](/azure/virtual-machines/sizes). For test purposes, you may choose from General Purpose (D-Series) virtual machine types. For production or pilot deployments, Memory Optimized (E-Series and M-Series) are more suitable.
+When creating a new virtual machine `size` parameter indicates the size and type of virtual machine created. Depending on the Azure region you selected to create virtual machine and your subscription settings, some virtual machine sizes and types may not be available for you to use. The following example uses minimum required size for this lab `Standard_DS1_v2`. If you want to change specs of virtual machine, select one of the available sizes from [Azure VM Sizes](/azure/virtual-machines/sizes). For test purposes, you may choose from General Purpose (D-Series) virtual machine types. For production or pilot deployments, Memory Optimized (E-Series and M-Series) are more suitable.
 
 #### Create ggVM1 (primary)
 
@@ -270,7 +272,7 @@ $ az vm create \
     --subnet ggSubnet1 \
     --public-ip-address "" \
     --nsg "" \
-    --zone 1 
+    --zone 1
 ```
 
 #### Create ggVM2 (replicate)
@@ -295,7 +297,7 @@ $ az vm create \
 Connect to **ggVM1** using Bastion.
 
 1. Navigate to **ggVM1** from Azure portal.
-2. Go to **Overview** in the left blade
+2. Go to **Overview** in the left pane.
 3. Select **Connect** > **Bastion** on the menu at the top
 4. Select Bastion tab
 5. Click **Use Bastion**
@@ -365,7 +367,7 @@ Creating Pluggable Databases
 Look at the log file "/u01/app/oracle/cfgtoollogs/dbca/cdb1/cdb1.log" for more details.
 ```
 
-3. Set the ORACLE_SID and LD_LIBRARY_PATH variables. 
+3. Set the ORACLE_SID and LD_LIBRARY_PATH variables.
 
 ```bash
 $ export ORACLE_SID=cdb1
@@ -390,18 +392,18 @@ $ lsnrctl start
 Connect to **ggVM2** using Bastion.
 
 1. Navigate to **ggVM2** from Azure portal.
-2. Go to **Overview** in the left blade
+2. Go to **Overview** in the left pane.
 3. Select **Connect** > **Bastion** on the menu at the top
 4. Select Bastion tab
 5. Click **Use Bastion**
 
 ### Open firewall ports for ggVM1
 
-Configure firewall to allow connections from ggVM1. Note that following command is run on ggVM2.
+Configure firewall to allow connections from ggVM1. Following command is run on ggVM2.
 
 ```bash
 $ sudo su -
-$ firewall-cmd --permanent --zone=trusted --add-source=10.0.0.5 
+$ firewall-cmd --permanent --zone=trusted --add-source=10.0.0.5
 $ firewall-cmd --reload
 $ exit
 ```
@@ -506,7 +508,7 @@ SQL> EXIT;
 
 3. Copy to ggVM1
 
-   1. Login and ensure you are using the correct subscription as necessary as described in [Sign in to Azure](#sign-in-to-azure)
+   1. Login and ensure you're using the correct subscription as necessary as described in [Sign in to Azure](#sign-in-to-azure)
 
    2. Open the tunnel to your target VM using the following PowerShell command
 
@@ -530,7 +532,7 @@ SQL> EXIT;
        az network bastion tunnel --name ggBastion --resource-group GoldenGateOnAzureLab --target-resource-id $ggVM2id --resource-port 22 --port 57501
        ```
 
-   2. Leave the first command prompt running and open a second command prompt to connect to your target VM through the tunnel. In this second command prompt window, you can upload files from your local machine to your target VM using the following command. Note that the correct `id_rsa` keyfile to access virtual machine must reside in `.ssh` directory or you can point to a different key file using `-i` parameter to `scp` command.
+   2. Leave the first command prompt running and open a second command prompt to connect to your target VM through the tunnel. In this second command prompt window, you can upload files from your local machine to your target VM using the following command. The correct `id_rsa` keyfile to access virtual machine must reside in `.ssh` directory or you can point to a different key file using `-i` parameter to `scp` command.
 
        ```powershell
        scp -P 57501 "213000_fbo_ggs_Linux_x64_Oracle_shiphome.zip"  azureuser@127.0.0.1:.
@@ -541,7 +543,7 @@ SQL> EXIT;
 1. Connect to **ggVM1** using Bastion.
 
     1. Navigate to **ggVM1** from Azure portal.
-    2. Go to **Overview** in the left blade
+    2. Go to **Overview** in the left panel
     3. Select **Connect** > **Bastion** on the menu at the top
     4. Select Bastion tab
     5. Click **Use Bastion**
@@ -602,7 +604,7 @@ SQL> EXIT;
 11. Connect to **ggVM2** using Bastion.
 
     1. Navigate to **ggVM2** from Azure portal.
-    2. Go to **Overview** in the left blade
+    2. Go to **Overview** in the left pane
     3. Select **Connect** > **Bastion** on the menu at the top
     4. Select Bastion tab
     5. Click **Use Bastion**
@@ -711,9 +713,9 @@ SQL> EXIT;
    EXTRACT EXTORA
    USERID C##GGADMIN@cdb1, PASSWORD ggadmin
    RMTHOST 10.0.0.5, MGRPORT 7809
-   RMTTRAIL ./dirdat/rt  
+   RMTTRAIL ./dirdat/rt
    DDL INCLUDE MAPPED
-   DDLOPTIONS REPORT 
+   DDLOPTIONS REPORT
    LOGALLSUPCOLS
    UPDATERECORDFORMAT COMPACT
    TABLE pdb1.test.TCUSTMER;
@@ -788,7 +790,7 @@ SQL> EXIT;
    USERID C##GGADMIN@cdb1, PASSWORD ggadmin
    RMTHOST 10.0.0.6, MGRPORT 7809
    RMTTASK REPLICAT, GROUP INITREP
-   TABLE pdb1.test.*, SQLPREDICATE 'AS OF SCN 2172191'; 
+   TABLE pdb1.test.*, SQLPREDICATE 'AS OF SCN 2172191';
    ```
 
    ```bash
@@ -848,7 +850,7 @@ SQL> EXIT;
    SQL> CREATE USER REPUSER IDENTIFIED BY REP_PASS CONTAINER=CURRENT;
    SQL> GRANT DBA TO REPUSER;
    SQL> EXEC DBMS_GOLDENGATE_AUTH.GRANT_ADMIN_PRIVILEGE('REPUSER',CONTAINER=>'PDB1');
-   SQL> CONNECT REPUSER/REP_PASS@PDB1 
+   SQL> CONNECT REPUSER/REP_PASS@PDB1
    SQL> EXIT;
    ```
 
@@ -876,7 +878,7 @@ SQL> EXIT;
    ```
 
    ```
-   GGSCI> EDIT PARAMS REPORA  
+   GGSCI> EDIT PARAMS REPORA
    ```
 
     When vi editor opens you have to press `i` to switch to insert mode, then copy and paste file contents and press `Esc` key, `:wq!` to save file.
@@ -906,7 +908,7 @@ SQL> EXIT;
    ASSUMETARGETDEFS
    DISCARDFILE ./dirrpt/tcustmer.dsc, APPEND
    USERID repuser@pdb1, PASSWORD REP_PASS
-   MAP pdb1.test.*, TARGET pdb1.test.*;   
+   MAP pdb1.test.*, TARGET pdb1.test.*;
    ```
 
    ```bash
@@ -980,7 +982,7 @@ The replication has begun, and you can test it by inserting new records to TEST 
 * To view reports on **ggVM1**, run the following commands.
 
   ```bash
-  GGSCI> VIEW REPORT EXTORA 
+  GGSCI> VIEW REPORT EXTORA
   ```
 
 * To view reports on **ggVM2**, run the following commands.
@@ -994,14 +996,14 @@ The replication has begun, and you can test it by inserting new records to TEST 
 * To view status and history on **ggVM1**, run the following commands.
 
   ```bash
-  GGSCI> DBLOGIN USERID C##GGADMIN@CDB1, PASSWORD ggadmin 
+  GGSCI> DBLOGIN USERID C##GGADMIN@CDB1, PASSWORD ggadmin
   GGSCI> INFO EXTRACT EXTORA, DETAIL
   ```
 
 * To view status and history on **ggVM2**, run the following commands.
 
   ```bash
-  GGSCI> DBLOGIN USERID REPUSER@PDB1 PASSWORD REP_PASS 
+  GGSCI> DBLOGIN USERID REPUSER@PDB1 PASSWORD REP_PASS
   GGSCI> INFO REP REPORA, DETAIL
   ```
 
@@ -1049,22 +1051,22 @@ The replication has begun, and you can test it by inserting new records to TEST 
 
   ```output
     Sending STATS request to Extract group EXTORA ...
-    
+
     Start of statistics at 2023-03-24 19:41:54.
-    
+
     DDL replication statistics (for all trails):
-    
+
     *** Total statistics since extract started     ***
     Operations                           0.00
     Mapped operations                    0.00
     Unmapped operations                    0.00
     Other operations                    0.00
     Excluded operations                    0.00
-    
+
     Output to ./dirdat/rt:
-    
+
     Extracting from PDB1.TEST.TCUSTORD to PDB1.TEST.TCUSTORD:
-    
+
     *** Total statistics since 2023-03-24 19:41:34 ***
        Total inserts                              1.00
        Total updates                              0.00
@@ -1072,7 +1074,7 @@ The replication has begun, and you can test it by inserting new records to TEST 
        Total upserts                              0.00
        Total discards                             0.00
        Total operations                           1.00
-    
+
     *** Daily statistics since 2023-03-24 19:41:34 ***
        Total inserts                              1.00
        Total updates                              0.00
@@ -1080,7 +1082,7 @@ The replication has begun, and you can test it by inserting new records to TEST 
        Total upserts                              0.00
        Total discards                             0.00
        Total operations                           1.00
-    
+
     *** Hourly statistics since 2023-03-24 19:41:34 ***
        Total inserts                              1.00
        Total updates                              0.00
@@ -1088,7 +1090,7 @@ The replication has begun, and you can test it by inserting new records to TEST 
        Total upserts                              0.00
        Total discards                             0.00
        Total operations                           1.00
-    
+
     *** Latest statistics since 2023-03-24 19:41:34 ***
        Total inserts                              1.00
        Total updates                              0.00
@@ -1096,7 +1098,7 @@ The replication has begun, and you can test it by inserting new records to TEST 
        Total upserts                              0.00
        Total discards                             0.00
        Total operations                           1.00
-    
+
     End of statistics.
   ```
 
@@ -1129,7 +1131,7 @@ ggXServer VM is only used during setup. You can safely delete it after completin
 ```azurecli
 $ az vm delete --resource-group GoldenGateOnAzureLab --name ggXServer --force-deletion yes
 
-$ az network public-ip delete --resource-group GoldenGateOnAzureLab --name ggXServerPublicIP 
+$ az network public-ip delete --resource-group GoldenGateOnAzureLab --name ggXServerPublicIP
 ```
 
 ## Delete Golden Gate On Azure Lab Setup

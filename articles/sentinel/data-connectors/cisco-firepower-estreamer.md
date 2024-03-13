@@ -3,7 +3,7 @@ title: "Cisco Firepower eStreamer connector for Microsoft Sentinel"
 description: "Learn how to install the connector Cisco Firepower eStreamer to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 07/26/2023
+ms.date: 11/29/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---

@@ -550,6 +550,9 @@ The `category` class feature defines category names. For example: "room.conferen
 Learn more about Creator for indoor maps by reading:
 
 > [!div class="nextstepaction"]
+> [What is Azure Maps Creator?]
+
+> [!div class="nextstepaction"]
 > [Creator for indoor maps]
 
 <!---------   Internal Links     --------------->
@@ -572,15 +575,17 @@ Learn more about Creator for indoor maps by reading:
 [level.Id]: #level
 [structures]: #structure
 <!---------   REST API Links     --------------->
-[conversion service]: /rest/api/maps/v2/conversion
-[dataset]: /rest/api/maps/v20220901preview/dataset
-[GeoJSON Point geometry]: /rest/api/maps/v2/wfs/get-features#geojsonpoint
-[MultiPolygon]: /rest/api/maps/v2/wfs/get-features?tabs=HTTP#geojsonmultipolygon
-[Point]: /rest/api/maps/v2/wfs/get-features#geojsonpoint
-[Polygon]: /rest/api/maps/v2/wfs/get-features?tabs=HTTP#geojsonpolygon
+[conversion service]: /rest/api/maps-creator/conversion
+[dataset]: /rest/api/maps-creator/dataset?view=rest-maps-creator-2023-03-01-preview&preserve-view=true
+[GeoJSON Point geometry]: /rest/api/maps-creator/wfs/get-features#geojsonpoint
+[MultiPolygon]: /rest/api/maps-creator/wfs/get-features?tabs=HTTP#geojsonmultipolygon
+[Point]: /rest/api/maps-creator/wfs/get-features#geojsonpoint
+[Polygon]: /rest/api/maps-creator/wfs/get-features?tabs=HTTP#geojsonpolygon
+
 <!---------   learn.microsoft.com links     --------------->
 [Create a dataset using a GeoJson package]: how-to-dataset-geojson.md
 [Creator for indoor maps]: creator-indoor-maps.md
+[What is Azure Maps Creator?]: about-creator.md
 <!---------   External Links     --------------->
 [Azure Maps services]: https://aka.ms/AzureMaps
 [feature object]: https://www.rfc-editor.org/rfc/rfc7946#section-3.2

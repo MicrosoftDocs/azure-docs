@@ -19,7 +19,7 @@ The connector is a wrapper around the Azure Digital Twins [data plane APIs](conc
 
 For an introduction to the connector, including a quick demo, watch the following IoT show video:
 
-<iframe src="https://aka.ms/docs/player?id=d6c200c2-f622-4254-b61f-d5db613bbd11" width="1080" height="530"></iframe>
+> [!VIDEO https://aka.ms/docs/player?id=d6c200c2-f622-4254-b61f-d5db613bbd11]
 
 You can also complete a basic walkthrough in the blog post [Simplify building automated workflows and apps powered by Azure Digital Twins](https://techcommunity.microsoft.com/t5/internet-of-things-blog/simplify-building-automated-workflows-and-apps-powered-by-azure/ba-p/3763051). For more information about the connector, including a complete list of the connector's actions and their parameters, see the [Azure Digital Twins connector reference documentation](/connectors/azuredigitaltwins).
 

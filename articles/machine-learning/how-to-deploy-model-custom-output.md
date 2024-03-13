@@ -10,7 +10,7 @@ author: santiagxf
 ms.author: fasantia
 ms.date: 10/10/2022
 ms.reviewer: mopeakande
-ms.custom: devplatv2
+ms.custom: devplatv2, update-code
 ---
 
 # Customize outputs in batch deployments
@@ -188,6 +188,9 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
    > The utility `jq` may not be installed on every installation. You can get instructions in [this link](https://stedolan.github.io/jq/download/).
    
    # [Python](#tab/python)
+
+   > [!TIP]
+   > [!INCLUDE [batch-endpoint-invoke-inputs-sdk](includes/batch-endpoint-invoke-inputs-sdk.md)]
 
    Configure the inputs:
 

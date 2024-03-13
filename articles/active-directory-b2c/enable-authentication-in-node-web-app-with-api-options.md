@@ -1,16 +1,20 @@
 ---
 title: Enable Node.js web API authentication options using Azure Active Directory B2C
 description:  This article discusses several ways to enable Node.js web API authentication options.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 02/10/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support, devx-track-js
+
+
+#Customer intent: As a Node.js web API developer, I want to enable, customize, and enhance the authentication experience using Azure Active Directory B2C, so that I can secure my web API and provide a seamless authentication experience for my users.
+
 ---
 
 # Enable Node.js web API authentication options using Azure Active Directory B2C

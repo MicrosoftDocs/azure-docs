@@ -10,7 +10,6 @@ author: likebupt
 ms.reviewer: lagayhar
 ms.date: 03/27/2023
 ms.topic: how-to
-ms.custom: ignite-2022
 ---
 
 # Schedule machine learning pipeline jobs
@@ -18,6 +17,9 @@ ms.custom: ignite-2022
 [!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 In this article, you'll learn how to programmatically schedule a pipeline to run on Azure and use the schedule UI to do the same. You can create a schedule based on elapsed time. Time-based schedules can be used to take care of routine tasks, such as retrain models or do batch predictions regularly to keep them up-to-date. After learning how to create schedules, you'll learn how to retrieve, update and deactivate them via CLI, SDK, and studio UI.
+
+> [!TIP]
+> If you need to schedule jobs using an external orchestrator, like Azure Data Factory or Microsoft Fabric, consider deploying your pipeline jobs under a Batch Endpoint. Learn more about [how to deploy jobs under a batch endpoint](how-to-use-batch-pipeline-from-job.md), and [how to consume batch endpoints from Microsoft Fabric](how-to-use-batch-fabric.md).
 
 ## Prerequisites
 
@@ -449,7 +451,7 @@ All the display name of jobs triggered by schedule will have the display name as
 
 You can also apply [Azure CLI JMESPath query](/cli/azure/query-azure-cli) to query the jobs triggered by a schedule name.
 
-:::code language="azurecli" source="~/azureml-examples-main/CLI/schedules/schedule.sh" ID="query_triggered_jobs":::  
+:::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="query_triggered_jobs":::  
 
 > [!NOTE]
 > For a simpler way to find all jobs triggered by a schedule, see the *Jobs history* on the *schedule detail page* using the studio UI.

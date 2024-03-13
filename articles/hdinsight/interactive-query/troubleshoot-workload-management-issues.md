@@ -6,7 +6,7 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: reachnijel
 ms.author: nijelsf
-ms.date: 07/19/2022
+ms.date: 09/14/2023
 ---
 
 # Troubleshoot Hive LLAP Workload Management issues
@@ -39,7 +39,7 @@ WLM entities information can also be viewed from following tables in Hive Metast
 
 ## WLM metrics
 
-WLM Metrics can be accessed directly via HS2Interactive UI under the Metrics Dump Tab. <br>
+WLM Metrics can be accessed directly via `HS2Interactive` UI under the Metrics Dump Tab. <br>
 :::image type="content" source="./media/hive-workload-management/hs2-interactive-wlm.jpg" alt-text="HS2 Interactive UI." lightbox="./media/hive-workload-management/hs2-interactive-wlm.jpg":::
 
 Example metrics published by WLM for a given pool in a resource plan.
@@ -56,7 +56,7 @@ Example metrics published by WLM for a given pool in a resource plan.
     "NumExecutorsMax" : 10
 ```
 
-HS2Interactive UI may not work for the ESP(Enterprise Security Package) enabled clusters released before Apr 2021. In such cases, WLM-related metrics can be obtained from customized Grafana dashboards.
+`HS2Interactive` UI may not work for the ESP(Enterprise Security Package) enabled clusters released before Apr 2021. In such cases, WLM-related metrics can be obtained from customized Grafana dashboards.
 <br>
 The metrics name follows the below patterns:
 ```
@@ -97,7 +97,7 @@ CREATE POOL wlm_basic.default WITH ALLOC_FRACTION = 0.5, QUERY_PARALLELISM = 2, 
 Running queries in WLM can get killed automatically for following cases:
 1. When Move Trigger is applied to a query and destination pool that doesn't have any Tez AMs available, then query is killed instead. <br>
 The above is a design limitation of WLM feature. You can work around this feature by increasing the `QUERY_PARALLELISM` property for the destination pool so that even for maximum load scenario, the queries submitted to the cluster can be supported by this pool. Also, tune the `wm` queue size to accommodate this change. <br>
-2. When WLM is disabled, all the inflight queries will fail with following exception pattern:
+2. When WLM is disabled, all the inflight queries fail with following exception pattern:
    ```
    FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.tez.TezTask. Dag received [DAG_TERMINATE, DAG_KILL] in RUNNING state.
    ```

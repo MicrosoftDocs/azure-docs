@@ -1,13 +1,11 @@
 ---
-services: cognitive-services
-author: aahill
+#services: cognitive-services
+author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
-ms.custom: event-tier1-build-2022
+ms.service: azure-ai-language
 ms.topic: include
-ms.date: 05/05/2022
-ms.author: aahi
+ms.date: 12/19/2023
+ms.author: jboback
 ---
 
 Use the following **GET** request to get your project details. Replace the placeholder values below with your own values. 
@@ -47,4 +45,3 @@ Use the following header to authenticate your request.
     }
 ```
 Once you send your API request, you will receive a `200` response indicating success and JSON response body with your project details.
-

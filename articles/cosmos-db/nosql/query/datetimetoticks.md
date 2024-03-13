@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/19/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Converts the specified DateTime to ticks. A single tick represents `100` nanosec
 
 ## Syntax
 
-```sql
+```nosql
 DateTimeToTicks(<date_time>)
 ```
 
@@ -44,7 +45,7 @@ Returns a signed numeric value, the current number of `100`-nanosecond ticks tha
 
 The following example measures the ticks since the date and time **May 19, 2015 12:00 UTC**.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/datetimetoticks/query.sql" highlight="2":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/datetimetoticks/query.sql" highlight="2":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/datetimetoticks/result.json":::
 
@@ -53,7 +54,7 @@ The following example measures the ticks since the date and time **May 19, 2015 
 - This function returns `undefined` if the date and time isn't a valid ISO 8601 date and time string.
 - This function doesn't use the index.
 
-## Next steps
+## Related content
 
 - [System functions](system-functions.yml)
 - [`DateTimeToTimestamp`](datetimetotimestamp.md)

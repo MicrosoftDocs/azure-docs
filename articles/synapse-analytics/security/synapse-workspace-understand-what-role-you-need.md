@@ -1,6 +1,6 @@
 ---
 title: Understand the roles required to perform common tasks in Azure Synapse
-description: Understand which Synapse RBAC (role-based access control) roles or Azure RBAC roles you need to get work done in Synapse Studio.  
+description: Understand which Synapse RBAC (role-based access control) roles or Azure RBAC roles you need to get work done in Synapse Studio.
 author: meenalsri
 ms.service: synapse-analytics
 ms.topic: conceptual
@@ -8,7 +8,6 @@ ms.subservice: security
 ms.date: 04/22/2022
 ms.author: mesrivas
 ms.reviewer: sngun, wiassaf
-ms.custom: ignite-fall-2021
 ---
 # Understand the roles required to perform common tasks in Azure Synapse
 
@@ -30,7 +29,7 @@ You can pause or scale a dedicated SQL pool, configure a Spark pool, or an integ
 
 With access to Synapse Studio, you can create new code artifacts, such as SQL scripts, KQL scripts, notebooks, spark jobs, linked services, pipelines, dataflows, triggers, and credentials. These artifacts can be published or saved with additional permissions.  
 
-If you're a Synapse Artifact User, Synapse Artifact Publisher, Synapse Contributor, or Synapse Administrator you can list, open, and edit already published code artifacts.
+If you're a Synapse Artifact User, Synapse Artifact Publisher, Synapse Contributor, or Synapse Administrator you can list, open, and edit already published code artifacts, including scheduled pipelines.
 
 ### Execute your code
 

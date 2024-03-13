@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/31/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -33,7 +34,7 @@ The following table shows the explanations and examples of bitwise operations in
 
 For example, the following query uses each of the bitwise operators and renders a result.
 
-```sql
+```nosql
 SELECT 
     (100 >> 2) AS rightShift,
     (100 << 2) AS leftShift,
@@ -61,7 +62,7 @@ The example query's results as a JSON object.
 > [!IMPORTANT]
 > The bitwise operators in Azure Cosmos DB for NoSQL follow the same behavior as bitwise operators in JavaScript. JavaScript stores numbers as 64 bits floating point numbers, but all bitwise operations are performed on 32 bits binary numbers. Before a bitwise operation is performed, JavaScript converts numbers to 32 bits signed integers. After the bitwise operation is performed, the result is converted back to 64 bits JavaScript numbers. For more information about the bitwise operators in JavaScript, see [JavaScript binary bitwise operators at MDN Web Docs](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators#binary_bitwise_operators).
 
-## Next steps
+## Related content
 
 - [``SELECT`` clause](select.md)
 - [Keywords](keywords.md)

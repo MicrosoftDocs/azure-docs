@@ -1,15 +1,15 @@
 ---
-title: What is an Azure DNS private zone
-description: Overview of a private DNS zone
+title: What is an Azure Private DNS zone?
+description: Overview of Private DNS zones
 services: dns
 author: greg-lindsay
 ms.service: dns
 ms.topic: article
-ms.date: 02/27/2023
+ms.date: 10/12/2023
 ms.author: greglin
 ---
 
-# What is a private Azure DNS zone
+# What is an Azure Private DNS zone?
 
 Azure Private DNS provides a reliable, secure DNS service to manage and resolve domain names in a virtual network without the need to add a custom DNS solution. By using private DNS zones, you can use your own custom domain names rather than the Azure-provided names available today. 
 
@@ -18,9 +18,15 @@ The records contained in a private DNS zone aren't resolvable from the Internet.
 You can link a private DNS zone to one or more virtual networks by creating [virtual network links](./private-dns-virtual-network-links.md).
 You can also enable the [autoregistration](./private-dns-autoregistration.md) feature to automatically manage the life cycle of the DNS records for the virtual machines that get deployed in a virtual network.
 
+## Private DNS zone resolution
+
+Private DNS zones linked to a VNet are queried first when using the default DNS settings of a VNet. Azure provided DNS servers are queried next. However, if a [custom DNS server](../virtual-network/manage-virtual-network.md#change-dns-servers) is defined in a VNet, then private DNS zones linked to that VNet are not automatically queried, because the custom settings override the name resolution order. 
+
+To enable custom DNS to resolve the private zone, you can use an [Azure DNS Private Resolver](dns-private-resolver-overview.md) in a VNet linked to the private zone as described in [centralized DNS architecture](private-resolver-architecture.md#centralized-dns-architecture). If the custom DNS is a virtual machine, configure a conditional forwarder to Azure DNS (168.63.129.16) for the private zone.
+
 ## Limits
 
-To understand how many private DNS zones you can create in a subscription and how many record sets are supported in a private DNS zone, see [Azure DNS limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-dns-limits)
+[!INCLUDE [dns-limits-private-zones](../../includes/dns-limits-private-zones.md)]
 
 ## Restrictions
 
@@ -41,6 +47,7 @@ To understand how many private DNS zones you can create in a subscription and ho
 
 ## Next steps
 
+* Review and understand [Private DNS records](dns-private-records.md).
 * Learn how to create a private zone in Azure DNS by using [Azure PowerShell](./private-dns-getstarted-powershell.md) or [Azure CLI](./private-dns-getstarted-cli.md).
 * Read about some common [private zone scenarios](./private-dns-scenarios.md) that can be realized with private zones in Azure DNS.
 * For common questions and answers about private zones in Azure DNS, see [Private DNS FAQ](./dns-faq-private.yml).

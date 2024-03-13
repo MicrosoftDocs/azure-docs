@@ -22,13 +22,17 @@ items:
     href: new-relic-troubleshoot.md
 - name: Reference
   items:
-#   - name: Python
-#     href: /python/api/overview/azure/new-relic
-#   - name: JavaScript
-#     href: /javascript/api/overview/azure/new-relic
-#   - name: .NET
-#     href: /dotnet/api/overview/azure/new-relic
-  - name: Java
-    href: /java/api/overview/azure/new-relic-observability
   - name: REST API
     href: /rest/api/newrelic
+  - name: Python
+    href: /python/api/overview/azure/new-relic-observability
+  - name: JavaScript
+    href: /javascript/api/overview/azure/new-relic-observability
+  - name: .NET
+    href: /dotnet/api/overview/azure/new-relic-observability
+  - name: Java
+    href: /java/api/overview/azure/new-relic-observability
+  - name: Azure CLI
+    href: /cli/azure/new-relic
+  - name: Azure PowerShell
+    href: /powershell/module/az.newrelic/#newrelic

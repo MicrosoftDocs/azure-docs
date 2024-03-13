@@ -24,7 +24,7 @@ A record with a type of `Update` is created that represents updates available an
 
 | Property | Description |
 |----------|-------------|
-| TenantId| Unique identifier representing your organization's instance of Azure Active Directory.  |
+| TenantId| Unique identifier representing your organization's instance of Microsoft Entra ID.  |
 | SourceSystem | The source system for the record. The value is `OperationsManager`. |
 | TimeGenerated | Date and time of record creation. |
 | SourceComputerId | Unique identifier representing the source computer. |
@@ -76,7 +76,7 @@ A record with a type of `UpdateRunProgress` is created that provides update depl
 
 | Property | Description |
 |----------|-------------|
-| TenantId | Unique identifier representing your organization's instance of Azure Active Directory.|
+| TenantId | Unique identifier representing your organization's instance of Microsoft Entra ID.|
 | SourceSystem | Source system for the record. The value is `OperationsManager`. |
 | TimeGenerated | Date and time of record creation. |
 | MG | Unique identifier for the management group or Log Analytics workspace. |
@@ -112,7 +112,7 @@ A record with a type of `UpdateSummary` is created that provides update summary 
 
 | Property | Description |
 |----------|-------------|
-| TenantId| Unique identifier representing your organization's instance of Azure Active Directory.|
+| TenantId| Unique identifier representing your organization's instance of Microsoft Entra ID.|
 | SourceSystem | Source system for the record. The value is `OpsManager`. |
 | TimeGenerated | Date and time of record creation. |
 | MG | Unique identifier for the management group or Log Analytics workspace. |

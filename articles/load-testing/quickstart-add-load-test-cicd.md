@@ -25,7 +25,7 @@ If you want to automate your load test with GitHub Actions, learn how to [manual
 
 - An Azure DevOps organization and project. If you don't have an Azure DevOps organization, you can [create one for free](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops&preserve-view=true).
 
-- Your Azure DevOps organization is connected to Azure Active Directory in your subscription. Learn how you can [connect your organization to Azure Active Directory](/azure/devops/organizations/accounts/connect-organization-to-azure-ad).
+- Your Azure DevOps organization is connected to Microsoft Entra ID in your subscription. Learn how you can [connect your organization to Microsoft Entra ID](/azure/devops/organizations/accounts/connect-organization-to-azure-ad).
 
 - A load testing resource, which contains a test. Create a [URL-based load test](./quickstart-create-and-run-load-test.md) or [use an existing JMeter script](./how-to-create-and-run-load-test-with-jmeter-script.md) to create a load test.
 
@@ -56,7 +56,7 @@ In this section, you'll create a CI/CD pipeline in Azure Pipelines to run an exi
     :::image type="content" source="media/how-to-set-up-cicd-pipeline-from-portal/set-up-cicd-pipeline.png" alt-text="Screenshot that shows the settings to be configured to set up a CI/CD pipeline." lightbox="media/how-to-set-up-cicd-pipeline-from-portal/set-up-cicd-pipeline.png":::
 
     > [!IMPORTANT]
-    > If you're getting an error creating a PAT token, or you don't see any repositories, make sure to [connect your Azure DevOps organization to Azure Active Directory (Azure AD)](/azure/devops/organizations/accounts/connect-organization-to-azure-ad). Make sure the directory in Azure DevOps matches the directory you're using for Azure Load Testing. After connecting to Azure AD, close and reopen your browser window.
+    > If you're getting an error creating a PAT token, or you don't see any repositories, make sure to [connect your Azure DevOps organization to Microsoft Entra ID](/azure/devops/organizations/accounts/connect-organization-to-azure-ad). Make sure the directory in Azure DevOps matches the directory you're using for Azure Load Testing. After connecting to Microsoft Entra ID, close and reopen your browser window.
 
 1. Select **Create Pipeline** to start creating the pipeline definition.
 

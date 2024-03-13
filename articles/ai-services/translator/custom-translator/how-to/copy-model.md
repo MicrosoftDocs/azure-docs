@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: This article explains how to copy a custom model to another workspace using the Azure AI Translator Custom Translator.
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.date: 07/18/2023
 ms.author: lajanuar
 ms.topic: how-to

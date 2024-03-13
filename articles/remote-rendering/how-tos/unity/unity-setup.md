@@ -1,8 +1,8 @@
 ---
 title: Set up Remote Rendering for Unity
 description: How to configure a Unity project and initialize Azure Remote Rendering
-author: jakrams
-ms.author: jakras
+author: FlorianBorn71
+ms.author: flborn
 ms.date: 02/27/2020
 ms.topic: how-to
 ms.custom: devx-track-csharp

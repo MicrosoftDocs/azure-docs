@@ -4,9 +4,10 @@ description: This article describes how to use the Azure SDK for Node.js to mana
 ms.service: data-lake-analytics
 ms.reviewer: whhender
 ms.topic: how-to
-ms.date: 01/27/2023
+ms.date: 12/20/2023
 ms.custom: devx-track-js
 ---
+
 # Manage Azure Data Lake Analytics using Azure SDK for Node.js
 
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -30,7 +31,9 @@ The following versions are supported:
 npm install @azure/arm-datalake-analytics
 ```
 
-## Authenticate using Azure Active Directory
+<a name='authenticate-using-azure-active-directory'></a>
+
+## Authenticate using Microsoft Entra ID
 
  ```javascript
  const { DefaultAzureCredential } = require("@azure/identity");

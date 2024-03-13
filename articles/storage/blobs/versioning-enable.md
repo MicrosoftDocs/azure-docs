@@ -5,7 +5,7 @@ description: Learn how to enable blob versioning in the Azure portal or by using
 services: storage
 author: normesta
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 06/06/2023
 ms.author: normesta
@@ -33,7 +33,7 @@ To enable blob versioning for a storage account in the Azure portal:
     :::image type="content" source="media/versioning-enable/portal-enable-versioning.png" alt-text="Screenshot showing how to enable blob versioning in Azure portal":::
 
 > [!IMPORTANT]
-> If you set the **Delete versions after** option, a rule is automatically added to the lifecycle management policy of the storage account. Once that rule is added, the **Delete versions after** option no appears in the **Data protection** configuration page. 
+> If you set the **Delete versions after** option, a rule is automatically added to the lifecycle management policy of the storage account. Once that rule is added, the **Delete versions after** option no longer appears in the **Data protection** configuration page. 
 >
 > You can make that option reappear in the **Data protection** page by removing the rule. If your lifecycle management policy contains other rules that delete versions, then you'll have to remove those rules as well before the **Delete versions after** option can reappear.
 

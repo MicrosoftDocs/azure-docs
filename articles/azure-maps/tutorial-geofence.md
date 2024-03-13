@@ -3,7 +3,7 @@ title: 'Tutorial: Create a geofence and track devices on a Microsoft Azure Map'
 description: Tutorial on how to set up a geofence. See how to track devices relative to the geofence by using the Azure Maps Spatial service
 author: eriklindeman
 ms.author: eriklind
-ms.date: 02/28/2021
+ms.date: 02/07/2024
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -21,20 +21,23 @@ Consider the following scenario:
 Azure Maps provides services to support the tracking of equipment entering and exiting the construction area. In this tutorial, you will:
 
 > [!div class="checklist"]
->
-> * Create an Azure Maps account with a global region.
-> * Upload [Geofencing GeoJSON data] that defines the construction site areas you want to monitor. You'll use the [Data Upload API] to upload geofences as polygon coordinates to your Azure Maps account.
+> <!-- > * Upload [Geofencing GeoJSON data] that defines the construction site areas you want to monitor. You'll upload geofences as polygon coordinates to your Azure storage account, then use the [data registry] service to register that data with your Azure Maps account.   --->
+> * Upload [Geofencing GeoJSON data] that defines the construction site areas you want to monitor.  You'll use the [Data Upload API] to upload geofences as polygon coordinates to your Azure Maps account.
 > * Set up two [logic apps] that, when triggered, send email notifications to the construction site operations manager when equipment enters and exits the geofence area.
 > * Use [Azure Event Grid] to subscribe to enter and exit events for your Azure Maps geofence. You set up two webhook event subscriptions that call the HTTP endpoints defined in your two logic apps. The logic apps then send the appropriate email notifications of equipment moving beyond or entering the geofence.
-> * Use [Search Geofence Get API] to receive notifications when a piece of equipment exits and enters the geofence areas.
+> * Use [Spatial Geofence Get API] to receive notifications when a piece of equipment exits and enters the geofence areas.
 
 ## Prerequisites
 
-* This tutorial uses the [Postman] application, but you can use a different API development environment.
+* An [Azure Maps account]
+* A [subscription key]
+* An [Azure storage account]
+
+This tutorial uses the [Postman] application, but you can use a different API development environment.
 
 >[!IMPORTANT]
 >
-> * In the URL examples, replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
+> In the URL examples, replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
 
 ## Create an Azure Maps account with a global region
 
@@ -43,27 +46,12 @@ The Geofence API async event requires the region property of your Azure Maps acc
 > [!NOTE]
 > The `location` property in both the ARM template and PowerShell `New-AzMapsAccount` command refer to the same property as the `Region` field in the Azure portal.
 
-### Use an ARM template to create an Azure Maps account with a global region
-
-[Create your Azure Maps account using an ARM template], making sure to set `location` to `global` in the `resources` section of the ARM template.
-
-### Use PowerShell to create an Azure Maps account with a global region
-
-```powershell
-New-AzMapsAccount -ResourceGroupName your-Resource-Group -Name name-of-maps-account -SkuName g2 -Location global
-```
-
-### Use Azure CLI to create an Azure Maps account with a global region
-
-The Azure CLI command [az maps account create] doesn’t have a location property, but defaults to `global`, making it useful for creating an Azure Maps account with a global region setting for use with the Geofence API async event.
-
 ## Upload geofencing GeoJSON data
 
 This tutorial demonstrates how to upload geofencing GeoJSON data that contains a `FeatureCollection`. The `FeatureCollection` contains two geofences that define polygonal areas within the construction site. The first geofence has no time expiration or restrictions. The second can only be queried against during business hours (9:00 AM-5:00 PM in the Pacific Time zone), and will no longer be valid after January 1, 2022. For more information on the GeoJSON format, see [Geofencing GeoJSON data].
 
 >[!TIP]
 >You can update your geofencing data at any time. For more information, see [Data Upload API].
-
 To upload the geofencing GeoJSON data:
 
 1. In the Postman app, select **New**.
@@ -77,16 +65,21 @@ To upload the geofencing GeoJSON data:
 5. Enter the following URL. The request should look like the following URL:
 
     ```HTTP
-    https://us.atlas.microsoft.com/mapData?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2.0&dataFormat=geojson
+    https://{geography}.atlas.microsoft.com/mapData?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2.0&dataFormat=geojson
     ```
 
     The `geojson` parameter in the URL path represents the data format of the data being uploaded.
+
+   > [!NOTE]
+   > Replace {geography} with your geographic scope. For more information, see [Azure Maps service geographic scope] and the [Spatial Geofence Get API].
 
 6. Select the **Body** tab.
 
 7. In the dropdown lists, select **raw** and **JSON**.
 
 8. Copy the following GeoJSON data, and then paste it in the **Body** window:
+
+<!--Create the geofence JSON file using the following geofence data. You'll upload this file into your Azure storage account next.-->
 
    ```JSON
    {
@@ -174,6 +167,8 @@ To upload the geofencing GeoJSON data:
    }
    ```
 
+<!--Follow the steps outlined in the [How to create data registry] article to upload the geofence JSON file into your Azure storage account and register it in your Azure Maps account.-->
+
 9. Select **Send**.
 
 10. In the response window, select the **Headers** tab.
@@ -181,7 +176,7 @@ To upload the geofencing GeoJSON data:
 11. Copy the value of the **Operation-Location** key, which is the `status URL`. The `status URL` is used to check the status of the GeoJSON data upload.
 
     ```http
-    https://us.atlas.microsoft.com/mapData/operations/{operationId}?api-version=2.0
+    https://{geography}.atlas.microsoft.com/mapData/operations/{operationId}?api-version=2.0
     ```
 
 ### Check the GeoJSON data upload status
@@ -199,7 +194,7 @@ To check the status of the GeoJSON data and retrieve its unique ID (`udid`):
 5. Enter the `status URL` you copied in [Upload Geofencing GeoJSON data]. The request should look like the following URL:
 
    ```HTTP
-   https://us.atlas.microsoft.com/mapData/{operationId}?api-version=2.0&subscription-key={Your-Azure-Maps-Subscription-key}
+   https://{geography}.atlas.microsoft.com/mapData/{operationId}?api-version=2.0&subscription-key={Your-Azure-Maps-Subscription-key}
    ```
 
 6. Select **Send**.
@@ -207,8 +202,6 @@ To check the status of the GeoJSON data and retrieve its unique ID (`udid`):
 7. In the response window, select the **Headers** tab.
 
 8. Copy the value of the **Resource-Location** key, which is the `resource location URL`. The `resource location URL` contains the unique identifier (`udid`) of the uploaded data. Save the `udid` to query the Get Geofence API in the last section of this tutorial.
-
-    :::image type="content" source="./media/tutorial-geofence/resource-location-url.png" alt-text="Copy the resource location URL.":::
 
 ### (Optional) Retrieve GeoJSON data metadata
 
@@ -227,21 +220,26 @@ To retrieve content metadata:
 5. Enter the `resource Location URL` you copied in [Check the GeoJSON data upload status]. The request should look like the following URL:
 
     ```http
-    https://us.atlas.microsoft.com/mapData/metadata/{udid}?api-version=2.0&subscription-key={Your-Azure-Maps-Subscription-key}
+    https://{geography}.atlas.microsoft.com/mapData/metadata/{udid}?api-version=2.0&subscription-key={Your-Azure-Maps-Subscription-key}
     ```
 
-6. In the response window, select the **Body** tab. The metadata should like the following JSON fragment:
+6. In the response window, select the **Body** tab. The metadata should look like the following JSON fragment:
 
     ```json
     {
         "udid": "{udid}",
-        "location": "https://us.atlas.microsoft.com/mapData/6ebf1ae1-2a66-760b-e28c-b9381fcff335?api-version=2.0",
+        "location": "https://{geography}.atlas.microsoft.com/mapData/6ebf1ae1-2a66-760b-e28c-b9381fcff335?api-version=2.0",
         "created": "5/18/2021 8:10:32 PM +00:00",
         "updated": "5/18/2021 8:10:37 PM +00:00",
         "sizeInBytes": 946901,
         "uploadStatus": "Completed"
     }
     ```
+
+<!--
+> [!IMPORTANT]
+> Make sure to make a note of the unique identifier (`udid`) value, you will need it. The `udid` is how you reference the geofence you uploaded into your Azure storage account from your source code and HTTP requests.
+-->
 
 ## Create workflows in Azure Logic Apps
 
@@ -253,7 +251,7 @@ To create the logic apps:
 
 2. In the upper-left corner of the Azure portal, select **Create a resource**.
 
-3. In the **Search the Marketplace** box, type **Logic App**.
+3. In the **Search services and marketplace** box, type **Logic App**.
 
 4. From the results, select **Logic App**. Then, select **Create**.
 
@@ -261,32 +259,33 @@ To create the logic apps:
     * The **Subscription** that you want to use for this logic app.
     * The **Resource group** name for this logic app. You can choose to **Create new** or **Use existing** resource group.
     * The **Logic App name** of your logic app. In this case, use `Equipment-Enter` as the name.
+    * Select **Consumption** as the **Plan type**. For more information, see [Billing and pricing models] in the Logic App documentation.
 
     For the purposes of this tutorial, keep all other values on their default settings.
 
-    :::image type="content" source="./media/tutorial-geofence/logic-app-create.png" alt-text="Screenshot of create a logic app.":::
+    :::image type="content" border="false" source="./media/tutorial-geofence/logic-app-create.png" alt-text="Screenshot of create a logic app.":::
 
-6. Select **Review + Create**. Review your settings and select **Create**.
+6. When you're done, select **Review + Create**. After Azure validates the information about your logic app resource, select **Create**.
 
 7. When the deployment completes successfully, select **Go to resource**.
 
-8. In the **Logic App Designer**, scroll down to the **Start with a common trigger** section. Select **When an HTTP request is received**.
+8. Select **Logic app designer** in the **Development Tools** section in the menu of the left, scroll down to the **Start with a common trigger** section. Select **When an HTTP request is received**.
 
-     :::image type="content" source="./media/tutorial-geofence/logic-app-trigger.png" alt-text="Screenshot of create a logic app HTTP trigger.":::
+     :::image type="content" border="false" source="./media/tutorial-geofence/logic-app-trigger.png" alt-text="Screenshot of create a logic app HTTP trigger.":::
 
 9. In the upper-right corner of Logic App Designer, select **Save**. The **HTTP POST URL** is automatically generated. Save the URL. You need it in the next section to create an event endpoint.
 
-    :::image type="content" source="./media/tutorial-geofence/logic-app-httprequest.png" alt-text="Screenshot of Logic App HTTP Request URL and JSON.":::
+    :::image type="content" border="false" source="./media/tutorial-geofence/logic-app-httprequest.png" alt-text="Screenshot of Logic App HTTP Request URL and JSON.":::
 
 10. Select **+ New Step**.
 
 11. In the search box, type `outlook.com email`. In the **Actions** list, scroll down and select **Send an email (V2)**.
   
-    :::image type="content" source="./media/tutorial-geofence/logic-app-designer.png" alt-text="Screenshot of create a logic app designer.":::
+    :::image type="content" border="false" source="./media/tutorial-geofence/logic-app-designer.png" alt-text="Screenshot of create a logic app designer.":::
 
 12. Sign in to your Outlook account. Make sure to select **Yes** to allow the logic app to access the account. Fill in the fields for sending an email.
 
-    :::image type="content" source="./media/tutorial-geofence/logic-app-email.png" alt-text="Screenshot of create a logic app send email step.":::
+    :::image type="content" border="false" source="./media/tutorial-geofence/logic-app-email.png" alt-text="Screenshot of create a logic app send email step.":::
 
     >[!TIP]
     > You can retrieve GeoJSON response data, such as `geometryId` or `deviceId`, in your email notifications. You can configure Logic Apps to read the data sent by Event Grid. For information on how to configure Logic Apps to consume and pass event data into email notifications, see [Tutorial: Send email notifications about Azure IoT Hub events using Event Grid and Logic Apps].
@@ -324,7 +323,7 @@ Create geofence exit and enter event subscriptions:
     * For **Endpoint Type**, choose `Web Hook`.
     * For **Endpoint**, copy the HTTP POST URL for the logic app enter endpoint that you created in the previous section. If you forgot to save it, you can just go back into Logic App Designer and copy it from the HTTP trigger step.
 
-    :::image type="content" source="./media/tutorial-geofence/events-subscription.png" alt-text="Screenshot of Azure Maps events subscription details.":::
+    :::image type="content" border="false" source="./media/tutorial-geofence/events-subscription.png" alt-text="Screenshot of Azure Maps events subscription details.":::
 
 6. Select **Create**.
 
@@ -354,10 +353,10 @@ Each of the following sections makes API requests by using the five different lo
 
 4. Select the **GET** HTTP method.
 
-5. Enter the following URL. The request should look like the following URL (replace `{udid}` with the `udid` you saved in the [Upload Geofencing GeoJSON data section]).
+5. Enter the following URL. The request should look like the following URL (replace `{udid}` with the `udid` you saved in the [Upload Geofencing GeoJSON data] section).
 
    ```HTTP
-   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.638237&lon=-122.1324831&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   https://{geography}.atlas.microsoft.com/spatial/geofence/json?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2022-08-01&deviceId=device_01&udid={udid}&lat=47.638237&lon=-122.1324831&searchBuffer=5&isAsync=True&mode=EnterAndExit
    ```
 
 6. Select **Send**.
@@ -390,7 +389,7 @@ Each of the following sections makes API requests by using the five different lo
     }
     ```
 
-In the preceding GeoJSON response, the negative distance from the main site geofence means that the equipment is inside the geofence. The positive distance from the subsite geofence means that the equipment is outside the subsite geofence. Because this is the first time this device has been located inside the main site geofence, the `isEventPublished` parameter is set to `true`. The Operations Manager receives an email notification that equipment has entered the geofence.
+In the preceding GeoJSON response, the negative distance from the main site geofence means that the equipment is inside the geofence. The positive distance from the subsite geofence means that the equipment is outside the subsite geofence. Since it's the first time this device was located inside the main site geofence, the `isEventPublished` parameter is set to `true`. The Operations Manager receives an email notification that equipment entered the geofence.
 
 ### Location 2 (47.63800,-122.132531)
 
@@ -402,10 +401,10 @@ In the preceding GeoJSON response, the negative distance from the main site geof
 
 4. Select the **GET** HTTP method.
 
-5. Enter the following URL. The request should look like the following URL (replace `{udid}` with the `udid` you saved in the [Upload Geofencing GeoJSON data section]).
+5. Enter the following URL. The request should look like the following URL (replace `{udid}` with the `udid` you saved in the [Upload Geofencing GeoJSON data] section).
 
    ```HTTP
-   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63800&lon=-122.132531&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   https://{geography}.atlas.microsoft.com/spatial/geofence/json?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2022-08-01&deviceId=device_01&udId={udId}&lat=47.63800&lon=-122.132531&searchBuffer=5&isAsync=True&mode=EnterAndExit
    ```
 
 6. Select **Send**.
@@ -436,9 +435,9 @@ In the preceding GeoJSON response, the negative distance from the main site geof
       "invalidPeriodGeofenceGeometryId": [],
       "isEventPublished": false
     }
-    ````
+    ```
 
-In the preceding GeoJSON response, the equipment has remained in the main site geofence and hasn't entered the subsite geofence. As a result, the `isEventPublished` parameter is set to `false`, and the Operations Manager doesn't receive any email notifications.
+In the preceding GeoJSON response, the equipment remained in the main site geofence and didn't enter the subsite geofence. As a result, the `isEventPublished` parameter is set to `false`, and the Operations Manager doesn't receive any email notifications.
 
 ### Location 3 (47.63810783315048,-122.13336020708084)
 
@@ -450,11 +449,11 @@ In the preceding GeoJSON response, the equipment has remained in the main site g
 
 4. Select the **GET** HTTP method.
 
-5. Enter the following URL. The request should look like the following URL (replace `{udid}` with the `udid` you saved in the [Upload Geofencing GeoJSON data section]).
+5. Enter the following URL. The request should look like the following URL (replace `{udid}` with the `udid` you saved in the [Upload Geofencing GeoJSON data] section).
 
     ```HTTP
-      https://atlas.microsoft.com/spatial/geofence/json?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.63810783315048&lon=-122.13336020708084&searchBuffer=5&isAsync=True&mode=EnterAndExit
-      ```
+    https://{geography}.atlas.microsoft.com/spatial/geofence/json?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2022-08-01&deviceId=device_01&udid={udid}&lat=47.63810783315048&lon=-122.13336020708084&searchBuffer=5&isAsync=True&mode=EnterAndExit
+    ```
 
 6. Select **Send**.
 
@@ -484,9 +483,9 @@ In the preceding GeoJSON response, the equipment has remained in the main site g
       "invalidPeriodGeofenceGeometryId": [],
       "isEventPublished": true
     }
-    ````
+    ```
 
-In the preceding GeoJSON response, the equipment has remained in the main site geofence, but has entered the subsite geofence. As a result, the `isEventPublished` parameter is set to `true`. The Operations Manager receives an email notification indicating that the equipment has entered a geofence.
+In the preceding GeoJSON response, the equipment remained in the main site geofence, and entered the subsite geofence. As a result, the `isEventPublished` parameter is set to `true`. The Operations Manager receives an email notification indicating that the equipment entered a geofence.
 
 >[!NOTE]
 >If the equipment had moved into the subsite after business hours, no event would be published and the operations manager wouldn't receive any notifications.  
@@ -501,10 +500,10 @@ In the preceding GeoJSON response, the equipment has remained in the main site g
 
 4. Select the **GET** HTTP method.
 
-5. Enter the following URL. The request should look like the following URL (replace `{udid}` with the `udid` you saved in the [Upload Geofencing GeoJSON data section]).
+5. Enter the following URL. The request should look like the following URL (replace `{udid}` with the `udid` you saved in the [Upload Geofencing GeoJSON data] section).
 
     ```HTTP
-    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.637988&userTime=2023-01-16&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
+    https://{geography}.atlas.microsoft.com/spatial/geofence/json?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2022-08-01&deviceId=device_01&udid={udid}&lat=47.637988&userTime=2023-01-16&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
     ```
 
 6. Select **Send**.
@@ -529,9 +528,9 @@ In the preceding GeoJSON response, the equipment has remained in the main site g
       "invalidPeriodGeofenceGeometryId": [],
       "isEventPublished": false
     }
-    ````
+    ```
 
-In the preceding GeoJSON response, the equipment has remained in the main site geofence, but has exited the subsite geofence. Notice, however, that the `userTime` value is after the `expiredTime` as defined in the geofence data. As a result, the `isEventPublished` parameter is set to `false`, and the Operations Manager doesn't receive an email notification.
+In the preceding GeoJSON response, the equipment remained in the main site geofence, but exited the subsite geofence. Notice, however, that the `userTime` value is after the `expiredTime` as defined in the geofence data. As a result, the `isEventPublished` parameter is set to `false`, and the Operations Manager doesn't receive an email notification.
 
 ### Location 5 (47.63799, -122.134505)
 
@@ -543,10 +542,10 @@ In the preceding GeoJSON response, the equipment has remained in the main site g
 
 4. Select the **GET** HTTP method.
 
-5. Enter the following URL. The request should look like the following URL (replace `{udid}` with the `udid` you saved in the [Upload Geofencing GeoJSON data section]).
+5. Enter the following URL. The request should look like the following URL (replace `{udid}` with the `udid` you saved in the [Upload Geofencing GeoJSON data] section).
 
     ```HTTP
-    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.63799&lon=-122.134505&searchBuffer=5&isAsync=True&mode=EnterAndExit
+    https://{geography}.atlas.microsoft.com/spatial/geofence/json?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2022-08-01&deviceId=device_01&udid={udid}&lat=47.63799&lon=-122.134505&searchBuffer=5&isAsync=True&mode=EnterAndExit
     ```
 
 6. Select **Send**.
@@ -577,11 +576,11 @@ In the preceding GeoJSON response, the equipment has remained in the main site g
       "invalidPeriodGeofenceGeometryId": [],
       "isEventPublished": true
     }
-    ````
+    ```
 
-In the preceding GeoJSON response, the equipment has exited the main site geofence. As a result, the `isEventPublished` parameter is set to `true`, and the Operations Manager receives an email notification indicating that the equipment has exited a geofence.
+In the preceding GeoJSON response, the equipment exited the main site geofence. As a result, the `isEventPublished` parameter is set to `true`, and the Operations Manager receives an email notification indicating that the equipment exited a geofence.
 
-You can also [Send email notifications using Event Grid and Logic Apps] and check [Supported Events Handlers in Event Grid] using Azure Maps.
+You can also [Send email notifications using Event Grid and Logic Apps]. For more information, see [Event handlers in Azure Event Grid].
 
 ## Clean up resources
 
@@ -592,22 +591,23 @@ There are no resources that require cleanup.
 > [!div class="nextstepaction"]
 > [Handle content types in Azure Logic Apps]
 
-[Geofencing GeoJSON data]: geofence-geojson.md
-[Data Upload API]: /rest/api/maps/data-v2/upload
-[logic apps]: ../event-grid/handler-webhooks.md#logic-apps
+[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Azure Event Grid]: ../event-grid/overview.md
-[Search Geofence Get API]: /rest/api/maps/spatial/getgeofence
-[Postman]: https://www.postman.com
-[Create your Azure Maps account using an ARM template]: how-to-create-template.md
-[az maps account create]: /cli/azure/maps/account?view=azure-cli-latest&preserve-view=true#az-maps-account-create
-[Upload Geofencing GeoJSON data]: #upload-geofencing-geojson-data
-[Check the GeoJSON data upload status]: #check-the-geojson-data-upload-status
-[logic app]: ../event-grid/handler-webhooks.md#logic-apps
+[Azure Maps service geographic scope]: geographic-scope.md
 [Azure portal]: https://portal.azure.com
-[Tutorial: Send email notifications about Azure IoT Hub events using Event Grid and Logic Apps]: ../event-grid/publish-iot-hub-events-to-logic-apps.md
-[three event types]: ../event-grid/event-schema-azure-maps.md
-[Spatial Geofence Get API]: /rest/api/maps/spatial/getgeofence
-[Upload Geofencing GeoJSON data section]: #upload-geofencing-geojson-data
-[Send email notifications using Event Grid and Logic Apps]: ../event-grid/publish-iot-hub-events-to-logic-apps.md
-[Supported Events Handlers in Event Grid]: ../event-grid/event-handlers.md
+[Azure storage account]: /azure/storage/common/storage-account-create?tabs=azure-portal
+[Billing and pricing models]: /azure/logic-apps/logic-apps-pricing#standard-pricing
+[Check the GeoJSON data upload status]: #check-the-geojson-data-upload-status
+[Data Upload API]: /rest/api/maps/data/upload
+[Geofencing GeoJSON data]: geofence-geojson.md
 [Handle content types in Azure Logic Apps]: ../logic-apps/logic-apps-content-type.md
+[logic app]: ../event-grid/handler-webhooks.md#logic-apps
+[logic apps]: ../event-grid/handler-webhooks.md#logic-apps
+[Postman]: https://www.postman.com
+[Send email notifications using Event Grid and Logic Apps]: ../event-grid/publish-iot-hub-events-to-logic-apps.md
+[Spatial Geofence Get API]: /rest/api/maps/spatial/get-geofence
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
+[Event handlers in Azure Event Grid]: ../event-grid/event-handlers.md
+[three event types]: ../event-grid/event-schema-azure-maps.md
+[Tutorial: Send email notifications about Azure IoT Hub events using Event Grid and Logic Apps]: ../event-grid/publish-iot-hub-events-to-logic-apps.md
+[Upload Geofencing GeoJSON data]: #upload-geofencing-geojson-data

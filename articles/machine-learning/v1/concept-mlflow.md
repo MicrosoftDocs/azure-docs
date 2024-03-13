@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 10/21/2021
 ms.topic: conceptual
-ms.custom: UpdateFrequency5, how-to, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, how-to, sdkv1
 ---
 
 # MLflow and Azure Machine Learning (v1)
@@ -58,8 +58,6 @@ With MLflow Tracking, you can connect Azure Machine Learning as the back end of 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 You can use MLflow Tracking to submit training jobs with [MLflow Projects](https://www.mlflow.org/docs/latest/projects.html) and Azure Machine Learning back-end support.
-
-[!INCLUDE [machine-learning-mlflow-projects-deprecation](../includes/machine-learning-mlflow-projects-deprecation.md)]
 
 You can submit jobs locally with Azure Machine Learning tracking or migrate your runs to the cloud via [Azure Machine Learning compute](../how-to-create-attach-compute-cluster.md).
 

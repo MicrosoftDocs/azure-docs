@@ -6,9 +6,10 @@ ms.date: 04/24/2023
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template, devx-track-python
 content_well_notification: 
   - AI-contribution
+ai-usage: ai-assisted
 ---
 
-# Move resources to a new resource group or subscription
+# Move Azure resources to a new resource group or subscription
 
 This article shows you how to move Azure resources to either another Azure subscription or another resource group under the same subscription. You can use the Azure portal, Azure PowerShell, Azure CLI, or the REST API to move resources.
 
@@ -30,7 +31,7 @@ There are some important steps to do before moving a resource. By verifying thes
 
 1. The source and destination subscriptions must be active. If you have trouble enabling an account that has been disabled, [create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md). Select **Subscription Management** for the issue type.
 
-1. The source and destination subscriptions must exist within the same [Azure Active Directory tenant](../../active-directory/develop/quickstart-create-new-tenant.md). To check that both subscriptions have the same tenant ID, use Azure PowerShell or Azure CLI.
+1. The source and destination subscriptions must exist within the same [Microsoft Entra tenant](../../active-directory/develop/quickstart-create-new-tenant.md). To check that both subscriptions have the same tenant ID, use Azure PowerShell or Azure CLI.
 
    For Azure PowerShell, use:
 
@@ -49,7 +50,7 @@ There are some important steps to do before moving a resource. By verifying thes
    If the tenant IDs for the source and destination subscriptions aren't the same, use the following methods to reconcile the tenant IDs:
 
    * [Transfer ownership of an Azure subscription to another account](../../cost-management-billing/manage/billing-subscription-transfer.md)
-   * [How to associate or add an Azure subscription to Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
+   * [How to associate or add an Azure subscription to Microsoft Entra ID](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
 1. If you're attempting to move resources to or from a Cloud Solution Provider (CSP) partner, see [Transfer Azure subscriptions between subscribers and CSPs](../../cost-management-billing/manage/transfer-subscriptions-subscribers-csp.md).
 
@@ -179,8 +180,11 @@ $destinationResourceGroup = Get-AzResourceGroup -Name $destinationName
 $resources = Get-AzResource -ResourceGroupName $sourceName | Where-Object { $_.Name -in $resourcesToMove }
 
 Invoke-AzResourceAction -Action validateMoveResources `
--ResourceId $sourceResourceGroup.ResourceId `
--Parameters @{ resources= $resources.ResourceId;targetResourceGroup = $destinationResourceGroup.ResourceId }  
+   -ResourceId $sourceResourceGroup.ResourceId `
+   -Parameters @{
+      resources = $resources.ResourceId;  # Wrap in an @() array if providing a single resource ID string.
+      targetResourceGroup = $destinationResourceGroup.ResourceId
+   }
 ```
 
 If validation passes, you see no output.

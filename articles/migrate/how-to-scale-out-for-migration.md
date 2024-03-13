@@ -6,8 +6,8 @@ ms.author: ajaypar
 ms.manager: roopesh.nair
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 07/10/2023
-ms.custom: engagement-fy23
+ms.date: 02/12/2024
+ms.custom: engagement-fy24
 ---
 
 
@@ -57,7 +57,7 @@ To add a scale-out appliance, follow the steps mentioned below:
 
 ### 2. Download the installer for the scale-out appliance
 
-In **Download Azure Migrate appliance**, click  **Download**. You need to download the PowerShell installer script to deploy the scale-out appliance on an existing server running Windows Server 2022 and with the required hardware configuration (32-GB RAM, 8 vCPUs, around 80 GB of disk storage and internet access, either directly or through a proxy).
+In **Download Azure Migrate appliance**, click  **Download**. You need to download the PowerShell installer script to deploy the scale-out appliance on an existing server running Windows Server 2019 or Windows Server 2022 and with the required hardware configuration (32-GB RAM, 8 vCPUs, around 80 GB of disk storage and internet access, either directly or through a proxy).
 
 :::image type="content" source="./media/how-to-scale-out-for-migration/download-scale-out.png" alt-text="Download script for scale-out appliance":::
 
@@ -69,7 +69,7 @@ In **Download Azure Migrate appliance**, click  **Download**. You need to downlo
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Example usage: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
 > 3. Download the [latest version](https://go.microsoft.com/fwlink/?linkid=2191847) of the scale-out appliance installer from the portal if the computed hash value doesn't match this string:
-967FC3B8A5C467C303D86C8889EB4E0D4A8A7798865CBFBDF23E425D4EE425CA 
+a551f3552fee62ca5c7ea11648960a09a89d226659febd26314e222a37c7d857
 
 ### 3. Run the Azure Migrate installer script
 
@@ -184,6 +184,9 @@ The Migration and modernization tool will take care of distributing the virtual 
 
 > [!TIP]
 > We recommend migrating virtual machines in batches of 200 for optimal performance if you want to migrate a large number of virtual machines.
+
+> [!NOTE]
+> User can only select the primary appliance while starting replication. It is not possible for user to select a scale out appliance while starting replication. By design, based on availability it would be decided whether replication will be allotted to primary appliance or scale out appliance.
   
 ## Next steps
 

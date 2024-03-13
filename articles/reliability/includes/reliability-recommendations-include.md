@@ -10,11 +10,13 @@
 ---
 
 
-This section contains recommendations for achieving resiliency and availability for your Azure Virtual Machines.  All recommendations fall into one of two categories:
+
+This section contains recommendations for achieving resiliency and availability.  Each recommendation falls into one of two categories:
+
 
 - **Health items** cover areas such as configuration items and the proper function of the major components that make up your Azure Workload, such as Azure Resource configuration settings, dependencies on other services, and so on.
 
-- **Risk items** cover areas such as availability and recovery requirements, testing, monitoring, deployment, and other items that if left unresolved increase the chances of problems in the environment. Usually the Well-Architected Framework best practices.
+- **Risk items** cover areas such as availability and recovery requirements, testing, monitoring, deployment, and other items that, if left unresolved, increase the chances of problems in the environment. 
 
 
 ### Reliability recommendations priority matrix

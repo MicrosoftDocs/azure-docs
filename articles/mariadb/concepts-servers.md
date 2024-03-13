@@ -2,12 +2,14 @@
 title: Servers - Azure Database for MariaDB
 description: This topic provides considerations and guidelines for working with Azure Database for MariaDB servers.
 ms.service: mariadb
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: conceptual
 ms.date: 06/24/2022
 ---
 # Server concepts in Azure Database for MariaDB
+
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
 
 This article provides considerations and guidelines for working with Azure Database for MariaDB servers.
 
@@ -44,7 +46,7 @@ The following elements help ensure safe access to your database.
 
 Azure Database for MariaDB gives you the ability to **Stop** the server when not in use and **Start** the server when you resume activity. This is essentially done to save costs on the database servers and only pay for the resource when in use. This becomes even more important for dev-test workloads and when you are only using the server for part of the day. When you stop the server, all active connections will be dropped. Later, when you want to bring the server back online, you can either use the [Azure portal](../mysql/how-to-stop-start-server.md) or [CLI](../mysql/how-to-stop-start-server.md).
 
-When the server is in the **Stopped** state, the server's compute is not billed. However, storage continues to to be billed as the server's storage remains to ensure that data files are available when the server is started again.
+When the server is in the **Stopped** state, the server's compute is not billed. However, storage continues to be billed as the server's storage remains to ensure that data files are available when the server is started again.
 
 > [!IMPORTANT]
 > When you **Stop** the server it remains in that state for the next 7 days in a stretch. If you do not manually **Start** it during this time, the server will automatically be started at the end of 7 days. You can chose to **Stop** it again if you are not using the server.

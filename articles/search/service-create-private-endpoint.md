@@ -1,34 +1,36 @@
 ---
 title: Create a Private Endpoint for a secure connection
-titleSuffix: Azure Cognitive Search
-description: Set up a private endpoint in a virtual network for a secure connection to an Azure Cognitive Search service.
+titleSuffix: Azure AI Search
+description: Set up a private endpoint in a virtual network for a secure connection to an Azure AI Search service.
 author: HeidiSteen
 ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
-ms.date: 09/12/2022
+ms.date: 01/10/2024
 ---
 
-# Create a Private Endpoint for a secure connection to Azure Cognitive Search
+# Create a Private Endpoint for a secure connection to Azure AI Search
 
-In this article, you'll learn how to secure an Azure Cognitive Search service so that it can't be accessed over the internet:
+In this article, learn how to secure an Azure AI Search service so that it can't be accessed over a public internet connection:
 
 + [Create an Azure virtual network](#create-the-virtual-network) (or use an existing one)
-+ [Create a search service to use a private endpoint](#create-a-search-service-with-a-private-endpoint)
++ [Configure a search service to use a private endpoint](#create-a-search-service-with-a-private-endpoint)
 + [Create an Azure virtual machine in the same virtual network](#create-a-virtual-machine)
-+ [Connect to search using a browser session on the virtual machine](#connect-to-the-vm)
++ [Test using a browser session on the virtual machine](#connect-to-the-vm)
 
 Private endpoints are provided by [Azure Private Link](../private-link/private-link-overview.md), as a separate billable service. For more information about costs, see the [pricing page](https://azure.microsoft.com/pricing/details/private-link/).
 
-You can create a private endpoint in the Azure portal, as described in this article. Alternatively, you can use the [Management REST API version 2020-03-13](/rest/api/searchmanagement/), [Azure PowerShell](/powershell/module/az.search), or [Azure CLI](/cli/azure/search).
+You can create a private endpoint for a search service in the Azure portal, as described in this article. Alternatively, you can use the [Management REST API version](/rest/api/searchmanagement/), [Azure PowerShell](/powershell/module/az.search), or [Azure CLI](/cli/azure/search).
 
 > [!NOTE]
 > Once a search service has a private endpoint, portal access to that service must be initiated from a browser session on a virtual machine inside the virtual network. See [this step](#portal-access-private-search-service) for details.
 
 ## Why use a Private Endpoint for secure access?
 
-[Private Endpoints](../private-link/private-endpoint-overview.md) for Azure Cognitive Search allow a client on a virtual network to securely access data in a search index over a [Private Link](../private-link/private-link-overview.md). The private endpoint uses an IP address from the [virtual network address space](../virtual-network/ip-services/private-ip-addresses.md) for your search service. Network traffic between the client and the search service traverses over the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet. For a list of other PaaS services that support Private Link, check the [availability section](../private-link/private-link-overview.md#availability) in the product documentation.
+[Private Endpoints](../private-link/private-endpoint-overview.md) for Azure AI Search allow a client on a virtual network to securely access data in a search index over a [Private Link](../private-link/private-link-overview.md). The private endpoint uses an IP address from the [virtual network address space](../virtual-network/ip-services/private-ip-addresses.md) for your search service. Network traffic between the client and the search service traverses over the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet. For a list of other PaaS services that support Private Link, check the [availability section](../private-link/private-link-overview.md#availability) in the product documentation.
 
 Private endpoints for your search service enable you to:
 
@@ -55,9 +57,9 @@ In this section, you'll create a virtual network and subnet to host the VM that 
 
 ## Create a search service with a private endpoint
 
-In this section, you'll create a new Azure Cognitive Search service with a Private Endpoint.
+In this section, you'll create a new Azure AI Search service with a Private Endpoint.
 
-1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Web** > **Azure Cognitive Search**.
+1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Web** > **Azure AI Search**.
 
 1. In **New Search Service - Basics**, enter or select the following values:
 
@@ -213,13 +215,13 @@ When the search service endpoint is private, some portal features are disabled. 
 
 1. Close the remote desktop connection to *myVM*. 
 
-1. To verify that your service isn't accessible on a public endpoint, open Postman on your local workstation and attempt the first several tasks in the quickstart. If you receive an error that the remote server doesn't exist, you've successfully configured a private endpoint for your search service.
+1. To verify that your service isn't accessible on a public endpoint, open a REST client on your local workstation and attempt the first several tasks in the quickstart. If you receive an error that the remote server doesn't exist, you've successfully configured a private endpoint for your search service.
 
 <a id="portal-access-private-search-service"></a>
 
 ## Use the Azure portal to access a private search service
 
-When the search service endpoint is private, some portal features are disabled. You can view and manage service level information, but index, indexer, and skillset information is hidden for security reasons. 
+When the search service endpoint is private, some portal features are disabled. You can view and manage service level information, but index, indexer, and skillset information are hidden for security reasons. 
 
 To work around this restriction, connect to Azure portal from a browser on a virtual machine inside the virtual network. The portal uses the private endpoint on the connection and gives you visibility into content and operations.
 

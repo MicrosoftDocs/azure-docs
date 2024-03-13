@@ -2,26 +2,26 @@
 title: 'How to configure SMTP settings within Azure Managed Grafana'
 titleSuffix: Azure Managed Grafana
 description: Learn how to configure SMTP settings to generate email notifications for Azure Managed Grafana
-author: mcleanbyron 
-ms.author: mcleans 
+author: maud-lv 
+ms.author: malev 
 ms.service: managed-grafana 
 ms.topic: how-to
-ms.date: 02/01/2023
+ms.date: 10/13/2023
 ---
 
 # Configure SMTP settings
 
 In this guide, you learn how to configure SMTP settings to generate email alerts in Azure Managed Grafana. Notifications alert users when some given scenarios occur on a Grafana dashboard.
 
-SMTP settings can be enabled on an existing Azure Managed Grafana instance via the Azure Portal and the Azure CLI. Enabling SMTP settings while creating a new instance is currently not supported.
+SMTP settings can be enabled on an existing Azure Managed Grafana instance via the Azure portal and the Azure CLI. Enabling SMTP settings while creating a new instance is currently not supported.
 
 ## Prerequisites
 
 To follow the steps in this guide, you must have:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-- An Azure Managed Grafana instance. If you don't have one yet, [create a new instance](quickstart-managed-grafana-portal.md).
-- An SMTP server. If you don't have one yet, you may want to consider using [Twilio SendGrid's email API for Azure](https://azuremarketplace.microsoft.com/marketplace/apps/sendgrid.tsg-saas-offer).
+- An Azure Managed Grafana instance in the Standard plan. If you don't have one yet, [create a new instance](quickstart-managed-grafana-portal.md).
+- An SMTP server. If you don't have one yet, you might want to consider using [Twilio SendGrid's email API for Azure](https://azuremarketplace.microsoft.com/marketplace/apps/sendgrid.tsg-saas-offer).
 
 ## Enable and configure SMTP settings
 
@@ -45,7 +45,7 @@ Follow these steps to activate SMTP settings, enable email notifications and con
         | Skip Verify    | Disable                 |This setting controls whether a client verifies the server's certificate chain and host name. If **Skip Verify** is **Enable**, client accepts any certificate presented by the server and any host name in that certificate. In this mode, TLS is susceptible to machine-in-the-middle attacks unless custom verification is used. Default is **Disable** (toggled off). [More information](https://pkg.go.dev/crypto/tls#Config).                              |
         | StartTLS Policy | OpportunisticStartTLS | There are three options. [More information](https://pkg.go.dev/github.com/go-mail/mail#StartTLSPolicy).<br><ul><li>**OpportunisticStartTLS** means that SMTP transactions are encrypted if STARTTLS is supported by the SMTP server. Otherwise, messages are sent in the clear. It's the default setting.</li><li>**MandatoryStartTLS** means that SMTP transactions must be encrypted. SMTP transactions are aborted unless STARTTLS is supported by the SMTP server.</li><li>**NoStartTLS** means encryption is disabled and messages are sent in the clear.</li></ul>          |
 
-  1. Select **Save** to save the SMTP settings. Updating may take a couple of minutes.
+  1. Select **Save** to save the SMTP settings. Updating might take a couple of minutes.
 
        :::image type="content" source="media/smtp-settings/save-updated-settings.png" alt-text="Screenshot of the Azure platform. Email Settings tab with new data.":::
 
@@ -163,7 +163,7 @@ To disable SMTP settings, follow these steps.
 
 Within the Grafana portal, you can find a list of all Grafana alerting error messages that occurred in **Alerting > Notifications**.
 
-The following are some common error messages you may encounter:
+The following are some common error messages you might encounter:
 
 - "Authentication failed: The provided authorization grant is invalid, expired, or revoked". Grafana couldn't connect to the SMTP server. Check if the password entered in the SMTP settings in the Azure portal is correct.
 - "Failed to sent test alert: SMTP not configured". SMTP is disabled. Open the Azure Managed Grafana instance in the Azure portal and enable SMTP settings.

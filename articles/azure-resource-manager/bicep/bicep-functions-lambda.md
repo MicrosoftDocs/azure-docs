@@ -1,11 +1,9 @@
 ---
 title: Bicep functions - lambda
 description: Describes the lambda functions to use in a Bicep file.
-author: mumian
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.author: jgao
-ms.date: 03/15/2023
+ms.date: 01/25/2024
 ---
 # Lambda functions for Bicep
 
@@ -16,7 +14,7 @@ This article describes the lambda functions to use in Bicep. [Lambda expressions
 ```
 
 > [!NOTE]
-> The lambda functions are only supported in Bicep CLI version 0.10.61 or newer.
+> The lambda functions are only supported in [Bicep CLI version 0.10.X or higher](./install.md).
 
 ## Limitations
 
@@ -178,7 +176,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | inputArray |Yes |array |The array to reduce.|
-| initialValue |No |any |Initial value.|
+| initialValue |Yes |any |Initial value.|
 | lambda expression |Yes |expression |The lambda expression used to aggregate the current value and the next value.|
 
 ### Return value

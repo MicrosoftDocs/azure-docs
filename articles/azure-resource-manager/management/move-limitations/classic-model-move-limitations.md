@@ -27,7 +27,7 @@ To move classic resources to a new resource group within the same subscription, 
 
 When moving classic cloud services to a new subscription, the following restrictions apply:
 
-- The source and target subscriptions need to be under the same Azure AD tenant.
+- The source and target subscriptions need to be under the same Microsoft Entra tenant.
 - Cloud Service Provider (CSP) subscriptions do not support migrating classic cloud services.
 - All classic resources in the subscription must be moved in the same operation.
 - The target subscription must not have any other classic resources.

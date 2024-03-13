@@ -47,8 +47,8 @@ The following steps show you how to create and display the Map control in a web 
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
-        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css" type="text/css">
+        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.js"></script>
 
         <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
         <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
@@ -108,7 +108,7 @@ The following steps show you how to create and display the Map control in a web 
 
 4. Save your changes to the file and open the HTML page in a browser. The map shown is the most basic map that you can make by calling `atlas.Map` using your Azure Maps account subscription key.
 
-    :::image type="content" source="./media/tutorial-route-location/basic-map.png" alt-text="A screenshot showing the most basic map that you can make by calling `atlas.Map` using your Azure Maps account key.":::
+    :::image type="content" source="./media/tutorial-route-location/basic-map.png" lightbox="./media/tutorial-route-location/basic-map.png" alt-text="A screenshot showing the most basic map that you can make by calling `atlas.Map` using your Azure Maps account key.":::
 
 ## Define route display rendering
 
@@ -151,7 +151,7 @@ In this tutorial, the route is rendered using a line layer. The start and end po
 
    * This code implements the Map control's `ready` event handler. The rest of the code in this tutorial is placed inside the `ready` event handler.
    * In the map control's `ready` event handler, a data source is created to store the route from start to end point.
-   * To define how the route line is rendered, a line layer is created and attached to the data source. To ensure that the route line doesn't cover up the road labels, we've passed a second parameter with the value of `'labels'`.
+   * To define how the route line is rendered, a line layer is created and attached to the data source. To ensure that the route line doesn't cover up the road labels, pass a second parameter with the value of `'labels'`.
 
     Next, a symbol layer is created and attached to the data source. This layer specifies how the start and end points are rendered. Expressions have been added to retrieve the icon image and text label information from properties on each point object. To learn more about expressions, see [Data-driven style expressions].
 
@@ -190,7 +190,7 @@ In this tutorial, the route is rendered using a line layer. The start and end po
 
 3. Save **MapRoute.html** and refresh your browser. The map is now centered over Seattle. The blue teardrop pin marks the start point. The blue round pin marks the end point.
 
-    :::image type="content" source="./media/tutorial-route-location/map-pins.png" alt-text="A screenshot showing a map with a route containing a blue teardrop pin marking the start point at Microsoft in Redmond Washington and a blue round pin marking the end point at a gas station in Seattle.":::
+    :::image type="content" source="./media/tutorial-route-location/map-pins.png" lightbox="./media/tutorial-route-location/map-pins.png" alt-text="A screenshot showing a map with a route containing a blue teardrop pin marking the start point at Microsoft in Redmond Washington and a blue round pin marking the end point at a gas station in Seattle.":::
 
 <a id="getroute"></a>
 
@@ -237,7 +237,7 @@ This section shows you how to use the Azure Maps Route Directions API to get rou
 
 3. Save the **MapRoute.html** file and refresh your web browser. The map should now display the route from the start to end points.
 
-     :::image type="content" source="./media/tutorial-route-location/map-route.png" alt-text="A screenshot showing a map that demonstrates the Azure Map control and Route service.":::
+     :::image type="content" source="./media/tutorial-route-location/map-route.png" lightbox="./media/tutorial-route-location/map-route.png" alt-text="A screenshot showing a map that demonstrates the Azure Map control and Route service.":::
 
 * For the completed code used in this tutorial, see the [route tutorial] on GitHub.
 * To view this sample live, see [Route to a destination] on the **Azure Maps Code Samples** site.

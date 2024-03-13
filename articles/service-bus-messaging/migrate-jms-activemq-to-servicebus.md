@@ -2,14 +2,11 @@
 title: Migrate Java Message Service (JMS) applications from Apache ActiveMQ to Azure Service Bus | Microsoft Docs
 description: This article explains how to migrate existing JMS applications that interact with Apache ActiveMQ to interact with Azure Service Bus.
 services: service-bus-messaging
-documentationcenter: ''
 author: spelluru
 manager: timlt
 editor: spelluru
 
 ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 ms.date: 09/27/2021
@@ -58,7 +55,7 @@ As part of migrating and modifying your client applications to interact with Azu
 
 #### Authentication and authorization
 
-Azure role-based access control (Azure RBAC), backed by Azure Active Directory, is the preferred authentication mechanism for Service Bus. To enable role-based access control, please follow the steps in the [Azure Service Bus JMS 2.0 developer guide](jms-developer-guide.md).
+Azure role-based access control (Azure RBAC), backed by Microsoft Entra ID, is the preferred authentication mechanism for Service Bus. To enable role-based access control, please follow the steps in the [Azure Service Bus JMS 2.0 developer guide](jms-developer-guide.md).
 
 ## Pre-migration
 

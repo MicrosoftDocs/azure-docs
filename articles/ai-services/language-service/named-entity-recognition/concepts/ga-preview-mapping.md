@@ -2,15 +2,14 @@
 title: Preview API overview
 titleSuffix: Azure AI services
 description: Learn about the NER preview API.
-services: cognitive-services
+#services: cognitive-services
 author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: conceptual
-ms.date: 06/14/2023
+ms.date: 12/19/2023
 ms.author: jboback
-ms.custom: language-service-ner, ignite-fall-2021
+ms.custom: language-service-ner
 ---
 
 # Preview API changes
@@ -27,7 +26,7 @@ Entity tags are used to further identify an entity where a detected entity is ta
 The changes introduce better flexibility for named entity recognition, including:
 * More granular entity recognition through introducing the tags list where an entity could be tagged by more than one entity tag.
 * Overlapping entities where entities could be recognized as more than one entity type and if so, this entity would be returned twice. If an entity was recognized to belong to two entity tags under the same entity type, both entity tags are returned in the tags list.
-* Filtering entities using entity tags, you can learn more about this by navigating to [this article](../how-to-call#select-which-entities-to-be-returned-(Preview API only).md).
+* Filtering entities using entity tags, you can learn more about this by navigating to [this article](../how-to-call.md#select-which-entities-to-be-returned-preview-api-only).
 * Metadata Objects which contain additional information about the entity but currently only act as a wrapper for the existing entity resolution feature. You can learn more about this new feature [here](entity-metadata.md).
 
 ## Generally available to preview API entity mappings
@@ -80,4 +79,3 @@ You can see a comparison between the structure of the entity categories/types in
 | CulturalEvent  | Event, CulturalEvent                   |
 | SportsEvent    | Event, SportsEvent                     |
 | NaturalEvent   | Event, NaturalEvent                    |
-

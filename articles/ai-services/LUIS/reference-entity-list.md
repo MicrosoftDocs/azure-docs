@@ -1,13 +1,13 @@
 ---
 title: List entity type - LUIS
 description: List entities represent a fixed, closed set of related words along with their synonyms. LUIS does not discover additional values for list entities. Use the Recommend feature to see suggestions for new words based on the current list.
-ms.service: cognitive-services
+ms.service: azure-ai-language
 ms.author: aahi
 ms.manager: nitinme
 author: aahill
-ms.subservice: language-understanding
+ms.subservice: azure-ai-luis
 ms.topic: reference
-ms.date: 01/05/2022
+ms.date: 01/19/2024
 ---
 # List entity
 

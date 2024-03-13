@@ -1,13 +1,12 @@
 ---
-title: "Tutorial: Create an FAQ bot with question answering and Azure AI Bot Service"
-description: In this tutorial, create a no code FAQ Bot with question answering and Azure AI Bot Service.
-ms.service: cognitive-services
-ms.subservice: language-service
+title: "Tutorial: Create an FAQ bot with custom question answering and Azure AI Bot Service"
+description: In this tutorial, create a no code FAQ Bot with custom question answering and Azure AI Bot Service.
+ms.service: azure-ai-language
 ms.topic: tutorial
 author: jboback
 ms.author: jboback
-ms.date: 11/02/2021
-ms.custom: language-service-question-answering, ignite-fall-2021, cogserv-non-critical-language
+ms.date: 12/19/2023
+ms.custom: language-service-question-answering, cogserv-non-critical-language
 ---
 
 # Tutorial: Create a FAQ bot
@@ -18,7 +17,7 @@ In this tutorial, you learn how to:
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Link a question answering project to an Azure AI Bot Service
+> * Link a custom question answering project to an Azure AI Bot Service
 > * Deploy a Bot
 > * Chat with the Bot in web chat
 > * Enable the Bot in supported channels
@@ -35,7 +34,7 @@ After deploying your project, you can create a bot from the **Deploy project** p
 
 * When you make changes to the project and redeploy, you don't need to take further action with the bot. It's already configured to work with the project, and works with all future changes to the project. Every time you publish a project, all the bots connected to it are automatically updated.
 
-1. In Language Studio, on the question answering **Deploy project** page, select the **Create a bot** button.
+1. In Language Studio, on the custom question answering **Deploy project** page, select the **Create a bot** button.
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot of UI with option to create a bot in Azure.](../media/bot-service/create-bot-in-azure.png)
@@ -51,7 +50,7 @@ After deploying your project, you can create a bot from the **Deploy project** p
     | Pricing tier | Choose pricing tier |
     |App name | App service name for your bot |
     |SDK language | C# or Node.js. Once the bot is created, you can download the code to your local development environment and continue the development process. |
-    | Language Resource Key  | This key is automatically populated deployed question answering project |
+    | Language Resource Key  | This key is automatically populated deployed custom question answering project |
     | App service plan/Location | This value is automatically populated, do not change this value |
 
 1. After the bot is created, open the **Bot service** resource.
@@ -78,7 +77,7 @@ Select **Channels** in the Bot service resource that you have created. You can a
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete the associate question answering and bot service resources.
+If you're not going to continue to use this application, delete the associate custom question answering and bot service resources.
 
 ## Next steps
 

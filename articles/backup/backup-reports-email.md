@@ -163,7 +163,7 @@ You can also directly update the ARM template, which is used for deploying the l
                 "name": "oauthGccHigh",
                 "values": {
                     "token": {
-                        "value": "https://logic-apis-usgovvirginia.consent.azure-apihub.us/redirect"
+                        "value": "[concat('https://logic-apis-', parameters('location'), '.consent.azure-apihub.us/redirect')]"
                     }
                 }
             },

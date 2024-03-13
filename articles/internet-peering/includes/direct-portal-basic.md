@@ -6,7 +6,7 @@ services: internet-peering
 author: halkazwini
 ms.service: internet-peering
 ms.topic: include
-ms.date: 5/22/2020
+ms.date: 05/22/2020
 ms.author: halkazwini
 ---
 

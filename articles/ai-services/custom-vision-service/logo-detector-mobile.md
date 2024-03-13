@@ -2,11 +2,10 @@
 title: "Tutorial: Use custom logo detector to recognize Azure services - Custom Vision"
 titleSuffix: Azure AI services
 description: In this tutorial, you will step through a sample app that uses Custom Vision as part of a logo detection scenario. Learn how Custom Vision is used with other components to deliver an end-to-end application.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: custom-vision
+ms.service: azure-ai-custom-vision
 ms.topic: tutorial
 ms.date: 07/04/2023
 ms.author: pafarley

@@ -2,9 +2,8 @@
 title: API server authorized IP ranges in Azure Kubernetes Service (AKS)
 description: Learn how to secure your cluster using an IP address range for access to the API server in Azure Kubernetes Service (AKS)
 ms.topic: article
-ms.date: 11/04/2022
-
-
+ms.custom: devx-track-azurecli
+ms.date: 12/26/2023
 #Customer intent: As a cluster operator, I want to increase the security of my cluster by limiting access to the API server to only the IP addresses that I specify.
 ---
 
@@ -172,7 +171,7 @@ az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/2
 > [!NOTE]
 > The above example adds another IP address to the approved ranges. Note that it still includes the IP address from [Update a cluster's API server authorized IP ranges](#update-a-clusters-api-server-authorized-ip-ranges). If you don't include your existing IP address, this command will replace it with the new one instead of adding it to the authorized ranges. To disable authorized IP ranges, use `az aks update` and specify an empty range "".
 
-Another option is to use the following command on Windows systems to get the public IPv4 address, or you can follow the steps in [Find your IP address](https://support.microsoft.com/en-gb/help/4026518/windows-10-find-your-ip-address).
+Another option is to use the following command on Windows systems to get the public IPv4 address, or you can follow the steps in [Find your IP address](https://support.microsoft.com/help/4026518/windows-10-find-your-ip-address).
 
 ```azurepowershell-interactive
 Invoke-RestMethod http://ipinfo.io/json | Select -exp ip

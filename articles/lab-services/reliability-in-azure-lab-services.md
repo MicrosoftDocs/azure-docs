@@ -1,8 +1,8 @@
 ---
-title: Reliability in Azure Lab Services 
+title: Reliability in Azure Lab Services
 description: Learn about reliability in Azure Lab Services
 ms.topic: overview
-ms.custom: subject-resiliency, references_regions, ignite-2022
+ms.custom: subject-resiliency, references_regions
 ms.date: 08/18/2022
 ---
 
@@ -65,7 +65,7 @@ Azure Lab Services is not currently zone aligned. So, VMs in a region may be dis
 As a result, the following operations are not guaranteed in the event of a zone outage:
 
 - Manage or access labs/VMs
-- Start/stop/reset VMs
+- Start/stop/reimage VMs
 - Create/publish/delete labs
 - Scale up/down labs
 - Connect to VMs

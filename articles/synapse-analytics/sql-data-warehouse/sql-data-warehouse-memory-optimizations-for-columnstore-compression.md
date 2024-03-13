@@ -2,13 +2,11 @@
 title: Improve columnstore index performance for dedicated SQL pool
 description: Reduce memory requirements or increase the available memory to maximize the number of rows within each rowgroup in dedicated SQL pool.
 author: WilliamDAssafMSFT
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql-dw 
-ms.date: 10/18/2021
 ms.author: wiassaf
-ms.reviewer: 
+ms.date: 10/18/2021
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
 ms.custom: azure-synapse
 ---
 

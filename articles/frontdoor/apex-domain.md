@@ -5,7 +5,6 @@ services: frontdoor
 author: johndowns
 ms.service: frontdoor
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 02/07/2023
 ms.author: jodowns
 ---
@@ -20,7 +19,7 @@ To add a root or apex domain to your Azure Front Door profile, see [Onboard a ro
 
 ## DNS CNAME flattening
 
-The DNS protocol prevents the assignment of CNAME records at the zone apex. For example, if your domain is `contoso.com`, you can create a CNAME record for `myappliation.contoso.com`, but you can't create a CNAME record for `contoso.com` itself.
+The DNS protocol prevents the assignment of CNAME records at the zone apex. For example, if your domain is `contoso.com`, you can create a CNAME record for `myapplication.contoso.com`, but you can't create a CNAME record for `contoso.com` itself.
 
 Azure Front Door doesn't expose the frontend public IP address associated with your Azure Front Door endpoint. So, you can't map an apex domain to an Azure Front Door IP address.
 

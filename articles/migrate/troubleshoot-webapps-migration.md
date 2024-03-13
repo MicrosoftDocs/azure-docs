@@ -56,5 +56,5 @@ UnableToConnectToServer | Connecting to the remote server failed. | Check error 
   - [Security recommendations](../app-service/security-recommendations.md).
   - [Networking features](../app-service/networking-features.md).
   - [Monitor App Service with Azure Monitor](../app-service/monitor-app-service.md).
-  - [Configure Azure AD authentication](../app-service/configure-authentication-provider-aad.md).
+  - [Configure Microsoft Entra authentication](../app-service/configure-authentication-provider-aad.md).
 - [Review best practices](../app-service/deploy-best-practices.md) for deploying to Azure App service.

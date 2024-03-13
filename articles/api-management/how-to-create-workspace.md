@@ -41,7 +41,7 @@ The new workspace appears in the list on the **Workspaces** page. Select the wor
 After creating a workspace, assign permissions to users to manage the workspace's resources. Each workspace user must be assigned both a service-scoped workspace RBAC role and a workspace-scoped RBAC role, or granted equivalent permissions using custom roles. 
 
 > [!NOTE]
-> For easier management, set up Azure AD groups to assign workspace permissions to multiple users.
+> For easier management, set up Microsoft Entra groups to assign workspace permissions to multiple users.
 > 
 
 * For a list of built-in workspace roles, see [How to use role-based access control in API Management](api-management-role-based-access-control.md).
@@ -78,4 +78,3 @@ The open source [Azure API Management workspaces migration tool](https://github.
 ## Next steps
 
 * Workspace collaborators can get started [managing APIs and other resources in their API Management workspace](api-management-in-workspace.md)
-

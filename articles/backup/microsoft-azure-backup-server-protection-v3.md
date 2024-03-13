@@ -108,7 +108,7 @@ With public peering: Ensure access to the following domains/addresses:
 
 With Microsoft peering, select the following services/regions and relevant community values:
 
-* Azure Active Directory (12076:5060)
+* Microsoft Entra ID (12076:5060)
 * Microsoft Azure Region (according to the location of your Recovery Services vault)
 * Azure Storage (according to the location of your Recovery Services vault)
 

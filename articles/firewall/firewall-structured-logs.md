@@ -27,6 +27,7 @@ With structured logs, you're able to choose to use [Resource Specific Tables](..
 ## Resource specific mode
 
 In **Resource specific** mode, individual tables in the selected workspace are created for each category selected in the diagnostic setting. This method is recommended since it:
+- May reduce overall logging costs by up to 80%.
 - makes it much easier to work with the data in log queries
 - makes it easier to discover schemas and their structure
 - improves performance across both ingestion latency and query times

@@ -254,7 +254,7 @@ Configure IP advertising to enable a client to connect by using broker IP addres
 ## Start MirrorMaker
 
 > [!NOTE]
-> This article contains references to the term *whitelist*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+> This article contains references to a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 1. From the SSH connection to the secondary cluster, use the following command to start the MirrorMaker process:
 

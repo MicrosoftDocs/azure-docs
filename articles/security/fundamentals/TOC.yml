@@ -7,8 +7,13 @@
     href: overview.md
   - name: End-to-end security
     href: end-to-end.md
+
+- name: Shared responsibility
+  items:
   - name: Shared responsibility in the cloud
     href: shared-responsibility.md
+  - name: AI shared responsibility model
+    href: shared-responsibility-ai.md
 
 - name: Security posture management
   items:
@@ -96,7 +101,7 @@
   - name: Security checklist
     href: steps-secure-identity.md
   - name: Choose passwordless 
-    href: ../../active-directory/authentication/concept-authentication-passwordless.md?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
+    href: /entra/identity/authentication/concept-authentication-passwordless?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: Authentication
     href: /azure/architecture/framework/security/design-identity-authentication?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
 
@@ -132,6 +137,8 @@
 
 - name: Data security, encryption, and storage
   items: 
+  - name: Best practices for protecting secrets
+    href: secrets-best-practices.md
   - name: Data security and encryption
     href: encryption-overview.md
   - name: Key management in Azure

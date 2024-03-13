@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/31/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -60,13 +61,15 @@ The constraints on computed property names are:
 
 Queries in the computed property definition must be valid syntactically and semantically, otherwise the create or update operation fails. Queries should evaluate to a deterministic value for all items in a container. Queries may evaluate to undefined or null for some items, and computed properties with undefined or null values behave the same as persisted properties with undefined or null values when used in queries.
 
-The constraints on computed property query definitions are:
+The limitations on computed property query definitions are:
 
-- Queries must specify a FROM clause that represents the root item reference. Examples of supported FROM clauses are `FROM c`, `FROM root c`, and `FROM MyContainer c`.
+- Queries must specify a FROM clause that represents the root item reference. Examples of supported FROM clauses are: `FROM c`, `FROM root c`, and `FROM MyContainer c`.
 - Queries must use a VALUE clause in the projection.
-- Queries can't use any of the following clauses: WHERE, GROUP BY, ORDER BY, TOP, DISTINCT, OFFSET LIMIT, EXISTS, ALL, and NONE.
+- Queries can't include a JOIN.
+- Queries can't use non-deterministic Scalar expressions. Examples of non-deterministic scalar expressions are: GetCurrentDateTime, GetCurrentTimeStamp, GetCurrentTicks, and RAND.
+- Queries can't use any of the following clauses: WHERE, GROUP BY, ORDER BY, TOP, DISTINCT, OFFSET LIMIT, EXISTS, ALL, LAST, FIRST, and NONE.
 - Queries can't include a scalar subquery.
-- Aggregate functions, spatial functions, nondeterministic functions, and user defined functions aren't supported.
+- Aggregate functions, spatial functions, nondeterministic functions, and user defined functions (UDFs) aren't supported.
 
 ## Create computed properties
 
@@ -206,7 +209,7 @@ Here's an example computed property definition to convert the `name` property to
 
 This property could then be projected in a query:
 
-```sql
+```nosql
 SELECT 
     c.cp_lowerName 
 FROM 
@@ -228,7 +231,7 @@ Here's an example computed property definition to calculate a 20 percent price d
 
 This property could then be filtered on to ensure that only products where the discount would be less than $50 are returned:
 
-```sql
+```nosql
 SELECT 
     c.price - c.cp_20PercentDiscount as discountedPrice, 
     c.name 
@@ -253,7 +256,7 @@ Here's an example computed property definition that finds the primary category f
 
 You can then group by `cp_primaryCategory` to get the count of items in each primary category:
 
-```sql
+```nosql
 SELECT 
     COUNT(1), 
     c.cp_primaryCategory 
@@ -281,7 +284,7 @@ Here's an example computed property definition that gets the month out of the `_
 
 Before you can ORDER BY `cp_monthUpdated`, you must add it to your indexing policy. After your indexing policy is updated, you can order by the computed property.
 
-```sql
+```nosql
 SELECT
     *
 FROM
@@ -303,6 +306,15 @@ There are a few considerations for indexing computed properties, including:
 
 > [!NOTE]
 > All computed properties are defined at the top level of the item. The path is always `/<computed property name>`.
+
+> [!TIP]
+> Every time you update container properties, the old values are overwritten. If you have existing computed properties and want to add new ones, be sure that you add both new and existing computed properties to the collection.
+
+>![NOTE]
+> When the definition of an indexed computed property is modified, it's not automatically reindexed. To index the modified computed property, you'll first need to drop the computed property from the index. Then after the reindexing is completed, add the computed property back to the index policy.
+>
+> If you want to delete a computed property, you'll first need to remove it from the index policy.
+
 
 ### Add a single index for computed properties
 
@@ -363,7 +375,7 @@ To add a composite index on two properties in which, one is computed as `cp_myCo
 
 Adding computed properties to a container doesn't consume RUs. Write operations on containers that have computed properties defined might have a slight RU increase. If a computed property is indexed, RUs on write operations increase to reflect the costs for indexing and evaluation of the computed property. While in preview, RU charges that are related to computed properties are subject to change.
 
-## Next steps
+## Related content
 
 - [Manage indexing policies](../how-to-manage-indexing-policy.md)
 - [Model document data](../../modeling-data.md)

@@ -31,7 +31,7 @@ The `$convert-data` operation is integrated into the FHIR service as a REST API 
 
 `POST {{fhirurl}}/$convert-data`
 
-The health data for conversion is delivered to the FHIR service in the body of the `$convert-data` request. If the request is successful, the FHIR service returns a [FHIR Bundle](https://www.hl7.org/fhir/R4/bundle.html) response with the data converted to FHIR R4.
+The health data for conversion is delivered to the FHIR service in the body of the `$convert-data` request. If the request is successful, the FHIR service returns a [FHIR bundle](https://www.hl7.org/fhir/R4/bundle.html) response with the data converted to FHIR R4.
 
 ###  Parameters
 
@@ -112,8 +112,8 @@ A `$convert-data` operation call packages the health data for conversion inside 
 }
 ```
 
-The outcome of FHIR conversion is a FHIR Bundle as a batch. 
-* The FHIR Bundle should align with the expectations of the FHIR R4 specification - [Bundle - FHIR v4.0.1](http://hl7.org/fhir/R4/Bundle.html).
+The outcome of FHIR conversion is a FHIR bundle as a batch. 
+* The FHIR bundle should align with the expectations of the FHIR R4 specification - [Bundle - FHIR v4.0.1](http://hl7.org/fhir/R4/Bundle.html).
 * If you're trying to validate against a specific profile, you need to do some post processing by utilizing the FHIR [`$validate`](validation-against-profiles.md) operation.
 
 ## Next steps

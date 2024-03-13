@@ -1,18 +1,16 @@
 ---
-services: cognitive-services
+#services: cognitive-services
 author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: include
-ms.date: 10/31/2022
+ms.date: 12/19/2023
 ms.author: jboback
-ms.custom: ignite-fall-2021
 ---
 
 [Reference documentation](https://go.microsoft.com/fwlink/?linkid=2239169)
 
-Use this quickstart to send language detection requests using the REST API. In the following example, you will use cURL to identify the language that a text sample was written in.
+Use this quickstart to send language detection requests using the REST API. In the following example, you'll use cURL to identify the language that a text sample was written in.
 
 [!INCLUDE [Use Language Studio](../../../includes/use-language-studio.md)]
 
@@ -22,7 +20,7 @@ Use this quickstart to send language detection requests using the REST API. In t
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * The current version of [cURL](https://curl.haxx.se/).
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
-    * You will need the key and endpoint from the resource you create to connect your application to the API. You'll paste your key and endpoint into the code below later in the quickstart.
+    * You'll need the key and endpoint from the resource you create to connect your application to the API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`Free F0`) to try the service, and upgrade later to a paid tier for production.
 
 > [!NOTE]
@@ -49,7 +47,7 @@ The following cURL commands are executed from a BASH shell. Edit these commands 
 [!INCLUDE [REST API quickstart instructions](../../../includes/rest-api-instructions.md)]
 
 ```bash
-curl -i -X POST https://<your-language-resource-endpoint>/language/:analyze-text?api-version=2022-05-01 \
+curl -i -X POST https://<your-language-resource-endpoint>/language/:analyze-text?api-version=2023-11-15-preview \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key:<your-language-resource-key>" \
 -d \
@@ -78,19 +76,23 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/:analyze-text
 
 ```json
 {
-	"kind": "LanguageDetectionResults",
-	"results": {
-		"documents": [{
-			"id": "1",
-			"detectedLanguage": {
-				"name": "English",
-				"iso6391Name": "en",
-				"confidenceScore": 1.0
-			},
-			"warnings": []
-		}],
-		"errors": [],
-		"modelVersion": "2022-10-01"
-	}
+    "kind": "LanguageDetectionResults",
+    "results": {
+        "documents": [
+            {
+                "id": "1",
+                "detectedLanguage": {
+                    "name": "English",
+                    "iso6391Name": "en",
+                    "confidenceScore": 1.0,
+                    "script": "Latin",
+                    "scriptCode": "Latn"
+                },
+                "warnings": []
+            }
+        ],
+        "errors": [],
+        "modelVersion": "2023-12-01"
+    }
 }
 ```

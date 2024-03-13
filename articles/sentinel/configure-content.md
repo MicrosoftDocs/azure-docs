@@ -10,7 +10,7 @@ ms.author: lwainstein
 
 # Configure Microsoft Sentinel content
 
-In the previous deployment step, you enabled Microsoft Sentinel, health monitoring, and the required solutions. In this article, you learn how to configure the different types of Microsoft Sentinel security content, which allow you to detect, monitor, and respond to security threats across your systems.
+In the previous deployment step, you enabled Microsoft Sentinel, health monitoring, and the required solutions. In this article, you learn how to configure the different types of Microsoft Sentinel security content, which allow you to detect, monitor, and respond to security threats across your systems. This article is part of the [Deployment guide for Microsoft Sentinel](deploy-overview.md).
 
 ## Configure your security content
 

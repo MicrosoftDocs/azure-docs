@@ -3,11 +3,9 @@ title: Concepts - Run Command in Azure VMware Solution (Preview)
 description: Learn about using Run Commands in Azure VMware Solution. 
 ms.topic: conceptual 
 ms.service: azure-vmware
-ms.date: 5/3/2023
+ms.date: 12/05/2023
 ms.custom: engagement-fy23
 ---
-
-
 
 # Run Command in Azure VMware Solution
 
@@ -49,11 +47,11 @@ You can view the status of any executed Run Command, including the output, error
 
    - **Details** - Summary of the execution details, such as the name, status, package, cmdlet name, and error if the command failed. 
 
-   - **Output** - Messages output by the cmdlet. May include progress or the result of the operation. Not all cmdlets have output.
+   - **Output** - Messages output by the cmdlet can include progress or the result of the operation. Not all cmdlets have output.
 
       :::image type="content" source="media/run-command/run-execution-status-example-output.png" alt-text="Screenshot showing the output of a run execution.":::
 
-   - **Error** - Error messages generated in the execution of the cmdlet. This is in addition to the terminating error message on the details pane.
+   - **Error** - Error messages generated in the execution of the cmdlet in addition to the terminating error message on the details pane.
 
       :::image type="content" source="media/run-command/run-execution-status-example-error.png" alt-text="Screenshot showing the errors detected during the execution of an execution.":::
 

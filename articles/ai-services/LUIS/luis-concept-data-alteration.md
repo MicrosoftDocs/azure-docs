@@ -1,13 +1,13 @@
 ---
 title: Data alteration - LUIS
 description: Learn how data can be changed before predictions in Language Understanding (LUIS)
-ms.service: cognitive-services
-ms.subservice: language-understanding
+ms.service: azure-ai-language
+ms.subservice: azure-ai-luis
 ms.author: aahi
 author: aahill
 manager: nitinme
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 01/19/2024
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
@@ -82,7 +82,7 @@ When a LUIS app uses the prebuilt [datetimeV2](luis-reference-prebuilt-datetimev
 
 ### V3 prediction API to alter timezone
 
-In V3, the `datetimeReference` determines the timezone offset. Learn more about [V3 predictions](luis-migration-api-v3.md#v3-post-body).
+In V3, the `datetimeReference` determines the timezone offset.
 
 ### V2 prediction API to alter timezone
 The timezone is corrected by adding the user's timezone to the endpoint using the `timezoneOffset` parameter based on the API version. The value of the parameter should be the positive or negative number, in minutes, to alter the time.

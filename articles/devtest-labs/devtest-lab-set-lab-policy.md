@@ -4,7 +4,7 @@ description: Learn how to define lab policies such as VM sizes, maximum VMs per 
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 02/14/2022
+ms.date: 09/30/2023
 ms.custom: UpdateFrequency2
 ---
 

@@ -1,8 +1,8 @@
 ---
 title: Display feature information in iOS maps | Microsoft Azure Maps
 description: Learn how to display information when users interact with map features. Use the Azure Maps iOS SDK to display toast messages and other types of messages.
-author: dubiety
-ms.author: yuchungchen 
+author: sinnypan
+ms.author: sipa
 ms.date: 11/23/2021
 ms.topic: how-to
 ms.service: azure-maps

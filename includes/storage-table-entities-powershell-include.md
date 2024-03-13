@@ -1,6 +1,6 @@
 ---
 author: tamram
-ms.service: storage
+ms.service: azure-storage
 ms.custom:
 ms.topic: include
 ms.date: 06/23/2022

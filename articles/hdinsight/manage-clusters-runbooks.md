@@ -4,7 +4,7 @@ description: Learn how to create and delete Azure HDInsight clusters with script
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 11/17/2022
+ms.date: 12/06/2023
 ---
 
 # Tutorial: Create Azure HDInsight clusters with Azure Automation
@@ -23,7 +23,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 ## Prerequisites
 
 * An existing [Azure Automation account](../automation/quickstarts/create-azure-automation-account-portal.md).
-* An existing [Azure Storage account](../storage/common/storage-account-create.md), which will be used as cluster storage.
+* An existing [Azure Storage account](../storage/common/storage-account-create.md), which might be used as cluster storage.
 
 ## Install HDInsight modules
 
@@ -48,7 +48,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 1. Under **Shared Resources**, select **Credentials**.
 1. Select **Add a credential**.
-1. Enter the required information on the **New Credential** panel. This credential is to store the cluster password, which will enable you to log in to Ambari.
+1. Enter the required information on the **New Credential** panel. This credential is to store the cluster password, which enables you to log in to Ambari.
 
     | Property | Value |
     | --- | --- |
@@ -147,13 +147,13 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 1. View the list of Runbooks for your Automation account, by selecting **Runbooks** under **Process Automation**.
 1. Select `hdinsight-cluster-create`, or the name that you used when creating your cluster creation runbook.
 1. Select **Start** to execute the runbook immediately. You can also schedule runbooks to run periodically. See [Scheduling a runbook in Azure Automation](../automation/shared-resources/schedules.md)
-1. Enter the required parameters for the script and select **OK**. This will create a new HDInsight cluster with the name that you specified in the **CLUSTERNAME** parameter.
+1. Enter the required parameters for the script and select **OK**. This creates a new HDInsight cluster with the name that you specified in the **CLUSTERNAME** parameter.
 
     :::image type="content" source="./media/manage-clusters-runbooks/execute-create-runbook.png" alt-text="execute create cluster runbook" border="true":::
 
 ### Delete a cluster
 
-Delete the cluster by selecting the `hdinsight-cluster-delete` runbook that you created. Select **Start**, enter the **CLUSTERNAME** parameter and sselect **OK**.
+Delete the cluster by selecting the `hdinsight-cluster-delete` runbook that you created. Select **Start**, enter the **CLUSTERNAME** parameter and select **OK**.
 
 ## Clean up resources
 

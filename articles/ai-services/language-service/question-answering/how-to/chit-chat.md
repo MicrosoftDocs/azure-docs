@@ -2,22 +2,21 @@
 title: Adding chitchat to a custom question answering project
 titleSuffix: Azure AI services
 description: Adding personal chitchat to your bot makes it more conversational and engaging when you create a project. Custom question answering allows you to easily add a pre-populated set of the top chitchat, into your projects.
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 author: jboback
 ms.author: jboback
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
-ms.date: 11/02/2021
-ms.custom: language-service-question-answering, ignite-fall-2021
+ms.date: 12/19/2023
+ms.custom: language-service-question-answering
 ---
 
 # Use chitchat with a project
 
 Adding chitchat to your bot makes it more conversational and engaging. The chitchat feature in custom question answering allows you to easily add a pre-populated set of the top chitchat, into your project. This can be a starting point for your bot's personality, and it will save you the time and cost of writing them from scratch.
 
-This dataset has about 100 scenarios of chitchat in the voice of multiple personas, like Professional, Friendly and Witty. Choose the persona that most closely resembles your bot's voice. Given a user query, question answering tries to match it with the closest known chitchat question and answer.
+This dataset has about 100 scenarios of chitchat in the voice of multiple personas, like Professional, Friendly and Witty. Choose the persona that most closely resembles your bot's voice. Given a user query, custom question answering tries to match it with the closest known chitchat question and answer.
 
 Some examples of the different personalities are below. You can see all the personality [datasets](https://github.com/microsoft/botframework-cli/blob/main/packages/qnamaker/docs/chit-chat-dataset.md) along with details of the personalities.
 
@@ -83,5 +82,3 @@ Select the **manage sources** pane, and choose your chitchat source. Your specif
 > ![Delete chitchat source](../media/chit-chat/delete-chit-chat.png)
 
 ## Next steps
-
-

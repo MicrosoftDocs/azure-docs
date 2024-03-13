@@ -39,13 +39,14 @@ To access the local UI, see [Tutorial: Connect to Azure Stack Edge Pro with GPU]
     upft list
     ```
 
-    This should report a single interface on the access network (N3) and an interface for each attached data network (N6). For example:
+    This should report a single interface on the control plane network (N2), a single interface on the access network (N3) and an interface for each attached data network (N6). For example:
 
     ```azurecli
-    n6trace1 (Data Network: enterprise)
-    n6trace2 (Data Network: test)
+    n2trace
     n3trace
     n6trace0 (Data Network: internet)
+    n6trace1 (Data Network: enterprise)
+    n6trace2 (Data Network: test)
     ```
 
 1. Run the ping command, specifying the network and IP address to test. You can specify `access` for the access network or the network name for a data network.

@@ -15,11 +15,11 @@ This article describes how to delete Azure Virtual Desktop (classic).
 > When you delete resources as described in this article, these actions are irreversible.
 
 
-## Requirements
+## Prerequisites
 
 Before you begin, make sure you have the following things ready:
 
-- A global administrator account within the Azure Active Directory tenant
+- A global administrator account within the Microsoft Entra tenant
 
 - [Download and import the Azure Virtual Desktop module](/powershell/windows-virtual-desktop/overview/) to use in your PowerShell session if you haven't already
 

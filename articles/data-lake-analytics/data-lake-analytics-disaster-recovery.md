@@ -4,7 +4,7 @@ description: Learn how to plan disaster recovery for your Azure Data Lake Analyt
 ms.reviewer: whhender
 ms.service: data-lake-analytics
 ms.topic: how-to
-ms.date: 01/20/2023
+ms.date: 12/20/2023
 ---
 # Disaster recovery guidance for Azure Data Lake Analytics
 

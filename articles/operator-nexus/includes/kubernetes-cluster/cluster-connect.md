@@ -9,11 +9,11 @@ ms.service: azure-operator-nexus
 > [!NOTE]
 > When you create a Nexus Kubernetes cluster, Nexus automatically creates a managed resource group dedicated to storing the cluster resources, within this group, the Arc connected cluster resource is established.
 
-To access your cluster, you need to set up the cluster connect `kubeconfig`. After logging into Azure CLI with the relevant Azure AD entity, you can obtain the `kubeconfig` necessary to communicate with the cluster from anywhere, even outside the firewall that surrounds it.
+To access your cluster, you need to set up the cluster connect `kubeconfig`. After logging into Azure CLI with the relevant Microsoft Entra entity, you can obtain the `kubeconfig` necessary to communicate with the cluster from anywhere, even outside the firewall that surrounds it.
 
 1. Set `CLUSTER_NAME`, `RESOURCE_GROUP` and `SUBSCRIPTION_ID` variables.
     ```bash
-    CLUSTER_NAME="myNexusAKSCluster"
+    CLUSTER_NAME="myNexusK8sCluster"
     RESOURCE_GROUP="myResourceGroup"
     SUBSCRIPTION_ID=<set the correct subscription_id>
     ```
@@ -32,7 +32,7 @@ To access your cluster, you need to set up the cluster connect `kubeconfig`. Aft
 4. Use `kubectl` to send requests to the cluster:
 
     ```console
-    kubectl get nodes
+    kubectl get pods -A
     ```
     You should now see a response from the cluster containing the list of all nodes.
 

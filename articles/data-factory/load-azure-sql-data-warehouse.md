@@ -141,7 +141,7 @@ This article shows you how to use the Copy Data tool to _load data from Azure SQ
 
     :::image type="content" source="./media/load-azure-sql-data-warehouse/monitor-activity-run-details-2.png" alt-text="Monitor activity run details second":::
 
-## Next steps
+## Related content
 
 Advance to the following article to learn about Azure Synapse Analytics support:
 

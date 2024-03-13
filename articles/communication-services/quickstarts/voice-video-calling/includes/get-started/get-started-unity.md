@@ -40,7 +40,7 @@ There are two ways to install the Azure Communication Calling SDK for Unity.
 
 1. Download the [SDK](https://dev.azure.com/aipmr/MixedReality-Unity-Packages/_artifacts/feed/Unity-packages/Npm/com.azure.communication.calling/overview/1.0.0-beta.1) from the public npm feed and import it in Unity Editor's package manager, found under the Windows tab.
 
-2. Download the [Mixed Reality Feature Tool](https://learn.microsoft.com/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool) from Microsoft and install it via the mixed reality tool manager.
+2. Download the [Mixed Reality Feature Tool](/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool) from Microsoft and install it via the mixed reality tool manager.
 
 
 #### Set up the app framework
@@ -1971,7 +1971,7 @@ private async void InitCallAgentAndDeviceManagerAsync()
 
 ### Start the call
 
-Once a `StartCallOptions` object is obtained, `CallAgent` can be used to initiate the ACS call:
+Once a `StartCallOptions` object is obtained, `CallAgent` can be used to initiate the Azure Communication Services call:
 
 ```C#
 public async void CallButton_Click()

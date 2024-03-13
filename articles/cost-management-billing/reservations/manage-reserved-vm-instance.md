@@ -4,9 +4,9 @@ description: Learn how to manage Azure Reservations. See steps to change the res
 ms.service: cost-management-billing
 ms.subservice: reservations
 author: bandersmsft
-ms.reviewer: nitinarora
+ms.reviewer: primittal
 ms.topic: how-to
-ms.date: 12/06/2022
+ms.date: 03/05/2024
 ms.author: banders
 ---
 # Manage Reservations for Azure resources
@@ -55,8 +55,8 @@ By default, the following users can view and manage reservations:
 
 - The person who bought the reservation and the account owner for the billing subscription get Azure RBAC access to the reservation order.
 - Enterprise Agreement and Microsoft Customer Agreement billing contributors can manage all reservations from Cost Management + Billing > Reservation Transactions > select the blue banner.
-- A Reservation administrator for reservations in their Azure Active Directory (Azure AD) tenant (directory).
-- A Reservation reader has read-only access to reservations in their Azure Active Directory tenant (directory).
+- A Reservation administrator for reservations in their Microsoft Entra tenant (directory).
+- A Reservation reader has read-only access to reservations in their Microsoft Entra tenant (directory).
 
 To allow other people to manage reservations, you have two options:
 
@@ -81,9 +81,13 @@ If you're a billing administrator, use following steps to view and manage all re
 3. The complete list of reservations for your EA enrollment or billing profile is shown.
 4. Billing administrators can take ownership of a reservation by selecting it and then selecting **Grant access** in the window that appears.
 
-## Change Billing Subscription for an Azure Reservation
+## Change billing subscription for an Azure Reservation
 
-We don’t allow changing Billing subscription after a reservation is purchased. If you want to change the subscription, use the exchange process to set the right billing subscription for the reservation.
+We don’t allow changing the billing subscription after a reservation is purchased. [Subscription transfer](../manage/ea-transfers.md#change-azure-subscription-or-account-ownership) doesn't transfer an Azure reservation. If you want to change the subscription, use the exchange process to set the right billing subscription for the reservation.
+
+## Change billing frequency for an Azure Reservation
+
+We don’t allow changing billing frequency after a reservation is purchased. If you want to change the billing frequency, use the exchange process to set the right billing frequency for the reservation or select a different billing frequency when setting up a renewal for an already purchased reservation.
 
 ## Split a single reservation into two reservations
 

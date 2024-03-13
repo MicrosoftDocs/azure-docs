@@ -20,11 +20,11 @@ ms.custom: references_regions
 
 * <a id="azure-container-storage-regions"></a>
   **In which Azure regions is Azure Container Storage available?**  
-  Azure Container Storage Preview is only available in East US, East US 2, West US 2, West US 3, South Central US, Southeast Asia, Australia East, West Europe, North Europe, UK South, Sweden Central, and France Central. See [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products).
+  [!INCLUDE [container-storage-regions](../../../includes/container-storage-regions.md)]
 
 * <a id="azure-container-storage-preview-limitations"></a>
   **Which other Azure services does Azure Container Storage support?**  
-  During public preview, Azure Container Storage supports only Azure Kubernetes Service (AKS) with storage pools provided by Azure Disks, Ephemeral Disk, or Azure Elastic SAN Preview.
+  During public preview, Azure Container Storage supports only Azure Kubernetes Service (AKS) with storage pools provided by Azure Disks, Ephemeral Disk, or Azure Elastic SAN.
 
 * <a id="azure-container-storage-rwx"></a>
   **Does Azure Container Storage support read-write-many (RWX) workloads?**  

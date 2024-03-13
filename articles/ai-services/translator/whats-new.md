@@ -4,11 +4,10 @@ titleSuffix: Azure AI services
 description: Learn of the latest changes to the Translator Service API.
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: translator-text
-ms.custom: event-tier1-build-2022, build-2023
+ms.service: azure-ai-translator
+ms.custom: build-2023
 ms.topic: overview
-ms.date: 07/18/2023
+ms.date: 01/31/2024
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD024 -->
@@ -23,6 +22,39 @@ Translator is a language service that enables users to translate text and docume
 
 Translator service supports language translation for more than 100 languages. If your language community is interested in partnering with Microsoft to add your language to Translator, contact us via the [Translator community partner onboarding form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR-riVR3Xj0tOnIRdZOALbM9UOU1aMlNaWFJOOE5YODhRR1FWVzY0QzU1OS4u).
 
+## February 2024
+
+The Document translation API now supports two translation operations:
+
+* [Asynchronous Batch](document-translation/overview.md#asynchronous-batch-translation) document translation supports asynchronous processing of multiple documents and files. The batch translation process requires an Azure Blob storage account with containers for your source and translated documents.
+
+* [Synchronous](document-translation/overview.md#synchronous-translation) document translation supports synchronous processing of single file translations. The file translation process doesn't require an Azure Blob storage account. The final response contains the translated document and is returned directly to the calling client.
+
+## September 2023
+
+* Translator service has [text, document translation, and container language support](language-support.md) for the following 18 languages:
+
+|Language|Code|Cloud – Text Translation and Document Translation|Containers – Text Translation|Description
+|:----|:----|:----|:----|
+|chiShona|`sn`|✔|✔|The official language of Zimbabwe with more than 8 million native speakers.|
+|Hausa|`ha`|✔|✔|The most widely used language in West Africa with more than 150 million speakers worldwide.|
+|Igbo|`ig`|✔|✔|The principal native language of the Igbo people of Nigeria with more than 44 million speakers.|
+|Kinyarwanda|`rw`|✔|✔|The national language of Rwanda with more than 12 million speakers primarily in East and Central Africa.|
+|Lingala|`ln`|✔|✔|One of four official languages of the Democratic Republic of the Congo with more than 60 million speakers.|
+|Luganda|`lug`|✔|✔|A major language of Uganda with more than 5 million speakers.|
+|Nyanja|`nya`|✔|✔| Nynaja, also known as Chewa, is spoken mainly in Malawi and has more than 2 million native speakers.|
+|Rundi|`run`|✔|✔| Rundi, also known as Kirundi, is the national language of Burundi and has more than 6 million native speakers.|
+|Sesotho|`st`|✔|✔| Sesotho, also know as Sotho, is the national and official language of Lesotho, one of 12 official languages of South Africa, and one of 16 official languages of Zimbabwe. It has more than 5.6 native speakers.
+|Sesotho sa Leboa|`nso`|✔|✔|Sesotho, also known as Northern Sotho, is the native language of more than 4.6 million people in South Africa.|
+|Setswana|`tn`|✔|✔|Setswana, also known as Tswana, is an official language of Botswana and South Africa and has more than 5 million speakers.|
+|Xhosa|`xh`|✔|✔|An official language of South Africa and Zimbabwe, Xhosa has more than 20 million speakers.|
+|Yoruba|`yo`|✔|✔|The principal native language of the Yoruba people of West Africa, it has more than 50 million speakers.|
+|Konkani|`gom`|✔|✔|The official language of the Indian state of Goa with more than 7 million speakers worldwide.|
+|Maithili|`mai`|✔|✔|One of the 22 officially recognized languages of India and the second most spoken language in Nepal. It has more than 20 million speakers.|
+|Sindhi|`sd`|✔|✔|Sindhi is an official language of the Sindh province of Pakistan and the Rajasthan state in India. It has more than 33 million speakers worldwide.|
+|Sinhala|`si`|✔|✔|One of the official and national languages of Sri Lanka, Sinhala has more than 16 million native speakers.|
+|Lower Sorbian|`dsb`|✔|Currently, not supported in containers |A West Slavic language spoken primarily in eastern Germany. It has approximately 7,000 speakers.|
+
 ## July 2023
 
 [!INCLUDE [Azure AI services rebrand](../includes/rebrand-note.md)]
@@ -34,7 +66,7 @@ Translator service supports language translation for more than 100 languages. If
 **Documentation updates**
 
 * The [Document Translation SDK overview](document-translation/document-sdk-overview.md) is now available to provide guidance and resources for the .NET/C# and Python SDKs.
-* The [Document Translation SDK quickstart](document-translation/quickstarts/document-translation-sdk.md) is now available for the C# and Python programming languages.
+* The [Document Translation SDK quickstart](document-translation/quickstarts/asynchronous-sdk.md) is now available for the C# and Python programming languages.
 
 ## May 2023
 
@@ -111,7 +143,7 @@ Document Translation .NET and Python client-library SDKs are now generally avail
 
 ### [Text and document translation support for Basque and Galician](https://www.microsoft.com/translator/blog/2022/04/12/break-the-language-barrier-with-translator-now-with-two-new-languages/)
 
-* Translator service has [text and document translation language support](language-support.md) for Basque and Galician. Basque is a language isolate, meaning it isn't related to any other modern language. It's spoken in parts of northern Spain and southern France. Galician is spoken in northern Portugal and western Spain. Both Basque and Galician are official languages of Spain.
+* Translator service has [text and document translation language support](language-support.md) for Basque and Galician. Basque is a language isolate, meaning it isn't related to any other modern language and is spoken in parts of northern Spain and southern France. Galician is spoken in northern Portugal and western Spain. Both Basque and Galician are official languages of Spain.
 
 ## March 2022
 
@@ -123,7 +155,7 @@ Document Translation .NET and Python client-library SDKs are now generally avail
 
 ### [Text and document translation support for Upper Sorbian](https://www.microsoft.com/translator/blog/2022/02/21/translator-celebrates-international-mother-language-day-by-adding-upper-sorbian/),
 
-* Translator service has [text and document translation language support](language-support.md) for Upper Sorbian. The Translator team has worked tirelessly to preserve indigenous and endangered languages around the world. Language data provided by the Upper Sorbian language community was instrumental in introducing this language to Translator.
+* Translator service has [text and document translation language support](language-support.md) for Upper Sorbian. The Translator team works tirelessly to preserve indigenous and endangered languages around the world. Language data provided by the Upper Sorbian language community was instrumental in introducing this language to Translator.
 
 ### [Text and document translation support for Inuinnaqtun and Romanized Inuktitut](https://www.microsoft.com/translator/blog/2022/02/01/introducing-inuinnaqtun-and-romanized-inuktitut/)
 
@@ -141,17 +173,17 @@ Document Translation .NET and Python client-library SDKs are now generally avail
 
 ### [Text and document support for more than 100 languages](https://www.microsoft.com/translator/blog/2021/10/11/translator-now-translates-more-than-100-languages/)
 
-* Translator service has added [text and document language support](language-support.md) for the following languages:
+* Translator service adds [text and document language support](language-support.md) for the following languages:
   * **Bashkir**. A Turkic language spoken by approximately 1.4 million native speakers.  It has three regional language groups: Southern, Eastern, and Northwestern.
-  * **Dhivehi**. Also known as Maldivian, it's an Indo-Aryan language primarily spoken in the island nation of Maldives.
+  * **Dhivehi**. Also known as Maldivian, it's an Indo-Iranian language primarily spoken in the island nation of Maldives.
   * **Georgian**. A Kartvelian language that is the official language of Georgia. It has approximately 4 million speakers.
   * **Kyrgyz**. A Turkic language that is the official language of Kyrgyzstan.
   * **Macedonian (Cyrillic)**. An Eastern South Slavic language that is the official language of North Macedonia. It has approximately 2 million people.
   * **Mongolian (Traditional)**. Traditional Mongolian script is the first writing system created specifically for the Mongolian language. Mongolian is the official language of Mongolia.
-  * **Tatar**. A Turkic language used by speakers in modern Tatarstan. It's closely related to Crimean Tatar and Siberian Tatar but each belongs to different subgroups.
+  * **Tatar**. A Turkic language used by speakers in modern Tatarstan closely related to Crimean Tatar and Siberian Tatar but each belongs to different subgroups.
   * **Tibetan**. It has nearly 6 million speakers and can be found in many Tibetan Buddhist publications.
   * **Turkmen**. The official language of Turkmenistan. It's similar to Turkish and Azerbaijani.
-  * **Uyghur**. A Turkic language with nearly 15 million speakers. It's spoken primarily in Western China.
+  * **Uyghur**. A Turkic language with nearly 15 million speakers spoken primarily in Western China.
   * **Uzbek (Latin)**. A Turkic language that is the official language of Uzbekistan. It has 34 million native speakers.
 
 These additions bring the total number of languages supported in Translator to 103.
@@ -170,17 +202,17 @@ These additions bring the total number of languages supported in Translator to 1
 
 ### [Document Translation ― now generally available](https://www.microsoft.com/translator/blog/2021/05/25/translate-full-documents-with-document-translation-%e2%80%95-now-in-general-availability/)
 
-* **Feature release**: Translator's [Document Translation](document-translation/overview.md)  feature is generally available. Document Translation is designed to translate large files and batch documents with rich content while preserving original structure and format. You can also use custom glossaries and custom models built with [Custom Translator](custom-translator/overview.md) to ensure your documents are translated quickly and accurately.
+* **Feature release**: Translator's [Asynchronous batch translation](document-translation/overview.md)  feature is generally available. Document Translation is designed to translate large files and batch documents with rich content while preserving original structure and format. You can also use custom glossaries and custom models built with [Custom Translator](custom-translator/overview.md) to ensure your documents are translated quickly and accurately.
 
 ### [Translator service available in containers](https://www.microsoft.com/translator/blog/2021/05/25/translator-service-now-available-in-containers/)
 
-* **New release**: Translator service is available in containers as a gated preview. [Submit an online request](https://aka.ms/csgate-translator) and have it approved prior to getting started. Containers enable you to run several Translator service features in your own environment and are great for specific security and data governance requirements. *See*, [Install and run Translator containers (preview)](containers/translator-how-to-install-container.md)
+* **New release**: Translator service is available in containers as a gated preview. [Submit an online request](https://aka.ms/csgate-translator) for approval prior to getting started. Containers enable you to run several Translator service features in your own environment and are great for specific security and data governance requirements. *See*, [Install and run Translator containers (preview)](containers/translator-how-to-install-container.md)
 
 ## February 2021
 
 ### [Document Translation public preview](https://www.microsoft.com/translator/blog/2021/02/17/introducing-document-translation/)
 
-* **New release**:  [Document Translation](document-translation/overview.md) is available as a preview feature of the Translator Service. Preview features are still in development and aren't meant for production use. They're made available on a "preview" basis so customers can get early access and provide feedback. Document Translation enables you to translate large documents and process batch files while still preserving the original structure and format. _See_ [Microsoft Translator blog: Introducing Document Translation](https://www.microsoft.com/translator/blog/2021/02/17/introducing-document-translation/)
+* **New release**:  [Asynchronous batch translation](document-translation/overview.md) is available as a preview feature of the Translator Service. Preview features are still in development and aren't meant for production use. They're made available on a "preview" basis so customers can get early access and provide feedback. Document Translation enables you to translate large documents and process batch files while still preserving the original structure and format. _See_ [Microsoft Translator blog: Introducing Document Translation](https://www.microsoft.com/translator/blog/2021/02/17/introducing-document-translation/)
 
 ### [Text and document translation support for nine added languages](https://www.microsoft.com/translator/blog/2021/02/22/microsoft-translator-releases-nine-new-languages-for-international-mother-language-day-2021/)
 

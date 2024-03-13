@@ -2,18 +2,12 @@
 title: Tutorial deploys into an existing virtual network using the Azure CLI - Azure Dedicated HSM | Microsoft Docs
 description: Tutorial showing how to deploy a dedicated HSM using the CLI into an existing virtual network
 services: dedicated-hsm
-documentationcenter: na
 author: msmbaldwin
-manager: rkarlin
-editor: ''
-
-ms.service: key-vault
 ms.topic: tutorial
-ms.custom: "mvc, seodec18, devx-track-azurecli"
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/25/2021
-ms.author: keithp
+ms.custom: mvc, devx-track-azurecli
+ms.service: dedicated-hsm
+ms.date: 02/20/2024
+ms.author: mbaldwin
 ---
 
 # Tutorial: Deploying HSMs into an existing virtual network using the Azure CLI
@@ -129,13 +123,13 @@ After you configure your network, use these Azure CLI commands to provision your
 There are some other commands that might be useful. Use the [az dedicated-hsm update](/cli/azure/dedicated-hsm#az-dedicated-hsm-update) command to update an HSM:
 
 ```azurecli
-az dedicated-hsm update --resource-group myRG –name hsm1
+az dedicated-hsm update --resource-group myRG –-name hsm1
 ```
 
 To delete an HSM, use the [az dedicated-hsm delete](/cli/azure/dedicated-hsm#az-dedicated-hsm-delete) command:
 
 ```azurecli
-az dedicated-hsm delete --resource-group myRG –name hsm1
+az dedicated-hsm delete --resource-group myRG –-name hsm1
 ```
 
 ## Verifying the Deployment

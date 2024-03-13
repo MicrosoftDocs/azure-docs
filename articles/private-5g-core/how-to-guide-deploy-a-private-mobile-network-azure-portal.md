@@ -95,8 +95,9 @@ You can change the public land mobile network (PLMN) identifier, comprising a Mo
 
 ## Next steps
 
-You can begin designing policy control to determine how your private mobile network will handle traffic, create more network slices, or start adding sites to your private mobile network.
+You can begin designing policy control to determine how your private mobile network will handle traffic, create more network slices, enable SUPI concealment, or start adding sites to your private mobile network.
 
 - [Learn more about designing the policy control configuration for your private mobile network](policy-control.md)
 - [Create and manage network slices](create-manage-network-slices.md)
+- [Enable SUPI concealment (preview)](supi-concealment.md)
 - [Collect the required information for a site](collect-required-information-for-a-site.md)

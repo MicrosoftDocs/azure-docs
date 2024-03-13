@@ -6,9 +6,8 @@ brand: azure
 
 metadata:
   title: Azure Storage Documentation Hub | Microsoft Learn
-  description: Azure Storage options include cloud and hybrid storage solutions. Find documentation for object, file, disk, queue, big data, and table Storage. 
-  ms.service: storage
-  ms.custom: ignite-2022
+  description: Azure Storage options include cloud and hybrid storage solutions. Find documentation for object, file, disk, queue, big data, and table Storage.
+  ms.service: azure-storage
   ms.topic: hub-page
   author: normesta
   ms.author: normesta

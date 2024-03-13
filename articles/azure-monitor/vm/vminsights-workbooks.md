@@ -4,7 +4,7 @@ description: Simplify complex reporting with predefined and custom parameterized
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.date: 05/27/2022
+ms.date: 09/28/2023
 
 ---
 
@@ -52,8 +52,8 @@ A workbook is made up of sections that consist of independently editable charts,
 1. Select a VM.
 
 1. On the VM insights page, select the **Performance** or **Map** tab and then select **View Workbooks** from the link on the page. From the dropdown list, select **Go To Gallery**.
-
-    :::image type="content" source="media/vminsights-workbooks/workbook-dropdown-gallery-01.png" lightbox="media/vminsights-workbooks/workbook-dropdown-gallery-01.png" alt-text="Screenshot that shows a workbook dropdown list in V M insights.":::
+    <!-- convertborder later -->
+    :::image type="content" source="media/vminsights-workbooks/workbook-dropdown-gallery-01.png" lightbox="media/vminsights-workbooks/workbook-dropdown-gallery-01.png" alt-text="Screenshot that shows a workbook dropdown list in V M insights." border="false":::
 
     The workbook gallery opens with prebuilt workbooks to help you get started.
 
@@ -64,8 +64,8 @@ A workbook is made up of sections that consist of independently editable charts,
 ## Edit workbook sections
 
 Workbooks have two modes: editing and reading. A new workbook opens in editing mode. This mode shows all the content of the workbook, including any steps and parameters that are otherwise hidden. Reading mode presents a simplified report-style view. Reading mode allows you to abstract away the complexity that went into creating a report while still having the underlying mechanics only a few clicks away when needed for modification.
-
-![Screenshot that shows the Virtual Machines Workbook section in Azure Monitor showing a new workbook in editing mode with editing controls highlighted.](media/vminsights-workbooks/workbook-new-workbook-editor-01.png)
+<!-- convertborder later -->
+:::image type="content" source="media/vminsights-workbooks/workbook-new-workbook-editor-01.png" lightbox="media/vminsights-workbooks/workbook-new-workbook-editor-01.png" alt-text="Screenshot that shows the Virtual Machines Workbook section in Azure Monitor showing a new workbook in editing mode with editing controls highlighted." border="false":::
 
 1. After you finish editing a section, select **Done Editing** in the lower-left corner of the section.
 
@@ -82,8 +82,8 @@ Adding headings, explanations, and commentary to your workbooks helps turn a set
 To add a text section to your workbook, select **Add text** in the lower left of the workbook or section.
 
 ## Add query sections
-
-![Screenshot that shows the Query section in workbooks.](media/vminsights-workbooks/005-workbook-query-section.png)
+<!-- convertborder later -->
+:::image type="content" source="media/vminsights-workbooks/005-workbook-query-section.png" lightbox="media/vminsights-workbooks/005-workbook-query-section.png" alt-text="Screenshot that shows the Query section in workbooks." border="false":::
 
 To add a query section to your workbook, select **Add query** in the lower left of the workbook or section.
 
@@ -99,9 +99,9 @@ To include data from other Log Analytics workspaces or from a specific Applicati
 
 ### Advanced analytic query settings
 
-Each section has its own advanced settings, which are accessible via the settings ![Workbooks section editing controls](media/vminsights-workbooks/006-settings.png) icon located to the right of **Add parameters**.
-
-![Screenshot that shows the Advanced Settings dialog with the icon highlighted in the Virtual Machines Workbook section of Azure Monitor.](media/vminsights-workbooks/007-settings-expanded.png)
+Each section has its own advanced settings, which are accessible via the settings :::image type="content" source="media/vminsights-workbooks/006-settings.png" alt-text="Workbooks section editing controls"::: icon located to the right of **Add parameters**.
+<!-- convertborder later -->
+:::image type="content" source="media/vminsights-workbooks/007-settings-expanded.png" lightbox="media/vminsights-workbooks/007-settings-expanded.png" alt-text="Screenshot that shows the Advanced Settings dialog with the icon highlighted in the Virtual Machines Workbook section of Azure Monitor." border="false":::
 
 | Setting | Description |
 | ---------------- |:-----|
@@ -116,12 +116,12 @@ Most of these settings are fairly intuitive, but to understand **Export a parame
 One of the prebuilt workbooks, **TCP Traffic**, provides information on connection metrics from a VM.
 
 The first section of the workbook is based on log query data. The second section is also based on log query data, but selecting a row in the first table interactively updates the contents of the charts.
-
-![Screenshot that shows the Virtual Machines section in Azure Monitor showing the prebuilt workbook TCP Traffic.](media/vminsights-workbooks/008-workbook-tcp-traffic.png)
+<!-- convertborder later -->
+:::image type="content" source="media/vminsights-workbooks/008-workbook-tcp-traffic.png" lightbox="media/vminsights-workbooks/008-workbook-tcp-traffic.png" alt-text="Screenshot that shows the Virtual Machines section in Azure Monitor showing the prebuilt workbook TCP Traffic." border="false":::
 
 The behavior is possible through use of the **When an item is selected, export a parameter** advanced settings, which are enabled in the table's log query.
-
-![Screenshot that shows the Advanced Settings dialog for a Virtual Machines workbook with the "When an item is selected, export a parameter" option checked.](media/vminsights-workbooks/009-settings-export.png)
+<!-- convertborder later -->
+:::image type="content" source="media/vminsights-workbooks/009-settings-export.png" lightbox="media/vminsights-workbooks/009-settings-export.png" alt-text="Screenshot that shows the Advanced Settings dialog for a Virtual Machines workbook with the 'When an item is selected, export a parameter' option checked." border="false":::
 
 The second log query then utilizes the exported values when a row is selected to create a set of values that are used by the section heading and charts. If no row is selected, it hides the section heading and charts.
 
@@ -139,8 +139,8 @@ VMConnection
 Metrics sections give you full access to incorporate Azure Monitor metrics data into your interactive reports. In VM insights, the prebuilt workbooks typically contain analytic query data rather than metric data. You can create workbooks with metric data, which allows you to take full advantage of the best of both features all in one place. You also have the ability to pull in metric data from resources in any of the subscriptions to which you have access.
 
 Here's an example of VM data being pulled into a workbook to provide a grid visualization of CPU performance.
-
-![Screenshot that shows the metrics section of a virtual machine workbook in Azure Monitor. The C P U performance for each virtual machine is shown graphically.](media/vminsights-workbooks/010-metrics-grid.png)
+<!-- convertborder later -->
+:::image type="content" source="media/vminsights-workbooks/010-metrics-grid.png" lightbox="media/vminsights-workbooks/010-metrics-grid.png" alt-text="Screenshot that shows the metrics section of a virtual machine workbook in Azure Monitor. The C P U performance for each virtual machine is shown graphically." border="false":::
 
 ## Add parameter sections
 
@@ -178,12 +178,12 @@ The dropdown is populated by a log query or JSON. If the query returns one colum
 If the column is a string type, null/empty string is considered false. Any other value is considered true. For single-selection dropdowns, the first value with a true value is used as the default selection. For multiple-selection dropdowns, all values with a true value are used as the default selected set. The items in the dropdown are shown in whatever order the query returned rows.
 
 Let's look at the parameters present in the Connections Overview report. Select the edit symbol next to **Direction**.
-
-![Screenshot that shows the section for adding and editing report parameters in Azure Monitor. The Edit icon for the Direction parameter is selected.](media/vminsights-workbooks/011-workbook-using-dropdown.png)
+<!-- convertborder later -->
+:::image type="content" source="media/vminsights-workbooks/011-workbook-using-dropdown.png" lightbox="media/vminsights-workbooks/011-workbook-using-dropdown.png" alt-text="Screenshot that shows the section for adding and editing report parameters in Azure Monitor. The Edit icon for the Direction parameter is selected." border="false":::
 
 This action opens the **Edit Parameter** pane.
-
-![Screenshot that shows the Edit Parameter pane. The Parameter name is Direction, the Parameter type is Drop down, and Get data from JSON is selected.](media/vminsights-workbooks/012-workbook-edit-parameter.png)
+<!-- convertborder later -->
+:::image type="content" source="media/vminsights-workbooks/012-workbook-edit-parameter.png" lightbox="media/vminsights-workbooks/012-workbook-edit-parameter.png" alt-text="Screenshot that shows the Edit Parameter pane. The Parameter name is Direction, the Parameter type is Drop down, and Get data from JSON is selected." border="false":::
 
 The JSON lets you generate an arbitrary table populated with content. For example, the following JSON generates two values in the dropdown:
 
@@ -204,8 +204,8 @@ Perf
 ```
 
 The query shows the following results:
-
-![Screenshot that shows the Perf counter dropdown.](media/vminsights-workbooks/013-workbook-edit-parameter-perf-counters.png)
+<!-- convertborder later -->
+:::image type="content" source="media/vminsights-workbooks/013-workbook-edit-parameter-perf-counters.png" lightbox="media/vminsights-workbooks/013-workbook-edit-parameter-perf-counters.png" alt-text="Screenshot that shows the Perf counter dropdown." border="false":::
 
 Dropdown lists are powerful tools you can use to customize and create interactive reports.
 
@@ -218,8 +218,8 @@ Time range parameter types have 15 default ranges that go from five minutes to t
 ### Resource picker
 
 The resource picker parameter type gives you the ability to scope your report to certain types of resources. An example of a prebuilt workbook that uses the resource picker type is the **Performance** workbook.
-
-![Screenshot that shows the Workspaces dropdown.](media/vminsights-workbooks/014-workbook-edit-parameter-workspaces.png)
+<!-- convertborder later -->
+:::image type="content" source="media/vminsights-workbooks/014-workbook-edit-parameter-workspaces.png" lightbox="media/vminsights-workbooks/014-workbook-edit-parameter-workspaces.png" alt-text="Screenshot that shows the Workspaces dropdown." border="false":::
 
 ## Save and share workbooks with your team
 

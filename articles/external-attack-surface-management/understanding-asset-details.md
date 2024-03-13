@@ -105,7 +105,12 @@ The following data is specific to the issuer of an SSL certificate.
 
 ## Data tabs
 
-On the rightmost pane of the asset details page, users can access more expansive data related to the selected asset. This data is organized in a series of categorized tabs. The available metadata tabs change depending on the type of asset you're viewing.
+On the rightmost pane of the asset details page, users can access more expansive data related to the selected asset. This data is organized in a series of categorized tabs. The available metadata tabs change depending on the type of asset you're viewing. 
+
+Certain tabs display a "Recent only" toggle in the upper-right corner. By default, Defender EASM displays all data that we've collected for each asset, including historical observations that may not be actively running on your current attack surface. While this historical context is very valuable for certain use cases, the "Recent only" toggle will limit all results on the Asset Details page to those most recently observed on the asset. It is recommended that you use the "Recent only" toggle when you only wish to view data that represents the current state of the asset for remediation purposes. 
+
+![Screenshot that highlights the "Recent only" toggle from the Overview page of Asset Details.](media/inventory-1b.png)
+
 
 ### Overview
 
@@ -113,7 +118,7 @@ The **Overview** tab provides more context to ensure that significant insights a
 
 This section can also include dashboard widgets that visualize insights that are relevant to the asset type in question.
 
-![Screenshot that shows the asset details page Overview pane.](media/Inventory_2.png)
+![Screenshot that shows the asset details page Overview pane.](media/inventory-2.png)
 
 ### Discovery chain
 
@@ -258,6 +263,16 @@ The following fields are included in the table in the **Values** section on the 
 | Name servers | Any name servers associated with the registered entity. |
 
 Many organizations opt to obfuscate their registry information. Sometimes contact email addresses end in *@anonymised.email*. This placeholder is used instead of a real contact address. Many fields are optional during registration configuration, so any field with an empty value wasn't included by the registrant.
+
+
+
+### Change history 
+
+The "Change history" tab displays a list of modifications that have been applied to an asset over time. This information helps you track these changes over time and better understand the lifecycle of the asset.  This tab displays a variety of changes, including but not limited to asset states, labels and external IDs. For each change, we list the user who implemented the change and a timestamp. 
+
+[ ![Screenshot that shows the Change history tab.](media/change-history-1.png) ](media/change-history-1.png#lightbox)
+
+
 
 ## Next steps
 

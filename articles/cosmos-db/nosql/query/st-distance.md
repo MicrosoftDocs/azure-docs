@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/24/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -23,7 +24,7 @@ Returns the distance between two GeoJSON Point, Polygon, MultiPolygon or LineStr
 
 ## Syntax
 
-```sql
+```nosql
 ST_DISTANCE(<spatial_expr_1>, <spatial_expr_2>)  
 ```
 
@@ -46,7 +47,7 @@ The following example assumes a container exists with two items.
 
 The example shows how to use the function as a filter to return items within a specified distance.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/st-distance/query.sql" highlight="3-6":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/st-distance/query.sql" highlight="3-6":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/st-distance/result.json":::
 
@@ -56,7 +57,7 @@ The example shows how to use the function as a filter to return items within a s
 - This function benefits from a [geospatial index](../../index-policy.md#spatial-indexes) except in queries with aggregates.
 - The GeoJSON specification requires that points within a Polygon be specified in counter-clockwise order. A Polygon specified in clockwise order represents the inverse of the region within it.
 
-## Next steps
+## Related content
 
 - [System functions](system-functions.yml)
 - [`ST_INTERSECTS`](st-intersects.md)

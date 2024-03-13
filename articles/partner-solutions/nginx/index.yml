@@ -6,7 +6,6 @@ summary: NGINXaaS – An Azure Native ISV Service is part of Marketplace and com
 metadata:
   title: NGINXaaS 
   description: NGINXaaS integrates with Azure to combine the benefits of NGINX and the Azure cloud.
-  ms.custom: event-tier1-build-2022
   ms.topic: landing-page
   author: flang-msft
   ms.author: franlanglois

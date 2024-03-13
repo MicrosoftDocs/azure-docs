@@ -1,12 +1,11 @@
 ---
-services: cognitive-services
-author: aahill
+#services: cognitive-services
+author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: include
-ms.date: 05/13/2022
-ms.author: aahi
+ms.date: 12/19/2023
+ms.author: jboback
 ---
 
 To delete a deployment from within [Language Studio](https://aka.ms/laguageStudio), select the **Deploy model** page. Then select the deployment you want to delete, and select **Delete deployment** from the top menu. 

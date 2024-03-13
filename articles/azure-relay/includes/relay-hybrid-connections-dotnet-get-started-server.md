@@ -5,7 +5,7 @@ services: service-bus-relay
 author: spelluru
 ms.service: service-bus-relay
 ms.topic: include
-ms.date: 09/27/2022
+ms.date: 08/10/2023
 ms.author: spelluru
 ms.custom: include file
 

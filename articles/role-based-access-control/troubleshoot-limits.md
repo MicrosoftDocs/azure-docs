@@ -1,13 +1,11 @@
 ---
 title: Troubleshoot Azure RBAC limits - Azure RBAC
 description: Learn how to use Azure Resource Graph to reduce the number of Azure role assignments and Azure custom roles in Azure role-based access control (Azure RBAC).
-services: active-directory
 author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.workload: identity
-ms.date: 07/31/2023
+ms.date: 02/22/2024
 ms.author: rolyon
 ---
 
@@ -18,7 +16,8 @@ This article describes some common solutions when you exceed the limits in Azure
 ## Prerequisites
 
 - [Reader](./built-in-roles.md#reader) role to run Azure Resource Graph queries.
-- [User Access Administrator](./built-in-roles.md#user-access-administrator) or [Owner](./built-in-roles.md#owner) role to add role assignments, remove role assignments, or delete custom roles.
+- [Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator) role to add or remove role assignments.
+- [User Access Administrator](./built-in-roles.md#user-access-administrator) role to add role assignments, remove role assignments, or delete custom roles.
 - [Groups Administrator](../active-directory/roles/permissions-reference.md#groups-administrator) or [User Administrator](../active-directory/roles/permissions-reference.md#user-administrator) role to create groups.
 
 > [!NOTE]
@@ -63,9 +62,19 @@ To reduce the number of role assignments in the subscription, add principals (us
 
 1. Run the following query to get the role assignments with the same role and at the same scope, but for different principals.
 
-    This query checks active role assignments and doesn't consider eligible role assignments in [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
+    This query checks active role assignments and doesn't consider eligible role assignments in [Microsoft Entra Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-resource-roles-assign-roles). To list eligible role assignments, you can use the Microsoft Entra admin center, PowerShell, or REST API. For more information, see [Get-AzRoleEligibilityScheduleInstance](/powershell/module/az.resources/get-azroleeligibilityscheduleinstance) or [Role Eligibility Schedule Instances - List For Scope](/rest/api/authorization/role-eligibility-schedule-instances/list-for-scope).
+
+    If you are using [role assignment conditions](conditions-overview.md) or [delegating role assignment management with conditions](delegate-role-assignments-overview.md), you should use the Conditions query. Otherwise, use the Default query.
+
+    # [Default](#tab/default)
 
     [!INCLUDE [resource-graph-query-authorization-same-role-scope](../governance/includes/resource-graph/query/authorization-same-role-scope.md)]
+
+    # [Conditions](#tab/conditions)
+
+    [!INCLUDE [resource-graph-query-authorization-same-role-scope-condition](../governance/includes/resource-graph/query/authorization-same-role-scope-condition.md)]
+
+    ---
 
     The following shows an example of the results. The **count_** column is the number of principals assigned the same role and at the same scope. The count is sorted in descending order.
 
@@ -89,11 +98,11 @@ To reduce the number of role assignments in the subscription, add principals (us
 
 1. Use **AllPrincipals** to get the list of the principal IDs with the same role assignment.
 
-1. Create an Azure AD group. For more information, see [Manage Azure Active Directory groups and group membership](../active-directory/fundamentals/how-to-manage-groups.md).
+1. Create a Microsoft Entra group. For more information, see [Manage Microsoft Entra groups and group membership](../active-directory/fundamentals/how-to-manage-groups.md).
 
 1. Add the principals from **AllPrincipals** to the group.
 
-    For information about how to add principals in bulk, see [Bulk add group members in Azure Active Directory](../active-directory/enterprise-users/groups-bulk-import-members.md).
+    For information about how to add principals in bulk, see [Bulk add group members in Microsoft Entra ID](../active-directory/enterprise-users/groups-bulk-import-members.md).
 
 1. Assign the role to the group you created at the same scope. For more information, see [Assign Azure roles using the Azure portal](role-assignments-portal.md).
 
@@ -137,9 +146,19 @@ To reduce the number of role assignments in the subscription, remove redundant r
 
 1. Run the following query to get the role assignments with the same role and same principal, but at different scopes.
 
-    This query checks active role assignments and doesn't consider eligible role assignments in [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
+    This query checks active role assignments and doesn't consider eligible role assignments in [Microsoft Entra Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-resource-roles-assign-roles). To list eligible role assignments, you can the Microsoft Entra admin center, PowerShell, or REST API. For more information, see [Get-AzRoleEligibilityScheduleInstance](/powershell/module/az.resources/get-azroleeligibilityscheduleinstance) or [Role Eligibility Schedule Instances - List For Scope](/rest/api/authorization/role-eligibility-schedule-instances/list-for-scope).
+
+    If you are using [role assignment conditions](conditions-overview.md) or [delegating role assignment management with conditions](delegate-role-assignments-overview.md), you should use the Conditions query. Otherwise, use the Default query.
+
+    # [Default](#tab/default)
 
     [!INCLUDE [resource-graph-query-authorization-same-role-principal](../governance/includes/resource-graph/query/authorization-same-role-principal.md)]
+
+    # [Conditions](#tab/conditions)
+
+    [!INCLUDE [resource-graph-query-authorization-same-role-principal-condition](../governance/includes/resource-graph/query/authorization-same-role-principal-condition.md)]
+
+    ---
 
     The following shows an example of the results. The **count_** column is the number of different scopes for role assignments with the same role and same principal. The count is sorted in descending order.
 
@@ -197,9 +216,19 @@ To reduce the number of role assignments in the subscription, replace multiple b
 
 1. Run the following query to get role assignments with the same principal and same scope, but with different built-in roles.
 
-    This query checks active role assignments and doesn't consider eligible role assignments in [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
+    This query checks active role assignments and doesn't consider eligible role assignments in [Microsoft Entra Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-resource-roles-assign-roles). To list eligible role assignments, you can use the Microsoft Entra admin center, PowerShell, or REST API. For more information, see [Get-AzRoleEligibilityScheduleInstance](/powershell/module/az.resources/get-azroleeligibilityscheduleinstance) or [Role Eligibility Schedule Instances - List For Scope](/rest/api/authorization/role-eligibility-schedule-instances/list-for-scope).
+
+    If you are using [role assignment conditions](conditions-overview.md) or [delegating role assignment management with conditions](delegate-role-assignments-overview.md), you should use the Conditions query. Otherwise, use the Default query.
+
+    # [Default](#tab/default)
 
     [!INCLUDE [resource-graph-query-authorization-same-principal-scope](../governance/includes/resource-graph/query/authorization-same-principal-scope.md)]
+
+    # [Condition](#tab/conditions)
+
+    [!INCLUDE [resource-graph-query-authorization-same-principal-scope-condition](../governance/includes/resource-graph/query/authorization-same-principal-scope-condition.md)]
+
+    ---
 
     The following shows an example of the results. The **count_** column is the number of different built-in role assignments with the same principal and same scope. The count is sorted in descending order.
 
@@ -242,7 +271,7 @@ To reduce the number of role assignments in the subscription, replace multiple b
 
 ### Solution 4 - Make role assignments eligible
 
-To reduce the number of role assignments in the subscription and you have Azure AD Premium P2, make role assignments eligible in [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md) instead of permanently assigned.
+To reduce the number of role assignments in the subscription and you have Microsoft Entra ID P2, make role assignments eligible in [Microsoft Entra Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-resource-roles-assign-roles) instead of permanently assigned.
 
 ### Solution 5 - Add an additional subscription
 
@@ -293,7 +322,7 @@ Follow these steps to find and delete unused Azure custom roles.
 
 1. Run the following query to get all custom roles that don't have any role assignments:
 
-    This query checks active role assignments and doesn't consider eligible role assignments in [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
+    This query checks active role assignments and doesn't consider eligible custom role assignments in [Microsoft Entra Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-resource-roles-assign-roles). To list eligible custom role assignments, you can use the Microsoft Entra admin center, PowerShell, or REST API. For more information, see [Get-AzRoleEligibilityScheduleInstance](/powershell/module/az.resources/get-azroleeligibilityscheduleinstance) or [Role Eligibility Schedule Instances - List For Scope](/rest/api/authorization/role-eligibility-schedule-instances/list-for-scope).
 
     [!INCLUDE [resource-graph-query-authorization-unused-custom-roles](../governance/includes/resource-graph/query/authorization-unused-custom-roles.md)]
 

@@ -1,19 +1,19 @@
 ---
 title: "Text to speech quickstart - Speech service"
 titleSuffix: Azure AI services
-description: In this quickstart, you convert text to speech. Learn about object construction and design patterns, supported audio output formats, and custom configuration options for speech synthesis.
-services: cognitive-services
+description: In this quickstart, you create an app that converts text to speech. Learn about supported audio formats and custom configuration options.
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: quickstart
-ms.date: 09/16/2022
+ms.date: 01/29/2024
 ms.author: eur
-ms.devlang: cpp, csharp, golang, java, javascript, objective-c, python
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020, mode-other, devx-track-extended-java, devx-track-go
+ms.devlang: cpp
+# ms.devlang: cpp, csharp, golang, java, javascript, objective-c, python
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, mode-other, devx-track-extended-java, devx-track-go
 zone_pivot_groups: programming-languages-speech-services
 keywords: text to speech
+#customer intent: As a user, I want to create speech output from text by using my choice of technologies which fit into my current processes.
 ---
 
 # Quickstart: Convert text to speech
@@ -58,7 +58,7 @@ keywords: text to speech
 [!INCLUDE [CLI include](includes/quickstarts/text-to-speech-basics/cli.md)]
 ::: zone-end
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
 > [Learn more about speech synthesis](how-to-speech-synthesis.md)

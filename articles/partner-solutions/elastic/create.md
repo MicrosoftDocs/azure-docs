@@ -5,7 +5,7 @@ ms.topic: quickstart
 ms.date: 06/01/2023
 author: flang-msft
 ms.author: franlanglois
-ms.custom: mode-other
+
 ---
 
 # QuickStart: Get started with Elastic

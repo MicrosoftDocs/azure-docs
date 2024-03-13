@@ -4,6 +4,7 @@ description: Discover how to rotate service principal credentials in Azure Red H
 author: swiencki
 ms.author: b-swiencki
 ms.service: azure-redhat-openshift
+ms.custom: devx-track-azurecli
 ms.topic: article
 ms.date: 05/31/2021
 #Customer intent: As an operator, I need to rotate service principal credentials

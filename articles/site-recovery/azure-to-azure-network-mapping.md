@@ -5,7 +5,7 @@ author: ankitaduttaMSFT
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/27/2023
+ms.date: 08/31/2023
 ms.author: ankitadutta
 ms.custom: engagement-fy23
 
@@ -42,7 +42,9 @@ Map networks as follows:
 If you haven't prepared network mapping before you configure disaster recovery for Azure VMs, you can specify a target network when you [set up and enable replication](azure-to-azure-how-to-enable-replication.md). When you do this the following happens:
 
 - Based on the target you select, Site Recovery automatically creates network mappings from the source to target region, and from the target to source region.
-- By default, Site Recovery creates a network in the target region that's identical to the source network. Site Recovery adds **-asr** as a suffix to the name of the source network. You can customize the target network.
+- By default, Site Recovery creates a network in the target region that's identical to the source network. Site Recovery adds **-asr** as a suffix to the name of the target network. You can customize the target network. For example, if the source network name was *contoso-vnet*, then the target network is named *contoso-vnet-asr*.
+
+So, if the source network name was "contoso-vnet", then the target network name will be "contoso-vnet-asr". Source network's name will not be edited by ASR.
 - If network mapping has already occurred for a source network, the mapped target network will always be the default at the time of enabling replications for more VMs. You can choose to change the target virtual network by choosing other available options from the dropdown.
 - To change the default target virtual network for new replications, you need to modify the existing network mapping.
 - If you wish to modify a network mapping from region A to region B, ensure that you first delete the network mapping from region B to region A. After reverse mapping deletion, modify the network mapping from region A to region B and then create the relevant reverse mapping.

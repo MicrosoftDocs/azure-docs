@@ -7,7 +7,7 @@ ms.service: synapse-analytics
 ms.subservice: database-editor
 ms.topic: conceptual
 ms.date: 11/02/2021
-ms.custom: template-concept, ignite-fall-2021
+ms.custom: template-concept
 ---
 
 # Lake database templates

@@ -5,7 +5,7 @@ ms.topic: how-to
 author: guywi-ms
 ms.author: guywild
 ms.reviewer: MeirMen
-ms.date: 02/07/2023
+ms.date: 11/23/2023
 
 #Customer-intent: As a Log Analytics workspace administrator, I want to know when there are latency issues in a Log Analytics workspace, so I can act to resolve the issue, contact Microsoft for support, or track that is Azure is meeting its SLA.  
 ---
@@ -19,9 +19,13 @@ Azure Service Health monitors:
 - [Resource health](../../service-health/resource-health-overview.md): information about the health of your individual cloud resources, such as a specific Log Analytics workspace. 
 - [Service health](../../service-health/service-health-overview.md): information about the health of the Azure services and regions you're using, which might affect your Log Analytics workspace, including communications about outages, planned maintenance activities, and other health advisories.
 
+## Permissions required
+
+- To view Log Analytics workspace health, you need `*/read` permissions to the Log Analytics workspace, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example.
+- To set up health status alerts, you need `Microsoft.Insights/ActivityLogAlerts/Write` permissions to the Log Analytics workspace, as provided by the [Monitoring Contributor built-in role](../roles-permissions-security.md#monitoring-contributor), for example.
+
 ## View Log Analytics workspace health and set up health status alerts 
 
-When Azure Service Health detects [average latency](../logs/data-ingestion-time.md#average-latency) in your Log Analytics workspace, the workspace resource health status is **Available**.
 
 To view your Log Analytics workspace health and set up health status alerts:
  
@@ -29,13 +33,24 @@ To view your Log Analytics workspace health and set up health status alerts:
 
     The **Resource health** screen shows:
 
-    - **Health history**: Indicates whether Azure Service Health has detected latency issues related to the specific Log Analytics workspace. To further investigate latency issues related to your workspace, see [Investigate latency](#investigate-log-analytics-workspace-health-issues).  
+    - **Health history**: Indicates whether Azure Service Health has detected latency or query execution issues in the specific Log Analytics workspace. To further investigate latency issues related to your workspace, see [Investigate latency](#investigate-log-analytics-workspace-health-issues).  
     - **Azure service issues**: Displayed when a known issue with an Azure service might affect latency in the Log Analytics workspace. Select the message to view details about the service issue in Azure Service Health.
    
     > [!NOTE]
-    > Service health notifications do not indicate that your Log Analytics workspace is necessarily affected by the know service issue. If your Log Analytics workspace resource health status is **Available**, Azure Service Health did not detect issues in your workspace.  
+    > - Service health notifications do not indicate that your Log Analytics workspace is necessarily affected by the know service issue. If your Log Analytics workspace resource health status is **Available**, Azure Service Health did not detect issues in your workspace.
+    > - Resource Health excludes data types for which long ingestion latency is expected. For example, Application Insights data types that calculate the application map data and are known to add latency.
+
    
     :::image type="content" source="media/data-ingestion-time/log-analytics-workspace-latency.png" lightbox="media/data-ingestion-time/log-analytics-workspace-latency.png" alt-text="Screenshot that shows the Resource health screen for a Log Analytics workspace.":::  
+
+    This table describes the possible resource health status values for a Log Analytics workspace:
+
+    | Resource health status | Description |
+    |-|-|
+    |Available| [Average latency](../logs/data-ingestion-time.md#average-latency) and no query execution issues detected.|
+    |Unavailable|Higher than average latency detected.|    
+    |Degraded|Query failures detected.|
+    |Unknown|Currently unable to determine Log Analytics workspace health because you haven't run queries or ingested data to this workspace recently.|
     
 1. To set up health status alerts, you can either [enable recommended out-of-the-box alert](../alerts/alerts-overview.md#recommended-alert-rules) rules, or manually create new alert rules.
     - To enable the recommended alert rules:
@@ -72,18 +87,17 @@ To view Log Analytics workspace health metrics:
    | - | - |
    | Query count | Total number of user queries in the Log Analytics workspace within the selected time range.<br>This number includes only user-initiated queries, and doesn't include queries initiated by Sentinel rules and alert-related queries. |
    | Query failure count | Total number of failed user queries in the Log Analytics workspace within the selected time range.<br>This number includes all queries that return 5XX response codes - except 504 *Gateway Timeout* - which indicate an error related to the application gateway or the backend server.|
-   | Query success rate | Total number of successful user queries in the Log Analytics workspace within the selected time range.<br>This number includes all queries that return 2XX, 4XX, and 504 response codes; in other words, all user queries that don't result in a service error. |
+   | AvailabilityRate_Query | Percentage of successful user queries in the Log Analytics workspace within the selected time range.<br>This number includes all queries that return 2XX, 4XX, and 504 response codes; in other words, all user queries that don't result in a service error. |
 
 ## Investigate Log Analytics workspace health issues
 
 To investigate Log Analytics workspace health issues:
 
 - Use [Log Analytics Workspace Insights](../logs/log-analytics-workspace-insights-overview.md), which provides a unified view of your workspace usage, performance, health, agent, queries, and change log.
-- Query the data in your Log Analytics workspace to [understand which factors are contributing greater than expected latency in your workspace](../logs/data-ingestion-time.md).  
+- [Query](./queries.md) the data in your Log Analytics workspace to [understand which factors are contributing greater than expected latency in your workspace](../logs/data-ingestion-time.md).  
 - [Use the `_LogOperation` function to view and set up alerts about operational issues](../logs/monitor-workspace.md) logged in your Log Analytics workspace.
 
-      
-
+  
 
 ## Next steps
 
