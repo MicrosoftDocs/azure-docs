@@ -17,7 +17,7 @@ Learn how to use the [Search REST APIs](/rest/api/searchservice) to create, load
 
 In Azure AI Search, a [*vector store*](vector-store.md) has an index schema that defines vector and nonvector fields, a vector configuration for algorithms that create the embedding space, and settings on vector field definitions that are used in query requests. The [Create Index](/rest/api/searchservice/indexes/create-or-update) API creates the vector store.
 
-[Download a REST sample](https://github.com/Azure-Samples/azure-search-rest-samples/tree/main/quickstart-vectors) to send the requests in this quickstart, or create requests manually to adapt the instructions for your own data.
+[Download a REST sample](https://github.com/Azure-Samples/azure-search-rest-samples/tree/main/Quickstart-vectors) to send the requests in this quickstart, or create requests manually to adapt the instructions for your own data.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -240,7 +240,7 @@ Creating and loading the index are separate steps. In Azure AI Search, the index
 The URI is extended to include the `docs` collection and `index` operation.
 
 > [!IMPORTANT]
-> The following example isn't runnable code. For readability, we excluded vector values because each one contains 1536 embeddings, which is too long for this article. Copy runnable code from the [sample on GitHub](https://github.com/Azure-Samples/azure-search-rest-samples/tree/main/quickstart-vectors) if you want to try this step.
+> The following example isn't runnable code. For readability, we excluded vector values because each one contains 1536 embeddings, which is too long for this article. Copy runnable code from the [sample on GitHub](https://github.com/Azure-Samples/azure-search-rest-samples/tree/main/Quickstart-vectors) if you want to try this step.
 
 ```http
 ### Upload documents
@@ -399,7 +399,7 @@ The vector queries in this section are based on two strings:
 The vector query string is semantically similar to the search string, but includes terms that don't exist in the search index. If you do a keyword search for "classic lodging near running trails, eateries, retail", results are zero. We use this example to show how you can get relevant results even if there are no matching terms.
 
 > [!IMPORTANT]
-> The following examples aren't runnable code. For readability, we excluded vector values because each array contains 1536 embeddings, which is too long for this article. Copy runnable code from the [sample on GitHub](https://github.com/Azure-Samples/azure-search-rest-samples/tree/main/quickstart-vectors) if you want to try these queries.
+> The following examples aren't runnable code. For readability, we excluded vector values because each array contains 1536 embeddings, which is too long for this article. Copy runnable code from the [sample on GitHub](https://github.com/Azure-Samples/azure-search-rest-samples/tree/main/Quickstart-vectors) if you want to try these queries.
 
 ### Single vector search
 
@@ -805,7 +805,18 @@ Here's the last query in the collection: a hybrid query, with semantic ranking, 
 
 ## Clean up
 
-Azure AI Search is a billable resource. If it's no longer needed, delete it from your subscription to avoid charges.
+When you're working in your own subscription, it's a good idea at the end of a project to identify whether you still need the resources you created. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
+
+You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
+
+You can also try this DELETE command:
+
+```http
+### Delete an index
+DELETE  {{baseUrl}}/indexes/hotels-vector-quickstart?api-version=2023-11-01 HTTP/1.1
+    Content-Type: application/json
+    api-key: {{apiKey}}
+```
 
 ## Next steps
 

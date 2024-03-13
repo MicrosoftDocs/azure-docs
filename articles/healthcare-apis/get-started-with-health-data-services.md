@@ -82,7 +82,7 @@ You can also do the following:
 - Obtain a Microsoft Entra access token using PowerShell, Azure CLI, REST CLI, or .NET SDK
 - Access the DICOM service using tools such as .NET C#, cURL, Python, Postman, and REST Client
 
-For more information, see [Get started with the DICOM service](./../healthcare-apis/dicom/get-started-with-dicom.md).
+For more information, see [Manage medical imaging data with the DICOM service](./../healthcare-apis/dicom/dicom-data-lake.md).
 
 ## MedTech service
 
