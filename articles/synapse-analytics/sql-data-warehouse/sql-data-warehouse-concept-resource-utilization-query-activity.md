@@ -51,6 +51,10 @@ For a programmatic experience when monitoring Synapse SQL via T-SQL, the service
 
 To view the list of DMVs that apply to Synapse SQL, review [dedicated SQL pool DMVs](../sql/reference-tsql-system-views.md#dedicated-sql-pool-dynamic-management-views-dmvs).
 
+> [!NOTE]
+> You need to resume your dedicated SQL Pool to monitor the queries using the Query activity tab.
+> The Query activity tab cannot be used to view historical executions. To check the query history, it is recommended to enable [diagnostics](https://learn.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-monitor-workload-portal) to export the available DMVs to one of the available destinations (such as Log Analytics) for future reference. By design, DMVs contain records of the last 10,000 executed queries only. Once this limit is reached, the DMV data will be flushed, and new records will be inserted. Additionally, after any pause, resume, or scale operation, the DMV data will be cleared."
+
 ## Metrics and diagnostics logging
 
 Both metrics and logs can be exported to Azure Monitor, specifically the [Azure Monitor logs](../../azure-monitor/logs/log-query-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) component and can be programmatically accessed through [log queries](../../azure-monitor/logs/log-analytics-tutorial.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json). The log latency for Synapse SQL is about 10-15 minutes.
