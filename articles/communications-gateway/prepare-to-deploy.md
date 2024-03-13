@@ -10,7 +10,7 @@ ms.date: 01/08/2024
 
 # Prepare to deploy Azure Communications Gateway
 
-This article guides you through each of the tasks you need to complete before you can start to deploy Azure Communications Gateway. In order to be successfully deployed, the Azure Communications Gateway has dependencies on the state of your Operator Connect or Teams Phone Mobile environments.
+This article guides you through each of the tasks you need to complete before you can start to deploy Azure Communications Gateway. For Operator Connect and Teams Phone Mobile, successful deployments depend on the state of your Operator Connect or Teams Phone Mobile environments.
 
 The following sections describe the information you need to collect and the decisions you need to make prior to deploying Azure Communications Gateway.
 
