@@ -91,7 +91,7 @@ The following secrets can also be accessed from the `Security Recommendations` a
 
 The agentless scanner verifies whether SSH private keys can be used to move laterally in your network. Keys that aren't successfully verified are categorized as `unverified` on the Recommendations page.
 
-We are excluding directories that we recognize as containing test-related content. This is achieved by adjusting patterns that identify files with testing, sample, or example data.
+We exclude directories that we recognize as containing test-related content. This is achieved by adjusting patterns that identify files with testing, sample, or example data.
 
 ## Prerequisites
 
