@@ -30,7 +30,7 @@ In this release, we've made the following change:
 *Date published: March 6, 2024*
 
 >[!NOTE]
->This version replaced 1.2.5252 and has the same release notes as [version 1.2.5112](#updates-for-version-125112). 
+>This version replaced [1.2.5252](#updates-for-version-125252) and has the same release notes as [version 1.2.5112](#updates-for-version-125112).
 
 ## Updates for version 1.2.5252
 
