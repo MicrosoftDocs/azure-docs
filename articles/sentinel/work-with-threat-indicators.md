@@ -7,7 +7,7 @@ ms.date: 3/06/2024
 ms.author: austinmc
 appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
 ms.collection: usx-security
-
+#customer intent: As a security analyst, I want to use threat intelligence so I can power my threat detections.
 ---
 
 # Work with threat indicators in Microsoft Sentinel
@@ -40,9 +40,16 @@ This procedure describes how to view and manage your indicators in the **Threat 
 
 1. IP and domain name indicators are enriched with extra GeoLocation and WhoIs data, providing more context for investigations where the selected indicator is found.
 
-    For example:
+For example:
 
-    :::image type="content" source="media/work-with-threat-indicators/geolocation-whois-ti.png" alt-text="Screenshot of the Threat intelligence page with an indicator showing GeoLocation and WhoIs data." lightbox="media/work-with-threat-indicators/geolocation-whois-ti.png":::
+#### [Azure portal](#tab/azure-portal)
+
+:::image type="content" source="media/work-with-threat-indicators/geolocation-whois-ti-sentinel.png" alt-text="Screenshot of the Threat intelligence page with an indicator showing GeoLocation and WhoIs data." lightbox="media/work-with-threat-indicators/geolocation-whois-ti.png":::
+
+#### [Defender portal](#tab/defender-portal)
+
+:::image type="content" source="media/work-with-threat-indicators/geolocation-whois-ti-sentinel.png" alt-text="Screenshot of the Threat intelligence page with an indicator showing GeoLocation and WhoIs data from the Defender portal." lightbox="media/work-with-threat-indicators/geolocation-whois-ti-defender.png":::
+    
 
 > [!IMPORTANT]
 > GeoLocation and WhoIs enrichment is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -66,7 +73,7 @@ Imported threat indicators are listed in the **Microsoft Sentinel > ThreatIntell
 
 1. Select the **Preview data** icon (the eye) next to the table name and select the **See in query editor** button to run a query that will show records from this table.
 
-    Your results should look similar to the sample threat indicator shown below:
+    Your results should look similar to the sample threat indicator shown in this screenshot:
 
     :::image type="content" source="media/work-with-threat-indicators/ti-table-results.png" alt-text="Screenshot shows sample ThreatIntelligenceIndicator table results with the details expanded." lightbox="media/work-with-threat-indicators/ti-table-results.png":::
 
@@ -139,11 +146,10 @@ Workbooks provide powerful interactive dashboards that give you insights into al
 
 There is also a rich community of [Azure Monitor workbooks on GitHub](https://github.com/microsoft/Application-Insights-Workbooks) to download more templates and contribute your own templates.
 
-## Next steps
+## Related content
 
 In this article, you learned all the ways to work with threat intelligence indicators throughout Microsoft Sentinel. For more about threat intelligence in Microsoft Sentinel, see the following articles:
 
 - [Understand threat intelligence in Microsoft Sentinel](understand-threat-intelligence.md).
 - Connect Microsoft Sentinel to [STIX/TAXII threat intelligence feeds](./connect-threat-intelligence-taxii.md).
-- [Connect threat intelligence platforms](./connect-threat-intelligence-tip.md) to Microsoft Sentinel.
 - See which [TIPs, TAXII feeds, and enrichments](threat-intelligence-integration.md) can be readily integrated with Microsoft Sentinel.
