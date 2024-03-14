@@ -20,7 +20,6 @@ The following image describes the hardware elements on the HPE ProLiant DL360 ba
 
 :::image type="content" source="../media/tutorial-install-components/hpe-proliant-dl360-back-panel.png" alt-text="Photo of the HPE ProLiant DL360 back panel." border="false":::
 
-
 ## Specifications
 
 |Component  |Specifications|
