@@ -383,7 +383,7 @@ You can send a streaming request using the `stream` parameter, allowing data to 
 
 #### Conversation history for better results
 
-When you chat with a model, providing a history of the chat will help the model return higher quality results. You don't need to include the [`context` property](../references/on-your-data.md#context) of the assistant messages since 2024. See [example from the API reference](../references/on-your-data.md#examples).
+When you chat with a model, providing a history of the chat will help the model return higher quality results. You don't need to include the `context` property of the assistant messages in your API requests for better response quality. See [the API reference documentation](../references/on-your-data.md#examples) for examples.
 
 
 ## Token usage estimation for Azure OpenAI On Your Data
