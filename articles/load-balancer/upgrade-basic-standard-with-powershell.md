@@ -20,15 +20,13 @@ ms.custom: template-how-to, engagement-fy23
 
 This article introduces a PowerShell module that creates a Standard Load Balancer with the same configuration as the Basic Load Balancer, then associates the Virtual Machine Scale Set or Virtual Machine backend pool members with the new Load Balancer.
 
-For an in-depth walk-through of the upgrade module and process, please see the following video:
+For an in-depth walk-through of the upgrade module and process, see the following video:
 > [!VIDEO https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=8e203b99-41ff-4454-9cbd-58856708f1c6]
 
-The following timestamps are for each section of the video:
-
-- 03:06 - Step-by-step
-- 32:54 - Recovery
-- 40:55 - Advanced Scenarios
-- 57:54 - Resources
+- 03:06 - <a href="https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=8e203b99-41ff-4454-9cbd-58856708f1c6#time=0h3m06s" target="_blank">Step-by-step</a>
+- 32:54 - <a href="https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=8e203b99-41ff-4454-9cbd-58856708f1c6#time=0h32m45s" target="_blank">Recovery</a>
+- 40:55 - <a href="https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=8e203b99-41ff-4454-9cbd-58856708f1c6#time=0h40m55s" target="_blank">Advanced Scenarios</a>
+- 57:54 - <a href="https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=8e203b99-41ff-4454-9cbd-58856708f1c6#time=0h57m54s" target="_blank">Resources</a>
 
 ## Upgrade Overview
 
@@ -36,7 +34,7 @@ The PowerShell module performs the following functions:
 
 - Verifies that the provided Basic Load Balancer scenario is supported for upgrade.
 - Backs up the Basic Load Balancer and Virtual Machine Scale Set configuration, enabling retry on failure or if errors are encountered.
-- For public load balancers, updates the front end public IP address(es) to Standard SKU and static assignment as required.
+- For public load balancers, updates the front end public IP addresses to Standard SKU and static assignment
 - Upgrades the Basic Load Balancer configuration to a new Standard Load Balancer, ensuring configuration and feature parity.
 - Migrates Virtual Machine Scale Set and Virtual Machine backend pool members from the Basic Load Balancer to the Standard Load Balancer.
 - Creates and associates a network security group with the Virtual Machine Scale Set or Virtual Machine to ensure load balanced traffic reaches backend pool members, following Standard Load Balancer's move to a default-deny network policy.
@@ -45,7 +43,7 @@ The PowerShell module performs the following functions:
 - Logs the upgrade operation for easy audit and failure recovery.
 
 >[!WARNING]
-> Migrating _internal_ Basic Load Balancers where the backend VMs or VMSS instances do not have Public IP Addresses assigned requires additional action for backend pool members to connect to the internet. The recommended approach is to create a NAT Gateway and assign it to the backend pool members' subnet (see: [**Integrate NAT Gateway with Internal Load Balancer**](../virtual-network/nat-gateway/tutorial-nat-gateway-load-balancer-internal-portal.md)). Alternatively, Public IP Addresses can be allocated to each Virtual Machine Scale Set or Virtual Machine instance by adding a Public IP Configuration to the Network Profile (see: [**VMSS Public IPv4 Address Per Virtual Machine**](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md)) for Virtual Machine Scale Sets or [**Associate a Public IP address with a Virtual Machine**](../virtual-network/ip-services/associate-public-ip-address-vm.md) for Virtual Machines. 
+> Migrating _internal_ Basic Load Balancers where the backend VMs or VMSS instances do not have Public IP Addresses requires additional steps for backend connectivity to the internet. Review [How should I configure outbound traffic for my Load Balancer?](#how-should-i-configure-outbound-traffic-for-my-load-balancer)
 
 >[!NOTE]
 > If the Virtual Machine Scale Set in the Load Balancer backend pool has Public IP Addresses in its network configuration, the Public IP Addresses associated with each Virtual Machine Scale Set instance will change when they are upgraded to Standard SKU. This is because scale set instance-level Public IP addresses cannot be upgraded, only replaced with a new Standard SKU Public IP. All other Public IP addresses will be retained through the migration. 
@@ -67,7 +65,7 @@ The PowerShell module performs the following functions:
 - **PowerShell**: A supported version of PowerShell version 7 or higher is recommended for use with the AzureBasicLoadBalancerUpgrade module on all platforms including Windows, Linux, and macOS. However, PowerShell 5.1 on Windows is supported. 
 - **Az PowerShell Module**: Determine whether you have the latest Az PowerShell module installed
   - Install the latest [Az PowerShell module](/powershell/azure/install-azure-powershell)
-- **Az.ResourceGraph PowerShell Module**: The Az.ResourceGraph PowerShell module is used to query resource configuration during upgrade and is a separate install from the Az PowerShell module. It will be automatically installed if you install the `AzureBasicLoadBalancerUpgrade` module using the `Install-Module` command as shown below. 
+- **Az.ResourceGraph PowerShell Module**: The Az.ResourceGraph PowerShell module is used to query resource configuration during upgrade and is a separate install from the Az PowerShell module. It is automatically added if you install the `AzureBasicLoadBalancerUpgrade` module using the `Install-Module` command. 
 
 ### Module Installation
 
@@ -84,12 +82,9 @@ PS C:\> Install-Module -Name AzureBasicLoadBalancerUpgrade -Scope CurrentUser -R
 - [Validate](#example-validate-a-scenario) that your scenario is supported
 - Plan for [application downtime](#how-long-does-the-upgrade-take) during migration
 - Develop inbound and outbound connectivity tests for your traffic
-- Plan for instance-level Public IP changes on Virtual Machine Scale Set instances (see note above)
-- [Recommended] Create Network Security Groups or add security rules to an existing Network Security Group for your backend pool members, allowing the traffic through the Load Balancer and any other traffic which will need to be explicitly allowed on public Standard SKU resources
-- [Recommended] Prepare your [outbound connectivity](../virtual-network/ip-services/default-outbound-access.md), taking one of the following approaches: 
-    - Add a NAT Gateway to your backend member's subnets 
-    - Add Public IP addresses to each backend Virtual Machine or [Virtual Machine Scale Set instance](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine)
-    - Plan to create [Outbound Rules](./outbound-rules.md) for Public Load Balancers with multiple backend pools post-migration
+- Plan for instance-level Public IP changes on Virtual Machine Scale Set instances (see note)
+- [Recommended] Create Network Security Groups or add security rules to an existing Network Security Group for your backend pool members. Allow the traffic through the Load Balancer and any other traffic which will need to be explicitly allowed on public Standard SKU resources
+- [Recommended] Prepare your [outbound connectivity](../virtual-network/ip-services/default-outbound-access.md), taking one of the following approaches described in [How should I configure outbound traffic for my Load Balancer?](#how-should-i-configure-outbound-traffic-for-my-load-balancer)
 
 ### Post-migration steps
 
@@ -203,14 +198,14 @@ Yes, because the Basic Load Balancer needs to be removed before the new Standard
 
 ### Will the module migrate my frontend IP address to the new Standard Load Balancer?
 
-Yes, for both public and internal load balancers, the module ensures that front end IP addresses are maintained. For public IPs, the IP is converted to a static IP prior to migration (if necessary). For internal front ends, the module attempts to reassign the same IP address freed up when the Basic Load Balancer was deleted; if the private IP isn't available the script fails (see [What happens if my upgrade fails mid-migration?](#what-happens-if-my-upgrade-fails-mid-migration)).
+Yes, for both public and internal load balancers, the module ensures that front end IP addresses are maintained. For public IPs, the IP is converted to a static IP before migration. For internal front ends, the module attempts to reassign the same IP address freed up when the Basic Load Balancer was deleted. If the private IP isn't available the script fails (see [What happens if my upgrade fails mid-migration?](#what-happens-if-my-upgrade-fails-mid-migration)).
 
 ### How long does the Upgrade take?
 
 The upgrade normally takes a few minutes for the script to finish. The following factors may lead to longer upgrade times:
 - Complexity of your load balancer configuration
 - Number of backend pool members
-- Instance count of associated Virtual Machine Scale Sets or Virtual Machines
+- Instance count of associated Virtual Machine Scale Sets or Virtual Machinesf
 - Service Fabric Cluster: Upgrades for Service Fabric Clusters take around an hour in testing
 
 Keep the downtime in mind and plan for failover if necessary.
@@ -239,7 +234,7 @@ The script migrates the following from the Basic Load Balancer to the Standard L
   - All Virtual Machine Scale Set and Virtual Machine network interfaces and IP configurations are migrated to the new Standard Load Balancer
   - If a Virtual Machine Scale Set is using Rolling Upgrade policy, the script will update the Virtual Machine Scale Set upgrade policy to "Manual" during the migration process and revert it back to "Rolling" after the migration is completed.
 - Instance-level Public IP addresses
-    - For both Virtual Machines and Virtual Machine Scale Sets, converts attached Public IPs from Basic to Standard SKU. Note, Scale Set instance Public IPs will change during the upgrade; virtual machine IPs will not. 
+    - For both Virtual Machines and Virtual Machine Scale Sets, converts attached Public IPs from Basic to Standard SKU. Note, Scale Set instance Public IPs change during the upgrade; virtual machine IPs do not. 
 - Tags from the Basic Load Balancer to Standard Load Balancer
 
 **Public Load Balancer:**
@@ -278,6 +273,19 @@ At the end of its execution, the upgrade module performs the following validatio
 - The count of inbound NAT pools matches
 - External Standard Load Balancers have a configured outbound rule
 - External Standard Load Balancer backend pool members have associated Network Security Groups
+
+### How should I configure outbound traffic for my Load Balancer?
+
+Standard SKU Load Balancers do not allow default outbound access for their backend pool members. Allowing outbound access to the internet requires more steps. 
+
+For external Load Balancers, you can use [Outbound Rules](./outbound-rules.md) to explicitly enable outbound traffic for your pool members. If you have a single backend pool, we automatically configure an Outbound Rule for you during migration; if you have more than one backend pool, you will need to manually create your Outbound Rules to specify port allocations. 
+
+For internal Load Balancers, Outbound Rules are not an option because there is no Public IP address to SNAT through. This leaves a couple options to consider:
+
+- **NAT Gateway**: NAT Gateways are Azure's [recommended approach](../virtual-network/ip-services/default-outbound-access.md#if-i-need-outbound-access-what-is-the-recommended-way) for outbound traffic in most cases. However, NAT Gateways require that the attached subnet has no basic SKU network resources--meaning you will need to have migrated all your Load Balancers and Public IP Addresses before you can use them. For this reason, we recommend using a two step approach where you first use one of the following approaches for outbound connectivity, then [switch to NAT Gateways](../virtual-network/nat-gateway/tutorial-nat-gateway-load-balancer-internal-portal.md) once your basic SKU migrations are complete. 
+- **Network Virtual Appliance**: Route your traffic through a Network Virtual Appliance, such as an Azure Firewall, which will in turn route your traffic to the internet. This option is ideal if you already have a Network Virtual Appliance configured.
+- **Secondary External Load Balancer**: By adding a secondary external Load Balancer to your backend resources, you can use the external Load Balancer for outbound traffic by configuring outbound rules. If this external Load Balancer does not have any load balancing rules, NAT rules, or inbound NAT pools configured, your backend resources will remain isolated to your internal network for inbound traffic--see [outbound-only load balancer configuration](./egress-only.md). With this option, the external Load Balancer can be configured prior to migrating from basic to standard SKU and migrated at the same time as the internal load balancer using [using the `-MultiLBConfig` parameter](#example-migrate-multiple-related-load-balancers)
+- **Public IP Addresses**: Lastly, Public IP addresses can be added directly to your [Virtual Machines](../virtual-network/ip-services/associate-public-ip-address-vm.md) or [Virtual Machine Scale Set instances](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine). However, this option is not recommended due to the additional security surface area and expense of adding Public IP Addresses.  
 
 ### What happens if my upgrade fails mid-migration?
 

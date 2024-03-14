@@ -5,7 +5,7 @@ description: Learn how to enable policy support to help protect your VMs by usin
 author: ankitaduttaMSFT
 ms.author: ankitadutta
 ms.topic: how-to
-ms.date: 12/01/2023
+ms.date: 03/13/2024
 ms.service: site-recovery
 ms.custom: template-how-to
 
