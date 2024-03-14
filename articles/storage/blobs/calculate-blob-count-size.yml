@@ -33,12 +33,9 @@ procedureSection:
       Create an Azure Synapse workspace
     summary: |
       Next, [create an Azure Synapse workspace](../../synapse-analytics/get-started-create-workspace.md) where you will execute a SQL query to report the inventory results.
-    steps: 
-      - | 
-
-  - title: |
-      Create the SQL query
-    summary: |
+  
+      ## Create the SQL query
+   
       After you create your Azure Synapse workspace, do the following steps.
     steps: 
       - |
