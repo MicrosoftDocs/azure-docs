@@ -5,7 +5,7 @@ description: Learn about the currently known issues with Azure Synapse Analytics
 author: charithdilshan
 ms.author: ccaldera
 ms.reviewer: wiassaf, joanpo
-ms.date: 02/20/2024
+ms.date: 03/14/2024
 ms.service: synapse-analytics
 ms.subservice: overview
 ms.topic: conceptual
