@@ -13,7 +13,7 @@ ms.subservice: calling
 ---
 
 # Call flow topologies
-This article describes Azure Communication Services call flow topologies. Within this article you learn details about network concepts for Azure Communication Services, how calling traffic is encrypted, and  For an introduction to Communication Services call flows, visit the [call flows conceptual documentation](./call-flows.md).
+This article describes Azure Communication Services call flow topologies. Within this article, you learn details about network concepts for Azure Communication Services, how calling traffic is encrypted, and  For an introduction to Communication Services call flows, visit the [call flows conceptual documentation](./call-flows.md).
 
 ## Background
 
@@ -80,7 +80,7 @@ Flow descriptions:
 
 ### Use case: One-to-one calling
 
-A One-to-one calls call means one user directly calls another user. In order to setup the call the calling SDK obtain a set of candidates consisting of IP addresses and ports, including local, relay, and reflexive (public IP address of client as seen by the relay) candidates. The caller SDK sends these candidates to the called party; the called party also obtains a similar set of candidates and sends them to the caller. STUN connectivity check messages are used to find which caller/called party media paths work, and the best working path is selected. Once the connection path is established, a DTLS handshake is performed over this connection to ensure the security. After the DTLS handshake, the SRTP keys are derived from the DTLS handshake process. Media (that is, RTP/RTCP packets secured using SRTP) are then sent using the selected candidate pair. The transport relay is available as part of Azure Communication Services.
+A One-to-one call means one user directly calls another user. In order to initialize the call the calling SDK obtain a set of candidates consisting of IP addresses and ports, including local, relay, and reflexive (public IP address of client as seen by the relay) candidates. The caller SDK sends these candidates to the called party; the called party also obtains a similar set of candidates and sends them to the caller. STUN connectivity check messages are used to find which caller/called party media paths work, and the best working path is selected. Once the connection path is established, a DTLS handshake is performed over this connection to ensure the security. After the DTLS handshake, the SRTP keys are derived from the DTLS handshake process. Media (that is, RTP/RTCP packets secured using SRTP) are then sent using the selected candidate pair. The transport relay is available as part of Azure Communication Services.
 
 If the local IP address/port candidates or the reflexive candidates have connectivity, then the direct path between the clients (or using a NAT) will be selected for media. If the clients are both on the customer network, then the direct path should be selected. This requires direct UDP connectivity within the customer network. If the clients are both nomadic cloud users, then depending on the NAT/firewall, media may use direct connectivity.
 
@@ -182,8 +182,6 @@ Internal clients obtain local, reflexive, and relay candidates in the same manne
 
 Media flowing through Azure Communication Services is restricted as follows:
 
-**Third-party media relays.** Interoperability with a third-party media relays (TURN) isn't supported. If one of your calling media endpoints is Azure Communication Services, your media can only traverse Microsoft-native media relays (TURN), including those that support Microsoft Teams and Skype for Business.
-
 **Third-party Session Border Controller (SBC)** on the boundary with PSTN should terminate the RTP/RTCP stream, secured using SRTP, and not relay it to the next hop. If you relay the flow to the next hop, it might not be understood.
 
 **Third-party SIP proxy servers.** A Communication Services signaling SIP dialog with a third-party SBC and/or gateway may traverse Microsoft native SIP proxies (just like Teams). Interoperability with third-party SIP proxies isn't supported.
@@ -194,7 +192,8 @@ Media flowing through Azure Communication Services is restricted as follows:
 
 **VPN network.** Communication Services doesn't support media transmission over VPNs. If your users are using VPN clients, the client should split and route media traffic over a non-VPN connection as specified in [Enabling Lync media to bypass a VPN tunnel.](https://techcommunity.microsoft.com/t5/skype-for-business-blog/enabling-lync-media-to-bypass-a-vpn-tunnel/ba-p/620210)
 
-*Note. Although the title indicates Lync, it is applicable to Azure Communication Services and Teams.*
+> [!NOTE]
+>  Although the title indicates Lync, it is applicable to Azure Communication Services and Teams.*
 
 **Packet shapers.** Packet snipping, packet inspection, or packet shaping devices are not supported and may degrade quality significantly.
 
