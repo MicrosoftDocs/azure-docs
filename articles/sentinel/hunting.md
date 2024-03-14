@@ -1,15 +1,15 @@
 ---
 title: Hunting capabilities in Microsoft Sentinel| Microsoft Docs
 description: Use Microsoft Sentinel's built-in hunting queries to guide you into asking the right questions to find issues in your data.
-author: yelevin
 ms.topic: conceptual
 ms.date: 03/13/2024
-ms.author: yelevin
+ms.author: austinmc
+author: austinmccollum
 appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
 ms.collection: usx-security
 ---
 
-# Hunt for threats with Microsoft Sentinel
+# Threat hunting in Microsoft Sentinel
 
 As security analysts and investigators, you want to be proactive about looking for security threats, but your various systems and security appliances generate mountains of data that can be difficult to parse and filter into meaningful events. Microsoft Sentinel has powerful hunting search and query tools to hunt for security threats across your organization's data sources. To help security analysts look proactively for new anomalies that aren't detected by your security apps or even by your scheduled analytics rules, Microsoft Sentinel's built-in hunting queries guide you into asking the right questions to find issues in the data you already have on your network.
 
