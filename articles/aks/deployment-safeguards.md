@@ -94,7 +94,7 @@ If you would like to submit an idea or request for deployment safeguards, open a
 >[!NOTE]
 > By using deployment safeguards `Enforcement` mode, you are opting in to your deployments being blocked as well. Please be aware of how these policies will work with your AKS cluster before you enable `Enforcement`.
 
-To enable deployment safeguards on a new cluster, use the `--safeguards-level` fkag.
+To enable deployment safeguards on a new cluster, include the `--safeguards-level` flag when you create the cluster.
 
 To receive "Warnings", set the --safeguards-level to "Warning".
 To deny all deployments that do not adhere to deployment safeguards, set the --safeguards-level to "Enforcement".
