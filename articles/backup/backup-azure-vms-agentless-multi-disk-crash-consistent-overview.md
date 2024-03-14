@@ -15,7 +15,7 @@ Azure Backup supports agentless VM backups by using multi-disk [crash-consistent
 
 Choose to perform creah-consistent backup in the following scenarios:
 
-- If your workload is performance sensitive and can tolerate recovery from crash-consistent backups, crash-consistent backups help quiesce VM I/O for a shorter period during backup. Crash-consistent backup doesn't use Volume Shadow Copy Service, (VSS) (for Windows) or *fsfreeze* (for Linux) to avoid the associated quiescing delays. 
+- If your workload is performance sensitive and can tolerate recovery from crash-consistent backups, crash-consistent backups help quiesce VM I/O for a shorter period during backup. Crash-consistent backup doesn't use Volume Shadow Copy Service (VSS) (for Windows) or *fsfreeze* (for Linux) to avoid the associated quiescing delays. 
 
 - If you don't want to install the [VM Agent](../virtual-machines/extensions/agent-windows.md) or [snapshot extension](../virtual-machines/extensions/vmsnapshot-windows.md) required for application-consistent or file-system-consistent snapshots in your Azure VM, use crash-consistent backups for an agentless backup solution.
 
@@ -39,7 +39,7 @@ During preview, Azure VMs backed up with multi-disk crash-consistent type is cha
 
 
 >[!Note]
->Multi-disk crash consistency might not succeed for disks configured with read or write host caching because writes that occur while the snapshot is taken might not be acknowledged by Azure Storage. If you need to maintain consistency, we recommend you to use the application-consistent backups.
+>Multi-disk crash consistency might not succeed for disks configured with read or write host caching because writes that occur while the snapshot is taken might not be acknowledged by Azure Storage. If you need to maintain consistency, we recommend you use the application-consistent backups.
 
 ## Next steps
 

@@ -74,7 +74,7 @@ Follow these steps:
 
 8. Go to the *existing policy*, select **Associated Items**, and then select **View details** corresponding to the VM you want to move to crash consistent backup.
 
-   :::image type="content" source="./media/backup-azure-vms-agentless-multi-disk-crash-consistent/view-details-ro-move-vm-crash-consistent.png" alt-text="Screenshot shows how to view details of a VM." lightbox="./media/backup-azure-vms-agentless-multi-disk-crash-consistent/view-details-ro-move-vm-crash-consistent.png":::
+   :::image type="content" source="./media/backup-azure-vms-agentless-multi-disk-crash-consistent/view-details-to-move-vm-crash-consistent.png" alt-text="Screenshot shows how to view details of a VM." lightbox="./media/backup-azure-vms-agentless-multi-disk-crash-consistent/view-details-to-move-vm-crash-consistent.png":::
 
 9. Select **Backup policy** to go to the **Change Backup Policy** blade.
 
@@ -98,12 +98,12 @@ Follow these steps:
 
 2. On the **Modify policy**, select **Associated Items**. 
 
-   :::image type="content" source="./media/backup-azure-vms-agentless-multi-disk-crash-consistent/policy-settings.png" alt-text="Scerrnshot shows how to check the associated items in a backup policy." lightbox="./media/backup-azure-vms-agentless-multi-disk-crash-consistent/policy-settings.png":::
+   :::image type="content" source="./media/backup-azure-vms-agentless-multi-disk-crash-consistent/policy-settings.png" alt-text="Screenshot shows how to check the associated items in a backup policy." lightbox="./media/backup-azure-vms-agentless-multi-disk-crash-consistent/policy-settings.png":::
 
    >[!Note]
    >Ensure that all the VMs in the policy are supported for crash-consistent backups. Learn about the [supported scenarios](backup-azure-vms-agentless-multi-disk-crash-consistent-overview.md#supported-scenarios-for-agentless-multi-disk-crash-consistent-vm-backup-preview).
    >
-   > :::image type="content" source="./media/backup-azure-vms-agentless-multi-disk-crash-consistent/backup-policy-associated-items-edit.png" alt-text="Screenshot shows the list of VM associated with a backup policy.{alt-text}" lightbox="./media/backup-azure-vms-agentless-multi-disk-crash-consistent/backup-policy-associated-items-edit.png":::
+   > :::image type="content" source="./media/backup-azure-vms-agentless-multi-disk-crash-consistent/backup-policy-associated-items-edit.png" alt-text="Screenshot shows the list of VM associated with a backup policy." lightbox="./media/backup-azure-vms-agentless-multi-disk-crash-consistent/backup-policy-associated-items-edit.png":::
 
 3. Go to the **Modify policy** blade, and set the **Consistency type** to **Only crash consistent snapshot (Preview)**, and then select **Update**.
 
