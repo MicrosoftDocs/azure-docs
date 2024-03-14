@@ -2,27 +2,51 @@
 
 The Azure Developer CLI (`azd`) is an open-source, command-line tool that streamlines provisioning and deploying resources to Azure using a template system. The template contains infrastructure files to provision the necessary Azure OpenAI resources and configurations and includes the completed sample app code. This automated approach is recommended if you want to explore the code as quickly as possible without going through the setup tasks. 
 
-1. For the steps ahead, select and initialize the template for your desired language.
+For the steps ahead, select and initialize the template for your desired language.
 
-    ## [C#](#tab/azd-csharp)
+## [C#](#tab/azd-csharp)
+
+1. Clone and initialize the template:    
+
+```bash
+azd init --template openai-chat-your-own-data
+```
+
+2. Navigate into the _dotnet_ directory:
     
-    ```bash
-    azd init --template openai-your-own-data-csharp
-    ```
+```bash
+cd dotnet
+```
+
+## [Python](#tab/azd-python)
+
+1. Clone and initialize the template:    
+
+```bash
+azd init --template openai-chat-your-own-data
+```
+
+2. Navigate into the _python_ directory:
     
-    ## [Python](#tab/azd-python)
+```bash
+cd python
+```
+
+## [JavaScript](#tab/azd-javascript)
+
+1. Clone and initialize the template:    
+
+```bash
+azd init --template openai-chat-your-own-data
+```
+
+2. Navigate into the _javascript_ directory:
     
-    ```bash
-    azd init --template openai-your-own-data-python
-    ```
-    
-    ## [JavaScript](#tab/azd-javascript)
-    
-    ```bash
-    azd init --template openai-your-own-data-javascript
-    ```
-    
-    ---
+```bash
+cd javascript
+```
+
+---
     
 2. The `azd init` command prompts you for the following information:
 
@@ -48,11 +72,14 @@ The Azure Developer CLI (`azd`) is an open-source, command-line tool that stream
     * Location: The Azure region where your resources are deployed.
     
     > [!NOTE]
+    > The sample `azd` template uses the `gpt-35-turbo-16k` model. A recommended region for this template is East US, since different Azure regions support different OpenAI models. You can visit the [Azure OpenAI Service Models](/azure/ai-services/openai/concepts/models) support page for more details about model support by region.
+    
+    > [!NOTE]
     > The provisioning process may take several minutes to complete. Wait for the task to finish before you proceed to the next steps.
         
 1. Click the link `azd` outputs to navigate to the new resource group in the Azure portal. You should see the following top level resources:
     
-    * An Azure OpenAI service with a GPT-4 model deployed
+    * An Azure OpenAI service with a deployed model
     * An Azure Storage account you can use to upload your own data files
     * An Azure AI Search service configured with the proper indexes and data sources
 
@@ -63,7 +90,11 @@ The Azure Developer CLI (`azd`) is an open-source, command-line tool that stream
 1. Navigate to the new storage account in the Azure portal.
 1. On the left navigation, select **Storage browser**.
 1. Select **Blob containers** and then navigate into the **File uploads** container.
-1. Click the **Upload** button at the top of the screen. In the flyout menu that opens, upload the files you wish to make available to your OpenAI service.
+1. Click the **Upload** button at the top of the screen. 
+1. In the flyout menu that opens, upload _contoso_benefits_document_example.pdf_ file in the root `documents` folder of the example repo.
+ 
+> [!NOTE]
+> The search indexer is set to run every 5 minutes to index the data in the storage account. You can either wait a few minutes for the uploaded data to be indexed, or you can manually run the indexer from the search service page.
 
 ## Run the app locally
 
@@ -71,51 +102,76 @@ The `azd` template includes a complete sample chat app in the `src` directory. W
 
 ## [C#](#tab/azd-csharp)
     
-Open a terminal in the `src` directory of the `azd` template and run the following command:
+Open a terminal in the `dotnet/src` directory of the `azd` template and run the following command:
 
 ```bash
 dotnet run
 ```
 
-You should see the following response content in the output:
+You should see an expanded version of the following response content in the output:
 
 ```output
-Answer from assistant:
+Message from assistant:
 ===
-Azure Machine Learning is a cloud-based service that provides tools and services to build, train, and deploy machine learning models. It offers a collaborative environment for data scientists, developers, and domain experts to work together on machine learning projects. Azure Machine Learning supports various programming languages, frameworks, and libraries, including Python, R, TensorFlow, and PyTorch [^1^].
+You have two available health plans: Northwind Health Plus and Northwind Standard [doc1].
+
+- Northwind Health Plus is a comprehensive plan that provides coverage for medical, vision, and dental services. It also includes prescription drug coverage, mental health and substance abuse coverage, and coverage for preventive care services. This plan offers a wide range of in-network providers, including primary care physicians, specialists, hospitals, and pharmacies. It also covers emergency services, both in-network and out-of-network [doc1].
+
+- Northwind Standard is a basic plan that provides coverage for medical, vision, and dental services. It includes coverage for preventive care services and prescription drugs. However, it does not cover emergency services, mental health and substance abuse coverage, or out-of-network services [doc1].
+
+Please note that the cost of the health insurance will be deducted from each paycheck, and the employee's portion of the cost will be calculated based on the selected health plan and the number of people covered by the insurance [doc1].
 ===
 Context information (e.g. citations) from chat extensions:
-===
-tool: {
-    "citations": [
-    {
-        "content": "...",
-        "id": null,
-        "title": "...",
-        "filepath": "...",
-        "url": "...",
-        "metadata": {
-        "chunking": "orignal document size=1011. Scores=3.6390076 and None.Org Highlight count=38."
-        },
-        "chunk_id": "2"
-    },
-    ...
-    ],
-    "intent": "[\u0022What are the differences between Azure Machine Learning and Azure AI services?\u0022]"
-}
 ===
 ```
 
 ## [Python](#tab/azd-python)
+    
+Open a terminal in the `python/src` directory of the `azd` template and run the following command:
 
-Open a terminal in the `src` directory of the `azd` template and run the following command:
+```bash
+python main.py
+```
 
-tbd
+You should see an expanded version of the following response content in the output:
+
+```output
+Message from assistant:
+===
+You have two available health plans: Northwind Health Plus and Northwind Standard [doc1].
+
+- Northwind Health Plus is a comprehensive plan that provides coverage for medical, vision, and dental services. It also includes prescription drug coverage, mental health and substance abuse coverage, and coverage for preventive care services. This plan offers a wide range of in-network providers, including primary care physicians, specialists, hospitals, and pharmacies. It also covers emergency services, both in-network and out-of-network [doc1].
+
+- Northwind Standard is a basic plan that provides coverage for medical, vision, and dental services. It includes coverage for preventive care services and prescription drugs. However, it does not cover emergency services, mental health and substance abuse coverage, or out-of-network services [doc1].
+
+Please note that the cost of the health insurance will be deducted from each paycheck, and the employee's portion of the cost will be calculated based on the selected health plan and the number of people covered by the insurance [doc1].
+===
+Context information (e.g. citations) from chat extensions:
+===
+```
 
 ## [JavaScript](#tab/azd-javascript)
+    
+Open a terminal in the `javascript/src` directory of the `azd` template and run the following command:
 
-Open a terminal in the `src` directory of the `azd` template and run the following command:
+```bash
+node ChatWithOwnData.js
+```
 
-tbd
+You should see an expanded version of the following response content in the output:
+
+```output
+Message from assistant:
+===
+You have two available health plans: Northwind Health Plus and Northwind Standard [doc1].
+
+- Northwind Health Plus is a comprehensive plan that provides coverage for medical, vision, and dental services. It also includes prescription drug coverage, mental health and substance abuse coverage, and coverage for preventive care services. This plan offers a wide range of in-network providers, including primary care physicians, specialists, hospitals, and pharmacies. It also covers emergency services, both in-network and out-of-network [doc1].
+
+- Northwind Standard is a basic plan that provides coverage for medical, vision, and dental services. It includes coverage for preventive care services and prescription drugs. However, it does not cover emergency services, mental health and substance abuse coverage, or out-of-network services [doc1].
+
+Please note that the cost of the health insurance will be deducted from each paycheck, and the employee's portion of the cost will be calculated based on the selected health plan and the number of people covered by the insurance [doc1].
+===
+Context information (e.g. citations) from chat extensions:
+===
 
 ---
