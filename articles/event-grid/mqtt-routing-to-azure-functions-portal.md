@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Route MQTT messages to Azure Functions - portal'
-description: 'Tutorial: Use custom topics in Azure Event Grid to route MQTT messages to Azure Event Hubs by using the Routing feature for Event Grid namespaces.'
+description: 'Use custom topics in Azure Event Grid to route MQTT messages to Azure Functions by using the Routing feature. You use the Azure portal to do this tutorial.'
 ms.topic: tutorial
 ms.date: 03/13/2024
 author: george-guirguis
