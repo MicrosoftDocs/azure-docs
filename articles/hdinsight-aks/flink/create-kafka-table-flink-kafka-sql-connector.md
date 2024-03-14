@@ -3,7 +3,7 @@ title: How to create Apache Kafka table on an Apache Flink® on HDInsight on AKS
 description: Learn how to create Apache Kafka table on Apache Flink®
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 10/27/2023
+ms.date: 03/14/2024
 ---
 
 # Create Apache Kafka® table on Apache Flink® on HDInsight on AKS
@@ -126,14 +126,14 @@ Detailed instructions are provided on how to use Secure Shell for [Flink SQL cli
 We're using the **Kafka 3.2.0** dependencies in the below step, You're required to update the command based on your Kafka version on HDInsight cluster. 
 ```
 wget https://repo1.maven.org/maven2/org/apache/kafka/kafka-clients/3.2.0/kafka-clients-3.2.0.jar
-wget https://repo1.maven.org/maven2/org/apache/flink/flink-connector-kafka/1.16.0/flink-connector-kafka-1.16.0.jar
+wget https://repo1.maven.org/maven2/org/apache/flink/flink-connector-kafka/1.17.0/flink-connector-kafka-1.17.0.jar
 ```
 
 ### Connect to Apache Flink SQL Client
 
 Let's now connect to the Flink SQL Client with Kafka SQL client jars
 ```
-msdata@pod-0 [ /opt/flink-webssh ]$ bin/sql-client.sh -j flink-connector-kafka-1.16.0.jar -j kafka-clients-3.2.0.jar
+msdata@pod-0 [ /opt/flink-webssh ]$ bin/sql-client.sh -j flink-connector-kafka-1.17.0.jar -j kafka-clients-3.2.0.jar
 ```
 
 ### Create Kafka table on Apache Flink SQL
