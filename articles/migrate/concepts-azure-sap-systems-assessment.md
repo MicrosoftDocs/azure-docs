@@ -10,9 +10,9 @@ ms.date: 03/11/2024
 ms.custom: 
 ---
 
-# SAP Systems discovery support (preview)
+# Assessments overview (migrate to SAP Systems) (preview)
 
-This article provides an overview of discover and assessments for on-premises inventory and SAP workloads using import-based assessment.
+This article provides an overview of discovery and assessments for on-premises inventory and SAP workloads using import-based assessment.
 
 To assess SAP inventory and workloads, you create a project and add the SAP estate details, including the SAP System ID (SID) details, SAPs numbers for your servers, and server inventory details in the excel file. This capability will then discover your on-premises inventory and SAP workloads and showing them in a dashboard. 
 
