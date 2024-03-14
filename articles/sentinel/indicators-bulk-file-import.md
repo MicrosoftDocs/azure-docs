@@ -1,13 +1,14 @@
 ---
 title: Add indicators in bulk to threat intelligence by file
 titleSuffix: Microsoft Sentinel
-description: Learn how to bulk add indicators to threat intelligence from flat files in Microsoft Sentinel. 
+description: Learn how to bulk add indicators to threat intelligence from flat files like .csv or .json in Microsoft Sentinel. 
 author: austinmccollum
-ms.author: austinmc
 ms.service: microsoft-sentinel
 ms.topic: how-to
-ms.date: 07/26/2022
-ms.custom: template-how-to
+ms.date: 3/14/2024
+ms.author: austinmc
+appliesTo: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+ms.collection: usx-security
 #Customer intent: As a security analyst, I want to bulk import indicators from common file types to my threat intelligence (TI), so I can more effectively share TI during an investigation.
 ---
 
@@ -38,7 +39,7 @@ Add multiple indicators to your threat intelligence with a specially crafted CSV
 
 1. Choose CSV or JSON from the **File Format** drop down menu.
 
-    :::image type="content" source="media/indicators-bulk-file-import/format-select-and-download.png" alt-text="Screenshot of the menu flyout to upload a CSV or JSON file, choose a template to download, and specify a source highlighting the file format selection.":::
+    :::image type="content" source="media/indicators-bulk-file-import/format-select-and-download.png" alt-text="Screenshot of the menu flyout to upload a CSV or JSON file, choose a template to download, and specify a source.":::
 
 1. Select the **Download template** link once you've chosen a bulk upload template. 
 

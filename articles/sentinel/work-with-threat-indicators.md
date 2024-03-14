@@ -1,11 +1,12 @@
 ---
-title: Work with threat indicators in Microsoft Sentinel
+title: Work with threat indicators
+titleSuffix: Microsoft Sentinel
 description: This article explains how to view, create, manage, and visualize threat intelligence indicators in Microsoft Sentinel.
 author: austinmccollum
 ms.topic: how-to
 ms.date: 3/06/2024
 ms.author: austinmc
-appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+appliesTo: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
 ms.collection: usx-security
 #customer intent: As a security analyst, I want to use threat intelligence so I can power my threat detections.
 ---
