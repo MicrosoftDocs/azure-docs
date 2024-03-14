@@ -173,5 +173,6 @@ Please note that the cost of the health insurance will be deducted from each pay
 ===
 Context information (e.g. citations) from chat extensions:
 ===
+```
 
 ---
