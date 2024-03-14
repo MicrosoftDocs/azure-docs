@@ -44,4 +44,4 @@ To stop domains redirecting to a default domain, follow the below steps.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure app settings](authentication-authorization.md)
+> [Configure app settings](authentication-authorization.yml)

@@ -16,7 +16,7 @@ You can use a password to protect your app's pre-production environments or all 
 - Limiting access to your static web app to people who have the password
 - Protecting your static web app's staging environments
 
-Password protection is a lightweight feature that offers a limited level of security. To secure your app using an identity provider, use the integrated [Static Web Apps authentication](authentication-authorization.md). You can also restrict access to your app using [IP restrictions](configuration.md#networking) or a [private endpoint](private-endpoint.md).
+Password protection is a lightweight feature that offers a limited level of security. To secure your app using an identity provider, use the integrated [Static Web Apps authentication](authentication-authorization.yml). You can also restrict access to your app using [IP restrictions](configuration.md#networking) or a [private endpoint](private-endpoint.md).
 
 ## Prerequisites
 
@@ -47,4 +47,4 @@ When visitors first go to a protected environment, they're prompted to enter the
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Authentication and authorization](./authentication-authorization.md)
+> [Authentication and authorization](./authentication-authorization.yml)

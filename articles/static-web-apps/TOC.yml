@@ -128,7 +128,7 @@
 - name: Security
   items:
   - name: Authentication and authorization
-    href: authentication-authorization.md
+    href: authentication-authorization.yml
   - name: Access user information
     href: user-information.md
   - name: Custom authentication
