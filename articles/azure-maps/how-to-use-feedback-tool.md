@@ -18,7 +18,7 @@ Available since 2018, Azure Maps has been providing fresh map data, easy-to-use 
 
 ## Providing feedback
 
-You can provide feedback on any issue you find in an Azure Maps map using the feedback tool. The following example demonstrates how to provide feedback when you encounter a road recently changed to become a one-way road.
+You can provide feedback on any issue you find in an Azure Maps map using the feedback tool. The following example demonstrates how to provide feedback when you encounter a road recently changed to become a two-way road.
 
 1. Navigate to the [Azure Maps feedback tool]. You can access the feedback tool in your **Azure Maps Account** from a link in the **Provide Map Data Feedback** tab of the **Overview** section.
 
