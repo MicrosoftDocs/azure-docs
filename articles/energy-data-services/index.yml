@@ -76,6 +76,10 @@ landingContent:
             url: how-to-convert-segy-to-zgy.md
           - text: How to Upload large files using file service
             url: how-to-upload-large-files-using-file-service.md
+          - text: How to enable External Data Services (EDS)
+            url: how-to-enable-eds.md
+          - text: How to register External Data Sources
+            url: how-to-register-eds.md
   - title: Administration
     linkLists:
       - linkListType: how-to-guide
