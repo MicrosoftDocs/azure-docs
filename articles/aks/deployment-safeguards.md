@@ -9,7 +9,7 @@ ms.author: nickoman
 
 # Deployment safeguards (preview)
 
-It's well known that Kubernetes can be difficult to understand and use. Throughout the development lifecycle, it's common for bugs, issues, and other problems to arise if misconfigurations have taken place during the initial deployment of your Kubernetes resources. To ease the burden of Kubernetes development, Azure Kubernetes Service (AKS) offers deployment safeguards; a new feature that enforces Kubernetes best practices in your AKS cluster through Azure Policy controls.
+Throughout the development lifecycle, it's common for bugs, issues, and other problems to arise if misconfigurations have taken place during the initial deployment of your Kubernetes resources. To ease the burden of Kubernetes development, Azure Kubernetes Service (AKS) offers deployment safeguards (preview). Deployment safeguards enforce Kubernetes best practices in your AKS cluster through Azure Policy controls.
 
 Deployment safeguards offers two levels of configuration. `Warning`  will populate warning messages in the code terminal when a cluster isn't following best practices, letting you know your cluster configuration is non-compliant but allowing the request to go through. `Enforcement` will provide enforcement of compliant configurations, denying deployments if they are not following best practices.
 
