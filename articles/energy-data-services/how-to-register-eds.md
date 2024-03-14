@@ -11,6 +11,7 @@ ms.date: 03/14/2024
 
 ---
 # How to register an external data source with Azure Data Manager for Energy?
+This article explains how to register an external data source with Azure Data Manager for energy to fetch and ingest metadata at scheduled intervals and retrieve bulk data on demand.
 
 ## Prerequisites 
 1. Download and import API [collection](https://community.opengroup.org/osdu/platform/pre-shipping/-/blob/main/R3-M20/QA_Artifacts_M20/eds_testing_doc/EDS_Ingest_M20_Pre-Shipping_Setup_and_Testing.postman_collection.json?ref_type=heads) and [environment](https://community.opengroup.org/osdu/platform/pre-shipping/-/blob/main/R3-M20/QA_Artifacts_M20/envFilesAndCollections/envFiles/OSDU%20R3%20M20%20RI%20Pre-ship.postman_environment.json?ref_type=heads) files into API test client (like Postman). Make appropriate modifications in environment based on your data source. 
