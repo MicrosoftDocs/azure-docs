@@ -28,8 +28,10 @@
         href: relocation-log-analytics.md
       - name: Azure Private Link Service
         href: relocation-private-link.md  
-      - name: Storage Account
+      - name: Azure Storage Account
         href: relocation-storage-account.md
+      - name: Managed identities for Azure resources
+        href: relocation-managed-identity.md
     - name: Strategic services
       items:
       - name: Azure Automation

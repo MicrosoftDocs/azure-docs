@@ -55,8 +55,8 @@ The following tables provide links to each Azure service relocation document. Th
 [Azure Monitor - Log Analytics](./relocation-log-analytics.md)| ❌ | ✅| ❌ |
 [Azure Database for PostgreSQL](./relocation-postgresql-flexible-server.md)| ✅ | ✅| ❌ |
 [Azure Private Link Service](./relocation-private-link.md) | ❌ | ✅| ❌ |
-[Storage Account](relocation-storage-account.md)| ✅ | ✅| ❌ |
-
+[Azure Storage Account](relocation-storage-account.md)| ✅ | ✅| ❌ |
+[Managed identities for Azure resources](relocation-storage-account.md)| ❌ | ✅| ❌ |
 
 
 ### ![An icon that signifies this service is strategic.](./media/relocation/icon-strategic.svg) Strategic services
