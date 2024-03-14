@@ -115,7 +115,7 @@ The specified entity can't be found. Make sure the synthesis ID is correct.
 
 ### HTTP 429 error
  
-There are too many recent requests. Each client application can submit up to 50 requests per 5 seconds for each Speech resource. Reduce the number of requests per second.
+There are too many recent requests. Each client application can submit up to 100 requests per 10 seconds for each Speech resource. Reduce the number of requests per second.
 
 ### HTTP 500 error
 
