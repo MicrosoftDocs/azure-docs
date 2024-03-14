@@ -121,7 +121,7 @@ For full details, see [Assign Azure roles using Azure PowerShell](../../role-bas
 
 ---
 
-To assign roles using the Azure portal, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).  In the Azure portal, the Azure role assignments screen is available for all resources on the Access control (IAM) tab.
+To assign roles using the Azure portal, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).  In the Azure portal, the Azure role assignments screen is available for all resources on the Access control (IAM) tab.
 
 ### Resource group scope role assignment
 
@@ -133,7 +133,7 @@ To assign roles using the Azure portal, see [Assign Azure roles using the Azure 
 
 1. Select **Add** > **Add role assignment** to open the Add role assignment page.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
     
     | Setting | Value |
     | --- | --- |
@@ -171,7 +171,7 @@ Above role assignment provides ability to list key vault objects in key vault.
 1. Go to Key Vault \> Access control (IAM) tab
 1. Select **Add** > **Add role assignment** to open the Add role assignment page.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
     
     | Setting | Value |
     | --- | --- |
@@ -216,7 +216,7 @@ For full details, see [Assign Azure roles using Azure PowerShell](../../role-bas
 
 1. Select **Add** > **Add role assignment** to open the Add role assignment page.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
     
     | Setting | Value |
     | --- | --- |
@@ -345,6 +345,6 @@ No. RBAC permission model allows you to assign access to individual objects in K
 ## Learn more
 
 - [Azure RBAC Overview](../../role-based-access-control/overview.md)
-- [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md)
+- [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml)
 - [Custom Roles Tutorial](../../role-based-access-control/tutorial-custom-role-cli.md)
 - [Azure Key Vault best practices](best-practices.md)

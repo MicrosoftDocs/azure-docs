@@ -36,7 +36,7 @@ In this article you learn how to:
 ## Prerequisites
 
 - Deploy an Azure Machine Learning online endpoint.
-- You must have at least [Reader access](../role-based-access-control/role-assignments-portal.md) on the endpoint.
+- You must have at least [Reader access](../role-based-access-control/role-assignments-portal.yml) on the endpoint.
 
 ## Metrics
 

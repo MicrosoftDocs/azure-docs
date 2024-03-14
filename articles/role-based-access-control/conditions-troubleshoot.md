@@ -61,7 +61,7 @@ Your condition isn't formatted correctly.
 
 **Solution 2**
 
-Fix any [condition format or syntax](conditions-format.md) issues. Alternatively, add the condition using the [visual editor in the Azure portal](conditions-role-assignments-portal.md).
+Fix any [condition format or syntax](conditions-format.md) issues. Alternatively, add the condition using the [visual editor in the Azure portal](conditions-role-assignments-portal.yml).
 
 ## Issues in the visual editor
 

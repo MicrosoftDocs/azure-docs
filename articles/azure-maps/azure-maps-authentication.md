@@ -425,7 +425,7 @@ To learn more about authenticating the Azure Maps Control with Microsoft Entra I
 [Azure services that can use managed identities to access other services]: ../active-directory/managed-identities-azure-resources/managed-identities-status.md
 [Authentication flows and application scenarios]: ../active-directory/develop/authentication-flows-app-scenarios.md
 [Azure role-based access control (Azure RBAC)]: ../role-based-access-control/overview.md
-[Assign Azure roles using the Azure portal]: ../role-based-access-control/role-assignments-portal.md
+[Assign Azure roles using the Azure portal]: ../role-based-access-control/role-assignments-portal.yml
 
 [Data]: /rest/api/maps/data
 [Creator]: /rest/api/maps-creator/

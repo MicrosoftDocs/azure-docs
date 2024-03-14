@@ -116,7 +116,7 @@ When you create the first user subscription mode Batch account in an Azure subsc
 1. On the **Role** tab, select either the **Contributor** or **Owner** role for the Batch account, and then select **Next**.
 1. On the **Members** tab, select **Select members**. On the **Select members** screen, search for and select **Microsoft Azure Batch**, and then select **Select**.
 
-For detailed steps, see [Assign Azure roles by using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+For detailed steps, see [Assign Azure roles by using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
 ### Create a key vault
 
@@ -149,7 +149,7 @@ You can also grant access to the key vault manually in [Azure portal](https://po
 1. On the **Members** tab, select **Select members**. On the **Select members** screen, search for and select **Microsoft Azure Batch**, and then select **Select**.
 1. Click the **Review + create** button on the bottom to go to **Review + assign** tab, and click the **Review + create** button on the bottom again.
 
-For detailed steps, see [Assign Azure roles by using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+For detailed steps, see [Assign Azure roles by using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
 #### If the Key Vault permission model is **Vault access policy**:
 1. Select **Access policies** from the left navigation of the key vault page.

@@ -29,7 +29,7 @@ You need:
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-- The Azure account must be assigned the following built-in role-based access control (RBAC) roles as a minimum on the subscription, or on a resource group. For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md). If you want to assign the roles to a resource group, you need to create this first.
+- The Azure account must be assigned the following built-in role-based access control (RBAC) roles as a minimum on the subscription, or on a resource group. For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml). If you want to assign the roles to a resource group, you need to create this first.
 
    | Resource type | RBAC role |
    |--|--|

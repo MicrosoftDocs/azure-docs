@@ -64,7 +64,7 @@ Most users don't need the same permissions as a Co-Administrator. Consider a job
 
 1. Determine the [scope](scope-overview.md) user needs.
 
-1. Follow steps to [assign a job function role to user](role-assignments-portal.md).
+1. Follow steps to [assign a job function role to user](role-assignments-portal.yml).
 
 1. [Remove Co-Administrator](#remove-a-co-administrator).
 
@@ -245,5 +245,5 @@ Follow these steps to view the Account Administrator.
 ## Next steps
 
 * [Understand the different roles](../role-based-access-control/rbac-and-directory-admin-roles.md)
-* [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md)
+* [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml)
 * [Add or change Azure subscription administrators](../cost-management-billing/manage/add-change-subscription-administrator.md)

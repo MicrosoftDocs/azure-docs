@@ -68,7 +68,7 @@ Create an Azure event hub to use as a bridge between Microsoft Sentinel and your
 
     Select to use the **Azure Event Hubs Data Receiver** role, and add the Microsoft Entra service principle app that you'd created [earlier](#register-an-application-in-azure-active-directory) as a member.
 
-    For more information, see: [Assign Azure roles using the Azure portal](../../../role-based-access-control/role-assignments-portal.md).
+    For more information, see: [Assign Azure roles using the Azure portal](../../../role-based-access-control/role-assignments-portal.yml).
 
 1. In your event hub namespace's **Overview** page, make a note of the namespace's **Host name** value.
 

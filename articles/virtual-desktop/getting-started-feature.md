@@ -31,7 +31,7 @@ Please review the [Prerequisites for Azure Virtual Desktop](prerequisites.md) to
 At a high level, you'll need:
 
 - An Azure account with an active subscription
-- An account with the [global administrator Microsoft Entra role](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md) assigned on the Azure tenant and the [owner role](../role-based-access-control/role-assignments-portal.md) assigned on subscription you're going to use.
+- An account with the [global administrator Microsoft Entra role](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md) assigned on the Azure tenant and the [owner role](../role-based-access-control/role-assignments-portal.yml) assigned on subscription you're going to use.
 - No existing Microsoft Entra Domain Services domain deployed in your Azure tenant.
 - User names you choose must not include any keywords [that the username guideline list doesn't allow](../virtual-machines/windows/faq.yml#what-are-the-username-requirements-when-creating-a-vm-), and you must use a unique user name that's not already in your Microsoft Entra subscription.
 - The user name for AD Domain join UPN should be a unique one that doesn't already exist in Microsoft Entra ID. The getting started feature doesn't support using existing Microsoft Entra user names when also deploying Microsoft Entra Domain Services.
@@ -41,7 +41,7 @@ At a high level, you'll need:
 At a high level, you'll need:
 
 - An Azure account with an active subscription.
-- An account with the [global administrator Microsoft Entra role](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md) assigned on the Azure tenant and the [owner role](../role-based-access-control/role-assignments-portal.md) assigned on subscription you're going to use.
+- An account with the [global administrator Microsoft Entra role](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md) assigned on the Azure tenant and the [owner role](../role-based-access-control/role-assignments-portal.yml) assigned on subscription you're going to use.
 - An AD DS domain controller deployed in Azure in the same subscription as the one you choose to use with the getting started feature. Using multiple subscriptions isn't supported. Make sure you know the fully qualified domain name (FQDN).
 - Domain admin credentials for your existing AD DS domain
 - You must configure [Microsoft Entra Connect](../active-directory/hybrid/whatis-azure-ad-connect.md) on your subscription and make sure the **Users** container is syncing with Microsoft Entra ID. A security group called **AVDValidationUsers** will be created during deployment in the *Users* container by default. You can also pre-create the **AVDValidationUsers** security group in a different organization unit in your existing AD DS domain. You must make sure this group is then synchronized to Microsoft Entra ID. 
@@ -56,7 +56,7 @@ At a high level, you'll need:
 At a high level, you'll need:
 
 - An Azure account with an active subscription.
-- An account with the [global administrator Microsoft Entra role](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md) assigned on the Azure tenant and the [owner role](../role-based-access-control/role-assignments-portal.md) assigned on subscription you're going to use.
+- An account with the [global administrator Microsoft Entra role](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md) assigned on the Azure tenant and the [owner role](../role-based-access-control/role-assignments-portal.yml) assigned on subscription you're going to use.
 - Microsoft Entra Domain Services deployed in the same tenant and subscription. Peered subscriptions aren't supported. Make sure you know the fully qualified domain name (FQDN).
 - Your domain admin user needs to have the same UPN suffix in Microsoft Entra ID and Microsoft Entra Domain Services. This means your Microsoft Entra Domain Services name is the same as your `.onmicrosoft.com` tenant name or you've added the domain name used for Microsoft Entra Domain Services as a verified custom domain name to Microsoft Entra ID.
 - A Microsoft Entra account that is a member of **AAD DC Administrators** group in Microsoft Entra ID.

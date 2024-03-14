@@ -129,6 +129,6 @@ Since the Owner role is a highly privileged role, Microsoft recommends you add a
 
 ## Next steps
 
-- [Assign Azure roles using the Azure portal](role-assignments-portal.md)
+- [Assign Azure roles using the Azure portal](role-assignments-portal.yml)
 - [Organize your resources with Azure management groups](../governance/management-groups/overview.md)
 - [Alert on privileged Azure role assignments](role-assignments-alert.md)

@@ -136,7 +136,7 @@ If you selected one of the following privileged roles, follow the steps in this 
 
 1. Click **Select roles and principals** to add a condition that constrains the roles and principals this user can assign roles to.
 
-1. Follow the steps in [Delegate Azure role assignment management to others with conditions](delegate-role-assignments-portal.md#step-3-add-a-condition).
+1. Follow the steps in [Delegate Azure role assignment management to others with conditions](delegate-role-assignments-portal.yml#step-3-add-a-condition).
 
 # [Storage condition](#tab/storage-condition)
 
@@ -154,7 +154,7 @@ If you selected one of the following storage roles, follow the steps in this sec
 
    ![Screenshot of Add role assignment page with Add condition tab.](./media/shared/condition.png)
 
-1. Follow the steps in [Add or edit Azure role assignment conditions](conditions-role-assignments-portal.md#step-3-review-basics).
+1. Follow the steps in [Add or edit Azure role assignment conditions](conditions-role-assignments-portal.yml#step-3-review-basics).
 
 ---
 

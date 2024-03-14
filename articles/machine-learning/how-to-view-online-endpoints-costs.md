@@ -23,7 +23,7 @@ Learn how to view costs for a managed online endpoint. Costs for your endpoints 
 ## Prerequisites
 
 - Deploy an Azure Machine Learning managed online endpoint.
-- Have at least [Billing Reader](../role-based-access-control/role-assignments-portal.md) access on the subscription where the endpoint is deployed
+- Have at least [Billing Reader](../role-based-access-control/role-assignments-portal.yml) access on the subscription where the endpoint is deployed
 
 ## View costs
 

@@ -22,7 +22,7 @@ The [Service Health portal](https://portal.azure.com/#view/Microsoft_Azure_Healt
 4. **Security advisories** - Security related notifications or violations that may affect the availability of your Azure services.
 
 > [!NOTE]
-> To view Service Health events, users must be [granted the Reader role](../role-based-access-control/role-assignments-portal.md) on a subscription.
+> To view Service Health events, users must be [granted the Reader role](../role-based-access-control/role-assignments-portal.yml) on a subscription.
 
 ## Get started with Service Health portal
 

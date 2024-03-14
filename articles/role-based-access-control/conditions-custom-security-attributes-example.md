@@ -127,7 +127,7 @@ For more information, see [Azure role assignment condition format and syntax](co
 
 #### Step 3: Create a condition at a higher scope
 
-Create one or more role assignments that use a condition at a higher scope to manage access. For more information, see [Add or edit Azure role assignment conditions using the Azure portal](conditions-role-assignments-portal.md).
+Create one or more role assignments that use a condition at a higher scope to manage access. For more information, see [Add or edit Azure role assignment conditions using the Azure portal](conditions-role-assignments-portal.yml).
 
 ## Next steps
 

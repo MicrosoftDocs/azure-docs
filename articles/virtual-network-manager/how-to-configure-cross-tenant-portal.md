@@ -33,7 +33,7 @@ First, you'll create the scope connection on the central network manager. Then, 
   - The administrator of the central management tenant has a guest account in the target managed tenant.
   - The administrator guest account has *Network Contributor* permissions applied at the appropriate scope level (management group, subscription, or virtual network).  
 
-Need help with setting up permissions? Check out how to [add guest users in the Azure portal](../active-directory/external-identities/b2b-quickstart-add-guest-users-portal.md) and how to [assign user roles to resources in the Azure portal](../role-based-access-control/role-assignments-portal.md).
+Need help with setting up permissions? Check out how to [add guest users in the Azure portal](../active-directory/external-identities/b2b-quickstart-add-guest-users-portal.md) and how to [assign user roles to resources in the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
 ## Create a scope connection within a network manager
 

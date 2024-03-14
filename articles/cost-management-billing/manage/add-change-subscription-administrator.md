@@ -52,7 +52,7 @@ If you're not sure who the account billing administrator is for a subscription, 
 ### To assign a user as an administrator
 
 - Assign the Owner role to a user at the subscription scope.  
-     For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+     For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
 ## Need help? Contact support
 

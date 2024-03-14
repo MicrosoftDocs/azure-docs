@@ -62,7 +62,7 @@ DROP USER IF EXISTS [insert your search service name or user-assigned managed id
 
 ## 2 - Add a role assignment
 
-In this section you'll, give your Azure AI Search service permission to read data from your SQL Server. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+In this section you'll, give your Azure AI Search service permission to read data from your SQL Server. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
 1. In the Azure portal, navigate to your Azure SQL Server page.
 

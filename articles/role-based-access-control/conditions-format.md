@@ -532,4 +532,4 @@ a AND (b OR c)
 ## Next steps
 
 - [Example Azure role assignment conditions for Blob Storage](../storage/blobs/storage-auth-abac-examples.md)
-- [Add or edit Azure role assignment conditions using the Azure portal](conditions-role-assignments-portal.md)
+- [Add or edit Azure role assignment conditions using the Azure portal](conditions-role-assignments-portal.yml)

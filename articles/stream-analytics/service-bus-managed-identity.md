@@ -45,7 +45,7 @@ For the Stream Analytics job to access your Service Bus using managed identity, 
 
 2. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-3. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+3. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
     | Setting | Value |
     | --- | --- |
