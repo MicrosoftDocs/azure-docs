@@ -20,7 +20,7 @@ metadata:
 landingContent:
 
   # Card
-  - title: Understand Azure Operator Call Protection
+  - title: Understand Azure Operator Call Protection Preview
     linkLists:
       - linkListType: overview
         links:
@@ -30,7 +30,7 @@ landingContent:
             url: onboarding.md
 
   # Card
-  - title: Learn how to deploy Azure Operator Call Protection
+  - title: Learn how to deploy Azure Operator Call Protection Preview
     linkLists:
       - linkListType: overview
         links:

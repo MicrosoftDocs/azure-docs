@@ -1,6 +1,6 @@
 ---
-title: Learn about deploying and setting up Azure Operator Call Protection
-description: Understand how to get started with Azure Operator Call Protection to protect your customers against fraud.
+title: Learn about deploying and setting up Azure Operator Call Protection Preview
+description: Understand how to get started with Azure Operator Call Protection Preview to protect your customers against fraud.
 author: rcdun
 ms.author: rdunstan
 ms.service: azure
@@ -10,9 +10,9 @@ ms.custom:
 
 #CustomerIntent: As someone planning a deployment, I want to understand what I need to do so that I can do it easily.
 ---
-# Overview of deploying Azure Operator Call Protection
+# Overview of deploying Azure Operator Call Protection Preview
 
-Azure Operator Call Protection is built on Azure Communications Gateway.
+Azure Operator Call Protection Preview is built on Azure Communications Gateway.
 
 - If you already have Azure Communications Gateway, you can enable Azure Operator Call Protection on it.
 - If you don't have Azure Communications Gateway, you must deploy it first and then configure Azure Operator Call Protection.
@@ -33,9 +33,9 @@ When you deploy Azure Operator Call Protection, you can access Azure Communicati
 
 [Get started with Azure Communications Gateway](../communications-gateway/get-started.md) provides links to more information about deploying Azure Communications Gateway.
 
-## Deploying Operator Call Protection
+## Deploying Operator Call Protection Preview
 
-Deploy Azure Operator Call Protection with the following procedures.
+Deploy Azure Operator Call Protection Preview with the following procedures.
 
 1. If you don't already have Azure Communications Gateway, deploy it.
     1. [Prepare to deploy Azure Communications Gateway](../communications-gateway/prepare-to-deploy.md?toc=/azure/operator-call-protection/toc.json&bc=/azure/operator-call-protection/breadcrumb/toc.json).
@@ -48,4 +48,4 @@ Deploy Azure Operator Call Protection with the following procedures.
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Prepare to deploy Operator Call Protection on Azure Communications Gateway](../communications-gateway/prepare-to-deploy.md?toc=/azure/operator-call-protection/toc.json&bc=/azure/operator-call-protection/breadcrumb/toc.json)
+> [Prepare to deploy Azure Communications Gateway](../communications-gateway/prepare-to-deploy.md?toc=/azure/operator-call-protection/toc.json&bc=/azure/operator-call-protection/breadcrumb/toc.json)

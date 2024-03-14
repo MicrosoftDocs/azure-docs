@@ -42,7 +42,7 @@ Traffic from all enterprises shares a single SIP trunk, using a multitenant form
 
 > [!IMPORTANT]
 > Azure Communications Gateway only stores data inside the Azure regions where you deploy it.
-> Data may be processed outside these regions for calls using Azure Operator Call Protection, please contact your onboarding team for more details.
+> Data may be processed outside these regions for calls using Azure Operator Call Protection Preview; please contact your onboarding team for more details.
 
 ## Voice features
 
@@ -85,9 +85,9 @@ Microsoft Teams Direct Routing's multitenant model for carrier telecommunication
 
 Microsoft Teams Direct Routing allows a customer admin to assign any phone number to a user, even if you don't assign that number to them. This lack of validation presents a risk of caller ID spoofing. Azure Communications Gateway automatically screens all Direct Routing calls originating from Microsoft Teams. This screening ensures that customers can only place calls from numbers that you assign to them. However, you can disable this screening on a per-customer basis if necessary. For more information, see [Support for caller ID screening](interoperability-teams-direct-routing.md#support-for-caller-id-screening).
 
-## Scam call detection and alerting with Azure Operator Call Protection
+## Scam call detection and alerting with Azure Operator Call Protection Preview
 
-Azure Operator Call Protection uses AI to detect fraudulent and scam calls in real time and alert subscribers when they are at risk of being scammed. It helps telecommunications operators protect their customers from unwanted calls. For more information, see [What is Azure Operator Call Protection?](../operator-call-protection/overview.md?toc=/azure/communications-gateway/toc.json&bc=/azure/communications-gateway/breadcrumb/toc.json).
+Azure Operator Call Protection Preview uses AI to detect fraudulent and scam calls in real time and alert subscribers when they are at risk of being scammed. It helps telecommunications operators protect their customers from unwanted calls. For more information, see [What is Azure Operator Call Protection Preview?](../operator-call-protection/overview.md?toc=/azure/communications-gateway/toc.json&bc=/azure/communications-gateway/breadcrumb/toc.json).
 
 ## Next steps
 
