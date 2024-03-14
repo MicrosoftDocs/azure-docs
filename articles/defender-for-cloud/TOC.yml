@@ -323,7 +323,7 @@
     - name: Manage security standards and recommendations
       items:
       - name: Choose standards for your compliance dashboard
-        href: update-regulatory-compliance-packages.md
+        href: update-regulatory-compliance-packages.yml
       - name: Create custom standards/recommendations (Azure)
         displayName: initiatives, custom, policies
         href: custom-security-policies.md
