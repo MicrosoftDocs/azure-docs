@@ -3,7 +3,7 @@ title: Relocation guidance for managed identities for Azure resources
 description: Learn how to relocate managed identities for Azure resources to a new region.
 author: anaharris-ms
 ms.author: barclayn
-ms.date: 03/12/2024
+ms.date: 03/14/2024
 ms.service: entra-id
 ms.subservice: managed-identities
 ms.topic: concept
@@ -34,8 +34,8 @@ Managed identities for Azure resources is a feature of Azure Entra UID. Each of 
 ## Prepare and move
 
 1. Copy user-assigned managed identity assigned permissions. You can list [Azure role assignments](/azure/role-based-access-control/role-assignments-list-powershell) but that may not be enough depending on how permissions were granted to the user-assigned managed identity. You should confirm that your solution doesn't depend on permissions granted using a service specific option.
-1. Create a [new user-assigned managed identity](how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-powershell#create-a-user-assigned-managed-identity-2) at the target region.
-1. Grant the managed identity the same permissions as the original identity that it's replacing, including Group membership. You can review [Assign Azure roles to a managed identity](/azure/role-based-access-control/role-assignments-portal-managed-identity), and [Group membership](~/fundamentals/groups-view-azure-portal.md).
+1. Create a [new user-assigned managed identity](/entra/identity/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-powershell#create-a-user-assigned-managed-identity-2) at the target region.
+1. Grant the managed identity the same permissions as the original identity that it's replacing, including Group membership. You can review [Assign Azure roles to a managed identity](/azure/role-based-access-control/role-assignments-portal-managed-identity), and [Group membership](/entra/fundamentals/groups-view-azure-portal).
 1. Specify the new identity in the properties of the resource instance that uses the newly created user assigned managed identity.
 
 ## Verify
@@ -49,4 +49,4 @@ Once that you confirm your service is back online, you can proceed to delete any
 ## Next steps
 
 
-- [Manage user-assigned managed identities](/entra/identity/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-powershell#delete-a-user-assigned-managed-identity-2)
+- [Manage user-assigned managed identities](/entra/identity/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-powershell#delete-a-user-assigned-managed-identity-2)
