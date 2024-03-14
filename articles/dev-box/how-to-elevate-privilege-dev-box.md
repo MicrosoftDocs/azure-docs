@@ -47,7 +47,7 @@ In this section, you configure EPM licensing and assign the EPM license to a use
  
 1. Apply the EPM license in Microsoft 365:
 
-    1. In the [Microsoft 365 admin center](https://admin.microsoft.com/Adminportal/Home?#/catalog), go to **Billing** > **Purchase services** > **Endpoint Privilege Management**, and then select your EPM license.
+    In the [Microsoft 365 admin center](https://admin.microsoft.com/Adminportal/Home?#/catalog), go to **Billing** > **Purchase services** > **Endpoint Privilege Management**, and then select your EPM license.
 
 1. Assign E5 and EPM licenses to target user in Microsoft Entra ID:
  
@@ -104,8 +104,8 @@ In this section, you create a dev box and an Intune group that you use to test t
        :::image type="content" source="media/how-to-elevate-privilege-dev-box/intune-endpoint-security.png" alt-text="Screenshot of Microsoft Intune admin center, showing the Endpoint security | Endpoint Privilege Management pane." lightbox="media/how-to-elevate-privilege-dev-box/intune-endpoint-security.png":::
 
     1. In the **Create a profile** pane, select the following settings: 
-    - **Platform**: Windows 10 and later
-    - **Profile type**: Elevation settings policy
+       - **Platform**: Windows 10 and later
+       - **Profile type**: Elevation settings policy
 
     1. On the **Basics** tab, enter a name for the policy.
      
@@ -113,7 +113,7 @@ In this section, you create a dev box and an Intune group that you use to test t
 
     1. On the **Configuration settings** tab, in **Default elevation response**, select **Deny all elevation requests**.
      
-      :::image type="content" source="media/how-to-elevate-privilege-dev-box/deny-all-requests.png" alt-text="Screenshot showing the Configuration settings tab, with Endpoint Privilege Management enabled and Default elevation response set to Deny all requests." lightbox="media/how-to-elevate-privilege-dev-box/deny-all-requests.png":::
+       :::image type="content" source="media/how-to-elevate-privilege-dev-box/deny-all-requests.png" alt-text="Screenshot showing the Configuration settings tab, with Endpoint Privilege Management enabled and Default elevation response set to Deny all requests." lightbox="media/how-to-elevate-privilege-dev-box/deny-all-requests.png":::
 
     1. On the **Assignments** tab, select **Add groups**, add the group you created earlier, and then select **Create**.
      
@@ -140,7 +140,7 @@ In this section, you validate that the Microsoft EPM Agent is installed and the 
 
 1. Attempt to run an application with administrative privileges. 
 
-    1. On your dev box, right-click an application and select **Run with elevated access**. You receive a message that the installation is blocked.
+    On your dev box, right-click an application and select **Run with elevated access**. You receive a message that the installation is blocked.
 
 ## Related content
 
