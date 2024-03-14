@@ -3,8 +3,11 @@ title: Work with threat indicators in Microsoft Sentinel
 description: This article explains how to view, create, manage, and visualize threat intelligence indicators in Microsoft Sentinel.
 author: austinmccollum
 ms.topic: how-to
-ms.date: 8/30/2022
+ms.date: 3/06/2024
 ms.author: austinmc
+appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+ms.collection: usx-security
+
 ---
 
 # Work with threat indicators in Microsoft Sentinel
@@ -19,6 +22,8 @@ Integrate threat intelligence (TI) into Microsoft Sentinel through the following
 
 - **Visualize key information** about your imported threat intelligence in Microsoft Sentinel with the **Threat Intelligence workbook**.
 
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
+
 ## View your threat indicators in Microsoft Sentinel
 
 ### Find and view your indicators in the Threat intelligence page
@@ -27,11 +32,7 @@ This procedure describes how to view and manage your indicators in the **Threat 
 
 **To view your threat intelligence indicators in the Threat intelligence page**:
 
-1. Open the [Azure portal](https://portal.azure.com/) and navigate to the **Microsoft Sentinel** service.
-
-1. Select the workspace where you imported threat indicators.
-
-1. From the **Threat Management** section on the left, select the **Threat Intelligence** page.
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Threat management**, select **Threat intelligence**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Threat management** > **Threat intelligence**.
 
 1. From the grid, select the indicator for which you want to view more details. The indicator's details appear on the right, showing information such as confidence levels, tags, threat types, and more.
 
@@ -145,4 +146,4 @@ In this article, you learned all the ways to work with threat intelligence indic
 - [Understand threat intelligence in Microsoft Sentinel](understand-threat-intelligence.md).
 - Connect Microsoft Sentinel to [STIX/TAXII threat intelligence feeds](./connect-threat-intelligence-taxii.md).
 - [Connect threat intelligence platforms](./connect-threat-intelligence-tip.md) to Microsoft Sentinel.
-- See which [TIP platforms, TAXII feeds, and enrichments](threat-intelligence-integration.md) can be readily integrated with Microsoft Sentinel.
+- See which [TIPs, TAXII feeds, and enrichments](threat-intelligence-integration.md) can be readily integrated with Microsoft Sentinel.

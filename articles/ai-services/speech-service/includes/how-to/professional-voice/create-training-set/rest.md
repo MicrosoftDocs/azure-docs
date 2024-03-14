@@ -1,12 +1,12 @@
 ---
- title: include file
- description: include file
- author: eric-urban
- ms.author: eur
- ms.service: azure-ai-speech
- ms.topic: include
- ms.date: 12/1/2023
- ms.custom: include
+title: include file
+description: include file
+author: eric-urban
+ms.author: eur
+ms.service: azure-ai-speech
+ms.topic: include
+ms.date: 12/1/2023
+ms.custom: include
 ---
 
 You need a training dataset to create a professional voice. A training dataset includes audio and script files. The audio files are recordings of the voice talent reading the script files. The script files are the text of the audio files. 

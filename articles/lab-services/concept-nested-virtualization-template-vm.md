@@ -30,11 +30,11 @@ Before setting up a lab with nested virtualization, here are a few things to tak
 
 - Choose a size that provides good performance for both the host (lab VM) and guest VMs (VMs inside the lab VM). Make sure the size you choose can run the host VM and any Hyper-V machines at the same time.
 
-- The host VM requires extra configuration to let the guest machines have internet connectivity.
+- If using Windows Server, the host VM requires extra configuration to let the guest machines have internet connectivity.
 
 - Guest VMs don't have access to Azure resources, such as DNS servers, on the Azure virtual network.
 
-- Hyper-V guest VMs are licensed as independent machines. For information about licensing for Microsoft operation systems and products, see [Microsoft Licensing](https://www.microsoft.com/licensing/default). Check licensing agreements for any other software you use, before installing it on the template VM or guest VMs.
+- Hyper-V guest VMs are licensed as independent machines. For information about licensing for Microsoft operation systems and products, see [Microsoft Licensing](https://www.microsoft.com/licensing/default). Check licensing agreements for any other software you use, before installing it on a lab VM or guest VMs.
 
 - Virtualization applications other than Hyper-V  [*aren't* supported for nested virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization#3rd-party-virtualization-apps). This includes any software that requires hardware virtualization extensions.
 
@@ -45,71 +45,16 @@ You can enable nested virtualization and create nested Hyper-V VMs on the templa
 To enable nested virtualization for a lab:
 
 1. Connect to the template VM by using a remote desktop client
+1. Enable Hyper-V feature and tools on the template VM.
+1. If using Windows Server, create a Network Address Translation (NAT) network to allow the VMs inside the template VM to communicate with each other.
 
-1. Enable nested virtualization on the template VM operating system.
+    > [!NOTE]
+    > The NAT network created on the Lab Services VM will allow a Hyper-V VM to access the internet and other Hyper-V VMs on the same Lab Services VM.  The Hyper-V VM won't be able to access Azure resources, such as DNS servers, on an Azure virtual network.
 
-    - Enable the Hyper-V role: the Hyper-V role must be enabled for the creation and running of VMs inside the template VM.
-    - Enable DHCP (optional): when the template VM has the DHCP role enabled, the VMs inside the template VM get an IP address automatically assigned to them.
-    - Create a NAT network for the nested VMs: set up a Network Address Translation (NAT) network to allow the VMs inside the template VM to have internet access and communicate with each other.
-
-        >[!NOTE]
-        >The NAT network created on the Lab Services VM will allow a Hyper-V VM to access the internet and other Hyper-V VMs on the same Lab Services VM.  The Hyper-V VM won't be able to access Azure resources, such as DNS servers, on an Azure virtual network.
-
-1. Use Hyper-V manager to create the nested virtual machines inside the template VM.
-
-> [!NOTE]
-> Make sure to select the option to create a template virtual machine when you create a lab that requires nested virtualization.
+1. Use Hyper-V manager to create the nested virtual machines inside the template VM.  
+1. Verify nested virtual machines have internet access.
 
 Follow these steps to [enable nested virtualization on a template VM](./how-to-enable-nested-virtualization-template-vm-using-script.md).
-
-## Connect to a nested VM in another lab VM
-
-You can connect to a lab VM from another lab VM or a nested VM without any extra configuration. However, to connect to a nested VM that is hosted in another lab VM, requires adding a static mapping to the NAT instance with the [**Add-NetNatStaticMapping**](/powershell/module/netnat/add-netnatstaticmapping) PowerShell cmdlet.
-
-> [!NOTE]
-> The ping command to test connectivity from or to a nested VM doesn't work.
-
-> [!NOTE]
-> The static mapping only works when you use private IP addresses. The VM that the lab user is connecting from must be a lab VM, or the VM has to be on the same network if using advanced networking.
-
-### Example scenarios
-
-Consider the following sample lab setup:
-
-- Lab VM 1 (Windows Server 2022, IP 10.0.0.8)
-  - Nested VM 1-1 (Ubuntu 20.04, IP 192.168.0.102)
-  - Nested VM 1-2 (Windows 11, IP 192.168.0.103, remote desktop enabled and allowed)
-
-- Lab VM 2 (Windows Server 2022, IP 10.0.0.9)
-  - Nested VM 2-1 (Ubuntu 20.04, IP 192.168.0.102)
-  - Nested VM 2-2 (Windows 11, IP 192.168.0.103, remote desktop enabled and allowed)
-
-To connect with SSH from lab VM 2 to nested lab VM 1-1:
-
-1. On lab VM 1, add a static mapping:
-
-    ```powershell
-    Add-NetNatStaticMapping -NatName "LabServicesNat" -Protocol TCP -ExternalIPAddress 0.0.0.0 -InternalIPAddress 192.168.0.102 -InternalPort 22 -ExternalPort 23
-    ```
-
-1. On lab VM 2, connect using SSH:
-
-    ```bash
-    ssh user1@10.0.0.8 -p 23
-    ```
-
-To connect with RDP from lab VM 2, or its nested VMs, to nested lab VM 1-2:
-
-1. On lab VM 1, add a static mapping:
-
-    ```powershell
-    Add-NetNatStaticMapping -NatName "LabServicesNat" -Protocol TCP -ExternalIPAddress 0.0.0.0 -InternalIPAddress 192.168.0.103 -InternalPort 3389 -ExternalPort 3390
-    ```
-
-1. On lab VM 2, or its nested VMs, connect using RDP to `10.0.0.8:3390`
-
-    > [!IMPORTANT]
-    > Include `~\` in front of the user name. For example, `~\Administrator` or `~\user1`.
 
 ## Recommendations
 

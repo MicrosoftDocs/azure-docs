@@ -781,16 +781,6 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | storageAccounts / vmImages | No |
 > | vmImages | No |
 
-## Microsoft.CloudTest
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Complete mode deletion |
-> | ------------- | ----------- |
-> | accounts | Yes |
-> | hostedpools | Yes |
-> | images | Yes |
-> | pools | Yes |
-
 ## Microsoft.CodeSigning
 
 > [!div class="mx-tableFixed"]

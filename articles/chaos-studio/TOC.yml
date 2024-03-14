@@ -4,9 +4,17 @@
   items:
   - name: What is Azure Chaos Studio?
     href: chaos-studio-overview.md
+  - name: Chaos experiments
+    href: chaos-studio-chaos-experiments.md
+  - name: Faults and actions
+    href: chaos-studio-faults-actions.md
+  - name: Targets and capabilities
+    href: chaos-studio-targets-capabilities.md
+  - name: Target selection
+    href: chaos-studio-target-selection.md
 - name: Quickstart
   items:
-  - name: Create and run a chaos experiment using Azure Chaos Studio 
+  - name: Create and run a chaos experiment 
     href: chaos-studio-quickstart-azure-portal.md
 - name: Tutorials
   items:
@@ -28,68 +36,60 @@
     href: chaos-studio-bicep.md
   - name: Azure policy definitions
     href: sample-policy-targets.md
-- name: Concepts
+- name: Security and Reliability
   items:
-  - name: Chaos experiments
-    href: chaos-studio-chaos-experiments.md
-  - name: Faults and actions
-    href: chaos-studio-faults-actions.md
-  - name: Targets and capabilities
-    href: chaos-studio-targets-capabilities.md
-  - name: Target selection
-    href: chaos-studio-target-selection.md
   - name: Permissions and security
     href: chaos-studio-permissions-security.md
   - name: Private networking
     href: chaos-studio-private-networking.md
-  - name: Regional availability
-    href: chaos-studio-region-availability.md
   - name: Reliability 
     href: ../reliability/reliability-chaos-studio.md?toc=/azure/chaos-studio/toc.json&bc=/azure/chaos-studio/breadcrumb/toc.json
-- name: How-to guides
+- name: Create and run experiments
   items:
-  - name: Create and run experiment - Service-direct faults
+  - name: Service-direct faults
     items:
     - name: Portal
       href: chaos-studio-tutorial-service-direct-portal.md
     - name: CLI
       href: chaos-studio-tutorial-service-direct-cli.md
-  - name: Create and run experiment - Agent-based faults
+  - name: Agent-based faults
     items:
     - name: Portal
       href: chaos-studio-tutorial-agent-based-portal.md
     - name: CLI
       href: chaos-studio-tutorial-agent-based-cli.md
-  - name: Create and run experiment - Chaos Mesh faults on AKS
+  - name: Chaos Mesh faults on AKS
     items:
     - name: Portal
       href: chaos-studio-tutorial-aks-portal.md
     - name: CLI
       href: chaos-studio-tutorial-aks-cli.md
-  - name: Create and run experiment - Dynamic targeting
+  - name: Dynamic targeting
     items:
     - name: Portal
       href: chaos-studio-tutorial-dynamic-target-portal.md
     - name: CLI 
       href: chaos-studio-tutorial-dynamic-target-cli.md
-  - name: Experiment templates
-    items: 
-    - name: Use a chaos experiment template to induce an outage on an Azure Active Directory instance
-      href: chaos-studio-tutorial-aad-outage-portal.md
-    - name: Use a chaos experiment template to take down Virtual Machine Scale Set availability zones with autoscale disabled
-      href: chaos-studio-tutorial-availability-zone-down-portal.md
-  - name: Telemetry
-    items:
-    - name: Set up your Chaos Experiment to emit telemetry to Azure Monitor
-      href: chaos-studio-set-up-azure-monitor.md
-    - name: Set up your Agent-Based Chaos Experiment to emit telemetry to App Insights
-      href: chaos-studio-set-up-app-insights.md
-  - name: Configure an experiment using customer-managed keys (CMK)
-    href: chaos-studio-configure-customer-managed-keys.md
-  - name: Set up an agent-based chaos experiment using private link
-    href: chaos-studio-private-link-agent-service.md
-  - name: Troubleshoot common issues
-    href: troubleshooting.md
+- name: Use Chaos experiment templates
+  items: 
+  - name: Use a chaos experiment template to induce an outage on an Azure Active Directory instance
+    href: chaos-studio-tutorial-aad-outage-portal.md
+  - name: Use a chaos experiment template to take down Virtual Machine Scale Set availability zones with autoscale disabled
+    href: chaos-studio-tutorial-availability-zone-down-portal.md
+- name: Manage and Monitor experiments
+  items:
+    - name: Emit Chaos experiment telemetry
+      items:
+      - name: Set up your Chaos Experiment to emit telemetry to Azure Monitor
+        href: chaos-studio-set-up-azure-monitor.md
+      - name: Set up your Agent-Based Chaos Experiment to emit telemetry to App Insights
+        href: chaos-studio-set-up-app-insights.md
+    - name: Configure an experiment using customer-managed keys (CMK)
+      href: chaos-studio-configure-customer-managed-keys.md
+    - name: Set up an agent-based chaos experiment using private link
+      href: chaos-studio-private-link-agent-service.md
+    - name: Troubleshoot common issues
+      href: troubleshooting.md
 - name: Reference
   items:
   - name: Fault library
@@ -98,18 +98,22 @@
     href: chaos-studio-fault-providers.md
   - name: Version compatibility
     href: chaos-studio-versions.md
+  - name: Regional availability
+    href: chaos-studio-region-availability.md
   - name: Limitations and known issues
     href: chaos-studio-limitations.md
   - name: Service limits
     href: chaos-studio-service-limits.md
   - name: REST API documentation
     href: /rest/api/chaosstudio/
-  - name: Python SDK
-    href: /python/api/azure-mgmt-chaos/
-  - name: .NET SDK
-    href: /dotnet/api/overview/azure/resourcemanager.chaos-readme?view=azure-dotnet-preview&preserve-view=true
-  - name: JavaScript SDK
-    href: https://www.npmjs.com/package/@azure/arm-chaos/
+  - name: SDKs
+    items:
+    - name: Python SDK
+      href: /python/api/azure-mgmt-chaos/
+    - name: .NET SDK
+      href: /dotnet/api/overview/azure/resourcemanager.chaos-readme?view=azure-dotnet-preview&preserve-view=true
+    - name: JavaScript SDK
+      href: https://www.npmjs.com/package/@azure/arm-chaos/
 - name: Resources
   items:
   - name: Service updates

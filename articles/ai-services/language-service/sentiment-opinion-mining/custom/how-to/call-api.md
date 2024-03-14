@@ -3,12 +3,12 @@ title: Send a Custom sentiment analysis request to your custom model
 description: Learn how to send requests for Custom sentiment analysis.
 titleSuffix: Azure AI services
 #services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 12/19/2023
-ms.author: aahi
+ms.author: jboback
 ms.devlang: csharp
 # ms.devlang: csharp, python
 ms.custom: language-service-custom-ner

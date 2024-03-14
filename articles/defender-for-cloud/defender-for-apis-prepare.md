@@ -10,7 +10,7 @@ ms.custom: references_regions
 ---
 # Support and prerequisites for Defender for APIs deployment
 
-Review the requirements on this page before setting up [Microsoft Defender for APIs](defender-for-apis-introduction.md). 
+Review the requirements on this page before setting up [Microsoft Defender for APIs](defender-for-apis-introduction.md).
 
 ## Cloud and region support
 

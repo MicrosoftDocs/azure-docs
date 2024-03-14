@@ -162,7 +162,8 @@ A Mobility service agent must be preinstalled on the source physical machines to
 
 - [System Center Configuration Manager](../site-recovery/vmware-azure-mobility-install-configuration-mgr.md)
 - [Azure Arc for servers and custom script extensions](../azure-arc/servers/overview.md)
-- [Manual installation](../site-recovery/vmware-physical-mobility-service-overview.md)
+- [Install Mobility agent for Windows](../site-recovery/vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-command-prompt-classic)
+- [Install Mobility agent for Linux](../site-recovery/vmware-physical-mobility-service-overview.md#linux-machine-1)
 
 1. Extract the contents of the installer tarball to a local folder (for example, */tmp/MobSvcInstaller*) on the machine:
 

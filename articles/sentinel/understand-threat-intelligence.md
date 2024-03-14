@@ -3,13 +3,17 @@ title: Understand threat intelligence in Microsoft Sentinel
 description: Understand how threat intelligence feeds are connected to, managed, and used in Microsoft Sentinel to analyze data, detect threats, and enrich alerts.
 author: austinmccollum
 ms.topic: conceptual
-ms.date: 5/23/2023
+ms.date: 3/06/2024
 ms.author: austinmc
+appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+ms.collection: usx-security
 ---
 
 # Understand threat intelligence in Microsoft Sentinel
 
-Microsoft Sentinel is a cloud native Security Information and Event Management (SIEM) solution with the ability to quickly pull threat intelligence from numerous sources.  
+Microsoft Sentinel is a cloud native Security Information and Event Management (SIEM) solution with the ability to quickly pull threat intelligence from numerous sources.
+
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 ## Introduction to threat intelligence
 
@@ -98,9 +102,9 @@ Tagging threat indicators is an easy way to group them together to make them eas
 
 :::image type="content" source="media/understand-threat-intelligence/threat-intel-tagging-indicators.png" alt-text="Apply tags to threat indicators" lightbox="media/understand-threat-intelligence/threat-intel-tagging-indicators.png":::
 
-To validate  your indicators and view your successfully imported threat indicators, regardless of the source, go to the **Logs** page. In this Log Analytics view, the **ThreatIntelligenceIndicator** table under the **Microsoft Sentinel** group is where all your Microsoft Sentinel threat indicators are stored. This table is the basis for threat intelligence queries performed by other Microsoft Sentinel features such as **Analytics** and **Workbooks**.
+To validate your indicators and view your successfully imported threat indicators, regardless of the source, go to the **Logs** page for Microsoft Sentinel in the [Azure portal](https://portal.azure.com). For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Advanced hunting**. In this Log Analytics view, the **ThreatIntelligenceIndicator** table under the **Microsoft Sentinel** schema is where all your Microsoft Sentinel threat indicators are stored. This table is the basis for threat intelligence queries performed by other Microsoft Sentinel features such as **Analytics** and **Workbooks**.
 
-Here is an example view of the **Logs** page with a basic query for threat indicators.
+Here is an example view of a basic query for threat indicators.
 
 :::image type="content" source="media/understand-threat-intelligence/logs-page-ti-table.png" alt-text="Screenshot shows the logs page with a sample query of the ThreatIntelligenceIndicator table." lightbox="media/understand-threat-intelligence/logs-page-ti-table.png":::
 
