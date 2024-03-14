@@ -7,9 +7,9 @@ ms.service: postgresql
 ms.topic: include
 ---
 
-#### [Offline](#tab/offline)
-
 You can migrate using Azure CLI.
+
+#### [Offline](#tab/offline)
 
 [!INCLUDE [prerequisites-migration-service-postgresql](../prerequisites/prerequisites-migration-service-postgresql-offline.md)]
 
