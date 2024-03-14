@@ -6,6 +6,7 @@ ms.date: 02/14/2024
 author: joemarshallmsft
 ms.author: joemarshall
 ms.service: azure-operator-nexus
+ms.custom: devx-track-azurecli
 ---
 
 # Configuration examples for Azure Operator Nexus route policies

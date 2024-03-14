@@ -6,7 +6,7 @@ ms.author: ekarandjeff
 ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 05/15/2023
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Troubleshoot bare metal machine issues using the `az networkcloud baremetalmachine run-data-extract` command
