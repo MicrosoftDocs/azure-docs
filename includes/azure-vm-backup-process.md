@@ -9,7 +9,7 @@ ms.author: v-amallick
 1. For Azure VMs that are selected for backup, Azure Backup starts a backup job according to the backup schedule you specify.
 1. If you have opted for application or file-system consistent backups, the VM needs to have a backup extension installed to coordinate for the snapshot process.
 
-   If you have opted for [crash-consistent backups](../../backup/backup-azure-vms-agentless-multi-disk-crash-consistent-overview.md), no agents are required in the VMs.
+   If you have opted for [crash-consistent backups](../articles/backup/backup-azure-vms-agentless-multi-disk-crash-consistent-overview.md), no agents are required in the VMs.
 
 1. During the first backup, a backup extension is installed on the VM if the VM is running.
     - For Windows VMs, the [VMSnapshot extension](../articles/virtual-machines/extensions/vmsnapshot-windows.md) is installed.
