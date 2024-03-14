@@ -33,7 +33,7 @@ In this article, learn how to invoke a semantic ranking over a result set, promo
 Choose a search client that supports semantic ranking. Here are some options:
 
 + [Azure portal](https://portal.azure.com), using the index designer to add a semantic configuration.
-+ [Postman app](https://www.postman.com/downloads/) using [REST APIs](/rest/api/searchservice/)
++ [Visual Studio Code](https://code.visualstudio.com/download) with a [REST client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
 + [Azure SDK for .NET](https://www.nuget.org/packages/Azure.Search.Documents)
 + [Azure SDK for Python](https://pypi.org/project/azure-search-documents)
 + [Azure SDK for Java](https://central.sonatype.com/artifact/com.azure/azure-search-documents)
@@ -71,6 +71,22 @@ In this step, add parameters to the query request. To be successful, your query 
 
    :::image type="content" source="./media/semantic-search-overview/semantic-portal-json-query.png" alt-text="Screenshot showing JSON query syntax in the Azure portal." border="true":::
 
+   Here's some JSON text that you can paste into the view:
+
+   ```json
+    {
+        "queryType": "semantic",
+        "search": "historic hotel with good food",
+        "semanticConfiguration": "my-semantic-config",
+        "answers": "extractive|count-3",
+        "captions": "extractive|highlight-true",
+        "highlightPreTag": "<strong>",
+        "highlightPostTag": "</strong>",
+        "select": "HotelId,HotelName,Description,Category",
+        "count": true
+    }
+   ```
+   
 ### [**REST API**](#tab/rest-query)
 
 Use [Search Documents](/rest/api/searchservice/documents/search-post) to formulate the request.

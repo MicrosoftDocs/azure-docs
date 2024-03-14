@@ -324,7 +324,7 @@ from openai import AzureOpenAI
 
 client = AzureOpenAI(
   azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
-  api_key=os.getenv("AZURE_OPENAI_KEY"),  
+  api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
   api_version="2023-12-01-preview"  # This API version or later is required to access fine-tuning for turbo/babbage-002/davinci-002
 )
 
@@ -394,7 +394,7 @@ job_id = response.id
 # The fine-tuning job will take some time to start and complete.
 
 print("Job ID:", response.id)
-print("Status:", response.id)
+print("Status:", response.status)
 print(response.model_dump_json(indent=2))
 ```
 
@@ -550,7 +550,7 @@ fine_tuned_model = response.fine_tuned_model
 
 ## Deploy fine-tuned model
 
-Unlike the previous Python SDK commands in this tutorial, since the introduction of the quota feature, model deployment must be done using the [REST API](/rest/api/cognitiveservices/accountmanagement/deployments/create-or-update?tabs=HTTP), which requires separate authorization, a different API path, and a different API version.
+Unlike the previous Python SDK commands in this tutorial, since the introduction of the quota feature, model deployment must be done using the [REST API](/rest/api/aiservices/accountmanagement/deployments/create-or-update?tabs=HTTP), which requires separate authorization, a different API path, and a different API version.
 
 Alternatively, you can deploy your fine-tuned model using any of the other common deployment methods like [Azure OpenAI Studio](https://oai.azure.com/), or [Azure CLI](/cli/azure/cognitiveservices/account/deployment#az-cognitiveservices-account-deployment-create()).
 
@@ -619,7 +619,7 @@ import openai
 openai.api_type = "azure"
 openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT") 
 openai.api_version = "2023-05-15"
-openai.api_key = os.getenv("AZURE_OPENAI_KEY")
+openai.api_key = os.getenv("AZURE_OPENAI_API_KEY")
 
 response = openai.ChatCompletion.create(
     engine="gpt-35-turbo-ft", # engine = "Custom deployment name you chose for your fine-tuning model"
@@ -643,7 +643,7 @@ from openai import AzureOpenAI
 
 client = AzureOpenAI(
   azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
-  api_key=os.getenv("AZURE_OPENAI_KEY"),  
+  api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
   api_version="2023-05-15"
 )
 
@@ -668,7 +668,7 @@ Unlike other types of Azure OpenAI models, fine-tuned/customized models have [an
 
 Deleting the deployment won't affect the model itself, so you can re-deploy the fine-tuned model that you trained for this tutorial at any time.
 
-You can delete the deployment in [Azure OpenAI Studio](https://oai.azure.com/), via [REST API](/rest/api/cognitiveservices/accountmanagement/deployments/delete?tabs=HTTP), [Azure CLI](/cli/azure/cognitiveservices/account/deployment#az-cognitiveservices-account-deployment-delete()), or other supported deployment methods.  
+You can delete the deployment in [Azure OpenAI Studio](https://oai.azure.com/), via [REST API](/rest/api/aiservices/accountmanagement/deployments/delete?tabs=HTTP), [Azure CLI](/cli/azure/cognitiveservices/account/deployment#az-cognitiveservices-account-deployment-delete()), or other supported deployment methods.  
 
 ## Troubleshooting
 

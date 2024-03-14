@@ -5,7 +5,7 @@ author: dlepow
  
 ms.service: api-center
 ms.topic: overview
-ms.date: 11/07/2023
+ms.date: 03/01/2024
 ms.author: danlep 
 ms.custom: references_regions
 ---
@@ -25,7 +25,7 @@ With API Center, stakeholders throughout your organization - including API progr
 
 * **Create and maintain an organizational inventory​** - Organizations can build a **complete inventory of APIs** available in their organization. Foster communication and let API program managers and developers collaborate for increased API reuse, quality, security, compliance, and developer productivity.​
 
-*  **Govern your organization's APIs** - With more complete visibility into the APIs being produced and used within an organization, API program managers and IT administrators can govern this inventory to ensure it meets organizational standards by **defining custom metadata** to enforce governance.​
+*  **Govern your organization's APIs** - With more complete visibility into the APIs being produced and used within an organization, API program managers and IT administrators can govern this inventory to ensure it meets organizational standards by **defining custom metadata** and **analyzing API definitions** to enforce conformance to API style guidelines.​
 
 * **Easy API discovery** - Organizations want to promote API reuse to maximize developer productivity and ensure developers are using the right APIs. API Center helps program managers and developers  discover the API inventory and filter using built-in and custom metadata properties. ​
 
@@ -39,9 +39,11 @@ In preview, create and use an API center in the Azure portal for the following:
 
 * **Real-world API representation** - Add real-world information about each API including versions and definitions such as OpenAPI definitions. List API deployments and associate them with runtime environments, for example representing Azure API Management or other API management solutions.
 
-* **Metadata properties** - Organize and filter APIs and related resources using built-in and custom metadata properties, to help with API governance and discovery by API consumers.  
+* **API governance** - Organize and filter APIs and related resources using built-in and custom metadata properties, to help with API governance and discovery by API consumers. Set up linting and analysis to enforce API definition quality.  
 
-For more information about the information you can manage and the capabilities in API Center, see [Key concepts](key-concepts.md).
+* **API discovery and reuse** - Enable developers and API program managers to discover APIs via the Azure portal, an API Center portal, and developer tools including a [Visual Studio Code extension](use-vscode-extension.md) integrated with GitHub Copilot​.
+
+For more about the entities you can manage and the capabilities in API Center, see [Key concepts](key-concepts.md).
 
 ## Available regions
 

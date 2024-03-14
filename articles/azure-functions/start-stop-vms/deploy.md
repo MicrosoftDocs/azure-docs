@@ -12,7 +12,7 @@ ms.custon: subject-rbac-steps
 
 Perform the steps in this article in sequence to install the Start/Stop VMs v2 feature. After completing the setup process, configure the schedules to customize it to your requirements.
 
-## Permissions considerations
+## Permissions and Policy considerations
 
 Keep the following considerations in mind before and during deployment:
 
@@ -21,6 +21,9 @@ Keep the following considerations in mind before and during deployment:
 + Any users with access to the Start/Stop v2 solution could uncover cost, savings, operation history, and other data that is stored in the Application Insights instance used by the Start/Stop v2 application.
 
 + When managing a Start/Stop v2 solution, you should consider the permissions of users to the Start/Stop v2 solution, particularly when whey don't have permission to directly modify the target virtual machines.
+
++ When you deploy the Start/Stop v2 solution to a new or existing resource group, a tag named **SolutionName** with a value of **StartStopV2** is added to resource group and to its resources that are deployed by Start/Stop v2. Any other tags on these resources are removed. If you have an Azure policy that denies management operations based on resource tags, you must allow management operations for resources that contain only this tag.
+
 
 ## Deploy feature
 

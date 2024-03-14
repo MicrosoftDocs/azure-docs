@@ -1,12 +1,12 @@
 ---
 title: "Quickstart: Entity Linking client library for Node.js | Microsoft Docs"
 description: Get started with the Entity Linking client library for Node.js.
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: include
 ms.date: 12/19/2023
-ms.author: aahi
+ms.author: jboback
 ms.custom: devx-track-js
 ---
 

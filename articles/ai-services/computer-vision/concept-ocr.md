@@ -34,7 +34,7 @@ The following JSON response illustrates what the Image Analysis 4.0 API returns 
 
 ```json
 {
-    "modelVersion": "2023-10-01",
+    "modelVersion": "2024-02-01",
     "metadata":
     {
         "width": 1000,
