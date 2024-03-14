@@ -40,7 +40,7 @@ To set up a migration project, use these steps:
 1. In **Create project**, select your Azure subscription and resource group. If you don't have a resource group, select **Create New** to create one.
 1. In **Project Details**, specify the project name and geography in which you want to create the project.
 
-    :::image type="content" source="./media/tutorial-discover-sap-systems/create-project.png" alt-text="Screenshot that shows how to create a project." lightbox="./media/tutorial-discover-sap-systems/create-project.png":::
+    :::image type="content" source="./media/tutorial-discover-sap-systems/create-project-sap.png" alt-text="Screenshot that shows how to create a project." lightbox="./media/tutorial-discover-sap-systems/create-project-sap.png":::
 
 1. Select **Create**.<br>Wait for a few minutes for the project deployment. The Azure Migrate: Discovery and assessment tool is added by default to the new project.
 
