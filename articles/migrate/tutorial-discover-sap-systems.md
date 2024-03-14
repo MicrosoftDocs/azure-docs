@@ -15,7 +15,9 @@ ms.custom:
 
 As part of your migration journey to Azure, you discover your on-premises SAP inventory and workloads.
 
-Discovery and Assessment of SAP systems using Azure Migrate is a new capability within Azure Migrate that allows you to perform an Import-based assessments for your on-premises SAP systems. Rather than downloading and installing an Azure Migrate appliance on your environment to run a discovery and assessment, you can upload a CSV file with server inventory details. Azure Migrate uses this information to generate an assessment report, featuring cost, and sizing recommendations based on cost and performance.
+Discovery and Assessment of SAP systems using Azure Migrate is a new capability within Azure Migrate that allows you to perform an Import-based assessments for your on-premises SAP systems.
+
+Instead of downloading and installing an Azure Migrate appliance on your environment to run a discovery and assessment, you can upload a CSV file with server inventory details. Azure Migrate uses this information to generate an assessment report, featuring cost, and sizing recommendations based on cost and performance.
 
 In this tutorial, you learn how to:
 
