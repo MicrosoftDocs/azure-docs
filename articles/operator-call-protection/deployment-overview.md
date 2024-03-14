@@ -48,4 +48,4 @@ Deploy Azure Operator Call Protection with the following procedures.
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Prepare to deploy Operator Call Protection on Azure Communications Gateway](../communications-gateway/prepare-to-deploy.md?toc=/azure/operator-call-protection/toc.json&bc=/azure/operator-call-protection/breadcrumb/toc.json)
+> [Prepare to deploy Azure Communications Gateway](../communications-gateway/prepare-to-deploy.md?toc=/azure/operator-call-protection/toc.json&bc=/azure/operator-call-protection/breadcrumb/toc.json)
