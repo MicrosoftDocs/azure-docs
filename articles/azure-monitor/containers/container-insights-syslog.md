@@ -2,7 +2,7 @@
 title: Syslog collection with Container Insights
 description: This article describes how to collect Syslog from AKS nodes using Container insights.
 ms.topic: conceptual
-ms.date: 01/31/2023
+ms.date: 2/28/2024
 ms.reviewer: damendo
 ---
 

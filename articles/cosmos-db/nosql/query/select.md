@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Every query consists of a ``SELECT`` clause and optionally [``FROM``](from.md) a
 
 ## Syntax
 
-```sql
+```nosql
 SELECT <select_specification>  
 
 <select_specification> ::=
@@ -47,25 +48,25 @@ SELECT <select_specification>
 
 This first example selects two static string values and returns an array with a single object containing both values. Since the values are unnamed, a sequential generated number is used to name the equivalent json field.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/select/query.sql":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/select/query.sql":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/select/result.json":::
 
 In this next example, JSON projection is used to fine tune the exact structure and field names for the resulting JSON object. Here, a JSON object is created with fields named ``department`` and ``team``. The outside JSON object is still unnamed, so a generated number (``$1``) is used to name this field.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/select-json/query.sql":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/select-json/query.sql":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/select-json/result.json":::
 
 This example illustrates flattening the result set from the previous example to simplify parsing. The ``VALUE`` keyword is used here to prevent the wrapping of the results into another JSON object.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/select-value-json/query.sql":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/select-value-json/query.sql":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/select-value-json/result.json":::
 
 In this example, the ``VALUE`` keyword is used with a static string to create an array of strings as the result.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/select-value/query.sql":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/select-value/query.sql":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/select-value/result.json":::
 
@@ -75,7 +76,7 @@ In this final example, assume that there's a container with two items with vario
 
 This final example query uses a combination of a ``SELECT`` clause, the ``VALUE`` keyword, a ``FROM`` clause, and JSON projection to perform a common query with the results transformed to a JSON object for the client to parse.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/select-fields/query.sql" range="1-7" highlight="1,6":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/select-fields/query.sql" range="1-7" highlight="1,6":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/select-fields/result.json":::
 

@@ -133,18 +133,9 @@ Azure CNI provides the capability to monitor IP subnet usage. To enable IP subne
 
 Set the variables for subscription, resource group and cluster. Consider the following as examples:
 
-```azurecli
-
-    $s="subscriptionId"
-
-    $rg="resourceGroup"
-
-    $c="ClusterName"
-
-    az account set -s $s
-
-    az aks get-credentials -n $c -g $rg
-
+```azurecli-interactive
+az account set -s $subscription
+az aks get-credentials -n $clusterName -g $resourceGroup
 ```
 
 ### Apply the config

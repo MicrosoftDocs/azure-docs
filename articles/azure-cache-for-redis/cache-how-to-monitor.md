@@ -1,6 +1,6 @@
 ---
 title: Monitor Azure Cache for Redis
-description: Learn how to monitor the health and performance your Azure Cache for Redis instances
+description: Learn how to monitor the health and performance your Azure Cache for Redis instances.
 author: flang-msft
 ms.author: franlanglois
 ms.service: cache
@@ -18,7 +18,7 @@ Use Azure Monitor to:
 - pin metrics charts to the dashboard
 - customize the date and time range of monitoring charts
 - add and remove metrics from the charts
-- and set alerts when certain conditions are met
+- set alerts when certain conditions are met
 
 Metrics for Azure Cache for Redis instances are collected using the Redis [`INFO`](https://redis.io/commands/info) command. Metrics are collected approximately two times per minute and automatically stored for 30 days so they can be displayed in the metrics charts and evaluated by alert rules.
 
@@ -58,7 +58,7 @@ For scenarios where you don't need the full flexibility of Azure Monitor for Azu
 
 ## Use Insights for predefined charts
 
-The **Monitoring** section in the Resource menu contains **Insights**. When you select **Insights**, you see groupings of three types of charts: **Overview**, **Performance** and **Operations**.
+The **Monitoring** section in the Resource menu contains **Insights**. When you select **Insights**, you see groupings of three types of charts: **Overview**, **Performance**, and **Operations**.
 
 :::image type="content" source="./media/cache-how-to-monitor/cache-monitoring-part.png" alt-text="Screenshot showing Monitoring Insights selected in the Resource menu.":::
 
@@ -83,6 +83,7 @@ Configure a storage account to use with to store your metrics. The storage accou
 1. Under the table heading **metric**, check box beside the line items you want to store, such as **AllMetrics**. Specify a **Retention (days)** policy. The maximum days retention you can specify is **365 days**. However, if you want to keep the metrics data forever, set **Retention (days)** to **0**.
 
 1. Select **Save**.
+
    :::image type="content" source="./media/cache-how-to-monitor/cache-diagnostics.png" alt-text="Redis diagnostics":::
 
 >[!NOTE]
@@ -110,8 +111,8 @@ In the Resource menu on the left, select **Metrics** under **Monitoring**. Here,
 When you're seeing the aggregation type:
 
 - **Count** show 2, it indicates the metric received 2 data points for your time granularity (1 minute).
-- **Max** shows the maximum value of a data point in the time granularity,
-- **Min** shows the minimum value of a data point in the time granularity,
+- **Max** shows the maximum value of a data point in the time granularity.
+- **Min** shows the minimum value of a data point in the time granularity.
 - **Average** shows the average value of all data points in the time granularity.
 - **Sum** shows the sum of all data points in the time granularity and might be misleading depending on the specific metric.
 
@@ -135,7 +136,7 @@ In contrast, for clustered caches, we recommend using the metrics with the suffi
   - Depicts the worst-case (99th percentile) latency of server-side commands. Measured by issuing `PING` commands from the load balancer to the Redis server and tracking the time to respond.
   - Useful for tracking the health of your Redis instance. Latency increases if the cache is under heavy load or if there are long running commands that delay the execution of the `PING` command.
   - This metric is only available in Standard and Premium tier caches.
-  - This metric is not available for caches that are affected by Cloud Service retirement. See more information [here](cache-faq.yml#caches-with-a-dependency-on-cloud-services--classic)
+  - This metric isn't available for caches that are affected by Cloud Service retirement. See more information [here](cache-faq.yml#caches-with-a-dependency-on-cloud-services--classic)
 - Cache Latency (preview)
   - The latency of the cache calculated using the internode latency of the cache. This metric is measured in microseconds, and has three dimensions: `Avg`, `Min`, and `Max`. The dimensions represent the average, minimum, and maximum latency of the cache during the specified reporting interval.
 - Cache Misses
@@ -158,17 +159,20 @@ In contrast, for clustered caches, we recommend using the metrics with the suffi
   - The CPU utilization of the Azure Cache for Redis server as a percentage during the specified reporting interval. This value maps to the operating system `\Processor(_Total)\% Processor Time` performance counter. Note: This metric can be noisy due to low priority background security processes running on the node, so we recommend monitoring Server Load metric to track load on a Redis server.
 - Errors
   - Specific failures and performance issues that the cache could be experiencing during a specified reporting interval. This metric has eight dimensions representing different error types, but could add more in the future. The error types represented now are as follows:
-    - **Failover** – when a cache fails over (subordinate promotes to primary)
-    - **Dataloss** – when there's data loss on the cache
-    - **UnresponsiveClients** – when the clients aren't reading data from the server fast enough, and specifically, when the number of bytes in the Redis server output buffer for a client goes over 1,000,000 bytes
-    - **AOF** – when there's an issue related to AOF persistence
-    - **RDB** – when there's an issue related to RDB persistence
-    - **Import** – when there's an issue related to Import RDB
-    - **Export** – when there's an issue related to Export RDB
-    - **AADAuthenticationFailure** (preview) - when there's an authentication failure using Microsoft Entra access token
-    - **AADTokenExpired** (preview) - when a Microsoft Entra access token used for authentication isn't renewed and it expires.
+    - **Failover** – when a cache fails over (subordinate promotes to primary).
+    - **Dataloss** – when there's data loss on the cache.
+    - **UnresponsiveClients** – when the clients aren't reading data from the server fast enough, and specifically, when the number of bytes in the Redis server output buffer for a client goes over 1,000,000 bytes.
+    - **AOF** – when there's an issue related to AOF persistence.
+    - **RDB** – when there's an issue related to RDB persistence.
+    - **Import** – when there's an issue related to Import RDB.
+    - **Export** – when there's an issue related to Export RDB.
+    - **AADAuthenticationFailure** (preview) -  when there's an authentication failure using Microsoft Entra access token. Not recommended. Use **MicrosoftEntraAuthenticationFailure** instead.
+    - **AADTokenExpired** (preview) - when a Microsoft Entra access token used for authentication isn't renewed and it expires. Not recommended. Use **MicrosoftEntraTokenExpired** instead.
+    - **MicrosoftEntraAuthenticationFailure** (preview) - when there's an authentication failure using Microsoft Entra access token.
+    - **MicrosoftEntraTokenExpired** (preview) - when a Microsoft Entra access token used for authentication isn't renewed and it expires.
+
 > [!NOTE]
-> Metrics for errors aren't available when using the Enterprise Tiers.
+> Metrics for errors aren't available when using the Enterprise tiers.
 
 - Evicted Keys
   - The number of items evicted from the cache during the specified reporting interval because of the `maxmemory` limit.
@@ -215,9 +219,9 @@ In contrast, for clustered caches, we recommend using the metrics with the suffi
   - If the geo-replication link is unhealthy for over an hour, [file a support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 - Gets
-  - Sum of the number of get commands run on the cache during the specified reporting interval. This is a combined total of the increases in the `cmdstat` counts reported by the Redis INFO all command for all commands in the _get_ family, including `GET`, `HGET` , `MGET`, and others. This value can differ from the total number of hits and misses because some individual commands access multiple keys. For example: `MGET key1 key2 key3` only increments the number of gets by one but increments the combined number of hits and misses by three.
+  - Sum of the number of get commands run on the cache during the specified reporting interval. The sum is a combined total of the increases in the `cmdstat` counts reported by the Redis INFO all command for all commands in the _get_ family, including `GET`, `HGET` , `MGET`, and others. This value can differ from the total number of hits and misses because some individual commands access multiple keys. For example: `MGET key1 key2 key3` only increments the number of gets by one but increments the combined number of hits and misses by three.
 - Operations per Second
-  - The total number of commands processed per second by the cache server during the specified reporting interval.  This value maps to "instantaneous_ops_per_sec" from the Redis INFO command.
+  - The total number of commands processed per second by the cache server during the specified reporting interval. This value maps to "instantaneous_ops_per_sec" from the Redis INFO command.
 - Server Load
   - The percentage of CPU cycles in which the Redis server is busy processing and _not waiting idle_ for messages. If this counter reaches 100, the Redis server has hit a performance ceiling, and the CPU can't process work any faster. You can expect a large latency effect. If you're seeing a high Redis Server Load, such as 100, because you're sending many expensive commands to the server, then you might see timeout exceptions in the client. In this case, you should consider scaling up, scaling out to a Premium cluster, or partitioning your data into multiple caches. When _Server Load_ is only moderately high, such as 50 to 80 percent, then average latency usually remains low, and timeout exceptions could have other causes than high server latency.
   - The _Server Load_ metric is sensitive to other processes on the machine using the existing CPU cycles that reduce the Redis server's idle time. For example, on the _C1_ tier, background tasks such as virus scanning cause _Server Load_ to spike higher for no obvious reason. We recommended that you pay attention to other metrics such as operations, latency, and CPU, in addition to _Server Load_.
@@ -226,7 +230,7 @@ In contrast, for clustered caches, we recommend using the metrics with the suffi
 > The _Server Load_ metric can present incorrect data for Enterprise and Enterprise Flash tier caches. Sometimes _Server Load_ is represented as being over 100. We are investigating this issue. We recommend using the CPU metric instead in the meantime.
 
 - Sets
-  - Sum of the number of set commands run on the cache during the specified reporting interval. This is a combined total of the increases in the `cmdstat` counts reported by the Redis INFO all command for all commands in the _set_ family, including `SET`, `HSET` , `MSET`, and others.
+  - Sum of the number of set commands run on the cache during the specified reporting interval. This sum is a combined total of the increases in the `cmdstat` counts reported by the Redis INFO all command for all commands in the _set_ family, including `SET`, `HSET` , `MSET`, and others.
 - Total Keys  
   - The maximum number of keys in the cache during the past reporting time period. This number maps to `keyspace` from the Redis INFO command. Because of a limitation in the underlying metrics system for caches with clustering enabled, Total Keys return the maximum number of keys of the shard that had the maximum number of keys during the reporting interval.
 - Total Operations
@@ -266,7 +270,7 @@ The two workbooks provided are:
 - **Azure Cache For Redis Resource Overview** combines many of the most commonly used metrics so that the health and performance of the cache instance can be viewed at a glance.
     :::image type="content" source="media/cache-how-to-monitor/cache-monitoring-resource-overview.png" alt-text="Screenshot of graphs showing a resource overview for the cache.":::
 
-- **Geo-Replication Dashboard** pulls geo-replication health and status metrics from both the geo-primary and geo-secondary cache instances to give a complete picture of geo-replcation health. Using this dashboard is recommended, as some geo-replication metrics are only emitted from either the geo-primary or geo-secondary.
+- **Geo-Replication Dashboard** pulls geo-replication health and status metrics from both the geo-primary and geo-secondary cache instances to give a complete picture of geo-replication health. Using this dashboard is recommended, as some geo-replication metrics are only emitted from either the geo-primary or geo-secondary.
     :::image type="content" source="media/cache-how-to-monitor/cache-monitoring-geo-dashboard.png" alt-text="Screenshot showing the geo-replication dashboard with a geo-primary and geo-secondary cache set.":::
 
 ## Related content

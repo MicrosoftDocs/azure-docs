@@ -116,3 +116,7 @@ SET WebPubSubConnectionString=<your connection string>
    :::image type="content" alt-text="Screenshot of starting the test WebSocket connection and send message." source="media\howto-web-pubsub-tunnel-tool\overview-client.png" :::
 
    :::image type="content" alt-text="Screenshot of showing the traffic inspection." source="media\howto-web-pubsub-tunnel-tool\overview-tunnel.png" :::
+
+## Under the hood
+
+How does the tunnel tool work? Under the hood it starts a tunnel connection to the Web PubSub service. Tunnel connection is a persistent connection (WebSocket) connects to the `/server/tunnel` endpoint, and it is considered as one kind of server connections. You could also use ACL rules in the service to disable such connections from connecting.

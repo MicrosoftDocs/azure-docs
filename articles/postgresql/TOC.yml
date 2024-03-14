@@ -303,6 +303,8 @@
           href: flexible-server/how-to-server-logs-portal.md
         - name: Azure CLI
           href: flexible-server/how-to-server-logs-cli.md
+      - name: Relocate a server 
+        href: ../operational-excellence/relocation-postgresql-flexible-server.md?toc=/azure/postgresql/toc.json
     - name: Encryption with CMK
       items:
       - name: Azure CLI

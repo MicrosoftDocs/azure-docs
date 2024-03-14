@@ -111,12 +111,14 @@ If you're developing a python tool that requires calling external services with 
 
 Create a custom connection that stores all your LLM API KEY or other required credentials.
 
-1. Go to Prompt flow in your workspace, then go to **connections** tab.
-1. Select **Create** and select **Custom**.
-1. In the right panel, you can define your connection name, and you can add multiple *Key-value pairs* to store your credentials and keys by selecting **Add key-value pairs**. 
+1. Go to **AI project settings**, then select **New Connection**.
+1. Select **Custom** service. You can define your connection name, and you can add multiple *Key-value pairs* to store your credentials and keys by selecting **Add key-value pairs**. 
 
     > [!NOTE]
     > Make sure at least one key-value pair is set as secret, otherwise the connection will not be created successfully. You can set one Key-Value pair as secret by **is secret** checked, which will be encrypted and stored in your key value.
+
+    :::image type="content" source="../../media/prompt-flow/create-connection.png" alt-text="Screenshot that shows create connection in AI Studio." lightbox = "../../media/prompt-flow/create-connection.png"::: 
+
 
 1. Add the following custom keys to the connection:
     - `azureml.flow.connection_type`: `Custom`
