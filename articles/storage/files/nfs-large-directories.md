@@ -4,7 +4,7 @@ description: Learn recommendations for working with large directories in NFS Azu
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 03/13/2024
+ms.date: 03/14/2024
 ms.author: kendownie
 ---
 
@@ -28,9 +28,9 @@ The following mount options are specific to enumeration and can reduce latency w
 
 Specifying `actimeo` sets all of `acregmin`, `acregmax`, `acdirmin`, and `acdirmax` to the same value. If `actimeo` isn't specified, the NFS client uses the defaults for each of these options.
 
-We recommend setting `actimeo` higher than the default when working with large directories. Setting a higher value (between 30 and 60 seconds) makes the attributes remain valid for a longer time period in the client's attribute cache, allowing operations to get file attributes from the cache instead of fetching them over the wire. Therefore, higher values can reduce latency in situations where the cached attributes expire while the operation is still running.
+We recommend setting `actimeo` between 30 and 60 seconds when working with large directories. Setting a value in this range makes the attributes remain valid for a longer time period in the client's attribute cache, allowing operations to get file attributes from the cache instead of fetching them over the wire. This can reduce latency in situations where the cached attributes expire while the operation is still running.
 
-The following graph compares the total time it takes to finish different operations with default mount versus setting an `actimeo` value of 30 for a workload that has 1 million files. In our testing, the total completion time reduced by as much as 77% for some operations. All operations were done with [unaliased ls](#use-unaliased-ls).
+The following graph compares the total time it takes to finish different operations with default mount versus setting an `actimeo` value of 30 for a workload that has 1 million files in a single directory. In our testing, the total completion time reduced by as much as 77% for some operations. All operations were done with [unaliased ls](#use-unaliased-ls).
 
 :::image type="content" source="media/nfs-large-directories/default-mount-versus-actimeo.png" alt-text="Graph comparing the time to finish different operations with default mount versus setting an actimeo value of 30 for a workload with 1 million files." border="false":::
 
@@ -43,7 +43,7 @@ The following graph compares the total time it takes to finish different operati
 The way commands and operations are specified can also affect performance. Listing all the files in a large directory using the `ls` command is a good example.
 
 > [!NOTE]
-> Some operations such as recursive `ls`, `find`, and `du` need both file names and file attributes, so they combine directory enumerations (to get the entries) with a stat on each entry (to get the attributes). We suggest using a high value for [actimeo](#actimeo) on mount points where you're likely to run such commands.
+> Some operations such as recursive `ls`, `find`, and `du` need both file names and file attributes, so they combine directory enumerations (to get the entries) with a stat on each entry (to get the attributes). We suggest using a higher value for [actimeo](#actimeo) on mount points where you're likely to run such commands.
 
 ### Use unaliased ls
 
@@ -69,7 +69,7 @@ The following chart compares the time it takes to output results using unaliased
 
 ## File copy and backup operations
 
-When copying data from an NFS file share or backing up from NFS file shares to another location, we recommend using a share snapshot as the source instead of the live file share. Backup applications should run commands on the snapshot directly, because the snapshots aren't affected by any operations on the file share. For more information, see [NFS file share snapshots](storage-files-how-to-mount-nfs-shares.md#nfs-file-share-snapshots).
+When copying data from an NFS file share or backing up from NFS file shares to another location, for optimal performance we recommend using a share snapshot as the source instead of the live file share with active I/O. Backup applications should run commands on the snapshot directly. For more information, see [NFS file share snapshots](storage-files-how-to-mount-nfs-shares.md#nfs-file-share-snapshots).
 
 ## Application-level recommendations
 
