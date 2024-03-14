@@ -21,6 +21,16 @@ The listed features were released in the last three months. For information abou
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
+## April 2024
+
+[Microsoft Sentinel now generally available (GA) in Azure China 21Vianet](#microsoft-sentinel-now-generally-available-ga-in-azure-china-21vianet)
+
+### Microsoft Sentinel now generally available (GA) in Azure China 21Vianet
+
+Microsoft Sentinel is now generally available (GA) in Azure China 21Vianet. <!--what does this actually mean?--> Individual features might still be in public preview, as listed on [Microsoft Sentinel feature support for Azure commercial/other clouds](feature-availability.md).
+
+For more information, see also [Geographical availability and data residency in Microsoft Sentinel](geographical-availability-data-residency.md).
+
 ## March 2024
 
 - [SIEM migration experience (preview)](#siem-migration-experience-preview)
