@@ -85,13 +85,16 @@ You can also use the OpenAI text to speech voices via Azure AI Speech. To learn 
 
 ## Model summary table and region availability
 
+> [!NOTE]
+> This article only covers model/region availability that applies to all Azure OpenAI customers with deployment types of **Standard**. Some select customers have access to model/region combinations that are not listed below. These tables also do not apply to customers using only **Provisioned** deployment types which have their own unique model/region availability matrix. For more information on **Provisioned** deployments refer to our [Provisioned guidance](./provisioned-throughput.md).
+
 ### Standard deployment model availability
 
-[!INCLUDE [Standard Models](includes/model-matrix/standard-models.md)]
+[!INCLUDE [Standard Models](../includes/model-matrix/standard-models.md)]
 
 ### Standard deployment model quota
 
-[!INCLUDE [Quota](includes/model-matrix/quota.md)]
+[!INCLUDE [Quota](../includes/model-matrix/quota.md)]
 
 ### GPT-4 and GPT-4 Turbo Preview models
 
@@ -136,7 +139,7 @@ GPT-4 version 0125-preview is an updated version of the GPT-4 Turbo preview prev
 
 #### Public cloud regions
 
-[!INCLUDE [GPT-4](includes/model-matrix/standard-gpt-4.md)]
+[!INCLUDE [GPT-4](../includes/model-matrix/standard-gpt-4.md)]
 
 #### Azure Government regions
 
@@ -173,7 +176,7 @@ See [model versions](../concepts/model-versions.md) to learn about how Azure Ope
 
 #### Public cloud regions
 
-[!INCLUDE [GPT-35-Turbo](includes/model-matrix/standard-gpt-35-turbo.md)]
+[!INCLUDE [GPT-35-Turbo](../includes/model-matrix/standard-gpt-35-turbo.md)]
 
 **<sup>1</sup>** This model will accept requests > 4,096 tokens. It is not recommended to exceed the 4,096 input token limit as the newer version of the model are capped at 4,096 tokens. If you encounter issues when exceeding 4,096 input tokens with this model this configuration is not officially supported.
 
@@ -196,7 +199,7 @@ These models can only be used with Embedding API requests.
 
 #### Public cloud regions
 
-[!INCLUDE [Embeddings](includes/model-matrix/standard-embeddings.md)]
+[!INCLUDE [Embeddings](../includes/model-matrix/standard-embeddings.md)]
 
 #### Azure Government regions
 
