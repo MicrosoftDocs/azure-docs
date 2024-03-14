@@ -103,7 +103,7 @@ To deny all deployments that do not adhere to deployment safeguards, set the --s
 az aks create --name myAKSCluster --resource-group myResourceGroup --enable-addons azure-policy --safeguards-level Warning
 ```
 
-You can also update an existing cluster to enable deployment safeguards, assuming Azure Policy has already been enabled.
+You can also update an existing cluster to enable deployment safeguards, assuming the Azure Policy add-on has already been enabled for the cluster.
 
 ```azurecli-interactive
 az aks update --name myAKSCluster --resource-group myResourceGroup --safeguards-level Enforcement
