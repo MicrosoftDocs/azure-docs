@@ -21,19 +21,22 @@ The listed features were released in the last three months. For information abou
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-## February 2024
+## April 2024
 
 - [Microsoft Sentinel now generally available (GA) in Azure China 21Vianet](#microsoft-sentinel-now-generally-available-ga-in-azure-china-21vianet)
-- [New Google Pub/Sub-based connector for ingesting Security Command Center findings (Preview)](#new-google-pubsub-based-connector-for-ingesting-security-command-center-findings-preview)
-- [Incident tasks now generally available (GA)](#incident-tasks-now-generally-available-ga)
-- [AWS and GCP data connectors now support Azure Government clouds](#aws-and-gcp-data-connectors-now-support-azure-government-clouds)
-- [Windows DNS Events via AMA connector now generally available (GA)](#windows-dns-events-via-ama-connector-now-generally-available-ga)
 
 ### Microsoft Sentinel now generally available (GA) in Azure China 21Vianet
 
 Microsoft Sentinel is now generally available (GA) in Azure China 21Vianet. <!--what does this actually mean?--> Individual features might still be in public preview, as listed on [Microsoft Sentinel feature support for Azure commercial/other clouds](feature-availability.md).
 
 For more information, see also [Geographical availability and data residency in Microsoft Sentinel](geographical-availability-data-residency.md).
+
+## February 2024
+
+- [New Google Pub/Sub-based connector for ingesting Security Command Center findings (Preview)](#new-google-pubsub-based-connector-for-ingesting-security-command-center-findings-preview)
+- [Incident tasks now generally available (GA)](#incident-tasks-now-generally-available-ga)
+- [AWS and GCP data connectors now support Azure Government clouds](#aws-and-gcp-data-connectors-now-support-azure-government-clouds)
+- [Windows DNS Events via AMA connector now generally available (GA)](#windows-dns-events-via-ama-connector-now-generally-available-ga)
 
 ### New Google Pub/Sub-based connector for ingesting Security Command Center findings (Preview)
 
