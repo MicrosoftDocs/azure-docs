@@ -46,7 +46,7 @@
   - name: NSG diagnostics
     href: network-watcher-network-configuration-diagnostics-overview.md
   - name: Next hop
-    href: network-watcher-next-hop-overview.md
+    href: next-hop-overview.md
   - name: Connection troubleshoot
     href: connection-troubleshoot-overview.md
   - name: VPN troubleshoot
