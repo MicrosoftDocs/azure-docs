@@ -8,43 +8,43 @@ For the steps ahead, select and initialize the template for your desired languag
 
 1. Clone and initialize the template:    
 
-```bash
-azd init --template openai-chat-your-own-data
-```
+    ```bash
+    azd init --template openai-chat-your-own-data
+    ```
 
 2. Navigate into the _dotnet_ directory:
     
-```bash
-cd dotnet
-```
+    ```bash
+    cd dotnet
+    ```
 
 ## [Python](#tab/azd-python)
 
 1. Clone and initialize the template:    
 
-```bash
-azd init --template openai-chat-your-own-data
-```
+    ```bash
+    azd init --template openai-chat-your-own-data
+    ```
 
 2. Navigate into the _python_ directory:
     
-```bash
-cd python
-```
+    ```bash
+    cd python
+    ```
 
 ## [JavaScript](#tab/azd-javascript)
 
 1. Clone and initialize the template:    
 
-```bash
-azd init --template openai-chat-your-own-data
-```
+    ```bash
+    azd init --template openai-chat-your-own-data
+    ```
 
 2. Navigate into the _javascript_ directory:
     
-```bash
-cd javascript
-```
+    ```bash
+    cd javascript
+    ```
 
 ---
     
