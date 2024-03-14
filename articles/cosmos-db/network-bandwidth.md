@@ -58,7 +58,7 @@ Here's a list of commonly asked questions for this service:
 
 - **Do I get any network bandwidth every month at no cost?**
 
-  Yes. Azure Cosmos DB includes 5 GB of network bandwidth per month.  
+  Yes. Azure Cosmos DB includes 5 GB of network bandwidth per month per subscription.  
 
 - **Will the previous meters still be on my bill after Azure Cosmos DB moves to the new meters?**
 
