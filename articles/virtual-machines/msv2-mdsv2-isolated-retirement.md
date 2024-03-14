@@ -31,7 +31,7 @@ From now to March 31, 2027, you can continue to use the VMs listed without disru
 
 #### Migrate workloads to Mv3 Medium Memory Series VMs 
 
-The [Msv3 and Mdsv3 Medium Memory Series](/azure/virtual-machines/msv3-mdsv3-medium-series), powered by 4th generation Intel® Xeon® Scalable processors, are the next generation of memory-optimized VM sizes delivering faster performance, lower total cost of ownership and improved resilience to failures compared to previous generation Mv2 VMs. The Mv3 MM series offers VM sizes of up to 4TB of memory and 4,000 MBps throughout to remote storage and provides up to 25% networking performance improvements over previous generations. 
+The [Msv3 and Mdsv3 Medium Memory Series](/azure/virtual-machines/msv3-mdsv3-medium-series), powered by 4th generation Intel® Xeon® Scalable processors, are the next generation of memory-optimized VM sizes delivers faster performance, lower total cost of ownership and improved resilience to failures compared to previous generation Mv2 VMs. The Mv3 MM series offers VM sizes of up to 4TB of memory and 4,000 MBps throughout to remote storage and provides up to 25% networking performance improvements over previous generations. 
 
 Follow the instructions listed to migrate your [M192i(d)(m)s VM](/azure/virtual-machines/msv2-mdsv2-series) to your chosen [Msv3 and Mdsv3 Medium Memory Series](/azure/virtual-machines/msv3-mdsv3-medium-series) replacement. 
 
@@ -41,7 +41,7 @@ Follow the instructions listed to migrate your [M192i(d)(m)s VM](/azure/virtual-
 
 2. [Get quota for the target VM series](/azure/quotas/per-vm-quota-requests). 
 
-3. Check whether the existing M192i(d)(m)s_v2 VM is part of an [Availability Set](/azure/virtual-machines/availability-set-overview) or [Proximity Placement Group](/azure/virtual-machines/co-location). This can be verified in Azure Portal in the VM properties. 
+3. Check whether the existing M192i(d)(m)s_v2 VM is part of an [Availability Set](/azure/virtual-machines/availability-set-overview) or [Proximity Placement Group](/azure/virtual-machines/co-location), which canverified in Azure Portal in the VM properties. 
 
 4. If the VM is not part of an Availability Set nor a Proximity Placement Group, [it can be resized](/azure/virtual-machines/resize-vm?tabs=portal).   
 
