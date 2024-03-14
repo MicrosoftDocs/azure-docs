@@ -24,12 +24,13 @@ In this article, learn how to create and configure an Azure AI Search service us
 The Management REST API is available in stable and preview versions. Be sure to set a preview API version if you're accessing preview features.
 
 > [!div class="checklist"]
-> * [List search services](#list-search-services)
 > * [Create or update a service](#create-or-update-a-service)
 > * [Enable Azure role-based access control for data plane](#enable-rbac)
 > * [Enforce a customer-managed key policy](#enforce-cmk)
 > * [Disable semantic ranking](#disable-semantic-search)
 > * [Disable workloads that push data to external resources](#disable-external-access)
+> * [Create a query key](#create-query-api-keys)
+> * [Regenerate an admin key](#regenerate-admin-api-keys)
 
 All of the Management REST APIs have examples. If a task isn't covered in this article, see the [API reference](/rest/api/searchmanagement/) instead.
 
