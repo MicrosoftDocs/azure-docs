@@ -2,7 +2,7 @@
 title: Support matrix for Azure VM backups
 description: Get a summary of support settings and limitations for backing up Azure VMs by using the Azure Backup service.
 ms.topic: conceptual
-ms.date: 03/13/2024
+ms.date: 03/14/2024
 ms.custom: references_regions 
 ms.reviewer: sharrai
 ms.service: backup
@@ -85,7 +85,7 @@ For Linux VM backups using the Linux Azure VM agent, Azure Backup supports the l
 - Agent-based VM backup doesn't support 32-bit operating systems.
 - Other bring-your-own Linux distributions might work as long as the [Azure VM agent for Linux](../virtual-machines/extensions/agent-linux.md) is available on the VM, and as long as Python is supported.
 - Agent-based VM backup doesn't support a proxy-configured Linux VM if it doesn't have Python version 2.7 or later installed.
-- Agentless crash-consistent backups are operating system agnostic and can be used to back up VMs whose operating system isn't supported for agent-based backups.
+- [Agentless crash-consistent backups](backup-azure-vms-agentless-multi-disk-crash-consistent-overview.md) are operating system agnostic and can be used to back up VMs whose operating system isn't supported for agent-based backups.
 - Azure Backup doesn't support backing up Network File System (NFS) files that are mounted from storage, or from any other NFS server, to Linux or Windows machines. It backs up only disks that are locally attached to the VM.
 
 ## Support matrix for managed pre and post scripts for Linux databases

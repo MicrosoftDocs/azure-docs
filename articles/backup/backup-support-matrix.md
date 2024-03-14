@@ -2,7 +2,7 @@
 title: Azure Backup support matrix
 description: Provides a summary of support settings and limitations for the Azure Backup service.
 ms.topic: conceptual
-ms.date: 03/13/2024
+ms.date: 03/14/2024
 ms.custom: references_regions 
 ms.service: backup
 author: AbhishekMallick-MS
@@ -77,7 +77,7 @@ The following table lists the supported scenarios for backup of Linux machines:
 **Backup type** | **Linux (Azure endorsed)**
 --- | ---
 **Direct backup of on-premises machine that's running Linux** | Not supported. The MARS agent can be installed only on Windows machines.
-**Using agent extension to back up Azure VM that's running Linux** | Supports file-system, app-consistent backup (using [custom scripts](backup-azure-linux-app-consistent.md)) via an extension. Also supports [crash-consistent agentless backups](backup-azure-vms-agentless-multi-disk-crash-consistent-overview.md).  <br/><br/> File-level recovery.<br/><br/> Restore by creating a VM from a recovery point or disk.
+**Using agent extension to back up Azure VM that's running Linux** or **agentless crash-consistent backup** | Supports file-system, app-consistent backup (using [custom scripts](backup-azure-linux-app-consistent.md)) via an extension. Also supports [crash-consistent agentless backups](backup-azure-vms-agentless-multi-disk-crash-consistent-overview.md).  <br/><br/> File-level recovery.<br/><br/> Restore by creating a VM from a recovery point or disk.
 **Using DPM to back up on-premises machines running Linux** | File-consistent backup of Linux Guest VMs on Hyper-V and VMware.<br/><br/> VM restoration of Hyper-V and VMware Linux Guest VMs.
 **Using MABS to back up on-premises machines running Linux** | File-consistent backup of Linux Guest VMs on Hyper-V and VMware.<br/><br/> VM restoration of Hyper-V and VMware Linux guest VMs.
 **Using MABS or DPM to back up Linux Azure VMs** | Not supported.
