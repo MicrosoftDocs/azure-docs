@@ -22,11 +22,11 @@ You can provide feedback on any issue you find in an Azure Maps map using the fe
 
 1. Navigate to the [Azure Maps feedback tool]. You can access the feedback tool in your **Azure Maps Account** from a link in the **Provide Map Data Feedback** tab of the **Overview** section.
 
-    :::image type="content" source="./media/how-to-use-feedback-tool/provide-map-data-feedback-link.png"  lightbox="./media/how-to-use-feedback-tool/provide-map-data-feedback-link.png" alt-text="A screenshot showing a fictional explanation in the Tell us more about the problem text box.":::
+    :::image type="content" source="./media/how-to-use-feedback-tool/provide-map-data-feedback-link.png"  lightbox="./media/how-to-use-feedback-tool/provide-map-data-feedback-link.png" alt-text="A screenshot showing the Provide Map Data Feedback link in the overview setion of an Azure Maps Account.":::
 
 1. Zoom in to the problem area on the map.
 
-    :::image type="content" source="./media/how-to-use-feedback-tool/zoom-in-problem-area.png" lightbox="./media/how-to-use-feedback-tool/zoom-in-problem-area.png" alt-text="A screenshot showing the items in the select the problem area drop-down list, with The map highlighted.":::
+    :::image type="content" source="./media/how-to-use-feedback-tool/zoom-in-problem-area.png" lightbox="./media/how-to-use-feedback-tool/zoom-in-problem-area.png" alt-text="A screenshot showing the Azure Maps feedback tool.":::
 
 1. Select **The map** in the **Select the problem area** drop-down list.
 
