@@ -8,6 +8,9 @@ ms.date: 02/28/2023
 ms.author: kianaharris
 ---
 
+> [!NOTE]
+> **Action Required:** Azure HPC Cache is retiring. Microsoft announced on 14 March 2024 that Azure HPC Cache will be closing down. The retirement date is 30 September 2025. Please remove all Azure HPC Cache resources by 30 September 2025. Visit https://aka.ms/hpccacheretirement for more information about the retirement.
+> 
 # What is Azure HPC Cache?
 
 Azure HPC Cache speeds access to your data for high-performance computing (HPC) tasks. By caching files in Azure, Azure HPC Cache brings the scalability of cloud computing to your existing workflow. This service can be used even for workflows where your data is stored across WAN links, such as in your local datacenter network-attached storage (NAS) environment.
