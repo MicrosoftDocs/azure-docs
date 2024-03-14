@@ -68,7 +68,7 @@ The following table compares features available in the managed gateway versus th
 | [External Redis-compatible cache](api-management-howto-cache-external.md) | ✔️ | ✔️ | ✔️ |
 | [Virtual network injection](virtual-network-concepts.md)  |  Developer, Premium |  ❌ | ✔️<sup>1,2</sup> |
 | [Inbound private endpoints](private-endpoint.md)  |  Developer, Basic, Standard, Premium |  ❌ | ❌ |
-| [Outbound virtual network integration](integrate-vnet-outbound.md.md)  |  Standard v2 |  ❌ | ❌ |
+| [Outbound virtual network integration](integrate-vnet-outbound.md)  |  Standard v2 |  ❌ | ❌ |
 | [Availability zones](zone-redundancy.md)  |  Premium |  ❌ | ✔️<sup>1</sup> |
 | [Multi-region deployment](api-management-howto-deploy-multi-region.md) |  Premium |  ❌ | ✔️<sup>1</sup> |
 | [CA root certificates](api-management-howto-ca-certificates.md) for certificate validation |  ✔️ |  ❌ | ✔️<sup>3</sup> |  
@@ -99,7 +99,7 @@ The following table compares features available in the managed gateway versus th
 | [Synthetic GraphQL](graphql-apis-overview.md)|  ✔️ |  ✔️<sup>1</sup> | ✔️<sup>1</sup> |
 | [Pass-through WebSocket](websocket-api.md) |  ✔️ |  ❌ | ✔️ |
 | [Pass-through gRPC](grpc-api.md) (preview) |  ❌ |  ❌ | ✔️ |
-| [OData](odata-api.md) (preview) |  ✔️ |  ✔️ | ✔️ |
+| [OData](import-api-from-odata.md.md) (preview) |  ✔️ |  ✔️ | ✔️ |
 | [Azure OpenAI](azure-openai-api-from-specification.md) | ✔️ | ✔️ | ✔️ |
 | [Circuit breaker in backend](backends.md#circuit-breaker-preview) (preview) |  ✔️ |  ❌ | ✔️ |
 | [Load-balanced backend pool](backends.md#load-balanced-pool-preview) (preview) |  ✔️ |  ✔️ | ✔️ |
