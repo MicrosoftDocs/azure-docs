@@ -102,13 +102,13 @@
     - name: Subscription administrator with conditions
       href: role-assignments-portal-subscription-admin.md
     - name: Delegate role assignment management with conditions
-      href: delegate-role-assignments-portal.yml
+      href: delegate-role-assignments-portal.md
     - name: Example conditions
       href: delegate-role-assignments-examples.md
   - name: Add or edit ABAC conditions
     items:
     - name: Portal
-      href: conditions-role-assignments-portal.yml
+      href: conditions-role-assignments-portal.md
     - name: PowerShell
       href: conditions-role-assignments-powershell.md
     - name: CLI

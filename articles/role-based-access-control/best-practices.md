@@ -37,7 +37,7 @@ Some roles are identified as [privileged administrator roles](./role-assignments
 - Remove unnecessary privileged role assignments.
 - Avoid assigning a privileged administrator role when a [job function role](./role-assignments-steps.md#job-function-roles) can be used instead.
 - If you must assign a privileged administrator role, use a narrow scope, such as resource group or resource, instead of a broader scope, such as management group or subscription.
-- If you are assigning a role with permission to create role assignments, consider adding a condition to constrain the role assignment. For more information, see [Delegate Azure role assignment management to others with conditions](delegate-role-assignments-portal.yml).
+- If you are assigning a role with permission to create role assignments, consider adding a condition to constrain the role assignment. For more information, see [Delegate Azure role assignment management to others with conditions](delegate-role-assignments-portal.md).
 
 For more information, see [List or manage privileged administrator role assignments](./role-assignments-list-portal.md#list-or-manage-privileged-administrator-role-assignments).
 

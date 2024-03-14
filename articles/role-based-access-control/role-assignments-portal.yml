@@ -148,7 +148,7 @@ procedureSection:
       - |
         Click **Select roles and principals** to add a condition that constrains the roles and principals this user can assign roles to.
       - |
-        Follow the steps in [Delegate Azure role assignment management to others with conditions](delegate-role-assignments-portal.yml#step-3-add-a-condition).
+        Follow the steps in [Delegate Azure role assignment management to others with conditions](delegate-role-assignments-portal.md#step-3-add-a-condition).
 
         # [Storage condition](#tab/storage-condition)
 
@@ -166,7 +166,7 @@ procedureSection:
 
           ![Screenshot of Add role assignment page with Add condition tab.](./media/shared/condition.png)
       - |
-        1. Follow the steps in [Add or edit Azure role assignment conditions](conditions-role-assignments-portal.yml#step-3-review-basics).
+        1. Follow the steps in [Add or edit Azure role assignment conditions](conditions-role-assignments-portal.md#step-3-review-basics).
 
   - title: |
       Step 6: Assign role

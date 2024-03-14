@@ -107,7 +107,7 @@ Here are the ways that role assignments can be constrained with conditions. You 
 
 ## How to delegate role assignment management with conditions
 
-To delegate role assignment management with conditions, you assign roles as you currently do, but you also add a [condition to the role assignment](delegate-role-assignments-portal.yml).
+To delegate role assignment management with conditions, you assign roles as you currently do, but you also add a [condition to the role assignment](delegate-role-assignments-portal.md).
 
 1. Determine the permissions the delegate needs
 
@@ -134,7 +134,7 @@ To delegate role assignment management with conditions, you assign roles as you 
 
     Choose from a list of condition templates. Select **Configure** to specify the roles, principal types, or principals.
 
-    For more information, see [Delegate Azure role assignment management to others with conditions](delegate-role-assignments-portal.yml).
+    For more information, see [Delegate Azure role assignment management to others with conditions](delegate-role-assignments-portal.md).
     
     :::image type="content" source="./media/shared/condition-templates.png" alt-text="Screenshot of Add role assignment condition with a list of condition templates." lightbox="./media/shared/condition-templates.png":::
 
@@ -273,6 +273,6 @@ Here are the known issues related to delegating role assignment management with 
 
 ## Next steps
 
-- [Delegate Azure role assignment management to others with conditions](delegate-role-assignments-portal.yml)
+- [Delegate Azure role assignment management to others with conditions](delegate-role-assignments-portal.md)
 - [What is Azure attribute-based access control (Azure ABAC)?](conditions-overview.md)
 - [Examples to delegate Azure role assignment management with conditions](delegate-role-assignments-examples.md)
