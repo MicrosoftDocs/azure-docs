@@ -39,7 +39,7 @@ To learn more about Azure Synapse Analytics, see the [Azure Synapse Analytics Ov
 
 ### Customers are unable to monitor their usage of Dedicated SQL Pool by using metrics
 
-An internal upgrade of our telemetry emission logic, which was meant to enhance the performance and reliability of our telemetry data, caused an unexpected issue that affected some customers' ability to monitor their Dedicated SQL Pool, TempDB, and DW Data IO metrics.
+An internal upgrade of our telemetry emission logic, which was meant to enhance the performance and reliability of our telemetry data, caused an unexpected issue that affected some customers' ability to monitor their Dedicated SQL Pool, `tempdb`, and DW Data IO metrics.
 
 **Workaround**: Upon identifying the issue, our team took action to identify the root cause and update the configuration in our system. Customers can fix the issue by pausing and resuming their instance, which will restore the normal state of the instance and the telemetry data flow.
 
