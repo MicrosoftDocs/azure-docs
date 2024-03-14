@@ -64,7 +64,7 @@ App Service Environment v3 runs on the latest [Virtual Machine Scale Sets](../..
 |Feature  |[App Service Environment v1](app-service-app-service-environment-intro.md)  |[App Service Environment v2](intro.md)  |[App Service Environment v3](overview.md)  |
 |---------|---------|---------|---------|
 |IP-based Transport Layer Security (TLS) or Secure Sockets Layer (SSL) binding with your apps     |Yes         |Yes         |No         |
-|Custom domain suffix    |Yes         |Yes (only supported with certain API versions)         |[Yes](how-to-custom-domain-suffix.md)         |
+|Custom domain suffix    |Yes (requires SNI based TLS connection)        |Yes (only supported with certain API versions)         |[Yes](how-to-custom-domain-suffix.md)         |
 |Support for App Service Managed Certificates   |No         |No         |No        |
 
 ### Backup and restore
