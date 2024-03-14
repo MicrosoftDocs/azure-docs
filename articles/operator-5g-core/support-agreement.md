@@ -15,7 +15,7 @@ ms.date: 03/13/2024
 
 This article describes support services that are available from Microsoft for the AO5GC service.
 
-You must have a current Microsoft Unified Support services agreement to support your AO5GC services.  If your Microsoft Unified Support services agreement expires or is terminated, your AO5GC Support SLA  will be terminated on the same date.
+You must have a current Microsoft Unified Support services agreement to support your AO5GC services.  If your Microsoft Unified Support services agreement expires or is terminated, your AO5GC Support Service Level Agreement (SLA)  will be terminated on the same date.
 
 ## Overview of support service and deliverables
 
@@ -33,7 +33,7 @@ Microsoft Support engineers with deep expertise in Azure Operator 5G Core and fa
 
 ### Reactive Problem Resolution Support services
 
-You may request Problem Resolution Support (PRS) for covered AO5GC instances in accordance with the terms and conditions of your existing USSD agreement.
+You may request Problem Resolution Support (PRS) for covered AO5GC instances in accordance with the terms and conditions of your existing Unified Enterprise Support Services Description (USSD) agreement.
 
 The Severity and situation definitions detailed in the USSD will apply.
 
@@ -88,9 +88,9 @@ Microsoft may recommend corrective action to achieve Service Restoration.  If yo
 
 Recommended actions are not limited to, but may include, software restart, reinstall, rollback to a previous version or changes to configuration which may include reversion of recent configuration changes.
 
-In accordance with the Microsoft Security Policy and the DPA, Microsoft personnel do not have standing access to your environment, AO5GC or any other Microsoft services deployed in your Azure tenant.  As such, you are responsible for taking all corrective actions in your environment.
+In accordance with the Microsoft Security Policy and the data processing agreement (DPA), Microsoft personnel do not have standing access to your environment, AO5GC or any other Microsoft services deployed in your Azure tenant.  As such, you are responsible for taking all corrective actions in your environment.
 
-The included Support Service does not include any hardware support service, any RMA service or any provision for sourcing replacement hardware.  It is your responsibility to separately purchase any hardware support service, RMA service or replacement hardware that may be required.
+The included Support Service does not include any hardware support service, any Return Material Authorization (RMA) service or any provision for sourcing replacement hardware.  It is your responsibility to separately purchase any hardware support service, RMA service or replacement hardware that may be required.
 
 Microsoft will provide, on request, a Root Cause Analysis (RCA) for Sev1/A (Critical) and Sev B (Major) incidents related to faults in AO5GC software.  In order to complete the RCA, Microsoft may request that you gather and provide diagnostic data from both Microsoft and any related third-party applications as applicable (such as log files, network traces, or other diagnostic output).
 
@@ -138,7 +138,7 @@ If requested and advised by Microsoft, you should enable Microsoft-provided diag
 
 You will involve and manage the providers of other network components and functions when requested by Microsoft.  If you do not do so, Microsoft is not bound to the Service Restoration, Problem  Resolution and Microsoft will have no liability to you for losses resulting from your failure to do so.
 
-### NFVI issues
+### Network Functions Virtualization Infrastructure (NFVI) issues
 
 AO5GC is a telecommunications workload that enables you to offer services to consumer and enterprise end-users.  These workloads run on an NFVI layer and may depend on other NFVI services.  The NFVI layer may comprise Cloud NFVI functions (for example, running in Azure Public Cloud) and Edge NFVI functions (for example running on Azure Operator Nexus).  The related services that AO5GC services may depend on in either Cloud NFVI or Edge NFVI are documented in the table below, which may be updated from time to time by Microsoft.
 
@@ -157,7 +157,7 @@ Azure Cloud NFVi services include:
 - **Azure Active Directory (AAD)** provides identity and access management for AO5GC users and administrators.
 - **Azure Key Vault** provides a secure and centralized store for managing encryption keys and secrets for AO5GC.
 - **Azure VPN Gateway** is a service virtual network gateway used to send encrypted traffic between an Azure virtual network and on-premises locations.
-- **Azure Bastion** provides secure and seamless remote access via RDP and SSH to access Azures virtual machines (VMs) without any exposure through public IP addresses.
+- **Azure Bastion** provides secure and seamless remote access via Remote Desktop Protocol (RDP) and SSH to access Azures virtual machines (VMs) without any exposure through public IP addresses.
 - **Azure DNS** provides name resolution by using Microsoft Azure infrastructure.
 - **Azure Storage** offers highly available, massively scalable, durable, and secure storage for a variety of data objects in the cloud.
 - **Azure Container Registry** is a private registry service for building, storing, and managing container images and related artifacts.
