@@ -12,9 +12,9 @@ ms.date: 02/27/2024
 
 # Configure Microsoft Intune Endpoint Privilege Management for dev boxes 
 
-In this article, you learn how to configure Microsoft Intune Endpoint Privilege Management for dev boxes so that dev box users don't need local administrative privileges.
+In this article, you learn how to configure Microsoft Intune Endpoint Privilege Management (EPM) for dev boxes so that dev box users don't need local administrative privileges.
 
-Microsoft Intune Endpoint Privilege Management (EPM) allows your organization’s users to run as a standard user (without administrator rights) and complete tasks that require elevated privileges. Tasks that commonly require administrative privileges are application installs (like Microsoft 365 Applications), updating device drivers, and running certain Windows diagnostics.
+Microsoft Intune Endpoint Privilege Management allows your organization’s users to run as a standard user (without administrator rights) and complete tasks that require elevated privileges. Tasks that commonly require administrative privileges are application installs (like Microsoft 365 Applications), updating device drivers, and running certain Windows diagnostics.
 
 Endpoint Privilege Management is built into Microsoft Intune, which means that all configuration is completed within the Microsoft Intune Admin Center. To get started with EPM, use the high-level process outlined as follows:
 
