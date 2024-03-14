@@ -9,7 +9,7 @@ ms.topic:    conceptual
 ms.date:     01/29/2024
 ---
 
-# Easv6 and Eadsv6-series
+# Easv6 and Eadsv6-series (Preview)
 
 **Applies to:** ✔️ Linux VMs ✔️ Windows VMs ✔️ Flexible scale sets ✔️ Uniform scale sets 
 
