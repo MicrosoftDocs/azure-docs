@@ -42,7 +42,7 @@ If you try to enable a storage pool type that's already enabled, you'll get the 
 
 When disabling a storage pool type via `az aks update --disable-azure-container-storage <storage-pool-type>` or uninstalling Azure Container Storage via `az aks update --disable-azure-container-storage all`, if there's an existing storage pool corresponding to that type, you'll get the following message:
 
-*Disabling Azure Container Storage for storagepool type <storage-pool-type> will forcefully delete all the storagepools of the same type and affect the applications using these storagepools. Forceful deletion of storagepools can also lead to leaking of storage resources which are being consumed. Do you want to validate whether any of the storagepools of type <storage-pool-type> are being used before disabling Azure Container Storage? (Y/n)*
+*Disabling Azure Container Storage for storagepool type `<storage-pool-type>` will forcefully delete all the storagepools of the same type and affect the applications using these storagepools. Forceful deletion of storagepools can also lead to leaking of storage resources which are being consumed. Do you want to validate whether any of the storagepools of type `<storage-pool-type>` are being used before disabling Azure Container Storage? (Y/n)*
 
 If you select Y, an automatic validation will run to ensure that there are no persistent volumes created from the storage pool. Selecting n will bypass this validation and disable the storage pool type, which will delete any existing storage pools and potentially affect your application.
 
