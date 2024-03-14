@@ -85,15 +85,11 @@ Select **All transactions** from the left side of the page.
 
 Search for *pending*. Use the **Timespan** filter to view pending charges for current or last month.
 
-<!-- ![Screenshot that shows the pending transactions list](./media/billing-mpa-understand-your-bill/mpa-billing-profile-pending-transactions.png) -->
-
 ### View pending charges by customer
 
 In Cost Management + Billing, select a billing profile. Depending on your access, you may have to select a billing account. From the billing account, select **Billing profiles** then select a billing profile.
 
 Select **Customers** on the left side of the page.
-
-<!-- ![screenshot of billing profile customers list](./media/billing-mpa-understand-your-bill/mpa-billing-profile-customers.png) -->
 
 The Customers page displays the current and last month's charges for each customer associated with the billing profile. The month-to-date charges are the pending charges for the current month and are billed when the invoice is generated for the month. If the invoice for last month is still not generated, then last month's charges are also pending.
 
@@ -102,8 +98,6 @@ The Customers page displays the current and last month's charges for each custom
 In Cost Management + Billing, select a billing profile. Depending on your access, you may have to select a billing account. From the billing account, select **Billing profiles** then select a billing profile.
 
 Select **Azure subscriptions** on the left side of the page. The Azure subscriptions page displays the current and last month's charges for each subscription in the billing profile. The month-to-date charges are the pending charges for the current month and are billed when the invoice is generated for the month. If the invoice for last month is still not generated, then last month's charges are also pending.
-
-<!--     ![Screenshot that shows the Azure subscriptions list for MPA billing profile](./media/billing-mpa-understand-your-bill/mpa-billing-profile-subscriptions-list.png) -->
 
 ## Analyze your Azure usage charges
 
