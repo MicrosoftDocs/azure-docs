@@ -1,5 +1,5 @@
 ### YamlMime:HowTo
----
+
 metadata:
   title: Authenticate and authorize Static Web Apps
   description: Learn to use different authorization providers to secure your Azure Static Web Apps.
