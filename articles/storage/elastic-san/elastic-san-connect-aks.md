@@ -81,7 +81,7 @@ Use the following example to create a storageclass.yml file. This file defines y
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: sanVolume
+  name: san-volume
 provisioner: manual
 ```
 
