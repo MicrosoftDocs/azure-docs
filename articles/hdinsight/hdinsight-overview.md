@@ -55,7 +55,7 @@ Extract, transform, and load (ETL) is a process where unstructured or structured
 
 You can use HDInsight to perform interactive queries at petabyte scales over structured or unstructured data in any format. You can also build models connecting them to BI tools.
 
-:::image type="content" source="./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-data-warehouse.png" alt-text="HDInsight architecture: Data warehousing":::
+:::image type="content" source="./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-data-warehouse.png" alt-text="HDInsight architecture: Data warehousing.":::
 
 ### Internet of Things (IoT)
 
@@ -67,7 +67,7 @@ You can use HDInsight to process streaming data that is received in real time fr
 
 You can use HDInsight to extend your existing on-premises [big data](#what-is-big-data) infrastructure to Azure to apply the advanced analytics capabilities of the cloud.
 
-:::image type="content" source="./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-hybrid.png" alt-text="HDInsight architecture: Hybrid":::
+:::image type="content" source="./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-hybrid.png" alt-text="HDInsight architecture: Hybrid.":::
 
 ## Open-source components in HDInsight
 
