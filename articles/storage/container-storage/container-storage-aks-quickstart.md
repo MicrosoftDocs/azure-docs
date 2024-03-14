@@ -4,7 +4,7 @@ description: Create a Linux-based Azure Kubernetes Service (AKS) cluster, instal
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: quickstart
-ms.date: 03/12/2024
+ms.date: 03/14/2024
 ms.author: kendownie
 ms.custom:
   - devx-track-azurecli
@@ -41,15 +41,6 @@ Set your Azure subscription context using the `az account set` command. You can 
 
 ```azurecli-interactive
 az account set --subscription <subscription-id>
-```
-
-## Register resource providers
-
-The `Microsoft.ContainerService` and `Microsoft.KubernetesConfiguration` resource providers must be registered on your Azure subscription. To register these providers, run the following commands:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService --wait 
-az provider register --namespace Microsoft.KubernetesConfiguration --wait 
 ```
 
 ## Create a resource group
