@@ -375,7 +375,7 @@
               href: ../how-to-setup-managed-identity.md
         - name: Monitor
           items:
-            - name: Monitor Azure Cosmos DB
+            - name: Monitor
               href: ../monitor.md
             - name: Use Azure monitor metrics
               items:
