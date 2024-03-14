@@ -104,10 +104,10 @@ Client Life Cycle events allow applications to react to events about the client 
 
 Use the following articles to learn more about the MQTT broker and its main concepts.
 
-### Quick Start
-
 - [Publish and subscribe to MQTT messages](mqtt-publish-and-subscribe-portal.md)
-- [Route MQTT messages to Event Hubs](mqtt-routing-to-event-hubs-portal.md)
+- [Tutorial: Route MQTT messages to Azure Event Hubs using namespace topics](mqtt-routing-to-event-hubs-portal-namespace-topics.md)
+- [Tutorial: Route MQTT messages to Azure Functions using custom topics](mqtt-routing-to-azure-fucntions-portal.md)
+
 
 ### Concepts
 
