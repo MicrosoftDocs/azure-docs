@@ -10,9 +10,7 @@ ms.subservice: mqtt
 
 # Tutorial: Route MQTT messages in Azure Event Grid to Azure Functions using custom topics - Azure portal
 
-In this tutorial, you learn how to route MQTT messages received by an Azure Event Grid namespace to an Azure function via an Event Grid custom topic. 
-
-In this tutorial, you perform the following tasks:
+In this tutorial, you learn how to route MQTT messages received by an Azure Event Grid namespace to an Azure function via an Event Grid custom topic by following these steps:
 
 > [!div class="checklist"]
 > * Create an Azure function using Event Grid trigger
@@ -26,15 +24,50 @@ If you don't have an Azure subscription, you can sign up for a [free trial](http
 
 ## Create an Azure function using Event Grid trigger
 
-Follow instructions from [Create an Azure function using Visual Studio Code](../azure-functions/functions-develop-vs-code.md), but use the **Azure Event Grid Trigger** instead of using the **HTTP Trigger**. 
+Follow instructions from [Create an Azure function using Visual Studio Code](../azure-functions/functions-develop-vs-code.md), but use the **Azure Event Grid Trigger** instead of using the **HTTP Trigger**. You should see code similar to the following example:
+
+```csharp
+using System;
+using Azure.Messaging;
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Extensions.Logging;
+
+namespace Company.Function
+{
+    public class MyEventGridTriggerFunc
+    {
+        private readonly ILogger<MyEventGridTriggerFunc> _logger;
+
+        public MyEventGridTriggerFunc(ILogger<MyEventGridTriggerFunc> logger)
+        {
+            _logger = logger;
+        }
+
+        [Function(nameof(MyEventGridTriggerFunc))]
+        public void Run([EventGridTrigger] CloudEvent cloudEvent)
+        {
+            _logger.LogInformation("Event type: {type}, Event subject: {subject}", cloudEvent.Type, cloudEvent.Subject);
+        }
+    }
+}
+```
+
+You use this Azure function as an event handler for a topic's subscription later in this tutorial. 
+
+> [!NOTE]
+> - Create all resources in the same region. 
+> - This tutorial has been tested with an Azure function that uses .NET 8.0 (isolated) runtime stack.
 
 ## Create an Event Grid topic (custom topic)
 Create an Event Grid topic. See [Create a custom topic using the portal](/azure/event-grid/custom-event-quickstart-portal). When you create the Event Grid topic, on the **Advanced** tab, for **Event Schema**, select **Cloud Event Schema v1.0**.
 
 :::image type="content" source="./media/mqtt-routing-to-azure-functions-portal/create-topic-cloud-event-schema.png" alt-text="Screenshot that shows the Advanced page of the Create Topic wizard.":::
 
+> [!NOTE]
+> Use **Cloud event schema** everywhere in this tutorial.  
 
 ## Add a subscription to the topic using the function
+In this step, you create a subscription to the Event Grid topic using the Azure function you created earlier.  
 
 1. On the Event Grid topic page, select **Subscriptions** on the left navigation bar. 
 
@@ -62,7 +95,7 @@ Create an Event Grid topic. See [Create a custom topic using the portal](/azure/
 
 Follow instructions from [Quickstart: Publish and subscribe to MQTT messages using an Event Grid namespace with Azure portal](mqtt-publish-and-subscribe-portal.md) to: 
 
-1. Create an Event Grid namespace.1. 
+1. Create an Event Grid namespace. 
 1. Create two clients.
 1. Create a topic space.
 1. Create publisher and subscriber permission bindings. 
@@ -70,7 +103,7 @@ Follow instructions from [Quickstart: Publish and subscribe to MQTT messages usi
 
 ## Enable managed identity for the namespace
 
-In this section, you enable system-assigned managed identity for the Event Grid namespace, and then give the identity **send** access to the Event Grid custom topic you created earlier. You add the managed identity to the **Event Grid Data Sender** role on the custom topic. 
+In this section, you enable system-assigned managed identity for the Event Grid namespace. Then, grant identity the **send** permission to the Event Grid custom topic you created earlier so that it can route message to the custom topic. You do so by adding the managed identity to the **Event Grid Data Sender** role on the custom topic. 
 
 1. On the **Event Grid Namespace** page, select **Identity** on the left navigation menu. 
 
@@ -97,6 +130,7 @@ In this section, you enable system-assigned managed identity for the Event Grid 
 1. On the **Review + assign** page, review settings, and then select **Review + assign** at the bottom of the page. 
 
 ## Configure routing messages to Azure function via custom topic
+In this step, you configure routing for the Event Grid namespace so that the messages it receives are routed to the custom topic you created. 
 
 1. On the **Event Grid Namespace** page, select **Routing** on the left navigation bar. 
 1. On the **Routing** page, select **Enable routing**.
@@ -110,7 +144,7 @@ In this section, you enable system-assigned managed identity for the Event Grid 
 ## Send test MQTT messages using MQTTX
 Send test MQTT messages to the namespace and confirm that the function receives them.
 
-Follow instructions in the [Publish, subscribe messages using MQTTX app](mqtt-publish-and-subscribe-portal.md#publishsubscribe-using-mqttx-app) section to send a few test messages to the Event Grid namespace.
+Follow instructions from the [Publish, subscribe messages using MQTTX app](mqtt-publish-and-subscribe-portal.md#publishsubscribe-using-mqttx-app) article to send a few test messages to the Event Grid namespace.
 
 Here's the flow of the events or messages:
 
