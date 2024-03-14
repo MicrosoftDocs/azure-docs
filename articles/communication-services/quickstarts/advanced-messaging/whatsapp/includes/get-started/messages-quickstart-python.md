@@ -83,7 +83,7 @@ Then Get WhatsChannelId from Azure portal as given in screenshot:
     phone_number = os.getenv("RECIPIENT_PHONE_NUMBER")
     channel_id = os.getenv("WHATSAPP_CHANNEL_ID")
     
-    def send_template_send_message(self):
+    def send_template_message(self):
         from azure.communication.messages import NotificationMessagesClient
         from azure.communication.messages.models import ( TemplateNotificationContent , MessageTemplate )
 
@@ -124,7 +124,7 @@ Messages SDK allows Contoso to send templated WhatsApp messages to WhatsApp user
 
 if __name__ == '__main__':
     messages = MessagesQuickstart()
-    messages.send_template_send_message()
+    messages.send_template_message()
 ```
 
 ### Run the code for send template
@@ -149,9 +149,9 @@ Messages SDK allows Contoso to send text WhatsApp messages, which initiated What
 - Message body to be sent
 
 ```python
-    def send_text_send_message(self):
+    def send_text_message(self):
         from azure.communication.messages import NotificationMessagesClient
-        from azure.communication.messages.models import ( TextNotificationContent )
+        from azure.communication.messages.models import ( TextNotificationContent)
 
         # Create NotificationMessagesClient Client
         messaging_client = NotificationMessagesClient.from_connection_string(self.connection_string)
@@ -174,10 +174,59 @@ Messages SDK allows Contoso to send text WhatsApp messages, which initiated What
 # Update the main function to run send_text_send_message()
 if __name__ == '__main__':
     messages = MessagesQuickstart()
-    messages.send_text_send_message()
+    messages.send_text_message()
 ```
 
 ### Run the code for send text message
+
+To run the code, make sure you are on the directory where your `messages-quickstart.py` file is.
+
+```console
+python messages-quickstart.py
+```
+
+```console
+Output:
+Azure Communication Services - Advanced Messages Quickstart
+Message with message id <GUID> was successful sent to <TOPhonenumber>
+```
+### Send WhatsApp messages with Image
+
+Messages SDK allows Contoso to send Image WhatsApp messages to WhatsApp users. To send Image embedded messages below details are required:
+- WhatsApp Channel ID
+- Recipient Phone Number in E16 format
+- MediaUri of the Image
+
+```python
+    def send_image_message(self):
+        from azure.communication.messages import NotificationMessagesClient
+        from azure.communication.messages.models import ( ImageNotificationContent)
+
+        # Create NotificationMessagesClient Client
+        messaging_client = NotificationMessagesClient.from_connection_string(self.connection_string)
+        input_media_uri: str = "https://aka.ms/acsicon1"
+        image_message_options = ImageNotificationContent(
+            channel_registration_id=self.channel_id,
+            to=[self.phone_number],
+            media_uri=input_media_uri
+        )
+
+        # calling send() with whatsapp image message
+        message_responses = messaging_client.send(image_message_options)
+        response = message_responses.receipts[0]
+        
+        if (response is not None):
+            print("WhatsApp Image containing Message with message id {} was successfully sent to {}"
+            .format(response.message_id, response.to))
+        else:
+            print("Message failed to send")
+
+if __name__ == '__main__':
+    messages = MessagesQuickstart()
+    messages.send_image_message()
+```
+
+### Run the code for send template
 
 To run the code, make sure you are on the directory where your `messages-quickstart.py` file is.
 
@@ -204,7 +253,7 @@ class MessagesQuickstart(object):
     phone_number = os.getenv("RECIPIENT_PHONE_NUMBER")
     channel_id = os.getenv("WHATSAPP_CHANNEL_ID")
 
-    def send_template_send_message(self):
+    def send_template_message(self):
         from azure.communication.messages import NotificationMessagesClient
         from azure.communication.messages.models import ( TemplateNotificationContent , MessageTemplate )
 
@@ -229,7 +278,7 @@ class MessagesQuickstart(object):
         else:
             print("Message failed to send")
 
-    def send_text_send_message(self):
+    def send_text_message(self):
         from azure.communication.messages import NotificationMessagesClient
         from azure.communication.messages.models import ( TextNotificationContent )
 
@@ -252,11 +301,34 @@ class MessagesQuickstart(object):
         else:
             print("Message failed to send")
 
+    def send_image_message(self):
+        from azure.communication.messages import NotificationMessagesClient
+        from azure.communication.messages.models import ( ImageNotificationContent)
+
+        # Create NotificationMessagesClient Client
+        messaging_client = NotificationMessagesClient.from_connection_string(self.connection_string)
+        input_media_uri: str = "https://aka.ms/acsicon1"
+        image_message_options = ImageNotificationContent(
+            channel_registration_id=self.channel_id,
+            to=[self.phone_number],
+            media_uri=input_media_uri
+        )
+
+        # calling send() with whatsapp image message
+        message_responses = messaging_client.send(image_message_options)
+        response = message_responses.receipts[0]
+        
+        if (response is not None):
+            print("WhatsApp Image containing Message with message id {} was successfully sent to {}"
+            .format(response.message_id, response.to))
+        else:
+            print("Message failed to send")
 
 if __name__ == '__main__':
     messages = MessagesQuickstart()
-    messages.send_template_send_message()
-    messages.send_text_send_message()
+    messages.send_template_message()
+    messages.send_text_message()
+    messages.send_image_message()
 ```
 
 > [!NOTE]
