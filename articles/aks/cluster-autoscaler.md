@@ -258,7 +258,7 @@ You can retrieve logs and status updates from the cluster autoscaler to help dia
     kubectl get configmap -n kube-system cluster-autoscaler-status -o yaml
     ```
 #### Metrics
-1. You can enable [control plane metrics (Preview)](https://learn.microsoft.com/azure/aks/monitor-control-plane-metrics) to see the logs and operations from the cluster autoscaler with the Azure Monitor managed service for Prometheus add-on
+1. You can enable [control plane metrics (Preview)](./monitor-control-plane-metrics.md) to see the logs and operations from the cluster autoscaler with the [Azure Monitor managed service for Prometheus add-on](/articles/azure-monitor/essentials/prometheus-metrics-overview.md)
 
 
 ### [Azure portal](#tab/azure-portal)
