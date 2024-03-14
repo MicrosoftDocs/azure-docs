@@ -58,6 +58,9 @@ $adminPassword = <PASSWORD> | ConvertTo-SecureString -AsPlainText -Force
 $vmCred = New-Object System.Management.Automation.PSCredential($adminUsername, $adminPassword)
 New-AzVM -Name MyVm -Credential $vmCred -SecurityType Standard
 ```
+### Can I disable Secure Boot option for Trusted Launch VMs?
+
+Secure Boot is NOT enabled by default but it is recommended to enable it if you are not using custom unsigned kernel or drivers. Once a VM is created with Trusted Launch and Secure Boot option enabled, you can go to VM, under Settings tab, go to Configurations and unselect 'Enable secure boot' option. 
 
 ---
 
