@@ -25,14 +25,15 @@ In this quickstart, you create a network security perimeter for an Azure key vau
 ```azurepowershell
 Install-Module -Name Az.Tools.Installer -Repository PSGallery
 ```
-[!INCLUDE [azure-powershell-requirements-no-header](../../includes/azure-powershell-requirements-no-header.md)]
 
 - Use `Az.Tools.Installer` to install the preview build of the `Az.Network`:
 
     ```azurepowershell-interactive
-    Install-Module -Path https://azposhpreview.blob.core.windows.net/public/Az.Network.5.6.1-preview.nupkg
+    Install-Module -Name Az.Tools.Installer -Repository PSGallery -Force -AllowPrerelease
+    Install-AzModule -Name Az.Network -AllowPrerelease -Force
+    Install-AzModule -Path https://azposhpreview.blob.core.windows.net/public/Az.Network.5.6.1-preview.nupkg
     ```
-
+[!INCLUDE [azure-powershell-requirements-no-header](../../includes/azure-powershell-requirements-no-header.md)]
 ## Sign in to your Azure account and select your subscription
 
 To begin your configuration, sign in to your Azure account:
@@ -69,7 +70,7 @@ $keyVaultParams = @{
     Location = $rgParams.Location
 }
 $keyVault = New-AzKeyVault @keyVaultParams
-$keyVaultId = $keyVault.Id
+
 ```
 
 ## Create a network security perimeter
@@ -110,7 +111,6 @@ In this step, you create a new profile and associate the PaaS resource, the Azur
         }
     
     $demoProfileNSP=New-AzNetworkSecurityPerimeterProfile @nspprofile
-    $nspprofileId = $demoProfileNSP.Id
 ```
 
 2. Associate the Azure Key Vault (PaaS resource) with the network security perimeter profile with the following command: 
@@ -123,10 +123,10 @@ In this step, you create a new profile and associate the PaaS resource, the Azur
         SecurityPerimeterName = $nsp.name 
         AccessMode = 'Learning'  
         ProfileId = $demoProfileNSP.Id 
-        PrivateLinkResourceId = $keyVaultId 
+        PrivateLinkResourceId = $keyVault.ResourceID
         }
 
-New-AzNetworkSecurityPerimeterAssociation @nspassociation
+New-AzNetworkSecurityPerimeterAssociation @nspassociation | format-list
 ```
 
 3. Update association by changing the access mode to `enforced` with the `Update-AzNetworkSecurityPerimeterAssociation` command as follows:
@@ -135,7 +135,7 @@ Update association. We will change the access mode to “Enforced” in this exa
 
 ```azurepowershell-interactive
 
-Update-AzNetworkSecurityPerimeterAssociation -Name $nspassociation.AssociationName -ResourceGroupName $rg.ResourceGroupName -SecurityPerimeterName $nsp.Name -AccessMode 'Enforced' | format-list
+Update-AzNetworkSecurityPerimeterAssociation -Name $nspassociation.AssociationName -ResourceGroupName $rgParams.Name -SecurityPerimeterName $nsp.Name -AccessMode 'Enforced' | format-list
 ``` 
 
 ## Create and update network security perimeter access rules
@@ -148,20 +148,20 @@ Create an inbound access rule for the profile created.
 $inboundrule = @{ 
     Name = 'nsp-inboundRule' 
     ProfileName = $nspprofile.Name  
-    ResourceGroupName = $rg.ResourceGroupName  
+    ResourceGroupName = $rgParams.Name  
     SecurityPerimeterName = $nsp.Name  
     Direction = 'Inbound'  
     AddressPrefix = "10.1.0.0/24" 
     } 
 
-    New-AzNetworkSecurityPerimeterAccessRule @inboundrule
+    New-AzNetworkSecurityPerimeterAccessRule @inboundrule | format-list
 ```
 
 
 Update an inbound access rule for the profile created.
     
 ```azurepowershell-interactive
-Update-AzNetworkSecurityPerimeterAccessRule -Name $inboundrule.Name -ProfileName $nspprofile.Name -ResourceGroupName $rg.ResourceGroupName -SecurityPerimeterName $nsp.Name -AddressPrefix @('10.1.0.0/24','10.2.0.0/24') | format-list
+Update-AzNetworkSecurityPerimeterAccessRule -Name $inboundrule.Name -ProfileName $nspprofile.Name -ResourceGroupName $rgParams.Name -SecurityPerimeterName $nsp.Name -AddressPrefix @('10.1.0.0/24','10.2.0.0/24') | format-list
 ```
 
 ## Delete a network security perimeter 
@@ -178,9 +178,9 @@ $nsp= Get-AzNetworkSecurityPerimeter -Name demo-nsp -ResourceGroupName $rg.Resou
 Delete network security perimeter. 
 
 ```azurepowershell-interactive
-Remove-AzNetworkSecurityPerimeterAssociation -Name nsp-association -ResourceGroupName $rg.ResourceGroupName -SecurityPerimeterName $nsp.Name
+Remove-AzNetworkSecurityPerimeterAssociation -Name nsp-association -ResourceGroupName $rgParams.Name -SecurityPerimeterName $nsp.Name
 
-Remove-AzNetworkSecurityPerimeter -Name $nsp.Name -ResourceGroupName $rg.Name
+Remove-AzNetworkSecurityPerimeter -Name $nsp.Name -ResourceGroupName $rgParams.Name
 
 
 Remove-AzResourceGroup -Name "test-rg" -Force
