@@ -16,9 +16,9 @@ ms.custom: subject-rbac-steps
 
 In this tutorial, you create a lab for classroom training with Azure Lab Services. Azure Lab Services enables you to create labs, whose infrastructure is managed by Azure. Learn how to set up a customized lab template and invite students to register for their lab virtual machine (VM).
 
-:::image type="content" source="./media/tutorial-setup-lab/lab-services-process-setup-lab.png" alt-text="Diagram that shows the steps involved in creating a lab with Azure Lab Services.":::
+:::image type="content" source="./media/tutorial-setup-lab/lab-services-process-setup-lab.png" alt-text="Diagram that shows the steps involved in creating a lab with Azure Lab Services." lightbox="./media/tutorial-setup-lab/lab-services-process-setup-lab.png":::
 
-You need the Lab Creator Azure RBAC role to create labs for a lab plan. Depending on your organization, the responsibilities for creating lab plans and labs might be assigned to different people or teams. Learn more about [mapping permissions across your organization](./classroom-labs-scenarios.md#mapping-organizational-roles-to-permissions) lightbox="./media/tutorial-setup-lab/lab-services-process-setup-lab.png".
+You need the Lab Creator Azure RBAC role to create labs for a lab plan. Depending on your organization, the responsibilities for creating lab plans and labs might be assigned to different people or teams. Learn more about [mapping permissions across your organization](./classroom-labs-scenarios.md#mapping-organizational-roles-to-permissions).
 
 After you complete this tutorial, lab users can register for the lab using their email, and connect to their lab virtual machine with remote desktop (RDP).
 
@@ -172,8 +172,8 @@ By default, Azure Lab Services restricts access to a lab. Only listed users can 
 
 To allow access for users to a lab, perform the following steps:
 
-1. Add the users to the lab
-1. Invite the users to lab by providing them with a registration link
+1. Add the users to the lab.
+1. Invite the users to lab by providing them with a registration link.
 
 ### Add users to the lab
 
