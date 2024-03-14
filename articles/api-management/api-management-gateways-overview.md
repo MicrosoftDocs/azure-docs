@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 11/6/2023
+ms.date: 03/13/2024
 ms.author: danlep
 ---
 
@@ -19,8 +19,6 @@ Related information:
 * For an overview of API Management scenarios, components, and concepts, see [What is Azure API Management?](api-management-key-concepts.md)
 
 * For more information about the API Management service tiers and features, see [Feature-based comparison of the Azure API Management tiers](api-management-features.md).
-
-[!INCLUDE [api-management-v2-tier-preview](../../includes/api-management-v2-tier-preview.md)]
 
 ## Role of the gateway
 
@@ -54,7 +52,7 @@ API Management offers both managed and self-hosted gateways:
 
 ## Feature comparison: Managed versus self-hosted gateways
 
-The following table compares features available in the managed gateway versus the features in the self-hosted gateway. Differences are also shown between the managed gateway for dedicated service tiers (Developer, Basic, Standard, Premium) and for the Consumption tier.
+The following table compares features available in the managed gateway versus the features in the self-hosted gateway. Differences are also shown between the managed gateway for dedicated service tiers (Developer, Basic, Basic v2, Standard, Standard v2, Premium) and for the Consumption tier.
 
 > [!NOTE]
 > * Some features of managed and self-hosted gateways are supported only in certain [service tiers](api-management-features.md) or with certain [deployment environments](self-hosted-gateway-overview.md#packaging) for self-hosted gateways.
@@ -69,11 +67,12 @@ The following table compares features available in the managed gateway versus th
 | [Built-in cache](api-management-howto-cache.md) | ✔️ |  ❌ | ❌ |
 | [External Redis-compatible cache](api-management-howto-cache-external.md) | ✔️ | ✔️ | ✔️ |
 | [Virtual network injection](virtual-network-concepts.md)  |  Developer, Premium |  ❌ | ✔️<sup>1,2</sup> |
-| [Private endpoints](private-endpoint.md)  |  ✔️ |  ❌ | ❌ |
+| [Inbound private endpoints](private-endpoint.md)  |  Developer, Basic, Standard, Premium |  ❌ | ❌ |
+| [Outbound virtual network integration](integrate-vnet-outbound.md.md)  |  Standard v2 |  ❌ | ❌ |
 | [Availability zones](zone-redundancy.md)  |  Premium |  ❌ | ✔️<sup>1</sup> |
 | [Multi-region deployment](api-management-howto-deploy-multi-region.md) |  Premium |  ❌ | ✔️<sup>1</sup> |
 | [CA root certificates](api-management-howto-ca-certificates.md) for certificate validation |  ✔️ |  ❌ | ✔️<sup>3</sup> |  
-| [Managed domain certificates](configure-custom-domain.md?tabs=managed#domain-certificate-options) |  ✔️ | ✔️ | ❌ |
+| [Managed domain certificates](configure-custom-domain.md?tabs=managed#domain-certificate-options) |  Developer, Basic, Standard, Premium | ✔️ | ❌ |
 | [TLS settings](api-management-howto-manage-protocols-ciphers.md) |  ✔️ | ✔️ | ✔️ |
 | **HTTP/2** (Client-to-gateway) | ✔️<sup>4</sup> | ❌ | ✔️ |
 | **HTTP/2** (Gateway-to-backend) |  ❌ | ❌ | ✔️ |
@@ -99,10 +98,11 @@ The following table compares features available in the managed gateway versus th
 | [Pass-through GraphQL](graphql-apis-overview.md) |  ✔️ | ✔️ | ✔️ |
 | [Synthetic GraphQL](graphql-apis-overview.md)|  ✔️ |  ✔️<sup>1</sup> | ✔️<sup>1</sup> |
 | [Pass-through WebSocket](websocket-api.md) |  ✔️ |  ❌ | ✔️ |
-| [Pass-through gRPC](grpc-api.md) |  ❌ |  ❌ | ✔️ |
+| [Pass-through gRPC](grpc-api.md) (preview) |  ❌ |  ❌ | ✔️ |
+| [OData](odata-api.md) (preview) |  ✔️ |  ✔️ | ✔️ |
 | [Azure OpenAI](azure-openai-api-from-specification.md) | ✔️ | ✔️ | ✔️ |
-| [Circuit breaker in backend](backends.md#circuit-breaker-preview) |  ✔️ |  ❌ | ✔️ |
-| [Load-balanced backend pool](backends.md#load-balanced-pool-preview) |  ✔️ |  ✔️ | ✔️ |
+| [Circuit breaker in backend](backends.md#circuit-breaker-preview) (preview) |  ✔️ |  ❌ | ✔️ |
+| [Load-balanced backend pool](backends.md#load-balanced-pool-preview) (preview) |  ✔️ |  ✔️ | ✔️ |
 
 <sup>1</sup> Synthetic GraphQL subscriptions (preview) aren't supported.
 
