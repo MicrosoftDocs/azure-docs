@@ -36,12 +36,12 @@ To connect to TAXII threat intelligence feeds, follow the instructions to [conne
 ### Cybersixgill Darkfeed
 
 - [Learn about Cybersixgill integration with Microsoft Sentinel](https://www.cybersixgill.com/partners/azure-sentinel/).
-- To connect Microsoft Sentinel to Cybersixgill TAXII Server and get access to Darkfeed, [contact Cybersixgill](mailto://azuresentinel@cybersixgill.com) to obtain the API Root, Collection ID, Username and Password.
+- To connect Microsoft Sentinel to Cybersixgill TAXII Server and get access to Darkfeed, [contact azuresentinel@cybersixgill.com](mailto://azuresentinel@cybersixgill.com) to obtain the API Root, Collection ID, Username, and Password.
 
 ### ESET
 
 - [Learn about ESET's threat intelligence offering](https://www.eset.com/int/business/services/threat-intelligence/).
-- To connect Microsoft Sentinel to the ESET TAXII server, obtain the API root URL, Collection ID, Username and Password from your ESET account. Then follow the [general instructions](connect-threat-intelligence-taxii.md) and [ESET's knowledge base article](https://support.eset.com/en/kb8314-eset-threat-intelligence-with-ms-azure-sentinel).
+- To connect Microsoft Sentinel to the ESET TAXII server, obtain the API root URL, Collection ID, Username, and Password from your ESET account. Then follow the [general instructions](connect-threat-intelligence-taxii.md) and [ESET's knowledge base article](https://support.eset.com/en/kb8314-eset-threat-intelligence-with-ms-azure-sentinel).
 
 ### Financial Services Information Sharing and Analysis Center (FS-ISAC)
 
@@ -113,7 +113,7 @@ To connect to Threat Intelligence Platform (TIP) feeds, see [connect Threat Inte
 ### MISP Open Source Threat Intelligence Platform
 
 - Push threat indicators from MISP to Microsoft Sentinel using the TI upload indicators API with [MISP2Sentinel](https://www.misp-project.org/2023/08/26/MISP-Sentinel-UploadIndicatorsAPI.html/).
-- Azure Marketplace link for [MISP2Sentinel](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoftsentinelcommunity.azure-sentinel-solution-misp2sentinel?tab=Overview).
+- Here is the Azure Marketplace link for [MISP2Sentinel](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoftsentinelcommunity.azure-sentinel-solution-misp2sentinel?tab=Overview).
 - [Learn more about the MISP Project](https://www.misp-project.org/).
 
 ### Palo Alto Networks MineMeld
@@ -140,7 +140,7 @@ For more information about how to find and manage the solutions, see [Discover a
 
 ### HYAS Insight
 
-- Find and enable incident enrichment playbooks for [HYAS Insight](https://www.hyas.com/hyas-insight) in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/HYAS/Playbooks). Search for subfolders beginning with "Enrich-Sentinel-Incident-HYAS-Insight-".
+- Find and enable incident enrichment playbooks for [HYAS Insight](https://www.hyas.com/hyas-insight) in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/HYAS/Playbooks). Search for subfolders beginning with `Enrich-Sentinel-Incident-HYAS-Insight-`.
 - See the HYAS Insight Logic App [connector documentation](/connectors/hyasinsight/).
 
 ### Microsoft Defender Threat Intelligence
@@ -150,7 +150,7 @@ For more information about how to find and manage the solutions, see [Discover a
 
 ### Recorded Future Security Intelligence Platform
 
-- Find and enable incident enrichment playbooks for [Recorded Future](https://www.recordedfuture.com/integrations/microsoft-azure/) in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks). Search for subfolders beginning with "RecordedFuture_".
+- Find and enable incident enrichment playbooks for [Recorded Future](https://www.recordedfuture.com/integrations/microsoft-azure/) in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks). Search for subfolders beginning with `RecordedFuture_`.
 - See the Recorded Future Logic App [connector documentation](/connectors/recordedfuturev2/).
 
 ### ReversingLabs TitaniumCloud
@@ -166,7 +166,7 @@ For more information about how to find and manage the solutions, see [Discover a
 
 ### Virus Total
 
-- Find and enable incident enrichment playbooks for [Virus Total](https://developers.virustotal.com/v3.0/reference) in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/VirusTotal/Playbooks). Search for subfolders beginning with "Get-VTURL".
+- Find and enable incident enrichment playbooks for [Virus Total](https://developers.virustotal.com/v3.0/reference) in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/VirusTotal/Playbooks). Search for subfolders beginning with `Get-VTURL`.
 - See the Virus Total Logic App [connector documentation](/connectors/virustotal/).
 
 ## Next steps
