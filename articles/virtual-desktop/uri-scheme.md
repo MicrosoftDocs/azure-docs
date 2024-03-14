@@ -4,7 +4,7 @@ description: Learn how to use Uniform Resource Identifier (URI) schemes with the
 ms.topic: conceptual
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 01/19/2023
+ms.date: 03/14/2024
 ---
 
 # Uniform Resource Identifier schemes with the Remote Desktop client for Azure Virtual Desktop 
@@ -30,7 +30,7 @@ The following sections detail the commands and parameters you can use with each 
 
 ### ms-avd
 
-Here's the list of currently supported commands for *ms-avd* and their corresponding parameters.
+The *ms-avd* Uniform Resource Identifier scheme for Azure Virtual Desktop is now generally available. Here's the list of currently supported commands for *ms-avd* and their corresponding parameters.
 
 #### ms-avd:connect
 
