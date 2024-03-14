@@ -24,7 +24,7 @@ In Azure AI Search, the [simple query syntax](query-simple-syntax.md) invokes th
 
 The following queries are based on the hotels-sample-index, which you can create by following the instructions in this [quickstart](search-get-started-portal.md).
 
-Example queries are articulated using the REST API and POST requests. You can paste and run them in [Postman](search-get-started-rest.md) or another web client. Or, use the JSON view of [Search Explorer](search-explorer.md) in the Azure portal. In JSON view, you can paste in the query examples shown here in this article.
+Example queries are articulated using the REST API and POST requests. You can paste and run them in a [REST client](search-get-started-rest.md). Or, use the JSON view of [Search Explorer](search-explorer.md) in the Azure portal. In JSON view, you can paste in the query examples shown here in this article.
 
 Request headers must have the following values:
 

@@ -13,7 +13,7 @@ sections:
   - name: Availability and onboarding
     questions:      
       - question: I'm getting an error while onboarding APIs to Defender for APIs from the Recommendations page.
-        answer: If you encounter errors like "Access Denied," "Forbidden," "Role Assignment not found," or "Authorization Failed," ensure that you have the right level of permission for the Azure API Management service and Microsoft Defender for Cloud. Required set of permissions can be found [here](/azure/defender-for-cloud/defender-for-apis-introduction). 
+        answer: If you encounter errors like "Access Denied," "Forbidden," "Role Assignment not found," or "Authorization Failed," ensure that you have the right level of permission for the Azure API Management service and Microsoft Defender for Cloud. Required set of permissions can be found [here](defender-for-apis-introduction.md). 
                 The error "Request Header or Cookie Too Large" can typically be fixed by clearing all cookies; clear your browser cookies and try the operation again.
 
       - question: Does onboarding APIs to Defender for APIs affect my Azure API Management service?
@@ -29,7 +29,10 @@ sections:
 
       - question: Does Defender for APIs collect API traffic logs from Azure API Management?
         answer: Defender for APIs receives a copy of all of the HTTP request and response traffic sent to the API management service for all onboarded APIs. This includes the request URL, the response status code, and a subset of HTTP headers for the requests and responses. Also, Defender for APIs receives a copy of some of the HTTP request and response bodies. The request and response bodies received by Defender for APIs are capped at a size of 64 KB.
-              
+
+      - question: Why can't I select multiple resources?
+        answer: API Management service resources don't enable multi-selection with metrics. You can let the API Management service team know this capability is important and upvote this request.
+
   - name: Questions related to region/geo 
     questions:
       - question: I just moved my APIs within my Azure API Management service to a new region. Why are these not updated?

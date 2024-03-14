@@ -17,6 +17,9 @@ History in FHIR gives you the ability to see all previous versions of a resource
 
 All past versions of a resource are considered obsolete and the current version of a resource should be used for normal business workflow operations. However, it can be useful to see the state of a resource as a point in time when a past decision was made.
 
+The query parameter _summary=count and _count=0 can be added to _history endpoint to get count of all versioned resources. This count includes soft deleted resources. 
+
+
 Azure API for FHIR allows you to manage history with 
 1. Disabling history
    To disable history, one time support ticket needs to be created. After disable history configuration is set, history isn't created for resources on the FHIR server. Resource version is incremented.

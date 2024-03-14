@@ -2,7 +2,7 @@
 title: Autoscale compute nodes in an Azure Batch pool
 description: Enable automatic scaling on an Azure Batch cloud pool to dynamically adjust the number of compute nodes in the pool.
 ms.topic: how-to
-ms.date: 08/23/2023
+ms.date: 02/29/2024
 ms.custom: H1Hack27Feb2017, fasttrack-edit, devx-track-csharp, linux-related-content
 ---
 
@@ -131,15 +131,13 @@ You can get the value of these service-defined variables to make adjustments tha
 | $TaskSlotsPerNode |The number of task slots that can be used to run concurrent tasks on a single compute node in the pool. |
 | $CurrentDedicatedNodes |The current number of dedicated compute nodes. |
 | $CurrentLowPriorityNodes |The current number of Spot compute nodes, including any nodes that have been preempted. |
+| $UsableNodeCount | The number of usable compute nodes. |
 | $PreemptedNodeCount | The number of nodes in the pool that are in a preempted state. |
 
 > [!WARNING]
 > Select service-defined variables will be retired after **31 March 2024** as noted in the table above. After the retirement
 > date, these service-defined variables will no longer be populated with sample data. Please discontinue use of these variables
 > before this date.
-
-> [!WARNING]
-> `$PreemptedNodeCount` is currently not available and returns `0` valued data.
 
 > [!NOTE]
 > Use `$RunningTasks` when scaling based on the number of tasks running at a point in time, and `$ActiveTasks` when scaling based on the number of tasks that are queued up to run.
@@ -303,7 +301,7 @@ $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * Ti
 Because there might be a delay in sample availability, you should always specify a time range with a look-back start time that's older than one minute. It takes approximately one minute for samples to propagate through the system, so samples in the range `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` might not be available. Again, you can use the percentage parameter of `GetSample()` to force a particular sample percentage requirement.
 
 > [!IMPORTANT]
-> We strongly recommend that you **avoid relying *only* on `GetSample(1)` in your autoscale formulas**. This is because `GetSample(1)` essentially says to the Batch service, "Give me the last sample you have, no matter how long ago you retrieved it." Since it's only a single sample, and it might be an older sample, it might not be representative of the larger picture of recent task or resource state. If you do use `GetSample(1)`, make sure that it's part of a larger statement and not the only data point that your formula relies on.
+> We strongly recommend that you **avoid relying *only* on `GetSample(1)` in your autoscale formulas**. This is because `GetSample(1)` essentially says to the Batch service, "Give me the last sample you had, no matter how long ago you retrieved it." Since it's only a single sample, and it might be an older sample, it might not be representative of the larger picture of recent task or resource state. If you do use `GetSample(1)`, make sure that it's part of a larger statement and not the only data point that your formula relies on.
 
 ## Write an autoscale formula
 

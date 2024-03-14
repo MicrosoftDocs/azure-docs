@@ -2,7 +2,7 @@
 title: Enable monitoring for Azure Kubernetes Service (AKS) cluster
 description: Learn how to enable Container insights and Managed Prometheus on an Azure Kubernetes Service (AKS) cluster.
 ms.topic: conceptual
-ms.date: 11/14/2023
+ms.date: 03/11/2024
 ms.custom: devx-track-azurecli
 ms.reviewer: aul
 ---
@@ -49,6 +49,10 @@ This article provides onboarding guidance for the following types of clusters. A
   - If you previously installed monitoring for AKS, ensure that you have [disabled monitoring](kubernetes-monitoring-disable.md) before proceeding to avoid issues during the extension install.
   - If you previously installed monitoring on a cluster using a script without cluster extensions, follow the instructions at [Disable monitoring of your Kubernetes cluster](kubernetes-monitoring-disable.md) to delete this Helm chart.
 
+> [!NOTE]
+  > The Managed Prometheus Arc-Enabled Kubernetes extension does not support the following configurations:
+  > * Red Hat Openshift distributions
+  > * Windows nodes
 
 
 ## Workspaces
@@ -351,7 +355,7 @@ az aks enable-addons -a monitoring -n <cluster-name> -g <cluster-resource-group-
 **Example**
 
 ```azurecli
-az aks enable-addons -a monitoring -n <cluster-name> -g <cluster-resource-group-name> --workspace-resource-id "/subscriptions/my-subscription/resourceGroups/my-resource-group/providers/Microsoft.OperationalInsights/workspaces/my-workspace"
+az aks enable-addons -a monitoring -n "my-cluster" -g "my-resource-group" --workspace-resource-id "/subscriptions/my-subscription/resourceGroups/my-resource-group/providers/Microsoft.OperationalInsights/workspaces/my-workspace"
 ```
 
 
@@ -376,20 +380,29 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 
 ```
 
+See the [resource requests and limits section of Helm chart](https://github.com/microsoft/Docker-Provider/blob/ci_prod/charts/azuremonitor-containers/values.yaml) for the available configuration settings.
+
 
 **Example**
 
 ```azurecli
-az aks enable-addons -a monitoring -n my-cluster -g my-resource-group --workspace-resource-id "/subscriptions/my-subscription/resourceGroups/my-resource-group/providers/Microsoft.OperationalInsights/workspaces/my-workspace"
+az k8s-extension create --name azuremonitor-containers --cluster-name "my-cluster" --resource-group "my-resource-group" --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings logAnalyticsWorkspaceResourceID="/subscriptions/my-subscription/resourceGroups/my-resource-group/providers/Microsoft.OperationalInsights/workspaces/my-workspace"
 ```
 
-
-See the [resource requests and limits section of Helm chart](https://github.com/microsoft/Docker-Provider/blob/ci_prod/charts/azuremonitor-containers/values.yaml) for the available configuration settings.
+**Arc-enabled cluster with forward proxy**
 
 If the cluster is configured with a forward proxy, then proxy settings are automatically applied to the extension. In the case of a cluster with AMPLS + proxy, proxy config should be ignored. Onboard the extension with the configuration setting `amalogs.ignoreExtensionProxySettings=true`.
 
 ```azurecli
 az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings amalogs.ignoreExtensionProxySettings=true
+```
+
+**Arc-enabled cluster with ARO or OpenShift or Windows nodes**
+
+Managed identity authentication is not supported for Arc-enabled Kubernetes clusters with ARO (Azure Red Hat OpenShift) or OpenShift or Windows nodes. Use legacy authentication by specifying `amalogs.useAADAuth=false` as in the following example.
+
+```azurecli
+az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings amalogs.useAADAuth=false
 ```
 
 **Delete extension instance**
