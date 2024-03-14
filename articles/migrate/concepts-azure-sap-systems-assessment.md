@@ -28,5 +28,5 @@ Based on the discovered SAP workloads, this capability will generate an assessme
 
 ## Next steps
 
-* Learn how to [Discover SAP systems](./tutorial-discover-sap-systems.md).
-* Learn how to [Assess SAP systems](./tutorial-assess-sap-systems.md).
+* Learn how to Discover SAP systems.
+* Learn how to Assess SAP systems.
