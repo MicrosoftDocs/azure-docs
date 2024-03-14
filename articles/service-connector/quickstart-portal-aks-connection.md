@@ -9,7 +9,7 @@ ms.date: 03/01/2024
 ---
 # Quickstart: Create a service connection in an AKS cluster from the Azure portal
 
-Get started with Service Connector by using the Azure portal to create a new service connection in an AKS cluster.
+Get started with Service Connector by using the Azure portal to create a new service connection in an Azure Kubernetes Service (AKS) cluster.
 
 ## Prerequisites
 

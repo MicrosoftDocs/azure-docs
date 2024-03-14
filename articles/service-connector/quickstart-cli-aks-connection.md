@@ -11,7 +11,7 @@ ms.custom: devx-track-azurecli
 ---
 # Quickstart: Create a service connection in AKS cluster with the Azure CLI
 
-This quickstart shows you how to connect AKS to other Cloud resources using Azure CLI and Service Connector. Service Connector lets you quickly connect compute services to cloud services, while managing your connection's authentication and networking settings.
+This quickstart shows you how to connect Azure Kubernetes Service (AKS) to other Cloud resources using Azure CLI and Service Connector. Service Connector lets you quickly connect compute services to cloud services, while managing your connection's authentication and networking settings.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

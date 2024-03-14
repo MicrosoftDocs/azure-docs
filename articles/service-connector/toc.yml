@@ -124,7 +124,7 @@ items:
       href: how-to-get-configurations.md
     - name: Use Service Connector in Azure Functions
       href: how-to-use-service-connector-in-function.md
-    - name: Use Service Connector in Azure Kubernetes Service
+    - name: Use Service Connector in AKS
       href: how-to-use-service-connector-in-aks.md
     - name: Build connections with IaC tools
       href: how-to-build-connections-with-iac-tools.md

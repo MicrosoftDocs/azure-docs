@@ -23,33 +23,33 @@ Azure Kubernetes Service (AKS) is one of the compute services supported by Servi
 
 Depending on the different target services and authentication types selected when creating a service connection, Service Connector makes different operations on the AKS cluster. The following lists the possible operations made by Service Connector.
 
-1. **Add the Service Connector kubernetes extension**
+### Add the Service Connector kubernetes extension
 
-A kubernetes extension named `sc-extension` is added to the cluster when the first time a service connection is created, no matter what the target service and authentication type is. Later on, the extension helps create kubernetes resources in user's cluster whenever a service connection request comes to Service Connector. You can view the extension in the Azure portal of AKS.
+A kubernetes extension named `sc-extension` is added to the cluster the first time a service connection is created. Later on, the extension helps create kubernetes resources in user's cluster, whenever a service connection request comes to Service Connector. You can find the extension in your AKS cluster in the Azure portal, in the Extensions + applications menu.
 
 :::image type="content" source="./media/aks-tutorial/sc-extension.png" alt-text="Screenshot of the Azure portal, view AKS extension.":::
 
 The extension is also where the cluster connections metadata are stored. Uninstalling the extension makes all the connections in the cluster unavailable. The extension operator is hosted in the cluster namespace `sc-system`.
 
-2. **Create kubernetes resources**
+### Create kubernetes resources
 
-Service Connector creates some kubernetes resources to the namespace user specified when creating a service connection. The kubernetes resources store the connection information, which is needed by user's workload definitions or application codes to talk to target services. Depending on different authentication types, different kubernetes resources are created. For `Connection String` and `Service Principal` auth types, a kubernetes secret is created. And for `Workload Identity` auth type, a kubernetes service account is also created beside a kubernetes secret.
+Service Connector creates some kubernetes resources to the namespace the user specified when creating a service connection. The kubernetes resources store the connection information, which is needed by the user's workload definitions or application code to talk to target services. Depending on different authentication types, different kubernetes resources are created. For the `Connection String` and `Service Principal` auth types, a kubernetes secret is created. For the `Workload Identity` auth type, a kubernetes service account is also created in addition to a kubernetes secret.
 
-You can view the kubernetes resources created by Service Connector for each service connection on Azure portal.
+You can find the kubernetes resources created by Service Connector for each service connection on the Azure portal in your kubernetes resource, in the Service Connector menu.
 
 :::image type="content" source="./media/aks-tutorial/kubernetes-resources.png" alt-text="Screenshot of the Azure portal, view Service Connector created kubernetes resources.":::
 
-The kubernetes resources aren't removed even if the corresponding service connection is deleted, in case it's being used by user's workloads. However, you can remove it manually (for example, with `kubectl delete` command) from your cluster whenever necessary.
+Deleting a service connection doesn't delete the associated Kubernetes resource. If necessary, remove your resource manually, using for example the kubectl delete command.
 
-3. **Enable the `azureKeyvaultSecretsProvider` addon**
+### Enable the `azureKeyvaultSecretsProvider` addon
 
-If target service is Azure Key Vault and the Secret Store CSI Driver is enabled when creating a service connection, Service Connector enables the `azureKeyvaultSecretsProvider` addon for the cluster.
+If target service is Azure Key Vault and the Secret Store CSI Driver is enabled when creating a service connection, Service Connector enables the `azureKeyvaultSecretsProvider` add-on for the cluster.
 
 :::image type="content" source="./media/aks-tutorial/keyvault-csi.png" alt-text="Screenshot of the Azure portal, enabling CSI driver for keyvault when creating a connection.":::
 
-Follow the [tutorial](./tutorial-python-aks-keyvault-csi-driver.md)to set up a connection to Azure Key Vault using Secret Store CSI driver.
+Follow the [Connect to Azure Key Vault using CSI driver tutorial](./tutorial-python-aks-keyvault-csi-driver.md)to set up a connection to Azure Key Vault using Secret Store CSI driver.
 
-4. **Enable workload identity and OIDC issuer**
+### Enable workload identity and OpenID Connect (OIDC) issuer
 
 If the authentication type is `Workload Identity` when creating a service connection, Service Connector enables workload identity and OIDC issuer for the cluster.
 
@@ -61,7 +61,7 @@ When the authentication type is `Workload Identity`, a user-assigned managed ide
 
 Different kubernetes resources are created when the target service type and authentication type are different. The following sections show how to use the Service Connector created kubernetes resources in your cluster workloads definition and application codes.
 
-#### kubernetes secret
+#### Kubernetes secret
 
 A kubernetes secret is created when the authentication type is `Connection String` or `Service Principal`. Your cluster workload definition can reference the secret directly. The following snnipet is an example.
 
@@ -87,9 +87,9 @@ spec:
 
 Then, your application codes can consume the connection string in the secret from environment variable. You can check the [sample code](./how-to-integrate-storage-blob.md) to learn more about the environment variable names and how to use them in your application codes to authenticate to different target services.
 
-#### kubernetes service account
+#### Kubernetes service account
 
-Both a kubernetes service account and a secret are created when the authentication type is `Workload Identity`. Your cluster workload definition can reference the service account and secret to authenticate through workload identity, the following snnipet is an example.
+Both a kubernetes service account and a secret are created when the authentication type is `Workload Identity`. Your cluster workload definition can reference the service account and secret to authenticate through workload identity. The following snipet provides an example.
 
 ```yaml
 apiVersion: batch/v1
@@ -119,7 +119,7 @@ You may check the tutorial to learn [how to connect to Azure Storage using workl
 
 If an error happens and couldn't be mitigated by retrying when creating a service connection, the following methods can help gather more information for troubleshooting.
 
-#### **Check Service Connector kubernetes extension**
+### Check Service Connector kubernetes extension
 
 Service Connector kubernetes extension is built on top of [Azure Arc-enabled Kubernetes cluster extensions](../azure-arc/kubernetes/extensions.md). Use the following commands to investigate if there are any errors during the extension installation or updating.
 
@@ -129,7 +129,7 @@ Service Connector kubernetes extension is built on top of [Azure Arc-enabled Kub
 az extension add --name k8s-extension
 ```
 
-2. Get the Service Connector extension status. Check the `statuses` property in the command output to see if there are any errors.
+1. Get the Service Connector extension status. Check the `statuses` property in the command output to see if there are any errors.
 
 ```azurecli
 az k8s-extension show \
@@ -139,9 +139,9 @@ az k8s-extension show \
     --name sc-extension
 ```
 
-#### Check kubernetes cluster logs
+### Check kubernetes cluster logs
 
-If there's an error during the extension installation, and the error message in the `statuses` property isn't enough showing what happened, you can further check the kubernetes logs by the followings steps.
+If there's an error during the extension installation, and the error message in the `statuses` property doesn't provide enough information about what happened, you can further check the kubernetes logs with the followings steps.
 
 1. Connect to your AKS cluster.
 
@@ -150,7 +150,7 @@ If there's an error during the extension installation, and the error message in 
        --resource-group MyClusterResourceGroup \
        --name MyCluster
    ```
-2. Service Connector extension is installed in the namespace `sc-system` through helm chart, check the namespace and the helm release by following commands.
+1. Service Connector extension is installed in the namespace `sc-system` through helm chart, check the namespace and the helm release by following commands.
 
    - Check the namespace exists.
 
@@ -163,7 +163,7 @@ If there's an error during the extension installation, and the error message in 
    ```Bash
    helm list -n sc-system
    ```
-3. During the extension installation or updating, there's a kubernetes job called `sc-job` used to create the kubernetes resources for service connection. The job execution failure usually causes the extension failure, therefore, check the job status by running the following commands. (If `sc-job` doesn't exist in `sc-system` namespace, it should have been executed successfully. Because this job is designed to be automatically deleted after successful execution.)
+1. During the extension installation or updating, a kubernetes job called `sc-job` creates the kubernetes resources for the service connection. The job execution failure usually causes the extension failure. Check the job status by running the following commands. If `sc-job` doesn't exist in `sc-system` namespace, it should have been executed successfully. This job is designed to be automatically deleted after successful execution.
 
    - Check the job exists.
 
