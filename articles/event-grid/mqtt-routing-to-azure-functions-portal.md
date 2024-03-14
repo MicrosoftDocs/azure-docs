@@ -79,7 +79,7 @@ In this section, you enable system-assigned managed identity for the Event Grid 
 1. Select **Access control** on the left navigation bar. 
 1. On the **Access control** page, select **Add**, and then select **Add role assignment**. 
 
-    :::image type="content" source="./media/mqtt-routing-to-azure-functions-portal/topic-access-control-page.png" alt-text="Screenshot that shows the Event Grid Namespace with the Identity tab selected." lightbox="./media/mqtt-routing-to-azure-functions-portal/topic-access-control-page.png":::            
+    :::image type="content" source="./media/mqtt-routing-to-azure-functions-portal/topic-access-control-page.png" alt-text="Screenshot that shows the Access control page." lightbox="./media/mqtt-routing-to-azure-functions-portal/topic-access-control-page.png":::            
 1. On the **Role** page of the **Add role assignment** wizard, select **Event Grid Data Sender** role, and select **Next** at the bottom of the page.
 
     :::image type="content" source="./media/mqtt-routing-to-azure-functions-portal/select-data-sender-role.png" alt-text="Screenshot that shows the **Role** page of the **Add role assignment** wizard." lightbox="./media/mqtt-routing-to-azure-functions-portal/select-data-sender-role.png":::            
@@ -105,7 +105,7 @@ In this section, you enable system-assigned managed identity for the Event Grid 
 1. For **Managed identity for delivery**, select **System Assigned**. 
 1. Select **Apply** at the bottom of the page. 
 
-    :::image type="content" source="./media/mqtt-routing-to-azure-functions-portal/routing-custom-topic.png" alt-text="Screenshot that shows the Select managed identities page." lightbox="./media/mqtt-routing-to-azure-functions-portal/routing-custom-topic.png":::             
+    :::image type="content" source="./media/mqtt-routing-to-azure-functions-portal/routing-custom-topic.png" alt-text="Screenshot that shows the Routing page for a namespace." lightbox="./media/mqtt-routing-to-azure-functions-portal/routing-custom-topic.png":::             
 
 ## Send test MQTT messages using MQTTX
 Send test MQTT messages to the namespace and confirm that the function receives them.
@@ -119,7 +119,7 @@ Here's the flow of the events or messages:
 1. The messages are forwarded to the event subscription, which is the Azure function. 
 1. Use the logging feature to verify that the function has received the event.
 
-    :::image type="content" source="./media/mqtt-routing-to-azure-functions-portal/function-log-stream.png" alt-text="Screenshot that shows the Select managed identities page." lightbox="./media/mqtt-routing-to-azure-functions-portal/function-log-stream.png":::                 
+    :::image type="content" source="./media/mqtt-routing-to-azure-functions-portal/function-log-stream.png" alt-text="Screenshot that shows the Log stream page for an Azure function." lightbox="./media/mqtt-routing-to-azure-functions-portal/function-log-stream.png":::                 
 
 ## Next step
 
