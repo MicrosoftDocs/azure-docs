@@ -496,7 +496,7 @@ From the menu bar, go to **View** > **Command Palette**, and then enter **Azure:
 
  For Synapse PySpark installation error, since its dependency will not be maintained anymore by other team, it will not be maintained anymore. If you trying to use Synapse Pyspark interactive, please use [Azure Synapse Analytics](https://ms.web.azuresynapse.net/) instead. And it's a long term change.
 
-   ![synapse pyspark installation error](./media/hdinsight-for-vscode/known-issue.png)
+   :::image type="content" border="true" source="./media/hdinsight-for-vscode/known-issue.png" alt-text="synapse pyspark installation error":::
 
 
 ## Next steps
