@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
-ms.date: 03/06/2024
+ms.date: 03/14/2024
 ms.custom:
   - mode-api
   - ignite-2023
@@ -17,9 +17,7 @@ ms.custom:
 
 # Quickstart: Text search using REST
 
-Learn how to use the [Search REST APIs](/rest/api/searchservice) to create, load, and query a search index in Azure AI Search. 
-
-[Download a REST sample](https://github.com/Azure-Samples/azure-search-rest-samples/tree/main/Quickstart) to send the requests in this quickstart, or create requests manually using the instructions in this article.
+The REST APIs in Azure AI Search provide programmatic access to all of its capabilities, including preview features, and they're an easy way to learn how features work. In this quickstart, call the [Search REST APIs](/rest/api/searchservice) to create, load, and query a search index in Azure AI Search. 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -29,17 +27,21 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 + [Azure AI Search](search-what-is-azure-search.md). [Create](search-create-service-portal.md) or [find an existing Azure AI Search resource](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
 
-## Copy a key and URL
+## Download files
+
+[Download a REST sample](https://github.com/Azure-Samples/azure-search-rest-samples/tree/main/Quickstart) from GitHub to send the requests in this quickstart. [Learn how](https://docs.github.com/get-started/start-your-journey/downloading-files-from-github).
+
+Or, start a new file on your local system and create requests manually using the instructions in this article.
+
+## Copy a search service key and URL
 
 REST calls require the search service endpoint and an API key on every request. You can get these values from the Azure portal.
 
-1. Sign in to the [Azure portal](https://portal.azure.com), navigate to the **Overview** page, and copy the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
+1. Sign in to the [Azure portal](https://portal.azure.com), navigate to the search service **Overview** page, and copy the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
 
 1. Under **Settings** > **Keys**, copy an admin key. Admin keys are used to add, modify, and delete objects. There are two interchangeable admin keys. Copy either one.
 
    :::image type="content" source="media/search-get-started-rest/get-url-key.png" alt-text="Screenshot of the URL and API keys in the Azure portal.":::
-
-A valid API key establishes trust, on a per request basis, between the application sending the request and the search service handling it.
 
 ## Set up Visual Studio Code
 
@@ -57,7 +59,7 @@ If you're not familiar with the REST client for Visual Studio Code, this section
 
    ```http
    @baseUrl = PUT-YOUR-SEARCH-SERVICE-ENDPOINT-HERE
-   @apiKey = PUT-YOUR-API-KEY-HERE
+   @apiKey = PUT-YOUR-SEARCH-SERVICE-API-KEY-HERE
     
     ### List existing indexes by name
     GET  {{baseUrl}}/indexes?api-version=2023-11-01&$select=name  HTTP/1.1
