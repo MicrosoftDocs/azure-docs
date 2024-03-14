@@ -5,7 +5,6 @@ description: include file
 manager: nitinme
 ms.service: azure-ai-personalizer
 ms.topic: include
-ms.custom: cog-serv-seo-aug-2020
 ms.date: 01/19/2024
 ---
 [Reference documentation](/javascript/api/@azure/cognitiveservices-personalizer/) | [Multi-slot conceptual](..\concept-multi-slot-personalization.md) | [Samples](https://aka.ms/personalizer/ms-nodejs)

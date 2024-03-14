@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 09/29/2022
 ms.author: normesta
 ms.subservice: storage-common-concepts
-ms.custom: contperf-fy21q2, ai-video-demo
+ms.custom: ai-video-demo
 ai-usage: ai-assisted
 ---
 

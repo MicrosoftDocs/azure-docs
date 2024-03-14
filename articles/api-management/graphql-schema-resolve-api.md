@@ -1,13 +1,11 @@
 ---
 title: Add a synthetic GraphQL API to Azure API Management | Microsoft Docs
-titleSuffix: 
 description: Add a synthetic GraphQL API by importing a GraphQL schema to API Management and configuring field resolvers that use HTTP-based data sources.
 ms.service: api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
 ms.date: 05/31/2023
-ms.custom: event-tier1-build-2022
 ---
 
 # Add a synthetic GraphQL API and set up field resolvers

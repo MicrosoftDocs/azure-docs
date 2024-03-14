@@ -7,7 +7,7 @@ ms.reviewer: saggupta
 ms.service: network-watcher
 ms.topic: concept-article
 ms.date: 08/10/2023
-ms.custom: subject-monitoring, ignite-2022
+ms.custom: subject-monitoring
 ---
 
 # Azure Monitor network insights

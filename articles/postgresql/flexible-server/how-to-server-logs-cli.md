@@ -3,6 +3,7 @@ title: Download server logs for Azure Database for PostgreSQL flexible server wi
 description: This article describes how to download server logs by using the Azure CLI.
 ms.service: postgresql
 ms.subservice: flexible-server
+ms.custom: devx-track-azurecli
 author: varun-dhawan
 ms.author: varundhawan
 ms.topic: conceptual

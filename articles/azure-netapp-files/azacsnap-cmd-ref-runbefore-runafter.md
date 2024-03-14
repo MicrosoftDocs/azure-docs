@@ -1,10 +1,9 @@
 ---
 title: RunBefore and RunAfter using Azure Application Consistent Snapshot tool for Azure NetApp Files | Microsoft Docs
-description: Provides a guide for using the runbefore and runafter options of the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files. 
+description: Provides a guide for using the runbefore and runafter options of the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files.
 services: azure-netapp-files
 author: Phil-Jensen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: reference
 ms.date: 07/29/2022
 ms.author: phjensen

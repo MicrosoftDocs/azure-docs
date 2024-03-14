@@ -165,11 +165,11 @@ The following table contains Azure PowerShell properties and descriptions for co
 | maxmemory-reserved |Configures the [memory reserved](cache-configure.md#memory-policies) for non-cache processes |Standard and Premium |
 | maxmemory-policy |Configures the [eviction policy](cache-configure.md#memory-policies) for the cache |All pricing tiers |
 | notify-keyspace-events |Configures [keyspace notifications](cache-configure.md#keyspace-notifications-advanced-settings) |Standard and Premium |
-| hash-max-ziplist-entries |Configures [memory optimization](https://redis.io/topics/memory-optimization) for small aggregate data types |Standard and Premium |
-| hash-max-ziplist-value |Configures [memory optimization](https://redis.io/topics/memory-optimization) for small aggregate data types |Standard and Premium |
-| set-max-intset-entries |Configures [memory optimization](https://redis.io/topics/memory-optimization) for small aggregate data types |Standard and Premium |
-| zset-max-ziplist-entries |Configures [memory optimization](https://redis.io/topics/memory-optimization) for small aggregate data types |Standard and Premium |
-| zset-max-ziplist-value |Configures [memory optimization](https://redis.io/topics/memory-optimization) for small aggregate data types |Standard and Premium |
+| hash-max-ziplist-entries |Configures [memory optimization](https://redis.io/docs/management/optimization/memory-optimization/) for small aggregate data types |Standard and Premium |
+| hash-max-ziplist-value |Configures [memory optimization](https://redis.io/docs/management/optimization/memory-optimization/) for small aggregate data types |Standard and Premium |
+| set-max-intset-entries |Configures [memory optimization](https://redis.io/docs/management/optimization/memory-optimization/) for small aggregate data types |Standard and Premium |
+| zset-max-ziplist-entries |Configures [memory optimization](https://redis.io/docs/management/optimization/memory-optimization/) for small aggregate data types |Standard and Premium |
+| zset-max-ziplist-value |Configures [memory optimization](https://redis.io/docs/management/optimization/memory-optimization/) for small aggregate data types |Standard and Premium |
 | databases |Configures the number of databases. This property can be configured only at cache creation. |Standard and Premium |
 
 ## To create an Azure Cache for Redis

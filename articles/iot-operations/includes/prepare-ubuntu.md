@@ -28,12 +28,6 @@ To prepare a Kubernetes cluster on Ubuntu:
     kubectl config use-context default
     ```
 
-1. Install `nfs-common` on the host machine:
-
-    ```bash
-    sudo apt install nfs-common
-    ```
-
 1. Run the following command to increase the [user watch/instance limits](https://www.suse.com/support/kb/doc/?id=000020048).
 
    ```bash

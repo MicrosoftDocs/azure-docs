@@ -2,7 +2,7 @@
 title: Connection strings in Application Insights | Microsoft Docs
 description: This article shows how to use connection strings.
 ms.topic: conceptual
-ms.date: 12/15/2023
+ms.date: 02/29/2024
 ms.custom: devx-track-csharp
 ms.reviewer: cogoodson
 ---
@@ -12,6 +12,8 @@ ms.reviewer: cogoodson
 This article shows how to use connection strings.
 
 ## Overview
+
+[!INCLUDE [azure-monitor-app-insights-otel-available-notification](../includes/azure-monitor-app-insights-otel-available-notification.md)]
 
 Connection strings define where to send telemetry data.
 

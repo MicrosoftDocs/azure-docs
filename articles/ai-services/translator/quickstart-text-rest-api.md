@@ -1,13 +1,13 @@
 ---
 title: "Quickstart: Azure AI Translator REST APIs"
 titleSuffix: Azure AI services
-description: "Learn to translate text with the Translator service REST APIs. Examples are provided in C#, Go, Java, JavaScript and Python."
+description: "Learn to translate text with the Translator service REST APIs. Examples are provided in C#, Go, Java, JavaScript, and Python."
 #services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: quickstart
-ms.date: 09/06/2023
+ms.date: 02/09/2024
 ms.author: lajanuar
 ms.devlang: csharp
 # ms.devlang: csharp, golang, java, javascript, python
@@ -26,7 +26,7 @@ Try the latest version of Azure AI Translator. In this quickstart, get started u
 
 ## Prerequisites
 
-You need an active Azure subscription. If you don't have an Azure subscription, you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
+You need an active Azure subscription. If you don't have an Azure subscription, you can [create one for free](https://azure.microsoft.com/free/cognitive-services/).
 
 * Once you have your Azure subscription, create a [Translator resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) in the Azure portal.
 
@@ -42,12 +42,6 @@ You need an active Azure subscription. If you don't have an Azure subscription, 
     > * With a single-service global resource you'll include one authorization header (**Ocp-Apim-Subscription-key**) with the REST API request. The value for Ocp-Apim-Subscription-key is your Azure secret key for your Translator Text subscription.
     > * If you choose to use an Azure AI multi-service or regional Translator resource, two authentication headers will be required: (**Ocp-Api-Subscription-Key** and **Ocp-Apim-Subscription-Region**). The value for Ocp-Apim-Subscription-Region is the region associated with your subscription.
     > * For more information on how to use the **Ocp-Apim-Subscription-Region** header, _see_ [Text Translation REST API headers](translator-text-apis.md#headers).
-
-<!-- checked -->
-<!--
- > [!div class="nextstepaction"]
-> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=prerequisites)
--->
 
 ## Headers
 
@@ -110,7 +104,7 @@ For detailed information regarding Azure AI Translator service request limits, *
 
     :::image type="content" source="media/quickstarts/newtonsoft.png" alt-text="Screenshot of the NuGet package install window.":::
 
-1. Select install from the right package manager window to add the package to your project.
+1. To add the package to your project, select install from the right package manager window.
 
     :::image type="content" source="media/quickstarts/install-newtonsoft.png" alt-text="Screenshot of the NuGet package install button.":::
 <!-- checked -->
@@ -178,7 +172,7 @@ class Program
 
 ### Run your C# application
 
-Once you've added a code sample to your application, choose the green **start button** next to formRecognizer_quickstart to build and run your program, or press **F5**.
+Once you add a code sample to your application, choose the green **start button** next to formRecognizer_quickstart to build and run your program, or press **F5**.
 
 :::image type="content" source="media/quickstarts/run-program-visual-studio.png" alt-text="Screenshot of the run program button in Visual Studio.":::
 
@@ -222,7 +216,7 @@ You can use any text editor to write Go applications. We recommend using the lat
 >
 > If you're new to Go, try the [Get started with Go](/training/modules/go-get-started/) Learn module.
 
-1. If you haven't done so already, [download and install Go](https://go.dev/doc/install).
+1. Make sure the latest version of [Go](https://go.dev/doc/install) is installed:
 
     * Download the Go version for your operating system.
     * Once the download is complete, run the installer.
@@ -315,7 +309,7 @@ func main() {
 
 ### Run your Go application
 
-Once you've added a code sample to your application, your Go program can be executed in a command or terminal prompt. Make sure your prompt's path is set to the **translator-app** folder and use the following command:
+Once you add a code sample to your application, your Go program can be executed in a command or terminal prompt. Make sure your prompt's path is set to the **translator-app** folder and use the following command:
 
 ```console
  go run translation.go
@@ -362,7 +356,7 @@ After a successful call, you should see the following response:
   > * Visual Studio Code offers a **Coding Pack for Java** for Windows and macOS.The coding pack is a bundle of VS Code, the Java Development Kit (JDK), and a collection of suggested extensions by Microsoft. The Coding Pack can also be used to fix an existing development environment.
   > * If you are using VS Code and the Coding Pack For Java, install the [**Gradle for Java**](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle) extension.
 
-* If you aren't using VS Code, make sure you have the following installed in your development environment:
+* If you aren't using Visual Studio Code, make sure you have the following installed in your development environment:
 
   * A [**Java Development Kit** (OpenJDK)](/java/openjdk/download#openjdk-17) version 8 or later.
 
@@ -505,7 +499,7 @@ public class TranslatorText {
 
 ### Build and run your Java application
 
-Once you've added a code sample to your application, navigate back to your main project directory—**translator-text-app**, open a console window, and enter the following commands:
+Once you add a code sample to your application, navigate back to your main project directory—**translator-text-app**, open a console window, and enter the following commands:
 
 1. Build your application with the `build` command:
 
@@ -549,7 +543,7 @@ After a successful call, you should see the following response:
 
 ### Set up your Node.js Express project
 
-1. If you haven't done so already, install the latest version of [Node.js](https://nodejs.org/en/download/). Node Package Manager (npm) is included with the Node.js installation.
+1. Make sure the latest version of [Node.js](https://nodejs.org/en/download/) is installed. Node Package Manager (npm) is included with the Node.js installation.
 
     > [!TIP]
     >
@@ -576,7 +570,7 @@ After a successful call, you should see the following response:
     * The most important attributes are name, version number, and entry point.
     * We recommend keeping `index.js` for the entry point name. The description, test command, GitHub repository, keywords, author, and license information are optional attributes—they can be skipped for this project.
     * Accept the suggestions in parentheses by selecting **Return** or **Enter**.
-    * After you've completed the prompts, a `package.json` file will be created in your translator-app directory.
+    * After you complete the prompts, a `package.json` file will be created in your translator-app directory.
 
 1. Open a console window and use npm to install the `axios` HTTP library and `uuid` package:
 
@@ -627,7 +621,7 @@ Add the following code sample to your `index.js` file. **Make sure you update th
         params: {
             'api-version': '3.0',
             'from': 'en',
-            'to': ['fr', 'zu']
+            'to': 'fr,zu'
         },
         data: [{
             'text': 'I would really like to drive your car around the block a few times!'
@@ -645,7 +639,7 @@ Add the following code sample to your `index.js` file. **Make sure you update th
 
 ### Run your JavaScript application
 
-Once you've added the code sample to your application, run your program:
+Once you add the code sample to your application, run your program:
 
 1. Navigate to your application directory (translator-app).
 
@@ -685,7 +679,7 @@ After a successful call, you should see the following response:
 
 ### Set up your Python project
 
-1. If you haven't done so already, install the latest version of [Python 3.x](https://www.python.org/downloads/). The Python installer package (pip) is included with the Python installation.
+1. Make sure the latest version of [Python 3.x](https://www.python.org/downloads/) is installed. The Python installer package (pip) is included with the Python installation.
 
     > [!TIP]
     >
@@ -756,7 +750,7 @@ print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separat
 
 ### Run your Python application
 
-Once you've added a code sample to your application, build and run your program:
+Once you add a code sample to your application, build and run your program:
 
 1. Navigate to your **translator-app.py** file.
 
@@ -796,7 +790,7 @@ After a successful call, you should see the following response:
 
 ## Next steps
 
-That's it, congratulations! You've learned to use the Translator service to translate text.
+That's it, congratulations! You just learned to use the Translator service to translate text.
 
  Explore our how-to documentation and take a deeper dive into Translation service capabilities:
 

@@ -11,7 +11,7 @@ ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: B2C
 
-#customer intent: I'm a developer integrating HYPR with Azure AD B2C. I want a tutorial to configure the Azure AD B2C policy to enable passwordless authentication using HYPR for my customer applications.
+# Customer intent: I'm a developer integrating HYPR with Azure AD B2C. I want a tutorial to configure the Azure AD B2C policy to enable passwordless authentication using HYPR for my customer applications.
 ---
 
 # Tutorial for configuring HYPR with Azure Active Directory B2C

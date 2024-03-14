@@ -4,11 +4,9 @@ description: Learn how to check your Azure resource usage against Azure subscrip
 services: networking
 author: mbender-ms
 ms.author: mbender
-tags: azure-resource-manager
 ms.custom: devx-track-azurecli
 ms.service: azure
 ms.topic: article
-ms.workload: infrastructure-services
 ms.date: 06/05/2018
 ---
 # Check resource usage against limits

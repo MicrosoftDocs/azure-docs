@@ -8,7 +8,6 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 04/03/2023
-ms.custom: ignite-fall-2021, ignite-2022
 ---
 
 # Partial document update in Azure Cosmos DB

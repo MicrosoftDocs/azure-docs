@@ -11,7 +11,7 @@ ms.custom: template-concept
 
 # Agentless machine scanning
 
-Microsoft Defender for Cloud improves compute posture for Azure, AWS and GCP environments with machine scanning. For requirements and support, see the [compute support matrix in Defender for Cloud](support-matrix-defender-for-servers.md). 
+Microsoft Defender for Cloud improves compute posture for Azure, AWS and GCP environments with machine scanning. For requirements and support, see the [compute support matrix in Defender for Cloud](support-matrix-defender-for-servers.md).
 
 Agentless scanning for virtual machines (VM) provides:
 
@@ -19,7 +19,7 @@ Agentless scanning for virtual machines (VM) provides:
 - Deep analysis of operating system configuration and other machine meta data.
 - [Vulnerability assessment](enable-agentless-scanning-vms.md) using Defender Vulnerability Management.
 - [Secret scanning](secret-scanning.md) to locate plain text secrets in your compute environment.
-- Threat detection with [agentless malware scanning](agentless-malware-scanning.md), using [Microsoft Defender Antivirus](/microsoft-365/security/defender-endpoint/microsoft-defender-antivirus-windows?view=o365-worldwide).
+- Threat detection with [agentless malware scanning](agentless-malware-scanning.md), using [Microsoft Defender Antivirus](/microsoft-365/security/defender-endpoint/microsoft-defender-antivirus-windows).
 
 Agentless scanning assists you in the identification process of actionable posture issues without the need for installed agents, network connectivity, or any effect on machine performance. Agentless scanning is available through both the [Defender Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md) plan and [Defender for Servers P2](plan-defender-for-servers-select-plan.md#plan-features) plan.
 

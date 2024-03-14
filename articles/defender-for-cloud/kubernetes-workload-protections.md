@@ -4,7 +4,6 @@ description: Learn how to use Microsoft Defender for Cloud's set of Kubernetes d
 ms.topic: how-to
 author: dcurwin
 ms.author: dacurwin
-ms.custom: ignite-2022
 ms.date: 09/04/2023
 ---
 
@@ -288,5 +287,5 @@ In this article, you learned how to configure Kubernetes data plane hardening.
 
 For related material, see the following pages:
 
-- [Defender for Cloud recommendations for compute](recommendations-reference.md#recs-compute)
-- [Alerts for AKS cluster level](alerts-reference.md#alerts-k8scluster)
+- [Defender for Cloud recommendations for compute](recommendations-reference.md#compute-recommendations)
+- [Alerts for AKS cluster level](alerts-reference.md#alerts-for-containers---kubernetes-clusters)

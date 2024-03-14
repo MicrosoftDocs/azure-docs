@@ -7,7 +7,6 @@ manager: diviso
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 01/21/2021
-ms.custom: seodec18
 ---
 
 # Data Storage

@@ -39,8 +39,8 @@ Before you begin, review the [conceptual overview of the cluster connect feature
   If you've already installed the `connectedk8s` extension, update the extension to the latest version:
 
   ```azurecli
-   az extension update --name connectedk8s
-   ```
+  az extension update --name connectedk8s
+  ```
 
 - Replace the placeholders and run the below command to set the environment variables used in this document:
 
@@ -224,6 +224,12 @@ On the existing Arc-enabled cluster, create the ClusterRoleBinding with either M
     ```console
     $TOKEN = ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String((kubectl get secret demo-user-secret -o jsonpath='{$.data.token}'))))
     ```
+    
+1. Get the token to output to console.
+  
+     ```console
+     echo $TOKEN
+     ```
 
 ---
 

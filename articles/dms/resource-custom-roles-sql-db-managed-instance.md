@@ -9,7 +9,6 @@ ms.date: 02/08/2021
 ms.service: dms
 ms.topic: conceptual
 ms.custom:
-  - seo-lt-2019
   - sql-migration-content
 ---
 

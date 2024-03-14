@@ -5,12 +5,12 @@ description: Learn the funnel-based design consideration for Azure AD B2C to pro
 author: gargi-sinha
 manager: martinco
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: B2C
 
-#customer intent: I'm a developer, and I need to understand how to build a global identity solution using a funnel-based approach, so I can implement it in my organization's Azure AD B2C environment.
+# Customer intent: I'm a developer, and I need to understand how to build a global identity solution using a funnel-based approach, so I can implement it in my organization's Azure AD B2C environment.
 ---
 
 # Build a global identity solution with funnel-based approach

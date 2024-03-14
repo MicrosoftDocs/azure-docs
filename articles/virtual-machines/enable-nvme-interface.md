@@ -8,12 +8,12 @@ ms.subservice: sizes
 ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 10/30/2023
 ms.custom: template-how-to-pattern
-
-
 ---
 
 # Enabling NVMe and SCSI Interface on Virtual Machine
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
 
 NVMe stands for nonvolatile memory express, which is a communication protocol that facilitates faster and more efficient data transfer between servers and storage systems. With NVMe, data can be transferred at the highest throughput and with the fastest response time. Azure now supports the NVMe interface on the Ebsv5 and Ebdsv5 family, offering the highest IOPS and throughput performance for remote disk storage among all the GP v5 VM series.
 
@@ -21,7 +21,7 @@ SCSI (Small Computer System Interface) is a legacy standard for physically conne
 
 ## Prerequisites
 
-A new feature has been added to the VM configuration, called DiskControllerType, which allows customers to select their preferred controller type as NVMe or SCSI. If the customer doesn't specify a DiskControllerType value then the platform will automatically choose the default controller based on the VM size configuration. If the VM size is configured for SCSI as the default and supports NVMe, SCSI will be used unless updated to the NVMe DiskControllerType. 
+A new feature has been added to the VM configuration, called DiskControllerType, which allows customers to select their preferred controller type as NVMe or SCSI. If the customer doesn't specify a DiskControllerType value then the platform will automatically choose the default controller based on the VM size configuration. If the VM size is configured for SCSI as the default and supports NVMe, SCSI will be used unless updated to the NVMe DiskControllerType.
 
 To enable the NVMe interface, the following prerequisites must be met:
 
@@ -66,7 +66,7 @@ By meeting the above five conditions, you'll be able to enable NVMe on the suppo
 ### Windows
 
 - [Azure portal - Plan ID: 2019-datacenter-core-smalldisk](https://portal.azure.com/#create/Microsoft.smalldiskWindowsServer2019DatacenterServerCore)
-- [Azure portal - Plan ID: 2019-datacenter-core-smalldisk-g2](https://portal.azure.com/#create/Microsoft.smalldiskWindowsServer2019DatacenterServerCore2019-datacenter-core-smalldisk-g2) 
+- [Azure portal - Plan ID: 2019-datacenter-core-smalldisk-g2](https://portal.azure.com/#create/Microsoft.smalldiskWindowsServer2019DatacenterServerCore2019-datacenter-core-smalldisk-g2)
 - [Azure portal - Plan ID: 2019 datacenter-core](https://portal.azure.com/#create/Microsoft.WindowsServer2019DatacenterServerCore)
 - [Azure portal - Plan ID: 2019-datacenter-core-g2](https://portal.azure.com/#create/Microsoft.WindowsServer2019DatacenterServerCore2019-datacenter-core-g2)
 - [Azure portal - Plan ID: 2019-datacenter-core-with-containers-smalldisk](https://portal.azure.com/#create/Microsoft.smalldiskWindowsServer2019DatacenterServerCorewithContainers)
@@ -97,7 +97,7 @@ By meeting the above five conditions, you'll be able to enable NVMe on the suppo
 
 
 ## Launching a VM with NVMe interface
-NVMe can be enabled during VM creation using various methods such as: Azure portal, CLI, PowerShell, and ARM templates. To create an NVMe VM, you must first enable the NVMe option on a VM and select the NVMe controller disk type for the VM. Note that the NVMe diskcontrollertype can be enabled during creation or updated to NVMe when the VM is stopped and deallocated, provided that the VM size supports NVMe. 
+NVMe can be enabled during VM creation using various methods such as: Azure portal, CLI, PowerShell, and ARM templates. To create an NVMe VM, you must first enable the NVMe option on a VM and select the NVMe controller disk type for the VM. Note that the NVMe diskcontrollertype can be enabled during creation or updated to NVMe when the VM is stopped and deallocated, provided that the VM size supports NVMe.
 
 ### Azure portal View
 
@@ -118,95 +118,95 @@ NVMe can be enabled during VM creation using various methods such as: Azure port
 ```json
 
 
-{ 
-    "apiVersion": "2022-08-01", 
-    "type": "Microsoft.Compute/virtualMachines", 
-    "name": "[variables('vmName')]", 
-    "location": "[parameters('location')]", 
-    "identity": { 
-        "type": "userAssigned", 
-        "userAssignedIdentities": { 
-            "/subscriptions/ <EnterSubscriptionIdHere> /resourcegroups/ManagedIdentities/providers/Microsoft.ManagedIdentity/userAssignedIdentities/KeyVaultReader": {} 
-        } 
-    }, 
-    "dependsOn": [ 
-        "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]" 
-    ], 
-    "properties": { 
-        "hardwareProfile": { 
-            "vmSize": "[parameters('vmSize')]" 
-        }, 
-        "osProfile": "[variables('vOsProfile')]", 
-        "storageProfile": { 
-            "imageReference": "[parameters('osDiskImageReference')]", 
-            "osDisk": { 
-                "name": "[variables('diskName')]", 
-                "caching": "ReadWrite", 
-                "createOption": "FromImage" 
-            }, 
-            "copy": [ 
-                { 
-                    "name": "dataDisks", 
-                    "count": "[parameters('numDataDisks')]", 
-                    "input": { 
-                        "caching": "[parameters('dataDiskCachePolicy')]", 
-                        "writeAcceleratorEnabled": "[parameters('writeAcceleratorEnabled')]", 
-                        "diskSizeGB": "[parameters('dataDiskSize')]", 
-                        "lun": "[add(copyIndex('dataDisks'), parameters('lunStartsAt'))]", 
-                        "name": "[concat(variables('vmName'), '-datadisk-', copyIndex('dataDisks'))]", 
-                        "createOption": "Attach", 
-                        "managedDisk": { 
-                            "storageAccountType": "[parameters('storageType')]", 
-                            "id": "[resourceId('Microsoft.Compute/disks/', concat(variables('vmName'), '-datadisk-', copyIndex('dataDisks')))]" 
-                        } 
-                    } 
-                } 
-            ], 
-            "diskControllerTypes": "NVME" 
-        }, 
-        "securityProfile": { 
-            "encryptionAtHost": "[parameters('encryptionAtHost')]" 
-        }, 
-                           
-        "networkProfile": { 
-            "networkInterfaces": [ 
-                { 
-                    "id": "[resourceId('Microsoft.Network/networkInterfaces', variables('nicName'))]" 
-                } 
-            ] 
-        }, 
-        "availabilitySet": { 
-            "id": "[resourceId('Microsoft.Compute/availabilitySets', parameters('availabilitySetName'))]" 
-        } 
-    }, 
-    "tags": { 
-        "vmName": "[variables('vmName')]", 
+{
+    "apiVersion": "2022-08-01",
+    "type": "Microsoft.Compute/virtualMachines",
+    "name": "[variables('vmName')]",
+    "location": "[parameters('location')]",
+    "identity": {
+        "type": "userAssigned",
+        "userAssignedIdentities": {
+            "/subscriptions/ <EnterSubscriptionIdHere> /resourcegroups/ManagedIdentities/providers/Microsoft.ManagedIdentity/userAssignedIdentities/KeyVaultReader": {}
+        }
+    },
+    "dependsOn": [
+        "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
+    ],
+    "properties": {
+        "hardwareProfile": {
+            "vmSize": "[parameters('vmSize')]"
+        },
+        "osProfile": "[variables('vOsProfile')]",
+        "storageProfile": {
+            "imageReference": "[parameters('osDiskImageReference')]",
+            "osDisk": {
+                "name": "[variables('diskName')]",
+                "caching": "ReadWrite",
+                "createOption": "FromImage"
+            },
+            "copy": [
+                {
+                    "name": "dataDisks",
+                    "count": "[parameters('numDataDisks')]",
+                    "input": {
+                        "caching": "[parameters('dataDiskCachePolicy')]",
+                        "writeAcceleratorEnabled": "[parameters('writeAcceleratorEnabled')]",
+                        "diskSizeGB": "[parameters('dataDiskSize')]",
+                        "lun": "[add(copyIndex('dataDisks'), parameters('lunStartsAt'))]",
+                        "name": "[concat(variables('vmName'), '-datadisk-', copyIndex('dataDisks'))]",
+                        "createOption": "Attach",
+                        "managedDisk": {
+                            "storageAccountType": "[parameters('storageType')]",
+                            "id": "[resourceId('Microsoft.Compute/disks/', concat(variables('vmName'), '-datadisk-', copyIndex('dataDisks')))]"
+                        }
+                    }
+                }
+            ],
+            "diskControllerTypes": "NVME"
+        },
+        "securityProfile": {
+            "encryptionAtHost": "[parameters('encryptionAtHost')]"
+        },
+                          
+        "networkProfile": {
+            "networkInterfaces": [
+                {
+                    "id": "[resourceId('Microsoft.Network/networkInterfaces', variables('nicName'))]"
+                }
+            ]
+        },
+        "availabilitySet": {
+            "id": "[resourceId('Microsoft.Compute/availabilitySets', parameters('availabilitySetName'))]"
+        }
+    },
+    "tags": {
+        "vmName": "[variables('vmName')]",
 
-      "location": "[parameters('location')]", 
+      "location": "[parameters('location')]",
 
-                "dataDiskSize": "[parameters('dataDiskSize')]", 
+                "dataDiskSize": "[parameters('dataDiskSize')]",
 
-                "numDataDisks": "[parameters('numDataDisks')]", 
+                "numDataDisks": "[parameters('numDataDisks')]",
 
-                "dataDiskCachePolicy": "[parameters('dataDiskCachePolicy')]", 
+                "dataDiskCachePolicy": "[parameters('dataDiskCachePolicy')]",
 
-                "availabilitySetName": "[parameters('availabilitySetName')]", 
+                "availabilitySetName": "[parameters('availabilitySetName')]",
 
-                "customScriptURL": "[parameters('customScriptURL')]", 
+                "customScriptURL": "[parameters('customScriptURL')]",
 
-                "SkipLinuxAzSecPack": "True", 
+                "SkipLinuxAzSecPack": "True",
 
-                "SkipASMAzSecPack": "True", 
+                "SkipASMAzSecPack": "True",
 
-                "EnableCrashConsistentRestorePoint": "[parameters('enableCrashConsistentRestorePoint')]" 
+                "EnableCrashConsistentRestorePoint": "[parameters('enableCrashConsistentRestorePoint')]"
 
-            } 
+            }
 
         }
 ```
- 
 
->[!TIP] 
+
+>[!TIP]
 > Use the same parameter **DiskControllerType** if you are using the PowerShell or CLI tools to launch the NVMe supported VM.
 
 ## Next steps

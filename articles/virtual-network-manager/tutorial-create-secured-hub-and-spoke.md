@@ -268,7 +268,7 @@ Make sure the virtual network gateway has been successfully deployed before depl
 
 ### Verify from a virtual network
 
-1. Go to **vnet-learn-hub-eastus-001** virtual network and select **Network Manager** under **Settings**. The **Connectivity configurations** tab lists **cc-learn-prod-eastus-001** connectivity configuration applied in the 
+1. Go to **vnet-learn-prod-eastus-001** virtual network and select **Network Manager** under **Settings**. The **Connectivity configurations** tab lists **cc-learn-prod-eastus-001** connectivity configuration applied in the virtual network
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/vnet-connectivity-configuration.png" alt-text="Screenshot of connectivity configuration applied to the virtual network.":::
 

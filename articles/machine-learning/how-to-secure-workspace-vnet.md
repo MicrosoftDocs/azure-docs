@@ -10,7 +10,7 @@ ms.author: jhirono
 author: jhirono
 ms.date: 10/19/2023
 ms.topic: how-to
-ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, security, cliv2, sdkv2, event-tier1-build-2022, engagement-fy23, build-2023
+ms.custom: tracking-python, security, cliv2, sdkv2, engagement-fy23, build-2023
 ---
 
 # Secure an Azure Machine Learning workspace with virtual networks
@@ -78,7 +78,7 @@ When your Azure Machine Learning workspace is configured with a private endpoint
 
 ### Azure Container Registry
 
-When ACR is behind a virtual network, Azure Machine Learning can't use it to directly build Docker images. Instead, the compute cluster is used to build the images.
+When your Azure Machine Learning workspace or any resource is configured with a private endpoint it may be required to setup a user managed compute cluster for AzureML Environment image builds. Default scenario is leveraging [serverless compute](how-to-use-serverless-compute.md) and currently intended for scenarios with no network restrictions on resources associated with AzureML Workspace.
 
 > [!IMPORTANT]
 > The compute cluster used to build Docker images needs to be able to access the package repositories that are used to train and deploy your models. You may need to add network security rules that allow access to public repos, [use private Python packages](concept-vulnerability-management.md#using-a-private-package-repository), or use [custom Docker images (SDK v1)](v1/how-to-train-with-custom-image.md?view=azureml-api-1&preserve-view=true) that already include the packages.

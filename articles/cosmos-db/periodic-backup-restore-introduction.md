@@ -8,7 +8,6 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/02/2023
-ms.custom: ignite-2022
 ---
 
 # Periodic backup and restore in Azure Cosmos DB
@@ -88,7 +87,3 @@ Use Azure Cosmos DB [change feed](change-feed.md) to read data periodically for 
 
 > [!div class="nextstepaction"]
 > [Periodic backup storage redundancy](periodic-backup-storage-redundancy.md)
-
-
-
-
