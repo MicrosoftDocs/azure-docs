@@ -40,7 +40,7 @@ To set up a migration project, use these steps:
 1. In **Create project**, select your Azure subscription and resource group. If you don't have a resource group, select **Create New** to create one.
 1. In **Project Details**, specify the project name and geography in which you want to create the project.
 
-    :::image type="content" source="./media/tutorial-discover-sap-systems/create_project.PNG" alt-text="Screenshot that shows how to create a project." lightbox="./media/tutorial-discover-sap-systems/create_project.PNG":::
+    :::image type="content" source="./media/tutorial-discover-sap-systems/create-project.PNG" alt-text="Screenshot that shows how to create a project." lightbox="./media/tutorial-discover-sap-systems/create-project.PNG":::
 
 1. Select **Create**.<br>Wait for a few minutes for the project deployment. The Azure Migrate: Discovery and assessment tool is added by default to the new project.
 
@@ -55,7 +55,7 @@ To download the template, use these steps:
 1. On the **Discover** page, in **File type**, select **SAP® inventory (XLS)**.
 1. Select **Download** to download the excel template.
 
-    :::image type="content" source="./media/tutorial-discover-sap-systems/download_template.png" alt-text="Screenshot that shows how to download a template." lightbox="./media/tutorial-discover-sap-systems/download_template.png":::
+    :::image type="content" source="./media/tutorial-discover-sap-systems/download-template.png" alt-text="Screenshot that shows how to download a template." lightbox="./media/tutorial-discover-sap-systems/download-template.png":::
 
 > [!Note]
    > To avoid any duplication or inadvertent errors propagating from one discovery file to another discovery file, we recommend you use a new file for every discovery that you plan to run.
@@ -106,7 +106,7 @@ To import SAP Systems inventory, do the following steps:
 1. In **How do you want to discover**, select **Import based**.
 1. In **Import type**, select **.xls file for SAP Inventory**.
 
-    :::image type="content" source="./media/tutorial-discover-sap-systems/import_excel.png" alt-text="Screenshot that shows how to import SAP inventory." lightbox="./media/tutorial-discover-sap-systems/import_excel.png":::
+    :::image type="content" source="./media/tutorial-discover-sap-systems/import-excel.png" alt-text="Screenshot that shows how to import SAP inventory." lightbox="./media/tutorial-discover-sap-systems/import-excel.png":::
  
 1. Upload the .xls file and select **Import**.
 1. Review the import details to check for any errors or validation failures.<br> The discovered SAP systems are shown on the **Azure Migrate: Discovery and assessment** screen.
