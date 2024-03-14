@@ -368,7 +368,7 @@ blue_deployment = ManagedOnlineDeployment(
 - `Environment` - using inline definitions that include where to upload files from, the SDK automatically uploads the `conda.yaml` file and registers the environment. Later, to build the environment, the deployment uses the `image` (in this example, it's `mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest`) for the base image, and the `conda_file` dependencies are installed on top of the base image.
 - `CodeConfiguration` - during deployment, the local files such as the Python source for the scoring model, are uploaded from the development environment.
 
-For more information about online deployment definition, see [OnlineDeployment Class](/python/api/azure-ai-ml/azure.ai.ml.entities.onlinedeployment?view=azure-python).
+For more information about online deployment definition, see [OnlineDeployment Class](/python/api/azure-ai-ml/azure.ai.ml.entities.onlinedeployment).
 
 
 
