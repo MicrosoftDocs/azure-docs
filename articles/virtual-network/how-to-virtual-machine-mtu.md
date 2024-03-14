@@ -205,6 +205,5 @@ In this example, the MTU for the **Mellanox** adapter is set to **1514** and the
 
 ## Related content
 
-* [Related article title](link.md)
-* [Related article title](link.md)
-* [Related article title](link.md)
+* [Microsoft Azure Network Adapter (MANA) overview](/azure/virtual-network/accelerated-networking-mana-overview.md)
+
