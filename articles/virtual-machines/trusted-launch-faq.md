@@ -357,6 +357,9 @@ Architecture      : x64
 
 ---
 
+### How external communication drivers work with Trusted Launch VMs ?
+
+Adding COM ports requires disabling Secure Boot. Hence, COM ports are disabled by default in Trusted Launch VMs.
 
 ## Power states
 

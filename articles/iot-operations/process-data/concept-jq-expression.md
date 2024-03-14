@@ -12,7 +12,7 @@ ms.date: 09/07/2023
 #CustomerIntent: As an operator, I want to understand the jq expressions used by Data Processor so that I can configure my pipeline stages.
 ---
 
-# What are jq expressions?
+# What are jq expressions in Azure IoT Data Processor Preview?
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
@@ -129,7 +129,7 @@ If you're trying to perform a complex transformation and you don't see an exampl
 
 One of the primary operations in jq is calling a function. Functions in jq come in many forms and can take varying numbers of inputs. Function inputs come in two forms:
 
-- **Data context** - the data that's automatically fed into the function by jq. Typically the data produced by the operation before the most recent `|` symbol.
+- **Data context** - the data automatically fed into the function by jq. Typically the data produced by the operation before the most recent `|` symbol.
 - **Function arguments** - other expressions and values that you provide to configure the behavior of a function.
 
 Many functions have zero arguments and do all of their work by using the data context that jq provides. The `length` function is an example:
@@ -170,7 +170,7 @@ There are many ways to extract data from, manipulate, and construct objects in j
 
 To retrieve keys, you typically use a path expression. This operation is often combined with other operations to get more complex results.
 
-It's easy to retrieve data from objects. When you need to retrieve many pieces of data from non-object structures, a common pattern is to convert non-object structures into objects. Given the following input:
+It's easy to retrieve data from objects. When you need to retrieve many pieces of data from nonobject structures, a common pattern is to convert nonobject structures into objects. Given the following input:
 
 ```json
 {
@@ -223,7 +223,7 @@ In the previous jq expression:
   - Takes an object as input and converts each key/value pair to an entry with structure `{"key": <key>, "value": <value>}`.
   - Runs `<expression>` against each entry generated from the object, replacing the input value of that entry with the result of running `<expression>`.
   - Converts the transformed set of entries back into an object, using `key` as the key in the key/value pair and `value` as the key's value.
-- `if .key == "temp" then .key = "temperature" else . end` performs conditional logic against the key of the entry. If the key is `temp` then it's converted to `temperature` leaving the value is unchanged. If the key isn't `temp`, the entry is left unchanged by returning `.` from the expression.
+- `if .key == "temp" then .key = "temperature" else . end` performs conditional logic against the key of the entry. If the key is `temp` then it converts to `temperature` leaving the value is unchanged. If the key isn't `temp`, the entry is left unchanged by returning `.` from the expression.
 
 The following JSON shows the output from the previous expression:
 
@@ -414,7 +414,7 @@ In the previous jq expression:
 
 - `.payload |= <expression>` uses `|=` to update the value of `.payload` with the result of running `<expression>`. Using `|=` instead of `=` sets the data context of `<expression>` to `.payload` rather than `.`.
 - `map(<expression>)` executes `<expression>` against each entry in the array and replaces the input value with whatever `<expression>` produces.
-- `.unit //= "celsius"` uses the special `//=` assignment. This assignment combines (`=`) with the alternative operator (`//`) to  assign the existing value of `.unit` to itself if it's not `false` or `null`. If `.unit` is false or null, then the expression assigns `"celsius"` as the value of `.unit`, creating `.unit` if necessary.
+- `.unit //= "celsius"` uses the special `//=` assignment. This assignment combines (`=`) with the alternative operator (`//`) to assign the existing value of `.unit` to itself if it's not `false` or `null`. If `.unit` is false or null, then the expression assigns `"celsius"` as the value of `.unit`, creating `.unit` if necessary.
 
 The following JSON shows the output from the previous jq expression:
 
@@ -533,7 +533,7 @@ In the previous jq expression:
   - `[0]` extracts the first element of the resulting array.
   - `?` enables further chaining of a path segment, even if the preceding value is null. When the preceding value is null, the subsequent path also returns null rather than failing.
   - `.value` extracts the `value` field from the result.
-- `select(.field == "dtmi:com:prod1:slicer3345:temperature")` executes the boolean expression inside of `select()` against the input. If the result is true, the input is passed through. If the result is false, the input is dropped. `map(select(<expression>))` is a common combination that's used to filter elements in an array.
+- `select(.field == "dtmi:com:prod1:slicer3345:temperature")` executes the boolean expression inside of `select()` against the input. If the result is true, the input is passed through. If the result is false, the input is dropped. `map(select(<expression>))` is a common combination used to filter elements in an array.
 
 The following JSON shows the output from the previous jq expression:
 
@@ -913,11 +913,11 @@ Use the following jq expression to filter the input so that you only have the la
 In the previous jq expression:
 
 - `.payload |= <expression>` uses `|=` to update the value of `.payload` with the result of running `<expression>`. Using `|=` instead of `=` sets the data context of `<expression>` to `.payload` rather than `.`.
-- `group_by(.name)` given an array as an input, places elements into sub-arrays based on the value of `.name` in each element. Each sub-array contains all elements from the original array with the same value of `.name`.
-- `map(<expression>)` takes the array of arrays produced by `group_by` and executes `<expression>` against each of the sub-arrays.
-- `sort_by(.timestamp)[-1]` extracts the element you care about from each sub-array:
-  - `sort_by(.timestamp)` orders the elements by increasing value of their `.timestamp` field for the current sub-array.
-  - `[-1]` retrieves the last element from the sorted sub-array, which is the entry with the most recent time for each name.
+- `group_by(.name)` given an array as an input, places elements into subarrays based on the value of `.name` in each element. Each subarray contains all elements from the original array with the same value of `.name`.
+- `map(<expression>)` takes the array of arrays produced by `group_by` and executes `<expression>` against each of the subarrays.
+- `sort_by(.timestamp)[-1]` extracts the element you care about from each subarray:
+  - `sort_by(.timestamp)` orders the elements by increasing value of their `.timestamp` field for the current subarray.
+  - `[-1]` retrieves the last element from the sorted subarray, which is the entry with the most recent time for each name.
 
 The following JSON shows the output from the previous jq expression:
 
@@ -991,17 +991,17 @@ Use the following jq expression to retrieve the highest timestamp and the averag
 In the previous jq expression:
 
 - `.payload |= <expression>` uses `|=` to update the value of `.payload` with the result of running `<expression>`. Using `|=` instead of `=` sets the data context of `<expression>` to `.payload` rather than `.`.
-- `group_by(.name)` takes an array as an input, places elements into sub-arrays based on the value of `.name` in each element. Each sub-array contains all elements from the original array with the same value of `.name`.
-- `map(<expression>)` takes the array of arrays produced by `group_by` and executes `<expression>` against each of the sub-arrays.
-- `{name: <expression>, value: <expression>, timestamp: <expression>}` constructs an object out of the input sub-array with `name`, `value`, and `timestamp` fields. Each `<expression>` produces the desired value for the associated key.
-- `.[0].name` retrieves the first element from the sub-array and extracts the `name` field from it. All elements in the sub-array have the same name, so you only need to retrieve the first one.
-- `map(.value) | (add / length)` computes the average `value` of each sub-array:
-  - `map(.value)` converts the sub-array into an array of the `value` field in each entry, in this case returning an array of numbers.
+- `group_by(.name)` takes an array as an input, places elements into subarrays based on the value of `.name` in each element. Each subarray contains all elements from the original array with the same value of `.name`.
+- `map(<expression>)` takes the array of arrays produced by `group_by` and executes `<expression>` against each of the subarrays.
+- `{name: <expression>, value: <expression>, timestamp: <expression>}` constructs an object out of the input subarray with `name`, `value`, and `timestamp` fields. Each `<expression>` produces the desired value for the associated key.
+- `.[0].name` retrieves the first element from the subarray and extracts the `name` field from it. All elements in the subarray have the same name, so you only need to retrieve the first one.
+- `map(.value) | (add / length)` computes the average `value` of each subarray:
+  - `map(.value)` converts the subarray into an array of the `value` field in each entry, in this case returning an array of numbers.
   - `add` is a built-in jq function that computes the sum of an array of numbers.
   - `length` is a built-in jq function that computes the count or length of an array.
   - `add / length` divides the sum by the count to determine the average.
-- `map(.timestamp) | max` finds the maximum `timestamp` value of each sub-array:
-  - `map(.timestamp)` converts the sub-array into an array of the `timestamp` fields in each entry, in this case returning an array of numbers.
+- `map(.timestamp) | max` finds the maximum `timestamp` value of each subarray:
+  - `map(.timestamp)` converts the subarray into an array of the `timestamp` fields in each entry, in this case returning an array of numbers.
   - `max` is built-in jq function that finds the maximum value in an array.
 
 The following JSON shows the output from the previous jq expression:
@@ -1110,7 +1110,7 @@ jq supports standard regular expressions. You can use regular expressions to ext
 
 ### Extract values by using regular expressions
 
-If you can't use string splitting to extract a value from a string, you may be able to use regular expressions to extract the values that you need.
+If you can't use string splitting to extract a value from a string, try to use regular expressions to extract the values that you need.
 
 The following example shows you how to normalize object keys by testing for a regular expression and then replacing it with a different format. Given the following input:
 
@@ -1426,7 +1426,7 @@ jq supports common mathematic operations. Some operations are operators such as 
 
 ### Arithmetic
 
-jq supports five common arithmetic operations: addition (`+`), subtraction (`-`), multiplication (`*`), division (`/`) and modulo (`%`). Unlike many features of jq, these operations are infix operations that let you write the full mathematical expression in a single expression with no `|` separators.
+jq supports five common arithmetic operations: addition (`+`), subtraction (`-`), multiplication (`*`), division (`/`), and modulo (`%`). Unlike many features of jq, these operations are infix operations that let you write the full mathematical expression in a single expression with no `|` separators.
 
 The following example shows you how to convert a temperature from fahrenheit to celsius and extract the current seconds reading from a unix millisecond timestamp. Given the following input:
 
@@ -1448,7 +1448,7 @@ Use the following jq expression to convert the temperature from fahrenheit to ce
 
 In the previous jq expression:
 
-- `.payload.temperatureC = (5/9) * (.payload.temperatureF - 32)` creates a new `temperatureC` field in the payload that's set to the conversion of `temperatureF` from fahrenheit to celsius.
+- `.payload.temperatureC = (5/9) * (.payload.temperatureF - 32)` creates a new `temperatureC` field in the payload set to the conversion of `temperatureF` from fahrenheit to celsius.
 - `.payload.seconds = (.payload.timestamp / 1000) % 60` takes a unix millisecond time and converts it to seconds, then extracts the number of seconds in the current minute using a modulo calculation.
 
 The following JSON shows the output from the previous jq expression:
@@ -1516,7 +1516,7 @@ The following JSON shows the output from the previous jq expression:
 
 Data processing pipelines often use jq to filter messages. Filtering typically uses boolean expressions and operators. In addition, boolean logic is useful to perform control flow in transformations and more advanced filtering use cases.
 
-The following examples show some of the most common functionality used in boolean expressions in jq
+The following examples show some of the most common functionality used in boolean expressions in jq:
 
 ### Basic boolean and conditional operators
 
@@ -1593,8 +1593,8 @@ In the previous jq expression:
 - `.payload | <expression>` scopes the data context of `<expression>` to the value of `.payload` to make `<expression>` less verbose.
 - `hasTemperature: has("temperature"),` this and other similar expressions demonstrate how the `has` function behaves with an input object. The function returns true only if the key is present. `hasSite` is true despite the value of `site` being `null`.
 - `temperatureNotNull: (.temperature != null),` this and other similar expressions demonstrate how the `!= null` check performs a similar check to `has`. A nonexistent key in an object is `null` if accessed by using the `.<key>` syntax, or key exists but has a value of `null`. Both `siteNotNull` and `missingNotNull` are false, even though one key is present and the other is absent.
-- `hasNested: (has("nested") and (.nested | has("inner")))` performs a check on a nested object with `has`, where the parent object may not exist. The result is a cascade of checks at each level to avoid an error.
-- `nestedNotNull: (.nested?.inner != null)` performs the same check on a nested object using `!= null` and the `?` to enable path chaining on fields that may not exist. This approach produces cleaner syntax for deeply nested chains that may or may not exist, but it can't differentiate `null` key values from ones that don't exist.
+- `hasNested: (has("nested") and (.nested | has("inner")))` performs a check on a nested object with `has`, where the parent object might not exist. The result is a cascade of checks at each level to avoid an error.
+- `nestedNotNull: (.nested?.inner != null)` performs the same check on a nested object using `!= null` and the `?` to enable path chaining on fields that might not exist. This approach produces cleaner syntax for deeply nested chains that might or might not exist, but it can't differentiate `null` key values from ones that don't exist.
 
 The following JSON shows the output from the previous jq expression:
 
@@ -1654,7 +1654,7 @@ The following examples show some common control flow scenarios in jq.
 
 ### If-else statements
 
-jq supports conditions by using `if <test-expression> then <true-expression> else <false-expression> end`. You can insert more cases by adding `elif <test-expression> then <true-expression>` in the middle. A key difference between jq and many other languages is that each `then` and `else` expression produces a result that's used in subsequent operations in the overall jq expression.
+jq supports conditions by using `if <test-expression> then <true-expression> else <false-expression> end`. You can insert more cases by adding `elif <test-expression> then <true-expression>` in the middle. A key difference between jq and many other languages is that each `then` and `else` expression produces a result used in subsequent operations in the overall jq expression.
 
 The following example demonstrates how to use `if` statements to produce conditional information. Given the following input:
 
@@ -1744,7 +1744,7 @@ The following JSON shows the output from the previous jq expression:
 
 ### Reduce
 
-Reducing is the primary way to perform loop or iterative operations across the elements of an array. The reduce operation consists of an _accumulator_ and an operation that uses the accumulator and the current element of the array as inputs. Each iteration of the loop returns the next value of the accumulator, and the final output of the reduce operation is the last accumulator value. Reduce is referred to as _fold_ in some other functional programming languages.
+Reducing is the primary way to perform loop or iterative operations across the elements of an array. The _reduce_ operation consists of an _accumulator_ and an operation that uses the accumulator and the current element of the array as inputs. Each iteration of the loop returns the next value of the accumulator, and the final output of the reduce operation is the last accumulator value. Reduce is referred to as _fold_ in some other functional programming languages.
 
 Use the `reduce` operation in jq perform reducing. Most use cases don't need this low-level manipulation and can instead use higher-level functions, but `reduce` is a useful general tool.
 
@@ -1800,9 +1800,9 @@ In the previous jq expression:
 - `.payload |= <expression>` uses `|=` to update the value of `.payload` with the result of running `<expression>`. Using `|=` instead of `=` sets the data context of `<expression>` to `.payload` rather than `.`.
 - `reduce .[] as $item (<init>; <expression>)` is the scaffolding of a typical reduce operation with the following parts:
   - `.[] as $item` must always be `<expression> as <variable>` and is most often `.[] as $item`. The `<expression>` produces a stream of values, each of which is saved to `<variable>` for an iteration of the reduce operation. If you have an array you want to iterate over, `.[]` splits it apart into a stream. This syntax is the same as the syntax used to split messages apart, but the `reduce` operation doesn't use the stream to generate multiple outputs. `reduce` doesn't split your message apart.
-  - `<init>` in this case `null` is the initial value of the accumulator that's used in the reduce operation. This value is often set to empty or zero. This value becomes the data context, `.` in this loop `<expression>`, for the first iteration.
+  - `<init>` in this case `null` is the initial value of the accumulator used in the reduce operation. This value is often set to empty or zero. This value becomes the data context, `.` in this loop `<expression>`, for the first iteration.
   - `<expression>` is the operation performed on each iteration of the reduce operation. It has access to the current accumulator value, through `.`, and the current value in the stream through the `<variable>` declared earlier, in this case `$item`.
-- `if . == null then {totalChange: 0, previous: $item.value, count: 0}` is a conditional to handle the first iteration of reduce. It sets up the structure of the accumulator for the next iteration. Because the expression computes differences between entries, the first entry sets up data that's used to compute a difference on the second reduce iteration. The `totalChange`, `previous` and `count` fields serve as loop variables, and update on each iteration.
+- `if . == null then {totalChange: 0, previous: $item.value, count: 0}` is a conditional to handle the first iteration of reduce. It sets up the structure of the accumulator for the next iteration. Because the expression computes differences between entries, the first entry sets up the data used to compute a difference on the second reduce iteration. The `totalChange`, `previous`, and `count` fields serve as loop variables, and update on each iteration.
 - `.totalChange += (($item.value - .previous) | length) | .previous = $item.value | .count += 1` is the expression in the `else` case. This expression sets each field in the accumulator object to a new value based on a computation. For `totalChange`, it finds the difference between the current and previous values and gets the absolute value. Counterintuitively it uses the `length` function to get the absolute value. `previous` is set to the current `$item`'s `value` for the next iteration to use, and `count` is incremented.
 - `.totalChange / .count` computes the average change across data points after the reduce operation is complete and you have the final accumulator value.
 
@@ -1873,7 +1873,7 @@ def stdev: avg as $mean | (map(. - $mean | . * .) | add) / (length - 1) | sqrt;
 
 In the previous jq expression:
 
-- `def avg: add / length;` defines a new function called `avg` that's used to compute averages later in the expression. The expression on the right of the `:` is the logical expression used whenever you use `avg`. The expression `<expression> | avg` is equivalent to `<expression> | add / length`
+- `def avg: add / length;` defines a new function called `avg`  used to compute averages later in the expression. The expression on the right of the `:` is the logical expression used whenever you use `avg`. The expression `<expression> | avg` is equivalent to `<expression> | add / length`
 - `def stdev: avg as $mean | (map(. - $mean | . * .) | add) / (length - 1) | sqrt;` defines a new function called  `stdev`. The function computes the sample standard deviation of an array using a modified version of [community response](https://stackoverflow.com/questions/73599978/sample-standard-deviation-in-jq) on StackOverflow.
 - `.payload |= <expression>` the first two `def`s are just declarations and start the actual expression. The expression executes `<expression>` with an input data object of `.payload` and assigns the result back to `.payload`.
 - `sort_by(.value)` sorts the  array of array entries by their `value` field. This solution requires you to identify and manipulate the highest and lowest values in an array, so sorting the data in advance reduces computation and simplifies the code.
@@ -1885,7 +1885,7 @@ In the previous jq expression:
 - `(map(.value) | avg) as $avg` converts the array into an array of numbers and computes their average and then saves the result to an `$avg` variable. This approach saves computation costs because you reuse the average multiple times in the loop iteration. Variable assignment expressions don't change the data context for the next expression after `|`, so the rest of the computation still has access to the full array.
 - `if <condition> then <expression> else <expression> end` is the core logic of the loop iteration. It uses `<condition>` to determine the `<expression>` to execute and return.
 - `((.[0].value - $avg) | length) > ((.[-1].value - $avg) | length)` is the `if` condition that compares the highest and lowest values against the average value and then compares those differences:
-  - `(.[0].value - $avg) | length` retrieves the `value` field of the first array entry and gets the difference between it and the overall average. The first array entry is the lowest because of the previous sort. This value may be negative, so the result is piped to `length`, which returns the absolute value when given a number as an input.
+  - `(.[0].value - $avg) | length` retrieves the `value` field of the first array entry and gets the difference between it and the overall average. The first array entry is the lowest because of the previous sort. This value might be negative, so the result is piped to `length`, which returns the absolute value when given a number as an input.
   - `(.[-1].value - $avg) | length` performs the same operation against the last array entry and computes the absolute value as well for safety. The last array entry is the highest because of the previous sort. The absolute values are then compared in the overall condition by using `>`.
 - `del(.[0])` is the `then` expression that executes when the first array entry was the largest outlier. The expression removes the element at `.[0]` from the array. The expression returns the data left in the array after the operation.
 - `del(.[-1])` is the `else` expression that executes when the last array entry was the largest outlier. The expression removes the element at `.[-1]`, which is the last entry, from the array. The expression returns the data left in the array after the operation.
@@ -1955,7 +1955,7 @@ Use the following jq expression to compute the average of the data points and dr
 In the previous jq expression:
 
 - `.payload |= <expression>` uses `|=` to update the value of `.payload` with the result of running `<expression>`. Using `|=` instead of `=` sets the data context of `<expression>` to `.payload` rather than `.`.
-- `map_values(add / length)` executes `add / length` for each value in the `.payload` sub-object. The expression sums the elements in the array of values and then divides by the length of the array to calculate the average.
+- `map_values(add / length)` executes `add / length` for each value in the `.payload` subobject. The expression sums the elements in the array of values and then divides by the length of the array to calculate the average.
 - `if .payload.temperature > 30 and .payload.humidity < 90 then . else empty end` checks two conditions against the resulting message. If the filter evaluates to true, as in the first input, then the full message is produced as an output. If the filter evaluates to false, as in the second input, it returns `empty`, which results in an empty stream with zero values. This result causes the expression to drop the corresponding message.
 
 #### Output 1
@@ -2027,9 +2027,74 @@ true
 
 (error)
 
+## Time utilities
+
+jq doesn't support time as a native type. However, some formats accepted and emitted by Data Processor do support time as a native type. These types are typically represented by using Go's `time.Time` type.
+
+To enable you to interact with these values from jq, Data Processor provides module with a set of functions that let you:
+
+- Convert between native time, ISO 8601 strings, and numeric Unix timestamps.
+- Perform various time-specific operations on all of these types.
+
+### The `time` module
+
+All of the special time-specific functions are specified in a  `time` module that you can import into a query.
+
+Import the module at the beginning of your query in one of two ways:
+
+- `import" "time" as time;`
+- `include "time"`
+
+The first method places all functions in the module under a namespace, for example `time::totime`. The second method simply places all the time functions at the top level, for example `totime`. Both syntaxes are valid and functionally equivalent.
+
+### Formats and conversion
+
+The time module works with three time formats:
+
+- `time` is a native time value. You can only use it with the functions in the time module. Recognized as a `time` data type when serializing.
+- `unix` is a numeric Unix timestamp that represents time as seconds since the Unix epoch. It can be either an integer or floating-point number. Recognized as the corresponding numeric type when serializing.
+- `iso` is an ISO 8601 string format representation of time. Recognized as a string when serializing.
+
+The time module provides the following functions for checking and manipulating these types:
+
+- `time::totime` converts any of the three types to `time`.
+- `time::tounix` converts any of the three types to `unix`.
+- `time::toiso` converts any of the three types to `iso`.
+- `time::istime` returns true if the data is in `time` format.
+
+### Time Operations
+
+The time module provides various time-specific operations that operate on all of the types. The following functions can take any of the supported types as their input and return the same type as their output. Integer timestamps might be converted to floating-point timestamps if the more precision is necessary.
+
+- `time::utc` converts the time to UTC.
+- `time::zone(zone)` converts the time to the provided zone. `zone` is an ISO 8601 zone string. For example, `time::zone("-07")`.
+- `time::local` converts the time to local time.
+- `time::offset(duration)` offsets the time by the provided duration. `duration` uses Go's duration string syntax. For example, `time::offset("1m2s")`.
+- `time::offset(value;unit)` offsets the time by the provided duration. This function uses a number and a unit string. For example, `time::offset(2;"s")`. This function is useful when the duration comes from another property.
+
+> [!NOTE]
+> The three timezone functions have no meaningful effect on Unix timestamps.
+
+## Miscellaneous utilities
+
+The `util` module is a collection of utilities that expands the capabilities of the jq runtime.
+
+### The `util` module
+
+All of the miscellaneous utilities are specified in a `util` module that you can import into a query.
+
+Import the module at the beginning of your query in one of two ways:
+
+- `import" "util" as util;`
+- `include "util"`
+
+The first method places all functions in the module under a namespace, for example `util::uuid`. The second method simply places all the miscellaneous functions at the top level, for example `uuid`. Both syntaxes are valid and functionally equivalent.
+
+The `util` module currently includes the `uuid` function that returns a new, random UUID in the standard string format.
+
 ## Binary manipulation
 
-While jq itself is designed to work with data that can be represented as JSON, Azure IoT Data Processor (preview) pipelines also support a raw data format that holds unparsed binary data. To work with binary data, the version of jq that ships with Data Processor contains a package designed to help you process binary data. It lets you:
+jq is designed to work with data that can be represented as JSON. However, Azure IoT Data Processor Preview pipelines also support a raw data format that holds unparsed binary data. To work with binary data, the version of jq that ships with Data Processor contains a package designed to help you process binary data. It lets you:
 
 - Convert back and forth between binary and other formats such as base64 and integer arrays.
 - Use built-in functions to read numeric and string values from a binary message.
@@ -2042,7 +2107,7 @@ The following sections describe the binary support in the Data Processor jq engi
 
 ### The `binary` module
 
-All of the special binary support in the Data Processor jq engine is specified in a `binary` module that you can import.
+All of the binary support in the Data Processor jq engine is specified in a `binary` module that you can import.
 
 Import the module at the beginning of your query in one of two ways:
 

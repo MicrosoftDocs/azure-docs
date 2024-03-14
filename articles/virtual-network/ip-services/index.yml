@@ -86,7 +86,7 @@ landingContent:
           - text: Configure a private IP address for a virtual machine
             url: virtual-networks-static-private-ip-arm-pportal.md
           - text: Assign multiple IP addresses to virtual machines
-            url: virtual-network-multiple-ip-addresses-portal.md
+            url: virtual-network-multiple-ip-addresses-portal.yml
  
   - title: Learn about IP services architecture
     linkLists:

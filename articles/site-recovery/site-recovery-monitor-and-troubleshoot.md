@@ -3,7 +3,7 @@ title: Monitor Azure Site Recovery | Microsoft Docs
 description: Monitor and troubleshoot Azure Site Recovery replication issues and operations using the portal 
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/25/2023
+ms.date: 03/13/2024
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---
@@ -179,7 +179,8 @@ Azure Site Recovery also provides default alerts via Azure Monitor, which enable
 To enable built-in Azure Monitor alerts for Azure Site Recovery, for a particular subscription, navigate to **Preview Features** in the [Azure portal](https://ms.portal.azure.com) and register the feature flag **EnableAzureSiteRecoveryAlertsToAzureMonitor** for the selected subscription. 
 
 > [!NOTE]
-> We recommended that you wait for 24 hours for the registration to take effect before testing out the feature. 
+> - We recommended that you wait for 24 hours for the registration to take effect before testing out the feature. 
+> - If the Recovery Services vault is created before the subscription is registered, then the subscription should be re-registered. 
 
 :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-site-recovery-alert-registration.png" alt-text="Screenshot displays feature flag to register for alerting feature." lightbox="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-site-recovery-alert-registration.png":::
 
