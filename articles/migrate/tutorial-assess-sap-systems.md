@@ -1,5 +1,5 @@
 ---
-title: Assess of SAP systems for the migration 
+title: Assess SAP systems for the migration 
 description: Learn how to assess SAP systems with the Azure Migrate Discovery and assessment.
 author: Vikram1988
 ms.author: vibansa
@@ -40,7 +40,7 @@ Create an assessment for the discovered SAP systems as follows:
 1. On **Azure Migrate: Discovery and assessment**, select **Assess** and choose the assessment type as **SAP® Systems (Preview)**.
 1. In **Assessment name**, enter the name for your assessment.
 1. Select **Edit** to review the assessment properties.
-    :::image type="content" source="./media/tutorial-assess-sap-systems/edit-settings.png" alt-text="Screenshot that shows how to sdit the settings." lightbox="./media/tutorial-assess-sap-systems/edit-settings.png":::
+    :::image type="content" source="./media/tutorial-assess-sap-systems/edit-settings.png" alt-text="Screenshot that shows how to edit the settings." lightbox="./media/tutorial-assess-sap-systems/edit-settings.png":::
 1. In **Target settings**, select the following options:
 
      **Property** | **Details**

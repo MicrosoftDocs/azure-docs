@@ -15,7 +15,7 @@ ms.custom:
 
 As part of your migration journey to Azure, you discover your on-premises SAP inventory and workloads.
 
-Discovery and Assessment of SAP systems using Azure Migrate is a new capability within Azure Migrate that allows you to perform an Import-based assessments for your on-premises SAP systems.
+Discovery and Assessment of SAP systems using Azure Migrate is a new capability within Azure Migrate that allows you to perform an Import-based assessment for your on-premises SAP systems.
 
 Instead of downloading and installing an Azure Migrate appliance on your environment to run a discovery and assessment, you can upload a CSV file with server inventory details. Azure Migrate uses this information to generate an assessment report, featuring cost, and sizing recommendations based on cost and performance.
 
@@ -40,7 +40,7 @@ To set up a migration project, use these steps:
 1. In **Create project**, select your Azure subscription and resource group. If you don't have a resource group, select **Create New** to create one.
 1. In **Project Details**, specify the project name and geography in which you want to create the project.
 
-    :::image type="content" source="./media/tutorial-discover-sap-systems/create-project.PNG" alt-text="Screenshot that shows how to create a project." lightbox="./media/tutorial-discover-sap-systems/create-project.PNG":::
+    :::image type="content" source="./media/tutorial-discover-sap-systems/create-project.png" alt-text="Screenshot that shows how to create a project." lightbox="./media/tutorial-discover-sap-systems/create-project.png":::
 
 1. Select **Create**.<br>Wait for a few minutes for the project deployment. The Azure Migrate: Discovery and assessment tool is added by default to the new project.
 
@@ -53,7 +53,7 @@ Download the template file and add the server inventory, and then import the tem
 To download the template, use these steps:
 1. In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate | Servers, databases and web apps**, select **Discover**.
 1. On the **Discover** page, in **File type**, select **SAP® inventory (XLS)**.
-1. Select **Download** to download the excel template.
+1. Select **Download** to download the Excel template.
 
     :::image type="content" source="./media/tutorial-discover-sap-systems/download-template.png" alt-text="Screenshot that shows how to download a template." lightbox="./media/tutorial-discover-sap-systems/download-template.png":::
 
