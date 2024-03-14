@@ -52,4 +52,4 @@ items:
 - name: Resources
   items:
   - name: Azure Operator 5G Core support
-    href: support-agreement.md     
+    href: support-5g-core.md     
