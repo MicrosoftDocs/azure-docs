@@ -11,7 +11,11 @@ ms.author: cshoe
 
 # Configure settings for the Spring Cloud Configure Server component in Azure Container Apps (preview)
 
+Spring Cloud Config Server provides a centralized location to make configuration data available to multiple applications. Use the following guidance to learn how to configure and manage your Spring Cloud Config Server component.
+
 ## Show
+
+You can show the details of an individual component by name using the `show` command.
 
 ```azurecli
 az containerapp env java-component spring-cloud-config show \
@@ -22,6 +26,8 @@ az containerapp env java-component spring-cloud-config show \
 
 ## List
 
+You can list all registered Java components using the `list` command.
+
 ```azurecli
 az containerapp env java-component list \
   --environment <ENVIRONMENT_NAME> \
@@ -29,6 +35,8 @@ az containerapp env java-component list \
 ```
 
 ## Bind
+
+Use the `--bind` parameter of the `update` command to create a connection between the Spring Cloud Config Server component and your container app.
 
 ```azurecli
 az containerapp update \
@@ -38,6 +46,8 @@ az containerapp update \
 ```
 
 ## Unbind
+
+To break the connection between your container app and the Spring Cloud Config Server component, use the the `--unbind` parameter of the `update` command.
 
 ``` azurecli
 az containerapp update \
@@ -51,8 +61,6 @@ az containerapp update \
 The `az containerapp update` command uses the `--configuration` parameter to control how the Spring Could Config Server is configured. You can use multiple parameters at once as long as they're separated by a space. You can find more details in [Spring Cloud Config Server](https://docs.spring.io/spring-cloud-config/docs/current/reference/html/#_spring_cloud_config_server) docs.
 
 The following table lists the different configuration values available.
-
-### Git backend configurations
 
 The following configuration settings are available on the `spring.cloud.config.server.git` configuration property.
 
@@ -78,43 +86,31 @@ The following configuration settings are available on the `spring.cloud.config.s
 
 ### Common configurations
 
-### Logging configurations
-
-- [**logging.level.**\*](https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/boot-features-logging.html#boot-features-custom-log-levels)
-
-- [**logging.group.**\*](https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/boot-features-logging.html#boot-features-custom-log-groups)
-
-  Any other configurations under the `logging.*` namespace should be forbidden. For example, disallow writing log files by using `logging.file`.
+- logging related configurations
+  - [**logging.level.***](https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/boot-features-logging.html#boot-features-custom-log-levels)
+  - [**logging.group.***](https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/boot-features-logging.html#boot-features-custom-log-groups)
+  - Any other configurations under logging.* namespace should be forbidden, for example, writing log files by using `logging.file` should be forbidden.
 
 - **spring.cloud.config.server.overrides**
-
   - Extra map for a property source to be sent to all clients unconditionally.
 
 - **spring.cloud.config.override-none**
-
-  You can change the priority of all overrides in the client to be more like default values. The setting allows applications to supply their own values in environment variables or System properties. Values are set with the `spring.cloud.config.override-none=true` flag (the default is `false`) in the remote repository.
+  - You can change the priority of all overrides in the client to be more like default values, letting applications supply their own values in environment variables or System properties, by setting the spring.cloud.config.override-none=true flag (the default is false) in the remote repository.
 
 - **spring.cloud.config.allow-override**
-
-  If you enable config first bootstrap, you allow client applications to override configuration from the config server by placing two properties within the application's configuration coming from the config server.
+  - If you enable config first bootstrap, you can allow client applications to override configuration from the config server by placing two properties within the applications configuration coming from the config server.
 
 - **spring.cloud.config.server.health.**
-
-  You can configure the Health Indicator to check more applications along with custom profiles and custom labels
+  - You can configure the Health Indicator to check more applications along with custom profiles and custom labels
 
 - **spring.cloud.config.server.accept-empty**
+  - You can set `spring.cloud.config.server.accept-empty` to `false` so that the server returns a HTTP `404` status, if the application is not found. By default, this flag is set to `true`.
 
-  You can set `spring.cloud.config.server.accept-empty` to `false` so that the server returns an HTTP `404` status if the application isn't found. By default, this flag is set to `true`.
-
-### Encryption and decryption (symmetric)
-
-- **encrypt.key**
-
-  Using a symmetric key is often most convenient, as it's a single property value to configure.
-
-- **spring.cloud.config.server.encrypt.enabled**
-
-  You can set this value to `false`, to disable server-side decryption.
+- **Encryption and decryption (symmetric)**
+  - **encrypt.key**
+    - It is convenient to use a symmetric key since it is a single property value to configure.
+  - **spring.cloud.config.server.encrypt.enabled**
+    - You can set this to `false`, to disable server-side decryption.
 
 ## Spring Cloud Config Server refresh
 

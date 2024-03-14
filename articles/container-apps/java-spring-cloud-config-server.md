@@ -11,7 +11,9 @@ ms.author: cshoe
 
 # Connect to a managed Spring Cloud Config Server in Azure Container Apps (preview)
 
-Spring Cloud Config Server provides a centralized location to make configuration data available to multiple applications. In this article, you learn to connect an app hosted in Azure Container Apps to a Java Spring Cloud Config Server instance. The Spring Cloud Config Server component uses a GitHub repository as the source for configuration settings. Configuration values are made available to your container app via a configuration binding. A binding is a connection established between the Config Server and your app. As values change in the configuration, they automatically flow to your application, all without requiring you to recompile or redeploy your application.
+Spring Cloud Config Server provides a centralized location to make configuration data available to multiple applications. In this article, you learn to connect an app hosted in Azure Container Apps to a Java Spring Cloud Config Server instance.
+
+The Spring Cloud Config Server component uses a GitHub repository as the source for configuration settings. Configuration values are made available to your container app via a binding between the component and your container app. As values change in the configuration server, they automatically flow to your application, all without requiring you to recompile or redeploy your application.
 
 In this tutorial, you learn to:
 
