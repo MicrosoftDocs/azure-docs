@@ -4,7 +4,7 @@ description: Learn what capabilities are available to manage and monitor Azure S
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sngun
-ms.date: 14/03/2024
+ms.date: 03/14/2024
 ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
