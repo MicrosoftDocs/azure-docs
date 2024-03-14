@@ -176,10 +176,10 @@ At this point, your functions are running in a Container Apps environment, with 
 The request URL should look something like this:
 
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
-`http://myacafunctionapp.kindtree-796af82b.eastus.azurecontainerapps.io/api/httpexample?name=functions`
+`https://myacafunctionapp.kindtree-796af82b.eastus.azurecontainerapps.io/api/httpexample?name=functions`
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"  
-`http://myacafunctionapp.kindtree-796af82b.eastus.azurecontainerapps.io/api/httpexample`
+`https://myacafunctionapp.kindtree-796af82b.eastus.azurecontainerapps.io/api/httpexample`
 ::: zone-end
 
 ## Clean up resources

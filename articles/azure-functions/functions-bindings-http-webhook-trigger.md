@@ -693,7 +693,7 @@ The trigger input type is declared as either `HttpRequest` or a custom type. If 
 By default when you create a function for an HTTP trigger, the function is addressable with a route of the form:
 
 ```http
-http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>
+https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>
 ```
 
 You can customize this route using the optional `route` property on the HTTP trigger's input binding. You can use any [Web API Route Constraint](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints) with your parameters. 
@@ -910,7 +910,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 Using this configuration, the function is now addressable with the following route instead of the original route.
 
 ```
-http://<APP_NAME>.azurewebsites.net/api/products/electronics/357
+https://<APP_NAME>.azurewebsites.net/api/products/electronics/357
 ```
 
 This configuration allows the function code to support two parameters in the address, _category_ and _id_. For more information on how route parameters are tokenized in a URL, see [Routing in ASP.NET Core](/aspnet/core/fundamentals/routing#route-constraint-reference).

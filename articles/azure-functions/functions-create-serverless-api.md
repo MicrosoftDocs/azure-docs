@@ -26,7 +26,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 ## Customize your HTTP function
 
-By default, your HTTP trigger function is configured to accept any HTTP method. You can also use the default URL, `http://<yourapp>.azurewebsites.net/api/<funcname>?code=<functionkey>`. In this section, you modify the function to respond only to GET requests with `/api/hello`. 
+By default, your HTTP trigger function is configured to accept any HTTP method. You can also use the default URL, `https://<yourapp>.azurewebsites.net/api/<funcname>?code=<functionkey>`. In this section, you modify the function to respond only to GET requests with `/api/hello`. 
 
 1. Navigate to your function in the Azure portal. Select **Integration** in the left menu, and then select **HTTP (req)** under **Trigger**.
 
