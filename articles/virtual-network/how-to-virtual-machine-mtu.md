@@ -99,36 +99,36 @@ Use the following steps to change the MTU size on a Linux virtual machine:
 
 1. Use the `ip` command to show the current network interfaces and their MTU settings:
 
-```bash
-ip link show
-```
+    ```bash
+    ip link show
+    ```
 
-```output
-azureuser@vm-linux:~$ ip link show
-1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
-    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP mode DEFAULT group default qlen 1000
-    link/ether 00:0d:3a:00:bd:77 brd ff:ff:ff:ff:ff:ff
-3: enP1328s1: <BROADCAST,MULTICAST,SLAVE,UP,LOWER_UP> mtu 1500 qdisc mq master eth0 state UP mode DEFAULT group default qlen 1000
-    link/ether 00:0d:3a:00:bd:77 brd ff:ff:ff:ff:ff:ff
-    altname enP1328p0s2
-```
+    ```output
+    azureuser@vm-linux:~$ ip link show
+    1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+        link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP mode DEFAULT group default qlen 1000
+        link/ether 00:0d:3a:00:bd:77 brd ff:ff:ff:ff:ff:ff
+    3: enP1328s1: <BROADCAST,MULTICAST,SLAVE,UP,LOWER_UP> mtu 1500 qdisc mq master eth0 state UP mode DEFAULT group default qlen 1000
+        link/ether 00:0d:3a:00:bd:77 brd ff:ff:ff:ff:ff:ff
+        altname enP1328p0s2
+    ```
 
 In this example, the MTU is set at 1500 and the name of the network interface is **eth0**.
 
 1. Use the following example to run the Linux shell script to determine the largest MTU size that can be used for a specific network path:
 
-```bash
-source LinuxVmUtilities.sh;Get-PathMtu 10.0.0.5 1200 eth0
-```
+    ```bash
+    source LinuxVmUtilities.sh;Get-PathMtu 10.0.0.5 1200 eth0
+    ```
 
 1. Record the value output from the script. You'll need this value for the next step. For the purposes of this article, the example value is **1500**. Replace the value with your own value.
 
 1. Adjust MTU on **vm-1**  to match output of path MTU file. For testing against multiple destinations use the lowest value received in the output.
 
-```bash
-su - root -c  'echo 1500 > /sys/class/net/eth0/mtu'
-```
+    ```bash
+    su - root -c  'echo 1500 > /sys/class/net/eth0/mtu'
+    ```
 
 1. Repeat the previous steps on **vm-2** with the IP address of **vm-1** to determine the largest MTU size that can be used for a specific network path.
 
@@ -145,56 +145,57 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
 
 1. Use the following example to display the current network interfaces.
 
-```powershell
-Get-NetAdapter
-```
+    ```powershell
+    Get-NetAdapter
+    ```
 
-```output
-PS C:\Users\azureuser> Get-NetAdapter
+    ```output
+    PS C:\Users\azureuser> Get-NetAdapter
 
-Name                      InterfaceDescription                    ifIndex Status       MacAddress             LinkSpeed
-----                      --------------------                    ------- ------       ----------             ---------
-Ethernet 2                Mellanox ConnectX-5 Virtual Adapter          10 Up           60-45-BD-CC-77-01       100 Gbps
-Ethernet                  Microsoft Hyper-V Network Adapter             6 Up           60-45-BD-CC-77-01       100 Gbps
-```
+    Name                      InterfaceDescription                    ifIndex Status       MacAddress             LinkSpeed
+    ----                      --------------------                    ------- ------       ----------             ---------
+    Ethernet 2                Mellanox ConnectX-5 Virtual Adapter          10 Up           60-45-BD-CC-77-01       100 Gbps
+    Ethernet                  Microsoft Hyper-V Network Adapter             6 Up           60-45-BD-CC-77-01       100 Gbps
+    ```
 
 **Vm-1** has two network interfaces displayed in the output.
 
 1. Use the following example to display the current MTU settings for the network interfaces:
 
-```powershell
-Get-NetAdapterAdvancedProperty -RegistryKeyword "*JumboPacket"
-```
+    ```powershell
+    Get-NetAdapterAdvancedProperty -RegistryKeyword "*JumboPacket"
+    ```
 
-```output
-PS C:\Users\azureuser> Get-NetAdapterAdvancedProperty -RegistryKeyword "*JumboPacket"
+    ```output
+    PS C:\Users\azureuser> Get-NetAdapterAdvancedProperty -RegistryKeyword "*JumboPacket"
 
-Name                      DisplayName                    DisplayValue                   RegistryKeyword RegistryValue
-----                      -----------                    ------------                   --------------- -------------
-Ethernet 2                Jumbo Packet                   1514                           *JumboPacket    {1514}
-Ethernet                  Jumbo Packet                   Disabled                       *JumboPacket    {1514}
-```
+    Name                      DisplayName                    DisplayValue                   RegistryKeyword RegistryValue
+    ----                      -----------                    ------------                   --------------- -------------
+    Ethernet 2                Jumbo Packet                   1514                           *JumboPacket    {1514}
+    Ethernet                  Jumbo Packet                   Disabled                       *JumboPacket    {1514}
+    ```
 
 In this example, the MTU for the **Mellanox** adapter is set to **1514** and the **Microsoft Hyper-V Network Adapter** is set to **Disabled**.
 
 1. Use the following example to run the PowerShell module you downloaded previously to determine the largest MTU size that can be used for a specific network path:
 
-```powershell
-Import-Module UtilityFunctions.psm1
+    ```powershell
+    Import-Module UtilityFunctions.psm1
 
-Get-PathMtu -DestinationHost 10.0.0.5
+    Get-PathMtu -DestinationHost 10.0.0.5
 
-```
+    ```
 
 1. Record the value output from the script. You'll need this value for the next step. For the purposes of this article, the example value is **1500**. Replace the value with your own value.
 
 1. Use `netsh` to set the MTU value for **vm-1** to match the output of the path MTU file. For testing against multiple destinations use the lowest value received in the output.
 
-```powershell
-netsh interface ipv4 set subinterface "Ethernet" mtu=1500 store=persistent
+    ```powershell
+    netsh interface ipv4 set subinterface "Ethernet" mtu=1500 store=persistent
 
-netsh interface ipv4 set subinterface "Ethernet 2" mtu=1500 store=persistent
-```
+    netsh interface ipv4 set subinterface "Ethernet 2" mtu=1500 store=persistent
+    ```
+
 >[!IMPORTANT]
 > You must set higher MTU values on both Hyper-V Network Adapter and Mellanox adapter for proper functionality.
 
