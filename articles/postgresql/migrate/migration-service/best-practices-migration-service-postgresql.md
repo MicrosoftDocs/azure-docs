@@ -49,9 +49,7 @@ The following phases are considered for calculating the total downtime to perfor
 
 - **Migration of Buffer** - After completing the above step, you can plan for actual production migration during a time period when the application traffic is low. This migration can be planned on the same day or probably a week away. By this time, the size of the source server might have increased. Update your estimated migration time for your production server based on the amount of this increase. If the increase is significant, you can consider doing another test using the PITR server. But for most servers the size increase shouldn't be significant enough.
 
-- **Data Validation**
-
-Once the migration is completed for the production server, you need to verify if the data in the flexible server is an exact copy of the source instance. Customers can use open-source/third-party tools or can do the validation manually. Prepare the validation steps you would like to do before the actual migration. Validation can include:
+- **Data Validation** - Once the migration is completed for the production server, you need to verify if the data in the flexible server is an exact copy of the source instance. Customers can use open-source/third-party tools or can do the validation manually. Prepare the validation steps you would like to do before the actual migration. Validation can include:
     
 - Row count match for all the tables involved in the migration.
 

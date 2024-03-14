@@ -9,13 +9,9 @@ ms.topic: include
 
 You can migrate using Azure CLI.
 
-To begin migrating using Azure CLI, you need to install the Azure CLI on your local machine.
-
 [!INCLUDE [prerequisites-setup-azure-CLI-commands-postgresql](../prerequisites/prerequisites-setup-azure-cli-commands-postgresql.md)]
 
 ## Connect to the source
-
-- In this tutorial, the source AWS RDS for PostgreSQL version is 13.13
 
 - For this tutorial, we're going to migrate "ticketdb," "inventorydb," and "timedb" into Azure Database for PostgreSQL flexible server.
 

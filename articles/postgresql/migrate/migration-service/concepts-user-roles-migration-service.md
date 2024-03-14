@@ -1,21 +1,12 @@
 ---
-
 title: "Migration service - Migration of users/roles, ownerships, and privileges"
-
 description: Migration of users/roles, ownerships, and privileges along with schema and data
-
 author: shriramm
-
 ms.author: shriramm
-
 ms.reviewer: maghan
-
 ms.date: 03/13/2024
-
 ms.service: postgresql
-
 ms.topic: conceptual
-
 ---
 
 # Migration of user roles, ownerships, and privileges for the migrations service in Azure Database for PostgreSQL
@@ -23,9 +14,9 @@ ms.topic: conceptual
 [!INCLUDE [applies-to-postgresql-flexible-server](../../includes/applies-to-postgresql-flexible-server.md)]
 
 > [!IMPORTANT]  
-> The migration of user roles, ownerships, and privileges feature is currently available only for the Azure Database for PostgreSQL Single server as the source. This functionality is enabled by default for flexible servers in all Azure public regions and gov clouds. It will soon be enabled for flexible servers in China. Also, please note that this feature is currently disabled for PostgreSQL version 16 servers.
+> The migration of user roles, ownerships, and privileges feature is available only for the Azure Database for PostgreSQL Single server as the source. This feature is currently disabled for PostgreSQL version 16 servers.
 
-The service automatically provides the following built-in capabilities for the Azure database for PostgreSQL single server as the source, along with data migration.
+The service automatically provides the following built-in capabilities for the Azure Database for PostgreSQL single server as the source and data migration.
 
 - Migration of user roles on your source server to the target server.
 - Migration of ownership of all the database objects on your source server to the target server.

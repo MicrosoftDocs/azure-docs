@@ -37,6 +37,8 @@ The migration service in Azure Database for PostgreSQL is a fully managed servic
 
 [!INCLUDE [postgresql-aws-CLI-migrate](includes/iaas/postgresql-iaas-cli-migrate.md)]
 
+---
+
 ## Post migration
 
 After completing the databases, you need to manually validate the data between source and target and verify that all the objects in the target database are successfully created.

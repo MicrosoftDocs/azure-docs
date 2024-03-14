@@ -197,8 +197,6 @@ az postgres flexible-server migration show [--subscription]
 
 The `migration_name` parameter is the name assigned to the migration during the `create` command. Here's a snapshot of the sample response from the CLI command for showing details:
 
-:::image type="content" source="../../media/tutorial-migration-service-single-to-flexible/az-postgres-flexible-server-migration-show.png" alt-text="Screenshot of Command Line Interface migration Show." lightbox="../../media/tutorial-migration-service-single-to-flexible/az-postgres-flexible-server-migration-show.png":::
-
 For more information about this command, use the `help` parameter:
 
 ```azurecli-interactive

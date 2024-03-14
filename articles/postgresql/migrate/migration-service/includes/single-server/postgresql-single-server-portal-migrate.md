@@ -36,9 +36,9 @@ The migration service comes with a simple, wizard-based experience on the Azure 
 
     :::image type="content" source="../../media/tutorial-migration-service-single-to-flexible/flexible-overview.png" alt-text="Screenshot of the flexible Overview page." lightbox="../../media/tutorial-migration-service-single-to-flexible/flexible-overview.png":::
 
-1. Select the **Create** button to start a migration from a Single Server to a Flexible Server. If this is your first time using the migration service , an empty grid appears with a prompt to begin your first migration.
+1. Select the **Create** button to start a migration from a single server to a flexible server. If this is your first time using the migration service, an empty grid appears with a prompt to begin your first migration.
 
-    :::image type="content" source="../../media/tutorial-migration-service-single-to-flexible/flexible-migration-grid.png" alt-text="Screenshot of the Migration tab in flexible." lightbox="../../media/tutorial-migration-service-single-to-flexible/flexible-migration-grid.png":::
+    :::image type="content" source="../../media/tutorial-migration-service-single-to-flexible/flexible-migration-grid.png" alt-text="Screenshot of the migration tab in flexible server." lightbox="../../media/tutorial-migration-service-single-to-flexible/flexible-migration-grid.png":::
 
     If you've already created migrations to your Flexible Server target, the grid contains information about migrations that were attempted to this target from the Single Server.
 
@@ -120,9 +120,6 @@ Under this tab, there's a list of user databases inside the Single Server. You c
 
 :::image type="content" source="../../media/tutorial-migration-service-single-to-flexible/flexible-migration-database.png" alt-text="Screenshot of Databases to migrate." lightbox="../../media/tutorial-migration-service-single-to-flexible/flexible-migration-database.png":::
 
-> [!NOTE]  
-> The migration service only user databases. System databases or template databases such as template0 and template1 are not be migrated.
-
 Select the **Next** button to review the details.
 
 ### Summary
@@ -155,7 +152,7 @@ The validation moves to the **Succeeded** state if all validations are either in
 :::image type="content" source="../../media/tutorial-migration-service-single-to-flexible/validation-successful.png" alt-text="Screenshot of the validation grid." lightbox="../../media/tutorial-migration-service-single-to-flexible/validation-successful.png":::
 
 The validation grid has the
-- **Validation details for instance,* and **Validation details for databases** sections, representing the validation rules used to check migration readiness.
+- **Validation details for instance** and **Validation details for databases** sections, representing the validation rules used to check migration readiness.
 - **Validation Status** - Represents the result for each rule and can have any of the three values
     - **Succeeded** - If no errors were found.
     - **Failed** - If there are validation errors.

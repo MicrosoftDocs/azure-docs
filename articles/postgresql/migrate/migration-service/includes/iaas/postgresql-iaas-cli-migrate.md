@@ -9,13 +9,9 @@ ms.topic: include
 
 You can migrate using Azure CLI.
 
-To begin migrating using Azure CLI, you need to install the Azure CLI on your local machine.
-
 [!INCLUDE [prerequisites-setup-azure-CLI-commands-postgresql](../prerequisites/prerequisites-setup-azure-cli-commands-postgresql.md)]
 
 ## Connect to the source
-
-In this tutorial, the source PostgreSQL version used is 14.8, and it's installed in one of the Azure VMs with the operating system Ubuntu.
 
 We're going to migrate "ticketdb","inventorydb","salesdb" into Azure Database for PostgreSQL flexible server.
 
