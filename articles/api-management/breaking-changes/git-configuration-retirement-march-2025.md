@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 ms.service: api-management
 ms.topic: reference
-ms.date: 03/05/2024
+ms.date: 03/14/2024
 ms.author: danlep
 ---
 
@@ -23,11 +23,21 @@ Support for the built-in Git repository will no longer be available after 15 Mar
 
 ## What do I need to do?
 
-Before the retirement date, update your configuration management to use a different solution and tools based on Azure Resource Management-based REST APIs. For example, use a [devops and CI/CD](../devops-api-development-templates.md) solution such as the ApiOps Toolkit for managing API configuration in your own Git repository. 
+Before the retirement date, update your configuration management to use a different solution and tools based on Azure Resource Management-based REST APIs. For example, use a [devops and CI/CD](../devops-api-development-templates.md) solution such as [ApiOps](/azure/architecture/example-scenario/devops/automated-api-deployments-apiops) to manage API configuration in your own Git repository. 
 
 ## Help and support
 
-If you have questions, get answers from community experts in [Microsoft Q&A](https://learn.microsoft.com/answers). If you have a support plan and you need technical help, create a [support request](https://portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).
+If you have questions, get answers from community experts in [Microsoft Q&A](https://learn.microsoft.com/answers). If you have a support plan and you need technical help for the Git repository feature, create a [support request](https://portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview):
+
+1. Under **Issue type**, select **Technical**.
+1. Under **Subscription**, select your subscription.  
+1. Under **Service**, click **My services**, then select **API Management Service**.
+1. Under **Resource**, select the Azure resource that you’re creating a support request for. 
+1. For **Summary**, type a description of your issue, for example, "Git repository".
+1. For **Problem type**, select **Configuration and Management**.
+1. For **Problem subtype**, select Git **Repository**.
+
+For assistance with issues specific to APIOps, please review [APIOps support documentation](https://github.com/Azure/apiops/blob/main/SUPPORT.md).  
 
 ## Related content
 
