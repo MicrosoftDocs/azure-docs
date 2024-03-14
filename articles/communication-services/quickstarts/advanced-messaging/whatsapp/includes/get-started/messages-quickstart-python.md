@@ -62,7 +62,7 @@ The following classes and interfaces handle some of the major features of the Az
 | MessageTemplate             | This class defines which template you use and the content of the template properties for your message. |
 | TemplateNotificationContent | This class defines the "who" and the "what" of the template message you intend to send.                |
 | TextNotificationContent     | This class defines the "who" and the "what" of the text message you intend to send.                    |
-| ImageNotificationContent    | This class defines the "who" and the "what" of the media message you intend to send.
+| ImageNotificationContent    | This class defines the "who" and the "what" of the image media message you intend to send.             |
 
 ## Code examples
 
