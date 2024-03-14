@@ -18,10 +18,6 @@ ms.author: shamkh
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../../../create-communication-resource.md).
 - [Python](https://www.python.org/downloads/) 3.7+ for your operating system.
 
-## Sample code
-
-You can review and download the sample code for this quick start on [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/messages-quickstart).
-
 ## Setting up
 
 ### Create a new Python application
@@ -57,8 +53,20 @@ class MessagesQuickstart(object):
     print("Azure Communication Services - Advanced Messages Quickstart")
 
 ```
+## Object model
+The following classes and interfaces handle some of the major features of the Azure Communication Services Messages SDK for Python.
 
-## Initialize the NotificationMessagesClient
+| Name                        | Description                                                                                            |
+|-----------------------------|--------------------------------------------------------------------------------------------------------|
+| NotificationMessagesClient  | This class connects to your Azure Communication Services resource. It sends the messages.              |
+| MessageTemplate             | This class defines which template you use and the content of the template properties for your message. |
+| TemplateNotificationContent | This class defines the "who" and the "what" of the template message you intend to send.                |
+| TextNotificationContent     | This class defines the "who" and the "what" of the text message you intend to send.                    |
+| ImageNotificationContent    | This class defines the "who" and the "what" of the media message you intend to send.
+
+## Code examples
+
+### Initialize the NotificationMessagesClient
 
 Messages sending is done using NotificationMessagesClient. NotificationMessagesClient is authenticated using your connection string acquired from Azure Communication Services resource in the Azure portal. For more information on connection strings, see [access-your-connection-strings-and-service-endpoints](../../../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints). NotificationMessagesClient is also authenticated using TokenCredentials. For more information see [access-Azure-Communication-Resources-using-TokenCredentials](https://learn.microsoft.com/python/api/overview/azure/identity-readme?view=azure-python&preserve-view=true#environment-variables).
 Get Azure Communication Resource connection string from Azure portal as given in screenshot:
@@ -84,7 +92,7 @@ Then Get WhatsChannelId from Azure portal as given in screenshot:
 
 ```
 
-## Send Template WhatsApp Messages
+### Send Template WhatsApp Messages
 
 Messages SDK allows Contoso to send templated WhatsApp messages to WhatsApp users. To send template messages below details are required:
 - WhatsApp Channel ID
@@ -119,7 +127,7 @@ if __name__ == '__main__':
     messages.send_template_send_message()
 ```
 
-## Run the code for send template
+### Run the code for send template
 
 To run the code, make sure you are on the directory where your `messages-quickstart.py` file is.
 
@@ -133,7 +141,7 @@ Azure Communication Services - Advanced Messages Quickstart
 Message with message id <GUID> was successful sent to <TOPhonenumber>
 ```
 
-## Send Text WhatsApp Messages
+### Send Text WhatsApp Messages
 
 Messages SDK allows Contoso to send text WhatsApp messages, which initiated WhatsApp users initiated. To send text messages below details are required:
 - WhatsApp Channel ID
@@ -169,7 +177,7 @@ if __name__ == '__main__':
     messages.send_text_send_message()
 ```
 
-## Run the code for send text message
+### Run the code for send text message
 
 To run the code, make sure you are on the directory where your `messages-quickstart.py` file is.
 
@@ -183,7 +191,7 @@ Azure Communication Services - Advanced Messages Quickstart
 Message with message id <GUID> was successful sent to <TOPhonenumber>
 ```
 
-## Full code
+### Full code
 
 ```python
 import os
@@ -216,7 +224,7 @@ class MessagesQuickstart(object):
         response = message_responses.receipts[0]
         
         if (response is not None):
-            print("WhatsApp Templated Message with message id {} was successful sent to {}"
+            print("WhatsApp Templated Message with message id {} was successfully sent to {}"
             .format(response.message_id, response.to))
         else:
             print("Message failed to send")
@@ -239,7 +247,7 @@ class MessagesQuickstart(object):
         response = message_responses.receipts[0]
         
         if (response is not None):
-            print("WhatsApp Text Message with message id {} was successful sent to {}"
+            print("WhatsApp Text Message with message id {} was successfully sent to {}"
             .format(response.message_id, response.to))
         else:
             print("Message failed to send")
@@ -254,4 +262,6 @@ if __name__ == '__main__':
 > [!NOTE]
 > Sending text WhatsApp messages needs to be User-Intiated. For more information, see [User Initiated WhatsApp Messages](https://developers.facebook.com/docs/whatsapp/pricing/#opening-conversations).
 
+## Sample code
 
+You can review and download the sample code for this quick start on [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/messages-quickstart).
