@@ -14,7 +14,7 @@ ms.custom: legacy, devx-track-azurepowershell
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
 
 > [!IMPORTANT]
-> This article covers the older managed image technology. For the most current technology, customers are encouraged to use [Azure Compute Gallery](azure-compute-gallery.md). All new features, like ARM64, Trusted Launch, and Confidential VM  are only supported through Azure Compute Gallery.  If you have an existing managed image, you can use it as a source and create an Azure Compute Gallery image.  For more information, see [Create an image definition and image version](image-version.md).
+> This article covers the older managed image technology. For the most current technology, customers are encouraged to use [Azure Compute Gallery](azure-compute-gallery.md). All new features, like ARM64, Trusted Launch, and Confidential VM  are only supported through Azure Compute Gallery.  If you have an existing managed image, you can use it as a source and create an Azure Compute Gallery image.  For more information, see [Migrate managed image to Azure compute gallery](migration-managed-image-to-compute-gallery.md).
 >
 > Once you mark a VM as `generalized` in Azure, you cannot restart the VM.
 > 

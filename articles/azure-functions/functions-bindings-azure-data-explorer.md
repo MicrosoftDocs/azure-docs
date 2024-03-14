@@ -82,7 +82,7 @@ Azure Data Explorer bindings for Azure Functions aren't available for the v3 ver
 ## Functions runtime
 
 > [!NOTE]
-> Python language support for the Azure Data Explorer bindings extension is available starting with v4.6.0 or later of the [Functions runtime](set-runtime-version.md#view-and-update-the-current-runtime-version). You might need to update your installation of Azure Functions [Core Tools](functions-run-local.md) for local development.
+> Python language support for the Azure Data Explorer bindings extension is available starting with v4.6.0 or later of the [Functions runtime](set-runtime-version.md#manual-version-updates-on-linux). You might need to update your installation of Azure Functions [Core Tools](functions-run-local.md) for local development.
 
 ## Install the bundle
 
