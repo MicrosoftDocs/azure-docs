@@ -281,4 +281,4 @@ az group delete `
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Environments in Azure Container Apps](environment.md)
+> [Learn more about developing in Java on Container Apps](java-overview.md)

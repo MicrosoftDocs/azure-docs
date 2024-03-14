@@ -167,6 +167,10 @@
       href: ../reservations/reservation-renew.md
 - name: Cost allocation
   items:
+  - name: Overview
+    items:
+    - name: Cost allocation overview
+      href: cost-allocation-introduction.md
   - name: Tutorials
     items:
     - name: Group and allocate costs using tag inheritance
@@ -175,10 +179,6 @@
       href: billing-tags.md
     - name: Split shared costs
       href: allocate-costs.md
-  - name: Concepts
-    items:
-    - name: Introduction to cost allocation
-      href: cost-allocation-introduction.md
   - name: Reference
     items:
     - name: Cost allocation rules API

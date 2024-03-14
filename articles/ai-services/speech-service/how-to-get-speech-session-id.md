@@ -79,7 +79,13 @@ https://eastus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiv
 > [!WARNING]
 > The value of the parameter `X-ConnectionId` should be in the format of GUID without dashes or other dividers. All other formats aren't supported and will be discarded by the Service. 
 >
-> Example. If the request contains  `X-ConnectionId=9f4ffa51-13a8-46eb-a289-aa98b28e766f` (GUID with dividers) or `X-ConnectionId=Request9f4ffa5113a846eba289aa98b28e766f` (non-GUID) then the value of `X-ConnectionId` will not be accepted by the system, and the Session won't be found in the logs.
+> Example. If the request contains expressions like these:
+>
+> - `X-ConnectionId=9f4ffa51-13a8-46eb-a289-aa98b28e766f` (GUID with dividers)
+> - `X-ConnectionId=Request9f4ffa5113a846eba289aa98b28e766f` (non-GUID)
+> - `X-ConnectionId=5948f700d2a811ee`  (non-GUID)
+>
+>then the value of `X-ConnectionId` will not be accepted by the system, and the Session won't be found in the logs.
 
 ## Getting Transcription ID for Batch transcription
 

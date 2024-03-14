@@ -608,7 +608,11 @@ items:
     - name: Smartsheet
       href: connector-smartsheet.md
     - name: Snowflake
-      href: connector-snowflake.md
+      items:
+      - name: Snowflake
+        href: connector-snowflake.md
+      - name: Snowflake (legacy)
+        href: connector-snowflake-legacy.md
     - name: Spark
       href: connector-spark.md
     - name: SQL Server
@@ -1257,6 +1261,9 @@ items:
         displayName: troubleshooting
       - name: REST
         href: connector-troubleshoot-rest.md
+        displayName: troubleshooting
+      - name: Salesforce and Salesforce Service Cloud
+        href: connector-troubleshoot-salesforce.md
         displayName: troubleshooting
       - name: SAP Table, SAP Business Warehouse Open Hub, and SAP ODP
         href: connector-troubleshoot-sap.md
