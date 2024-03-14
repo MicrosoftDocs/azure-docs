@@ -74,13 +74,13 @@ spec:
     For example, to publish a message to the broker, open a shell inside the pod:
 
     ```bash
-    kubectl exec --stdin --tty mqtt-client -n azure-iot-operations -- sh
+    kubectl exec --stdin --tty mqtt-client --namespace azure-iot-operations -- sh
     ```
 
 1. Inside the pod's shell, run the following command to publish a message to the broker:
 
     ```console
-    mosquitto_pub -h aio-mq-dmqtt-frontend -p 8883 -m "hello" -t "world" -u '$sat' -P $(cat /var/run/secrets/tokens/mq-sat) -d --cafile /var/run/certs/ca.crt
+    mosquitto_pub --host aio-mq-dmqtt-frontend --port 8883 --message "hello" --topic "world" --username '$sat' --pw $(cat /var/run/secrets/tokens/mq-sat) --debug --cafile /var/run/certs/ca.crt
     ```
 
     The output should look similar to the following:
@@ -97,7 +97,7 @@ spec:
 1. To subscribe to the topic, run the following command:
 
     ```console
-    mosquitto_sub -h aio-mq-dmqtt-frontend -p 8883 -t "world" -u '$sat' -P $(cat /var/run/secrets/tokens/mq-sat) -d --cafile /var/run/certs/ca.crt
+    mosquitto_sub --host aio-mq-dmqtt-frontend --port 8883 --topic "world" --username '$sat' --pw $(cat /var/run/secrets/tokens/mq-sat) --debug --cafile /var/run/certs/ca.crt
     ```
 
     The output should look similar to the following:
@@ -115,7 +115,7 @@ spec:
 1. To use *mqttui*, the command is similar:
 
     ```console
-    mqttui -b mqtts://aio-mq-dmqtt-frontend:8883 -u '$sat' --password $(cat /var/run/secrets/tokens/mq-sat) --insecure
+    mqttui --broker mqtts://aio-mq-dmqtt-frontend:8883 --username '$sat' --password $(cat /var/run/secrets/tokens/mq-sat) --insecure
     ```
 
     With the above command, mqttui connects to the broker using the service account token. The `--insecure` flag is required because mqttui doesn't support TLS certificate chain verification with a custom root CA cert.
@@ -158,7 +158,7 @@ Some Kubernetes distributions can [expose](https://k3d.io/v5.1.0/usage/exposing_
 For example, to create a K3d cluster with mapping the IoT MQ's default MQTT port 8883 to localhost:8883:
 
 ```bash
-k3d cluster create -p '8883:8883@loadbalancer'
+k3d cluster create --port '8883:8883@loadbalancer'
 ```
 
 But for this method to work with IoT MQ, you must configure it to use a load balancer instead of cluster IP.
@@ -168,13 +168,18 @@ To configure a load balancer:
 1. Edit the `BrokerListener` resource and change the `serviceType` field to `loadBalancer`.
 
     ```bash
-    kubectl patch brokerlistener listener -n azure-iot-operations --type='json' -p='[{"op": "replace", "path": "/spec/serviceType", "value": "loadBalancer"}]'
+    kubectl patch brokerlistener listener --namespace azure-iot-operations --type='json' --patch='[{"op": "replace", "path": "/spec/serviceType", "value": "loadBalancer"}]'
     ```
 
 1. Wait for the service to be updated, You should see output similar to the following:
 
     ```console
-    $ kubectl get service aio-mq-dmqtt-frontend -n azure-iot-operations
+    kubectl get service aio-mq-dmqtt-frontend --namespace azure-iot-operations
+    ```
+
+    Output should look similar to the following:
+
+    ```Output
     NAME                    TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE
     aio-mq-dmqtt-frontend   LoadBalancer   10.43.107.11   XXX.XX.X.X    8883:30366/TCP   14h
     ```
@@ -182,7 +187,7 @@ To configure a load balancer:
 1. Use the external IP address to connect to IoT MQ from outside the cluster. If you used the K3d command with port forwarding, you can use `localhost` to connect to IoT MQ. For example, to connect with mosquitto client:
 
     ```bash
-    mosquitto_pub -q 1 -d -h localhost -m hello -t world -u client1 -P password --cafile ca.crt --insecure
+    mosquitto_pub --qos 1 --debug -h localhost --message hello --topic world --username client1 --pw password --cafile ca.crt --insecure
     ```
 
     In this example, the mosquitto client uses username/password to authenticate with the broker along with the root CA cert to verify the broker's TLS certificate chain. Here, the `--insecure` flag is required because the default TLS certificate issued to the load balancer is only valid for the load balancer's default service name (aio-mq-dmqtt-frontend) and assigned IPs, not localhost.
@@ -190,7 +195,7 @@ To configure a load balancer:
 1. If your cluster like Azure Kubernetes Service automatically assigns an external IP address to the load balancer, you can use the external IP address to connect to IoT MQ over the internet. Make sure to use the external IP address instead of `localhost` in the prior command, and remove the `--insecure` flag.
 
     ```bash
-    mosquitto_pub -q 1 -d -h XXX.XX.X.X -m hello -t world -u client1 -P password --cafile ca.crt
+    mosquitto_pub --qos 1 --debug -h XXX.XX.X.X --message hello --topic world --username client1 --pw password --cafile ca.crt
     ```
 
     > [!WARNING]
@@ -203,7 +208,7 @@ With [minikube](https://minikube.sigs.k8s.io/docs/), [kind](https://kind.sigs.k8
 1. To access the broker, forward the broker listening port 8883 to the host.
 
     ```bash
-    kubectl port-forward service/aio-mq-dmqtt-frontend 8883:mqtts-8883 -n azure-iot-operations
+    kubectl port-forward --namespace azure-iot-operations service/aio-mq-dmqtt-frontend 8883:mqtts-8883
     ```
 
 1. Use 127.0.0.1 to connect to the broker at port 8883 with the same authentication and TLS configuration as the example without port forwarding.
@@ -211,6 +216,12 @@ With [minikube](https://minikube.sigs.k8s.io/docs/), [kind](https://kind.sigs.k8
 Port forwarding is also useful for testing IoT MQ locally on your development machine without having to modify the broker's configuration.
 
 To learn more, see [Use Port Forwarding to Access Applications in a Cluster](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/) for minikube.
+
+## Expose Azure Kubernetes Service Edge Essentials services
+
+To make Kubernetes services accessible to external devices, you can expose the services using port forwarding or a virtual switch.
+
+For more information about exposing AKS Edge Essentials services, see [Expose Kubernetes services to external devices](/azure/aks/hybrid/aks-edge-howto-expose-service).
 
 ## No TLS and no authentication
 
@@ -243,7 +254,7 @@ If you understand the risks and need to use an insecure port in a well-controlle
 1. Wait for the service to be updated. You should see output similar to the following:
 
     ```console
-    kubectl get service my-unique-service-name -n azure-iot-operations
+    kubectl get service my-unique-service-name --namespace azure-iot-operations
     ```
 
     Output should look similar to the following:
@@ -258,7 +269,12 @@ If you understand the risks and need to use an insecure port in a well-controlle
 1. Use mosquitto client to connect to the broker:
 
     ```console
-    $ mosquitto_pub -q 1 -d -h localhost -m hello -t world
+    mosquitto_pub --qos 1 --debug -h localhost --message hello --topic world
+    ```
+
+    The output should look similar to the following:
+
+    ```Output
     Client mosq-7JGM4INbc5N1RaRxbW sending CONNECT
     Client mosq-7JGM4INbc5N1RaRxbW received CONNACK (0)
     Client mosq-7JGM4INbc5N1RaRxbW sending PUBLISH (d0, q1, r0, m1, 'world', ... (5 bytes))
