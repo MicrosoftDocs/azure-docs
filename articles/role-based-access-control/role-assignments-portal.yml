@@ -128,8 +128,8 @@ procedureSection:
       If you selected a role that supports conditions, a **Conditions** tab will appear and you have the option to add a condition to your role assignment. A [condition](conditions-overview.md) is an additional check that you can optionally add to your role assignment to provide more fine-grained access control.
 
       The **Conditions** tab will look different depending on the role you selected.
-    code: |
-     # [Delegate condition](#tab/delegate-condition)
+    
+      ### Delegate condition
 
       > [!IMPORTANT]
       > Delegating Azure role assignment management with conditions is currently in PREVIEW.
@@ -149,7 +149,7 @@ procedureSection:
 
       1. Follow the steps in [Delegate Azure role assignment management to others with conditions](delegate-role-assignments-portal.md#step-3-add-a-condition).
 
-      # [Storage condition](#tab/storage-condition)
+      ### Storage condition
 
       If you selected one of the following storage roles, follow the steps in this section.
 
@@ -160,12 +160,13 @@ procedureSection:
       - [Storage Queue Data Message Processor](built-in-roles.md#storage-queue-data-message-processor)
       - [Storage Queue Data Message Sender](built-in-roles.md#storage-queue-data-message-sender)
       - [Storage Queue Data Reader](built-in-roles.md#storage-queue-data-reader)
+    steps: 
+      - |
+        Click **Add condition** if you want to further refine the role assignments based on storage attributes.
 
-      1. Click **Add condition** if you want to further refine the role assignments based on storage attributes.
-
-        ![Screenshot of Add role assignment page with Add condition tab.](./media/shared/condition.png)
-
-      1. Follow the steps in [Add or edit Azure role assignment conditions](conditions-role-assignments-portal.md#step-3-review-basics).
+          ![Screenshot of Add role assignment page with Add condition tab.](./media/shared/condition.png)
+      - |
+        Follow the steps in [Add or edit Azure role assignment conditions](conditions-role-assignments-portal.md#step-3-review-basics).
 
   - title: |
       Step 6: Assign role
