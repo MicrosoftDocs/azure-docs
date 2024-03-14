@@ -1,22 +1,21 @@
 ---
-title: Connect your threat intelligence platform with upload indicators API
+title: Connect your TIP with upload indicators API
 titleSuffix: Microsoft Sentinel
 description: Learn how to connect your threat intelligence platform (TIP) or custom feed using the upload indicators API to Microsoft Sentinel.
 author: austinmccollum
 ms.topic: how-to
-ms.date: 07/10/2023
+ms.date: 3/14/2024
 ms.author: austinmc
+appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+ms.collection: usx-security
+#customer intent: As a SOC admin, I want to use the upload indicators API to ingest threat intelligence from my TIP, so I can take advantage of the improved features of the API.
 ---
 
 # Connect your threat intelligence platform to Microsoft Sentinel with the upload indicators API
 
-Many organizations use threat intelligence platform (TIP) solutions to aggregate threat indicator feeds from various sources. From the aggregated feed, the data is curated to apply to security solutions such as network devices, EDR/XDR solutions, or SIEMs such as Microsoft Sentinel. The **Threat Intelligence Upload Indicators API** data connector allows you to use these solutions to import threat indicators into Microsoft Sentinel. 
-
-This data connector uses the Sentinel upload indicators API to ingest threat intelligence indicators into Microsoft Sentinel.
+Many organizations use threat intelligence platform (TIP) solutions to aggregate threat indicator feeds from various sources. From the aggregated feed, the data is curated to apply to security solutions such as network devices, EDR/XDR solutions, or SIEMs such as Microsoft Sentinel. The **Threat Intelligence Upload Indicators API** data connector allows you to use these solutions to import threat indicators into Microsoft Sentinel. This data connector uses the Sentinel upload indicators API to ingest threat intelligence indicators into Microsoft Sentinel. For more information, see [Threat Intelligence](understand-threat-intelligence.md).
 
 :::image type="content" source="media/connect-threat-intelligence-upload-api/threat-intel-upload-api.png" alt-text="Threat intelligence import path":::
-
-Learn more about [Threat Intelligence](understand-threat-intelligence.md) in Microsoft Sentinel.
 
 > [!IMPORTANT]
 > The Microsoft Sentinel upload indicators API and **Threat Intelligence Upload Indicators API** data connector are in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
