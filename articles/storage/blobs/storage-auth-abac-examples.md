@@ -8,7 +8,7 @@ ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.reviewer: nachakra
 ms.custom: devx-track-azurepowershell
-ms.date: 03/11/2024
+ms.date: 03/14/2024
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
 ---
 
@@ -1464,7 +1464,7 @@ Here are the settings to add this condition using the Azure portal.
 > | Actions | [List blobs](storage-auth-abac-attributes.md#list-blobs)|
 > | Attribute source | Request |
 > | Attribute | [List blobs include](storage-auth-abac-attributes.md#list-blob-include) |
-> | Operator | [ForAnyOfAnyValues:StringNotEquals](../../role-based-access-control/conditions-format.md#foranyofanyvalues) |
+> | Operator | [ForAllOfAllValues:StringNotEquals](../../role-based-access-control/conditions-format.md#forallofallvalues) |
 > | Value | {'metadata'} |
 
 # [Portal: Code editor](#tab/portal-code-editor)
@@ -1480,7 +1480,7 @@ To add the condition using the code editor, copy the condition code sample and p
  )
  OR 
  (
-  @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:include] ForAnyOfAnyValues:StringNotEquals {'metadata'}
+  @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:include] ForAllOfAllValues:StringNotEquals {'metadata'}
  )
 )
 ```
