@@ -232,8 +232,6 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
     The creation for the data-backup and log-backup volumes is optional.
 
-    [ ![Screenshot that shows a list of volumes being created.](./media/application-volume-group-deploy-first-host/create-volume-group-extension-one.png) ](./media/application-volume-group-deploy-first-host/create-volume-group-extension-one.png)
-
 8. In the **Volumes** tab, you can select each volume to view or change the volume details. For example, select "data-*volume-name*". 
 
     Not all settings can be changed because of SAP HANA certification restrictions.
@@ -268,18 +266,15 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
     > [!IMPORTANT]
     > You cannot add a removed volume back to the volume group again. You need to stop and restart the application volume group configuration.
 
-    [ ![Screenshot that shows how to remove a volume.](./media/application-volume-group-deploy-first-host/application-volume-remove.png) ](./media/application-volume-group-deploy-first-host/application-volume-remove.png#lightbox)
+    :::image type="content" source="./media/application-volume-group-deploy-first-host/application-review-create.png" alt-text="Screenshot of the review + create tab for extension one." lightbox="./media/application-volume-group-deploy-first-host/application-review-create.png":::
 
     Select **Volumes** to return to the Volume overview page. Select **Next: Review + create**.
 
 11.	The **Review + Create** tab lists all the volumes and their creation method. Select **Create Volume Group** to start the volume group creation.
 
-    :::image type="content" source="./media/application-volume-group-deploy-first-host/application-review-create.png" alt-text="Screenshot of the review + create tab for extension one." lightbox="./media/application-volume-group-deploy-first-host/application-review-create.png":::
-
-
 12. The **Volume Groups** deployment workflow starts. You can monitor the progress. This process can take a few minutes to complete.
 
-    [ ![Screenshot that shows the Deployment in Progress window.](./media/application-volume-group-deploy-first-host/application-deployment-in-progress.png) ](./media/application-volume-group-deploy-first-host/application-deployment-in-progress.png#lightbox)
+    :::image type="content" source="./media/application-volume-group-deploy-first-host/volume-group-confirm-extension-one.png" alt-text="Screenshot of the confirmed operation." lightbox="./media/application-volume-group-deploy-first-host/volume-group-confirm-extension-one.png":::
 
     You can display the list of volume groups to see the new volume group. You can select the new volume group to see the details and status of each of the volumes being created.
 

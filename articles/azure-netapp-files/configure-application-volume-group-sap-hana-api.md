@@ -115,6 +115,13 @@ This table describes the request body parameters and volume properties for creat
 | `capacityPoolResourceId` | ID of the capacity pool | The capacity pool must be of type manual QoS. Generally, all SAP volumes are placed in a common capacity pool, however this is not a requirement. |
 | `protocolTypes` | Protocol to use | This should be either NFSv3 or NFSv4.1 and should match the protocol specified in the Export Policy Rule described earlier in this table. | 
 
+The following properties are available with [Application volume group for SAP HANA extension one](application-volume-group-introduction.md#extension-1-features): 
+
+| Volume-level request parameter | Description | Restrictions for SAP HANA |
+| ---- | ----- | ----- |
+| `networkFeatures` | Network features | Both `basic` and `standard` are supported |
+| Zones | Availability zone | Enter logical zone in the following format: `[“1”]` |
+
 ## Example API request content: application volume group creation
 
 The examples in this section illustrate the values passed in the volume group creation request for various SAP HANA configurations. The examples demonstrate best practices for naming, sizing, and values as described in the tables.
