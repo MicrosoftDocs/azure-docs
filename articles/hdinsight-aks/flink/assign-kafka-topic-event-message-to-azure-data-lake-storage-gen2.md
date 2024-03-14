@@ -3,7 +3,7 @@ title: Write event messages into Azure Data Lake Storage Gen2 with Apache Flink�
 description: Learn how to write event messages into Azure Data Lake Storage Gen2 with Apache Flink® DataStream API
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 10/27/2023
+ms.date: 03/14/2024
 ---
 
 # Write event messages into Azure Data Lake Storage Gen2 with Apache Flink® DataStream API
@@ -36,7 +36,7 @@ Flink provides an Apache Kafka connector for reading data from and writing data 
 <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <flink.version>1.16.0</flink.version>
+        <flink.version>1.17.0</flink.version>
         <java.version>1.8</java.version>
         <scala.binary.version>2.12</scala.binary.version>
         <kafka.version>3.2.0</kafka.version>
