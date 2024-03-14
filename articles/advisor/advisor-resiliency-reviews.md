@@ -18,7 +18,12 @@ You can find resiliency reviews in [Azure Advisor](https://aka.ms/Advisor_Review
 [!NOTE]
 Resiliency reviews in Azure Advisor are available to customers with Unified or Premier Support contracts. To learn more, reach out to your Customer Success Account Manager or primary Microsoft representative.
 
-In this article, you learn how to enable and access resiliency reviews prepared for you, triage (accept or reject), manage, implement recommendations, and track their lifecycle.
+In this article, you learn how to enable and access resiliency reviews prepared for you, triage, manage, implement, and track recommendations' lifecycles.
+
+## Terminology
+
+* *Triage* means to accept or reject a recommendation.
+* *Manage recommendation lifecycle* means to mark a recommendation as completed, postponed,  dismissed, in progress, or not started.
 
 ## How it works
 
@@ -42,6 +47,8 @@ Your Microsoft account team works with you to collect information about the work
 
 ## View and triage recommendations
 
+To view or triage recommendations, or to manage recommendations' lifecycles, requires specific role permissions. For definitions, see [Terminology](#terminology).
+
 ### Prerequisites to view and triage recommendations
 
 You can manage access to Advisor reviews using built-in roles. The [permissions](/azure/advisor/permissions) vary by role. These roles need to be configured for the subscription that was used to publish the review.
@@ -49,15 +56,15 @@ You can manage access to Advisor reviews using built-in roles. The [permissions]
 | **Name** | **Description** | **Targeted Subscription** |
 |---|:---:|:---:|
 |Advisor Reviews Reader|View reviews for a workload and recommendations linked to them.| You need this role for the one subscription your account team used to publish review.|
-|Advisor Reviews Contributor|View reviews for a workload and triage (accept or reject) recommendations linked to them.| You need this role for the one subscription your account team used to publish review.|
+|Advisor Reviews Contributor|View reviews for a workload and triage recommendations linked to them.| You need this role for the one subscription your account team used to publish review.|
 
 You can manage access to Advisor personalized recommendations using the following roles. These roles need to be configured for the subscriptions included in the workload under a review.
 
 | **Name** | **Description** |
 |---|:---:|
 |Subscription Reader|View reviews for a workload and recommendations linked to them.|
-|Subscription Owner<br>Subscription Contributor|View reviews for a workload, triage (accept or reject) recommendations linked to those reviews, manage the recommendation lifecycle for reviews.|
-|Advisor Recommendations Contributor (Assessments and Reviews)|View assessment recommendations, accept review recommendations, manage recommendation lifecycle.|
+|Subscription Owner<br>Subscription Contributor|View reviews for a workload, triage recommendations linked to those reviews, manage review recommendation lifecycle.|
+|Advisor Recommendations Contributor (Assessments and Reviews)|View review recommendations, accept review recommendations, manage review recommendations lifecycle.|
 
 You can find detailed instructions on how to assign a role using the Azure portal - [Assign Azure roles using the Azure portal - Azure RBAC](/azure/role-based-access-control/role-assignments-portal?tabs=delegate-condition). Additional information is available in [Steps to assign an Azure role - Azure RBAC](/azure/role-based-access-control/role-assignments-steps).
 
@@ -73,7 +80,7 @@ Select **Manage** > **Reviews (Preview)** in the left navigation pane. A list of
 
    * *New*: No recommendations are triaged (accepted or rejected)
    * *In progress*: Some recommendations aren't triaged
-   * *Triaged*: All recommendations are triaged (accepted or rejected)
+   * *Triaged*: All recommendations are triaged
    * *Completed*: All accepted-state recommendations are implemented, postponed, or dismissed
 
 :::image type="content" source="./media/resiliency-reviews/resiliency-reviews-main-m.png" alt-text="Screenshot of the Azure Advisor Resiliency Reviews opening page." lightbox="./media/resiliency-reviews/resiliency-reviews-main-m.png":::
@@ -100,7 +107,7 @@ The priority of a recommendation is based on the impact and urgency of the sugge
 * *Critical*: The most important recommendations that can have a significant impact on your Azure resources. They should be addressed as soon as possible to avoid potential issues such as security breaches, data loss, or service outages.
 * *High*: The recommendations that can improve the performance, reliability, or cost efficiency of your Azure resources. They should be addressed in a timely manner to optimize your Azure deployments.
 * *Medium*: The recommendations that can enhance the operational excellence or user experience of your Azure resources. They should be considered and implemented if they align with your business goals and requirements.
-* *Low*: The recommendations that can provide additional benefits or insights for your Azure resources. They should be reviewed and implemented if they're relevant and feasible for your scenario.
+* *Low*: The recommendations that can provide extra benefits or insights for your Azure resources. They should be reviewed and implemented if they're relevant and feasible for your scenario.
 * *Informational*: The recommendations that can help you learn more about the features and capabilities of Azure. They don't require any action, but they can help you discover new ways to use Azure.
 
 ### Accept recommendations
@@ -115,8 +122,7 @@ From a review recommendations details page:
 :::image type="content" source="./media/resiliency-reviews/resiliency-review-recommendation-list-accepted-m.png" alt-text="Screenshot of the Azure Advisor Resiliency Reviews recommendation list page of accepted recommendations." lightbox="./media/resiliency-reviews/resiliency-review-recommendation-list-accepted-m.png":::
 1. If you accepted a recommendation by mistake, use **Reset** to move it back to the pending state.
 
-[!NOTE]
-If you reset a recommendation after your team started implementation, the recommendation remains available to them.
+
 
 ### Reject recommendations
 
@@ -156,7 +162,7 @@ You can sort recommendations using column headers - *Priority* (Critical, High, 
 
 ### View recommendation details
 
-Select a recommendation description to open a details page. The *Description*, *Potential benefits*, and *Notes* are added by your account team when the review is prepared.
+Select a recommendation description to open a details page. Your account team adds the *Description*, *Potential benefits*, and *Notes* when the review is prepared.
 
 :::image type="content" source="./media/resiliency-reviews/resiliency-review-reliability-page-detail-m.png" alt-text="Screenshot of the Azure Advisor Reliability page for a Resiliency Reviews recommendation." lightbox="./media/resiliency-reviews/resiliency-review-reliability-page-detail-m.png":::
 
@@ -183,24 +189,6 @@ Your Microsoft account team engineers keep track of the results of your actions 
 
 To learn more about Advisor reliability recommendations, see:
 
-[Improve the reliability of your business-critical applications using Azure Advisor](/azure/advisor/advisor-how-to-improve-reliability)
+[Improve the reliability of your business-critical applications using Azure Advisor](/azure/advisor/advisor-how-to-improve-reliability).
 
-[Reliability recommendations](/azure/advisor/advisor-reference-reliability-recommendations)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+[Reliability recommendations](/azure/advisor/advisor-reference-reliability-recommendations).
