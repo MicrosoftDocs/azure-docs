@@ -135,7 +135,7 @@ procedureSection:
 relatedContent:
   - text: DevOps Security in Defender for Cloud
     url: defender-for-devops-introduction.md
-  - text: connect your Azure DevOps Organizations
+  - text: Connect your Azure DevOps Environment to Defender for Cloud
     url: quickstart-onboard-devops.md
 
     
