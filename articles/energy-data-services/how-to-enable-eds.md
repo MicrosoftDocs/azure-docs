@@ -63,4 +63,4 @@ We notify you once EDS preview is enabled in your Azure Data Manager for Energy 
 
 > [!div class="nextstepaction"]
 > [How to register an external data source with Azure Data Manager for Energy?](how-to-register-eds.md)
-> [External data services faq](faq-energy-data-services.yml#Energy-Data-Services)
+> [External data services faq](faq-energy-data-services.yml#external-data-services--eds)

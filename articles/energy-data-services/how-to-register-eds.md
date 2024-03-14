@@ -66,7 +66,7 @@ Use **getRetrievalInstructions** API in `005: Dataset Service collection` to ret
 Some EDS capabilities like **Naturalization, Reverse Naturalization, Reference data mapping** are unavailable in the M18 [OSDU&trade;](https://osduforum.org/) release (available in later releases), and hence unavailable in Azure Data Manager for Energy M18 release. These features will be available once we upgrade to subsequent [OSDU&trade;](https://osduforum.org/) milestone release.
 
 ## References
-* [External data services faq](faq-energy-data-services.yml#Energy-Data-Services)
+* [External data services faq](faq-energy-data-services.yml#external-data-services--eds)
 * [EDS documentation 1.0](https://gitlab.opengroup.org/osdu/subcommittees/ea/projects/extern-data/docs/-/blob/master/Design%20Documents/Training/EDS_Documentation-1.0.docx)
 * [EDS M18 release notes](https://community.opengroup.org/osdu/governance/project-management-committee/-/wikis/M18-Release-Notes#external-data-services-eds)
 * [EDS Postman collection](https://community.opengroup.org/osdu/platform/pre-shipping/-/blob/main/R3-M20/QA_Artifacts_M20/eds_testing_doc/EDS_Ingest_M20_Pre-Shipping_Setup_and_Testing.postman_collection.json?ref_type=heads)
