@@ -18,7 +18,7 @@ External Data Sources (EDS) is a capability in [OSDU&trade;](https://osduforum.o
 See [The OSDU Forum 2Q 2022 Newsletter - EDS](https://osduforum.org/wp-content/uploads/2022/06/The-OSDU-Forum-2Q-2022-Newsletter.pdf) for additional details.  
 
 > [!NOTE]
-> OSDU community shipped EDS as a preview feature in M18 Release
+> OSDU community shipped EDS as a preview feature in M18 Release, and it is available as a preview feature on Azure Data Manager for Energy in Developer tier only.
 
 > [!IMPORTANT]
 > Limit your Identity Provider (IdP) token to read operations only.
@@ -54,8 +54,6 @@ To enable External Data Source Preview on your Azure Data Manager for Energy, cr
 
 > [!NOTE]
 > EDS ingest does not have [multi data partition support](https://community.opengroup.org/osdu/platform/data-flow/ingestion/external-data-sources/core-external-data-workflow/-/issues/51)
-> 
-> EDS Preview will be enabled only on the Developer Tier. 
 
 We notify you once EDS preview is enabled in your Azure Data Manager for Energy resource.
 
