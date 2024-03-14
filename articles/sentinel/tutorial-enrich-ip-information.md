@@ -130,7 +130,7 @@ Here's where we do that.
 
 ### Authorize Log Analytics connection
 
-The next action is a **Condition** that determines the rest of the for-each loop's actions based on the outcome of the IP address report. It analyzes the **Reputation** score given to the IP address in the report. A score higher than 0 indicates the address is harmless; a score lower than 0 indicates it's malicious.
+The next action is a **Condition** that determines the rest of the for-each loop's actions based on the outcome of the IP address report. It analyzes the **Reputation** score given to the IP address in the report. A score higher than **0** indicates the address is harmless; a score lower than **0** indicates it's malicious.
 
 :::image type="content" source="media/tutorial-enrich-ip-information/12-reputation-condition.png" alt-text="Screenshot of condition action in logic app designer.":::
 

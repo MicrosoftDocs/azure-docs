@@ -63,7 +63,7 @@ Finally, the ability to invoke playbooks from analytics rules will be **deprecat
 
     :::image type="content" source="media/migrate-playbooks-to-automation-rules/select-playbook.png" alt-text="Screenshot of selecting playbook as action in automation rule wizard.":::
 
-1. Click **Apply**. You will now see the new rule in the automation rules grid.
+1. Select **Apply**. You will now see the new rule in the automation rules grid.
 
 1. Remove the playbook from the **Alert automation (classic)** section.
 

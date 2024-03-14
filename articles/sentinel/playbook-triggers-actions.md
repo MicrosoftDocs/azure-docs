@@ -199,11 +199,11 @@ You can supply the following JSON code to generate the schema. The code shows th
 
     This will create a **For each** loop, since an incident contains an array of alerts.
 
-1. Click on the **Use sample payload to generate schema** link.
+1. Select on the **Use sample payload to generate schema** link.
 
     ![Select 'use sample payload to generate schema' link](./media/playbook-triggers-actions/generate-schema-link.png)
 
-1. Supply a sample payload. You can find a sample payload by looking in Log Analytics (the **Logs** blade) for another instance of this alert, and copying the custom details object (under **Extended Properties**). In the screenshot below, we used the JSON code shown above.
+1. Supply a sample payload. You can find a sample payload by looking in Log Analytics for another instance of this alert, and copying the custom details object (under **Extended Properties**). Access Log Analytics data either in the **Logs** page in the Azure portal or the **Advanced hunting** page in the Defender portal. In the screenshot below, we used the JSON code shown above.
 
     ![Enter sample JSON payload.](./media/playbook-triggers-actions/sample-payload.png)
 

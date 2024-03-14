@@ -106,7 +106,7 @@ Regardless of which trigger you chose to create your playbook with in the previo
 
     1. If you want to monitor this playbook's activity for diagnostic purposes, mark the **Enable diagnostics logs in Log Analytics** check box, and choose your **Log Analytics workspace** from the drop-down list.
 
-    1. If your playbooks need access to protected resources that are inside or connected to an Azure virtual network, [you may need to use an integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). If so, mark the **Associate with integration service environment** check box, and select the desired ISE from the drop-down list.
+    1. If your playbooks need access to protected resources that are inside or connected to an Azure virtual network, [you might need to use an integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). If so, mark the **Associate with integration service environment** check box, and select the desired ISE from the drop-down list.
 
     1. Select **Next : Connections >**.
 
@@ -252,7 +252,7 @@ To use a playbook to respond automatically to an **entire incident** or to an **
 
 To create an automation rule:
 
-1. From the **Automation** blade in the Microsoft Sentinel navigation menu, select **Create** from the top menu and then **Automation rule**.
+1. From the **Automation** page in the Microsoft Sentinel navigation menu, select **Create** from the top menu and then **Automation rule**.
 
    :::image type="content" source="./media/tutorial-respond-threats-playbook/add-new-rule.png" alt-text="Screenshot showing how to add a new automation rule.":::
 
@@ -272,7 +272,7 @@ To create an automation rule:
     1. Add any other conditions you want to determine whether this automation rule will run. Select **+ Add** and choose [conditions or condition groups](add-advanced-conditions-to-automation-rules.md) from the drop-down list. The list of conditions is populated by alert detail and entity identifier fields.
 
 1. **Actions:**
-    1. Since you're using this automation rule to run a playbook, choose the **Run playbook** action from the drop-down list. You'll then be prompted to choose from a second drop-down list that shows the available playbooks. An automation rule can run only those playbooks that start with the same trigger (incident or alert) as the trigger defined in the rule, so only those playbooks will appear in the list. <!--add details here for new functionality in defender--><a name="permissions-to-run-playbooks"></a>
+    1. Since you're using this automation rule to run a playbook, choose the **Run playbook** action from the drop-down list. You'll then be prompted to choose from a second drop-down list that shows the available playbooks. An automation rule can run only those playbooks that start with the same trigger (incident or alert) as the trigger defined in the rule, so only those playbooks will appear in the list. <a name="permissions-to-run-playbooks"></a>
 
         <a name="explicit-permissions"></a>
     
@@ -314,7 +314,7 @@ To create an automation rule:
 
 1. Enter a number under **Order** to determine where in the sequence of automation rules this rule will run.
 
-1. Click **Apply**. You're done!
+1. Select **Apply**. You're done!
 
 [Discover other ways](automate-incident-handling-with-automation-rules.md#creating-and-managing-automation-rules) to create automation rules.
 
@@ -423,7 +423,7 @@ View the run history for playbooks on an incident by selecting the **Runs** tab 
     **If you're in the Investigation graph:**
     1. Select an entity in the graph.
     1. Select the **Run playbook (Preview)** button in the entity side panel.  
-    For some entity types, you may have to select the **Entity actions** button and from the resulting menu select **Run playbook (Preview)**.
+    For some entity types, you might have to select the **Entity actions** button and from the resulting menu select **Run playbook (Preview)**.
 
     **If you're proactively hunting for threats:**
     1. From the **Entity behavior** screen, select an entity from the lists on the page, or search for and select another entity.
