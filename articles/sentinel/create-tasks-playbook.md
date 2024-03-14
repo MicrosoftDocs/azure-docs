@@ -15,8 +15,6 @@ This article explains how to use playbooks to create (and optionally perform) in
 
 [Incident tasks](incident-tasks.md) can be created automatically not only by playbooks, but also by automation rules, and also manually, ad-hoc, from within an incident.
 
-[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
-
 ## Use cases for different roles
 
 This article addresses the following scenarios that apply to SOC managers, senior analysts, and automation engineers:

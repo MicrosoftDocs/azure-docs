@@ -20,8 +20,6 @@ For an introduction to playbooks, see [Automate threat response with playbooks i
 
 For the complete specification of the Microsoft Sentinel connector, see the [Logic Apps connector documentation](/connectors/azuresentinel/).
 
-[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
-
 ## Authentication
 
 The Microsoft Sentinel connector in Logic Apps, and its component triggers and actions, can operate on behalf of any identity that has the necessary permissions (read and/or write) on the relevant workspace. The connector supports multiple identity types:

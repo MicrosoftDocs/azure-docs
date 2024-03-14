@@ -39,11 +39,11 @@ Finally, the ability to invoke playbooks from analytics rules will be **deprecat
 
 ### Create an automation rule from an analytics rule
 
-1. From the main navigation menu, select **Analytics**.
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), select the **Configuration** > **Analytics** page. For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Configuration** > **Analytics**.
 
 1. Under **Active rules**, find an analytics rule already configured to run a playbook.
 
-1. Select **Edit**.
+1. Select **Edit**. <!--add screenshot if there's time-->
 
     :::image type="content" source="media/migrate-playbooks-to-automation-rules/find-analytics-rule.png" alt-text="Screenshot of finding and selecting an analytics rule.":::
 
@@ -71,7 +71,7 @@ Finally, the ability to invoke playbooks from analytics rules will be **deprecat
 
 ### Create a new automation rule from the Automation portal
 
-1. From the main navigation menu, select **Automation**.
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), select the **Configuration** > **Analytics** page. For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Configuration** > **Analytics**.
 
 1. From the top menu bar, select **Create -> Automation rule**.
 

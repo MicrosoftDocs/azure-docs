@@ -294,7 +294,7 @@ Full automation is the best solution for as many incident-handling, investigatio
 
 For these and other reasons, Microsoft Sentinel allows you to **run playbooks manually** on-demand for entities and incidents (both now in Preview), as well as for alerts. 
 
-- **To run a playbook on a specific incident,** select the incident from the grid in the **Incidents** blade. Select **Actions** from the incident details pane, and choose **Run playbook (Preview)** from the context menu.
+- **To run a playbook on a specific incident,** select the incident from the grid in the **Incidents** blade. In the [Azure portal](https://portal.azure.com), select **Actions** from the incident details pane, and choose **Run playbook (Preview)** from the context menu.  In the [Defender portal](https://security.microsoft.com/), select **Run playbook (Preview)** directly from the incident details page.
 
     This opens the **Run playbook on incident** panel.
 

@@ -42,6 +42,8 @@ Since condition groups offer a lot more power and flexibility in creating automa
 
 Let's create a rule that will change the severity of an incoming incident from whatever it is to High, assuming it meets the conditions we'll set.
 
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), select the **Configuration** > **Automation** page. For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Configuration** > **Automation**.
+
 1. From the **Automation** page, select **Create > Automation rule** from the button bar at the top.
 
     See the [general instructions for creating an automation rule](create-manage-use-automation-rules.md) for details.

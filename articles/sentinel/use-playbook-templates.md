@@ -47,9 +47,11 @@ This article helps you understand how to:
 
 ## Explore playbook templates
 
-In Microsoft Sentinel, select **Content hub** and then select **Content type** to filter for **Playbook**. This filtered view lists all the solutions and standalone content that include one or more playbook templates. Install the solution or standalone content to get the template.
+For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), select the **Content management** > **Content hub** page. For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Content management** > **Content hub**.
 
-Then, in Microsoft Sentinel, select **Automation** and then the **Playbook templates** tab to view the installed templates.
+On the **Content hub** page, select **Content type** to filter for **Playbook**. This filtered view lists all the solutions and standalone content that include one or more playbook templates. Install the solution or standalone content to get the template.
+
+Then, select **Configuration** > **Automation** > **Playbook templates** tab to view the installed templates.
 
 :::image type="content" source="media/use-playbook-templates/gallery.png" alt-text="Screenshot of the playbooks gallery." lightbox="media/use-playbook-templates/gallery.png":::
 

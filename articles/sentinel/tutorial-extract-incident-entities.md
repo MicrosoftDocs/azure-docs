@@ -49,12 +49,13 @@ To complete this tutorial, make sure you have:
 
 ## Create a playbook with an incident trigger
 
-1. Open the [Azure portal](https://portal.azure.com/) and navigate to the **Microsoft Sentinel** service.
-1. On the left, select **Automation**, and on the top left of the **Automation** page, select **Create** > **Playbook with incident trigger**.
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), select the **Configuration** > **Automation** page. For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Configuration** > **Automation**.
+
+1. On the **Automation** page, select **Create** > **Playbook with incident trigger**.
 1. In the **Create playbook** wizard, under **Basics**, select the subscription and resource group, and give the playbook a name. 
 1. Select **Next: Connections >**.
 
-    Under **Connections**, the **Microsoft Sentinel - Connect with managed identity** connection should be visible.
+    Under **Connections**, the **Microsoft Sentinel - Connect with managed identity** connection should be visible. For example:<!--create new screenshot if possible-->
 
     :::image type="content" source="media/tutorial-extract-incident-entities/create-playbook.png" alt-text="Screenshot of creating a new playbook with an incident trigger.":::
 

@@ -23,7 +23,9 @@ Learn more about [using private endpoints to secure traffic between Standard log
 
 ## Define an access restriction policy
 
-1. From the Microsoft Sentinel navigation menu, select **Automation**. Select the **Active playbooks** tab.
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), select the **Configuration** > **Automation** page. For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Configuration** > **Automation**.
+
+1. On the **Automation** page, select the **Active playbooks** tab.
 
 1. Filter the list for Standard-plan apps.
     1. Select the **Plan** filter.

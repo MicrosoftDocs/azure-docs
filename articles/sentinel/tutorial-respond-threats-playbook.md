@@ -2,6 +2,11 @@
 title: Tutorial - Automate threat response in Microsoft Sentinel
 description: Use this tutorial to help you use playbooks together with automation rules in Microsoft Sentinel to automate your incident response and remediate security threats.
 ms.topic: tutorial
+author: batamig
+ms.author: bagol
+ms.date: 03/14/2024
+appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+ms.collection: usx-security
 ---
 
 # Tutorial: Respond to threats by using playbooks with automation rules in Microsoft Sentinel
@@ -66,9 +71,15 @@ Get a more complete and detailed introduction to automating threat response usin
 
 Follow these steps to create a new playbook in Microsoft Sentinel:
 
+#### [Azure portal](#tab/azure-portal)
 :::image type="content" source="./media/tutorial-respond-threats-playbook/add-new-playbook.png" alt-text="Screenshot of the menu selection for adding a new playbook in the Automation screen." lightbox="media/tutorial-respond-threats-playbook/add-new-playbook.png":::
 
-1. From the **Microsoft Sentinel** navigation menu, select **Automation**.
+#### [Defender portal](#tab/defender-portal)
+:::image type="content" source="./media/tutorial-respond-threats-playbook/add-new-playbook-defender.png" alt-text="Screenshot of the menu selection for adding a new playbook in the Automation screen." lightbox="media/tutorial-respond-threats-playbook/add-new-playbook-defender.png":::
+
+---
+
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), select the **Configuration** > **Automation** page. For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Configuration** > **Automation**.
 
 1. From the top menu, select **Create**.
 
@@ -261,7 +272,7 @@ To create an automation rule:
     1. Add any other conditions you want to determine whether this automation rule will run. Select **+ Add** and choose [conditions or condition groups](add-advanced-conditions-to-automation-rules.md) from the drop-down list. The list of conditions is populated by alert detail and entity identifier fields.
 
 1. **Actions:**
-    1. Since you're using this automation rule to run a playbook, choose the **Run playbook** action from the drop-down list. You'll then be prompted to choose from a second drop-down list that shows the available playbooks. An automation rule can run only those playbooks that start with the same trigger (incident or alert) as the trigger defined in the rule, so only those playbooks will appear in the list.<a name="permissions-to-run-playbooks"></a>
+    1. Since you're using this automation rule to run a playbook, choose the **Run playbook** action from the drop-down list. You'll then be prompted to choose from a second drop-down list that shows the available playbooks. An automation rule can run only those playbooks that start with the same trigger (incident or alert) as the trigger defined in the rule, so only those playbooks will appear in the list. <!--add details here for new functionality in defender--><a name="permissions-to-run-playbooks"></a>
 
         <a name="explicit-permissions"></a>
     
@@ -325,7 +336,7 @@ You can also manually run a playbook on demand, whether in response to alerts, i
 
 1. In the **Incidents** page, select an incident.
 
-1. Select **View full details** at the bottom of the incident details pane.
+    In the Azure portal, select **View full details** at the bottom of the incident details pane to open the incident details page.
 
 1. In the incident details page, in the **Incident timeline** widget, choose the alert you want to run the playbook on. Select the three dots at the end of the alert's line and choose **Run playbook** from the pop-up menu.
 
@@ -339,7 +350,7 @@ You can also manually run a playbook on demand, whether in response to alerts, i
 
 1. In the **Incidents** page, select an incident.
 
-1. Select **View full details** at the bottom of the incident details pane.
+    In the Azure portal, select **View full details** at the bottom of the incident details pane to open the incident details page.
 
 1. In the incident details page, select the **Alerts** tab, choose the alert you want to run the playbook on, and select the **View playbooks** link at the end of the line of that alert.
 
@@ -352,6 +363,8 @@ You can also manually run a playbook on demand, whether in response to alerts, i
 You can see the run history for playbooks on an alert by selecting the **Runs** tab on the **Alert playbooks** pane. It might take a few seconds for any just-completed run to appear in the list. Selecting a specific run will open the full run log in Logic Apps.
 
 ### Run a playbook manually on an incident (Preview)
+
+<!--add new functionality details-->
 
 1. In the **Incidents** page, select an incident. 
 
@@ -371,7 +384,7 @@ You can see the run history for playbooks on an incident by selecting the **Runs
 
 1. Select an entity in one of the following ways, depending on your originating context:
 
-    **If you're in an incident's details page (new version):**
+    **If you're in an incident's details page (new version in the Azure or Defender portals):** <!--is this correct?-->
     1. In the **Entities** widget in the **Overview** tab, find an entity from the list (don't select it).
     1. Select the three dots to the right of the entity.
     1. Select **Run playbook (Preview)** from the pop-up menu and continue with step 2 below.  
