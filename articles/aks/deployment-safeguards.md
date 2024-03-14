@@ -23,7 +23,7 @@ After you configure deployment safeguards for 'Warning' or 'Enforcement', Azure 
 
 - Azure Policy's add-on for AKS must be enabled. For more details, see [Enabling Azure Policy on your AKS cluster][policy-for-kubernetes].
 
-- Deployment safeguards requires at least version `2.0.0b1` of the aks-preview extension. Please install the latest version of Azure CLI and the `aks-preview` CLI extension
+- To configure deployment safeguards, you must have version `2.0.0b1` or later of the `aks-preview` extension. We recommend that you install the latest version of Azure CLI as well as the `aks-preview` CLI extension.
 
 - In order to create and modify the configuration for deployment safeguards, you need a subscription with the [following permissions on your AKS cluster][Azure-Policy-RBAC-permissions]:
 
