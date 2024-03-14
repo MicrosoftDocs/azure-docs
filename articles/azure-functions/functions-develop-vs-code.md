@@ -11,7 +11,7 @@ ms.custom:
   - devx-track-js
   - devx-track-python
   - ignite-2023
-ms.date: 03/06/2024
+ms.date: 03/14/2024
 zone_pivot_groups: programming-languages-set-functions
 #Customer intent: As an Azure Functions developer, I want to understand how Visual Studio Code supports Azure Functions so that I can more efficiently create, publish, and maintain my Functions projects.
 ---
@@ -27,34 +27,34 @@ The Azure Functions extension provides these benefits:
 * Write your functions in various languages while taking advantage of the benefits of Visual Studio Code.
 
 ::: zone pivot="programming-language-csharp"
->You're viewing the C# version of this article. Make sure to select your preferred Functions programming language at the top of the article.
+>You're viewing the C# version of this article. Make sure to select your preferred Functions programming language at the start of the article.
  
-If you want to get started right away, complete the [Visual Studio Code quickstart article](create-first-function-vs-code-csharp.md).
+If you're new to Functions, you might want to first complete the [Visual Studio Code quickstart article](create-first-function-vs-code-csharp.md).
 ::: zone-end
 ::: zone pivot="programming-language-java"
->You're viewing the Java version of this article. Make sure to select your preferred Functions programming language at the top of the article.
+>You're viewing the Java version of this article. Make sure to select your preferred Functions programming language at the start of the article.
 
-If you want to get started right away, complete the [Visual Studio Code quickstart article](create-first-function-vs-code-java.md).
+If you're new to Functions, you might want to first complete the [Visual Studio Code quickstart article](create-first-function-vs-code-java.md).
 ::: zone-end
 ::: zone pivot="programming-language-javascript"
->You're viewing the JavaScript version of this article. Make sure to select your preferred Functions programming language at the top of the article.
+>You're viewing the JavaScript version of this article. Make sure to select your preferred Functions programming language at the start of the article.
  
-If you want to get started right away, complete the [Visual Studio Code quickstart article](create-first-function-vs-code-node.md).
+If you're new to Functions, you might want to first complete the [Visual Studio Code quickstart article](create-first-function-vs-code-node.md).
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
->You're viewing the PowerShell version of this article. Make sure to select your preferred Functions programming language at the top of the article.
+>You're viewing the PowerShell version of this article. Make sure to select your preferred Functions programming language at the start of the article.
  
-If you want to get started right away, complete the [Visual Studio Code quickstart article](create-first-function-vs-code-powershell.md).
+If you're new to Functions, you might want to first complete the [Visual Studio Code quickstart article](create-first-function-vs-code-powershell.md).
 ::: zone-end
 ::: zone pivot="programming-language-python"
->You're viewing the Python version of this article. Make sure to select your preferred Functions programming language at the top of the article.
+>You're viewing the Python version of this article. Make sure to select your preferred Functions programming language at the start of the article.
  
-If you want to get started right away, complete the [Visual Studio Code quickstart article](create-first-function-vs-code-python.md).
+If you're new to Functions, you might want to first complete the [Visual Studio Code quickstart article](create-first-function-vs-code-python.md).
 ::: zone-end
 ::: zone pivot="programming-language-typescript"
->You're viewing the TypeScript version of this article. Make sure to select your preferred Functions programming language at the top of the article.
+>You're viewing the TypeScript version of this article. Make sure to select your preferred Functions programming language at the start of the article.
  
-If you want to get started right away, complete the [Visual Studio Code quickstart article](./create-first-function-vs-code-typescript.md).
+If you're new to Functions, you might want to first complete the [Visual Studio Code quickstart article](./create-first-function-vs-code-typescript.md).
 ::: zone-end
 
 > [!IMPORTANT]
@@ -68,9 +68,7 @@ If you want to get started right away, complete the [Visual Studio Code quicksta
 
 * An active [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing). If you don't yet have an account, you can create one from the extension in Visual Studio Code. 
 
-### Run local requirements
-
-These prerequisites are only required to [run and debug your functions locally](#run-functions-locally). They aren't required to create or publish projects to Azure Functions.
+You need these additional prerequities to [run and debug your functions locally](#run-functions-locally). They aren't required to create or publish projects to Azure Functions.
 
 + The [Azure Functions Core Tools](functions-run-local.md), which enables an integrated local debugging experience. When you have the Azure Functions extension installed, the easiest way to install or update Core Tools is by running the `Azure Functions: Install or Update Azure Functions Core Tools` command from the command pallet.    
 ::: zone pivot="programming-language-csharp"    
@@ -104,9 +102,9 @@ These prerequisites are only required to [run and debug your functions locally](
 
 ## Create an Azure Functions project
 
-The Functions extension lets you create a function app project, along with your first function. The following steps show how to create an HTTP-triggered function in a new Functions project. [HTTP trigger](functions-bindings-http-webhook.md) is the simplest function trigger template to demonstrate.
+The Functions extension lets you create the required function app project at the same time you create your first function. Use these steps to create an HTTP-triggered function in a new project. [HTTP trigger](functions-bindings-http-webhook.md) is the simplest function trigger template to demonstrate.
 
-1. choose the Azure icon in the Activity bar, then in the **Workspace (local)** area, select the **+** button, choose **Create Function** in the dropdown. When prompted, choose **Create new project**.
+1. Choose the Azure icon in the Activity bar, then in the **Workspace (local)** area, select the **+** button, choose **Create Function** in the dropdown. When prompted, choose **Create new project**.
 
     :::image type="content" source="./media/functions-create-first-function-vs-code/create-new-project.png" alt-text="Screenshot of create a new project window.":::
 
@@ -204,13 +202,6 @@ Files generated depend on the chosen Python programming model for Functions:
 
 ::: zone-end  
 
-At this point, you can do one of these tasks:
-
-+ [Add input or output bindings to an existing function](#add-input-and-output-bindings).
-+ [Add a new function to your project](#add-a-function-to-your-project).
-+ [Run your functions locally](#run-functions-locally).
-+ [Publish your project to Azure](#publish-to-azure).
-
 ## Add a function to your project
 
 You can add a new function to an existing project based on one of the predefined Functions trigger templates. To add a new function trigger, select F1 to open the command palette, and then search for and run the command **Azure Functions: Create Function**. Follow the prompts to choose your trigger type and define the required attributes of the trigger. If your trigger requires an access key or connection string to connect to a service, get it ready before you create the function trigger.
@@ -262,11 +253,23 @@ For example, the way you define an output binding that writes data to a storage 
 
 ### [Isolated process](#tab/isolated-process)
 
-Update the function method to add a binding parameter defined by using the `QueueOutput` attribute. You can use a `MultiResponse` object to return multiple messages or multiple output streams. 
+1. Add a reference to the package that supports your binding extension, such as this package for the Queue storage extension:  
+
+    ```dotnetcli
+    dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues
+    ```
+
+1. Update the function method to add a binding parameter defined by using the `QueueOutput` attribute. You can use a `MultiResponse` object to return multiple messages or multiple output streams. 
 
 ### [In-process](#tab/in-process)
 
-Update the function method to add a binding parameter defined by using the `Queue` attribute. You can use an `ICollector<T>` type to represent a collection of messages.
+1. Add a reference to the package that supports your binding extension, such as this package for the Queue storage extension:  
+
+    ```dotnetcli
+    dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage.Queues
+    ```
+
+1. Update the function method to add a binding parameter defined by using the `Queue` attribute. You can use an `ICollector<T>` type to represent a collection of messages.
 
 ---
 
@@ -517,13 +520,15 @@ If for some reason you can't use an extension bundle to install binding extensio
 
 When you [run functions locally](#run-functions-locally), log data is streamed to the Terminal console. You can also get log data when your Functions project is running in a function app in Azure. You can connect to streaming logs in Azure to see near-real-time log data. You should enable Application Insights for a more complete understanding of how your function app is behaving.
 
+::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-csharp,programming-language-typescript"
 ### Streaming logs
 
-When you're developing an application, it's often useful to see logging information in near-real time. You can view a stream of log files being generated by your functions. This output is an example of streaming logs for a request to an HTTP-triggered function:
+When you're developing an application, it's often useful to see logging information in near-real time. You can view a stream of log files being generated by your functions. Turn on logs from then command pallet with the `Azure Functions: Start streaming logs` command. This output is an example of streaming logs for a request to an HTTP-triggered function:
 
 :::image type="content" source="media/functions-develop-vs-code/streaming-logs-vscode-console.png" alt-text="Screenshot for streaming logs output for H T T P trigger.":::
 
 To learn more, see [Streaming logs](functions-monitoring.md?tabs=vs-code#streaming-logs).
+::: zone-end
 
 ### Application Insights
 
