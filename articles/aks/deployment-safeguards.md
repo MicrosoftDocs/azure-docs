@@ -31,7 +31,7 @@ After you configure deployment safeguards for 'Warning' or 'Enforcement', Azure 
 
     - *Microsoft.Authorization/policyAssignments/read*
 
-#### Install the `aks-preview` CLI extension
+#### Install the aks-preview CLI extension
 
 1. Install the `aks-preview` CLI extension using the [`az extension add`][az-extension-add] command.
 
