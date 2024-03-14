@@ -66,7 +66,7 @@ class FeatureDelegate: NSObject, DataChannelCallFeatureDelegate {
 
 class ReceiverDelegate: NSObject, DataChannelReceiverDelegate {
     func onMessageReceived(_ dataChannelReceiver: DataChannelReceiver, didReceiveMessage args: PropertyChangedEventArgs) {
-        let message = dataChannelReceiver.popMessage() // read the data message from the receiver
+        let message = dataChannelReceiver.receiveMessage() // read the data message from the receiver
         let sequence = message?.sequenceNumber // get the message sequence number
         let data = message?.data // get the data content
     }
