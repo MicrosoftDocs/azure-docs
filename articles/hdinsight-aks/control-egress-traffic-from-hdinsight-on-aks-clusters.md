@@ -24,7 +24,7 @@ For example, you may want to:
 
 * Monitor or audit the egress traffic from cluster for troubleshooting or compliance purposes.
 
-## Methods and tools to control ergress traffic 
+## Methods and tools to control egress traffic 
 
  
 There are several methods and tools for controlling egress traffic from HDInsight on AKS clusters, by configuring the settings at cluster pool and cluster levels.  
@@ -35,9 +35,9 @@ Some of the most common ones are:
 
 1. Use Outbound cluster pool with User defined routing to control egress traffic at the subnet level.
 
-1. Use private AKS feature, the AKS control plane or API server has internal IP addresses, you can ensure network traffic between AKS Control plane / API server and HDInsight on AKS node pools remains on the private network only.
+1. Use private AKS feature, the AKS control plane or API server has internal IP addresses You can ensure network traffic between AKS Control plane / API server and HDInsight on AKS node pools remains on the private network only.
 
-1. Use Private Ingress feature on your clusters, to avoid creating public IPs for the cluster. 
+1. To avoid creating public IPs for the cluster, use private ingress feature on your clusters.
 
 In the following sections, we describe each method and tool in more detail.
 
@@ -67,11 +67,11 @@ If `userDefinedRouting` is set, HDInsight on AKS cant't automatically configure 
 
 You must deploy the HDInsight on AKS cluster into an existing virtual network with a subnet previously configured, and you must establish explicit egress.  
 
-This architecture requires explicitly sending egress traffic to an appliance like a firewall, gateway, or proxy, so a public IP assigned to the standard load balancer or appliance can handle the Network Address Translation (NAT). 
+This architecture requires explicitly sending egress traffic to an appliance like a firewall, gateway, or proxy. So a public IP assigned to the standard load balancer or appliance can handle the Network Address Translation (NAT). 
 
-HDInsight on AKS doesn't configure outbound public IP address or outbound rules, unlike the outbound with oadb alancer type clusters as described in the above section. Your UDR is the only source for egress traffic. 
+HDInsight on AKS doesn't configure outbound public IP address or outbound rules, unlike the outbound with load balancer type clusters as described in the above section. Your UDR is the only source for egress traffic. 
 
-For inbound traffic, you're required to choose based on the requirements to choose a private cluster (for securing traffic on AKS control plane / API server) and select the private ingress option available on each of the cluster shape to use public or internal loadbalancer based traffic. 
+For inbound traffic, you're required to choose based on the requirements to choose a private cluster (for securing traffic on AKS control plane / API server) and select the private ingress option available on each of the cluster shape to use public or internal load balancer based traffic. 
 
 ### Cluster pool creation for outbound with `userDefinedRouting `
 
@@ -84,7 +84,7 @@ You're required to first set the firewall rules for the Outbound with userDefine
 
 :::image type="content" source="./media/control-egress traffic-from-hdinsight-on-aks-clusters/user-defined-routing.png" alt-text="Screenshot showing user defined routing." lightbox="./media/control-egress traffic-from-hdinsight-on-aks-clusters/user-defined-routing.png":::
 
-With the following steps you understand how to lock down the outbound traffic from your HDInsight on AKS service to back-end Azure resources or other network resources with Azure Firewall. This configuration helps prevent data exfiltration or the risk of malicious program implantation. 
+With the following steps, you understand how to lock down the outbound traffic from your HDInsight on AKS service to back-end Azure resources or other network resources with Azure Firewall. This configuration helps prevent data exfiltration or the risk of malicious program implantation. 
 
 Azure Firewall lets you control outbound traffic at a much more granular level and filter traffic based on real-time threat intelligence from Microsoft Cyber Security. You can centrally create, enforce, and log application and network connectivity policies across subscriptions and virtual networks [see Azure Firewall features](/azure/firewall/features).
 
@@ -213,7 +213,7 @@ In a private cluster, the control plane or API server has internal IP addresses 
 
 :::image type="content" source="./media/control-egress traffic-from-hdinsight-on-aks-clusters/enable-private-aks.png" alt-text="Screenshot showing enabled private AKS." lightbox="./media/control-egress traffic-from-hdinsight-on-aks-clusters/enable-private-aks.png":::
 
-When you provision a private AKS cluster, AKS by default creates a private FQDN with a private DNS zone and an extra public FQDN with a corresponding A record in Azure public DNS. The agent nodes continue to use the A record in the private DNS zone to resolve the private IP address of the private endpoint for communication to the API server. 
+When you provision a private AKS cluster, AKS by default creates a private FQDN with a private DNS zone. An extra public FQDN with a corresponding A record in Azure public DNS. The agent nodes continue to use the A record in the private DNS zone to resolve the private IP address of the private endpoint for communication to the API server. 
 
 As HDInsight on AKS automatically inserts the A record to the private DNS zone, for private ingress.
 
@@ -221,20 +221,20 @@ As HDInsight on AKS automatically inserts the A record to the private DNS zone, 
 
 ### Clusters with private ingress 
 
-HDInsight on AKS clusters create a cluster with public accessible FQDN and public IP, with the private ingress feature you can ensure network traffic between client and HDInsight on AKS cluster remains on your private network only.  
+HDInsight on AKS clusters create a cluster with public accessible FQDN and public IP. With the private ingress feature you can ensure network traffic between client and HDInsight on AKS cluster remains on your private network only.  
 
 :::image type="content" source="./media/control-egress traffic-from-hdinsight-on-aks-clusters/create-cluster-basic-tab.png" alt-text="Screenshot showing create cluster basic tab." lightbox="./media/control-egress traffic-from-hdinsight-on-aks-clusters/create-cluster-basic-tab.png":::
 
 > [!NOTE]
 > With this feature, HDInsight on AKS will automatically create A-records on the private DNS zone for ingress. 
 
-Once you enable this feature, you can't access the cluster from public internet. There is an internal load balancer and private IP created for cluster. HDInsight on AKS will use the private DNS zone created with the cluster pool to link the cluster Virtual Network and perform name resolution.
+Once you enable this feature, you can't access the cluster from public internet. There's an internal load balancer and private IP created for cluster. HDInsight on AKS uses the private DNS zone created with the cluster pool to link the cluster Virtual Network and perform name resolution.
 
 Each private cluster contains two FQDNs: well-know FQDN and private FQDN.
 
 Well-know FQDN： `{clusterName}.{clusterPoolName}.{subscriptionId}.{region}.hdinsightaks.net`
 
-The well-know FQDN is like a public cluster, but it can only be resolved to a CNAME with subdomain, which means well-know FQDN of private cluster must be used with correct Private DNS zone setting to make sure FQDN can be finally solved to correct Private IP address. 
+The well-know FQDN is like a public cluster, but it can only be resolved to a CNAME with subdomain, which means well-know FQDN of private cluster must be used with correct `Private DNS zone setting` to make sure FQDN can be finally solved to correct Private IP address. 
 
  
 
@@ -244,7 +244,7 @@ The well-know FQDN is like a public cluster, but it can only be resolved to a CN
 
 Well-know FQDN： `{clusterName}.privatelink.{clusterPoolName}.{subscriptionId}.{region}.hdinsightaks.net`
 
-The private FQDN is only for private cluster, it's recorded as A-RECORD in private DNS zone, is resolved to private IP of cluster.
+The private FQDN is only for private cluster, recorded as A-RECORD in private DNS zone, is resolved to private IP of cluster.
 
 ### Reference
 
