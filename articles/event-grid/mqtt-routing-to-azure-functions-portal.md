@@ -26,6 +26,8 @@ If you don't have an Azure subscription, you can sign up for a [free trial](http
 
 ## Create an Azure function using Event Grid trigger
 
+Follow instructions from [Create an Azure function using Visual Studio Code](../azure-functions/functions-develop-vs-code.md), but use the **Azure Event Grid Trigger** instead of using the **HTTP Trigger**. 
+
 ## Create an Event Grid topic (custom topic)
 Create an Event Grid topic. See [Create a custom topic using the portal](/azure/event-grid/custom-event-quickstart-portal). When you create the Event Grid topic, on the **Advanced** tab, for **Event Schema**, select **Cloud Event Schema v1.0**.
 
@@ -34,7 +36,7 @@ Create an Event Grid topic. See [Create a custom topic using the portal](/azure/
 
 ## Add a subscription to the topic using the function
 
-1. On the Event Grid Topic page, select **Subscriptions** on the left navigation bar. 
+1. On the Event Grid topic page, select **Subscriptions** on the left navigation bar. 
 
     :::image type="content" source="./media/mqtt-routing-to-azure-functions-portal/event-subscriptions-page.png" alt-text="Screenshot that shows the Event Subscriptions page for a topic." lightbox="./media/mqtt-routing-to-azure-functions-portal/event-subscriptions-page.png":::
 1. On the **Create event subscription** page, do these steps:
