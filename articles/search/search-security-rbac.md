@@ -232,7 +232,7 @@ This approach assumes Visual Studio Code with a REST client extension.
 1. Paste in and then send a request that uses the variables you've specified. For the "Search Index Data Reader" role, you can send a query. You can use any [supported API version](/rest/api/searchservice/search-service-api-versions).
 
    ```http
-   POST https://{{baseUrl}}/indexes/{{indexName}}/docs/search?api-version=2023-11-01 HTTP/1.1
+   POST https://{{baseUrl}}/indexes/{{index-name}}/docs/search?api-version=2023-11-01 HTTP/1.1
      Content-type: application/json
      Authorization: Bearer {{token}}
 
@@ -314,7 +314,7 @@ For more information on how to acquire a token for a specific environment, see [
 
 ## Test as current user
 
-If you're already a Contributor or Owner of your search service, you can present a bearer token for your user identity for authentication to Azure AI Search. The following instructions explain how to set up a Postman collection to send requests as the current user.
+If you're already a Contributor or Owner of your search service, you can present a bearer token for your user identity for authentication to Azure AI Search. 
 
 1. Get a bearer token for the current user using the Azure CLI:
 
@@ -328,29 +328,28 @@ If you're already a Contributor or Owner of your search service, you can present
    Get-AzAccessToken -ResourceUrl "https://graph.microsoft.com/"
    ```
 
-1. Start a new Postman collection and edit its properties. In the **Variables** tab, create the following variable:
-
-    | Variable | Description |
-    |----------|-------------|
-    | bearerToken | (copy-paste from get-access-token output on the command line) |
-
-1. In the Authorization tab, select **Bearer Token** as the type.
-
-1. In the **Token** field, specify the variable placeholder `{{bearerToken}}`.
-
-1. Save the collection.
-
-1. Send a request to confirm access. Here's one that queries the hotels-quickstart index:
+1. In a new text file in Visual Studio Code, paste in these variables:
 
    ```http
-   POST https://<service-name>.search.windows.net/indexes/hotels-quickstart/docs/search?api-version=2020-06-30
-   {
-    "queryType": "simple",
-    "search": "motel",
-    "filter": "",
-    "select": "HotelName,Description,Category,Tags",
-    "count": true
-    }
+   @baseUrl = PASTE-YOUR-SEARCH-SERVICE-URL-HERE
+   @index-name = PASTE-YOUR-INDEX-NAME-HERE
+   @token = PASTE-YOUR-TOKEN-HERE
+   ```
+
+1. Paste in and then send a request to confirm access. Here's one that queries the hotels-quickstart index
+
+   ```http
+   POST https://{{baseUrl}}/indexes/{{index-name}}/docs/search?api-version=2023-11-01 HTTP/1.1
+     Content-type: application/json
+     Authorization: Bearer {{token}}
+
+       {
+            "queryType": "simple",
+            "search": "motel",
+            "filter": "",
+            "select": "HotelName,Description,Category,Tags",
+            "count": true
+        }
    ```
 
 <a name="rbac-single-index"></a>
