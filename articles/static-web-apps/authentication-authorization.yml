@@ -1,5 +1,5 @@
 ### YamlMime:HowTo
-
+---
 metadata:
   title: Authenticate and authorize Static Web Apps
   description: Learn to use different authorization providers to secure your Azure Static Web Apps.
@@ -151,10 +151,6 @@ procedureSection:
       > [!TIP]
       > For information about general restrictions and limitations, see [Quotas](quotas.md).
 
-nextStep:
-  text: nextstepaction
-  url: configuration.md
-
 relatedContent:
   - text: Manage roles with custom authentication
     url: authentication-custom.md#manage-roles
@@ -162,4 +158,8 @@ relatedContent:
     url: configuration.md
   - text: Access user authentication and authorization data
     url: user-information.md
+
+nextStep:
+  text: nextstepaction
+  url: configuration.md
 
