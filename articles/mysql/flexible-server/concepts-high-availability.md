@@ -65,7 +65,7 @@ Automatic backups, both snapshots and log backups, are performed on locally redu
 
 > [!NOTE]
 > For both zone-redundant and same-zone HA:
-> - If there's a failure, the time needed for the standby replica to take over the role of primary depends on the time it takes to replay of binary log from the primary storage account on the standby. So we recommend that you use primary keys on all tables to reduce failover time. Failover times are typically between 60 and 120 seconds.
+> - If there's a failure, the time needed for the standby replica to take over the role of primary depends on the time it takes to replay the binary log from the primary storage account to the standby. So we recommend that you use primary keys on all tables to reduce failover time. Failover times are typically between 60 and 120 seconds.
 - The standby server isn't available for read or write operations. It's a passive standby to enable fast failover.
 - Always use a fully qualified domain name (FQDN) to connect to your primary server. Avoid using an IP address to connect. If there's a failover, after the primary and standby server roles are switched, a DNS A record might change. That change would prevent the application from connecting to the new primary server if an IP address is used in the connection string.
 
@@ -106,7 +106,7 @@ The health monitor component continuously does the following checks
 > If there are any networking issue between the application and the customer networking endpoint (Private/Public access), either in networking path , on the endpoint or DNS issues in client side, the health check does not monitor this scenario. If you are using private access, make sure that the NSG rules for the VNet does not block the communication to the instance customer networking endpoint on port 3306. For public access make sure that the firewall rules are set and network traffic is allowed on port 3306 (if network path has any other firewalls). The DNS resolution from the client application side also needs to be taken care of.
 
 ## Monitoring for high availability
-The **High Availability Status** located in the server’s *High Availability* pane in portal can be used to determine the server’s HA status.
+The **High Availability Status** located in the server’s *High Availability* pane in portal can be used to determine the server’s HA configuration status.
 
 | **Status** | **Description** |
 | :----- | :------ |
