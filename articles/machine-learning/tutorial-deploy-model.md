@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
-ms.date: 03/15/2023
+ms.date: 03/04/2024
 ms.custom: mlops, devx-track-python #add more custom tags
 #Customer intent: This tutorial is intended to show users what is needed for deployment and present a high-level overview of how Azure Machine Learning handles deployment. Deployment isn't typically done by a data scientist, so the tutorial won't use Azure CLI examples. We will link to existing articles that use Azure CLI as needed. The code in the tutorial will use SDK v2. The tutorial will continue where the "Create reusable pipelines" tutorial stops.
 ---
@@ -19,9 +19,9 @@ ms.custom: mlops, devx-track-python #add more custom tags
 [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 Learn to deploy a model to an online endpoint, using Azure Machine Learning Python SDK v2.
 
-In this tutorial, we use a model trained to predict the likelihood of defaulting on a credit card payment. The goal is to deploy this model and show its use.
+In this tutorial, you deploy and use a model that predicts the likelihood of a customer defaulting on a credit card payment.
 
-The steps you'll take are:
+The steps you take are:
 
 > [!div class="checklist"]
 > * Register your model
@@ -35,7 +35,7 @@ The steps you'll take are:
 > * Get details of the second deployment
 > * Roll out the new deployment and delete the first one
 
-This video shows how to get started in Azure Machine Learning studio so that you can follow the steps in the tutorial.  The video shows how to create a notebook, create a compute instance, and clone the notebook. The steps are also described in the following sections.
+This video shows how to get started in Azure Machine Learning studio so that you can follow the steps in the tutorial. The video shows how to create a notebook, create a compute instance, and clone the notebook. The steps are also described in the following sections.
 
 > [!VIDEO https://learn-video.azurefd.net/vod/player?id=7d0e09a5-c319-4e6a-85e2-c9601a0fba68]
 
@@ -47,27 +47,27 @@ This video shows how to get started in Azure Machine Learning studio so that you
 
 1. [!INCLUDE [open or create notebook](includes/prereq-open-or-create.md)]
     * [!INCLUDE [new notebook](includes/prereq-new-notebook.md)]
-    * Or, open **tutorials/get-started-notebooks/deploy-model.ipynb** from the **Samples** section of studio. [!INCLUDE [clone notebook](includes/prereq-clone-notebook.md)]
+    * Or, open **tutorials/get-started-notebooks/deploy-model.ipynb** from the **Samples** section of the studio. [!INCLUDE [clone notebook](includes/prereq-clone-notebook.md)]
 
-1. View your VM quota and ensure you have enough quota available to create online deployments. In this tutorial, you will need at least 8 cores of `STANDARD_DS3_v2` and 12 cores of `STANDARD_F4s_v2`. To view your VM quota usage and request quota increases, see [Manage resource quotas](how-to-manage-quotas.md#view-your-usage-and-quotas-in-the-azure-portal).
+1. View your VM quota and ensure you have enough quota available to create online deployments. In this tutorial, you need at least 8 cores of `STANDARD_DS3_v2` and 12 cores of `STANDARD_F4s_v2`. To view your VM quota usage and request quota increases, see [Manage resource quotas](how-to-manage-quotas.md#view-your-usage-and-quotas-in-the-azure-portal).
 
 [!INCLUDE [notebook set kernel](includes/prereq-set-kernel.md)] 
 
 > [!NOTE]
->- Serverless Spark Compute does not have `Python 3.10 - SDK v2` installed by default. It is recommended that users create a compute instance and select it before proceeding with the tutorial.
+>- Serverless Spark Compute doesn't have `Python 3.10 - SDK v2` installed by default. We recommend that users create a compute instance and select it before proceeding with the tutorial.
 
 <!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/main/tutorials/get-started-notebooks/deploy-model.ipynb -->
 
 
 ## Create handle to workspace
 
-Before we dive in the code, you need a way to reference your workspace. You'll create `ml_client` for a handle to the workspace.  You'll then use `ml_client` to manage resources and jobs.
+Before you dive in the code, you need a way to reference your workspace. Create `ml_client` for a handle to the workspace and use the `ml_client` to manage resources and jobs.
 
-In the next cell, enter your Subscription ID, Resource Group name and Workspace name. To find these values:
+In the next cell, enter your Subscription ID, Resource Group name, and Workspace name. To find these values:
 
 1. In the upper right Azure Machine Learning studio toolbar, select your workspace name.
-1. Copy the value for workspace, resource group and subscription ID into the code.
-1. You'll need to copy one value, close the area and paste, then come back for the next one.
+1. Copy the value for workspace, resource group, and subscription ID into the code.
+1. You need to copy one value, close the area and paste, then come back for the next one.
 
 
 ```python
@@ -87,16 +87,16 @@ ml_client = MLClient(
 ```
 
 > [!NOTE]
-> Creating `MLClient` will not connect to the workspace. The client initialization is lazy and will wait for the first time it needs to make a call (this will happen in the next code cell).
+> Creating `MLClient` won't connect to the workspace. The client initialization is lazy and waits for the first time it needs to make a call (this happens in the next code cell).
 
 
 ## Register the model
 
-If you already completed the earlier training tutorial,  [Train a model](tutorial-train-model.md), you've registered an MLflow model as part of the training script and can skip to the next section. 
+If you already completed the earlier training tutorial, [Train a model](tutorial-train-model.md), you registered an MLflow model as part of the training script and can skip to the next section.
 
-If you didn't complete the training tutorial, you'll need to register the model. Registering your model before deployment is a recommended best practice.
+If you didn't complete the training tutorial, you need to register the model. Registering your model before deployment is a recommended best practice.
 
-In this example, we specify the `path` (where to upload files from) inline. If you [cloned the tutorials folder](quickstart-create-resources.md#learn-from-sample-notebooks), then run the following code as-is. Otherwise, [download the files and metadata for the model to deploy](https://azuremlexampledata.blob.core.windows.net/datasets/credit_defaults_model.zip). Update the path to the location on your local computer where you've unzipped the model's files. 
+The following code specifies the `path` (where to upload files from) inline. If you [cloned the tutorials folder](quickstart-create-resources.md#learn-from-sample-notebooks), then run the following code as-is. Otherwise, [download the files and metadata for the model to deploy](https://azuremlexampledata.blob.core.windows.net/datasets/credit_defaults_model.zip) and unzip the files. Update the path to the location of the unzipped files on your local computer.
 
 The SDK automatically uploads the files and registers the model. 
 
@@ -123,11 +123,11 @@ ml_client.models.create_or_update(mlflow_model)
 
 ## Confirm that the model is registered
 
-You can check the **Models** page in [Azure Machine Learning studio](https://ml.azure.com/) to identify the latest version of your registered model.
+You can check the **Models** page in [Azure Machine Learning studio](https://ml.azure.com/) to identify the latest version of the registered model.
 
 :::image type="content" source="media/tutorial-deploy-model/registered-model-in-studio.png" alt-text="Screenshot shows the registered model in studio.":::
 
-Alternatively, the code below will retrieve the latest version number for you to use.
+Alternatively, the following code retrieves the latest version number for you to use.
 
 
 ```python
@@ -141,13 +141,13 @@ latest_model_version = max(
 print(latest_model_version)
 ```
 
-Now that you have a registered model, you can create an endpoint and deployment. The next section will briefly cover some key details about these topics.
+Now that you have a registered model, you can create an endpoint and deployment. The next section briefly covers some key details about these topics.
 
 ## Endpoints and deployments
 
 After you train a machine learning model, you need to deploy it so that others can use it for inferencing. For this purpose, Azure Machine Learning allows you to create **endpoints** and add **deployments** to them.
 
-An **endpoint**, in this context, is an HTTPS path that provides an interface for clients to send requests (input data) to a trained model and receive the inferencing (scoring) results back from the model. An endpoint provides:
+An **endpoint**, in this context, is an HTTPS path that provides an interface for clients to send requests (input data) to a trained model and receive the inferencing (scoring) results from the model. An endpoint provides:
 
 - Authentication using "key or token" based auth 
 - [TLS(SSL)](https://simple.wikipedia.org/wiki/Transport_Layer_Security) termination
@@ -160,11 +160,11 @@ A single endpoint can contain multiple deployments. Endpoints and deployments ar
 
 Azure Machine Learning allows you to implement [online endpoints](concept-endpoints-online.md) for real-time inferencing on client data, and [batch endpoints](concept-endpoints-batch.md) for inferencing on large volumes of data over a period of time. 
 
-In this tutorial, we'll walk you through the steps of implementing a _managed online endpoint_. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way that frees you from the overhead of setting up and managing the underlying deployment infrastructure.
+In this tutorial, you go through the steps of implementing a _managed online endpoint_. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way that frees you from the overhead of setting up and managing the underlying deployment infrastructure.
 
 ## Create an online endpoint
 
-Now that you have a registered model, it's time to create your online endpoint. The endpoint name needs to be unique in the entire Azure region. For this tutorial, you'll create a unique name using a universally unique identifier [`UUID`](https://en.wikipedia.org/wiki/Universally_unique_identifier). For more information on the endpoint naming rules, see [endpoint limits](how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints).
+Now that you have a registered model, it's time to create your online endpoint. The endpoint name needs to be unique in the entire Azure region. For this tutorial, you create a unique name using a universally unique identifier [`UUID`](https://en.wikipedia.org/wiki/Universally_unique_identifier). For more information on the endpoint naming rules, see [endpoint limits](how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints).
 
 
 ```python
@@ -174,12 +174,12 @@ import uuid
 online_endpoint_name = "credit-endpoint-" + str(uuid.uuid4())[:8]
 ```
 
-First, we'll define the endpoint, using the `ManagedOnlineEndpoint` class.
+First, define the endpoint, using the `ManagedOnlineEndpoint` class.
 
 
 
 > [!TIP]
-> * `auth_mode` : Use `key` for key-based authentication. Use `aml_token` for Azure Machine Learning token-based authentication. A `key` doesn't expire, but `aml_token` does expire. For more information on authenticating, see [Authenticate to an online endpoint](how-to-authenticate-online-endpoint.md).
+> * `auth_mode` : Use `key` for key-based authentication. Use `aml_token` for Azure Machine Learning token-based authentication. A `key` doesn't expire, but `aml_token` does expire. For more information on authenticating, see [Authenticate clients for online endpoints](how-to-authenticate-online-endpoint.md).
 >
 > * Optionally, you can add a description and tags to your endpoint.
 
@@ -198,7 +198,7 @@ endpoint = ManagedOnlineEndpoint(
 )
 ```
 
-Using the `MLClient` created earlier, we'll now create the endpoint in the workspace. This command will start the endpoint creation and return a confirmation response while the endpoint creation continues.
+Using the `MLClient` created earlier, create the endpoint in the workspace. This command starts the endpoint creation and returns a confirmation response while the endpoint creation continues.
 
 > [!NOTE]
 > Expect the endpoint creation to take approximately 2 minutes.
@@ -211,7 +211,7 @@ Using the `MLClient` created earlier, we'll now create the endpoint in the works
 endpoint = ml_client.online_endpoints.begin_create_or_update(endpoint).result()
 ```
 
-Once you've created the endpoint, you can retrieve it as follows:
+Once you create the endpoint, you can retrieve it as follows:
 
 
 ```python
@@ -241,11 +241,11 @@ The key aspects of a deployment include:
 Azure Machine Learning supports no-code deployment of a model created and logged with MLflow. This means that you don't have to provide a scoring script or an environment during model deployment, as the scoring script and environment are automatically generated when training an MLflow model. If you were using a custom model, though, you'd have to specify the environment and scoring script during deployment.
 
 > [!IMPORTANT]
-> If you typically deploy models using scoring scripts and custom environments and want to achieve the same functionality using MLflow models, we recommend reading [Using MLflow models for no-code deployment](how-to-deploy-mlflow-models.md).
+> If you typically deploy models using scoring scripts and custom environments and want to achieve the same functionality using MLflow models, we recommend reading [Guidelines for deploying MLflow models](how-to-deploy-mlflow-models.md).
 
 ## Deploy the model to the endpoint
 
-You'll begin by creating a single deployment that handles 100% of the incoming traffic. We've chosen an arbitrary color name (*blue*) for the deployment. To create the deployment for our endpoint, we'll use the `ManagedOnlineDeployment` class.
+Begin by creating a single deployment that handles 100% of the incoming traffic. Choose an arbitrary color name (*blue*) for the deployment. To create the deployment for the endpoint, use the `ManagedOnlineDeployment` class.
 
 > [!NOTE]
 > No need to specify an environment or scoring script as the model to deploy is an MLflow model.
@@ -254,7 +254,7 @@ You'll begin by creating a single deployment that handles 100% of the incoming t
 ```python
 from azure.ai.ml.entities import ManagedOnlineDeployment
 
-# Choose the latest version of our registered model for deployment
+# Choose the latest version of the registered model for deployment
 model = ml_client.models.get(name=registered_model_name, version=latest_model_version)
 
 # define an online deployment
@@ -269,7 +269,7 @@ blue_deployment = ManagedOnlineDeployment(
 )
 ```
 
-Using the `MLClient` created earlier, we'll now create the deployment in the workspace. This command will start the deployment creation and return a confirmation response while the deployment creation continues.
+Using the `MLClient` created earlier, now create the deployment in the workspace. This command starts the deployment creation and returns a confirmation response while the deployment creation continues.
 
 
 ```python
@@ -309,7 +309,7 @@ print(endpoint.scoring_uri)
 
 ## Test the endpoint with sample data
 
-Now that the model is deployed to the endpoint, you can run inference with it. Let's create a sample request file following the design expected in the run method in the scoring script.
+Now that the model is deployed to the endpoint, you can run inference with it. Begin by creating a sample request file that follows the design expected in the run method found in the scoring script.
 
 
 ```python
@@ -320,7 +320,7 @@ deploy_dir = "./deploy"
 os.makedirs(deploy_dir, exist_ok=True)
 ```
 
-Now, create the file in the deploy directory. The cell below uses IPython magic to write the file into the directory you just created.
+Now, create the file in the deploy directory. The following code cell uses IPython magic to write the file into the directory you just created.
 
 
 ```python
@@ -337,13 +337,13 @@ Now, create the file in the deploy directory. The cell below uses IPython magic 
 }
 ```
 
-Using the `MLClient` created earlier, we'll get a handle to the endpoint. The endpoint can be invoked using the `invoke` command with the following parameters:
+Using the `MLClient` created earlier, get a handle to the endpoint. You can invoke the endpoint by using the `invoke` command with the following parameters:
 
 * `endpoint_name` - Name of the endpoint
 * `request_file` - File with request data
 * `deployment_name` - Name of the specific deployment to test in an endpoint
 
-We'll test the blue deployment with the sample data.
+Test the blue deployment with the sample data.
 
 
 ```python
@@ -356,7 +356,7 @@ ml_client.online_endpoints.invoke(
 ```
 
 ## Get logs of the deployment
-Check the logs to see whether the endpoint/deployment were invoked successfully
+Check the logs to see whether the endpoint/deployment were invoked successfully.
 If you face errors, see [Troubleshooting online endpoints deployment](how-to-troubleshoot-online-endpoints.md).
 
 
@@ -368,11 +368,13 @@ print(logs)
 ```
 
 ## Create a second deployment 
-Deploy the model as a second deployment called `green`. In practice, you can create several deployments and compare their performance. These deployments could use a different version of the same model, a completely different model, or a more powerful compute instance. In our example, you'll deploy the same model version using a more powerful compute instance that could potentially improve performance.
+Deploy the model as a second deployment called `green`. In practice, you can create several deployments and compare their performance. These deployments could use a different version of the same model, a different model, or a more powerful compute instance. 
+
+In this example, you deploy the same model version, using a more powerful compute instance that could potentially improve performance.
 
 
 ```python
-# picking the model to deploy. Here we use the latest version of our registered model
+# pick the model to deploy. Here you use the latest version of the registered model
 model = ml_client.models.get(name=registered_model_name, version=latest_model_version)
 
 # define an online deployment using a more powerful instance type
@@ -395,9 +397,9 @@ green_deployment = ml_client.online_deployments.begin_create_or_update(
 
 ## Scale deployment to handle more traffic
 
-Using the `MLClient` created earlier, we'll get a handle to the `green` deployment. The deployment can be scaled by increasing or decreasing the `instance_count`.
+Using the `MLClient` created earlier, you can get a handle to the `green` deployment. You can then scale it by increasing or decreasing the `instance_count`.
 
-In the following code, you'll increase the VM instance manually. However, note that it is also possible to autoscale online endpoints. Autoscale automatically runs the right amount of resources to handle the load on your application. Managed online endpoints support autoscaling through integration with the Azure monitor autoscale feature. To configure autoscaling, see [autoscale online endpoints](how-to-autoscale-endpoints.md).
+In the following code, you increase the VM instance manually. However, it's also possible to autoscale online endpoints. Autoscale automatically runs the right amount of resources to handle the load on your application. Managed online endpoints support autoscaling through integration with the Azure monitor autoscale feature. To configure autoscaling, see [Autoscale online endpoints](how-to-autoscale-endpoints.md).
 
 
 ```python
@@ -418,7 +420,7 @@ endpoint.traffic = {"blue": 80, "green": 20}
 ml_client.online_endpoints.begin_create_or_update(endpoint).result()
 ```
 
-You can test traffic allocation by invoking the endpoint several times:
+Test traffic allocation by invoking the endpoint several times:
 
 
 ```python
@@ -441,7 +443,7 @@ print(logs)
 ```
 
 ## View metrics using Azure Monitor
-You can view various metrics (request numbers, request latency, network bytes, CPU/GPU/Disk/Memory utilization, and more) for an online endpoint and its deployments by following links from the endpoint's **Details** page in the studio. Following these links will take you to the exact metrics page in the Azure portal for the endpoint or deployment.
+You can view various metrics (request numbers, request latency, network bytes, CPU/GPU/Disk/Memory utilization, and more) for an online endpoint and its deployments by following links from the endpoint's **Details** page in the studio. Following any of these links takes you to the exact metrics page in the Azure portal for the endpoint or deployment.
 
 :::image type="content" source="media/tutorial-deploy-model/deployment-metrics-from-endpoint-details-page.png" alt-text="Screenshot showing links on the endpoint details page to view online endpoint and deployment metrics." lightbox="media/tutorial-deploy-model/deployment-metrics-from-endpoint-details-page.png":::
 
@@ -492,11 +494,7 @@ Use these steps to delete your Azure Machine Learning workspace and all compute 
 
 [!INCLUDE [aml-delete-resource-group](includes/aml-delete-resource-group.md)]
 
-## Next Steps
+## Next step
 
-- [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md).
-- [Test the deployment with mirrored traffic](how-to-safely-rollout-online-endpoints.md#test-the-deployment-with-mirrored-traffic)
-- [Monitor online endpoints](how-to-monitor-online-endpoints.md)
-- [Autoscale an online endpoint](how-to-autoscale-endpoints.md)
-- [Customize MLflow model deployments with scoring script](how-to-deploy-mlflow-models-online-endpoints.md#customize-mlflow-model-deployments)
-- [View costs for an Azure Machine Learning managed online endpoint](how-to-view-online-endpoints-costs.md)
+> [!div class="nextstepaction"]
+> [Tutorial: Create production machine learning pipelines](tutorial-pipeline-python-sdk.md)
