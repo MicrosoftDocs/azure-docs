@@ -99,7 +99,7 @@ Now that you have a web app running on App Service, enable authentication and au
 
 1. Select **Create** to create the user flow.
 
-    :::image type="content" alt-text="Screenshot that shows selecting your app's management page." source="../../media/scenario-secure-app-authentication-app-service/configure-authentication-external-user-flow.png":::
+    :::image type="content" alt-text="Screenshot that shows creating a user flow." source="../../media/scenario-secure-app-authentication-app-service/configure-authentication-external-user-flow.png":::
 
 1. Select **Next** to customize branding.
 
