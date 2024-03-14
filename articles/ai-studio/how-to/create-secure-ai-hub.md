@@ -6,7 +6,7 @@ ms.service: azure-ai-studio
 ms.reviewer: jhirono
 ms.author: larryfr
 author: Blackmist
-ms.date: 08/11/2023
+ms.date: 03/14/2024
 ms.topic: how-to
 # Customer intent: As an administrator, I want to create a secure AI hub and project with a managed virtual network so that I can secure access to the AI hub and project resources.
 ---
