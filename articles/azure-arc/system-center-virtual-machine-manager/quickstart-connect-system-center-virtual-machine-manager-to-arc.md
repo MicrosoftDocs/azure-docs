@@ -7,7 +7,7 @@ manager: jsuri
 ms.topic: quickstart
 ms.services: azure-arc
 ms.subservice: azure-arc-scvmm
-ms.date: 2/26/2024
+ms.date: 03/14/2024
 ms.custom: references_regions
 
 # Customer intent: As a VI admin, I want to connect my VMM management server to Azure Arc.
@@ -22,7 +22,7 @@ This Quickstart shows you how to connect your SCVMM management server to Azure A
 ## Prerequisites
 
 >[!Note]
-> - If VMM server is running on Windows Server 2016 machine, ensure that [Open SSH package](https://github.com/PowerShell/Win32-OpenSSH/releases) is installed. 
+> - If VMM server is running on Windows Server 2016 machine, ensure that [Open SSH package](https://github.com/PowerShell/Win32-OpenSSH/releases) and tar are installed. To install tar, you can copy tar.exe and archiveint.dll from any Windows 11 or Windows Server 2019/2022 machine to *C:\Windows\System32* path on your VMM server machine.
 > - If you deploy an older version of appliance (version lesser than 0.2.25), Arc operation fails with the error *Appliance cluster is not deployed with AAD authentication*. To fix this issue, download the latest version of the onboarding script and deploy the resource bridge again.
 > - Azure Arc Resource Bridge deployment using private link is currently not supported.
 
@@ -68,14 +68,14 @@ This Quickstart shows you how to connect your SCVMM management server to Azure A
 
 Follow these instructions to run the script on a Windows machine.
 
-1. Open a new PowerShell window and verify if Azure CLI is successfully installed in the workstation, use the following command:
+1. Open a new PowerShell window as Administrator and verify if Azure CLI is successfully installed in the workstation, and use the following command:
     ```azurepowershell-interactive
     az
     ```
 1. Navigate to the folder where you've downloaded the PowerShell script:
    *cd C:\Users\ContosoUser\Downloads*
 
-1. Run the following command to allow the script to run since it's an unsigned script (if you close the session before you complete all the steps, run this command again for the new session):
+1. Run the following command to allow the script to run since it's an unsigned script (if you close the session before you complete all the steps, run this command again in the new PowerShell Administrator session):
     ```azurepowershell-interactive
     Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
     ```

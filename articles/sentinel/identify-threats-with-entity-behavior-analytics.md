@@ -2,9 +2,9 @@
 title: Identify advanced threats with User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel | Microsoft Docs
 description: Create behavioral baselines for entities (users, hostnames, IP addresses) and use them to detect anomalous behavior and identify zero-day advanced persistent threats (APT).
 author: yelevin
+ms.author: yelevin
 ms.topic: conceptual
 ms.date: 08/08/2022
-ms.author: yelevin
 ---
 
 # Identify advanced threats with User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel
@@ -63,7 +63,7 @@ Information about **entity pages** can now be found at [Investigate entities wit
 
 ## Querying behavior analytics data
 
-Using [KQL](/azure/data-explorer/kusto/query/), we can query the Behavioral Analytics Table.
+Using [KQL](/azure/data-explorer/kusto/query/), we can query the **BehaviorAnalytics** table.
 
 For example – if we want to find all the cases of a user that failed to sign in to an Azure resource, where it was the user's first attempt to connect from a given country/region, and connections from that country/region are uncommon even for the user's peers, we can use the following query:
 
@@ -84,15 +84,8 @@ Microsoft Sentinel calculates and ranks a user's peers, based on the user’s Mi
 
 You can use the [Jupyter notebook](https://github.com/Azure/Azure-Sentinel-Notebooks/tree/master/scenario-notebooks/UserSecurityMetadata) provided in the Microsoft Sentinel GitHub repository to visualize the user peers metadata. For detailed instructions on how to use the notebook, see the [Guided Analysis - User Security Metadata](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/master/scenario-notebooks/UserSecurityMetadata/Guided%20Analysis%20-%20User%20Security%20Metadata.ipynb) notebook.
 
-### Permission analytics - table and notebook
-
-Permission analytics helps determine the potential impact of the compromising of an organizational asset by an attacker. This impact is also known as the asset's "blast radius." Security analysts can use this information to prioritize investigations and incident handling.
-
-Microsoft Sentinel determines the direct and transitive access rights held by a given user to Azure resources, by evaluating the Azure subscriptions the user can access directly or via groups or service principals. This information, as well as the full list of the user's Microsoft Entra security group membership, is then stored in the **UserAccessAnalytics** table. The screenshot below shows a sample row in the UserAccessAnalytics table, for the user Alex Johnson. **Source entity** is the user or service principal account, and **target entity** is the resource that the source entity has access to. The values of **access level** and **access type** depend on the access-control model of the target entity. You can see that Alex has Contributor access to the Azure subscription *Contoso Hotels Tenant*. The access control model of the subscription is Azure RBAC.
-
-:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-access-analytics.png" alt-text="Screen shot of user access analytics table":::
-
-You can use the [Jupyter notebook](https://github.com/Azure/Azure-Sentinel-Notebooks/tree/master/scenario-notebooks/UserSecurityMetadata) (the same notebook mentioned above) from the Microsoft Sentinel GitHub repository to visualize the permission analytics data. For detailed instructions on how to use the notebook, see the [Guided Analysis - User Security Metadata](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/master/scenario-notebooks/UserSecurityMetadata/Guided%20Analysis%20-%20User%20Security%20Metadata.ipynb) notebook.
+> [!NOTE]
+> The *UserAccessAnalytics* table has been deprecated.
 
 ### Hunting queries and exploration queries
 

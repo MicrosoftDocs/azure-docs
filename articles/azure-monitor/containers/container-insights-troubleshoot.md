@@ -41,41 +41,41 @@ To diagnose the problem if you can't view status information or no results are r
 
     `kubectl get ds ama-logs --namespace=kube-system`
 
-    The output should resemble the following example, which indicates that it was deployed properly:
+    The number of pods should be equal to the number of Linux nodes on the cluster. The output should resemble the following example, which indicates that it was deployed properly:
 
     ```
     User@aksuser:~$ kubectl get ds ama-logs --namespace=kube-system
-    NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
-    ama-logs   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
+    NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR    AGE
+    ama-logs   2         2         2         2            2           <none>           1d
     ```
 
 1. If you have Windows Server nodes, check the status of the agent by running the following command:
 
-    `kubectl get ds omsagent-win --namespace=kube-system`
+    `kubectl get ds ama-logs-windows --namespace=kube-system`
 
-    The output should resemble the following example, which indicates that it was deployed properly:
+    The number of pods should be equal to the number of Windows nodes on the cluster. The output should resemble the following example, which indicates that it was deployed properly:
 
     ```
     User@aksuser:~$ kubectl get ds ama-logs-windows --namespace=kube-system
-    NAME                   DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                   AGE
-    ama-logs-windows           2         2         2         2            2           beta.kubernetes.io/os=windows   1d
+    NAME                   DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR    AGE
+    ama-logs-windows           2         2         2         2            2           <none>       1d
     ```
 
-1. Check the deployment status with agent version **06072018** or later by using the following command:
+1. Check the deployment status by using the following command:
 
-    `kubectl get deployment ama-logs-rs -n=kube-system`
+    `kubectl get deployment ama-logs-rs --namespace=kube-system`
 
     The output should resemble the following example, which indicates that it was deployed properly:
 
     ```
-    User@aksuser:~$ kubectl get deployment omsagent-rs -n=kube-system
-    NAME       DESIRED   CURRENT   UP-TO-DATE   AVAILABLE    AGE
-    ama-logs   1         1         1            1            3h
+    User@aksuser:~$ kubectl get deployment ama-logs-rs --namespace=kube-system
+    NAME          READY   UP-TO-DATE   AVAILABLE   AGE
+    ama-logs-rs   1/1     1            1           24d
     ```
 
 1. Check the status of the pod to verify that it's running by using the command `kubectl get pods --namespace=kube-system`.
 
-    The output should resemble the following example with a status of `Running` for the omsagent:
+    The output should resemble the following example with a status of `Running` for ama-logs:
 
     ```
     User@aksuser:~$ kubectl get pods --namespace=kube-system
@@ -85,7 +85,7 @@ To diagnose the problem if you can't view status information or no results are r
     azure-vote-front-3826909965-30n62   1/1       Running   0          22d
     ama-logs-484hw                      1/1       Running   0          1d
     ama-logs-fkq7g                      1/1       Running   0          1d
-    ama-logs-windows-6drwq                  1/1       Running   0          1d
+    ama-logs-windows-6drwq              1/1       Running   0          1d
     ```
 
 1. If the pods are in a running state, but there is no data in Log Analytics or data appears to only send during a certain part of the day, it might be an indication that the daily cap has been met. When this limit is met each day, data stops ingesting into the Log Analytics Workspace and resets at the reset time. For more information, see [Log Analytics Daily Cap](../../azure-monitor/logs/daily-cap.md#determine-your-daily-cap).

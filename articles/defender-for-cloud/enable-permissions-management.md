@@ -2,7 +2,7 @@
 title: Enable Permissions Management (Preview)
 description: Learn more how to enable Permissions Management in Microsoft Defender for Cloud.
 ms.topic: conceptual
-ms.date: 11/13/2023
+ms.date: 03/12/2024
 ---
 
 # Enable Permissions Management in Microsoft Defender for Cloud (Preview)
@@ -89,7 +89,7 @@ Follow these steps to [connect your AWS account to Defender for Cloud](quickstar
 - Unused identities in your AWS environment should be removed
 
 > [!NOTE]
-> The recommendations offered through the Permissions Management (Preview) integration are programmatically available from [Azure Resource Graph](/azure/governance/resource-graph/overview).
+> The recommendations offered through the Permissions Management (Preview) integration are programmatically available from [Azure Resource Graph](../governance/resource-graph/overview.md).
 
 ## Enable Permissions Management for GCP
 
@@ -132,7 +132,7 @@ The integration feature comes as part of Defender CSPM plan and doesn't require 
 | Category  | Capabilities                                                 | Defender for Cloud | Permissions Management |
 | --------- | ------------------------------------------------------------ | ------------------ | ---------------------- |
 | Discover  | Permissions  discovery for risky identities (including unused identities, overprovisioned  active identities, super identities) in Azure, AWS, GCP | ✓                  | ✓                      |
-| Discover  | Permissions  Creep Index (PCI) for multicloud environments (Azure, AWS, GCP) and all  identities | ✓                  | ✓                      |
+| Discover  | Permissions  Creep Index (PCI) for multicloud environments (Azure, AWS, GCP) and all  identities | ❌                  | ✓                      |
 | Discover  | Permissions  discovery for all identities, groups in Azure, AWS, GCP | ❌                  | ✓                      |
 | Discover  | Permissions  usage analytics, role / policy assignments in Azure, AWS, GCP | ❌                  | ✓                      |
 | Discover  | Support  for Identity Providers (including AWS IAM Identity Center, Okta, GSuite) | ❌                  | ✓                      |

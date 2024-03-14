@@ -205,21 +205,15 @@ The *LoadBalancer* only works at layer 4. At layer 4, the Service is unaware of 
 
 ### Create an Ingress resource
 
-In AKS, you can create an [Ingress resource using NGINX][nginx-ingress], a similar tool, or the AKS HTTP application routing feature. When you enable HTTP application routing for an AKS cluster, the Azure platform creates the ingress controller and an *External-DNS* controller. As new Ingress resources are created in Kubernetes, the required DNS `A` records are created in a cluster-specific DNS zone.
+The application routing addon is the recommended way to configure an Ingress controller in AKS. The application routing addon is a fully managed, ingress controller for Azure Kubernetes Service (AKS) that provides the following features:
 
-For more information, see [Deploy HTTP application routing][aks-http-routing].
+* Easy configuration of managed NGINX Ingress controllers based on Kubernetes NGINX Ingress controller.
 
-### Application Gateway Ingress Controller (AGIC)
+* Integration with Azure DNS for public and private zone management.
 
-With the Application Gateway Ingress Controller (AGIC) add-on, you can use Azure's native Application Gateway level 7 load-balancer to expose cloud software to the Internet. AGIC runs as a pod within the AKS cluster. It consumes [Kubernetes Ingress Resources][k8s-ingress] and converts them to an Application Gateway configuration, which allows the gateway to load-balance traffic to the Kubernetes pods.
+* SSL termination with certificates stored in Azure Key Vault.
 
-To learn more about the AGIC add-on for AKS, see [What is Application Gateway Ingress Controller?][agic-overview].
-
-### SSL/TLS termination
-
-SSL/TLS termination is another common feature of Ingress. On large web applications accessed via HTTPS, the Ingress resource handles the TLS termination rather than within the application itself. To provide automatic TLS certification generation and configuration, you can configure the Ingress resource to use providers such as "Let's Encrypt."
-
-For more information on configuring an NGINX ingress controller with Let's Encrypt, see [Ingress and TLS][aks-ingress-tls].
+For more information about the application routing addon, see [Managed NGINX ingress with the application routing add-on](app-routing.md).
 
 ### Client source IP preservation
 
@@ -283,8 +277,6 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 [service-types]: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
 
 <!-- LINKS - Internal -->
-[aks-http-routing]: http-application-routing.md
-[aks-ingress-tls]: ./ingress-tls.md
 [aks-configure-kubenet-networking]: configure-kubenet.md
 [aks-configure-advanced-networking]: configure-azure-cni.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
@@ -299,7 +291,6 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 [support-policies]: support-policies.md
 [limit-egress]: limit-egress-traffic.md
 [k8s-ingress]: https://kubernetes.io/docs/concepts/services-networking/ingress/
-[nginx-ingress]: ingress-basic.md
 [ip-preservation]: https://techcommunity.microsoft.com/t5/fasttrack-for-azure/how-client-source-ip-preservation-works-for-loadbalancer/ba-p/3033722#:~:text=Enable%20Client%20source%20IP%20preservation%201%20Edit%20loadbalancer,is%20the%20same%20as%20the%20source%20IP%20%28srjumpbox%29.
 [nsg-traffic]: ../virtual-network/network-security-group-how-it-works.md
 [azure-cni-aks]: configure-azure-cni.md

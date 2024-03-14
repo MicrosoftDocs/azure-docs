@@ -10,8 +10,8 @@ items:
       href: quotas-limits.md
     - name: Models
       href: ./concepts/models.md
-    - name: Legacy models
-      href: ./concepts/legacy-models.md
+    - name: Model retirements
+      href: ./concepts/model-retirements.md
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/
     - name: What's new
@@ -31,11 +31,11 @@ items:
       displayName: ChatGPT, chatgpt
     - name: GPT-4 Turbo with Vision
       href: gpt-v-quickstart.md
-    - name: DALL-E (preview)
+    - name: DALL-E
       href: dall-e-quickstart.md
     - name: Use your data
       href: use-your-data-quickstart.md
-    - name: Whisper (preview)
+    - name: Whisper 
       href: whisper-quickstart.md
     - name: Text to speech (preview)
       href: text-to-speech-quickstart.md
@@ -74,6 +74,8 @@ items:
       href: ./concepts/use-your-data.md
     - name: Using your data - image (preview)
       href: ./concepts/use-your-image-data.md
+    - name: Legacy models
+      href: ./concepts/legacy-models.md
 - name: How-to 
   items:
   - name: API version lifecycle
@@ -217,6 +219,8 @@ items:
           href: ./references/elasticsearch.md
         - name: Data source - Pinecone
           href: ./references/pinecone.md
+        - name: Ingestion API (preview)
+          href: /rest/api/azureopenai/ingestion-jobs
     - name: Azure Resource Manager/Bicep/Terraform
       href: /azure/templates/microsoft.cognitiveservices/accounts?pivots=deployment-language-bicep
       displayName: ARM, ARM template, template 
@@ -235,7 +239,7 @@ items:
     - name: REST API (fine-tuning)
       href: /rest/api/azureopenai/fine-tuning?view=rest-azureopenai-2023-10-01-preview&preserve-view=true 
     - name: REST API (resource creation & deployment)
-      href: /rest/api/cognitiveservices/accountmanagement/deployments/create-or-update?tabs=HTTP
+      href: /rest/api/aiservices/accountmanagement/deployments/create-or-update?tabs=HTTP
     - name: Templates
       items: 
         - name: Retrieval Augmented Generation (RAG) enterprise chat
