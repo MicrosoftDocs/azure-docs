@@ -16,7 +16,7 @@ Only in Azure, which includes Azure VMware Solution (AVS), are ESUs free of char
 
 For additional information about ESUs for Window Server and SQL Server, see the following articles 
 
-- [What are Extended Security Updates - SQL Server ](/sql/sql-server/end-of-support/sql-server-extended-security-updates)
+- [What are Extended Security Updates - SQL Server](/sql/sql-server/end-of-support/sql-server-extended-security-updates) 
 
 - [Extended Security Updates for Windows Server Overview](/windows-server/get-started/extended-security-updates-overview)
 
