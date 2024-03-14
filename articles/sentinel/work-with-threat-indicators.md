@@ -42,14 +42,14 @@ This procedure describes how to view and manage your indicators in the **Threat 
 
 For example:
 
-#### [Azure portal](#tab/azure-portal)
+   #### [Azure portal](#tab/azure-portal)
 
-:::image type="content" source="media/work-with-threat-indicators/geolocation-whois-ti-sentinel.png" alt-text="Screenshot of the Threat intelligence page with an indicator showing GeoLocation and WhoIs data." lightbox="media/work-with-threat-indicators/geolocation-whois-ti.png":::
+   :::image type="content" source="media/work-with-threat-indicators/geolocation-whois-ti-sentinel.png" alt-text="Screenshot of the Threat intelligence page with an indicator showing GeoLocation and WhoIs data." lightbox="media/work-with-threat-indicators/geolocation-whois-ti.png":::
 
-#### [Defender portal](#tab/defender-portal)
+   #### [Defender portal](#tab/defender-portal)
 
-:::image type="content" source="media/work-with-threat-indicators/geolocation-whois-ti-sentinel.png" alt-text="Screenshot of the Threat intelligence page with an indicator showing GeoLocation and WhoIs data from the Defender portal." lightbox="media/work-with-threat-indicators/geolocation-whois-ti-defender.png":::
-    
+   :::image type="content" source="media/work-with-threat-indicators/geolocation-whois-ti-defender.png" alt-text="Screenshot of the Threat intelligence page with an indicator showing GeoLocation and WhoIs data from the Defender portal." lightbox="media/work-with-threat-indicators/geolocation-whois-ti-defender.png":::
+
 
 > [!IMPORTANT]
 > GeoLocation and WhoIs enrichment is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
