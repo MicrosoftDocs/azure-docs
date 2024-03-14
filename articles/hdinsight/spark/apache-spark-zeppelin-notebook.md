@@ -4,7 +4,7 @@ description: Step-by-step instructions on how to use Zeppelin notebooks with Apa
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 12/14/2023
+ms.date: 02/27/2024
 ---
 
 # Use Apache Zeppelin notebooks with Apache Spark cluster on Azure HDInsight
@@ -27,13 +27,13 @@ HDInsight Spark clusters include [Apache Zeppelin](https://zeppelin.apache.org/)
 
 2. Create a new notebook. From the header pane, navigate to **Notebook** > **Create new note**.
 
-    :::image type="content" source="./media/apache-spark-zeppelin-notebook/hdinsight-create-zeppelin-notebook.png " alt-text="Create a new Zeppelin notebook" border="true":::
+    :::image type="content" source="./media/apache-spark-zeppelin-notebook/hdinsight-create-zeppelin-notebook.png " alt-text="Create a new Zeppelin notebook." border="true":::
 
     Enter a name for the notebook, then select **Create Note**.
 
 3. Ensure the notebook header shows a connected status. It's denoted by a green dot in the top-right corner.
 
-    :::image type="content" source="./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-connected.png " alt-text="Zeppelin notebook status" border="true":::
+    :::image type="content" source="./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-connected.png " alt-text="Zeppelin notebook status." border="true":::
 
 4. Load sample data into a temporary table. When you create a Spark cluster in HDInsight, the sample data file, `hvac.csv`, is copied to the associated storage account under `\HdiSamples\SensorSampleData\hvac`.
 
@@ -65,7 +65,7 @@ HDInsight Spark clusters include [Apache Zeppelin](https://zeppelin.apache.org/)
 
     Press **SHIFT + ENTER** or select the **Play** button for the paragraph to run the snippet. The status on the right-corner of the paragraph should progress from READY, PENDING, RUNNING to FINISHED. The output shows up at the bottom of the same paragraph. The screenshot looks like the following image:
 
-    :::image type="content" source="./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-load-data.png " alt-text="Create a temporary table from raw data" border="true":::
+    :::image type="content" source="./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-load-data.png " alt-text="Create a temporary table from raw data." border="true":::
 
     You can also provide a title to each paragraph. From the right-hand corner of the paragraph, select the **Settings** icon (sprocket), and then select **Show title**.  
 
@@ -83,7 +83,7 @@ HDInsight Spark clusters include [Apache Zeppelin](https://zeppelin.apache.org/)
 
 6. Select the **Bar Chart** icon to change the display.  **settings** appear after you have selected **Bar Chart**, allows you to choose **Keys**, and **Values**.  The following screenshot shows the output.
 
-    :::image type="content" source="./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-1.png " alt-text="Run a Spark SQL statement using the notebook1" border="true":::
+    :::image type="content" source="./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-1.png " alt-text="Run a Spark SQL statement using the notebook1." border="true":::
 
 7. You can also run Spark SQL statements using variables in the query. The next snippet shows how to define a variable, `Temp`, in the query with the possible values you want to query with. When you first run the query, a drop-down is automatically populated with the values you specified for the variable.
 
@@ -101,7 +101,7 @@ HDInsight Spark clusters include [Apache Zeppelin](https://zeppelin.apache.org/)
 
      The following screenshot shows the output.
 
-     :::image type="content" source="./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-2.png " alt-text="Run a Spark SQL statement using the notebook2" border="true":::
+     :::image type="content" source="./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-2.png " alt-text="Run a Spark SQL statement using the notebook2." border="true":::
 
 ## How do I use external packages with the notebook?
 
@@ -111,15 +111,15 @@ In this article, you'll see how to use the [spark-csv](https://search.maven.org/
 
 1. Open interpreter settings. From the top-right corner, select the logged in user name, then select **Interpreter**.
 
-    :::image type="content" source="./media/apache-spark-zeppelin-notebook/zeppelin-launch-interpreter.png " alt-text="Launch interpreter" border="true":::
+    :::image type="content" source="./media/apache-spark-zeppelin-notebook/zeppelin-launch-interpreter.png " alt-text="Launch interpreter." border="true":::
 
 2. Scroll to **livy2**, then select **edit**.
 
-    :::image type="content" source="./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-1.png " alt-text="Change interpreter settings1" border="true":::
+    :::image type="content" source="./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-1.png " alt-text="Change interpreter settings1." border="true":::
 
 3. Navigate to key `livy.spark.jars.packages`, and set its value in the format `group:id:version`. So, if you want to use the [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) package, you must set the value of the key to `com.databricks:spark-csv_2.10:1.4.0`.
 
-    :::image type="content" source="./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-2.png " alt-text="Change interpreter settings2" border="true":::
+    :::image type="content" source="./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-2.png " alt-text="Change interpreter settings2." border="true":::
 
     Select **Save** and then **OK** to restart the Livy interpreter.
 
@@ -129,7 +129,7 @@ In this article, you'll see how to use the [spark-csv](https://search.maven.org/
 
     b. From the repository, gather the values for **GroupId**, **ArtifactId**, and **Version**.
 
-    :::image type="content" source="./media/apache-spark-zeppelin-notebook/use-external-packages-with-jupyter.png " alt-text="Use external packages with Jupyter Notebook" border="true":::
+    :::image type="content" source="./media/apache-spark-zeppelin-notebook/use-external-packages-with-jupyter.png " alt-text="Use external packages with Jupyter Notebook." border="true":::
 
     c. Concatenate the three values, separated by a colon (**:**).
 
@@ -141,7 +141,7 @@ In this article, you'll see how to use the [spark-csv](https://search.maven.org/
 
 The Zeppelin notebooks are saved to the cluster headnodes. So, if you delete the cluster, the notebooks will be deleted as well. If you want to preserve your notebooks for later use on other clusters, you must export them after you have finished running the jobs. To export a notebook, select the **Export** icon as shown in the image below.
 
-:::image type="content" source="./media/apache-spark-zeppelin-notebook/zeppelin-download-notebook.png " alt-text="Download notebook" border="true":::
+:::image type="content" source="./media/apache-spark-zeppelin-notebook/zeppelin-download-notebook.png " alt-text="Download notebook." border="true":::
 
 This action saves the notebook as a JSON file in your download location.
 
@@ -167,6 +167,8 @@ This action saves the notebook as a JSON file in your download location.
 >    If you want the notebook to be available even after cluster deletion , you can try to use azure file storage (Using SMB protocol ) and link it to local path. For more details, see [Mount SMB Azure file share on Linux](/azure/storage/files/storage-how-to-use-files-linux)
 > 
 >    After mounting it, you can modify the zeppelin configuration zeppelin.notebook.dir to the mounted path in ambari UI.
+>   
+> - The SMB fileshare as GitNotebookRepo storage is not recommended for zeppelin version 0.10.1
 
 ## Use `Shiro` to Configure Access to Zeppelin Interpreters in Enterprise Security Package (ESP) Clusters
 
@@ -211,11 +213,11 @@ In such a case, you must do the following steps before you can start running job
 
 1. Restart the Livy interpreter from the Zeppelin notebook. To do so, open interpreter settings by selecting the logged in user name from the top-right corner, then select **Interpreter**.
 
-    :::image type="content" source="./media/apache-spark-zeppelin-notebook/zeppelin-launch-interpreter.png " alt-text="Launch interpreter" border="true":::
+    :::image type="content" source="./media/apache-spark-zeppelin-notebook/zeppelin-launch-interpreter.png " alt-text="Launch interpreter." border="true":::
 
 2. Scroll to **livy2**, then select **restart**.
 
-    :::image type="content" source="./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png " alt-text="Restart the Livy interpreter" border="true":::
+    :::image type="content" source="./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png " alt-text="Restart the Livy interpreter." border="true":::
 
 3. Run a code cell from an existing Zeppelin notebook. This  code creates a new Livy session in the HDInsight cluster.
 

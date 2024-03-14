@@ -39,8 +39,8 @@ You can manage access to Advisor WAF assessments using built-in roles. The permi
 
 | **Name** | **Description** |
 |---|:---:|
-|Reader|View assessments for a workload and the corresponding recommendations|
-|Contributor|Create assessments for a workload and triage the corresponding recommendations|
+|Reader|View assessments for a subscription or workload and the corresponding recommendations|
+|Contributor|Create assessments for a subscription or workload and triage the corresponding recommendations|
 
 ## Access Azure Advisor WAF assessments
 
@@ -157,7 +157,7 @@ Once the recommendation is, or multiple recommendations are, selected with **Mar
 Some common questions and answers.
 
 **Q**. Can I edit previously taken assessments?\
-**A**. In the "Most Valuable Professionals" (MVP) program scope, assessments can't be edited once completed.
+**A**. In the current program, assessments can't be edited once completed.
 
 **Q**. Why am I not getting any recommendations?\
 **A**. If you didn't answer all of the assessment questions and skipped to **View guidance**, you might not get any recommendations generated. The other reason might be that the Learn platform hasn't generated any recommendations for the assessment.

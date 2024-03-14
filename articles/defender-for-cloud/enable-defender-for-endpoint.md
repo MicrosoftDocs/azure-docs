@@ -304,10 +304,8 @@ To remove the Defender for Endpoint solution from your machines:
 
 1. Follow the steps in [Offboard devices from the Microsoft Defender for Endpoint service](/microsoft-365/security/defender-endpoint/offboard-machines) from the Defender for Endpoint documentation.
 
-## Next steps
+## Related content
 
 - [Platforms and features supported by Microsoft Defender for Cloud](security-center-os-coverage.md)
 - [Learn how recommendations help you protect your Azure resources](review-security-recommendations.md)
 - View common question about the [Defender for Cloud integration with Microsoft Defender for Endpoint](faq-defender-for-servers.yml)
-
-

@@ -139,7 +139,7 @@ When you complete the steps in this section, you have a shared private link that
 > [!NOTE]
 > Preview API versions, either `2020-08-01-preview` or `2021-04-01-preview`, are required for group IDs that are in preview. The following resource types are in preview: `managedInstance`, `mySqlServer`, `sites`. 
 
-While tools like Azure portal, Azure PowerShell, or the Azure CLI have built-in mechanisms for account sign-in, a REST client like Postman needs to provide a bearer token that allows your request to go through. 
+While tools like Azure portal, Azure PowerShell, or the Azure CLI have built-in mechanisms for account sign-in, a REST client  needs to provide a bearer token that allows your request to go through. 
 
 Because it's easy and quick, this section uses Azure CLI steps for getting a bearer token. For more durable approaches, see [Manage with REST](search-manage-rest.md).
 
@@ -163,22 +163,28 @@ Because it's easy and quick, this section uses Azure CLI steps for getting a bea
    az account get-access-token
    ```
 
-1. Switch to a REST client and set up a [GET Shared Private Link Resource](/rest/api/searchmanagement/shared-private-link-resources/get). This step allows you to review existing shared private links to ensure you're not duplicating a link. There can be only one shared private link for each resource and subresource combination.
+1. Switch to a REST client and set up a [GET Shared Private Link Resource](/rest/api/searchmanagement/shared-private-link-resources/get). Review existing shared private links to ensure you're not duplicating a link. There can be only one shared private link for each resource and subresource combination.
 
     ```http
-    GET https://https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{rg-name}}/providers/Microsoft.Search/searchServices/{{service-name}}/sharedPrivateLinkResources?api-version={{api-version}}
+    @subscriptionId = PASTE-HERE
+    @rg-name = PASTE-HERE
+    @service-name = PASTE-HERE
+    @token = PASTE-TOKEN-HERE
+
+    GET https://https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{rg-name}}/providers/Microsoft.Search/searchServices/{{service-name}}/sharedPrivateLinkResources?api-version=2023-11-01 HTTP/1.1
+      Content-type: application/json
+      Authorization: Bearer {{token}}
     ```
-
-1. On the **Authorization** page, select **Bearer Token** and then paste in the token.
-
-1. Set the content type to JSON.
 
 1. Send the request. You should get a list of all shared private link resources that exist for your search service. Make sure there's no existing shared private link for the resource and subresource combination.
 
-1. Formulate a PUT request to [Create or Update Shared Private Link](/rest/api/searchmanagement/shared-private-link-resources/create-or-update) for the Azure PaaS resource. Provide a URI and request body similar to the following example:
+1. Formulate a PUT request to [Create or Update Shared Private Link](/rest/api/searchmanagement/shared-private-link-resources/create-or-update) for the Azure PaaS resource. 
 
     ```http
-    PUT https://https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{rg-name}}/providers/Microsoft.Search/searchServices/{{service-name}}/sharedPrivateLinkResources/{{shared-private-link-name}}?api-version={{api-version}}
+    PUT https://https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{rg-name}}/providers/Microsoft.Search/searchServices/{{service-name}}/sharedPrivateLinkResources/{{shared-private-link-name}}?api-version=2023-11-01 HTTP/1.1
+      Content-type: application/json
+      Authorization: Bearer {{token}}
+
     {
         "properties":
          {
@@ -191,8 +197,6 @@ Because it's easy and quick, this section uses Azure CLI steps for getting a bea
          }
     }
     ```
-
-1. As before, provide the bearer token and make sure the content type is JSON. 
 
    If the Azure PaaS resource is in a different subscription, use the Azure CLI to change the subscription, and then get a bearer token that is valid for that subscription:
 

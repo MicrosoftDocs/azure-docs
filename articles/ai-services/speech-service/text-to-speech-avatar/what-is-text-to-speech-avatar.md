@@ -64,11 +64,11 @@ Sample code for text to speech avatar is available on [GitHub](https://github.co
 
 * [Batch synthesis (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch-avatar)
 * [Real-time synthesis (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/js/browser/avatar)
-* [Live chat with Azure Open AI in behind (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/js/browser/avatar#chat-sample)
+* [Live chat with Azure OpenAI in behind (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/js/browser/avatar#chat-sample)
 
 ## Pricing
 
-When you use the text to speech avatar feature, you'll be billed by the minutes of video output, and the text to speech, speech to text, Azure Open AI, or other Azure services are charged separately.
+When you use the text to speech avatar feature, you'll be billed by the minutes of video output, and the text to speech, speech to text, Azure OpenAI, or other Azure services are charged separately.
 
 For more information, see [Speech service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 

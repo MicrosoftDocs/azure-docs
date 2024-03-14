@@ -52,6 +52,18 @@ Use [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) to 
     --subnet-prefixes 10.0.0.0/24 
 ```
 
+## Enable on existing virtual network
+
+You can also enable encryption on an existing virtual network using [az network vnet update](/cli/azure/network/vnet#az-network-vnet-update).
+
+```azurecli-interactive
+  az network vnet update \
+    --resource-group test-rg \
+    --name vnet-1 \
+    --enable-encryption true \
+    --encryption-enforcement-policy allowUnencrypted
+```
+
 > [!IMPORTANT]
 > Azure Virtual Network encryption requires supported virtual machine SKUs in the virtual network for traffic to be encrypted. For more information, see [Azure Virtual Network encryption requirements](virtual-network-encryption-overview.md#requirements).
 

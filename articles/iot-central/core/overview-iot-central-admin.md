@@ -3,7 +3,7 @@ title: Azure IoT Central application administration guide
 description: How to administer your IoT Central application. Application administration includes users, organization, security, and automated deployments.
 author: dominicbetts 
 ms.author: dobett 
-ms.date: 11/28/2022
+ms.date: 03/04/2024
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -18,8 +18,8 @@ An IoT Central application lets you monitor and manage your devices, letting you
 
 IoT Central application administration includes the following tasks:
 
-- Create applications
-- Manage security
+- Create applications.
+- Manage security.
 - Configure application settings.
 - Upgrade applications.
 - Export and share applications.
@@ -33,10 +33,10 @@ You use an *application template* to create an application. An application templ
 - Sample dashboards
 - Sample device templates
 - Simulated devices producing real-time data
-- Pre-configured rules and jobs
+- Preconfigured rules and jobs
 - Rich documentation including tutorials and how-tos
 
-You choose the application template when you create your application. You can't change the template an application uses after it's created.
+You choose the application template when you create your application. You can't change the template an application uses after you create it.
 
 ### Custom templates
 
@@ -81,7 +81,7 @@ An administrator can configure file uploads of an IoT Central application that l
 
 An administrator can:
 
-- Create a copy of an application if you just need a duplicate copy of your application. For example, you may need a duplicate copy for testing.
+- Create a copy of an application if you just need a duplicate copy of your application. For example, you might need a duplicate copy for testing.
 - Create an application template from an existing application if you plan to create multiple copies.
 
 To learn more, see [Create and use a custom application template](howto-create-iot-central-application.md#create-and-use-a-custom-application-template).

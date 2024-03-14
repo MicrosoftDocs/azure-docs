@@ -300,7 +300,7 @@ BackendTLSPolicyConfig
 <em>(Optional)</em>
 <p>Override defines policy configuration that should override policy
 configuration attached below the targeted resource in the hierarchy.</p>
-<p>Override is currently not supported and will result in a validation error.
+<p>Note: Override is currently not supported and will result in a validation error.
 Support for Override will be added in a future release.</p>
 </td>
 </tr>
@@ -555,7 +555,7 @@ BackendTLSPolicyConfig
 <em>(Optional)</em>
 <p>Override defines policy configuration that should override policy
 configuration attached below the targeted resource in the hierarchy.</p>
-<p>Override is currently not supported and will result in a validation error.
+<p>Note: Override is currently not supported and will result in a validation error.
 Support for Override will be added in a future release.</p>
 </td>
 </tr>
@@ -829,7 +829,7 @@ FrontendTLSPolicyConfig
 <em>(Optional)</em>
 <p>Override defines policy configuration that should override policy
 configuration attached below the targeted resource in the hierarchy.</p>
-<p>Override is currently not supported and will result in a validation error.
+<p>Note: Override is currently not supported and will result in a validation error.
 Support for Override will be added in a future release.</p>
 </td>
 </tr>
@@ -1013,7 +1013,7 @@ FrontendTLSPolicyConfig
 <em>(Optional)</em>
 <p>Override defines policy configuration that should override policy
 configuration attached below the targeted resource in the hierarchy.</p>
-<p>Override is currently not supported and will result in a validation error.
+<p>Note: Override is currently not supported and will result in a validation error.
 Support for Override will be added in a future release.</p>
 </td>
 </tr>
@@ -1624,7 +1624,7 @@ HealthCheckPolicyConfig
 <em>(Optional)</em>
 <p>Override defines policy configuration that should override policy
 configuration attached below the targeted resource in the hierarchy.</p>
-<p>Override is currently not supported and will result in a validation error.
+<p>Note: Override is currently not supported and will result in a validation error.
 Support for Override will be added in a future release.</p>
 </td>
 </tr>
@@ -1859,7 +1859,7 @@ HealthCheckPolicyConfig
 <em>(Optional)</em>
 <p>Override defines policy configuration that should override policy
 configuration attached below the targeted resource in the hierarchy.</p>
-<p>Override is currently not supported and will result in a validation error.
+<p>Note: Override is currently not supported and will result in a validation error.
 Support for Override will be added in a future release.</p>
 </td>
 </tr>
@@ -2891,7 +2891,7 @@ RoutePolicyConfig
 <em>(Optional)</em>
 <p>Override defines policy configuration that should override policy
 configuration attached below the targeted resource in the hierarchy.</p>
-<p>Override is currently not supported and will result in a validation error.
+<p>Note: Override is currently not supported and will result in a validation error.
 Support for Override will be added in a future release.</p>
 </td>
 </tr>
@@ -3086,7 +3086,7 @@ RoutePolicyConfig
 <em>(Optional)</em>
 <p>Override defines policy configuration that should override policy
 configuration attached below the targeted resource in the hierarchy.</p>
-<p>Override is currently not supported and will result in a validation error.
+<p>Note: Override is currently not supported and will result in a validation error.
 Support for Override will be added in a future release.</p>
 </td>
 </tr>

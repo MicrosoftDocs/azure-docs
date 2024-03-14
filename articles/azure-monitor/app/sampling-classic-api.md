@@ -16,6 +16,8 @@ When metric counts are presented in the portal, they're renormalized to take int
 > [!NOTE]
 > - If you've adopted our OpenTelemetry Distro and are looking for configuration options, see [Enable Sampling](opentelemetry-configuration.md#enable-sampling).
 
+[!INCLUDE [azure-monitor-app-insights-otel-available-notification](../includes/azure-monitor-app-insights-otel-available-notification.md)]
+
 :::image type="content" source="./media/sampling/data-sampling.png" lightbox="./media/sampling/data-sampling.png" alt-text="A screenshot of sampling configuration options.":::
 
 ## Brief summary

@@ -7,10 +7,12 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 04/12/2023
+ms.date: 02/27/2024
 ms.author: alkohli
 ---
 # Azure Stack Edge Pro FPGA technical specifications
+
+[!INCLUDE [Azure Stack Edge Pro FPGA end-of-life](../../includes/azure-stack-edge-fpga-eol.md)]
 
 The hardware components of your Microsoft Azure Stack Edge Pro FPGA device adhere to the technical specifications and regulatory standards outlined in this article. The technical specifications describe the Power supply units (PSUs), storage capacity, enclosures, and environmental standards.
 
