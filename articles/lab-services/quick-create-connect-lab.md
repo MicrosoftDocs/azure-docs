@@ -41,7 +41,7 @@ Follow these steps to add a lab to the lab plan you created earlier:
 
 1. Select **Create lab**.  
 
-    :::image type="content" source="./media/quick-create-connect-lab/new-lab-button.png" alt-text="Screenshot of the Azure Lab Services website, highlighting the Create lab button.":::
+    :::image type="content" source="./media/quick-create-connect-lab/new-lab-button.png" alt-text="Screenshot of the Azure Lab Services website, highlighting the Create lab button." lightbox="./media/quick-create-connect-lab/new-lab-button.png":::
 
 1. On the **New lab** page, enter the following information, and then select **Next**.
 
