@@ -4,7 +4,7 @@ description: Overview of how data collection endpoints work and how to create an
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/17/2023
+ms.date: 03/13/2024
 ms.custom: references_region
 ms.reviwer: nikeist
 
@@ -12,17 +12,19 @@ ms.reviwer: nikeist
 
 # Data collection endpoints in Azure Monitor
 
-A data collection endpoint (DCE) is a connection where data sources send collected data for processing and ingestion into Azure Monitor. DCEs are required for the following scenarios. 
+A data collection endpoint (DCE) is a connection where data sources send collected data for processing and ingestion into Azure Monitor. This article provides an overview of data collection endpoints and explains how to create and set them up based on your deployment.
 
-- Private link
-- NSP
-- Workspace replication
+## Embedded DCEs
+Any DCRs created after March 31, 2024 will automatically use an *embedded DCE*. These are automatically created and managed by Azure Monitor and won't appear in the list of DCEs for your subscription. The DCR will instead include properties for [`logsIngestion` and `metricsIngestion`](./data-collection-rule-structure.md#endpoints) that contain the URLs of the endpoints for the DCR. You can't modify these URLs.
 
-This article provides an overview of data collection endpoints and explains how to create and set them up based on your deployment.
+You must explicitly create a DCE only for the following scenarios:
 
+- [Private link](../logs/private-link-security.md)
+- [Workspace replication]()
 
+In this case, you add a [`dataCollectionEndpointId`](./data-collection-rule-structure.md#properties) property to the DCR with the URL of the DCE. Configure clients to connect to this URL. The DCR will include `logsIngestion` and `metricsIngestion` for the embedded DCE, but they won't be used.
 
-## Components of a data collection endpoint
+## Components of a DCE
 
 A data collection endpoint includes components required to ingest data into Azure Monitor and send configuration files to Azure Monitor Agent. 
 
@@ -31,7 +33,7 @@ A data collection endpoint includes components required to ingest data into Azur
 This table describes the components of a data collection endpoint, related regionality considerations, and how to  set up the data collection endpoint when you create a data collection rule using the portal:
 
 | Component | Description | Regionality considerations |Data collection rule configuration |
-|:---|:---|:---|
+|:---|:---|:---|:---|
 | Logs ingestion endpoint | The endpoint that ingests logs into the data ingestion pipeline. Azure Monitor transforms the data and sends it to the defined destination Log Analytics workspace and table based on a DCR ID sent with the collected data.<br>Example: `<unique-dce-identifier>.<regionname>-1.ingest`. |Same region as the destination Log Analytics workspace. |Set on the **Basics** tab when you create a data collection rule using the portal. |
 | Configuration access endpoint | The endpoint from which Azure Monitor Agent retrieves data collection rules (DCRs).<br>Example: `<unique-dce-identifier>.<regionname>-1.handler.control`. | Same region as the monitored resources. | Set on the **Resources** tab when you create a data collection rule using the portal.| 
 

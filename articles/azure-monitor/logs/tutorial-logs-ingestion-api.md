@@ -5,7 +5,7 @@ ms.topic: tutorial
 ms.custom:
 author: bwren
 ms.author: bwren
-ms.date: 10/27/2023
+ms.date: 03-13-2024
 ---
 
 # Tutorial: Send data to Azure Monitor using Logs ingestion API (Resource Manager templates)
@@ -139,7 +139,6 @@ The [DCR](../essentials/data-collection-rule-overview.md) defines how the data w
 
     Notice the following details in the DCR defined in this template:
 
-    - `dataCollectionEndpointId`: Resource ID of the data collection endpoint.
     - `streamDeclarations`: Column definitions of the incoming data.
     - `destinations`: Destination workspace.
     - `dataFlows`: Matches the stream with the destination workspace and specifies the transformation query and the destination table. The output of the destination query is what will be sent to the destination table.
@@ -181,7 +180,6 @@ The [DCR](../essentials/data-collection-rule-overview.md) defines how the data w
                 "location": "[parameters('location')]",
                 "apiVersion": "2021-09-01-preview",
                 "properties": {
-                    "dataCollectionEndpointId": "[parameters('endpointResourceId')]",
                     "streamDeclarations": {
                         "Custom-MyTableRawData": {
                             "columns": [
@@ -252,10 +250,7 @@ The [DCR](../essentials/data-collection-rule-overview.md) defines how the data w
 
 1. Copy the **Immutable ID** and **Logs ingestion URI** for the DCR. You'll use these in a later step when you send sample data using the API.
 
-    :::image type="content" source="media/tutorial-logs-ingestion-api/data-collection-rule-json-view.png" lightbox="media/tutorial-workspace-transformations-api/data-collection-rule-json-view.png" alt-text="Screenshot that shows DCR JSON view.":::
-
-    > [!NOTE]
-    > All the properties of the DCR, such as the transformation, might not be displayed in the Azure portal even though the DCR was successfully created with those properties.
+    :::image type="content" source="media/tutorial-logs-ingestion-api/data-collection-rule-json-view.png" lightbox="media/tutorial-logs-ingestion-api/data-collection-rule-json-view.png" alt-text="Screenshot that shows DCR JSON view.":::
 
 ## Assign permissions to a DCR
 After the DCR has been created, the application needs to be given permission to it. Permission will allow any application using the correct application ID and application key to send data to the new DCR.

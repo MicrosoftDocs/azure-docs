@@ -2,7 +2,7 @@
 title: 'Sample code to send data to Azure Monitor using Logs ingestion API'
 description: Sample code using REST API and client libraries for Logs ingestion API in Azure Monitor.
 ms.topic: tutorial
-ms.date: 03/12/2024s
+ms.date: 03/12/2024
 ---
 
 # Sample code to send data to Azure Monitor using Logs ingestion API

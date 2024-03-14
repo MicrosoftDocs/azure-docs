@@ -205,7 +205,7 @@ The following PowerShell script generates sample data to configure the custom ta
 1. Update the values of `$tenantId`, `$appId`, and `$appSecret` with the values you noted for **Directory (tenant) ID**, **Application (client) ID**, and secret **Value**. Then save it with the file name *LogGenerator.ps1*.
 
     ``` PowerShell
-    param ([Parameter(Mandatory=$true)] $Log, $Type="file", $Output, $DcrImmutableId, $URI, $Table)
+    param ([Parameter(Mandatory=$true)] $Log, $Type="file", $Output, $DcrImmutableId, $endpointURI, $Table)
     ################
     ##### Usage
     ################
@@ -215,7 +215,7 @@ The following PowerShell script generates sample data to configure the custom ta
     #                                API call. Data will be written to a file by default.
     #   [-Output <String>]         - Path to resulting JSON sample
     #   [-DcrImmutableId <string>] - DCR immutable ID
-    #   [-endpointURI]             - Logs ingestion URI or DCE URI
+    #   [-endpointURI]             - Logs ingestion URI
     #   [-Table]                   - The name of the custom log table, including "_CL" suffix
 
 
@@ -315,7 +315,7 @@ Allow at least 30 minutes for the configuration to take effect. You might also e
 1. Run the following command providing the values that you collected for your DCR. The script will start ingesting data by placing calls to the API at the pace of approximately one record per second.
 
     ```PowerShell
-    .\LogGenerator.ps1 -Log "sample_access.log" -Type "API" -Table "ApacheAccess_CL" -DcrImmutableId <immutable ID> -Uri <data collection endpoint URL> 
+    .\LogGenerator.ps1 -Log "sample_access.log" -Type "API" -Table "ApacheAccess_CL" -DcrImmutableId <immutable-id> -endpointURI <logs-ingestion-uri> 
     ```
 
 1. From Log Analytics, query your newly created table to verify that data arrived and that it's transformed properly.

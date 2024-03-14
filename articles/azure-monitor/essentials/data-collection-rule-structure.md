@@ -15,19 +15,20 @@ ms.reviwer: nikeist
 - See [Sample data collection rules (DCRs) in Azure Monitor](../essentials/data-collection-rule-samples.md) for sample DCRs for different scenarios.
 
 ## Properties
+Properties at the top level of the DCR.
 
 | Property | Description |
 |:---|:---|
 | `immutableId` | A unique identifier for the data collection rule. Property and value are automatically created when the DCR is created. |
 | `description` | A description of the data collection rule. |
-| `dataCollectionEndpointId` | Resource ID of the [data collection endpoint (DCE)](data-collection-endpoint-overview.md) used by the DCR if you provided one. Property not used for DCRs that don't use a DCE. |
+| `dataCollectionEndpointId` | Resource ID of the [data collection endpoint (DCE)](data-collection-endpoint-overview.md) used by the DCR if you provided one. Property not present in DCRs that don't use a DCE. |
 
 
 ## `endpoints`
 Contains the URLs of the endpoints for the DCR. This section and its properties are automatically created when the DCR is created.
 
 > [!NOTE]
-> These properties aren't created for DCRs created before March 31, 2024. DCRs created before this date required a DCE and the `dataCollectionEndpointId` property to be specified.
+> These properties weren't created for DCRs created before March 31, 2024. DCRs created before this date required a [data collection endpoint (DCE)](data-collection-endpoint-overview.md) and the `dataCollectionEndpointId` property to be specified. If you want to use these embedded DCEs then you must create a new DCR. 
 
 | Property | Description |
 |:---|:---|
