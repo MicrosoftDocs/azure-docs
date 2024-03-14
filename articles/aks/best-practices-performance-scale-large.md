@@ -84,7 +84,7 @@ Always upgrade your Kubernetes clusters to the latest version. Newer versions co
 
 As you scale your AKS clusters to larger scale points, keep the following feature limitations in mind:
 
-* AKS supports scaling up to 5,000 nodes by default for all Standard Tier / LTS clusters. AKS scales your cluster's control plane at runtime based on cluster size and API server resource utilization. If you cannot scale up to the supported limit, enable [control plane metrics (Preview)](./monitor-control-plane-metrics.md) with the [Azure Monitor managed service for Prometheus](/articles/azure-monitor/essentials/prometheus-metrics-overview.md) to monitor the control plane. To help troubleshoot scaling performance or reliability issues, see the following resources:
+* AKS supports scaling up to 5,000 nodes by default for all Standard Tier / LTS clusters. AKS scales your cluster's control plane at runtime based on cluster size and API server resource utilization. If you cannot scale up to the supported limit, enable [control plane metrics (Preview)](./monitor-control-plane-metrics.md) with the [Azure Monitor managed service for Prometheus](../azure-monitor/essentials/prometheus-metrics-overview.md) to monitor the control plane. To help troubleshoot scaling performance or reliability issues, see the following resources:
   * [AKS at scale troubleshooting guide](/troubleshoot/azure/azure-kubernetes/aks-at-scale-troubleshoot-guide) 
   * [Troubleshoot the Kubernetes control plane](/troubleshoot/azure/azure-kubernetes/troubleshoot-apiserver-etcd)
 
