@@ -459,7 +459,7 @@ This release applies to HDInsight 4.0.  HDInsight release is made available to 
 HDInsight uses safe deployment practices, which involve gradual region deployment. It might take up to 10 business days for a new release or a new version to be available in all regions.
 
 
-:::image type="content" border="true" source="media/hdinsight-release-notes/icon-for-new-feature.png" alt-text="Icon_showing_new_features"::: 
+:::image type="content" border="true" source="media/hdinsight-release-notes/icon-for-new-feature.png" alt-text="Icon_showing_new_features."::: 
 ### New Feature
 
 **1. Attach external disks in HDI Hadoop/Spark clusters**
@@ -485,7 +485,7 @@ Selective logging analysis is now available on all regions for public preview. Y
 For more information, [see here](./selective-logging-analysis.md)
 
 
-:::image type="content" border="true" source="media/hdinsight-release-notes/icon-for-bugfix.png" alt-text="Icon_showing_bug_fixes"::: 
+:::image type="content" border="true" source="media/hdinsight-release-notes/icon-for-bugfix.png" alt-text="Icon_showing_bug_fixes."::: 
 ### Fixed
 
 #### **Log analytics**
@@ -501,7 +501,7 @@ Customers using older version of cluster with OMS version 13 need to install OMS
 ```
 sudo /opt/omi/bin/ominiserver/ --version
 ```
-:::image type="content" border="true" source="media/hdinsight-release-notes/check-oms-version.png" alt-text="Screenshot showing how to check OMS Upgrade":::
+:::image type="content" border="true" source="media/hdinsight-release-notes/check-oms-version.png" alt-text="Screenshot showing how to check OMS Upgrade.":::
 
 **How to upgrade your OMS version from 13 to 14**
 
@@ -514,7 +514,7 @@ https://hdiconfigactions.blob.core.windows.net/log-analytics-patch/OMSUPGRADE14.
 1. Select **Node type(s)**
 1. Select **Create** 
 
-:::image type="content" border="true" source="media/hdinsight-release-notes/oms-upgrade.png" alt-text="Screenshot showing how to do OMS Upgrade":::
+:::image type="content" border="true" source="media/hdinsight-release-notes/oms-upgrade.png" alt-text="Screenshot showing how to do OMS Upgrade.":::
 
 1. Verify the successful installation of the patch using the following steps:  
 
@@ -563,7 +563,7 @@ This release applies to HDInsight 4.0.  HDInsight release is made available to 
 HDInsight uses safe deployment practices, which involve gradual region deployment. It might take up to 10 business days for a new release or a new version to be available in all regions.
 
 
-:::image type="content" border="true" source="media/hdinsight-release-notes/icon-for-new-feature.png" alt-text="Icon_showing_new_features"::: 
+:::image type="content" border="true" source="media/hdinsight-release-notes/icon-for-new-feature.png" alt-text="Icon_showing_new_features."::: 
 ### New Feature
 
 **1. Attach external disks in HDI Hadoop/Spark clusters**
@@ -589,7 +589,7 @@ Selective logging analysis is now available on all regions for public preview. Y
 For more information, [see here](./selective-logging-analysis.md)
 
 
-:::image type="content" border="true" source="media/hdinsight-release-notes/icon-for-bugfix.png" alt-text="Icon_showing_bug_fixes"::: 
+:::image type="content" border="true" source="media/hdinsight-release-notes/icon-for-bugfix.png" alt-text="Icon_showing_bug_fixes."::: 
 
 ### Fixed
 
@@ -606,7 +606,7 @@ Customers using older version of cluster with OMS version 13 need to install OMS
 ```
 sudo /opt/omi/bin/ominiserver/ --version
 ```
-:::image type="content" border="true" source="media/hdinsight-release-notes/check-oms-version.png" alt-text="Screenshot showing how to check OMS Upgrade":::
+:::image type="content" border="true" source="media/hdinsight-release-notes/check-oms-version.png" alt-text="Screenshot showing how to check OMS Upgrade.":::
 
 **How to upgrade your OMS version from 13 to 14**
 
@@ -619,7 +619,7 @@ https://hdiconfigactions.blob.core.windows.net/log-analytics-patch/OMSUPGRADE14.
 1. Select **Node type(s)**
 1. Select **Create** 
 
-:::image type="content" border="true" source="media/hdinsight-release-notes/oms-upgrade.png" alt-text="Screenshot showing how to do OMS Upgrade":::
+:::image type="content" border="true" source="media/hdinsight-release-notes/oms-upgrade.png" alt-text="Screenshot showing how to do OMS Upgrade.":::
 
 1. Verify the successful installation of the patch using the following steps:  
 
@@ -1463,7 +1463,7 @@ Service tags simplify security for Azure virtual machines and Azure virtual netw
 #### Custom Ambari DB
 HDInsight now allows you to use your own SQL DB for Apache Ambari. You can configure this custom Ambari DB from the Azure portal or through Resource Manager template.  This feature allows you to choose the right SQL DB for your processing and capacity needs. You can also upgrade easily to match business growth requirements. For more information, see [Set up HDInsight clusters with a custom Ambari DB](hdinsight-custom-ambari-db.md).
 
-:::image type="content" source="./media/hdinsight-release-notes/custom-ambari-db.png" alt-text="Custom Ambari DB":::
+:::image type="content" source="./media/hdinsight-release-notes/custom-ambari-db.png" alt-text="Custom Ambari DB.":::
 
 ### Deprecation
 No deprecations for this release. To get ready for upcoming deprecations, see [Upcoming changes](#upcoming-changes).

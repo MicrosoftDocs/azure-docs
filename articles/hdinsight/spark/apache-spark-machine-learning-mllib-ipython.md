@@ -170,7 +170,7 @@ Let's start to get a sense of what the dataset contains.
 
     The output is:
 
-    :::image type="content" source="./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-query-output.png " alt-text="SQL query output" border="true":::
+    :::image type="content" source="./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-query-output.png " alt-text="SQL query output." border="true":::
 
 3. You can also use Matplotlib, a library used to construct visualization of data, to create a plot. Because the plot must be created from the locally persisted **countResultsdf** dataframe, the code snippet must begin with the `%%local` magic. This action ensures that the code is run locally on the Jupyter server.
 
