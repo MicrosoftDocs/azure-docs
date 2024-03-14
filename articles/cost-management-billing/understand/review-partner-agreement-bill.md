@@ -41,15 +41,15 @@ Check the agreement type to determine whether you have access to a billing accou
 
 In the Azure portal, type *cost management + billing* in the search box and then select **Cost Management + Billing**.
 
-![Screenshot that shows Azure portal search](./media/review-partner-agreement-bill/billing-search-cost-management-billing.png)
+:::image type="content" border="true" source="./media/review-partner-agreement-bill/billing-search-cost-management-billing.png" alt-text="Screenshot that shows Azure portal search.":::
 
 If you have access to just one billing scope, select **Properties** from the left-hand side. You have access to a billing account for a Microsoft Partner Agreement if the billing account type is **Microsoft Partner Agreement**.
 
-![Screenshot that shows Microsoft Partner Agreement in properties page](./media/review-partner-agreement-bill/billing-account-properties-partner-agreement.png)
+:::image type="content" border="true" source="./media/review-partner-agreement-bill/billing-account-properties-partner-agreement.png" alt-text="Screenshot that shows Microsoft Partner Agreement in properties page.":::
 
 If you have access to multiple billing scopes, check the type in the billing account column. You have access to a billing account for a Microsoft Partner Agreement if the billing account type for any of the scopes is **Microsoft Partner Agreement**.
 
-![Screenshot that shows Microsoft Partner Agreement in billing account list page](./media/review-partner-agreement-bill/mpa-in-the-list.png)
+:::image type="content" border="true" source="./media/review-partner-agreement-bill/mpa-in-the-list.png" alt-text="Screenshot that shows Microsoft Partner Agreement in billing account list page.":::
 
 ## Review invoiced transactions in the Azure portal
 
@@ -57,7 +57,7 @@ In Cost Management + Billing, select **All transactions** from the left side of 
 
 The All transactions page displays the following information:
 
-![Screenshot that shows the billed transactions list](./media/review-partner-agreement-bill/all-transactions.png)
+:::image type="content" border="true" source="./media/review-partner-agreement-bill/all-transactions.png" alt-text="Screenshot that shows the billed transactions list.":::
 
 |Column  |Definition  |
 |---------|---------|
