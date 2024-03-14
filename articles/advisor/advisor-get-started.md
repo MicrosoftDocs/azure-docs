@@ -24,7 +24,7 @@ To access Azure Advisor, sign in to the [Azure portal](https://portal.azure.com)
 
 See personalized and actionable recommendations on the Advisor **Overview** page.
 
-:::image type="content" source="./media/advisor-get-started/advisor-overview-page-m1.png" alt-text="Screenshot of the Azure Advisor opening **Overview** page." lightbox="./media/advisor-get-started/advisor-overview-page-m1.png":::
+:::image type="content" source="./media/advisor-get-started/advisor-overview-page-m-1.png" alt-text="Screenshot of the Azure Advisor opening **Overview** page." lightbox="./media/advisor-get-started/advisor-overview-page-m-1.png":::
 
 * The links at the top offer options for **Feedback**, downloading recommendations as comma-separated or PDFs, and a quick-link to Advisor **Workbooks**.
 * The blue filter buttons below them focus the recommendations.
