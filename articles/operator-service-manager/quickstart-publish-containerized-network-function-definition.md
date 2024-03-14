@@ -95,10 +95,6 @@ az aosm nfd build -f input-cnf-nfd.json --definition-type cnf
 **TODO: The helm template validation generates some warnings from the above command because there is one invalid image in the template used**
 
 **TODO: WE NO LONGER HAVE THE INTERACTIVE MODE. HOW DO WE EXPOSE PARAMETERS NOW?**
-During the interactive process, you can respond with 'n' (no) for all the options except the following two:
-
-- To expose the parameter `serviceAccount_create`, respond with 'y' (yes)
-- To expose the parameter `service_port`, respond with 'y' (yes)
 
 Once the build is complete, examine the generated files to gain a better understanding of the Network Function Definition (NFD) structure. These files are created:
 **TODO: The following structure is incorrect**
@@ -110,12 +106,6 @@ Once the build is complete, examine the generated files to gain a better underst
 | schemas                    | Defines the deployment parameters required to create a Network Function (NF) from this Network Function Definition Version (NFDV). |
 | cnfartifactmanifests.bicep | Bicep template for creating the artifact manifest.                                                                                 |
 | cnfdefinition.bicep        | Bicep template for creating the Network Function Definition Version (NFDV) itself.                                                 |
-
-**TODO: There is no interactive process so this must be wrong:**
-If errors were made during your interactive choices, there are two options to correct them:
-
-1. Rerun the command with the correct selections.
-1. Manually adjust the generated value mappings within `generatedValuesMappings` folder. Then edit the `path_to_mappings_file` in `cnf-input.jsonc` to reference the modified file path.
 
 ## Publish the Network Function Definition and upload artifacts
 
