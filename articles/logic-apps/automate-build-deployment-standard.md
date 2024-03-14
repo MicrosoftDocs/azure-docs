@@ -49,8 +49,8 @@ This guide shows how to complete the following tasks:
 
 For more information, see the following documentation:
 
-- [What is Azure DevOps](/azure/devops/user-guide/what-is-azure-devops)
-- [What is Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
+- [What is Azure DevOps?](/azure/devops/user-guide/what-is-azure-devops)
+- [What is Azure Pipelines?](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
 
 ## Known issues and limitations
 
@@ -115,12 +115,15 @@ For more information, see the following documentation:
         > [!NOTE]
         >
         > If you skip this step, you can use only the [built-in connectors that are runtime-hosted](../connectors/built-in.md). 
-        > To enable the Microosft-managed, Azure-hosted connectors at a later time, follow these steps:
+        > To enable the Microsoft-managed, Azure-hosted connectors at a later time, follow these steps:
         >
         > 1. Open the shortcut menu for the **workflow.json** file, and select **Use Connectors from Azure**.
-        > 2. 
+        >
+        > 2. Select an existing Azure resource group that you want to use for your logic app.
+        >
+        > 3. Reload the workflow designer.
 
-      - The existing Azure resource group that you plan to use for your logic app
+      - The existing Azure resource group that you want to use for your logic app
 
 1. When you're done, reload the workflow designer. If prompted, sign in to Azure.
 
