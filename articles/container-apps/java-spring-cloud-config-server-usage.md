@@ -54,7 +54,7 @@ The following table lists the different configuration values available.
 
 ### Git backend configurations
 
-`spring.cloud.config.server.git`
+The following configuration settings are available on the `spring.cloud.config.server.git` configuration property.
 
 | Name | Property path | Description |
 |---|---|---|
@@ -62,29 +62,29 @@ The following table lists the different configuration values available.
 | Username | `repos.{repoName}.username` | Username for authentication with remote repository. |
 | Password | `repos.{repoName}.password` | Password for authentication with remote repository. |
 | Search paths | `repos.{repoName}.search-paths` | Search paths to use within local working copy. By default searches only the root. |
-| Force pull | `repos.{repoName}.force-pull` | Flag to indicate that the repository should force pull. If true discard any local changes and take from remote repository. |
-| Default label | `repos.{repoName}.default-label` | The default label used for Git is `main`. If you don't set `default-label` and a branch named `main` doesn't exist, the config server will by default also try to check out a branch named `master`. If you would like to disable the fallback branch behavior you can set `tryMasterBranch` to `false`. |
-| Try master branch | `repos.{repoName}.try-master-branch` | The config server by default tries to check out a branch named `master`. | `true` |
+| Force pull | `repos.{repoName}.force-pull` | Flag to indicate that the repository should force pull. If this value is set to `true`, then discard any local changes and take from remote repository. |
+| Default label | `repos.{repoName}.default-label` | The default label used for Git is `main`. If you don't set `default-label` and a branch named `main` doesn't exist, then the config server tries to check out a branch named `master`. To disable the fallback branch behavior, you can set `tryMasterBranch` to `false`. |
+| Try `master` branch | `repos.{repoName}.try-master-branch` | When set to `true`, the config server by default tries to check out a branch named `master`. |
 | Skip SSL validation | `repos.{repoName}.skip-ssl-validation` | The configuration server’s validation of the Git server’s SSL certificate can be disabled by setting the `git.skipSslValidation` property to `true`. |
 | Clone-on-start | `repos.{repoName}.clone-on-start` | Flag to indicate that the repository should be cloned on startup (not on demand). Generally leads to slower startup but faster first query. |
 | Timeout | `repos.{repoName}.timeout`  | Timeout (in seconds) for obtaining HTTP or SSH connection (if applicable). Default 5 seconds. |
 | Refresh rate | `repos.{repoName}.refresh-rate` | How often the config server fetches updated configuration data from your Git backend. |
 | Private key | `repos.{repoName}.private-key` | Valid SSH private key. Must be set if `ignore-local-ssh-settings` is `true` and Git URI is SSH format. |
 | Host key | `repos.{repoName}.host-key` | Valid SSH host key. Must be set if `host-key-algorithm` is also set. |
-| Host key algorithm` | `repos.{repoName}.host-key-algorithm` | One of `ssh-dss`, `ssh-rsa`, `ssh-ed25519`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, or `ecdsa-sha2-nistp521`. Must be set if `host-key` is also set. |
+| Host key algorithm | `repos.{repoName}.host-key-algorithm` | One of `ssh-dss`, `ssh-rsa`, `ssh-ed25519`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, or `ecdsa-sha2-nistp521`. Must be set if `host-key` is also set. |
 | Strict host key checking | `repos.{repoName}.strict-host-key-checking` | `true` or `false`. If `false`, ignore errors with host key. |
 | Repo location | `repos.{repoName}` | URI of remote repository. |
 | Repo name patterns | `repos.{repoName}.pattern` | The pattern format is a comma-separated list of {application}/{profile} names with wildcards. If {application}/{profile} doesn't match any of the patterns, it uses the default URI defined under. |
 
 ### Common configurations
 
-- logging related configurations
+### Logging configurations
 
-  - [**logging.level.***](https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/boot-features-logging.html#boot-features-custom-log-levels)
+- [**logging.level.**\*](https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/boot-features-logging.html#boot-features-custom-log-levels)
 
-  - [**logging.group.***](https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/boot-features-logging.html#boot-features-custom-log-groups)
+- [**logging.group.**\*](https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/boot-features-logging.html#boot-features-custom-log-groups)
 
-  - Any other configurations under logging.* namespace should be forbidden, for example, writing log files by using `logging.file` should be forbidden.
+  Any other configurations under the `logging.*` namespace should be forbidden. For example, disallow writing log files by using `logging.file`.
 
 - **spring.cloud.config.server.overrides**
 
@@ -92,29 +92,29 @@ The following table lists the different configuration values available.
 
 - **spring.cloud.config.override-none**
 
-  - You can change the priority of all overrides in the client to be more like default values, letting applications supply their own values in environment variables or System properties, by setting the spring.cloud.config.override-none=true flag (the default is false) in the remote repository.
+  You can change the priority of all overrides in the client to be more like default values. The setting allows applications to supply their own values in environment variables or System properties. Values are set with the `spring.cloud.config.override-none=true` flag (the default is `false`) in the remote repository.
 
 - **spring.cloud.config.allow-override**
 
-  - If you enable config first bootstrap, you can allow client applications to override configuration from the config server by placing two properties within the applications configuration coming from the config server.
+  If you enable config first bootstrap, you allow client applications to override configuration from the config server by placing two properties within the application's configuration coming from the config server.
 
 - **spring.cloud.config.server.health.**
 
-  - You can configure the Health Indicator to check more applications along with custom profiles and custom labels
+  You can configure the Health Indicator to check more applications along with custom profiles and custom labels
 
 - **spring.cloud.config.server.accept-empty**
 
-  - You can set spring.cloud.config.server.accept-empty to false so that Server would return an HTTP 404 status, if the application isn't found. By default, this flag is set to true.
+  You can set `spring.cloud.config.server.accept-empty` to `false` so that the server returns an HTTP `404` status if the application isn't found. By default, this flag is set to `true`.
 
-- **Encryption and Decryption (symmetric)**
+### Encryption and decryption (symmetric)
 
-  - **encrypt.key**
+- **encrypt.key**
 
-    - It's convenient to use a symmetric key since it's a single property value to configure.
+  Using a symmetric key is often most convenient, as it's a single property value to configure.
 
-  - **spring.cloud.config.server.encrypt.enabled**
+- **spring.cloud.config.server.encrypt.enabled**
 
-    - You can set this value to `false`, to disable server-side decryption.
+  You can set this value to `false`, to disable server-side decryption.
 
 ## Spring Cloud Config Server refresh
 
@@ -148,9 +148,9 @@ Instead, you can automatically refresh values from Config Server by letting the 
     }
     ```
 
-1. Enable `autorefresh` and set the appropriate refresh interval in the *application.yml* file. In the following example, the client polls for configuration changes every 60 seconds, which is the minimum value you can set for a refresh interval.
+1. Enable `autorefresh` and set the appropriate refresh interval in the *application.yml* file. In the following example, the client polls for a configuration change every 60 seconds, which is the minimum value you can set for a refresh interval.
 
-    By default, `autorefresh` is set to false and the refresh-interval is set to 60 seconds.
+    By default, `autorefresh` is set to `false`, and `refresh-interval` is set to 60 seconds.
 
     ``` yaml
     spring:
@@ -232,3 +232,8 @@ You can use client side decryption of properties by following the steps:
     encrypt:
       key: somerandomkey
     ```
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Set up a Spring Cloud Config Server](java-spring-cloud-config-server.md)

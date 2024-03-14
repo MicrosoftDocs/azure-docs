@@ -40,7 +40,7 @@ When running in Spring Cloud Config Server in Azure Container Apps, be aware of 
 | Item | Explanation |
 |---|---|
 | **Scope** | The Spring Cloud Config Server runs in the same environment as the connected container app. |
-| **Scaling** | To maintain a single source of truth, the Spring Cloud Config Server doesn't scale. The scaling properties, `minReplicas` and `maxReplicas` are both set to `1`. |
+| **Scaling** | To maintain a single source of truth, the Spring Cloud Config Server doesn't scale. The scaling properties `minReplicas` and `maxReplicas` are both set to `1`. |
 | **Resources** | The container resource allocation for Spring Cloud Config Server is fixed, the number of the CPU cores is 0.5, and the memory size is 1Gi. |
 | **Pricing** | The Spring Cloud Config Server billing falls under consumption-based pricing. Resources consumed by managed Java components are billed at the active/idle rates. You may delete components that are no longer in use to stop billing. |
 | **Binding** | The container app connects to a Spring Cloud Config Server via a binding. The binding injects configurations into container app environment variables. Once a binding is established, the container app can read configuration values from environment variables. |
