@@ -43,7 +43,7 @@ By running the inference HTTP server locally, you can focus on debugging your sc
 
 ## Prerequisites
 
-- Requires: Python >=3.7
+- Requires: Python >=3.8
 - Anaconda
 
 > [!TIP]
