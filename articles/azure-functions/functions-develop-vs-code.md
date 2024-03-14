@@ -68,7 +68,7 @@ If you're new to Functions, you might want to first complete the [Visual Studio 
 
 * An active [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing). If you don't yet have an account, you can create one from the extension in Visual Studio Code. 
 
-You need these additional prerequities to [run and debug your functions locally](#run-functions-locally). They aren't required to create or publish projects to Azure Functions.
+You also need these prerequisites to [run and debug your functions locally](#run-functions-locally). They aren't required to just create or publish projects to Azure Functions.
 
 + The [Azure Functions Core Tools](functions-run-local.md), which enables an integrated local debugging experience. When you have the Azure Functions extension installed, the easiest way to install or update Core Tools is by running the `Azure Functions: Install or Update Azure Functions Core Tools` command from the command pallet.    
 ::: zone pivot="programming-language-csharp"    
@@ -202,6 +202,8 @@ Files generated depend on the chosen Python programming model for Functions:
 
 ::: zone-end  
 
+At this point, you're able to [run your HTTP trigger function locally](#run-functions-locally).
+
 ## Add a function to your project
 
 You can add a new function to an existing project based on one of the predefined Functions trigger templates. To add a new function trigger, select F1 to open the command palette, and then search for and run the command **Azure Functions: Create Function**. Follow the prompts to choose your trigger type and define the required attributes of the trigger. If your trigger requires an access key or connection string to connect to a service, get it ready before you create the function trigger.
@@ -253,23 +255,15 @@ For example, the way you define an output binding that writes data to a storage 
 
 ### [Isolated process](#tab/isolated-process)
 
-1. Add a reference to the package that supports your binding extension, such as this package for the Queue storage extension:  
+1. If necessary, [add a reference to the package that supports your binding extension](#install-binding-extensions).
 
-    ```dotnetcli
-    dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues
-    ```
-
-1. Update the function method to add a binding parameter defined by using the `QueueOutput` attribute. You can use a `MultiResponse` object to return multiple messages or multiple output streams. 
+1. Update the function method to add an attribute that defines the binding parameter, like `QueueOutput` for a queue output binding. You can use a `MultiResponse` object to return multiple messages or multiple output streams. 
 
 ### [In-process](#tab/in-process)
 
-1. Add a reference to the package that supports your binding extension, such as this package for the Queue storage extension:  
+1. If necessary, [add a reference to the package that supports your binding extension](#install-binding-extensions).
 
-    ```dotnetcli
-    dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage.Queues
-    ```
-
-1. Update the function method to add a binding parameter defined by using the `Queue` attribute. You can use an `ICollector<T>` type to represent a collection of messages.
+1. Update the function method to add an attribute that defines the binding parameter, such as `Queue` for a Queue binding. You can use an `ICollector<T>` type to represent a collection of messages.
 
 ---
 
@@ -340,8 +334,8 @@ The following steps publish your project to a new function app created with adva
     | Select a resource group for new resources. | Choose **Create new resource group** and type a resource group name, like `myResourceGroup`, and then select enter. You can also select an existing resource group. |
     | Select a location for new resources. | Select a location in a [region](https://azure.microsoft.com/regions/) near you or near other services that your functions access. |
     | Select a hosting plan. | Choose **Consumption** for serverless [Consumption plan hosting](consumption-plan.md), where you're only charged when your functions run. |
-    | Select a storage account. | Choose **Create new storage account** and at the prompt, type a globally unique name for the new storage account used by your function app and then select Enter. Storage account names must be between 3 and 24 characters long and can contain only numbers and lowercase letters. You can also select an existing account. |
-    | Select an Application Insights resource for your app. | Choose **Create new Application Insights resource** and at the prompt, type a name for the instance used to store runtime data from your functions.| 
+    | Select a storage account. | Choose **Create new storage account** and at the prompt, type a globally unique name for the new storage account used by your function app, and then select Enter. Storage account names must be between 3 and 24 characters long and can contain only numbers and lowercase letters. You can also select an existing account. |
+    | Select an Application Insights resource for your app. | Choose **Create new Application Insights resource**, and then at the prompt, type a name for the instance used to store runtime data from your functions.| 
 
     A notification appears after your function app is created and the deployment package is applied. Select **View Output** in this notification to view the creation and deployment results, including the Azure resources that you created.
 
@@ -515,7 +509,6 @@ C# script uses [extension bundles](functions-bindings-register.md#extension-bund
 If for some reason you can't use an extension bundle to install binding extensions for your project, see [Explicitly install extensions](functions-bindings-register.md#explicitly-install-extensions).
 ::: zone-end  
 
-
 ## Monitoring functions
 
 When you [run functions locally](#run-functions-locally), log data is streamed to the Terminal console. You can also get log data when your Functions project is running in a function app in Azure. You can connect to streaming logs in Azure to see near-real-time log data. You should enable Application Insights for a more complete understanding of how your function app is behaving.
@@ -523,7 +516,7 @@ When you [run functions locally](#run-functions-locally), log data is streamed t
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-csharp,programming-language-typescript"
 ### Streaming logs
 
-When you're developing an application, it's often useful to see logging information in near-real time. You can view a stream of log files being generated by your functions. Turn on logs from then command pallet with the `Azure Functions: Start streaming logs` command. This output is an example of streaming logs for a request to an HTTP-triggered function:
+When you're developing an application, it's often useful to see logging information in near-real time. You can view a stream of log files being generated by your functions. Turn on logs from the command pallet with the `Azure Functions: Start streaming logs` command. This output is an example of streaming logs for a request to an HTTP-triggered function:
 
 :::image type="content" source="media/functions-develop-vs-code/streaming-logs-vscode-console.png" alt-text="Screenshot for streaming logs output for H T T P trigger.":::
 
@@ -535,26 +528,6 @@ To learn more, see [Streaming logs](functions-monitoring.md?tabs=vs-code#streami
 You should monitor the execution of your functions by integrating your function app with Application Insights. When you create a function app in the Azure portal, this integration occurs by default. When you create your function app during Visual Studio publishing, you need to integrate Application Insights yourself. To learn how, see [Enable Application Insights integration](configure-monitoring.md#enable-application-insights-integration).
 
 To learn more about monitoring using Application Insights, see [Monitor Azure Functions](functions-monitoring.md).
-
-### Enable emulation in Visual Studio Code
-
-Now that you've configured the Terminal with Rosetta to run x86 emulation for Python development, you can use the following steps to integrate this terminal emulation with Visual Studio Code:
-
-1.  Open the Command Palette by pressing Cmd+Shift+P, select **Preferences: Open Settings (JSON)**, and add the following JSON to your configuration:
-
-    ```json
-    "terminal.integrated.profiles.osx": {
-           "rosetta": {
-             "path": "arch",
-             "args": ["-x86_64", "zsh", "-l"],
-             "overrideName": true
-           }
-         }
-    ```
-1. Open a new Terminal and choose **rosetta**.
-
-    ![Screenshot of starting a new Rosetta terminal in Visual Studio Code.](./media/functions-develop-vs-code/vs-code-rosetta.png)
-
 
 ::: zone pivot="programming-language-csharp" 
 ## C\# script projects
