@@ -7,7 +7,7 @@ ms.author: allensu
 ms.service: azure-kubernetes-service
 ms.subservice: aks-networking
 ms.topic: article
-ms.date: 02/29/2024
+ms.date: 03/14/2024
 ms.custom: references_regions, devx-track-azurecli
 ---
 
@@ -51,6 +51,15 @@ Below are some of the limitations of using Azure CNI Static Block allocation:
 * Across all the CIDR blocks assigned to a node in the node pool, one IP will be selected as the primary IP of the node. Thus, for network administrators selecting the `--max-pods` value try to use the calculation below to best serve your needs and have optimal usage of IPs in the subnet:  
 `max_pods` = (N * 16) - 1`
 where N is any positive integer and N > 0
+
+### Region availability 
+
+This feature is **_not_** available in the following regions:
+
+- US South
+- EastUS2
+- WestUS
+- WestUS2
 
 ## Plan IP addressing
 
