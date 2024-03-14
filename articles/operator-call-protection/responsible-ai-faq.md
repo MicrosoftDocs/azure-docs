@@ -1,6 +1,6 @@
 ---
-title: Responsible AI FAQ
-description: Explain common questions around the use of AI in the product.
+title: Responsible AI FAQ for Azure Operator Call Protection
+description: Learn the answers to common questions around the use of AI in Azure Operator Call Protection.
 author: msft-andrew
 ms.author: andrewwright
 ms.service: azure
