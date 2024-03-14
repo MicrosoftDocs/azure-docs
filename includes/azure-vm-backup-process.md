@@ -10,7 +10,7 @@ ms.author: v-amallick
 1. If you have opted for application or file-system consistent backups, the VM needs to have a backup extension installed to coordinate for the snapshot process.
 
    >[!Note]
-   >If you have opted for crash consistent backups, no agents are required in the VMs.
+   >If you have opted for crash-consistent backups, no agents are required in the VMs.
 
 1. During the first backup, a backup extension is installed on the VM if the VM is running.
     - For Windows VMs, the [VMSnapshot extension](../articles/virtual-machines/extensions/vmsnapshot-windows.md) is installed.

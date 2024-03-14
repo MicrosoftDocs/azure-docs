@@ -25,7 +25,7 @@ To configure backup for a new Azure VM with agentless multi-disk crash-consisten
 
 3. Select **OK**.
 
-## Move a VM from application/file-system-consistent to crash-consistent backup.
+## Move a VM from application/file-system-consistent to crash-consistent backup
 
 If you have VMs backed up with Enhanced Policy, you can move them from agent based application/file-system-consistent backups to agentless crash-consistent backups by:
 

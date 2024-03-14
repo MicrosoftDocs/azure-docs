@@ -174,7 +174,7 @@
     items:
     - name: Overview
       href: backup-azure-vms-introduction.md
-    - name: Agentless multi-disk crash consistent VM backup
+    - name: Agentless multi-disk crash-consistent VM backup
       href: backup-azure-vms-agentless-multi-disk-crash-consistent-overview.md
   - name: SAP HANA database on Azure VM backup
     items:
@@ -262,7 +262,7 @@
         href: backup-during-vm-creation.md
       - name: Back up an Azure VM using Enhanced policy
         href: backup-azure-vms-enhanced-policy.md
-      - name: Back up Azure VM with agentless multi-disk crash consistent backup
+      - name: Back up Azure VM with agentless multi-disk crash-consistent backup
         href: backup-azure-vms-agentless-multi-disk-crash-consistent.md
       - name: Back up an Azure VM from VM settings
         href: backup-azure-vms-first-look-arm.md

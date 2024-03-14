@@ -88,7 +88,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Agentless multi-disk crash-consistent backups for Azure VMs (preview)
 
-Azure Backup now supports agentless VM backups by using multi-disk crash consistent restore points (preview). Crash consistent backups are OS agnostic, do not require any agent, and quiesce VM I/O for a shorter period compared to application or file-system consistent backups for performance sensitive workloads.
+Azure Backup now supports agentless VM backups by using multi-disk crash-consistent restore points (preview). Crash consistent backups are OS agnostic, do not require any agent, and quiesce VM I/O for a shorter period compared to application or file-system consistent backups for performance sensitive workloads.
 
 For more information, see [About agentless multi-disk crash-consistent backup for Azure VMs (preview)](backup-azure-vms-agentless-multi-disk-crash-consistent-overview.md).
 
