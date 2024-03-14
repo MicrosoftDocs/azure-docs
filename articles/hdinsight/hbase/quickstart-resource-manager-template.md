@@ -67,7 +67,7 @@ After you complete the quickstart, you may want to delete the cluster. With HDIn
 
 From the Azure portal, navigate to your cluster, and select **Delete**.
 
-![Delete Resource Manager template HBase](./media/quickstart-resource-manager-template/azure-portal-delete-hbase.png)
+:::image type="content" border="true" source="./media/quickstart-resource-manager-template/azure-portal-delete-hbase.png" alt-text="Delete Resource Manager template HBase":::
 
 You can also select the resource group name to open the resource group page, and then select **Delete resource group**. By deleting the resource group, you delete both the HDInsight cluster, and the default storage account.
 
