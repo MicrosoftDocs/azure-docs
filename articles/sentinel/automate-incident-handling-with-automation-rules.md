@@ -1,15 +1,20 @@
 ---
 title: Automate threat response in Microsoft Sentinel with automation rules | Microsoft Docs
 description: This article explains what Microsoft Sentinel automation rules are, and how to use them to implement your Security Orchestration, Automation and Response (SOAR) operations, increasing your SOC's effectiveness and saving you time and resources.
-author: yelevin
 ms.topic: conceptual
-ms.date: 06/27/2022
-ms.author: yelevin
+author: batamig
+ms.author: bagol
+ms.date: 03/14/2024
+appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+ms.collection: usx-security
+
 ---
 
 # Automate threat response in Microsoft Sentinel with automation rules
 
 This article explains what Microsoft Sentinel automation rules are, and how to use them to implement your Security Orchestration, Automation and Response (SOAR) operations, increasing your SOC's effectiveness and saving you time and resources.
+
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 ## What are automation rules?
 

@@ -1,10 +1,13 @@
 ---
 title: Create and customize Microsoft Sentinel playbooks from templates | Microsoft Docs
 description: This article shows how to create playbooks from and work with playbook templates, to customize them to fit your needs.
-author: yelevin
 ms.topic: how-to
-ms.date: 06/21/2023
-ms.author: yelevin
+author: batamig
+ms.author: bagol
+ms.date: 03/14/2024
+appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+ms.collection: usx-security
+
 ---
 
 # Create and customize Microsoft Sentinel playbooks from content templates
@@ -38,6 +41,9 @@ This article helps you understand how to:
 > [!IMPORTANT]
 >
 > **Playbook templates** are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
+> [!INCLUDE [unified-soc-preview-without-alert](includes/unified-soc-preview-without-alert.md)]
+
 
 ## Explore playbook templates
 

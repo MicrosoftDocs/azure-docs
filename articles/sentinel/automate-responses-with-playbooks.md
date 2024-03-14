@@ -1,10 +1,13 @@
 ---
 title: Automate threat response with playbooks in Microsoft Sentinel | Microsoft Docs
 description: This article explains automation in Microsoft Sentinel, and shows how to use playbooks to automate threat prevention and response.
-author: yelevin
 ms.topic: conceptual
-ms.date: 06/21/2023
-ms.author: yelevin
+author: batamig
+ms.author: bagol
+ms.date: 03/14/2024
+appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+ms.collection: usx-security
+
 ---
 
 # Automate threat response with playbooks in Microsoft Sentinel
@@ -24,6 +27,8 @@ A playbook is a collection of these remediation actions that you run from Micros
 For example, if an account and machine are compromised, a playbook can isolate the machine from the network and block the account by the time the SOC team is notified of the incident.
 
 While the **Active playbooks** tab on the **Automation** page displays all the active playbooks available across any selected subscriptions, by default a playbook can be used only within the subscription to which it belongs, unless you specifically grant Microsoft Sentinel permissions to the playbook's resource group.
+
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 ### Playbook templates
 

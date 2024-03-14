@@ -1,10 +1,13 @@
 ---
 title: Create incident tasks in Microsoft Sentinel using automation rules
 description: This article explains how to use automation rules to create lists of incident tasks, in order to standardize analyst workflow processes in Microsoft Sentinel.
-author: yelevin
-ms.author: yelevin
 ms.topic: how-to
-ms.date: 11/24/2022
+author: batamig
+ms.author: bagol
+ms.date: 03/14/2024
+appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+ms.collection: usx-security
+
 ---
 
 # Create incident tasks in Microsoft Sentinel using automation rules
@@ -12,6 +15,8 @@ ms.date: 11/24/2022
 This article explains how to use automation rules to create lists of incident tasks, in order to standardize analyst workflow processes in Microsoft Sentinel.
 
 [Incident tasks](incident-tasks.md) can be created automatically not only by automation rules, but also by playbooks, and also manually, ad-hoc, from within an incident.
+
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 ## Use cases for different roles
 
@@ -28,6 +33,8 @@ Another article, at the following links, addresses scenarios that apply more to 
 
 - [View and follow incident tasks](work-with-tasks.md#view-and-follow-incident-tasks)
 - [Manually add an ad-hoc task to an incident](work-with-tasks.md#manually-add-an-ad-hoc-task-to-an-incident)
+
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 ## Prerequisites
 

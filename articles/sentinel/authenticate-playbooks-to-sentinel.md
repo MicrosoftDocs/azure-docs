@@ -1,10 +1,13 @@
 ---
 title: Authenticate playbooks to Microsoft Sentinel | Microsoft Docs
 description: Learn how to give your playbooks access to Microsoft Sentinel and authorization to take remedial actions.
-author: yelevin
 ms.topic: how-to
-ms.date: 11/09/2021
-ms.author: yelevin
+author: batamig
+ms.author: bagol
+ms.date: 03/14/2024
+appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+ms.collection: usx-security
+
 ---
 
 # Authenticate playbooks to Microsoft Sentinel
@@ -16,6 +19,8 @@ This document, along with our guide to [using triggers and actions in playbooks]
 For an introduction to playbooks, see [Automate threat response with playbooks in Microsoft Sentinel](automate-responses-with-playbooks.md).
 
 For the complete specification of the Microsoft Sentinel connector, see the [Logic Apps connector documentation](/connectors/azuresentinel/).
+
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 ## Authentication
 

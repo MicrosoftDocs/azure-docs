@@ -1,15 +1,20 @@
 ---
 title: Migrate your Microsoft Sentinel alert-trigger playbooks to automation rules | Microsoft Docs
 description: This article explains how (and why) to take your existing playbooks built on the alert trigger and migrate them from being invoked by analytics rules to being invoked by automation rules.
-author: yelevin
-ms.author: yelevin
 ms.topic: how-to
-ms.date: 05/09/2023
+author: batamig
+ms.author: bagol
+ms.date: 03/14/2024
+appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+ms.collection: usx-security
+
 ---
 
 # Migrate your Microsoft Sentinel alert-trigger playbooks to automation rules
 
 This article explains how (and why) to take your existing playbooks built on the alert trigger and migrate them from being invoked by **analytics rules** to being invoked by **automation rules**.
+
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 ## Why migrate
 

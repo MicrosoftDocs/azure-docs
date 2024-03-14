@@ -1,10 +1,13 @@
 ---
 title: Add advanced conditions to Microsoft Sentinel automation rules
 description: This article explains how to add complex, advanced "Or" conditions to automation rules in Microsoft Sentinel, for more effective triage of incidents.
-author: yelevin
-ms.author: yelevin
 ms.topic: how-to
-ms.date: 05/09/2023
+author: batamig
+ms.author: bagol
+ms.date: 03/14/2024
+appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+ms.collection: usx-security
+
 ---
 
 # Add advanced conditions to Microsoft Sentinel automation rules
@@ -30,6 +33,8 @@ Condition groups can contain two levels of conditions:
     - and so on.
 
 You can see that this capability affords you great power and flexibility in determining when rules will run. It can also greatly increase your efficiency by enabling you to combine many old automation rules into one new rule.
+
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 ## Add a condition group
 

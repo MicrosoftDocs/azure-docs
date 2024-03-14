@@ -1,10 +1,13 @@
 ---
 title: Use triggers and actions in Microsoft Sentinel playbooks | Microsoft Docs
 description: Learn in greater depth how to give your playbooks access to the information in your Microsoft Sentinel alerts and incidents and use that information to take remedial actions.
-author: yelevin
 ms.topic: how-to
-ms.date: 11/09/2021
-ms.author: yelevin
+author: batamig
+ms.author: bagol
+ms.date: 03/14/2024
+appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+ms.collection: usx-security
+
 ---
 
 # Use triggers and actions in Microsoft Sentinel playbooks
@@ -16,6 +19,8 @@ This document, along with our guide to [Authenticating playbooks to Microsoft Se
 For an introduction to playbooks, see [Automate threat response with playbooks in Microsoft Sentinel](automate-responses-with-playbooks.md).
 
 For the complete specification of the Microsoft Sentinel connector, see the [Logic Apps connector documentation](/connectors/azuresentinel/).
+
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 ## Permissions required
 

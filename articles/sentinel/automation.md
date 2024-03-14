@@ -1,15 +1,20 @@
 ---
 title: Introduction to automation in Microsoft Sentinel | Microsoft Docs
 description: This article introduces the Security Orchestration, Automation, and Response (SOAR) capabilities of Microsoft Sentinel and describes its SOAR components - automation rules and playbooks.
-author: yelevin
 ms.topic: conceptual
-ms.date: 11/09/2021
-ms.author: yelevin
+author: batamig
+ms.author: bagol
+ms.date: 03/14/2024
+appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+ms.collection: usx-security
+
 ---
 
 # Security Orchestration, Automation, and Response (SOAR) in Microsoft Sentinel
 
 This article describes the Security Orchestration, Automation, and Response (SOAR) capabilities of Microsoft Sentinel, and shows how the use of automation rules and playbooks in response to security threats increases your SOC's effectiveness and saves you time and resources.
+
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 ## Microsoft Sentinel as a SOAR solution
 
