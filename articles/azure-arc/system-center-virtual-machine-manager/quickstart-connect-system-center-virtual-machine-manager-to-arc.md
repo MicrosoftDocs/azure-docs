@@ -68,7 +68,7 @@ This Quickstart shows you how to connect your SCVMM management server to Azure A
 
 Follow these instructions to run the script on a Windows machine.
 
-1. Open a new PowerShell window as Administrator and verify if Azure CLI is successfully installed in the workstation, use the following command:
+1. Open a new PowerShell window as Administrator and verify if Azure CLI is successfully installed in the workstation, and use the following command:
     ```azurepowershell-interactive
     az
     ```
