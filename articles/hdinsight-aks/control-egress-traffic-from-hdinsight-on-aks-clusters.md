@@ -248,12 +248,12 @@ The private FQDN is only for private cluster, recorded as A-RECORD in private DN
 
 ### Reference
 
-- [Azure virtual network traffic routing | Microsoft Learn](../azure/virtual-network/virtual-networks-udr-overview.md).
+- [Azure virtual network traffic routing](https://learn.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
 
-- [Azure Virtual Network peering | Microsoft Learn](..azure/virtual-network/virtual-network-peering-overview.md).
+- [Azure Virtual Network peering](https://learn.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 
-- [Outbound traffic on HDInsight on AKS - Azure HDInsight on AKS |  Microsoft Learn.](./required-outbound-traffic.md)
+- [Outbound traffic on HDInsight on AKS - Azure HDInsight on AKS](./required-outbound-traffic.md)
 
-- [Outbound network and FQDN rules for Azure Kubernetes Service (AKS) clusters - Azure Kubernetes Service | Microsoft Learn](../azure/outbound-rules-control-egres.mds#azure-global-required-network-rules).
+- [Outbound network and FQDN rules for Azure Kubernetes Service (AKS) clusters - Azure Kubernetes Service](https://learn.microsoft.com/azure/aks/outbound-rules-control-egress#azure-global-required-network-rules).
 
 
