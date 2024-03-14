@@ -55,7 +55,7 @@ A public IP created by HDInsight on AKS, and it's an AKS-managed resource, which
 
 When clusters are created, then certain ingress public IPs also get created.  
 
-To allow requests to be sent to the cluster, you need to [allowlist the traffic](./secure-traffic-by-nsg#inbound-security-rules-ingress-traffic). You can also configure certain [rules in the NSG ](./secure-traffic-by-nsg#inbound-security-rules-ingress-traffic) to do a coarse-grained control. 
+To allow requests to be sent to the cluster, you need to [allowlist the traffic](./secure-traffic-by-nsg.md#inbound-security-rules-ingress-traffic). You can also configure certain [rules in the NSG ](./secure-traffic-by-nsg.md#inbound-security-rules-ingress-traffic) to do a coarse-grained control. 
 
 ### Outbound with user defined routing 
 
@@ -252,7 +252,7 @@ The private FQDN is only for private cluster, recorded as A-RECORD in private DN
 
 - [Azure Virtual Network peering | Microsoft Learn](https://learn.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 
-- [Outbound traffic on HDInsight on AKS - Azure HDInsight on AKS |  Microsoft Learn.](./required-outbound-traffic)
+- [Outbound traffic on HDInsight on AKS - Azure HDInsight on AKS |  Microsoft Learn.](./required-outbound-traffic.md)
 
 - [Outbound network and FQDN rules for Azure Kubernetes Service (AKS) clusters - Azure Kubernetes Service | Microsoft Learn](https://learn.microsoft.com/azure/aks/outbound-rules-control-egress#azure-global-required-network-rules).
 
