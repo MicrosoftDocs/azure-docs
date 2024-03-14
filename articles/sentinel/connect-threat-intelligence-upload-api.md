@@ -8,7 +8,7 @@ ms.date: 3/14/2024
 ms.author: austinmc
 appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
 ms.collection: usx-security
-#customer intent: As a SOC admin, I want to use a Threat Intelligence Platform solution to ingest threat intelligence, so I can generate alerts incidents.
+#customer intent: As a SOC admin, I want to connect my Threat Intelligence Platform with the upload indicators API to ingest threat intelligence, so I can utilize the benefits of this updated API.
 ---
 
 # Connect your threat intelligence platform to Microsoft Sentinel with the upload indicators API
@@ -32,7 +32,9 @@ Many organizations use threat intelligence platform (TIP) solutions to aggregate
 - The Microsoft Entra application must be granted the Microsoft Sentinel contributor role at the workspace level.
 
 ## Instructions
+
 Follow these steps to import threat indicators to Microsoft Sentinel from your integrated TIP or custom threat intelligence solution:
+
 1. Register a Microsoft Entra application and record its application ID.
 1. Generate and record a client secret for your Microsoft Entra application.
 1. Assign your Microsoft Entra application the Microsoft Sentinel contributor role or equivalent.
@@ -41,7 +43,7 @@ Follow these steps to import threat indicators to Microsoft Sentinel from your i
 
 <a name='register-an-azure-ad-application'></a>
 
-### Register a Microsoft Entra application
+## Register a Microsoft Entra application
 
 The [default user role permissions](../active-directory/fundamentals/users-default-permissions.md#restrict-member-users-default-permissions) allow users to create application registrations. If this setting has been switched to **No**, you'll need permission to manage applications in Microsoft Entra ID. Any of the following Microsoft Entra roles include the required permissions:
 - Application administrator
@@ -52,7 +54,7 @@ For more information on registering your Microsoft Entra application, see [Regis
 
 Once you've registered your application, record its Application (client) ID from the application's **Overview** tab.
 
-### Generate and record client secret
+## Generate and record client secret
 
 Now that your application has been registered, generate and record a client secret.
 
@@ -60,7 +62,8 @@ Now that your application has been registered, generate and record a client secr
 
 For more information on generating a client secret, see [Add a client secret](../active-directory/develop/quickstart-register-app.md#add-a-client-secret).
 
-### Assign a role to the application
+## Assign a role to the application
+
 The upload indicators API ingests threat indicators at the workspace level and allows a least privilege role of Microsoft Sentinel contributor.
 
 1. From the Azure portal, go to Log Analytics workspaces.
@@ -75,7 +78,7 @@ The upload indicators API ingests threat indicators at the workspace level and a
 
 For more information on assigning roles to applications, see [Assign a role to the application](../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application).
 
-### Enable the Threat Intelligence upload indicators API data connector in Microsoft Sentinel
+## Enable the Threat Intelligence upload indicators API data connector in Microsoft Sentinel
 
 Enable the **Threat Intelligence Upload Indicators API** data connector to allow Microsoft Sentinel to receive threat indicators sent from your TIP or custom solution. These indicators are available to the Microsoft Sentinel workspace you configure.
 
@@ -91,7 +94,7 @@ Enable the **Threat Intelligence Upload Indicators API** data connector to allow
 
     :::image type="content" source="media/connect-threat-intelligence-upload-api/upload-api-data-connector.png" alt-text="Screenshot displaying the data connectors page with the upload API data connector listed." lightbox="media/connect-threat-intelligence-upload-api/upload-api-data-connector.png":::
 
-### Configure your TIP solution or custom application
+## Configure your TIP solution or custom application
 
 The following configuration information required by the upload indicators API:
 - Application (client) ID
