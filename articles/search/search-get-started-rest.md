@@ -19,7 +19,7 @@ ms.custom:
 
 Learn how to use the [Search REST APIs](/rest/api/searchservice) to create, load, and query a search index in Azure AI Search. 
 
-[Download a REST sample](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/quickstart) to send the requests in this quickstart, or create requests manually using the instructions in this article.
+[Download a REST sample](https://github.com/Azure-Samples/azure-search-rest-samples/tree/main/Quickstart) to send the requests in this quickstart, or create requests manually using the instructions in this article.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -56,7 +56,7 @@ If you're not familiar with the REST client for Visual Studio Code, this section
 1. Paste in the following example. Replace the base URL and API key with the values you copied earlier.
 
    ```http
-   @baseUrl = https://PUT-YOUR-SERVICE-NAME-HERE.search.windows.net
+   @baseUrl = PUT-YOUR-SEARCH-SERVICE-ENDPOINT-HERE
    @apiKey = PUT-YOUR-API-KEY-HERE
     
     ### List existing indexes by name
@@ -322,7 +322,14 @@ When you're working in your own subscription, it's a good idea at the end of a p
 
 You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
 
-On a free service, remember the limitation of three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit.
+You can also try this DELETE command:
+
+```http
+### Delete an index
+DELETE  {{baseUrl}}/indexes/hotels-quickstart?api-version=2023-11-01 HTTP/1.1
+    Content-Type: application/json
+    api-key: {{apiKey}}
+```
 
 ## Next steps
 

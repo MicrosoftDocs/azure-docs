@@ -30,6 +30,10 @@ After you add the environment variables, you might need to restart any programs 
 
 #### [Linux](#tab/linux)
 
+##### Bash
+
+Edit your *.bashrc* file, and add the environment variables:
+
 ```bash
 export SPEECH_KEY=your-key
 export SPEECH_REGION=your-region

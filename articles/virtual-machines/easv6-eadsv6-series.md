@@ -9,7 +9,7 @@ ms.topic:    conceptual
 ms.date:     01/29/2024
 ---
 
-# Easv6 and Eadsv6-series
+# Easv6 and Eadsv6-series (Preview)
 
 **Applies to:** ✔️ Linux VMs ✔️ Windows VMs ✔️ Flexible scale sets ✔️ Uniform scale sets 
 
@@ -19,7 +19,7 @@ ms.date:     01/29/2024
 The Easv6-series and Eadsv6-series utilize AMD's 4th Generation EPYC<sup>TM</sup> 9004 processor in a multi-threaded configuration with up to 320 MB L3 cache, increasing customer options for running most memory optimized workloads. The Easv6-series VMs are ideal for memory-intensive enterprise applications, data warehousing, business intelligence, in-memory analytics, and financial transactions. 
 
 > [!NOTE]
-> The new Easv6 and Eadsv6 VM series will only work on OS images that are tagged with NVMe support.  If your current OS image is not supported for NVMe, you’ll see an error message. NVMe support is available in 50+ of the most popular OS images, and we continuously improve the OS image coverage. Please refer to our up-to-date [lists](https://learn.microsoft.com/azure/virtual-machines/enable-nvme-interface) for information on which OS images are tagged as NVMe supported.  For more information on NVMe enablement, see our [FAQ](https://learn.microsoft.com/azure/virtual-machines/enable-nvme-faqs).
+> The new Easv6 and Eadsv6 VM series will only work on OS images that are tagged with NVMe support.  If your current OS image is not supported for NVMe, you’ll see an error message. NVMe support is available in 50+ of the most popular OS images, and we continuously improve the OS image coverage. Please refer to our up-to-date [lists](./enable-nvme-interface.md) for information on which OS images are tagged as NVMe supported.  For more information on NVMe enablement, see our [FAQ](./enable-nvme-faqs.yml).
 >
 > The new Easv6 and Eadsv6 VM series virtual machines public preview now available. For more information and to sign up for the preview, please visit our [announcement](https://techcommunity.microsoft.com/t5/azure-compute-blog/public-preview-new-amd-based-vms-with-increased-performance/ba-p/3981351) and follow the link to the [sign-up form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR9RmLSiOpIpImo4Q01A_jJlUM1ZSRVlYU04wMUJQVjNQRFZHQzdEVFc1VyQlQCN0PWcu). This is an opportunity to experience our latest innovation. 
 
