@@ -90,8 +90,7 @@ If you would like to submit an idea or request for deployment safeguards, open a
 
 >[!NOTE]
 > If you have enabled Azure Policy for the first time to use deployment safeguards, you may need to wait up to 35 minutes for Azure Policy to take effect.
-
->[!NOTE]
+>
 > By using deployment safeguards `Enforcement` mode, you are opting in to your deployments being blocked as well. Please be aware of how these policies will work with your AKS cluster before you enable `Enforcement`.
 
 To enable deployment safeguards on a new cluster, include the `--safeguards-level` flag when you create the cluster.
@@ -150,9 +149,7 @@ Error from server (Forbidden): error when creating ".\pod.yml": admission webhoo
 
 To verify deployment safeguards have been applied and to check on your cluster's compliance, navigate to the Azure portal page for your cluster and select **Policies**, then select **go to Azure Policy**.
 
-From the list of policies and initiatives, select the initiative associated with deployment safeguards.
-
-You'll see a dashboard showing compliance state across your AKS cluster.
+From the list of policies and initiatives, select the initiative associated with deployment safeguards. You'll see a dashboard showing compliance state across your AKS cluster.
 
 > [!NOTE]
 > To properly assess compliance across your AKS cluster, the Azure Policy initiative must be scoped to your cluster's resource group.
