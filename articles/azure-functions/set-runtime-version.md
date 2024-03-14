@@ -25,7 +25,7 @@ During local development, your installed version of Azure Functions Core Tools m
 
 ## Update your runtime version
 
-When possible, you should always run your function apps on the latest supported version of the Azure Functions runtime. If your function app is currently running on a older version of the runtime, you should migrate your app to version 4.x
+When possible, you should always run your function apps on the latest supported version of the Azure Functions runtime. If your function app is currently running on an older version of the runtime, you should migrate your app to version 4.x
 
 [!INCLUDE [functions-migrate-apps](../../includes/functions-migrate-apps.md)]
 
