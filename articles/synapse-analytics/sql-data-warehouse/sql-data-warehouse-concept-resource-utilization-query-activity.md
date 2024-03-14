@@ -53,7 +53,7 @@ To view the list of DMVs that apply to Synapse SQL, review [dedicated SQL pool D
 
 > [!NOTE]
 > You need to resume your dedicated SQL Pool to monitor the queries using the Query activity tab.
-> The Query activity tab cannot be used to view historical executions. To check the query history, it is recommended to enable [diagnostics](https://learn.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-monitor-workload-portal) to export the available DMVs to one of the available destinations (such as Log Analytics) for future reference. By design, DMVs contain records of the last 10,000 executed queries only. Once this limit is reached, the DMV data will be flushed, and new records will be inserted. Additionally, after any pause, resume, or scale operation, the DMV data will be cleared."
+> The **Query activity** tab cannot be used to view historical executions. To check the query history, it is recommended to enable [diagnostics](sql-data-warehouse-monitor-workload-portal.md) to export the available DMVs to one of the available destinations (such as Log Analytics) for future reference. By design, DMVs contain records of the last 10,000 executed queries only. Once this limit is reached, the DMV data will be flushed, and new records will be inserted. Additionally, after any pause, resume, or scale operation, the DMV data will be cleared.
 
 ## Metrics and diagnostics logging
 
