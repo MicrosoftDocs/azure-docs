@@ -7,10 +7,10 @@ manager: femila
 ms.service: notification-hubs
 ms.tgt_pltfrm: mobile-multiple
 ms.topic: article
-ms.date: 12/06/2023
+ms.date: 03/14/2024
 ms.author: sethm
 ms.reviewer: heathertian
-ms.lastreviewed: 12/06/2023
+ms.lastreviewed: 03/14/2024
 ---
 
 # Web push notifications with Azure Notification Hubs (preview)
@@ -25,6 +25,7 @@ At a high level, the process is:
 1. [Set credentials](#set-credentials):
    - [In the Azure portal](#set-credentials-in-azure-portal)
    - [Using the REST API](#set-credentials-using-rest-api)
+   - [Using the Azure SDKs](#set-credentials-using-azure-sdks)
 
 2. [Create registrations and installations](#create-registrations-and-installations).
 
@@ -107,6 +108,27 @@ Enter the credentials in this format, providing the subscription ID, resource gr
 https://management.azure.com/subscriptions/{subcription}/resourceGroups/{resource-group}/providers/Microsoft.NotificationHubs/namespaces/{namespace}/notificationHubs/{hub}api-version=2016-03-01
 ```
 
+### Set credentials using Azure SDKs
+
+You can set the credentials for Browser Push using the Azure SDKs. Here's an example using the .NET SDK:
+
+```csharp
+var browserCreds = new BrowserCredential 
+{ 
+    Subject = "<subject>", 
+    VapidPublicKey = "<vapid public key>", 
+    VapidPrivateKey = "<vapid private key>", 
+} 
+
+and:
+
+```csharp
+await nhManagementClient.NotificationHubs.CreateOrUpdateAsync(config.ResourceGroupName, config.NamespaceName, config.HubName, new NotificationHubCreateOrUpdateParameters(config.Location) 
+{ 
+   BrowserCredential = browserCreds 
+});
+```
+
 ## Create registrations and installations
 
 Bulk sends require registrations or installations. You can also use the registrations and installations in debug sends.
@@ -149,21 +171,19 @@ The following examples show the registration request body for a native registrat
 }   
 ```
 
-### .NET SDK
-
-Create native registrations:
+### Create native registrations (SDK)
 
 ```csharp
 await notificationHubClient.CreateBrowserNativeRegistrationAsync(subscriptionInfo, tagSet);
 ```
 
-Create template registrations:
+### Create template registrations (SDK)
 
 ```csharp
 await notificationHubClient.CreateBrowserTemplateRegistrationAsync(subscriptionInfo, template, tagSet);
 ```
 
-Create browser installations:
+### Create browser installations (SDK)
 
 ```csharp
 var browserPushSubscription = new BrowserPushSubscription 
