@@ -364,21 +364,41 @@ You can see the run history for playbooks on an alert by selecting the **Runs** 
 
 ### Run a playbook manually on an incident (Preview)
 
-<!--add new functionality details-->
+This procedure differs slightly, depending on if you're working in Microsoft Sentinel or in the Defender portal. Select the relevant tab for your environment.
 
-1. In the **Incidents** page, select an incident. 
+# [Microsoft Sentinel](#tab/-sentinel)
+
+1. In the **Incidents** page, select an incident.
 
 1. From the incident details pane that appears on the right, select **Actions > Run playbook (Preview)**.  
     (Selecting the three dots at the end of the incident's line on the grid or right-clicking the incident will display the same list as the **Action** button.)
 
 1. The **Run playbook on incident** panel opens on the right. You'll see a list of all playbooks configured with the **Microsoft Sentinel Incident** Logic Apps trigger that you have access to.
 
-   > [!NOTE]
-   > If you don't see the playbook you want to run in the list, it means Microsoft Sentinel doesn't have permissions to run playbooks in that resource group ([see the note above](#explicit-permissions)). To grant those permissions, select **Settings** from the main menu, choose the **Settings** tab, expand the **Playbook permissions** expander, and select **Configure permissions**. In the **Manage permissions** panel that opens up, mark the check boxes of the resource groups containing the playbooks you want to run, and select **Apply**.
+   If you don't see the playbook you want to run in the list, it means Microsoft Sentinel doesn't have permissions to run playbooks in that resource group ([see the note above](#explicit-permissions)).
+
+    To grant those permissions, select **Settings** > **Settings** > **Playbook permissions** > **Configure permissions**. In the **Manage permissions** panel that opens up, mark the check boxes of the resource groups containing the playbooks you want to run, and select **Apply**.
 
 1. Select **Run** on the line of a specific playbook to run it immediately.
 
-You can see the run history for playbooks on an incident by selecting the **Runs** tab on the **Run playbook on incident** panel. It might take a few seconds for any just-completed run to appear in the list. Selecting a specific run will open the full run log in Logic Apps.
+# [Microsoft Defender portal](#tab/microsoft-defender)
+
+1. In the **Incidents** page, select an incident.
+
+1. From the incident details pane that appears on the right, select **Run Playbook**.
+
+1. The **Run playbook on incident** panel opens on the right, with all related playbooks for the selected incident. In the **Action** column, select **Run playbook** for the playbook you want to run immediately.
+
+The **Actions** column might also show one of the following statuses:
+
+|Status  |Description and action required |
+|---------|---------|
+|**Missing permissions**     | You're missing the required permissions to run playbooks. For more information, see [Required Azure roles to run playbooks](#required-azure-roles-to-run-playbooks). We recommend that you contact an admin user to grant you the relevant permissions.      |
+|**Grant permission**     | Microsoft Sentinel is missing the required permissions to run playbooks on incidents ([see the note above](#explicit-permissions)). In such cases, select **Grant permission** to open the **Manage permissions** pane. The **Manage permissions** pane is filtered by default to the selected playbook's resource group. Select the resource group and then select **Apply** to grant the required permissions. <br><br>If you don't have required permissions to complete this action, we recommend you contact an admin user to grant you the relevant permissions.        |
+
+---
+
+View the run history for playbooks on an incident by selecting the **Runs** tab on the **Run playbook on incident** panel. It might take a few seconds for any just-completed run to appear in the list. Selecting a specific run will open the full run log in Logic Apps.
 
 ### Run a playbook manually on an entity (Preview)
 
