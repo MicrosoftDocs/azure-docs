@@ -23,19 +23,20 @@ In this article, you learn how to enable and access resiliency reviews prepared 
 ## Terminology
 
 * *Triage* means to accept or reject a recommendation.
-* *Manage recommendation lifecycle* means to mark a recommendation as completed, postponed,  dismissed, in progress, or not started.
+* *Manage recommendation lifecycle* means to mark a recommendation as completed, postponed or  dismissed, in progress, or not started. You can only manage a recommendation if it has been accepted.
 
 ## How it works
 
 After you request a review, Microsoft Cloud Solution Architect engineers perform extensive analysis, curate the list of prioritized recommendations, and publish a resiliency review. You triage the recommendations and implement them. Your Microsoft account team works with you to facilitate the process.
 
-The following table defines the roles and the access they have within Advisor:
+The following table defines the responsible parties for Advisor actions:
 
 | **Responsibility** | **Description** |
 |---|:---:|
 |Request a resiliency review|Customer via your Customer Success Account Manager or aligned Cloud Solution Architect.|
 |Analyze workload configuration, perform the review via the Well Architected Reliability Assessment and prepare recommendations|Microsoft account team. Team members include Account Managers, Engineers, and Cloud Solution Architects. |
 |Triage recommendations to accept or reject them.|Customer. Triage is done by team members who have authority to make decisions about workload optimization priorities.|
+|Manage recommendations' lifecycle.|Customer. Setting the status of accepted recommendation as completed, postponed or  dismissed, in progress, or not started.|
 |Implement recommendations that were accepted|Customer. Implementation is done by engineers who are responsible for managing resources and their configuration.|
 |Facilitate implementation|Microsoft account team via your support contract.|
 
@@ -87,6 +88,9 @@ Select **Manage** > **Reviews (Preview)** in the left navigation pane. A list of
 
 At the top of the reviews page, use **Feedback** to tell us about your experience. Use the **Refresh** button to refresh the page as needed.
 
+[!NOTE]
+If you have no reviews, the **Reviews** menu itemin the left navigation is greyed out.
+
 ### Review recommendations
 
 The triage process includes reviewing recommendations and making decisions on which to implement. Use *Accept* and *Reject* actions to capture your decision. Accepted recommendations are available to your engineering team under the Advisor **Reliability** menu item.
@@ -122,8 +126,6 @@ From a review recommendations details page:
 :::image type="content" source="./media/resiliency-reviews/resiliency-review-recommendation-list-accepted-m.png" alt-text="Screenshot of the Azure Advisor Resiliency Reviews recommendation list page of accepted recommendations." lightbox="./media/resiliency-reviews/resiliency-review-recommendation-list-accepted-m.png":::
 1. If you accepted a recommendation by mistake, use **Reset** to move it back to the pending state.
 
-
-
 ### Reject recommendations
 
 1. You can reject a recommendation if you disagree with it.
@@ -139,7 +141,9 @@ The reason for the rejection is visible to your account team. It helps them unde
 
 ## Implement recommendations
 
-Once review recommendations are triaged, all recommendations with *Accepted* status become available for action through the **Reliability** pages. Typically, an engineer on your team acts on the recommendations.
+Once review recommendations are triaged, all recommendations with *Accepted* status become available on the Advisor **Reliability** page with links to the resources needing action. Typically, an engineer on your team implements the recommendations by going to the resource page and making the recommended change.
+
+For definitions on recommendation states, see [Terminology](#terminology)
 
 ### Prerequisites to implement recommendations
 
@@ -170,12 +174,12 @@ The options in the **Reliability** recommendations detail differ from those in t
 
 For details on recommendation priority, see [Recommendation priority](#recommendation-priority).
 
-### Manage recommendation status
+### Manage recommendation lifecycle
 
-Recommendation status is a valuable indicator for determining what actions need to be taken. 
+Recommendation status is a valuable indicator for determining what actions need to be taken.
 
-* Once you begin to act on a recommendation, mark it as *In progress*.
-* Update the status to *Completed* once the action is taken. When all recommendations in a review are marked as *Completed*, the review is marked as *Completed* on the **Review** page. 
+* Once you begin to implement a recommendation, mark it as *In progress*.
+* Once the recommendation is implemented, the recommended action is taken, update the status to *Completed*. When all recommendations in a review are marked as *Completed*, the review is marked as *Completed* on the **Review** page.
 * You can also postpone the recommendation for action later.
 * You can dismiss a recommendation if you don't plan to implement it. If you dismiss the recommendation, you must give a reason, just as you must give a reason if you reject a recommendation in a review.
 
