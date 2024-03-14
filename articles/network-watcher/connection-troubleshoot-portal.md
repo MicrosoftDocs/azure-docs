@@ -61,8 +61,8 @@ In this section, you test the connectivity over RDP from one virtual machine to 
     The test results show that the two virtual machines are communicating with no issues. 
 
     - 66 probes were successfully sent with average latency of 2 ms. Select **See details** to see the next hop details.
-    - Outbound connectivity from the source virtual machine is allowed. Select **See details** to see the security rule(s) allowing the communication.
-    - Inbound connectivity to the destination virtual machine is allowed. Select **See details** to see the security rule(s) allowing the communication.
+    - Outbound connectivity from the source virtual machine is allowed. Select **See details** to see the security rules that are allowing the communication.
+    - Inbound connectivity to the destination virtual machine is allowed. Select **See details** to see the security rules that are allowing the communication.
     - Azure default system route is used to route traffic between the two virtual machines (Route table ID: System route).
     - Port 3389 is open on the destination virtual machine.
 
@@ -97,8 +97,8 @@ In this section, you test connectivity between two virtual machines that have a 
     The test results show that the destination virtual machine isn't reachable (the two virtual machines aren't communicating):
 
     - 30 probes failed.
-    - Outbound connectivity from the source virtual machine is allowed. Select **See details** to see the security rule(s) allowing the communication.
-    - Inbound connectivity to the destination virtual machine is allowed. Select **See details** to see the security rule(s) allowing the communication.
+    - Outbound connectivity from the source virtual machine is allowed. Select **See details** to see the security rules that are allowing the communication.
+    - Inbound connectivity to the destination virtual machine is allowed. Select **See details** to see the security rules that are allowing the communication.
     - Azure default system route is used to route traffic between the two virtual machines (Route table ID: System route).
     - Port 22 on the destination virtual machine isn't accessible.
 
