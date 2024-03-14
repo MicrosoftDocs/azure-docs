@@ -306,8 +306,6 @@
         - name: Integrate security solutions
           displayName: security, solutions, integrate, integrated, data sources
           href: partner-integration.md
-        - name: Enable Permissions Management
-          href: enable-permissions-management.md
     - name: Data-aware security posture
       items:
         - name: Enable data-aware security posture
