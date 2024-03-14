@@ -27,7 +27,7 @@ On March 31, 2027, Azure will retire the Msv2 and Mdsv2-series Medium Memory vir
    - Standard_M192ids_v2 
    - Standard_M192idms_v2 
 
-From now to March 31, 2027, you can continue to use the VMs listed without disruption. On March 31, 2027, the remaining VMs with these specific sizes on your subscription will be set to a deallocated state. These VMs will be stopped and removed from the host. These VMs will no longer be billed in the deallocated state. To avoid service disruptions, rrefer to the instructions listed to migrate to your selected Mv3 replacement size by March 31, 2027.   
+From now to March 31, 2027, you can continue to use the VMs listed without disruption. On March 31, 2027, the remaining VMs with these specific sizes on your subscription will be set to a deallocated state. These VMs will be stopped and removed from the host. These VMs will no longer be billed in the deallocated state. To avoid service disruptions, refer to the instructions listed to migrate to your selected Mv3 replacement size by March 31, 2027.   
 
 #### Migrate workloads to Mv3 Medium Memory Series VMs 
 
@@ -41,13 +41,13 @@ Follow the instructions listed to migrate your [M192i(d)(m)s VM](/azure/virtual-
 
 2. [Get quota for the target VM series](/azure/quotas/per-vm-quota-requests). 
 
-3. Check whether the existing M192i(d)(m)s_v2 VM is part of an [Availability Set](/azure/virtual-machines/availability-set-overview) or [Proximity Placement Group](/azure/virtual-machines/co-location), which canverified in Azure Portal in the VM properties. 
+3. Check whether the existing M192i(d)(m)s_v2 VM is part of an [Availability Set](/azure/virtual-machines/availability-set-overview) or [Proximity Placement Group](/azure/virtual-machines/co-location), which can be verified in Azure portal in the VM properties. 
 
-4. If the VM is not part of an Availability Set nor a Proximity Placement Group, [it can be resized](/azure/virtual-machines/resize-vm?tabs=portal).   
+4. If the VM isn't part of an Availability Set nor a Proximity Placement Group, [it can be resized](/azure/virtual-machines/resize-vm?tabs=portal).   
 
-5. If the VM is not part of an Availability Set, but is part of a Proximity Placement Group, you need to shut down all VMs in the PPG, [resize](/azure/virtual-machines/resize-vm?tabs=portal) then restart the M192i(d)(m)s_v2 VMs, then restart the other VMs in the PPG. 
+5. If the VM isn'tt part of an Availability Set, but is part of a Proximity Placement Group, you need to shut down all VMs in the PPG, [resize](/azure/virtual-machines/resize-vm?tabs=portal) then restart the M192i(d)(m)s_v2 VMs, then restart the other VMs in the PPG. 
 
-6. If the VM is part of an Availability Set, check your records to determine whether you asked Microsoft to pin the Availability Set to a specific M-series compute cluster for proximity purposes (for example, to collocate with services like NFS shares hosted on Azure NetApp Files). If you are not sure about pinning having taken place, open an [Azure Support Request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) to confirm. 
+6. If the VM is part of an Availability Set, check your records to determine whether you asked Microsoft to pin the Availability Set to a specific M-series compute cluster for proximity purposes (for example, to collocate with services like NFS shares hosted on Azure NetApp Files). If you aren't sure about pinning having taken place, open an [Azure Support Request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) to confirm. 
 
 7. If your VM is part of a non-pinned Availability Set, you need to shut down all VMs in that particular Availability Set and go through the [resize procedure](/azure/virtual-machines/resize-vm?tabs=portal) for every single VM of the Availability Set. 
 
@@ -58,7 +58,7 @@ Follow the instructions listed to migrate your [M192i(d)(m)s VM](/azure/virtual-
 
        - [How to Migrate a Highly Available SAP System in Azure from Availability Set to Availability Zone](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/main/Move-VM-from-AvSet-to-AvZone/Move-Regional-SAP-HA-To-Zonal-SAP-HA-WhitePaper) 
 
-9. If your VM is part of a pinned Availability set or if you cannot switch your availability option to Availability Zone (as recommended above), open an Azure Support request to assist with resizing.   
+9. If your VM is part of a pinned Availability set or if you can't switch your availability option to Availability Zone (as recommended above), open an Azure Support request to assist with resizing.   
 
 ### Help and support 
 
