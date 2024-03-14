@@ -11,32 +11,32 @@ ms.custom: devdivchpfy22
 
 # Azure Lab Services - Administrator guide
 
-Information technology (IT) administrators who manage a university's cloud resources are ordinarily responsible for setting up the lab plan for their school. After they set up a lab plan, administrators or educators create the labs that are associated with the lab plan. This article provides a high-level overview of the Azure resources that are involved and the guidance for creating them.
+Information technology (IT) administrators who manage a university's cloud resources are ordinarily responsible for setting up the lab plan for their school. After they set up a lab plan, administrators or educators create labs that are associated with the lab plan. This article provides a high-level overview of the Azure resources that are involved and guidance to create them.
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
-Depending on the settings for creating a lab plan, some resources are either hosted in your subscription or in a subscription managed by Azure Lab Services.
+Depending on the settings for a lab plan, some resources are either hosted in your subscription or in a subscription managed by Azure Lab Services.
 
 - Lab VMs are hosted in an Azure subscription that Azure Lab Services owns.
 - Lab plans, labs, compute galleries, and image versions and are hosted within your subscription.
 - The virtual network and network-related resources for lab VMs are hosted within your subscription, if you use advanced networking. Otherwise, the virtual network is hosted in a subscription managed by Azure Lab Services.
-- You can have your lab plans, labs, and the compute galleries in the same or different resource group.
+- You can have your lab plans, labs, and the compute galleries in the same resource group or different resource groups.
 
 > [!NOTE]
 > If you're still using lab accounts, see [Administrator guide when using lab accounts](administrator-guide-1.md).
 
-For more information about the architecture, see [Labs architecture fundamentals](./classroom-labs-fundamentals.md).
+For more information, see [Labs architecture fundamentals](./classroom-labs-fundamentals.md).
 
 ## Subscription
 
-Your university might have one or more Azure subscriptions. You use subscriptions to manage billing and security for all Azure resources and services that are used in it, including lab plans and labs.
+Your university might have one or more Azure subscriptions. You use subscriptions to manage billing and security for Azure resources and services that are used in it, including lab plans and labs.
 
 The relationship between a lab plan and its subscription is important because:
 
 - Billing is reported through the subscription that contains the lab plan.
 - You can grant users in the subscription's Microsoft Entra tenant the ability to manage Azure Lab Services lab plans and labs. You can add someone as a lab plan owner, lab plan contributor, lab creator, or lab owner. For more information about built-in RBAC roles, see [Manage identity](#rbac-roles).
 
-Labs virtual machines (VMs) are managed and hosted for you in a subscription that Azure Lab Services owns.
+Labs Services virtual machines (VMs) are managed and hosted for you in a subscription that Azure Lab Services owns.
 
 ## Resource group
 
@@ -76,7 +76,7 @@ A lab contains VMs that are each assigned to a single student. In general, you c
 
 When you determine how to structure your labs, consider the following points:
 
-- **All VMs within a lab are deployed with the same image that's published.**
+- **All VMs within a lab are deployed with the same image that's published**
 
   As a result, if you have a class that requires different lab images to be published at the same time, you must create a separate lab for each image.
   
@@ -92,11 +92,11 @@ By default, each lab has its own virtual network. If you use [advanced networkin
 
 ## Azure Compute Gallery
 
-An Azure Compute Gallery is attached to a lab plan. It serves as a central repository for storing images. An image is saved in the gallery when an educator exports it from a lab's template VM. Each time an educator changes a template VM and exports it, new image definitions or versions are created in the gallery.
+An Azure Compute Gallery is attached to a lab plan. It serves as a central repository for stored images. An image is saved in the gallery when an educator exports it from a lab's template VM. Each time an educator changes a template VM and exports it, new image definitions or versions are created in the gallery.
 
 Educators can publish an image version from the compute gallery when they create a new lab. Although the gallery stores multiple versions of an image, educators can select only the most recent version when they create a lab. The most recent version is chosen based on the highest value of MajorVersion, then MinorVersion, then Patch. For more information about versions, see [Image versions](../virtual-machines/shared-image-galleries.md#image-versions).
 
-The compute gallery is an optional resource. If you're starting with only a few labs, you might note need it immediately. A compute gallery offers many benefits that are helpful as you scale up to more labs:
+The compute gallery is an optional resource. If you start with only a few labs, you might not need it immediately. A compute gallery offers many benefits that are helpful as you scale up to more labs:
 
 - **You can save and manage versions of a template VM image**
 
@@ -124,7 +124,7 @@ As you get started with Azure Lab Services, we recommend that you establish nami
 | Resource group | Contains one or more lab plans, labs, or compute galleries. | rg-labs-{org-name}-{env}-{instance}, rg-labs-{dept-name}-{env}-{instance} | rg-labs-contoso-pilot, rg-labs--math-prod-001 |
 | Lab plan | Template for newly created labs. | lp-{org-name}-{env}-{instance}, lp-{dept-name}-{env}-{instance} | lp-contoso, lp-contoso-pilot, lp-math-001 |
 | Lab | Contains student VMs. | {class-name}-{time}-{educator} | CS101-Fall2021, CS101-Fall2021-JohnDoe |
-| Azure Compute Gallery | Contains VM image versions | sig-{org-name}-{env}-{instance}, sig-{dept-name}-{env}-{instance} | sig-contoso-001, sig-math-prod |
+| Azure Compute Gallery | Contains VM image versions. | sig-{org-name}-{env}-{instance}, sig-{dept-name}-{env}-{instance} | sig-contoso-001, sig-math-prod |
 
 In the proceeding table, the suggested name patterns use some terms and tokens:
 
@@ -132,7 +132,7 @@ In the proceeding table, the suggested name patterns use some terms and tokens:
 | ------------ | ---------- | ------- |
 | {org-name} | Token for organization short name with no spaces. | contoso |
 | {dept-name} | Token for short name of department in organization. | math, bio, cs |
-| {env} | Token for environment name | prod for production, pilot for small test |
+| {env} | Token for environment name. | prod for production, pilot for small test |
 | {instance} | Number to identify instance if multiple resources created. | 001, 123 |
 | {class-name} | Token for short name or code for class being supported. | CS101, BIO101 |
 | {educator} | Alias of educator running the lab. | johndoe |
@@ -149,14 +149,16 @@ When you set up your Azure Lab Services resources, you must provide a region or 
 
 - **Resource group**. The region specifies the datacenter where information about a resource group is stored. Azure resources can be in a different region than the resource group they're in.
 - **Lab plan**. A lab plan's location indicates the region that a resource exists in. When a lab plan is connected to your own virtual network, the network must be in the same region as the lab plan. Also, labs are created in the same Azure region as that virtual network.
-- **Lab**. The location that a lab exists in varies. It doesn't need to be in the same location as the lab plan. Administrators control which regions labs can be created in through the lab plan settings. As a general rule, set a resource's region to one that is closest to its users. For labs, this means creating the lab that is closest to your students. For courses whose students are located all over the world, try to create a lab that is centrally located or split the class into multiple labs according by regions.
+- **Lab**. The location that a lab exists in varies. It doesn't need to be in the same location as the lab plan. Administrators control which regions labs can be created in through the lab plan settings.
+
+  As a general rule, set a resource's region to one that is closest to its users. For labs, this means creating the lab that is closest to your students. For courses whose students are located all over the world, try to create a lab that is centrally located or split the class into multiple labs according by regions.
 
 > [!NOTE]
 > To help ensure that a region has sufficient VM capacity, first [request capacity](capacity-limits.md#request-a-limit-increase).
 
 ## VM sizing
 
-When administrators or lab creators create a lab, they can choose from various VM sizes, depending on the needs of their classroom. The availability of specific VM sizes depends on the region that your lab plan is located in. Learn how you can [request more capacity](./how-to-request-capacity-increase.md).
+When administrators or lab creators create a lab, they can choose from various VM sizes, depending on the needs of their classroom. The availability of specific VM sizes depends on the region where your lab plan is located. Learn how you can [request more capacity](./how-to-request-capacity-increase.md).
 
 For information on VM sizes and their cost, see the [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services/).
 
@@ -204,7 +206,7 @@ Azure Lab Services provides built-in Azure role-based access control (Azure RBAC
 
 ## Content filtering
 
-Your school might need to do content filtering to prevent students from accessing inappropriate websites. For example, to comply with the [Children's Internet Protection Act (CIPA)](https://www.fcc.gov/consumers/guides/childrens-internet-protection-act). Azure Lab Services doesn't offer built-in support for content filtering, and doesn't support network-level filtering.
+Your school might need to do content filtering to prevent students from accessing inappropriate websites. For example, you might need to comply with the [Children's Internet Protection Act (CIPA)](https://www.fcc.gov/consumers/guides/childrens-internet-protection-act). Azure Lab Services doesn't offer built-in support for content filtering, and doesn't support network-level filtering.
 
 Schools typically approach content filtering by installing non-Microsoft software that performs content filtering on each computer. To install content filtering software on each computer, you should install the software on each lab's template VM.
 
@@ -213,7 +215,7 @@ There are a few key points to highlight as part of this solution:
 - If you plan to use the [autoshutdown settings](./cost-management-guide.md#automatic-shutdown-settings-for-cost-control), you need to unblock several Azure host names with the non-Microsoft software. The autoshutdown settings use a diagnostic extension that must be able to communicate back to Lab Services. Otherwise, the autoshutdown settings fail to enable for the lab.
 - You might also want to have each student use an account that lacks administrator privileges on their VM so that they can't uninstall the content filtering software. Adding such an account must be done when creating the lab.
 
-Learn more about the [supported networking scenarios in Azure Lab Services](./concept-lab-services-supported-networking-scenarios.md), such as content filtering.
+For more information, see [supported networking scenarios in Azure Lab Services](./concept-lab-services-supported-networking-scenarios.md).
 
 If your school needs to do content filtering, contact us by using the [Azure Lab Services' Q&A](https://aka.ms/azlabs/questions) for more information.
 
