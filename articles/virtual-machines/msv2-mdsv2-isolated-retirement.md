@@ -37,7 +37,7 @@ Follow the instructions below to migrate your [M192i(d)(m)s VM](/azure/virtual-m
 
 ### Migration Steps 
 
-1. Choose a [series and size](/azure/virtual-machines/msv3-mdsv3-medium-series) for migration. Leverage the [pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/) for further insights. 
+1. Choose a [series and size](/azure/virtual-machines/msv3-mdsv3-medium-series) for migration. Leverage the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) for further insights. 
 
 2. [Get quota for the target VM series](/azure/quotas/per-vm-quota-requests). 
 
