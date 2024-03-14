@@ -369,7 +369,6 @@ The previous code specifies the `path` (where to upload files from) inline. The 
 
 # [Studio](#tab/azure-studio)
 
-
 When you deploy to Azure from the studio, you'll create an endpoint and a deployment to add to it. At that time, you'll be prompted to provide names for the endpoint and deployment.
 
 # [ARM template](#tab/arm)
@@ -617,7 +616,7 @@ Before you deploy your model to Azure, as a best practice for production, you sh
 
 Earlier in the section where you [configured a deployment](#configure-a-deployment), the code specified the `path` (where to upload files from) inline. The CLI automatically uploads the files from the path and registers the model and environment.
 
-To register the model and environment so that you can specify the registered names and versions during deployment, you can extract the YAML definitions of `model` and `environment` into separate YAML files and use the commands `az ml model create` and `az ml environment create`. To learn more about these commands, run `az ml model create -h` and `az ml environment create -h`. For more information on registering your model as an asset, see [Register your model as an asset in Machine Learning by using the CLI](how-to-manage-models.md#register-your-model-as-an-asset-in-machine-learning-by-using-the-cli). For more information on creating an environment, see [Manage Azure Machine Learning environments with the CLI & SDK (v2)](how-to-manage-environments-v2.md#create-an-environment).
+To register the model and environment so that you can specify the registered names and versions during deployment, you can extract the YAML definitions of `model` and `environment` into separate YAML files and use the commands `az ml model create` and `az ml environment create`. To learn more about these commands, run `az ml model create -h` and `az ml environment create -h`. For more information on registering your model as an asset, see [Register your model as an asset in Machine Learning by using the CLI](how-to-manage-models.md#register-your-model-as-an-asset-in-machine-learning-by-using-the-cli). For more information on creating an environment, see [Manage Azure Machine Learning environments with the CLI & SDK (v2)](how-to-manage-environments-v2.md#create-a-custom-environment).
 
 Once you've registered your model and environment, in your deployment YAML, specify the registered name and version for your model and do the same for your environment. Use the form `model: azureml:my-model:1` to specify the registered model and version and use the form `environment: azureml:my-env:1` to specify the registered environment and version.
 
@@ -648,7 +647,7 @@ Earlier in the section where you [configured a deployment](#configure-a-deployme
 
 To register the model so that you can specify its registered name and version during deployment, see [Register your model as an asset in Machine Learning by using the SDK](how-to-manage-models.md#register-your-model-as-an-asset-in-machine-learning-by-using-the-sdk).
 
-For more information on creating an environment, see [Manage Azure Machine Learning environments with the CLI & SDK (v2)](how-to-manage-environments-v2.md#create-an-environment).
+For more information on creating an environment, see [Manage Azure Machine Learning environments with the CLI & SDK (v2)](how-to-manage-environments-v2.md#create-a-custom-environment).
 
 # [Studio](#tab/azure-studio)
 
