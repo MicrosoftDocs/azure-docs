@@ -306,7 +306,7 @@
       - name: Build environment variables
         href: java-build-environment-variables.md
         displayName: java
-      - name: Configure Spring Cloud Configure Server component
+      - name: Spring Cloud Config Server component usage
         href: java-spring-cloud-config-server-usage.md
         displayName: java
       - name: Tutorials
