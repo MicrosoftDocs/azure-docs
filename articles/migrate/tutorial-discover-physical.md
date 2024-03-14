@@ -79,7 +79,10 @@ If you just created a free Azure account, you're the owner of your subscription.
 
 ## Prepare Windows server
 
-For Windows servers, use a domain account for domain-joined servers, and a local account for servers that aren't domain-joined. The user account can be created in one of the two ways:
+- For Windows servers, use a domain account for domain-joined servers, and a local account for servers that aren't domain-joined.
+- For physical discovery, specify the username in Down level format (domain\username) and UPN format (username@domain.com) is not supported. 
+
+The user account can be created in one of the two ways:
 
 ### Option 1
 
