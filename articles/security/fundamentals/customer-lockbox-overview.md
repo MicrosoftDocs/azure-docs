@@ -13,7 +13,7 @@ ms.date: 03/15/2024
 > [!NOTE]
 > To use this feature, your organization must have an [Azure support plan](https://azure.microsoft.com/support/plans/) with a minimal level of **Developer**.
 
-Most operations, support, and troubleshooting performed by Microsoft personnel and sub-processors do not require access to customer data. In those rare circumstances where such access is required,  Customer Lockbox for Microsoft Azure provides an interface for customers to review and approve or reject customer data access requests. It is used in cases where a Microsoft engineer needs to access customer data, whether in response to a customer-initiated support ticket or a problem identified by Microsoft. 
+Most operations, support, and troubleshooting performed by Microsoft personnel and subprocessors do not require access to customer data. In those rare circumstances where such access is required,  Customer Lockbox for Microsoft Azure provides an interface for customers to review and approve or reject customer data access requests. It is used in cases where a Microsoft engineer needs to access customer data, whether in response to a customer-initiated support ticket or a problem identified by Microsoft. 
 
 This article covers how to enable Customer Lockbox and how Lockbox requests are initiated, tracked, and stored for later reviews and audits.
 
@@ -76,7 +76,7 @@ The following steps outline a typical workflow for a Customer Lockbox request.
 1. After this person troubleshoots the issue, but can't fix it, they open a support ticket from the [Azure portal](https://portal.azure.com/signin/index/?feature.settingsportalinstance=mpac). The ticket is assigned to an Azure Customer Support Engineer.
 1. An Azure Support Engineer reviews the service request and determines the next steps to resolve the issue.
 1. If the support engineer can't troubleshoot the issue by using standard tools and service generated data, the next step is to request elevated permissions by using a Just-In-Time (JIT) access service. This request can be from the original support engineer or from a different engineer because the problem is escalated to the Azure DevOps team.
-1. After the access request is submitted by the Azure Engineer, Just-In-Time service evaluates the request taking into account factors such as:
+1. After the Azure Engineer submits an access request, Just-In-Time service evaluates the request taking into account factors such as:
     - The scope of the resource
     - Whether the requester is an isolated identity or using multifactor authentication
     - Permissions levels
@@ -84,20 +84,20 @@ The following steps outline a typical workflow for a Customer Lockbox request.
 1. When the request requires direct access to customer data, a Customer Lockbox request is initiated. For example, remote desktop access to a customer's virtual machine.
     
     The request is now in a **Customer Notified** state, waiting for the customer's approval before granting access.
-1. The approver(s) at the customer organization for a given Lockbox request are determined as follows:
-    - For Subscription scoped requests (requests to access specific resources contained within a subscription), users who have been assigned the Owner role or the [Azure Customer Lockbox Approver for Subscription](customer-lockbox-alternative-email.md) role (currently in public preview) on the associated subscription.
-    - For Tenant scope requests (requests to access the Microsoft Entra tenant), users who have been assigned the Global Administrator role on the Tenant. 
+1. One or more approvers at the customer organization for a given Lockbox request are determined as follows:
+    - For Subscription scoped requests (requests to access specific resources contained within a subscription), users with the Owner role or the [Azure Customer Lockbox Approver for Subscription](customer-lockbox-alternative-email.md) role (currently in public preview) on the associated subscription.
+    - For Tenant scope requests (requests to access the Microsoft Entra tenant), users with the Global Administrator role on the Tenant. 
     > [!NOTE]
     > Role assignments must be in place before Lockbox starts to process a request. Any role assignments made after Lockbox starts to process a given request will not be recognized by Lockbox.  Because of this, to use PIM eligible assignments for the Subscription Owner role, users are required to activate the role before the Customer Lockbox request is initiated. Refer to [Activate Microsoft Entra roles in PIM](../../active-directory/privileged-identity-management/pim-how-to-activate-role.md) / [Activate Azure resource roles in PIM](../../active-directory/privileged-identity-management/pim-resource-roles-activate-your-roles.md#activate-a-role) for more information on activating PIM eligible roles.
     > 
     > **Role assignments scoped to management groups are not supported in Lockbox at this time.**
-1. At the customer organization, designated lockbox approvers ([Azure Subscription Owner](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles)/[Microsoft Entra Global admin](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-ad-roles)/[Azure Customer Lockbox Approver for Subscription](customer-lockbox-alternative-email.md) receive an email from Microsoft to notify them about the pending access request.  You can also use the [Azure Lockbox alternate email notifications](customer-lockbox-alternative-email.md) feature (currently in public preview) to configure an alternate email addresses to receive lockbox notifications in scenarios where Azure account is not email enabled or if a service principal is defined as the lockbox approver.
+1. At the customer organization, designated lockbox approvers ([Azure Subscription Owner](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles)/[Microsoft Entra Global admin](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-ad-roles)/[Azure Customer Lockbox Approver for Subscription](customer-lockbox-alternative-email.md) receive an email from Microsoft to notify them about the pending access request.  You can also use the [Azure Lockbox alternate email notifications](customer-lockbox-alternative-email.md) feature (currently in public preview) to configure an alternate email address to receive lockbox notifications in scenarios where Azure account is not email enabled or if a service principal is defined as the lockbox approver.
 
     
     Example email:
     :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-email-notification.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-email-notification.png" alt-text="Azure Customer Lockbox - email notification.":::
 
-1. The email notification provides a link to the **Customer Lockbox** blade in the Administration module. Using this link, the designated approver signs in to the Azure portal to view any pending requests that their organization has for Customer Lockbox:
+1. The email notification provides a link to the **Customer Lockbox** blade in the Administration module. The designated approver signs in to the Azure portal to view any pending requests that their organization has for Customer Lockbox:
     :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-email-notification.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-email-notification.png" alt-text="Azure Customer Lockbox - email notification.":::
     ![Azure Customer Lockbox - landing page](./media/customer-lockbox-overview/customer-lockbox-landing-page.png)
    The request remains in the customer queue for four days. After this time, the access request automatically expires and no access is granted to Microsoft engineers.
@@ -105,7 +105,7 @@ The following steps outline a typical workflow for a Customer Lockbox request.
     :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-pending-requests.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-pending-requests.png" alt-text="Azure Customer Lockbox - view the pending request.":::
 1. The designated approver can also select the **SERVICE REQUEST ID** to view the support ticket request that was created by the original user. This information provides context for why Microsoft Support is engaged, and the history of the reported problem. For example:
     :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-support-ticket.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-support-ticket.png" alt-text="Azure Customer Lockbox - view the support ticket request.":::
-1. After reviewing the request, the designated approver selects **Approve** or **Deny**:
+1. The designated approver reviews the request and selects **Approve** or **Deny**:
     :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-approval.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-approval.png" alt-text="Azure Customer Lockbox - select Approve or Deny.":::
     As a result of the selection:
     - **Approve**:  Access is granted to the Microsoft engineer. The access is granted for a default period of eight hours.
@@ -127,7 +127,7 @@ As an example:
 
 ## Customer Lockbox integration with the Microsoft cloud security benchmark
 
-We've introduced a new baseline control ([PA-8: Determine access process for cloud provider support](/security/benchmark/azure/mcsb-privileged-access#pa-8-determine-access-process-for-cloud-provider-support)) in the Microsoft cloud security benchmark that covers Customer Lockbox applicability. Customers can now leverage the benchmark to review Customer Lockbox applicability for a service.
+We introduced a new baseline control ([PA-8: Determine access process for cloud provider support](/security/benchmark/azure/mcsb-privileged-access#pa-8-determine-access-process-for-cloud-provider-support)) in the Microsoft cloud security benchmark that covers Customer Lockbox applicability. Customers can now use the benchmark to review Customer Lockbox applicability for a service.
 
 ## Exclusions
 

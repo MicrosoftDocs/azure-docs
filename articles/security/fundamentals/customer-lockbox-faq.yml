@@ -19,9 +19,9 @@ sections:
         answer: |
           No, Lockbox can only be enabled at tenant-level, and is applicable to all the subscriptions and resources under that tenant.
       - question: |
-          What does Microsoft do when a customer rejects a customer lockbox request?
+          What does Microsoft do when a customer rejects a Customer Lockbox request?
         answer: |
-          If a customer rejects a Customer Lockbox request, no access to customer content occurs. If a user in your organization continues to experience a service issue requiring Microsoft to access customer content to resolve the issue, then the service issue might persist, and Microsoft will inform the user about this.
+          If a customer rejects a Customer Lockbox request, no access to customer content occurs. If a user in your organization continues to experience a service issue requiring Microsoft to access customer content to resolve the issue, then the service issue might persist and Microsoft will inform the user about this.
       - question: |
           Can I assign the lockbox approver role at the management group level?
         answer: |
@@ -49,17 +49,17 @@ sections:
   - name: Alternative email feature (public preview)
     questions:
       - question: |
-          Can I add a different user email address as an alternate email to another user’s account?
+          Can I add a different user email address as an alternate email to another user's account?
         answer: |
           Yes, you can add any email address in the other emails field to be used as alternate email for receiving lockbox notifications.
       - question: |
-          If I add a second user’s email address as an alternate email to an existing lockbox approver user’s account, will the second user be able to see and approve/reject lockbox requests?
+          If I add a second user's email address as an alternate email to an existing lockbox approver user's account, will the second user be able to see and approve/reject lockbox requests?
         answer: |
-          No, this feature only allows customers to receive lockbox request notifications on alternate email addresses, but it does not provide the ability to configure other users as lockbox approvers. For example, Alice has the subscription owner role for subscription X and she adds Bob’s email address as alternate email/other email in her user profile who has a reader role. When a lockbox request is created for a resource scoped to subscription ‘X’, Bob will receive the email notification, but he’ll not be able to approve/reject the Lockbox request as he does not have the required privileges for it (subscription owner role).
+          No, this feature only allows customers to receive lockbox request notifications on alternate email addresses, but it does not provide the ability to configure other users as lockbox approvers. For example, Alice has the subscription owner role for subscription X and she adds Bob's email address as alternate email/other email in her user profile who has a reader role. When a lockbox request is created for a resource scoped to subscription ‘X', Bob will receive the email notification, but he'll not be able to approve/reject the Lockbox request as he does not have the required privileges for it (subscription owner role).
       - question: |
           Can I add more than one alternate email address to a user account?
         answer: |
-          You can add multiple email addresses in the other field but currently lockbox supports sending notifications only to the first email address in ‘other emails’ despite multiple email ids configured.
+          You can add multiple email addresses in the other field but currently lockbox supports sending notifications only to the first email address in ‘other emails' despite multiple email ids configured.
       - question: |
           Can I use alternate email notification functionality with Microsoft Purview Customer Lockbox or Customer Lockbox for Power Platform and Dynamics 365?
         answer: |
