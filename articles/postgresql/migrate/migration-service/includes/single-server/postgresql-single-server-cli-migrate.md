@@ -1,5 +1,5 @@
 ---
-title: PostgreSQL - Single Server to Flexible Server CLI offline and online
+title: PostgreSQL - Single Server to Flexible Server CLI migration
 author: markingmyname
 ms.author: maghan
 ms.date: 03/19/2024
@@ -7,11 +7,11 @@ ms.service: postgresql
 ms.topic: include
 ---
 
+You can migrate using Azure CLI.
+
 #### [Offline](#tab/offline)
 
-To begin migrating using Azure CLI, you need to install the Azure CLI on your local machine.
-
-[!INCLUDE [setup-azure-cli-commands-postgresql](setup-azure-cli-commands-postgresql.md)]
+[!INCLUDE [prerequisites-migration-service-postgresql](../prerequisites/prerequisites-migration-service-postgresql-offline.md)]
 
 ## Get started
 
@@ -41,7 +41,7 @@ az postgres flexible-server migration --help
 
 The above command gives you the following output:
 
-:::image type="content" source="../media/tutorial-migration-service-single-to-flexible/az-postgres-flexible-server-migration-help.png" alt-text="Screenshot of Azure Command Line Interface help." lightbox="../media/tutorial-migration-service-single-to-flexible/az-postgres-flexible-server-migration-help.png":::
+:::image type="content" source="../../media/tutorial-migration-service-single-to-flexible/az-postgres-flexible-server-migration-help.png" alt-text="Screenshot of Azure Command Line Interface help." lightbox="../../media/tutorial-migration-service-single-to-flexible/az-postgres-flexible-server-migration-help.png":::
 
 The output lists the supported migration commands, along with their actions. Let's look at these commands in detail.
 
@@ -55,7 +55,7 @@ az postgres flexible-server migration create -- help
 
 The above command gives you the following result:
 
-:::image type="content" source="../media/tutorial-migration-service-single-to-flexible/az-postgres-flexible-server-migration-create.png" alt-text="Screenshot of the command for creating a migration." lightbox="../media/tutorial-migration-service-single-to-flexible/az-postgres-flexible-server-migration-create.png":::
+:::image type="content" source="../../media/tutorial-migration-service-single-to-flexible/az-postgres-flexible-server-migration-create.png" alt-text="Screenshot of the command for creating a migration." lightbox="../../media/tutorial-migration-service-single-to-flexible/az-postgres-flexible-server-migration-create.png":::
 
 It lists the expected arguments and has an example syntax for successfully creating a migration from the source server to the target server. Here's the CLI command to create a new migration:
 
@@ -139,7 +139,7 @@ Note these essential points for the command response:
 > [!NOTE]  
 > The Single to Flex migration service is available in all Azure regions and supports **Offline** migrations. **Online migrations preview** is available in all public clouds and China regions. In other regions, the user can enable Online migration at a subscription level by registering for the **Online PostgreSQL migrations to Azure PostgreSQL Flexible server** preview feature, as shown in the image.
 
-:::image type="content" source="../media/tutorial-migration-service-single-to-flexible/online-migration-feature-switch.png" alt-text="Screenshot of online PostgreSQL migrations to Azure PostgreSQL Flexible server." lightbox="../media/tutorial-migration-service-single-to-flexible/online-migration-feature-switch.png":::
+:::image type="content" source="../../media/tutorial-migration-service-single-to-flexible/online-migration-feature-switch.png" alt-text="Screenshot of online PostgreSQL migrations to Azure PostgreSQL Flexible server." lightbox="../../media/tutorial-migration-service-single-to-flexible/online-migration-feature-switch.png":::
 
 #### Setup replication
 
@@ -153,7 +153,7 @@ az postgres flexible-server migration update --subscription 11111111-1111-1111-1
 
 This command is required to advance the migration when the flexible server is waiting in the `WaitingForLogicalReplicationSetupRequestOnSourceDB` state.
 
-:::image type="content" source="../media/tutorial-migration-service-single-to-flexible/az-postgres-flexible-server-migration-logical-replication.png" alt-text="Screenshot of logical replication setup." lightbox="../media/tutorial-migration-service-single-to-flexible/az-postgres-flexible-server-migration-logical-replication.png":::
+:::image type="content" source="../../media/tutorial-migration-service-single-to-flexible/az-postgres-flexible-server-migration-logical-replication.png" alt-text="Screenshot of logical replication setup." lightbox="../../media/tutorial-migration-service-single-to-flexible/az-postgres-flexible-server-migration-logical-replication.png":::
 
 To perform Online migration in any of the above regions, use:
 
@@ -197,8 +197,6 @@ az postgres flexible-server migration show [--subscription]
 
 The `migration_name` parameter is the name assigned to the migration during the `create` command. Here's a snapshot of the sample response from the CLI command for showing details:
 
-:::image type="content" source="../media/tutorial-migration-service-single-to-flexible/az-postgres-flexible-server-migration-show.png" alt-text="Screenshot of Command Line Interface migration Show." lightbox="../media/tutorial-migration-service-single-to-flexible/az-postgres-flexible-server-migration-show.png":::
-
 For more information about this command, use the `help` parameter:
 
 ```azurecli-interactive
@@ -221,8 +219,9 @@ The following tables describe the migration states and substates.
 | `CompletingMigration` | Migration cutover is in progress. |
 | `Completed` | cutover was successful, and migration is complete. |
 
-
 #### [Online (preview)](#tab/online)
+
+[!INCLUDE [prerequisites-migration-service-postgresql-online](../prerequisites/prerequisites-migration-service-postgresql-online.md)]
 
 ## Cutover the migration
 
@@ -242,11 +241,11 @@ Before initiating cutover, it's important to ensure that:
 The `latency` information can be obtained using the [migration show command](#monitor-the-migration-cli).
 Here's a snapshot of the migration before initiating the cutover:
 
-:::image type="content" source="../media/tutorial-migration-service-single-to-flexible/az-postgres-flexible-server-migration-cutover.png" alt-text="Screenshot of Azure Command Line Interface check for cutover." lightbox="../media/tutorial-migration-service-single-to-flexible/az-postgres-flexible-server-migration-cutover.png":::
+:::image type="content" source="../../media/tutorial-migration-service-single-to-flexible/az-postgres-flexible-server-migration-cutover.png" alt-text="Screenshot of Azure Command Line Interface check for cutover." lightbox="../../media/tutorial-migration-service-single-to-flexible/az-postgres-flexible-server-migration-cutover.png":::
 
 After the cutover is initiated, all transactions that happened during the base copy are copied sequentially to the target, and migration is completed.
 
-:::image type="content" source="../media/tutorial-migration-service-single-to-flexible/az-postgres-flexible-server-migration-cutover-success.png" alt-text="Screenshot of Azure Command Line Interface complete cutover." lightbox="../media/tutorial-migration-service-single-to-flexible/az-postgres-flexible-server-migration-cutover-success.png":::
+:::image type="content" source="../../media/tutorial-migration-service-single-to-flexible/az-postgres-flexible-server-migration-cutover-success.png" alt-text="Screenshot of Azure Command Line Interface complete cutover." lightbox="../../media/tutorial-migration-service-single-to-flexible/az-postgres-flexible-server-migration-cutover-success.png":::
 
 If the cutover isn't successful, the migration moves to the `Failed` state.
 
@@ -258,7 +257,7 @@ For more information about this command, use the `help` parameter:
 
 ---
 
-## Cancel the migration
+## Cancel the migration using CLI
 
 You can cancel any ongoing migration attempts by using the `cancel` command. This command stops the particular migration attempt but doesn't drop or roll back any changes on your target server. Here's the CLI command to delete a migration:
 
@@ -283,6 +282,4 @@ For more information about this command, use the `help` parameter:
 
 The command gives you the following output:
 
-:::image type="content" source="../media/tutorial-migration-service-single-to-flexible/az-postgres-flexible-server-migration-update-cancel-help.png" alt-text="Screenshot of Azure Command Line Interface Cancel." lightbox="../media/tutorial-migration-service-single-to-flexible/az-postgres-flexible-server-migration-update-cancel-help.png":::
-
----
+:::image type="content" source="../../media/tutorial-migration-service-single-to-flexible/az-postgres-flexible-server-migration-update-cancel-help.png" alt-text="Screenshot of Azure Command Line Interface Cancel." lightbox="../../media/tutorial-migration-service-single-to-flexible/az-postgres-flexible-server-migration-update-cancel-help.png":::

@@ -9,6 +9,8 @@ ms.topic: include
 ms.custom: devx-track-azurecli
 ---
 
+To begin migrating using Azure CLI, you need to install the Azure CLI on your local machine.
+
 ## Set up Azure CLI for migration service in Azure Database for PostgreSQL - Flexible Server
 
 - Install the Azure CLI depending on the operating system to run the CLI commands.
