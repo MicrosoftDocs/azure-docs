@@ -56,25 +56,25 @@ The following table lists the different configuration values available.
 
 `spring.cloud.config.server.git`
 
-| Name | Description |
-|--|--|
-| `uri`  <br/> `repos.{repoName}.uri` | URI of remote repository. |
-| `username` <br/> `repos.{repoName}.username` | Username for authentication with remote repository. |
-| `password` <br/> `repos.{repoName}.password` | Password for authentication with remote repository. |
-| `search-paths` <br/> `repos.{repoName}.search-paths` | Search paths to use within local working copy. By default searches only the root. |
-| `force-pull` <br/> `repos.{repoName}.force-pull` | Flag to indicate that the repository should force pull. If true discard any local changes and take from remote repository. |
-| `default-label`  <br/> `repos.{repoName}.default-label` | The default label used for Git is `main`. If you don't set `default-label` and a branch named `main` doesn't exist, the config server will by default also try to check out a branch named `master`. If you would like to disable the fallback branch behavior you can set `tryMasterBranch` to `false`. |
-| `try-master-branch`  <br/> `repos.{repoName}.try-master-branch` | The config server by default tries to check out a branch named `master`. | `true` |
-| `skip-ssl-validation` <br/> `repos.{repoName}.skip-ssl-validation` | The configuration server’s validation of the Git server’s SSL certificate can be disabled by setting the `git.skipSslValidation` property to `true`. |
-| `clone-on-start` <br/> `repos.{repoName}.clone-on-start` | Flag to indicate that the repository should be cloned on startup (not on demand). Generally leads to slower startup but faster first query. |
-| `timeout` <br/> `repos.{repoName}.timeout`  | Timeout (in seconds) for obtaining HTTP or SSH connection (if applicable). Default 5 seconds. |
-| `refresh-rate`  <br/> `repos.{repoName}.refresh-rate` | How often the config server fetches updated configuration data from your Git backend. |
-| `private-key` <br/> `repos.{repoName}.private-key` | Valid SSH private key. Must be set if `ignore-local-ssh-settings` is `true` and Git URI is SSH format. |
-| `host-key` <br/> `repos.{repoName}.host-key` | Valid SSH host key. Must be set if `host-key-algorithm` is also set. |
-| `host-key-algorithm` <br/> `repos.{repoName}.host-key-algorithm` | One of `ssh-dss`, `ssh-rsa`, `ssh-ed25519`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, or `ecdsa-sha2-nistp521`. Must be set if `host-key` is also set. |
-| `strict-host-key-checking`  <br/> `repos.{repoName}.strict-host-key-checking` | `true` or `false`. If `false`, ignore errors with host key. |
-| `repos.{repoName}` | URI of remote repository. |
-| `repos.{repoName}.pattern` | The pattern format is a comma-separated list of {application}/{profile} names with wildcards. If {application}/{profile} doesn't match any of the patterns, it uses the default URI defined under. |
+| Name | Property path | Description |
+|---|---|---|
+| URI | `repos.{repoName}.uri` | URI of remote repository. |
+| Username | `repos.{repoName}.username` | Username for authentication with remote repository. |
+| Password | `repos.{repoName}.password` | Password for authentication with remote repository. |
+| Search paths | `repos.{repoName}.search-paths` | Search paths to use within local working copy. By default searches only the root. |
+| Force pull | `repos.{repoName}.force-pull` | Flag to indicate that the repository should force pull. If true discard any local changes and take from remote repository. |
+| Default label | `repos.{repoName}.default-label` | The default label used for Git is `main`. If you don't set `default-label` and a branch named `main` doesn't exist, the config server will by default also try to check out a branch named `master`. If you would like to disable the fallback branch behavior you can set `tryMasterBranch` to `false`. |
+| Try master branch | `repos.{repoName}.try-master-branch` | The config server by default tries to check out a branch named `master`. | `true` |
+| Skip SSL validation | `repos.{repoName}.skip-ssl-validation` | The configuration server’s validation of the Git server’s SSL certificate can be disabled by setting the `git.skipSslValidation` property to `true`. |
+| Clone-on-start | `repos.{repoName}.clone-on-start` | Flag to indicate that the repository should be cloned on startup (not on demand). Generally leads to slower startup but faster first query. |
+| Timeout | `repos.{repoName}.timeout`  | Timeout (in seconds) for obtaining HTTP or SSH connection (if applicable). Default 5 seconds. |
+| Refresh rate | `repos.{repoName}.refresh-rate` | How often the config server fetches updated configuration data from your Git backend. |
+| Private key | `repos.{repoName}.private-key` | Valid SSH private key. Must be set if `ignore-local-ssh-settings` is `true` and Git URI is SSH format. |
+| Host key | `repos.{repoName}.host-key` | Valid SSH host key. Must be set if `host-key-algorithm` is also set. |
+| Host key algorithm` | `repos.{repoName}.host-key-algorithm` | One of `ssh-dss`, `ssh-rsa`, `ssh-ed25519`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, or `ecdsa-sha2-nistp521`. Must be set if `host-key` is also set. |
+| Strict host key checking | `repos.{repoName}.strict-host-key-checking` | `true` or `false`. If `false`, ignore errors with host key. |
+| Repo location | `repos.{repoName}` | URI of remote repository. |
+| Repo name patterns | `repos.{repoName}.pattern` | The pattern format is a comma-separated list of {application}/{profile} names with wildcards. If {application}/{profile} doesn't match any of the patterns, it uses the default URI defined under. |
 
 ### Common configurations
 
@@ -87,6 +87,7 @@ The following table lists the different configuration values available.
   - Any other configurations under logging.* namespace should be forbidden, for example, writing log files by using `logging.file` should be forbidden.
 
 - **spring.cloud.config.server.overrides**
+
   - Extra map for a property source to be sent to all clients unconditionally.
 
 - **spring.cloud.config.override-none**
