@@ -246,7 +246,7 @@ items:
           displayName: RAG, rag
           items:
             - name: C#
-              href: /dotnet/azure/ai/get-started-app-chat-template
+              href: /dotnet/ai/get-started-app-chat-template
               displayName: RAG, rag
             - name: Java
               href: /azure/developer/java/quickstarts/get-started-app-chat-template
