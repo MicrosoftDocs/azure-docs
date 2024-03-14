@@ -55,7 +55,7 @@ Once content is extracted, the [skillset](cognitive-search-working-with-skillset
 
 ### Download files
 
-Download a zip file of the sample data repository and extract the contents.
+Download a zip file of the sample data repository and extract the contents. [Learn how](https://docs.github.com/get-started/start-your-journey/downloading-files-from-github).
 
 + [Sample data files (mixed media)](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/ai-enrichment-mixed-media)
 
