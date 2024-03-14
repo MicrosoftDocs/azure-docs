@@ -33,7 +33,7 @@ After you configure deployment safeguards for 'Warning' or 'Enforcement', Azure 
 
 #### Install the aks-preview CLI extension
 
-1. Install the `aks-preview` CLI extension using the [`az extension add`][az-extension-add] command.
+1. Install the `aks-preview` CLI extension using the [az extension add][az-extension-add] command.
 
     ```azurecli-interactive
     az extension add --name aks-preview
@@ -45,7 +45,7 @@ After you configure deployment safeguards for 'Warning' or 'Enforcement', Azure 
     az extension update --name aks-preview
     ```
 
-#### Register the 'deployment SafeguardsPreview' feature flag
+#### Register the feature flag for deployment safeguards
 
 Register the `SafeguardsPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
 
@@ -67,7 +67,7 @@ az provider register --namespace Microsoft.ContainerService
 
 ## Deployment safeguards policies
 
-Below is the list of deployment safeguard policies. These are the policies that will be active when you enable deployment safeguards. You can see the [currently available deployment safeguards][deployment-safeguards-list] in the Azure portal as an Azure Policy definition, or view them at [Azure Policy built-in definitions for Azure Kubernetes Service][Azure-Policy-built-in-definition-docs]. The intention behind this collection is to create a common and generic list of best practices applicable to most users and use cases.
+The following table lists the policies that become active when you enable deployment safeguards. You can see the [currently available deployment safeguards][deployment-safeguards-list] in the Azure portal as an Azure Policy definition, or view them at [Azure Policy built-in definitions for Azure Kubernetes Service][Azure-Policy-built-in-definition-docs]. The intention behind this collection is to create a common and generic list of best practices applicable to most users and use cases.
 
 |  Deployment safeguard policies |
 |--------------|
@@ -96,7 +96,7 @@ If you would like to submit an idea or request for deployment safeguards, open a
 
 To enable deployment safeguards on a new cluster, include the `--safeguards-level` flag when you create the cluster.
 
-To receive "Warnings", set the --safeguards-level to "Warning".
+To receive warnings, set the --safeguards-level to "Warning".
 To deny all deployments that do not adhere to deployment safeguards, set the --safeguards-level to "Enforcement".
 
 ```azurecli-interactive
@@ -111,7 +111,7 @@ az aks update --name myAKSCluster --resource-group myResourceGroup --safeguards-
 
 ### Excluding namespaces
 
-It's also possible to exclude certain namespaces from deployment safeguards. This means all activity in the excluded namespaces won't be impacted by deployment safeguards warnings or enforcement.
+You can also exclude certain namespaces from deployment safeguards. When a namespace is excluded, activity in that namespace is unaffected by deployment safeguards warnings or enforcement.
 
 For example, to exclude the namespaces `ns1` and `ns2`, use a comma-separated list.
 
@@ -119,9 +119,9 @@ For example, to exclude the namespaces `ns1` and `ns2`, use a comma-separated li
 az aks update --name myAKSCluster --resource-group myResourceGroup --safeguards-level Warning --safeguards-excluded-ns ns1,ns2 
 ```
 
-## Verify compliance across cluster via your CLI/terminal
+## Verify compliance across clusters via your CLI or terminal
 
-After deploying your Kubernetes manifest, you will see warnings or a potential denial message in your CLI/terminal. Below are examples of what that experience might look like for you.
+After deploying your Kubernetes manifest, if the cluster is not compliant with deployment safeguards, then you will see warnings or a potential denial message in your CLI or terminal. The following examples show what that experience might look like for you.
 
 **Warning**
 ```
@@ -146,7 +146,7 @@ Error from server (Forbidden): error when creating ".\pod.yml": admission webhoo
 ```
 
 
-## Verify compliance across cluster via the Azure Policy Dashboard
+## Verify compliance across clusters via the Azure Policy dashboard
 
 To verify deployment safeguards have been applied and to check on your cluster's compliance, navigate to the Azure portal page for your cluster and select **Policies**, then select **go to Azure Policy**.
 
@@ -168,7 +168,7 @@ az aks update --name myAKSCluster --resource-group myResourceGroup --safeguards-
 
 ## FAQ
 
-### I just enabled deployment safeguards with Azure Policy for the first time. Why don't I see any warnings? Why doesn't my pods get declined?
+### I just enabled deployment safeguards with Azure Policy for the first time. Why don't I see any warnings? Why aren't my pods being declined?
 
 Azure Policy can take up to 35 minutes to sync with your cluster when it is turned on for the first time.
 
