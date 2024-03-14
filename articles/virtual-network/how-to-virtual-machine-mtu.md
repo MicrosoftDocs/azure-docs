@@ -109,7 +109,7 @@ Use the following steps to change the MTU size on a Linux virtual machine:
         link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP mode DEFAULT group default qlen 1000
         link/ether 00:0d:3a:00:bd:77 brd ff:ff:ff:ff:ff:ff
-    3: enP1328s1: <BROADCAST,MULTICAST,SLAVE,UP,LOWER_UP> mtu 1500 qdisc mq master eth0 state UP mode DEFAULT group default qlen 1000
+    3: enP1328s1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq eth0 state UP mode DEFAULT group default qlen 1000
         link/ether 00:0d:3a:00:bd:77 brd ff:ff:ff:ff:ff:ff
         altname enP1328p0s2
     ```
