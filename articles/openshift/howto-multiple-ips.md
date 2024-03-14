@@ -16,7 +16,7 @@ You can configure up to 20 IP addresses per cluster. The outbound rules and fron
 
 ## Requirements
 
-The multiple public IPs feature is only available on the current network architecture used by ARO; older clusters do not support this feature. If your cluster was created before OpenShift Container Platform (OCP) version 4.5, this feature won't be available even if you've upgraded your OCP version since then.
+The multiple public IPs feature is only available on the current network architecture used by ARO; older clusters don't support this feature. If your cluster was created before OpenShift Container Platform (OCP) version 4.5, this feature isn't available even if you upgraded your OCP version since then.
 
 If you're unsure if your cluster was created before the current version of OCP, use the following commands to check.
 
@@ -34,7 +34,7 @@ List the network load balancers:
 az network lb list -g $CLUSTER_RESOURCEGROUP -o table
 ```
 
-If you have a loadbalancer named `$CLUSTER-public-lb`, the cluster has the older network architecture and cannot use the multiple public IP feature.
+If you have a loadbalancer named `$CLUSTER-public-lb`, the cluster has the older network architecture and can't use the multiple public IP feature.
 
 ### Download ARO extension wheel file (Preview only)
 
