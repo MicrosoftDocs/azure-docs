@@ -306,10 +306,16 @@
       - name: Build environment variables
         href: java-build-environment-variables.md
         displayName: java
+      - name: Configure Spring Cloud Configure Server component
+        href: java-spring-cloud-config-server-usage.md
+        displayName: java
       - name: Tutorials
         items:
           - name: Deploy a WAR file
             href: java-deploy-war-file.md
+            displayName: java
+          - name: Connect to a managed Spring Cloud Config Server
+            href: java-spring-cloud-config-server.md
             displayName: java
 - name: Billing & quotas
   items:
