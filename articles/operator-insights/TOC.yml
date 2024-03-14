@@ -7,6 +7,8 @@
     href: overview.md
   - name: Azure Operator Insights FAQ
     href: operator-insights-faq.yml
+  - name: What's new with Azure Operator Insights ingestion agent?
+    href: ingestion-agent-release-notes.md
 - name: Quickstart
   expanded: false
   items:
@@ -82,3 +84,5 @@
         href: /javascript/api/%40azure/arm-networkanalytics
       - name: Python
         href: /python/api/overview/azure/networkanalytics
+    - name: Archive for Azure Operator Insights ingestion agent release notes
+      href: ingestion-agent-release-notes-archive.md

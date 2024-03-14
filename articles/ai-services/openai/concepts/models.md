@@ -4,7 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn about the different model capabilities that are available with Azure OpenAI.
 ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 02/21/2024
+ms.date: 03/12/2024
 ms.custom: references_regions, build-2023, build-2023-dataai, refefences_regions
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
@@ -21,8 +21,8 @@ Azure OpenAI Service is powered by a diverse set of models with different capabi
 | [GPT-4](#gpt-4-and-gpt-4-turbo-preview) | A set of models that improve on GPT-3.5 and can understand and generate natural language and code. |
 | [GPT-3.5](#gpt-35) | A set of models that improve on GPT-3 and can understand and generate natural language and code. |
 | [Embeddings](#embeddings-models) | A set of models that can convert text into numerical vector form to facilitate text similarity. |
-| [DALL-E](#dall-e-models-preview) (Preview) | A series of models in preview that can generate original images from natural language. |
-| [Whisper](#whisper-models-preview) (Preview) | A series of models in preview that can transcribe and translate speech to text. |
+| [DALL-E](#dall-e-models) | A series of models that can generate original images from natural language. |
+| [Whisper](#whisper-models) | A series of models in preview that can transcribe and translate speech to text. |
 | [Text to speech](#text-to-speech-models-preview) (Preview) | A series of models in preview that can synthesize text to speech. |
 
 ## GPT-4 and GPT-4 Turbo Preview
@@ -67,15 +67,15 @@ The third generation embeddings models support reducing the size of the embeddin
 
 OpenAI's MTEB benchmark testing found that even when the third generation model's dimensions are reduced to less than `text-embeddings-ada-002` 1,536 dimensions performance remains slightly better.
 
-## DALL-E (Preview)
+## DALL-E
 
-The DALL-E models, currently in preview, generate images from text prompts that the user provides.
+The DALL-E models generate images from text prompts that the user provides. DALL-E 3 is generally available for use with the REST APIs. DALL-E 2 and DALL-E 3 with client SDKs are in preview.
 
-## Whisper (Preview)
+## Whisper
 
-The Whisper models, currently in preview, can be used for speech to text.
+The Whisper models, can be used for speech to text.
 
-You can also use the Whisper model via Azure AI Speech [batch transcription](../../speech-service/batch-transcription-create.md) API. Check out [What is the Whisper model?](../../speech-service/whisper-overview.md) to learn more about when to use Azure AI Speech vs. Azure OpenAI Service. 
+You can also use the Whisper model via Azure AI Speech [batch transcription](../../speech-service/batch-transcription-create.md) API. Check out [What is the Whisper model?](../../speech-service/whisper-overview.md) to learn more about when to use Azure AI Speech vs. Azure OpenAI Service.
 
 ## Text to speech (Preview)
 
@@ -102,7 +102,7 @@ GPT-4 version 0125-preview is an updated version of the GPT-4 Turbo preview prev
 
 > [!IMPORTANT]
 >
-> - `gpt-4` version 0125-preview replaces version 1106-preview. Deployments of `gpt-4` version 1106-preview set to "Auto-update to default" and "Upgrade when expired" will start to be upgraded on March 8th, 2024 and will complete upgrades within 2 weeks. Deployments of `gpt-4` version 1106-preview set to "No autoupgrade" will stop working starting March 8th, 2024. If you have a deployment of `gpt-4` version 1106-preview, you can test version `0125-preview` in the available regions below.
+> - `gpt-4` versions 1106-Preview and 0125-Preview will be upgraded with a stable version of `gpt-4` in the future. The deployment upgrade of `gpt-4` 1106-Preview to `gpt-4` 0125-Preview scheduled for March 8, 2024 is no longer taking place.  Deployments of `gpt-4` versions 1106-Preview and 0125-Preview set to "Auto-update to default" and "Upgrade when expired" will start to be upgraded after the stable version is released.  For each deployment, a model version upgrade takes place with no interruption in service for API calls.  Upgrades are staged by region and the full upgrade process is expected to take 2 weeks. Deployments of `gpt-4` versions 1106-Preview and 0125-Preview set to "No autoupgrade" will not be upgraded and will stop operating when the preview version is upgraded in the region.
 
 |  Model ID  | Max Request (tokens) | Training Data (up to)  |
 |  --- |  :--- | :---: |
@@ -110,11 +110,11 @@ GPT-4 version 0125-preview is an updated version of the GPT-4 Turbo preview prev
 | `gpt-4-32k`(0314)  | 32,768               | Sep 2021         |
 | `gpt-4` (0613)     | 8,192                | Sep 2021         |
 | `gpt-4-32k` (0613) | 32,768               | Sep 2021         |
-| `gpt-4` (1106-preview)**<sup>1</sup>**<br>**GPT-4 Turbo Preview** | Input: 128,000  <br> Output: 4,096           | Apr 2023         |
-| `gpt-4` (0125-preview)**<sup>1</sup>**<br>**GPT-4 Turbo Preview** | Input: 128,000  <br> Output: 4,096           | Dec 2023         |
+| `gpt-4` (1106-Preview)**<sup>1</sup>**<br>**GPT-4 Turbo Preview** | Input: 128,000  <br> Output: 4,096           | Apr 2023         |
+| `gpt-4` (0125-Preview)**<sup>1</sup>**<br>**GPT-4 Turbo Preview** | Input: 128,000  <br> Output: 4,096           | Dec 2023         |
 | `gpt-4` (vision-preview)**<sup>2</sup>**<br>**GPT-4 Turbo with Vision Preview**  | Input: 128,000  <br> Output: 4,096              | Apr 2023       |
 
-**<sup>1</sup>** GPT-4 Turbo Preview = `gpt-4` (0125-preview). To deploy this model, under **Deployments** select model **gpt-4**. For **Model version** select **0125-preview**. 
+**<sup>1</sup>** GPT-4 Turbo Preview = `gpt-4` (0125-Preview) or `gpt-4` (1106-Preview). To deploy this model, under **Deployments** select model **gpt-4**. Under version select (0125-Preview) or (1106-Preview).
 
 **<sup>2</sup>** GPT-4 Turbo with Vision Preview = `gpt-4` (vision-preview). To deploy this model, under **Deployments** select model **gpt-4**. For **Model version** select **vision-preview**.
 
@@ -132,8 +132,8 @@ GPT-4 version 0125-preview is an updated version of the GPT-4 Turbo preview prev
 |---|:---|:---|  
 | gpt-4 (0314) | | East US <br> France Central <br> South Central US <br> UK South |  
 | gpt-4 (0613) | Australia East <br> Canada East <br> France Central <br> Sweden Central <br> Switzerland North | East US <br> East US 2 <br> Japan East <br> UK South |  
-| gpt-4 (1106-preview) | Australia East <br> Canada East <br> East US 2 <br> France Central <br> Norway East <br> South India <br> Sweden Central <br> UK South <br> West US | |  
-| gpt-4 (0125-preview) | East US <br> North Central US <br> South Central US <br> |
+| gpt-4 (1106-Preview) | Australia East <br> Canada East <br> East US 2 <br> France Central <br> Norway East <br> South India <br> Sweden Central <br> UK South <br> West US | |  
+| gpt-4 (0125-Preview) | East US <br> North Central US <br> South Central US <br> |
 | gpt-4 (vision-preview) |  Sweden Central <br> West US <br> Japan East <br> Switzerland North <br> Australia East|   |  
 
 #### Azure Government regions
@@ -142,7 +142,7 @@ The following GPT-4 models are available with [Azure Government](/azure/azure-go
 
 |Model ID | Model Availability |
 |--|--|
-| `gpt-4` (1106-preview) | US Gov Virginia<br>US Gov Arizona |
+| `gpt-4` (1106-Preview) | US Gov Virginia<br>US Gov Arizona |
 
 
 ### GPT-3.5 models
@@ -200,12 +200,12 @@ The following Embeddings models are available with [Azure Government](/azure/azu
 |--|--|
 |`text-embedding-ada-002` (version 2) |US Gov Virginia<br>US Gov Arizona |
 
-### DALL-E models (Preview)
+### DALL-E models
 
 |  Model ID  | Feature Availability | Max Request (characters) |
 |  --- |  --- | :---: |
-| dalle2 | East US | 1,000 |
-| dall-e-3 | Sweden Central | 4,000 |
+| dalle2 (preview) | East US | 1,000 |
+| dall-e-3 | East US, Australia East, Sweden Central | 4,000 |
 
 ### Fine-tuning models
 
@@ -222,11 +222,11 @@ The following Embeddings models are available with [Azure Government](/azure/azu
 | `gpt-35-turbo` (0125)  | North Central US <br> Sweden Central  | 16,385 | Sep 2021 |
 
 
-### Whisper models (Preview)
+### Whisper models
 
 |  Model ID  | Model Availability | Max Request (audio file size) |
 |  --- |  --- | :---: |
-| `whisper` | North Central US <br> West Europe | 25 MB |
+| `whisper` | East US 2 <br> North Central US <br> Norway East <br> South India <br> Sweden Central <br> West Europe | 25 MB |
 
 ### Text to speech models (Preview)
 
