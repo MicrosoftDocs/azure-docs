@@ -68,6 +68,8 @@ We notify you once EDS preview is enabled in your Azure Data Manager for Energy 
 ## Limitations
 Some EDS capabilities like **Naturalization, Reverse Naturalization, Reference data mapping** are unavailable in the M18 [OSDU&trade;](https://osduforum.org/) release (available in later releases), and hence unavailable in Azure Data Manager for Energy M18 release. These features will be available once we upgrade to subsequent [OSDU&trade;](https://osduforum.org/) milestone release.
 
+## FAQ
+See [External data services faq](faq-energy-data-services.yml#external-data-services)
+
 > [!div class="nextstepaction"]
-> [How to register an external data source with Azure Data Manager for Energy?](how-to-register-eds.md)
-* [External data services faq](faq-energy-data-services.yml#external-data-services)
+> [How to register an external data source with Azure Data Manager for Energy?](how-to-register-eds.md) 
