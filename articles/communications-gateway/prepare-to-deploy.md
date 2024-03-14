@@ -58,7 +58,7 @@ Decide how Azure Communications Gateway should connect to your network. You must
 
 For more information about your options, see [Connectivity for Azure Communications Gateway](connectivity.md).
 
-For Teams Phone Mobile and Azure Operator Call Protection, you must decide how your network should determine whether a call involves a relevant subscriber and therefore route the call correctly. You can:
+For Teams Phone Mobile and Azure Operator Call Protection Preview, you must decide how your network should determine whether a call involves a relevant subscriber and therefore route the call correctly. You can:
 
 - Use Azure Communications Gateway's integrated Mobile Control Point (MCP).
 - Connect to an on-premises version of Mobile Control Point (MCP) from Metaswitch.

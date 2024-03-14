@@ -7,4 +7,4 @@ ms.date: 02/23/2024
 ---
 
 > [!IMPORTANT]
-> You must be a telecommunications operator to use Azure Operator Call Protection.
+> You must be a telecommunications operator to use Azure Operator Call Protection Preview.

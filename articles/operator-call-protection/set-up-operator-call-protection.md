@@ -1,5 +1,5 @@
 ---
-title: Set up Azure Operator Call Protection
+title: Set up Azure Operator Call Protection Preview
 description: Start using Azure Operator Call Protection to protect your customers against fraud.
 author: rcdun
 ms.author: rdunstan
@@ -11,9 +11,9 @@ ms.custom:
 
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
 ---
-# Set up Azure Operator Call Protection
+# Set up Azure Operator Call Protection Preview
 
-Before you can launch your Azure Operator Call Protection service, you and your onboarding team must:
+Before you can launch your Azure Operator Call Protection  Preview service, you and your onboarding team must:
 
 - Provision your subscribers.
 - Test your service.
@@ -29,10 +29,10 @@ If you don't already have Azure Communications Gateway, complete the following p
 - [Prepare to deploy Azure Communications Gateway](../communications-gateway/prepare-to-deploy.md?toc=/azure/operator-call-protection/toc.json&bc=/azure/operator-call-protection/breadcrumb/toc.json).
 - [Deploy Azure Communications Gateway](../communications-gateway/deploy.md?toc=/azure/operator-call-protection/toc.json&bc=/azure/operator-call-protection/breadcrumb/toc.json).
 
-## Enable Azure Operator Call Protection
+## Enable Azure Operator Call Protection Preview
 
 > [!NOTE]
-> If you selected Azure Operator Call Protection when you [deployed Azure Communications Gateway](../communications-gateway/deploy.md?toc=/azure/operator-call-protection/toc.json&bc=/azure/operator-call-protection/breadcrumb/toc.json), skip this step and go to [Provision subscribers](#provision-subscribers).
+> If you selected Azure Operator Call Protection Preview when you [deployed Azure Communications Gateway](../communications-gateway/deploy.md?toc=/azure/operator-call-protection/toc.json&bc=/azure/operator-call-protection/breadcrumb/toc.json), skip this step and go to [Provision subscribers](#provision-subscribers).
 
 Navigate to your Azure Communications Gateway resource and find the **Call Protection** option on the **Overview**.
 If Call Protection is **Disabled**, update it to **Enabled** and notify your Microsoft onboarding team.
@@ -77,8 +77,8 @@ You must create an *Account* for each group of subscribers that you manage with 
 Network integration includes identifying SIP interoperability requirements and configuring devices to meet these requirements.
 For example, this process often includes interworking header formats and/or the signaling and media flows used for call hold and session refresh.
 
-The connection to Azure Operator Call Protection is over SIPREC.
-The Call Protection service takes the role of the SIPREC Session Recording Server (SRS).
+The connection to Azure Operator Call Protection Preview is over SIPREC.
+The Operator Call Protection service takes the role of the SIPREC Session Recording Server (SRS).
 An element in your network, typically a session border controller (SBC), is set up as a SIPREC Session Recording Client (SRC).
 
 Work with your onboarding team to produce a network architecture plan where an element in your network can act as an SRC for calls being routed to your Azure Operator Call Protection enabled subscribers.
@@ -91,14 +91,14 @@ Work with your onboarding team to produce a network architecture plan where an e
 
 ## Test raising a ticket
 
-You must test that you can raise tickets in the Azure portal to report problems with Azure Communications Gateway. See [Get support or request changes for Azure Communications Gateway](../communications-gateway/request-changes.md).
+You must test that you can raise tickets in the Azure portal to report problems. See [Get support or request changes for Azure Communications Gateway](../communications-gateway/request-changes.md).
 
-## Learn about monitoring Azure Operator Call Protection
+## Learn about monitoring Azure Operator Call Protection Preview
 
-Your operations team can use a selection of key metrics to monitor Azure Operator Call Protection through your Azure Communications Gateway.
+Your operations team can use a selection of key metrics to monitor Azure Operator Call Protection Preview through your Azure Communications Gateway.
 These metrics are available to anyone with the Reader role on the subscription for Azure Communications Gateway.
 See [Monitoring Azure Communications Gateway](../communications-gateway/monitor-azure-communications-gateway.md).
 
 ## Next steps
 
-- Learn about [monitoring Azure Operator Call Protection with Azure Communications Gateway](../communications-gateway/monitor-azure-communications-gateway.md).
+- Learn about [monitoring Azure Operator Call Protection Preview with Azure Communications Gateway](../communications-gateway/monitor-azure-communications-gateway.md).
