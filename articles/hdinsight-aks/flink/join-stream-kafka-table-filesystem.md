@@ -3,7 +3,7 @@ title: Enrich the events from Apache Kafka® with the attributes from FileSystem
 description: Learn how to join stream from Kafka with table from fileSystem using Apache Flink® DataStream API
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 03/14/2024
 ---
 
 # Enrich the events from Apache Kafka® with attributes from ADLS Gen2 with Apache Flink®
@@ -81,7 +81,7 @@ In this step we perform the following activities
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <flink.version>1.16.0</flink.version>
+        <flink.version>1.17.0</flink.version>
         <java.version>1.8</java.version>
         <scala.binary.version>2.12</scala.binary.version>
         <kafka.version>3.2.0</kafka.version> //replace with 2.4.1 if you are using HDInsight Kafka 2.4.1
@@ -195,14 +195,19 @@ public class KafkaJoinGen2Demo {
         DataStream<String> kafkaData = env.fromSource(kafkaSource, WatermarkStrategy.noWatermarks(), "Kafka Source");
 
         // Parse Kafka source data
-        DataStream<Tuple4<String, String, String, String>> userEvents = kafkaData.map(new MapFunction<String, Tuple4<String, String, String, String>>() {
-            @Override
-            public Tuple4<String, String, String, String> map(String value) throws Exception {
-                // Parse the line into a Tuple4
-                String[] parts = value.split(",");
-                return new Tuple4<>(parts[0], parts[1], parts[2], parts[3]);
-            }
-        });
+      DataStream<Tuple4<String, String, String, String>> userEvents = kafkaData.map(new MapFunction<String, Tuple4<String, String, String, String>>() {
+          @Override
+          public Tuple4<String, String, String, String> map(String value) throws Exception {
+              // Parse the line into a Tuple4
+              String[] parts = value.split(",");
+              if (parts.length < 4) {
+                  // Log and skip malformed record
+                  System.out.println("Malformed record: " + value);
+                  return null;
+              }
+              return new Tuple4<>(parts[0], parts[1], parts[2], parts[3]);
+           }
+       });
 
         // 4. Enrich the user activity events by joining the items' attributes from a file
         DataStream<Tuple7<String,String,String,String,String,String,String>> enrichedData = userEvents.map(new MyJoinFunction());
