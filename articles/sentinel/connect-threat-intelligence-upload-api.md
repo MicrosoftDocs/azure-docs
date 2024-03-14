@@ -8,7 +8,7 @@ ms.date: 3/14/2024
 ms.author: austinmc
 appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
 ms.collection: usx-security
-#customer intent: As a SOC admin, I want to use the upload indicators API to ingest threat intelligence from my TIP, so I can take advantage of the improved features of the API.
+#customer intent: As a SOC admin, I want to use a Threat Intelligence Platform solution to ingest threat intelligence, so I can generate alerts incidents.
 ---
 
 # Connect your threat intelligence platform to Microsoft Sentinel with the upload indicators API
@@ -106,7 +106,7 @@ Enter these values in the configuration of your integrated TIP or custom solutio
 
     :::image type="content" source="media/connect-threat-intelligence-upload-api/upload-api-data-connector-connected.png" alt-text="Screenshot showing upload indicators API data connector in the connected state." lightbox="media/connect-threat-intelligence-upload-api/upload-api-data-connector-connected.png":::
 
-## Next steps
+## Related content
 
 In this document, you learned how to connect your threat intelligence platform to Microsoft Sentinel. To learn more about using threat indicators in Microsoft Sentinel, see the following articles.
 
