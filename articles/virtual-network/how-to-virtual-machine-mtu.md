@@ -1,5 +1,5 @@
 ---
-title: Configure MTU Virtual Machines in Azure
+title: Configure MTU for virtual machines in Azure
 titleSuffix: Azure Virtual Network
 description: Get started with this how-to article to configure Maximum Transmission Unit (MTU) for Linux and Windows in Azure.
 author: asudbring
@@ -12,15 +12,15 @@ ms.date: 03/14/2024
 
 ---
 
-# Configure Maximum Transmission Unit (MTU) for Linux Virtual Machines in Azure
+# Configure Maximum Transmission Unit (MTU) for virtual machines in Azure
 
-The Maximum Transmission Unit, or MTU, is a measurement representing the largest size ethernet frame (packet) that can be transmitted by a network device or interface. If a packet exceeds the largest size accepted by the device, it is fragmented into multiple smaller packets, then later reassembled at the destination. 
+The Maximum Transmission Unit (MTU) is a measurement representing the largest size ethernet frame (packet) transmitted by a network device or interface. If a packet exceeds the largest size accepted by the device, the packet is fragmented into multiple smaller packets, then later reassembled at the destination. 
 
 Fragmentation and reassembly can introduce performance and ordering issues, resulting in a suboptimal experience. Optimizing MTU for your solution can provide network bandwidth performance benefits by reducing the total number of packets required to send a dataset.  
 
 The MTU is a configurable setting in a virtual machine's operating system. The default value MTU setting in Azure is 1500 bytes. 
 
-VMs in Azure can support larger MTUs than the 1500 byte default only for traffic that stays within the virtual network.
+VMs in Azure can support larger MTU than the 1,500-byte default only for traffic that stays within the virtual network.
 
 The following table shows the largest MTU size supported on the Azure Network Interfaces available in Azure:
 
@@ -55,11 +55,11 @@ Content for Windows...
 
 ## Precautions
 
-- Virtual machines in Azure can support larger MTUs than the 1500 byte default only for traffic that stays within the virtual network. Larger MTUs are not supported for scenarios outside of inter-virtual network and VM-to-VM traffic, such as traffic traversing through gateways, peering’s, or to the internet. Configuring a larger MTU may result in fragmentation and reduction in performance. For traffic utilizing these scenarios we recommend utilizing the default 1500 byte MTU or testing to ensure that a larger MTU is supported across the entire network path. 
+- Virtual machines in Azure can support larger MTUs than the 1,500-byte default only for traffic that stays within the virtual network. A larger MTU isn't supported for scenarios outside of inter-virtual network and VM-to-VM traffic. Traffic traversing through gateways, peering’s, or to the internet aren't supported. Configuration of a larger MTU can result in fragmentation and reduction in performance. For traffic utilizing these scenarios, utilize the default 1,500 byte MTU for testing to ensure that a larger MTU is supported across the entire network path. 
 
-- Optimal MTU is Operating System, network, and application specific. The maximal supported MTU may not be optimal for your use case.
+- Optimal MTU is operating system, network, and application specific. The maximal supported MTU might not be optimal for your use case.
 
-- Always test MTU settings changes in a non-critical environment first before applying broadly or to critical environments.
+- Always test MTU settings changes in a noncritical environment first before applying broadly or to critical environments.
 
 ## Obtain vm-1 IP address
 
@@ -69,7 +69,7 @@ Content for Windows...
 
 1. Select **vm-2**.
 
-1. In the **Overview** of **vm-2**, in the **Networking** section, record the private IP address of **vm-2**. You'll need the IP address of **vm-2** to test the network path. For the purposes of this article the example IP address is **10.0.0.4**. Replace the IP address with your own value.
+1. In the **Overview** of **vm-2**, in the **Networking** section, record the private IP address of **vm-2**. The IP address of **vm-2** is required to test the network path. For the purposes of this article, the example IP address is **10.0.0.4**. Replace the IP address with your own value.
 
 ## Obtain vm-2 IP address
 
@@ -77,7 +77,7 @@ Content for Windows...
 
 1. Select **vm-2**.
 
-1. In the **Overview** of **vm-2**, in the **Networking** section, record the private IP address of **vm-2**. You'll need the IP address of **vm-2** to test the network path. For the purposes of this article the example IP address is **10.0.0.5**. Replace the IP address with your own value.
+1. In the **Overview** of **vm-2**, in the **Networking** section, record the private IP address of **vm-2**. The IP address of **vm-2** is required to test the network path. For the purposes of this article, the example IP address is **10.0.0.5**. Replace the IP address with your own value.
 
 ## Determine the MTU size on a virtual machine
 
@@ -97,7 +97,7 @@ Use the following steps to change the MTU size on a Linux virtual machine:
 
 1. Sign-in to **vm-1**
 
-1. Use the `ip` commmand to show the current network interfaces and their MTU settings:
+1. Use the `ip` command to show the current network interfaces and their MTU settings:
 
 ```bash
 ip link show
@@ -114,7 +114,7 @@ azureuser@vm-linux:~$ ip link show
     altname enP1328p0s2
 ```
 
-In this example the MTU is set at 1500 and the name of the network interface is **eth0**.
+In this example, the MTU is set at 1500 and the name of the network interface is **eth0**.
 
 1. Use the following example to run the Linux shell script to determine the largest MTU size that can be used for a specific network path:
 
@@ -122,9 +122,9 @@ In this example the MTU is set at 1500 and the name of the network interface is 
 source LinuxVmUtilities.sh;Get-PathMtu 10.0.0.5 1200 eth0
 ```
 
-1. Record the value output from the script. You will need this value for the next step. For the purposes of this article the example value is **1500**. Replace the value with your own value.
+1. Record the value output from the script. You'll need this value for the next step. For the purposes of this article, the example value is **1500**. Replace the value with your own value.
 
-1. Adjust MTU on **vm-1**  to match output of path MTU file. If you are testing against multiple destinations use the lowest value received in the output.
+1. Adjust MTU on **vm-1**  to match output of path MTU file. For testing against multiple destinations use the lowest value received in the output.
 
 ```bash
 su - root -c  'echo 1500 > /sys/class/net/eth0/mtu'
@@ -143,7 +143,7 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
 
 1. Open a PowerShell window as an administrator.
 
-1. Use the following example to display the current network interfaces:
+1. Use the following example to display the current network interfaces.
 
 ```powershell
 Get-NetAdapter
@@ -186,9 +186,9 @@ Get-PathMtu -DestinationHost 10.0.0.5
 
 ```
 
-1. Record the value output from the script. You will need this value for the next step. For the purposes of this article the example value is **1500**. Replace the value with your own value.
+1. Record the value output from the script. You'll need this value for the next step. For the purposes of this article, the example value is **1500**. Replace the value with your own value.
 
-1. Use `netsh` to set the MTU value for **vm-1** to match the output of the path MTU file. If you are testing against multiple destinations use the lowest value received in the output.
+1. Use `netsh` to set the MTU value for **vm-1** to match the output of the path MTU file. For testing against multiple destinations use the lowest value received in the output.
 
 ```powershell
 netsh interface ipv4 set subinterface "Ethernet" mtu=1500 store=persistent
