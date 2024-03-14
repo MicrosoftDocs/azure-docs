@@ -69,4 +69,3 @@ Copy and run the script to remediate the recommendation.
 
 > [!div class="nextstepaction"]
 > [Governance rules in your remediation processes](governance-rules.md)
-
