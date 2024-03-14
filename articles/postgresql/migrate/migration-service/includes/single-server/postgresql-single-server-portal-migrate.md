@@ -82,10 +82,6 @@ The first tab is **Setup**. In case you missed it, allowlist necessary extension
 
 It's always a good practice to choose **Validate** or **Validate and Migrate** option to perform premigration validations before running the migration. 
 
-**Migration mode** allows you to pick the mode for the migration. **Offline** is the default option. **Online migrations preview** is available in all public clouds and China regions. In other regions, the user can enable Online migration at a subscription level by registering for the **Online PostgreSQL migrations to Azure PostgreSQL Flexible server** preview feature, as shown in the image.
-
-:::image type="content" source="../../media/tutorial-migration-service-single-to-flexible/online-migration-feature-switch.png" alt-text="Screenshot of online PostgreSQL migrations to Azure PostgreSQL Flexible server." lightbox="../../media/tutorial-migration-service-single-to-flexible/online-migration-feature-switch.png":::
-
 If the **Online** migration preview is selected, Logical replication must be turned on in the source Single server. If it's not turned on, the migration service automatically turns on logical replication at the source Single server. Replication can also be set up manually under the **Replication** tab in the Single server-side pane by setting the Azure replication support level to **Logical**. Either approach restarts the source single server.
 
 Select the **Next : Connect to Source** button.

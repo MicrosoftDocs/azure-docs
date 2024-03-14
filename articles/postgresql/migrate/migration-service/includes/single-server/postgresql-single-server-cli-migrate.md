@@ -136,11 +136,6 @@ Note these essential points for the command response:
 - The time that the `Migrating Data` substate takes to finish depends on the size of the databases that are migrated.
 - The migration moves to the `Succeeded` state as soon as the `Migrating Data` substate finishes successfully. If there's a problem at the `Migrating Data` substate, the migration moves into a `Failed` state.
 
-> [!NOTE]  
-> The Single to Flex migration service is available in all Azure regions and supports **Offline** migrations. **Online migrations preview** is available in all public clouds and China regions. In other regions, the user can enable Online migration at a subscription level by registering for the **Online PostgreSQL migrations to Azure PostgreSQL Flexible server** preview feature, as shown in the image.
-
-:::image type="content" source="../../media/tutorial-migration-service-single-to-flexible/online-migration-feature-switch.png" alt-text="Screenshot of online PostgreSQL migrations to Azure PostgreSQL Flexible server." lightbox="../../media/tutorial-migration-service-single-to-flexible/online-migration-feature-switch.png":::
-
 #### Setup replication
 
 If the **Online** migration preview is selected, Logical replication must be turned on in the source Single server. If it isn't turned on, the migration service automatically turns on logical replication at the source Single server when the `SetupLogicalReplicationOnSourceDBIfNeeded` parameter is passed with a value of `true` in the accompanying JSON file. Replication can also be set up manually at the source after starting the migration using the command below. Either approach of turning on logical replication restarts the source Single server.
