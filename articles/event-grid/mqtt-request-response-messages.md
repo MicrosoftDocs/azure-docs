@@ -81,6 +81,6 @@ Create permission bindings that allow cloud application group to publish on requ
 
 ## Next steps
 - [Tutorial: Route MQTT messages to Azure Event Hubs using namespace topics](mqtt-routing-to-event-hubs-portal-namespace-topics.md)
-- [Tutorial: Route MQTT messages to Azure Functions using custom topics](mqtt-routing-to-azure-fucntions-portal.md)
+- [Tutorial: Route MQTT messages to Azure Functions using custom topics](mqtt-routing-to-azure-functions-portal.md)
 - Learn more about [client life cycle events](mqtt-client-life-cycle-events.md)
 - For code samples, go to [this repository.](https://github.com/Azure-Samples/MqttApplicationSamples/tree/main)

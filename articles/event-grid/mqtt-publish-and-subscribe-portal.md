@@ -194,5 +194,5 @@ After a successful installation of Step, you should open a command prompt in you
 
 ## Next steps
 - [Tutorial: Route MQTT messages to Azure Event Hubs using namespace topics](mqtt-routing-to-event-hubs-portal-namespace-topics.md)
-- [Tutorial: Route MQTT messages to Azure Functions using custom topics](mqtt-routing-to-azure-fucntions-portal.md)
+- [Tutorial: Route MQTT messages to Azure Functions using custom topics](mqtt-routing-to-azure-functions-portal.md)
 - For code samples, go to [this repository.](https://github.com/Azure-Samples/MqttApplicationSamples/tree/main)
