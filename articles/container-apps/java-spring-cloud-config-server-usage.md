@@ -56,7 +56,7 @@ az containerapp update \
   --resource-group <RESOURCE_GROUP>
 ```
 
-## Spring Cloud Config Server configuration options
+## Configuration options
 
 The `az containerapp update` command uses the `--configuration` parameter to control how the Spring Could Config Server is configured. You can use multiple parameters at once as long as they're separated by a space. You can find more details in [Spring Cloud Config Server](https://docs.spring.io/spring-cloud-config/docs/current/reference/html/#_spring_cloud_config_server) docs.
 
@@ -112,7 +112,7 @@ The following configuration settings are available on the `spring.cloud.config.s
   - **spring.cloud.config.server.encrypt.enabled**
     - You can set this to `false`, to disable server-side decryption.
 
-## Spring Cloud Config Server refresh
+## Refresh
 
 Services that consume properties need to know about the change before it happens. The default notification method for Spring Cloud Config Server involves manually triggering the refresh event, such as refresh by call `https://<YOUR-CONFIG-CLIENT-HOST-NAME>/actuator/refresh`, which may not be feasible if there are many app instances.
 
@@ -173,9 +173,9 @@ Instead, you can automatically refresh values from Config Server by letting the 
     }
     ```
 
-## Encryption and Decryption with a symmetric key
+## Encryption and decryption with a symmetric key
 
-### Server Side Decryption
+### Server-side decryption
 
 By default, server-side encryption is enabled. Use the following steps to enable decryption in your application.
 
@@ -197,7 +197,7 @@ By default, server-side encryption is enabled. Use the following steps to enable
       --configuration spring.cloud.config.server.git.uri=$URI encrypt.key=randomKey
     ```
 
-### Client Side Decryption
+### Client-side decryption
 
 You can use client side decryption of properties by following the steps:
 
