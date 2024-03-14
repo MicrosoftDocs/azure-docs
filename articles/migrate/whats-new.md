@@ -14,6 +14,10 @@ ms.custom: mvc, engagement-fy24
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
 
+## Update (April 2024)
+
+- Public preview: Azure Migrate now supports discovery and assessment of SAP Systems. By using this capability, you can now perform import-based assessments for your on-premises SAP inventory and workloads. Learn more
+
 ## Update (March 2024)
 
 - Public preview: Springboot Apps discovery and assessment is now available using Packaged solution to deploy Kubernetes appliance. 
