@@ -2,7 +2,7 @@
 title: Set up Azure CLI for migration service in Azure Database for PostgreSQL - Flexible Server
 author: markingmyname
 ms.author: maghan
-ms.date: 01/30/2024
+ms.date: 03/19/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: include
