@@ -15,7 +15,7 @@ ms.subservice: sizes
 
 # Msv2 and Mdsv2 Isolated Sizes Retirement
 
-On March 31, 2027, Azure will retire the Msv2 and Mdsv2-series Medium Memory virtual machines (VM) listed below: 
+On March 31, 2027, Azure will retire the Msv2 and Mdsv2-series Medium Memory virtual machines (VM) listed: 
 
 - Msv2 Medium Memory Diskless 
 
@@ -27,17 +27,17 @@ On March 31, 2027, Azure will retire the Msv2 and Mdsv2-series Medium Memory vir
    - Standard_M192ids_v2 
    - Standard_M192idms_v2 
 
-From now to March 31, 2027, you can continue to use the VMs listed above without disruption. On March 31, 2027, the remaining VMs with these specific sizes on your subscription will be set to a deallocated state. These VMs will be stopped and removed from the host. These VMs will no longer be billed in the deallocated state. To avoid service disruptions, please follow our instructions below to migrate to your selected Mv3 replacement size by March 31, 2027.   
+From now to March 31, 2027, you can continue to use the VMs listed without disruption. On March 31, 2027, the remaining VMs with these specific sizes on your subscription will be set to a deallocated state. These VMs will be stopped and removed from the host. These VMs will no longer be billed in the deallocated state. To avoid service disruptions, rrefer to the instructions listed to migrate to your selected Mv3 replacement size by March 31, 2027.   
 
 #### Migrate workloads to Mv3 Medium Memory Series VMs 
 
 The [Msv3 and Mdsv3 Medium Memory Series](/azure/virtual-machines/msv3-mdsv3-medium-series), powered by 4th generation Intel® Xeon® Scalable processors, are the next generation of memory-optimized VM sizes delivering faster performance, lower total cost of ownership and improved resilience to failures compared to previous generation Mv2 VMs. The Mv3 MM series offers VM sizes of up to 4TB of memory and 4,000 MBps throughout to remote storage and provides up to 25% networking performance improvements over previous generations. 
 
-Follow the instructions below to migrate your [M192i(d)(m)s VM](/azure/virtual-machines/msv2-mdsv2-series) to your chosen [Msv3 and Mdsv3 Medium Memory Series](/azure/virtual-machines/msv3-mdsv3-medium-series) replacement. 
+Follow the instructions listed to migrate your [M192i(d)(m)s VM](/azure/virtual-machines/msv2-mdsv2-series) to your chosen [Msv3 and Mdsv3 Medium Memory Series](/azure/virtual-machines/msv3-mdsv3-medium-series) replacement. 
 
 ### Migration Steps 
 
-1. Choose a [series and size](/azure/virtual-machines/msv3-mdsv3-medium-series) for migration. Leverage the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) for further insights. 
+1. Choose a [series and size](/azure/virtual-machines/msv3-mdsv3-medium-series) for migration. Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) for further insights. 
 
 2. [Get quota for the target VM series](/azure/quotas/per-vm-quota-requests). 
 
@@ -47,14 +47,14 @@ Follow the instructions below to migrate your [M192i(d)(m)s VM](/azure/virtual-m
 
 5. If the VM is not part of an Availability Set, but is part of a Proximity Placement Group, you need to shut down all VMs in the PPG, [resize](/azure/virtual-machines/resize-vm?tabs=portal) then restart the M192i(d)(m)s_v2 VMs, then restart the other VMs in the PPG. 
 
-6. If the VM is part of an Availability Set, check your records to determine whether you asked Microsoft to pin the Availability Set to a specific M-series compute cluster for proximity purposes (e.g. to collocate with services like NFS shares hosted on Azure NetApp Files). If you are not sure about pinning having taken place, open an [Azure Support Request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) to confirm. 
+6. If the VM is part of an Availability Set, check your records to determine whether you asked Microsoft to pin the Availability Set to a specific M-series compute cluster for proximity purposes (for example, to collocate with services like NFS shares hosted on Azure NetApp Files). If you are not sure about pinning having taken place, open an [Azure Support Request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) to confirm. 
 
 7. If your VM is part of a non-pinned Availability Set, you need to shut down all VMs in that particular Availability Set and go through the [resize procedure](/azure/virtual-machines/resize-vm?tabs=portal) for every single VM of the Availability Set. 
 
 8. If the VM is part of a non-pinned Availability set and a Proximity Placement Group, you have two options: 
 
     - Shut down all VMs in the PPG, [resize](/azure/virtual-machines/resize-vm?tabs=portal) then restart the M192i(d)(m)s_v2 VMs, then restart the other VMs in the PPG. 
-    - Switch availability options to [Availability Zone](/azure/reliability/availability-zones-overview?toc=%2Fazure%2Fvirtual-machines%2Ftoc.json&tabs=azure-cli) as described using the open source supported  script and procedure linked below or setting up Database Replication (e.g. HANA System Replication, SQL Server AlwaysOn).  
+    - Switch availability options to [Availability Zone](/azure/reliability/availability-zones-overview?toc=%2Fazure%2Fvirtual-machines%2Ftoc.json&tabs=azure-cli) as described using the open source supported  script and procedure linked below or setting up Database Replication (for example, HANA System Replication, SQL Server AlwaysOn).  
 
        - [How to Migrate a Highly Available SAP System in Azure from Availability Set to Availability Zone](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/main/Move-VM-from-AvSet-to-AvZone/Move-Regional-SAP-HA-To-Zonal-SAP-HA-WhitePaper) 
 
