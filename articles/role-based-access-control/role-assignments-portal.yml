@@ -128,8 +128,8 @@ procedureSection:
       If you selected a role that supports conditions, a **Conditions** tab will appear and you have the option to add a condition to your role assignment. A [condition](conditions-overview.md) is an additional check that you can optionally add to your role assignment to provide more fine-grained access control.
 
       The **Conditions** tab will look different depending on the role you selected.
-
-      # [Delegate condition](#tab/delegate-condition)
+    code: |
+     # [Delegate condition](#tab/delegate-condition)
 
       > [!IMPORTANT]
       > Delegating Azure role assignment management with conditions is currently in PREVIEW.
@@ -140,33 +140,32 @@ procedureSection:
       - [Owner](built-in-roles.md#owner)
       - [Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator)
       - [User Access Administrator](built-in-roles.md#user-access-administrator)
-    steps: 
-      - |
-        On the **Conditions** tab under **What user can do**, select the **Allow user to only assign selected roles to selected principals (fewer privileges)** option.
+
+      1. On the **Conditions** tab under **What user can do**, select the **Allow user to only assign selected roles to selected principals (fewer privileges)** option.
 
           :::image type="content" source="./media/shared/condition-constrained.png" alt-text="Screenshot of Add role assignment with the Constrained option selected." lightbox="./media/shared/condition-constrained.png":::
-      - |
-        Click **Select roles and principals** to add a condition that constrains the roles and principals this user can assign roles to.
-      - |
-        Follow the steps in [Delegate Azure role assignment management to others with conditions](delegate-role-assignments-portal.md#step-3-add-a-condition).
 
-        # [Storage condition](#tab/storage-condition)
+      1. Click **Select roles and principals** to add a condition that constrains the roles and principals this user can assign roles to.
 
-        If you selected one of the following storage roles, follow the steps in this section.
+      1. Follow the steps in [Delegate Azure role assignment management to others with conditions](delegate-role-assignments-portal.md#step-3-add-a-condition).
 
-          - [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor)
-          - [Storage Blob Data Owner](built-in-roles.md#storage-blob-data-owner)
-          - [Storage Blob Data Reader](built-in-roles.md#storage-blob-data-reader)
-          - [Storage Queue Data Contributor](built-in-roles.md#storage-queue-data-contributor)
-          - [Storage Queue Data Message Processor](built-in-roles.md#storage-queue-data-message-processor)
-          - [Storage Queue Data Message Sender](built-in-roles.md#storage-queue-data-message-sender)
-          - [Storage Queue Data Reader](built-in-roles.md#storage-queue-data-reader)
-      - |
-        Click **Add condition** if you want to further refine the role assignments based on storage attributes.
+      # [Storage condition](#tab/storage-condition)
 
-          ![Screenshot of Add role assignment page with Add condition tab.](./media/shared/condition.png)
-      - |
-        1. Follow the steps in [Add or edit Azure role assignment conditions](conditions-role-assignments-portal.md#step-3-review-basics).
+      If you selected one of the following storage roles, follow the steps in this section.
+
+      - [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor)
+      - [Storage Blob Data Owner](built-in-roles.md#storage-blob-data-owner)
+      - [Storage Blob Data Reader](built-in-roles.md#storage-blob-data-reader)
+      - [Storage Queue Data Contributor](built-in-roles.md#storage-queue-data-contributor)
+      - [Storage Queue Data Message Processor](built-in-roles.md#storage-queue-data-message-processor)
+      - [Storage Queue Data Message Sender](built-in-roles.md#storage-queue-data-message-sender)
+      - [Storage Queue Data Reader](built-in-roles.md#storage-queue-data-reader)
+
+      1. Click **Add condition** if you want to further refine the role assignments based on storage attributes.
+
+        ![Screenshot of Add role assignment page with Add condition tab.](./media/shared/condition.png)
+
+      1. Follow the steps in [Add or edit Azure role assignment conditions](conditions-role-assignments-portal.md#step-3-review-basics).
 
   - title: |
       Step 6: Assign role
