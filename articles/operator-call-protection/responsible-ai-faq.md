@@ -12,7 +12,7 @@ ms.custom:
 #CustomerIntent: As a user, I want to understand the role of AI to reassure me that Microsoft is providing this AI service responsibly.
 ---
 
-# Responsible AI FAQ for Azure Operator Call Protection (preview)
+# Responsible AI FAQ for Azure Operator Call Protection
 
 ## What is Azure Operator Call Protection?
 

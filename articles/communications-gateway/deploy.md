@@ -91,7 +91,7 @@ For Zoom Phone Cloud Peering:
 | Whether to add a custom SIP header to messages entering your network by using Azure Communications Gateway's Provisioning API | **Options common to multiple communications services: Add custom SIP header** |
 | (Only if you choose to add a custom SIP header) The name of any custom SIP header | **Options common to multiple communications services: Custom SIP header name** |
 
-There are no configuration options required for Azure Operator Call Protection (preview).
+There are no configuration options required for Azure Operator Call Protection.
 
 ## Collect values for service verification numbers
 
