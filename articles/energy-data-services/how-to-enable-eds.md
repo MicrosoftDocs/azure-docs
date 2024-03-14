@@ -57,9 +57,18 @@ To enable External Data Source Preview on your Azure Data Manager for Energy, cr
 > 
 > EDS Preview will be enabled only on the Developer Tier. 
 
-
-
 We notify you once EDS preview is enabled in your Azure Data Manager for Energy resource.
+
+## Known issues
+- Below issues are specific to [OSDU&trade;](https://osduforum.org/) M18 release: 
+    - EDS ingest DAG results in failures when the data supplier’s wrapper Search service is unavailable. 
+    - EDS Dataset service response provides an empty response when data supplier’s Dataset wrapper service is unavailable. 
+    - Secret service responds with 5xx HTTP response code instead of 4xx in some cases. For example, 
+        - When an application tries to recover a deleted secret, which isn't deleted. 
+        - When an application tries to get an invalid deleted secret. 
+
+## Limitations
+Some EDS capabilities like **Naturalization, Reverse Naturalization, Reference data mapping** are unavailable in the M18 [OSDU&trade;](https://osduforum.org/) release (available in later releases), and hence unavailable in Azure Data Manager for Energy M18 release. These features will be available once we upgrade to subsequent [OSDU&trade;](https://osduforum.org/) milestone release.
 
 > [!div class="nextstepaction"]
 > [How to register an external data source with Azure Data Manager for Energy?](how-to-register-eds.md)
