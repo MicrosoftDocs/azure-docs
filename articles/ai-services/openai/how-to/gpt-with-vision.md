@@ -587,7 +587,7 @@ To use a User assigned identity on your Azure AI Services resource, follow these
         {
             "type": "AzureComputerVisionVideoIndex",
             "parameters": {
-                "endpoint": "<your_computer_vision_endpoint>",
+                "computerVisionBaseUrl": "<your_computer_vision_endpoint>",
                 "computerVisionApiKey": "<your_computer_vision_key>",
                 "indexName": "<name_of_your_index>",
                 "videoUrls": ["<your_video_SAS_URL>"]
@@ -602,12 +602,12 @@ To use a User assigned identity on your Azure AI Services resource, follow these
                 "role": "user",
                 "content": [
                         {
-                            "type": "text",
-                            "text": "Describe this video:"
-                        },
-                        {
                             "type": "acv_document_id",
                             "acv_document_id": "<your_video_ID>"
+                        },
+                        {
+                            "type": "text",
+                            "text": "Describe this video:"
                         }
                     ]
             }
@@ -637,13 +637,13 @@ response = client.chat.completions.create(
     messages=[
         { "role": "system", "content": "You are a helpful assistant." },
         { "role": "user", "content": [  
-            { 
-                "type": "text", 
-                "text": "Describe this video:" 
-            },
             {
                 "type": "acv_document_id",
                 "acv_document_id": "<your_video_ID>"
+            },
+            { 
+                "type": "text", 
+                "text": "Describe this video:" 
             }
         ] } 
     ],
