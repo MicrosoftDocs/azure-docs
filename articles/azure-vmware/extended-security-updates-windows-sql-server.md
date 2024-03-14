@@ -12,7 +12,7 @@ ms.date: 02/28/2024
 
 Extended Security Updates (ESUs) provide a way for customers to continue to run software that has reached its end-of-support lifecycle. ESUs are the mechanism, which allows these older versions of software to continue to be run in a supported manner and still receive security updates and critical patches. 
 
-Only in Azure, which includes Azure VMware Solution (AVS), are ESUs free of charge for additional years past their end-of-support. For more information on timelines, see [Extended Security updates for SQL Server and Windows Server]. 
+Only in Azure, which includes Azure VMware Solution (AVS), are ESUs free of charge for additional years past their end-of-support. For more information on timelines, see [Extended Security updates for SQL Server and Windows Server](https://www.microsoft.com/windows-server/extended-security-updates). 
 
 For additional information about ESUs for Window Server and SQL Server, see the following articles 
 
