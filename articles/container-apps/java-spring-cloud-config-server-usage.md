@@ -114,7 +114,7 @@ The following configuration settings are available on the `spring.cloud.config.s
 
 ## Refresh
 
-Services that consume properties need to know about the change before it happens. The default notification method for Spring Cloud Config Server involves manually triggering the refresh event, such as refresh by call `https://<YOUR-CONFIG-CLIENT-HOST-NAME>/actuator/refresh`, which may not be feasible if there are many app instances.
+Services that consume properties need to know about the change before it happens. The default notification method for Spring Cloud Config Server involves manually triggering the refresh event, such as refresh by call `https://<YOUR_CONFIG_CLIENT_HOST_NAME>/actuator/refresh`, which may not be feasible if there are many app instances.
 
 Instead, you can automatically refresh values from Config Server by letting the config client poll for changes based on a refresh internal. Use the following steps to automatically refresh values from Config Server.
 
@@ -189,12 +189,14 @@ By default, server-side encryption is enabled. Use the following steps to enable
 
 1. Update the Spring Cloud Config Server Java component to use the git repository that has the encrypted property and set the encryption key.
 
+    Before you run the following command, replace placeholders surrounded by `<>` with your values.
+
     ```azurecli
     az containerapp env java-component spring-cloud-config update \
-      --environment $ENVIRONMENT \
-      --resource-group $RESOURCE_GROUP \
-      --name $JAVA_COMPONENT_NAME \
-      --configuration spring.cloud.config.server.git.uri=$URI encrypt.key=randomKey
+      --environment <ENVIRONMENT_NAME> \
+      --resource-group <RESOURCE_GROUP> \
+      --name <JAVA_COMPONENT_NAME> \
+      --configuration spring.cloud.config.server.git.uri=<URI> encrypt.key=randomKey
     ```
 
 ### Client-side decryption
@@ -205,22 +207,26 @@ You can use client side decryption of properties by following the steps:
 
 1. Update the Spring Cloud Config Server Java component to use the git repository that has the encrypted property and disable server-side decryption.
 
+    Before you run the following command, replace placeholders surrounded by `<>` with your values.
+
     ```azurecli
     az containerapp env java-component spring-cloud-config update \
-      --environment $ENVIRONMENT \
-      --resource-group $RESOURCE_GROUP \
-      --name $JAVA_COMPONENT_NAME \
-      --configuration spring.cloud.config.server.git.uri=$URI spring.cloud.config.server.encrypt.enabled=false
+      --environment <ENVIRONMENT_NAME> \
+      --resource-group <RESOURCE_GROUP> \
+      --name <JAVA_COMPONENT_NAME> \
+      --configuration spring.cloud.config.server.git.uri=<URI> spring.cloud.config.server.encrypt.enabled=false
     ```
 
 1. In your client app, add the decryption key `ENCRYPT_KEY=randomKey` as an environment variable.
 
     Alternatively, if you include *spring-cloud-starter-bootstrap* on the `classpath`, or set `spring.cloud.bootstrap.enabled=true` as a system property, set `encrypt.key` in `bootstrap.properties`.
 
+    Before you run the following command, replace placeholders surrounded by `<>` with your values.
+
     ```azurecli
     az containerapp update \
-      --name $APP_NAME \
-      --resource-group $RESOURCE_GROUP \
+      --name <APP_NAME> \
+      --resource-group <RESOURCE_GROUP> \
 	    --set-env-vars "ENCRYPT_KEY=randomKey"
     ```
 
