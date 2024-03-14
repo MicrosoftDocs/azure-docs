@@ -9,19 +9,21 @@ ms.author: nickoman
 
 # Deployment safeguards (preview)
 
-Throughout the development lifecycle, it's common for bugs, issues, and other problems to arise if misconfigurations have taken place during the initial deployment of your Kubernetes resources. To ease the burden of Kubernetes development, Azure Kubernetes Service (AKS) offers deployment safeguards (preview). Deployment safeguards enforce Kubernetes best practices in your AKS cluster through Azure Policy controls.
+Throughout the development lifecycle, it's common for bugs, issues, and other problems to arise if the initial deployment of your Kubernetes resources includes misconfigurations. To ease the burden of Kubernetes development, Azure Kubernetes Service (AKS) offers deployment safeguards (preview). Deployment safeguards enforce Kubernetes best practices in your AKS cluster through Azure Policy controls.
 
-Deployment safeguards offers two levels of configuration. The `Warning` level populates warning messages in the code terminal when a cluster isn't following best practices. It lets you know that your cluster configuration is non-compliant, but allows the request to go through. The `Enforcement` level enforces compliant configurations, denying deployments if they are not following best practices.
+Deployment safeguards offer two levels of configuration. The `Warning` level populates warning messages in the code terminal when a cluster isn't following best practices. It lets you know that your cluster configuration is noncompliant, but allows the request to go through. The `Enforcement` level enforces compliant configurations, denying deployments if they aren't following best practices.
 
-After you configure deployment safeguards for 'Warning' or 'Enforcement', Deployment safeguards programmatically assesses your clusters at creation or update time for compliance. Deployment safeguards also displays aggregated compliance information across your workloads at a per resource level via Azure Policy's compliance dashboard in the [Azure portal][Azure-Policy-compliance-portal] or in your CLI or terminal. Running a non-compliant workload indicates that your cluster isn't following best practices and that workloads on your cluster are at risk of experiencing issues caused by your cluster configuration.
+After you configure deployment safeguards for 'Warning' or 'Enforcement', Deployment safeguards programmatically assess your clusters at creation or update time for compliance. Deployment safeguards also display aggregated compliance information across your workloads at a per resource level via Azure Policy's compliance dashboard in the [Azure portal][Azure-Policy-compliance-portal] or in your CLI or terminal. Running a noncompliant workload indicates that your cluster isn't following best practices and that workloads on your cluster are at risk of experiencing issues caused by your cluster configuration.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Before you get started
 
+Before you configure deployment safeguards, make sure that your environment meets the following requirements. 
+
 ### Prerequisites
 
-- Azure Policy's add-on for AKS must be enabled. For more details, see [Enabling Azure Policy on your AKS cluster][policy-for-kubernetes].
+- Azure Policy's add-on for AKS must be enabled. For more information, see [Enabling Azure Policy on your AKS cluster][policy-for-kubernetes].
 
 - To configure deployment safeguards, you must have version `2.0.0b1` or later of the `aks-preview` extension. We recommend that you install the latest version of Azure CLI as well as the `aks-preview` CLI extension.
 
@@ -72,7 +74,7 @@ The following table lists the policies that become active when you enable deploy
 |  Deployment safeguard policies |
 |--------------|
 | [Preview]: Cannot Edit Individual Nodes |
-| Kubernetes cluster containers CPU and memory resource limits should not exceed the specified limits |
+| Kubernetes cluster containers CPU and memory resource limits shouldn't exceed the specified limits |
 | [Preview]: Must Have Anti Affinity Rules Set |
 | [Preview]: No AKS Specific Labels |
 | Kubernetes cluster containers should only use allowed images |
@@ -85,24 +87,22 @@ The following table lists the policies that become active when you enable deploy
 
 If you would like to submit an idea or request for deployment safeguards, open an issue in the [AKS GitHub repository][aks-gh-repo] and add `[deployment safeguards request]` to the beginning of the title.
 
-
 ## Enable deployment safeguards
 
 >[!NOTE]
 > If you have enabled Azure Policy for the first time to use deployment safeguards, you may need to wait up to 35 minutes for Azure Policy to take effect.
 >
-> By using deployment safeguards `Enforcement` mode, you are opting in to your deployments being blocked as well. Please be aware of how these policies will work with your AKS cluster before you enable `Enforcement`.
+> By using deployment safeguards in `Enforcement` mode, you are opting in to your deployments being blocked as well. Please be aware of how these policies will work with your AKS cluster before you enable `Enforcement`.
 
 To enable deployment safeguards on a new cluster, include the `--safeguards-level` flag when you create the cluster.
 
-To receive warnings, set the --safeguards-level to "Warning".
-To deny all deployments that do not adhere to deployment safeguards, set the --safeguards-level to "Enforcement".
+To receive warnings, set the `--safeguards-level` to "Warning". To deny all deployments that don't adhere to deployment safeguards, set the `--safeguards-level` to "Enforcement".
 
 ```azurecli-interactive
 az aks create --name myAKSCluster --resource-group myResourceGroup --enable-addons azure-policy --safeguards-level Warning
 ```
 
-You can also update an existing cluster to enable deployment safeguards, assuming the Azure Policy add-on has already been enabled for the cluster.
+You can also update an existing cluster to enable deployment safeguards, assuming that you have already enabled the Azure Policy add-on for the cluster.
 
 ```azurecli-interactive
 az aks update --name myAKSCluster --resource-group myResourceGroup --safeguards-level Enforcement
@@ -120,9 +120,10 @@ az aks update --name myAKSCluster --resource-group myResourceGroup --safeguards-
 
 ## Verify compliance across clusters via your CLI or terminal
 
-After deploying your Kubernetes manifest, if the cluster is not compliant with deployment safeguards, then you will see warnings or a potential denial message in your CLI or terminal. The following examples show what that experience might look like for you.
+After deploying your Kubernetes manifest, if the cluster isn't compliant with deployment safeguards, then you'll see warnings or a potential denial message in your CLI or terminal. The following examples show what that experience might look like for you.
 
 **Warning**
+
 ```
 PS C:\Users\testUser\Code>  kubectl apply -f pod.yml
 Warning: [azurepolicy-k8sazurev2containerenforceprob-0e8a839bcd103e7b96a8] Container <my-container> in your Pod <my-pod> has no <livenessProbe>. Required probes: ["readinessProbe", "livenessProbe"]
@@ -134,6 +135,7 @@ pod/my-pod created
 ```
 
 **Enforcement**
+
 ```
 PS C:\Users\testUser\Code>  kubectl apply -f pod.yml
 Error from server (Forbidden): error when creating ".\pod.yml": admission webhook "validation.gatekeeper.sh" denied the request: [azurepolicy-k8sazurev2containerenforceprob-0e8a839bcd103e7b96a8] Container <my-container> in your Pod <my-pod> has no <livenessProbe>. Required probes: ["readinessProbe", "livenessProbe"]
@@ -143,7 +145,6 @@ Error from server (Forbidden): error when creating ".\pod.yml": admission webhoo
 [azurepolicy-k8sazurev3containerlimits-a8754961dbd4c1d8b49d] container <my-container> has no resource limits
 [azurepolicy-k8sazurev1containerrestrictedi-bde07e1776cbcc9aa8b8] my-pod in default does not have imagePullSecrets. Unauthenticated image pulls are not recommended.
 ```
-
 
 ## Verify compliance across clusters via the Azure Policy dashboard
 
@@ -161,24 +162,24 @@ To disable deployment safeguards on your cluster, set the `--safeguards-level` t
 ```azurecli-interactive
 az aks update --name myAKSCluster --resource-group myResourceGroup --safeguards-level Off
 ```
+
 --
 
 ## FAQ
 
-### I just enabled deployment safeguards with Azure Policy for the first time. Why don't I see any warnings? Why aren't my pods being declined?
+#### I enabled deployment safeguards with Azure Policy for the first time. Why don't I see any warnings? Why aren't my pods being declined?
 
-Azure Policy can take up to 35 minutes to sync with your cluster when it is turned on for the first time.
+Azure Policy can take up to 35 minutes to sync with your cluster after it is enabled for the first time.
 
-### I just switched from Warning to Enforcement. Will this take effect immediately?
+#### I just switched from Warning to Enforcement. Will this take effect immediately?
 
 When switching deployment safeguard levels, you may need to wait up to 15 minutes for the new level to take effect.
 
-### Why did my deployment resource get admitted even though it wasn't following best practices?
+#### Why did my deployment resource get admitted even though it wasn't following best practices?
 
-Deployment safeguards enforces best practice standards through Azure Policy controls and has policies that validate against pods as well as deployments. To evaluate and enforce cluster components (i.e. pods, namespaces), Azure Policy extends [Gatekeeper](https://open-policy-agent.github.io/gatekeeper/website/). Gatekeeper enforcement also currently operates in a [`fail-open` model](https://open-policy-agent.github.io/gatekeeper/website/docs/failing-closed/#considerations). As there is no guarantee that Gatekeeper will respond to our networking call, we make sure that in that case, the validation will be skipped so that the deny does not block your deployments.
+Deployment safeguards enforce best practice standards through Azure Policy controls and has policies that validate against pods and deployments. To evaluate and enforce cluster components (that is, pods, namespaces), Azure Policy extends [Gatekeeper](https://open-policy-agent.github.io/gatekeeper/website/). Gatekeeper enforcement also currently operates in a [`fail-open` model](https://open-policy-agent.github.io/gatekeeper/website/docs/failing-closed/#considerations). As there's no guarantee that Gatekeeper will respond to our networking call, we make sure that in that case, the validation is skipped so that the deny doesn't block your deployments.
 
 To learn more, see [workload validation in Gatekeeper](https://open-policy-agent.github.io/gatekeeper/website/docs/workload-resources/).
-
 
 ## Next steps
 
