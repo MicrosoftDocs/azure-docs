@@ -85,9 +85,10 @@ Create a service connection between an AKS cluster and an Azure Key Vault using 
 
     | Setting             | Choice                   | Description                                                                               |
     |---------------------|--------------------------|-------------------------------------------------------------------------------------------|
+    | **Kubernetes namespace**|   *default*          |  The namespace where you need the connection in the cluster.                              |
     | **Service type**    | *Key Vault (enable CSI)* | Choose Key Vault as the target service type and check the option to enable CSI.           |
-    | **Subscription**    | `<MySubscription>`       | The subscription for your target service (Azure Key Vault).                               |
     | **Connection name** | *keyvault_conn*          | Use the connection name provided by Service Connector or choose your own connection name. |
+    | **Subscription**    | `<MySubscription>`       | The subscription for your Azure Key Vault target service.                               |
     | **Key vault**       | `<MyKeyVault>`           | The target key vault you want to connect to.                                              |
     | **Client type**     | *Python*                 | The code language or framework you use to connect to the target service.                  |
 

@@ -107,9 +107,10 @@ Create a service connection between an AKS cluster and an Azure storage account 
 
     | Setting             | Choice               | Description                                                                               |
     |---------------------|----------------------|-------------------------------------------------------------------------------------------|
+    | **Kubernetes namespace**|   *default*          |  The namespace where you need the connection in the cluster.                              |
     | **Service type**    | *Storage - Blob*     | The target service type.                                                                  |
-    | **Subscription**    | `<MySubscription>`   | The subscription for your target service (Azure Blob Storage).                            |
-    | **Connection name** | *storage_conn*       | Use the connection name provided by Service Connector or choose your own connection name. |
+    | **Connection name** | *storage_conn*       | Use the connection name provided by Service Connector or choose your own connection name. |    
+    | **Subscription**    | `<MySubscription>`   | The subscription for your Azure Blob Storage target service.                              |
     | **Storage account** | `<MyStorageAccount>` | The target storage account you want to connect to.                                        |
     | **Client type**     | *Python*             | The code language or framework you use to connect to the target service.                  |
 

@@ -33,16 +33,18 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 
     | Setting             | Example              | Description                                                                                                                                                                               |
     |---------------------|----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | **Service type**    | Storage -  Blob      | The target service type. If you don't have a Microsoft Blob Storage, you can[create one](../storage/blobs/storage-quickstart-blobs-portal.md) or use another service type.                |
-    | **Subscription**    | My subscription      | The subscription for your target service (the service you want to connect to). The default value is the subscription for this AKS cluster.                                                |
+    | **Kubernetes namespace**|   *default*      |  The namespace where you need the connection in the cluster.   |
+    | **Service type**    | Storage -  Blob      | The target service type. If you don't have a Microsoft Blob Storage, you can [create one](../storage/blobs/storage-quickstart-blobs-portal.md) or use another service type.                |
     | **Connection name** | *my_connection*      | The connection name that identifies the connection between your AKS cluster and target service. Use the connection name provided by Service Connector or choose your own connection name. |
+    | **Subscription**    | My subscription      | The subscription for your target service (the service you want to connect to). The default value is the subscription for this AKS cluster.                                                |
     | **Storage account** | *my_storage_account* | The target storage account you want to connect to. Target service instances to choose from vary according to the selected service type.                                                   |
-    | **Client type**     | *python*             | The code language or framework you use to connect to the target service.                                                                                                                  |
+    | **Client type**     | *python*             | The code language or framework you use to connect to the target service.                                                                                                                       |
+
 1. Select **Next: Authentication** to choose an authentication method.
 
     ### [Workload identity](#tab/UMI)
 
-    Select **Workload identity** to authenticate through [Microsoft Entra workload identity](/entra/workload-id/workload-identities-overview) to one or more instances of an Azure service. You need choose a user assigned managed identity to enable workload identity with this option.
+    Select **Workload identity** to authenticate through [Microsoft Entra workload identity](/entra/workload-id/workload-identities-overview) to one or more instances of an Azure service. Then select a user-assigned managed identity to enable workload identity.
 
     ### [Connection string](#tab/CS)
     
@@ -59,8 +61,8 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 
 ## View service connections in AKS cluster
 
-1. The **Service Connector** tab displays existing connections of this cluster.
-1. Select **Network View**. You can see all the service connections in a network topology view.
+1. The **Service Connector** tab displays existing connections in this cluster.
+1. Select **Network View** to see all the service connections in a network topology view.
    :::image type="content" source="./media/aks-quickstart/list-and-view.png" alt-text="Screenshot of the Azure portal, listing and viewing the connections.":::
 
 ## Next steps
