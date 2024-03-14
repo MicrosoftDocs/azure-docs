@@ -57,13 +57,13 @@ In this section, you will create a web application that allows users to sign in 
 
     var builder = WebApplication.CreateBuilder(args);
 
-    // Retrieve the connection string
-    string connectionString = builder.Configuration.GetConnectionString("AppConfig");
+    // Retrieve the App Config connection string
+    string AppConfigConnectionString = builder.Configuration.GetConnectionString("AppConfig");
 
     // Load configuration from Azure App Configuration
     builder.Configuration.AddAzureAppConfiguration(options =>
     {
-        options.Connect(connectionString);
+        options.Connect(AppConfigConnectionString);
         options.UseFeatureFlags();
     });
 
