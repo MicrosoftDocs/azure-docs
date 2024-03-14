@@ -15,15 +15,12 @@ Azure Advisor Resiliency Reviews help you focus on the most important recommenda
 
 You can find resiliency reviews in [Azure Advisor](https://aka.ms/Advisor_Reviews), which serves as your single-entry point for Microsoft best practices.
 
-[!NOTE]
-Resiliency reviews in Azure Advisor are available to customers with Unified or Premier Support contracts. To learn more, reach out to your Customer Success Account Manager or primary Microsoft representative.
-
 In this article, you learn how to enable and access resiliency reviews prepared for you, triage, manage, implement, and track recommendations' lifecycles.
 
 ## Terminology
 
-* *Triage* means to accept or reject a recommendation.
-* *Manage recommendation lifecycle* means to mark a recommendation as completed, postponed or  dismissed, in progress, or not started. You can only manage a recommendation if it has been accepted.
+* *Triage recommendations* means to accept or reject a recommendation.
+* *Manage recommendation lifecycle* means to mark a recommendation as completed, postponed or  dismissed, in progress, or not started. You can only manage a recommendation is in the *Accepted* state.
 
 ## How it works
 
@@ -36,7 +33,7 @@ The following table defines the responsible parties for Advisor actions:
 |Request a resiliency review|Customer via your Customer Success Account Manager or aligned Cloud Solution Architect.|
 |Analyze workload configuration, perform the review via the Well Architected Reliability Assessment and prepare recommendations|Microsoft account team. Team members include Account Managers, Engineers, and Cloud Solution Architects. |
 |Triage recommendations to accept or reject them.|Customer. Triage is done by team members who have authority to make decisions about workload optimization priorities.|
-|Manage recommendations' lifecycle.|Customer. Setting the status of accepted recommendation as completed, postponed or  dismissed, in progress, or not started.|
+|Manage recommendations' lifecycle.|Customer. Setting the status of accepted recommendation as completed, postponed or dismissed, in progress, or not started.|
 |Implement recommendations that were accepted|Customer. Implementation is done by engineers who are responsible for managing resources and their configuration.|
 |Facilitate implementation|Microsoft account team via your support contract.|
 
@@ -65,7 +62,7 @@ You can manage access to Advisor personalized recommendations using the followin
 |---|:---:|
 |Subscription Reader|View reviews for a workload and recommendations linked to them.|
 |Subscription Owner<br>Subscription Contributor|View reviews for a workload, triage recommendations linked to those reviews, manage review recommendation lifecycle.|
-|Advisor Recommendations Contributor (Assessments and Reviews)|View review recommendations, accept review recommendations, manage review recommendations lifecycle.|
+|Advisor Recommendations Contributor (Assessments and Reviews)|View review recommendations, accept review recommendations, manage review recommendations' lifecycle.|
 
 You can find detailed instructions on how to assign a role using the Azure portal - [Assign Azure roles using the Azure portal - Azure RBAC](/azure/role-based-access-control/role-assignments-portal?tabs=delegate-condition). Additional information is available in [Steps to assign an Azure role - Azure RBAC](/azure/role-based-access-control/role-assignments-steps).
 
@@ -89,7 +86,7 @@ Select **Manage** > **Reviews (Preview)** in the left navigation pane. A list of
 At the top of the reviews page, use **Feedback** to tell us about your experience. Use the **Refresh** button to refresh the page as needed.
 
 [!NOTE]
-If you have no reviews, the **Reviews** menu itemin the left navigation is greyed out.
+If you have no reviews, the **Reviews** menu item in the left navigation is greyed out.
 
 ### Review recommendations
 
@@ -143,7 +140,7 @@ The reason for the rejection is visible to your account team. It helps them unde
 
 Once review recommendations are triaged, all recommendations with *Accepted* status become available on the Advisor **Reliability** page with links to the resources needing action. Typically, an engineer on your team implements the recommendations by going to the resource page and making the recommended change.
 
-For definitions on recommendation states, see [Terminology](#terminology)
+For definitions on recommendation states, see [Terminology](#terminology).
 
 ### Prerequisites to implement recommendations
 
