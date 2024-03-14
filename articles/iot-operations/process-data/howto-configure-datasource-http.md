@@ -1,6 +1,6 @@
 ---
 title: Configure a pipeline HTTP endpoint source stage
-description: Configure a pipeline source stage to read data from an HTTP endpoint for processing. The source stage is the first stage in a Data Processor pipeline.
+description: Configure a pipeline source stage to read data from an HTTP endpoint for processing. The source stage is the first stage in an Azure IoT Data Processor pipeline.
 author: dominicbetts
 ms.author: dobett
 ms.subservice: data-processor
@@ -12,11 +12,11 @@ ms.date: 10/23/2023
 #CustomerIntent: As an operator, I want to configure an HTTP endpoint source stage so that I can read messages from an HTTP endpoint for processing.
 ---
 
-# Configure a pipeline HTTP endpoint source stage
+# Configure an HTTP endpoint source stage in an Azure IoT Data Processor Preview pipeline
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-The source stage is the first and required stage in an Azure IoT Data Processor (preview) pipeline. The source stage gets data into the data processing pipeline and prepares it for further processing. The HTTP endpoint source stage lets you read data from an HTTP endpoint at a user-defined interval. The stage has an optional request body and receives a response from the endpoint.
+The source stage is the first and required stage in an Azure IoT Data Processor Preview pipeline. The source stage gets data into the data processing pipeline and prepares it for further processing. The HTTP endpoint source stage lets you read data from an HTTP endpoint at a user-defined interval. The stage has an optional request body and receives a response from the endpoint.
 
 In the source stage, you define:
 
@@ -55,7 +55,7 @@ The following table describes the HTTP endpoint source configuration parameters:
 | Request interval | [Duration](concept-configuration-patterns.md#duration) | String representation of the time to wait before the next API call. | Required | `10s`| `24h` |
 | Partitioning | [Partitioning](#configure-partitioning) | Partitioning configuration for the source stage. | Required | NA | See [partitioning](#configure-partitioning) |
 
-To learn more about secrets, see [Manage secrets for your Azure IoT Operations deployment](../deploy-iot-ops/howto-manage-secrets.md).
+To learn more about secrets, see [Manage secrets for your Azure IoT Operations Preview deployment](../deploy-iot-ops/howto-manage-secrets.md).
 
 ## Select data format
 
