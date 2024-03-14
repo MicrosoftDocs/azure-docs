@@ -84,12 +84,13 @@ Always upgrade your Kubernetes clusters to the latest version. Newer versions co
 
 As you scale your AKS clusters to larger scale points, keep the following feature limitations in mind:
 
-* AKS supports up to 5,000 node scale by default for all Standard Tier/ LTS clusters. AKS will scale your cluster's control plane at runtime based on cluster size and Api server load. If you cannot scale beyond 5000 nodes, enable [control plane metrics (Preview)](./monitor-control-plane-metrics.md) with the Azure Monitor managed service for Prometheus add-on and troubleshoot with the following troubleshooting guides:
-  * [AKS at scale troubleshooting guide](https://learn.microsoft.com/troubleshoot/azure/azure-kubernetes/aks-at-scale-troubleshoot-guide) 
+* AKS supports scaling up to 5,000 nodes by default for all Standard Tier / LTS clusters. AKS scales your cluster's control plane at runtime based on cluster size and API server resource utilization. If you cannot scale up to the supported limit, enable [control plane metrics (Preview)](./monitor-control-plane-metrics.md) with the [Azure Monitor managed service for Prometheus](/articles/azure-monitor/essentials/prometheus-metrics-overview.md) to monitor the control plane. To help troubleshoot scaling performance or reliability issues, see the following resources:
+  * [AKS at scale troubleshooting guide](/troubleshoot/azure/azure-kubernetes/aks-at-scale-troubleshoot-guide) 
   * [Troubleshoot the Kubernetes control plane](/troubleshoot/azure/azure-kubernetes/troubleshoot-apiserver-etcd)
-  *  If you still have a problem with scaling upto 5000 nodes, please raise a [support ticket](https://portal.azure.com/#create/Microsoft.Support/Parameters/%7B%0D%0A%09%22subId%22%3A+%22%22%2C%0D%0A%09%22pesId%22%3A+%225a3a423f-8667-9095-1770-0a554a934512%22%2C%0D%0A%09%22supportTopicId%22%3A+%2280ea0df7-5108-8e37-2b0e-9737517f0b96%22%2C%0D%0A%09%22contextInfo%22%3A+%22AksLabelDeprecationMarch22%22%2C%0D%0A%09%22caller%22%3A+%22Microsoft_Azure_ContainerService+%2B+AksLabelDeprecationMarch22%22%2C%0D%0A%09%22severity%22%3A+%223%22%0D%0A%7D)
+
 > [!NOTE]
-> During the scaling of the control plane, you may encounter elevated API server latency or timeouts for upto 15 minutes.
+> During the operation to scale the control plane, you might encounter elevated API server latency or timeouts for upto 15 minutes. If you continue to have problems scaling to the supported limit, open a [support ticket](https://portal.azure.com/#create/Microsoft.Support/Parameters/%7B%0D%0A%09%22subId%22%3A+%22%22%2C%0D%0A%09%22pesId%22%3A+%225a3a423f-8667-9095-1770-0a554a934512%22%2C%0D%0A%09%22supportTopicId%22%3A+%2280ea0df7-5108-8e37-2b0e-9737517f0b96%22%2C%0D%0A%09%22contextInfo%22%3A+%22AksLabelDeprecationMarch22%22%2C%0D%0A%09%22caller%22%3A+%22Microsoft_Azure_ContainerService+%2B+AksLabelDeprecationMarch22%22%2C%0D%0A%09%22severity%22%3A+%223%22%0D%0A%7D).
+
 * [Azure Network Policy Manager (Azure npm)][azure-npm] only supports up to 250 nodes.
 * You can't use the Stop and Start feature with clusters that have more than 100 nodes. For more information, see [Stop and start an AKS cluster](./start-stop-cluster.md).
 
@@ -114,7 +115,7 @@ As you scale your AKS clusters to larger scale points, keep the following node p
 
 ## Cluster upgrade considerations and best practices
 
-* The hard limit of 5,000 nodes per AKS cluster prevents clusters at this limit from performing upgrades. This limit prevents upgrades because there is no more node capacity to perform rolling updates within the max surge property limit. If you have a cluster at this limit, we recommend [scaling the cluster down](./concepts-scale.md) below 3,000 nodes before doing cluster upgrades to provide extra capacity for node churn, and to minimize the control plane load.
+* When a cluster reaches the 5,000 node limit, cluster upgrades are blocked. This limits prevents an upgrade because there isn't available node capacity to perform rolling updates within the max surge property limit. If you have a cluster at this limit, we recommend [scaling down the cluster](./concepts-scale.md) under 3,000 nodes before attempting a cluster upgrade. This will provide extra capacity for node churn and minimize load on the control plane.
 * When upgrading clusters with more than 500 nodes, it is recommended to use a [max surge configuration](./upgrade-aks-cluster.md#set-max-surge-value) of 10-20% of the node pool's capacity. AKS configures upgrades with a default value of 10% for max surge. You can customize the max surge settings per node pool to enable a trade-off between upgrade speed and workload disruption. When you increase the max surge settings, the upgrade process completes faster, but you might experience disruptions during the upgrade process. For more information, see [Customize node surge upgrade][max surge].
 * For more cluster upgrade information, see [Upgrade an AKS cluster][cluster upgrades].
 
