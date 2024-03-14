@@ -4,7 +4,7 @@ description: "Learn to migrate seamlessly from AWS RDS to Azure Database for Pos
 author: apduvuri
 ms.author: adityaduvuri
 ms.reviewer: maghan
-ms.date: 03/13/2024
+ms.date: 03/19/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: tutorial
