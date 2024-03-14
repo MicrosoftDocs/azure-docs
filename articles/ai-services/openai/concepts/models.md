@@ -240,7 +240,7 @@ The following Embeddings models are available with [Azure Government](/azure/azu
 For Assistants you need a combination of a supported model, and a supported region. Certain tools and capabilities require the latest models. For example [parallel function](../how-to/assistant-functions.md) calling requires the latest 1106 models.
 
 | Region | `gpt-35-turbo (0613)` | `gpt-35-turbo (1106)` | `gpt-4 (0613)` | `gpt-4 (1106)` | `gpt-4 (0125)` | 
-|-----|---|---|---|---|
+|-----|---|---|---|---|---|
 | Australia East | ✅ | ✅ | ✅ |✅ | |
 | East US |  | |  | | ✅ |
 | East US 2 | ✅ | | ✅ |✅ | |
@@ -249,7 +249,7 @@ For Assistants you need a combination of a supported model, and a supported regi
 PTU availability 
 
 | Region | `gpt-35-turbo (1106)` | `gpt-4 (1106)` | `gpt-4 (0125)` |  
-|-----|---|---|
+|-----|---|---|---|
 | East US | ✅ | ✅ | |
 | East US 2 | | ✅ | ✅ |
 | Sweden Central | ✅ |✅ |✅ |
