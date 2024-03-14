@@ -25,7 +25,7 @@ Use the Bash environment in the Azure cloud shell. For more information, see [St
 
 For users that prefer to run CLI reference commands locally refer to [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
-If you're running on Window or macOS, consider running Azure CLI in a Docker container. For more information, see [How to run the Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
+If you're running on Windows or macOS, consider running Azure CLI in a Docker container. For more information, see [How to run the Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
 
 If you're using a local installation, sign into the Azure CLI using the `az login` command and complete the prompts displayed in your terminal to finish authentication. For more sign-in options, refer to [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
@@ -119,9 +119,9 @@ A generic workflow of using the CLI extension is:
 1. Review the output of the build command, edit the output as necessary for your requirements.
 
 1. Run a `publish` command to:
-    - Create all prerequisite resources such as Publisher, Artifact Stores, Groups.
-    - Deploy those bicep templates.
-    - Upload artifacts to the artifact stores.
+   - Create all prerequisite resources such as Publisher, Artifact Stores, Groups.
+   - Deploy those bicep templates.
+   - Upload artifacts to the artifact stores.
 
 ## VNF start point
 
@@ -147,15 +147,16 @@ You also need a VHD image that would be used for the VNF Virtual Machine. The VH
 
 ## CNF start point
 
+**TODO: THIS SECTION IS EXACTLY THE SAME AS THE one in cnf prerequisites. Make sure all the changes there are applied here (or just link it)**
+
 For deployments of Containerized Network Functions (CNFs), it's crucial to have the following stored on the machine from which you're executing the CLI:
 
 - **Helm Packages with Schema** - These packages should be present on your local storage and referenced within the `cnf-input.jsonc` configuration file. When following this quickstart, you download the required helm package.
 - **Images for your CNF** - Here are the options:
-  - A reference to an existing Azure Container Registry that contains the images for your CNF. Currently, only one ACR and namespace are supported per CNF. The images to be copied from this ACR are populated automatically based on the helm package schema. You must have Reader/AcrPull permissions on this ACR. To use this option, fill in `source_registry` and optionally `source_registry_namespace` in the input.json file.
-  - The image name of the source docker image from local machine. This image name is for a limited use case where the CNF only requires a single docker image that exists in the local docker repository. To use this option, fill in `source_local_docker_image` in the input.json file. Requires docker to be installed. This quickstart guides you through downloading an nginx docker image to use for this option.
-- **Optional: Mapping File (default_values)**: Optionally, you can provide a file (on disk). This file should mirror `values.yaml`,  with your selected values replaced by deployment parameters. Doing so exposes them as parameters to the CNF.  By default in this case, every value within `values.yaml` is exposed as a deployment parameter.
+  - A reference to existing Container Registries that contain the images for your CNF. Azure Container Registries are preferred but all Container Registries should work with the CLI. The images to be copied from these registries are populated automatically based on the helm package schema. You must have Reader/AcrPull permissions on any ACRs referenced or run `docker login` command when using other private Container Registries. To use this option, fill in `image_sources` in the `cnf-input.jsonc` file.
+- **Optional: Mapping File (default_values)**: Optionally, you can provide a file (on disk) named default_values. This file should mirror `values.yaml`, with your selected values replaced by deployment parameters. Doing so exposes them as parameters to the CNF. Or, you can leave this blank in `cnf-input.jsonc` and the CLI generates the file. By default in this case, every value within `values.yaml` is exposed as a deployment parameter. This quickstart guides you through creation of this file. **TODO: I DOUBT THIS IS RIGHT**
 
-When configuring the `cnf-input.jsonc` file, ensure that you list the Helm packages in the order they should be deployed. For instance, if package "A" must be deployed before package "B," your `cnf-input.jsonc` should resemble the following structure:
+When configuring the `cnf-input.jsonc` file, ensure that you list the Helm packages in the order they should be deployed. For instance, if package "A" must be deployed before package "B," your `cnf-input.jsonc` should resemble the following structure: **TODO: does it still follow this order in the new CLI?**
 
 ```json
     // List of Helm packages to be included in the CNF.
