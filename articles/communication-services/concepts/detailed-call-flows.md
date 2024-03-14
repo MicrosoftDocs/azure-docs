@@ -6,14 +6,14 @@ author:  sloanster
 services: azure-communication-services
 
 ms.author: micahvivion
-ms.date: 03/13/2024
+ms.date: 03/14/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
 
 # Call flow topologies
-This article describes Azure Communication Services call flow topologies. Within this article you will learn details about network concepts for Azure Communication Services, how calling traffic is encryptied, and  For an introduction to Communication Services call flows, visit the [call flows conceptual documentation](./call-flows.md).
+This article describes Azure Communication Services call flow topologies. Within this article you learn details about network concepts for Azure Communication Services, how calling traffic is encrypted, and  For an introduction to Communication Services call flows, visit the [call flows conceptual documentation](./call-flows.md).
 
 ## Background
 
@@ -25,7 +25,7 @@ A **customer network** contains any network segments that you manage. This might
 
 A customer network usually has several network perimeters with firewalls and/or proxy servers that enforce your organization's security policies. We recommend performing a [comprehensive network assessment](/microsoftteams/3-envision-evaluate-my-environment) to ensure optimal performance and quality of your communication solution.
 
-The **Communication Services network** is the network segment that supports Azure Communication Services. This network is managed by Microsoft and is distributed worldwide with edges close to most customer networks. This network is responsible for transport relay, media processing for group calls, and other components that support rich real-time media communications.
+The **Communication Services network** is the network  that supports Azure Communication Services. This network is managed by Microsoft and is distributed worldwide with Microsoft owned data centers closest to end customers. This network is responsible for transport relay, media processing for group calls, and other components that support rich real-time media communications.
 
 ### Types of traffic
 
@@ -38,11 +38,11 @@ Users of your Communication Services solution are connecting to your services fr
 ### Media Encryption
 Call flows in Azure Communication Services calling SDK and Teams clients are based on the [Session Description Protocol (SDP) RFC 8866](https://datatracker.ietf.org/doc/html/rfc8866) offer and answer model over HTTPS. Once the callee accepts an incoming call, the caller and callee agree on the session parameters.
 
-Media traffic is encrypted by, and flows between, the caller and callee using Secure RTP (SRTP), a profile of Real-time Transport Protocol (RTP) that provides confidentiality, authentication, and replay attack protection to RTP traffic. In most cases, client to client media traffic is negotiated through client to server connection signaling, and is encrypted using SRTP when going directly from client to client.
+Media traffic is encrypted, and flows between, the caller and callee using Secure RTP (SRTP), a profile of Real-time Transport Protocol (RTP) that provides confidentiality, authentication, and replay attack protection to RTP traffic. In most cases, client to client media traffic is negotiated through client to server connection signaling, and is encrypted using SRTP when going directly from client to client.
 
 Azure Communication Services calling SDK and Teams use DTLS to derive an encryption key based on per-call keys generated on both client endpoints. Since DTLS derives the key based on the client certificates, the key is opaque to Microsoft. Once the handshake is done, the media begins to flow using this DTLS-negotiated encryption key over SRTP.
 
-Azure Comunication Services calling SDK and Teams clients uses a credentials-based token for secure access to media relays over TURN. Media relays exchange the token over a TLS-secured channel.
+Azure Communication Services calling SDK and Teams clients uses a credentials-based token for secure access to media relays over TURN. Media relays exchange the token over a TLS-secured channel.
 
 Azure Communication Services media traffic between two endpoints participating in Azure Communication Services audio, video, and video sharing utilizes SRTP to encrypt the media stream. Cryptographic keys are negotiated between the two endpoints over a signaling protocol which uses TLS 1.2 and AES-256 (in GCM mode) encrypted UDP/TCP channel.
 
@@ -52,7 +52,7 @@ There are four general principles that underpin Azure Communication Services cal
 
 * **The first participant of a Communication Services group call determines the region in which the call is hosted**. There are exceptions to this rule in some topologies, which are described below.
 * **The media endpoint used to support a Communication Services call is selected based on media processing needs**, and isn't affected by the number of participants on a call. For example, a point-to-point call may use a media endpoint in the cloud to process media for transcription or recording, while a call with two participants may not use any media endpoints. Group calls use a media endpoint for mixing and routing purposes. This endpoint is selected based on the region in which the call is hosted. Media traffic sent from a client to the media endpoint may be routed directly or it may use a transport relay in Azure if customer network firewall restrictions require it.
-* **Media traffic for peer-to-peer calls takes the most direct route that's available**, assuming the call doesn't need a media endpoint in the cloud. The preferred route is direct to the remote peer (client). If a direct route isn't available, one or more transport relays relay traffic. Media traffic shouldn't transverse servers that act like packet shapers, VPN servers, or other functions that might delay processing and degrade the end-user experience.
+* **Media traffic for peer-to-peer calls takes the most direct route that's available**, assuming the call doesn't need a media endpoint in the cloud. The preferred route is direct to the remote peer (client). If a direct route isn't available, one or more transport relays forward the traffic. Media traffic shouldn't transverse servers that act like packet shapers, VPN servers, or other functions that might delay processing and degrade the end-user experience.
 * **Signaling traffic always goes to whatever server is closest to the user.**
 
 To learn more about the details on the media path that is chosen, refer to the [call flows conceptual documentation](./call-flows.md).
@@ -68,7 +68,7 @@ This topology is used by customers that use Communication Services from the clou
 
 *Figure 1 - Communication Services topology*
 
-The direction of the arrows on the above diagram reflect the initiation direction of the communication that affects connectivity at the enterprise perimeters. In the case of UDP for media, the first packet(s) may flow in the reverse direction, but these packets may be blocked until packets in the other direction are flowing.
+The direction of the arrows on the above diagram reflects the initiation direction of the communication that affects connectivity at the enterprise perimeters. In the case of UDP for media, the first packets may flow in the reverse direction, but these packets may be blocked until packets in the other direction are flowing.
 
 Flow descriptions:
 * Flow 2 – Represents a flow initiated by a user on the customer network to the Internet as a part of the user's Communication Services experience. Examples of these flows include DNS and peer-to-peer media transmission.
@@ -80,7 +80,7 @@ Flow descriptions:
 
 ### Use case: One-to-one calling
 
-One-to-one calls use a common model in which the caller obtain a set of candidates consisting of IP addresses/ports, including local, relay, and reflexive (public IP address of client as seen by the relay) candidates. The caller sends these candidates to the called party; the called party also obtains a similar set of candidates and sends them to the caller. STUN connectivity check messages are used to find which caller/called party media paths work, and the best working path is selected. Once the connection path has been established, a DTLS handshake is performed over this connection to ensure the security. After the DTLS handshake, the SRTP keys are derived from the DTLS handshake process. Media (that is, RTP/RTCP packets secured using SRTP) are then sent using the selected candidate pair. The transport relay is available as part of Azure Communication Services.
+A One-to-one calls call means one user directly calls another user. In order to setup the call the calling SDK obtain a set of candidates consisting of IP addresses and ports, including local, relay, and reflexive (public IP address of client as seen by the relay) candidates. The caller SDK sends these candidates to the called party; the called party also obtains a similar set of candidates and sends them to the caller. STUN connectivity check messages are used to find which caller/called party media paths work, and the best working path is selected. Once the connection path is established, a DTLS handshake is performed over this connection to ensure the security. After the DTLS handshake, the SRTP keys are derived from the DTLS handshake process. Media (that is, RTP/RTCP packets secured using SRTP) are then sent using the selected candidate pair. The transport relay is available as part of Azure Communication Services.
 
 If the local IP address/port candidates or the reflexive candidates have connectivity, then the direct path between the clients (or using a NAT) will be selected for media. If the clients are both on the customer network, then the direct path should be selected. This requires direct UDP connectivity within the customer network. If the clients are both nomadic cloud users, then depending on the NAT/firewall, media may use direct connectivity.
 
@@ -172,7 +172,7 @@ In this case, signaling and media from the customer network to Azure use Flow 4.
 
 The audio/video/screen sharing (VBSS) service is part of Azure Communication Services. It has a public IP address that must be reachable from the customer network and must be reachable from a Nomadic Cloud client. Each client/endpoint needs to be able to connect to the service.
 
-Internal clients will obtain local, reflexive, and relay candidates in the same manner as described for one-to-one calls. The clients will send these candidates to the service in an invite. The service doesn't use a relay since it has a publicly reachable IP address, so it responds with its local IP address candidate. The client and the service will check connectivity in the same manner described for one-to-one calls.
+Internal clients obtain local, reflexive, and relay candidates in the same manner as described for one-to-one calls. The clients send these candidates to the service in an invite. The service doesn't use a relay since it has a publicly reachable IP address, so it responds with its local IP address candidate. The client and the service check connectivity in the same manner described for one-to-one calls.
 
 :::image type="content" source="./media/call-flows/acs-group-calls.png" alt-text="Azure Communication Services Group Call":::
 
