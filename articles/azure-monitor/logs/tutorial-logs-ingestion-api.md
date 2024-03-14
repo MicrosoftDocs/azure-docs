@@ -5,7 +5,7 @@ ms.topic: tutorial
 ms.custom:
 author: bwren
 ms.author: bwren
-ms.date: 03-13-2024
+ms.date: 03/13/2024
 ---
 
 # Tutorial: Send data to Azure Monitor using Logs ingestion API (Resource Manager templates)
