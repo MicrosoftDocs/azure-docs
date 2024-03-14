@@ -17,7 +17,7 @@ This deployment model allows leveraging the Application Gateway's reverse proxy 
 Cloud Next-Generation Firewall by Palo Alto Networks - an Azure Native ISV Service is Palo Alto Networks Next-Generation Firewall (NGFW) delivered as a cloud-native service on Azure. You can discover Cloud NGFW in the Azure Marketplace and consume it in your Azure Virtual Networks (VNet) and in the Azure Virtual WAN (vWAN). With Cloud NGFW, you can access the core NGFW capabilities such as App-ID and URL filtering-based technologies. It provides threat prevention and detection through cloud-delivered security services and threat prevention signatures.
 
 More details about the Cloud NGFW by Palo Alto Networks - an Azure Native ISV
-Service can be found here: [https://learn.microsoft.com/azure/partner-solutions/palo-alto/palo-alto-overview](https://learn.microsoft.com/azure/partner-solutions/palo-alto/palo-alto-overview)
+Service can be found here: [https://learn.microsoft.com/azure/partner-solutions/palo-alto/palo-alto-overview](/azure/partner-solutions/palo-alto/palo-alto-overview)
 
 ## Architecture
 
@@ -31,8 +31,7 @@ The AppGW also offers Web Application Firewall (WAF) capabilities to look for pa
 
 :::image type="content" source="media/palo-alto-app-gw/palo-alto-app-gw.png" alt-text="Diagram shows a high-level architecture with Application Gateway.":::
 
-More details about Application Gateway features can be found here: [https://learn.microsoft.com/azure/application-gateway](https://learn.microsoft.com/azure/application-gateway)
-
+More details about Application Gateway features can be found here: [https://learn.microsoft.com/azure/application-gateway](/azure/application-gateway)
 
 Cloud NGFW for Azure supports two deployment architectures:
 - Hub-and-Spoke VNet 
@@ -92,7 +91,7 @@ You can locate the Next Hop IP address of the Cloud NGFW by looking at the effec
 
 Azure Rulestack allows configuring the security rules and applying the security profiles right in the Azure Portal or via the API. When implementing the architecture presented above, configure the security rules leverating Palo Alto Network’s patented App-ID, Advanced Threat Prevention, Advanced URL filtering and DNS security [Cloud-Delivered Security Services](https://www.paloaltonetworks.com/network-security/security-subscriptions) (CDSS).
 
-See [Cloud NGFW Native Policy Management using Rulestacks](https://docs.paloaltonetworks.com/cloud-ngfw/azure/cloud-ngfw-for-azure/native-policy-management) for more details.
+See [Cloud NGFW Native Policy Management Using Rulestacks](https://docs.paloaltonetworks.com/cloud-ngfw/azure/cloud-ngfw-for-azure/native-policy-management) for more details.
 
 > [!NOTE]
 > Use  of X-Forwarded-For (XFF) HTTP header field to enforce security policy is currently not supported with the Azure Rulestack policy management.
@@ -111,7 +110,7 @@ Special considerations need to be applied to the zone-based policies to ensure t
 
 ## References
 
-https://docs.paloaltonetworks.com/cloud-ngfw/azure/cloud-ngfw-for-azure
-https://learn.microsoft.com/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall
-https://learn.microsoft.com/azure/architecture/example-scenario/gateway/firewall-application-gateway
-https://learn.microsoft.com/azure/virtual-wan/how-to-palo-alto-cloud-ngfw
+[https://docs.paloaltonetworks.com/cloud-ngfw/azure/cloud-ngfw-for-azure](https://docs.paloaltonetworks.com/cloud-ngfw/azure/cloud-ngfw-for-azure)
+[https://learn.microsoft.com/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall](/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall)
+[https://learn.microsoft.com/azure/architecture/example-scenario/gateway/firewall-application-gateway](/azure/architecture/example-scenario/gateway/firewall-application-gateway)
+[https://learn.microsoft.com/azure/virtual-wan/how-to-palo-alto-cloud-ngfw](/azure/virtual-wan/how-to-palo-alto-cloud-ngfw)
