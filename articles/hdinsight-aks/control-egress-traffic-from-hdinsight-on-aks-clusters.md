@@ -8,7 +8,7 @@ ms.date: 03/14/2024
 
 # Control egress traffic from HDInsight on AKS Clusters
 
-[!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 HDInsight on AKS is a managed Platform as a Service (PaaS) that runs on Azure Kubernetes Service (AKS). HDInsight on AKS allows you to deploy popular Open-Source Analytics workloads like Apache Spark™, Apache Flink®️, and Trino without the overhead of managing and monitoring containers.  
 
@@ -35,9 +35,9 @@ Some of the most common ones are:
 
 1. Use Outbound cluster pool with User defined routing to control egress traffic at the subnet level.
 
-1. Use private AKS feature, the AKS control plane or API server has internal IP addresses You can ensure network traffic between AKS Control plane / API server and HDInsight on AKS node pools remains on the private network only.
+1. The AKS control plane, or API server has internal IP addresses. You can ensure network traffic between AKS Control plane / API server and HDInsight on AKS node pools remains on the private network only.
 
-1. To avoid creating public IPs for the cluster, use private ingress feature on your clusters.
+1. Avoid creating public IPs for the cluster, use private ingress feature on your clusters.
 
 In the following sections, we describe each method and tool in more detail.
 
@@ -55,7 +55,7 @@ A public IP created by HDInsight on AKS, and it's an AKS-managed resource, which
 
 When clusters are created, then certain ingress public IPs also get created.  
 
-To allow requests to be sent to the cluster, you need to [allowlist the traffic](./secure-traffic-by-nsg#inbound-security-rules-ingress-traffic.md). You can also configure certain [rules in the NSG ](./secure-traffic-by-nsg#inbound-security-rules-ingress-traffic) to do a coarse-grained control. 
+To allow requests to be sent to the cluster, you need to [allowlist the traffic](./secure-traffic-by-nsg#inbound-security-rules-ingress-traffic). You can also configure certain [rules in the NSG ](./secure-traffic-by-nsg#inbound-security-rules-ingress-traffic) to do a coarse-grained control. 
 
 ### Outbound with user defined routing 
 
@@ -90,7 +90,7 @@ Azure Firewall lets you control outbound traffic at a much more granular level a
 
 Following is an example of setting up firewall rules, and testing your outbound connections.
 
-1. Create the required firewall subnet
+1. Create the required firewall subnet:
 
     To deploy a firewall into the integrated virtual network, you need a subnet called AzureFirewallSubnet or Name of your choice. 
 
@@ -139,7 +139,7 @@ Following is an example of setting up firewall rules, and testing your outbound 
 
 1. Route all traffic to the firewall 
 
-    When you create a virtual network, Azure automatically creates a default route table for each of its subnets and adds system [default routes to the table](azure/virtual-network/virtual-networks-udr-overview#default). In this step, you create a user-defined route table that routes all traffic to the firewall, and then associate it with the App Service subnet in the integrated virtual network. 
+    When you create a virtual network, Azure automatically creates a default route table for each of its subnets and adds system [default routes to the table](/azure/virtual-network/virtual-networks-udr-overview#default). In this step, you create a user-defined route table that routes all traffic to the firewall, and then associate it with the App Service subnet in the integrated virtual network. 
     
     1. On the [Azure portal](https://portal.azure.com/) menu, select All services or search for and select All services from any page. 
     
@@ -248,12 +248,12 @@ The private FQDN is only for private cluster, recorded as A-RECORD in private DN
 
 ### Reference
 
-- [Azure virtual network traffic routing | Microsoft Learn](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview).
+- [Azure virtual network traffic routing | Microsoft Learn](https://learn.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
 
-- [Azure Virtual Network peering | Microsoft Learn](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview).
+- [Azure Virtual Network peering | Microsoft Learn](https://learn.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 
 - [Outbound traffic on HDInsight on AKS - Azure HDInsight on AKS |  Microsoft Learn.](./required-outbound-traffic)
 
-- [Outbound network and FQDN rules for Azure Kubernetes Service (AKS) clusters - Azure Kubernetes Service | Microsoft Learn](https://learn.microsoft.com/en-us/azure/aks/outbound-rules-control-egress#azure-global-required-network-rules).
+- [Outbound network and FQDN rules for Azure Kubernetes Service (AKS) clusters - Azure Kubernetes Service | Microsoft Learn](https://learn.microsoft.com/azure/aks/outbound-rules-control-egress#azure-global-required-network-rules).
 
 
