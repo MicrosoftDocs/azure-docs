@@ -159,7 +159,7 @@ relatedContent:
   - text: Access user authentication and authorization data
     url: user-information.md
 
-nextStep:
-  text: nextstepaction
-  url: configuration.md
+# nextStep:
+# text: nextstepaction
+# url: configuration.md
 
