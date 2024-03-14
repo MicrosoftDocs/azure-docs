@@ -1,12 +1,12 @@
 ---
 title: Migrate to stv2 platform - Azure API Management - Non-VNet injected
-description: Migrate your Azure API Management instance in-place from the stv1 compute platform to the stv2 platform. Follow these migration steps if your API Management instance isn't deployed (injected) in an external or internal VNet.
+description: Migrate your Azure API Management instance in-place from the stv1 compute platform to the stv2 platform. Follow these migration steps if your API Management instance is not deployed (injected) in an external or internal VNet.
 
 author: dlepow
 ms.service: api-management
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 03/01/2024
+ms.date: 03/14/2024
 ms.author: danlep
 ---
 
@@ -46,7 +46,7 @@ API Management platform migration from `stv1` to `stv2` involves updating the un
 
 You can choose whether the virtual IP address of API Management will change, or whether the original VIP address is preserved.
 
-* **New virtual IP address (recommended)** - If you choose this mode, API requests remain responsive during migration. Infrastructure configuration (such as custom domains, locations, and CA certificates) will be locked for 30 minutes. After migration, you'll need to update any network dependencies including DNS, firewall rules, and VNets to use the new VIP address. 
+* **New virtual IP address** - If you choose this mode, API requests remain responsive during migration. Infrastructure configuration (such as custom domains, locations, and CA certificates) will be locked for 30 minutes. After migration, you'll need to update any network dependencies including DNS, firewall rules, and VNets to use the new VIP address. 
 
 * **Preserve IP address** - If you preserve the VIP address, API requests will be unresponsive for approximately 15 minutes while the IP address is migrated to the new infrastructure. Infrastructure configuration (such as custom domains, locations, and CA certificates) will be locked for 45 minutes. No further configuration is required after migration.
 
@@ -155,7 +155,7 @@ After successful migration to a new VIP address, update any network dependencies
 
 - **Can I roll back the migration if required?**
 
-    If there's a failure during the migration process, the instance will automatically roll back to the `stv1` platform. However, if the service migrates successfully and if you encounter any other networking issues, you can only roll forward while the old gateway continues to serve traffic. When migrating a non-VNet-injected instance, the old gateway is purged in 15 minutes.
+    If there's a failure during the migration process, the instance will automatically roll back to the `stv1` platform. However, after the service migrates successfully, you can't roll back to the `stv1` platform. 
 
 - **Is there any change required in custom domains/private DNS zones?**
 

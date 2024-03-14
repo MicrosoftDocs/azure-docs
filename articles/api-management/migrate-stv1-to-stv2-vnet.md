@@ -6,7 +6,7 @@ author: dlepow
 ms.service: api-management
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 03/11/2024
+ms.date: 03/14/2024
 ms.author: danlep
 ---
 
@@ -110,6 +110,8 @@ After you update the VNet configuration, the status of your API Management insta
 
 [!INCLUDE [api-management-validate-migration-to-stv2](../../includes/api-management-validate-migration-to-stv2.md)]
 
+[!INCLUDE [api-management-migration-compute-coexist](../../includes/api-management-migration-compute-coexist.md)]
+
 [!INCLUDE [api-management-migration-rollback](../../includes/api-management-migration-rollback.md)]
 
 ## Update network dependencies
@@ -187,7 +189,9 @@ After successful migration, update any network dependencies including DNS, firew
 
 - **Can I roll back the migration if required?**
 
-  If there's a failure during the migration process, the instance will automatically roll back to the `stv1` platform. However, if the service migrates successfully and if you encounter any other networking issues, you can only roll forward while the old gateway continues to serve traffic. By default, the old gateway is purged in 15 minutes that can be extended up to 48 hours by contacting Azure support in advance.
+  If there's a failure during the migration process, the instance will automatically roll back to the `stv1` platform. However, after the service migrates successfully, you can't roll back to the `stv1` platform. 
+
+   After a VNet-injected service migrates successfully, there is a short window if time during which the old gateway continues to serve traffic and you can confirm your network settings. See [Confirm settings before old gateway is purged](#confirm-settings-before-old-gateway-is-purged)
 
 - **Is there any change required in custom domain/private DNS zones?**
 

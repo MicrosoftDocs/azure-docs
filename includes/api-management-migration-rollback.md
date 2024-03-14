@@ -12,4 +12,4 @@ If there's a failure during the migration process, the instance will automatical
 
 For help if migration fails, contact Azure support.
 
-If you need full control of rollback and the length of time when old and new gateways coexist, the recommendation is to deploy a new `stv2` instance [side-by-side with your original API Management instance](../articles/api-management/migrate-stv1-to-stv2.md#alternative-side-by-side-deployment). 
+If you need the capability to roll back manually, the recommendation is to deploy a new `stv2` instance [side-by-side with your original API Management instance](../articles/api-management/migrate-stv1-to-stv2.md#alternative-side-by-side-deployment). 
