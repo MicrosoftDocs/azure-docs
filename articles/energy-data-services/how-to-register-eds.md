@@ -55,7 +55,6 @@ OEPAirFlowTask
 Use **getRetrievalInstructions** API in `005: Dataset Service collection` to retrieve bulk data from external data source on demand. 
 
 ## Known issues
-- EDS swagger endpoint on Azure Data Manager for Energy resource doesn't work in the M18 release. Therefore, we suggest you use the API collection provided in [Prerequisites](#prerequisites).
 - Below issues are specific to [OSDU&trade;](https://osduforum.org/) M18 release: 
     - EDS ingest DAG results in failures when the data supplier’s wrapper Search service is unavailable. 
     - EDS Dataset service response provides an empty response when data supplier’s Dataset wrapper service is unavailable. 
