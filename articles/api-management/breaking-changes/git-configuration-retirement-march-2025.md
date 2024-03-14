@@ -27,7 +27,7 @@ Before the retirement date, update your configuration management to use a differ
 
 ## Help and support
 
-If you have questions, get answers from community experts in [Microsoft Q&A](https://learn.microsoft.com/answers). If you have a support plan and you need technical help for the Git repository feature, create a [support request](https://portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview):
+If you have questions, get answers from community experts in [Microsoft Q&A](/answers). If you have a support plan and you need technical help for the Git repository feature, create a [support request](https://portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview):
 
 1. Under **Issue type**, select **Technical**.
 1. Under **Subscription**, select your subscription.  
