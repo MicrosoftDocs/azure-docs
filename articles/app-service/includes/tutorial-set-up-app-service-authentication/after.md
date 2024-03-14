@@ -37,9 +37,9 @@ You need these names throughout this tutorial.
 
 ## 3. Configure authentication and authorization
 
-Now that you have a web app running on App Service, enable authentication and authorization. You use Microsoft Entra ID as the identity provider. For more information, see [Configure Microsoft Entra authentication for your App Service application](../../configure-authentication-provider-aad.md).
+Now that you have a web app running on App Service, enable authentication and authorization. You use Microsoft Entra as the identity provider. For more information, see [Configure Microsoft Entra authentication for your App Service application](../../configure-authentication-provider-aad.md).
 
-# [Workforce tenant](#tab/workforce-tenant)
+# [Workforce configuration](#tab/workforce-configuration)
 
 1. In the [Azure portal](https://portal.azure.com) menu, select **Resource groups**, or search for and select **Resource groups** from any page.
 
@@ -47,13 +47,13 @@ Now that you have a web app running on App Service, enable authentication and au
 
     :::image type="content" alt-text="Screenshot that shows selecting your app's management page." source="../../media/scenario-secure-app-authentication-app-service/select-app-service.png":::
     
-1. On your app's left menu, select **Authentication**, and then click **Add identity provider**.
+1. On your app's left menu, select **Authentication**, and then select **Add identity provider**.
 
 1. In the **Add an identity provider** page, for example select **Microsoft** as the **Identity provider** to sign in Microsoft and Microsoft Entra identities.
 
-1. For **Tenant type**, select **Workforce configuration** for work and school accounts or Microsoft accounts.
+1. For **Tenant type**, select **Workforce configuration (current tenant)** for employees and business guests.
 
-1. For **App registration** > **App registration type**, select **Create new app registration** to create a new app registration in Microsoft Entra ID.
+1. For **App registration** > **App registration type**, select **Create new app registration** to create a new app registration in Microsoft Entra.
 
 1. Add a **Name** for the app registration, a public facing display name.
 
@@ -61,7 +61,7 @@ Now that you have a web app running on App Service, enable authentication and au
 
 1. In the **App Service authentication settings** section, leave **Authentication** set to **Require authentication** and **Unauthenticated requests** set to **HTTP 302 Found redirect: recommended for websites**.
 
-1. At the bottom of the **Add an identity provider** page, click **Add** to enable authentication for your web app.
+1. At the bottom of the **Add an identity provider** page, select **Add** to enable authentication for your web app.
 
     :::image type="content" alt-text="Screenshot that shows configuring authentication." source="../../media/scenario-secure-app-authentication-app-service/configure-authentication.png":::
     
@@ -71,7 +71,7 @@ Now that you have a web app running on App Service, enable authentication and au
     > To allow accounts from other tenants, change the 'Issuer URL' to 'https://login.microsoftonline.com/common/v2.0' by editing your 'Identity Provider' from the 'Authentication' blade.
     >
 
-# [Customer tenant](#tab/customer-tenant)
+# [External configuration](#tab/external-configuration)
 
 1. In the [Azure portal](https://portal.azure.com) menu, select **Resource groups**, or search for and select **Resource groups** from any page.
 
@@ -79,7 +79,7 @@ Now that you have a web app running on App Service, enable authentication and au
 
     :::image type="content" alt-text="Screenshot that shows selecting your app's management page." source="../../media/scenario-secure-app-authentication-app-service/select-app-service.png":::
     
-1. On your app's left menu, select **Authentication**, and then click **Add identity provider**.
+1. On your app's left menu, select **Authentication**, and then select **Add identity provider**.
 
 1. In the **Add an identity provider** page, for example select **Microsoft** as the **Identity provider** to sign in Microsoft and Microsoft Entra identities.
 
@@ -87,7 +87,7 @@ Now that you have a web app running on App Service, enable authentication and au
 
 1. Select **Create new app registration** to create a new app registration and select the [external tenant](/entra/external-id/customers/quickstart-tenant-setup) you want to use.
 
-1. Click **Configure** to configure external authentication.
+1. Select **Configure** to configure external authentication.
 
     :::image type="content" alt-text="Screenshot that shows the Add an identity provider page." source="../../media/scenario-secure-app-authentication-app-service/configure-authentication-external.png":::
 
@@ -97,13 +97,19 @@ Now that you have a web app running on App Service, enable authentication and au
 
 1. For this quickstart, select **Email and password** which allows new users to sign up and sign in using an email address as the sign-in name and a password as their first factor credential.
 
-1. Click **Create** to create the user flow.
+1. Select **Create** to create the user flow.
 
-    :::image type="content" alt-text="Screenshot that shows selecting your app's management page." source="../../media/scenario-secure-app-authentication-app-service/create-new-user-flow.png":::
+    :::image type="content" alt-text="Screenshot that shows selecting your app's management page." source="../../media/scenario-secure-app-authentication-app-service/configure-authentication-external-user-flow.png":::
 
-1. Click **Review and Configure** to skip branding. 
+1. Select **Next** to customize branding.
 
-1. Click **Configure** in the review step to confirm External ID (CIAM) tenant update. 
+1. Add your company logo, select a background color, and select a sign-in layout.
+
+    :::image type="content" alt-text="Screenshot that shows the customize branding tab." source="../../media/scenario-secure-app-authentication-app-service/configure-authentication-branding.png":::
+
+1. Select **Next** and **Yes, update the changes** to accept the branding changes.
+
+1. Select **Configure** in the **Review** tab to confirm External ID (CIAM) tenant update. 
 
 1. The browser opens **Add an identity provider**.
 
@@ -118,9 +124,9 @@ Now that you have a web app running on App Service, enable authentication and au
     - **HTTP 302 Found redirect: recommended for websites** for **Unauthenticated requests**
     - **Token store** box
 
-1. At the bottom of the **Add an identity provider** page, click **Add** to enable authentication for your web app.
+1. At the bottom of the **Add an identity provider** page, select **Add** to enable authentication for your web app.
 
-    :::image type="content" alt-text="Screenshot that shows the Additional checks and authentication settings sections." source="../../media/scenario-secure-app-authentication-app-service/configure-authentication-external2.png":::
+    :::image type="content" alt-text="Screenshot that shows the Additional checks and authentication settings sections." source="../../media/scenario-secure-app-authentication-app-service/configure-authentication-external-enable.png":::
 ---
 
 ## 4. Verify limited access to the web app
