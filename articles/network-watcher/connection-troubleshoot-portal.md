@@ -34,7 +34,7 @@ In this section, you test the connectivity over RDP from one virtual machine to 
 
 1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** in the search results.
 
-    :::image type="content" source="./media/network-watcher-connectivity-portal/portal-search.png" alt-text="Screenshot that shows how to search for Network Watcher in the Azure portal." lightbox="./media/network-watcher-connectivity-portal/portal-search.png":::
+    :::image type="content" source="./media/connection-troubleshoot-portal/portal-search.png" alt-text="Screenshot that shows how to search for Network Watcher in the Azure portal." lightbox="./media/connection-troubleshoot-portal/portal-search.png":::
 
 1. Under **Network diagnostic tools**, select **Connection troubleshoot**. Enter or select the following values:
 
@@ -54,7 +54,7 @@ In this section, you test the connectivity over RDP from one virtual machine to 
     | **Connection Diagnostic** |  |
     | Diagnostics tests | Select **Connectivity**, **NSG diagnostic**, **Next hop**, and **Port scanner**. |
 
-    :::image type="content" source="./media/network-watcher-connectivity-portal/test-connectivity-vm.png" alt-text="Screenshot that shows Network Watcher connection troubleshoot in Azure portal to test the connection between two virtual machines." lightbox="./media/network-watcher-connectivity-portal/test-connectivity-vm.png":::
+    :::image type="content" source="./media/connection-troubleshoot-portal/test-connectivity-vm.png" alt-text="Screenshot that shows Network Watcher connection troubleshoot in Azure portal to test the connection between two virtual machines." lightbox="./media/connection-troubleshoot-portal/test-connectivity-vm.png":::
 
 1. Select **Run diagnostic tests**.
 
@@ -66,7 +66,7 @@ In this section, you test the connectivity over RDP from one virtual machine to 
     - Azure default system route is used to route traffic between the two virtual machines (Route table ID: System route).
     - Port 3389 is open on the destination virtual machine.
 
-    :::image type="content" source="./media/network-watcher-connectivity-portal/test-connectivity-vm-results.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection between two virtual machines.":::
+    :::image type="content" source="./media/connection-troubleshoot-portal/test-connectivity-vm-results.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection between two virtual machines.":::
 
 1. Select **Export to CSV** to download the test results.
 
@@ -102,7 +102,7 @@ In this section, you test connectivity between two virtual machines that have a 
     - Azure default system route is used to route traffic between the two virtual machines (Route table ID: System route).
     - Port 22 on the destination virtual machine isn't accessible.
 
-    :::image type="content" source="./media/network-watcher-connectivity-portal/test-connectivity-unaccessible-port-results.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection with unreachable virtual machine.":::
+    :::image type="content" source="./media/connection-troubleshoot-portal/test-connectivity-unaccessible-port-results.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection with unreachable virtual machine.":::
 
 1. Select **Export to CSV** to download the test results.
 
@@ -128,7 +128,7 @@ In this section, you test connectivity between a virtual machines and a web addr
     | **Connection Diagnostic** |  |
     | Diagnostics tests | Select **Connectivity**. |
 
-    :::image type="content" source="./media/network-watcher-connectivity-portal/test-connectivity-bing.png" alt-text="Screenshot that shows connection troubleshoot in the Azure portal to test the connection between a virtual machine and Microsoft Bing website." lightbox="./media/network-watcher-connectivity-portal/test-connectivity-bing.png":::
+    :::image type="content" source="./media/connection-troubleshoot-portal/test-connectivity-bing.png" alt-text="Screenshot that shows connection troubleshoot in the Azure portal to test the connection between a virtual machine and Microsoft Bing website." lightbox="./media/connection-troubleshoot-portal/test-connectivity-bing.png":::
 
 1. Select **Run diagnostic tests**.
 
@@ -136,7 +136,7 @@ In this section, you test connectivity between a virtual machines and a web addr
 
     - Connectivity test is successful with 66 probes sent with an average latency of 3 ms.
 
-    :::image type="content" source="./media/network-watcher-connectivity-portal/test-connectivity-bing-results.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection with Microsoft Bing search engine website.":::
+    :::image type="content" source="./media/connection-troubleshoot-portal/test-connectivity-bing-results.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection with Microsoft Bing search engine website.":::
 
 1. Select **Export to CSV** to download the test results.
 
