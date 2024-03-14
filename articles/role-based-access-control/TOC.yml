@@ -85,7 +85,7 @@
       - name: Assign roles
         href: role-assignments-portal.md
       - name: Managed identity
-        href: role-assignments-portal-managed-identity.md
+        href: role-assignments-portal-managed-identity.yml
       - name: External users
         href: role-assignments-external-users.md
     - name: PowerShell
