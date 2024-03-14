@@ -16,7 +16,7 @@ ms.custom: mvc, engagement-fy24
 
 ## Update (April 2024)
 
-- Public preview: Azure Migrate now supports discovery and assessment of SAP Systems. By using this capability, you can now perform import-based assessments for your on-premises SAP inventory and workloads. [Learn more](./tutorial-discover-sap-systems.md)
+- Public preview: Azure Migrate now supports discovery and assessment of SAP Systems. By using this capability, you can now perform import-based assessments for your on-premises SAP inventory and workloads. Learn more
 
 ## Update (March 2024)
 
