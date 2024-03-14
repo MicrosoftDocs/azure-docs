@@ -18,11 +18,11 @@ This article describes how to deploy the first SAP HANA host using Azure NetApp 
 
 You should understand the [requirements and considerations for application volume group for SAP HANA](application-volume-group-considerations.md). 
 
-Be sure to follow the **[pinning recommendations](https://aka.ms/HANAPINNING)** and have at least one HANA virtual machine (VM) in the availability set started. 
+Be sure to follow the **[pinning recommendations](https://aka.ms/HANAPINNING)** and have at least one HANA virtual machine (VM) in the availability set started. Alternately, you can use [Application volume group for SAP HANA extension 1](application-volume-group-introduction.md#extension-1-features). 
 
 ### Register for extension 1 
 
-Azure NetApp Files application volume group for SAP HANA Extension 1 is currently in preview. You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background.
+Azure NetApp Files application volume group for SAP HANA Extension 1 is currently in preview. You need to register the feature before using it for the first time. Feature registration may take up to 60 minutes to complete.
 
 1. Register the feature
 
@@ -212,6 +212,8 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
     
     Select **Next: Tags**. 
     
+    :::image type="content" source="./media/shared/application-volume-group-create.png" alt-text="Screenshot of create application volume group interface." lightbox="./media/shared/application-volume-group-create.png":::
+    
 5. In the **Tags** section of the Volume Group tab, you can add tags as needed for the volumes.  
 
     Select **Next: Protocol**. 
@@ -230,7 +232,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
     The creation for the data-backup and log-backup volumes is optional.
 
-    [ ![Screenshot that shows a list of volumes being created.](./media/application-volume-group-deploy-first-host/application-volume-list.png) ](./media/application-volume-group-deploy-first-host/application-volume-list.png#lightbox)
+    [ ![Screenshot that shows a list of volumes being created.](./media/application-volume-group-deploy-first-host/create-volume-group-extension-one.png) ](./media/application-volume-group-deploy-first-host/create-volume-group-extension-one.png)
 
 8. In the **Volumes** tab, you can select each volume to view or change the volume details. For example, select "data-*volume-name*". 
 
@@ -272,7 +274,8 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 11.	The **Review + Create** tab lists all the volumes and their creation method. Select **Create Volume Group** to start the volume group creation.
 
-    [ ![Screenshot that shows the Review and Create tab.](./media/application-volume-group-deploy-first-host/application-review-create.png) ](./media/application-volume-group-deploy-first-host/application-review-create.png#lightbox)
+    :::image type="content" source="./media/application-volume-group-deploy-first-host/application-review-create.png" alt-text="Screenshot of the review + create tab for extension one." lightbox="./media/application-volume-group-deploy-first-host/application-review-create.png":::
+
 
 12. The **Volume Groups** deployment workflow starts. You can monitor the progress. This process can take a few minutes to complete.
 

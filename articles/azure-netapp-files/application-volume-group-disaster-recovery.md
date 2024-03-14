@@ -198,7 +198,9 @@ Select **Next: Protocols**.
     * **Subnet**:  
         Specify the delegated subnet where the IP addresses for the NFS exports are created. Ensure that you have a delegated subnet with enough free IP addresses.
     
-Select **Next: Protocols**. 
+    Select **Next: Protocols**. 
+
+    :::image type="content" source="./media/shared/application-volume-group-create.png" alt-text="Screenshot of create application volume group interface." lightbox="./media/shared/application-volume-group-create.png":::
 
 4. In the **Protocols** section of the Volume Group tab, you can modify the **Export Policy**, which should be common to all volumes.
 
@@ -229,7 +231,7 @@ Select **Next: Protocols**.
 
     The default type for the data-backup volume is DP, but this setting can be changed to RW.  
 
-    [ ![Screenshot that shows volume types in Create a Volume Group page.](./media/application-volume-group-disaster-recovery/application-cross-region-volume-types.png) ](./media/application-volume-group-disaster-recovery/application-cross-region-volume-types.png#lightbox)
+    [ ![Screenshot that shows volume types in Create a Volume Group page for extension one.](./media/application-volume-group-disaster-recovery/create-volume-group-extension-one.png) ](./media/application-volume-group-disaster-recovery/create-volume-group-extension-one.png#lightbox)
 
 8. Select each volume with the DP type to specify the **Source volume ID**. For more information, see [Locate the source volume resource ID](cross-region-replication-create-peering.md#locate-the-source-volume-resource-id). 
  

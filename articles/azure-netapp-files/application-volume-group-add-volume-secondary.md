@@ -25,7 +25,7 @@ The following diagram illustrates the concept of HSR:
  ![Diagram that explains HANA System Replication.](./media/application-volume-group-add-volume-secondary/application-hana-system-replication.png) 
 
 
-To enable HSR, the configuration of the secondary SAP HANA system must be identical to the primary SAP HANA system. That is, if the primary system is a single-host HANA system, then the secondary SAP HANA system also needs to be a single-hosts system. The same applies for multiple host systems.
+To enable HSR, the configuration of the secondary SAP HANA system must be identical to the primary SAP HANA system. That is, if the primary system is a single-host HANA system, then the secondary SAP HANA system also needs to be a single-host system. The same applies for multiple host systems.
 
 The workflow for creating a secondary SAP HANA system is similar to the workflow for creating the primary SAP HANA system. However, a key difference is that you need to select the **HSR secondary** option in the SAP HANA tab to indicate that you are creating a replication secondary system for the SAP HANA system.
 
@@ -147,7 +147,6 @@ This section shows an example of creating a single-host, secondary SAP HANA syst
 
 3.	In the **Volume group** tab, provide information for creating the volume group:  
 
-
     * **Availability option**:
         Select either **Availability zone** or **Proximity placement group**. 
         When selecting **Availability zone**, you must select the appropriate availability zone in the next field. 
@@ -166,9 +165,9 @@ This section shows an example of creating a single-host, secondary SAP HANA syst
     * **Subnet**:  
         Specify the delegated subnet where the IP addresses for the NFS exports are created. Ensure that you have a delegated subnet with enough free IP addresses.
     
-    Select **Next: Tags**. 
-
     Select **Next: Protocol**.
+
+    :::image type="content" source="./media/application-volume-group-add-volume-secondary/application-volume-group-create-extension-one.png" alt-text="Screenshot of create application volume group interface for extension one." lightbox="./media/application-volume-group-add-volume-secondary/application-volume-group-create-extension-one.png":::
 
 4. In the **Protocols** section of the Volume Group tab, you can modify the **Export Policy**, which should be common to all volumes.  
 
@@ -178,7 +177,7 @@ This section shows an example of creating a single-host, secondary SAP HANA syst
 
     This tag marks the volume resource ID of the corresponding primary volume in the HSR setup, so that the primary volume can be identified for each secondary volume that will be created. 
 
-    You will be able to modify this tag for each volume. 
+    You can modify this tag for each volume. 
 
     > [!IMPORTANT]
     > At the group level, filling the tag will populate all the volumes in the group with the same volume ID. You will need to change the volume ID for each individual volume later in the workflow or when you update the volumes. Using this tag is optional; it’s for documentation purposes only.
@@ -191,7 +190,7 @@ This section shows an example of creating a single-host, secondary SAP HANA syst
 
     The volume naming convention includes an `"HA-"` prefix to indicate that the volume belongs to the secondary system of an HSR setup.
 
-    [ ![Screenshot that shows the Volume Group tab.](./media/application-volume-group-add-volume-secondary/application-secondary-volumes-tags.png) ](./media/application-volume-group-add-volume-secondary/application-secondary-volumes-tags.png#lightbox)
+    [ ![Screenshot that shows the Volume Group tab.](./media/application-volume-group-add-volume-secondary/application-secondary-volumes-tags-extension-one.png) ](./media/application-volume-group-add-volume-secondary/application-secondary-volumes-tags-extension-one.png#lightbox)
 
 7. In the **Volumes** tab, you can select each volume to view or change the volume details, including the protocol and tag for the volume.
 

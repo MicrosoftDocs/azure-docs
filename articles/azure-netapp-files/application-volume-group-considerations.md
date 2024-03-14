@@ -31,7 +31,7 @@ This article describes the requirements and considerations you need to be aware 
 
     It is recommended that you lay out the VNet and delegated subnet at design time. 
 
-    Application volume group for SAP HANA creates multiple IP addresses, up to six IP addresses for larger-sized estates. Ensure that the delegated subnet has sufficient free IP addresses. Consider using a delegated subnet with a minimum of 59 IP addresses with a subnet size of /26. See [Considerations about delegating a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md#considerations).
+    Application volume group for SAP HANA creates multiple IP addresses, up to six IP addresses for larger-sized estates. Ensure that the delegated subnet has sufficient free IP addresses. Consider using a delegated subnet with a minimum of 251 IP addresses with a subnet size of /24. See [Considerations about delegating a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md#considerations).
 * Application volume group for SAP HANA only supports platform-managed keys for Azure NetApp Files volume encryption at volume creation at this time. Contact your Azure NetApp Files specialist or CSA if you have any questions about transitioning volumes from platform-managed keys to customer-managed keys after volume creation. 
 
 >[!IMPORTANT]
