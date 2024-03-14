@@ -25,6 +25,8 @@ Azure Virtual Network encryption is a feature of Azure Virtual Network. Virtual 
 
 ## Enable encryption
 
+Use the following steps to enable encryption for a virtual network.
+
 1. In the search box at the top of the portal, begin typing **Virtual networks**. When **Virtual networks** appears in the search results, select it.
 
 1. Select **vnet-1**.
