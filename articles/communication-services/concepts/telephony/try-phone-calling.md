@@ -16,7 +16,7 @@ ms.subservice: pstn
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include-document.md)]
 
-Try Phone Calling, now in public preview, is a tool in Azure portal to help customers confirm the setup of a telephony connection by making a phone call. It applies to both Voice Calling (PSTN) and direct routing. Try Phone Calling enables developers to quickly test Azure Communication Services calling capabilities, without an existing app or code on their end.
+Try Phone Calling, now in public preview, is a tool in Azure preview portal to help customers confirm the setup of a telephony connection by making a phone call. It applies to both Voice Calling (PSTN) and direct routing. Try Phone Calling enables developers to quickly test Azure Communication Services calling capabilities, without an existing app or code on their end.
 
 ## Prerequisites
 
@@ -28,12 +28,20 @@ Try Phone Calling, now in public preview, is a tool in Azure portal to help cust
 
 ## Overview
 
-From the Try Phone Calling feature in [Preview Portal](https://preview.portal.azure.com/#home) **or ???** can type a phone number, select a caller ID for this call, and the tool generates the code. You can also select **Use my connection string** and Try Phone Calling automatically gets the *connection string* for the resource.
+Open the [Azure Preview Portal](https://preview.portal.azure.com/#home) and search for **Try Phone Calling**. Then Enter a phone number, select a caller ID for this call, and the tool generates the code. You can also select **Use my connection string** and Try Phone Calling automatically gets the `connection string` for the resource.
 
 ![alt text](../media/try-phone-calling.png "Make a phone call")
 
-You can run generated code right from the tool page and see the status of the call. You can also copy the generated code into an application and enrich it with other Azure Communication Services features such as chat, video, and SMS.
+You can run generated code right from the tool page and see the status of the call. You can also copy the generated code into an application and enrich it with other Azure Communication Services features such as chat, SMS, and voice and video calling.
+
+## Azure Preview Portal
+
+The Try Phone Calling tool is in public preview, and is only available from the [Azure Preview Portal](https://preview.portal.azure.com/#home).
 
 ## Next steps
 
-See [Preview Portal](https://preview.portal.azure.com/#home) **or ???**
+Making a phone call is just the start. Now you can integrate other Azure Communication Services features into your application.
+
+- [Calling SDK overview](../voice-video-calling/calling-sdk-features.md)
+- [Chat concepts](../chat/concepts.md)
+- [SMS overview](../sms/concepts.md)
