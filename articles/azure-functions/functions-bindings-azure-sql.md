@@ -9,7 +9,7 @@ ms.custom:
   - devx-track-js
   - devx-track-python
   - ignite-2023
-ms.date: 12/6/2023
+ms.date: 03/12/2023
 ms.author: bspendolini
 ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -21,7 +21,7 @@ This set of articles explains how to work with [Azure SQL](/azure/azure-sql/inde
 
 | Action | Type |
 |---------|---------|
-| Trigger a function when a change is detected on a SQL table | [SQL trigger (Preview)](./functions-bindings-azure-sql-trigger.md) |
+| Trigger a function when a change is detected on a SQL table | [SQL trigger](./functions-bindings-azure-sql-trigger.md) |
 | Read data from a database | [Input binding](./functions-bindings-azure-sql-input.md) |
 | Save data to a database |[Output binding](./functions-bindings-azure-sql-output.md) |
 

@@ -21,9 +21,9 @@ For generic SAP on Azure design considerations, see [Introduction to an SAP adop
 
 ## Subscription planning
 
-It's recommended to deploy the control plane and the workload zones in different subscriptions. The control plane should reside in a hub subscription that is used to host the management components of the SAP automation framework. 
+You should deploy the control plane and the workload zones in different subscriptions. The control plane should reside in a hub subscription that is used to host the management components of the SAP automation framework. 
 
-The SAP systems should be hosted in spoke subscriptions, which are dedicated to the SAP systems. An example of partitioning the systems would be to host the development systems in a separate subscription with a dedicated virtual network that would host the development systems, the production systems would be hosted in their own subscription with a dedicated virtual network for the production systems.
+The SAP systems should be hosted in spoke subscriptions, which are dedicated to the SAP systems. An example of partitioning the systems would be to host the development systems in a separate subscription with a dedicated virtual network and the production systems would be hosted in their own subscription with a dedicated virtual network.
 
 This approach provides a both a security boundary and allows for clear separation of duties and responsibilities. For example, the SAP Basis team can deploy systems into the workload zones, and the infrastructure team can manage the control plane. 
 
@@ -37,7 +37,7 @@ Before you design your control plane, consider the following questions:
 * In which regions do you need to deploy SAP systems?
 * Is there a dedicated subscription for the control plane?
 * Is there a dedicated deployment credential (service principal) for the control plane?
-* Are you deploying to an existing virtual network or creating a new virtual network?
+* Is there an existing virtual network or is a new virtual network needed?
 * How is outbound internet provided for the virtual machines?
 * Are you going to deploy Azure Firewall for outbound internet connectivity?
 * Are private endpoints required for storage accounts and the key vault?
@@ -248,6 +248,45 @@ The following table shows the required permissions for the service principals.
 > | Windows components                  | `download.visualstudio.microsoft.com`, `download.visualstudio.microsoft.com`, `download.visualstudio.com` | Setup of Windows-based systems           | See [Visual Studio components](/visualstudio/install/install-and-use-visual-studio-behind-a-firewall-or-proxy-server#install-visual-studio). |
 > | SAP downloads                       | `softwaredownloads.sap.com`                                                                                    | SAP software download                    | See [SAP downloads](https://launchpad.support.sap.com/#/softwarecenter).                                                                     |
 > | Azure DevOps agent                  | `https://vstsagentpackage.azureedge.net`                                                                       | Setup of Azure DevOps                    |                                                                                                                                              |
+
+
+You can test the connectivity to the URLs from a Linux Virtual Machine in Azure using a PowerShell script that uses the 'run-command' feature in Azure to test the connectivity to the URLs.
+
+The following example shows how to test the connectivity to the URLs by using an interactive PowerShell script.
+
+```powershell
+
+$sdaf_path = Get-Location
+if ( $PSVersionTable.Platform -eq "Unix") {
+    if ( -Not (Test-Path "SDAF") ) {
+      $sdaf_path = New-Item -Path "SDAF" -Type Directory
+    }
+}
+else {
+    $sdaf_path = Join-Path -Path $Env:HOMEDRIVE -ChildPath "SDAF"
+    if ( -not (Test-Path $sdaf_path)) {
+        New-Item -Path $sdaf_path -Type Directory
+    }
+}
+
+Set-Location -Path $sdaf_path
+
+git clone https://github.com/Azure/sap-automation.git 
+
+cd sap-automation
+cd deploy
+cd scripts
+
+if ( $PSVersionTable.Platform -eq "Unix") {
+ ./Test-SDAFURLs.ps1
+}
+else {
+ .\Test-SDAFURLs.ps1
+}
+
+```
+
+
 
 ## DevOps structure
 
