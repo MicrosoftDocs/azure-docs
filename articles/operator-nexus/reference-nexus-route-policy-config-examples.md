@@ -17,12 +17,12 @@ This article gives examples of how to configure route policies for Azure Operato
 
 The JSON format is a common way to define a route policy resource in Azure Operator Nexus. The JSON follows the schema of the route policy resource, which has the following properties:
 
-- **id**: The ID of the route policy resource in the format `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/routePolicies/{routePolicyName}`.
-- **type**: The type of the resource, which is `microsoft.managednetworkfabric/routepolicies`.
-- **addressFamilyType**: The address family type of the route policy resource, which specifies the IP version of the route policy. It can be either IPv4 or IPv6.
-- **statements**: An array of statements that define the routing behavior of the route policy resource. Each statement has a sequence number, a condition, and an action property.
-- **defaultAction**: The default action of the route policy resource, which specifies the outcome for routes that don't match any statement in the route policy. It can be either Permit or Deny.
-- **configurationState**: The configuration state of the route policy resource, which indicates whether the route policy was successfully applied or not. It can be either Succeeded, Failed, or Updating.
+- `id`: The ID of the route policy resource in the format `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/routePolicies/{routePolicyName}`.
+- `type`: The type of the resource, which is `microsoft.managednetworkfabric/routepolicies`.
+- `addressFamilyType`: The address family type of the route policy resource, which specifies the IP version of the route policy. It can be either IPv4 or IPv6.
+- `statements`: An array of statements that define the routing behavior of the route policy resource. Each statement has a sequence number, a condition, and an action property.
+- `defaultAction`: The default action of the route policy resource, which specifies the outcome for routes that don't match any statement in the route policy. It can be either `Permit` or `Deny`.
+- `configurationState`: The configuration state of the route policy resource, which indicates whether the route policy was successfully applied or not. It can be either `Succeeded`, `Failed`, or `Updating`.
 
 Here's an example of a route policy resource specified in JSON format:
 
@@ -82,9 +82,9 @@ Here are some examples of the Azure CLI commands or the REST API methods to crea
 
 ## Use the Permit, Deny, and Continue actions in the route policy
 
-The Permit, Deny, and Continue actions are used in the route policy to control the routing behavior.
+The `Permit`, `Deny`, and `Continue` actions are used in the route policy to control the routing behavior.
 
-- The Permit action allows the matching routes and applies the IP community properties to the routes. The IP community properties specify how to add, remove, or overwrite community values and extended community values of the routes.
+- The `Permit` action allows the matching routes and applies the IP community properties to the routes. The IP community properties specify how to add, remove, or overwrite community values and extended community values of the routes.
 
    For example, the operator can use the following statement to permit any route that has an IP prefix equal to the IP prefix resource with the ID `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/ipPrefixes/{ipPrefixName}` and add the IP community value from the IP community resource with the ID `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/ipCommunities/{ipCommunityName}`.
 
@@ -107,7 +107,7 @@ The Permit, Deny, and Continue actions are used in the route policy to control
     }
     ```
 
-- The Deny action rejects the matching routes and stops the evaluation of the route policy.
+- The `Deny` action rejects the matching routes and stops the evaluation of the route policy.
 
    For example, the operator can use the following statement to deny any route that has an IP community value equal to the IP community resource with the ID `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/ipCommunities/{ipCommunityName}`.
     
@@ -123,7 +123,7 @@ The Permit, Deny, and Continue actions are used in the route policy to control
     }
     ```
 
-- The Continue action continues the evaluation of the route policy with the next statement and applies the IP community properties to the routes. The IP community properties specify how to add, remove, or overwrite community values and extended community values of the routes.
+- The `Continue` action continues the evaluation of the route policy with the next statement and applies the IP community properties to the routes. The IP community properties specify how to add, remove, or overwrite community values and extended community values of the routes.
 
    For example, the operator can use the following statement to continue the evaluation of the route policy with the next statement:
 
@@ -142,11 +142,11 @@ The Permit, Deny, and Continue actions are used in the route policy to control
 
 ## Use the IP community properties to add, remove, or overwrite community values and extended community values of the routes
 
-- The IP community properties of the action property specify how to add, remove, or overwrite community values and extended community values of the routes. The IP community properties have a Set property and a Delete property. The Set property specifies the IP community and IP extended community resources to add or overwrite to the routes. The Delete property specifies the IP community and IP extended community resources to remove from the routes.
-- The Set property has an `ipCommunityIds` property and an `ipExtendedCommunityIds` property. The `ipCommunityIds` property is an array of strings that reference IP community resources that define the community values to add or overwrite to the routes. The `ipExtendedCommunityIds` property is an array of strings that reference IP extended community resources that define the extended community values to add or overwrite to the routes.
-- The Delete property has an `ipCommunityIds` property and an `ipExtendedCommunityIds` property. The `ipCommunityIds` property is an array of strings that reference IP community resources that define the community values to remove from the routes. The `ipExtendedCommunityIds` property is an array of strings that reference IP extended community resources that define the extended community values to remove from the routes.
-- The Add property has an `ipCommunityIds` property and an `ipExtendedCommunityIds` property. The `ipCommunityIds` property is an array of strings that reference IP community resources that define the community values to add to the routes. The `ipExtendedCommunityIds` property is an array of strings that reference IP extended community resources that define the extended community values to remove from the routes.
-- If the Set property is used, the Add and Delete properties can't be used.
+- The IP community properties of the action property specify how to add, remove, or overwrite community values and extended community values of the routes. The IP community properties have a `set` property and a `delete` property. The `set` property specifies the IP community and IP extended community resources to add or overwrite to the routes. The `delete` property specifies the IP community and IP extended community resources to remove from the routes.
+- The `set` property has an `ipCommunityIds` property and an `ipExtendedCommunityIds` property. The `ipCommunityIds` property is an array of strings that reference IP community resources that define the community values to add or overwrite to the routes. The `ipExtendedCommunityIds` property is an array of strings that reference IP extended community resources that define the extended community values to add or overwrite to the routes.
+- The `delete` property has an `ipCommunityIds` property and an `ipExtendedCommunityIds` property. The `ipCommunityIds` property is an array of strings that reference IP community resources that define the community values to remove from the routes. The `ipExtendedCommunityIds` property is an array of strings that reference IP extended community resources that define the extended community values to remove from the routes.
+- The `add` property has an `ipCommunityIds` property and an `ipExtendedCommunityIds` property. The `ipCommunityIds` property is an array of strings that reference IP community resources that define the community values to add to the routes. The `ipExtendedCommunityIds` property is an array of strings that reference IP extended community resources that define the extended community values to remove from the routes.
+- If the `set` property is used, the `add` and `delete` properties can't be used.
 - For example, the operator can use the following statement to permit any route that has an IP prefix equal to the IP prefix resource with the ID `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/ipPrefixes/{ipPrefixName}` and add the IP community value from the IP community resource with the ID `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/ipCommunities/{ipCommunityName1}` and overwrite the IP extended community value with the IP extended community resource with the ID `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/ipExtendedCommunities/{ipExtendedCommunityName2}`.
 
 ```json

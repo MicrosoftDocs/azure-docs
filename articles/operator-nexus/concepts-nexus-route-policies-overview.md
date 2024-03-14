@@ -15,7 +15,7 @@ Route policies enable operators to control routes learned and distributed throug
 
 Route policies are a set of rules that are applied to routes based on their specific attributes. These attributes include IP prefixes, community values, and extended community values. The primary function of these policies is to allow or deny routes and to modify their attributes as needed.
 
-Route policies can be enforced at different endpoints in the network fabric. They can be applied at network-to-network interconnections (NNIs) or at different levels in a layer 3 isolation domain, such as external networks, internal networks, and connected subnets. Route policies are applied in the direction of egress or ingress, depending on whether they're export or import policies. Route policies for IPv4 and IPv6 are enforced separately.
+Route policies can be enforced at different endpoints in the network fabric. They can be applied at network-to-network interconnections or at different levels in a layer 3 isolation domain, such as external networks, internal networks, and connected subnets. Route policies are applied in the direction of egress or ingress, depending on whether they're export or import policies. Route policies for IPv4 and IPv6 are enforced separately.
 
 Route policies can be specified with combinations of conditions and actions. Conditions are based on IP prefixes, IP communities, and IP extended communities. Actions are based on discarding or permitting routes, and adding, removing, or overwriting community values and extended community values.
 
@@ -39,7 +39,7 @@ The conditions and actions of a route policy are specified by using the IP prefi
 
 ### IP prefix resource
 
-This resource specifies the match conditions for route policies based on the IP prefix (IPv4 or IPv6) of the routes. It contains a list of prefixes with sequence numbers and actions (Permit or Deny).
+This resource specifies the match conditions for route policies based on the IP prefix (IPv4 or IPv6) of the routes. It contains a list of prefixes with sequence numbers and actions (`Permit` or `Deny`).
 
 ### IP community resource
 
@@ -53,21 +53,21 @@ This resource specifies the match conditions and actions for route policies base
 
 The condition property of a route policy statement defines how routes are matched to the policy:
 
-- **And**: The policy matches any route that matches *all* the specified `ipPrefixIds`, `ipCommunityIds`, and `ipExtendedCommunityIds`.
-- **Or**: The policy matches any route that matches *any* of the `ipPrefixIds`, `ipCommunityIds`, and `ipExtendedCommunityIds`.
+- `And`: The policy matches any route that matches *all* the specified `ipPrefixIds`, `ipCommunityIds`, and `ipExtendedCommunityIds` properties.
+- `Or`: The policy matches any route that matches *any* of the `ipPrefixIds`, `ipCommunityIds`, and `ipExtendedCommunityIds` properties.
 
 The `ipPrefixId`, `ipCommunityId`, and `ipExtendedCommunityId` properties are arrays of strings that reference the IP prefix, IP community, and IP extended community resources that define the match criteria for the route attributes.
 
 ### Action property
 
-The action property of a route policy statement defines the action to be taken when a route matches the policy:
+The `action` property of a route policy statement defines the action to be taken when a route matches the policy:
 
-- **Permit**: Permit the matching route and apply `ipCommunityProperties` to the route.
-- **Deny**: Deny the matching route and stop the evaluation of the route policy.
-- **Continue**: Apply `ipCommunityProperties` to the route and continue evaluating the route policy with the next statement.
+- `Permit`: Permit the matching route and apply `ipCommunityProperties` to the route.
+- `Deny`: Deny the matching route and stop the evaluation of the route policy.
+- `Continue`: Apply `ipCommunityProperties` to the route and continue evaluating the route policy with the next statement.
 
 ### ipCommunityProperties property
 
 The `ipCommunityProperties` property specifies how the policy affects the community values and extended community values of the route.
 
-It has a Set property and a Delete property. The Set property specifies the IP community and IP extended community resources to add or overwrite to the routes. The Delete property specifies the IP community and IP extended community resources to remove from the routes.
+It has a `set` property and a `delete` property. The `set` property specifies the IP community and IP extended community resources to add or overwrite to the routes. The `delete` property specifies the IP community and IP extended community resources to remove from the routes.
