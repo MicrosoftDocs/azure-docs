@@ -1,7 +1,7 @@
 ---
 title: Manage Azure portal settings and preferences
 description: Change Azure portal settings such as default subscription/directory, timeouts, menu mode, contrast, theme, notifications, language/region and more.
-ms.date: 01/23/2024
+ms.date: 03/14/2024
 ms.topic: how-to
 ---
 
@@ -146,13 +146,27 @@ Once you have made the desired changes to your language and regional format sett
 
 ## My information
 
-**My information** lets you update the email address that is used for updates on Azure services, billing, support, or security issues. You can also opt in or out from additional emails about Microsoft Azure and other products and services.
+**My information** lets you provide information specific to your Azure experience.
+
+### Email setting
+
+The email address you provide here will be used if we need to contact you for updates on Azure services, billing, support, or security issues. You can change this address at any time.
+
+Here, you can also indicate whether you'd like to receive additional emails about Microsoft Azure and other Microsoft products and services.
+
+### Portal personalization
+
+In this section, you can optionally share information about how you plan to use Azure. This information helps us provide tips, tools, and recommendations that are relevant to the tasks and services that you're interested in.
+
+To provide this information, select one or more items from the list. You can change your selections at any time.
+
+### Export, restore, and delete user settings
 
 Near the top of **My information**, you'll see options to export, restore, or delete settings.
 
 :::image type="content" source="media/set-preferences/settings-my-information.png" alt-text="Screenshot of My information settings." lightbox="media/set-preferences/settings-my-information.png":::
 
-### Export user settings
+#### Export user settings
 
 Information about your custom settings is stored in Azure. You can export the following user data:
 
@@ -164,11 +178,11 @@ To export your portal settings, select **Export settings** from the top of the *
 
 Due to the dynamic nature of user settings and risk of data corruption, you can't import settings from the JSON file. However, you can use this file to review the settings you selected. It can be useful to have a backup of your selections if you choose to delete your settings and private dashboards.
 
-### Restore default settings
+#### Restore default settings
 
 If you've made changes to the Azure portal settings and want to discard them, select **Restore default settings** from the top of the **My information** pane. You'll be prompted to confirm this action. When you do so, any changes you've made to your Azure portal settings will be lost. This option doesn't affect dashboard customizations.
 
-### Delete user settings and dashboards
+#### Delete user settings and dashboards
 
 Information about your custom settings is stored in Azure. You can delete the following user data:
 
