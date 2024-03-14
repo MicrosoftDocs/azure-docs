@@ -82,7 +82,7 @@
   - name: Monitoring Azure DDoS Protection 
     href: monitor-ddos-protection-reference.md
   - name: Reliability
-    href: ../reliability/reliability-dds.md?toc=/azure/ddos-protection/TOC.json
+    href: ../reliability/reliability-ddos.md?toc=/azure/ddos-protection/TOC.json
   - name: Fundamental best practices
     href: fundamental-best-practices.md
   - name: Components of a DDoS response strategy

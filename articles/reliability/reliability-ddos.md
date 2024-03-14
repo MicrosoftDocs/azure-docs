@@ -1,14 +1,13 @@
 ---
 title: Reliability in Azure DDoS Network Protection
-description: Find out about reliability in Azure DDoS Network Protection
+description: Learn about reliability in Azure DDoS Network Protection
 author: AbdullahBell
 ms.author: abell
 ms.topic: reliability-article
-ms.custom: ignite-2022
 ms.workload: infrastructure-services
 ms.custom: subject-reliability, references_regions
 ms.service: ddos-protection
-ms.date: 02/27/2024 
+ms.date: 03/14/2024 
 ---
 
 # Reliability in Azure DDoS Network Protection
@@ -31,7 +30,7 @@ Azure DDoS Protection is [zone-redundant](./availability-zones-overview.md#zonal
 
 
 
-### Cross-region recovery and business continuity
+### Cross-region disaster recovery and business continuity
 
 [!INCLUDE [introduction to disaster recovery](includes/reliability-disaster-recovery-description-include.md)]
 
