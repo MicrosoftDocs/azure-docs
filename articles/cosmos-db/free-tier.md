@@ -42,8 +42,8 @@ To keep your account free of charge, your account shouldn't have any more RU/s o
 For example, the following are some options that don’t result in any monthly charge:
 
 * One database with a max of 1000 RU/s provisioned throughput.
-* Two containers one with a max of 400 RU/s and other with a max of 600 RU/s provisioned throughput.
-* Account with two regions with a single region that has one container with a max of 500 RU/s provisioned throughput.
+* Two containers, one with a max of 400 RU/s, and other with a max of 600 RU/s provisioned throughput.
+* Account with two regions that has one container with a max of 500 RU/s provisioned throughput.
 
 ## Create an account with free tier
 

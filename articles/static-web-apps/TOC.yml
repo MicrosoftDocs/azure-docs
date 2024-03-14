@@ -41,10 +41,10 @@
     - name: Next.js
       href: nextjs.md
       items:
-      - name: Statically generated Next.js
-        href: deploy-nextjs-static-export.md
       - name: Hybrid Next.js application (preview)
         href: deploy-nextjs-hybrid.md
+      - name: Statically generated Next.js
+        href: deploy-nextjs-static-export.md
     - name: Nuxt.js
       href: deploy-nuxtjs.md
     - name: Vue
@@ -93,10 +93,14 @@
     items:
       - name: Integration options
         href: apis-functions.md
-      - name: Add an API
-        href: add-api.md
-      - name: Bring your own functions
-        href: functions-bring-your-own.md
+      - name: Distributed functions
+        href: distributed-functions.md
+      - name: Tutorials
+        items:
+        - name: Add an API
+          href: add-api.md
+        - name: Bring your own functions
+          href: functions-bring-your-own.md
   - name: Azure API Management
     href: apis-api-management.md
   - name: Azure App Service

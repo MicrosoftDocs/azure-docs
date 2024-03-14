@@ -150,6 +150,9 @@ To use the **WindowStart** and **WindowEnd** system variable values in the pipel
 
 If the startTime of trigger is in the past, then based on this formula, M=(CurrentTime- TriggerStartTime)/TumblingWindowSize, the trigger will generate {M} backfill(past) runs in parallel, honoring trigger concurrency, before executing the future runs. The order of execution for windows is deterministic, from oldest to newest intervals. Currently, this behavior can't be modified.
 
+> [!NOTE]
+> Be aware that in this scenario, all runs from the selected startTime will be run before executing future runs. If you need to backfill a long period of time, doing an intial historical load is recommended. 
+
 ### Existing TriggerResource elements
 
 The following points apply to update of existing **TriggerResource** elements:

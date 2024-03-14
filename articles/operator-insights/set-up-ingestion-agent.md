@@ -42,6 +42,8 @@ The VM used for the ingestion agent should be set up following best practice for
 
 Download the RPM for the ingestion agent using the details you received as part of the [Azure Operator Insights onboarding process](overview.md#how-do-i-get-access-to-azure-operator-insights) or from [https://go.microsoft.com/fwlink/?linkid=2260508](https://go.microsoft.com/fwlink/?linkid=2260508).
 
+Links to the current and previous releases of the agents are available below the heading of each [release note](ingestion-agent-release-notes.md). If you're looking for an agent version that's more than 6 months old, check out the [release notes archive](ingestion-agent-release-notes-archive.md).
+
 ## Set up authentication to Azure
 
 You must have a service principal with a certificate credential that can access the Azure Key Vault created by the Data Product to retrieve storage credentials. Each agent must also have a copy of a valid certificate and private key for the service principal stored on this virtual machine.
