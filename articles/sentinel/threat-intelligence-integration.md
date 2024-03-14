@@ -2,8 +2,8 @@
 title: Threat intelligence integration in Microsoft Sentinel
 description: Learn about the different ways threat intelligence feeds are integrated with and used by Microsoft Sentinel.
 author: austinmccollum
-ms.topic: conceptual
-ms.date: 3/06/2024
+ms.topic: concept
+ms.date: 3/14/2024
 ms.author: austinmc
 appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
 ms.collection: usx-security
@@ -27,15 +27,15 @@ Microsoft Sentinel gives you a few different ways to [use threat intelligence fe
 
 ## TAXII threat intelligence feeds
 
-To connect to TAXII threat intelligence feeds, follow the instructions to [connect Microsoft Sentinel to STIX/TAXII threat intelligence feeds](connect-threat-intelligence-taxii.md), together with the data supplied by each vendor linked below. You may need to contact the vendor directly to obtain the necessary data to use with the connector.
+To connect to TAXII threat intelligence feeds, follow the instructions to [connect Microsoft Sentinel to STIX/TAXII threat intelligence feeds](connect-threat-intelligence-taxii.md), together with the data supplied by each vendor. You may need to contact the vendor directly to obtain the necessary data to use with the connector.
 
 ### Accenture Cyber Threat Intelligence
 
-- [Learn about Accenture CTI integration with Microsoft Sentinel](https://www.accenture.com/us-en/services/security/cyber-defense).
+- [Learn about Accenture Cyber Threat Intelligence (CTI) integration with Microsoft Sentinel](https://www.accenture.com/us-en/services/security/cyber-resilience).
 
 ### Cybersixgill Darkfeed
 
-- [Learn about Cybersixgill integration with Microsoft Sentinel @Cybersixgill](https://www.cybersixgill.com/partners/azure-sentinel/)
+- [Learn about Cybersixgill integration with Microsoft Sentinel](https://www.cybersixgill.com/partners/azure-sentinel/).
 - To connect Microsoft Sentinel to Cybersixgill TAXII Server and get access to Darkfeed, [contact Cybersixgill](mailto://azuresentinel@cybersixgill.com) to obtain the API Root, Collection ID, Username and Password.
 
 ### ESET
@@ -53,42 +53,42 @@ To connect to TAXII threat intelligence feeds, follow the instructions to [conne
 
 ### IBM X-Force
 
-- [Learn more about IBM X-Force integration](https://www.ibm.com/security/xforce)
+- [Learn more about IBM X-Force integration](https://www.ibm.com/security/xforce).
 
 ### IntSights
 
-- [Learn more about the IntSights integration with Microsoft Sentinel @IntSights](https://intsights.com/resources/intsights-microsoft-azure-sentinel)
+- [Learn more about the IntSights integration with Microsoft Sentinel @IntSights](https://intsights.com/resources/intsights-microsoft-azure-sentinel).
 - To connect Microsoft Sentinel to the IntSights TAXII Server, obtain the API Root, Collection ID, Username and Password from the IntSights portal after you configure a policy of the data you wish to send to Microsoft Sentinel.
 
 ### Kaspersky
 
-- [Learn about Kaspersky integration with Microsoft Sentinel](https://support.kaspersky.com/15908)
+- [Learn about Kaspersky integration with Microsoft Sentinel](https://support.kaspersky.com/15908).
 
 ### Pulsedive
 
-- [Learn about Pulsedive integration with Microsoft Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/import-pulsedive-feed-into-microsoft-sentinel/ba-p/3478953)
+- [Learn about Pulsedive integration with Microsoft Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/import-pulsedive-feed-into-microsoft-sentinel/ba-p/3478953).
 
 ### ReversingLabs
 
-- [Learn about ReversingLabs TAXII integration with Microsoft Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/import-reversinglab-s-ransomware-feed-into-microsoft-sentinel/ba-p/3423937)
+- [Learn about ReversingLabs TAXII integration with Microsoft Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/import-reversinglab-s-ransomware-feed-into-microsoft-sentinel/ba-p/3423937).
 
 ### Sectrio
 
-- [Learn more about Sectrio integration](https://sectrio.com/threat-intelligence/)
-- [Step by step process for integrating Sectrio's TI feed into Microsoft Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/microsoft-sentinel-bring-threat-intelligence-from-sectrio-using/ba-p/2964648)
+- [Learn more about Sectrio integration](https://sectrio.com/threat-intelligence/).
+- [Step by step process for integrating Sectrio's TI feed into Microsoft Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/microsoft-sentinel-bring-threat-intelligence-from-sectrio-using/ba-p/2964648).
 
 ### SEKOIA.IO
 
-- [Learn about SEKOIA.IO integration with Microsoft Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/bring-threat-intelligence-from-sekoia-io-using-taxii-data/ba-p/3302497)
+- [Learn about SEKOIA.IO integration with Microsoft Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/bring-threat-intelligence-from-sekoia-io-using-taxii-data/ba-p/3302497).
 
 ### ThreatConnect
 
-- [Learn more about STIX and TAXII @ThreatConnect](https://threatconnect.com/stix-taxii/)
-- [TAXII Services documentation @ThreatConnect](https://docs.threatconnect.com/en/latest/rest_api/taxii/taxii_2.1.html)
+- [Learn more about STIX and TAXII at ThreatConnect](https://threatconnect.com/stix-taxii/).
+- [See TAXII Services documentation at ThreatConnect](https://docs.threatconnect.com/en/latest/rest_api/taxii/taxii_2.1.html)
 
 ## Integrated threat intelligence platform products
 
-To connect to Threat Intelligence Platform (TIP) feeds, follow the instructions to [connect Threat Intelligence platforms to Microsoft Sentinel](connect-threat-intelligence-tip.md). The second part of these instructions calls for you to enter information into your TIP solution. See the links below for more information.
+To connect to Threat Intelligence Platform (TIP) feeds, see [connect Threat Intelligence platforms to Microsoft Sentinel](connect-threat-intelligence-tip.md). See the following solutions to learn what additional information is needed.
 
 ### Agari Phishing Defense and Brand Protection
 
