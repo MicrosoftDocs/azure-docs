@@ -250,7 +250,7 @@ The private FQDN is only for private cluster, recorded as A-RECORD in private DN
 
 - [Azure virtual network traffic routing](/azure/virtual-network/virtual-networks-udr-overview).
 
-- [Azure Virtual Network peering](azure/virtual-network/virtual-network-peering-overview).
+- [Azure Virtual Network peering](/azure/virtual-network/virtual-network-peering-overview).
 
 - [Outbound traffic on HDInsight on AKS - Azure HDInsight on AKS](./required-outbound-traffic.md)
 
