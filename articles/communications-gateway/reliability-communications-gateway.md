@@ -121,9 +121,6 @@ Monitoring services might be temporarily unavailable until service has been rest
 
 ## Choosing management and service regions
 
-> [!NOTE]
-> If you are enabling Azure Operator Call Protection Preview then the region you select may not be the region where supporting resources are actually deployed. See [Azure Products by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=operator-call-protection) for the list of currently supported Azure Operator Call Protection regions and speak to your onboarding team if you have any questions about which region is selected.
-
 A single deployment of Azure Communications Gateway is designed to handle your traffic within a geographic area. Deploy both service regions in a production deployment within the same geographic area (for example North America). This model ensures that latency on voice calls remains within the limits required by the Operator Connect and Teams Phone Mobile programs.
 
 Consider the following points when you choose your service region locations:
@@ -143,6 +140,9 @@ Choose a management region from the following list:
 - Australia East
 
 Management regions can be colocated with service regions. We recommend choosing the management region nearest to your service regions.
+
+> [!NOTE]
+> If you are enabling Azure Operator Call Protection Preview, the service region you select may not be the Azure region where supporting resources are deployed. See [Azure Products by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=operator-call-protection) for the list of currently supported Azure Operator Call Protection service regions and speak to your onboarding team if you have any questions about which region is selected.
 
 ## Service-level agreements
 
