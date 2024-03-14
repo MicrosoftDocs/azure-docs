@@ -139,7 +139,7 @@ GPT-4 version 0125-preview is an updated version of the GPT-4 Turbo preview prev
 
 #### Public cloud regions
 
-[!INCLUDE [GPT-4](../includes/model-matrix/standard-gpt-4.md)]
+[!INCLUDE [GPT-4](../includes/model-matrix/standard-gpt4.md)]
 
 #### Azure Government regions
 
