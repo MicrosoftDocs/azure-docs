@@ -23,12 +23,12 @@ introduction: |
 
   To transition to the integrated Defender Vulnerability Management solution, you can use the Azure portal, use an Azure policy definition (for Azure VMs), or use REST APIs.
 
-  - [Transition with Azure policy (for Azure VMs)](#transition-with-azure-policy-for-azure-vms)
-  - [Transition with Defender for Cloud’s portal](#transition-with-defender-for-clouds-portal)
+  - [Transition with Azure policy for Azure VMs](#transition-with-azure-policy-for-azure-vms)
+  - [Transition with Defender for Cloud's portal](#transition-with-defender-for-clouds-portal)
   - [Transition with REST API](#transition-with-rest-api)
 procedureSection:
   - title: |
-      Transition with Azure policy (for Azure VMs) 
+      Transition with Azure policy for Azure VMs 
     summary: |
       Follow these steps:
     steps:
@@ -51,7 +51,7 @@ procedureSection:
 
         Once you complete the transition to the Defender Vulnerability Management solution, you need to [Remove the old vulnerability assessment solution](#remove-the-old-vulnerability-assessment-solution)
   - title: |
-      Transition with Defender for Cloud’s portal 
+      Transition with Defender for Cloud's portal 
     summary: |
       In the Defender for Cloud portal, you have the ability to change the vulnerability assessment solution to the built-in Defender Vulnerability Management solution. 
     steps:
@@ -103,7 +103,7 @@ procedureSection:
       }
       ```
 
-      Once you complete the transition to the Defender Vulnerability Management solution, you need to [Remove the old vulnerability assessment solution](#remove-the-old-vulnerability-assessment-solution)
+      Once you complete the transition to the Defender Vulnerability Management solution, you need to [remove the old vulnerability assessment solution](#remove-the-old-vulnerability-assessment-solution).
 
       ### REST API for multicloud VMs
 
