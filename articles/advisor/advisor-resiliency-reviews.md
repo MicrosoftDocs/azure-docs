@@ -1,5 +1,5 @@
 ---
-title: Azure Advisor Resiliency Reviews
+title: Azure Advisor resiliency reviews
 description: Optimize resource resiliency with custom recommendation reviews.
 author: mabrahms
 ms.author: v-mabrahms
@@ -81,7 +81,7 @@ Select **Manage** > **Reviews (Preview)** in the left navigation pane. A list of
    * *Triaged*: All recommendations are triaged
    * *Completed*: All accepted-state recommendations are implemented, postponed, or dismissed
 
-:::image type="content" source="./media/resiliency-reviews/resiliency-reviews-main-m.png" alt-text="Screenshot of the Azure Advisor Resiliency Reviews opening page." lightbox="./media/resiliency-reviews/resiliency-reviews-main-m.png":::
+:::image type="content" source="./media/resiliency-reviews/resiliency-reviews-main.png" alt-text="Screenshot of the Azure Advisor Resiliency Reviews opening page." lightbox="./media/resiliency-reviews/resiliency-reviews-main.png":::
 
 At the top of the reviews page, use **Feedback** to tell us about your experience. Use the **Refresh** button to refresh the page as needed.
 
@@ -92,13 +92,13 @@ If you have no reviews, the **Reviews** menu item in the left navigation is grey
 
 The triage process includes reviewing recommendations and making decisions on which to implement. Use *Accept* and *Reject* actions to capture your decision. Accepted recommendations are available to your engineering team under the Advisor **Reliability** menu item.
 
-:::image type="content" source="./media/resiliency-reviews/resiliency-reviews-main-reliability-m.png" alt-text="Screenshot of the Azure Advisor Reliability menu highlight." lightbox="./media/resiliency-reviews/resiliency-reviews-main-reliability-m.png":::
+:::image type="content" source="./media/resiliency-reviews/resiliency-reviews-main-reliability.png" alt-text="Screenshot of the Azure Advisor Reliability menu highlight." lightbox="./media/resiliency-reviews/resiliency-reviews-main-reliability.png":::
 
 1. From the **Reviews** page, select a review name to open the recommendations list page. For new reviews, recommendations are in *Pending* state.
 1. Take a note of recommendations priority. **Priority** is defined by your account team to help you decide which recommendations should be implemented first.
-:::image type="content" source="./media/resiliency-reviews/resiliency-review-recommendation-list-pending-m.png" alt-text="Screenshot of the Azure Advisor Resiliency Reviews recommendation list with pending recommendations." lightbox="./media/resiliency-reviews/resiliency-review-recommendation-list-pending-m.png":::
+:::image type="content" source="./media/resiliency-reviews/resiliency-review-recommendation-list-pending.png" alt-text="Screenshot of the Azure Advisor Resiliency Reviews recommendation list with pending recommendations." lightbox="./media/resiliency-reviews/resiliency-review-recommendation-list-pending.png":::
 1. Select a recommendation *Title* or the *Impacted subscriptions* view link to get detailed information. A pane opens with details – description, potential benefits, and notes from your account team along with the list of impacted subscriptions.
-:::image type="content" source="./media/resiliency-reviews/resiliency-review-recommendation-list-detail-pane-m.png" alt-text="Screenshot of the Azure Advisor Resiliency Reviews recommendation list page with the details pane of a selected recommendation." lightbox="./media/resiliency-reviews/resiliency-review-recommendation-list-detail-pane-m.png":::
+:::image type="content" source="./media/resiliency-reviews/resiliency-review-recommendation-list-detail-pane.png" alt-text="Screenshot of the Azure Advisor Resiliency Reviews recommendation list page with the details pane of a selected recommendation." lightbox="./media/resiliency-reviews/resiliency-review-recommendation-list-detail-pane.png":::
 1. If all recommendations for that review are triaged, none appear in the **Pending** view; select the **Accepted** or **Rejected** tabs to view those recommendations.
 
 ### Recommendation priority
@@ -120,7 +120,7 @@ From a review recommendations details page:
 1. You can accept a single recommendation by clicking **Accept**.
 1. You can accept multiple recommendations at a time by selecting them using the checkbox control and clicking **Accept**.
 1. Accepted recommendations are moved to the **Accepted** tab and become visible to your engineering team under **Recommendations** > **Reliability**.
-:::image type="content" source="./media/resiliency-reviews/resiliency-review-recommendation-list-accepted-m.png" alt-text="Screenshot of the Azure Advisor Resiliency Reviews recommendation list page of accepted recommendations." lightbox="./media/resiliency-reviews/resiliency-review-recommendation-list-accepted-m.png":::
+:::image type="content" source="./media/resiliency-reviews/resiliency-review-recommendation-list-accepted.png" alt-text="Screenshot of the Azure Advisor Resiliency Reviews recommendation list page of accepted recommendations." lightbox="./media/resiliency-reviews/resiliency-review-recommendation-list-accepted.png":::
 1. If you accepted a recommendation by mistake, use **Reset** to move it back to the pending state.
 
 ### Reject recommendations
@@ -129,7 +129,7 @@ From a review recommendations details page:
 1. You must select a reason when you reject a recommendation. Select one of the reasons from the list of available options.
 :::image type="content" source="./media/resiliency-reviews/resiliency-review-recommendation-reject-options-medium.png" alt-text="Screenshot of the Azure Advisor Resiliency Reviews recommendations reject options." lightbox="./media/resiliency-reviews/resiliency-review-recommendation-reject-options-medium.png":::
 1. The rejected recommendation is moved to the **Rejected** tab. Rejected recommendations aren't visible for your engineering team under **Recommendations** > **Reliability**.
-:::image type="content" source="./media/resiliency-reviews/resiliency-review-recommendation-list-rejected-m.png" alt-text="Screenshot of the Azure Advisor Resiliency Reviews recommendations page of rejected recommendations." lightbox="./media/resiliency-reviews/resiliency-review-recommendation-list-rejected-m.png":::
+:::image type="content" source="./media/resiliency-reviews/resiliency-review-recommendation-list-rejected.png" alt-text="Screenshot of the Azure Advisor Resiliency Reviews recommendations page of rejected recommendations." lightbox="./media/resiliency-reviews/resiliency-review-recommendation-list-rejected.png":::
 1. You can reject multiple recommendations at a time using the checkbox control, and the same reason for rejection is applied to all selected recommendations. If you need to select a different reason, reject one recommendation at a time.
 1. If you reject a recommendation by mistake, select **Reset** to move it back to the pending state and tab.
 
@@ -158,7 +158,7 @@ The recommendations are grouped by type:
 [!NOTE]
 If none of your resiliency review recommendations are in the *Accepted* state, the **Reviews** tab is hidden.
 
-:::image type="content" source="./media/resiliency-reviews/resiliency-review-recommendation-list-accepted-m.png" alt-text="Screenshot of the Azure Advisor Resiliency Reviews recommendations page of accepted recommendations." lightbox="./media/resiliency-reviews/resiliency-review-recommendation-list-accepted-m.png":::
+:::image type="content" source="./media/resiliency-reviews/resiliency-review-recommendation-list-accepted.png" alt-text="Screenshot of the Azure Advisor Resiliency Reviews recommendations page of accepted recommendations." lightbox="./media/resiliency-reviews/resiliency-review-recommendation-list-accepted.png":::
 
 You can filter the recommendations by subscription, priority, and workload, as well as sort the recommendation list.
 
@@ -168,7 +168,7 @@ You can sort recommendations using column headers - *Priority* (Critical, High, 
 
 Select a recommendation description to open a details page. Your account team adds the *Description*, *Potential benefits*, and *Notes* when the review is prepared.
 
-:::image type="content" source="./media/resiliency-reviews/resiliency-review-reliability-page-detail-m.png" alt-text="Screenshot of the Azure Advisor Reliability page for a Resiliency Reviews recommendation." lightbox="./media/resiliency-reviews/resiliency-review-reliability-page-detail-m.png":::
+:::image type="content" source="./media/resiliency-reviews/resiliency-review-reliability-page-detail.png" alt-text="Screenshot of the Azure Advisor Reliability page for a Resiliency Reviews recommendation." lightbox="./media/resiliency-reviews/resiliency-review-reliability-page-detail.png":::
 
 The options in the **Reliability** recommendations detail differ from those in the **Reviews** recommendations detail. Here, a team developer can open the *Impacted subscriptions* link and take direct action.
 
