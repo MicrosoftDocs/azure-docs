@@ -1,17 +1,17 @@
 ---
-title: Connect Microsoft Sentinel to STIX/TAXII threat intelligence feeds | Microsoft Docs
+title: Connect to STIX/TAXII threat intelligence feeds
+titleSuffix: Microsoft Sentinel
 description: Learn about how to connect Microsoft Sentinel to industry-standard threat intelligence feeds to import threat indicators.
 author: austinmccollum
 ms.topic: how-to
-ms.date: 03/27/2023
+ms.date: 3/14/2024
 ms.author: austinmc
+appliesTo: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+ms.collection: usx-security
+#customer intent: As a SOC admin, I want to connect Microsoft Sentinel to a STIX/TAXII feed to ingest threat intelligence, so I can generate alerts incidents.
 ---
 
 # Connect Microsoft Sentinel to STIX/TAXII threat intelligence feeds
-
-[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
-
-**See also**: [Connect your threat intelligence platform (TIP) to Microsoft Sentinel](connect-threat-intelligence-tip.md)
 
 The most widely adopted industry standard for the transmission of threat intelligence is a [combination of the STIX data format and the TAXII protocol](https://oasis-open.github.io/cti-documentation/). If your organization receives threat indicators from solutions that support the current STIX/TAXII version (2.0 or 2.1), you can use the **Threat Intelligence - TAXII data connector** to bring your threat indicators into Microsoft Sentinel. This connector enables a built-in TAXII client in Microsoft Sentinel to import threat intelligence from TAXII 2.x servers.
 
@@ -20,6 +20,10 @@ The most widely adopted industry standard for the transmission of threat intelli
 To import STIX formatted threat indicators to Microsoft Sentinel from a TAXII server, you must get the TAXII server API Root and Collection ID, and then enable the Threat Intelligence - TAXII data connector in Microsoft Sentinel.
 
 Learn more about [Threat Intelligence](understand-threat-intelligence.md) in Microsoft Sentinel, and specifically about the [TAXII threat intelligence feeds](threat-intelligence-integration.md#taxii-threat-intelligence-feeds) that can be integrated with Microsoft Sentinel.
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
+**See also**: [Connect your threat intelligence platform (TIP) to Microsoft Sentinel](connect-threat-intelligence-tip.md)
 
 ## Prerequisites  
 - In order to install, update and delete standalone content or solutions in content hub, you need the **Microsoft Sentinel Contributor** role at the resource group level.
@@ -101,7 +105,7 @@ When relevant, the following IP addresses are those to include in your allowlist
 :::row-end:::
 
 
-## Next steps
+## Related content
 
 In this document, you learned how to connect Microsoft Sentinel to threat intelligence feeds using the TAXII protocol. To learn more about Microsoft Sentinel, see the following articles.
 
