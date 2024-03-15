@@ -20,12 +20,13 @@ The following table summarizes the support matrix for VM restore points.
 --- | ---
 **VMs using Managed disks** | Yes
 **VMs using unmanaged disks** | No
-**VMs using Ultra Disks** | No. Exclude these disks and create a VM restore point.
+**VMs using Ultra Disks** | Yes. Supported for application consistency. Not supported for crash consistency. Exclude these disks and create a VM restore point when using crash consistency.
+**VMs using Premium SSD v2 Disks** | Yes. Supported for application consistency. Not supported for crash consistency. Exclude these disks and create a VM restore point when using crash consistency.
 **VMs using Ephemeral OS Disks** | No. Exclude these disks and create a VM restore point.
 **VMs using shared disks** | No. Exclude these disks and create a VM restore point.
 **VMs with extensions** | Yes
 **VMs with trusted launch** | Yes
-**Confidential VMs** | Yes
+**Confidential VMs** | No
 **Generation 2 VMs (UEFI boot)** | Yes
 **VMs with NVMe disks (Storage optimized - Lsv2-series)** | Yes
 **VMs in Proximity placement groups** | Yes
@@ -86,7 +87,7 @@ For Azure VM Linux VMs, restore points support the list of Linux [distributions 
 - Restore points don't support a proxy-configured Linux VM if it doesn't have Python version 2.7 or higher installed.
 - Restore points don't back up NFS files that are mounted from storage, or from any other NFS server, to Linux or Windows machines. It only backs up disks that are locally attached to the VM.
  
-## Operating system support for crash consistency (in preview)
+## Operating system support for crash consistency
 
 - All Operating systems are supported.
 

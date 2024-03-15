@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: concept-article
-ms.date: 02/23/2024
+ms.date: 03/12/2024
 
 #CustomerIntent: As an Azure administrator, I need to monitor communication between one VM and another. If the communication fails, I need to know why so that I can resolve the problem. 
 ---
@@ -14,9 +14,7 @@ ms.date: 02/23/2024
 # Connection monitor overview
 
 > [!IMPORTANT]
-> As of July 1, 2021, you can no longer add new tests in an existing workspace or enable a new workspace in Network Performance Monitor (NPM). You're also no longer able to add new connection monitors in Connection monitor (Classic). You can continue to use the tests and connection monitors that you've created prior to July 1, 2021. 
-> 
-> To minimize service disruption to your current workloads, [migrate your tests from Network Performance Monitor](migrate-to-connection-monitor-from-network-performance-monitor.md), or  [migrate from Connection monitor (Classic)](migrate-to-connection-monitor-from-connection-monitor-classic.md) to the new Connection monitor in Azure Network Watcher before February 29, 2024.
+> Connection monitor (Classic) is deprecated and no longer available. For more information, see [Migrate from Connection monitor (Classic)](migrate-to-connection-monitor-from-connection-monitor-classic.md) to migrate your connection monitors from Connection monitor (Classic) to the new Connection monitor.
 
 Connection monitor provides unified, end-to-end connection monitoring in Network Watcher. The Connection monitor feature supports hybrid and Azure cloud deployments. Network Watcher provides tools to monitor, diagnose, and view connectivity-related metrics for your Azure deployments.
 
@@ -105,13 +103,14 @@ The Log Analytics Windows agent can be multi-homed to send data to multiple work
 To enable the Network Performance Monitor solution for on-premises machines, follow these steps: 
 
 1. In the Azure portal, go to **Network Watcher**.
-1. On the left pane, under **Monitoring**, select **Network Performance Monitor**. 
 
-   A list of workspaces with Network Performance Monitor solution enabled is displayed, filtered by **Subscriptions**. 
-1. To add the Network Performance Monitor solution in a new workspace, select **Add NPM** at the top left. 
-1. Select the subscription and workspace in which you want to enable the solution, and then select **Create**.
+1. Under **Monitoring**, select **Connection Monitor**.  
+
+1. Select **+ Enable Non-Azure**. 
+
+1. In **Enable Non-Azure**, select the subscription and workspace in which you want to enable the solution, and then select **Create**.
    
-   After you've enabled the solution, the workspace takes a couple of minutes to be displayed.
+   After you enable the solution, the workspace takes a few minutes to be displayed.
 
 Unlike Log Analytics agents, the Network Performance Monitor solution can be configured to send data only to a single Log Analytics workspace.
 
