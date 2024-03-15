@@ -114,10 +114,6 @@ After you update the VNet configuration, the status of your API Management insta
 
 [!INCLUDE [api-management-migration-rollback](../../includes/api-management-migration-rollback.md)]
 
-## Update network dependencies
-
-After successful migration, update any network dependencies including DNS, firewall rules, and VNets to use the new VIP address/subnet address space.
-
 [!INCLUDE [api-management-migration-support](../../includes/api-management-migration-support.md)]
 
 ## Frequently asked questions
@@ -210,7 +206,6 @@ After successful migration, update any network dependencies including DNS, firew
 
    - You can't migrate the `stv1` instance to the same subnet in a single pass without downtime. However, you can optionally move your migrated instance back to the original subnet. More details [here](#optional-migrate-back-to-original-vnet-and-subnet).
    - The old gateway takes between 15 mins to 45 mins to vacate the subnet, so that you can initiate the move. However, you can request to increase this time to up to 48 hours by a support ticket.
-   - Releasing the old subnet calls for a purge of the old gateway, which forfeits the rollback to the old gateway if desired.
    - A new public IP is required for each switch.
    - Ensure that the old subnet's networking for [NSG](./api-management-using-with-internal-vnet.md?tabs=stv2#configure-nsg-rules) and [firewall](./api-management-using-with-vnet.md?tabs=stv2#force-tunnel-traffic-to-on-premises-firewall-using-expressroute-or-network-virtual-appliance) is updated for `stv2` dependencies.
    - Subnet IP address allocation is nondeterministic, therefore the original ILB (ingress) IP for "internal mode" deployments may change when you move back to the original subnet. This would require a DNS change if you're using A records.
