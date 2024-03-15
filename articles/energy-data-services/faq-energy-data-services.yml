@@ -24,7 +24,7 @@ sections:
           answer: >
             Azure Data Manager for Energy is available to all customers and partners who have a valid Azure subscription. You can create an instance by going to Azure Marketplace and searching for **Azure Data Manager for Energy**.
 
-    - name: External Data Services
+    - name: External Data Sources
       questions:
         - question:  What is the impact of data sharing across tenancy boundaries on security, privacy, and compliance?
           answer: >

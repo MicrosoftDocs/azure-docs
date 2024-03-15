@@ -10,8 +10,8 @@ ms.date: 03/14/2024
 #customer intent: As a Data Manager in Operating company, I want to register external data sources with Azure Data Manager for Energy so that I could pull metadata at scheduled intervals and retrieve bulk data on demand.
 
 ---
-# How to register an external data source with Azure Data Manager for Energy?
-This article explains how to register an external data source with Azure Data Manager for energy. External data services allow you to fetch and ingest data (metadata) from external data sources. It also allows you to retrieve bulk data on demand.
+# How to register an External Data Sources (EDS) with Azure Data Manager for Energy?
+This article explains how to register an External Data Sources (EDS) with Azure Data Manager for energy. EDS allow you to fetch and ingest data (metadata) from external data sources. It also allows you to retrieve bulk data on demand.
 
 ## Prerequisites 
 - Download and import API [collection](https://community.opengroup.org/osdu/platform/pre-shipping/-/blob/main/R3-M20/QA_Artifacts_M20/eds_testing_doc/EDS_Ingest_M20_Pre-Shipping_Setup_and_Testing.postman_collection.json?ref_type=heads) and [environment](https://community.opengroup.org/osdu/platform/pre-shipping/-/blob/main/R3-M20/QA_Artifacts_M20/envFilesAndCollections/envFiles/OSDU%20R3%20M20%20RI%20Pre-ship.postman_environment.json?ref_type=heads) files into API test client (like Postman). Make appropriate modifications in environment based on your data source. 
@@ -48,12 +48,12 @@ OEPAirFlowTask
 | where LogLevel == "ERROR" // ERROR/DEBUG/INFO/WARNING
 ```
 ## Retrieve bulk data on demand
-Use **getRetrievalInstructions** API in `005: Dataset Service collection` to retrieve bulk data from external data source on demand. 
+Use **getRetrievalInstructions** API in `005: Dataset Service collection` to retrieve bulk data from external data sources on demand. 
 
 ## References
-* [External data services FAQ](faq-energy-data-services.yml#external-data-services)
+* [External data sources FAQ](faq-energy-data-services.yml#external-data-sources)
 * [EDS documentation 1.0](https://gitlab.opengroup.org/osdu/subcommittees/ea/projects/extern-data/docs/-/blob/master/Design%20Documents/Training/EDS_Documentation-1.0.docx)
-* [EDS M18 release notes](https://community.opengroup.org/osdu/governance/project-management-committee/-/wikis/M18-Release-Notes#external-data-services-eds)
+* [EDS M18 release notes](https://community.opengroup.org/osdu/governance/project-management-committee/-/wikis/M18-Release-Notes#external-data-sources-eds)
 * [EDS Postman collection](https://community.opengroup.org/osdu/platform/pre-shipping/-/blob/main/R3-M20/QA_Artifacts_M20/eds_testing_doc/EDS_Ingest_M20_Pre-Shipping_Setup_and_Testing.postman_collection.json?ref_type=heads)
 * [EDS supplier enablement guide](https://gitlab.opengroup.org/osdu/r3-program-activities/docs/-/raw/master/R3%20Document%20Snapshot/23-osdu-eds-data-supplier-enablement-guide.pdf)
 * [EDS issues](https://community.opengroup.org/osdu/platform/data-flow/ingestion/external-data-sources/core-external-data-workflow/-/issues)
