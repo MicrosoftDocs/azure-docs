@@ -23,6 +23,7 @@ For a complete list of supported autoinstrumentation scenarios, see [Supported e
 
 > [!NOTE]
 > Autoinstrumentation is available for ASP.NET, ASP.NET Core IIS-hosted applications, and Java. Use an SDK to instrument Node.js and Python applications hosted on Azure virtual machines and virtual machine scale sets.
+> Web Server IIS is a requirement to install the Application Insights agent on a Virtual machine. How to install Web Server IIS Here: https://devblogs.microsoft.com/premier-developer/set-up-iis-on-windows-virtual-machine
 
 ### [.NET Framework](#tab/net)
 
