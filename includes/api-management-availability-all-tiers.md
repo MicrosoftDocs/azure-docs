@@ -2,9 +2,8 @@
 author: dlepow
 ms.service: api-management
 ms.topic: include
-ms.date: 03/13/2024
+ms.date: 03/06/2024
 ms.author: danlep
 ---
-
-**APPLIES TO: Standard v2** 
+**APPLIES TO: All API Management tiers**
 
