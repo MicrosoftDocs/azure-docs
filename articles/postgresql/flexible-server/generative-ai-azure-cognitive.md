@@ -17,6 +17,7 @@ Azure AI extension gives the ability to invoke the [language services](../../ai-
 
 ## Prerequisites
 
+1. [Enable and configure](generative-ai-azure-overview.md#enable-the-azure_ai-extension) the `azure_ai` extension.
 1. [Create a Language resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) in the Azure portal to get your key and endpoint.  
 1. After it deploys, select **Go to resource**.
 
@@ -66,7 +67,7 @@ For more information, see Cognitive Services Compliance and Privacy notes at htt
 
 #### Return type
 
-`azure_cognitive.sentiment_analysis_result` a result record containing the sentiment predictions of the input text. It contains the sentiment, which can be `positive`, `negative`, `neutral` and `mixed`; and the score for positive, neutral and negative found in the text represented as a real number between 0 and 1. For example in `(neutral,0.26,0.64,0.09)`, the sentiment is `neutral` with `positive` score at `0.26`, neutral at `0.64` and negative at `0.09`.
+`azure_cognitive.sentiment_analysis_result` a result record containing the sentiment predictions of the input text. It contains the sentiment, which can be `positive`, `negative`, `neutral`, and `mixed`; and the score for positive, neutral, and negative found in the text represented as a real number between 0 and 1. For example in `(neutral,0.26,0.64,0.09)`, the sentiment is `neutral` with `positive` score at `0.26`, neutral at `0.64` and negative at `0.09`.
 
 
 ### `azure_cognitive.detect_language`
@@ -99,7 +100,7 @@ For more information, see Cognitive Services Compliance and Privacy notes at htt
 
 #### Return type
 
-`azure_cognitive.language_detection_result`, a result containing the detected language name, its two-letter ISO 639-1 representation and the confidence score for the detection. For example in `(Portuguese,pt,0.97)`, the language is `Portuguese`, and detection confidence is `0.97`.
+`azure_cognitive.language_detection_result`, a result containing the detected language name, its two-letter ISO 639-1 representation, and the confidence score for the detection. For example in `(Portuguese,pt,0.97)`, the language is `Portuguese`, and detection confidence is `0.97`.
 
 ### `azure_cognitive.extract_key_phrases`
 
@@ -250,7 +251,7 @@ For more information, see Cognitive Services Compliance and Privacy notes at htt
 
 #### Return type
 
-`azure_cognitive.pii_entity_recognition_result`, a result containing the redacted text and entities as `azure_cognitive.entity[]`. Each entity contains the nonredacted text, personal data category, subcategory and a score indicating the confidence that the entity correctly matches the identified substring. For example, if invoked with a `text` set to `'My phone number is +1555555555, and the address of my office is 16255 NE 36th Way, Redmond, WA 98052.'`, and `language` set to `'en'`, it could return `("My phone number is ***********, and the address of my office is ************************************.","{""(+1555555555,PhoneNumber,\\""\\"",0.8)"",""(\\""16255 NE 36th Way, Redmond, WA 98052\\"",Address,\\""\\"",1)""}")`.
+`azure_cognitive.pii_entity_recognition_result`, a result containing the redacted text, and entities as `azure_cognitive.entity[]`. Each entity contains the nonredacted text, personal data category, subcategory, and a score indicating the confidence that the entity correctly matches the identified substring. For example, if invoked with a `text` set to `'My phone number is +1555555555, and the address of my office is 16255 NE 36th Way, Redmond, WA 98052.'`, and `language` set to `'en'`, it could return `("My phone number is ***********, and the address of my office is ************************************.","{""(+1555555555,PhoneNumber,\\""\\"",0.8)"",""(\\""16255 NE 36th Way, Redmond, WA 98052\\"",Address,\\""\\"",1)""}")`.
 
 ### `azure_cognitive.summarize_abstractive`
 

@@ -751,15 +751,21 @@
               displayName: Azure Cache for Redis
             - name: Trigger
               items: 
-              - name: Pub Sub Trigger
+              - name: Pub Sub
                 href: functions-bindings-cache-trigger-redispubsub.md
                 displayName: Azure Cache for Redis
-              - name: List Trigger
+              - name: List
                 href: functions-bindings-cache-trigger-redislist.md
                 displayName: Azure Cache for Redis
-              - name: Stream Trigger
+              - name: Stream
                 href: functions-bindings-cache-trigger-redisstream.md
                 displayName: Azure Cache for Redis
+            - name: Input
+              href: functions-bindings-cache-input.md
+              displayName: Azure Cache for Redis
+            - name: Output
+              href: functions-bindings-cache-output.md
+              displayName: Azure Cache for Redis
         - name: Azure Cosmos DB
           items:
             - name: Functions 1.x

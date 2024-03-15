@@ -126,6 +126,7 @@ If you're using a custom RBAC role or the [built-in Contributor role](../role-ba
 * `Microsoft.NetApp/locations/{location}/quotaLimits`
 * `Microsoft.NetApp/locations/{location}/quotaLimits/{quotaLimitName}`
 * `Microsoft.NetApp/locations/{location}/regionInfo`
+* `Microsoft.NetApp/locations/{location}/regionInfos`
 * `Microsoft.NetApp/locations/{location}/queryNetworkSiblingSet`
 * `Microsoft.NetApp/locations/{location}/updateNetworkSiblingSet`
 

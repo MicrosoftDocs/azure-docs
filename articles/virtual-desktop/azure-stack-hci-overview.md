@@ -61,9 +61,9 @@ To run Azure Virtual Desktop with Azure Stack HCI, you need to make sure you're 
 
 - **User access rights.** The same licenses that grant access to Azure Virtual Desktop on Azure also apply to Azure Virtual Desktop with Azure Stack HCI. Learn more at [Azure Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/).
 
-- **Infrastructure costs.** Learn more at [Azure Stack HCI pricing](https://azure.microsoft.com/pricing/details/azure-stack/hci/).
+- **Azure Stack HCI service fee.** Learn more at [Azure Stack HCI pricing](https://azure.microsoft.com/pricing/details/azure-stack/hci/).
  
-- **Hybrid service fee.** This fee requires you to pay for each active virtual CPU (vCPU) for your Azure Virtual Desktop session hosts running on Azure Stack HCI. This fee becomes active once the preview period ends.
+- **Azure Virtual Desktop on Azure Stack HCI service fee.** This fee requires you to pay for each active virtual CPU (vCPU) for your Azure Virtual Desktop session hosts running on Azure Stack HCI. Learn more at [Azure Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/).
 
 ## Data storage
 

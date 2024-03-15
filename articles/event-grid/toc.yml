@@ -17,16 +17,26 @@ items:
         href: mqtt-overview.md
       - name: Quickstarts
         items:
-        - name: Publish and subscribe on an MQTT topic using CLI
-          href: mqtt-publish-and-subscribe-cli.md
-        - name: Publish and subscribe on an MQTT topic using portal
-          href: mqtt-publish-and-subscribe-portal.md
+        - name: Publish and subscribe on an MQTT topic
+          items:
+          - name: Azure CLI
+            href: mqtt-publish-and-subscribe-cli.md          
+          - name: Azure portal
+            href: mqtt-publish-and-subscribe-portal.md
       - name: Tutorials
         items:
-        - name: Route MQTT messages to Event Hubs using CLI
-          href: mqtt-routing-to-event-hubs-cli.md
-        - name: Route MQTT messages to Event Hubs using portal
-          href: mqtt-routing-to-event-hubs-portal.md
+        - name: Route MQTT messages to Event Hubs
+          items:
+          - name: Azure CLI
+            href: mqtt-routing-to-event-hubs-cli-namespace-topics.md
+          - name: Azure portal
+            href: mqtt-routing-to-event-hubs-portal-namespace-topics.md
+        - name: Route MQTT messages to Event Hubs using custom topics
+          items:
+          - name: Azure CLI
+            href: mqtt-routing-to-event-hubs-cli.md
+          - name: Azure portal
+            href: mqtt-routing-to-event-hubs-portal.md
       - name: Samples
         href: https://github.com/Azure-Samples/MqttApplicationSamples
       - name: Concepts

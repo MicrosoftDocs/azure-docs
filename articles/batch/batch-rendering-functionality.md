@@ -31,18 +31,6 @@ Most rendering applications will require licenses obtained from a license server
 * Resource files:
   * Application files are uploaded to Azure blob storage, and you specify file references in the [pool start task](/rest/api/batchservice/pool/add#starttask). When pool VMs are created, the resource files are downloaded onto each VM.
 
-### Environment variables for pre-installed applications
-
-To be able to create the command line for rendering tasks, the installation location of the rendering application executables must be specified.  System environment variables have been created on the Azure Marketplace VM images, which can be used instead of having to specify actual paths.  These environment variables are in addition to the [standard Batch environment variables](./batch-compute-node-environment-variables.md) created for each task.
-
-|Application|Application Executable|Environment Variable|
-|---------|---------|---------|
-|Autodesk 3ds Max 2021|3dsmaxcmdio.exe|3DSMAX_2021_EXEC|
-|Autodesk Maya 2020|render.exe|MAYA_2020_EXEC|
-|Chaos Group V-Ray Standalone|vray.exe|VRAY_4.10.03_EXEC|
-|Arnold 2020 command line|kick.exe|ARNOLD_2020_EXEC|
-|Blender|blender.exe|BLENDER_2018_EXEC|
-
 ## Azure VM families
 
 As with other workloads, rendering application system requirements vary, and performance requirements vary for jobs and projects.  A large variety of VM families are available in Azure depending on your requirements – lowest cost, best price/performance, best performance, and so on.

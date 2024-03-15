@@ -29,7 +29,10 @@ sections:
 
       - question: Does Defender for APIs collect API traffic logs from Azure API Management?
         answer: Defender for APIs receives a copy of all of the HTTP request and response traffic sent to the API management service for all onboarded APIs. This includes the request URL, the response status code, and a subset of HTTP headers for the requests and responses. Also, Defender for APIs receives a copy of some of the HTTP request and response bodies. The request and response bodies received by Defender for APIs are capped at a size of 64 KB.
-              
+
+      - question: Why can't I select multiple resources?
+        answer: API Management service resources don't enable multi-selection with metrics. You can let the API Management service team know this capability is important and upvote this request.
+
   - name: Questions related to region/geo 
     questions:
       - question: I just moved my APIs within my Azure API Management service to a new region. Why are these not updated?

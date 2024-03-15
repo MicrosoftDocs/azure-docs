@@ -183,6 +183,7 @@ You can create Azure Compute Gallery resource using templates. There are several
 * [What API version should I use when creating images?](#what-api-version-should-i-use-when-creating-images)
 * [What API version should I use to create a VM or Virtual Machine Scale Set out of the image version?](#what-api-version-should-i-use-to-create-a-vm-or-virtual-machine-scale-set-out-of-the-image-version)
 * [Can I update my Virtual Machine Scale Set created using managed image to use Azure Compute Gallery images?](#can-i-update-my-virtual-machine-scale-set-created-using-managed-image-to-use-azure-compute-gallery-images)
+* [How can update my code to use the new property and improve security and ensure permissions are granted accurately during VM image creation?](#how-can-update-my-code-to-use-the-new-property-and-improve-security-and-ensure-permissions-are-granted-accurately-during-vm-image-creation)
 
 ### How can I list all the Azure Compute Gallery resources across subscriptions?
 
@@ -312,6 +313,33 @@ For VM and Virtual Machine Scale Set deployments using an image version, we reco
 
 Yes, you can update the scale set image reference from a managed image to an Azure Compute Gallery image, as long as the OS type, Hyper-V generation, and the data disk layout matches between the images.
 
+### How can update my code to use the new property and improve security and ensure permissions are granted accurately during VM image creation?
+```
+For Virtual Machine ID field, use VirtualMachineId field under GallerySource(GalleryImageVersionStorageProfile.GallerySource.VirtualMachineID). The new property requires api-version 2023-07-03 or version 1.4.0 (or higher) of .NET SDK
+
+StorageProfile = new GalleryImageVersionStorageProfile()
+            {
+                GallerySource = new GalleryArtifactVersionFullSource()
+                {
+                    VirtualMachineId = new ResourceIdentifier(virtualMachineId),
+                }
+            },
+```
+```
+For VHD as a source, use StorageAccountID field under GallerySource under OS disk or Data disk Image(GalleryImageVersionStorageProfile.OSDiskImage.GallerySource.StorageAccountId). The new property requires api-version 2023-07-03 or version 1.4.0 (or higher) of .NET SDK
+
+StorageProfile = new GalleryImageVersionStorageProfile()
+            {
+                OSDiskImage = new GalleryOSDiskImage()
+                {
+                    GallerySource = new GalleryDiskImageSource()
+                    {
+                        StorageAccountId = new ResourceIdentifier(storageAccountId),
+                        Uri = new Uri(blobUri),
+                    }
+                }
+            },
+```
 ## Troubleshoot
 If you have issues with performing any operations on the gallery resources, consult the list of common errors in the [troubleshooting guide](troubleshooting-shared-images.md).
 
