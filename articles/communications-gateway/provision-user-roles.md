@@ -62,4 +62,4 @@ You need to use the Azure portal to configure user roles.
 
 ## Next steps
 
-- Learn how to remove access to the Azure Communications Gateway subscription by [removing Azure role assignments](../role-based-access-control/role-assignments-remove.md).
+- Learn how to remove access to the Azure Communications Gateway subscription by [removing Azure role assignments](../role-based-access-control/role-assignments-remove.yml).

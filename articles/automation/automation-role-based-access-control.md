@@ -342,7 +342,7 @@ The following section shows you how to configure Azure RBAC on your Automation a
 
 #### Remove role assignments from a user
 
-You can remove the access permission for a user who isn't managing the Automation account, or who no longer works for the organization. The following steps show how to remove the role assignments from a user. For detailed steps, see [Remove Azure role assignments](../../articles/role-based-access-control/role-assignments-remove.md):
+You can remove the access permission for a user who isn't managing the Automation account, or who no longer works for the organization. The following steps show how to remove the role assignments from a user. For detailed steps, see [Remove Azure role assignments](../../articles/role-based-access-control/role-assignments-remove.yml):
 
 1. Open **Access control (IAM)** at a scope, such as management group, subscription, resource group, or resource, where you want to remove access.
 

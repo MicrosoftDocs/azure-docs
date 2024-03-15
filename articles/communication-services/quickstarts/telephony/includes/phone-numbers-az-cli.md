@@ -43,6 +43,9 @@ Make these replacements in the code:
 - Replace `<purchasedPhoneNumber>` with a phone number that's associated with your Communication Services resource.
 - Replace `<yourConnectionString>` with your connection string.
 
+> [!NOTE]
+> The Azure CLI option provides functionality only for listing and showing phone numbers. It does not support other operations such as searching, purchasing, editing or releasing phone numbers.
+
 ### (Optional) Use Azure CLI phone numbers operations without passing in a connection string
 
 You can configure the `AZURE_COMMUNICATION_CONNECTION_STRING` environment variable to use Azure CLI phone numbers operations without having to use `--connection_string` to pass in the connection string. To configure an environment variable, open a console window and select your operating system from the below tabs. Replace `<yourConnectionString>` with your actual connection string.

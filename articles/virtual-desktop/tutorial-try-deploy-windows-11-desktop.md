@@ -113,7 +113,7 @@ To create a personal host pool, workspace, application group, and session host V
 
 1. On the **Review + create** tab, ensure validation passes and review the information that is used during deployment. If validation doesn't pass, review the error message and check what you entered in each tab.
 
-1. Select **Create**. A host pool, workspace, application group, and session host is created. Once your deployment is complete, select **Go to resource** to go to the host pool overview.
+1. Select **Create**. A host pool, workspace, application group, and session host are created. Once your deployment is complete, select **Go to resource** to go to the host pool overview.
 
 1. Finally, from the host pool overview, select **Session hosts** and verify the status of the session hosts is **Available**.
 
@@ -207,7 +207,7 @@ Now that you've created and connected to a Windows 11 desktop with Azure Virtual
 
 - [Publish applications](manage-app-groups.md).
 
-- Manage user profiles using [FSLogix profile containers and Azure Files](create-profile-container-azure-ad.md).
+- Manage user profiles using [FSLogix profile containers and Azure Files](create-profile-container-azure-ad.yml).
 
 - [Understand network connectivity](network-connectivity.md).
 

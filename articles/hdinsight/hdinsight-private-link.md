@@ -119,7 +119,7 @@ To create the private endpoints:
     | Subnet | default |
     
     :::image type="content" source="media/hdinsight-private-link/basic-tab-private-endpoint.png" alt-text="Diagram of the Private Link basic tab.":::
-    :::image type="content" source="media/hdinsight-private-link/resource-tab-private-endpoint.png" alt-text="Diagram of the Private Link resource tab":::
+    :::image type="content" source="media/hdinsight-private-link/resource-tab-private-endpoint.png" alt-text="Diagram of the Private Link resource tab.":::
     :::image type="content" source="media/hdinsight-private-link/virtual-network-tab-private-endpoint.png" alt-text="Diagram of the Private Link virtual network tab.":::
     :::image type="content" source="media/hdinsight-private-link/dns-tab-private-endpoint.png" alt-text="Diagram of the Private Link dns end point tab.":::
     :::image type="content" source="media/hdinsight-private-link/tag-tab-private-endpoint.png" alt-text="Diagram of the Private Link tag tab.":::

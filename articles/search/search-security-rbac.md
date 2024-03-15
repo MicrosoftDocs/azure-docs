@@ -201,7 +201,7 @@ Make sure that you [register your client application with Microsoft Entra ID](se
 
 ### [**REST API**](#tab/test-rest)
 
-This approach assumes Postman as the REST client and uses a Postman collection and variables to provide the bearer token. Use Azure CLI or another tool to create a security principal for the REST client.
+This approach assumes Visual Studio Code with a REST client extension.
 
 1. Open a command shell for Azure CLI and sign in to your Azure subscription.
 
@@ -209,95 +209,43 @@ This approach assumes Postman as the REST client and uses a Postman collection a
    az login
    ```
 
-1. Get your subscription ID. The ID is used as a variable in a future step. 
+1. Get your tenant ID and subscription ID. The ID is used as a variable in a future step. 
 
    ```azurecli
-   az account show --query id -o tsv
-   ````
-
-1. Create a resource group for your security principal. This example uses the West US region. You provide this value as a variable in a future step. The role that you create is scoped to the resource group.
-
-   ```azurecli
-   az group create -l westus -n MyResourceGroup
+   az account show
    ```
 
-1. Create the service principal, replacing the placeholder values with valid values for a security principal name, subscription ID, and resource group name. This example uses the "Search Index Data Reader" (quote enclosed) role.
+1. Get an access token.
 
-    ```azurecli
-    az ad sp create-for-rbac --name mySecurityPrincipalName --role "Search Index Data Reader" --scopes /subscriptions/mySubscriptionID/resourceGroups/myResourceGroupName
-    ```
+   ```azurecli
+   az account get-access-token --query accessToken --output tsv
+   ```
 
-   A successful response includes "appId", "password", and "tenant". You use these values for the variables "clientId", "clientSecret", and "tenant".
-
-1. Start a new Postman collection and edit its properties. In the Variables tab, create the following variables:
-
-    | Variable | Description |
-    |----------|-------------|
-    | clientId | Provide the previously generated "appID" that you created in Microsoft Entra ID. |
-    | clientSecret | Provide the "password" that was created for your client. |
-    | tenantId | Provide the "tenant" that was returned in the previous step. |
-    | subscriptionId | Provide the subscription ID for your subscription. |
-    | resource | Enter `https://search.azure.com`. | 
-    | bearerToken | (leave blank; the token is generated programmatically) |
-
-1. In the Authorization tab, select **Bearer Token** as the type.
-
-1. In the **Token** field, specify the variable placeholder `{{bearerToken}}`.
-
-1. In the Pre-request Script tab, paste in the following script:
-
-    ```javascript
-    pm.test("Check for collectionVariables", function () {
-        let vars = ['clientId', 'clientSecret', 'tenantId', 'subscriptionId'];
-        vars.forEach(function (item, index, array) {
-            console.log(item, index);
-            pm.expect(pm.collectionVariables.get(item), item + " variable not set").to.not.be.undefined;
-            pm.expect(pm.collectionVariables.get(item), item + " variable not set").to.not.be.empty; 
-        });
-    
-        if (!pm.collectionVariables.get("bearerToken") || Date.now() > new Date(pm.collectionVariables.get("bearerTokenExpiresOn") * 1000)) {
-            pm.sendRequest({
-                url: 'https://login.microsoftonline.com/' + pm.collectionVariables.get("tenantId") + '/oauth2/token',
-                method: 'POST',
-                header: 'Content-Type: application/x-www-form-urlencoded',
-                body: {
-                    mode: 'urlencoded',
-                    urlencoded: [
-                        { key: "grant_type", value: "client_credentials", disabled: false },
-                        { key: "client_id", value: pm.collectionVariables.get("clientId"), disabled: false },
-                        { key: "client_secret", value: pm.collectionVariables.get("clientSecret"), disabled: false },
-                        { key: "resource", value: pm.collectionVariables.get("resource") || "https://search.azure.com", disabled: false }
-                    ]
-                }
-            }, function (err, res) {
-                if (err) {
-                    console.log(err);
-                } else {
-                    let resJson = res.json();
-                    pm.collectionVariables.set("bearerTokenExpiresOn", resJson.expires_on);
-                    pm.collectionVariables.set("bearerToken", resJson.access_token);
-                }
-            });
-        }
-    });
-    ```
-
-1. Save the collection.
-
-1. Send a request that uses the variables you've specified. For the "Search Index Data Reader" role, you can query an index (remember to provide a valid search service name on the URI). You can use any [supported API version](/rest/api/searchservice/search-service-api-versions).
+1. In a new text file in Visual Studio Code, paste in these variables:
 
    ```http
-   POST https://<service-name>.search.windows.net/indexes/hotels-quickstart/docs/search?api-version=2020-06-30
-   {
-    "queryType": "simple",
-    "search": "motel",
-    "filter": "",
-    "select": "HotelName,Description,Category,Tags",
-    "count": true
-    }
+   @baseUrl = PASTE-YOUR-SEARCH-SERVICE-URL-HERE
+   @index-name = PASTE-YOUR-INDEX-NAME-HERE
+   @token = PASTE-YOUR-TOKEN-HERE
    ```
 
-For more information on how to acquire a token for a specific environment, see [Microsoft identity platform authentication libraries](../active-directory/develop/reference-v2-libraries.md).
+1. Paste in and then send a request that uses the variables you've specified. For the "Search Index Data Reader" role, you can send a query. You can use any [supported API version](/rest/api/searchservice/search-service-api-versions).
+
+   ```http
+   POST https://{{baseUrl}}/indexes/{{index-name}}/docs/search?api-version=2023-11-01 HTTP/1.1
+     Content-type: application/json
+     Authorization: Bearer {{token}}
+
+       {
+            "queryType": "simple",
+            "search": "motel",
+            "filter": "",
+            "select": "HotelName,Description,Category,Tags",
+            "count": true
+        }
+   ```
+
+For more information on how to acquire a token for a specific environment, see [Manage a Azure AI Search service with REST APIs](search-manage-rest.md) and [Microsoft identity platform authentication libraries](../active-directory/develop/reference-v2-libraries.md).
 
 ### [**.NET**](#tab/test-csharp)
 
@@ -366,7 +314,7 @@ For more information on how to acquire a token for a specific environment, see [
 
 ## Test as current user
 
-If you're already a Contributor or Owner of your search service, you can present a bearer token for your user identity for authentication to Azure AI Search. The following instructions explain how to set up a Postman collection to send requests as the current user.
+If you're already a Contributor or Owner of your search service, you can present a bearer token for your user identity for authentication to Azure AI Search. 
 
 1. Get a bearer token for the current user using the Azure CLI:
 
@@ -380,29 +328,28 @@ If you're already a Contributor or Owner of your search service, you can present
    Get-AzAccessToken -ResourceUrl "https://graph.microsoft.com/"
    ```
 
-1. Start a new Postman collection and edit its properties. In the **Variables** tab, create the following variable:
-
-    | Variable | Description |
-    |----------|-------------|
-    | bearerToken | (copy-paste from get-access-token output on the command line) |
-
-1. In the Authorization tab, select **Bearer Token** as the type.
-
-1. In the **Token** field, specify the variable placeholder `{{bearerToken}}`.
-
-1. Save the collection.
-
-1. Send a request to confirm access. Here's one that queries the hotels-quickstart index:
+1. In a new text file in Visual Studio Code, paste in these variables:
 
    ```http
-   POST https://<service-name>.search.windows.net/indexes/hotels-quickstart/docs/search?api-version=2020-06-30
-   {
-    "queryType": "simple",
-    "search": "motel",
-    "filter": "",
-    "select": "HotelName,Description,Category,Tags",
-    "count": true
-    }
+   @baseUrl = PASTE-YOUR-SEARCH-SERVICE-URL-HERE
+   @index-name = PASTE-YOUR-INDEX-NAME-HERE
+   @token = PASTE-YOUR-TOKEN-HERE
+   ```
+
+1. Paste in and then send a request to confirm access. Here's one that queries the hotels-quickstart index
+
+   ```http
+   POST https://{{baseUrl}}/indexes/{{index-name}}/docs/search?api-version=2023-11-01 HTTP/1.1
+     Content-type: application/json
+     Authorization: Bearer {{token}}
+
+       {
+            "queryType": "simple",
+            "search": "motel",
+            "filter": "",
+            "select": "HotelName,Description,Category,Tags",
+            "count": true
+        }
    ```
 
 <a name="rbac-single-index"></a>
