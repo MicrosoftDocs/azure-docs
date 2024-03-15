@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot connections - Azure portal
+title: Troubleshoot outbound connections - Azure portal
 titleSuffix: Azure Network Watcher
 description: Learn how to use the connection troubleshoot feature of Azure Network Watcher to troubleshoot outbound connections using the Azure portal.
 author: halkazwini
@@ -11,7 +11,7 @@ ms.date: 03/15/2024
 #CustomerIntent: As an Azure administrator, I want to learn how to use Connection Troubleshoot to diagnose connectivity problems in Azure.
 ---
 
-# Troubleshoot connections using the Azure portal
+# Troubleshoot outbound connections using the Azure portal
 
 In this article, you learn how to use the connection troubleshoot feature of Azure Network Watcher to diagnose and troubleshoot connectivity issues. For more information about connection troubleshoot, see [Connection troubleshoot overview](connection-troubleshoot-overview.md).
 
