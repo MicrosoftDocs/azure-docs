@@ -408,7 +408,7 @@
       items:
         - name: Manage and respond to security alerts
           displayName: security alerts, alerts
-          href: managing-and-responding-alerts.md
+          href: managing-and-responding-alerts.yml
         - name: Create and manage alerts suppression rules
           displayName: alert suppression, alert suppression, create, suppressions rules,
             rules
