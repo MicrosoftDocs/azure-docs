@@ -11,7 +11,26 @@ ms.reviewer: mmcc
 
 # Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python, and Java applications
 
-This article describes how to enable and configure OpenTelemetry-based data collection to power the experiences within [Azure Monitor Application Insights](app-insights-overview.md#application-insights-overview). We walk through how to install the "Azure Monitor OpenTelemetry Distro." The Distro [automatically collects](opentelemetry-add-modify.md#automatic-data-collection) traces, metrics, logs, and exceptions across your application and its dependencies. To learn more about collecting data using OpenTelemetry, see [Data Collection Basics](opentelemetry-overview.md) or [OpenTelemetry FAQ](#frequently-asked-questions).
+This article describes how to enable and configure OpenTelemetry-based data collection to power the experiences within [Azure Monitor Application Insights](app-insights-overview.md#application-insights-overview). We walk through how to install the *Azure Monitor OpenTelemetry Distro*. The Distro [automatically collects](opentelemetry-add-modify.md#automatic-data-collection) traces, metrics, logs, and exceptions across your application and its dependencies. 
+There are several advantages to using the Azure Monitor OpenTelemetry Distro:
+
+- Reduces enablement effort
+- Supported by Microsoft
+- Brings in Azure Specific features such as:
+   - Preserves traces with service components using Application Insights SDKs
+   - [Microsoft Entra authentication](azure-ad-authentication.md)
+   - [Offline Storage and Automatic Retries](opentelemetry-configuration.md#offline-storage-and-automatic-retries)
+   - [Statsbeat](statsbeat.md)
+   - [Application Insights Standard Metrics](standard-metrics.md)
+   - Detect resource metadata to autopopulate [Cloud Role Name](app-map.md#understand-the-cloud-role-name-within-the-context-of-an-application-map) on Azure
+   - [Live Metrics](live-stream.md) (future)
+
+In the spirit of OpenTelemetry, we designed the distro to be open and extensible. For example, you can add:
+
+- An OTLP exporter and send to a second destination simultaneously
+- Other instrumentation libraries not included in the distro
+
+To learn more about collecting data using OpenTelemetry, see [Data Collection Basics](opentelemetry-overview.md) or [OpenTelemetry FAQ](#frequently-asked-questions).
 
 ## OpenTelemetry Release Status
 

@@ -34,23 +34,7 @@ You can think of it as a thin wrapper that bundles together all the OpenTelemetr
 
 ### Why should I use the "Azure Monitor OpenTelemetry Distro"?
 
-Azure Monitor OpenTelemetry Distro is the only currently supported way to use OpenTelemetry with Azure Monitor. There are several advantages to using the Azure Monitor OpenTelemetry Distro over native OpenTelemetry from the community:
-
-- Reduces enablement effort
-- Supported by Microsoft
-- Brings in Azure Specific features such as:
-   - Preserves traces with service components using Application Insights SDKs
-   - [Microsoft Entra authentication](../app/azure-ad-authentication.md)
-   - [Offline Storage and Automatic Retries](../app/opentelemetry-configuration.md#offline-storage-and-automatic-retries)
-   - [Statsbeat](../app/statsbeat.md)
-   - [Application Insights Standard Metrics](../app/standard-metrics.md)
-   - Detect resource metadata to autopopulate [Cloud Role Name](../app/app-map.md#understand-the-cloud-role-name-within-the-context-of-an-application-map) on Azure
-   - [Live Metrics](../app/live-stream.md) (future)
-
-In the spirit of OpenTelemetry, we designed the distro to be open and extensible. For example, you can add:
-
-- An OTLP exporter and send to a second destination simultaneously
-- Other instrumentation libraries not included in the distro
+Azure Monitor OpenTelemetry Distro is the only currently supported way to use OpenTelemetry with Azure Monitor.
 
 ### How can I test out the Azure Monitor OpenTelemetry Distro?
 
