@@ -323,7 +323,7 @@ Your Next.js project can be configured to have custom handling of routes with re
 
 Static Web Apps validates that your Next.js site is successfully deployed by adding a page to your site at build time. The page is named `public/.swa/health.html` , and Static Web Apps verifies the successful startup and deployment of your site by navigating to `/.swa/health.html` and verifying a successful response. Middleware and custom routing, which includes redirects and rewrites, can affect the access of the `/.swa/health.html` path, which can prevent Static Web Apps' deployment validation. To configure middleware and routing for a successful deployment to Static Web Apps, follow these steps:
 
-1. Configure your Middleware to exclude routes starting with `.swa` in your `middleware.ts` (or `.js`) file.
+1. Exclude routes starting with `.swa` in your `middleware.ts` (or `.js`) file in your middleware configuration.
 ```js
 export const config = {
   matcher: [
