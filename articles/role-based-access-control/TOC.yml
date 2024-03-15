@@ -122,7 +122,7 @@
     - name: Conditions and custom security attributes
       href: conditions-custom-security-attributes.md
   - name: Remove role assignments
-    href: role-assignments-remove.md
+    href: role-assignments-remove.yml
   - name: List deny assignments
     href: deny-assignments.md
   - name: Create custom roles
