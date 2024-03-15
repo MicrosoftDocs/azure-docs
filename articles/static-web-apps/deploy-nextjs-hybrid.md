@@ -253,7 +253,6 @@ This Client Component fetches the API with a `useEffect` React hook to render th
 
 :::image type="content" source="media/deploy-nextjs/nextjs-13-home-display.png" alt-text="Screenshot showing the display the output from the API route.":::
 
-
 ## Configure the runtime version for Next.js
 
 Certain Next.js versions require specific Node.js versions. To configure a specific Node version, you can set the 'engines' property of your `package.json` file to designate a version.
@@ -317,6 +316,27 @@ You will also need to configure the `build` command in the `package.json` file i
   ...
 }
 ```
+
+## Configure Next.js Middleware and Internationalization (i18n) for deployment to Azure Static Web Apps
+
+Middleware is a feature of Next.js that allows you to run code before a request is handled, commonly used for authentication, personalization, routing, etc. Internationalization (i18n) is a feature of Next.js that allows you to handle routing to multiple versions of your site in different languages. Both of these features affect the routing of your Next.js site and need to be configured to be compatible with hosting on Static Web Apps.
+
+Static Web Apps validates that your Next.js site is successfully deployed by adding a page to your site at build time (`public/.swa/health.html`) and verifying that it can be accessed at `/.swa/health.html` on your Next.js site. Middleware and Internationalization can affect the access of the `/.swa/health.html` path of your site, which can result in deployment issues. To configure Middleware and Internationalization to successfully deploy your Next.js site to Static Web Apps, follow these steps:
+
+1. Create a `middleware.ts` (or `.js`) file in the root of your Next.js project if it does not exist.
+1. Add `'/((?!.swa).*)'` to the matcher of your custom middlewares within thie `middleware.ts` (or `.js`) file:
+```
+export const config = {
+  matcher: [
+    /*
+     * Match all request paths except for the ones starting with:
+     * - .swa (Azure Static Web Apps)
+     */
+    '/((?!.swa).*)',
+  ],
+}
+```
+This code snippet excludes paths that start with `.swa` from being handled by your custom middleware. This will ensure that these paths are resolved as expected for Static Web Apps' deployment validation.
 
 ## Enable logging for Next.js
 
