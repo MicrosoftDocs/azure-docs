@@ -1,6 +1,6 @@
 ---
-title: Delete files in Managed Airflow
-description: This article explains how to delete files in Managed Airflow.
+title: Delete files in Workflow Orchestration Manager
+description: This article explains how to delete files in Workflow Orchestration Manager.
 author: nabhishek
 ms.author: abnarain
 ms.reviewer: abnarain
@@ -9,18 +9,21 @@ ms.topic: how-to
 ms.date: 10/01/2023
 ---
 
-# Delete files in Managed Airflow
+# Delete files in Workflow Orchestration Manager
 
-This article walks you through the steps to delete directed acyclic graph (DAG) files in an Azure Data Factory Managed Airflow environment.
+> [!NOTE]
+> Workflow Orchestration Manager is powered by Apache Airflow.
+
+This article walks you through the steps to delete directed acyclic graph (DAG) files in Workflow Orchestration Manager environment.
 
 ## Prerequisites
 
 - **Azure subscription**: If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
-- **Azure Data Factory**: Create or select an existing [Data Factory](https://azure.microsoft.com/products/data-factory#get-started) instance in a [region where the Managed Airflow preview is supported](concept-managed-airflow.md#region-availability-public-preview).
+- **Azure Data Factory**: Create or select an existing [Data Factory](https://azure.microsoft.com/products/data-factory#get-started) instance in a [region where the Workflow Orchestration Manager preview is supported](concepts-workflow-orchestration-manager.md#region-availability-public-preview).
 
 ## Delete DAGs by using Git sync
 
-When you use the Git sync feature, it isn't possible to delete DAGs in Managed Airflow because all your Git source files are synchronized with Managed Airflow. We recommend removing the file from your source code repository so that your commit syncs with Managed Airflow.
+When you use the Git sync feature, it isn't possible to delete DAGs in Workflow Orchestration Manager because all your Git source files are synchronized with Workflow Orchestration Manager. We recommend removing the file from your source code repository so that your commit syncs with runtime.
 
 ## Delete DAGs by using Azure Blob Storage
 
