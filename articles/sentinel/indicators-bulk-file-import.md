@@ -21,21 +21,24 @@ In this how-to guide, you'll add indicators from a CSV or JSON file into Microso
 
 ## Prerequisites
 
-You must have read and write permissions to the Microsoft Sentinel workspace to store your threat indicators.
+- You must have read and write permissions to the Microsoft Sentinel workspace to store your threat indicators.
+
 
 ## Select an import template for your indicators
 
 Add multiple indicators to your threat intelligence with a specially crafted CSV or JSON file. Download the file templates to get familiar with the fields and how they map to the data you have. Review the required fields for each template type to validate your data before importing.
 
-1. From the [Azure portal](https://portal.azure.com), go to **Microsoft Sentinel**.
-
-1. Select the workspace you want to import threat indicators into.
-
-1. Go to **Threat Intelligence** under the **Threat Management** heading.
-
-    :::image type="content" source="media/indicators-bulk-file-import/import-using-file-menu-fixed.png" alt-text="Screenshot of the menu options to import indicators using a file menu." lightbox="media/indicators-bulk-file-import/import-using-file-menu-fixed.png":::
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Threat management**, select **Threat intelligence**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Threat management** > **Threat intelligence**.
 
 1. Select **Import** > **Import using a file**.
+
+    #### [Azure portal](#tab/azure-portal)
+
+    :::image type="content" source="media/indicators-bulk-file-import/import-using-file-menu-fixed.png" alt-text="Screenshot of the menu options to import indicators using a file menu." lightbox="media/indicators-bulk-file-import/import-using-file-menu-fixed.png":::
+    
+    #### [Defender portal](#tab/defender-portal)
+    :::image type="content" source="media/indicators-bulk-file-import/import-using-file-menu-defender.png" alt-text="Screenshot of the menu options to import indicators using a file menu from the Defender portal." lightbox="media/indicators-bulk-file-import/import-using-file-menu-fixed.png":::
+    ---
 
 1. Choose CSV or JSON from the **File Format** drop down menu.
 
@@ -156,7 +159,7 @@ Here's an example ipv4-addr indicator using the JSON template.
 ]
 ```
 
-## Next steps
+## Related content
 
 This article has shown you how to manually bolster your threat intelligence by importing indicators gathered in flat files. Check out these links to learn how indicators power other analytics in Microsoft Sentinel.
 - [Work with threat indicators in Microsoft Sentinel](work-with-threat-indicators.md)
