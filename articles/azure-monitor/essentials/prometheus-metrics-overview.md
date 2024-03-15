@@ -40,7 +40,9 @@ Alerts fired by alert rules can trigger actions or notifications, as defined in 
 
 ## Service limits & quotas
 
-See [Azure Monitor service limits](../service-limits.md#prometheus-metrics) for service limits & quotas for Azure Monitor Managed service for Prometheus.
+See [Azure Monitor service limits](../service-limits.md#prometheus-metrics) for service limits and quotas for Azure Monitor Managed service for Prometheus.
+
+There are some default quotas for ingestion limits applied to Azure Monitor Managed service for Prometheus and you can request an increase for the same. See [Monitor and request a quota increase](../containers/prometheus-metrics-troubleshoot.md#metrics-throttling).
 
 ## Limitations/Known issues - Azure Monitor managed Service for Prometheus
 
