@@ -37,9 +37,20 @@ You can provide feedback on any issue you find in an Azure Maps map using the fe
     :::image type="content" source="./media/how-to-use-feedback-tool/give-us-a-little-more-information.png" alt-text="A screenshot showing the items in the Give us a little more information drop-down list, with roads highlighted.":::
 
 1. Select **Road should be two way** in the **Tell us the specific issue** drop-down list.
+
+1. A pushpin appears with the message **Drag the pushpinto the location of the issue on the map**. Move the pushpin to the desired location.
+
+    :::image type="content" source="./media/how-to-use-feedback-tool/drag-pushpin.png" lightbox="./media/how-to-use-feedback-tool/drag-pushpin.png" alt-text="A screenshot showing the Drag the pushpin on the map to the correct location view.":::
+
 1. Enter relevant details about the issue in the **Tell us more about the problem** text box.
 
     :::image type="content" source="./media/how-to-use-feedback-tool/tell-us-more-about the-problem.png" lightbox="./media/how-to-use-feedback-tool/tell-us-more-about the-problem.png" alt-text="A screenshot showing a fictional explanation in the Tell us more about the problem text box.":::
+
+### Using the searchbar
+
+If the map does not appear in the desired location when bringing up the feedback tool, you can pan the map to the desired location using your mouse. Another option is to use the search bar, just type in the desired location and select the enter key. Once you have selected the desired location, select the `x` in the upper right-hand side of the search results view to return to the feedback tool.
+
+    :::image type="content" source="./media/how-to-use-feedback-tool/searchbar.png" lightbox="./media/how-to-use-feedback-tool/searchbar.png" alt-text="A screenshot showing Bing Maps search bar.":::
 
 ## Next steps
 
