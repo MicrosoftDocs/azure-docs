@@ -1,47 +1,84 @@
 ---
-title: "Jailbreak risk detection in Azure AI Content Safety"
+title: "Prompt Shields in Azure AI Content Safety"
 titleSuffix: Azure AI services
-description: Learn about jailbreak risk detection and the related flags that the Azure AI Content Safety service returns.
+description: Learn about User Prompt injection attacks and the Prompt Shields feature that helps prevent them.
 #services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-content-safety
 ms.custom: build-2023
 ms.topic: conceptual
-ms.date: 11/07/2023
+ms.date: 03/15/2024
 ms.author: pafarley
 ---
 
+# Prompt Shields
 
-# Jailbreak risk detection
+Generative AI models can pose risks of exploitation by malicious actors. To mitigate these risks, we integrate safety mechanisms to restrict the behavior of large language models (LLMs) within a safe operational scope. However, despite these safeguards, LLMs can still be vulnerable to adversarial inputs, potentially bypassing the integrated safety protocols.
 
+Prompt Shields is a unified API that analyze LLM inputs and detects User Prompt attacks and Document attacks, which are two common types of adversarial inputs.
 
-Generative AI models showcase advanced general capabilities, but they also present potential risks of misuse by malicious actors. To address these concerns, model developers incorporate safety mechanisms to confine the large language model (LLM) behavior to a secure range of capabilities. Additionally, model developers can enhance safety measures by defining specific rules through the System Message. 
+### Prompt Shields for User Prompts
 
-Despite these precautions, models remain susceptible to adversarial inputs that can result in the LLM completely ignoring built-in safety instructions and the System Message. 
+Previously known as **Jailbreak risk detection**, this shield targets User Prompt injection attacks, where users deliberately exploit system vulnerabilities to elicit unauthorized behavior from the LLM. This could lead to inappropriate content generation or violations of system-imposed restrictions.
 
-## What is a jailbreak attack?
+### Prompt Shields for Documents
 
-A jailbreak attack, also known as a User Prompt Injection Attack (UPIA), is an intentional attempt by a user to exploit the vulnerabilities of an LLM-powered system, bypass its safety mechanisms, and provoke restricted behaviors. These attacks can lead to the LLM generating inappropriate content or performing actions restricted by System Prompt or RLHF(Reinforcement Learning with Human Feedback).  
+This shield aims to safeguard against attacks that use information not directly supplied by the user or developer, such as third-party documents or images. Attackers may embed hidden instructions in these materials in order gain to unauthorized control over the LLM session.
 
-Most generative AI models are prompt-based: the user interacts with the model by entering a text prompt, to which the model responds with a completion.  
+## Types of input attacks
 
-Jailbreak attacks are User Prompts designed to provoke the Generative AI model into exhibiting behaviors it was trained to avoid or to break the rules set in the System Message. These attacks can vary from intricate role-play to subtle subversion of the safety objective. 
+| Type | Attacker | Entry point    | Method    | Objective/impact   | Resulting behavior  |
+|-------|----------|---------|---------|---------|---------|
+| User Prompt attacks | User     | User prompts      | Ignoring system prompts/RLHF training  | Altering intended LLM behavior         | Restricted actions performed against training |
+| Document attacks   | Third party | Third-party content (documents, emails) | Misinterpreting third-party content   | Gaining unauthorized access or control | Executing unintended commands or actions      |
 
-## Types of jailbreak attacks
+### Subtypes of User Prompt attacks
 
-Azure AI Content Safety jailbreak risk detection recognizes four different classes of jailbreak attacks:  
+**Prompt Shields for User Prompt attacks** recognizes the following classes of attacks:
 
-|Category  |Description  |
-|---------|---------|
-|Attempt to change system rules   |    This category comprises, but is not limited to, requests to use a new unrestricted system/AI assistant without rules, principles, or limitations, or requests instructing the AI to ignore, forget and disregard its rules, instructions, and previous turns. |
-|Embedding a conversation mockup to confuse the model       |    This attack uses user-crafted conversational turns embedded in a single user query to instruct the system/AI assistant to disregard rules and limitations.      |
-|Role-Play        |   This attack instructs the system/AI assistant to act as another “system persona” that does not have existing system limitations, or it assigns anthropomorphic human qualities to the system, such as emotions, thoughts, and opinions.       |
-|Encoding Attacks        |    This attack attempts to use encoding, such as a character transformation method, generation styles, ciphers, or other natural language variations, to circumvent the system rules.      |
+| Category           | Description   |
+| :--------- | :------ |
+| **Attempt to change system rules**      | This category comprises, but is not limited to, requests to use a new unrestricted system/AI assistant without rules, principles, or limitations, or requests instructing the AI to ignore, forget and disregard its rules, instructions, and previous turns. |
+| **Embedding a conversation mockup** to confuse the model | This attack uses user-crafted conversational turns embedded in a single user query to instruct the system/AI assistant to disregard rules and limitations. |
+| **Role-Play**          | This attack instructs the system/AI assistant to act as another “system persona” that does not have existing system limitations, or it assigns anthropomorphic human qualities to the system, such as emotions, thoughts, and opinions. |
+| **Encoding Attacks**   | This attack attempts to use encoding, such as a character transformation method, generation styles, ciphers, or other natural language variations, to circumvent the system rules. |
+
+### Subtypes of Document attacks
+
+**Prompt Shields for Documents attacks** recognizes the following classes of attacks:
+
+|Category      | Description   |
+| ------------ | ------- |
+| **Manipulated  Content**   | Commands related to falsifying, hiding, manipulating, or pushing  specific information. |
+| **Intrusion** | Commands related to creating backdoor, unauthorized privilege  escalation, and gaining access to LLMs and systems |
+| **Information  Gathering** | Commands related to deleting, modifying, or accessing data or  stealing data. |
+| **Availability**           | Commands that make the model completely unusable to the user,  block a certain capability, or force the model to hallucinate. |
+| **Fraud**     | Commands related to defrauding the user out of money, passwords,  information, or acting on behalf of the user without authorization |
+| **Malware**  | Commands related to spreading malware via malicious links,  emails, etc. |
+| **Attempt to change system rules**    | This category comprises, but is not limited to, requests to use a new unrestricted system/AI assistant without rules, principles, or limitations, or requests instructing the AI to ignore, forget and disregard its rules, instructions, and previous turns. |
+| **Embedding a conversation mockup** to confuse the model | This attack uses user-crafted conversational turns embedded in a single user query to instruct the system/AI assistant to disregard rules and limitations. |
+| **Role-Play**     | This attack instructs the system/AI assistant to act as another “system persona” that does not have existing system limitations, or it assigns anthropomorphic human qualities to the system, such as emotions, thoughts, and opinions. |
+| **Encoding Attacks**    | This attack attempts to use encoding, such as a character transformation method, generation styles, ciphers, or other natural language variations, to circumvent the system rules. |
+
+## Limitations
+
+**Language availability** Currently, the Prompt Shields API supports the English language. While our API does not restrict the submission of non-English content, we cannot guarantee the same level of quality and accuracy in the analysis of such content. The API is optimized for English, and using languages other than English may result in suboptimal performance. We recommend users to primarily submit content in English to ensure the most reliable and accurate results from the API.
+
+**Text length limitations** Please note that the maximum character limit for the Prompt Shields is 10K characters, and for the user prompts, it is 10K characters for each API call, for the documents, 10K also. If your input (either user prompts or documents) exceeds these character limitations per API call, you will encounter an error.
+
+**RPS limitations**
+
+| Pricing Tier | Requests per 10 seconds (RPS) |
+| :----------- | :---------------------------- |
+| F0           | 1000         |
+| S0           | 1000         |
+
+If you need a higher RPS, please [contact us](mailto:contentsafetysupport@microsoft.com) to request.
 
 ## Next steps
 
-Follow the how-to guide to get started using Azure AI Content Safety to detect jailbreak risk.
+Follow the quickstart to get started using Azure AI Content Safety to detect jailbreak risk.
 
 > [!div class="nextstepaction"]
 > [Detect jailbreak risk](../quickstart-jailbreak.md)
