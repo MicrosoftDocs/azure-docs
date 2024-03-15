@@ -80,7 +80,7 @@ It might take several minutes for the watchlist to be created and the new data t
 
 To create the watchlist from a template you populated,
 
-1. From appropriate workspace in Microsoft Sentinel, select **Watchlist**.
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Configuration**, select **Watchlist**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Configuration** > **Watchlist**.
 
 1. Select the tab **Templates (Preview)**.
 
@@ -160,9 +160,7 @@ For more information, see [CORS support for Azure Storage](/rest/api/storageserv
 
 ### Step 4: Add the watchlist to a workspace
 
-1. In the Azure portal, go to **Microsoft Sentinel** and select the appropriate workspace.
-
-1. Under **Configuration**, select **Watchlist**.
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Configuration**, select **Watchlist**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Configuration** > **Watchlist**.
 
 1. Select **+ New**.
 
@@ -200,9 +198,7 @@ It might take a while for a large watchlist to be created and the new data to be
 
 View the status by selecting the watchlist in your workspace.
 
-1. In the Azure portal, go to **Microsoft Sentinel** and select the appropriate workspace.
-
-1. Under **Configuration**, select **Watchlist**.
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Configuration**, select **Watchlist**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Configuration** > **Watchlist**.
 
 1. On the **My Watchlists** tab, select the watchlist.
 
@@ -222,9 +218,7 @@ Each built-in watchlist template has its own set of data listed in the CSV file 
 
 To download one of the watchlist templates,
 
-1. In the Azure portal, go to **Microsoft Sentinel** and select the appropriate workspace.
-
-1. Under **Configuration**, select **Watchlist**.
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Configuration**, select **Watchlist**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Configuration** > **Watchlist**.
 
 1. Select the tab **Templates (Preview)**.
 
