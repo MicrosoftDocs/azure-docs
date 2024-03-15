@@ -38,8 +38,10 @@ More details on eligible subscription types are as follows:
 
 | Number Type                      | Eligible Azure Agreement Type                                                                             |
 | :------------------------------- | :-------------------------------------------------------------------------------------------------------- |
-| Toll-Free and Local (Geographic/National) | Modern Customer Agreement (Field and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement*, Pay-As-You-Go |
-| Alphanumeric Sender ID            | Modern Customer Agreement (Field Led and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement**, Pay-As-You-Go                                      |
+| Toll-Free and Local (Geographic/National) | Modern Customer Agreement (Field and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement*, pay-as-you-go |
+
+| Alphanumeric Sender ID            | Modern Customer Agreement (Field Led and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement**, pay-as-you-go                                      |
+
 
 \* In some countries/regions, number purchases are only allowed for own use. Reselling or suballcoating to another parties isn't allowed. Due to this, purchases for CSP and LSP customers isn't allowed.
 
