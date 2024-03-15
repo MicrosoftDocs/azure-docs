@@ -47,7 +47,6 @@ The following table describes the batch synthesis job properties.
 | Property | Description |
 |----------|-------------|
 | createdDateTime          | The date and time when the batch synthesis job was created.<br/><br/>This property is read-only.|
-| customProperties         | A custom set of optional batch synthesis configuration settings.<br/><br/>This property is stored for your convenience to associate the synthesis jobs that you created with the synthesis jobs that you get or list. This property is stored, but isn't used by the Speech service.<br/><br/>You can specify up to 10 custom properties as key and value pairs. The maximum allowed key length is 64 characters, and the maximum allowed value length is 256 characters.|
 | description              | The description of the batch synthesis.<br/><br/>This property is optional.|
 | ID                       | The batch synthesis job ID.<br/><br/>This property is read-only.|
 | lastActionDateTime       | The most recent date and time when the status property value changed.<br/><br/>This property is read-only.|
@@ -76,7 +75,9 @@ The following table describes the text to speech properties.
 
 ## How to edit the background
 
-The avatar batch synthesis API currently doesn't support setting background image/video directly. However, it supports generating a video with a transparent background, and then you can put any image/video behind the avatar as the background in a video editing tool.
+The avatar batch synthesis API currently doesn't support setting background videos; it only supports static background images. However, if you want to add a background for your video during post-production, you can generate videos with a transparent background.
+
+To set a static background image, use the `avatarConfig.backgroundImage` property and specify a URL pointing to the desired image. Additionally, you can set the background color of the avatar video using the `avatarConfig.backgroundColor` property.
 
 To generate a transparent background video, you must set the following properties to the required values in the batch synthesis request:
 
