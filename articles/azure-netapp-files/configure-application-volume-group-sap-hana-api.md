@@ -120,7 +120,7 @@ The following properties are available with [Application volume group for SAP HA
 | Volume-level request parameter | Description | Restrictions for SAP HANA |
 | ---- | ----- | ----- |
 | `networkFeatures` | Network features | Both `basic` and `standard` are supported |
-| Zones | Availability zone | Enter logical zone in the following format: `[“1”]` |
+| `zones` | Availability zone | Enter logical zone in the following format: `[“1”]` |
 
 ## Example API request content: application volume group creation
 
