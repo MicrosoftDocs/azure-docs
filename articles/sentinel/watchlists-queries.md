@@ -14,7 +14,7 @@ ms.collection: usx-security
 
 Query data in any table against data from a watchlist by treating the watchlist as a table for joins and lookups. When you create a watchlist, you define the *SearchKey*. The search key is the name of a column in your watchlist that you expect to use as a join with other data or as a frequent object of searches.
 
-For optimal query performance, use **Searchkey** as the key for joins in your queries.
+For optimal query performance, use **SearchKey** as the key for joins in your queries.
 
 ## Build queries with watchlists
 
@@ -36,7 +36,7 @@ To use a watchlist in search query, write a Kusto query that uses the _GetWatchl
 
 1. Write a query that uses the _GetWatchlist('watchlist-name') function and uses **SearchKey** as the key for your join. 
 
-   For example, the following example query joins the `RemoteIPCountry` column in the `Heartbeat` table with the search key defined for the watchlist named mywatchlist.
+   For example, the following example query joins the `RemoteIPCountry` column in the `Heartbeat` table with the search key defined for the watchlist named "mywatchlist".
 
     ```kusto
     Heartbeat
@@ -57,14 +57,14 @@ To use watchlists in analytics rules, create a rule using the _GetWatchlist('wat
 1. On the **General** tab, enter the appropriate information.
 1. On the **Set rule logic** tab, under **Rule query** use the `_GetWatchlist('<watchlist>')` function in the query.
 
-   For example, let's say you have a watchlist named “ipwatchlist”  that you created from a CSV file with the following values:
+   For example, let's say you have a watchlist named "ipwatchlist" that you created from a CSV file with the following values:
 
-   |IPAddress,Location   |
+   |`IPAddress,Location`   |
    |---------|
-   | 10.0.100.11,Home     |
-   |172.16.107.23,Work     |
-   |10.0.150.39,Home     |
-   |172.20.32.117,Work   |
+   |`10.0.100.11,Home`    |
+   |`172.16.107.23,Work`   |
+   |`10.0.150.39,Home`     |
+   |`172.20.32.117,Work`   |
 
     The CSV file looks something like the following image.
     :::image type="content" source="./media/watchlists-queries/create-watchlist.png" alt-text="Screenshot of four items in a CSV file that's used for the watchlist.":::
@@ -100,7 +100,7 @@ To use watchlists in analytics rules, create a rule using the _GetWatchlist('wat
 
 1. Complete the rest of the tabs in the **Analytics rule wizard**.
 
-Watchlists are refreshed in your workspace every 12 days, updating the `TimeGenerated` field.. For more information, see [Create custom analytics rules to detect threats](detect-threats-custom.md#query-scheduling-and-alert-threshold).
+Watchlists are refreshed in your workspace every 12 days, updating the `TimeGenerated` field. For more information, see [Create custom analytics rules to detect threats](detect-threats-custom.md#query-scheduling-and-alert-threshold).
 
 ## View list of watchlist aliases
 
