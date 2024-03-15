@@ -321,11 +321,10 @@ You will also need to configure the `build` command in the `package.json` file i
 
 Your Next.js project can be configured to have custom handling of routes with redirects, rewrites, and Middleware. This is commonly used for authentication, personalization, routing, internationalization, etc.  This custom handling affects the default routing of your Next.js site and needs to be configured to be compatible with hosting on Static Web Apps.
 
-Static Web Apps validates that your Next.js site is successfully deployed by adding a page to your site at build time (`public/.swa/health.html`) and verifying that it can be accessed at `/.swa/health.html` on your Next.js site. Middleware and Internationalization can affect the access of the `/.swa/health.html` path of your site, which can result in deployment issues. To configure Middleware and Internationalization to successfully deploy your Next.js site to Static Web Apps, follow these steps:
+Static Web Apps validates that your Next.js site is successfully deployed by adding a page to your site at build time (`public/.swa/health.html`) and verifying that it can be accessed at `/.swa/health.html` on your Next.js site. Middleware and custom routing (redirects, rewrites) can affect the access of the `/.swa/health.html` path of your site, which can result in deployment issues. To configure Middleware and routing to successfully deploy your Next.js site to Static Web Apps, follow these steps:
 
-1. Create a `middleware.ts` (or `.js`) file in the root of your Next.js project if it does not exist.
-1. Add `'/((?!.swa).*)'` to the matcher of your custom middlewares within thie `middleware.ts` (or `.js`) file:
-```
+1. Configure your Middleware to exclude routes starting with `.swa` in your `middleware.ts` (or `.js`) file.
+```js
 export const config = {
   matcher: [
     /*
@@ -336,7 +335,36 @@ export const config = {
   ],
 }
 ```
-This code snippet excludes paths that start with `.swa` from being handled by your custom middleware. This will ensure that these paths are resolved as expected for Static Web Apps' deployment validation.
+
+1. Configure your redirects in `next.config.js` to exclude routes starting with `.swa`
+```js
+module.exports = {
+    async redirects() {
+        return [
+          {
+            source: '/((?!.swa).*)<YOUR MATCHING RULE>',
+            destination: '<YOUR REDIRECT RULE>', 
+            permanent: false,
+          },
+        ]
+    },
+};
+```
+
+1. Configure your rewrites in `next.config.js` to exclude routes starting with `.swa`
+```js
+module.exports = {
+    async rewrites() {
+        return [
+          {
+            source: '/((?!.swa).*)<YOUR MATCHING RULE>',
+            destination: '<YOUR REWRITE RULE>', 
+          },
+        ]
+    },
+};
+```
+These code snippets exclude paths that start with `.swa` from being handled by your custom routing or Middleware. This will ensure that these paths are resolved as expected for Static Web Apps' deployment validation.
 
 ## Enable logging for Next.js
 
