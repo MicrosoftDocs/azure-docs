@@ -43,6 +43,7 @@ Common questions and issues:
 
 In this quickstart you learned how to:
 > [!div class="checklist"]
+> * Look up number formatting
 > * Look up operator information for a phone number
 
 > [!div class="nextstepaction"]
