@@ -31,6 +31,9 @@ The Management REST API is available in stable and preview versions. Be sure to 
 > * [Disable workloads that push data to external resources](#disable-external-access)
 > * [Create a query key](#create-query-api-keys)
 > * [Regenerate an admin key](#regenerate-admin-api-keys)
+> * [List private endpoint connections](#list-private-endpoint-connections)
+> * [List search operations](#list-search-operations)
+> * [Delete a search services](#delete-a-search-service)
 
 All of the Management REST APIs have examples. If a task isn't covered in this article, see the [API reference](/rest/api/searchmanagement/) instead.
 
@@ -97,7 +100,7 @@ If you're not familiar with the REST client for Visual Studio Code, this section
          Authorization: Bearer {{token}}
     ```
 
-1. Select **Send request**. A response should appear in an adjacent pane. If you have existing resource groups, they're listed. Otherwise, the list is empty, but as long as the HTTP code is 200 OK, you're ready for the next steps.
+1. Select **Send request**. A response should appear in an adjacent pane. If you have existing search services, they're listed. Otherwise, the list is empty, but as long as the HTTP code is 200 OK, you're ready for the next steps.
 
     ```http
     HTTP/1.1 200 OK
