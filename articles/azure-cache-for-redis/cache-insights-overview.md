@@ -40,7 +40,7 @@ This feature doesn't require you to enable or configure anything. Azure Cache fo
 
 ## View utilization and performance metrics for Azure Cache for Redis
 
-To view the utilization and performance of your storage accounts across all of your subscriptions, do the following steps:
+To view the utilization and performance of your redis caches across all of your subscriptions, do the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
