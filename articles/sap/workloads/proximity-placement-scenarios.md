@@ -45,9 +45,9 @@ Azure provides different [deployment options for SAP workloads](./sap-high-avail
 
 The scenarios where proximity placement groups can be used to optimize network latency:
 
-1. You want to deploy the critical resources of your SAP workload across different availability zones and on the other hand need VMs of the application tier to be spread across different fault domains by using availability sets in each of the zones. In this case, as later described in the document, proximity placement groups are the glue needed.
-2. You deploy the SAP workload with availability sets. Where the SAP database tier, the SAP application tier and ASCS/SCS VMs are grouped in three different availability sets. In such a case, you want to make sure that the availability sets aren't spread across the complete Azure region since this could, dependent on the Azure region, result in network latency that could impact SAP workload negatively.
-3. You use proximity placement groups to group VMs together to achieve lowest possible network latency between the services hosted in the VMs. For example, latency within an availability zone alone does not meet the application requirements.
+- You want to deploy the critical resources of your SAP workload across different availability zones and on the other hand need VMs of the application tier to be spread across different fault domains by using availability sets in each of the zones. In this case, as later described in the document, proximity placement groups are the glue needed.
+- You deploy the SAP workload with availability sets. Where the SAP database tier, the SAP application tier and ASCS/SCS VMs are grouped in three different availability sets. In such a case, you want to make sure that the availability sets aren't spread across the complete Azure region since this could, dependent on the Azure region, result in network latency that could impact SAP workload negatively.
+- You use proximity placement groups to group VMs together to achieve lowest possible network latency between the services hosted in the VMs. For example, latency within an availability zone alone does not meet the application requirements.
 
 As for deployment scenario #2, in many regions, especially regions without availability zones and most regions with availability zones, the network latency independent on where the VMs land is acceptable. Though there are some regions of Azure that can't provide a sufficiently good experience without collocating the three different availability sets without the usage of proximity placement groups.
 
@@ -172,7 +172,7 @@ This section includes details about previously recommended deployment options to
 
 The proximity placement group usage that we recommended so far, looks like in this graphic.
 
-![Old Proximity placement groups with zones](./media/sap-proximity-placement-scenarios/vm-ppg-zone-old.png)
+[![Diagram of old Proximity placement groups with zones.](./media/sap-proximity-placement-scenarios/vm-ppg-zone-old.png)](./media/sap-proximity-placement-scenarios/vm-ppg-zone-old.png#lightbox)
 
 You create a proximity placement group (PPG) in each of the two availability zones you deployed your SAP system into. All the VMs of a particular zone are part of the individual proximity placement group of that particular zone. You start in each zone with deploying the DBMS VM to scope the PPG and then deploy the ASCS VM into the same zone and PPG. In a third step, you create an Azure availability set, assign the availability set to the scoped PPG and deploy the SAP application layer into it. The advantage of this configuration was that all the components are nicely aligned underneath the same network spine. The large disadvantage is that your flexibility in resizing virtual machines can be limited.
 
@@ -188,7 +188,7 @@ As compared to SAP systems that use only Azure virtual machines, when you use HA
 
 As a result, the relationships among Azure resource groups and proximity placement groups for a single tenant will be as shown here:
 
-![Proximity placement groups and HANA Large Instances](./media/sap-proximity-placement-scenarios/ppg-for-hana-large-instance-units.png)
+[![Diagram of proximity placement groups and HANA Large Instances.](./media/sap-proximity-placement-scenarios/ppg-for-hana-large-instance-units.png)](./media/sap-proximity-placement-scenarios/ppg-for-hana-large-instance-units.png#lightbox)
 
 ## Next steps
 
