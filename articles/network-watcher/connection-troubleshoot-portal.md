@@ -18,13 +18,13 @@ In this article, you learn how to use the connection troubleshoot feature of Azu
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Network Watcher enabled in the region of the virtual machine you want to troubleshoot. For more information, see [Enable or disable Azure Network Watcher](network-watcher-create.md).
-- Network Watcher agent VM extension installed on the source virtual machine. To manually install the agent, see [Network Watcher Agent virtual machine extension for Windows](../virtual-machines/extensions/network-watcher-windows.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json) or [Network Watcher Agent virtual machine extension for Linux](../virtual-machines/extensions/network-watcher-linux.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json). To update an already installed agent, see [Update Azure Network Watcher extension to the latest version](../virtual-machines/extensions/network-watcher-update.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json).
+- Network Watcher enabled in the region of the virtual machine (VM) you want to troubleshoot. For more information, see [Enable or disable Azure Network Watcher](network-watcher-create.md).
+- A virtual machine with Network Watcher agent VM extension installed on it. To manually install the agent, see [Network Watcher Agent virtual machine extension for Windows](../virtual-machines/extensions/network-watcher-windows.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json) or [Network Watcher Agent virtual machine extension for Linux](../virtual-machines/extensions/network-watcher-linux.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json). To update an already installed agent, see [Update Azure Network Watcher extension to the latest version](../virtual-machines/extensions/network-watcher-update.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json).
 - A second virtual machine with inbound TCP connectivity from 168.63.129.16 over the port being tested (for Port scanner diagnostic test).
 
 > [!NOTE]
 > - By default, Azure enables Network Watcher in a region when you create a virtual network in it.
-> - When you use connection troubleshoot, Azure automatically installs the Network Watcher agent VM extension if it's not already installed. 
+> - When you use connection troubleshoot, Azure automatically installs the Network Watcher agent VM extension on the source virtual machine if it's not already installed. 
 
 ## Test connectivity with reachable virtual machine
 
@@ -70,7 +70,7 @@ In this section, you test the remote desktop port (RDP) connectivity from one vi
 
     - If the destination virtual machine has a network security group blocking incoming RDP connection, you see the following results: 
 
-        :::image type="content" source="./media/connection-troubleshoot-portal/connectivity-denied-destination.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection to a virtual machines that has a denying inbound security rule.":::
+        :::image type="content" source="./media/connection-troubleshoot-portal/connectivity-denied-destination.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection to a virtual machine that has a denying inbound security rule.":::
 
         - 30 probes were sent and failed to reach the destination virtual machine. Select **See details** to see the next hop details.
         - Outbound connectivity from the source virtual machine is allowed. Select **See details** to see the security rules that are allowing the outbound communication from the source virtual machine.
@@ -81,7 +81,7 @@ In this section, you test the remote desktop port (RDP) connectivity from one vi
 
     - If the source virtual machine has a network security group denying RDP connection to the destination, you see the following results: 
 
-        :::image type="content" source="./media/connection-troubleshoot-portal/connectivity-denied-source.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection from a virtual machines that has a denying outbound security rule.":::
+        :::image type="content" source="./media/connection-troubleshoot-portal/connectivity-denied-source.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection from a virtual machine that has a denying outbound security rule.":::
 
         - 30 probes were sent and failed to reach the destination virtual machine. Select **See details** to see the next hop details.
         - Outbound connectivity from the source virtual machine is denied. Select **See details** to see security rule that is denying the outbound communication from the source virtual machine.
@@ -92,7 +92,7 @@ In this section, you test the remote desktop port (RDP) connectivity from one vi
 
     - If the operating system on the destination virtual machine doesn't accept incoming connections on port 3389, you see the following results: 
 
-        :::image type="content" source="./media/connection-troubleshoot-portal/connectivity-denied-destination-port.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection to a virtual machines that isn't listening on the tested port.":::
+        :::image type="content" source="./media/connection-troubleshoot-portal/connectivity-denied-destination-port.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection to a virtual machine that isn't listening on the tested port.":::
 
         - 30 probes were sent and failed to reach the destination virtual machine. Select **See details** to see the next hop details.
         - Outbound connectivity from the source virtual machine is allowed. Select **See details** to see the security rules that are allowing the outbound communication from the source virtual machine.
@@ -141,7 +141,6 @@ In this section, you test connectivity between a virtual machine and a web addre
 
         30 probes were sent and failed to reach `www.bing.com`. Select **See details** to see the next hop details and the cause of the error.
 
-
 1. Select **Export to CSV** to download the test results in csv format.
 
 ## Test connectivity to an IP address
@@ -176,7 +175,7 @@ In this section, you test connectivity between a virtual machine and an IP addre
 
         - 66 probes were successfully sent with average latency of 4 ms. Select **See details** to see the next hop details.
         - Outbound connectivity from the source virtual machine is allowed. Select **See details** to see the security rules that are allowing the outbound communication from the source virtual machine.
-        - Azure default system route is used to route traffic to the IP address which is in the same virtual network or a peered virtual network. (Route table ID: System route and Next hop type: Virtual Network).
+        - Azure default system route is used to route traffic to the IP address, which is in the same virtual network or a peered virtual network. (Route table ID: System route and Next hop type: Virtual Network).
 
     - If the IP address is unreachable because the destination virtual machine isn't running, you see the following results: 
 
@@ -184,12 +183,12 @@ In this section, you test connectivity between a virtual machine and an IP addre
 
         - 30 probes were sent and failed to reach the destination virtual machine. Select **See details** to see the next hop details.
         - Outbound connectivity from the source virtual machine is allowed. Select **See details** to see the security rules that are allowing the outbound communication from the source virtual machine.
-        - Azure default system route is used to route traffic to the IP address which is in the same virtual network or a peered virtual network. (Route table ID: System route and Next hop type: Virtual Network).
+        - Azure default system route is used to route traffic to the IP address, which is in the same virtual network or a peered virtual network. (Route table ID: System route and Next hop type: Virtual Network).
         **Solution**: start the destination virtual machine.
 
     - If there's no route to the IP address in the routing table of the source virtual machine (because the IP address isn't in the address space of the VM's virtual network or its peered virtual networks for example), you see the following results: 
 
-        :::image type="content" source="./media/connection-troubleshoot-portal/ip-unreachable-route-table.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection to a unreachable IP address with no route in the routing table.":::
+        :::image type="content" source="./media/connection-troubleshoot-portal/ip-unreachable-route-table.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection to unreachable IP address with no route in the routing table.":::
 
         - 30 probes were sent and failed to reach the destination virtual machine. Select **See details** to see the next hop details.
         - Outbound connectivity from the source virtual machine is denied. Select **See details** to see security rule that is denying the outbound communication from the source virtual machine.
