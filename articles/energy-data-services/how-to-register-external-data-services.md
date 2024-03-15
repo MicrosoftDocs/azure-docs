@@ -14,14 +14,14 @@ ms.date: 03/14/2024
 This article explains how to register an external data source with Azure Data Manager for energy to fetch and ingest metadata at scheduled intervals and retrieve bulk data on demand.
 
 ## Prerequisites 
-1. Download and import API [collection](https://community.opengroup.org/osdu/platform/pre-shipping/-/blob/main/R3-M20/QA_Artifacts_M20/eds_testing_doc/EDS_Ingest_M20_Pre-Shipping_Setup_and_Testing.postman_collection.json?ref_type=heads) and [environment](https://community.opengroup.org/osdu/platform/pre-shipping/-/blob/main/R3-M20/QA_Artifacts_M20/envFilesAndCollections/envFiles/OSDU%20R3%20M20%20RI%20Pre-ship.postman_environment.json?ref_type=heads) files into API test client (like Postman). Make appropriate modifications in environment based on your data source. 
-1. Refer **Section 2.2** in [osdu-eds-data-supplier-enablement-guide](https://gitlab.opengroup.org/osdu/r3-program-activities/docs/-/raw/master/R3%20Document%20Snapshot/23-osdu-eds-data-supplier-enablement-guide.pdf) for details on Data source Registration. 
-1. Review **Connected Source Registry Entry (CSRE)** and **Connection Source Data Job (CSDJ)** sections in [EDS_Documentation-1.0.docx](https://gitlab.opengroup.org/osdu/subcommittees/ea/projects/extern-data/docs/-/blob/master/Design%20Documents/Training/EDS_Documentation-1.0.docx) to understand the various parameters used in data 
+- Download and import API [collection](https://community.opengroup.org/osdu/platform/pre-shipping/-/blob/main/R3-M20/QA_Artifacts_M20/eds_testing_doc/EDS_Ingest_M20_Pre-Shipping_Setup_and_Testing.postman_collection.json?ref_type=heads) and [environment](https://community.opengroup.org/osdu/platform/pre-shipping/-/blob/main/R3-M20/QA_Artifacts_M20/envFilesAndCollections/envFiles/OSDU%20R3%20M20%20RI%20Pre-ship.postman_environment.json?ref_type=heads) files into API test client (like Postman). Make appropriate modifications in environment based on your data source. 
+- Refer **Section 2.2** in [osdu-eds-data-supplier-enablement-guide](https://gitlab.opengroup.org/osdu/r3-program-activities/docs/-/raw/master/R3%20Document%20Snapshot/23-osdu-eds-data-supplier-enablement-guide.pdf) for details on Data source Registration. 
+- Review **Connected Source Registry Entry (CSRE)** and **Connection Source Data Job (CSDJ)** sections in [EDS_Documentation-1.0.docx](https://gitlab.opengroup.org/osdu/subcommittees/ea/projects/extern-data/docs/-/blob/master/Design%20Documents/Training/EDS_Documentation-1.0.docx) to understand the various parameters used in data 
 source registration. 
-1. To run EDS, the user must be a member of `service.eds.user` entitlements group. Additionally, to access Secret service, the user should be a member of the following entitlements:
-    1. `service.secret.viewer` 
-    1. `service.secret.editor` 
-    1. `service.secret.admin`  
+- To run EDS, the user must be a member of `service.eds.user` entitlements group. Additionally, to access Secret service, the user should be a member of the following entitlements:
+    - `service.secret.viewer` 
+    - `service.secret.editor` 
+    - `service.secret.admin`  
 
 ## EDS Fetch and Ingest workflow 
 Execute the APIs in the following collections to register your external data source that runs EDS Fetch and Ingest workflow on a schedule: 
