@@ -9,6 +9,7 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 07/06/2022
 ms.custom: devx-track-csharp, mode-api, devguide-csharp, cosmos-db-dev-journey, devx-track-azurecli, devx-track-dotnet
+zone_pivot_groups: azure-cosmos-db-quickstart-env
 ---
 
 # Quickstart: Azure Cosmos DB for MongoDB for .NET with the MongoDB driver
