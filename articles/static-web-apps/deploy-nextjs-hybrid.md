@@ -355,12 +355,14 @@ module.exports = {
 ```js
 module.exports = {
     async rewrites() {
-        return [
-          {
-            source: '/((?!.swa).*)<YOUR MATCHING RULE>',
-            destination: '<YOUR REWRITE RULE>', 
-          },
-        ]
+        return {
+            beforeFiles: [
+                {
+                    source: '/((?!.swa).*)<YOUR MATCHING RULE>',
+                    destination: '<YOUR REWRITE RULE>', 
+                }
+            ]
+        }
     },
 };
 ```
