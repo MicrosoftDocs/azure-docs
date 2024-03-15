@@ -11,7 +11,7 @@ You can migrate using Azure CLI.
 
 #### [Offline](#tab/offline)
 
-[!INCLUDE [prerequisites-migration-service-postgresql](../prerequisites/prerequisites-migration-service-postgresql-offline.md)]
+[!INCLUDE [prerequisites-migration-service-postgresql](../prerequisites/prerequisites-migration-service-postgresql-offline-single-server.md)]
 
 ## Get started
 
@@ -216,7 +216,7 @@ The following tables describe the migration states and substates.
 
 #### [Online (preview)](#tab/online)
 
-[!INCLUDE [prerequisites-migration-service-postgresql-online](../prerequisites/prerequisites-migration-service-postgresql-online.md)]
+[!INCLUDE [prerequisites-migration-service-postgresql-online-single-server](../prerequisites/prerequisites-migration-service-postgresql-online-single-server.md)]
 
 ## Get started
 

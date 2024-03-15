@@ -11,7 +11,7 @@ You can migrate using the Azure portal.
 
 #### [Offline](#tab/offline)
 
-[!INCLUDE [prerequisites-migration-service-postgresql](../prerequisites/prerequisites-migration-service-postgresql-offline.md)]
+[!INCLUDE [prerequisites-migration-service-postgresql](../prerequisites/prerequisites-migration-service-postgresql-offline-single-server.md)]
 
 ## Configure your Azure Database for PostgreSQL Flexible Server
 
@@ -182,7 +182,7 @@ You can see the results of **Validate and Migrate** once the operation is comple
 
 #### [Online (preview)](#tab/online)
 
-[!INCLUDE [prerequisites-migration-service-postgresql-online](../prerequisites/prerequisites-migration-service-postgresql-online.md)]
+[!INCLUDE [prerequisites-migration-service-postgresql-online-single-server](../prerequisites/prerequisites-migration-service-postgresql-online-single-server.md)]
 
 ## Configure your Azure Database for PostgreSQL Flexible Server
 
