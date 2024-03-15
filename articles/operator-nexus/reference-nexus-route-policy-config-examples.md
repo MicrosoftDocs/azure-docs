@@ -142,12 +142,19 @@ The `Permit`, `Deny`, and `Continue` actions are used in the route policy to c
 
 ## Use the IP community properties to add, remove, or overwrite community values and extended community values of the routes
 
-- The IP community properties of the action property specify how to add, remove, or overwrite community values and extended community values of the routes. The IP community properties have a `set` property and a `delete` property. The `set` property specifies the IP community and IP extended community resources to add or overwrite to the routes. The `delete` property specifies the IP community and IP extended community resources to remove from the routes.
+The IP community properties of the action property specify how to add, remove, or overwrite community values and extended community values of the routes. The IP community properties have a `set` property and a `delete` property. The `set` property specifies the IP community and IP extended community resources to add or overwrite to the routes. The `delete` property specifies the IP community and IP extended community resources to remove from the routes.
+
 - The `set` property has an `ipCommunityIds` property and an `ipExtendedCommunityIds` property. The `ipCommunityIds` property is an array of strings that reference IP community resources that define the community values to add or overwrite to the routes. The `ipExtendedCommunityIds` property is an array of strings that reference IP extended community resources that define the extended community values to add or overwrite to the routes.
 - The `delete` property has an `ipCommunityIds` property and an `ipExtendedCommunityIds` property. The `ipCommunityIds` property is an array of strings that reference IP community resources that define the community values to remove from the routes. The `ipExtendedCommunityIds` property is an array of strings that reference IP extended community resources that define the extended community values to remove from the routes.
 - The `add` property has an `ipCommunityIds` property and an `ipExtendedCommunityIds` property. The `ipCommunityIds` property is an array of strings that reference IP community resources that define the community values to add to the routes. The `ipExtendedCommunityIds` property is an array of strings that reference IP extended community resources that define the extended community values to remove from the routes.
-- If the `set` property is used, the `add` and `delete` properties can't be used.
-- For example, the operator can use the following statement to permit any route that has an IP prefix equal to the IP prefix resource with the ID `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/ipPrefixes/{ipPrefixName}` and add the IP community value from the IP community resource with the ID `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/ipCommunities/{ipCommunityName1}` and overwrite the IP extended community value with the IP extended community resource with the ID `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/ipExtendedCommunities/{ipExtendedCommunityName2}`.
+
+If the `set` property is used, the `add` and `delete` properties can't be used.
+
+For example, the operator can use the following statement to:
+
+1. Permit any route that has an IP prefix equal to the IP prefix resource with the ID `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/ipPrefixes/{ipPrefixName}`.
+1. Add the IP community value from the IP community resource with the ID `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/ipCommunities/{ipCommunityName1}`.
+1. Overwrite the IP extended community value with the IP extended community resource with the ID `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/ipExtendedCommunities/{ipExtendedCommunityName2}`.
 
 ```json
 {
