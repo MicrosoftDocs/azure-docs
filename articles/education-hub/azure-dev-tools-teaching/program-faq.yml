@@ -24,13 +24,13 @@ sections:
         answer: |
           Azure for Students is available only to students who meet the following requirements:
           
-          - You must affirm that you attend an accredited, degree-granting, two-year or four-year educational institution where you’re a full-time student. 
+          - You must affirm that you attend an accredited, degree-granting, two-year, or four-year educational institution where you’re a full-time student. 
           - You must verify your academic status through your organization's email address.
           - See the [Azure for Students Offer](https://azure.microsoft.com/offers/ms-azr-0170p/) for detailed terms of use.
           
           This offer isn't available for use in a massive open online course (MOOC) or in other professional trainings from for-profit organizations.
           
-          This offer is limited to one Azure for Student subscription per eligible customer. It's non-transferable and can't be combined with any other offer, unless otherwise permitted by Microsoft.
+          This offer is limited to one Azure for Student subscription per eligible customer. It's nontransferable and can't be combined with any other offer, unless otherwise permitted by Microsoft.
               
       - question: |
           What products are included in Azure for Students?
@@ -67,12 +67,12 @@ sections:
       - question: |
           Can I get Azure for Students again next year?
         answer: |
-          Yes!  You can renew your Azure for Students subscription after 1 year.  We will send you emails reminding you to renew just before your anniversary.  To renew, simply re-signup for the offer from the Azure for Students [website](https://aka.ms/azure4students)
+          Yes! You can renew your Azure for Students subscription after one year.  We send you emails reminding you to renew just before your anniversary.  To renew, simply re-signup for the offer from the Azure for Students [website](https://aka.ms/azure4students)
 
       - question: |
           Why did I receive an invoice from Microsoft?
         answer: |
-          You may receive an invoice from Microsoft detailing the usage you incurred in the previous month while on Azure for Students.  Don’t worry, you do not have to pay for that usage – it’s all covered by the credit provided by Azure for Students.  To learn more about invoices and how they work, check out the [article](../../cost-management-billing/understand/mca-overview.md) on Microsoft technical documentation 
+          You may receive an invoice from Microsoft detailing the usage you incurred in the previous month while on Azure for Students.  Don’t worry, you do not have to pay for that usage – it’s all covered by the credit provided by Azure for Students.  To learn more about invoices and how they work, check out the [article](../../cost-management-billing/understand/mca-overview.md) on Microsoft technical documentation.
       
       - question: |
           What are subscriptions, and how do they relate to Azure for Students?
@@ -303,7 +303,7 @@ sections:
         answer: |
           As an administrator of the Azure Dev Tools for Teaching subscription, you can access your Visual Studio Enterprise subscription by requesting access through the [Azure Dev Tools for Teaching Management portal](https://azureforeducation.microsoft.com/account/Subscriptions).
           
-          Once approved you'll be able to sign in to the [Visual Studio portal](https://my.visualstudio.com/) and redeem additional benefits.
+          Once approved you'll be able to sign in to the [Visual Studio portal](https://my.visualstudio.com/) and redeem more benefits.
           
       - question: |
           Does Microsoft Azure Dev Tools for Teaching include Microsoft Office?
