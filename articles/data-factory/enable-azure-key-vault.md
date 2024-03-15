@@ -1,7 +1,7 @@
 ---
 title: Enable Azure Key Vault for airflow
 titleSuffix: Azure Data Factory
-description: This article explains how to enable Azure Key Vault as the secret back end for a Managed Airflow instance.
+description: This article explains how to enable Azure Key Vault as the secret back end for a Workflow Orchestration Manager instance.
 ms.service: data-factory
 ms.topic: how-to
 author: nabhishek
@@ -9,14 +9,17 @@ ms.author: abnarain
 ms.date: 08/29/2023
 ---
 
-# Enable Azure Key Vault for Managed Airflow
+# Enable Azure Key Vault for Workflow Orchestration Manager
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Apache Airflow offers various back ends for securely storing sensitive information such as variables and connections. One of these options is Azure Key Vault. This article walks you through the process of configuring Key Vault as the secret back end for Apache Airflow within a Managed Airflow environment.
+> [!NOTE]
+> Workflow Orchestration Manager is powered by Apache Airflow.
+
+Apache Airflow offers various back ends for securely storing sensitive information such as variables and connections. One of these options is Azure Key Vault. This article walks you through the process of configuring Key Vault as the secret back end for Apache Airflow within a Workflow Orchestration Manager environment.
 
 > [!NOTE]
-> Managed Airflow for Azure Data Factory relies on the open-source Apache Airflow application. For documentation and more tutorials for Airflow, see the Apache Airflow [Documentation](https://airflow.apache.org/docs/) or [Community](https://airflow.apache.org/community/) webpages.
+> Workflow Orchestration Manager for Azure Data Factory relies on the open-source Apache Airflow application. For documentation and more tutorials for Airflow, see the Apache Airflow [Documentation](https://airflow.apache.org/docs/) or [Community](https://airflow.apache.org/community/) webpages.
 
 ## Prerequisites
 
@@ -32,21 +35,21 @@ Assign your SPN the following roles in your Key Vault instance from the [built-i
 - Key Vault Contributor
 - Key Vault Secrets User
 
-## Enable the Key Vault back end for a Managed Airflow instance
+## Enable the Key Vault back end for a Workflow Orchestration Manager instance
 
-To enable Key Vault as the secret back end for your Managed Airflow instance:
+To enable Key Vault as the secret back end for your Workflow Orchestration Manager instance:
 
-1. Go to the [Managed Airflow instance's integration runtime environment](how-does-managed-airflow-work.md).
+1. Go to the [Workflow Orchestration Manager instance's integration runtime environment](how-does-workflow-orchestration-manager-work.md).
 1. Install [apache-airflow-providers-microsoft-azure](https://airflow.apache.org/docs/apache-airflow-providers-microsoft-azure/stable/index.html) for the **Airflow requirements** during your initial Airflow environment setup.
 
-   :::image type="content" source="media/enable-azure-key-vault-for-managed-airflow/airflow-environment-setup.png" alt-text="Screenshot that shows the Airflow Environment Setup window highlighting the Airflow requirements." lightbox="media/enable-azure-key-vault-for-managed-airflow/airflow-environment-setup.png":::
+   :::image type="content" source="media/enable-azure-key-vault/airflow-environment-setup.png" alt-text="Screenshot that shows the Airflow Environment Setup window highlighting the Airflow requirements." lightbox="media/enable-azure-key-vault/airflow-environment-setup.png":::
 
 1. Add the following settings for the **Airflow configuration overrides** in integration runtime properties:
 
    - **AIRFLOW__SECRETS__BACKEND**: `airflow.providers.microsoft.azure.secrets.key_vault.AzureKeyVaultBackend`
    - **AIRFLOW__SECRETS__BACKEND_KWARGS**: `{"connections_prefix": "airflow-connections", "variables_prefix": "airflow-variables", "vault_url": **\<your keyvault uri\>**}`
 
-   :::image type="content" source="media/enable-azure-key-vault-for-managed-airflow/airflow-configuration-overrides.png" alt-text="Screenshot that shows the configuration of the Airflow configuration overrides setting in the Airflow environment setup." lightbox="media/enable-azure-key-vault-for-managed-airflow/airflow-configuration-overrides.png":::
+   :::image type="content" source="media/enable-azure-key-vault/airflow-configuration-overrides.png" alt-text="Screenshot that shows the configuration of the Airflow configuration overrides setting in the Airflow environment setup." lightbox="media/enable-azure-key-vault/airflow-configuration-overrides.png":::
 
 1. Add the following variables for the **Environment variables** configuration in the Airflow integration runtime properties:
 
@@ -54,7 +57,7 @@ To enable Key Vault as the secret back end for your Managed Airflow instance:
    - **AZURE_TENANT_ID** = \<Tenant Id\>
    - **AZURE_CLIENT_SECRET** = \<Client Secret of SPN\>
 
-   :::image type="content" source="media/enable-azure-key-vault-for-managed-airflow/environment-variables.png" alt-text="Screenshot that shows the Environment variables section of the Airflow integration runtime properties." lightbox="media/enable-azure-key-vault-for-managed-airflow/environment-variables.png":::
+   :::image type="content" source="media/enable-azure-key-vault/environment-variables.png" alt-text="Screenshot that shows the Environment variables section of the Airflow integration runtime properties." lightbox="media/enable-azure-key-vault/environment-variables.png":::
 
 1. Then you can use variables and connections and they're stored automatically in Key Vault. The names of the connections and variables need to follow `AIRFLOW__SECRETS__BACKEND_KWARGS`, as defined previously. For more information, see [Azure Key Vault as secret back end](https://airflow.apache.org/docs/apache-airflow-providers-microsoft-azure/stable/secrets-backends/azure-key-vault.html).
 
@@ -96,16 +99,16 @@ To enable Key Vault as the secret back end for your Managed Airflow instance:
            task_id="get_variable",
            python_callable=retrieve_variable_from_akv,
        )
-   
+
    get_variable_task
    ```
 
 1. Store variables for connections in Key Vault. For more information, see [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md).
 
-   :::image type="content" source="media/enable-azure-key-vault-for-managed-airflow/secrets-configuration.png" alt-text="Screenshot that shows the configuration of secrets in Azure Key Vault." lightbox="media/enable-azure-key-vault-for-managed-airflow/secrets-configuration.png":::
+   :::image type="content" source="media/enable-azure-key-vault/secrets-configuration.png" alt-text="Screenshot that shows the configuration of secrets in Azure Key Vault." lightbox="media/enable-azure-key-vault/secrets-configuration.png":::
 
 ## Related content
 
-- [Run an existing pipeline with Managed Airflow](tutorial-run-existing-pipeline-with-airflow.md)
-- [Managed Airflow pricing](airflow-pricing.md)
-- [Change the password for Managed Airflow environments](password-change-airflow.md)
+- [Run an existing pipeline with Workflow Orchestration Manager](tutorial-run-existing-pipeline-with-airflow.md)
+- [Workflow Orchestration Manager pricing](airflow-pricing.md)
+- [Change the password for Workflow Orchestration Manager environment](password-change-airflow.md)

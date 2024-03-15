@@ -66,9 +66,8 @@ Automatic backups, both snapshots and log backups, are performed on locally redu
 > [!NOTE]
 > For both zone-redundant and same-zone HA:
 > - If there's a failure, the time needed for the standby replica to take over the role of primary depends on the time it takes to replay the binary log from the primary storage account to the standby. So we recommend that you use primary keys on all tables to reduce failover time. Failover times are typically between 60 and 120 seconds.
-- The standby server isn't available for read or write operations. It's a passive standby to enable fast failover.
-- Always use a fully qualified domain name (FQDN) to connect to your primary server. Avoid using an IP address to connect. If there's a failover, after the primary and standby server roles are switched, a DNS A record might change. That change would prevent the application from connecting to the new primary server if an IP address is used in the connection string.
-
+> - The standby server isn't available for read or write operations. It's a passive standby to enable fast failover.
+> - Always use a fully qualified domain name (FQDN) to connect to your primary server. Avoid using an IP address to connect. If there's a failover, after the primary and standby server roles are switched, a DNS A record might change. That change would prevent the application from connecting to the new primary server if an IP address is used in the connection string.
 ## Failover process 
  
 ### Planned: Forced failover
