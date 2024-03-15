@@ -63,7 +63,7 @@ After deploying the Flexible Server, follow the steps 3 to 5 under [Configure th
 
 The first tab is **Setup**. In case you missed it, allowlist necessary extensions as shown in It's essential to allowlist these extensions before you initiate a migration.
 
-:::image type="content" source="../../media/tutorial-migration-service-single-to-flexible/flexible-migration-setup-offline.png" alt-text="Screenshot of the details belonging to Set up tab." lightbox="../../media/tutorial-migration-service-single-to-flexible/flexible-migration-setup.png":::
+:::image type="content" source="../../media/tutorial-migration-service-single-to-flexible/flexible-migration-setup-offline.png" alt-text="Screenshot of the details belonging to the set up tab for offline." lightbox="../../media/tutorial-migration-service-single-to-flexible/flexible-migration-setup-offline.png":::
 
 **Migration name** is the unique identifier for each migration to this Flexible Server target. This field accepts only alphanumeric characters and doesn't accept any special characters except a hyphen (-). The name can't start with a hyphen and should be unique for a target server. No two migrations to the same Flexible Server target can have the same name.
 
@@ -234,7 +234,7 @@ After deploying the Flexible Server, follow the steps 3 to 5 under [Configure th
 
 The first tab is **Setup**. In case you missed it, allowlist necessary extensions as shown in It's essential to allowlist these extensions before you initiate a migration.
 
-:::image type="content" source="../../media/tutorial-migration-service-single-to-flexible/flexible-migration-setup-online.png" alt-text="Screenshot of the details belonging to Set up tab." lightbox="../../media/tutorial-migration-service-single-to-flexible/flexible-migration-setup.png":::
+:::image type="content" source="../../media/tutorial-migration-service-single-to-flexible/flexible-migration-setup-online.png" alt-text="Screenshot of the details belonging to the set up tab for online." lightbox="../../media/tutorial-migration-service-single-to-flexible/flexible-migration-setup-online.png":::
 
 **Migration name** is the unique identifier for each migration to this Flexible Server target. This field accepts only alphanumeric characters and doesn't accept any special characters except a hyphen (-). The name can't start with a hyphen and should be unique for a target server. No two migrations to the same Flexible Server target can have the same name.
 
