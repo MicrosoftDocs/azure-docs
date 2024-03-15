@@ -119,6 +119,7 @@ var browserCreds = new BrowserCredential
     VapidPublicKey = "<vapid public key>", 
     VapidPrivateKey = "<vapid private key>", 
 } 
+```
 
 and:
 
