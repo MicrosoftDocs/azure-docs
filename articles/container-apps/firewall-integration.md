@@ -77,7 +77,7 @@ The following tables describe how to configure a collection of NSG allow rules. 
 | UDP | Your container app's subnet | \* | `AzureCloud.<REGION>` | `1194` | Required for internal AKS secure connection between underlying nodes and control plane. Replace `<REGION>` with the region where your container app is deployed. |
 | TCP | Your container app's subnet | \* | `AzureCloud.<REGION>` | `9000` | Required for internal AKS secure connection between underlying nodes and control plane. Replace `<REGION>` with the region where your container app is deployed. |
 | TCP | Your container app's subnet | \* | `AzureCloud` | `443` | Allowing all outbound on port `443` provides a way to allow all FQDN based outbound dependencies that don't have a static IP. | 
-| TCP | Your container app's subnet | \* | `Storage.<Region>` | Only required when using Azure Container Registry to host your images. |
+| TCP | Your container app's subnet | \* | `Storage.<Region>` | `443` | Only required when using Azure Container Registry to host your images. |
 | TCP | Your container app's subnet | \* | `AzureFrontDoor.FirstParty` | `443` | Only required when using Azure Container Registry to host your images. |
 | UDP | Your container app's subnet | \* | \* | `123` | NTP server. |
 | Any | Your container app's subnet | \* | Your container app's subnet | \* |  Allow communication between IPs in your container app's subnet. |
