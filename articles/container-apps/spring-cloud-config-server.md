@@ -198,4 +198,4 @@ az group delete \
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Customize Spring Cloud Config Server settings](java-spring-cloud-config-server-usage.md)
+> [Customize Spring Cloud Config Server settings](spring-cloud-config-server-usage.md)

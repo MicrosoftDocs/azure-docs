@@ -1,5 +1,5 @@
 ---
-title: Configure settings for the Spring Cloud Configure Server component in Azure Container Apps
+title: "Tutorial: Configure settings for the Spring Cloud Configure Server component in Azure Container Apps (preview)"
 description: Learn how to configure a Spring Cloud Config Server component for your container app.
 services: container-apps
 author: craigshoemaker
@@ -9,7 +9,7 @@ ms.date: 03/13/2024
 ms.author: cshoe
 ---
 
-# Configure settings for the Spring Cloud Config Server component in Azure Container Apps (preview)
+# Tutorial: Configure settings for the Spring Cloud Config Server component in Azure Container Apps (preview)
 
 Spring Cloud Config Server provides a centralized location to make configuration data available to multiple applications. Use the following guidance to learn how to configure and manage your Spring Cloud Config Server component.
 
@@ -238,4 +238,4 @@ You can use client side decryption of properties by following the steps:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Set up a Spring Cloud Config Server](java-spring-cloud-config-server.md)
+> [Set up a Spring Cloud Config Server](spring-cloud-config-server.md)
