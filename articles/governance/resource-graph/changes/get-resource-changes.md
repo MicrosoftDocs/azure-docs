@@ -21,15 +21,13 @@ This article shows how to query resource configuration changes through Resource 
 
 - To enable Azure PowerShell to query Azure Resource Graph, [add the module](../first-query-powershell.md#add-the-resource-graph-module).
 - To enable Azure CLI to query Azure Resource Graph, [add the extension](../first-query-azurecli.md#add-the-resource-graph-extension).
-- Review the [change resource properties spec](../concepts/changes-resource-spec.md).
+- Review the [change resource properties spec](../changes/changes-resource-spec.md).
 
 ## Get change events using Resource Graph
 
 ### Run a query
 
-Try out a tenant-based Resource Graph query of the `resourcechanges` table. The query returns the first five most recent Azure resource changes with the change time, change type, target resource ID, target resource type, and change details of each change record. You can query by
-[management group](../../management-groups/overview.md) or subscription with the `-ManagementGroup`
-or `-Subscription` parameters respectively.
+Try out a tenant-based Resource Graph query of the `resourcechanges` table. The query returns the first five most recent Azure resource changes with the change time, change type, target resource ID, target resource type, and change details of each change record. You can query by [management group](../../management-groups/overview.md) or subscription with the `-ManagementGroup` or `-Subscription` parameters respectively.
 
 1. Run the following Azure Resource Graph query:
 
@@ -214,7 +212,7 @@ Review the following best practices before querying and analyzing changes in you
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Access and view resource changes](../how-to/view-resource-changes.md)
+> [Access and view resource changes](../changes/view-resource-changes.md)
 
 ## Related links
 

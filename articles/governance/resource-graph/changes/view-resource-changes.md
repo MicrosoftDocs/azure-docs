@@ -3,7 +3,7 @@ title: View resource configuration changes (Preview)
 description: View resource configuration changes in the Azure portal.
 author: iancarter-msft
 ms.author: iancarter
-ms.date: 03/11/2024
+ms.date: 03/15/2024
 ms.topic: how-to
 ---
 
@@ -65,9 +65,5 @@ In the **Change Analysis** blade, you can organize the results into groups using
 | Resource | Sorts resources per their resource name. |
 | Change Type | Organizes resources based on the collected change type. Values include Create, Update, and Delete. |
 
-## View the Activity Log change history
-
-[Need: instructions, if relevant?]
-
-
 ## Next steps
+

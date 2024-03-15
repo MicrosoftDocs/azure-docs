@@ -3,7 +3,7 @@ title: Change Analysis event properties (Preview)
 description: Properties spec for Change Analysis in Azure Resource Graph
 author: iancarter-msft
 ms.author: iancarter
-ms.date: 03/11/2024
+ms.date: 03/14/2024
 ms.topic: conceptual
 ---
 
@@ -46,7 +46,7 @@ Example change resource properties:
 Each change resource has the following properties:
 
 | Property | Description |
-|:--------:|:-----------:|
+|----------|-------------|
 | `targetResourceId` | The resourceID of the resource on which the change occurred. |
 |---|---|
 | `targetResourceType` | The resource type of the resource on which the change occurred. |

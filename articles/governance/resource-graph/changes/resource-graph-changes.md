@@ -3,7 +3,7 @@ title: Analyze changes to your Azure resources (Preview)
 description: Learn to use the Resource Graph Change Analysis tool to explore and analyze changes in your resources.
 author: iancarter-msft
 ms.author: iancarter
-ms.date: 03/11/2024
+ms.date: 03/15/2024
 ms.topic: conceptual
 ---
 
@@ -21,24 +21,26 @@ Change Analysis helps you:
  
 ## Change Analysis architecture
 
-[Need: More technical background/context about Change Analysis in ARG]
-
 ### Proxy vs. tracked resources
 
-Change data can be collected on either proxy or tracked resources. 
+In Azure Resource Graph, change data can be collected on either proxy or tracked resources. 
 
 #### Proxy resource change data 
 
-Proxy resources prompt Azure Resource Manager to proxy calls to the appropriate resource provider when requested. The appropriate `GET https://management.azure.com/{some_proxy_resource_id}` HTTP request is saved in a JSON response payload for calculation of changes over time. Proxy resource changes require opt-in, extra effort by resource providers, resulting in:
+With proxy resources, Azure Resource Manager proxies calls to the appropriate resource provider when requested. The appropriate `GET https://management.azure.com/{some_proxy_resource_id}` HTTP request is saved in a JSON response payload for calculation of changes over time. Azure Resource Manager might not keep track of the resource's state. 
+
+Proxy resource changes require opt-in, extra effort by resource providers, resulting in:
 - A different table to query
 - No guaranteed SLA
 - A limited availability of proxy resource change data
 
+Currently, collecting change data for proxy resources is an opt-in feature. Resource providers must send a special notification to Azure Resource Graph to indicate when a proxy resource is created, updated, or deleted.
+
 #### Tracked resource change data
 
-Meanwhile, Azure Resource Graph Change Analysis works with their complex and highly scalable set of systems to provide quick and automatically tracked resource changes for many Azure resources. You can use queries provided by Resource Graph to retrieve and review resource change data over time. 
+For tracked resources, Resource Graph works with their complex and highly scalable set of systems to provide quick and automatically tracked resource changes for many Azure resources. You can use queries provided by Resource Graph to retrieve and review resource change data over time. 
 
-Azure Resource Graph Change Analysis provides change information on resources tracked via notifications from resource providers (virtual machines, web applications, storage accounts, etc.) to Azure Resource Graph's systems. Azure Resource Graph collects snapshots of all tracked resources, compiled in a JSON payload when you make a `GET https://management.azure.com/{some_resource_id}` HTTP request.
+Change Analysis notifies Azure Resource Graph when a tracked resource is created, updated, or deleted. Instead of notifying via the `Microsoft.ChangeAnalysis` resource provider, Change Analysis UX sends queries directly to Azure Resource Graph. Azure Resource Graph collects and stores snapshots of all tracked resources, compiled in a JSON payload when a `GET https://management.azure.com/{some_resource_id}` HTTP request is made.
 
 ## Cost
 
@@ -46,7 +48,7 @@ You can use Azure Resource Graph Change Analysis at no extra cost.
 
 ## Limitations
 
-With the transition from Azure Monitor to Azure Resource Graph comes a handful of limitations.
+Azure Resource Graph Change Analysis currently presents some known limitations.
 
 - Some proxy resource change data is no longer provided 
 - No annotations on change data, including:
