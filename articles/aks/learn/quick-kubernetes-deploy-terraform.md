@@ -59,7 +59,7 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 
 ## Login to your Azure account
 
-### [Azure CLI](#tab/azure-azd)
+### [Azure CLI](#tab/azure-cli)
 
 First, log into your Azure account and authenticate using one of the methods described in the following section.
 
@@ -512,7 +512,7 @@ When the application runs, a Kubernetes service exposes the application front en
 
 :::zone-end
 
-:::zone pivot="development-environment-azure-cli"
+:::zone pivot="development-environment-azure-developer"
 
 Testing for Azure Developer zone pivot.
 
