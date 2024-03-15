@@ -10,18 +10,22 @@ keywords: azure app service, web app, linux, windows, docker, container, sidecar
 
 # Tutorial: Configure a sidecar container for custom container in Azure App Service (preview)
 
-In this tutorial, you add OpenTelemetry collector as a sidecar container to a custom container in Azure App Service. Azure App Service lets you add up to [TODO: #] sidecar containers for each custom container application. Sidecar containers lets you deploy additional services and features to your container application without making them tightly coupled to your main application container. For example, you can add monitoring, logging, configuration, and networking services as sidecar containers. An OpenTelemetry collector sidecar is one such monitoring example. For more information about sidecars, see [Sidecar pattern](/azure/architecture/patterns/sidecar).
+In this tutorial, you add OpenTelemetry collector as a sidecar container to a custom container in Azure App Service. 
+
+In Azure App Service, you can add up to [TODO: #] sidecar containers for each custom container app. Sidecar containers let you deploy additional services and features to your container application without making them tightly coupled to your main application container. For example, you can add monitoring, logging, configuration, and networking services as sidecar containers. An OpenTelemetry collector sidecar is one such monitoring example. 
+
+For more information about sidecars, see [Sidecar pattern](/azure/architecture/patterns/sidecar).
 
 > [!NOTE]
 > For the preview period, sidecar support must be enabled at app creation. There's currently no way to enable sidecar support for an existing app.
-
-## Prerequisites
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## 1. Set up the needed resources
 
-1. In the [Azure Cloud Shell](https://shell.azure.com), run the following commands to create the resources that the tutorial uses (for more information, see [Cloud Shell Overview](../cloud-shell/overview.md)):
+First you create the resources that the tutorial uses (for more information, see [Cloud Shell Overview](../cloud-shell/overview.md)). They're used for this particular scenario and aren't required for sidecar containers in general.
+
+1. In the [Azure Cloud Shell](https://shell.azure.com), run the following commands:
 
     ```azurecli-interactive
     git clone https://github.com/lcephas/template [TODO: change]
@@ -29,13 +33,13 @@ In this tutorial, you add OpenTelemetry collector as a sidecar container to a cu
     azd provision
     ```
 
-1. When prompted, supply the environment name, subscription , and region you want.
+1. When prompted, supply the environment name, subscription, and region you want.
 
-    `azd provision` uses the included templates to create the following Azure resources. They're used for the tutorial scenario and are not required for using sidecar containers:
+    `azd provision` uses the included templates to create the following Azure resources:
     
     - A resource group
     - A [container registry](../container-registry/container-registry-intro.md) with two images deployed:
-        - An Nginx image with the Open Telemetry module.
+        - An Nginx image with the OpenTelemetry module.
         - An OpenTelemetry collector image, configured to export to [Azure Monitor](../azure-monitor/overview.md).
     - A [log analytics workspace](../azure-monitor/logs/log-analytics-overview.md)
     - An [Application Insights](../azure-monitor/app/app-insights-overview.md) component
@@ -44,6 +48,7 @@ In this tutorial, you add OpenTelemetry collector as a sidecar container to a cu
 
     <pre>
     APPLICATIONINSIGHTS_CONNECTION_STRING = <b>InstrumentationKey=...;IngestionEndpoint=...;LiveEndpoint=...</b>
+
     Open resource group in the portal: <b>https://portal.azure.com/#@/resource/subscriptions/.../resourceGroups/...</b>
     </pre>
 
@@ -132,7 +137,16 @@ The otel-collector sidecar should now be able exporting data to Application Insi
 > [!NOTE]
 > In this very common monitoring scenario, Application Insights is just one of the OpenTelemetry targets you can use, such as Jaeger, Prometheus, and Zipkin.
 
+## Clean up resources
+
+When you no longer need the environment, you can delete the resource group, App service, and all related resources. Just run this command in the Cloud Shell, in the cloned repository:
+
+```azurecli-interactive
+azd down
+```
+
 ## More resources
 
 - [Configure custom container](configure-custom-container.md)
 - [Deploy custom containers with GitHub Actions](deploy-container-github-action.md)
+- [OpenTelemetry](https://opentelemetry.io/)
