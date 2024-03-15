@@ -16,7 +16,7 @@ ms.author: jianleishen
 This article outlines how to use the Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from a PostgreSQL database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 >[!IMPORTANT]
->The new PostgreSQL connector provides improved native PostgreSQL support. If you are using the legacy PostgreSQL connector in your solution, supported as-is for backward compatibility only, refer to [PostgreSQL connector (legacy)](connector-postgresql-legacy.md) article.
+>The new PostgreSQL connector provides improved native PostgreSQL support and better performance. If you are using the legacy PostgreSQL connector in your solution, supported as-is for backward compatibility only, refer to [PostgreSQL connector (legacy)](connector-postgresql-legacy.md) article.
 
 ## Supported capabilities
 
@@ -190,7 +190,7 @@ To copy data from PostgreSQL, the following properties are supported:
         "annotations": [],
         "schema": [],
         "typeProperties": {
-            "schema": "<dataset name>",
+            "schema": "<schema name>",
             "table": "<table name>"
         }
     }
