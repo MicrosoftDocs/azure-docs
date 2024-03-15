@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/10/2024
+ms.date: 03/15/2024
 # Customer intent: As a developer, I want to prevent access to and from other Microsoft Entra tenants.
 ---
 
