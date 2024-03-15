@@ -171,6 +171,9 @@ Keep in mind the following points about Azure role assignments in Azure Storage:
 - If you set the appropriate allow permissions to access data via Microsoft Entra ID and are unable to access the data, for example you're getting an "AuthorizationPermissionMismatch" error. Be sure to allow enough time for the permissions changes you made in Microsoft Entra ID to replicate, and be sure that you don't have any deny assignments that block your access, see [Understand Azure deny assignments](../../role-based-access-control/deny-assignments.md).
 
 > [!NOTE]
+> When you assign roles or remove role assignments, it can take up to 10 minutes for changes to take effect.
+
+> [!NOTE]
 > You can create custom Azure RBAC roles for granular access to blob data. For more information, see [Azure custom roles](../../role-based-access-control/custom-roles.md).
 
 ## Next steps
