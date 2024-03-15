@@ -36,7 +36,7 @@ To use a watchlist in search query, write a Kusto query that uses the _GetWatchl
 
 1. Write a query that uses the _GetWatchlist('watchlist-name') function and uses **SearchKey** as the key for your join. 
 
-   For example, the following example query joins the `RemoteIPCountry` column in the `Heartbeat` table with the search key defined for the watchlist named "mywatchlist".
+   For example, the following example query joins the `RemoteIPCountry` column in the `Heartbeat` table with the search key defined for the watchlist named `mywatchlist`.
 
     ```kusto
     Heartbeat
@@ -57,7 +57,7 @@ To use watchlists in analytics rules, create a rule using the _GetWatchlist('wat
 1. On the **General** tab, enter the appropriate information.
 1. On the **Set rule logic** tab, under **Rule query** use the `_GetWatchlist('<watchlist>')` function in the query.
 
-   For example, let's say you have a watchlist named "ipwatchlist" that you created from a CSV file with the following values:
+   For example, let's say you have a watchlist named `ipwatchlist` that you created from a CSV file with the following values:
 
    |`IPAddress,Location`   |
    |---------|
