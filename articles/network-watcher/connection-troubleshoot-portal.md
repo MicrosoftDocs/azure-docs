@@ -26,7 +26,7 @@ In this article, you learn how to use the connection troubleshoot feature of Azu
 > - By default, Azure enables Network Watcher in a region when you create a virtual network in it.
 > - When you use connection troubleshoot, Azure automatically installs the Network Watcher agent VM extension on the source virtual machine if it's not already installed. 
 
-## Test connectivity with reachable virtual machine
+## Test connectivity to a virtual machine
 
 In this section, you test the remote desktop port (RDP) connectivity from one virtual machine to another virtual machine in the same virtual network.
 
