@@ -127,9 +127,8 @@ You should receive a response body in the following format:
         "succeededCount": 1,
         "failedCount": 0,
         "billingDetails": {
-            "neural": 29,
-            "customNeural": 0,
-            "talkingAvatarDurationInSeconds": 2
+            "neuralCharacters": 29,
+            "talkingAvatarDurationSeconds": 2
         }
     },
     "avatarConfig": {
@@ -181,9 +180,8 @@ You receive a response body in the following format:
                 "succeededCount": 1,
                 "failedCount": 0,
                 "billingDetails": {
-                    "neural": 32,
-                    "customNeural": 0,
-                    "talkingAvatarDurationInSeconds": 2
+                    "neuralCharacters": 32,
+                    "talkingAvatarDurationSeconds": 2
                 }
             },
             "avatarConfig": {
@@ -215,9 +213,8 @@ You receive a response body in the following format:
                 "succeededCount": 1,
                 "failedCount": 0,
                 "billingDetails": {
-                    "neural": 29,
-                    "customNeural": 0,
-                    "talkingAvatarDurationInSeconds": 2
+                    "neuralCharacters": 29,
+                    "talkingAvatarDurationSeconds": 2
                 }
             },
             "avatarConfig": {
@@ -270,10 +267,7 @@ The summary file contains the synthesis results for each text input. Here's an e
       "texts": [
         "<speak version='1.0' xml:lang='en-US'><voice name='en-US-JennyNeural'>The rainbow has seven colors.</voice></speak>"
       ],
-      "status": "Succeeded",
-      "billingDetails": {
-        "Neural": "29",
-        "TalkingAvatarDuration": "2"
+      "status": "Succeeded"
       },
       "videoFileName": "244a87c294b94ddeb3dbaccee8ffa7eb/5a25b929-1358-4e81-a036-33000e788c46/0001.mp4",
       "TalkingAvatarCharacter": "lisa",
