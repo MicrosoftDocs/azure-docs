@@ -40,6 +40,8 @@ items:
     href: elastic-san-connect-linux.md
   - name: Connect to AKS
     items: 
+    - name: Ways to use an Elastic SAN with AKS
+      href: elastic-san-aks-options.md
     - name: Use Azure Container Storage
       href: ../container-storage/use-container-storage-with-elastic-san.md?toc=/azure/storage/elastic-san/toc.json&bc=/azure/storage/elastic-san/breadcrumb/toc.json
     - name: Use Kubernetes iSCSI CSI driver
