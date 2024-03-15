@@ -51,6 +51,10 @@ landingContent:
             url: ./tutorial-modernize-asp-net-aks.md
           - text: Create an Azure Spring Apps assessment
             url: ./how-to-create-azure-spring-apps-assessment.md
+          - text: Discover SAP systems
+            url: ./tutorial-discover-sap-systems.md
+          - text: Create SAP systems assessment
+            url: ./tutorial-assess-sap-systems.md
 
   - title: Start deployment
     linkLists:
