@@ -125,9 +125,9 @@ The example creates two applications, a caller and a callee. Both applications c
 
 1. Set the callee application's name in the application configuration file. For example, *application.yml*.
 
-```yaml
-spring.application.name=callee
-```
+    ```yaml
+    spring.application.name=callee
+    ```
 
 1. Create the caller application.
 
