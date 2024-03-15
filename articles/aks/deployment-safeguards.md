@@ -69,21 +69,21 @@ az provider register --namespace Microsoft.ContainerService
 
 ## Deployment safeguards policies
 
-The following table lists the policies that become active when you enable deployment safeguards. You can see the [currently available deployment safeguards][deployment-safeguards-list] in the Azure portal as an Azure Policy definition, or view them at [Azure Policy built-in definitions for Azure Kubernetes Service][Azure-Policy-built-in-definition-docs]. The intention behind this collection is to create a common and generic list of best practices applicable to most users and use cases.
+The following table lists the policies that become active when you enable deployment safeguards and the Kubernetes resource that they will target. You can see the [currently available deployment safeguards][deployment-safeguards-list] in the Azure portal as an Azure Policy definition, or view them at [Azure Policy built-in definitions for Azure Kubernetes Service][Azure-Policy-built-in-definition-docs]. The intention behind this collection is to create a common and generic list of best practices applicable to most users and use cases.
 
-|  Deployment safeguard policies |
-|--------------|
-| [Preview]: Cannot Edit Individual Nodes |
-| Kubernetes cluster containers CPU and memory resource limits shouldn't exceed the specified limits |
-| [Preview]: Must Have Anti Affinity Rules Set |
-| [Preview]: No AKS Specific Labels |
-| Kubernetes cluster containers should only use allowed images |
-| [Preview]: Reserved System Pool Taints |
-| Ensure cluster containers have readiness or liveness probes configured |
-| Kubernetes clusters should use Container Storage Interface(CSI) driver StorageClass |
-| [Preview]: Kubernetes cluster containers should only pull images when image pull secrets are present |
-| [Preview]: Kubernetes cluster should implement accurate Pod Disruption Budgets |
-| [Preview]: Kubernetes cluster services should use unique selectors |
+|  Deployment safeguard policies | Kubernetes resource that is targeted |
+|--------------|--------------|
+| [Preview]: Cannot Edit Individual Nodes | Node |
+| Kubernetes cluster containers CPU and memory resource limits shouldn't exceed the specified limits | Pod |
+| [Preview]: Must Have Anti Affinity Rules Set | Deployment, StatefulSet, ReplicationController, ReplicaSet |
+| [Preview]: No AKS Specific Labels | Deployment, StatefulSet, Replicaset |
+| Kubernetes cluster containers should only use allowed images | Pod |
+| [Preview]: Reserved System Pool Taints | Node |
+| Ensure cluster containers have readiness or liveness probes configured | Pod | 
+| Kubernetes clusters should use Container Storage Interface(CSI) driver StorageClass | StorageClass |
+| [Preview]: Kubernetes cluster containers should only pull images when image pull secrets are present | Pod |
+| [Preview]: Kubernetes cluster should implement accurate Pod Disruption Budgets | Deployment, ReplicaSet, StatefulSet |
+| [Preview]: Kubernetes cluster services should use unique selectors | Service |
 
 If you would like to submit an idea or request for deployment safeguards, open an issue in the [AKS GitHub repository][aks-gh-repo] and add `[deployment safeguards request]` to the beginning of the title.
 
@@ -177,7 +177,7 @@ When switching deployment safeguard levels, you may need to wait up to 15 minute
 
 #### Why did my deployment resource get admitted even though it wasn't following best practices?
 
-Deployment safeguards enforce best practice standards through Azure Policy controls and has policies that validate against pods and deployments. To evaluate and enforce cluster components (that is, pods, namespaces), Azure Policy extends [Gatekeeper](https://open-policy-agent.github.io/gatekeeper/website/). Gatekeeper enforcement also currently operates in a [`fail-open` model](https://open-policy-agent.github.io/gatekeeper/website/docs/failing-closed/#considerations). As there's no guarantee that Gatekeeper will respond to our networking call, we make sure that in that case, the validation is skipped so that the deny doesn't block your deployments.
+Deployment safeguards enforce best practice standards through Azure Policy controls and has policies that validate against Kubernetes resources. To evaluate and enforce cluster components, Azure Policy extends [Gatekeeper](https://open-policy-agent.github.io/gatekeeper/website/). Gatekeeper enforcement also currently operates in a [`fail-open` model](https://open-policy-agent.github.io/gatekeeper/website/docs/failing-closed/#considerations). As there's no guarantee that Gatekeeper will respond to our networking call, we make sure that in that case, the validation is skipped so that the deny doesn't block your deployments.
 
 To learn more, see [workload validation in Gatekeeper](https://open-policy-agent.github.io/gatekeeper/website/docs/workload-resources/).
 
