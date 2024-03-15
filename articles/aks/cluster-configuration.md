@@ -77,7 +77,8 @@ Gen2 VMs are supported on Linux. Gen2 VMs on Windows are supported for WS2022 on
     ```azurecli
     az aks nodepool add --resource-group myResourceGroup --cluster-name myAKSCluster --name gen2np --node-vm-size Standard_D32_v4 --os-type Windows --aks-custom-headers UseWindowsGen2VM=true
     ```
-The above example will create a WS2022 nodepool with a Gen 2 VM. If you're using a vm size which only supports Gen 2, you do not need to add the custom header. If you're using a kubernetes version where Windows Server 2022 is not default, you need to specify `--os-sku`.  
+
+The above example will create a WS2022 node pool with a Gen 2 VM. If you're using a vm size which only supports Gen 2, you do not need to add the custom header. If you're using a kubernetes version where Windows Server 2022 is not default, you need to specify `--os-sku`.  
 
 * Check whether you're using generation 1 or generation 2 using the [`az aks nodepool show`][az-aks-nodepool-show] command, and check that the `nodeImageVersion` contains `gen2`.
 
