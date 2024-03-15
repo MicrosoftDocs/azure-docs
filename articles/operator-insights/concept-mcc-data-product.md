@@ -69,6 +69,7 @@ To use the Quality of Experience - Affirmed MCC Data Product:
     1. [Install the Azure Operator Insights ingestion agent and configure it to upload data](set-up-ingestion-agent.md).
 
     Alternatively, you can provide your own ingestion agent.
+1. Configure your Affirmed MCCs to send EDRs to the ingestion agent. See [Configuration for Affirmed MCCs](#configuration-for-affirmed-mccs).
 
 ## Requirements for the Azure Operator Insights ingestion agent
 
@@ -118,19 +119,18 @@ The ingestion agent must use MCC EDRs as a data source.
 
 For more information about all the configuration options, see [Configuration reference for Azure Operator Insights ingestion agent](ingestion-agent-configuration-reference.md).
 
-### Configure Affirmed MCCs
+## Configuration for Affirmed MCCs
 
-Once the agents are installed and running, configure the MCCs to send EDRs to them.
+When you have installed and configured your ingestion agents, configure the MCCs to send EDRs to them.
 
-1. Follow the steps under "Generating SESSION, BEARER, FLOW, and HTTP Transaction EDRs" in the [Affirmed Networks Active Intelligent vProbe System Administration Guide](https://manuals.metaswitch.com/vProbe/latest/vProbe_System_Admin/Content/02%20AI-vProbe%20Configuration/Generating_SESSION__BEARER__FLOW__and_HTTP_Transac.htm) (only available to customers with Affirmed support), making the following changes:
+Follow the steps in "Generating SESSION, BEARER, FLOW, and HTTP Transaction EDRs" in the [Affirmed Networks Active Intelligent vProbe System Administration Guide](https://manuals.metaswitch.com/vProbe/latest) (only available to customers with Affirmed support), making the following changes:
 
-    - Replace the IP addresses of the MSFs in MCC configuration with the IP addresses of the VMs running the ingestion agents.
+- Replace the IP addresses of the MSFs in MCC configuration with the IP addresses of the VMs running the ingestion agents.
+- Confirm that the following EDR server parameters are set.
 
-    - Confirm that the following EDR server parameters are set.
-
-        - port: 36001
-        - encoding: protobuf
-        - keep-alive: 2 seconds
+    - `port`: 36001
+    - `encoding`: protobuf
+    - `keep-alive`: 2 seconds
 
 ## Related content
 
