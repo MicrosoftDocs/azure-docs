@@ -35,7 +35,7 @@ Create a file called **number-lookup-quickstart.js** in the root of the director
 
 ```javascript
 async function main() {
-    // quickstart code will here
+    // quickstart code will go here
 }
 
 main();
@@ -46,7 +46,7 @@ main();
 Use the `npm install` command to install the Azure Communication Services Phone Numbers client library for JavaScript.
 
 ```console
-npm install @azure/communication-phone-numbers@1.3.0-beta.1 --save
+npm install @azure/communication-phone-numbers@1.3.0-beta.4 --save
 ```
 
 The `--save` option adds the library as a dependency in your **package.json** file.
@@ -69,12 +69,12 @@ const connectionString = process.env['COMMUNICATION_SERVICES_CONNECTION_STRING']
 const phoneNumbersClient = new PhoneNumbersClient(connectionString);
 ```
 
-### Look up operator information for a number
+### Look up phone number formatting
 
 To search for a phone number's operator information, call `searchOperatorInformation` from the `PhoneNumbersClient`.
 
 ```javascript
-let results = await phoneNumbersClient.searchOperatorInformation([ "<target-phone-number>" ]);
+let formattingResults = await phoneNumbersClient.searchOperatorInformation([ "<target-phone-number>" ]);
 ```
 
 Replace `<target-phone-number>` with the phone number you're looking up, usually a number you'd like to send a message to.
@@ -82,13 +82,34 @@ Replace `<target-phone-number>` with the phone number you're looking up, usually
 > [!WARNING]
 > Provide phone numbers in E.164 international standard format, for example, +14255550123.
 
+### Look up operator information for a number
+
+To search for a phone number's operator information, call `searchOperatorInformation` from the `PhoneNumbersClient`, passing `true` for the `includeAdditionalOperatorDetails` option.
+
+```javascript
+let searchResults = await phoneNumbersClient.searchOperatorInformation([ "<target-phone-number>" ], { "includeAdditionalOperatorDetails": true });
+```
+
+> [!WARNING]
+> Using this functionality will incur a charge to your account
+
 ### Use operator information
 
 You can now use the operator information.  For this quickstart guide, we can print some of the details to the console.
 
+First, we can print out details about the number format.
+
 ```javascript
-let operatorInfo = results.values[0];
-console.log(operatorInfo.phoneNumber + " is a " + (operatorInfo.numberType ? operatorInfo.numberType : "unknown") + " number, operated by " + (operatorInfo.operatorDetails.name ? operatorInfo.operatorDetails.name : "an unknown operator"));
+let formatInfo = formattingResults.values[0];
+console.log(formatInfo.phoneNumber + " is formatted " + formatInfo.internationalFormat + " internationally, and " + formatInfo.nationalFormat + " nationally");
+```
+
+Next, we can print out details about the phone number and operator.
+
+```javascript
+let operatorInfo = searchResults.values[0];
+console.log(operatorInfo.phoneNumber + " is a " + (operatorInfo.numberType ? operatorInfo.numberType : "unknown") + " number, operated in "
+    + operatorInfo.isoCountryCode + " by " + (operatorInfo.operatorDetails.name ? operatorInfo.operatorDetails.name : "an unknown operator"));
 ```
 
 You may also use the operator information to determine whether to send an SMS.  For more information on sending an SMS, see the [SMS Quickstart](../../sms/send.md).
