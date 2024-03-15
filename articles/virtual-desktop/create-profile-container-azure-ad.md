@@ -3,7 +3,6 @@ title: Create a profile container with Azure Files and Microsoft Entra ID
 description: Set up an FSLogix profile container on an Azure file share in an existing Azure Virtual Desktop host pool with your Microsoft Entra domain.
 services: virtual-desktop
 author: Heidilohr
-manager: femila
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/28/2023
@@ -13,7 +12,7 @@ ms.author: helohr
 
 In this article, you'll learn how to create and configure an Azure Files share for Microsoft Entra Kerberos authentication. This configuration allows you to store FSLogix profiles that can be accessed by hybrid user identities from Microsoft Entra joined or Microsoft Entra hybrid joined session hosts without requiring network line-of-sight to domain controllers. Microsoft Entra Kerberos enables Microsoft Entra ID to issue the necessary Kerberos tickets to access the file share with the industry-standard SMB protocol.
 
-This feature is supported in the Azure Public, Azure US Gov, and Azure operated by 21Vianet.
+This feature is supported in the Azure cloud, Azure for US Government, and Azure operated by 21Vianet.
 
 ## Prerequisites
 

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: azure-ai-language
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 06/11/2023
+ms.date: 12/19/2023
 ms.author: jboback
 ---
 

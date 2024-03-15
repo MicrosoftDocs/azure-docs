@@ -4,7 +4,7 @@ description: Using managed identities in Container Apps
 services: container-apps
 author: v-jaswel
 ms.service: container-apps
-ms.custom: event-tier1-build-2022, ignite-2022, devx-track-azurecli
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 10/25/2023
 ms.author: v-wellsjason
@@ -214,7 +214,7 @@ For .NET apps, the simplest way to work with a managed identity is through the [
 
 - [Add Azure Identity client library to your project](/dotnet/api/overview/azure/identity-readme#getting-started)
 - [Access Azure service with a system-assigned identity](/dotnet/api/overview/azure/identity-readme#authenticating-with-defaultazurecredential)
-- [Access Azure service with a user-assigned identity](/dotnet/api/overview/azure/identity-readme#specifying-a-user-assigned-managed-identity-with-the-defaultazurecredential)
+- [Access Azure service with a user-assigned identity](/dotnet/api/overview/azure/identity-readme#specify-a-user-assigned-managed-identity-with-defaultazurecredential)
 
 The linked examples use [`DefaultAzureCredential`](/dotnet/api/overview/azure/identity-readme#defaultazurecredential). It's useful for most the scenarios because the same pattern works in Azure (with managed identities) and on your local machine (without managed identities).
 

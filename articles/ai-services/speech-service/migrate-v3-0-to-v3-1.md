@@ -2,12 +2,11 @@
 title: Migrate from v3.0 to v3.1 REST API - Speech service
 titleSuffix: Azure AI services
 description: This document helps developers migrate code from v3.0 to v3.1 of the Speech to text REST API.
-#services: cognitive-services
 author: heikora
 manager: dongli
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 09/15/2023
+ms.date: 1/21/2024
 ms.author: heikora
 ms.devlang: csharp
 ms.custom: devx-track-csharp
@@ -15,7 +14,7 @@ ms.custom: devx-track-csharp
 
 # Migrate code from v3.0 to v3.1 of the REST API
 
-The Speech to text REST API is used for [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md). Changes from version 3.0 to 3.1 are described in the sections below.
+The Speech to text REST API is used for [Batch transcription](batch-transcription.md) and [custom speech](custom-speech-overview.md). Changes from version 3.0 to 3.1 are described in the sections below.
 
 > [!IMPORTANT]
 > Speech to text REST API v3.2 is available in preview. 
@@ -26,12 +25,12 @@ The Speech to text REST API is used for [Batch transcription](batch-transcriptio
 
 You must update the base path in your code from `/speechtotext/v3.0` to `/speechtotext/v3.1`. For example, to get base models in the `eastus` region, use `https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base` instead of `https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base`.
 
-Please note these additional changes:
+Note these other changes:
 - The `/models/{id}/copyto` operation (includes '/') in version 3.0 is replaced by the `/models/{id}:copyto` operation (includes ':') in version 3.1.
 - The `/webhooks/{id}/ping` operation (includes '/') in version 3.0 is replaced by the `/webhooks/{id}:ping` operation (includes ':') in version 3.1.
 - The `/webhooks/{id}/test` operation (includes '/') in version 3.0 is replaced by the `/webhooks/{id}:test` operation (includes ':') in version 3.1.
 
-For more details, see [Operation IDs](#operation-ids) later in this guide.
+For more information, see [Operation IDs](#operation-ids) later in this guide.
 
 ## Batch transcription
 
@@ -39,15 +38,15 @@ For more details, see [Operation IDs](#operation-ids) later in this guide.
 > Don't use Speech to text REST API v3.0 to retrieve a transcription created via Speech to text REST API v3.1. You'll see an error message such as the following: "The API version cannot be used to access this transcription. Please use API version v3.1 or higher."
 
 In the [Transcriptions_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Create) operation the following three properties are added:
-- The `displayFormWordLevelTimestampsEnabled` property can be used to enable the reporting of word-level timestamps on the display form of the transcription results. The results are returned in the `displayWords` property of the transcription file. 
-- The `diarization` property can be used to specify hints for the minimum and maximum number of speaker labels to generate when performing optional diarization (speaker separation). With this feature, the service is now able to generate speaker labels for more than two speakers. To use this property you must also set the `diarizationEnabled` property to `true`. 
-- The `languageIdentification` property can be used specify settings for language identification on the input prior to transcription. Up to 10 candidate locales are supported for language identification. The returned transcription will include a new `locale` property for the recognized language or the locale that you provided. 
+- The `displayFormWordLevelTimestampsEnabled` property can be used to enable the reporting of word-level timestamps on the display form of the transcription results. The results are returned in the `displayWords` property of the transcription file.
+- The `diarization` property can be used to specify hints for the minimum and maximum number of speaker labels to generate when performing optional diarization (speaker separation). With this feature, the service is now able to generate speaker labels for more than two speakers. To use this property, you must also set the `diarizationEnabled` property to `true`. With the v3.1 API, we have increased the number of speakers that can be identified through diarization from the two speakers supported by the v3.0 API. It's recommended to keep the number of speakers under 30 for better performance.
+- The `languageIdentification` property can be used specify settings for language identification on the input prior to transcription. Up to 10 candidate locales are supported for language identification. The returned transcription includes a new `locale` property for the recognized language or the locale that you provided. 
 
 The `filter` property is added to the [Transcriptions_List](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_List), [Transcriptions_ListFiles](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_ListFiles), and [Projects_ListTranscriptions](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Projects_ListTranscriptions) operations. The `filter` expression can be used to select a subset of the available resources. You can filter by `displayName`, `description`, `createdDateTime`, `lastActionDateTime`, `status`, and `locale`. For example: `filter=createdDateTime gt 2022-02-01T11:00:00Z`
 
-If you use webhook to receive notifications about transcription status, please note that the webhooks created via V3.0 API cannot receive notifications for V3.1 transcription requests. You need to create a new webhook endpoint via V3.1 API in order to receive notifications for V3.1 transcription requests.
+If you use webhook to receive notifications about transcription status, note that the webhooks created via V3.0 API can't receive notifications for V3.1 transcription requests. You need to create a new webhook endpoint via V3.1 API in order to receive notifications for V3.1 transcription requests.
 
-## Custom Speech
+## Custom speech
 
 ### Datasets
 

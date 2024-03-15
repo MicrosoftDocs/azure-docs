@@ -5,8 +5,8 @@ author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: how-to
-ms.date: 3/22/2023
-ms.custom: template-concept, ignite-fall-2021
+ms.date: 03/22/2023
+ms.custom: template-concept
 ---
 
 # Common issues seen with Azure Virtual Network Manager

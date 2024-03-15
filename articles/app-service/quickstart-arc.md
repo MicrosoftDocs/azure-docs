@@ -48,8 +48,6 @@ Supported runtimes:
 | Python 3.8 | PYTHON\|3.8 |
 | PHP 7.3 | PHP\|7.3 |
 | PHP 7.4 | PHP\|7.4 |
-| Ruby 2.5 | RUBY\|2.5 |
-| Ruby 2.6 | RUBY\|2.6 |
 | Java 8 | JAVA\|8-jre8 |
 | Java 11 | JAVA\|11-java11 |
 | Tomcat 8.5 | TOMCAT\|8.5-jre8 |
@@ -126,5 +124,4 @@ To update the image after the app is create, see [Change the Docker image of a c
 - [Configure a PHP app](configure-language-php.md?pivots=platform-linux)
 - [Configure a Linux Python app](configure-language-python.md)
 - [Configure a Java app](configure-language-java.md?pivots=platform-linux)
-- [Configure a Linux Ruby app](configure-language-ruby.md)
 - [Configure a custom container](configure-custom-container.md?pivots=container-linux)

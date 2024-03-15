@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 07/13/2023
+ms.date: 01/05/2024
 ---
 
 # Cached lookup functions in mapping data flow

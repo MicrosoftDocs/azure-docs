@@ -6,14 +6,12 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-author: msdpalam
-ms.author: meeral
+author: likebupt
+ms.author: keli19
 ms.reviewer: lagayhar
 ms.date: 10/20/2023
 ms.custom:
   - sdkv2
-  - event-tier1-build-2022
-  - ignite-2022
   - build-2023
   - devx-track-python
   - ignite-2023
@@ -50,8 +48,11 @@ The two steps are first data preparation and second training.
 
 :::image type="content" source="media/tutorial-pipeline-python-sdk/pipeline-overview.jpg" alt-text="Diagram shows overview of the pipeline.":::
 
-## Prerequisites
+This video shows how to get started in Azure Machine Learning studio so that you can follow the steps in the tutorial. The video shows how to create a notebook, create a compute instance, and clone the notebook. The steps are also described in the following sections.
 
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=0d201750-ff0a-4665-90c5-a00aca350210]
+
+## Prerequisites
 
 1. [!INCLUDE [workspace](includes/prereq-workspace.md)]
 

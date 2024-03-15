@@ -9,6 +9,9 @@ ms.date: 11/16/2023
 
 This article explains how you can use Azure Event Hubs to stream data from [Apache Kafka](https://kafka.apache.org) applications without setting up a Kafka cluster on your own.
 
+> [!NOTE]
+> This feature is supported only in the **standard, premium** and **dedicated** tiers. 
+
 ## Overview
 
 Azure Event Hubs provides an Apache Kafka endpoint on an event hub, which enables users to connect to the event hub using the Kafka protocol. You can often use an event hub's Kafka endpoint from your applications without any code changes. You modify only the configuration, that is, update the connection string in configurations to point to the Kafka endpoint exposed by your event hub instead of pointing to a Kafka cluster. Then, you can start streaming events from your applications that use the Kafka protocol into event hubs, which are equivalent to Kafka topics.
@@ -34,7 +37,7 @@ While [Apache Kafka](https://kafka.apache.org/) is software you typically need t
 
 For more information about Event Hubs and namespaces, see [Event Hubs features](event-hubs-features.md#namespace). As a cloud service, Event Hubs uses a single stable virtual IP address as the endpoint, so clients don't need to know about the brokers or machines within a cluster. Even though Event Hubs implements the same protocol, this difference means that all Kafka traffic for all partitions is predictably routed through this one endpoint rather than requiring firewall access for all brokers of a cluster.   
 
-Scale in Event Hubs is controlled by how many [throughput units (TUs)](event-hubs-scalability.md#throughput-units) or [processing units](event-hubs-scalability.md#processing-units) you purchase. If you enable the [Auto-Inflate](event-hubs-auto-inflate.md) feature for a standard tier namespace, Event Hubs automatically scales up TUs when you reach the throughput limit. This feature also works with the Apache Kafka protocol support. For a premier tier namespace, you can increase the number of processing units assigned to the namespace. 
+Scale in Event Hubs is controlled by how many [throughput units (TUs)](event-hubs-scalability.md#throughput-units) or [processing units](event-hubs-scalability.md#processing-units) you purchase. If you enable the [Auto-Inflate](event-hubs-auto-inflate.md) feature for a standard tier namespace, Event Hubs automatically scales up TUs when you reach the throughput limit. This feature also works with the Apache Kafka protocol support. For a premium tier namespace, you can increase the number of processing units assigned to the namespace. 
 
 ## Is Apache Kafka the right solution for your workload?
 
@@ -67,6 +70,15 @@ sasl.login.callback.handler.class=CustomAuthenticateCallbackHandler
 
 > [!NOTE]
 > The above configuration properties are for the Java programming language. For **samples** that show how to use OAuth with Event Hubs for Kafka using different programming languages, see [samples on GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth).
+
+
+
+
+
+
+
+
+
 
 
 ### Shared Access Signature (SAS)
@@ -121,7 +133,7 @@ Kafka producer application developers can enable message compression by setting 
 
 `Compression.type = none | gzip` 
 
-The feature is currently only supported for Apache Kafka traffic producer and consumer traffic and not AMQP or web service traffic. The payload of any Event Hubs event is a byte stream and the content can be compressed with an algorithm of your choosing though in public preview, the only option is gzip. The benefits of using Kafka compression are through smaller message size, increased payload size you can transmit, and lower message broker resource consumption.  
+The feature is currently only supported for Apache Kafka traffic producer and consumer traffic. AMQP consumer can consume compressed Kafka traffic as decompressed messages. The payload of any Event Hubs event is a byte stream and the content can be compressed with an algorithm of your choosing though in public preview, the only option is gzip. The benefits of using Kafka compression are through smaller message size, increased payload size you can transmit, and lower message broker resource consumption.  
 
 ### Kafka Streams
 
@@ -138,6 +150,7 @@ Standalone and without ksqlDB, Kafka Streams has fewer capabilities than many al
 - [Apache Storm](event-hubs-storm-getstarted-receive.md)
 - [Apache Spark](event-hubs-kafka-spark-tutorial.md)
 - [Apache Flink](event-hubs-kafka-flink-tutorial.md)
+- [Apache Flink on HDInsight on AKS](/azure/hdinsight-aks/flink/flink-overview)
 - [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md)
 
 The listed services and frameworks can generally acquire event streams and reference data directly from a diverse set of sources through adapters. Kafka Streams can only acquire data from Apache Kafka and your analytics projects are therefore locked into Apache Kafka. To use data from other sources, you're required to first import data into Apache Kafka with the Kafka Connect framework.

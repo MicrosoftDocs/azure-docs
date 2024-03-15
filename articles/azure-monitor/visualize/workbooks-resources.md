@@ -112,4 +112,4 @@ This approach can be used to bind resources to other controls like metrics.
 
 ## Next steps
 
-[Getting started with Azure Workbooks](workbooks-getting-started.md)
+[Getting started with Azure Workbooks](workbooks-overview.md)

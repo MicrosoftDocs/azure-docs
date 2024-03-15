@@ -78,6 +78,6 @@ As part of the SSL/TLS communication, the cipher suites are validated and only s
 
 ## Next steps
 
-- [Connection libraries for Azure Database for MySQL](concepts-connection-libraries.md)
+- [Connection libraries for Azure Database for MySQL](../flexible-server/concepts-connection-libraries.md)
 - Learn how to [configure SSL](how-to-configure-ssl.md)
 - Learn how to [configure TLS](how-to-tls-configurations.md)

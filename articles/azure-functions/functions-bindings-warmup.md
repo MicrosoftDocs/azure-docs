@@ -4,7 +4,8 @@ description: Understand how to use the warmup trigger in Azure Functions.
 keywords: azure functions, functions, event processing, warmup, cold start, premium, dynamic compute, serverless architecture
 ms.service: azure-functions
 ms.topic: reference
-ms.devlang: csharp, java, javascript, python
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-csharp, devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 09/04/2023
 zone_pivot_groups: programming-languages-set-functions

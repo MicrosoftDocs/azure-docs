@@ -16,7 +16,7 @@ This article shows you how to add a new endpoint to an existing Azure Front Door
 
 ## Prerequisites
 
-Before you can create a new endpoint with Front Door manager, you must have an Azure Front Door profile created. To create an Azure Front Door profile, see [create a Azure Front Door](create-front-door-portal.md). The profile must have at least one endpoint.
+Before you can create a new endpoint with Front Door manager, you must have an Azure Front Door profile created. To create an Azure Front Door profile, see [create an Azure Front Door](create-front-door-portal.md). The profile must have at least one endpoint.
 
 ## Create a new Front Door endpoint
 

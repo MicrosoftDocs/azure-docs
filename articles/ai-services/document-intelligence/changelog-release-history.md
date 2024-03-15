@@ -36,10 +36,14 @@ This reference article provides a version-based description of Document Intellig
 
 [**Samples**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/documentintelligence/Azure.AI.DocumentIntelligence/samples/README.md)
 
+[**Migration guide**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/documentintelligence/Azure.AI.DocumentIntelligence/MigrationGuide.md)
+
 ### [**Java**](#tab/java)
 
 * Document Intelligence **1.0.0-beta.1**
 * **Targets REST API 2023-10-31-preview by default**
+
+[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-documentintelligence_1.0.0-beta.1/sdk/documentintelligence/azure-ai-documentintelligence/CHANGELOG.md#100-beta1-2023-11-16)
 
 [**Package (MVN)**](https://mvnrepository.com/artifact/com.azure/azure-ai-documentintelligence/1.0.0-beta.1)
 
@@ -47,27 +51,37 @@ This reference article provides a version-based description of Document Intellig
 
 [**Samples**](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-documentintelligence_1.0.0-beta.1/sdk/documentintelligence/azure-ai-documentintelligence/src/samples#examples)
 
+[**Migration guide**](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/documentintelligence/azure-ai-documentintelligence/MIGRATION_GUIDE.md)
+
 ### [**JavaScript**](#tab/javascript)
 
 * Document Intelligence **1.0.0-beta.1**
 * **Targets REST API 2023-10-31-preview by default**
 
+[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/documentintelligence/ai-document-intelligence-rest/CHANGELOG.md#100-beta1-2023-11-16)
+
 [**Package (npm)**](https://www.npmjs.com/package/@azure-rest/ai-document-intelligence)
 
 [**ReadMe**](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/documentintelligence/ai-document-intelligence-rest#readme)
 
-[**Samples**](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/documentintelligence/ai-document-intelligence-rest/samples/v1-beta/typescript)
+[**Samples**](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/documentintelligence/ai-document-intelligence-rest/samples/v1-beta/javascript)
+
+[**Migration guide**](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/documentintelligence/ai-document-intelligence-rest/MIGRATION-FR_v4-DI_v1.md)
 
 ### [**Python**](#tab/python)
 
 * Document Intelligence **1.0.0b1**
 * **Targets REST API 2023-10-31-preview by default**
 
+[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/documentintelligence/azure-ai-documentintelligence/CHANGELOG.md#100b1-2023-11-17)
+
 [**Package (PyPi)**](https://pypi.org/project/azure-ai-documentintelligence/)
 
-[**ReadMe**](https://github.com/Azure/azure-sdk-for-python/blob/7c42462ac662522a6fd21b17d2a20f4cd40d0356/sdk/documentintelligence/azure-ai-documentintelligence/README.md)
+[**ReadMe**](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/documentintelligence/azure-ai-documentintelligence/README.md)
 
-[**Samples**](https://github.com/Azure/azure-sdk-for-python/tree/7c42462ac662522a6fd21b17d2a20f4cd40d0356/sdk/documentintelligence/azure-ai-documentintelligence/samples)
+[**Samples**](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/documentintelligence/azure-ai-documentintelligence/samples)
+
+[**Migration guide**](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/documentintelligence/azure-ai-documentintelligence/MIGRATION_GUIDE.md)
 
 ---
 

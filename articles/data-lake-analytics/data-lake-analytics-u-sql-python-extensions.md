@@ -4,7 +4,7 @@ description: Learn how to run Python code in U-SQL scripts using Azure Data Lake
 ms.service: data-lake-analytics
 ms.reviewer: whhender
 ms.topic: how-to
-ms.date: 01/20/2023
+ms.date: 12/20/2023
 ms.custom: devx-track-python
 ---
 

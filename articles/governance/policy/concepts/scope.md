@@ -25,8 +25,8 @@ the definition location to target for assignment. The [resources covered by Azur
 
 If the definition location is a:
 
-- **Subscription** - Only resources within that subscription can be assigned the policy definition.
-- **Management group** - Only resources within child management groups and child subscriptions can
+- **Subscription** - The subscription where policy is defined and resources within that subscription can be assigned the policy definition.
+- **Management group** - The management group where the policy is defined and resources within child management groups and child subscriptions can
   be assigned the policy definition. If you plan to apply the policy definition to several
   subscriptions, the location must be a management group that contains each subscription.
 

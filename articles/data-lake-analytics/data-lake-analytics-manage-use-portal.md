@@ -4,10 +4,12 @@ description: This article describes how to use the Azure portal to manage Data L
 ms.service: data-lake-analytics
 ms.reviewer: whhender
 ms.topic: how-to
-ms.date: 11/15/2022
+ms.date: 12/20/2023
 ms.custom: subject-rbac-steps
 ---
+
 # Manage Azure Data Lake Analytics using the Azure portal
+
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
 [!INCLUDE [retirement-flag-creation](includes/retirement-flag-creation.md)]
@@ -36,7 +38,6 @@ Before you delete a Data Lake Analytics account, delete its default Data Lake St
 2. Select **Delete**.
 3. Type the account name.
 4. Select **Delete**.
-
 
 ## Manage data sources
 
@@ -69,7 +70,7 @@ If other Azure services, like Azure Data Factory or VMs, connect to the Data Lak
 
 ## Add a new user
 
-You can use the **Add User Wizard** to easily provision new Data Lake users.
+You can use the **Add User Wizard** to easily create new Data Lake users.
 
 1. In the Azure portal, go to your Data Lake Analytics account.
 2. On the left, under **Getting Started**, select **Add User Wizard**.

@@ -6,7 +6,7 @@ ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 10/20/2023
-ms.custom: subject-rbac-steps, ignite-2022
+ms.custom: subject-rbac-steps
 ---
 
 # Use managed identities to access Azure Cosmos DB from an Azure Stream Analytics job

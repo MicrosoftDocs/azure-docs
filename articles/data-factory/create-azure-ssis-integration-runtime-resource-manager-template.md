@@ -5,7 +5,7 @@ ms.service: data-factory
 ms.subservice: integration-services
 ms.custom: devx-track-arm-template
 ms.topic: conceptual
-ms.date: 04/12/2023
+ms.date: 01/05/2024
 author: chugugrace
 ms.author: chugu 
 ---

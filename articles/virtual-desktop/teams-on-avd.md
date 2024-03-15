@@ -5,14 +5,13 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 12/06/2023
 ms.author: helohr
-manager: femila
 ---
 # Use Microsoft Teams on Azure Virtual Desktop
 
 Microsoft Teams on Azure Virtual Desktop supports chat and collaboration. With media optimizations, it also supports calling and meeting functionality by redirecting it to the local device when using a supported Remote Desktop client. You can still use Microsoft Teams on Azure Virtual Desktop with other clients without optimized calling and meetings. Teams chat and collaboration features are supported on all platforms.
 
 > [!TIP]
-> The new Microsoft Teams app is now generally available to use with Azure Virtual Desktop, with feature parity with the classic Teams app and improved performance, reliability, and security. You can still use the [classic Microsoft Teams app with Azure Virtual Desktop](/microsoftteams/teams-for-vdi) until June 30th, 2024, after which you'll need to use the new Microsoft Teams app. To learn more about how to use Microsoft Teams in Virtual Desktop Infrastructure (VDI) environments, see [Teams for Virtualized Desktop Infrastructure](/microsoftteams/new-teams-vdi-requirements-deploy/).
+> The new Microsoft Teams app is now generally available to use with Azure Virtual Desktop, with feature parity with the classic Teams app and improved performance, reliability, and security. You can still use the [classic Microsoft Teams app with Azure Virtual Desktop](/microsoftteams/teams-for-vdi) until **June 30th, 2024**, after which you'll need to use the new Microsoft Teams app. To learn more about how to use Microsoft Teams in Virtual Desktop Infrastructure (VDI) environments, see [Teams for Virtualized Desktop Infrastructure](/microsoftteams/new-teams-vdi-requirements-deploy/).
 
 ## Prerequisites
 
@@ -30,9 +29,11 @@ Before you can use Microsoft Teams on Azure Virtual Desktop, you'll need to do t
 
 Media optimization for Microsoft Teams is only available for the following clients:
 
-- [Remote Desktop client for Windows](users/connect-windows.md) or the [Azure Virtual Desktop app](users/connect-windows-azure-virtual-desktop-app.md), version 1.2.1026.0 or later.
+- [Remote Desktop client for Windows](users/connect-windows.md) or the [Azure Virtual Desktop app](users/connect-windows-azure-virtual-desktop-app.md), version 1.2.1026.0 or later, including ARM64-based devices.
 
 - [Remote Desktop client for macOS](users/connect-macos.md), version 10.7.7 or later.
+
+- [Windows App](/windows-app/get-started-connect-devices-desktops-apps).
 
 For more information about which features Teams on Azure Virtual Desktop supports and minimum required client versions, see [Supported features for Teams on Azure Virtual Desktop](teams-supported-features.md).
 

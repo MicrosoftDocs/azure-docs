@@ -117,9 +117,9 @@ This section contains instructions for creating or finding your credentials for 
 
 #### Credentials for Microsoft Defender Threat Intelligence
 
-1. The Microsoft Defender Threat Intelligence widget should fetch the data automatically if you have the relevant Microsoft Defender Threat Intelligence license. There is no need for credentials.
+1. The Microsoft Defender Threat Intelligence widget should fetch the data automatically if you have the relevant [Microsoft Defender Threat Intelligence](https://www.microsoft.com/security/business/siem-and-xdr/microsoft-defender-threat-intelligence) license. There is no need for credentials.
 
-1. You can check if you have the relevant license, and if necessary, purchase it, at the [Microsoft Defender Threat Intelligence official website](https://www.microsoft.com/security/business/siem-and-xdr/microsoft-defender-threat-intelligence).
+1. If you don't have the proper license, [contact the Microsoft Security team](https://info.microsoft.com/ww-landing-security-generic-contact-me.html?culture=en-us&country=ww) for guidance.
 
 ## Add new widgets when they become available
 

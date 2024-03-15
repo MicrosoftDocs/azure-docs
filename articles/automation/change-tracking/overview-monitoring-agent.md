@@ -3,7 +3,7 @@ title: Azure Automation Change Tracking and Inventory overview using Azure Monit
 description: This article describes the Change Tracking and Inventory feature using Azure monitoring agent, which helps you identify software and Microsoft service changes in your environment.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 10/02/2023
+ms.date: 12/14/2023
 ms.topic: conceptual
 ---
 
@@ -23,11 +23,11 @@ This article explains on the latest version of change tracking support using Azu
 
 ## Key benefits
 
-- **Compatibility with the unified monitoring agent** - Compatible with the [Azure Monitor Agent (Preview)](../../azure-monitor/agents/agents-overview.md) that enhances security, reliability, and facilitates multi-homing experience to store data.
+- **Compatibility with the unified monitoring agent** - Compatible with the [Azure Monitor Agent](../../azure-monitor/agents/agents-overview.md) that enhances security, reliability, and facilitates multi-homing experience to store data.
 - **Compatibility with tracking tool**- Compatible with the Change tracking (CT) extension deployed through the Azure Policy on the client's virtual machine. You can switch to Azure Monitor Agent (AMA), and then the CT extension pushes the software, files, and registry to AMA.
 - **Multi-homing experience** – Provides standardization of management from one central workspace. You can [transition from Log Analytics (LA) to AMA](../../azure-monitor/agents/azure-monitor-agent-migration.md)
 so that all VMs point to a single workspace for data collection and maintenance.
-- **Rules management** – Uses [Data Collection Rules](https://azure.microsoft.com/updates/azure-monitor-agent-and-data-collection-rules-public-preview/) to configure or customize various aspects of data collection. For example, you can change the frequency of file collection.
+- **Rules management** – Uses [Data Collection Rules](../../azure-monitor/essentials/data-collection-rule-overview.md) to configure or customize various aspects of data collection. For example, you can change the frequency of file collection.
 
 ## Current limitations
 
@@ -45,7 +45,7 @@ Change Tracking and Inventory using Azure Monitoring Agent doesn't support or ha
 - If you modify a configuration while a machine or server is shut down, it might post changes belonging to the previous configuration.
 - Collecting Hotfix updates on Windows Server 2016 Core RS3 machines.
 - Linux daemons might show a changed state even though no change has occurred. This issue arises because of how the `SvcRunLevels` data in the Azure Monitor [ConfigurationChange](/azure/azure-monitor/reference/tables/configurationchange) table is written. 
-
+- Change Tracking extension doesn't support any hardening standards for any Linux Operating systems or Distros. 
 
 ## Limits
 

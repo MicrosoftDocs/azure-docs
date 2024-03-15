@@ -3,7 +3,7 @@ title: Concepts - Storage in Azure Kubernetes Services (AKS)
 description: Learn about storage in Azure Kubernetes Service (AKS), including volumes, persistent volumes, storage classes, and claims.
 ms.topic: conceptual
 ms.date: 08/30/2023
-
+ms.subservice: aks-storage
 ---
 
 # Storage options for applications in Azure Kubernetes Service (AKS)
@@ -150,7 +150,7 @@ The StorageClass also defines the *reclaimPolicy*. When you delete the persisten
 
 For clusters using the [Container Storage Interface (CSI) drivers][csi-storage-drivers] the following extra `StorageClasses` are created:
 
-| Permission | Reason |
+| Storage class | Description |
 |---|---|
 | `managed-csi` | Uses Azure StandardSSD locally redundant storage (LRS) to create a Managed Disk. The reclaim policy ensures that the underlying Azure Disk is deleted when the persistent volume that used it's deleted. The storage class also configures the persistent volumes to be expandable, you just need to edit the persistent volume claim with the new size. |
 | `managed-csi-premium` | Uses Azure Premium locally redundant storage (LRS) to create a Managed Disk. The reclaim policy again ensures that the underlying Azure Disk is deleted when the persistent volume that used it's deleted. Similarly, this storage class allows for persistent volumes to be expanded. |

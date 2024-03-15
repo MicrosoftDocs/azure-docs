@@ -3,7 +3,7 @@ title: Reliability in Azure Backup
 description: Learn about reliability in Azure Backup
 author: anaharris-ms
 ms.author: anaharris
-ms.topic: overview
+ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: backup
 ms.date: 10/18/2023
@@ -40,7 +40,7 @@ The following table lists the various datasources that each vault supports:
 |Azure Virtual Machine| Azure Disks|
 |SQL in Azure VM| Azure Blobs|
 |Azure Files| Azure Database for PostgreSQL server|
-|SAP HANA in Azure V| Kubernetes services (preview)|
+|SAP HANA in Azure VM| Kubernetes services |
 |Azure Backup server| |
 |Azure Backup agent| |
 |Data Protection Manager (DPM)| |

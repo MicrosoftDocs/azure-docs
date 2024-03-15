@@ -2,13 +2,13 @@
 title: Batch synthesis properties - Speech service
 titleSuffix: Azure AI services
 description: Learn about the batch synthesis properties that are available for text to speech avatar. 
-author: sally-baolian
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 11/15/2023
-ms.author: v-baolianzou
-keywords: text to speech avatar batch synthesis
+ms.date: 2/24/2024
+ms.reviewer: v-baolianzou
+ms.author: eur
+author: eric-urban
 ---
 
 # Batch synthesis properties for text to speech avatar (preview)
@@ -29,7 +29,7 @@ The following table describes the avatar properties.
 | properties.talkingAvatarStyle             | The style name of the talking avatar.<br/><br/>The supported avatar styles can be found [here](avatar-gestures-with-ssml.md#supported-pre-built-avatar-characters-styles-and-gestures).<br/><br/>This property is required for prebuilt avatar, and optional for customized avatar.|
 | properties.customized                     | A bool value indicating whether the avatar to be used is customized avatar or not. True for customized avatar, and false for prebuilt avatar.<br/><br/>This property is optional, and the default value is `false`.|
 | properties.videoFormat                    | The format for output video file, could be mp4 or webm.<br/><br/>The `webm` format is required for transparent background.<br/><br/>This property is optional, and the default value is mp4.|
-| properties.videoCodec                     | The codec for output video, could be h264, hevc or vp9.<br/><br/>Vp9 is required for transparent background.<br/><br/>This property is optional, and the default value is hevc.|
+| properties.videoCodec                     | The codec for output video, could be h264, hevc or vp9.<br/><br/>Vp9 is required for transparent background. The synthesis speed will be slower with vp9 codec, as vp9 encoding is slower.<br/><br/>This property is optional, and the default value is hevc.|
 | properties.kBitrate (bitrateKbps)          | The bitrate for output video, which is integer value, with unit kbps.<br/><br/>This property is optional, and the default value is 2000.|
 | properties.videoCrop                      | This property allows you to crop the video output, which means, to output a rectangle subarea of the original video. This property has two fields, which define the top-left vertex and bottom-right vertex of the rectangle.<br/><br/>This property is optional, and the default behavior is to output the full video.|
 | properties.videoCrop.topLeft              |The top-left vertex of the rectangle for video crop. This property has two fields x and y, to define the horizontal and vertical position of the vertex.<br/><br/>This property is required when properties.videoCrop is set.|

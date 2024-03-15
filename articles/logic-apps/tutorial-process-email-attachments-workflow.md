@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: tutorial
 ms.custom: "mvc, devx-track-csharp"
-ms.date: 03/08/2023
+ms.date: 01/04/2024
 ---
 
 # Tutorial: Create workflows that process emails using Azure Logic Apps, Azure Functions, and Azure Storage

@@ -8,7 +8,7 @@ ms.date: 03/05/2023
 ms.topic: conceptual
 ms.service: sap-on-azure
 ms.subservice: sap-automation
-ms.custom: devx-track-terraform
+ms.custom:
 ---
 
 # Configure the control plane
@@ -16,9 +16,10 @@ ms.custom: devx-track-terraform
 The control plane for [SAP Deployment Automation Framework](deployment-framework.md) consists of the following components:
 
  - Deployer
- - SAP library
+ - SAP Library
 
 :::image type="content" source="./media/deployment-framework/control-plane.png" alt-text="Diagram that shows the control plane.":::
+
 
 ## Deployer
 
@@ -26,7 +27,10 @@ The [deployer](deployment-framework.md#deployment-components) is the execution e
 
 The configuration of the deployer is performed in a Terraform `tfvars` variable file.
 
-## Terraform parameters
+If you want to use an existing resource group for the Deployer provide the Azure resource ID for the resource group using the `resource_group_arm_id` parameter in the deployer's tfvars file. If the parameter isn't defined, the resource group is created using the default naming. You can change the default name using the `resource_group_name` parameter.
+
+
+### Terraform parameters
 
 This table shows the Terraform parameters. These parameters need to be entered manually if you aren't using the deployment scripts.
 
@@ -143,13 +147,14 @@ xxx_vm_image  = {
 This section defines the parameters used for defining the VM authentication.
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                                         | Description                                         | Type      |
-> | ------------------------------------------------ | --------------------------------------------------- | --------- |
-> | `deployer_vm_authentication_type`                | Defines the default authentication for the deployer | Optional  |
-> | `deployer_authentication_username`               | Administrator account name                          | Optional  |
-> | `deployer_authentication_password`               | Administrator password                              | Optional  |
-> | `deployer_authentication_path_to_public_key`     | Path to the public key used for authentication      | Optional  |
-> | `deployer_authentication_path_to_private_key`    | Path to the private key used for authentication     | Optional  |
+> | Variable                                         | Description                                                                              | Type      |
+> | ------------------------------------------------ | ---------------------------------------------------------------------------------------- | --------- | 
+> | `deployer_vm_authentication_type`                | Defines the default authentication for the deployer                                      | Optional  |
+> | `deployer_authentication_username`               | Administrator account name                                                               | Optional  |
+> | `deployer_authentication_password`               | Administrator password                                                                   | Optional  |
+> | `deployer_authentication_path_to_public_key`     | Path to the public key used for authentication                                           | Optional  |
+> | `deployer_authentication_path_to_private_key`    | Path to the private key used for authentication                                          | Optional  |
+> | `use_spn`                                        | If defined the deployment will be performed using a Service Principal, otherwise an MSI  | Optional  |
 
 ### Key vault parameters
 
@@ -181,13 +186,15 @@ This section defines the parameters used for defining the Azure Key Vault inform
 ### Other parameters
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                                     | Description                                                            | Type        | Notes                         |
-> | -------------------------------------------- | ---------------------------------------------------------------------- | ----------- | ----------------------------- |
-> | `firewall_deployment`	                       | Boolean flag that controls if an Azure firewall is to be deployed.        | Optional    |                               |
-> | `bastion_deployment`	                       | Boolean flag that controls if Azure Bastion host is to be deployed.       | Optional    |                               |
-> | `bastion_sku`	                               | SKU for Azure Bastion host to be deployed (Basic/Standard).             | Optional    |                               |
-> | `enable_purge_control_for_keyvaults`         | Boolean flag that controls if purge control is enabled on the key vault. | Optional    | Use only for test deployments. |
-> | `enable_firewall_for_keyvaults_and_storage`  | Restrict access to selected subnets.                                    | Optional    |
+> | Variable                                     | Description                                                                  | Type        | Notes                         |
+> | -------------------------------------------- | ---------------------------------------------------------------------------- | ----------- | ----------------------------- |
+> | `firewall_deployment`	                       | Boolean flag that controls if an Azure firewall is to be deployed.           | Optional    |                               |
+> | `bastion_deployment`	                       | Boolean flag that controls if Azure Bastion host is to be deployed.          | Optional    |                               |
+> | `bastion_sku`	                               | SKU for Azure Bastion host to be deployed (Basic/Standard).                  | Optional    |                               |
+> | `enable_purge_control_for_keyvaults`         | Boolean flag that controls if purge control is enabled on the key vault.     | Optional    | Use only for test deployments. |
+> | `enable_firewall_for_keyvaults_and_storage`  | Restrict access to selected subnets.                                         | Optional    |
+> | `Agent_IP`                                   | IP address of the agent.                                                     | Optional    |
+> | `add_Agent_IP`                               | Controls if Agent IP is added to the key vault and storage account firewalls | Optional    |
 
 ### Web App parameters
 
@@ -232,6 +239,9 @@ bastion_deployment=true
 The [SAP library](deployment-framework.md#deployment-components) provides the persistent storage of the Terraform state files and the downloaded SAP installation media for the control plane.
 
 The configuration of the SAP library is performed in a Terraform `tfvars` variable file.
+
+If you want to use an existing resource group for the SAP Library provide the Azure resource ID for the resource group using the `resource_group_arm_id` parameter in the deployer's tfvars file. If the parameter isn't defined, the resource group is created using the default naming. You can change the default name using the `resource_group_name` parameter.
+
 
 ### Terraform parameters
 
@@ -312,4 +322,4 @@ location = "westeurope"
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Configure SAP system](configure-system.md)
+> [Configure SAP system](configure-workload-zone.md)

@@ -3,13 +3,13 @@ title: How to create Custom sentiment analysis projects
 titleSuffix: Azure AI services
 description: Learn about the steps for using Azure resources with Custom sentiment analysis.
 #services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: how-to
-ms.date: 07/19/2023
-ms.author: aahi
-ms.custom: language-service-custom-classification, references_regions, ignite-fall-2021, event-tier1-build-2022
+ms.date: 12/19/2023
+ms.author: jboback
+ms.custom: language-service-custom-classification, references_regions
 ---
 
 # How to create Custom sentiment analysis project

@@ -4,19 +4,19 @@ description: Learn how to add session hosts virtual machines to a host pool in A
 ms.topic: how-to
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 11/16/2023
+ms.date: 01/24/2024
 ---
 
 # Add session hosts to a host pool
 
 > [!IMPORTANT]
-> Using Azure Stack HCI with Azure Virtual Desktop is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Azure Virtual Desktop for Azure Stack HCI is currently in preview for Azure Government and Azure China. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Once you've created a host pool, workspace, and an application group, you need to add session hosts to the host pool for your users to connect to. You may also need to add more session hosts for extra capacity.
 
 You can create new virtual machines (VMs) to use as session hosts and add them to a host pool natively using the Azure Virtual Desktop service in the Azure portal. Alternatively you can also create VMs outside of the Azure Virtual Desktop service, such as with an automated pipeline, then add them as session hosts to a host pool. When using Azure CLI or Azure PowerShell you'll need to create the VMs outside of Azure Virtual Desktop, then add them as session hosts to a host pool separately.
 
-For Azure Stack HCI (preview), you can also create new VMs to use as session hosts and add them to a host pool natively using the Azure Virtual Desktop service in the Azure portal. Alternatively, if you want to create the VMs outside of the Azure Virtual Desktop service, see [Create Arc virtual machines on Azure Stack HCI](/azure-stack/hci/manage/create-arc-virtual-machines), then add them as session hosts to a host pool separately.
+For Azure Stack HCI, you can also create new VMs to use as session hosts and add them to a host pool natively using the Azure Virtual Desktop service in the Azure portal. Alternatively, if you want to create the VMs outside of the Azure Virtual Desktop service, see [Create Arc virtual machines on Azure Stack HCI](/azure-stack/hci/manage/create-arc-virtual-machines), then add them as session hosts to a host pool separately.
 
 This article shows you how to generate a registration key using the Azure portal, Azure CLI, or Azure PowerShell, then how to add session hosts to a host pool using the Azure Virtual Desktop service or add them to a host pool separately.
 
@@ -47,6 +47,8 @@ Review the [Prerequisites for Azure Virtual Desktop](prerequisites.md) for a gen
    - A stable connection to Azure from your on-premises network.
 
    - At least one Windows OS image available on the cluster. For more information, see how to [create VM images using Azure Marketplace images](/azure-stack/hci/manage/virtual-machine-image-azure-marketplace), [use images in Azure Storage account](/azure-stack/hci/manage/virtual-machine-image-storage-account), and [use images in local share](/azure-stack/hci/manage/virtual-machine-image-local-share).
+
+   - If you create VMs on Azure Stack HCI outside of the Azure Virtual Desktop service, such as with an automated pipeline, then add them as session hosts to a host pool, you need to install the [Azure Connected Machine agent](../azure-arc/servers/agent-overview.md) on the virtual machines so they can communicate with [Azure Instance Metadata Service](../virtual-machines/instance-metadata-service.md), which is a [required endpoint for Azure Virtual Desktop](../virtual-desktop/required-fqdn-endpoint.md).
 
 - If you want to use Azure CLI or Azure PowerShell locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [desktopvirtualization](/cli/azure/desktopvirtualization) Azure CLI extension or the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
 
@@ -167,10 +169,10 @@ Here's how to create session hosts and register them to a host pool using the Az
       | Security type | Select from **Standard**, **[Trusted launch virtual machines](../virtual-machines/trusted-launch.md)**, or **[Confidential virtual machines](../confidential-computing/confidential-vm-overview.md)**.<br /><br />- If you select **Trusted launch virtual machines**, options for **secure boot** and **vTPM** are automatically selected.<br /><br />- If you select **Confidential virtual machines**, options for **secure boot**, **vTPM**, and **integrity monitoring** are automatically selected. You can't opt out of vTPM when using a confidential VM. |
       | Image | Select the OS image you want to use from the list, or select **See all images** to see more, including any images you've created and stored as an [Azure Compute Gallery shared image](../virtual-machines/shared-image-galleries.md) or a [managed image](../virtual-machines/windows/capture-image-resource.md). |
       | Virtual machine size | Select a SKU. If you want to use different SKU, select **Change size**, then select from the list. |
-      | Hibernate (preview) | Check the box to enable hibernate. Hibernate is only available for personal host pools. You will need to [self-register your subscription](../virtual-machines/hibernate-resume.md) to use the hibernation feature. For more information, see [Hibernation in virtual machines](/azure/virtual-machines/hibernate-resume). <br /><br />Note: We recommend users using Teams media optimizations to upgrade their host pools to WebRTC redirector service 1.45.2310.13001, learn more [here](whats-new-webrtc.md).|   
+      | Hibernate (preview) | Check the box to enable hibernate. Hibernate is only available for personal host pools. You will need to self-register your subscription to use the hibernation feature. For more information, see [Hibernation in virtual machines](/azure/virtual-machines/hibernate-resume). If you're using Teams media optimizations you should update the [WebRTC redirector service to 1.45.2310.13001](whats-new-webrtc.md#updates-for-version-145231013001).|   
       | Number of VMs | Enter the number of virtual machines you want to deploy. You can deploy up to 400 session hosts at this point if you wish (depending on your [subscription quota](../quotas/view-quotas.md)), or you can add more later.<br /><br />For more information, see [Azure Virtual Desktop service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-virtual-desktop-service-limits) and [Virtual Machines limits](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits---azure-resource-manager). |
       | OS disk type | Select the disk type to use for your session hosts. We recommend only **Premium SSD** is used for production workloads. |
-      | OS disk size | If you have hibernate enabled, the OS disk size needs to be larger than the amount of memory for the VM. Check the box if you need this for your session hosts. |
+      | OS disk size | Select a size for the OS disk.<br /><br />If you enable hibernate, ensure the OS disk is large enough to store the contents of the memory in addition to the OS and other applications. |
       | Confidential computing encryption | If you're using a confidential VM, you must select the **Confidential compute encryption** check box to enable OS disk encryption.<br /><br />This check box only appears if you selected **Confidential virtual machines** as your security type. |
       | Boot Diagnostics | Select whether you want to enable [boot diagnostics](../virtual-machines/boot-diagnostics.md). |
       | **Network and security** |  |
@@ -193,7 +195,7 @@ Here's how to create session hosts and register them to a host pool using the Az
       |--|--|
       | Resource group | This automatically defaults to the resource group you chose your host pool to be in on the *Basics* tab, but you can also select an alternative. |
       | Name prefix | Enter a name for your session hosts, for example **hp01-sh**.<br /><br />This value is used as the prefix for your session hosts. Each session host has a suffix of a hyphen and then a sequential number added to the end, for example **hp01-sh-0**.<br /><br />This name prefix can be a maximum of 11 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
-      | Virtual machine type | Select **Azure Stack HCI virtual machine (Preview)**. |
+      | Virtual machine type | Select **Azure Stack HCI virtual machine**. |
       | Custom location | Select the Azure Stack HCI cluster where you want to deploy your session hosts from the drop-down list. |
       | Images | Select the OS image you want to use from the list, or select **Manage VM images** to manage the images available on the cluster you selected. |
       | Number of VMs | Enter the number of virtual machines you want to deploy. You can add more later. |
@@ -248,7 +250,7 @@ Select the relevant tab for your scenario and follow the steps.
    - [Azure Virtual Desktop Agent Bootloader](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH)
 
    > [!TIP]
-   > This is the latest downloadable version of the Azure Virtual Desktop Agent in [non-validation environments](terminology.md#validation-environment). For more information about the rollout of new versions of the agent, see [What's new in the Azure Virtual Desktop Agent](whats-new-agent.md#latest-agent-versions).
+   > The Azure Virtual Desktop Agent download link is for the latest production version in [non-validation environments](terminology.md#validation-environment). This download link is updated once the automatic production rollout is complete, so you might see a delay between a production version being released and the download link being updated. Once the Azure Virtual Desktop Agent is installed, it's updated automatically. For more information about the rollout of new versions of the agent, see [What's new in the Azure Virtual Desktop Agent](whats-new-agent.md#latest-available-versions).
 
 1. Run the `Microsoft.RDInfra.RDAgent.Installer-x64-<version>.msi` file to install the Remote Desktop Services Infrastructure Agent.
 
@@ -304,7 +306,7 @@ Using `msiexec` enables you to install the agent and boot loader from the comman
    ```
 
    > [!TIP]
-   > This is the latest downloadable version of the Azure Virtual Desktop Agent in [non-validation environments](terminology.md#validation-environment). For more information about the rollout of new versions of the agent, see [What's new in the Azure Virtual Desktop Agent](whats-new-agent.md#latest-agent-versions).
+   > This is the latest downloadable version of the Azure Virtual Desktop Agent in [non-validation environments](terminology.md#validation-environment). For more information about the rollout of new versions of the agent, see [What's new in the Azure Virtual Desktop Agent](whats-new-agent.md#latest-available-versions).
 
 1. To install the Remote Desktop Services Infrastructure Agent, run the following command as an administrator:
 

@@ -5,6 +5,7 @@ author: rothja
 ms.author: jroth
 ms.reviewer: maghan
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ms.date: 12/01/2023

@@ -4,12 +4,12 @@ description: Learn how to use alerts to receive notifications. Also learn how to
 ms.topic: how-to
 ms.custom: engagement-fy23
 ms.service: azure-vmware
-ms.date: 10/26/2022
+ms.date: 12/05/2023
 ---
 
 # Configure Azure Alerts in Azure VMware Solution 
 
-In this article, you'll learn how to configure [Azure Action Groups](../azure-monitor/alerts/action-groups.md) in [Microsoft Azure Alerts](../azure-monitor/alerts/alerts-overview.md) to receive notifications of triggered events that you define. You'll also learn about using [Azure Monitor Metrics](../azure-monitor/essentials/data-platform-metrics.md) to gain deeper insights into your Azure VMware Solution private cloud.
+In this article, learn how to configure [Azure Action Groups](../azure-monitor/alerts/action-groups.md) in [Microsoft Azure Alerts](../azure-monitor/alerts/alerts-overview.md) to receive notifications of triggered events that you define. Also learn about using [Azure Monitor Metrics](../azure-monitor/essentials/data-platform-metrics.md) to gain deeper insights into your Azure VMware Solution private cloud.
 
 >[!NOTE]
 >Incidents affecting the availability of an Azure VMware Solution host and its corresponding restoration are sent automatically to the Account Administrator, Service Administrator (Classic Permission), Co-Admins (Classic Permission), and Owners (RBAC Role) of the subscription(s) containing Azure VMware Solution private clouds.
@@ -46,17 +46,17 @@ The following metrics are visible through Azure Monitor Metrics.
     
    :::image type="content" source="../devtest-labs/media/activity-logs/create-alert-rule-done.png" alt-text="Screenshot showing the Create alert rule window." lightbox="../devtest-labs/media/activity-logs/create-alert-rule-done.png":::
 
-1. Under **Scope**, select the target resource you want to monitor. By default, the Azure VMware Solution private cloud from where you opened the Alerts menu has been defined.
+1. Under **Scope**, select the target resource you want to monitor. By default, the Azure VMware Solution private cloud from where you opened the Alerts menu is defined.
 
 1. Under **Condition**, select **Add condition**, and in the window that opens, selects the signal you want to create for the alert rule. 
 
-   In our example, we've selected **Percentage Datastore Disk Used**, which is relevant from an [Azure VMware Solution SLA](https://azure.microsoft.com/support/legal/sla/azure-vmware/v1_1/) perspective. 
+   In our example, we selected **Percentage Datastore Disk Used**, which is relevant from an [Azure VMware Solution SLA](https://azure.microsoft.com/support/legal/sla/azure-vmware/v1_1/) perspective. 
 
-   :::image type="content" source="media/configure-alerts-for-azure-vmware-solution/configure-signal-logic-options.png" alt-text="Screenshot showing the Configure signal logic window with signals to create for the alert rule."::: 
+   :::image type="content" source="media/configure-alerts-for-azure-vmware-solution/configure-signal-logic-options.png" alt-text="Screenshot shows the Configured signal logic window with signals to create for the alert rule."::: 
 
-1. Define the logic that will trigger the alert and then select **Done**. 
+1. Define the logic that triggers the alert and then select **Done**. 
 
-   In our example, only the **Threshold** and **Frequency of evaluation** have been adjusted. 
+   In our example, only the **Threshold** and **Frequency of evaluation** were adjusted. 
    
    :::image type="content" source="media/configure-alerts-for-azure-vmware-solution/define-alert-logic-threshold.png" alt-text="Screenshot showing the threshold, operator, aggregation type and granularity, threshold value, and frequency of evaluation for the signal alert logic."::: 
 
@@ -95,7 +95,7 @@ The following metrics are visible through Azure Monitor Metrics.
 
    :::image type="content" source="media/configure-alerts-for-azure-vmware-solution/threshold-alert.png" alt-text="Screenshot showing the alert after reaching the threshold defined in the alert rule." lightbox="media/configure-alerts-for-azure-vmware-solution/threshold-alert.png":::     
 
-   Depending on the configured Action Group, you'll receive a notification through the configured medium. In our example, we've configured email.
+   Depending on the configured Action Group, you receive a notification through the configured medium. In our example, we configured email.
     
    :::image type="content" source="media/configure-alerts-for-azure-vmware-solution/alert-notification.png" alt-text="Screenshot of an Azure Monitor Alert with the error string, and the date and time event was triggered."::: 
 
@@ -116,7 +116,7 @@ The following metrics are visible through Azure Monitor Metrics.
  
 ## Next steps
 
-Now that you've configured an alert rule for your Azure VMware Solution private cloud, you may want to learn even more about:
+Now that you configured an alert rule for your Azure VMware Solution private cloud, you can learn more about:
 - [Azure Monitor Metrics](../azure-monitor/essentials/data-platform-metrics.md)
 - [Azure Monitor Alerts](../azure-monitor/alerts/alerts-overview.md)
 - [Azure Action Groups](../azure-monitor/alerts/action-groups.md)

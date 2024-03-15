@@ -1,8 +1,8 @@
 ---
-title: Reliability in Azure Lab Services 
+title: Reliability in Azure Lab Services
 description: Learn about reliability in Azure Lab Services
 ms.topic: overview
-ms.custom: subject-resiliency, references_regions, ignite-2022
+ms.custom: subject-resiliency, references_regions
 ms.date: 08/18/2022
 ---
 

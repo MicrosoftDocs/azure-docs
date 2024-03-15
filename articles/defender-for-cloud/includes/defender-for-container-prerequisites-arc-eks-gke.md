@@ -1,6 +1,5 @@
 ---
 ms.service: defender-for-cloud
-ms.custom: ignite-2022
 ms.topic: include
 ms.date: 07/27/2022
 ms.author: dacurwin
@@ -8,6 +7,9 @@ author: dcurwin
 ---
 
 ## Network requirements
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
 
 Validate the following endpoints are configured for outbound access so that the Defender agent can connect to Microsoft Defender for Cloud to send security data and events:
 
@@ -29,5 +31,3 @@ The following domains are only necessary if you're using a relevant OS. For exam
 
 You'll also need to validate the [Azure Arc-enabled Kubernetes network requirements](../../azure-arc/kubernetes/network-requirements.md).
 
-> [!TIP]
-> When using this extension with [AKS hybrid clusters provisioned from Azure](../../azure-arc/kubernetes/extensions.md#aks-hybrid-clusters-provisioned-from-azure-preview) you must set `--cluster-type` to use `provisionedClusters` and also add `--cluster-resource-provider microsoft.hybridcontainerservice` to the command. Installing Azure Arc extensions on AKS hybrid clusters provisioned from Azure is currently in preview.

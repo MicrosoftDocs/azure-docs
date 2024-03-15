@@ -77,7 +77,7 @@
       href: how-to-block-network-traffic-portal.md
     - name: Block network traffic -PowerShell
       href: how-to-block-network-traffic-powershell.md
-    - name: Protect high-risk network ports
+    - name: Protect high-risk network ports with security admin rules and exceptions
       href: how-to-block-high-risk-ports.md
   - name: Create a network topology
     items:

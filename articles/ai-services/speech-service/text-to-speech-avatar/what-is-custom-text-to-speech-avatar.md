@@ -2,13 +2,13 @@
 title: Custom text to speech avatar overview - Speech service
 titleSuffix: Azure AI services
 description: Get an overview of the custom text to speech avatar feature of speech service, which allows you to create a customized, one-of-a-kind synthetic talking avatar for your application.
-author: sally-baolian
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: overview
-ms.date: 11/15/2023
-ms.author: v-baolianzou
-keywords: custom text to speech avatar
+ms.date: 2/24/2024
+ms.reviewer: v-baolianzou
+ms.author: eur
+author: eric-urban
 ---
 
 # What is custom text to speech avatar? (preview)
@@ -60,7 +60,7 @@ The neural text to speech avatar models are trained using deep neural networks b
 
 The custom text to speech avatar can work with a prebuilt neural voice or custom neural voice as the avatar's voice. For more information, see [Avatar voice and language](./what-is-text-to-speech-avatar.md#avatar-voice-and-language).
 
-[Custom neural voice](../custom-neural-voice.md) and custom text to speech avatar are separate features. You can use them independently or together. If you plan to also use [custom neural voice](../custom-neural-voice.md) with a text to speech avatar, you need to deploy or [copy](../how-to-custom-voice-create-voice.md#copy-your-voice-model-to-another-project) your custom neural voice model to one of the [avatar supported regions](./what-is-text-to-speech-avatar.md#available-locations).
+[Custom neural voice](../custom-neural-voice.md) and custom text to speech avatar are separate features. You can use them independently or together. If you plan to also use [custom neural voice](../custom-neural-voice.md) with a text to speech avatar, you need to deploy or [copy](../professional-voice-train-voice.md#copy-your-voice-model-to-another-project) your custom neural voice model to one of the [avatar supported regions](./what-is-text-to-speech-avatar.md#available-locations).
 
 ## Next steps
 

@@ -11,14 +11,14 @@ ms.custom:
   - devx-track-python
   - ignite-2023
 ms.topic: quickstart
-ms.date: 11/05/2023
+ms.date: 03/11/2024
 ---
 
 # Quickstart: Semantic ranking with .NET or Python
 
-In Azure AI Search, [semantic ranking](semantic-search-overview.md) is query-side functionality that uses AI from Microsoft to rescore search results, moving results that have more semantic relevance to the top of the list. Depending on the content and the query, semantic ranking can [significantly improve search relevance](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/azure-cognitive-search-outperforming-vector-search-with-hybrid/ba-p/3929167), with minimal work for the developer.
+In Azure AI Search, [semantic ranking](semantic-search-overview.md) is query-side functionality that uses machine reading comprehension from Microsoft to rescore search results, promoting the most semantically relevant matches to the top of the list. Depending on the content and the query, semantic ranking can [significantly improve search relevance](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/azure-cognitive-search-outperforming-vector-search-with-hybrid/ba-p/3929167), with minimal work for the developer.
 
-This quickstart walks you through the query modifications that invoke semantic ranking.
+This quickstart walks you through the index and query modifications that invoke semantic ranking.
 
 > [!NOTE]
 > Looking for an Azure AI Search solution with ChatGPT interaction? See [this demo](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/README.md) or [this accelerator](https://github.com/Azure-Samples/chat-with-your-data-solution-accelerator) for details.
@@ -29,9 +29,7 @@ This quickstart walks you through the query modifications that invoke semantic r
 
 + Azure AI Search, at Basic tier or higher, with [semantic ranking enabled](semantic-how-to-enable-disable.md).
 
-+ An API key and search service endpoint:
-
-  Sign in to the [Azure portal](https://portal.azure.com) and [find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
++ An API key and search service endpoint. Sign in to the [Azure portal](https://portal.azure.com) and [find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
 
   In **Overview**, copy the URL and save it to Notepad for a later step. An example endpoint might look like `https://mydemo.search.windows.net`.
 
@@ -43,11 +41,9 @@ This quickstart walks you through the query modifications that invoke semantic r
 
 To use semantic ranking, add a *semantic configuration* to a search index, and add parameters to a query. If you have an existing index, you can make these changes without having to reindex your content because there's no impact on the structure of your searchable content.
 
-+ A semantic configuration establishes a priority order for fields that contribute a title, keywords, and content used in semantic reranking. Field prioritization allows for faster processing.
++ A semantic configuration sets a priority order for fields that contribute a title, keywords, and content used in semantic reranking. Field prioritization allows for faster processing.
 
-+ Queries that invoke semantic ranking include parameters for query type, query language, and whether captions and answers are returned. You can add these parameters to your existing query logic. There's no conflict with other parameters.
-
-In this section, we assume the same small hotels index (four documents only) created in the [full text search quickstart](search-get-started-text.md). A small index with minimal content is suboptimal for semantic ranking, but the quickstarts include query logic for a broad range of clients, which is useful when the objective is to learn syntax.
++ Queries that invoke semantic ranking include parameters for query type and whether captions and answers are returned. You can add these parameters to your existing query logic. There's no conflict with other parameters.
 
 ### [**.NET**](#tab/dotnet)
 

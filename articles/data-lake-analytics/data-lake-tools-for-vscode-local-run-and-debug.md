@@ -4,8 +4,9 @@ description: Learn how to use Azure Data Lake Tools for Visual Studio Code to ru
 ms.service: data-lake-analytics
 ms.reviewer: whhender
 ms.topic: how-to
-ms.date: 01/23/2023
+ms.date: 12/20/2023
 ---
+
 # Run U-SQL and debug locally in Visual Studio Code
 
 [!INCLUDE [retirement-flag](includes/retirement-flag.md)]
@@ -63,7 +64,7 @@ For the first-time user:
 2. Install .NET Core SDK 2.0 as suggested in the message box, if not installed.
  
   ![reminder installs Dotnet](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/remind-install-dotnet.png)
-3. Install C# for Visual Studio Code as suggested in the message box if not installed. Select **Install** to continue, and then restart VSCode.
+3. Install C# for Visual Studio Code as suggested in the message box if not installed. Select **Install** to continue, and then restart VS Code.
 
 ![Reminder to install C#](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/install-csharp.png)
 
@@ -78,7 +79,7 @@ Follow steps below to perform local debug:
 
 ## Next steps
 * [Use the Azure Data Lake Tools for Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
-* [Develop U-SQL with Python, R, and C# for Azure Data Lake Analytics in VSCode](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
+* [Develop U-SQL with Python, R, and C# for Azure Data Lake Analytics in VS Code](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
 * [Get started with Data Lake Analytics using PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Get started with Data Lake Analytics using the Azure portal](data-lake-analytics-get-started-portal.md)
 * [Use Data Lake Tools for Visual Studio for developing U-SQL applications](data-lake-analytics-data-lake-tools-get-started.md)

@@ -5,14 +5,16 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: divyaswarnkar, estfan, tonytang, azla
 ms.topic: how-to
-ms.date: 08/15/2022
+ms.date: 01/04/2024
 
 # Customer intent: As a developer, I want to convert JSON and XML by using Liquid templates as maps in Azure Logic Apps
 ---
 
 # Transform JSON and XML using Liquid templates as maps in workflows using Azure Logic Apps
 
-When you want to perform basic JSON transformations in your logic app workflows, you can use built-in data operations, such as the **Compose** action or **Parse JSON** action. However, some scenarios might require advanced and complex transformations that include elements such as iterations, control flows, and variables. For transformations between JSON to JSON, JSON to text, XML to JSON, or XML to text, you can create a template that describes the required mapping or transformation using the Liquid open-source template language. You can select this template when you add a **Liquid** built-in action to your workflow. You can use **Liquid** actions in multi-tenant Consumption logic app workflows and single-tenant Standard logic app workflows.
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
+
+When you want to perform basic JSON transformations in your logic app workflows, you can use built-in data operations, such as the **Compose** action or **Parse JSON** action. However, some scenarios might require advanced and complex transformations that include elements such as iterations, control flows, and variables. For transformations between JSON to JSON, JSON to text, XML to JSON, or XML to text, you can create a template that describes the required mapping or transformation using the Liquid open-source template language. You can select this template when you add a **Liquid** built-in action to your workflow. You can use **Liquid** actions in multitenant Consumption logic app workflows and single-tenant Standard logic app workflows.
 
 While no **Liquid** triggers are available, you can use any trigger or action to feed the source JSON or XML content into your workflow. For example, you can use a built-in connector trigger, a managed or Azure-hosted connector trigger available for Azure Logic Apps, or even another app.
 
@@ -28,7 +30,7 @@ For more information, review the following documentation:
 * [Perform data operations in Azure Logic Apps](logic-apps-perform-data-operations.md)
 * [Liquid open-source template language](https://shopify.github.io/liquid/)
 * [Consumption versus Standard logic apps](logic-apps-overview.md#resource-environment-differences)
-* [Integration account built-in connectors](../connectors/built-in.md#integration-account-built-in)
+* [Integration account built-in connectors](../connectors/built-in.md#b2b-built-in-operations)
 * [Built-in connectors overview for Azure Logic Apps](../connectors/built-in.md)
 * [Managed or Azure-hosted connectors overview for Azure Logic Apps](../connectors/managed.md) and [Managed or Azure-hosted connectors in Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
 
@@ -38,7 +40,7 @@ For more information, review the following documentation:
 
 * Your logic app resource and workflow. Liquid operations don't have any triggers available, so your workflow has to minimally include a trigger. For more information, se the following documentation:
 
-  * [Create an example Consumption logic app workflow in multi-tenant Azure Logic Apps](quickstart-create-example-consumption-workflow.md)
+  * [Create an example Consumption logic app workflow in multitenant Azure Logic Apps](quickstart-create-example-consumption-workflow.md)
 
   * [Create an example Standard logic app workflow in single-tenant Azure Logic Apps](create-single-tenant-workflows-azure-portal.md)
 

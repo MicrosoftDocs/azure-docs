@@ -1,5 +1,5 @@
 ---
-description: In this tutorial, you learn how to use the Calling composite on iOS.
+description: Learn how to use the Calling composite on iOS.
 author: mbellah
 
 ms.author: mbellah
@@ -8,23 +8,25 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-Azure Communication UI [open source library](https://github.com/Azure/communication-ui-library-ios) for iOS and the sample application code can be found [here](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-calling)
+For more information, see the [open-source iOS UI Library](https://github.com/Azure/communication-ui-library-ios) and the [sample application code](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-calling).
 
 ### Available orientations
 
-The following is a table of `OrientationOptions` with out of the box orientations. If you want to set orientation of the different screens of the composite, set the `OrientationOptions` into `CallComposite`.
+The following table lists `OrientationOptions` types for out-of-the-box orientations. If you want to set the orientation of the various screens of the composite, set `OrientationOptions` to `CallComposite`.
 
-|Orientation Mode| OrientationOptions|
+|Orientation mode| OrientationOptions type|
 |---------|---------|
-|portrait | OrientationOptions.portrait|
-|landscape | OrientationOptions.landscape|
-|landscapeRight | OrientationOptions.landscapeRight|
-|landscapeLeft | OrientationOptions.landscapeLeft|
-|allButUpsideDown | OrientationOptions.allButUpsideDown|
+|`portrait` | `OrientationOptions.portrait`|
+|`landscape` | `OrientationOptions.landscape`|
+|`landscapeRight` | `OrientationOptions.landscapeRight`|
+|`landscapeLeft` | `OrientationOptions.landscapeLeft`|
+|`allButUpsideDown` | `OrientationOptions.allButUpsideDown`|
 
 ### Orientation API
 
-`OrientationOptions` is a custom type for UI Library for iOS. The name for the orientation type is defined by keeping similarity between iOS Platform's orientation mode names. By default, the setup screen orientation is set with `portrait` mode and calling screen is set with `allButUpsideDown` mode. To set a different orientation for the screens other than default one, developers can pass `OrientationOptions`. Out of the box, the UI Library includes a set of `OrientationOptions` usable with the composite.
+`OrientationOptions` is a custom type for the iOS UI Library. The name for the orientation type is defined by keeping similarity with the names of the iOS platform's orientation modes.
+
+By default, the setup screen orientation is in `portrait` mode and the calling screen is in `allButUpsideDown` mode. To set a different orientation for the screens, you can pass `OrientationOptions`. Out of the box, the UI Library includes a set of `OrientationOptions` types that are usable with the composite.
 
 ```swift
 

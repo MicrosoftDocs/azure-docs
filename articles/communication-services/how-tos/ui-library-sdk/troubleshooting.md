@@ -1,7 +1,7 @@
 ---
-title: Troubleshooting over the UI Library
+title: Troubleshoot the UI Library
 titleSuffix: An Azure Communication Services how-to guide
-description: Use Azure Communication Services UI Library for Mobile native to get debug information.
+description: Use the Azure Communication Services UI Library to get debug information.
 author: pavelprystinka
 ms.author: pprystinka
 ms.service: azure-communication-services
@@ -10,38 +10,40 @@ ms.custom: template-how-to
 ms.date: 11/23/2022
 zone_pivot_groups: acs-plat-web-ios-android
 
-#Customer intent: As a developer, I want to get debug information for troubleshooting 
+#Customer intent: As a developer, I want to get debug information for troubleshooting voice and video calls. 
 ---
 
-# Troubleshooting over the Calling UI Library
+# Troubleshoot the UI Library
 
-When troubleshooting happens for voice or video calls, you may be asked to provide a CallID; this ID is used to identify Communication Services calls.
+When you're troubleshooting voice or video calls, you might need to provide a call ID. This ID identifies Azure Communication Services calls. Each call can have multiple call IDs.
+
+In this article, you use the Azure Communication Services UI Library to get essential debugging information.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
-- A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../quickstarts/identity/access-tokens.md)
-- Optional: Complete the quickstart for [getting started with the UI Library composites](../../quickstarts/ui-library/get-started-composites.md)
+- A user access token to enable the call client. [Get a user access token](../../quickstarts/identity/access-tokens.md).
+- Optional: Completion of the [quickstart for getting started with the UI Library composites](../../quickstarts/ui-library/get-started-composites.md).
+
+## Set up troubleshooting
 
 ::: zone pivot="platform-web"
-> [!NOTE]
-> For detailed documentation and quickstarts about the Web UI Library visit the [**Web UI Library Storybook**](https://azure.github.io/communication-ui-library).
-### You can access the following link to learn more
-- [Troubleshooting](https://azure.github.io/communication-ui-library/?path=/docs/troubleshooting--page)
+For detailed documentation and quickstarts about the Web UI Library, see the [Web UI Library Storybook](https://azure.github.io/communication-ui-library).
+
+To learn more, see [Troubleshooting](https://azure.github.io/communication-ui-library/?path=/docs/troubleshooting--page) in the Web UI Library.
 ::: zone-end
 
 ::: zone pivot="platform-android"
-[!INCLUDE [Troubloshooting Android UI library](./includes/troubleshooting/android.md)]
+[!INCLUDE [Troubleshooting Android UI Library](./includes/troubleshooting/android.md)]
 ::: zone-end
 
 ::: zone pivot="platform-ios"
-[!INCLUDE [Troubloshooting over the iOS UI library](./includes/troubleshooting/ios.md)]
+[!INCLUDE [Troubleshooting over the iOS UI Library](./includes/troubleshooting/ios.md)]
 ::: zone-end
 
-User may find Call ID via the action bar on the bottom of the call screen. See more [Troubleshooting guide](../../concepts/ui-library/ui-library-use-cases.md?&pivots=platform-mobile#troubleshooting-guide)
+Users can also find the call ID via the action bar on the bottom of the call screen. For more information, see the [UI Library use cases](../../concepts/ui-library/ui-library-use-cases.md?&pivots=platform-mobile#troubleshooting-guide).
 
 ## Next steps
-
-- [Learn more about UI Library](../../concepts/ui-library/ui-library-overview.md)
-- [Learn more about UI Library Design Kit](../../quickstarts/ui-library/get-started-ui-kit.md)
+- [Learn more about the UI Library](../../concepts/ui-library/ui-library-overview.md)
+- [Learn more about the UI Library Design Kit](../../quickstarts/ui-library/get-started-ui-kit.md)

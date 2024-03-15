@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: 
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 04/12/2023
+ms.date: 01/05/2024
 ms.author: jburchel
 ---
 

@@ -2,8 +2,8 @@
 title: Support matrix for Azure Blobs backup
 description: Provides a summary of support settings and limitations when backing up Azure Blobs.
 ms.topic: conceptual
-ms.date: 02/20/2023
-ms.custom: references_regions
+ms.date: 09/18/2023
+ms.custom: references_regions, engagement-fy24
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick

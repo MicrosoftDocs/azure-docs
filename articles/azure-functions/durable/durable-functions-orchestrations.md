@@ -5,7 +5,8 @@ author: cgillum
 ms.topic: overview
 ms.date: 02/14/2023
 ms.author: azfuncdf
-ms.devlang: csharp, javascript, powershell, python, java
+ms.devlang: csharp
+# ms.devlang: csharp, javascript, powershell, python, java
 ms.custom: devx-track-js
 #Customer intent: As a developer, I want to understand durable orchestrations so that I can use them effectively in my applications.
 ---
@@ -431,7 +432,7 @@ public static async Task<object> RunOrchestrator(
 
 [FunctionName("CourseRecommendations")]
 public static async Task<object> Mapper(
-    [ActivityTrigger] (string Major, int UniversityYear) inputs, FunctionContext executionContext)
+    [ActivityTrigger] (string Major, int UniversityYear) studentInfo, FunctionContext executionContext)
 {
     // retrieve and return course recommendations by major and university year
     return new

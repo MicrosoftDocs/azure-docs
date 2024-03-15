@@ -8,9 +8,13 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: reference
-ms.date: 02/09/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer implementing user journeys in Azure AD B2C, I want to understand how to use sub journeys to organize and simplify the flow of orchestration steps, so that I can create reusable step sequences and implement branching to better represent the business logic.
+
 ---
 
 

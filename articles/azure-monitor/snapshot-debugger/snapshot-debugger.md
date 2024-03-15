@@ -165,11 +165,27 @@ For bug reports and feedback, [open an issue on GitHub](https://github.com/micro
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
+### [1.4.6](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.4.6)
+A point release to address a regression when using .NET 8 applications.
+
+#### Bug fixes
+- Exceptions thrown from dynamically generated methods (e.g. compiled expression trees) in .NET 8 are not being tracked correctly. Fixed.
+
+### [1.4.5](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.4.5)
+A point release to address a user-reported bug.
+
+#### Bug fixes
+- Fixed AccessViolationException when reading some PDBs.
+
+#### Changes
+- Added a ReadMe to the NuGet package.
+- Updated msdia140.dll.
+
 ### [1.4.4](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.4.4)
 A point release to address user-reported bugs.
 
 #### Bug fixes
-Fixed [Exception during native component extraction when using a single file application.](https://github.com/microsoft/ApplicationInsights-SnapshotCollector/issues/21)
+- Fixed [Exception during native component extraction when using a single file application.](https://github.com/microsoft/ApplicationInsights-SnapshotCollector/issues/21)
 
 #### Changes
 - Lowered PDB scan failure messages from Error to Warning.

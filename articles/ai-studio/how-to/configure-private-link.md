@@ -2,13 +2,14 @@
 title: How to configure a private link for Azure AI
 titleSuffix: Azure AI Studio
 description: Learn how to configure a private link for Azure AI
-author: eric-urban
-manager: nitinme
+manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom: ignite-2023, devx-track-azurecli
 ms.topic: how-to
-ms.date: 11/15/2023
-ms.author: eur
+ms.date: 02/13/2024
+ms.reviewer: jhirono
+ms.author: larryfr
+author: Blackmist
 ---
 
 # How to configure a private link for Azure AI
@@ -17,13 +18,14 @@ ms.author: eur
 
 We have two network isolation aspects. One is the network isolation to access an Azure AI. Another is the network isolation of computing resources in your Azure AI and Azure AI projects such as Compute Instance, Serverless and Managed Online Endpoint. This document explains the former highlighted in the diagram. You can use private link to establish the private connection to your Azure AI and its default resources.
 
-:::image type="content" source="../media/how-to/network/azure-ai-network-inbound.png" alt-text="Diagram of Azure AI network isolation." lightbox="../media/how-to/network/azure-ai-network-inbound.png":::
+:::image type="content" source="../media/how-to/network/azure-ai-network-inbound.svg" alt-text="Diagram of Azure AI network isolation." lightbox="../media/how-to/network/azure-ai-network-inbound.png":::
 
 You get several Azure AI default resources in your resource group. You need to configure following network isolation configurations.
 
-- Disable public network access flag of Azure AI default resources such as Storage, Key Vault, Container Registry. Azure AI services and Azure AI Search should be public.
+- Disable public network access flag of Azure AI default resources such as Storage, Key Vault, Container Registry.
 - Establish private endpoint connection to Azure AI default resource. Note that you need to have blob and file PE for the default storage account.
-- [Managed identity configurations](#managed-identity-configuration) to allow Azure AI resources access your storage account if it's private.
+- [Managed identity configurations](#managed-identity-configuration) to allow Azure AI hub resources access your storage account if it's private.
+- Azure AI services and Azure AI Search should be public.
 
 
 ## Prerequisites
@@ -37,11 +39,11 @@ You get several Azure AI default resources in your resource group. You need to c
 
 ## Create an Azure AI that uses a private endpoint
 
-Use one of the following methods to create an Azure AI resource with a private endpoint. Each of these methods __requires an existing virtual network__:
+Use one of the following methods to create an Azure AI hub resource with a private endpoint. Each of these methods __requires an existing virtual network__:
 
 # [Azure CLI](#tab/cli)
 
-Create your Azure AI resource with the Azure AI CLI. Run the following command and follow the prompts. For more information, see [Get started with Azure AI CLI](cli-install.md).
+Create your Azure AI hub resource with the Azure AI CLI. Run the following command and follow the prompts. For more information, see [Get started with Azure AI CLI](cli-install.md).
 
 ```azurecli-interactive
 ai init
@@ -275,4 +277,5 @@ See [this documentation](../../machine-learning/how-to-custom-dns.md#find-the-ip
 
 - [Create a project](create-projects.md)
 - [Learn more about Azure AI Studio](../what-is-ai-studio.md)
-- [Learn more about Azure AI resources](../concepts/ai-resources.md)
+- [Learn more about Azure AI hub resources](../concepts/ai-resources.md)
+- [Troubleshoot secure connectivity to a project](troubleshoot-secure-connection-project.md)

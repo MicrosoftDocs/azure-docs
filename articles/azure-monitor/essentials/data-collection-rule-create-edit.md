@@ -30,7 +30,7 @@ The following table lists methods to create data collection scenarios using the 
 |:---|:---|:---|
 | Azure Monitor Agent | [Configure data collection for Azure Monitor Agent](../agents/data-collection-rule-azure-monitor-agent.md) | Use the Azure portal to create a DCR that specifies events and performance counters to collect from a machine with Azure Monitor Agent. Then associate that rule with one or more virtual machines. Azure Monitor Agent will be installed on any machines that don't currently have it.  |
 | | [Enable VM insights overview](../vm/vminsights-enable-overview.md) | When you enable VM insights on a VM, the Azure Monitor agent is installed, and a DCR is created that collects a predefined set of performance counters. You shouldn't modify this DCR. |
-| Container insights | [Enable Container insights](../containers/prometheus-metrics-enable.md) | When you enable Container insights on a Kubernetes cluster, a containerized version of the Azure Monitor agent is installed, and a DCR is created that collects data according to the configuration you selected. You may need to modify this DCR to add a transformation. |
+| Container insights | [Enable Container insights](../containers/kubernetes-monitoring-enable.md#enable-prometheus-and-grafana) | When you enable Container insights on a Kubernetes cluster, a containerized version of the Azure Monitor agent is installed, and a DCR is created that collects data according to the configuration you selected. You may need to modify this DCR to add a transformation. |
 | Text or JSON logs | [Collect logs from a text or JSON file with Azure Monitor Agent](../agents/data-collection-text-log.md?tabs=portal) | Use the Azure portal to create a DCR to collect entries from a text log on a machine with Azure Monitor Agent.  |
 | Workspace transformation | [Add a transformation in a workspace data collection rule using the Azure portal](../logs/tutorial-workspace-transformations-portal.md) | Create a transformation for any supported table in a Log Analytics workspace. The transformation is defined in a DCR that's then associated with the workspace. It's applied to any data sent to that table from a legacy workload that doesn't use a DCR. |
 
@@ -63,14 +63,14 @@ Use the [DCR create API](/rest/api/monitor/data-collection-rules/create) to crea
 $ResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.Insights/dataCollectionRules/my-dcr"
 $FilePath = ".\my-dcr.json"
 $DCRContent = Get-Content $FilePath -Raw 
-Invoke-AzRestMethod -Path ("$ResourceId"+"?api-version=2021-09-01-preview") -Method PUT -Payload $DCRContent
+Invoke-AzRestMethod -Path ("$ResourceId"+"?api-version=2022-06-01") -Method PUT -Payload $DCRContent
 ```
 
 
 ```azurecli
 ResourceId="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.Insights/dataCollectionRules/my-dcr"
 FilePath="my-dcr.json"
-az rest --method put --url $ResourceId"?api-version=2021-09-01-preview" --body @$FilePath
+az rest --method put --url $ResourceId"?api-version=2022-06-01" --body @$FilePath
 ```
 
 
@@ -126,7 +126,7 @@ If you need to retrieve the JSON for an existing DCR, you can copy it from the *
 ```powershell
 $ResourceId = "<ResourceId>" # Resource ID of the DCR to edit
 $FilePath = "<FilePath>" # Store DCR content in this file
-$DCR = Invoke-AzRestMethod -Path ("$ResourceId"+"?api-version=2021-09-01-preview") -Method GET
+$DCR = Invoke-AzRestMethod -Path ("$ResourceId"+"?api-version=2022-06-01") -Method GET
 $DCR.Content | ConvertFrom-Json | ConvertTo-Json -Depth 20 | Out-File -FilePath $FilePath
 ```
 

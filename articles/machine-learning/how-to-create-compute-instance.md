@@ -5,7 +5,7 @@ description: Learn how to create an Azure Machine Learning compute instance. Use
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: compute
-ms.custom: event-tier1-build-2022, devx-track-azurecli
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 author: jesscioffi
 ms.author: jcioffi
@@ -149,6 +149,9 @@ A compute instance is considered inactive if the below conditions are met:
 A compute instance won't be considered idle if any custom application is running. There are also some basic bounds around inactivity time periods; compute instance must be inactive for a minimum of 15 mins and a maximum of three days.
 
 Also, if a compute instance has already been idle for a certain amount of time, if idle shutdown settings are updated to  an amount of time shorter than the current idle duration, the idle time clock is reset to 0. For example, if the compute instance has already been idle for 20 minutes, and the shutdown settings are updated to 15 minutes, the idle time clock is reset to 0.
+
+> [!IMPORTANT]
+> If the compute instance is also configured with a [managed identity](#assign-managed-identity), the compute instance won't shut down due to inactivity unless the managed identity has *contributor* access to the Azure Machine Learning workspace. For more information on assigning permissions, see [Manage access to Azure Machine Learning workspaces](how-to-assign-roles.md).
 
 The setting can be configured during compute instance creation or for existing compute instances via the following interfaces:
 
@@ -439,6 +442,9 @@ As an administrator, you can create a compute instance on behalf of a data scien
 
 You can assign a system- or user-assigned [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to a compute instance, to authenticate against other Azure resources such as storage. Using managed identities for authentication helps improve workspace security and management. For example, you can allow users to access training data only when logged in to a compute instance. Or use a common user-assigned managed identity to permit access to a specific storage account.
 
+> [!IMPORTANT]
+> If the compute instance is also configured for [idle shutdown](#configure-idle-shutdown), the compute instance won't shut down due to inactivity unless the managed identity has *contributor* access to the Azure Machine Learning workspace. For more information on assigning permissions, see [Manage access to Azure Machine Learning workspaces](how-to-assign-roles.md).
+
 # [Python SDK](#tab/python)
 
 Use SDK V2 to create a compute instance with assign system-assigned managed identity:
@@ -613,7 +619,7 @@ Set up other custom applications on your compute instance by providing the appli
 
 1. Follow the previous steps to **Add application** when creating your compute instance.
 1. Select **Custom Application** on the **Application** dropdown.
-1. Configure the **Application name**, the **Target port** you wish to run the application on, the **Published port** you wish to access the application on and the **Docker image** that contains your application.
+1. Configure the **Application name**, the **Target port** you wish to run the application on, the **Published port** you wish to access the application on and the **Docker image** that contains your application. If your custom image is stored in an Azure Container Registry, assign the **Contributor** role for users of the application. For information on assigning roles, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
 1. Optionally, add **Environment variables**  you wish to use for your application.
 1. Use **Bind mounts** to add access to the files in your default storage account:
    * Specify **/home/azureuser/cloudfiles** for **Host path**.
@@ -635,6 +641,7 @@ Access the custom applications that you set up in studio:
 :::image type="content" source="media/how-to-create-compute-instance/custom-service-access.png" alt-text="Screenshot shows studio access for your custom applications.":::
 > [!NOTE]
 > It might take a few minutes after setting up a custom application until you can access it via the links. The amount of time taken will depend on the size of the image used for your custom application. If you see a 502 error message when trying to access the application, wait for some time for the application to be set up and try again.
+> If the custom image is pulled from an Azure Container Registry, you'll need a **Contributor** role for the workspace. For information on assigning roles, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
 
 ## Next steps
 

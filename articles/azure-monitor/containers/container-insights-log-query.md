@@ -2,8 +2,7 @@
 title: Query logs from Container insights
 description: Container insights collects metrics and log data, and this article describes the records and includes sample queries.
 ms.topic: conceptual
-ms.custom: ignite-2022
-ms.date: 06/06/2023
+ms.date: 2/28/2024
 ms.reviewer: viviandiec
 ---
 
@@ -46,7 +45,7 @@ ContainerInventory
 ### Kubernetes events
 
 > [!NOTE]
-> By default, Normal event types aren't collected, so you won't see them when you query the KubeEvents table unless the *collect_all_kube_events* ConfigMap setting is enabled. If you need to collect Normal events, enable *collect_all_kube_events setting* in the *container-azm-ms-agentconfig* ConfigMap. See [Configure agent data collection for Container insights](./container-insights-agent-config.md) for information on how to configure the ConfigMap.
+> By default, Normal event types aren't collected, so you won't see them when you query the KubeEvents table unless the *collect_all_kube_events* ConfigMap setting is enabled. If you need to collect Normal events, enable *collect_all_kube_events setting* in the *container-azm-ms-agentconfig* ConfigMap. See [Configure agent data collection for Container insights](./container-insights-data-collection-configmap.md) for information on how to configure the ConfigMap.
 
 
 ``` kusto
@@ -247,7 +246,7 @@ KubePodInventory
 
 ## Container logs
 
-Container logs for AKS are stored in [the ContainerLogV2 table](./container-insights-logging-v2.md). You can run the following sample queries to look for the stderr/stdout log output from target pods, deployments, or namespaces.
+Container logs for AKS are stored in [the ContainerLogV2 table](./container-insights-logs-schema.md). You can run the following sample queries to look for the stderr/stdout log output from target pods, deployments, or namespaces.
 
 ### Container logs for a specific pod, namespace, and container
 
@@ -706,4 +705,3 @@ The agent uses the [Docker JSON file logging driver](https://docs.docker.com/con
 ## Next steps
 
 Container insights doesn't include a predefined set of alerts. To learn how to create recommended alerts for high CPU and memory utilization to support your DevOps or operational processes and procedures, see [Create performance alerts with Container insights](./container-insights-log-alerts.md).
-

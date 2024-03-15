@@ -227,11 +227,12 @@ Azure Files storage has the following characteristics:
 * All containers that mount the share can access files written by any other container or method.
 * More than one Azure Files volume can be mounted in a single container.
 
-To enable Azure Files storage in your container, you need to set up your container in the following ways:
+To enable Azure Files storage in your container, you need to set up your container as follows:
 
 * Create a storage definition in the Container Apps environment.
 * Define a volume of type `AzureFile` in a revision.
 * Define a volume mount in one or more containers in the revision.
+* The Azure Files storage account used must be accessible from your container app's virtual network. For more information, see [Grant access from a virtual network](/azure/storage/common/storage-network-security#grant-access-from-a-virtual-network).
 
 ### Prerequisites
 

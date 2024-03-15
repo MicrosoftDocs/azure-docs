@@ -8,11 +8,13 @@ manager: CelesteDG
 
 ms.service: active-directory
 
-ms.custom: 
 ms.topic: reference
-ms.date: 11/08/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer using Azure AD B2C, I want to define a Microsoft Entra ID self-service password reset technical profile.
 ---
 
 # Define a Microsoft Entra ID SSPR technical profile in an Azure AD B2C custom policy

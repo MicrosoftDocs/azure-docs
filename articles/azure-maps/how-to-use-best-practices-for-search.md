@@ -972,21 +972,21 @@ To learn more, please see:
 > [How to build Azure Maps Search service requests](./how-to-search-for-address.md)
 
 > [!div class="nextstepaction"]
-> [Search service API documentation](/rest/api/maps/search)
+> [Search service API documentation](/rest/api/maps/search?view=rest-maps-1.0&preserve-view=true)
 
-[Search service]: /rest/api/maps/search
-[Search Fuzzy]: /rest/api/maps/search/getsearchfuzzy
+[Search service]: /rest/api/maps/search?view=rest-maps-1.0&preserve-view=true
+[Search Fuzzy]: /rest/api/maps/search/getsearchfuzzy?view=rest-maps-1.0&preserve-view=true
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Postman]: https://www.postman.com/downloads/
 [Geocoding coverage]: geocoding-coverage.md
-[Search Address Reverse]: /rest/api/maps/search/getsearchaddressreverse
-[POI category search]: /rest/api/maps/search/getsearchpoicategory
-[Search Nearby]: /rest/api/maps/search/getsearchnearby
-[Get Search Address]: /rest/api/maps/search/getsearchaddress
+[Search Address Reverse]: /rest/api/maps/search/getsearchaddressreverse?view=rest-maps-1.0&preserve-view=true
+[POI category search]: /rest/api/maps/search/getsearchpoicategory?view=rest-maps-1.0&preserve-view=true
+[Search Nearby]: /rest/api/maps/search/getsearchnearby?view=rest-maps-1.0&preserve-view=true
+[Get Search Address]: /rest/api/maps/search/getsearchaddress?view=rest-maps-1.0&preserve-view=true
 
 [Azure Maps supported languages]: supported-languages.md
-[Search Address]: /rest/api/maps/search/getsearchaddress
-[Search Polygon service]: /rest/api/maps/search/getsearchpolygon
+[Search Address]: /rest/api/maps/search/getsearchaddress?view=rest-maps-1.0&preserve-view=true
+[Search Polygon service]: /rest/api/maps/search/getsearchpolygon?view=rest-maps-1.0&preserve-view=true
 [Set up a geofence]: tutorial-geofence.md
-[Search POIs inside the geometry]: /rest/api/maps/search/postsearchinsidegeometry
+[Search POIs inside the geometry]: /rest/api/maps/search/postsearchinsidegeometry?view=rest-maps-1.0&preserve-view=true

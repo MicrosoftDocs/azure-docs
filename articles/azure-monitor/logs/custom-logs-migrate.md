@@ -31,6 +31,16 @@ The migration procedure described in this article assumes you have:
 - [Permissions to create data collection rules](../essentials/data-collection-rule-create-edit.md#permissions) in the Log Analytics workspace.
 - [A Microsoft Entra application to authenticate API calls](../logs/tutorial-logs-ingestion-portal.md#create-azure-ad-application) or any other Resource Manager authentication scheme.
 
+## Permissions required
+
+| Action | Permissions required |
+|:---|:---|
+| Create a data collection endpoint. | `Microsoft.Insights/dataCollectionEndpoints/write` permissions as provided by the [Monitoring Contributor built-in role](../../role-based-access-control/built-in-roles.md#monitoring-contributor), for example. |
+| Create or modify a data collection rule. | `Microsoft.Insights/DataCollectionRules/Write` permissions as provided by the [Monitoring Contributor built-in role](../../role-based-access-control/built-in-roles.md#monitoring-contributor), for example. |
+| Convert a table that uses the Data Collector API to data collection rules and the Log Ingestion API. | `Microsoft.OperationalInsights/workspaces/tables/migrate/action` permissions as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example. |
+| Create new tables or modify table schemas. | `microsoft.operationalinsights/workspaces/tables/write` permissions as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example. |
+| Call the Log Ingestion API. | See [Assign permissions to a DCR](./tutorial-logs-ingestion-api.md#assign-permissions-to-a-dcr). |
+
 ## Create new resources required for the Log ingestion API
 
 The Log Ingestion API requires you to create two new types of resources, which the HTTP Data Collector API doesn't require: 
@@ -47,6 +57,9 @@ If you have an existing custom table to which you currently send data using the 
 
     This is the preferred option, especially if you to need to make changes to the existing table. Changes to existing data types and multiple schema changes to existing Data Collector API custom tables can lead to errors.
 
+> [!TIP]
+> To identify which tables use the Data Collector API, [view table properties](../logs/manage-logs-tables.md#view-table-properties). The **Type** property of tables that use the Data Collector API is set to **Custom table (classic)**. Note that tables that ingest data using the legacy Log Analytics agent (MMA) also have the **Type** property set to **Custom table (classic)**. Be sure to migrate from Log Analytics agent to Azure Monitor Agent before converting MMA tables. Otherwise, you'll stop ingesting data into custom fields in these tables after the table conversion.   
+
 This table summarizes considerations to keep in mind for each option:
 
 ||Table migration|Side-by-side implementation|
@@ -54,7 +67,7 @@ This table summarizes considerations to keep in mind for each option:
 |**Table and column naming**|Reuse existing table name.<br>Column naming options: <br>- Use new column names and define a transformation to direct incoming data to the newly named column.<br>- Continue using old names.|Set the new table name freely.<br>Need to adjust integrations, dashboards, and alerts before switching to the new table.|
 |**Migration procedure**|One-off table migration. Not possible to roll back a migrated table. |Migration can be done gradually, per table.|
 |**Post-migration**|You can continue to ingest data using the HTTP Data Collector API with existing columns, except custom columns.<br>Ingest data into new columns using the Log Ingestion API only.| Data in the old table is available until the end of retention period.<br>When you first set up a new table or make schema changes, it can take 10-15 minutes for the data changes to start appearing in the destination table.|
-  
+
 To convert a table that uses the Data Collector API to data collection rules and the Log Ingestion API, issue this API call against the table:  
 
 ```rest

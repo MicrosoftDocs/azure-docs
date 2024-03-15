@@ -25,7 +25,58 @@ Data sent to the ingestion API can be sent to the following tables:
 | Tables | Description |
 |:---|:---|
 | Custom tables | Any custom table that you create in your Log Analytics workspace. The target table must exist before you can send data to it. Custom tables must have the `_CL` suffix. |
-| Azure tables | The following Azure tables are currently supported. Other tables may be added to this list as support for them is implemented.<br><br>- [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog)<br>- [SecurityEvents](/azure/azure-monitor/reference/tables/securityevent)<br>- [Syslog](/azure/azure-monitor/reference/tables/syslog)<br>- [WindowsEvents](/azure/azure-monitor/reference/tables/windowsevent)
+| Azure tables | The following Azure tables are currently supported. Other tables may be added to this list as support for them is implemented.<br><br>
+- [ADAssessmentRecommendation](/azure/azure-monitor/reference/tables/adassessmentrecommendation)<br>
+- [ADSecurityAssessmentRecommendation](/azure/azure-monitor/reference/tables/adsecurityassessmentrecommendation)<br>
+- [ASimAuditEventLogs](/azure/azure-monitor/reference/tables/asimauditeventlogs)<br>
+- [ASimAuthenticationEventLogs](/azure/azure-monitor/reference/tables/asimauthenticationeventlogs)<br>
+- [ASimDhcpEventLogs](/azure/azure-monitor/reference/tables/asimdhcpeventlogs)<br>
+- [ASimDnsActivityLogs](/azure/azure-monitor/reference/tables/asimdnsactivitylogs)<br>
+- ASimDnsAuditLogs<br>
+- [ASimFileEventLogs](/azure/azure-monitor/reference/tables/asimfileeventlogs)<br>
+- [ASimNetworkSessionLogs](/azure/azure-monitor/reference/tables/asimnetworksessionlogs)<br>
+- [ASimProcessEventLogs](/azure/azure-monitor/reference/tables/asimprocesseventlogs)<br>
+- [ASimRegistryEventLogs](/azure/azure-monitor/reference/tables/asimregistryeventlogs)<br>
+- [ASimUserManagementActivityLogs](/azure/azure-monitor/reference/tables/asimusermanagementactivitylogs)<br>
+- [ASimWebSessionLogs](/azure/azure-monitor/reference/tables/asimwebsessionlogs)<br>
+- [AWSCloudTrail](/azure/azure-monitor/reference/tables/awscloudtrail)<br>
+- [AWSCloudWatch](/azure/azure-monitor/reference/tables/awscloudwatch)<br>
+- [AWSGuardDuty](/azure/azure-monitor/reference/tables/awsguardduty)<br>
+- [AWSVPCFlow](/azure/azure-monitor/reference/tables/awsvpcflow)<br>
+- [AzureAssessmentRecommendation](/azure/azure-monitor/reference/tables/azureassessmentrecommendation)<br>
+- [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog)<br>
+- [DeviceTvmSecureConfigurationAssessmentKB](/azure/azure-monitor/reference/tables/devicetvmsecureconfigurationassessmentkb)<br>
+- [DeviceTvmSoftwareVulnerabilitiesKB](/azure/azure-monitor/reference/tables/devicetvmsoftwarevulnerabilitieskb)<br>
+- [ExchangeAssessmentRecommendation](/azure/azure-monitor/reference/tables/exchangeassessmentrecommendation)<br>
+- [ExchangeOnlineAssessmentRecommendation](/azure/azure-monitor/reference/tables/exchangeonlineassessmentrecommendation)<br>
+- [GCPAuditLogs](/azure/azure-monitor/reference/tables/gcpauditlogs)<br>
+- [GoogleCloudSCC](/azure/azure-monitor/reference/tables/googlecloudscc)<br>
+- [SCCMAssessmentRecommendation](/azure/azure-monitor/reference/tables/sccmassessmentrecommendation)<br>
+- [SCOMAssessmentRecommendation](/azure/azure-monitor/reference/tables/scomassessmentrecommendation)<br>
+- [SecurityEvent](/azure/azure-monitor/reference/tables/securityevent)<br>
+- [SfBAssessmentRecommendation](/azure/azure-monitor/reference/tables/sfbassessmentrecommendation)<br>
+- [SfBOnlineAssessmentRecommendation](/azure/azure-monitor/reference/tables/sfbonlineassessmentrecommendation)<br>
+- [SharePointOnlineAssessmentRecommendation](/azure/azure-monitor/reference/tables/sharepointonlineassessmentrecommendation)<br>
+- [SPAssessmentRecommendation](/azure/azure-monitor/reference/tables/spassessmentrecommendation)<br>
+- [SQLAssessmentRecommendation](/azure/azure-monitor/reference/tables/sqlassessmentrecommendation)<br>
+- StorageInsightsAccountPropertiesDaily<br>
+- StorageInsightsDailyMetrics<br>
+- StorageInsightsHourlyMetrics<br>
+- StorageInsightsMonthlyMetrics<br>
+- StorageInsightsWeeklyMetrics<br>
+- [Syslog](/azure/azure-monitor/reference/tables/syslog)<br>
+- [UCClient](/azure/azure-monitor/reference/tables/ucclient)<br>
+- [UCClientReadinessStatus](/azure/azure-monitor/reference/tables/ucclientreadinessstatus)<br>
+- [UCClientUpdateStatus](/azure/azure-monitor/reference/tables/ucclientupdatestatus)<br>
+- [UCDeviceAlert](/azure/azure-monitor/reference/tables/ucdevicealert)<br>
+- [UCDOAggregatedStatus](/azure/azure-monitor/reference/tables/ucdoaggregatedstatus)<br>
+- [UCDOStatus](/azure/azure-monitor/reference/tables/ucdostatus)<br>
+- [UCServiceUpdateStatus](/azure/azure-monitor/reference/tables/ucserviceupdatestatus)<br>
+- [UCUpdateAlert](/azure/azure-monitor/reference/tables/ucupdatealert)<br>
+- [WindowsClientAssessmentRecommendation](/azure/azure-monitor/reference/tables/windowsclientassessmentrecommendation)<br>
+- [WindowsEvent](/azure/azure-monitor/reference/tables/windowsevent)<br>
+- [WindowsServerAssessmentRecommendation](/azure/azure-monitor/reference/tables/windowsserverassessmentrecommendation)<br>
+
 
 > [!NOTE]
 > Column names must start with a letter and can consist of up to 45 alphanumeric characters and underscores (`_`).  `_ResourceId`, `id`, `_ResourceId`, `_SubscriptionId`, `TenantId`, `Type`, `UniqueId`, and `Title` are reserved column names. Custom columns you add to an Azure table must have the suffix `_CF`.
@@ -77,13 +128,13 @@ To send data to Azure Monitor with a REST API call, make a POST call over HTTP. 
 The endpoint URI uses the following format, where the `Data Collection Endpoint` and `DCR Immutable ID` identify the DCE and DCR. The immutable ID is generated for the DCR when it's created. You can retrieve it from the [JSON view of the DCR in the Azure portal](../essentials/data-collection-rule-overview.md?tabs=portal#view-data-collection-rules). `Stream Name` refers to the [stream](../essentials/data-collection-rule-structure.md#streamdeclarations) in the DCR that should handle the custom data.
 
 ```
-{Data Collection Endpoint URI}/dataCollectionRules/{DCR Immutable ID}/streams/{Stream Name}?api-version=2021-11-01-preview
+{Data Collection Endpoint URI}/dataCollectionRules/{DCR Immutable ID}/streams/{Stream Name}?api-version=2023-01-01
 ```
 
 For example:
 
 ```
-https://my-dce-5kyl.eastus-1.ingest.monitor.azure.com/dataCollectionRules/dcr-000a00a000a00000a000000aa000a0aa/streams/Custom-MyTable?api-version=2021-11-01-preview
+https://my-dce-5kyl.eastus-1.ingest.monitor.azure.com/dataCollectionRules/dcr-000a00a000a00000a000000aa000a0aa/streams/Custom-MyTable?api-version=2023-01-01
 ```
 
 ### Headers
@@ -100,17 +151,22 @@ The following table describes that headers for your API call.
 
 ### Body
 
-The body of the call includes the custom data to be sent to Azure Monitor. The shape of the data must be a JSON object or array with a structure that matches the format expected by the stream in the DCR. Ensure that the request body is properly encoded in UTF-8 to prevent any issues with data transmission.
+The body of the call includes the custom data to be sent to Azure Monitor. The shape of the data must be a JSON array with item structure that matches the format expected by the stream in the DCR. If it is needed to send a single item within API call, the data should be sent as a single-item array.
 
 For example:
 
 ```json
+[
 {
     "TimeGenerated": "2023-11-14 15:10:02",
     "Column01": "Value01",
     "Column02": "Value02"
 }
+]
 ```
+
+Ensure that the request body is properly encoded in UTF-8 to prevent any issues with data transmission.
+
 ### Example
 
 See [Sample code to send data to Azure Monitor using Logs ingestion API](tutorial-logs-ingestion-code.md?tabs=powershell#sample-code) for an example of the API call using PowerShell.

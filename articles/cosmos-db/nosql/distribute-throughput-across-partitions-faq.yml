@@ -5,10 +5,9 @@ metadata:
   author: seesharprun
   ms.author: sidandrews
   ms.service: cosmos-db
-  ms.custom: event-tier1-build-2022
   ms.topic: faq
   ms.reviewer: dech
-  ms.date: 05/09/2022
+  ms.date: 12/18/2023
 title: Frequently asked questions on distributing throughput across partitions in Azure Cosmos DB (preview)
 summary: |
   [!INCLUDE[NoSQL, MongoDB](../includes/appliesto-nosql-mongodb.md)]
@@ -21,11 +20,15 @@ sections:
       - question: |
           What resources can I use this feature on?
         answer: |
-          The feature is only supported for SQL and API for MongoDB accounts and on collections with dedicated throughput (either manual or autoscale). Shared throughput databases aren't supported in the preview. The feature doesn't apply to serverless accounts.
+          The feature is only supported for SQL and API for MongoDB accounts. It is supported for shared throughput databases and containers/collections with dedicated throughput (either manual or autoscale). The feature doesn't apply to serverless accounts.
       - question: |
-          Which version of the Azure Cosmos DB functionality in Azure PowerShell supports this feature?
+          How do I enroll in the preview feature?
         answer: |
-          The ability to redistribute RU/s across physical partitions is only supported in the latest preview version of Azure PowerShell.
+          You don't have to enroll in the preview. To use the feature, just use the relevant commands in the Azure PowerShell or Azure CLI to redistribute throughput across your resources' physical partitions.
+      - question: |
+          Which version of the Azure Cosmos DB functionality in Azure PowerShell and Azure CLI supports this feature?
+        answer: |
+          The ability to redistribute RU/s across physical partitions is only supported in the  preview version of Azure PowerShell (version 2.0.2-preview or higher)[https://www.powershellgallery.com/packages/Az.CosmosDB/2.0.2-preview] and latest preview version of the Azure CLI.
       - question: |
           What is the maximum number of physical partitions I can change in one request?
         answer: |

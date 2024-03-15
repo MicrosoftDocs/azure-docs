@@ -4,12 +4,14 @@ description: Capture exceptions from ASP.NET apps along with request telemetry.
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-ms.date: 11/15/2022
+ms.date: 01/31/2024
 ms.reviewer: mmcc
 ---
 
 
 # Diagnose exceptions in web apps with Application Insights
+
+[!INCLUDE [azure-monitor-app-insights-otel-available-notification](../includes/azure-monitor-app-insights-otel-available-notification.md)]
 
 Exceptions in web applications can be reported with [Application Insights](./app-insights-overview.md). You can correlate failed requests with exceptions and other events on both the client and server so that you can quickly diagnose the causes. In this article, you'll learn how to set up exception reporting, report exceptions explicitly, diagnose failures, and more.
 

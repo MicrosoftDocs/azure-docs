@@ -1,15 +1,16 @@
 ---
 title: Create a function in Azure triggered by queue messages 
-description: Use Azure Functions to create a serverless function that is invoked by a messages submitted to a queue in Azure.
-
+description: Use Azure Functions to create a serverless function that is invoked by messages submitted to a queue in Azure.
 ms.assetid: 361da2a4-15d1-4903-bdc4-cc4b27fc3ff4
 ms.topic: how-to
-ms.date: 10/01/2018
+ms.date: 12/28/2023
 ms.custom: mvc, cc996988-fb4f-47
 ---
 # Create a function triggered by Azure Queue storage
 
 Learn how to create a function that is triggered when messages are submitted to an Azure Storage queue.
+
+[!INCLUDE [functions-in-portal-editing-note](../../includes/functions-in-portal-editing-note.md)]
 
 ## Prerequisites
 
@@ -27,16 +28,11 @@ Next, you create a function in the new function app.
 
 ## Create a Queue triggered function
 
-1. Select **Functions**, and then select **+ Add** to add a new function.
+1. In your function app, select **Overview**, and then select **+ Create** under **Functions**.
 
-   :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-app-quickstart-choose-template.png" alt-text="Choose a Function template in the Azure portal." border="true":::
+1. Under **Select a template**, scroll down and choose the **Azure Queue Storage trigger** template.
 
-1. Choose the **Azure Queue Storage trigger** template.
-
-1. Use the settings as specified in the table below the image.
-
-    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png" alt-text="Name and configure the queue storage triggered function." border="true":::
-
+1. In **Template details**, configure the new trigger with the settings as specified in this table, then select **Create**:
 
     | Setting | Suggested value | Description |
     |---|---|---|
@@ -44,9 +40,7 @@ Next, you create a function in the new function app.
     | **Queue name**   | myqueue-items    | Name of the queue to connect to in your Storage account. |
     | **Storage account connection** | AzureWebJobsStorage | You can use the storage account connection already being used by your function app, or create a new one.  |    
 
-1. Select **Create Function** to create your function.
-
-    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal-3.png" alt-text="Create the queue storage triggered function." border="true":::
+    Azure creates the Queue Storage triggered function based on the provided values
 
 Next, you connect to your Azure storage account and create the **myqueue-items** storage queue.
 

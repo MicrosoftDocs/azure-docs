@@ -1,9 +1,9 @@
 ---
-title: "Microsoft Defender for Office 365 connector for Microsoft Sentinel (preview)"
+title: "Microsoft Defender for Office 365 connector for Microsoft Sentinel"
 description: "Learn how to install the connector Microsoft Defender for Office 365 to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 01/06/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -32,3 +32,8 @@ For more information, see the [Microsoft Sentinel documentation](https://go.micr
 | **Log Analytics table(s)** | SecurityAlert (OATP)<br/> |
 | **Data collection rules support** | Not currently supported |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com/) |
+
+
+## Next steps
+
+For more information, go to the [related solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-microsoftdefenderforo365?tab=Overview) in the Azure Marketplace.

@@ -34,40 +34,6 @@ This article provides an overview of various optimization features and when you 
 
 * [Dynamic site acceleration](#dynamic-site-acceleration) 
 
-
-**Azure CDN Standard from Akamai** profiles support the following optimizations:
-
-> [!IMPORTANT]
-> Azure CDN from Akamai is scheduled to be retired on October 31, 2023. For more information, see [**Migrate CDN provider**](cdn-change-provider.md) for guidance on migrating to another Azure CDN provider.
-
-* [General web delivery](#general-web-delivery) 
-
-* [General media streaming](#general-media-streaming)
-
-* [Video-on-demand media streaming](#video-on-demand-media-streaming)
-
-* [Large file download](#large-file-download)
-
-* [Dynamic site acceleration](#dynamic-site-acceleration) 
-
-Microsoft recommends that you test performance variations between different providers to select the optimal provider for your delivery.
-
-## Select and configure optimization types
-
-When you create a CDN endpoint, select an optimization type that best matches the scenario and type of content that you want the endpoint to deliver. 
-
-**General web delivery** is the default selection. You can only update **Azure CDN Standard from Akamai** endpoints optimization at any time. 
-
-For **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Edgio** and **Azure CDN Premium from Edgio**, you can't.
-
-1. In an **Azure CDN Standard from Akamai** profile, select an endpoint.
-
-    ![Endpoint selection](./media/cdn-optimization-overview/01_Akamai.png)
-
-2. Under SETTINGS, select **Optimization**. Then, select a type from the **Optimized for** drop-down list.
-
-    ![Optimization and type selection](./media/cdn-optimization-overview/02_Select.png)
-
 ## Optimization for specific scenarios
 
 You can optimize the CDN endpoint for one of these scenarios. 
@@ -77,9 +43,6 @@ You can optimize the CDN endpoint for one of these scenarios.
 General web delivery is the most common optimization option. It's designed for general web content optimization, such as webpages and web applications. This optimization also can be used for file and video downloads.
 
 A typical website contains static and dynamic content. Static content includes images, JavaScript libraries, and style sheets that can be cached and delivered to different users. Dynamic content is personalized for an individual user, such as news items that are tailored to a user profile. Dynamic content, such as shopping cart contents, isn't cached because it's unique to each user. General web delivery can optimize your entire website. 
-
-> [!NOTE]
-> If you are using an **Azure CDN Standard from Akamai** profile, select this optimization type if your average file size is smaller than 10 MB. Otherwise, if your average file size is larger than 10 MB, select **Large file download** from the **Optimized for** drop-down list.
 
 ### General media streaming
 
@@ -107,15 +70,13 @@ For more information about media streaming optimization, see [Media streaming op
 
 ### Large file download
 
-For **Azure CDN Standard from Akamai** profiles, large file downloads are optimized for content larger than 10 MB. If your average file size is smaller than 10 MB, use general web delivery. If your average files sizes are consistently larger than 10 MB, it might be more efficient to create a separate endpoint for large files. For example, firmware or software updates typically are large files. To deliver files larger than 1.8 GB, the large file download optimization is required.
-
 For **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Edgio**, and **Azure CDN Premium from Edgio** profiles, use the general web delivery optimization type to deliver large file download content. There's no limitation on file download size.
 
 For more information about large file optimization, see [Large file optimization](cdn-large-file-optimization.md).
 
 ### Dynamic site acceleration
 
- Dynamic site acceleration (DSA) is available for **Azure CDN Standard from Akamai**, **Azure CDN Standard from Edgio**, and **Azure CDN Premium from Edgio** profiles. This optimization involves an extra fee to use; for more information, see [Content Delivery Network pricing](https://azure.microsoft.com/pricing/details/cdn/).
+ Dynamic site acceleration (DSA) is available for **Azure CDN Standard from Edgio**, and **Azure CDN Premium from Edgio** profiles. This optimization involves an extra fee to use; for more information, see [Content Delivery Network pricing](https://azure.microsoft.com/pricing/details/cdn/).
 
 > [!NOTE]
 > Dynamic site acceleration from Microsoft is offered via [Azure Front Door Service](../frontdoor/front-door-overview.md) which is a global [anycast](https://en.wikipedia.org/wiki/Anycast) service leveraging Microsoft's private global network to deliver your app workloads.

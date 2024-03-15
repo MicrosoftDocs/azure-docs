@@ -30,14 +30,11 @@ Follow these instructions to connect to a Windows-based lab VM. Choose the instr
 
 To connect to a Linux-based lab VM, you can use the secure shell protocol (SSH), remote desktop protocol (RDP), or X2Go.
 
-Azure Lab Services automatically configures SSH for Linux VMs. Both lab users and lab creators can SSH into Linux VMs without additional setup. If you want to connect to a VM with a Linux GUI, the lab creator might need to do extra setup on the template VM.
-
-> [!WARNING]
-> If you need to use [GNOME](https://www.gnome.org/) or [MATE](https://mate-desktop.org/) you should coordinate with the lab creator to ensure that your lab VM has the correct configuration. For details, see [Using GNOME or MATE graphical desktops](how-to-enable-remote-desktop-linux.md#using-gnome-or-mate-graphical-desktops).
+Azure Lab Services automatically configures SSH for Linux VMs. Both lab users and lab creators can SSH into Linux VMs without additional setup. If you want to connect to a VM with a Linux GUI (graphical user interface) desktop, the lab creator/educator might need to do extra setup on the template VM.
 
 ### Connect to a Linux lab VM using RDP
 
-Before you can connect to a Linux VM using RDP, the lab creator first needs to [enable remote desktop connection for Linux VMs](how-to-enable-remote-desktop-linux.md#rdp-setup).
+Before you can connect to a Linux VM using RDP, the lab creator first needs to enable the **Client connection (RDP)** setting and ensure that a GUI desktop and RDP are installed.  For more information on steps that need to be completed by the lab creator, see the example that shows [how to set up GNOME and RDP](how-to-enable-remote-desktop-linux.md#set-up-gnome-and-rdp).
 
 To connect to a Linux VM using RDP, follow the instructions based on the type of OS you're using.
 
@@ -49,7 +46,7 @@ To connect to a Linux VM using RDP, follow the instructions based on the type of
 
 ### Connect to a Linux lab VM Using X2Go
 
-Linux VMs can have X2Go enabled and a graphical desktop installed.  For more information, see [X2Go Setup](how-to-enable-remote-desktop-linux.md#setting-up-x2go) and [Using GNOME or MATE graphical desktops](how-to-enable-remote-desktop-linux.md#using-gnome-or-mate-graphical-desktops).  
+Another option for connecting to a Linux VM that has a GUI desktop installed, is to use X2Go.  For more information on steps that need to be completed by the lab creator, see examples to [set up X2Go with XFCE, xUbuntu, and MATE](./how-to-enable-remote-desktop-linux.md#setup).
 
 For instructions to connect to a Linux VM using X2Go, see [Connect to a VM using X2Go](connect-virtual-machine-linux-x2go.md).
 

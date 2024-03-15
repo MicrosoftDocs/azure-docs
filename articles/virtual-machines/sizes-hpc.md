@@ -2,14 +2,16 @@
 title: Azure VM sizes - HPC | Microsoft Docs
 description: Lists the different sizes available for high performance computing virtual machines in Azure. Lists information about the number of vCPUs, data disks and NICs as well as storage throughput and network bandwidth for sizes in this series.
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: hpc
 ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.date: 02/27/2023
+ms.date: 12/7/2023
 ms.reviewer: jushiman
 ---
 
 # High performance computing VM sizes
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 

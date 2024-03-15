@@ -20,7 +20,7 @@ ms.date: 08/28/2023
 Azure Cosmos DB for MongoDB vCore provides automatic backups that enable point-in-time recovery (PITR) without any action required from users. Backups allow customers to restore a server to any point in time within the retention period.
 
 > [!NOTE]
-> The backup and restore feature is designed to protect against data loss, but it doesn't provide a complete disaster recovery solution. You should ensure that alaredy have your own disaster recovery plan in place to protect against larger scale outages.
+> The backup and restore feature is designed to protect against data loss, but it doesn't provide a complete disaster recovery solution. You should ensure that you already have your own disaster recovery plan in place to protect against larger scale outages.
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ The restore process creates a new cluster with the same configuration in the sam
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Navigate to the **Help + support** section and select **Create a support request**. For more information, see [create an Azure support request](../../../azure-portal/supportability/how-to-create-azure-support-request.md#go-to-help--support-from-the-global-header).
+1. Navigate to the **Help + support** section and select **Create a support request**. For more information, see [create an Azure support request](../../../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 1. Once the support ticket is submitted, our team guides you through the process of restoring your data from the backup.
 

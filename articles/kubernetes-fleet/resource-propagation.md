@@ -26,12 +26,14 @@ Fleet workload placement can deploy any Kubernetes objects to clusters In order 
 
 ## Requirements
 
+- Read the [conceptual overview of this feature](./concepts-resource-propagation.md), which provides an explanation of `MemberCluster` and `ClusterResourcePlacement` referenced in this document.
 - A Kubernetes Fleet with a hub cluster and member clusters (see the [quickstart](quickstart-create-fleet-and-members.md) for provisioning instructions).
 - Member clusters must be labeled appropriately in the hub cluster to match the desired selection criteria. Example labels could include region, environment, team, availability zones, node availability, or anything else desired.
 
 ## Resource placement with `ClusterResourcePlacement` resources
 
-A `ClusterResourcePlacement` object is used to tell the Fleet scheduler how to place a given set of cluster-scoped objects from the hub cluster into member clusters. Namespace-scoped objects like Deployments, StatefulSets, DaemonSets, ConfigMaps, Secrets, and PersistentVolumeClaims are included when their containing namespace is selected. Multiple methods of selection can be used:
+A `ClusterResourcePlacement` object is used to tell the Fleet scheduler how to place a given set of cluster-scoped objects from the hub cluster into member clusters. Namespace-scoped objects like Deployments, StatefulSets, DaemonSets, ConfigMaps, Secrets, and PersistentVolumeClaims are included when their containing namespace is selected. 
+(To propagate to the member clusters without any unintended side effects, the `ClusterResourcePlacement` object supports [using ConfigMap to envelope the object][envelope-object].) Multiple methods of selection can be used:
 
 - Group, version, and kind - select and place all resources of the given type
 - Group, version, kind, and name - select and place one particular resource of a given type
@@ -57,7 +59,7 @@ spec:
     placementType: PickAll
     affinity:
         clusterAffinity:
-            requiredDuringSchedulingIgnoredDuringExection:
+            requiredDuringSchedulingIgnoredDuringExecution:
                 clusterSelectorTerms:
                 - labelSelector:
                     matchLabels:
@@ -301,10 +303,10 @@ Resource-only changes (updating the resources or updating the `ResourceSelector`
 
 ## Next steps
 
-* Create an [Azure Kubernetes Fleet Manager resource and join member clusters](./quickstart-create-fleet-and-members.md).
 * Review the [`ClusterResourcePlacement` documentation and more in the open-source fleet repository][fleet-doc] for more examples
 * Review the [API specifications][fleet-apispec] for all fleet custom resources.
 * Review more information about [the fleet scheduler][fleet-scheduler] and how placement decisions are made.
+* Review our [troubleshooting guide][troubleshooting-guide] to help resolve common issues related to the Fleet APIs.
 
 <!-- LINKS - external -->
 [fleet-github]: https://github.com/Azure/fleet
@@ -313,3 +315,5 @@ Resource-only changes (updating the resources or updating the `ResourceSelector`
 [fleet-scheduler]: https://github.com/Azure/fleet/blob/main/docs/concepts/Scheduler/README.md
 [fleet-rollout]: https://github.com/Azure/fleet/blob/main/docs/howtos/crp.md#rollout-strategy
 [crp-topo]: https://github.com/Azure/fleet/blob/main/docs/howtos/topology-spread-constraints.md
+[envelope-object]: https://github.com/Azure/fleet/blob/main/docs/concepts/ClusterResourcePlacement/README.md#envelope-object
+[troubleshooting-guide]: https://github.com/Azure/fleet/blob/main/docs/troubleshooting/README.md

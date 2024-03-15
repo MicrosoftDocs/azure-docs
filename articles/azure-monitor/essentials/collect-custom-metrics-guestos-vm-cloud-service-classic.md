@@ -25,8 +25,6 @@ The process that's outlined in this article works only for performance counters 
 
 - You need to have either [Azure PowerShell](/powershell/azure) or [Azure Cloud Shell](../../cloud-shell/overview.md) installed.
 
-- Your Cloud Service must be in a [region that supports custom metrics](./metrics-custom-overview.md#supported-regions).
-
 ## Provision a cloud service and storage account 
 
 1. Create and deploy a classic cloud service. A sample classic Cloud Services application and deployment can be found at [Get started with Azure Cloud Services and ASP.NET](../../cloud-services/cloud-services-dotnet-get-started.md). 

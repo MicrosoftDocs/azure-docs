@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to retrieve, update, and delete individual twins and relationships.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 10/3/2023
+ms.date: 1/3/2024
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -45,7 +45,6 @@ To create a digital twin, you need to provide:
 * The [model](concepts-models.md) you want to use
 * Any desired initialization of twin data, including...
     - Properties (initialization optional): You can set initial values for properties of the digital twin if you want. Properties are treated as optional and can be set later, but note that **they won't show up as part of a twin until they've been set**.
-    - Telemetry (initialization recommended): You can also set initial values for telemetry fields on the twin. Although initializing telemetry isn't required, telemetry fields don't show up as part of a twin until they've been set. This means that you can't edit telemetry values for a twin unless they've been initialized first.
     - Components (initialization required if they're present on a twin): If your twin contains any [components](concepts-models.md#model-attributes), these must be initialized when the twin is created. They can be empty objects, but the components themselves have to exist.
     
 The model and any initial property values are provided through the `initData` parameter, which is a JSON string containing the relevant data. For more information on structuring this object, continue to the next section.

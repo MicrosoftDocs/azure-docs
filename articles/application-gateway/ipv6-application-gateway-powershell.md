@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 08/17/2023
+ms.date: 02/08/2024
 ms.author: greglin
 ms.custom: mvc, devx-track-azurepowershell
 ---
@@ -51,6 +51,7 @@ The IPv6 Application Gateway preview is available to all public cloud regions wh
 * IPv6 private Link is currently not supported
 * IPv6-only Application Gateway is currently not supported. Application Gateway must be dual stack (IPv6 and IPv4)
 * Deletion of frontend IP addresses aren't supported
+* Application Gateway Ingress Controller (AGIC) does not support IPv6 configuration
 * Existing IPv4 Application Gateways cannot be upgraded to dual stack Application Gateways
 
 > [!NOTE]

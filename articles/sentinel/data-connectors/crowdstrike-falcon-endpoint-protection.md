@@ -3,7 +3,7 @@ title: "CrowdStrike Falcon Endpoint Protection connector for Microsoft Sentinel"
 description: "Learn how to install the connector CrowdStrike Falcon Endpoint Protection to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 05/22/2023
+ms.date: 01/06/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -49,7 +49,7 @@ CrowdStrikeFalconEventStream
 ## Vendor installation instructions
 
 
-**NOTE:** This data connector depends on a parser based on a Kusto Function to work as expected which is deployed as part of the solution. To view the function code in Log Analytics, open Log Analytics/Microsoft Sentinel Logs blade, click Functions and search for the alias Crowd Strike Falcon Endpoint Protection and load the function code, on the second line of the query, enter the hostname(s) of your CrowdStrikeFalcon device(s) and any other unique identifiers for the logstream. The function usually takes 10-15 minutes to activate after solution installation/update.
+**NOTE:** This data connector depends on a parser based on a Kusto Function to work as expected which is deployed as part of the solution. To view the function code in Log Analytics, open Log Analytics/Microsoft Sentinel Logs blade, click Functions and search for the alias Crowd Strike Falcon Endpoint Protection and load the function code or click [here](https://aka.ms/sentinel-crowdstrikefalconendpointprotection-parser), on the second line of the query, enter the hostname(s) of your CrowdStrikeFalcon device(s) and any other unique identifiers for the logstream. The function usually takes 10-15 minutes to activate after solution installation/update.
 
 1. Linux Syslog agent configuration
 

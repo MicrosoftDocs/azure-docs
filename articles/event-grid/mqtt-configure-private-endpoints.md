@@ -7,7 +7,7 @@ ms.custom:
 ms.date: 11/15/2023
 author: george-guirguis
 ms.author: geguirgu
-
+ms.subservice: mqtt
 ---
 
 # Configure private endpoints for Azure Event Grid namespaces with MQTT enabled

@@ -36,7 +36,7 @@ To copy data from a source to a sink, the service that runs the Copy activity pe
 :::image type="content" source="media/copy-activity-overview/copy-activity-overview.png" alt-text="Copy activity overview":::
 
 > [!NOTE]
-> If a self-hosted integration runtime is used in either a source or sink data store within a Copy activity, then both the source and sink must be accessible from the server hosting the integartion runtime for the Copy activity to be successful.
+> If a self-hosted integration runtime is used in either a source or sink data store within a Copy activity, then both the source and sink must be accessible from the server hosting the integration runtime for the Copy activity to be successful.
 
 ## Supported data stores and formats
 
@@ -169,6 +169,11 @@ For other scenarios than binary file copy, copy activity rerun starts from the b
 ## Preserve metadata along with data
 
 While copying data from source to sink, in scenarios like data lake migration, you can also choose to preserve the metadata and ACLs along with data using copy activity. See [Preserve metadata](copy-activity-preserve-metadata.md) for details.
+
+## Add metadata tags to file based sink
+When the sink is Azure Storage based (Azure data lake storage or Azure Blob Storage), we can opt to add some metadata to the files. These metadata will be appearing as part of the file properties as Key-Value pairs. 
+For all the types of file based sinks, you can add metadata involving dynamic content using the pipeline parameters, system variables, functions and variables. 
+In addition to this, for binary file based sink, you have the option to add Last Modified datetime (of the source file) using the keyword $$LASTMODIFIED, as well as custom values as a metadata to the sink file. 
 
 ## Schema and data type mapping
 

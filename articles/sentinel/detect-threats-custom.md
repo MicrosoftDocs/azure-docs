@@ -39,8 +39,17 @@ Analytics rules search for specific events or sets of events across your environ
 
     [Incidents](investigate-cases.md) created from alerts that are detected by rules mapped to MITRE ATT&CK tactics and techniques automatically inherit the rule's mapping.
 
-- Set the alert **Severity** as appropriate.
+- Set the alert **Severity** as appropriate, matching the impact the activity triggering the rule might have on the target environment, should the rule be a true positive.
 
+    - **Informational**. No impact on your system, but the information might be indicative of future steps planned by a threat actor.
+    - **Low**. The immediate impact would be minimal. A threat actor would likely need to conduct multiple steps before achieving an impact on an environment.
+    - **Medium**. The threat actor could have some impact on the environment with this activity, but it would be limited in scope or require additional activity.
+    - **High**. The activity identified provides the threat actor with wide ranging access to conduct actions on the environment or is triggered by impact on the environment.
+
+    Severity level defaults are not a guarantee of current or environmental impact level. [Customize alert details](customize-alert-details.md) to customize the severity, tactics, and other properties of a given instance of an alert with the values of any relevant fields from a query output.
+  
+    Severity definitions for Microsoft Sentinel analytics rule templates are relevant only for alerts created by analytics rules. For alerts ingested from from other services, the severity is defined by the source security service.
+  
 - When you create the rule, its **Status** is **Enabled** by default, which means it will run immediately after you finish creating it. If you don’t want it to run immediately, select **Disabled**, and the rule will be added to your **Active rules** tab and you can enable it from there when you need it.
 
    :::image type="content" source="media/tutorial-detect-threats-custom/general-tab.png" alt-text="Start creating a custom analytics rule":::
@@ -59,8 +68,8 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
 
     ```kusto
     AzureActivity
-    | where OperationName == "Create or Update Virtual Machine" or OperationName =="Create Deployment"
-    | where ActivityStatus == "Succeeded"
+    | where OperationNameValue == "MICROSOFT.COMPUTE/VIRTUALMACHINES/WRITE" or OperationNameValue == "MICROSOFT.RESOURCES/DEPLOYMENTS/WRITE"
+    | where ActivityStatusValue == "Succeeded"
     | make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
     ```
 

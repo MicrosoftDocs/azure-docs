@@ -1,14 +1,14 @@
 ---
 title: What is Image Analysis?
 titleSuffix: Azure AI services
-description: The Image Analysis service uses pretrained AI models to extract many different visual features from images. 
-#services: cognitive-services 
+description: The Image Analysis service uses pretrained AI models to extract many different visual features from images.
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision
-ms.custom: ignite-2022, references_regions, build-2023, build-2023-dataai
+ms.custom: references_regions, build-2023, build-2023-dataai
 ms.topic: overview
-ms.date: 07/04/2023
+ms.date: 02/20/2024
 ms.author: pafarley
 keywords: Azure AI Vision, Azure AI Vision applications, Azure AI Vision service
 ---
@@ -61,6 +61,8 @@ You can analyze images to provide insights about their visual features and chara
 |**Detect the color scheme** (v3.2 only) |Analyze color usage within an image. Azure AI Vision can determine whether an image is black & white or color and, for color images, identify the dominant and accent colors.| [Detect the color scheme](concept-detecting-color-schemes.md)|
 |**Moderate content in images** (v3.2 only) |You can use Azure AI Vision to detect adult content in an image and return confidence scores for different classifications. The threshold for flagging content can be set on a sliding scale to accommodate your preferences.|[Detect adult content](concept-detecting-adult-content.md)|
 
+> [!TIP]
+> You can use the Read text and Object detection features of Image Analysis through the [Azure OpenAI](/azure/ai-services/openai/overview) service. The **GPT-4 Turbo with Vision** model lets you chat with an AI assistant that can analyze the images you share, and the Vision Enhancement option uses Image Analysis to give the AI assistance more details (readable text and object locations) about the image. For more information, see the [GPT-4 Turbo with Vision quickstart](/azure/ai-services/openai/gpt-v-quickstart).
 
 ## Product Recognition (v4.0 preview only)
 
@@ -68,13 +70,15 @@ The Product Recognition APIs let you analyze photos of shelves in a retail store
 
 [Product Recognition](./concept-shelf-analysis.md)
 
-## Multi-modal embeddings (v4.0 preview only)
+## Multimodal embeddings (v4.0 only)
 
-The multi-modal embeddings APIs enable the _vectorization_ of images and text queries. They convert images to coordinates in a multi-dimensional vector space. Then, incoming text queries can also be converted to vectors, and images can be matched to the text based on semantic closeness. This allows the user to search a set of images using text, without needing to use image tags or other metadata. Semantic closeness often produces better results in search.
+The multimodal embeddings APIs enable the _vectorization_ of images and text queries. They convert images to coordinates in a multi-dimensional vector space. Then, incoming text queries can also be converted to vectors, and images can be matched to the text based on semantic closeness. This allows the user to search a set of images using text, without needing to use image tags or other metadata. Semantic closeness often produces better results in search.
+
+The `2024-02-01` API includes a multi-lingual model that supports text search in 102 languages. The original English-only model is still available, but it cannot be combined with the new model in the same search index. If you vectorized text and images using the English-only model, these vectors won’t be compatible with multi-lingual text and image vectors.
 
 These APIs are only available in the following geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
 
-[Multi-modal embeddings](./concept-image-retrieval.md)
+[Multimodal embeddings](./concept-image-retrieval.md)
 
 ## Background removal (v4.0 preview only)
 
@@ -94,6 +98,8 @@ Image Analysis works on images that meet the following requirements:
 - The file size of the image must be less than 20 megabytes (MB)
 - The dimensions of the image must be greater than 50 x 50 pixels and less than 16,000 x 16,000 pixels
 
+> [!TIP]
+> Input requirements for multimodal embeddings are different and are listed in [Multimodal embeddings](/azure/ai-services/computer-vision/concept-image-retrieval#input-requirements)
 
 #### [Version 3.2](#tab/3-2)
 

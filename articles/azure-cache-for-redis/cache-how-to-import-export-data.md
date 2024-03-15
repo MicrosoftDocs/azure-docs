@@ -131,6 +131,7 @@ This section contains frequently asked questions about the Import/Export feature
 - [I got an error when exporting my data to Azure Blob Storage. What happened?](#i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened)
 - [How to export if I have firewall enabled on my storage account?](#how-to-export-if-i-have-firewall-enabled-on-my-storage-account)
 - [Can I import or export data from a storage account in a different subscription than my cache?](#can-i-import-or-export-data-from-a-storage-account-in-a-different-subscription-than-my-cache)
+- [Which permissions need to be granted to the storage account container shared access signature (SAS) token to allow export?](#which-permissions-need-to-be-granted-to-the-storage-account-container-shared-access-signature-sas-token-to-allow-export)
 
 ### Which tiers support Import/Export?
 
@@ -221,6 +222,16 @@ More information here - [Managed identity for storage accounts - Azure Cache for
 ### Can I import or export data from a storage account in a different subscription than my cache?
 
 In the _Premium_ tier, you can import and export data from a storage account in a different subscription than your cache, but you must use [managed identity](cache-managed-identity.md) as the authentication method. You will need to select the chosen subscription holding the storage account when configuring the import or export.
+
+### Which permissions need to be granted to the storage account container shared access signature (SAS) token to allow export?
+In order for export to an Azure storage account to work sucessfully, the [shared access signature (SAS) token](../storage/common/storage-sas-overview.md) must have the following permissions:
+- `read`
+- `add`
+- `create`
+- `write`
+- `delete`
+- `tag`
+- `move`
 
 ## Next steps
 

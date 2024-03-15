@@ -69,7 +69,7 @@ As an example, you can use GitHub Actions to deploy an application to your AKS c
         --name "ghActionAzureVote" \
         --scope /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP> \
         --role Contributor \
-        --sdk-auth
+        --json-auth
     ```
 
     Your output should look similar to the following example output:

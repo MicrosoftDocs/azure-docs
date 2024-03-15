@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: conceptual
 ms.date: 01/04/2021
 ms.author: helohr
-manager: femila
 ---
 
 # FSLogix profile containers and Azure files
@@ -82,6 +81,8 @@ To ensure your Azure Virtual Desktop environment follows best practices:
 - Each host pool VM must be in the same resource group to aid management, scaling and updating.
 - For optimal performance, the storage solution and the FSLogix profile container should be in the same data center location.
 - The storage account containing the master image must be in the same region and subscription where the VMs are being provisioned.
+
+Azure Files has limits on the number of open handles per root directory, directory, and file. For more information on the limits and sizing guidance, see [Azure Files scalability and performance targets](../storage/files/storage-files-scale-targets.md#file-scale-targets) and [Azure Files sizing guidance for Azure Virtual Desktop](../storage/files/storage-files-scale-targets.md#azure-files-sizing-guidance-for-azure-virtual-desktop).
 
 ## Next steps
 

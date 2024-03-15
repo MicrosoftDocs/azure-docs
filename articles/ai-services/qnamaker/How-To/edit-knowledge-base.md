@@ -7,8 +7,7 @@ ms.author: jboback
 author: jboback
 ms.subservice: azure-ai-qna-maker
 ms.topic: how-to
-ms.date: 11/19/2021
-ms.custom: ignite-fall-2021
+ms.date: 01/19/2024
 ---
 
 # Edit QnA pairs in your knowledge base

@@ -3,7 +3,6 @@ title: "include file"
 description: "include file" 
 services: azure-monitor
 author: rboucher
-tags: azure-service-management
 ms.prod: devops
 ms.topic: "include"
 ms.date: 07/22/2019
@@ -13,6 +12,8 @@ ms.custom: "include file"
 
 ### Ingestion
 
+Azure managed Prometheus is a case insensitive system. It treats strings, such as metric names, label names, or label values, as the same time series if they differ from another time series only by the case of the string. For more information, see [Prometheus metrics overview](/azure/azure-monitor/essentials/prometheus-metrics-overview#case-sensitivity). 
+ 
 The following limits apply to the Azure Monitor workspace ingesting your Prometheus metrics.
 
 | Limit | Value |
@@ -106,8 +107,8 @@ Prometheus alert rules and recording rules are defined in PromQL. They're perfor
 | Limit | Value |
 |:---|:---|
 | Rule groups per Azure Monitor workspace, in an Azure subscription  | 500<br>You can request an increase. |
-| Rules per rule group | 20<br> This limit can't be increased. |
-| Rule group evaluation interval | Between 1-15 minutes.<br>Default is 1 minute. |
+| Rules per rule group | 20<br>This limit can't be increased. |
+| Rule group evaluation interval | Between 1 minute - 24 hours.<br>Default is 1 minute. |
 | Active alerts | No limit at this time. |
 
 #### Remote write

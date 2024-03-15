@@ -4,11 +4,9 @@ description: Learn how to create a virtual network peering between virtual netwo
 services: virtual-network
 author: asudbring
 manager: mtillman
-tags: azure-resource-manager
 ms.custom: devx-track-azurecli
 ms.service: virtual-network
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 11/15/2018
 ms.author: allensu
 ms.reviewer: anavin

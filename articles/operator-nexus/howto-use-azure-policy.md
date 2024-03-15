@@ -18,7 +18,7 @@ In this article, you'll learn how to use Azure Policy to secure and validate the
 If you're new to Azure Policy, here are some helpful resources that you can use to become more familiar with Azure Policy.
 
 - [Azure Policy documentation](../governance/policy/overview.md)
-- Interactive Learning Modules: [Azure Policy on Microsoft Learn](https://docs.microsoft.com/learn/browse/?terms=Azure%20Policy)
+- Interactive Learning Modules: [Azure Policy training on Microsoft Learn](/learn/browse/?terms=Azure%20Policy)
 
 ##### Understanding Policy Definitions and Assignments
 

@@ -135,5 +135,5 @@ The wayfinding service calculates the path through specific intervening points. 
 [wayfinding service]: creator-indoor-maps.md#wayfinding-preview
 [wayfinding]: creator-indoor-maps.md#wayfinding-preview
 <!---------   REST API Links     --------------->
-[routeset]: /rest/api/maps/2023-03-01-preview/routeset
-[wayfinding API]: /rest/api/maps/2023-03-01-preview/wayfinding
+[routeset]: /rest/api/maps-creator/routeset?view=rest-maps-creator-2023-03-01-preview&preserve-view=true
+[wayfinding API]: /rest/api/maps-creator/wayfinding?view=rest-maps-creator-2023-03-01-preview&preserve-view=true

@@ -58,11 +58,11 @@ We currently support the following named modem configurations:
 
 | **Public Satellite Service** | **Named modem string** | **Note** |
 |--|--|--|
-| Aqua Direct Broadcast | aqua_direct_broadcast | This is NASA Aqua 15-Mbps direct broadcast service |
-| Aqua Direct Playback | aqua_direct_playback | This is NASA Aqua 150-Mbps direct broadcast service |
-| Terra Direct Broadcast | terra_direct_broadcast | This is NASA Terra 13.125-Mbps direct broadcast service |
-| SNPP Direct Broadcast | snpp_direct_broadcast | This is NASA SNPP 15-Mbps direct broadcast service |
-| JPSS-1 Direct Broadcast | jpss-1_direct_broadcast | This is NASA JPSS-1 15-Mbps direct broadcast service |
+| Aqua Direct Broadcast | aqua_direct_broadcast | NASA Aqua main signal - 15 Mbps direct broadcast service |
+| Aqua Direct Playback | aqua_direct_playback | NASA Aqua alternative signal - 150 Mbps direct broadcast service |
+| Terra Direct Broadcast | terra_direct_broadcast | NASA Terra - 13.125 Mbps direct broadcast service |
+| SNPP Direct Broadcast | snpp_direct_broadcast | NASA Suomi-NPP (SNPP) - 15 Mbps direct broadcast service |
+| JPSS-1 Direct Broadcast | jpss-1_direct_broadcast | NASA JPSS-1 - 15 Mbps direct broadcast service |
 
 > [!NOTE]
 > We recommend using the Aqua Direct Broadcast modem configuration when testing with Aqua.  

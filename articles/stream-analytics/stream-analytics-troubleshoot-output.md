@@ -1,12 +1,11 @@
 ---
 title: Troubleshoot Azure Stream Analytics outputs
 description: This article describes techniques to troubleshoot your output connections in Azure Stream Analytics jobs.
-author: ajetasin
-ms.author: ajetasi
+author: ahartoon
+ms.author: anboisve
 ms.service: stream-analytics
 ms.topic: troubleshooting
-ms.date: 10/05/2020
-ms.custom: seodec18
+ms.date: 12/15/2023
 ---
 
 # Troubleshoot Azure Stream Analytics outputs
@@ -99,13 +98,16 @@ During these steps, the SQL output can experience following types of errors:
 * `BulkCopy` timeouts can happen during `BulkCopy` in Step 5. `BulkCopy` can experience operation timeouts occasionally. The default minimum configured  timeout is five minutes and it's doubled when hit consecutively.
 Once the timeout is above 15 minutes, the max batch size hint to `BulkCopy` is reduced to half until 100 events per batch are left.
 
+    > [!IMPORTANT]
+    > For non-[network injected ASA jobs](./run-job-in-virtual-network.md), please do not rely on source IP address of connections coming from ASA in any way. They can be public or private IPs depending on service infrastructure operations that happen from time to time.
+        
 ## Column names are lowercase in Azure Stream Analytics (1.0)
 
 When using the original compatibility level (1.0), Azure Stream Analytics changes column names to lowercase. This behavior was fixed in later compatibility levels. To preserve the case, move to compatibility level 1.1 or later. For more information, see [Compatibility level for Stream Analytics jobs](./stream-analytics-compatibility-level.md).
 
 ## Get help
 
-For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
+For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](/answers/tags/179/azure-stream-analytics).
 
 ## Next steps
 

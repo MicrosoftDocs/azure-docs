@@ -104,6 +104,8 @@ landingContent:
              url: List-of-metrics-collected.md
            - text: Near-edge Compute
              url: reference-near-edge-compute.md
+           - text: Near-edge BMM roles
+             url: reference-near-edge-baremetal-machine-roles.md
            - text: Near-edge storage
              url: reference-near-edge-storage.md
            - text: Limits & quotas

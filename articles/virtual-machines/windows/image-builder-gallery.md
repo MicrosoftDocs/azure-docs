@@ -3,12 +3,12 @@ title: Use Azure VM Image Builder with a gallery for Windows VMs
 description: Create Azure Shared Gallery image versions using VM Image Builder and Azure PowerShell.
 author: kof-f
 ms.author: kofiforson
-ms.reviewer: erd
+ms.reviewer: jushiman
 ms.date: 11/10/2023
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.collection: windows 
+ms.collection: windows
 ms.custom: devx-track-azurepowershell
 ---
 # Create a Windows image and distribute it to an Azure Compute Gallery 

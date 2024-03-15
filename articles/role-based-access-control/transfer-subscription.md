@@ -1,14 +1,12 @@
 ---
 title: Transfer an Azure subscription to a different Microsoft Entra directory
 description: Learn how to transfer an Azure subscription and known related resources to a different Microsoft Entra directory.
-services: active-directory
 author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.workload: identity
 ms.custom: devx-track-azurecli
-ms.date: 09/28/2023
+ms.date: 01/02/2024
 ms.author: rolyon
 ---
 
@@ -84,6 +82,7 @@ Several Azure resources have a dependency on a subscription or a directory. Depe
 | App registrations | Yes | Yes |  |  |
 | Microsoft Dev Box | Yes | No | | You cannot transfer a dev box and its associated resources to a different directory. Once a subscription moves to another tenant, you will not be able to perform any actions on your dev box |
 | Azure Deployment Environments | Yes | No | | You cannot transfer an environment and its associated resources to a different directory. Once a subscription moves to another tenant, you will not be able to perform any actions on your environment |
+| Azure Service Fabric | Yes | No | | You must re-create the cluster. For more information, see [SF Clusters FAQ](../service-fabric/service-fabric-common-questions.md) or [SF Managed Clusters FAQ](../service-fabric/faq-managed-cluster.yml) |
 | Azure Service Bus | Yes | Yes | |You must delete, re-create, and attach the managed identities to the appropriate resource. You must re-create the role assignments. |
 | Azure Synapse Analytics Workspace | Yes | Yes |  | You must update the tenant ID associated with the Synapse Analytics Workspace. If the workspace is associated with a Git repository, you must update the [workspace's Git configuration](../synapse-analytics/cicd/source-control.md#switch-to-a-different-git-repository). For more information, see [Recovering Synapse Analytics workspace after transferring a subscription to a different Microsoft Entra directory (tenant)](../synapse-analytics/how-to-recover-workspace-after-tenant-move.md). |
 
@@ -325,7 +324,7 @@ In this step, you transfer the subscription from the source directory to the tar
 - Use [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) to assign roles to users, groups, and service principals. For more information, see [Assign Azure roles using Azure CLI](role-assignments-cli.md).
 
     ```azurecli
-    az role assignment create --role <role_name_or_id> --assignee <assignee> --resource-group <resource_group>
+    az role assignment create --role <role_name_or_id> --assignee <assignee> --scope "/subscriptions/<subscriptionId>/resourceGroups/<resource_group>"
     ```
 
 ### Update system-assigned managed identities
@@ -341,7 +340,7 @@ In this step, you transfer the subscription from the source directory to the tar
 1. Use [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) to assign roles to system-assigned managed identities. For more information, see [Assign a managed identity access to a resource using Azure CLI](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
 
     ```azurecli
-    az role assignment create --assignee <objectid> --role '<role_name_or_id>' --scope <scope>
+    az role assignment create --assignee <objectid> --role '<role_name_or_id>' --scope "/subscriptions/<subscriptionId>/resourceGroups/<resource_group>"
     ```
 
 ### Update user-assigned managed identities
@@ -357,7 +356,7 @@ In this step, you transfer the subscription from the source directory to the tar
 1. Use [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) to assign roles to user-assigned managed identities. For more information, see [Assign a managed identity access to a resource using Azure CLI](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
 
     ```azurecli
-    az role assignment create --assignee <objectid> --role '<role_name_or_id>' --scope <scope>
+    az role assignment create --assignee <objectid> --role '<role_name_or_id>' --scope "/subscriptions/<subscriptionId>/resourceGroups/<resource_group>"
     ```
 
 ### Update key vaults

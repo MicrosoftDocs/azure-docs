@@ -410,7 +410,7 @@ Migration of Trusted Launch VM to Generation 2 VM is not supported. This is beca
 
 To resolve this issue:
 
-1. [Disable soft delete](backup-azure-security-feature-cloud.md#disabling-soft-delete-using-azure-portal).
+1. [Disable soft delete](backup-azure-security-feature-cloud.md?tabs=azure-portal#disable-soft-delete).
 1. [Stop VM protection with delete backup data](backup-azure-manage-vms.md#stop-protection-and-delete-backup-data).
 1. Re-enable soft delete.
 1. Configure VM protection again with the appropriate policy after the old backup data deletion is complete from the Recovery Services vault.

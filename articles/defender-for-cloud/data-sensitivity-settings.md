@@ -4,7 +4,7 @@ description: Learn how to customize data sensitivity settings in Defender for Cl
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
-ms.date: 09/05/2023
+ms.date: 01/04/2024
 ---
 # Customize data sensitivity settings
 
@@ -25,7 +25,9 @@ This configuration helps you focus on your critical sensitive resources and impr
 
 Changes in sensitivity settings take effect the next time that resources are discovered.
 
-## Import custom sensitive info types/labels
+## Import custom sensitivity info types/labels
+
+To import custom sensitivity info types and labels, you need to have Enterprise Mobility and Security E5/A5/G5 licensing. Learn more about [sensitivity labeling licensing](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-tenantlevel-services-licensing-guidance/microsoft-365-security-compliance-licensing-guidance#microsoft-purview-information-protection-sensitivity-labeling).
 
 Defender for Cloud uses built-in sensitive info types. You can optionally import your own custom sensitive info types and labels from Microsoft Purview compliance portal to align with your organization's needs.
 

@@ -4,9 +4,7 @@ description: See how to enable private access for Azure Time Series Insights Gen
 author: tedvilutis
 ms.author: tvilutis
 manager: cnovak
-ms.workload: big-data
 ms.service: time-series-insights
-services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/01/2021
 ---

@@ -7,7 +7,7 @@ author: stevenmatthew
 
 ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 09/22/2023
+ms.date: 01/11/2024
 ms.author: shaas
 ms.subservice: storage-common-concepts
 ms.custom: references_regions
@@ -154,9 +154,14 @@ All geo-redundant offerings support Microsoft-managed failover. In addition, som
 > Customer-managed account failover for accounts that have a hierarchical namespace (Azure Data Lake Storage Gen2) is currently in PREVIEW and only supported in the following regions:
 >
 > - (Asia Pacific) Central India
+> - (Asia Pacific) South East Asia
+> - (Europe) North Europe
 > - (Europe) Switzerland North
 > - (Europe) Switzerland West
+> - (Europe) West Europe
 > - (North America) Canada Central
+> - (North America) East US 2
+> - (North America) South Central US
 >
 > To opt in to the preview, see [Set up preview features in Azure subscription](../../azure-resource-manager/management/preview-features.md) and specify `AllowHNSAccountFailover` as the feature name.
 >

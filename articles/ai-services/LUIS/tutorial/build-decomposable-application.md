@@ -7,7 +7,7 @@ author: aahill
 ms.manager: nitinme
 ms.subservice: azure-ai-luis
 ms.topic: tutorial
-ms.date: 01/10/2022
+ms.date: 01/19/2024
 ---
 
 # Build a decomposable LUIS application

@@ -8,7 +8,6 @@ ms.author: baanders # Microsoft employees only
 ms.date: 06/29/2023
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: event-tier1-build-2022
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -158,6 +157,8 @@ If your Azure Digital Twins instance has [data history](concepts-data-history.md
 1. In the **Property** field, select the property whose historized data you'd like to view. If the property is not numeric, but it consists of numeric values, use the **Cast property value to number** option to attempt to cast this data to numbers so it can be visualized on the chart.
 
     :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/data-history-explorer-property.png" alt-text="Screenshot of the Data history explorer with the property details highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/data-history-explorer-property.png":::
+
+    [!INCLUDE [digital-twins-visual-property-error-note.md](../../includes/digital-twins-visual-property-error-note.md)]
 
 1. Choose a **Label** for the time series and select **Update**.  
 

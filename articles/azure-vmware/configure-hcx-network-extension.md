@@ -3,12 +3,13 @@ title: Create an HCX network extension
 description: Learn how to extend any networks from your on-premises environment to Azure VMware Solution.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 09/07/2021
+ms.date: 12/06/2023
+ms.custom: engagement-fy23
 ---
 
-# Create a HCX network extension
+# Create an HCX network extension
 
-This is an optional step to extend any networks from your on-premises environment to Azure VMware Solution.
+Create an HCX network extension is an optional step to extend any networks from your on-premises environment to Azure VMware Solution.
 
 1. Under **Services**, select **Network Extension** > **Create a Network Extension**.
 
@@ -28,6 +29,6 @@ This is an optional step to extend any networks from your on-premises environmen
 
 ## Next steps
 
-Now that you've configured the HCX Network Extension, you can also learn about:
+Now that you configured the HCX Network Extension, learn more about:
 
 - [VMware HCX Mobility Optimized Networking (MON) guidance](vmware-hcx-mon-guidance.md)

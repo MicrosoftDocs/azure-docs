@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about the reasons and strategies behind extending an ontology
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 3/29/2023
+ms.date: 1/3/2024
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Extending ontologies 
 
-This article uses the [DTDL-based RealEstateCore ontology for smart buildings](https://github.com/Azure/opendigitaltwins-building) as the basis for examples of extending ontologies with new DTDL properties. The techniques described here are general, however, and can be applied to any part of a DTDL-based ontology with any DTDL capability (Telemetry, Property, Relationship, Component). 
+This article uses the [DTDL-based RealEstateCore ontology for smart buildings](https://github.com/Azure/opendigitaltwins-building) as the basis for examples of extending ontologies with new DTDL properties. The techniques described here are general, however, and can be applied to any part of a DTDL-based ontology with any Azure Digital Twins-compatible DTDL capability (Property, Relationship, Component). 
 
 Microsoft's [industry-standard ontologies](concepts-ontologies-adopt.md), such as the DTDL-based [RealEstateCore](https://www.realestatecore.io/) ontology, are a great way to start building your IoT solution. Industry ontologies provide a rich set of base interfaces that are designed for your domain and engineered to work out of the box in Azure IoT services like Azure Digital Twins. 
 
@@ -40,7 +40,7 @@ Sometimes your solution has specific needs that aren't covered by the industry o
 In this article, we discuss two different cases where extending the ontology's hierarchy is useful: 
 
 * Adding new interfaces for concepts not in the industry ontology. 
-* Adding extra Properties (or Relationships, Components, and Telemetry) to existing interfaces.
+* Adding extra Properties, Relationships, or Components to existing interfaces.
 
 ### Add new interfaces for new concepts 
 
@@ -56,7 +56,7 @@ After adding the focus room interface, the extended hierarchy shows the new room
 
 ### Add extra capabilities to existing interfaces 
 
-In this case, you want to add more Properties (or Relationships, Components, and Telemetry) to interfaces that are in the industry ontology.
+In this case, you want to add more Properties, Relationships, or Components to interfaces that are in the industry ontology.
 
 In this section, you'll see two examples: 
 * If you're building a solution that displays 3D drawings of spaces that you already have in an existing system, you might want to associate each digital twin to its 3D drawing (by ID) so that when the solution displays information about the space, it can also retrieve the 3D drawing from the existing system. 

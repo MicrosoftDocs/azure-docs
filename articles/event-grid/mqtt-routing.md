@@ -7,7 +7,7 @@ ms.custom:
 ms.date: 11/15/2023
 author: george-guirguis
 ms.author: geguirgu
-
+ms.subservice: mqtt
 ---
 # Routing MQTT Messages in Azure Event Grid
 
@@ -144,8 +144,9 @@ Use the following articles to learn more about routing:
 
 ### QuickStart:
 
-- [Route MQTT messages to Event Hubs](mqtt-routing-to-event-hubs-portal.md)
-
+- [Tutorial: Route MQTT messages to Azure Event Hubs using namespace topics](mqtt-routing-to-event-hubs-portal-namespace-topics.md)
+- [Tutorial: Route MQTT messages to Azure Functions using custom topics](mqtt-routing-to-azure-functions-portal.md)
+- 
 ### Concepts:
 
 - [Routing Event Schema](mqtt-routing-event-schema.md)

@@ -5,7 +5,7 @@ author: dearandyxu
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.date: 02/08/2023
+ms.date: 01/05/2024
 ms.author: yexu
 ---
 #  Session log in a Copy activity

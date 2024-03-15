@@ -2,25 +2,30 @@
 title: Default Prometheus metrics configuration in Azure Monitor
 description: This article lists the default targets, dashboards, and recording rules for Prometheus metrics in Azure Monitor.
 ms.topic: conceptual
-ms.custom: ignite-2022
-ms.date: 09/28/2022
+ms.date: 11/28/2023
 ms.reviewer: aul
 ---
 
 # Default Prometheus metrics configuration in Azure Monitor
 
-This article lists the default targets, dashboards, and recording rules when you [configure Prometheus metrics to be scraped from an Azure Kubernetes Service (AKS) cluster](prometheus-metrics-enable.md) for any AKS cluster.
+This article lists the default targets, dashboards, and recording rules when you [configure Prometheus metrics to be scraped from an Azure Kubernetes Service (AKS) cluster](kubernetes-monitoring-enable.md#enable-prometheus-and-grafana) for any AKS cluster.
+
+## Minimal ingestion profile
+`Minimal ingestion profile` is a setting that helps reduce ingestion volume of metrics, as only metrics used by default dashboards, default recording rules & default alerts are collected. For addon based collection, `Minimal ingestion profile` setting is enabled by default. You can modify collection to enable collecting more metrics, as specified below.
 
 ## Scrape frequency
 
  The default scrape frequency for all default targets and scrapes is 30 seconds.
 
 ## Targets scraped by default
+Following targets are **enabled/ON** by default - meaning you don't have to provide any scrape job configuration for scraping these targets, as metrics addon will scrape these targets automatically by default
 
 - `cadvisor` (`job=cadvisor`)
 - `nodeexporter` (`job=node`)
 - `kubelet` (`job=kubelet`)
 - `kube-state-metrics` (`job=kube-state-metrics`)
+- `controlplane-apiserver` (`job=controlplane-apiserver`)
+- `controlplane-etcd` (`job=controlplane-etcd`)
 
 ## Metrics collected from default targets
 
@@ -148,6 +153,33 @@ The following metrics are collected by default from each default target. All oth
    - `kube_resource_labels` (ex - kube_pod_labels, kube_deployment_labels)
    - `kube_resource_annotations` (ex - kube_pod_annotations, kube_deployment_annotations)
 
+   **controlplane-apiserver (job=controlplane-apiserver)**<br>
+   - `apiserver_request_total`
+   - `apiserver_cache_list_fetched_objects_total`
+   - `apiserver_cache_list_returned_objects_total`
+   - `apiserver_flowcontrol_demand_seats_average`
+   - `apiserver_flowcontrol_current_limit_seats`
+   - `apiserver_request_sli_duration_seconds_bucket`
+   - `apiserver_request_sli_duration_seconds_count`
+   - `apiserver_request_sli_duration_seconds_sum`
+   - `process_start_time_seconds`
+   - `apiserver_request_duration_seconds_bucket`
+   - `apiserver_request_duration_seconds_count`
+   - `apiserver_request_duration_seconds_sum`
+   - `apiserver_storage_list_fetched_objects_total`
+   - `apiserver_storage_list_returned_objects_total`
+   - `apiserver_current_inflight_requests`
+
+   **controlplane-etcd (job=controlplane-etcd)**<br>
+   - `etcd_server_has_leader`
+   - `rest_client_requests_total`
+   - `etcd_mvcc_db_total_size_in_bytes`
+   - `etcd_mvcc_db_total_size_in_use_in_bytes`
+   - `etcd_server_slow_read_indexes_total`
+   - `etcd_server_slow_apply_total`
+   - `etcd_network_client_grpc_sent_bytes_total`
+   - `etcd_server_heartbeat_send_failures_total`
+
 ## Default targets scraped for Windows
 Following Windows targets are configured to scrape, but scraping is not enabled (**disabled/OFF**) by default - meaning you don't have to provide any scrape job configuration for scraping these targets but they are disabled/OFF by default and you need to turn ON/enable scraping for these targets using [ama-metrics-settings-configmap](https://aka.ms/azureprometheus-addon-settings-configmap) under `default-scrape-settings-enabled` section
 
@@ -156,7 +188,7 @@ Two default jobs can be run for Windows that scrape metrics required for the das
 - `kube-proxy-windows` (`job=kube-proxy-windows`)
 
 > [!NOTE]
-> This requires applying or updating the `ama-metrics-settings-configmap` configmap and installing `windows-exporter` on all Windows nodes. For more information, see the [enablement document](./prometheus-metrics-enable.md#enable-prometheus-metric-collection).
+> This requires applying or updating the `ama-metrics-settings-configmap` configmap and installing `windows-exporter` on all Windows nodes. For more information, see the [enablement document](kubernetes-monitoring-enable.md#enable-prometheus-and-grafana).
 
 ## Metrics scraped for Windows
 

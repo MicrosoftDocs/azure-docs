@@ -9,11 +9,11 @@ author: mbender-ms
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.custom: template-how-to, engagement-fy23, devx-track-azurecli, devx-track-linux
+ms.custom: template-how-to, engagement-fy23, devx-track-azurecli, linux-related-content
 ---
 # Assign multiple IP addresses to virtual machines using the Azure CLI
 
-An Azure Virtual Machine (VM) has one or more network interfaces (NIC) attached to it. Any NIC can have one or more static or dynamic public and private IP addresses assigned to it. 
+An Azure Virtual Machine (VM) has one or more network interfaces (NIC) attached to it. Any NIC can have one or more static or dynamic public and private IP addresses assigned to it.
 
 Assigning multiple IP addresses to a VM enables the following capabilities:
 
@@ -30,7 +30,7 @@ Every NIC attached to a VM has one or more IP configurations associated to it. E
 
 There's a limit to how many private IP addresses can be assigned to a NIC. There's also a limit to how many public IP addresses that can be used in an Azure subscription. See [Azure limits](../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) for details.
 
-This article explains how to add multiple IP addresses to a virtual machine using the Azure CLI. 
+This article explains how to add multiple IP addresses to a virtual machine using the Azure CLI.
 
 ## Prerequisites
 

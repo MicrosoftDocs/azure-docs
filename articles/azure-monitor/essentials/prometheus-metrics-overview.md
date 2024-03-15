@@ -5,8 +5,7 @@ author: EdB-MSFT
 ms.service: azure-monitor
 ms-author: edbaynash
 ms.topic: conceptual
-ms.custom: ignite-2022
-ms.date: 05/10/2023
+ms.date: 01/25/2024
 ---
 
 # Azure Monitor managed service for Prometheus
@@ -22,16 +21,14 @@ Azure Monitor managed service for Prometheus allows you to collect and analyze m
 Azure Monitor managed service for Prometheus can currently collect data from any of the following data sources:
 
 - Azure Kubernetes service (AKS)
-- Any Kubernetes cluster running self-managed Prometheus using [remote-write](https://aka.ms/azureprometheus-promio-prw).
-- Azure Arc-enabled Kubernetes 
+- Azure Arc-enabled Kubernetes
+- Any server or Kubernetes cluster running self-managed Prometheus using [remote-write](./remote-write-prometheus.md).
 
 ## Enable
 The only requirement to enable Azure Monitor managed service for Prometheus is to create an [Azure Monitor workspace](azure-monitor-workspace-overview.md), which is where Prometheus metrics are stored. Once this workspace is created, you can onboard services that collect Prometheus metrics.
 
-- To collect Prometheus metrics from your AKS cluster without using Container insights, see [Collect Prometheus metrics from AKS cluster](prometheus-metrics-enable.md).
-- To add collection of Prometheus metrics to your cluster using Container insights, see [Collect Prometheus metrics with Container insights](../containers/container-insights-prometheus.md#send-data-to-azure-monitor-managed-service-for-prometheus).
-- To configure remote-write to collect data from your self-managed Prometheus server, see [Azure Monitor managed service for Prometheus remote write - managed identity](prometheus-remote-write-managed-identity.md).
-- To collect Prometheus metrics from your Azure Arc-enabled Kubernetes cluster without using Container insights, see [Collect Prometheus metrics from Azure Arc-enabled Kubernetes cluster](./prometheus-metrics-from-arc-enabled-cluster.md)
+- To collect Prometheus metrics from your Kubernetes cluster, see [Enable monitoring for Kubernetes clusters](../containers/kubernetes-monitoring-enable.md#enable-prometheus-and-grafana).
+- To configure remote-write to collect data from your self-managed Prometheus server, see [Azure Monitor managed service for Prometheus remote write](./remote-write-prometheus.md).
 
 ## Grafana integration
 The primary method for visualizing Prometheus metrics is [Azure Managed Grafana](../../managed-grafana/overview.md). [Connect your Azure Monitor workspace to a Grafana workspace](./azure-monitor-workspace-manage.md#link-a-grafana-workspace) so that it can be used as a data source in a Grafana dashboard. You then have access to multiple prebuilt dashboards that use Prometheus metrics and the ability to create any number of custom dashboards.
@@ -48,12 +45,13 @@ See [Azure Monitor service limits](../service-limits.md#prometheus-metrics) for 
 ## Limitations/Known issues - Azure Monitor managed Service for Prometheus
 
 - Scraping and storing metrics at frequencies less than 1 second isn't supported.
-- Metrics with the same label names but different cases are rejected during ingestion (ex;- `diskSize(cluster="eastus", node="node1", filesystem="usr_mnt", FileSystem="usr_opt")` is invalid due to `filesystem` and `FileSystem` labels, and are rejected).
 - Microsoft Azure operated by 21Vianet cloud and Air gapped clouds aren't supported for Azure Monitor managed service for Prometheus.
-- To monitor Windows nodes & pods in your cluster(s), follow steps outlined [here](./prometheus-metrics-enable.md#enable-windows-metrics-collection).
+- To monitor Windows nodes & pods in your cluster(s), follow steps outlined [here](../containers/kubernetes-monitoring-enable.md#enable-windows-metrics-collection-preview).
 - Azure Managed Grafana isn't currently available in the Azure US Government cloud.
 - Usage metrics (metrics under `Metrics` menu for the Azure Monitor workspace) - Ingestion quota limits and current usage for any Azure monitor Workspace aren't available yet in US Government cloud.
 - During node updates, you might experience gaps lasting 1 to 2 minutes in some metric collections from our cluster level collector. This gap is due to a regular action from Azure Kubernetes Service to update the nodes in your cluster. This behavior is expected and occurs due to the node it runs on being updated. None of our recommended alert rules are affected by this behavior. 
+
+[!INCLUDE [case sensitivity](../includes/prometheus-case-sensitivity.md)] 
 
 ## Prometheus references
 Following are links to Prometheus documentation.
@@ -89,6 +87,6 @@ If you use the Azure portal to enable Prometheus metrics collection and install 
 
 ## Next steps
 
-- [Enable Azure Monitor managed service for Prometheus](prometheus-metrics-enable.md).
+- [Enable Azure Monitor managed service for Prometheus on your Kubernetes clusters](../containers/kubernetes-monitoring-enable.md).
 - [Configure Prometheus alerting and recording rules groups](prometheus-rule-groups.md).
 - [Customize scraping of Prometheus metrics](prometheus-metrics-scrape-configuration.md).

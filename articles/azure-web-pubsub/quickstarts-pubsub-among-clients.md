@@ -66,7 +66,7 @@ As shown in the diagram above, the client has the permissions to send messages t
 Create a file with name `index.js` and add following code
 
 ```javascript
-import { WebPubSubClient } from "@azure/web-pubsub-client";
+const { WebPubSubClient } = require("@azure/web-pubsub-client");
 
 // Instantiate the client object. 
 // <client-access-url> is copied from Azure portal mentioned above.

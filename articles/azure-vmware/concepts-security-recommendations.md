@@ -3,7 +3,8 @@ title: Concepts - Security recommendations for Azure VMware Solution
 description: Learn about tips and best practices to help protect Azure VMware Solution deployments from vulnerabilities and malicious actors. 
 ms.topic: conceptual
 ms.service: azure-vmware
-ms.date: 4/6/2023
+ms.date: 12/05/2023
+ms.custom: engagement-fy23
 ---
 
 
@@ -32,7 +33,7 @@ The following are network-related security recommendations for Azure VMware Solu
 | :-- | :-- |
 | Only allow trusted networks | Only allow access to your environments over ExpressRoute or other secured networks. Avoid exposing your management services like vCenter Server, for example, on the internet. |
 | Use Azure Firewall Premium | If you must expose management services on the internet, use [Azure Firewall Premium](../firewall/premium-migrate.md) with both IDPS Alert and Deny mode along with TLS inspection for proactive threat detection. |
-| Deploy and configure Network Security Groups on VNET | Ensure any VNET deployed has [Network Security Groups](../virtual-network/network-security-groups-overview.md) configured to control ingress and egress to your environment. |
+| Deploy and configure Network Security Groups on virtual network | Ensure any virtual network deployed has [Network Security Groups](../virtual-network/network-security-groups-overview.md) configured to control ingress and egress to your environment. |
 | Review and implement recommendations within the Azure security baseline for Azure VMware Solution | [Azure security baseline for Azure VMware Solution](/security/benchmark/azure/baselines/vmware-solution-security-baseline/) |
 
 ## VMware HCX

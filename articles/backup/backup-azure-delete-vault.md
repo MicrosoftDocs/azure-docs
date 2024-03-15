@@ -55,12 +55,12 @@ To delete a vault, follow these steps:
 
 - <a id="portal-disable-soft-delete">**Step 3:**</a> Disable the soft delete and Security features
 
-  1. Go to **Properties** -> **Security Settings** and disable the **Soft Delete** feature if enabled. See [how to disable soft delete](./backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete).
+  1. Go to **Properties** -> **Security Settings** and disable the **Soft Delete** feature if enabled. See [how to disable soft delete](./backup-azure-security-feature-cloud.md#enable-and-disable-soft-delete).
   1. Go to **Properties** -> **Security Settings** and disable **Security Features**, if enabled. [Learn more](./backup-azure-security-feature.md)
 
 - <a id="portal-delete-cloud-protected-items">**Step 4:**</a> Delete Cloud protected items
 
-  1. **Delete Items in soft-deleted state**: After disabling soft delete, check if there are any items previously remaining in the soft deleted state. If there are items in soft deleted state, then you need to *undelete* and *delete* them again. [Follow these steps](./backup-azure-security-feature-cloud.md#using-azure-portal) to find soft delete items and permanently delete them.
+  1. **Delete Items in soft-deleted state**: After disabling soft delete, check if there are any items previously remaining in the soft deleted state. If there are items in soft deleted state, then you need to *undelete* and *delete* them again. [Follow these steps](./backup-azure-security-feature-cloud.md?tabs=azure-portal#delete-soft-deleted-backup-items-permanently) to find soft delete items and permanently delete them.
 
      :::image type="content" source="./media/backup-azure-delete-vault/delete-items-in-soft-delete-state-inline.png" alt-text="Screenshot showing the process to delete items in soft-delete state." lightbox="./media/backup-azure-delete-vault/delete-items-in-soft-delete-state-expanded.png":::
 

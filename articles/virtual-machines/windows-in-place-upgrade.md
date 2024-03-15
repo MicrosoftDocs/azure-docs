@@ -1,12 +1,12 @@
 ---
-title: Windows in-place upgrade 
+title: Windows in-place upgrade
 description: This article describes how to do an in-place upgrade for VMs running Windows Server in Azure.
 services: virtual-machines
-author: cynthn
+author: ju-shim
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 ms.date: 07/05/2023
-ms.author: cynthn
+ms.author: jushiman
 ---
 
 # In-place upgrade for VMs running Windows Server in Azure
@@ -215,6 +215,9 @@ Once the upgrade process has completed successfully the following steps should b
 - Delete the upgrade media Managed Disk.
 
 - Enable any antivirus, anti-spyware or firewall software that may have been disabled at the start of the upgrade process.
+
+> [!IMPORTANT]
+> The image plan information will not change after the upgrade process.
 
 
 ## Recover from failure

@@ -3,13 +3,13 @@ title: How to prepare data and define a custom classification schema
 titleSuffix: Azure AI services
 description: Learn about data selection, preparation, and creating a schema for custom text classification projects.
 #services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: how-to
-ms.date: 05/05/2022
-ms.author: aahi
-ms.custom: language-service-custom-classification, ignite-fall-2021
+ms.date: 12/19/2023
+ms.author: jboback
+ms.custom: language-service-custom-classification
 ---
 
 # How to prepare data and define a text classification schema

@@ -1,7 +1,6 @@
 ---
 title: Move resources to another region with Azure Resource Mover
 description: Learn how to move resources within a resource group to another region with Azure Resource Mover.
-manager: evansma
 author: ankitaduttaMSFT
 ms.service: resource-mover
 ms.topic: how-to

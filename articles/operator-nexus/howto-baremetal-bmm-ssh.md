@@ -14,7 +14,12 @@ ms.custom: template-how-to, devx-track-azurecli
 > [!CAUTION]
 > Please note this process is used in emergency situations when all other troubleshooting options using Azure have been exhausted. SSH access to these bare metal machines is restricted to users managed via this method from the specified jump host list.
 
-There are rare situations where a user needs to investigate & resolve issues with a bare metal machine and all other ways have been exhausted via Azure. Azure Operator Nexus provides the `az networkcloud cluster baremetalmachinekeyset` command so users can manage SSH access to these bare metal machines.
+There are rare situations where a user needs to investigate & resolve issues with a bare metal machine and all other ways have been exhausted via Azure. Azure Operator Nexus provides the `az networkcloud cluster baremetalmachinekeyset` command so users can manage SSH access to these bare metal machines. On keyset creation, users are validated against Microsoft Entra ID for proper authorization by cross referencing the User Principal Name provided for a user against the supplied Microsoft Entra ID `--azure-group-id <Entra Group ID>`.
+
+If the User Principal Name for a user isn't a member of the supplied group, the user's status is set to 'Invalid', and their status message will say "Invalid because userPrincipal isn't a member of AAD group." If the Azure Group ID is invalid, each user in the keyset will have their status set to 'Invalid' and their status message will say "AAD group doesn't exist." Invalid users remain in the keyset but their key won't be enabled for SSH access.
+
+> [!NOTE]
+> There is currently a transitional period where specifying User Principal Names is optional. In a future release, it will become mandatory and Microsoft Entra ID validation will be enforced for all users. Users are encouraged to add User Principal Names to their keysets before the transitional period ends (planned for July 2024) to avoid keysets being invalidated. Note that if any User Principal Names are added to a keyset, even if they are not added for all users, Microsoft Entra ID validation will be enabled, and this will result in the entire keyset being invalidated if the Group ID specified is not valid.
 
 When the command runs, it executes on each bare metal machine in the Cluster with an active Kubernetes node. There's a reconciliation process that runs periodically that retries the command on any bare metal machine that wasn't available at the time of the original command. Also, any bare metal machine that returns to the cluster via an `az networkcloud baremetalmachine actionreimage` or `az networkcloud baremetalmachine actionreplace` command (see [BareMetal functions](./howto-baremetal-functions.md)) sends a signal causing any active keysets to be sent to the machine as soon as it returns to the cluster. Multiple commands execute in the order received.
 
@@ -24,7 +29,7 @@ There's no limit to the number of users in a group.
 > Notes for jump host IP addresses
 
 - The keyset create/update process adds the jump host IP addresses to the IP tables for each machine in the Cluster. This restricts SSH access to be allowed only from those jump hosts.
-- It's important to specify the Cluster facing IP addresses for the jump hosts. These IP addresses may be different than the public facing IP address used to access the jump host.
+- It's important to specify the Cluster facing IP addresses for the jump hosts. These IP addresses might be different than the public facing IP address used to access the jump host.
 - Once added, users are able to access bare metal machines from any specified jump host IP including a jump host IP defined in another bare metal machine keyset group.
 - Existing SSH access remains when adding the first bare metal machine keyset. However, the keyset command limits an existing user's SSH access to the specified jump host IPs in the keyset commands.
 
@@ -55,13 +60,14 @@ az networkcloud cluster baremetalmachinekeyset create \
   --extended-location name=<Extended Location ARM ID> \
     type="CustomLocation" \
   --location <Azure Region> \
-  --azure-group-id <Azure AAD Group ID> \
+  --azure-group-id <Azure Group ID> \
   --expiration <Expiration Timestamp> \
   --jump-hosts-allowed <List of jump server IP addresses> \
   --os-group-name <Name of the Operating System Group> \
   --privilege-level <"Standard" or "Superuser"> \
   --user-list '[{"description":"<User List Description>","azureUserName":"<User Name>",\
-    "sshPublicKey":{"keyData":"<SSH Public Key>"}}]' \
+    "sshPublicKey":{"keyData":"<SSH Public Key>"}, \
+    "userPrincipalName":""}]', \
   --tags key1=<Key Value> key2=<Key Value> \
   --cluster-name <Cluster Name> \
   --resource-group <Resource Group>
@@ -102,6 +108,7 @@ az networkcloud cluster baremetalmachinekeyset create \
       azure-user-name: Required. User name used to login to the server.
       description: The free-form description for this user.
       key-data: Required. The public ssh key of the user.
+      userPrincipalName: Optional. The User Principal Name of the User.
 
       Multiple users can be specified by using more than one --user-list argument.
   --os-group-name                                        : The name of the group that users are assigned
@@ -150,8 +157,8 @@ az networkcloud cluster baremetalmachinekeyset create \
   --jump-hosts-allowed "192.0.2.1" "192.0.2.5" \
   --os-group-name "standardAccessGroup" \
   --privilege-level "Standard" \
-  --user-list '[{"description":"Needs access for troubleshooting as a part of the support team","azureUserName":"userABC", "sshPublicKey":{"keyData":"ssh-rsa  AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXISTRnIDpcf5qytjs1XoyYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm"}},\
-  {"description":"Needs access for troubleshooting as a part of the support team","azureUserName":"userXYZ","sshPublicKey":{"keyData":"ssh-rsa  AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXTSTRnIDpcf5qytjs1XoyYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm"}}]' \
+  --user-list '[{"description":"Needs access for troubleshooting as a part of the support team","azureUserName":"userABC", "sshPublicKey":{"keyData":"ssh-rsa  AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXISTRnIDpcf5qytjs1XoyYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm"},"userPrincipalName":"example@contoso.com"},\
+  {"description":"Needs access for troubleshooting as a part of the support team","azureUserName":"userXYZ","sshPublicKey":{"keyData":"ssh-rsa  AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXTSTRnIDpcf5qytjs1XoyYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm"}, "userPrincipalName":"example@contoso.com"}]' \
   --tags key1="myvalue1" key2="myvalue2" \
   --cluster-name "clusterName"
   --resource-group "resourceGroupName"
@@ -207,7 +214,8 @@ az networkcloud cluster baremetalmachinekeyset update \
   --jump-hosts-allowed <List of jump server IP addresses> \
   --privilege-level <"Standard" or "Superuser"> \
   --user-list '[{"description":"<User List Description>","azureUserName":"<User Name>",\
-   "sshPublicKey":{"keyData":"<SSH Public Key>"}}]' \
+   "sshPublicKey":{"keyData":"<SSH Public Key>"}, \
+   "userPrincipalName":""}]', \
   --tags key1=<Key Value> key2=<Key Value> \
   --cluster-name <Cluster Name> \
   --resource-group <Resource Group>
@@ -234,6 +242,7 @@ az networkcloud cluster baremetalmachinekeyset update \
       azure-user-name: Required. User name used to login to the server.
       description: The free-form description for this user.
       key-data: Required. The public SSH key of the user.
+      userPrincipalName: Optional. The User Principal Name of the User.
 
       Multiple users can be specified by using more than one --user-list argument.
   --resource-group -g                         [Required] : Name of resource group. Optional if
@@ -253,9 +262,13 @@ az networkcloud cluster baremetalmachinekeyset update \
   --name "bareMetalMachineKeySetName" \
  --expiration "2023-12-31T23:59:59.008Z" \
   --user-list '[{"description":"Needs access for troubleshooting as a part of the support team",\
-  "azureUserName":"userABC","sshPublicKey":{"keyData":"ssh-rsa  AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXISTRnIDpcf5qytjs1XoyYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm"}},\
+  "azureUserName":"userABC", \
+  "sshPublicKey":{"keyData":"ssh-rsa  AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXISTRnIDpcf5qytjs1XoyYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm"}, \
+  "userPrincipalName":"example@contoso.com"},\
   {"description":"Needs access for troubleshooting as a part of the support team",\
-  "azureUserName":"userXYZ","sshPublicKey":{"keyData":"ssh-rsa  AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXTSTRnIDpcf5qytjs1XoyYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm"}}]' \
+    "azureUserName":"userXYZ", \
+    "sshPublicKey":{"keyData":"ssh-rsa  AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXTSTRnIDpcf5qytjs1XoyYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm"}, \
+    "userPrincipalName":"example@contoso.com"}]' \
    --cluster-name "clusterName" \
   --resource-group "resourceGroupName"
 ```

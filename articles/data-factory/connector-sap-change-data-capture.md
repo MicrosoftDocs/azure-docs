@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 04/14/2023
+ms.date: 01/05/2024
 ---
 
 # Transform data from an SAP ODP source using the SAP CDC connector in Azure Data Factory or Azure Synapse Analytics
@@ -32,7 +32,7 @@ This SAP CDC connector is supported for the following capabilities:
 
 This SAP CDC connector uses the SAP ODP framework to extract data from SAP source systems. For an introduction to the architecture of the solution, read [Introduction and architecture to SAP change data capture (CDC)](sap-change-data-capture-introduction-architecture.md) in our [SAP knowledge center](industry-sap-overview.md).
 
-The SAP ODP framework is contained in all up-to-date SAP NetWeaver based systems, including SAP ECC, SAP S/4HANA, SAP BW, SAP BW/4HANA, SAP LT Replication Server (SLT). For prerequisites and minimum required releases, see [Prerequisites and configuration](sap-change-data-capture-prerequisites-configuration.md#sap-system-requirements).  
+The SAP ODP framework is contained in all up-to-date SAP NetWeaver based systems, including SAP ECC, SAP S/4HANA, SAP BW, SAP BW/4HANA, SAP LT Replication Server (SLT). For prerequisites and minimum required releases, see [Prerequisites and configuration](sap-change-data-capture-prerequisites-configuration.md#verify-sap-system-requirements).  
 
 The SAP CDC connector supports basic authentication or Secure Network Communications (SNC), if SNC is configured.
 

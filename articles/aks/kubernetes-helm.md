@@ -4,7 +4,7 @@ description: Learn how to use the Helm packaging tool to deploy containers in an
 author: zr-msft
 ms.topic: article
 ms.date: 05/09/2023
-ms.author: zarhoads
+ms.author: magoedte
 
 #Customer intent: As a cluster operator or developer, I want to learn how to deploy Helm into an AKS cluster and then install and manage applications using Helm charts.
 ---

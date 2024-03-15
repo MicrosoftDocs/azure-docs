@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 07/01/2023
+ms.date: 01/05/2024
 ---
 
 # Deactivate an Activity

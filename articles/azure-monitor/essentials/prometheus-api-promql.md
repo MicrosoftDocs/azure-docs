@@ -207,7 +207,7 @@ The following limitations are in addition to those detailed in the Prometheus sp
 
 For more information on Prometheus metrics limits, see [Prometheus metrics](../../azure-monitor/service-limits.md#prometheus-metrics)
 
-[!INCLUDE [prometheus-case-sensitivity.md](..//includes/prometheus-case-sensitivity.md)]
+[!INCLUDE [prometheus-case-sensitivity.md](../includes/prometheus-case-sensitivity.md)]
 
 ## Frequently asked questions
 

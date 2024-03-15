@@ -35,7 +35,7 @@ Microsoft Copilot for Azure (preview) can guide you in suggesting different opti
 
 ### Examples
 
-During the VM creation process, you can ask "How do I reduce the cost of my virtual machine?" Microsoft Copilot for Azure (preview) guides you through options to make your VM more cost-effective, providing options that you can enable.
+During the VM creation process, you can ask "**How do I reduce the cost of my virtual machine?**" Microsoft Copilot for Azure (preview) guides you through options to make your VM more cost-effective, providing options that you can enable.
 
 :::image type="content" source="media/deploy-vms-effectively/vm-reduce-costs.png" lightbox="media/deploy-vms-effectively/vm-reduce-costs.png" alt-text="Screenshot showing Microsoft Copilot for Azure (preview) providing ways to lower VM costs.":::
 
@@ -54,7 +54,7 @@ Microsoft Copilot for Azure (preview) can provide additional context to help you
 
 ### Examples
 
-During the VM creation process, you can ask "How do I create a resilient and high availability virtual machine?" Microsoft Copilot for Azure (preview) guides you through options to configure your VM for high availability, providing options that you can enable.
+During the VM creation process, you can ask "**How do I create a resilient and high availability virtual machine?**" Microsoft Copilot for Azure (preview) guides you through options to configure your VM for high availability, providing options that you can enable.
 
 :::image type="content" source="media/deploy-vms-effectively/vm-resilient-high-availability.png" lightbox="media/deploy-vms-effectively/vm-resilient-high-availability.png" alt-text="Screenshot showing Microsoft Copilot for Azure (preview) providing ways to configure a VM for high availability.":::
 
@@ -69,7 +69,7 @@ Azure offers different size options for VMs based on your workload needs. Micros
 
 ### Examples
 
-Ask "Help me choose the right VM size for my workload?" Microsoft Copilot for Azure (preview) asks for some more information to help it determine the best options. After that, it presents some options and lets you choose which recommended size to use for your VM.
+Ask "**Help me choose the right VM size for my workload?**" Microsoft Copilot for Azure (preview) asks for some more information to help it determine the best options. After that, it presents some options and lets you choose which recommended size to use for your VM.
 
 :::image type="content" source="media/deploy-vms-effectively/vm-choose-size.png" lightbox="media/deploy-vms-effectively/vm-choose-size.png" alt-text="Screenshot of Screenshot showing Microsoft Copilot for Azure (preview) providing size recommendations for a VM.":::
 

@@ -4,7 +4,7 @@ description: Learn how to use account policies to control usage of a Data Lake A
 ms.service: data-lake-analytics
 ms.reviewer: whhender
 ms.topic: how-to
-ms.date: 01/27/2023
+ms.date: 12/20/2023
 ---
 # Manage Azure Data Lake Analytics using Account Policies
 

@@ -6,7 +6,7 @@ author: duongau
 ms.service: expressroute
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 12/11/2023
 ms.author: duau
 ---
 
@@ -34,7 +34,7 @@ This article describes how to add IPv6 support to connect via ExpressRoute to yo
     Get-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
     ```
 
-3. Add an IPv6 Private Peering to your existing IPv4 Private Peering configuration. Provide a pair of /126 IPv6 subnets that you own for your primary link and secondary links. From each of these subnets, you will assign the first usable IP address to your router as Microsoft uses the second usable IP for its router.
+3. Add an IPv6 Private Peering to your existing IPv4 Private Peering configuration. Provide a pair of /126 IPv6 subnets that you own for your primary link and secondary links. From each of these subnets, you assign the first usable IP address to your router as Microsoft uses the second usable IP for its router.
 
     > [!Note]
     > The peer ASN and VlanId should match those in your IPv4 Private Peering configuration.
@@ -45,7 +45,7 @@ This article describes how to add IPv6 support to connect via ExpressRoute to yo
     Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
     ```
 
-4. After the configuration has been saved successfully, get the circuit again by running the **Get-AzExpressRouteCircuit** command. The response should look similar to the following example:
+4. After the configuration is saved successfully, get the circuit again by running the **Get-AzExpressRouteCircuit** command. The response should look similar to the following example:
 
     ```azurepowershell
     Name                             : ExpressRouteARMCircuit
@@ -104,7 +104,7 @@ This article describes how to add IPv6 support to connect via ExpressRoute to yo
 
 ## Update your connection to an existing virtual network
 
-Follow the steps below if you have an existing environment of Azure resources that you would like to use your IPv6 Private Peering with.
+To use IPv6 Private Peering with your existing Azure resources, follow these steps:
 
 1. Retrieve the virtual network that your ExpressRoute circuit is connected to.
 
@@ -126,7 +126,7 @@ Follow the steps below if you have an existing environment of Azure resources th
     Set-AzVirtualNetwork -VirtualNetwork $vnet
     ```
 
-4. If you have an existing zone-redundant gateway, run the following to enable IPv6 connectivity (note that it may take up to 1 hour for changes to reflect). Otherwise, [create the virtual network gateway](./expressroute-howto-add-gateway-resource-manager.md) using any SKU. If you plan to use FastPath, use UltraPerformance or ErGw3AZ (note that this is only available for circuits using ExpressRoute Direct).
+4. If you have an existing zone-redundant gateway, run the following to enable IPv6 connectivity (note that it can take up to 1 hour for changes to reflect). Otherwise, [create the virtual network gateway](./expressroute-howto-add-gateway-resource-manager.md) using any SKU. If you plan to use FastPath, use UltraPerformance or ErGw3AZ (note that this feature is only available for circuits using ExpressRoute Direct).
 
     ```azurepowershell-interactive
     $gw = Get-AzVirtualNetworkGateway -Name "GatewayName" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -137,25 +137,26 @@ Follow the steps below if you have an existing environment of Azure resources th
 
 ## Create a connection to a new virtual network
 
-Follow the steps below if you plan to connect to a new set of Azure resources using your IPv6 Private Peering.
+To connect to a new set of Azure resources using your IPv6 Private Peering, apply the following steps:
 
 1. Create a dual-stack virtual network with both IPv4 and IPv6 address space. For more information, see [Create a virtual network](../virtual-network/quick-create-portal.md#create-a-virtual-network).
 
 2. [Create the dual-stack gateway subnet](./expressroute-howto-add-gateway-resource-manager.md#add-a-gateway).
 
-3. [Create the virtual network gateway](./expressroute-howto-add-gateway-resource-manager.md#add-a-gateway) using any SKU. If you plan to use FastPath, use UltraPerformance or ErGw3AZ (note that this is only available for circuits using ExpressRoute Direct).
+3. [Create the virtual network gateway](./expressroute-howto-add-gateway-resource-manager.md#add-a-gateway) using any SKU. If you plan to use FastPath, use UltraPerformance or ErGw3AZ (note that this feature is only available for circuits using ExpressRoute Direct).
 
 4. [Link your virtual network to your ExpressRoute circuit](./expressroute-howto-linkvnet-arm.md).
 
 ## Limitations
-While IPv6 support is available for connections to deployments in Public Azure regions, it does not support the following use cases:
 
-* Connections to *existing* ExpressRoute gateways that are not zone-redundant. Note that *newly* created ExpressRoute gateways of any SKU (both zone-redundant and not) using  a Standard, Static IP address can be used for dual-stack ExpressRoute connections
-* Global Reach connections between ExpressRoute circuits
+While IPv6 support is available for connections to deployments in global Azure regions, it doesn't support the following use cases:
+
+* Connections to *existing* ExpressRoute gateways that aren't zone-redundant. *Newly* created ExpressRoute gateways of any SKU (both zone-redundant and not) using  a Standard, Static IP address can be used for dual-stack ExpressRoute connections
 * Use of ExpressRoute with virtual WAN
 * FastPath with non-ExpressRoute Direct circuits
 * FastPath with circuits in the following peering locations: Dubai
-* Coexistence with VPN Gateway
+* Coexistence with VPN Gateway for IPv6 traffic. You can still configure coexistence with VPN Gateway in a dual-stack virtual network, but VPN Gateway only supports IPv4 traffic.
+* It isn't possible to connect a dual-stack ExpressRoute Virtual Network Gateway to an ExpressRoute Circuit that only has IPv4 enabled on the Private Peering. IPv6 must also be enabled on the ExpressRoute Circuit. You must also configure IPv6 on your on-premises CPE device.
 
 ## Next steps
 

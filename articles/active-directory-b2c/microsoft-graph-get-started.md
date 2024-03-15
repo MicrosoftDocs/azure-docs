@@ -9,9 +9,12 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: how-to
-ms.date: 06/24/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+#Customer intent: As a developer, I want to register a Microsoft Graph application, so that I can automate tenant management tasks in my Azure AD B2C directory, such as migrating user stores, deploying custom policies, and obtaining audit logs.
+
 ---
 
 # Register a Microsoft Graph application

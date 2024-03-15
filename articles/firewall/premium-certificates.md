@@ -71,6 +71,9 @@ To configure your key vault:
 - The provided CA certificate needs to be trusted by your Azure workload. Ensure they are deployed correctly.
 - Since Azure Firewall Premium is listed as Key Vault [Trusted Service](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services), it allows you to bypass Key Vault internal Firewall and to eliminate any exposure of your Key Vault to the Internet.
 
+> [!NOTE]
+> Whenever you import a new Firewall CA certificate into Azure Key Vault (either for the first time or replacing an expired CA certification), you should *explicitly* update the Azure Firewall Policy TLS setting with the new certificate.
+
 You can either create or reuse an existing user-assigned managed identity, which Azure Firewall uses to retrieve certificates from Key Vault on your behalf. For more information, see [What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
 
 > [!NOTE]

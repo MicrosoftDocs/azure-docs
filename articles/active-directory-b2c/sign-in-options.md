@@ -8,10 +8,13 @@ manager: CelesteDG
 
 ms.service: active-directory
 
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/08/2023
 ms.author: godonnell
 ms.subservice: B2C
+
+#Customer Intent: As a developer integrating Azure AD B2C into my application, I want to understand the different sign-in options available so that I can choose the appropriate method for my users and configure the sign-in flow accordingly.
+
 
 ---
 # Sign-in options in Azure AD B2C

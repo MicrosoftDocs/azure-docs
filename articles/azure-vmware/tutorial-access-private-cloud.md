@@ -3,15 +3,15 @@ title: Tutorial - Access your private cloud
 description: Learn how to access an Azure VMware Solution private cloud
 ms.topic: tutorial
 ms.service: azure-vmware
-ms.date: 5/3/2023
+ms.date: 12/19/2023
 ms.custom: engagement-fy23
 ---
 
 # Tutorial: Access an Azure VMware Solution private cloud
 
-Azure VMware Solution doesn't allow you to manage your private cloud with your on-premises vCenter Server. Instead, you'll need to connect to the Azure VMware Solution vCenter Server instance through a jump box.
+Azure VMware Solution doesn't allow you to manage your private cloud with your on-premises vCenter Server. Instead, you need to connect to the Azure VMware Solution vCenter Server instance through a jump box.
 
-In this tutorial, you'll create a jump box in the resource group you created in the [previous tutorial](tutorial-configure-networking.md) and sign in to the Azure VMware Solution vCenter Server. This jump box is a Windows virtual machine (VM) on the same virtual network you created.  It provides access to both vCenter Server and the NSX Manager.
+In this tutorial, learn how to create a jump box in the resource group that you created in the [previous tutorial](tutorial-configure-networking.md) and sign in to the Azure VMware Solution vCenter Server. This jump box is a Windows virtual machine (VM) on the same virtual network you created.  It provides access to both vCenter Server and the NSX Manager.
 
 In this tutorial, you learn how to:
 
@@ -31,8 +31,8 @@ In this tutorial, you learn how to:
 
    | Field | Value |
    | --- | --- |
-   | **Subscription** | Value is pre-populated with the Subscription belonging to the Resource Group. |
-   | **Resource group** | Value is pre-populated for the current Resource Group, which you created in the preceding tutorial.  |
+   | **Subscription** | Value is prepopulated with the Subscription belonging to the Resource Group. |
+   | **Resource group** | Value is prepopulated for the current Resource Group, which you created in the preceding tutorial.  |
    | **Virtual machine name** | Enter a unique name for the VM. |
    | **Region** | Select the geographical location of the VM. |
    | **Availability options** | Leave the default value selected. |
@@ -55,7 +55,7 @@ In this tutorial, you learn how to:
 
    The URLs and user credentials for private cloud vCenter Server and NSX-T Manager are displayed.
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Screenshot showing the private cloud vCenter Server and NSX Manager URLs and credentials."lightbox="media/tutorial-access-private-cloud/ss4-display-identity.png":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Screenshot shows the private cloud vCenter Server and NSX Manager URLs and credentials."lightbox="media/tutorial-access-private-cloud/ss4-display-identity.png":::
 
 1. Navigate to the VM you created in the preceding step and connect to the virtual machine.
 

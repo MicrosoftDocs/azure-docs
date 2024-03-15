@@ -7,10 +7,11 @@ ms.date: 08/21/2023
 ms.author: anaharris
 ms.service: reliability
 ms.subservice: availability-zones
-ms.custom: subject-reliability
+ms.custom: subject-reliability, ai-video-concept
 ---
 
 # Azure reliability documentation
+
 
 Reliability consists of two principles: resiliency and availability. The goal of resiliency is to avoid failures and, if they still occur, to return your application to a fully functioning state. The goal of availability is to provide consistent access to your application or workload. It's important to plan for proactive reliability based on your application requirements.
 
@@ -20,7 +21,9 @@ The Azure reliability documentation offers reliability guidance for Azure servic
 
 For detailed service-specific reliability guidance, including availability zones, disaster recovery, or high availability, see [Azure service-specific reliability guidance overview](./reliability-guidance-overview.md).
 
-For more detailed information on reliability and reliability principles and architecture in Microsoft Azure services, see [Microsoft Azure Well-Architected Framework: Reliability](/azure/architecture/framework/#reliability).
+For information on reliability and reliability principles and architecture in Microsoft Azure services, see [Microsoft Azure Well-Architected Framework: Reliability](/azure/architecture/framework/#reliability).
+
+
 
 
 ## Reliability requirements
@@ -65,7 +68,11 @@ Two important metrics to consider are the recovery time objective and recovery p
 - **Recovery point objective (RPO)** is the maximum duration of data loss that is acceptable during a disaster.  
 
 RTO and RPO are non-functional requirements of a system and should be dictated by business requirements. To derive these values, it's a good idea to conduct a risk assessment, and clearly understanding the cost of downtime or data loss.   
+
+
 ## Regions and availability zones
+
+>[!VIDEO https://learn-video.azurefd.net/vod/player?id=d36b5b2d-8bd2-43df-a796-b0c77b2f82fc]
 
 Regions and availability zones are a big part of the reliability equation. Regions feature multiple, physically separate availability zones. These availability zones are connected by a high-performance network featuring less than 2ms latency between physical zones. Low latency helps your data stay synchronized and accessible when things go wrong. You can use this infrastructure strategically as you architect applications and data infrastructure that automatically replicate and deliver uninterrupted services between zones and across regions. 
 
@@ -86,10 +93,11 @@ Azure services are built for reliability including high availability and disaste
 
 If you need to understand dependencies between Azure services to help better architect your applications and services, you can request the **Azure service dependency documentation** by contacting your Microsoft sales or customer representative. This document lists the dependencies for Azure services, including dependencies on any common major internal services such as control plane services. To obtain this documentation, you must be a Microsoft customer and have the appropriate non-disclosure agreement (NDA) with Microsoft.
 
-For service migration guides to availability zone support, see [Availability zone migration guidance](./availability-zones-migration-overview.md). For disaster recovery guides, see [Disaster Recovery guidance by service](./disaster-recovery-guidance-overview.md). 
 
 ## Next steps
 
+- For service specific guides on availability zone support and disaster recovery, see [Reliability guidance](./reliability-guidance-overview.md).
+- For service migration guides to availability zone support, see [Availability zone migration guidance](./availability-zones-migration-overview.md).
 - [Business continuity management in Azure](business-continuity-management-program.md)
 - [Availability of service by category](availability-service-by-category.md)
 - [Build solutions for high availability using availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability)

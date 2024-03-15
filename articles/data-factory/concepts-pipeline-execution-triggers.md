@@ -8,7 +8,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 02/08/2023
+ms.date: 01/05/2024
 ms.custom: synapse
 ---
 

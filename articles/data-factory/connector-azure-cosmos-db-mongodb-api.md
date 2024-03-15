@@ -7,8 +7,8 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: synapse, ignite-2022
-ms.date: 07/13/2023
+ms.custom: synapse
+ms.date: 01/05/2024
 ---
 
 # Copy data to or from Azure Cosmos DB for MongoDB using Azure Data Factory or Synapse Analytics

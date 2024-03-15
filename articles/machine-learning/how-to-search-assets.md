@@ -5,8 +5,8 @@ description: Find your Azure Machine Learning assets with search
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: sagopal
-author: saachigopal
+ms.author: sgilley
+author: sdgilley
 ms.reviewer: sgilley
 ms.date: 1/12/2023
 ms.topic: how-to

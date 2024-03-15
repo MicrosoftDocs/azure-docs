@@ -80,6 +80,7 @@ Create a new [ImageAnalysisOptions](/cpp/cognitive-services/vision/imageanalysis
 [!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/how-to/how-to.cpp?name=visual_features)]
 
 
+<!--
 ### Set model name when using a custom model
 
 You can also do image analysis with a custom trained model. To create and train a model, see [Create a custom Image Analysis model](/azure/ai-services/computer-vision/how-to/model-customization). Once your model is trained, all you need is the model's name. You don't need to specify visual features if you use a custom model.
@@ -88,7 +89,7 @@ You can also do image analysis with a custom trained model. To create and train 
 To use a custom model, create the [ImageAnalysisOptions](/cpp/cognitive-services/vision/imageanalysis-imageanalysisoptions) object and call the [SetModelName](/cpp/cognitive-services/vision/imageanalysis-imageanalysisoptions#setmodelname) method.  You don't need to call any other methods on **ImageAnalysisOptions**. There's no need to call [SetFeatures](/cpp/cognitive-services/vision/imageanalysis-imageanalysisoptions#setfeatures) as you do with standard model, since your custom model already implies the visual features the service extracts.
 
 [!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/custom-model/custom-model.cpp?name=model_name)]
-
+-->
 
 ### Specify languages
 
@@ -104,7 +105,7 @@ Call the [SetLanguage](/cpp/cognitive-services/vision/imageanalysis-imageanalysi
 
 ### Select gender neutral captions
 
-If you're extracting captions or dense captions, you can ask for gender neutral captions. Gender neutral captions is optional, with the default being gendered captions. For example, in English, when you select gender neutral captions, terms like **woman** or **man** are replaced with **person**, and **boy** or **girl** are replaced with **child**. 
+If you're extracting captions or dense captions (using **VisualFeatures.Caption** or **VisualFeatures.DenseCaptions**), you can ask for gender neutral captions. Gender neutral captions are optional, with the default being gendered captions. For example, in English, when you select gender neutral captions, terms like **woman** or **man** are replaced with **person**, and **boy** or **girl** are replaced with **child**. 
 
 Gender neutral caption option only applies when you're using the standard model.
 
@@ -115,7 +116,7 @@ Call the [SetGenderNeutralCaption](/cpp/cognitive-services/vision/imageanalysis-
 
 ### Select smart cropping aspect ratios
 
-An aspect ratio is calculated by dividing the target crop width by the height. Supported values are from 0.75 to 1.8 (inclusive). Setting this property is only relevant when the **smartCrop** option (REST API) or **CropSuggestions** (SDK) was selected as part the visual feature list. If you select smartCrop/CropSuggestions but don't specify aspect ratios, the service returns one crop suggestion with an aspect ratio it sees fit. In this case, the aspect ratio is between 0.5 and 2.0 (inclusive).
+An aspect ratio is calculated by dividing the target crop width by the height. Supported values are from 0.75 to 1.8 (inclusive). Setting this property is only relevant when **VisualFeatures.SmartCrops** was selected as part the visual feature list. If you select **VisualFeatures.SmartCrops** but don't specify aspect ratios, the service returns one crop suggestion with an aspect ratio it sees fit. In this case, the aspect ratio is between 0.5 and 2.0 (inclusive).
 
 Smart cropping aspect rations only applies when you're using the standard model.
 
@@ -148,7 +149,7 @@ The code uses the following helper method to display the coordinates of a boundi
 
 [!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/how-to/how-to.cpp?name=polygon_to_string)]
 
-
+<!--
 ### Get results using custom model
 
 This section shows you how to make an analysis call to the service, when using a custom model. 
@@ -157,7 +158,7 @@ This section shows you how to make an analysis call to the service, when using a
 The code is similar to the standard model case. The only difference is that results from the custom model are available by calling the **GetCustomTags** and/or **GetCustomObjects** methods of the [ImageAnalysisResult](/cpp/cognitive-services/vision/imageanalysis-imageanalysisresult) object.
 
 [!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/custom-model/custom-model.cpp?name=analyze)]
-
+-->
 
 ## Error codes
 
