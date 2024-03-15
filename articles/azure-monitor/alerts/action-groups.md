@@ -5,7 +5,7 @@ ms.author: abbyweisberg
 ms.topic: conceptual
 ms.date: 05/02/2023
 ms.reviewer: jagummersall
-ms.custom: references_regions, devx-track-arm-template, has-azure-ad-ps-ref
+ms.custom: references_regions, devx-track-arm-template, has-azure-ad-ps-ref, azure-ad-ref-level-one-done
 ---
 
 # Action groups
@@ -511,6 +511,8 @@ For an overview of Microsoft Entra applications and service principals, see [Mic
 > Basic authentication isn't supported for `SecureWebhook`. To use basic authentication, you must use `Webhook`.
 
 If you use the webhook action, your target webhook endpoint must be able to process the various JSON payloads that different alert sources emit. If the webhook endpoint expects a specific schema, for example, the Microsoft Teams schema, use the Logic Apps action to transform the alert schema to meet the target webhook's expectations.
+
+[!INCLUDE [Azure AD PowerShell deprecation note](~/../articles/reusable-content/msgraph-powershell/includes/aad-powershell-deprecation-note.md)]
 
 1. Create a Microsoft Entra application for your protected web API. For more information, see [Protected web API: App registration](../../active-directory/develop/scenario-protected-web-api-app-registration.md). Configure your protected API to be called by a daemon app and expose application permissions, not delegated permissions. For more information about these permissions, see [If your web API is called by a service or daemon app](../../active-directory/develop/scenario-protected-web-api-app-registration.md#if-your-web-api-is-called-by-a-service-or-daemon-app).
 
