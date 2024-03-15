@@ -72,7 +72,7 @@ Add the following dependency elements to the group of dependencies in the **pom.
   <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-phonenumbers</artifactId>
-    <version>1.2.0-beta.1</version>
+    <version>1.2.0-beta.3</version>
   </dependency>
 
   <dependency>
@@ -150,14 +150,17 @@ PhoneNumbersClient phoneNumberClient = new PhoneNumbersClientBuilder()
     .buildClient();
 ```
 
-### Look up operator information for a number
+### Look up phone number formatting
 
-To search for a phone number's operator information, call `searchOperatorInformation` from the `PhoneNumbersClient`.
+To look up the national and international formatting for a number, call  `searchOperatorInformation` from the `PhoneNumbersClient`.
 
 ```java
 ArrayList<String> phoneNumbers = new ArrayList<String>();
 phoneNumbers.add("<target-phone-number>");
-OperatorInformationResult result = phoneNumberClient.searchOperatorInformation(phoneNumbers);
+
+// Use the free number lookup functionality to get number formatting information
+OperatorInformationResult formattingResult = phoneNumberClient.searchOperatorInformation(phoneNumbers);
+OperatorInformation formattingInfo = formattingResult.getValues().get(0);
 ```
 
 Replace `<target-phone-number>` with the phone number you're looking up, usually a number you'd like to send a message to.
@@ -165,20 +168,43 @@ Replace `<target-phone-number>` with the phone number you're looking up, usually
 > [!WARNING]
 > Provide phone numbers in E.164 international standard format, for example, +14255550123.
 
+### Look up operator information for a number
+
+To search for a phone number's operator information, call `searchOperatorInformationWithResponse` from the `PhoneNumbersClient`, passing `true` for the `IncludeAdditionalOperatorDetails` option.
+
+```java
+OperatorInformationOptions options = new OperatorInformationOptions();
+options.setIncludeAdditionalOperatorDetails(true);
+Response<OperatorInformationResult> result = phoneNumberClient.searchOperatorInformationWithResponse(phoneNumbers, options, Context.NONE);
+OperatorInformation operatorInfo = result.getValue().getValues().get(0);
+```
+
+> [!WARNING]
+> Using this functionality will incur a charge to your account
+
 ### Use operator information
 
 You can now use the operator information.  For this quickstart guide, we can print some of the details to the console.
 
-```java
-OperatorInformation operatorInfo = result.getValues().get(0);
+First, we can print out details about the number format.
 
+```java
+System.out.println(formattingInfo.getPhoneNumber() + " is formatted "
+    + formattingInfo.getInternationalFormat() +  " internationally, and "
+    + formattingInfo.getNationalFormat() + " nationally");
+```
+
+Next, we can print out details about the phone number and operator.
+
+```java
 String numberType = operatorInfo.getNumberType() == null ? "unknown" : operatorInfo.getNumberType().toString();
 String operatorName = "an unknown operator";
 if (operatorInfo.getOperatorDetails()!= null && operatorInfo.getOperatorDetails().getName() != null)
 {
     operatorName = operatorInfo.getOperatorDetails().getName();
 }
-System.out.println(operatorInfo.getPhoneNumber() + " is a " + numberType + " number, operated by " + operatorName);
+System.out.println(operatorInfo.getPhoneNumber() + " is a " + numberType + " number, operated in "
+    + operatorInfo.getIsoCountryCode() + " by " + operatorName);
 ```
 
 You may also use the operator information to determine whether to send an SMS.  For more information on sending an SMS, see the [SMS Quickstart](../../sms/send.md).
@@ -201,7 +227,7 @@ mvn package
 Run the following `mvn` command to execute the app.
 
 ```console
-mvn exec:java -Dexec.mainClass="com.communication.lookup.quickstart.App" -Dexec.cleanupDaemonThreads=false
+mvn exec:java -D"exec.mainClass"="com.communication.lookup.quickstart.App" -D"exec.cleanupDaemonThreads"="false"
 ```
 
 ## Sample code
