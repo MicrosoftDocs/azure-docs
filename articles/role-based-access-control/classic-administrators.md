@@ -6,7 +6,7 @@ manager: amycolannino
 
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.date: 03/14/2024
+ms.date: 03/15/2024
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -84,7 +84,7 @@ Some users might need more access than what a job function role can provide. If 
 
 ## Prepare for Service Administrator retirement
 
-Use the following steps to help you prepare for Service Administrator role retirement. To remove the Service Administrator, you must have a user who is assigned the Owner role at subscription scope without conditions to avoid orphaning the subscription. A subscription Owner has the same access as the Service Administrator.
+Use the following steps to help you prepare for Service Administrator role retirement. To remove the Service Administrator, you must have at least one user who is assigned the Owner role at subscription scope without conditions to avoid orphaning the subscription. A subscription Owner has the same access as the Service Administrator.
 
 ### Step 1: Review your current Service Administrator
 
