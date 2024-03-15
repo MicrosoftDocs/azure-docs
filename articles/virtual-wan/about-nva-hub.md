@@ -25,7 +25,7 @@ Deploying NVAs into a Virtual WAN hub provides the following benefits:
 * **No-hassle provisioning and boot-strapping**: A managed application is prequalified for provisioning and boot-strapping for the Virtual WAN platform. This managed application is available through the Azure Marketplace link.
 * **Simplified routing**: Leverage Virtual WAN's intelligent routing systems. NVA solutions peer with the Virtual WAN hub router and participate in the Virtual WAN routing decision process similarly to Microsoft Gateways.
 * **Integrated support**: Partners have a special support agreement with Microsoft Azure Virtual WAN to quickly diagnose and resolve any customer problems.
-* **Platform-provided lifecycle management**: Upgrades and patches are a part of the Azure Virtual WAN service. This takes away the complexity of lifecycle management from a customer deploying Virtual Appliance solutions.
+* **Optional platform-provided lifecycle management**: Upgrades and patches are managed either directly by you or as part of the Azure Virtual WAN service. For best practices related to software lifecycle management for NVAs in Virtual WAN, please reach out to your NVA provider or reference provider documentation.
 * **Integrated with platform features**: Transit connectivity with Microsoft gateways and Virtual Networks, Encrypted ExpressRoute (SD-WAN overlay running over an ExpressRoute circuit) and Virtual hub route tables interact seamlessly.
 
 > [!IMPORTANT]
@@ -132,9 +132,9 @@ NVA in the virtual hub is available in the following regions:
 |---|---|
 | North America| Canada Central, Canada East, Central US, East US, East US 2, South Central US, North Central US, West Central US, West US, West US 2 |
 | South America | Brazil South, Brazil Southeast |
-| Europe | France Central, France South, Germany North, Germany West Central, North Europe, Norway East, Norway West, Switzerland North, Switzerland West, UK South, UK West, West Europe, Sweden Central|
-| Middle East | UAE North, Qatar Central |
-| Asia | East Asia, Japan East, Japan West, Korea Central, Korea South, Southeast Asia | 
+| Europe | France Central, France South, Germany North, Germany West Central, North Europe, Norway East, Norway West, Switzerland North, Switzerland West, UK South, UK West, West Europe, Sweden Central, Italy North|
+| Middle East | UAE North, Qatar Central, Israel Central |
+| Asia | East Asia, Japan East, Japan West, Korea Central, Korea South, Southeast Asia |
 | Australia | Australia South East, Australia East, Australia Central, Australia Central 2|
 | Africa | South Africa North |
 | India | South India, West India, Central India |

@@ -6,7 +6,7 @@ description: Learn how to create your own custom model with Azure OpenAI Service
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: include
-ms.date: 10/09/2023
+ms.date: 03/06/2024
 author: mrbullwinkle    
 ms.author: mbullwin
 ---
@@ -27,10 +27,11 @@ ms.author: mbullwin
 
 The following models support fine-tuning:
 
-- `gpt-35-turbo-0613`
-- `gpt-35-turbo-1106`
 - `babbage-002`
 - `davinci-002`
+- `gpt-35-turbo` (0613)
+- `gpt-35-turbo` (1106)
+- `gpt-35-turbo` (0125)
 
 Consult the [models page](../concepts/models.md#fine-tuning-models) to check which regions currently support fine-tuning.
 
