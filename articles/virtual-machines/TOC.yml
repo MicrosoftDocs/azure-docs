@@ -547,6 +547,8 @@
       - name: Export an image to a managed disk
         href: managed-disk-from-image-version.md
         desplayName: export, image version, disk, SIG, gallery
+      - name: Migrate Managed image to Compute gallery
+        href: migration-managed-image-to-compute-gallery.md
       - name: Purchase plan information
         href: marketplace-images.md
       - name: Deprecated images FAQ

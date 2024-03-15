@@ -45,7 +45,7 @@ Document structure layout analysis is the process of analyzing a document to ext
 
 The following illustration shows the typical components in an image of a sample page.
 
-  :::image type="content" source="media/document-layout-example.png" alt-text="Illustration of document layout example.":::
+  :::image type="content" source="media/document-layout-example-new.png" alt-text="Illustration of document layout example.":::
 
 ## Development options
 

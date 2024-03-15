@@ -209,17 +209,26 @@
       - name: Integration with Defender EASM
         displayName: EASM, attack surface management
         href: concept-easm.md
-      - name: Enabling Permissions Management (Preview)
-        href: enable-permissions-management.md
+      - name: Critical assets protection
+        href: critical-assets-protection.md
       - name: Agentless machine scanning
         href: concept-agentless-data-collection.md
-      - name: Supported resource types for multicloud in Foundational CSPM
-        href: multicloud-resource-types-support-foundational-cspm.md  
       - name: Integrations
         items:  
-        - name: ServiceNow integration
-          displayName: CSPM, cloud security, posture, management, ServiceNow
-          href: integration-servicenow.md
+        - name: ServiceNow
+          items:
+          - name: ServiceNow integration with Defender for Cloud
+            displayName: CSPM, cloud security, posture, management, ServiceNow
+            href: integration-servicenow.md
+          - name: Connect ServiceNow to Defender for Cloud
+            displayName: CSPM, cloud security, posture, management, ServiceNow
+            href: connect-servicenow.md
+          - name: Create a ticket in Defender for Cloud 
+            displayName: CSPM, cloud security, posture, management, ServiceNow
+            href: create-ticket-servicenow.md
+          - name: Create automatic tickets with governance rules
+            displayName: CSPM, cloud security, posture, management, ServiceNow
+            href: create-governance-rule-servicenow.md
       - name: Common questions 
         displayName: questions, common, CSPM, agentless scanning, faq, frequently asked questions
         href: faq-cspm.yml
@@ -294,6 +303,8 @@
         - name: Integrate security solutions
           displayName: security, solutions, integrate, integrated, data sources
           href: partner-integration.md
+        - name: Enable Permissions Management
+          href: enable-permissions-management.md
     - name: Data-aware security posture
       items:
         - name: Enable data-aware security posture
@@ -397,7 +408,7 @@
       items:
         - name: Manage and respond to security alerts
           displayName: security alerts, alerts
-          href: managing-and-responding-alerts.md
+          href: managing-and-responding-alerts.yml
         - name: Create and manage alerts suppression rules
           displayName: alert suppression, alert suppression, create, suppressions rules,
             rules

@@ -64,7 +64,9 @@
   - name: Plan and design your migration
     items:
     - name: Plan your migration
-      href: migration.md      
+      href: migration.md
+    - name: Use the SIEM migration experience
+      href: siem-migration.md
     - name: Track migration with a workbook
       href: migration-track.md                
   - name: Migrate from ArcSight      
@@ -1012,6 +1014,8 @@
       href: notebooks-hunt.md      
     - name: Configure advanced MSTICPy settings
       href: notebooks-msticpy-advanced.md
+  - name: Bring your own machine learning
+    href: bring-your-own-ml.md
 - name: Investigate incidents
   items:
   - name: Overview
@@ -1092,8 +1096,6 @@
       href: define-playbook-access-restrictions.md
     - name: Create and perform advanced incident tasks using playbooks
       href: create-tasks-playbook.md
-  - name: Bring your own machine learning
-    href: bring-your-own-ml.md
 - name: Manage Microsoft Sentinel
   items:
   - name: Manage costs and billing
