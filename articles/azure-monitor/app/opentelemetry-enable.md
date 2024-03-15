@@ -2,20 +2,20 @@
 title: Enable Azure Monitor OpenTelemetry for .NET, Java, Node.js, and Python applications
 description: This article provides guidance on how to enable Azure Monitor on applications by using OpenTelemetry.
 ms.topic: conceptual
-ms.date: 12/20/2023
+ms.date: 03/12/2024
 ms.devlang: csharp
 # ms.devlang: csharp, javascript, typescript, python
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-python
 ms.reviewer: mmcc
 ---
 
-# Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python and Java applications
+# Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python, and Java applications
 
 This article describes how to enable and configure OpenTelemetry-based data collection to power the experiences within [Azure Monitor Application Insights](app-insights-overview.md#application-insights-overview). We walk through how to install the "Azure Monitor OpenTelemetry Distro." The Distro [automatically collects](opentelemetry-add-modify.md#automatic-data-collection) traces, metrics, logs, and exceptions across your application and its dependencies. To learn more about collecting data using OpenTelemetry, see [Data Collection Basics](opentelemetry-overview.md) or [OpenTelemetry FAQ](#frequently-asked-questions).
 
 ## OpenTelemetry Release Status
 
-OpenTelemetry offerings are available for .NET, Node.js, Python and Java applications.
+OpenTelemetry offerings are available for .NET, Node.js, Python, and Java applications.
 
 > [!NOTE]
 > For a feature-by-feature release status, see the [FAQ](#whats-the-current-release-state-of-features-within-the-azure-monitor-opentelemetry-distro).
@@ -78,7 +78,7 @@ dotnet add package Azure.Monitor.OpenTelemetry.Exporter
 
 #### [Java](#tab/java)
 
-Download the [applicationinsights-agent-3.5.0.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.5.0/applicationinsights-agent-3.5.0.jar) file.
+Download the [applicationinsights-agent-3.5.1.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.5.1/applicationinsights-agent-3.5.1.jar) file.
 
 > [!WARNING]
 >
@@ -133,7 +133,7 @@ To enable Azure Monitor Application Insights, you make a minor modification to y
 
 ##### [ASP.NET Core](#tab/aspnetcore)
 
-Add `UseAzureMonitor()` to your application startup. This is in your `program.cs` class.
+Add `UseAzureMonitor()` to your application startup, located in your `program.cs` class.
 
 ```csharp
 // Import the Azure.Monitor.OpenTelemetry.AspNetCore namespace.
@@ -188,7 +188,7 @@ var loggerFactory = LoggerFactory.Create(builder =>
 
 Java autoinstrumentation is enabled through configuration changes; no code changes are required.
 
-Point the JVM to the jar file by adding `-javaagent:"path/to/applicationinsights-agent-3.5.0.jar"` to your application's JVM args.
+Point the Java virtual machine (JVM) to the jar file by adding `-javaagent:"path/to/applicationinsights-agent-3.5.1.jar"` to your application's JVM args.
 
 > [!TIP]
 > Sampling is enabled by default at a rate of 5 requests per second, aiding in cost management. Telemetry data may be missing in scenarios exceeding this rate. For more information on modifying sampling configuration, see [sampling overrides](./java-standalone-sampling-overrides.md).
@@ -219,21 +219,9 @@ from azure.monitor.opentelemetry import configure_azure_monitor
 # Import the tracing api from the `opentelemetry` package.
 from opentelemetry import trace
 
-# Configure OpenTelemetry to use Azure Monitor with the specified connection
-# string.
-configure_azure_monitor(
-    connection_string="<Your Connection String>",
-)
-
-# Get a tracer for the current module.
-tracer = trace.get_tracer(__name__)
-
-# Start a new span with the name "hello". This also sets this created span as the current span in this context. This span will be exported to Azure Monitor as part of the trace.
-with tracer.start_as_current_span("hello"):
-    print("Hello, World!")
-
-# Wait for export to take place in the background.
-input()
+# Configure OpenTelemetry to use Azure Monitor with the 
+# APPLICATIONINSIGHTS_CONNECTION_STRING environment variable.
+configure_azure_monitor()
 
 ```
 
@@ -266,7 +254,7 @@ To paste your Connection String, select from the following options:
 
   B. Set via Configuration File - Java Only (Recommended)
   
-  Create a configuration file named `applicationinsights.json`, and place it in the same directory as `applicationinsights-agent-3.5.0.jar` with the following content:
+  Create a configuration file named `applicationinsights.json`, and place it in the same directory as `applicationinsights-agent-3.5.1.jar` with the following content:
 
    ```json
    {
@@ -304,8 +292,8 @@ As part of using Application Insights instrumentation, we collect and send diagn
 
 ### [ASP.NET Core](#tab/aspnetcore)
 
-- For details on adding and modifying Azure Monitor OpenTelemetry, see [Add and modify Azure Monitor OpenTelemetry](opentelemetry-add-modify.md)
-- To further configure the OpenTelemetry distro, see [Azure Monitor OpenTelemetry configuration](opentelemetry-configuration.md)
+- For details on adding and modifying Azure Monitor OpenTelemetry, see [Add and modify Azure Monitor OpenTelemetry](opentelemetry-add-modify.md).
+- To further configure the OpenTelemetry distro, see [Azure Monitor OpenTelemetry configuration](opentelemetry-configuration.md).
 - To review the source code, see the [Azure Monitor AspNetCore GitHub repository](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore).
 - To install the NuGet package, check for updates, or view release notes, see the [Azure Monitor AspNetCore NuGet Package](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.AspNetCore) page.
 - To become more familiar with Azure Monitor and OpenTelemetry, see the [Azure Monitor Example Application](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore/tests/Azure.Monitor.OpenTelemetry.AspNetCore.Demo).
@@ -314,8 +302,8 @@ As part of using Application Insights instrumentation, we collect and send diagn
 
 #### [.NET](#tab/net)
 
-- For details on adding and modifying Azure Monitor OpenTelemetry, see [Add and modify Azure Monitor OpenTelemetry](opentelemetry-add-modify.md)
-- To further configure the OpenTelemetry distro, see [Azure Monitor OpenTelemetry configuration](opentelemetry-configuration.md)
+- For details on adding and modifying Azure Monitor OpenTelemetry, see [Add and modify Azure Monitor OpenTelemetry](opentelemetry-add-modify.md).
+- To further configure the OpenTelemetry distro, see [Azure Monitor OpenTelemetry configuration](opentelemetry-configuration.md).
 - To review the source code, see the [Azure Monitor Exporter GitHub repository](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter).
 - To install the NuGet package, check for updates, or view release notes, see the [Azure Monitor Exporter NuGet Package](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter) page.
 - To become more familiar with Azure Monitor and OpenTelemetry, see the [Azure Monitor Example Application](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/tests/Azure.Monitor.OpenTelemetry.Exporter.Demo).
@@ -324,7 +312,7 @@ As part of using Application Insights instrumentation, we collect and send diagn
 
 ### [Java](#tab/java)
 
-- For details on adding and modifying Azure Monitor OpenTelemetry, see [Add and modify Azure Monitor OpenTelemetry](opentelemetry-add-modify.md)
+- For details on adding and modifying Azure Monitor OpenTelemetry, see [Add and modify Azure Monitor OpenTelemetry](opentelemetry-add-modify.md).
 - Review [Java autoinstrumentation configuration options](java-standalone-config.md).
 - To review the source code, see the [Azure Monitor Java autoinstrumentation GitHub repository](https://github.com/Microsoft/ApplicationInsights-Java).
 - To learn more about OpenTelemetry and its community, see the [OpenTelemetry Java GitHub repository](https://github.com/open-telemetry/opentelemetry-java-instrumentation).
@@ -333,7 +321,7 @@ As part of using Application Insights instrumentation, we collect and send diagn
 
 ### [Node.js](#tab/nodejs)
 
-- For details on adding and modifying Azure Monitor OpenTelemetry, see [Add and modify Azure Monitor OpenTelemetry](opentelemetry-add-modify.md)
+- For details on adding and modifying Azure Monitor OpenTelemetry, see [Add and modify Azure Monitor OpenTelemetry](opentelemetry-add-modify.md).
 - To review the source code, see the [Azure Monitor OpenTelemetry GitHub repository](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry).
 - To install the npm package and check for updates, see the [`@azure/monitor-opentelemetry` npm Package](https://www.npmjs.com/package/@azure/monitor-opentelemetry) page.
 - To become more familiar with Azure Monitor Application Insights and OpenTelemetry, see the [Azure Monitor Example Application](https://github.com/Azure-Samples/azure-monitor-opentelemetry-node.js).
@@ -342,7 +330,7 @@ As part of using Application Insights instrumentation, we collect and send diagn
 
 ### [Python](#tab/python)
 
-- For details on adding and modifying Azure Monitor OpenTelemetry, see [Add and modify Azure Monitor OpenTelemetry](opentelemetry-add-modify.md)
+- For details on adding and modifying Azure Monitor OpenTelemetry, see [Add and modify Azure Monitor OpenTelemetry](opentelemetry-add-modify.md).
 - To review the source code and extra documentation, see the [Azure Monitor Distro GitHub repository](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/monitor/azure-monitor-opentelemetry/README.md).
 - To see extra samples and use cases, see [Azure Monitor Distro samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor/azure-monitor-opentelemetry/samples).
 - See the [changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/monitor/azure-monitor-opentelemetry/CHANGELOG.md) on GitHub.

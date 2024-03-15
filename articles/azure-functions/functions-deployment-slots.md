@@ -2,7 +2,7 @@
 title: Azure Functions deployment slots
 description: Learn to create and use deployment slots with Azure Functions
 ms.topic: conceptual
-ms.date: 03/02/2022
+ms.date: 02/27/2024
 ---
 # Azure Functions deployment slots
 
@@ -263,6 +263,7 @@ Azure Functions deployment slots have the following considerations:
 - The number of slots available to an app depends on the plan. The Consumption plan is only allowed one deployment slot. More slots are available for apps running under other plans. For details, see [Service limits](functions-scale.md#service-limits).
 - Swapping a slot resets keys for apps that have an `AzureWebJobsSecretStorageType` app setting equal to `files`.
 - When slots are enabled, your function app is set to read-only mode in the portal.
+- Slot swaps might fail when your function app is using a [secured storage account](configure-networking-how-to.md) as its default storage account (set in `AzureWebJobsStorage`). For more information, see the [`WEBSITE_OVERRIDE_STICKY_DIAGNOSTICS_SETTINGS`](functions-app-settings.md#website_override_sticky_diagnostics_settings) reference.
 - Use function app names shorter than 32 characters. Names longer than 32 characters are at risk of causing [host ID collisions](storage-considerations.md#host-id-considerations).
 
 ## Next steps

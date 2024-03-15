@@ -516,7 +516,7 @@ public class Program {
 
 #### [Node.js](#tab/nodejs)
 
- ```javascript
+```javascript
     // Import the Azure Monitor OpenTelemetry plugin and OpenTelemetry API
     const { useAzureMonitor } = require("@azure/monitor-opentelemetry");
     const { metrics } = require("@opentelemetry/api");

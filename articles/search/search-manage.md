@@ -25,7 +25,7 @@ In Azure AI Search, the [Azure portal](https://portal.azure.com) supports a broa
 
 Each search service is managed as a standalone resource. Your role assignment determines what operations are exposed in the portal.
 
-## Administrator permissions
+## Portal and administrator permissions
 
 Portal access is through [role assignments](search-security-rbac.md). By default, all search services start with at least one Owner. Owners, service administrators, and co-administrators have permission to create other administrators and other role assignments. They have full access to all portal pages and operations.
 
@@ -33,7 +33,13 @@ Contributors and Search Service Contributors have the same access as Owner, minu
 
 Readers have access to service information in the Essentials section and in the Monitoring tab. Access is limited. A reader can get basic information about a search service, but not enough to set up a connection or confirm the existence of objects on the service. 
 
-For data plane tasks, the portal attempts admin API keys first. If keys are disabled, the operation succeeds if Search Index Data Contributor and Search Index Data Reader roles provide permission.
+For data plane tasks, such as creating and configuring indexes and indexers: on a default system, the portal attempts admin API keys first, even if there are role assignments. If [keys are disabled](search-security-rbac.md#disable-api-key-authentication), here's the portal experience for the following roles:
+
+* Search Index Data Contributor can see the list of indexers, and access an individual one to see its historical runs and status, but cannot run, reset, create, update, or delete it.
+
+* A Search Index Data Reader can query the indexes.
+
+In short, if you want unrestricted access to portal features, including the ability to run the Import data wizards, you should have Contributor or Search Servicer Contributor permissions.
 
 > [!TIP]
 > By default, any owner or administrator can create or delete services. To prevent accidental deletions, you can [lock resources](../azure-resource-manager/management/lock-resources.md).
@@ -48,7 +54,7 @@ The overview page is the "home" page of each service. In the following screensho
 |------|-------------|
 | 1 | A command bar at the top of the page includes [Import data wizard](search-get-started-portal.md) and [Search explorer](search-explorer.md), used for prototyping and exploration. |
 | 2 | The **Essentials** section lists service properties, such as the service endpoint, service tier, and replica and partition counts. |
-| 3 | Tabbed pages in the center provide quick access to usage statistics and service health metrics.|
+| 3 | Tabbed pages in the center provide quick access to usage statistics and service health metrics. |
 | 4 | Navigation links to existing indexes, indexers, data sources, and skillsets. |
 
 You can't change the search service name, subscription, resource group, region (location), or tier. Switching tiers requires creating a new service or filing a support ticket to request a tier upgrade, which is only supported for Basic and higher.
@@ -104,9 +110,9 @@ A search service is always created with [API keys](search-security-api-keys.md).
 Developers need the following information to connect to Azure AI Search:
 
 + An endpoint or URL, provided on the **Overview** page.
-+ An API key from the **Keys** page, or a role assignment (Search Index Data Contributor is recommended).
++ An API key from the **Keys** page, or a role assignment (contributor is recommended).
 
-We recommend portal access for the following wizards and tools: [Import data wizard](search-get-started-portal.md), [Import and vectorize data](search-get-started-portal-import-vectors.md), [Search explorer](search-explorer.md).
+We recommend portal access for the following wizards and tools: [Import data wizard](search-get-started-portal.md), [Import and vectorize data](search-get-started-portal-import-vectors.md), [Search explorer](search-explorer.md). Recall that a user must be a contributor or above to run the import wizards.
 
 ## Next steps
 

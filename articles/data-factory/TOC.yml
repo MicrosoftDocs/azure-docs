@@ -310,6 +310,8 @@ items:
     href: concepts-data-redundancy.md
 - name: How-to guides
   items:
+  - name: Create a data factory in UI
+    href: quickstart-create-data-factory.md
   - name: Create Data Factory Programmatically
     items:
     - name: Create data factory - Azure CLI
@@ -472,7 +474,11 @@ items:
     - name: Google Ads
       href: connector-google-adwords.md
     - name: Google BigQuery
-      href: connector-google-bigquery.md
+      items:
+      - name: Google BigQuery
+        href: connector-google-bigquery.md
+      - name: Google BigQuery (Legacy)
+        href: connector-google-bigquery-legacy.md
     - name: Google Cloud Storage
       href: connector-google-cloud-storage.md
     - name: Google Sheets
@@ -602,7 +608,11 @@ items:
     - name: Smartsheet
       href: connector-smartsheet.md
     - name: Snowflake
-      href: connector-snowflake.md
+      items:
+      - name: Snowflake
+        href: connector-snowflake.md
+      - name: Snowflake (legacy)
+        href: connector-snowflake-legacy.md
     - name: Spark
       href: connector-spark.md
     - name: SQL Server
@@ -1251,6 +1261,9 @@ items:
         displayName: troubleshooting
       - name: REST
         href: connector-troubleshoot-rest.md
+        displayName: troubleshooting
+      - name: Salesforce and Salesforce Service Cloud
+        href: connector-troubleshoot-salesforce.md
         displayName: troubleshooting
       - name: SAP Table, SAP Business Warehouse Open Hub, and SAP ODP
         href: connector-troubleshoot-sap.md

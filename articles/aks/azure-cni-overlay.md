@@ -138,13 +138,15 @@ az aks nodepool add  -g $resourceGroup --cluster-name $clusterName \
 >
 > - The cluster is on Kubernetes version 1.22+.
 > - Doesn't use the dynamic pod IP allocation feature.
-> - Doesn't have network policies enabled.
+> - Doesn't have network policies enabled. Network Policy engine can be uninstalled before the upgrade, see [Uninstall Azure Network Policy Manager or Calico](use-network-policies.md#uninstall-azure-network-policy-manager-or-calico-preview)
 > - Doesn't use any Windows node pools with docker as the container runtime.
 
 > [!NOTE]
 > Because Routing domain is not yet supported for ARM, CNI Overlay is not yet supported on ARM-based (ARM64) processor nodes.
->
- 
+
+> [!NOTE]
+> Upgrading an existing cluster to CNI Overlay is a non-reversible process.
+
 > [!WARNING]
 > Prior to Windows OS Build 20348.1668, there was a limitation around Windows Overlay pods incorrectly SNATing packets from host network pods, which had a more detrimental effect for clusters upgrading to Overlay. To avoid this issue, **use Windows OS Build greater than or equal to 20348.1668**.
 

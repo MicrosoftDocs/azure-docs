@@ -1,5 +1,5 @@
 ---
-title: Manage projects - question answering
+title: Manage projects - custom question answering
 description: Custom question answering allows you to manage projects by providing access to the project settings and content.
 ms.service: azure-ai-language
 ms.topic: how-to
@@ -11,7 +11,7 @@ ms.custom: language-service-question-answering
 
 # Create and manage project settings
 
-Question answering allows you to manage your projects by providing access to the project settings and data sources. If you haven't created a question answering project before we recommend starting with the [getting started article](create-test-deploy.md).
+Custom question answering allows you to manage your projects by providing access to the project settings and data sources. If you haven't created a custom question answering project before we recommend starting with the [getting started article](create-test-deploy.md).
 
 ## Prerequisites
 
@@ -42,7 +42,7 @@ Question answering allows you to manage your projects by providing access to the
 
 ## Manage projects
 
-From the main question answering page in Language Studio you can:
+From the main custom question answering page in Language Studio you can:
 
 - Create projects
 - Delete projects
@@ -73,7 +73,7 @@ From the **Edit project page** you can:
 
 ## Delete project
 
-Deleting a project is a permanent operation. It can't be undone. Before deleting a project, you should export the project from the main question answering page within Language Studio.
+Deleting a project is a permanent operation. It can't be undone. Before deleting a project, you should export the project from the main custom question answering page within Language Studio.
 
 If you share your project with collaborators and then later delete it, everyone loses access to the project.
 
