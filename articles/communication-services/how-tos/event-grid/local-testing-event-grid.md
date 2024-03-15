@@ -1,4 +1,5 @@
 ---
+
 title: Test your Event Grid handler locally
 titleSuffix: An Azure Communication Services how-to document
 description: In this how-to document, you can learn how to locally test your Event Grid handler for Azure Communication Services events with Postman.
@@ -20,15 +21,30 @@ Testing Event Grid triggered Azure Functions locally can be complicated. You don
 - Install [Postman](https://www.postman.com/downloads/).
 - Have a running Azure Function that can be triggered by Event Grid. If you don't have one, you can follow the [quickstart](../../../azure-functions/functions-bindings-event-grid-trigger.md?tabs=in-process%2Cextensionv3&pivots=programming-language-javascript) to create one.
 
-The Azure Function can be running either in Azure if you want to test it with some test events or if you want to test the entire flow locally (press `F5` in Visual Studio Code to run it locally). If you want to test the entire flow with an externally triggered webhook, you need to use [ngrok](https://ngrok.com/) to expose your locally running Azure Function
-to the public, allowing it to be triggered by internet sources (as an example from Azure Event WebHooks). Configure ngrok by running the command:
+The Azure Function can be running either in Azure if you want to test it with some test events or if you want to test the entire flow locally (press `F5` in Visual Studio Code to run it locally). If you want to test the entire flow with an externally triggered webhook, you need to use a tunneling tool to expose your locally running Azure Function to the public, allowing it to be triggered by internet sources (as an example from Azure Event WebHooks).
+
+We recommend using [Tunnelmole](https://tunnelmole.com), a free and open source tunneling tool, or [ngrok](https://ngrok.com/), a popular closed source tunneling tool.
+
+### Tunnelmole Configuration
+1. First, install Tunnelmole by following the [Installation Guide](https://tunnelmole.com/docs/#installation). For most use cases, this will be done with a single copied/pasted terminal command, but there are advanced options available including building from source, or using Tunnelmole as a dependency in JavaScript/TypeScript code.
+2. Run `tmole 7071` (replace `7071` with your listening port number if different). In the output, you'll get the URLs (one http and another https) of your tunnel. Be sure to use the https URL. 
+
+ ```bash
+
+tmole 7071
+
+ ```
+ 
+### ngrok Configuration
+To configure ngrok, run the following command:
 
 ```bash
 
-ngrok http 7071
+ngrok http 7071 
 
 ```
-It is worth remembering that exposing development resources publicly might not be considered as secure. That is why you can also run the entire workflow locally without ngrok by invoking requests to:
+
+It's worth remembering that exposing development resources publicly might not be considered secure. That's why you can also run the entire workflow locally without a tunneling tool by invoking requests to:
 ```
 http://localhost:7071/runtime/webhooks/EventGrid?functionName={functionname}
 ```
@@ -40,13 +56,11 @@ http://localhost:7071/runtime/webhooks/EventGrid?functionName={functionname}
     ![Screenshot of Postman body configuration.](media/postman-body.png)
 
 2. Select the `POST` method.
-
-3. Enter the URL of your Azure Function. Can either be the URL of the Azure Function running in Azure or the ngrok URL if you're running it locally. Ensure that you add the function name at the end of the URL: `/runtime/webhooks/EventGrid?functionName=<<FUNCTION_NAME>>`.
-
-4. Select the `Body` tab and select `raw` and `JSON` from the dropdown. In the body, you add a test schema for the event you want to trigger. For example, if you're testing an Azure Function that is triggered by receiving SMS events, you add the following:
+3. Enter the URL of your Azure Function. This can either be the URL of the Azure Function running in Azure, the Tunnelmole URL, or the ngrok URL if you're running it locally. Ensure that you add the function name at the end of the URL: `/runtime/webhooks/EventGrid?functionName=<<FUNCTION_NAME>>`.
+4. Select the `Body` tab and select `raw` and `JSON` from the dropdown. In the body, add a test schema for the event you want to trigger. For example, if you're testing an Azure Function that's triggered by receiving SMS events, you add the following:
 
     ```json
-    
+
     {
       "id": "Incoming_20200918002745d29ebbea-3341-4466-9690-0a03af35228e",
       "topic": "/subscriptions/50ad1522-5c2c-4d9a-a6c8-67c11ecb75b8/resourcegroups/acse2e/providers/microsoft.communication/communicationservices/{communication-services-resource-name}",
@@ -63,7 +77,7 @@ http://localhost:7071/runtime/webhooks/EventGrid?functionName={functionname}
       "metadataVersion": "1",
       "eventTime": "2020-09-18T00:27:47Z"
     }
-    
+
     ```
 
     You can find more information for the different event types used for Azure Communication Services in the [documentation](../../../event-grid/event-schema-communication-services.md).
@@ -79,4 +93,4 @@ http://localhost:7071/runtime/webhooks/EventGrid?functionName={functionname}
 
     ![Screenshot of Postman send button.](media/postman-send.png)
 
-    At this point, an event should trigger in your Azure Function. You can verify the event by looking at the execution of your Azure Function. You can then validate that the function is doing its job correctly.
+    At this point, an event should trigger in your Azure Function. You can verify the event by observing the execution of your Azure Function. You can then validate that the function is performing its task correctly.
