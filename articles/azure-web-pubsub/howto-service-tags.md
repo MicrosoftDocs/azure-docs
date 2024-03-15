@@ -33,7 +33,7 @@ You can allow outbound traffic from your network to Azure Web PubSub Service by 
 1. Select **Destination service tag** and choose **AzureWebPubSub**.
 1. Enter **443** in **Destination port ranges**.
 
-    :::image type="content" alt-text="Create an outbound security rule." source="media/howto-service-tags/portal-add-outbound-security-rule.png" :::
+    :::image type="content" alt-text="Screenshot showing dialogue to create an outbound security rule." source="media/howto-service-tags/portal-add-outbound-security-rule.png" :::
 
 1. Adjust other fields as needed.
 1. Select **Add**.
@@ -68,7 +68,7 @@ You can configure **Network Security Group** to allow inbound traffic to virtual
 1. Select **Source service tag** and choose **AzureWebPubSub** from the list.
 1. Enter \* in **Source port ranges**.
 
-   :::image type="content" alt-text="Create an inbound security rule" source="media/howto-service-tags/portal-add-inbound-security-rule.png" :::
+   :::image type="content" alt-text="Screenshot showing dialogue to create an inbound security rule." source="media/howto-service-tags/portal-add-inbound-security-rule.png" :::
 
 1. Change other settings as needed.
 1. Select **Add**.
