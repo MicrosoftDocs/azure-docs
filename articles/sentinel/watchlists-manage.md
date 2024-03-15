@@ -38,9 +38,9 @@ Edit a watchlist to edit or add an item to the watchlist.
 1. To add a new item to your watchlist,
    1. Select **Add new**.
 
-      :::image type="content" source="./media/watchlists-manage/sentinel-watchlist-edit-add-new.png" alt-text="Screenshot of the add new button at the top of the edit watchlist items page.":::
+      :::image type="content" source="./media/watchlists-manage/sentinel-watchlist-edit-add-new.png" alt-text="Screenshot of the new button at the top of the edit watchlist items page.":::
 
-   1. Fill in the fields in the **Add watchlist item** panel.
+   1. Fill in the fields of the **Add watchlist item** panel.
    1. At the bottom of that panel, select **Add**.
 
 ## Bulk update a watchlist
