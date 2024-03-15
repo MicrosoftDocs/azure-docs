@@ -1,11 +1,11 @@
 ---
 title: Azure API Management backends | Microsoft Docs
-description: Learn about custom backends in Azure API Management
+description: Learn about backends in Azure API Management. A backend entity encapsulates information about the backend service, promoting reusability across APIs and improved governance.
 services: api-management
 author: dlepow
 ms.service: api-management
 ms.topic: article
-ms.date: 03/08/2024
+ms.date: 03/14/2024
 ms.author: danlep 
 ms.custom:
 ---
@@ -25,20 +25,20 @@ API Management also supports using other Azure resources as an API backend, such
 
 ## Benefits of backends
 
-API Management supports custom backends so you can manage the backend services of your API. A backend resource abstracts information about the backend service, promoting reusability across APIs and improved governance.
+API Management supports backend entities so you can manage the backend services of your API. A backend entity encapsulates information about the backend service, promoting reusability across APIs and improved governance.
 
-Use custom backends for one or more of the following:
+Use backends for one or more of the following:
 
 * Authorize the credentials of requests to the backend service
 * Take advantage of API Management functionality to maintain secrets in Azure Key Vault if [named values](api-management-howto-properties.md) are configured for header or query parameter authentication.
-* Protect your backend from too many requests
+* Define circuit breaker rules to protect your backend from too many requests
 * Route or load-balance requests to multiple backends
 
-Configure and manage custom backends in the Azure portal, or using Azure APIs or tools.
+Configure and manage backend entities in the Azure portal, or using Azure APIs or tools.
 
 ## Reference backend using set-backend-service policy
 
-After creating a backend, you can reference the backend in your APIs. Use the [`set-backend-service`](set-backend-service-policy.md) policy to direct an incoming API request to the custom backend. If you already configured a backend web service for an API, you can use the `set-backend-service` policy to redirect the request to a custom backend instead of the default backend web service configured for that API. For example:
+After creating a backend, you can reference the backend in your APIs. Use the [`set-backend-service`](set-backend-service-policy.md) policy to direct an incoming API request to the backend. If you already configured a backend web service for an API, you can use the `set-backend-service` policy to redirect the request to a backend entity instead. For example:
 
 ```xml
 <policies>
