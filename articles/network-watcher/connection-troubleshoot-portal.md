@@ -62,13 +62,13 @@ In this section, you test the remote desktop port (RDP) connectivity from one vi
 
         :::image type="content" source="./media/connection-troubleshoot-portal/connectivity-allowed.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection between two virtual machines that are communicating with no issues.":::
 
-        - 66 probes were successfully sent with average latency of 2 ms. Select **See details** to see the next hop details.
+        - 66 probes were successfully sent to the destination virtual machine. Select **See details** to see the next hop details.
         - Outbound connectivity from the source virtual machine is allowed. Select **See details** to see the security rules that are allowing the outbound communication from the source virtual machine.
         - Inbound connectivity to the destination virtual machine is allowed. Select **See details** to see the security rules that are allowing the inbound communication to the destination virtual machine.
         - Azure default system route is used to route traffic between the two virtual machines (Route table ID: System route).
         - Port 3389 is reachable on the destination virtual machine.
 
-    - If the destination virtual machine has a network security group blocking incoming RDP connection, you see the following results: 
+    - If the destination virtual machine has a network security group blocking incoming RDP connections, you see the following results: 
 
         :::image type="content" source="./media/connection-troubleshoot-portal/connectivity-denied-destination.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection to a virtual machine that has a denying inbound security rule.":::
 
@@ -79,7 +79,7 @@ In this section, you test the remote desktop port (RDP) connectivity from one vi
         - Port 3389 isn't reachable on the destination virtual machine (port 3389 is unreachable because of the security rule that is denying the inbound communication to the destination port).
         **Solution**: update the network security group on the destination virtual machine to allow inbound RDP traffic.
 
-    - If the source virtual machine has a network security group denying RDP connection to the destination, you see the following results: 
+    - If the source virtual machine has a network security group denying RDP connections to the destination, you see the following results: 
 
         :::image type="content" source="./media/connection-troubleshoot-portal/connectivity-denied-source.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection from a virtual machine that has a denying outbound security rule.":::
 
@@ -133,7 +133,7 @@ In this section, you test connectivity between a virtual machine and a web addre
 
         :::image type="content" source="./media/connection-troubleshoot-portal/test-connectivity-bing-reachable.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection with Microsoft Bing website.":::
 
-        Connectivity test is successful with 66 probes sent with an average latency of 3 ms.
+        66 probes were successfully sent to `www.bing.com`. Select **See details** to see the next hop details.
 
     - If `www.bing.com` is unreachable from the source virtual machine due to a security rule, you see the following results: 
 
