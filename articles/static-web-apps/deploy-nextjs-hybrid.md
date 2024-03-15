@@ -319,7 +319,7 @@ You will also need to configure the `build` command in the `package.json` file i
 
 ## Configure Next.js Middleware and Internationalization (i18n) for deployment to Azure Static Web Apps
 
-Middleware is a feature of Next.js that allows you to run code before a request is handled, commonly used for authentication, personalization, routing, etc. Internationalization (i18n) is a feature of Next.js that allows you to handle routing to multiple versions of your site in different languages. Both of these features affect the routing of your Next.js site and need to be configured to be compatible with hosting on Static Web Apps.
+Your Next.js project can be configured to have custom handling of routes with redirects, rewrites, and Middleware. This is commonly used for authentication, personalization, routing, internationalization, etc.  This custom handling affects the default routing of your Next.js site and needs to be configured to be compatible with hosting on Static Web Apps.
 
 Static Web Apps validates that your Next.js site is successfully deployed by adding a page to your site at build time (`public/.swa/health.html`) and verifying that it can be accessed at `/.swa/health.html` on your Next.js site. Middleware and Internationalization can affect the access of the `/.swa/health.html` path of your site, which can result in deployment issues. To configure Middleware and Internationalization to successfully deploy your Next.js site to Static Web Apps, follow these steps:
 
