@@ -33,7 +33,7 @@ We now have a workbook to help navigate the complex JSON involved in deploying a
 
 See our blog post for more details, [Create Codeless Connectors with the Codeless Connector Builder (Preview)](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/create-codeless-connectors-with-the-codeless-connector-builder/ba-p/4082050).
 
-For more information on the CCP, see [Create a codeless connector for Microsoft Sentinel (Public preview)](#create-codeless-connector.md).
+For more information on the CCP, see [Create a codeless connector for Microsoft Sentinel (Public preview)](create-codeless-connector.md).
 
 ### SIEM migration experience (preview)
 
