@@ -43,8 +43,6 @@ The following table shows the largest MTU size supported on the Azure Network In
 
 # [Windows](#tab/windows)
 
-Content for Windows...
-
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 - Two Windows Server virtual machines in the same virtual network in Azure. For more information about creating a Windows Server virtual machine, see [Create a Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal). Remote access to the virtual machines is required for completion of the article. For more information about connecting to Azure Virtual Machines securely, see [What is Azure Bastion?](/azure/bastion/bastion-overview).
@@ -114,7 +112,7 @@ Use the following steps to change the MTU size on a Linux virtual machine:
         altname enP1328p0s2
     ```
 
-In this example, the MTU is set at 1500 and the name of the network interface is **eth0**.
+    In this example, the MTU is set at 1500 and the name of the network interface is **eth0**.
 
 1. Use the following example to run the Linux shell script to determine the largest MTU size that can be used for a specific network path:
 
@@ -132,8 +130,8 @@ In this example, the MTU is set at 1500 and the name of the network interface is
 
 1. Repeat the previous steps on **vm-2** with the IP address of **vm-1** to determine the largest MTU size that can be used for a specific network path.
 
->[!IMPORTANT]
-> The MTU changes made in the previous steps don't persist during a reboot. To make the changes permanent, consult the appropriate documentation for your Linux distribution.
+    >[!IMPORTANT]
+    > The MTU changes made in the previous steps don't persist during a reboot. To make the changes permanent, consult the appropriate documentation for your Linux distribution.
 
 # [Windows](#tab/windows)
 
@@ -175,7 +173,7 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
     Ethernet                  Jumbo Packet                   Disabled                       *JumboPacket    {1514}
     ```
 
-In this example, the MTU for the **Mellanox** adapter is set to **1514** and the **Microsoft Hyper-V Network Adapter** is set to **Disabled**.
+    In this example, the MTU for the **Mellanox** adapter is set to **1514** and the **Microsoft Hyper-V Network Adapter** is set to **Disabled**.
 
 1. Use the following example to run the PowerShell module you downloaded previously to determine the largest MTU size that can be used for a specific network path:
 
@@ -196,8 +194,8 @@ In this example, the MTU for the **Mellanox** adapter is set to **1514** and the
     netsh interface ipv4 set subinterface "Ethernet 2" mtu=1500 store=persistent
     ```
 
->[!IMPORTANT]
-> You must set higher MTU values on both Hyper-V Network Adapter and Mellanox adapter for proper functionality.
+    >[!IMPORTANT]
+    > You must set higher MTU values on both Hyper-V Network Adapter and Mellanox adapter for proper functionality.
 
 1. Repeat the previous steps on **vm-2** with the IP address of **vm-1** to determine the largest MTU size that can be used for a specific network path.
 
