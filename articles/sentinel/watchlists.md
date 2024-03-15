@@ -63,9 +63,9 @@ For more information, see the following articles:
 
 ## Watchlists in queries for searches and detection rules
 
-Query data in any table against data from a watchlist by treating the watchlist as a table for joins and lookups. When you create a watchlist, you define the *SearchKey*. The search key is the name of a column in your watchlist that you expect to use as a join with other data or as a frequent object of searches. For example, suppose you have a server watchlist that contains country names and their respective two-letter country codes. You expect to use the country codes often for search or joins. So you use the country code column as the search key.
+Query data in any table against data from a watchlist by treating the watchlist as a table for joins and lookups. When you create a watchlist, you define the *SearchKey*. The search key is the name of a column in your watchlist that you expect to use as a join with other data or as a frequent object of searches. For example, suppose you have a server watchlist that contains country names and their respective two-letter country codes. You expect to use the country codes often for searches or joins. So you use the country code column as the search key.
 
-The following example query joins the `RemoteIPCountry` column in the `Heartbeat` table with the search key defined for the watchlist named mywatchlist.
+The following example query joins the `RemoteIPCountry` column in the `Heartbeat` table with the search key defined for the watchlist named `mywatchlist`.
 
   ```kusto
      Heartbeat
@@ -75,14 +75,14 @@ The following example query joins the `RemoteIPCountry` column in the `Heartbeat
 
 Let's look some other example queries. 
 
-Suppose you want to use a watchlist in an analytics rule. You create a watchlist called “ipwatchlist” that includes columns for "IPAddress" and "Location". You define "IPAddress" as the search key.
+Suppose you want to use a watchlist in an analytics rule. You create a watchlist called `ipwatchlist` that includes columns for `IPAddress` and `Location`. You define `IPAddress` as the **SearchKey**.
 
-   |IPAddress,Location   |
+   |`IPAddress,Location`   |
    |---------|
-   | 10.0.100.11,Home     |
-   |172.16.107.23,Work     |
-   |10.0.150.39,Home     |
-   |172.20.32.117,Work   |
+   |`10.0.100.11,Home`     |
+   |`172.16.107.23,Work`   |
+   |`10.0.150.39,Home`     |
+   |`172.20.32.117,Work`   |
 
 To only include events from IP addresses in the watchlist, you might use a query where watchlist is used as a variable or where the watchlist is used inline. 
 
