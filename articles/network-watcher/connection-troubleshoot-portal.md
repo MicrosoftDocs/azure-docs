@@ -77,7 +77,8 @@ In this section, you test the remote desktop port (RDP) connectivity from one vi
         - Inbound connectivity to the destination virtual machine is denied. Select **See details** to see the security rule that is denying the inbound communication to the destination virtual machine.
         - Azure default system route is used to route traffic between the two virtual machines (Route table ID: System route).
         - Port 3389 isn't reachable on the destination virtual machine (port 3389 is unreachable because of the security rule that is denying the inbound communication to the destination port).
-        **Solution**: update the network security group on the destination virtual machine to allow inbound RDP traffic.
+        
+        **Solution**: Update the network security group on the destination virtual machine to allow inbound RDP traffic.
 
     - If the source virtual machine has a network security group denying RDP connections to the destination, you see the following results: 
 
@@ -88,7 +89,8 @@ In this section, you test the remote desktop port (RDP) connectivity from one vi
         - Inbound connectivity to the destination virtual machine is allowed. Select **See details** to see the security rules that are allowing the inbound communication to the destination virtual machine.
         - Azure default system route is used to route traffic between the two virtual machines (Route table ID: System route).
         - Port 3389 is reachable on the destination virtual machine.
-        **Solution**: update the network security group on the source virtual machine to allow outbound RDP traffic.
+        
+        **Solution**: Update the network security group on the source virtual machine to allow outbound RDP traffic.
 
     - If the operating system on the destination virtual machine doesn't accept incoming connections on port 3389, you see the following results: 
 
@@ -99,7 +101,8 @@ In this section, you test the remote desktop port (RDP) connectivity from one vi
         - Inbound connectivity to the destination virtual machine is allowed. Select **See details** to see the security rules that are allowing the inbound communication to the destination virtual machine.
         - Azure default system route is used to route traffic between the two virtual machines (Route table ID: System route).
         - Port 3389 isn't reachable on the destination virtual machine (port 3389 on the operating system isn't accepting incoming RDP connections).
-        **Solution**: configure the operating system on the destination virtual machine to accept inbound RDP traffic.
+        
+        **Solution**: Configure the operating system on the destination virtual machine to accept inbound RDP traffic.
 
 1. Select **Export to CSV** to download the test results in csv format.
 
@@ -140,6 +143,8 @@ In this section, you test connectivity between a virtual machine and a web addre
         :::image type="content" source="./media/connection-troubleshoot-portal/test-connectivity-bing-unreachable.png" alt-text="Screenshot that shows connection troubleshoot results after unsuccessfully testing the connection with Microsoft Bing website.":::
 
         30 probes were sent and failed to reach `www.bing.com`. Select **See details** to see the next hop details and the cause of the error.
+
+        **Solution**: Update the network security group on the source virtual machine to allow outbound traffic to `www.bing.com`.
 
 1. Select **Export to CSV** to download the test results in csv format.
 
@@ -184,7 +189,8 @@ In this section, you test connectivity between a virtual machine and an IP addre
         - 30 probes were sent and failed to reach the destination virtual machine. Select **See details** to see the next hop details.
         - Outbound connectivity from the source virtual machine is allowed. Select **See details** to see the security rules that are allowing the outbound communication from the source virtual machine.
         - Azure default system route is used to route traffic to the IP address, which is in the same virtual network or a peered virtual network. (Route table ID: System route and Next hop type: Virtual Network).
-        **Solution**: start the destination virtual machine.
+        
+        **Solution**: Start the destination virtual machine.
 
     - If there's no route to the IP address in the routing table of the source virtual machine (because the IP address isn't in the address space of the VM's virtual network or its peered virtual networks for example), you see the following results: 
 
@@ -193,6 +199,7 @@ In this section, you test connectivity between a virtual machine and an IP addre
         - 30 probes were sent and failed to reach the destination virtual machine. Select **See details** to see the next hop details.
         - Outbound connectivity from the source virtual machine is denied. Select **See details** to see security rule that is denying the outbound communication from the source virtual machine.
         - Next hop type is *None* because there isn't a route to the IP address.
+        
         **Solution**: Associate a route table with a correct route to the subnet of the source virtual machine.
 
 1. Select **Export to CSV** to download the test results in csv format.
