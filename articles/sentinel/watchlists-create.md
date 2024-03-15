@@ -1,6 +1,7 @@
 ---
-title: Create watchlists - Microsoft Sentinel
-description: Create watchlist in  Microsoft Sentinel for allowlists or blocklists,  to enrich event data, and help investigate threats.
+title: Create new watchlists
+titleSuffix: Microsoft Sentinel
+description: Create watchlist in Microsoft Sentinel for allowlists or blocklists, to enrich event data, and help investigate threats.
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: how-to
@@ -33,8 +34,7 @@ You have two ways to upload a CSV file from your local machine to create a watch
 
 If you didn't use a watchlist template to create your file,
 
-1. 1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Configuration**, select **Watchlist**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Configuration** > **Watchlist**.
-
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Configuration**, select **Watchlist**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Configuration** > **Watchlist**.
 
 1. Select **+ New**.
    
@@ -164,7 +164,7 @@ For more information, see [CORS support for Azure Storage](/rest/api/storageserv
 
 1. Under **Configuration**, select **Watchlist**.
 
-1. Select **+ Add new**.
+1. Select **+ New**.
 
    :::image type="content" source="./media/watchlists-create/sentinel-watchlist-new2.png" alt-text="Screenshot of the add watchlist on the watchlist page." lightbox="./media/watchlists-create/sentinel-watchlist-new2.png":::
 

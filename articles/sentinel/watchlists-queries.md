@@ -1,10 +1,13 @@
 ---
 title: Build queries or rules with watchlists - Microsoft Sentinel
-description: Use watchlists in searches or detection rules for Microsoft Sentinel.
+description: Use watchlists in KQL search queries or detection rules with built-in functions for Microsoft Sentinel.
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: how-to
-ms.date: 01/05/2023
+ms.date: 3/14/2024
+appliesTo: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+ms.collection: usx-security
+#Customer intent: As a SOC analyst, I want to incorporate my watchlists with advanced hunting or detection rules so I can use data I provide in meaningful ways for my security monitoring.
 ---
 
 # Build queries or detection rules with watchlists in Microsoft Sentinel
@@ -17,8 +20,7 @@ For optimal query performance, use **Searchkey** as the key for joins in your qu
 
 To use a watchlist in search query, write a Kusto query that uses the _GetWatchlist('watchlist-name') function and uses **SearchKey** as the key for your join.
 
-1. In the Azure portal, go to **Microsoft Sentinel** and select the appropriate workspace.
-1. Under **Configuration**, select **Watchlist**.
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Configuration**, select **Watchlist**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Configuration** > **Watchlist**.
 1. Select the watchlist you want to use.
 1. Select **View in Logs**.
 
@@ -50,7 +52,6 @@ To use a watchlist in search query, write a Kusto query that uses the _GetWatchl
 
 To use watchlists in analytics rules, create a rule using the _GetWatchlist('watchlist-name') function in the query.
 
-1. In the Azure portal, go to **Microsoft Sentinel** and select the appropriate workspace.
 1. Under **Configuration**, select **Analytics**.
 1. Select **Create** and the type of rule you want to create.
 1. On the **General** tab, enter the appropriate information.
@@ -105,15 +106,13 @@ Watchlists are refreshed in your workspace every 12 days, updating the `TimeGene
 
 You might need to see a list of watchlist aliases to identify a watchlist to use in a query or analytics rule.
 
-1. In the Azure portal, go to **Microsoft Sentinel** and select the appropriate workspace.
-1. Under **General**, select **Logs**.
-1. If you see a list of queries, close the **Queries** window.
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **General**, select **Logs**.<br> In the [Defender portal](https://security.microsoft.com/), select **Investigation & response** > **Hunting** > **Advanced hunting**.
 1. On the **New Query** page, run the following query: `_GetWatchlistAlias`. 
 1. Review the list of aliases in the **Results** tab.
 
    :::image type="content" source="./media/watchlists-queries/sentinel-watchlist-alias.png" alt-text="Screenshot that shows a list of watchlists." lightbox="./media/watchlists-queries/sentinel-watchlist-alias.png":::
 
-## Next steps
+## Related content
 
 In this document, you learned how to use watchlists in Microsoft Sentinel to enrich data and improve investigations. To learn more about Microsoft Sentinel, see the following articles:
 
