@@ -22,7 +22,7 @@ This article shows two options for using the Azure CLI to add APIs to your API c
     * Run [az apic api register](/cli/azure/apic/api#az-apic-api-register) to register a new API in your API center.
     * Run [az apic api definition import-specification](/cli/azure/apic/api/definition#az-apic-api-definition-import-specification) to import the API definition to an existing API.
 
-* **Option 2** - Bulk-import APIs from API Management to your API center using the [az apic service import-from-apim](/cli/azure/apic/service#az-apic-service-import-from-apim) command.
+* **Option 2** - Import APIs directly from API Management to your API center using the [az apic service import-from-apim](/cli/azure/apic/service#az-apic-service-import-from-apim) command.
     
 After importing API definitions or APIs from API Management, you can add metadata and documentation in your API center to help stakeholders discover, understand, and consume the API.
 
@@ -70,7 +70,8 @@ az apim api export --api-id my-api --resource-group myResourceGroup `
 ```
 ### Export API to a URL
 
-The following example exports the API with identifier *my-api* in the *myAPIManagement* instance of API. The API is exported in OpenApiJson format to a URL in Azure storage. The URL is available for approximately 5 minutes. The value of the URL is stored in the *$link* variable.
+In the following example, [az apim api export](/cli/azure/apim/api#az-apim-api-export) exports the API with identifier *my-api* in OpenApiJson format to a URL in Azure storage. The URL is available for approximately 5 minutes. Here, the value of the URL is stored in the *$link* variable.
+
 
 ```azurecli
 #! /bin/bash
@@ -119,11 +120,11 @@ az apic api definition import-specification `
     --specification '{"name":"openapi","version":"3.0.2"}'
 ```
 
-## Option 2: Bulk-import APIs from your API Management instance
+## Option 2: Import APIs directly from your API Management instance
 
-The following are steps to bulk-import APIs from your API Management instance to your API center using the [az apic service import-from-apim](/cli/azure/apic/service#az-apic-service-import-from-apim) command.
+The following are steps to import APIs from your API Management instance to your API center using the [az apic service import-from-apim](/cli/azure/apic/service#az-apic-service-import-from-apim) command. This command is useful when you want to import multiple APIs from API Management to your API center, but you can also use it to import a single API.
 
-When you add APIs from an API Management instance to your API center using the bulk-import option, the following happens automatically:
+When you add APIs from an API Management instance to your API center using `az apic service import-from-apim`, the following happens automatically:
     
 * Each API's [versions](key-concepts.md#api-version), [definitions](key-concepts.md#api-definition), and [deployment](key-concepts.md#deployment) information are copied to your API center.
 * The API receives a system-generated API name in your API center. It retains its display name (title) from API Management.
