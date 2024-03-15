@@ -156,7 +156,7 @@ The recommendations are grouped by type:
 * **Automated**: These recommendations are the standard Advisor recommendations for the selected subscriptions.
 
 [!NOTE]
-If none of your resiliency review recommendations are in the *Accepted* state, the **Reviews** tab is greyed out.
+If none of your resiliency review recommendations are in the *Accepted* state, the **Reviews** tab is hidden.
 
 :::image type="content" source="./media/resiliency-reviews/resiliency-review-recommendation-list-accepted-m.png" alt-text="Screenshot of the Azure Advisor Resiliency Reviews recommendations page of accepted recommendations." lightbox="./media/resiliency-reviews/resiliency-review-recommendation-list-accepted-m.png":::
 
