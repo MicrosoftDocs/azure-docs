@@ -15,8 +15,6 @@ ms.custom: devx-track-csharp, mode-api, devguide-csharp, cosmos-db-dev-journey, 
 
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
-[!INCLUDE[Developer Quickstart selector](includes/quickstart/dev-selector.md)]
-
 Get started with MongoDB to create databases, collections, and docs within your Azure Cosmos DB resource. Follow these steps to deploy a minimal solution to your environment using the Azure Developer CLI.
 
 [API for MongoDB reference documentation](https://www.mongodb.com/docs/drivers/csharp) | [MongoDB Package (NuGet)](https://www.nuget.org/packages/MongoDB.Driver)
@@ -24,7 +22,7 @@ packages/Microsoft.Azure.Cosmos) | [Azure Developer CLI](/azure/developer/azure-
 
 ## Prerequisites
 
-[!INCLUDE[Developer Quickstart prerequisites](includes/quickstart/dev-prereqs.md)]
+[!INCLUDE [Developer Quickstart prerequisites](../nosql/includes/quickstart/dev-prereqs.md)]
 
 ## Setting up
 
@@ -42,7 +40,7 @@ Deploy this project's development container to your environment. Then, use the A
 
 ::: zone-end
 
-[!INCLUDE[Developer Quickstart setup](includes/quickstart/dev-setup.md)]
+[!INCLUDE [dev-setup](../nosql/includes/quickstart/dev-setup.md)]
 
 ---
 
