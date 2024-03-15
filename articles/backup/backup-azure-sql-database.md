@@ -41,7 +41,7 @@ Before you start, verify the following requirements:
 1. Make sure you have a SQL Server instance running in Azure. You can [quickly create a SQL Server instance](/azure/azure-sql/virtual-machines/windows/sql-vm-create-portal-quickstart) in the marketplace.
 2. Review the [feature considerations](sql-support-matrix.md#feature-considerations-and-limitations) and [scenario support](sql-support-matrix.md#scenario-support).
 3. [Review common questions](faq-backup-sql-server.yml) about this scenario.
-4. Azure Backup attemps to run on all SQL Instances installed on a server, regardless if disabled or not. The backup process will fail if any instances are not contactable or have insufficient permissions.
+4. Azure Backup for SQL on VM attempts to run on all SQL Instances installed on a server, regardless if disabled or not. The backup process will fail if any instances are not contactable or have insufficient permissions.
 
 ## Set VM permissions
 
