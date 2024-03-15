@@ -366,7 +366,7 @@ module.exports = {
     },
 };
 ```
-These code snippets exclude paths that start with `.swa` from being handled by your custom routing or Middleware. This will ensure that these paths are resolved as expected for Static Web Apps' deployment validation.
+These code snippets exclude paths that start with `.swa` from being handled by your custom routing or middleware. These rules ensure that the paths resolve as expected during deployment validation.
 
 ## Enable logging for Next.js
 
