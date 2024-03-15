@@ -41,14 +41,11 @@ procedureSection:
       When you create a virtual machine through the portal, the portal creates a network interface with default settings and attaches the network interface to the VM for you. You can't use the portal to add existing network interfaces to a new VM, or to create a VM with multiple network interfaces. You can do both by using the CLI or PowerShell. Be sure to familiarize yourself with the [constraints](#constraints). If you create a VM with multiple network interfaces, you must also configure the operating system to use them properly after you create the VM. Learn how to configure [Linux](../virtual-machines/linux/multiple-nics.md#configure-guest-os-for-multiple-nics) or [Windows](../virtual-machines/windows/multiple-nics.md#configure-guest-os-for-multiple-nics) for multiple network interfaces.
     steps: 
       - |
-        ### Commands
-
-        Before you create the VM, [create a network interface](virtual-network-network-interface.md#create-a-network-interface).
-
-        |Tool|Command|
-        |---|---|
-        |CLI|[az vm create](/cli/azure/vm#az-vm-create). See [example](../virtual-machines/linux/multiple-nics.md#create-a-vm-and-attach-the-nics)|
-        |PowerShell|[New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) and [New-AzVM](/powershell/module/az.compute/new-azvm). See [example](../virtual-machines/windows/multiple-nics.md#create-a-vm-with-multiple-nics)|
+        [Create a network interface](virtual-network-network-interface.md#create-a-network-interface) before you create the VM.
+      - |
+        Create a VM. You can use CLI or PowerShell.
+         - For CLI use: [az vm create](/cli/azure/vm#az-vm-create). See [example](../virtual-machines/linux/multiple-nics.md#create-a-vm-and-attach-the-nics)
+         - For PowerShell use: [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) and [New-AzVM](/powershell/module/az.compute/new-azvm). See [example](../virtual-machines/windows/multiple-nics.md#create-a-vm-with-multiple-nics)
   - title: |
       Add a network interface to an existing VM
     summary: |
