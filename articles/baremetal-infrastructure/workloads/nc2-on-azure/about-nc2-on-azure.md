@@ -11,7 +11,7 @@ ms.date: 04/01/2023
 
 # About Nutanix Cloud Clusters on Azure
 
-The articles in this section are intended for the professionals interested in using Nutanix Cloud Clusters (NC2) on Azure.
+The articles in this section are intended for professionals interested in using Nutanix Cloud Clusters (NC2) on Azure.
 
 Email [NC2-on-Azure Docs](mailto:AzNutanixPM@microsoft.com) to provide input.
 
@@ -54,9 +54,9 @@ We offer two SKUs: AN36 and AN36P. For specifications, see [SKUs](skus.md).
 
 Available licensing offers are:
 
-1. Azure Hybrid Benefit for Windows Server
-2. Azure Hybrid Benefit for SQL Server
-3. Extended Security Updates (ESU)
+* Azure Hybrid Benefit for Windows Server
+* Azure Hybrid Benefit for SQL Server
+* Extended Security Updates (ESU)
 
 ### Azure Hybrid Benefit for Windows Server
 
@@ -66,7 +66,7 @@ Available licensing offers are:
 
 ### Azure Hybrid Benefit for SQL Server
 
-Azure-only benefit for customers with active SA (or subscriptions) on SQL cores
+Azure-only benefit for customers with active SA (or subscriptions) on SQL cores.
 
 Advantages of the hybrid benefit over license mobility when adopting IaaS are:
 
