@@ -23,14 +23,14 @@ A prompt flow runtime has computing resources that are required for the applicat
 
 Azure AI Studio supports the following types of runtimes:
 
-|Runtime type|Underlying compute type|Life cycle management| Customize packages              |
+|Runtime type|Underlying compute type|Life cycle management|Customize environment              |
 |------------|----------------------|---------------------|---------------------|
-|Automatic runtime        |Serverless compute| Automatic | Easily customize Python packages|
-|Compute instance runtime | Compute instance | Manual | |
+|Automatic runtime (preview)        |[Serverless compute](../../machine-learning/how-to-use-serverless-compute.md) and [Compute instance](../../machine-learning/how-to-create-compute-instance.md)| Automatic | Easily customize packages|
+|Compute instance runtime | [Compute instance](../../machine-learning/how-to-create-compute-instance.md) | Manual | Manually customize via Azure Machine Learning environment|
 
-If you're a new user, we recommend that you use an automatic runtime. You can easily customize the environment for this runtime.  
+If you're a new user, we recommend that you use the automatic runtime (preview). You can easily customize the environment by adding packages in the `requirements.txt` file in `flow.dag.yaml` in the flow folder. 
 
-If you have a compute instance, you can use it to build your compute instance runtime.
+If you want manage compute resource by your self, you can use compute instance as compute type in automatic runtime or use compute instance runtime.
 
 ## Create a runtime
 
@@ -38,19 +38,29 @@ If you have a compute instance, you can use it to build your compute instance ru
 
 Automatic is the default option for a runtime. You can start an automatic runtime by selecting an option from the runtime dropdown list on a flow page:
 
-- Select **Start**. Start creating an automatic runtime by using the environment defined in `flow.dag.yaml` in the flow folder on the virtual machine (VM) size where you have a quota in the project.
+- Select **Start**. Start creating an automatic runtime by using the environment defined in `flow.dag.yaml` in the flow folder, it runs on the virtual machine (VM) size of serverless compute which you have enough quota in the workspace.
 
   :::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-init.png" alt-text="Screenshot of prompt flow with default settings for starting an automatic runtime on a flow page." lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-init.png":::
 
 - Select **Start with advanced settings**. In the advanced settings, you can:
 
-  - Customize the VM size that the runtime uses.
-  - Customize the idle time, which saves code by deleting the runtime automatically if it isn't in use.
-  - Set the user-assigned managed identity. The automatic runtime uses this identity to pull a base image and install packages. Make sure that the user-assigned managed identity has Azure Container Registry pull permission.
+  - Select compute type. You can choose between serverless compute and compute instance. 
+    - If you choose serverless compute, you can set following settings:
+        - Customize the VM size that the runtime uses.
+        - Customize the idle time, which saves code by deleting the runtime automatically if it isn't in use.
+        - Set the user-assigned managed identity. The automatic runtime uses this identity to pull a base image and install packages. Make sure that the user-assigned managed identity has Azure Container Registry pull permission.
+            
+            If you don't set this identity, we use the user identity by default. [Learn more about how to create and update user-assigned identities for a workspace](../../machine-learning/how-to-identity-based-service-authentication.md#to-create-a-workspace-with-multiple-user-assigned-identities-use-one-of-the-following-methods).
 
-    If you don't set this identity, you use the user identity by default. [Learn more about how to create and update user-assigned identities for a project](../../machine-learning/how-to-identity-based-service-authentication.md#to-create-a-workspace-with-multiple-user-assigned-identities-use-one-of-the-following-methods).
+            :::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-creation-automatic-settings.png" alt-text="Screenshot of prompt flow with advanced settings using serverless compute for starting an automatic runtime on a flow page." lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-creation-automatic-settings.png":::
 
-    :::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-creation-automatic-settings.png" alt-text="Screenshot of prompt flow with advanced settings for starting an automatic runtime on a flow page." lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-creation-automatic-settings.png":::
+    - If you choose compute instance, you can only set idle shutdown time. 
+        - As it is running on an existing compute instance the VM size is fixed and cannot change in runtime side.
+        - Identity used for this runtime also is defined in compute instance, by default it uses the user identity. [Learn more about how to assign identity to compute instance](../../machine-learning/how-to-create-compute-instance.md#assign-managed-identity)
+        - For the idle shutdown time it is used to define life cycle of the runtime, if the runtime is idle for the time you set, it will be deleted automatically. And of you have idle shut down enabled on compute instance, then it will continue 
+
+            :::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-creation-automatic-compute-instance-settings.png" alt-text="Screenshot of prompt flow with advanced settings using compute instance for starting an automatic runtime on a flow page." lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-creation-automatic-compute-instance-settings.png":::
+
 
 ### Create a compute instance runtime on a runtime page
 
@@ -142,7 +152,7 @@ If you want to use a private feed in Azure DevOps, follow these steps:
 
 #### Change the base image for automatic runtime (preview)
 
-By default, we use the latest prompt flow image as the base image. If you want to use a different base image, you need build your own base image, this docker image should be built from prompt flow base image that is `mcr.microsoft.com/azureml/promptflow/promptflow-runtime-stable:<newest_version>`. If possible use the [latest version of the base image](https://mcr.microsoft.com/v2/azureml/promptflow/promptflow-runtime-stable/tags/list). To use the new base image, you need to reset the runtime via the `reset` command. This process takes several minutes as it pulls the new base image and reinstalls packages.
+By default, we use the latest prompt flow image as the base image. If you want to use a different base image, you need build your own base image, this docker image should be built from prompt flow base image that is `mcr.microsoft.com/azureml/promptflow/promptflow-runtime:<newest_version>`. If possible use the [latest version of the base image](https://mcr.microsoft.com/v2/azureml/promptflow/promptflow-runtime/tags/list). To use the new base image, you need to reset the runtime via the `reset` command. This process takes several minutes as it pulls the new base image and reinstalls packages.
 
 :::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-creation-automatic-image-flow-dag.png" alt-text="Screenshot of actions for customizing a base image for an automatic runtime on a flow page." lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-creation-automatic-image-flow-dag.png":::
 
@@ -166,9 +176,11 @@ Automatic runtime has following advantages over compute instance runtime:
 - Automatic manage lifecycle of runtime and underlying compute. You don't need to manually create and managed them anymore.
 - Easily customize packages by adding packages in the `requirements.txt` file in the flow folder, instead of creating a custom environment.
 
-We would recommend you to switch to automatic runtime if you're using compute instance runtime. If you have a compute instance runtime, you can switch it to an automatic runtime (preview) by using the following steps:
-- Prepare your `requirements.txt` file in the flow folder. Make sure that you don't pin the version of `promptflow` and `promptflow-tools` in `requirements.txt`, because we already include them in the runtime base image. Packages specified in `requirements.txt` will be installed when the runtime is started. 
-- If you want to keep the automatic runtime (preview) as long running compute like compute instance, you can disable the idle shutdown toggle under automatic runtime (preview) `edit` option.
+We would recommend you to switch to automatic runtime, if you're using compute instance runtime. You can switch it to an automatic runtime by using the following steps:
+- Prepare your `requirements.txt` file in the flow folder. Make sure that you don't pin the version of `promptflow` and `promptflow-tools` in `requirements.txt`, because we already include them in the runtime base image. Automatic runtimewill install the packages in `requirements.txt` file when it starts.
+- If you create custom environment to create compute instance runtime, you can also use get the image from environment detail page, and specify it in `flow.dag.yaml` file in the flow folder. To learn more, see [Change the base image for automatic runtime](#change-the-base-image-for-automatic-runtime-preview). Make sure you have `acr pull` permission for the image.
+
+- For compute resource, you can continue to use the existing compute instance if you would like to manually manage the lifecycle of compute resource or you can try serverless compute which lifecycle is managed by system.
 
 
 ## Next steps

@@ -25,7 +25,9 @@ Azure Machine Learning supports the following types of runtimes:
 |Automatic runtime (preview)        |[Serverless compute](../how-to-use-serverless-compute.md) and [Compute instance](../how-to-create-compute-instance.md)| Automatic | Easily customize packages|
 |Compute instance runtime | [Compute instance](../how-to-create-compute-instance.md) | Manual | Manually customize via Azure Machine Learning environment|
 
-If you're a new user, we recommend that you use the automatic runtime (preview). You can easily customize the environment by adding packages in the `requirements.txt` file in `flow.dag.yaml` in the flow folder. If you're already familiar with the Azure Machine Learning environment and compute instances, you can also use your existing compute instance and environment to build a compute instance runtime.
+If you're a new user, we recommend that you use the automatic runtime (preview). You can easily customize the environment by adding packages in the `requirements.txt` file in `flow.dag.yaml` in the flow folder. 
+
+If you want manage compute resource by your self, you can use compute instance as compute type in automatic runtime or use compute instance runtime.
 
 ## Permissions and roles for runtime management
 
@@ -55,7 +57,7 @@ Automatic is the default option for a runtime. You can start an automatic runtim
 > [!IMPORTANT]
 > Automatic runtime is currently in public preview. This preview is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-- Select **Start**. Start creating an automatic runtime (preview) by using the environment defined in `flow.dag.yaml` in the flow folder, it use on the virtual machine (VM) size of serverless compute which you have enough quota in the workspace.
+- Select **Start**. Start creating an automatic runtime (preview) by using the environment defined in `flow.dag.yaml` in the flow folder, it runs on the virtual machine (VM) size of serverless compute which you have enough quota in the workspace.
 
   :::image type="content" source="./media/how-to-create-manage-runtime/runtime-create-automatic-init.png" alt-text="Screenshot of prompt flow with default settings for starting an automatic runtime on a flow page." lightbox = "./media/how-to-create-manage-runtime/runtime-create-automatic-init.png":::
 
