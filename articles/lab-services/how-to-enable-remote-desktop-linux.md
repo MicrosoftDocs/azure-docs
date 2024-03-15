@@ -8,7 +8,7 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: how-to
 ms.date: 03/12/2024
-#customer intent: As an educator and lab creator, I want to provide access to linux virtual machines by RPD so that students can use GUI.
+#customer intent: As an educator and lab creator, I want to provide access to linux virtual machines by RDP so that students can use a GUI.
 ---
 
 # Enable graphical remote desktop for Linux virtual machines in Azure Lab Services

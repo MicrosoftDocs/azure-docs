@@ -39,7 +39,7 @@ Follow these steps to [enable these Azure Marketplace images available to lab cr
 
 - Alternately, create a custom VM image:
 
-  The Data Science VMs images in the Azure Marketplace are already configured with [Jupyter Notebooks](https://jupyter-notebook.readthedocs.io/). These images also include other development and modeling tools for data science. If you don't want those extra tools and want a lightweight setup with only Jupyter notebooks, create a custom VM image. For an example, see [Installing JupyterHub on Azure](http://tljh.jupyter.org/en/latest/install/azure.html).
+  The Data Science VM images in the Azure Marketplace are already configured with [Jupyter Notebooks](https://jupyter-notebook.readthedocs.io/). These images also include other development and modeling tools for data science. If you don't need those extra tools and want a lightweight setup with only Jupyter notebooks, create a custom VM image. For an example, see [Installing JupyterHub on Azure](http://tljh.jupyter.org/en/latest/install/azure.html).
 
   After you create the custom image, upload the image to a compute gallery to use it with Azure Lab Services. Learn more about [using compute gallery in Azure Lab Services](how-to-attach-detach-shared-image-gallery.md).
 
