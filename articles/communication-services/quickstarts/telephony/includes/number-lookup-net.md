@@ -46,7 +46,7 @@ More detailed information and other options for connecting to the dev feed can b
 While still in the application directory, install the Azure Communication Services PhoneNumbers client library for .NET package by using the following command.
 
 ```console
-dotnet add package Azure.Communication.PhoneNumbers --version 1.3.0-beta.4
+dotnet add package Azure.Communication.PhoneNumbers --version 1.3.0-beta.5
 ```
 
 Add a `using` directive to the top of **Program.cs** to include the `Azure.Communication` namespace.
