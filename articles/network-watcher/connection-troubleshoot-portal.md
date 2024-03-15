@@ -68,7 +68,7 @@ In this section, you test the remote desktop port (RDP) connectivity from one vi
         - Azure default system route is used to route traffic between the two virtual machines (Route table ID: System route).
         - Port 3389 is reachable on the destination virtual machine.
 
-    - If the destination virtual machine has a network security group blocking incoming RDP connections, you see the following results: 
+    - If the destination virtual machine has a network security group that's denying incoming RDP connections, you see the following results: 
 
         :::image type="content" source="./media/connection-troubleshoot-portal/connectivity-denied-destination.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection to a virtual machine that has a denying inbound security rule.":::
 
@@ -76,11 +76,11 @@ In this section, you test the remote desktop port (RDP) connectivity from one vi
         - Outbound connectivity from the source virtual machine is allowed. Select **See details** to see the security rules that are allowing the outbound communication from the source virtual machine.
         - Inbound connectivity to the destination virtual machine is denied. Select **See details** to see the security rule that is denying the inbound communication to the destination virtual machine.
         - Azure default system route is used to route traffic between the two virtual machines (Route table ID: System route).
-        - Port 3389 isn't reachable on the destination virtual machine (port 3389 is unreachable because of the security rule that is denying the inbound communication to the destination port).
+        - Port 3389 is unreachable on the destination virtual machine because of the security rule that is denying inbound communication to the destination port.
         
         **Solution**: Update the network security group on the destination virtual machine to allow inbound RDP traffic.
 
-    - If the source virtual machine has a network security group denying RDP connections to the destination, you see the following results: 
+    - If the source virtual machine has a network security group that's denying RDP connections to the destination, you see the following results: 
 
         :::image type="content" source="./media/connection-troubleshoot-portal/connectivity-denied-source.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection from a virtual machine that has a denying outbound security rule.":::
 
@@ -192,7 +192,7 @@ In this section, you test connectivity between a virtual machine and an IP addre
         
         **Solution**: Start the destination virtual machine.
 
-    - If there's no route to the IP address in the routing table of the source virtual machine (because the IP address isn't in the address space of the VM's virtual network or its peered virtual networks for example), you see the following results: 
+    - If there's no route to the IP address in the routing table of the source virtual machine (for example, the IP address isn't in the address space of the VM's virtual network or its peered virtual networks), you see the following results: 
 
         :::image type="content" source="./media/connection-troubleshoot-portal/ip-unreachable-route-table.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection to unreachable IP address with no route in the routing table.":::
 
