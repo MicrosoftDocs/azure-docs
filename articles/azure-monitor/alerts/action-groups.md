@@ -140,7 +140,9 @@ The following table describes the role membership requirements that are needed f
 | Resource group contributor | Supported | Supported | Not applicable |
 | Action group resource contributor | Supported | Not applicable | Not applicable |
 | Azure Monitor contributor | Supported | Supported | Not applicable |
-| Custom role | Supported | Supported | Not applicable |
+| Custom role<sup>1</sup> | Supported | Supported | Not applicable |
+
+<sup>1</sup> The custom role must have the **Microsoft.Insights/createNotifications/*** permission.
 
  > [!NOTE]
   > - You can run a limited number of tests per time period. To check which limits apply to your situation, see [Azure Monitor service limits](../service-limits.md).
