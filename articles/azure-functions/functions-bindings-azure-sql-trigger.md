@@ -219,9 +219,9 @@ public class SqlChangeToDoItem {
     public SqlChangeToDoItem() {
     }
 
-    public SqlChangeToDoItem(ToDoItem item, SqlChangeOperation operation) {
-        this.item = item;
-        this.operation = operation;
+    public SqlChangeToDoItem(ToDoItem Item, SqlChangeOperation Operation) {
+        this.Item = Item;
+        this.Operation = Operation;
     }
 }
 ```

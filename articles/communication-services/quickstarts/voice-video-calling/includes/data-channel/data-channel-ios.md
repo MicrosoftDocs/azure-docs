@@ -55,7 +55,7 @@ let receiverDelegate = new ReceiverDelegate()
 dataChannelCallFeature!.delegate = featureDelegate
 
 class FeatureDelegate: NSObject, DataChannelCallFeatureDelegate {
-    func onReceiverCreated(_ dataChannelCallFeature: DataChannelCallFeature, didCreateReceiver args: DataChannelReceiverCreatedEventArgs) {
+    public func dataChannelCallFeature(_ dataChannelCallFeature: DataChannelCallFeature, didCreateReceiver args: DataChannelReceiverCreatedEventArgs) {
         let receiver = args.receiver // get the new data channel receiver
         let channelId = receiver.channelId // get the channel id
         let senderId = receiver.senderIdentifier // get the message sender id
@@ -65,13 +65,13 @@ class FeatureDelegate: NSObject, DataChannelCallFeatureDelegate {
 }
 
 class ReceiverDelegate: NSObject, DataChannelReceiverDelegate {
-    func onMessageReceived(_ dataChannelReceiver: DataChannelReceiver, didReceiveMessage args: PropertyChangedEventArgs) {
+    public func dataChannelReceiver(_ dataChannelReceiver: DataChannelReceiver, didReceiveMessage args: PropertyChangedEventArgs) {
         let message = dataChannelReceiver.receiveMessage() // read the data message from the receiver
         let sequence = message?.sequenceNumber // get the message sequence number
         let data = message?.data // get the data content
     }
     
-    func onClosed(_ dataChannelReceiver: DataChannelReceiver, didClose args: PropertyChangedEventArgs) {
+    public func dataChannelReceiver(_ dataChannelReceiver: DataChannelReceiver, didClose args: PropertyChangedEventArgs) {
        let channelId = dataChannelReceiver.channelId // get the data channel id to be closed
     }
 }

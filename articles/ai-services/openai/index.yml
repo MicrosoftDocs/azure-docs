@@ -147,7 +147,7 @@ landingContent:
       - linkListType: deploy
         links:
            - text: C#
-             url: /dotnet/azure/ai/get-started-app-chat-template
+             url: /dotnet/ai/get-started-app-chat-template
            - text: Java
              url:  /azure/developer/java/quickstarts/get-started-app-chat-template
            - text: JavaScript

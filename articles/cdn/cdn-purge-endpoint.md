@@ -7,7 +7,7 @@ manager: kumud
 ms.assetid: 0b50230b-fe82-4740-90aa-95d4dde8bd4f
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 02/21/2023
+ms.date: 03/15/2024
 ms.author: duau
 
 ---
@@ -47,13 +47,7 @@ This guide walks you through purging assets from all edge nodes of an endpoint.
 	3. **Root domain purge**: Purge the root of the endpoint with "/" in the path.
    
    > [!TIP]
-   > 1. Paths must be specified for purge and must be a relative URL that fit the following [regular expression](/dotnet/standard/base-types/regular-expression-language-quick-reference).
-   >
-   >    1. Single URL purge `@"^\/(?>(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/?)*)$";`  
-   >    1. Query string `@"^(?:\?[-\@_a-zA-Z0-9\/%:;=!,.\+'&\(\)\u0020]*)?$";`  
-   >    1. Wildcard purge `@"^\/(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/)*\*$";`. 
-   > 
-   >    More **Path** textboxes will appear after you enter text to allow you to build a list of multiple assets.  You can delete assets from the list by clicking the ellipsis (...) button.
+   > 1. Paths must be specified for purge and must be a relative URL that fit the following [RFC 3986 - Uniform Resource Identifier (URI: Generic Syntax](https://datatracker.ietf.org/doc/html/rfc3986#section-3.3).
    > 
    > 1. In Azure CDN from Microsoft, query strings in the purge URL path are not considered. If the path to purge is provided as `/TestCDN?myname=max`, only `/TestCDN` is considered. The query string `myname=max` is omitted. Both `TestCDN?myname=max` and `TestCDN?myname=clark` will be purged.
 

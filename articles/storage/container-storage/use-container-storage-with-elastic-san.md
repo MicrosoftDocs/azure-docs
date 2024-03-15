@@ -21,6 +21,10 @@ ms.custom: references_regions
 > [!NOTE]
 > To use Azure Container Storage with Azure Elastic SAN, your AKS cluster should have a node pool of at least three [general purpose VMs](../../virtual-machines/sizes-general.md) such as **standard_d4s_v5** for the cluster nodes, each with a minimum of four virtual CPUs (vCPUs).
 
+## Limitations
+
+Volume snapshots aren't currently supported when you use Azure Container Storage to deploy and orchestrate an Elastic SAN.
+
 ## Regional availability
 
 [!INCLUDE [container-storage-regions](../../../includes/container-storage-regions.md)]
