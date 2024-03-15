@@ -11,16 +11,16 @@ ms.topic: conceptual
 
 [!INCLUDE[NoSQL](includes/appliesto-nosql.md)]
 
-In the realm of database management, it is not uncommon for the initially chosen partition key for a container to become inadequate as applications evolve. This can result in suboptimal performance and increased costs for the container. Several factors contributing to this situation include:
+In the realm of database management, it isn't uncommon for the initially chosen partition key for a container to become inadequate as applications evolve. It can result in suboptimal performance and increased costs for the container. Several factors contributing to this situation include:
 
 - [Cross partition queries](https://learn.microsoft.com/azure/cosmos-db/nosql/how-to-query-container#avoid-cross-partition-queries)
 - [Hot partitions](https://learn.microsoft.com/azure/cosmos-db/nosql/troubleshoot-request-rate-too-large?tabs=resource-specific#how-to-identify-the-hot-partition)
 
-To address these issues, Azure Cosmos DB offers the ability to seamlessly change the partition key using the Azure Portal.
+To address these issues, Azure Cosmos DB offers the ability to seamlessly change the partition key using the Azure portal.
 
 ## Getting Started
 
-To change the partition key of a container in Azure Cosmos DB for the NoSQL API using the Azure Portal, follow these steps:
+To change the partition key of a container in Azure Cosmos DB for the NoSQL API using the Azure portal, follow these steps:
 
 1. Navigate to the **Data Explorer** in the Azure Cosmos DB portal and select the container for which you need to change the partition key.
 2. Proceed to the **Scale & Settings** option and choose the **Partition Keys** tab.
@@ -36,7 +36,7 @@ If creating a new container using the Azure portal while changing the partition 
 
 ![Screenshot of create or select destination container screen while changing partition key in an Azure Cosmos DB account.](media/change-pk/cosmosdb-change-pk-create-container.png)
 
-Subsequently, data is copied from the source container to the destination container in an offline manner utilizing the [Intra-account container copy](https://learn.microsoft.com/azure/cosmos-db/container-copy#how-does-container-copy-work) job.
+Then, data is copied from the source container to the destination container in an offline manner utilizing the [Intra-account container copy](https://learn.microsoft.com/azure/cosmos-db/container-copy#how-does-container-copy-work) job.
 
 >[!Note]
 > It is recommended to stop all updates on the source container before proceeding to change the partition key of the container for entire duration of copy process to maintain data integrity.
