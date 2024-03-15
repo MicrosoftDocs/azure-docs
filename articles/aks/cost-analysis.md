@@ -6,29 +6,28 @@ ms.author: nickoman
 ms.service: azure-kubernetes-service
 ms.custom: ignite-2023, devx-track-azurecli
 ms.topic: how-to
-ms.date: 11/06/2023
+ms.date: 03/15/2024
 
 #CustomerIntent: As a cluster operator, I want to obtain cost management information, perform cost attribution, and improve my cluster footprint
 ---
 
 # Azure Kubernetes Service cost analysis
 
-An Azure Kubernetes Service (AKS) cluster is reliant on Azure resources like virtual machines, virtual disks, load-balancers, and public IP addresses. These resources can be used by multiple applications, which might be maintained by different teams within your organization. Resource consumption patterns for those applications are often variable, so their contribution towards the total cluster resource cost can also vary. Some applications can also have footprints across multiple clusters, which can pose a challenge when performing cost attribution and cost management.
+An Azure Kubernetes Service (AKS) cluster is reliant on Azure resources like virtual machines, virtual disks, load-balancers, and public IP addresses. Multiple applications can use these resources, which might be maintained by different teams within your organization. Resource consumption patterns for those applications are often variable, so their contribution towards the total cluster resource cost can also vary. Some applications can also have footprints across multiple clusters, which can pose a challenge when performing cost attribution and cost management.
 
 Previously, [Microsoft Cost Management (MCM)](../cost-management-billing/cost-management-billing-overview.md) aggregated cluster resource consumption under the cluster resource group. You could use MCM to analyze costs, but there were several challenges:
 
 * There was no Azure-native capability to display cluster resource usage at a level more granular than a cluster. There was no breakdown into discrete categories such as compute (including CPU cores and memory), storage, and networking.
 
-* There was no Azure-native functionality to distinguish between types of costs. For example, individual application versus shared costs. MCM reported the cost of resources, but there was no insight into how much of the resource cost was used to run individual applications, reserved for system processes required by the cluster, or idle cost associated with the cluster.
+* There was no Azure-native functionality to distinguish between types of costs, for example between individual application costs and shared costs. MCM reported the cost of resources, but there was no insight into how much of the resource cost was used to run individual applications, how much was reserved for system processes required by the cluster, or what were the idle costs associated with the cluster.
 
 * There was no Azure-native mechanism to analyze costs across multiple clusters in the same subscription scope.
 
-As a result, you might have used third-party solutions to gather and analyze resource consumption and costs by Kubernetes-specific levels of granularity, such as by namespace or pod. Third-party solutions, however, require effort to deploy, fine-tune, and maintain for each AKS cluster. In some cases, you even need to pay for advance features, increasing the cluster's total cost of ownership.
+As a result, you might have used third-party solutions to gather and analyze resource consumption and costs by Kubernetes-specific levels of granularity, such as by namespace or pod. Third-party solutions, however, require effort to deploy, fine-tune, and maintain for each AKS cluster. In some cases, you even need to pay for advanced features, increasing the cluster's total cost of ownership.
 
-To address this challenge, AKS has integrated with MCM to offer detailed cost drill down scoped to Kubernetes constructs, such as cluster and namespace, in addition to Azure Compute, Network, and Storage categories.
+To address this challenge, AKS has integrated with MCM to offer detailed cost drill-down scoped to Kubernetes constructs, such as cluster and namespace, in addition to Azure Compute, Network, and Storage categories.
 
-The AKS cost analysis addon is built on top of [OpenCost](https://www.opencost.io/), an open-source Cloud Native Computing Foundation project for usage data collection, which gets reconciled with your Azure invoice data. Post-processed data is visible directly in the [MCM Cost Analysis portal experience](/azure/cost-management-billing/costs/quick-acm-cost-analysis).
-
+The AKS cost analysis addon is built on top of [OpenCost](https://www.opencost.io/), an open-source Cloud Native Computing Foundation Sandbox project for usage data collection. The cost analysis is reconciled with your Azure invoice data. Post-processed data is visible directly in the [MCM Cost Analysis portal experience](/azure/cost-management-billing/costs/quick-acm-cost-analysis).
 
 ## Prerequisites and limitations
 
@@ -36,7 +35,7 @@ The AKS cost analysis addon is built on top of [OpenCost](https://www.opencost.i
 
 * To view cost analysis information, you must have one of the following roles on the subscription hosting the cluster: Owner, Contributor, Reader, Cost management contributor, or Cost management reader.
 
-* Once cost analysis has been enabled, you can't downgrade your cluster to the `Free` tier without first disabling cost analysis.
+* Once you have enabled cost analysis, you can't downgrade your cluster to the `Free` tier without first disabling cost analysis.
 
 * Your cluster must be deployed with a [Microsoft Entra Workload ID](./workload-identity-overview.md) configured.
 
@@ -46,7 +45,7 @@ The AKS cost analysis addon is built on top of [OpenCost](https://www.opencost.i
     * Enterprise Agreement
     * Microsoft Customer Agreement
 
-* Virtual nodes are not supported at this time.
+* Virtual nodes aren't supported at this time.
 
 
 ### Install or update the `aks-preview` Azure CLI extension
@@ -67,7 +66,7 @@ az extension update --name aks-preview
 
 Cost analysis can be enabled during one of the following operations:
 
-* Create a `Standard` or `Premium` tier AKS cluster
+* Create a `Standard` or `Premium` tier AKS cluster.
 
 * Update an AKS cluster that is already in `Standard` or `Premium` tier.
 
@@ -77,7 +76,7 @@ Cost analysis can be enabled during one of the following operations:
 
 * Downgrade a `Premium` cluster to `Standard` tier.
 
-To enable the feature, use the flag `--enable-cost-analysis` in combination with one of these operations. For example, the following command will create a new AKS cluster in the `Standard` tier with cost analysis enabled:
+To enable the feature, use the flag `--enable-cost-analysis` in combination with one of these operations. For example, the following command creates a new AKS cluster in the `Standard` tier with cost analysis enabled:
 
 ```azurecli-interactive
 az aks create --resource-group <resource_group> --name <name> --location <location> --enable-managed-identity --generate-ssh-keys --tier standard --enable-cost-analysis
@@ -102,11 +101,13 @@ az aks update --name myAKSCluster --resource-group myResourceGroup --disable-cos
 You can view cost allocation data in the Azure portal. To learn more about how to navigate the cost analysis UI view, see the [Cost Management documentation](/azure/cost-management-billing/costs/view-kubernetes-costs). 
 
 ### Cost definitions
-In the Kubernetes namespaces and assets views you will see the following charges:
-- **Idle charges**: This represents the cost of available resource capacity that wasn't used by any workloads.
-- **Service charges**: This represents the charges associated with the service like AKS Uptime SLA, Microsoft Defender for Containers etc.
-- **System charges**: This represents the cost of capacity reserved by AKS on each node to run system processes required by the cluster, including the kubelet and container runtime. [Learn more](./concepts-clusters-workloads.md#resource-reservations).
-- **Unallocated charges**: This represents the cost of resources that could not be allocated to namespaces.
+
+In the Kubernetes namespaces and assets views you'll see the following charges:
+
+- **Idle charges**: Represents the cost of available resource capacity that wasn't used by any workloads.
+- **Service charges**: Represents the charges associated with the service like AKS Uptime SLA, Microsoft Defender for Containers etc.
+- **System charges**: Represents the cost of capacity reserved by AKS on each node to run system processes required by the cluster, including the kubelet and container runtime. [Learn more](./concepts-clusters-workloads.md#resource-reservations).
+- **Unallocated charges**: Represents the cost of resources that couldn't be allocated to namespaces.
 
 > [!NOTE]
 > It might take up to one day for data to finalize. After 24 hours, any fluctuations in costs for the previous day will have stabilized.
@@ -117,9 +118,8 @@ See the following guide to troubleshoot [AKS cost analysis add-on issues](/troub
 
 <!-- LINKS -->
 [az-extension-add]: /cli/azure/extension#az-extension-add
-[az-feature-register]: /cli/azure/feature#az_feature_register
-[az-feature-show]: /cli/azure/feature#az_feature_show
 [az-extension-update]: /cli/azure/extension#az-extension-update
 
 ## Learn more
-Visbility is one element of cost management. Refer to [Optimize Costs in Azure Kubernetes Service (AKS)](./best-practices-cost.md) for additional best practices on how to gain control over your kubernetes cost.
+
+Visibility is one element of cost management. Refer to [Optimize Costs in Azure Kubernetes Service (AKS)](./best-practices-cost.md) for other best practices on how to gain control over your kubernetes cost.
