@@ -54,9 +54,9 @@ To set up a migration project, follow these steps:
 ## Prepare the import file
 
 To prepare the import file, do the following:
-- Download the template file.
-- Add on-premises SAP infrastructure.
-- Import SAP Systems inventory.
+1. Download the template file.
+1. Add on-premises SAP infrastructure.
+1. Import SAP Systems inventory.
 
 ### Download the template file
 
