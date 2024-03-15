@@ -108,6 +108,8 @@ The ingress traffic coming through the Application Gateway is forwarded via the 
 
 Special considerations need to be applied to the zone-based policies to ensure the traffic coming from the Application Gateway is treated as Inbound i.e. security rules, threat prevention profiles, Inline Cloud Analysis and other. The traffic will be treated as Private-to-Private as the Application Gateway proxies the traffic and it is sourced using the Private IP address from the Application Gateway subnet.
 
+© Palo Alto  Networks, Inc.
+
 ## References
 
 [https://docs.paloaltonetworks.com/cloud-ngfw/azure/cloud-ngfw-for-azure](https://docs.paloaltonetworks.com/cloud-ngfw/azure/cloud-ngfw-for-azure)
