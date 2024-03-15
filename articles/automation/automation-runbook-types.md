@@ -5,7 +5,7 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/29/2024
 ms.topic: conceptual
-ms.custom: references_regions, devx-track-python
+ms.custom: references_regions, devx-track-python, devx-track-azurepowershell
 ---
 
 # Azure Automation runbook types
@@ -21,7 +21,7 @@ The Azure Automation Process Automation feature supports several types of runboo
 | [Graphical PowerShell Workflow](#graphical-runbooks)|Graphical runbook based on Windows PowerShell Workflow and created and edited completely in the graphical editor in Azure portal. |
 
 > [!NOTE]
-> Azure Automation will follow the support lifecycle of PowerShell and Python language versions in accordance with the timelines published by parent products [PowerShell](https://learn.microsoft.com/powershell/scripting/install/powershell-support-lifecycle?view=powershell-7.3&preserve-view=true#powershell-end-of-support-dates) and [Python](https://devguide.python.org/versions/) respectively. We recommend you to use runbooks with supported language versions.
+> Azure Automation will follow the support lifecycle of PowerShell and Python language versions in accordance with the timelines published by parent products [PowerShell](/powershell/scripting/install/powershell-support-lifecycle?view=powershell-7.3&preserve-view=true#powershell-end-of-support-dates) and [Python](https://devguide.python.org/versions/) respectively. We recommend you to use runbooks with supported language versions.
 
 Take into account the following considerations when determining which type to use for a particular runbook.
 

@@ -9,7 +9,7 @@ ms.date: 2/22/2024
 ms.custom: template-how-to
 ---
 
-# Create a custom Tenant and Billing Profile for Microsoft for Teaching Paid
+# Create a custom Tenant and Billing Profile for Azure Classroom
 
 This article is meant for IT Admins utilizing Azure Classroom (subject to regional availability). When signing up for this offer, you should already have a tenant and billing profile created, but this article is meant to help walk you through how to create a custom tenant and billing profile and associate them with an educator.
 

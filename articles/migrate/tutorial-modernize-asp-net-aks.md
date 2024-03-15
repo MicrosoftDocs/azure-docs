@@ -72,7 +72,23 @@ In **Replicate** > **Web apps**, you can see a list of ASP.NET apps discovered o
 
     :::image type="content" source="./media/tutorial-modernize-asp-net-aks/replicate-web-apps-app-dir.png" alt-text="Screenshot of the Application directories tab.":::
 
-5. Select **Next**.
+5. For the applications using Windows authentication, indicated by the **Authentication type**, you can configure gMSA V2 on the target AKS cluster. 
+
+    :::image type="content" source="./media/tutorial-modernize-asp-net-aks/replicate-web-apps-gmsa.png" alt-text="Screenshot of the gMSA configuration tab.":::
+
+    | Setting |  Comments |
+    | --- | --- |
+    | Account name | Name of the gMSA account to use. If the account doesn't exist, a new account with this name is created automatically. |
+    | Account username | Username of the standard domain user that's authorized to access the gMSA configured on your Domain Controller. If the given username doesn't exist, a new standard domain user is created automatically. |
+    | Account password | Password of the above user. |
+    | Domain DNS server | IP address of the DNS server which can resolve your Active Directory domain name. |
+    | Domain FQDN | Fully qualified domain name of your Active Directory domain. |
+    | Domain controller address | IP address of the Active Directory Domain Controller. Connection is established to remotely allow the specified domain user to retrieve credentials for the specified gMSA. |
+    | Domain admin username | Username of a user that has sufficient privileges to remotely validate the gMSA account and domain user. |
+    | Domain admin password | Password for the admin user above. |
+
+
+6. Select **Next**.
 
 > [!NOTE]
 > The source path and the attribute value of App configurations and App directories together must be under 3000 characters in length. This can roughly be translated to around 15 entries (inclusive of both configurations and directories) of character length of about 200 each.
