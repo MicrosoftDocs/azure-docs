@@ -13,7 +13,7 @@ ms.date: 11/06/2023
 
 # Azure Kubernetes Service cost analysis
 
-An Azure Kubernetes Service (AKS) cluster is reliant on Azure resources like virtual machines, virtual disks, load-balancers and public IP addresses. These resources can be used by multiple applications, which could be maintained by several different teams within your organization. Resource consumption patterns of those applications are often nonuniform, and thus their contribution towards the total cluster resource cost is often nonuniform. Some applications can also have footprints across multiple clusters. This can pose a challenge when performing cost attribution and cost management.
+An Azure Kubernetes Service (AKS) cluster is reliant on Azure resources like virtual machines, virtual disks, load-balancers, and public IP addresses. These resources can be used by multiple applications, which might be maintained by different teams within your organization. Resource consumption patterns for those applications are often variable, so their contribution towards the total cluster resource cost can also vary. Some applications can also have footprints across multiple clusters, which can pose a challenge when performing cost attribution and cost management.
 
 Previously, [Microsoft Cost Management (MCM)](../cost-management-billing/cost-management-billing-overview.md) aggregated cluster resource consumption under the cluster resource group. You could use MCM to analyze costs, but there were several challenges:
 
@@ -48,7 +48,7 @@ The AKS cost analysis addon is built on top of [OpenCost](https://www.opencost.i
     * Enterprise Agreement
     * Microsoft Customer Agreement
 
-* Virtual nodes not supported at this time.
+* Virtual nodes are not supported at this time.
 
 
 ### Install or update the `aks-preview` Azure CLI extension
@@ -85,6 +85,9 @@ To enable the feature, use the flag `--enable-cost-analysis` in combination with
 az aks create --resource-group <resource_group> --name <name> --location <location> --enable-managed-identity --generate-ssh-keys --tier standard --enable-cost-analysis
 ```
 
+> [!WARNING]
+> Cost Analysis addon Memory usage is dependent on the number of containers deployed. Memory consumption can be roughly approximated by 200MB + 0.5MB per Container. The current memory limit is set to 4GB which will support approximately 7000 containers per cluster but could be more or less depending on various factors. These estimates are subject to change.
+
 ## Disable cost analysis
 
 You can disable cost analysis at any time using `az aks update`.
@@ -96,20 +99,19 @@ az aks update --name myAKSCluster --resource-group myResourceGroup --disable-cos
 > [!NOTE]
 > If you intend to downgrade your cluster from the `Standard` or `Premium` tiers to the `Free` tier while cost analysis is enabled, you must first explicitly disable cost analysis as shown here.
 
-## View cost information
+## View the cost data
 
 You can view cost allocation data in the Azure portal. To learn more about how to navigate the cost analysis UI view, see the [Cost Management documentation](/azure/cost-management-billing/costs/view-kubernetes-costs). 
 
-> [!NOTE]
-> It might take up to one day for data to finalize. 
-
 ### Cost definitions
 In the Kubernetes namespaces and assets views you will see the following charges:
-- **Idle charges**: This represents the portion of resource allocation costs that are not allocated to any workload.
+- **Idle charges**: This represents the cost of available resource capacity that wasn't used by any workloads.
 - **Service charges**: This represents the charges for the SLA meter.
 - **System charges**: This represents the cost of capacity reserved by AKS on each node to run system processes required by the cluster, including the kubelet and container runtime. [Learn more](./concepts-clusters-workloads.md#resource-reservations).
 - **Unallocated charges**: This represents the cost of resources that could not be allocated to namespaces.
 
+> [!NOTE]
+> It might take up to one day for data to finalize. 
 
 ## Troubleshooting
 
