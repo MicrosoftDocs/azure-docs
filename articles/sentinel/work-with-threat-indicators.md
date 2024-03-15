@@ -45,7 +45,7 @@ For example:
 
 #### [Azure portal](#tab/azure-portal)
 
-:::image type="content" source="media/work-with-threat-indicators/geolocation-whois-ti-sentinel.png" alt-text="Screenshot of the Threat intelligence page with an indicator showing GeoLocation and WhoIs data." lightbox="media/work-with-threat-indicators/geolocation-whois-ti.png":::
+:::image type="content" source="media/work-with-threat-indicators/geolocation-whois-ti-sentinel.png" alt-text="Screenshot of the Threat intelligence page with an indicator showing GeoLocation and WhoIs data." lightbox="media/work-with-threat-indicators/geolocation-whois-ti-sentinel.png":::
 
 #### [Defender portal](#tab/defender-portal)
 

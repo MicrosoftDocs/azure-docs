@@ -37,7 +37,7 @@ Add multiple indicators to your threat intelligence with a specially crafted CSV
     :::image type="content" source="media/indicators-bulk-file-import/import-using-file-menu-fixed.png" alt-text="Screenshot of the menu options to import indicators using a file menu." lightbox="media/indicators-bulk-file-import/import-using-file-menu-fixed.png":::
     
     #### [Defender portal](#tab/defender-portal)
-    :::image type="content" source="media/indicators-bulk-file-import/import-using-file-menu-defender.png" alt-text="Screenshot of the menu options to import indicators using a file menu from the Defender portal." lightbox="media/indicators-bulk-file-import/import-using-file-menu-fixed.png":::
+    :::image type="content" source="media/indicators-bulk-file-import/import-using-file-menu-defender.png" alt-text="Screenshot of the menu options to import indicators using a file menu from the Defender portal." lightbox="media/indicators-bulk-file-import/import-using-file-menu-defender.png":::
     ---
 
 1. Choose CSV or JSON from the **File Format** drop down menu.
