@@ -41,7 +41,7 @@ This example checks a connection to a destination virtual machine over port 80. 
 
 ### Example
 
-```powershell
+```azurepowershell-interactive
 $rgName = "ContosoRG"
 $sourceVMName = "MultiTierApp0"
 $destVMName = "Database0"
@@ -135,7 +135,7 @@ This example checks connectivity between a virtual machine and a remote endpoint
 
 ### Example
 
-```powershell
+```azurepowershell-interactive
 $rgName = "ContosoRG"
 $sourceVMName = "MultiTierApp0"
 
@@ -198,7 +198,7 @@ The following example checks connectivity to a website. This example requires th
 
 ### Example
 
-```powershell
+```azurepowershell-interactive
 $rgName = "ContosoRG"
 $sourceVMName = "MultiTierApp0"
 
@@ -250,7 +250,7 @@ The following example checks connectivity from a virtual machine to a blog stora
 
 ### Example
 
-```powershell
+```azurepowershell-interactive
 $rgName = "ContosoRG"
 $sourceVMName = "MultiTierApp0"
 
