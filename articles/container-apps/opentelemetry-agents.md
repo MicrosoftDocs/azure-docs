@@ -137,8 +137,9 @@ While you can set up as many OTLP-configured endpoints as you like, each endpoin
 |---|---|
 | `name` | A name you select to identify your OTLP-configured endpoint. |
 | `endpoint` |  The URL of the destination that receives collected data. |
-| `header` | List of security headers. |
-| `insecure` |  True/false. If false, include headers to |
+| `insecure` |  Default true. Defines whether to enable client transport security for the exporter's gRPC connection. If false, the `header` parameter is required.  |
+| `header` | space separated values in 'key=value' format that provide required information for the otlp endpoints' security. example: "api-key=key other-config-value=value"  |
+
 
 # [Azure CLI](#tab/azure-cli)
 
