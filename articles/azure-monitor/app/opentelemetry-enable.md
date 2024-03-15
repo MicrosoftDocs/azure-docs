@@ -27,7 +27,7 @@ There are several advantages to using the Azure Monitor OpenTelemetry Distro:
 
 In the spirit of OpenTelemetry, we designed the distro to be open and extensible. For example, you can add:
 
-- An OTLP exporter and send to a second destination simultaneously
+- An OpenTelemetry Protocol (OTLP) exporter and send to a second destination simultaneously
 - Other instrumentation libraries not included in the distro
 
 To learn more about collecting data using OpenTelemetry, see [Data Collection Basics](opentelemetry-overview.md) or [OpenTelemetry FAQ](#frequently-asked-questions).

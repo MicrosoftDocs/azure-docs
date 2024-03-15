@@ -34,7 +34,7 @@ You can think of it as a thin wrapper that bundles together all the OpenTelemetr
 
 ### Why should I use the "Azure Monitor OpenTelemetry Distro"?
 
-Azure Monitor OpenTelemetry Distro is the only currently supported way to use OpenTelemetry with Azure Monitor.
+The Azure Monitor OpenTelemetry Distro is the only currently supported way to use OpenTelemetry with Azure Monitor.
 
 ### How can I test out the Azure Monitor OpenTelemetry Distro?
 
