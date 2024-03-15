@@ -235,6 +235,8 @@ For the content of the file, see [datastore YAML examples](https://github.com/Az
 
 ---
 
+To learn more about using a datastore, see [Create and manage data assets](how-to-create-data-assets.md).
+
 ## Model
 
 Azure Machine Learning models consist of the binary file(s) that represent a machine learning model and any corresponding metadata. Models can be created from a local or remote file or directory. For remote locations `https`, `wasbs` and `azureml` locations are supported. The created model will be tracked in the workspace under the specified name and version. Azure Machine Learning supports three types of storage format for models:
@@ -270,13 +272,13 @@ In custom environments, you're responsible for setting up your environment and i
 
 ### [Python SDK](#tab/sdk)
 
-To create an environment using Python SDK v2, see [Create an environment](how-to-manage-environments-v2.md?tabs=python#create-an-environment).
+To create an environment using Python SDK v2, see [Create an environment](how-to-manage-environments-v2.md?tabs=python#create-a-custom-environment).
 
 This [Jupyter notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/assets/environment/environment.ipynb) shows more ways to create custom environments using SDK v2.
 
 ### [Azure CLI](#tab/cli)
 
-To create an environment using CLI v2, see [Create an environment](how-to-manage-environments-v2.md?tabs=cli#create-an-environment).
+To create an environment using CLI v2, see [Create an environment](how-to-manage-environments-v2.md?tabs=cli#create-a-custom-environment).
 
 For more information, see [environment YAML schema](reference-yaml-environment.md).
 
