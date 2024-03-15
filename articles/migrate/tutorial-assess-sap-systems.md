@@ -81,7 +81,7 @@ To create an assessment for the discovered SAP systems, follow these steps:
 To run the assessment, do the following:
     1. Navigate to the **Create assessment** page, select **Review + create assessment** tab.
     1. Review your assessment settings.
-    1. Select **Create Assessment**.
+    1. Select **Create assessment**.
 1. After the assessment is created, go to **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**. Refresh the tile data by selecting the **Refresh** option on top of the tile. Wait for the data to refresh.
 1. Select the image next to **SAP® Systems (Preview)** in the **Assessment** section. 
 1. Select the assessment name that you wish to view.
