@@ -127,7 +127,7 @@ The `azd` template for this quickstart creates a new resource group with an AKS 
       6.  (US) South Central US (southcentralus)
     ```
 
-    `azd` automatically runs the preprovioning and postprovisioning commands to create the resources for your application. This process can take a few minutes to complete. Once complete, you should see an output similar to the following example:
+    `azd` automatically runs the preprovisioning and postprovisioning commands to create the resources for your application. This process can take a few minutes to complete. Once complete, you should see an output similar to the following example:
 
     ```output
     SUCCESS: Your workflow to provision and deploy to Azure completed in 9 minutes 40 seconds.
