@@ -4,7 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn about the different model capabilities that are available with Azure OpenAI.
 ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 03/12/2024
+ms.date: 03/14/2024
 ms.custom: references_regions, build-2023, build-2023-dataai, refefences_regions
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
@@ -239,13 +239,18 @@ The following Embeddings models are available with [Azure Government](/azure/azu
 
 For Assistants you need a combination of a supported model, and a supported region. Certain tools and capabilities require the latest models. For example [parallel function](../how-to/assistant-functions.md) calling requires the latest 1106 models.
 
+| Region | `gpt-35-turbo (0613)` | `gpt-35-turbo (1106)` | `gpt-4 (0613)` | `gpt-4 (1106)` | `gpt-4 (0125)` | 
+|-----|---|---|---|---|---|
+| Australia East | ✅ | ✅ | ✅ |✅ | |
+| East US 2 | ✅ | | ✅ |✅ | |
+| Sweden Central | ✅ |✅ |✅ |✅| |
 
-| Region | `gpt-35-turbo (0613)` | `gpt-35-turbo (1106)` | `gpt-4 (0613)` | `gpt-4 (1106)` | 
-|-----|---|---|---|---|
-| Australia East | ✅ | ✅ | ✅ |✅ |
-| East US 2 | ✅ | ⬜| ✅ |✅ |
-| Sweden Central | ✅ |✅ |✅ |✅|
+Provisioned Throughput Unit (PTU) availability 
 
+| Region | `gpt-35-turbo (1106)` | `gpt-4 (1106)` | `gpt-4 (0125)` |  
+|-----|---|---|---|
+| East US 2 | | ✅ | ✅ |
+| Sweden Central | ✅ |✅ |✅ |
 
 ## Next steps
 
