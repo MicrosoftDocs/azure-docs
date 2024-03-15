@@ -12,6 +12,8 @@ ms.author: danlep
 
 # API gateway in Azure API Management
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 This article provides information about the roles and features of the API Management *gateway* component and compares the gateways you can deploy.
 
 Related information:
@@ -99,7 +101,7 @@ The following table compares features available in the managed gateway versus th
 | [Synthetic GraphQL](graphql-apis-overview.md)|  ✔️ |  ✔️<sup>1</sup> | ✔️<sup>1</sup> |
 | [Pass-through WebSocket](websocket-api.md) |  ✔️ |  ❌ | ✔️ |
 | [Pass-through gRPC](grpc-api.md) (preview) |  ❌ |  ❌ | ✔️ |
-| [OData](import-api-from-odata.md.md) (preview) |  ✔️ |  ✔️ | ✔️ |
+| [OData](import-api-from-odata.md) (preview) |  ✔️ |  ✔️ | ✔️ |
 | [Azure OpenAI](azure-openai-api-from-specification.md) | ✔️ | ✔️ | ✔️ |
 | [Circuit breaker in backend](backends.md#circuit-breaker-preview) (preview) |  ✔️ |  ❌ | ✔️ |
 | [Load-balanced backend pool](backends.md#load-balanced-pool-preview) (preview) |  ✔️ |  ✔️ | ✔️ |

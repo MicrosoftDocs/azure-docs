@@ -12,6 +12,8 @@ ms.author: danlep
 
 # Feature-based comparison of the Azure API Management tiers
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 Each API Management [pricing tier](https://aka.ms/apimpricing) offers a distinct set of features and per unit [capacity](api-management-capacity.md). The following table summarizes the key features available in each of the tiers. Some features might work differently or have different capabilities depending on the tier. In such cases the differences are called out in the documentation articles describing these individual features.
 
 > [!IMPORTANT]
@@ -25,7 +27,7 @@ Each API Management [pricing tier](https://aka.ms/apimpricing) offers a distinct
 | Microsoft Entra integration<sup>1</sup>                                                             | No          | Yes       | No    | Yes      | Yes      | Yes      | Yes     |
 | Virtual Network (VNet) injection support                                                               | No          | Yes       | No    | No       | No       | No       | Yes     |
 | Private endpoint support for inbound connections                                                               | No          | Yes       | Yes    | No       | Yes       | No       | Yes     |
-| Outbound virtual network integration support                                                             | No          | No       | No    | No       | No       | Yes       | Yes     |
+| Outbound virtual network integration support                                                             | No          | No       | No    | No       | No       | Yes       | No    |
 | Multi-region deployment                                                                      | No          | No        | No    | No       | No       | No       | Yes     |
 | Availability zones                                                                           | No          | No        | No    | No       | No       | No       | Yes     |
 | Multiple custom domain names for gateway                                                                 | No          | Yes        | No    | No      | No       | No        | Yes     |
