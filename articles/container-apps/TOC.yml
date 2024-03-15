@@ -22,6 +22,7 @@
         items:
         - name: Local filesystem
           href: quickstart-code-to-cloud.md
+          displayName: c#, java, javascript, python, go
         - name: Code repository
           href: quickstart-repo-to-cloud.md
         - name: Visual Studio
@@ -32,6 +33,7 @@
         items:
         - name: Command line
           href: deploy-artifact.md
+          displayName: java
       - name: Run a job
         items:
         - name: Azure portal
