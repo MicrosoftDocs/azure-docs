@@ -1,7 +1,7 @@
 ---
 title: Investigate risk with Azure Active Directory B2C Identity Protection
 description: Learn how to investigate risky users, and detections in Azure AD B2C Identity Protection
-ms.service: active-directory
+ms.service: entra-id
 ms.subservice: conditional-access
 ms.topic: overview
 ms.date: 01/24/2024
