@@ -105,7 +105,7 @@ In the **Threat Intelligence** page:
 
 :::image type="content" source="media/use-matching-analytics-to-detect-threats/matching-analytics-threat-intelligence.png" alt-text="Screenshot of the Threat Intelligence overview with indicator selected showing the source as Microsoft Threat Intelligence Analytics." lightbox="media/use-matching-analytics-to-detect-threats/matching-analytics-threat-intelligence.png":::
 
-## Get additional context from Microsoft Defender Threat Intelligence
+## Get more context from Microsoft Defender Threat Intelligence
 
 Along with high fidelity alerts and incidents, some MDTI indicators include a link to a reference article in the MDTI community portal.
 
