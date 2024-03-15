@@ -8,6 +8,7 @@ content_well_notification:
   - AI-contribution
 #Customer intent: As a developer or cluster operator, I want to quickly deploy an AKS cluster and deploy an application so that I can see how to run applications using the managed Kubernetes service in Azure.
 ai-usage: ai-assisted
+zone_pivot_groups: aks-azure-developer-cli
 ---
 
 # Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using Terraform
@@ -19,6 +20,8 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 
 > [!NOTE]
 > To get started with quickly provisioning an AKS cluster, this article includes steps to deploy a cluster with default settings for evaluation purposes only. Before deploying a production-ready cluster, we recommend that you familiarize yourself with our [baseline reference architecture][baseline-reference-architecture] to consider how it aligns with your business requirements.
+
+:::zone pivot="development-environment-azure-cli"
 
 ## Before you begin
 
@@ -506,6 +509,14 @@ When the application runs, a Kubernetes service exposes the application front en
     ```azurecli-interactive
     az ad sp delete --id $sp
     ```
+
+:::zone-end
+
+:::zone pivot="development-environment-azure-cli"
+
+Testing for Azure Developer zone pivot.
+
+:::zone-end
 
 ## Troubleshoot Terraform on Azure
 
