@@ -190,6 +190,6 @@ relatedContent:
   - text: Assign a user as an administrator of an Azure subscription
     url: role-assignments-portal-subscription-admin.md
   - text: Remove Azure role assignments
-    url: role-assignments-remove.md
+    url: role-assignments-remove.yml
   - text: Troubleshoot Azure RBAC
     url: troubleshooting.md
