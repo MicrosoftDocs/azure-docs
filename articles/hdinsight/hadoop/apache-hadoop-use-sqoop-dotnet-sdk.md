@@ -4,7 +4,7 @@ description: Learn how to use the HDInsight .NET SDK to run Apache Sqoop import 
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp, devx-track-dotnet
-ms.date: 02/27/2023
+ms.date: 03/15/2024
 ---
 
 # Run Apache Sqoop jobs by using .NET SDK for Apache Hadoop in HDInsight
