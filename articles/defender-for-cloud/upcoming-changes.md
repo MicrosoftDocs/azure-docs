@@ -26,6 +26,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 | Planned change | Announcement date | Estimated date for change |
 |--|--|--|
 | [Defender for open-source relational databases updates](#defender-for-open-source-relational-databases-updates) | March 6, 2024 | April, 2024 |
+| [Changes in where you access Compliance offerings and Microsoft Actions](#changes-in-where-you-access-compliance-offerings-and-microsoft-actions) | March 3, 2024 | September 30, 2025 |
 | [Microsoft Security Code Analysis (MSCA) is no longer operational](#microsoft-security-code-analysis-msca-is-no-longer-operational) | February 26, 2024 | February 26, 2024 |
 | [Update recommendations to align with Azure AI Services resources](#update-recommendations-to-align-with-azure-ai-services-resources) | February 20, 2024 | February 28, 2024 |
 | [Deprecation of data recommendation](#deprecation-of-data-recommendation) | February 12, 2024 | March 14, 2024 |
@@ -56,7 +57,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 **Defender for PostgreSQL Flexible Servers post-GA updates** - The update enables customers to enforce protection for existing PostgreSQL flexible servers at the subscription level, allowing complete flexibility to enable protection on a per-resource basis or for automatic protection of all resources at the subscription level.
 
-**Defender for MySQL Flexible Servers Availability and GA** - Defender for Cloud is set to expand its support for Azure open-source relational databases by incorporating MySQL Flexible Servers. 
+**Defender for MySQL Flexible Servers Availability and GA** - Defender for Cloud is set to expand its support for Azure open-source relational databases by incorporating MySQL Flexible Servers.
 This release will include:
 
 - Alert compatibility with existing alerts for Defender for MySQL Single Servers.
@@ -67,6 +68,18 @@ If you're already protecting your subscription with Defender for open-source rel
 Specific billing notifications have been sent via email for affected subscriptions.
 
 Learn more about [Microsoft Defender for open-source relational databases](defender-for-databases-introduction.md).
+
+## Changes in where you access Compliance offerings and Microsoft Actions
+
+**Announcement date: March 3, 2024**
+
+**Estimated date for change: September 30, 2025**
+
+On September 30, 2025, the locations where you access two preview features, Compliance offering and Microsoft Actions, will change.
+
+The table that lists the compliance status of Microsoft's products (accessed from the **Compliance offerings** button in the toolbar of Defender's [regulatory compliance dashboard](regulatory-compliance-dashboard.md)). After this button is removed from Defender for Cloud, you'll still be able to access this information using the [Service Trust Portal](https://servicetrust.microsoft.com/).
+
+For a subset of controls, Microsoft Actions was accessible from the **Microsoft Actions (Preview)** button in the controls details pane. After this button is removed, you can view Microsoft Actions by visiting Microsoft’s [Service Trust Portal for FedRAMP](https://servicetrust.microsoft.com/viewpage/FedRAMP) and accessing  the Azure System Security Plan document.
 
 ## Microsoft Security Code Analysis (MSCA) is no longer operational
 
@@ -177,7 +190,7 @@ For more information on the code to cloud security capabilities in Defender CSPM
 
 **Estimated date of change: February 2024**
 
-In Azure, agentless scanning for VMs uses a built-in role (called [VM scanner operator](faq-permissions.yml)) with the minimum necessary permissions required to scan and assess your VMs for security issues. To continuously provide relevant scan health and configuration recommendations for VMs with encrypted volumes, an update to this role's permissions is planned. The update includes the addition of the ```Microsoft.Compute/DiskEncryptionSets/read``` permission. This permission solely enables improved identification of encrypted disk usage in VMs. It doesn't provide Defender for Cloud any more capabilities to decrypt or access the content of these encrypted volumes beyond the encryption methods [already supported](/azure/defender-for-cloud/concept-agentless-data-collection#availability) prior to this change. This change is expected to take place during February 2024 and no action is required on your end.
+In Azure, agentless scanning for VMs uses a built-in role (called [VM scanner operator](faq-permissions.yml)) with the minimum necessary permissions required to scan and assess your VMs for security issues. To continuously provide relevant scan health and configuration recommendations for VMs with encrypted volumes, an update to this role's permissions is planned. The update includes the addition of the ```Microsoft.Compute/DiskEncryptionSets/read``` permission. This permission solely enables improved identification of encrypted disk usage in VMs. It doesn't provide Defender for Cloud any more capabilities to decrypt or access the content of these encrypted volumes beyond the encryption methods [already supported](concept-agentless-data-collection.md#availability) prior to this change. This change is expected to take place during February 2024 and no action is required on your end.
 
 ## Deprecation of two recommendations related to PCI
 
