@@ -52,11 +52,16 @@ To create an assessment for the discovered SAP systems, follow these steps:
         1. **Is DR Environment required**: Select **Yes** to enable Disaster Recovery (DR) for your SAP systems.
         1. **DR location**: Select DR location if DR is enabled.
 
+            :::image type="content" source="./media/tutorial-assess-sap-systems/target-settings.png" alt-text="Screenshot that shows the fields in target settings." lightbox="./media/tutorial-assess-sap-systems/target-settings.png":::
+
     1. Under **Pricing settings**, do the following:
          1.  **Currency**: Select the currency you want to use for cost view in assessment.
          1. **OS license**: Select the OS license.
          1. **Operating system**: Select the operating system information for the target systems in Azure. You can choose between Windows and Linux OS.
          1. **OS type**: Select the type of OS
+             
+            :::image type="content" source="./media/tutorial-assess-sap-systems/pricing-settings.png" alt-text="Screenshot that shows the fields in pricing settings." lightbox="./media/tutorial-assess-sap-systems/pricing-settings.png":::
+
     1. Under **Availability settings**, do the following:
         1. Under **Production**:
             1. **Deployment type**: Select **Distributed with high availability (HA)** or **Distributed**.
@@ -65,6 +70,10 @@ To create an assessment for the discovered SAP systems, follow these steps:
             1. **Deployment type**: Select **Distributed with high availability (HA)**,  **Distributed**, or **Single server**.
             1. **Storage settings (non hana only)**: If you intend to conduct the assessment for Non-HANA DB, select from the available storage settings.
             1. **Environment update**: Select the Uptime % and sizing criteria for the different environments in your SAP estate.
+        
+        :::image type="content" source="./media/tutorial-assess-sap-systems/availability-settings.png" alt-text="Screenshot that shows the fields in availability settings." lightbox="./media/tutorial-assess-sap-systems/availability-settings.png":::
+
+    1. Under **Storage settings (non hana only)**, if you intend to conduct the assessment for Non-HANA DB, select from the available storage settings.
 1. Select **Save**.
 
 ## Run an assessment
