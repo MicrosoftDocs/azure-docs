@@ -49,7 +49,7 @@ Now that you have a web app running on App Service, enable authentication and au
     
 1. On your app's left menu, select **Authentication**, and then select **Add identity provider**.
 
-1. In the **Add an identity provider** page, for example select **Microsoft** as the **Identity provider** to sign in Microsoft and Microsoft Entra identities.
+1. In the **Add an identity provider** page, select **Microsoft** as the **Identity provider** to sign in Microsoft and Microsoft Entra identities.
 
 1. For **Tenant type**, select **Workforce configuration (current tenant)** for employees and business guests.
 
@@ -81,7 +81,7 @@ Now that you have a web app running on App Service, enable authentication and au
     
 1. On your app's left menu, select **Authentication**, and then select **Add identity provider**.
 
-1. In the **Add an identity provider** page, for example select **Microsoft** as the **Identity provider** to sign in Microsoft and Microsoft Entra identities.
+1. In the **Add an identity provider** page, select **Microsoft** as the **Identity provider** to sign in Microsoft and Microsoft Entra identities.
 
 1. For **Tenant type**, select **External configuration** for external users.
 
@@ -131,13 +131,15 @@ Now that you have a web app running on App Service, enable authentication and au
 
 ## 4. Verify limited access to the web app
 
-When you enabled the App Service authentication/authorization module in the previous section, an app registration was created in your Microsoft Entra tenant. The app registration has the same display name as your web app. 
+When you enabled the App Service authentication/authorization module in the previous section, an app registration was created in your workforce or external tenant. The app registration has the same display name as your web app. 
 
-1. To check the settings, go to the [Microsoft Entra admin center](https://entra.microsoft.com) and select **Applications** and then **App registrations** from the menu. 
+1. To check the settings, sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](/entra/identity/role-based-access-control/permissions-reference#application-developer).  If necessary, use the **Settings** icon  in the top menu to switch to the customer or external tenant with your web app from the **Directories** + **subscriptions** menu.   When you are in the correct tenant:
+
+1. Browse to **Identity** > **Applications** > **App registrations** and select **Applications** > **App registrations** from the menu. 
 1. Select the app registration that was created. 
 1. In the overview, verify that **Supported account types** is set to **My organization only**.
     
-1. To verify that access to your app is limited to users in your organization, got to your web app **Overview** and select the **Default domain** link.  Or, start a browser in incognito or private mode and go to `https://<app-name>.azurewebsites.net`.
+1. To verify that access to your app is limited to users in your organization, go to your web app **Overview** and select the **Default domain** link.  Or, start a browser in incognito or private mode and go to `https://<app-name>.azurewebsites.net`.
 
     :::image type="content" alt-text="Screenshot that shows verifying access." source="../../media/scenario-secure-app-authentication-app-service/verify-access.png":::
 
