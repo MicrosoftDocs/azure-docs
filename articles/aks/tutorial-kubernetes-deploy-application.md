@@ -113,7 +113,6 @@ In these tutorials, your Azure Container Registry (ACR) instance stores the cont
 
 4. Save and close the file. In `vi`, use `:wq`.
 
-
 ### [Azure Developer CLI](#tab/azure-azd)
 
 `azd` doesn't require a container registry step since it's in the template.
@@ -178,13 +177,15 @@ In these tutorials, your Azure Container Registry (ACR) instance stores the cont
 
 ### [Azure Developer CLI](#tab/azure-azd)
 
-1. Deployment in `azd` in broken down into multiple stages represented by hooks. By default, azd deploys with all hooks.
+Deployment in `azd` is broken down into multiple stages represented by hooks. `azd` deploys with all hooks by default.
+
+1. Deploy the application using the `azd up` command.
 
     ```azdeveloper
     azd up
     ```
 
-2. When you first run azd up, you're prompted to select which Subscription and Region to host your Azure resources.
+2. Select which subscription and region to host your Azure resources.
 
     ```output
     ? Select an Azure Subscription to use:  [Use arrows to move, type to filter]
@@ -193,7 +194,7 @@ In these tutorials, your Azure Container Registry (ACR) instance stores the cont
     > 43. (US) East US 2 (eastus2)
     ```
 
-3. You can update these variables for `AZURE_LOCATION` and `AZURE_SUBSCRIPTION_ID` from inside the `.azure/<your-env-name>/.env` file.
+    You can update the variables for `AZURE_LOCATION` and `AZURE_SUBSCRIPTION_ID` from inside the `.azure/<your-env-name>/.env` file.
 
 ---
 

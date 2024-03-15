@@ -1,13 +1,15 @@
 ---
-title: 'Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using the Azure Developer CLI (`azd`)'
-description: Learn how to quickly deploy a Kubernetes cluster and deploy an application in Azure Kubernetes Service (AKS) using `azd`.
+title: 'Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using the Azure Developer CLI'
+description: Learn how to quickly deploy a Kubernetes cluster and deploy an application in Azure Kubernetes Service (AKS) using the Azure Developer CLI.
+ms.author: schaffererin
+author: schaffererin
 ms.topic: quickstart
-ms.date: 03/06/2024
+ms.date: 03/15/2024
 ms.custom: H1Hack27Feb2017, mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019, seo-python-october2019, devx-track-azurecli, contperf-fy21q1, mode-api, linux-related-content, devx-track-extended-azdevcli
 #Customer intent: As a developer or cluster operator, I want to deploy an AKS cluster and deploy an application so I can see how to run applications using the managed Kubernetes service in Azure.
 ---
 
-# Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using the Azure Developer CLI (`azd`)
+# Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using the Azure Developer CLI
 
 Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this quickstart, you learn to:
 
@@ -15,7 +17,7 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 - Clone applications from an Azure Developer CLI template (`azd` template).
 - Deploy an AKS cluster using the Azure Developer CLI (`azd`).
 - Run a sample multi-container application with a group of microservices that simulates a retail app.
-- Delete and cleanup containers made from the `azd` template.
+- Delete and clean up containers made from the `azd` template.
 
 > [!NOTE]
 > To get started with quickly provisioning an AKS cluster, this article includes steps to deploy a cluster with default settings for evaluation purposes only. Before deploying a production-ready cluster, we recommend that you familiarize yourself with our [baseline reference architecture][baseline-reference-architecture] to consider how it aligns with your business requirements.
@@ -29,13 +31,11 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
 - For ease of use, run this sample on Bash or PowerShell in the [Azure Cloud Shell](/azure/cloud-shell/overview). For more information, see [Quickstart for Azure Cloud Shell](/azure/cloud-shell/quickstart).
 
 - To use `azd` locally, install version 1.6.1 or later of the [Azure Developer CLI][azd-install].
+  - If you're using the [Azure Cloud Shell](/azure/cloud-shell/overview), the latest version of `azd` is already installed.
 
-- If you're using the [Azure Cloud Shell](/azure/cloud-shell/overview), the latest version is already installed on there.
+## Review application code
 
-
-## Sample Code
-
-All code used in the quickstart is available at [Azure-Samples/aks-store-demo](https://github.com/Azure-Samples/aks-store-demo).
+You can review the application code in the [Azure-Samples/aks-store-demo GitHub repository](https://github.com/Azure-Samples/aks-store-demo).
 
 The quickstart application includes the following Kubernetes deployments and services:
 
@@ -49,17 +49,15 @@ The quickstart application includes the following Kubernetes deployments and ser
 > [!NOTE]
 > We don't recommend running stateful containers, such as Rabbit MQ, without persistent storage for production use. These are used here for simplicity, but we recommend using managed services instead, such as Azure CosmosDB or Azure Service Bus.
 
-## Clone the Azure Developer CLI Template
+## Clone the Azure Developer CLI template
 
-`azd` can clone files directly from a GitHub repository with `azd init`. For this quickstart, clone the sample `azd` template using the `--template` flag along with the owner and name of the repository.
-
-1. Clone the AKS Store Demo template from the **Azure-Samples** repository by running the `azd init` command and specifying `aks-store-demo`.
+1. Clone the AKS store demo template from the **Azure-Samples** repository using the [`azd init`][azd-init] command with the `--template` parameter.
 
     ```azdeveloper
     azd init --template Azure-Samples/aks-store-demo
     ```
 
-1. Choose an environment name for your project that uses only alphanumeric characters and hyphens.
+2. Enter an environment name for your project that uses only alphanumeric characters and hyphens, such as *aks-azdqs-1*.
 
     ```output
     Enter a new environment name: aks-azdqs-1
@@ -69,24 +67,25 @@ The quickstart application includes the following Kubernetes deployments and ser
 
 The `azd` template contains all the code needed to create the services, but you need to sign in to your Azure account in order to host the application on AKS.
 
-1. Sign in to your account with azd.
+1. Sign in to your account using the [`azd auth login`][az-auth-login] command.
 
     ```azdeveloper
     azd auth login
     ```
 
-1. Copy the device code that appears then press enter to sign-in.
+2. Copy the device code that appears in the output and press enter to sign in.
 
     ```output
     Start by copying the next code: XXXXXXXXX
     Then press enter and continue to log in from your browser...
     ```
 
-1. Authenticate with your credentials on your organization's sign in page.
+    > [!IMPORTANT]
+    > If you're using an out-of-network virtual machine or GitHub Codespace, certain Azure security policies cause conflicts when used to sign in with `azd auth login`. If you run into an issue here, you can follow the [azd auth workaround](../includes/azd/azd-login-ts.md), which involves using a `curl` request to the localhost URL you were redirected to after running [`azd auth login`][az-auth-login].
 
-1. Confirm that it's you trying to connect from the Azure CLI.
-
-1. Verify the message "Device code authentication completed. Logged in to Azure." appears in your original terminal.
+3. Authenticate with your credentials on your organization's sign in page.
+4. Confirm that it's you trying to connect from the Azure CLI.
+5. Verify the message "Device code authentication completed. Logged in to Azure." appears in your original terminal.
 
     ```output
     Waiting for you to complete authentication in the browser...
@@ -98,80 +97,55 @@ The `azd` template contains all the code needed to create the services, but you 
 
 ## Create and deploy resources for your cluster
 
-`azd` runs all the hooks inside of the `azd-hooks` folder to preregister, provision, then deploy these services. 
+`azd` runs all the hooks inside of the [`azd-hooks` folder](https://github.com/Azure-Samples/aks-store-demo/tree/main/azd-hooks) to preregister, provision, and deploy the application services.
 
-This `azd` template creates a new resource group with an Azure Kubernetes cluster and Azure Keyvault. The keyvault is used to store client secrets. Within the cluster, it runs your app's services in the pets namespace. 
+The `azd` template for this quickstart creates a new resource group with an AKS cluster and an Azure key vault. The key vault stores client secrets and runs the services in the `pets` namespace
 
-- **makeline-service**: Processes orders from the queue and completing them.
-- **order-service**: Place orders for products.
-- **product-service**: Perform create, read, update, or delete operations on products.
-- **store-front**: Web app for customers to view products and place orders.
-- **rabbit-mq**: Message queue for an order queue.
-
-1. Create all your resources with the `azd up` command.
+1. Create all the application resources using the [`azd up`][azd-up] command.
 
     ```azdeveloper
     azd up
     ```
 
-1. Select an Azure subscription for your billing usage.
+2. Select an Azure subscription for your billing usage.
 
     ```output
     ? Select an Azure Subscription to use:  [Use arrows to move, type to filter]
     > 1. My Azure Subscription (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)
     ```
 
-1. Select a region to deploy your application to.
+3. Select a region to deploy your application to.
 
     ```output
     Select an Azure location to use:  [Use arrows to move, type to filter]
-      40. (South America) Brazil Southeast (brazilsoutheast)
-      41. (US) Central US (centralus)
-      42. (US) East US (eastus)
+      1.  (South America) Brazil Southeast (brazilsoutheast)
+      2.  (US) Central US (centralus)
+      3.  (US) East US (eastus)
     > 43. (US) East US 2 (eastus2)
-      44. (US) East US STG (eastusstg)
-      45. (US) North Central US (northcentralus)
-      46. (US) South Central US (southcentralus)
+      4.  (US) East US STG (eastusstg)
+      5.  (US) North Central US (northcentralus)
+      6.  (US) South Central US (southcentralus)
     ```
 
-1. Wait as azd automatically runs the commands for pre-provision and post-provision steps.
+    `azd` automatically runs the preprovioning and postprovisioning commands to create the resources for your application. This process can take a few minutes to complete. Once complete, you should see an output similar to the following example:
 
     ```output
-    SUCCESS: Your up workflow to provision and deploy to Azure completed in 9 minutes 40 seconds.
+    SUCCESS: Your workflow to provision and deploy to Azure completed in 9 minutes 40 seconds.
     ```
 
 ## Test the application
 
-When your application is created, a Kubernetes service exposes the application's front end service to the internet. This process can take a few minutes to complete.
+When the application runs, a Kubernetes service exposes the application front end to the internet. This process can take a few minutes to complete.
 
-1. Set your namespace as the demo namespace `pets` with the `kubectl set-context` command.
+1. Set your namespace as the demo namespace `pets` using the [`kubectl set-context`][kubectl-set-context] command.
 
     ```console
     kubectl config set-context --current --namespace=pets
     ```
 
-1. View the status of the deployed pods with the [kubectl get pods][kubectl-get] command. 
+2. Check the status of the deployed pods using the [`kubectl get pods`][kubectl-get-pods] command. Make sure all pods are `Running` before proceeding.
 
-    Display all deployed pods in your namespace:
-
-    ```console
-    kubectl get pods
-    ```
-
-    Inspect the status in these services are `Running`:
-
-    ```output
-    NAME                               READY   STATUS 
-    order-service-8dfcffdd4-9zdj8      1/1     Running
-    product-service-848898fcc-4988r    1/1     Running
-    store-front-6774d4856d-2g4rn       1/1     Running
-    virtual-customer-8485855-ztgdw     1/1     Running
-    virtual-worker-7db7f799f-lkxnq     1/1     Running
-    ```
-
-1. Search for a public IP address for the front end store-front application. 
-
-    Monitor progress using the [kubectl get service][kubectl-get] command with the `--watch` argument:
+3. Check for a public IP address for the store-front application and monitor progress using the [`kubectl get service`][kubectl-get] command with the `--watch` argument.
 
     ```console
     kubectl get service store-front --watch
@@ -184,7 +158,7 @@ When your application is created, a Kubernetes service exposes the application's
     store-front   LoadBalancer   10.0.100.10   <pending>     80:30025/TCP   4h4m
     ```
 
-1. When the **EXTERNAL-IP** address changes from *pending* to a public IP address, use `CTRL-C` to stop the `kubectl` watch process.
+4. Once the **EXTERNAL-IP** address changes from *pending* to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process.
 
     The following sample output shows a valid public IP address assigned to the service:
 
@@ -193,31 +167,27 @@ When your application is created, a Kubernetes service exposes the application's
     store-front   LoadBalancer   10.0.100.10   20.62.159.19   80:30025/TCP   4h5m
     ```
 
-1. Open a web browser using the external IP address of your service to view the Azure Store app in action.
+5. Open a web browser to the external IP address of your service to see the Azure Store app in action.
 
     :::image type="content" source="media/quick-kubernetes-deploy-cli/aks-store-application.png" alt-text="Screenshot of AKS Store sample application." lightbox="media/quick-kubernetes-deploy-cli/aks-store-application.png":::
 
-### Visit the store-front
-
-Once on the store page, you can add new items to your cart and check them out. To verify, visit the Azure Service in your portal to view the records of the transactions for your store app.
-
 ## Delete the cluster
 
-Once you're finished with the quickstart, remember to clean up all your resources to avoid Azure charges. 
+Once you're finished with the quickstart, clean up unnecessary resources to avoid Azure charges.
 
-1. Use `azd down` to delete all your resources used in the quickstart, which includes your resource group, cluster, and related Azure Services.
+1. Delete all the resources created in the quickstart using the [`azd down`][az-down] command.
 
     ```azdeveloper
     azd down
     ```
 
-    Confirm your decision to remove all used resources from your subscription.
+2. Confirm your decision to remove all used resources from your subscription by typing `y` and pressing `Enter`.
 
     ```output
     ? Total resources to delete: 14, are you sure you want to continue? (y/N)
     ```
- 
-1. Allow purge to reuse the quickstart variables if applicable.
+
+3. Allow purge to reuse the quickstart variables if applicable by typing `y` and pressing `Enter`.
 
     ```output
     [Warning]: These resources have soft delete enabled allowing them to be recovered for a period or time after deletion. During this period, their names may not be reused. In the future, you can use the argument --purge to skip this confirmation.
@@ -225,14 +195,14 @@ Once you're finished with the quickstart, remember to clean up all your resource
     ? Would you like to permanently delete these resources instead, allowing their names to be reused? (y/N)
     ```
 
-1. Close the terminal once the cleanup process is complete.
+    Once the resources are deleted, you should see an output similar to the following example:
 
     ```output
     SUCCESS: Your application was removed from Azure in 14 minutes 30 seconds.
     ```
 
 > [!NOTE]
-> This sample application is for demo purposes and doesn't represent all the best practices for Kubernetes applications. 
+> This sample application is for demo purposes and doesn't represent all the best practices for Kubernetes applications.
 > For guidance on creating full solutions with AKS for production, see [AKS solution guidance][aks-solution-guidance].
 
 ## Next steps
@@ -248,6 +218,8 @@ To learn more about AKS and walk through a complete code-to-deployment example, 
 [kubectl]: https://kubernetes.io/docs/reference/kubectl/
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubectl-set-context]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#config-set-context
+[kubectl-get-pods]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get-pods
 
 <!-- LINKS - internal -->
 [aks-tutorial]: ../tutorial-kubernetes-prepare-app.md
@@ -259,6 +231,9 @@ To learn more about AKS and walk through a complete code-to-deployment example, 
 [az-group-create]: /cli/azure/group#az-group-create
 [az-group-delete]: /cli/azure/group#az-group-delete
 [azd-install]: /azure/developer/azure-developer-cli/install-azd
+[azd-init]: /azure/developer/azure-developer-cli/init-azd
+[azd-up]: /azure/developer/azure-developer-cli/up-azd
+[az-auth-login]: /azure/developer/azure-developer-cli/auth-azd
 [kubernetes-concepts]: ../concepts-clusters-workloads.md
 [kubernetes-deployment]: ../concepts-clusters-workloads.md#deployments-and-yaml-manifests
 [aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json

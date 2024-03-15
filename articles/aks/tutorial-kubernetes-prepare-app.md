@@ -70,15 +70,13 @@ The [sample application][sample-application] used in this tutorial is a basic st
     mkdir aks-store-demo
     ```
 
-1. Change into the new directory to load all the files from the azd template.
+2. Change into the new directory to load all the files from the azd template.
 
     ```console
     cd aks-store-demo
     ```
 
-1. Run the Azure Developer CLI ([azd][]) init command which clones the sample application into your empty directory.
-
-    Use the `--template` flag to clone from the aks-store-demo in Azure-Samples.
+3. Clone the sample application into the `aks-store-demo` directory using the [`azd init`][azd-init] command with the `--template` flag set to `aks-store-demo`.
 
     ```azdeveloper
     azd init --template aks-store-demo
@@ -239,27 +237,25 @@ Since you validated the application's functionality, you can stop and remove the
     docker compose down
     ```
 
-
 ### [Azure Developer CLI](#tab/azure-azd)
 
-When you use `azd`, there are no manual container image dependencies. `azd` handles the provisioning, deployment, and cleans up of your applications and clusters with the `azd up` and `azd down` commands, similar to Docker.
+When you use `azd`, there are no manual container image dependencies. `azd` handles the provisioning, deployment, and clean up of your applications and clusters with the `azd up` and `azd down` commands, similar to Docker.
 
-You can customize the preparation steps to use either Terraform or Bicep before deploying the cluster.
+You can customize the preparation steps to use either Terraform or Bicep before deploying the cluster within the `infra` section of your `azure.yaml`. By default, this project uses Terraform:
 
-1. This is selected within your `azure.yaml` infra section. By default, this project uses terraform.
+```yml
+infra:
+  provider: terraform
+  path: infra/terraform
+```
 
-    ```yml
-    infra:
-      provider: terraform
-      path: infra/terraform
+If you want to change the provider to Bicep, update the `azure.yaml` file as follows:
 
-2. To select Bicep change the provider and path from terraform to bicep
-
-    ```yml
-    infra:
-      provider: bicep
-      path: infra/bicep
-    ```
+```yml
+infra:
+  provider: bicep
+  path: infra/bicep
+```
 
 ---
 ## Next steps

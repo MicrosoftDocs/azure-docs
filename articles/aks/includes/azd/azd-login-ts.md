@@ -1,41 +1,33 @@
 ---
 ms.service: azure-kubernetes-service
 ms.topic: include
-ms.date: 02/21/2024
+ms.date: 03/15/2024
 ---
 
 ### azd auth workaround
 
-> [!IMPORTANT]
-> If you are using an out-of-network virtual machine, or GitHub Codespace, certain Azure security policies cause conflicts when used to sign in with `azd auth login`. As a workaround, you can perform a curl request to the localhost url you were redirected to after you logged in.
+This workaround requires you to have the [Azure CLI][install-azure-cli] installed.
 
-This workaround requires you to have the [Azure CLI][install-azure-cli] and run `azd auth login` prior.
-
-1. Open a terminal window and  log in with the Azure CLI through the browser. Use the `az login` command with the `--scope` parameter set to `https://graph.microsoft.com/.default`. This is required to workaround certain device related policies that may cause the issue.
+1. Open a terminal window and log in with the Azure CLI using the [`az login`][az-login] command with the `--scope` parameter set to `https://graph.microsoft.com/.default`.
 
     ```azurecli-interactive
     az login --scope https://graph.microsoft.com/.default
     ```
 
-    You should be redirected to an authenthication page in a new tab to create a browser access token:
+    You should be redirected to an authentication page in a new tab to create a browser access token, as shown in the following example:
 
     ```output
     https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize?clientid=<your_client_id>.
     ```
 
-1. Copy the localhost URL of the webpage after signing in with `azd auth login`.
-
-    ```output
-    http://localhost:<port>/?code=<token>
-    ```
-
-1. In a new terminal window, use the following curl request to log in. Make sure you replace the `<localhost>` placeholder with the localhost URL you copied in the previous step.
+2. Copy the localhost URL of the webpage you received after attempting to sign in with `azd auth login`.
+3. In a new terminal window, use the following `curl` request to log in. Make sure you replace the `<localhost>` placeholder with the localhost URL you copied in the previous step.
 
     ```console
     curl <localhost>
     ```
 
-    A successful login outputs an HTML webpage:
+    A successful login outputs an HTML webpage, as shown in the following example:
 
     ```output
     <!DOCTYPE html>
@@ -73,14 +65,15 @@ This workaround requires you to have the [Azure CLI][install-azure-cli] and run 
     </html>
     ```
 
-1. Close the new terminal and open the old terminal. A JSON list of your subscriptions should appear.
-
-1. Copy and note down the `id` field of the subscription you want to use.
-
-1. Select your subscription using the [az account set](/cli/azure/account#az-account-set) command.
+4. Close the current terminal and open the original terminal. You should see a JSON list of your subscriptions.
+5. Copy the `id` field of the subscription you want to use.
+6. Set your subscription using the [`az account set`][az-account-set] command.
 
     ```azurecli-interactive
-    az account set -n <sub>
+    az account set --subscription <subscription_id>
     ```
 
+<!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
+[az-login]: /cli/azure/#az-login
+[az-account-set]: /cli/azure/account#az-account-set

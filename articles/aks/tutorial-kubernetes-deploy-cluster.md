@@ -128,7 +128,7 @@ To avoid needing an **Owner** or **Azure account administrator** role, you can a
 
 ### [Azure Developer CLI](#tab/azure-azd)
 
-`azd` packages the deployment of clusters with the application itself using `azd up`. This command is covered in the next tutorial.
+`azd` packages the deployment of clusters with the application itself using the `azd up` command. This command is covered in the next tutorial.
 
 ---
 
@@ -180,9 +180,7 @@ To avoid needing an **Owner** or **Azure account administrator** role, you can a
 
 ### [Azure Developer CLI](#tab/azure-azd)
 
-Signing in to your Azure Account through `azd` configures your credentials.
-
-1. Authenticate using `azd`.
+1. Configure authentication to your cluster using the [`azd auth login`][azd-auth-login] command.
 
     ```azdeveloper
     azd auth login 
@@ -196,7 +194,7 @@ Signing in to your Azure Account through `azd` configures your credentials.
     kubectl get nodes
     ```
 
-    The following example output shows a list of the cluster nodes.
+    The following example output shows a list of the cluster nodes
 
     ```output
     NAME                                STATUS   ROLES   AGE   VERSION
@@ -244,3 +242,4 @@ In the next tutorial, you learn how to deploy an application to your cluster.
 [install-azaksclitool]: /powershell/module/az.aks/install-azaksclitool
 [import-azakscredential]: /powershell/module/az.aks/import-azakscredential
 [aks-k8s-rbac]: azure-ad-rbac.md
+[azd-auth-login]: /azure/developer/azure-developer-cli/azd-auth-login
