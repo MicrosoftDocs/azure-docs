@@ -317,7 +317,7 @@ You will also need to configure the `build` command in the `package.json` file i
 }
 ```
 
-## Configure Next.js Middleware and Internationalization (i18n) for deployment to Azure Static Web Apps
+## Configure your Next.js routing and Middleware for deployment to Azure Static Web Apps
 
 Your Next.js project can be configured to have custom handling of routes with redirects, rewrites, and Middleware. This is commonly used for authentication, personalization, routing, internationalization, etc.  This custom handling affects the default routing of your Next.js site and needs to be configured to be compatible with hosting on Static Web Apps.
 
