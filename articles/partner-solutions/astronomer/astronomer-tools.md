@@ -9,7 +9,7 @@ ms.date: 03/11/2024
 
 ---
 
-# What are some resources and tools you can use Apache Airflow on Astro?
+# What are some resources and tools you can use with Apache Airflow on Astro?
 
 In this article, you learn about resources and tools for use with Apache Airflow on Astro - An Azure Native ISV Service.
 
