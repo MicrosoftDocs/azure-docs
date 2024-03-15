@@ -177,6 +177,7 @@ The following clients have compatible algorithm support with SFTP for Azure Blob
 - JSCH 0.1.54+
 - curl 7.85.0+
 - AIX<sup>1</sup>
+- MobaXterm v21.3
 
 <sup>1</sup>    Must set `AllowPKCS12KeystoreAutoOpen` option to `no`.
 
