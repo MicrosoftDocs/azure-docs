@@ -156,7 +156,7 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
     Ethernet                  Microsoft Hyper-V Network Adapter             6 Up           60-45-BD-CC-77-01       100 Gbps
     ```
 
-**Vm-1** has two network interfaces displayed in the output.
+    The virtual machine has two network interfaces displayed in the output.
 
 1. Use the following example to display the current MTU settings for the network interfaces:
 
