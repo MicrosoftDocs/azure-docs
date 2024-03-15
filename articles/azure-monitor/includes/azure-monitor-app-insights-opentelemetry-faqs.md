@@ -34,7 +34,7 @@ You can think of it as a thin wrapper that bundles together all the OpenTelemetr
 
 ### Why should I use the "Azure Monitor OpenTelemetry Distro"?
 
-There are several advantages to using the Azure Monitor OpenTelemetry Distro over native OpenTelemetry from the community:
+Azure Monitor OpenTelemetry Distro is the only currently supported way to use OpenTelemetry with Azure Monitor. There are several advantages to using the Azure Monitor OpenTelemetry Distro over native OpenTelemetry from the community:
 
 - Reduces enablement effort
 - Supported by Microsoft
