@@ -32,7 +32,7 @@ POST {endpoint}/openai/deployments/{deployment-id}/chat/completions?api-version=
 * `2024-02-01` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2024-02-01).
 
 > [!NOTE]
-> [Azure Machine learning indexes](./azure-machine-learning.md), [Pinecone](./pinecone.md), and [Elasticsearch](./elasticsearch.md) are only supported in the `2024-02-15-preview` API version.
+> [Azure Machine learning indexes](./azure-machine-learning.md), [Pinecone](./pinecone.md), and [Elasticsearch](./elasticsearch.md) are only supported in the `2024-02-15-preview` API version as a preview.
 
 ## URI parameters
 
@@ -84,9 +84,9 @@ This list shows the supported data sources.
 
 * [Azure AI Search](./azure-search.md)
 * [Azure Cosmos DB for MongoDB vCore](./cosmos-db.md)
-* [Azure Machine Learning index](./azure-machine-learning.md)
-* [Elasticsearch](./elasticsearch.md)
-* [Pinecone](./pinecone.md)
+* [Azure Machine Learning index (preview)](./azure-machine-learning.md)
+* [Elasticsearch (preview)](./elasticsearch.md)
+* [Pinecone (preview)](./pinecone.md)
 
 ## Examples
 
