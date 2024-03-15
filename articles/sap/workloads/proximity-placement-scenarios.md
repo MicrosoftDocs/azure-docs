@@ -47,7 +47,7 @@ The scenarios where proximity placement groups can be used to optimize network l
 
 1. You want to deploy the critical resources of your SAP workload across different availability zones and on the other hand need VMs of the application tier to be spread across different fault domains by using availability sets in each of the zones. In this case, as later described in the document, proximity placement groups are the glue needed.
 2. You deploy the SAP workload with availability sets. Where the SAP database tier, the SAP application tier and ASCS/SCS VMs are grouped in three different availability sets. In such a case, you want to make sure that the availability sets aren't spread across the complete Azure region since this could, dependent on the Azure region, result in network latency that could impact SAP workload negatively.
-3. You use proximity placement groups to group VMs together to achieve optimal network latency between the services hosted in the VMs
+3. You use proximity placement groups to group VMs together to achieve lowest possible network latency between the services hosted in the VMs. For example, latency within an availability zone alone does not meet the application requirements.
 
 As for deployment scenario #2, in many regions, especially regions without availability zones and most regions with availability zones, the network latency independent on where the VMs land is acceptable. Though there are some regions of Azure that can't provide a sufficiently good experience without collocating the three different availability sets without the usage of proximity placement groups.
 
