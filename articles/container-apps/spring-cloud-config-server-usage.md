@@ -1,5 +1,5 @@
 ---
-title: "Configure settings for the Spring Cloud Configure Server component in Azure Container Apps (preview)
+title: Configure settings for the Spring Cloud Configure Server component in Azure Container Apps (preview)
 description: Learn how to configure a Spring Cloud Config Server component for your container app.
 services: container-apps
 author: craigshoemaker
@@ -15,7 +15,7 @@ Spring Cloud Config Server provides a centralized location to make configuration
 
 ## Show
 
-You can show the details of an individual component by name using the `show` command.
+You can view the details of an individual component by name using the `show` command.
 
 Before you run the following command, replace placeholders surrounded by `<>` with your values.
 
@@ -42,6 +42,8 @@ az containerapp env java-component list \
 
 Use the `--bind` parameter of the `update` command to create a connection between the Spring Cloud Config Server component and your container app.
 
+Before you run the following command, replace placeholders surrounded by `<>` with your values.
+
 ```azurecli
 az containerapp update \
   --name <CONTAINER_APP_NAME> \
@@ -64,7 +66,7 @@ az containerapp update \
 
 ## Configuration options
 
-The `az containerapp update` command uses the `--configuration` parameter to control how the Spring Could Config Server is configured. You can use multiple parameters at once as long as they're separated by a space. You can find more details in [Spring Cloud Config Server](https://docs.spring.io/spring-cloud-config/docs/current/reference/html/#_spring_cloud_config_server) docs.
+The `az containerapp update` command uses the `--configuration` parameter to control how the Spring Cloud Config Server is configured. You can use multiple parameters at once as long as they're separated by a space. You can find more details in [Spring Cloud Config Server](https://docs.spring.io/spring-cloud-config/docs/current/reference/html/#_spring_cloud_config_server) docs.
 
 The following table lists the different configuration values available.
 
