@@ -26,6 +26,9 @@ Azure Synapse Analytics supports multiple runtimes for Apache Spark. This docume
 | Python | 3.10     |
 | R | 4.2.2    |
 
+>[!TIP]
+> For up-to-date information, a detailed list of changes, and specific release notes for Spark runtimes, check and subscribe [Spark Runtimes Releases and Updates](https://github.com/microsoft/synapse-spark-runtime).
+
 ## Libraries
 
 The following sections present the libraries included in Azure Synapse Runtime for Apache Spark 3.4 (Public Preview).
