@@ -19,6 +19,11 @@
       "source_path": "mqtt-routing-to-event-hubs-portal.md",
       "redirect_url": "/azure/event-grid/mqtt-routing-to-azure-functions-portal",
       "redirect_document_id": false
+    },        
+    {
+      "source_path": "mqtt-routing-to-event-hubs-cli.md",
+      "redirect_url": "/azure/event-grid/mqtt-routing-to-azure-functions-cli",
+      "redirect_document_id": false
     },    
     {
       "source_path": "network-security-mqtt.md",

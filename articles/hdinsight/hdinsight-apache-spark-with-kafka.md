@@ -5,7 +5,7 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ROBOTS: NOINDEX
-ms.date: 03/01/2023
+ms.date: 03/15/2024
 ---
 
 # Apache Spark streaming (DStream) example with Apache Kafka on HDInsight
