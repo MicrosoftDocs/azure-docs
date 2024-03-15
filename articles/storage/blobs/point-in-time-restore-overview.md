@@ -19,6 +19,11 @@ Point-in-time restore is supported for general-purpose v2 storage accounts in th
 
 To learn how to enable point-in-time restore for a storage account, see [Perform a point-in-time restore on block blob data](point-in-time-restore-manage.md).
 
+> [!NOTE]
+> Point-in-time restore is not supported for ADLS Gen2 storage accounts.
+
+The time that it takes to restore a set of data is based on the number of write and delete operations made during the restore period. For example, an account with one million blobs with 3,000 blobs added per day and 1,000 blobs deleted per day requires approximately two hours to restore to a point 30 days in the past. A retention period and restoration more than 90 days in the past wouldn't be recommended for an account with this rate of change.
+
 ## How point-in-time restore works
 
 To enable point-in-time restore, you create a management policy for the storage account and specify a retention period. During the retention period, you can restore block blobs from the present state to a state at a previous point in time.
@@ -68,6 +73,8 @@ The retention period for point-in-time restore must be at least one day less tha
 > The retention period that you specify for point-in-time restore has no effect on the retention of blob versions. Blob versions are retained until they are explicitly deleted. To optimize costs by deleting or tiering older versions, create a lifecycle management policy. For more information, see [Optimize costs by automatically managing the data lifecycle](lifecycle-management-overview.md).
 
 The time that it takes to restore a set of data is based on the number of write and delete operations made during the restore period. For example, an account with one million blobs with 3,000 blobs added per day and 1,000 blobs deleted per day requires approximately two hours to restore to a point 30 days in the past. A retention period and restoration more than 90 days in the past wouldn't be recommended for an account with this rate of change.
+
+
 
 ### Permissions for point-in-time restore
 
