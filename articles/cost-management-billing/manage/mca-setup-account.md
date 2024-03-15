@@ -135,7 +135,7 @@ If your new billing profile doesn't have the new plan enabled, you see the follo
 
 Your new billing account simplifies billing for your organization and provides enhanced billing and cost management capabilities. The following diagram explains how billing is organized in the new billing account.
 
-:::image type="content" border="true" source="./media/microsoft-customer-agreement-setup-account/microsoft-customer-agreement-post-transition-hierarchy.png" alt-text="Image of the Enterprise Agreement to Microsoft Customer Agreement post-transition hierarchy.":::
+:::image type="content" border="false" source="./media/microsoft-customer-agreement-setup-account/microsoft-customer-agreement-post-transition-hierarchy.png" alt-text="Diagram of the Enterprise Agreement to Microsoft Customer Agreement post-transition hierarchy.":::
 
 1. You use the billing account to manage billing for your Microsoft customer agreement. Enterprise administrators become owners of the billing account. To learn more about billing account, see [understand billing account](../understand/mca-overview.md#your-billing-account).
 2. You use the billing profile to manage billing for your organization, similar to your Enterprise Agreement enrollment. Enterprise administrators become owners of the billing profile. To learn more about billing profiles, see [understand billing profiles](../understand/mca-overview.md#billing-profiles).

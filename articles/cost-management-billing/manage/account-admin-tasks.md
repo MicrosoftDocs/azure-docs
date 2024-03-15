@@ -33,7 +33,7 @@ Accounts portal was retired December 31, 2021. The features supported in the Acc
 
 1. Search for **Cost Management + Billing**.
 
-    :::image type="content" border="true" source="./media/account-admin-tasks/search-bar.png" alt-text="Screenshot that shows search for cost management + billing .":::
+    :::image type="content" border="true" source="./media/account-admin-tasks/search-bar.png" alt-text="Screenshot showing search for Cost Management + Billing .":::
 
 1. In the **My subscriptions** list, select the subscription you'd like to add the credit card to.
 
@@ -54,7 +54,7 @@ You can change the active payment method by adding a new credit card or choosing
 
 1. In the top-left corner, select “+” to add a credit card.
 
-    :::image type="content" border="true" source="./media/account-admin-tasks/subscription-payment-methods-plus.png" alt-text="Screenshot that shows plus sign.":::
+    :::image type="content" border="true" source="./media/account-admin-tasks/subscription-payment-methods-plus.png" alt-text="Screenshot that shows the plus symbol.":::
 
 1. Enter credit card details in the form on the right.
 
@@ -122,7 +122,7 @@ The spending limit isn’t available for subscriptions with commitment plans or 
 1. Sign in to the Azure portal as the Account Administrator.
 1. Search for **Cost Management + Billing**.
 
-    :::image type="content" border="true" source="./media/account-admin-tasks/search-bar.png" alt-text="Screenshot that shows search for cost management + billing .":::
+    :::image type="content" border="true" source="./media/account-admin-tasks/search-bar.png" alt-text="Screenshot that shows search for Cost Management + Billing.":::
 
 1. In the **My subscriptions** list, select your Visual Studio Enterprise subscription.
 
@@ -150,7 +150,7 @@ If you have an Azure in Open Licensing subscription, you can add credits to your
 1. Sign in to the Azure portal as the Account Administrator.
 1. Search for **Cost Management + Billing**.
 
-    :::image type="content" border="true" source="./media/account-admin-tasks/search-bar.png" alt-text="Screenshot that shows search for cost management + billing .":::
+    :::image type="content" border="true" source="./media/account-admin-tasks/search-bar.png" alt-text="Screenshot that shows search for Cost Management + Billing.":::
 
 1. In the **My subscriptions** list, select your Azure in Open subscription.
 

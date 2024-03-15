@@ -46,7 +46,7 @@ If you don't have access to view or manage billing accounts, you probably don't 
 
 ### Microsoft Online Services Program
 
-:::image type="content" border="true" source="./media/view-all-accounts/mosp-hierarchy.png" alt-text="Screenshot that shows MOSP hierarchy.":::
+:::image type="content" border="true" source="./media/view-all-accounts/mosp-hierarchy.png" alt-text="Screenshot that shows a M O S P hierarchy.":::
 
 |Scope  |Definition  |
 |---------|---------|
@@ -55,7 +55,7 @@ If you don't have access to view or manage billing accounts, you probably don't 
 
 ### Enterprise Agreement
 
-:::image type="content" border="true" source="./media/view-all-accounts/ea-hierarchy.png" alt-text="Screenshot that shows EA hierarchy.":::
+:::image type="content" border="true" source="./media/view-all-accounts/ea-hierarchy.png" alt-text="Screenshot that shows an E A hierarchy.":::
 
 |Scope  |Definition  |
 |---------|---------|
@@ -65,7 +65,7 @@ If you don't have access to view or manage billing accounts, you probably don't 
 
 ### Microsoft Customer Agreement
 
-:::image type="content" border="true" source="./media/view-all-accounts/mca-hierarchy.png" alt-text="Screenshot that shows MCA hierarchy.":::
+:::image type="content" border="true" source="./media/view-all-accounts/mca-hierarchy.png" alt-text="Screenshot that shows an M C A hierarchy.":::
 
 |Scope  |Tasks  |
 |---------|---------|
@@ -75,7 +75,7 @@ If you don't have access to view or manage billing accounts, you probably don't 
 
 ### Microsoft Partner Agreement
 
-:::image type="content" border="true" source="./media/view-all-accounts/mpa-hierarchy.png" alt-text="Screenshot that shows MPA hierarchy.":::
+:::image type="content" border="true" source="./media/view-all-accounts/mpa-hierarchy.png" alt-text="Screenshot that shows an M P A hierarchy.":::
 
 |Scope  |Tasks  |
 |---------|---------|

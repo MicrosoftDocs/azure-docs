@@ -216,7 +216,7 @@ After your Azure billing account is updated, you'll get an email from Microsoft 
 
     3. Select **Switch** for a directory from the **All directories** section.
 
-        :::image type="content" border="true" source="./media/mosp-new-customer-experience/select-directory.png" alt-text="Screenshot that shows selecting a directory in the portal.":::
+        :::image type="content" border="true" source="./media/mosp-new-customer-experience/select-directory.png" alt-text="Screenshot that shows selecting a directory in the Azure portal.":::
 
 ## Need help? Contact support.
 

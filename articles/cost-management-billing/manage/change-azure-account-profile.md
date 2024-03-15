@@ -26,7 +26,7 @@ If you want to update your Microsoft Entra user profile information, only a user
 
 1. Sign in to the Azure portal using the email address, which has the account administrator permission on the account.
 1. Search for **Cost Management + Billing**.  
-    :::image type="content" border="true" source="./media/change-azure-account-profile/search-cmb.png" alt-text="Screenshot that shows where to search in the Azure portal for cost management + billing.":::
+    :::image type="content" border="true" source="./media/change-azure-account-profile/search-cmb.png" alt-text="Screenshot that shows where to search in the Azure portal for Cost Management + Billing.":::
 1. Select **Properties** from the left-hand side.  
     :::image type="content" border="true" source="./media/change-azure-account-profile/update-contact-information-select-properties.png" alt-text="Screenshot that shows MOSP billing account properties.":::
 1. Select **Update billing address** to update the sold-to and the bill-to addresses. Enter the new address and then select **Save**.  

@@ -137,7 +137,7 @@ One Azure resource is defined in the template:
 
 2. Select or enter the following values.
 
-   :::image type="content" source="./media/quick-create-budget-template/create-budget-one-filter-image.png" alt-text="Resource Manager template, Create budget with one filter, deploy portal]." lightbox="./media/quick-create-budget-template/create-budget-one-filter-image.png" :::
+   :::image type="content" source="./media/quick-create-budget-template/create-budget-one-filter-image.png" alt-text="Resource Manager template, Create budget with one filter, deploy portal." lightbox="./media/quick-create-budget-template/create-budget-one-filter-image.png" :::
    
     * **Subscription**: select an Azure subscription.
     * **Resource group**: if required, select an existing resource group, or **Create new**.
@@ -182,7 +182,7 @@ One Azure resource is defined in the template:
 
 2. Select or enter the following values.
 
-   :::image type="content" source="./media/quick-create-budget-template/create-budget-two-filters-image.png" alt-text="Resource Manager template, Create budget with two filters, deploy portal]." lightbox="./media/quick-create-budget-template/create-budget-two-filters-image.png" :::
+   :::image type="content" source="./media/quick-create-budget-template/create-budget-two-filters-image.png" alt-text="Resource Manager template, Create budget with two filters, deploy portal." lightbox="./media/quick-create-budget-template/create-budget-two-filters-image.png" :::
    
     * **Subscription**: select an Azure subscription.
     * **Resource group**: if required, select an existing resource group, or **Create new**.

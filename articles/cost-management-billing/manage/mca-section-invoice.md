@@ -24,7 +24,7 @@ Watch the [Organize costs by customizing your Microsoft Customer Agreement billi
 
 In the billing account for a Microsoft Customer Agreement, you use billing profiles and invoice sections to organize your costs.
 
-:::image type="content" border="true" source="./media/mca-section-invoice/mca-hierarchy.png" alt-text="Screenshot that shows Microsoft Customer Agreement billing hierarchy.":::
+:::image type="content" border="false" source="./media/mca-section-invoice/mca-hierarchy.png" alt-text="Diagram showing the Microsoft Customer Agreement billing hierarchy.":::
 
 ### Billing profile
 
@@ -42,7 +42,7 @@ An invoice section represents a grouping of costs in your invoice. An invoice se
 
 The image below shows an invoice with two invoice sections - Engineering and Marketing. The summary and detail charges for each section is displayed in the invoice. The prices shown in the image are for example purposes only and don't represent the actual prices of Azure services.
 
-:::image type="content" border="true" source="./media/mca-section-invoice/mca-invoice-with-sections.png" alt-text="Image showing an invoice with sections.":::
+:::image type="content" border="true" source="./media/mca-section-invoice/mca-invoice-with-sections.png" alt-text="Screenshot showing an invoice with sections.":::
 
 ## Billing account structure for common scenarios
 
@@ -52,19 +52,19 @@ This section describes common scenarios for organizing costs and corresponding b
 |---------|---------|
 |Jack signs-up for Azure and needs a single monthly invoice. | A billing profile and an invoice section. This structure is automatically set up for Jack when he signs up for Azure and doesn't require any additional steps. |
 
-:::image type="content" border="true" source="./media/mca-section-invoice/organize-billing-scenario1.png" alt-text="Info graphic for a single billing scenario.":::
+:::image type="content" border="false" source="./media/mca-section-invoice/organize-billing-scenario1.png" alt-text="Diagram showing a single billing scenario.":::
 
 |Scenario  |Structure  |
 |---------|---------|
 |Contoso is a small organization that needs a single monthly invoice but group costs by their departments - marketing and engineering.  | A billing profile for Contoso and an invoice section each for marketing and engineering departments. |
 
-:::image type="content" border="true" source="./media/mca-section-invoice/organize-billing-scenario2.png" alt-text="Info graphic for a multiple billing scenario.":::
+:::image type="content" border="false" source="./media/mca-section-invoice/organize-billing-scenario2.png" alt-text="Diagram showing a  multiple billing scenario.":::
 
 |Scenario  |Structure  |
 |---------|---------|
 |Fabrikam is a mid-size organization that needs separate invoices for their engineering and marketing departments. For engineering department, they want to group costs by environments - production and development.  | A billing profile each for marketing and engineering departments. For engineering department, an invoice section each for production and development environment. |
 
-:::image type="content" border="true" source="./media/mca-section-invoice/organize-billing-scenario3.png" alt-text="Info graphic for a multiple billing scenario, with separate billing for production and development environments.":::
+:::image type="content" border="false" source="./media/mca-section-invoice/organize-billing-scenario3.png" alt-text="Diagram showing a multiple billing scenario, with separate billing for production and development environments.":::
 
 ## Create a new invoice section
 
@@ -74,7 +74,7 @@ To create an invoice section, you need to be a **billing profile owner** or a **
 
 2. Search for **Cost Management + Billing**.
 
-   :::image type="content" border="true" source="./media/mca-section-invoice/search-cmb.png" alt-text="Screenshot that shows search in portal for cost management + billing.":::
+   :::image type="content" border="true" source="./media/mca-section-invoice/search-cmb.png" alt-text="Screenshot showing search in the Azure portal for Cost Management + Billing.":::
 
 3. Select **Billing profiles** from the left-hand pane. From the list, select a billing profile. The new section will be displayed on the selected billing profile's invoice.
 
@@ -217,7 +217,7 @@ The total charges for using 100 TB of data in this scenario is **184.0** (92.0 *
 
 Azure reservations with shared scope are applied to subscriptions in a single billing profile and are not shared across billing profiles.
 
-:::image type="content" border="true" source="./media/mca-section-invoice/mca-reservations-benefits-by-bg.png" alt-text="Info graphic for reservation application for different billing account structure.":::
+:::image type="content" border="false" source="./media/mca-section-invoice/mca-reservations-benefits-by-bg.png" alt-text="Diagram showing  reservation application for different billing account structures.":::
 
 In the above image, Contoso has two subscriptions. The Azure Reservation benefit is applied differently depending on how the billing account is structured. In the scenario on the left, the reservation benefit is applied to both subscriptions being billed to the engineering billing profile. In the scenario on the right, the reservation benefit will only be applied to subscription 1 since it’s the only subscription being billed to the engineering billing profile.
 
