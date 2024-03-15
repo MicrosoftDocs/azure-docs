@@ -37,7 +37,7 @@ landingContent:
             url: ./tutorial-discover-hyper-v.md
           - text: Assess physical servers with Server Assessment
             url: ./tutorial-discover-physical.md
-          - text: Assess ASP .NET web apps for migration to Azure App Service
+          - text: Assess ASP.NET web apps for migration to Azure App Service
             url: ./tutorial-assess-webapps.md
           - text: Assess SQL instances for migration to Azure SQL
             url: ./tutorial-assess-sql.md
