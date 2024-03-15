@@ -1,7 +1,6 @@
 ---
 title: Azure role assignment condition format and syntax - Azure ABAC
 description: Get an overview of the format and syntax of Azure role assignment conditions for Azure attribute-based access control (Azure ABAC).
-services: active-directory
 author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
@@ -277,7 +276,7 @@ The following table lists the supported environment attributes for conditions.
 
 <sup>1</sup> For copy operations, the `Is private link`, `Private endpoint`, and `Subnet` attributes only apply to the destination, such a storage account, not the source. For more information about the copy operations this applies to, select each attribute in the table to see more details.<br />
 <sup>2</sup> You can only use the `Private endpoint` attribute if you currently have at least one private endpoint configured in your subscription.<br />
-<sup>3</sup> You can only use the `Subnet` attribute if you currently have at least one virtual network subnet configured in your subscription.<br />
+<sup>3</sup> You can only use the `Subnet` attribute if you currently have at least one virtual network subnet using [service endpoints](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) configured in your subscription.<br />
 
 #### Principal attributes
 

@@ -5,14 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/10/2024
-tags: connectors
+ms.date: 02/08/2024
 # Customer intent: As a developer, I want to get log data from my Log Analytics workspace or telemetry from my Application Insights resource to use with my workflow in Azure Logic Apps.
 ---
 
 # Connect to Log Analytics or Application Insights from workflows in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 > [!NOTE]
 > 
@@ -27,7 +26,7 @@ To build workflows in Azure Logic Apps that retrieve data from a Log Analytics w
 
 For example, you can create a logic app workflow that sends Azure Monitor log data in an email message from your Office 365 Outlook account, create a bug in Azure DevOps, or post a Slack message. This connector provides only actions, so to start a workflow, you can use a Recurrence trigger to specify a simple schedule or any trigger from another service.
 
-This how-to guide describes how to build a [Consumption logic app workflow](../logic-apps/logic-apps-overview.md#resource-environment-differences) that sends the results of an Azure Monitor log query by email.
+This guide describes how to build a logic app workflow that sends the results of an Azure Monitor log query by email.
 
 ## Connector technical reference
 
@@ -61,34 +60,29 @@ Both of the following actions can run a log query against a Log Analytics worksp
 
 - The [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) or [Application Insights resource](../azure-monitor/app/app-insights-overview.md) that you want to connect.
 
-- The [Consumption logic app workflow](../logic-apps/logic-apps-overview.md#resource-environment-differences) from where you want to access your Log Analytics workspace or Application Insights resource. To use an Azure Monitor Logs action, start your workflow with any trigger. This guide uses the [**Recurrence** trigger](connectors-native-recurrence.md).
+- The [Standard or Consumption logic app workflow](../logic-apps/logic-apps-overview.md#resource-environment-differences) from where you want to access your Log Analytics workspace or Application Insights resource. To use an Azure Monitor Logs action, start your workflow with any trigger. This guide uses the [**Recurrence** trigger](connectors-native-recurrence.md).
 
 - An Office 365 Outlook account to complete the example in this guide. Otherwise, you can use any email provider that has an available connector in Azure Logic Apps.
 
 ## Add an Azure Monitor Logs action
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
+### [Standard](#tab/standard)
 
-1. In your workflow where you want to add the Azure Monitor Logs action, follow one of these steps:
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app and workflow in the designer.
 
-   - To add an action under the last step, select **New step**.
-
-   - To add an action between steps, move your pointer use over the connecting arrow. Select the plus sign (**+**) that appears, and then select **Add an action**.
-
-   For more information about adding an action, see [Build a workflow by adding a trigger or action](../logic-apps/create-workflow-with-trigger-or-action.md).
-
-1. Under the **Choose an operation** search box, select **Standard**. In the search box, enter **Azure Monitor Logs**.
-
-1. From the actions list, select the action that you want.
+1. In your workflow where you want to add the Azure Monitor Logs action, [follow these general steps to add an Azure Monitor Logs action](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
    This example continues with the action named **Run query and visualize results**.
 
-1. In the connection box, from the **Tenant** list, select your Microsoft Entra tenant, and then select **Create**.
+1. In the connection box, provide the following information:
 
-   > [!NOTE]
-   > 
-   > The account associated with the current connection is used later to send the email. 
-   > To use a different account, select **Change connection**.
+   | Property | Description |
+   |----------|-------------|
+   | **Connection Name** | A name for the connection |
+   | **Authentication Type** | The authentication type to use for the connection. For more information, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-to-outbound-calls). |
+   | **Tenant ID** | Your Microsoft Entra tenant. **Note**: The account associated with the current connection is used later to send the email. |
+
+1. When you're done, select **Sign in** or **Create New**, based on the selected authentication type.
 
 1. In the **Run query and visualize results** action box, provide the following information:
 
@@ -134,28 +128,123 @@ Both of the following actions can run a log query against a Log Analytics worksp
 
 1. For **Time Range**, select **Set in query**.
 
-   > [!NOTE]
-   >
-   > There are three options for **Time Range**
-   > - **Exact** -- start-time and end-time can be provided dynamically
-   > - **Relative** -- set relative value such as last hour, last 12 hour, etc.
-   > - **Set in query** -- applies when TimeGenerated filter is included in query
+   The following table describes the options for **Time Range**:
+
+   | Time Range | Description |
+   |------------|-------------|
+   | **Exact** | Dynamically provide the start time and end time. |
+   | **Relative** | Set the relative value such as the last hour, last 12 hours, and so on. |
+   | **Set in query** | Applies when the **TimeGenerated** filter is included in query. |
 
 1. For **Chart Type**, select **Html Table**.
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
+### [Consumption](#tab/consumption)
+
+1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app and workflow in the designer.
+
+1. In your workflow where you want to add the Azure Monitor Logs action, [follow these general steps to add an Azure Monitor Logs action](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
+
+   This example continues with the action named **Run query and visualize results**.
+
+1. In the connection box, provide the following information:
+
+   | Property | Description |
+   |----------|-------------|
+   | **Connection Name** | A name for the connection |
+   | **Authentication Type** | The authentication type to use for the connection. For more information, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-to-outbound-calls). |
+   | **Tenant ID** | Your Microsoft Entra tenant. **Note**: The account associated with the current connection is used later to send the email. To use a different account, after the Azure Monitor Logs action appears, select **Change connection**. |
+
+1. When you're done, select **Sign in** or **Create**, based on the selected authentication type.
+
+1. In the **Run query and visualize results** action box, provide the following information:
+
+   | Property | Required | Value | Description |
+   |----------|----------|-------|-------------| 
+   | **Subscription** | Yes | <*Azure-subscription*> | The Azure subscription for your Log Analytics workspace or Application Insights application. |
+   | **Resource Group** | Yes | <*Azure-resource-group*> | The Azure resource group for your Log Analytics workspace or Application Insights application. |
+   | **Resource Type** | Yes | **Log Analytics Workspace** or **Application Insights** | The resource type to connect from your workflow. This example continues by selecting **Log Analytics Workspace**. |
+   | **Resource Name** | Yes | <*Azure-resource-name*> | The name for your Log Analytics workspace or Application Insights resource. |
+
+1. In the **Query** box, enter the following Kusto query to retrieve the specified log data from the following sources:
+
+   > [!NOTE]
+   >
+   > When you create your own queries, make sure they work correctly in Log Analytics before you add them to your Azure Monitor Logs action.
+
+   * Log Analytics workspace
+
+     The following example query selects errors that occurred within the last day, reports their total number, and sorts them in ascending order.
+
+     ```Kusto
+     Event
+     | where EventLevelName == "Error" 
+     | where TimeGenerated > ago(1day)
+     | summarize TotalErrors=count() by Computer
+     | sort by Computer asc
+     ```
+
+   * Application Insights resource
+
+     The following example query selects the failed requests within the last day and correlates them with exceptions that occurred as part of the operation, based on the `operation_Id` identifier. The query then segments the results by using the `autocluster()` algorithm.
+
+     ```kusto
+     requests
+     | where timestamp > ago(1d)
+     | where success == "False"
+     | project name, operation_Id
+     | join ( exceptions
+         | project problemId, outerMessage, operation_Id
+     ) on operation_Id
+     | evaluate autocluster()
+     ```
+
+1. For **Time Range**, select **Set in query**.
+
+   The following table describes the options for **Time Range**:
+
+   | Time Range | Description |
+   |------------|-------------|
+   | **Exact** | Dynamically provide the start time and end time. |
+   | **Relative** | Set the relative value such as the last hour, last 12 hours, and so on. |
+   | **Set in query** | Applies when the **TimeGenerated** filter is included in query. |
+
+1. For **Chart Type**, select **Html Table**.
+
+1. Save your workflow. On the designer toolbar, select **Save**.
+
+---
+
 ## Add an email action
 
-1. In your workflow where you want to add the Office 365 Outlook action, follow one of these steps:
+### [Standard](#tab/standard)
 
-   - To add an action under the last step, select **New step**.
+1. In your workflow where you want to add the Office 365 Outlook action, [follow these general steps to add the **Office 365 Outlook** action named **Send an email (V2)**](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action)
 
-   - To add an action between steps, move your pointer use over the connecting arrow. Select the plus sign (**+**) that appears, and then select **Add an action**.
+1. In the **To** box, enter the recipient's email address. For this example, use your own email address.
 
-1. Under the **Choose an operation** search box, select **Standard**. In the search box, enter **Office 365 send email**.
+1. In the **Subject** box, enter a subject for the email, for example, **Top daily errors or failures**.
 
-1. From the actions list, select the action named **Send an email (V2)**.
+1. Click inside the **Body** box, and then select the **Dynamic content** option (lightning icon), so that you can select outputs from previous steps in the workflow.
+
+1. In the dynamic content list, under **Run query and visualize results**, select **Body**, which represents the results of the query that you previously entered in the Log Analytics action.
+
+1. From the **Advanced parameters** list, select **Attachments**.
+
+   The **Send an email** action now includes the **Attachments** section with the **Attachment name** and **Attachment content** properties.
+
+1. For the added properties, follow these steps:
+
+   1. In the **Attachment name** box, open the dynamic content list. Under **Run query and visualize results**, select **Attachment Name**.
+
+   1. In the **Attachment content** box, open the dynamic content list. Under **Run query and visualize results**, select **Attachment Content**.
+
+1. Save your workflow. On the designer toolbar, select **Save**.
+
+### [Consumption](#tab/consumption)
+
+1. In your workflow where you want to add the Office 365 Outlook action, [follow these general steps to add the **Office 365 Outlook** action named **Send an email (V2)**](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-action)
 
 1. In the **To** box, enter the recipient's email address. For this example, use your own email address.
 
@@ -173,13 +262,38 @@ Both of the following actions can run a log query against a Log Analytics worksp
 
 1. For the added properties, follow these steps:
 
-   1. In the **Attachment Name** box, from the dynamic content list that appears, under **Run query and visualize results**, select the **Attachment Name** output.
+   1. Click inside the **Attachment Name** box to open the dynamic content list. Under **Run query and visualize results**, select **Attachment Name**.
 
-   1. In the **Attachment Content** box, from the dynamic content list that appears, under **Run query and visualize results**, select the **Attachment Content** output.
+   1. Click inside the **Attachment Content** box to open the dynamic content list. Under **Run query and visualize results**, select **Attachment Content**.
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
-### Test your workflow
+---
+
+## Test your workflow
+
+### [Standard](#tab/standard)
+
+1. On workflow menu, select **Overview**.
+
+1. On the **Overview** toolbar, select **Run** > **Run**.
+
+1. When the workflow completes, check your email.
+
+   > [!NOTE]
+   >
+   > The workflow generates an email with a JPG file that shows the query result set. 
+   > If your query doesn't return any results, the workflow won't create a JPG file.
+
+   For the Log Analytics workspace example, the email that you receive has a body that looks similar to the following example:
+
+   ![Screenshot shows data report from a Log Analytics workspace in an example email.](media/connectors-azure-monitor-logs/sample-mail-log-analytics-workspace.png)
+
+   For an Application Insights resource, the email that you receive has a body that looks similar to the following example:
+
+   ![Screenshot shows data report from an Application Insights resource in an example email.](media/connectors-azure-monitor-logs/sample-email-application-insights-resource.png)
+
+### [Consumption](#tab/consumption)
 
 1. On the designer toolbar, select **Run Trigger** > **Run**.
 
@@ -192,11 +306,13 @@ Both of the following actions can run a log query against a Log Analytics worksp
 
    For the Log Analytics workspace example, the email that you receive has a body that looks similar to the following example:
 
-   ![Screenshot that shows the data report from a Log Analytics workspace in an example email.](media/connectors-azure-monitor-logs/sample-mail-log-analytics-workspace.png)
+   ![Screenshot shows the data report from a Log Analytics workspace in an example email.](media/connectors-azure-monitor-logs/sample-mail-log-analytics-workspace.png)
 
    For an Application Insights resource, the email that you receive has a body that looks similar to the following example:
 
-   ![Screenshot that shows the data report from an Application Insights resource in an example email.](media/connectors-azure-monitor-logs/sample-email-application-insights-resource.png)
+   ![Screenshot shows the data report from an Application Insights resource in an example email.](media/connectors-azure-monitor-logs/sample-email-application-insights-resource.png)
+
+---
 
 ## Next steps
 

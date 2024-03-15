@@ -7,7 +7,7 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.service: azure-ai-openai
 ms.topic: overview
-ms.date: 10/16/2023
+ms.date: 02/15/2024
 ms.custom: build-2023, build-2023-dataai
 recommendations: false
 ---
@@ -123,7 +123,7 @@ Prompt construction can be difficult. In practice, the prompt acts to configure 
 
 The service provides users access to several different models. Each model provides a different capability and price point.
 
-The DALL-E models, currently in preview, generate images from text prompts that the user provides.
+The DALL-E models (some in preview; see [models](./concepts/models.md#dall-e)) generate images from text prompts that the user provides.
 
 The Whisper models, currently in preview, can be used to transcribe and translate speech to text.
 

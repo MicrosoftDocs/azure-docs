@@ -50,6 +50,7 @@ To create and configure a dev center in Azure Deployment Environments by using t
     |**Resource group**|Either use an existing resource group or select **Create new** and enter a name for the resource group.|
     |**Name**|Enter a name for the dev center.|
     |**Location**|Select the location or region where you want to create the dev center.|
+    |**Attach a quick start catalog**|Clear the **Dev box customization tasks** checkbox. </br> Clear the **Azure deployment environment definitions** checkbox.|
 
 1. Select **Review + Create**.
 

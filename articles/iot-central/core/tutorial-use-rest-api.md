@@ -3,7 +3,7 @@ title: Tutorial - Use the REST API to manage an application
 description: In this tutorial you use the REST API to create and manage an IoT Central application, add a device, and configure data export.
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/26/2023
+ms.date: 03/04/2024
 ms.topic: tutorial
 ms.service: iot-central
 ms.custom: devx-track-azurecli
@@ -18,12 +18,12 @@ This tutorial shows you how to use the Azure IoT Central REST API to create and 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Authorize the REST API.
-> * Create an IoT Central application.
-> * Add a device to your application.
-> * Query and control the device.
-> * Set up data export.
-> * Delete an application.
+> - Authorize the REST API.
+> - Create an IoT Central application.
+> - Add a device to your application.
+> - Query and control the device.
+> - Set up data export.
+> - Delete an application.
 
 ## Prerequisites
 
@@ -51,7 +51,7 @@ To import the collection, open Postman and select **Import**. In the **Import** 
 
 Your workspace now contains the **IoT Central REST tutorial** collection. This collection includes all the APIs you use in the tutorial.
 
-The collection uses variables to parameterize the REST API calls. To see the variables, select the `...` next to **IoT Central REST tutorial** and select **Edit**. Then select **Variables**. Many of the variables are either set automatically as you make the API calls or have predetermined values.
+The collection uses variables to parameterize the REST API calls. To see the variables, select the `...` next to **IoT Central REST tutorial** and select **Edit**. Then select **Variables**. Many of the variables are either set automatically as you make the API calls or have preset values.
 
 ## Authorize the REST API
 
@@ -154,7 +154,7 @@ To connect the **IoT Plug and Play** app to your Iot Central application:
 To verify the device is now provisioned, you can use the REST API:
 
 1. In Postman, open the **IoT Central REST tutorial** collection, and select the **Get a device** request.
-1. Select **Send**. In the response, notice that the device is now provisioned. IoT Central has also assigned a device template to the device based on the model ID sent by the device.
+1. Select **Send**. In the response, notice that the device is now provisioned. IoT Central also assigned a device template to the device based on the model ID sent by the device.
 
 You can use the REST API to manage device templates in the application. For example, to view the device templates in the application:
 
@@ -180,7 +180,7 @@ You can use the REST API to call device commands. The following request calls a 
 
 ## Export telemetry
 
-You can use the RESP API to configure and manage your IoT Central application. The following steps show you how to configure data export to send telemetry values to a webhook. To simplify the setup, this article uses a **RequestBin** webhook as the destination. **RequestBin** is a third-party service.
+You can use the REST API to configure and manage your IoT Central application. The following steps show you how to configure data export to send telemetry values to a webhook. To simplify the setup, this article uses a **RequestBin** webhook as the destination. **RequestBin** is a non-Microsoft service.
 
 To create your test endpoint for the data export destination:
 
@@ -202,7 +202,7 @@ To configure the export definition in your IoT Central application by using the 
 1. In Postman, open the **IoT Central REST tutorial** collection, and select the **Create a telemetry export definition** request.
 1. Select **Send**. Notice that the status is **Not started**.
 
-It may take a couple of minutes for the export to start. To check the status of the export by using the REST API:
+It might take a couple of minutes for the export to start. To check the status of the export by using the REST API:
 
 1. In Postman, open the **IoT Central REST tutorial** collection, and select the **Get an export by ID** request.
 1. Select **Send**. When the status is **healthy**, IoT Central is sending telemetry to your webhook.

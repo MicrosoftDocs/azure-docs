@@ -1,6 +1,6 @@
 ---
-title: Use Azure VMware Solution with Azure Elastic SAN Preview
-description: Learn how to use Elastic SAN Preview with Azure VMware Solution
+title: Use Azure VMware Solution with Azure Elastic SAN
+description: Learn how to use Elastic SAN  with Azure VMware Solution
 ms.topic: how-to
 ms.service: azure-vmware
 ms.author: v-suzuber
@@ -8,11 +8,11 @@ ms.date: 12/22/2023
 ms.custom: references_regions, engagement-fy23
 ---
 
-# Use Azure VMware Solution with Azure Elastic SAN Preview
+# Use Azure VMware Solution with Azure Elastic SAN (Integration in Preview)
 
-This article explains how to use Azure Elastic SAN Preview as backing storage for Azure VMware Solution. [Azure VMware Solution](introduction.md) supports attaching iSCSI datastores as a persistent storage option. You can create Virtual Machine File System (VMFS) datastores with Azure Elastic SAN volumes and attach them to clusters of your choice. By using VMFS datastores backed by Azure Elastic SAN, you can expand your storage instead of scaling the clusters.
+This article explains how to use Azure Elastic SAN as backing storage for Azure VMware Solution. [Azure VMware Solution](introduction.md) supports attaching iSCSI datastores as a persistent storage option. You can create Virtual Machine File System (VMFS) datastores with Azure Elastic SAN volumes and attach them to clusters of your choice. By using VMFS datastores backed by Azure Elastic SAN, you can expand your storage instead of scaling the clusters.
 
-Azure Elastic storage area network (SAN) addresses the problem of workload optimization and integration between your large scale databases and performance-intensive mission-critical applications. For more information on Azure Elastic SAN, see [What is Azure Elastic SAN? Preview](../storage/elastic-san/elastic-san-introduction.md).
+Azure Elastic storage area network (SAN) addresses the problem of workload optimization and integration between your large scale databases and performance-intensive mission-critical applications. For more information on Azure Elastic SAN, see [What is Azure Elastic SAN?](../storage/elastic-san/elastic-san-introduction.md).
 
 ## Prerequisites
 

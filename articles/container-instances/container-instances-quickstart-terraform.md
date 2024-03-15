@@ -9,6 +9,7 @@ author: TomArcherMsft
 ms.author: tarcher
 content_well_notification: 
   - AI-contribution
+ai-usage: ai-assisted
 ---
 
 # Quickstart: Create an Azure Container Instance with a public IP address using Terraform

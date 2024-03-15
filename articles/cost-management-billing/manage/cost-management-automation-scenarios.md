@@ -3,7 +3,6 @@ title: Automation scenarios for Azure billing and cost management
 description: Learn how common billing and cost management scenarios are mapped to different APIs.
 author: bandersmsft
 ms.reviewer: adwise
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
@@ -96,7 +95,7 @@ The following APIs are for Enterprise only:
 ### What's the difference between the Enterprise Reporting APIs and the Consumption APIs? When should I use each?
 These APIs have a similar set of functionality and can answer the same broad set of questions in the billing and cost management space. But they target different audiences:
 
-- Enterprise Reporting APIs are available to customers who have signed an Enterprise Agreement with Microsoft that grants them access to negotiated Azure Prepayment (previously called monetary commitment) and custom pricing. The APIs require a key that you can get from the [Enterprise Portal](https://ea.azure.com). For a description of these APIs, see [Overview of Reporting APIs for Enterprise customers](enterprise-api.md).
+- Enterprise Reporting APIs are available to customers who have signed an Enterprise Agreement with Microsoft that grants them access to negotiated Azure Prepayment (previously called monetary commitment) and custom pricing. The APIs require a key that you can get from the Azure portal. For more information, see [API key generation](enterprise-rest-apis.md#api-key-generation). For a description of these APIs, see [Overview of Reporting APIs for Enterprise customers](enterprise-api.md).
 
 - Consumption APIs are available to all customers, with a few exceptions. For more information, see [Cost Management automation overview](../automate/automation-overview.md). We recommend the provided APIs as the solution for the latest development scenarios.
 

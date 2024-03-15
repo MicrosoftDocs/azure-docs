@@ -4,19 +4,18 @@ description: Use this article to help you plan for, generate, and transfer your 
 services: key-vault
 author: mbaldwin
 manager: devtiw
-tags: azure-resource-manager
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: tutorial
-ms.date: 10/23/2023
+ms.date: 01/30/2024
 ms.author: mbaldwin
 ---
 
 # Import HSM-protected keys to Key Vault (BYOK)
 
-For added assurance when you use Azure Key Vault, you can import or generate a key in a hardware security module (HSM); the key will  never leave the HSM boundary. This scenario often is referred to as *bring your own key* (BYOK). Key Vault uses the nCipher nShield family of HSMs (FIPS 140-2 Level 2 validated) to protect your keys.
+For added assurance when you use Azure Key Vault, you can import or generate a key in a hardware security module (HSM); the key will never leave the HSM boundary. This scenario often is referred to as *bring your own key* (BYOK). Key Vault uses [FIPS 140 validated HSMs](/azure/key-vault/keys/about-keys#compliance) to protect your keys.
 
 Use the information in this article to help you plan for, generate, and transfer your own HSM-protected keys to use with Azure Key Vault.
 

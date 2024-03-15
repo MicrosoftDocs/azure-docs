@@ -75,7 +75,7 @@ The following table shows example values from WAF logs and the corresponding exc
 | HeaderValue:SOME_NAME	| Request header name Equals SOME_NAME |
 | PostParamValue:SOME_NAME | Request body POST args name Equals SOME_NAME |
 | QueryParamValue:SOME_NAME | Query string args name Equals SOME_NAME |
-| SOME_NAME | Request body JSON args name Equals SOME_NAME |
+| JsonValue:SOME_NAME | Request body JSON args name Equals SOME_NAME |
 
 ### Exclusions for JSON request bodies
 

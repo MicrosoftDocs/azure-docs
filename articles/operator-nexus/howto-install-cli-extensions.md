@@ -6,7 +6,7 @@ ms.author: travisneely
 ms.service: azure-operator-nexus
 ms.custom: devx-track-azurecli
 ms.topic: include
-ms.date: 10/02/2023
+ms.date: 02/08/2024
 # ms.custom: template-include
 ---
 
@@ -75,12 +75,12 @@ Example output:
 Name                     Version
 -----------------------  -------------
 monitor-control-service  0.2.0
-connectedmachine         0.6.0
-connectedk8s             1.4.2
+connectedmachine         0.7.0
+connectedk8s             1.6.5
 k8s-extension            1.4.3
 networkcloud             1.1.0
 k8s-configuration        1.7.0
-managednetworkfabric     3.2.0
+managednetworkfabric     4.2.0
 customlocation           0.1.3
 ssh                      2.0.2
 ```

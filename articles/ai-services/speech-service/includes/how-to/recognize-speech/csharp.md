@@ -45,7 +45,7 @@ You can initialize `SpeechConfig` in a few other ways:
 
 ## Recognize speech from a microphone
 
-To recognize speech by using your device microphone, create an [`AudioConfig`](/dotnet/api/microsoft.cognitiveservices.speech.audio.audioconfig) instance by using the `FromDefaultMicrophoneInput()` method. Then initialize the[`SpeechRecognizer`](/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer) object by passing `audioConfig` and `speechConfig`.
+To recognize speech by using your device microphone, create an [`AudioConfig`](/dotnet/api/microsoft.cognitiveservices.speech.audio.audioconfig) instance by using the `FromDefaultMicrophoneInput()` method. Then initialize the [`SpeechRecognizer`](/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer) object by passing `speechConfig` and `audioConfig`.
 
 ```csharp
 using System;
@@ -271,9 +271,9 @@ The [`SpeechRecognitionLanguage`](/dotnet/api/microsoft.cognitiveservices.speech
 
 ## Language identification
 
-You can use [language identification](../../../language-identification.md?pivots=programming-language-csharp#speech-to-text) with speech to text recognition when you need to identify the language in an audio source and then transcribe it to text.
+You can use [language identification](../../../language-identification.md?pivots=programming-language-csharp#use-speech-to-text) with speech to text recognition when you need to identify the language in an audio source and then transcribe it to text.
 
-For a complete code sample, see [Language identification](../../../language-identification.md?pivots=programming-language-csharp#speech-to-text).
+For a complete code sample, see [Language identification](../../../language-identification.md?pivots=programming-language-csharp#use-speech-to-text).
 
 ## Use a custom endpoint
 

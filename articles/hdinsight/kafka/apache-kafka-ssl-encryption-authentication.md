@@ -4,7 +4,7 @@ description: Set up TLS encryption for communication between Kafka clients and K
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 02/16/2023
+ms.date: 02/20/2024
 ---
 
 # Set up TLS encryption and authentication for Non ESP Apache Kafka cluster in Azure HDInsight
@@ -203,7 +203,7 @@ These steps are detailed in the following code snippets.
     keytool -keystore kafka.client.keystore.jks -alias CARoot -import -file ca-cert -storepass "MyClientPassword123" -keypass "MyClientPassword123" -noprompt
     ```
 
-1. Create the file `client-ssl-auth.properties` on client machine (hn1) . It should have the following lines:
+1. Create the file `client-ssl-auth.properties` on client machine (hn1). It should have the following lines:
 
     ```config
     security.protocol=SSL
@@ -292,7 +292,7 @@ The details of each step are given.
     keytool -keystore kafka.client.keystore.jks -import -file client-signed-cert -storepass "MyClientPassword123" -keypass "MyClientPassword123" -noprompt
     ```
 
-1. Create a file `client-ssl-auth.properties` on client machine (hn1) . It should have the following lines:
+1. Create a file `client-ssl-auth.properties` on client machine (hn1). It should have the following lines:
 
     ```bash
     security.protocol=SSL

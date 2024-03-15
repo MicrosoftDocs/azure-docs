@@ -252,7 +252,7 @@ To create a Prediction resource from the LUIS portal
     }
     ```
 
-Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
+
 
 
 ## Clean up resources

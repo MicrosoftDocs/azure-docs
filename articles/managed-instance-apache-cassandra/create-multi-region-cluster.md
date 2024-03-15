@@ -12,7 +12,7 @@ ms.devlang: azurecli
 
 # Quickstart: Create a multi-region cluster with Azure Managed Instance for Apache Cassandra
 
-Azure Managed Instance for Apache Cassandra provides automated deployment and scaling operations for managed open-source Apache Cassandra datacenters. This service helps you accelerate hybrid scenarios and reduce ongoing maintenance.
+Azure Managed Instance for Apache Cassandra is a fully managed service for pure open-source Apache Cassandra clusters. The service also allows configurations to be overridden, depending on the specific needs of each workload, allowing maximum flexibility and control where needed.
 
 This quickstart demonstrates how to use the Azure CLI commands to configure a multi-region cluster in Azure.
 
