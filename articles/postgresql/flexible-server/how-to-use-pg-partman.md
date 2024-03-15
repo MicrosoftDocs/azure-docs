@@ -18,37 +18,37 @@ When tables in the database get very big, it is hard to manage how often they ar
 
 ## Prerequisites
 
+To enable pg_partman extension follow the steps below. 
+
 - Add pg_partman extension under azure extensions as shown from server parameters on the portal.
+
+:::image type="content" source="media/how-to-use-pg-partman/pg-partman-prerequisites.png" alt-text="Screenshot of prerequisites.":::
+
+```sql
+CREATE EXTENSION PG_PARTMAN; 
+```
 
 ## Overview
 
-When an identity feature uses sequences, the data that comes from the parent table will get new sequence value. It does not generate new sequence values when the data is directly added to the child table. 
+- When an identity feature uses sequences, the data that comes from the parent table will get new sequence value. It does not generate new sequence values when the data is directly added to the child table. 
 
 PG_partman uses a template to control whether the table is UNLOGGED or not. This means that the Alter table command cannot change this status for a partition set. By changing the status on the template, you can apply it to all future partitions. But for existing child tables, you must use the Alter command manually. [Here](https://www.postgresql.org/message-id/flat/15954-b61523bed4b110c4%40postgresql.org) is a bug that shows why.    
 
-There is another extension related to PG_partman called pg_partman_bgw, which must be included in Shared_Preload_Libraries. It offers a scheduled function run_maintenance().It takes care of the partition sets that have automatic_maintenance turned ON in part_config. 
+There is another extension related to PG_partman called pg_partman_bgw, which must be included in Shared_Preload_Libraries. It offers a scheduled function run_maintenance().It takes care of the partition sets that have automatic_maintenance turned ON in `part_config`. 
+
+:::image type="content" source="media/how-to-use-pg-partman/pg-partman-prerequisites-highlighted.png" alt-text="Screenshot of prerequisites highlighted.":::
 
 You can use server parameters in the Azure portal to change the following configuration options that affect the BGW process: 
 
-pg_partman_bgw.dbname 
+`pg_partman_bgw.dbname` - Required. This parameter should contain the database(s) that run_maintenance() needs to be run on. If more than one, use a comma separated list. If nothing is set BGW will not run the procedure. 
 
-Required. This parameter should contain the database(s) that run_maintenance() needs to be run on. If more than one, use a comma separated list. If nothing is set BGW will not run the procedure. 
+`pg_partman_bgw.interval` - Number of seconds between calls to run_maintenance() procedure. Default is 3600 (1 hour). This can be updated based on the requirement of the project. 
 
-pg_partman_bgw.interval 
+`pg_partman_bgw.role` - The role that run_maintenance() procedure will run as. Default is postgres. Only a single role name is allowed. 
 
-Number of seconds between calls to run_maintenance() procedure. Default is 3600 (1 hour). This can be updated based on the requirement of the project. 
+`pg_partman_bgw.analyze` - By default, it is set to OFF. Same purpose as the p_analyze argument to run_maintenance(). 
 
-pg_partman_bgw.role 
-
-The role that run_maintenance() procedure will run as. Default is postgres. Only a single role name is allowed. 
-
-pg_partman_bgw.analyze 
-
-By default, it is set to OFF. Same purpose as the p_analyze argument to run_maintenance(). 
-
-pg_partman_bgw.jobmon 
-
-Same purpose as the p_jobmon argument to run_maintenance(). By default, it is set to ON. 
+`pg_partman_bgw.jobmon` - Same purpose as the p_jobmon argument to run_maintenance(). By default, it is set to ON. 
 
 ## Permissions 
 
@@ -74,7 +74,13 @@ CREATE TABLE partman.partition_test 
 (a_int INT, b_text TEXT,c_text TEXT,d_date TIMESTAMP DEFAULT now()) 
 PARTITION BY RANGE(d_date); 
 CREATE INDEX idx_partition_date ON partman.partition_test(d_date); 
+```
+
+:::image type="content" source="media/how-to-use-pg-partman/pg-partman-table-output.png" alt-text="Screenshot of table output.":::
+
 Using the create_parent function, you can set up the number of partitions you want on the partition table. 
+
+```sql
 SELECT public.create_parent( 
 p_parent_table := 'partman.partition_test', 
 p_control := 'd_date', 
@@ -93,16 +99,19 @@ SET infinite_time_partitions = true,  
 
 This command will divide the p_parent_table into smaller parts based on the p_control column, using native partitioning (the other option is trigger-based partitioning, but pg_partman does not support it yet). The partitions will be created at a daily interval. We will create 20 future partitions in advance, instead of the default value of 4. We will also specify the p_start_partition, where we mention the past date from which the partitions should start. 
 
-The *create_parent()* function populates 2 tables part_config and part_config_sub. There is a maintenance function *run_maintenance()*. You can schedule a cron job for this procedure to run on a periodic basis. This function checks all parent tables in *part_config* table and creates new partitions for them or runs the tables set retention policy. To know more about the functions and tables in pg_partman please go through [here](https://github.com/pgpartman/pg_partman/blob/master/doc/pg_partman.md) 
+The `create_parent()` function populates 2 tables `part_config` and `part_config_sub`. There is a maintenance function `run_maintenance()`. You can schedule a cron job for this procedure to run on a periodic basis. This function checks all parent tables in *part_config* table and creates new partitions for them or runs the tables set retention policy. To know more about the functions and tables in pg_partman go through [here](https://github.com/pgpartman/pg_partman/blob/master/doc/pg_partman.md) 
 
-To create new partitions every time the run_maintenance() is run in the background using bgw, please run the below update statement. 
+To create new partitions every time the `run_maintenance()` is run in the background using bgw, run the below update statement. 
 
+```sql
 update partman.part_config set premake = premake+1 where parent_table = 'partman.partition_test'; 
+```
 
 If the premake is the same and your run_maintenance() procedure is run, there wont be any new partitions created for that day. For the next day as premake defines from the current day a new partition for a day is created with the execution of you run_maintenance() function. 
 
 Using the insert command below, insert 100k rows  for each month. 
 
+```sql
 insert into partman.partition_test select generate_series(1,100000),generate_series(1, 100000) || 'abcdefghijklmnopqrstuvwxyz', 
 
 generate_series(1, 100000) || 'zyxwvutsrqponmlkjihgfedcba', generate_series (timestamp '2024-03-01',timestamp '2024-03-30', interval '1 day ') ; 
@@ -122,116 +131,129 @@ generate_series(300000,400000) || 'zyxwvutsrqponmlkjihgfedcba', generate_series 
 insert into partman.partition_test select generate_series(400000,500000),generate_series(400000,500000) || 'abcdefghijklmnopqrstuvwxyz', 
 
 generate_series(400000,500000) || 'zyxwvutsrqponmlkjihgfedcba', generate_series (timestamp '2024-07-01',timestamp '2024-07-30', interval '1 day') ; 
+```
 
 Run the command below to see the partitions created. 
 
+```sql
 Postgres=> \d+ partman.partition_test;
+```
 
-**PG_partman points to be noted:** 
+:::image type="content" source="media/how-to-use-pg-partman/pg-partman-table-output-partitions.png" alt-text="Screenshot of table out with partitions.":::
 
-When an identity feature uses sequences, the data that comes from the parent table will get new sequence value. It does not generate new sequence values when the data is directly added to the child table. 
+Here is the output of the select statement executed. 
 
-PG_partman uses a template to control whether the table is UNLOGGED or not. This means that the Alter table command cannot change this status for a partition set. By changing the status on the template, you can apply it to all future partitions. But for existing child tables, you must use the Alter command manually. [Here](https://www.postgresql.org/message-id/flat/15954-b61523bed4b110c4%40postgresql.org) is a bug that shows why.    
+:::image type="content" source="media/how-to-use-pg-partman/pg-partman-explain-plan-output.png" alt-text="Screenshot of explain plan output.":::
 
-There is another extension related to PG_partman called pg_partman_bgw, which must be included in Shared_Preload_Libraries. It offers a scheduled function run_maintenance().It takes care of the partition sets that have automatic_maintenance turned ON in part_config. 
+## How to manually run the run_maintenance procedure: 
 
-Hit Save button and let the deployment complete. 
+```sql
+select partman.run_maintenance(p_parent_table:='partman.partition_test'); 
+```
 
-Once done the pg_cron is automatically created. If you still, try to install then you get the below message. 
+Warning: If you insert data before creating partitions, the data will go to the default partition. If the default partition has data that belongs to a new partition that you want to be created later, then you will get a default partition violation error and the procedure will not work. Therefore, change the premake value as recommended above and then run the procedure. 
 
-postgres=> CREATE EXTENSION pg_cron; 
+## How to schedule maintenance procedure using pg_cron: 
 
-ERROR:  extension "pg_cron" already exists 
+Run the maintenance procedure using pg_cron. To enable `pg_cron` on your server follow the below steps. 
+1.	Add PG_CRON to `azure.extensions`, `Shared_preload_libraries` and `cron.database_name` server parameter from Azure portal. 
 
-postgres=> 
+    :::image type="content" source="media/how-to-use-pg-partman/pg-partman-pgcron-prerequisites.png" alt-text="Screenshot of pgcron prerequisites.":::
 
-To schedule the cron job, use the below command. 
+    :::image type="content" source="media/how-to-use-pg-partman/pg-partman-pgcron-prerequisites2.png" alt-text="Screenshot of pgcron prerequisites2.":::
 
-postgres=> SELECT cron.schedule_in_database('sample_job','@hourly', $$SELECT partman.run_maintenance(p_parent_table:= 'partman.partition_test')$$,'postgres'); 
+    :::image type="content" source="media/how-to-use-pg-partman/pg-partman-pgcron-database-name.png" alt-text="Screenshot of pgcron databasename.":::
 
- schedule_in_database 
+2. Hit Save button and let the deployment complete. 
 
----------------------- 
+3. Once done the pg_cron is automatically created. If you still, try to install then you get the below message. 
+
+    ```sql
+    postgres=> CREATE EXTENSION pg_cron; 
+    ERROR:  extension "pg_cron" already exists 
+
+    postgres=> 
+    ```
+
+4. To schedule the cron job, use the below command. 
+
+    ```sql
+    postgres=> SELECT cron.schedule_in_database('sample_job','@hourly', $$SELECT partman.run_maintenance(p_parent_table:= 'partman.partition_test')$$,'postgres'); 
+
+     schedule_in_database 
+
+    ---------------------- 
 
                     1 
+    (1 row) 
+    ```
 
-(1 row) 
+5. You can view all the cron job using the command below. 
 
-You can view all the cron job using the command below. 
+    ```sql
+    postgres=> select * from cron.job; 
 
-postgres=> select * from cron.job; 
+    -[ RECORD 1 ]----------------------------------------------------------------------- 
 
--[ RECORD 1 ]----------------------------------------------------------------------- 
+    jobid    | 1 
+    schedule | @hourly 
+    command  | SELECT partman.run_maintenance(p_parent_table:= 'partman.partition_test') 
+    nodename | /tmp 
+    nodeport | 5432 
+    database | postgres 
+    username | postgres 
+    active   | t 
+    jobname  | sample_job 
+    ```
 
-jobid    | 1 
+6. Run history of the job can be checked using the command below. 
 
-schedule | @hourly 
+    ```sql
+    postgres=> select * from cron.job_run_details; 
 
-command  | SELECT partman.run_maintenance(p_parent_table:= 'partman.partition_test') 
+    (0 rows) 
+    ```
 
-nodename | /tmp 
+    Currently the results show 0 records as the job has not run yet. 
 
-nodeport | 5432 
+7. To unscheduled the cron job use the command below. 
 
-database | postgres 
+    ```sql    
+    postgres=> select cron.unschedule(1); 
 
-username | postgres 
+     unschedule 
+    ------------ 
+     t 
 
-active   | t 
-
-jobname  | sample_job 
-
-Run history of the job can be checked using the command below. 
-
-postgres=> select * from cron.job_run_details; 
-
-(0 rows) 
-
-Currently the results show 0 records as the job has not run yet. 
-
-To unscheduled the cron job use the command below. 
-
-postgres=> select cron.unschedule(1); 
-
- unschedule 
-
------------- 
-
- t 
-
-(1 row) 
+    (1 row) 
+    ```
 
 ## Limitations and considerations
 
-Why is my bgw not running the maintenance proc based on the interval provided. 
+- Why is my bgw not running the maintenance proc based on the interval provided. 
 
-Answer: Please check the server parameter  pg_partman_bgw.dbname and update it with the proper databasename. Also, check the server parameter pg_partman_bgw.role and provide the appropriate role with the role. You should also make sure you connecting to server using the same user to create the extension instead of postgres. 
+    Check the server parameter  `pg_partman_bgw.dbname` and update it with the proper databasename. Also, check the server parameter `pg_partman_bgw.role` and provide the appropriate role with the role. You should also make sure you connecting to server using the same user to create the extension instead of postgres. 
 
-I am encountering an error when my bgw is running the maintenance proc. What could be the reasons? 
+- I am encountering an error when my bgw is running the maintenance proc. What could be the reasons? 
 
-Answer: Same as above. 
+    Same as above. 
 
-How to set the partitions to start from the previous day. 
+- How to set the partitions to start from the previous day. 
 
-Answer: p_start_partition in which we mention the previous date from which the partition needs to be created. 
+    `p_start_partition` in which we mention the previous date from which the partition needs to be created. 
 
-This can be done by running the command below. 
+    This can be done by running the command below. 
 
-SELECT public.create_parent( 
-
-p_parent_table := 'partman.partition_test', 
-
-p_control := 'd_date', 
-
-p_type := 'native', 
-
-p_interval := 'daily', 
-
-p_premake :=20, 
-
-p_start_partition := (now() - interval '10 days')::date::text  
-
-);
+    ```sql    
+    SELECT public.create_parent( 
+    p_parent_table := 'partman.partition_test', 
+    p_control := 'd_date', 
+    p_type := 'native', 
+    p_interval := 'daily', 
+    p_premake :=20, 
+    p_start_partition := (now() - interval '10 days')::date::text  
+    );
+    ```
 
 ## Related content
 
