@@ -81,7 +81,7 @@ The `azd` template contains all the code needed to create the services, but you 
     ```
 
     > [!IMPORTANT]
-    > If you're using an out-of-network virtual machine or GitHub Codespace, certain Azure security policies cause conflicts when used to sign in with `azd auth login`. If you run into an issue here, you can follow the [azd auth workaround](../includes/azd/azd-login-ts.md), which involves using a `curl` request to the localhost URL you were redirected to after running [`azd auth login`][az-auth-login].
+    > If you're using an out-of-network virtual machine or GitHub Codespace, certain Azure security policies cause conflicts when used to sign in with `azd auth login`. If you run into an issue here, you can follow the azd auth workaround provided below, which involves using a `curl` request to the localhost URL you were redirected to after running [`azd auth login`][az-auth-login].
 
 3. Authenticate with your credentials on your organization's sign in page.
 4. Confirm that it's you trying to connect from the Azure CLI.
@@ -230,10 +230,10 @@ To learn more about AKS and walk through a complete code-to-deployment example, 
 [az-aks-install-cli]: /cli/azure/aks#az-aks-install-cli
 [az-group-create]: /cli/azure/group#az-group-create
 [az-group-delete]: /cli/azure/group#az-group-delete
+[azd-init]: /azure/developer/azure-developer-cli/reference#azd-init
+[azd-up]: /azure/developer/azure-developer-cli/reference#azd-up
+[az-auth-login]: /azure/developer/azure-developer-cli/reference#azd-auth-login
 [azd-install]: /azure/developer/azure-developer-cli/install-azd
-[azd-init]: /azure/developer/azure-developer-cli/init-azd
-[azd-up]: /azure/developer/azure-developer-cli/up-azd
-[az-auth-login]: /azure/developer/azure-developer-cli/auth-azd
 [kubernetes-concepts]: ../concepts-clusters-workloads.md
 [kubernetes-deployment]: ../concepts-clusters-workloads.md#deployments-and-yaml-manifests
 [aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json

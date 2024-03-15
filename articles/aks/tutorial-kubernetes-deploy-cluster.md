@@ -242,4 +242,4 @@ In the next tutorial, you learn how to deploy an application to your cluster.
 [install-azaksclitool]: /powershell/module/az.aks/install-azaksclitool
 [import-azakscredential]: /powershell/module/az.aks/import-azakscredential
 [aks-k8s-rbac]: azure-ad-rbac.md
-[azd-auth-login]: /azure/developer/azure-developer-cli/azd-auth-login
+[azd-auth-login]: /azure/developer/azure-developer-cli/reference#azd-auth-login
