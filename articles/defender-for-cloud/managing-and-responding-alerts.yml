@@ -123,7 +123,7 @@ procedureSection:
       - |
         When you complete the investigation into the alert and responded in the appropriate way, change the status to **Dismissed**.
 
-        :::image type="content" source="./media/managing-and-responding-alerts/set-status-dismissed.png" alt-text="Screenshot of the alert's status drop down menu":::
+        :::image type="content" source="./media/managing-and-responding-alerts/set-status-dismissed.png" alt-text="Screenshot of the alert's status drop down menu.":::
 
         The alert is removed from the main alerts list. You can use the filter from the alerts list page to view all alerts with **Dismissed** status.
       - |
