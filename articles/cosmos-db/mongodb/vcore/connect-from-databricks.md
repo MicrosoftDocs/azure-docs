@@ -1,9 +1,9 @@
 ---
 title: Working with Azure Cosmos DB for MongoDB vCore from Azure Databricks
 description: This article is the main page for Azure Cosmos DB for MongoDB vCore integration from Azure Databricks.
-author: Gary Lee, Kruti Mehta
+author: Gary3207Lee
 ms.author: yongl
-ms.reviewer: krutim
+ms.reviewer: krmeht
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: how-to
@@ -11,9 +11,9 @@ ms.date: 03/08/2024
 ---
 
 # Connect to Azure Cosmos DB for MongoDB vCore from Azure Databricks
-[!INCLUDE[MongoDB vCore](../includes/appliesto-mongodb-vcore.md)]
+[!INCLUDE[MongoDB vCore](./introduction.md)]
 
-This article is one among a series of articles on Azure Cosmos DB for MongoDB vCore integration from Azure Databricks. The articles cover connectivity, Data Definition Language(DDL) operations, basic Data Manipulation Language(DML) operations, and advanced Azure Cosmos DB for MongoDB vCore integration from Spark. 
+This article walks you through connecting Azure Cosmos DB for MongoDB vCore using Spark connector for Databricks. It walks through basic  basic Data Manipulation Language(DML) operations like Read, Write, Create Views or Temporary Tables, Filtering and Running Aggregations using python code.
 
 ## Prerequisites
 * [Provision an Azure Cosmos DB for MongoDB vCore cluster.](quickstart-portal.md)
@@ -39,14 +39,12 @@ Add the MongoDB Connector for Spark library to your cluster to connect to both n
 
 :::image type="content" source="./media/migrate-databricks/databricks-cluster-dependencies.png" alt-text="Diagram of adding databricks cluster dependencies.":::
 
-
 Select **Install**, and then restart the cluster when installation is complete.
 
 > [!NOTE]
 > Make sure that you restart the Databricks cluster after the MongoDB Connector for Spark library has been installed.
 
 After that, you may create a Scala or Python notebook for migration.
-
 
 ## Create Python notebook to connect to Azure Cosmos DB for MongoDB vCore
 
@@ -60,59 +58,113 @@ Create a Python Notebook in Databricks. Make sure to enter the right values for 
 
 ```python
 connectionString_vcore="mongodb+srv://<user>:<password>@<database_name>.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000"
-
 database="<database_name>"
 collection="<collection_name>"
 ```
 
+### Data Sample Set
+
+For the purpose of this lab we will be using the Mongo Citibike2019 data set. You can import it from here
+[CitiBike Trip History 2019](https://citibikenyc.com/system-data)
+We have loaded it into a database called "CitiBikeDB" and the collection "CitiBike2019"
+We are setting the variables database and collection to point to the data loaded and we shall be using these variable in the examples below
+```python
+database="CitiBikeDB"
+collection="CitiBike2019"
+```
+
 ### Read data from Azure Cosmos DB for MongoDB vCore
 
+The general syntax looks like this :
 ```python
 df_vcore = spark.read.format("mongo").option("database", database).option("spark.mongodb.input.uri", connectionString_vcore).option("collection",collection).load()
+```
 
+You can validate the data frame loaded as follows :
+```python
 df_vcore.printSchema()
-
 display(df_vcore)
 ```
 
-### Filter data from Azure Cosmos DB for MongoDB vCore
-
+Let's see this with an example :
 ```python
 df_vcore = spark.read.format("mongo").option("database", database).option("spark.mongodb.input.uri", connectionString_vcore).option("collection",collection).load()
+df_vcore.printSchema()
+display(df_vcore)
+```
 
-#### Using Filter Function
+Output :
+**Schema**
+ :::image type="content" source="./media/connect-from-databricks/print-schema.png" alt-text="Screenshot of the Print Schema.":::
+
+**DataFrame**
+ :::image type="content" source="./media/connect-from-databricks/display-dataframe.png" alt-text="Screenshot of the Display DataFrame.":::
+
+### Filter data from Azure Cosmos DB for MongoDB vCore
+
+The general syntax looks like this :
+```python
+df_v = df_vcore.filter(df_vcore[column number/column name] == [filter condition])
+display(df_v)
+```
+
+Let's see this with an example :
+```python
 df_v = df_vcore.filter(df_vcore[2] == 1970)
 display(df_v)
+```
 
-#### Create Temp View and Using SparkSQL
+Output:
+ :::image type="content" source="./media/connect-from-databricks/display-filtered-data.png" alt-text="Screenshot of the Display Filtered DataFrame.":::
+
+### Create a view or temporary table and run SQL queries against it
+
+The general syntax looks like this :
+```python
+df_[dataframename].createOrReplaceTempView("[View Name]")
+spark.sql("SELECT * FROM [View Name]")
+```
+
+Let's see this with an example :
+```python
 df_vcore.createOrReplaceTempView("T_VCORE")
 df_v = spark.sql(" SELECT * FROM T_VCORE WHERE birth_year == 1970 and gender == 2 ")
 display(df_v)
 ```
 
+Output:
+ :::image type="content" source="./media/connect-from-databricks/display-sql-query.png" alt-text="Screenshot of the Display SQL Query.":::
+
 ### Write data to Azure Cosmos DB for MongoDB vCore
 
+The general syntax looks like this :
 ```python
 df.write.format("mongo").option("spark.mongodb.output.uri", connectionString).option("database",database).option("collection","<collection_name>").mode("append").save()
 ```
 
-### Read data from Azure Cosmos DB for MongoDB vCore collection running an Aggregation Pipeline
-
-[Aggregation Pipeline](https://learn.microsoft.com/en-us/azure/cosmos-db/mongodb/tutorial-aggregation) is a powerful capability that allows to pre-process and transform data within Azure CosmosDB for MongoDB. It's a great match for  real-time analytics, dashboards, report generation with roll-ups, sums & averages with 'server-side' data post-processing. (Note: there is a [whole book written about it](https://www.practical-mongodb-aggregations.com/front-cover.html)).  <br/>
-Azure Cosmos DB for MongoDB even supports  [rich secondary/compound indexes](https://learn.microsoft.com/en-us/azure/cosmos-db/mongodb/indexing) to extract, filter, and process only the data it needs – for example, analyzing all customers located in a specific geography right within the database without first having to load the full data-set, minimizing data-movement and reducing latency. <br/>
-The below aggregation pipeline in our example has 4 stages:<br/>
-1. **Match** stage : filters all documents which has "printer paper" in the items array. <br />
-2. **Unwind** stage : undwind the items array <br />
-3. **Add fields** stage : which will add a new field cald "totalSale" which is quantity of items sold * item price. <br />
-4. **Project** stage : only project "saleDate" and "totalSale" in the output
-
+Let's see this with an example :
 ```python
-pipeline="[{'$match': { 'items.name':'printer paper' }}, {'$unwind': { path: '$items' }}, {'$addFields': { totalSale: { \
-	'$multiply': [ '$items.price', '$items.quantity' ] } }}, {'$project': { saleDate:1,totalSale:1,_id:0 }}]"
-df = spark.read.format("mongo").option("database", database).option("collection", collection).option("pipeline", pipeline).option("partitioner", "MongoSinglePartitioner").option("spark.mongodb.input.uri", connectionString).load()
-display(df)
+df_vcore.write.format("mongo").option("spark.mongodb.output.uri", connectionString_vcore).option("database",database).option("collection","CitiBike2019").mode("append").save()
 ```
 
+This command does not have an output as it will write directly to the collection. You can cross check if the record is updated using a read command.
+
+### Read data from Azure Cosmos DB for MongoDB vCore collection running an Aggregation Pipeline
+
+[Aggregation Pipeline](../tutorial-aggregation.md) is a powerful capability that allows to pre-process and transform data within Azure CosmosDB for MongoDB. It's a great match for  real-time analytics, dashboards, report generation with roll-ups, sums & averages with 'server-side' data post-processing. (Note: there is a [whole book written about it](https://www.practical-mongodb-aggregations.com/front-cover.html)).  <br/>
+Azure Cosmos DB for MongoDB even supports [rich secondary/compound indexes](../indexing.md) to extract, filter, and process only the data it needs – for example, analyzing all customers located in a specific geography right within the database without first having to load the full data-set, minimizing data-movement and reducing latency. <br/>
+You can find the syntax in the hyperlinks above. 
+
+Below is an example of using aggregate function :
+
+```python
+pipeline = "[{ $group : { _id : '$birth_year', totaldocs : { $count : 1 }, totalduration: {$sum: '$tripduration'}} }]"
+df_vcore = spark.read.format("mongo").option("database", database).option("spark.mongodb.input.uri", connectionString_vcore).option("collection",collection).option("pipeline", pipeline).load()
+display(df_vcore)
+```
+
+Output:
+ :::image type="content" source="./media/connect-from-databricks/display-aggregate-data.png" alt-text="Screenshot of the Display Aggregate Data.":::
 
 ## Next steps
 
