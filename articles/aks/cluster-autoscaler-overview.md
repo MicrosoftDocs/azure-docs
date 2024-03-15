@@ -69,7 +69,7 @@ If you want a [cost-optimized profile](./cluster-autoscaler.md#configure-cluster
 * Increase `ok-total-unready-count`and `max-total-unready-percentage` 
 
 ## Common issues and mitigation recommendations
-View scaling failures and scale-up not triggered events via [CLI or Portal](./cluster-autoscaler.md#retrieve-cluster-autoscaler-logs-status-and-metrics).
+View scaling failures and scale-up not triggered events via [CLI or Portal](./cluster-autoscaler.md#retrieve-cluster-autoscaler-logs-and-status).
 ### Not triggering scale up operations
 
 | Common causes | Mitigation recommendations |
