@@ -104,7 +104,7 @@ You can view cost allocation data in the Azure portal. To learn more about how t
 ### Cost definitions
 In the Kubernetes namespaces and assets views you will see the following charges:
 - **Idle charges**: This represents the cost of available resource capacity that wasn't used by any workloads.
-- **Service charges**: This represents the charges associated with the service like AKS Uptime SLA, Microsoft Defender for Containers etc.
+- **Service charges**: This represents the charges associated with the service like Uptime SLA, Microsoft Defender for Containers etc.
 - **System charges**: This represents the cost of capacity reserved by AKS on each node to run system processes required by the cluster, including the kubelet and container runtime. [Learn more](./concepts-clusters-workloads.md#resource-reservations).
 - **Unallocated charges**: This represents the cost of resources that could not be allocated to namespaces.
 
