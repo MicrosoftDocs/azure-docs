@@ -6,7 +6,7 @@ ms.author: lynnar
 ms.reviewer: yochu
 ms.service: modeling-simulation-workbench
 ms.topic: overview
-ms.date: 09/07/2023
+ms.date: 03/15/2024
 #Customer intent: As a new Modeling and Simulation Workbench user, I want to understand about Azure Modeling and Simulation Workbench so that I can use the environment for creating chambers and connectors.
 ---
 
@@ -36,6 +36,17 @@ A job scheduler comes prebuilt in to help access these compute resources. With t
 
 Storage (both private within chamber, and shared) is persistent with high availability throughout the lifecycle of a Modeling and Simulation Workbench, which includes all customer data and customizations. Users can also scale the storage capacity and performance tier as per their needs. Azure Modeling and Simulation Workbench is an integrated, secure, and fully managed platform that supports every workload component.  For example, computing, data and workload management, security, and networking
 
-## Next steps
+## Region/location
 
+To use the Modeling and Simulation Workbench APIs, you must create your Azure Modeling and Simulation Workbench resources in the supported regions. Currently, it is available in the following Azure regions: 
+- East US
+- West US 3
+- USGov Virginia
+
+## Contact us
+
+If you have feedback please [email us](mailto:azuremswb@microsoft.com) or use the feedback widget on the upper right of any docs page.
+
+## Next steps
+- To enable your workbench access, please sign up for the preview [here](https://aka.ms/amswbrequest)
 - [Workbench](./concept-workbench.md)
