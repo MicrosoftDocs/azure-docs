@@ -1,8 +1,4 @@
 ---
-# Required metadata
-# For more information, see https://review.learn.microsoft.com/en-us/help/platform/learn-editor-add-metadata?branch=main
-# For valid values of ms.service, ms.prod, and ms.topic, see https://review.learn.microsoft.com/en-us/help/platform/metadata-taxonomies?branch=main
-
 title: Msv2 and Mdsv2 Isolated Sizes Retirement
 description: Migration guide for sizes
 author:      iamwilliew # GitHub alias
@@ -13,7 +9,7 @@ ms.date:     01/10/2024
 ms.subservice: sizes
 ---
 
-# Msv2 and Mdsv2 Isolated Sizes Retirement
+# Msv2 and Mdsv2 isolated sizes retirement
 
 On March 31, 2027, Azure will retire the Msv2 and Mdsv2-series Medium Memory virtual machines (VM) listed: 
 
@@ -35,7 +31,7 @@ The [Msv3 and Mdsv3 Medium Memory Series](/azure/virtual-machines/msv3-mdsv3-med
 
 Follow the instructions listed to migrate your [M192i(d)(m)s VM](/azure/virtual-machines/msv2-mdsv2-series) to your chosen [Msv3 and Mdsv3 Medium Memory Series](/azure/virtual-machines/msv3-mdsv3-medium-series) replacement. 
 
-### Migration Steps 
+### Migration steps 
 
 1. Choose a [series and size](/azure/virtual-machines/msv3-mdsv3-medium-series) for migration. Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) for further insights. 
 
