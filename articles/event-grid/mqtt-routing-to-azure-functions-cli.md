@@ -51,12 +51,31 @@ You use this Azure function as an event handler for a topic's subscription later
 
 ## Create an Event Grid topic (custom topic)
 
+In this step, you create an Event Grid topic. 
+
+1. Copy and paste the script to an editor. 
+1. Replace the following values.
+1. Select **Open Cloud Shell**. 
+1. Switch from **PowerShell** to **Bash** (in the upper-left corner of the Cloud Shell window).
+1. Copy and paste the script from the editor to Cloud Shell and run the script. 
+
+The script creates an Azure resource group and an Event Grid custom topic in it. Later in this tutorial, you configure routing for an Event Grid namespace so that the events or messages sent to the namespace are routed to the custom topic and then to the Azure function via subscription to the topic. 
+
+| Placeholder | Description | 
+| ----------- | ----------- | 
+|`RESOURCEGROUPNAME` | Name of the resource group to be created. |
+| `REGION` | Region in which you want to create the resource group and the custom topic. |
+| `TOPICNAME` | Name of the custom topic to be created. | 
+
+The script uses the [`az eventgrid topic create`](/cli/azure/eventgrid/topic#az-eventgrid-topic-create) command to create an Event Grid topic or custom topic. The schema type is specified as the cloud event schema. 
+
 ```azurecli-interactive
 rgName="RESOURCEGROUPNAME"
 location="REGION"
 topicName="TOPICNAME"
 
 az group create -n $rgName -l $location
+
 az eventgrid topic create --name $topicName -l $location -g $rgName --input-schema cloudeventschemav1_0
 ```
 
@@ -64,7 +83,16 @@ az eventgrid topic create --name $topicName -l $location -g $rgName --input-sche
 > Use **Cloud event schema** everywhere in this tutorial.  
 
 ## Add a subscription to the topic using the function
-In this step, you create a subscription to the Event Grid topic using the Azure function you created earlier.  
+
+In this step, you create a subscription to the custom topic using the Azure function you created earlier. 
+
+Replace the following values and run the script in the Cloud Shell. The script uses the [`az eventgrid event-subscription create`](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create) command to create an Azure function subscription to the custom topic. In the command, source ID is the topic's resource ID and endpoint is the function's resource ID. The endpoint type is set to Azure function and event delivery schema is specified as the cloud event schema.
+
+| Placeholder | Description | 
+| ----------- | ----------- | 
+|`FUNCTIONRESOURCEGROUP` | Name of the resource group that has the Azure Functions app. |
+| `FUNCTIONSAPPNAME` | Name of the Azure Functions app. |
+| `FUNCTIONNAME` | Name of the Azure function. | 
 
 ```azurecli-interactive
 funcAppRgName="FUNCTIONRESOURCEGROUP"
@@ -90,14 +118,22 @@ Follow instructions from [Quickstart: Publish and subscribe to MQTT messages on 
 
 ## Enable managed identity for the namespace
 
-Enable system-assigned managed identity for the Event Grid namespace. 
+Replace the following value and run the script to enable system-assigned managed identity for the Event Grid namespace. 
+
+| Placeholder | Description | 
+| ----------- | ----------- | 
+|`EVENTGRIDNAMESPACENAME` | Name of the Event Grid namespace. |
+
+The script uses the [`az eventgrid namespace update`](/cli/azure/eventgrid/namespace#az-eventgrid-namespace-update) command with `identity` set to `SystemAssigned` identity.
+
 
 ```azurecli-interactive
 nsName="EVENTGRIDNAMESPACENAME"
 az eventgrid namespace update -g $rgName -n $nsName --topic-spaces-configuration "{state:Enabled}" --identity "{type:SystemAssigned}"
 ```
 
-Then, grant identity the **send** permission to the Event Grid custom topic you created earlier so that it can route message to the custom topic. You do so by adding the managed identity to the **Event Grid Data Sender** role on the custom topic. 
+Then, grant namespace's managed identity the **send** permission on the Event Grid custom topic you created earlier so that the namespace can send or route messages to the custom topic. You do so by adding the managed identity to the **Event Grid Data Sender** role on the custom topic. 
+
 
 ```azurecli-interactive
 egNamespaceServicePrincipalObjectID=$(az ad sp list --display-name $nsName --query [].id -o tsv)
@@ -105,12 +141,18 @@ topicResourceId=$(az eventgrid topic show --name $topicName -g $rgName --query i
 az role assignment create --assignee $egNamespaceServicePrincipalObjectID --role "EventGrid Data Sender" --scope $topicResourceId
 ```
 
+The script uses the [`az role assignment create`](/cli/azure/role/assignment#az-role-assignment-create) command with the IDs of namespace's managed identity and the custom topic, and assigns **Event Grid Data Sender** role to the namespace's managed identity on the custom topic. 
+
+
 ## Configure routing messages to Azure function via custom topic
+
 In this step, you configure routing for the Event Grid namespace so that the messages it receives are routed to the custom topic you created. 
 
 ```azurecli-interactive
 az eventgrid namespace update -g $rgName -n $nsName --topic-spaces-configuration "{state:Enabled,'routeTopicResourceId':$topicResourceId,'routingIdentityInfo':{type:SystemAssigned}}"
 ```        
+
+The script uses the [`az eventgrid namespace update`](/cli/azure/eventgrid/namespace#az-eventgrid-namespace-update) command to set the routing topic and the type of managed identity to use to route events to the topic. 
 
 ## Send test MQTT messages using MQTTX
 Send test MQTT messages to the namespace and confirm that the function receives them.
