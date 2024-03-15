@@ -25,7 +25,7 @@ In a terminal or command window, create a new directory for your app and navigat
 mkdir number-lookup-quickstart && cd number-lookup-quickstart
 ```
 
-Use a text editor to create a file called number_lookup_sample.py in the project root directory and add the following code. The remaining quickstart code is added in the following sections.
+Use a text editor to create a file called `number_lookup_sample.py` in the project root directory and add the following code. The remaining quickstart code is added in the following sections.
 
 ```python
 import os
@@ -44,7 +44,7 @@ except Exception as ex:
 While still in the application directory, install the Azure Communication Services PhoneNumbers client library for Python package by using the `pip install` command.
 
 ```console
-pip install azure-communication-phonenumbers==1.2.0b1 
+pip install azure-communication-phonenumbers==1.2.0b2
 ```
 
 ## Code examples
@@ -68,7 +68,6 @@ from azure.identity import DefaultAzureCredential
 # You can find your endpoint from your resource in the Azure portal
 endpoint = 'https://<RESOURCE_NAME>.communication.azure.com'
 try:
-    print('Azure Communication Services - Number Lookup Quickstart')
     credential = DefaultAzureCredential()
     phone_numbers_client = PhoneNumbersClient(endpoint, credential)
 except Exception as ex:
@@ -82,19 +81,18 @@ Alternatively, the client can be authenticated using a connection string, also a
 # This code retrieves your connection string from an environment variable
 connection_string = os.getenv('COMMUNICATION_SERVICES_CONNECTION_STRING')
 try:
-    print('Azure Communication Services - Number Lookup Quickstart')
     phone_numbers_client = PhoneNumbersClient.from_connection_string(connection_string)
 except Exception as ex:
     print('Exception:')
     print(ex)
 ```
 
-### Look up operator information for a number
+### Look up phone number formatting
 
-To search for a phone number's operator information, call `search_operator_information` from the `PhoneNumbersClient`.
+To look up the national and international formatting for a number, call  `search_operator_information` from the `PhoneNumbersClient`.
 
 ```python
-results = phone_numbers_client.search_operator_information("<target-phone-number>")
+formatting_results = phone_numbers_client.search_operator_information("<target-phone-number>")
 ```
 
 Replace `<target-phone-number>` with the phone number you're looking up, usually a number you'd like to send a message to.
@@ -102,12 +100,33 @@ Replace `<target-phone-number>` with the phone number you're looking up, usually
 > [!WARNING]
 > Provide phone numbers in E.164 international standard format, for example, +14255550123.
 
+### Look up operator information for a number
+
+To search for a phone number's operator information, call `search_operator_information` from the `PhoneNumbersClient`, passing `True` for the `include_additional_operator_details` option.
+
+```python
+options = { "include_additional_operator_details": True }
+operator_results = phone_numbers_client.search_operator_information("<target-phone-number>", options)
+```
+
+> [!WARNING]
+> Using this functionality will incur a charge to your account
+
 ### Use operator information
 
 You can now use the operator information.  For this quickstart guide, we can print some of the details to the console.
 
+First, we can print out details about the number format.
+
 ```python
-operator_information = results.values[0]
+formatting_info = formatting_results.values[0]
+print(str.format("{0} is formatted {1} internationally, and {2} nationally", formatting_info.phone_number, formatting_info.international_format, formatting_info.national_format))
+```
+
+Next, we can print out details about the phone number and operator.
+
+```python
+operator_information = operator_results.values[0]
 
 number_type = operator_information.number_type if operator_information.number_type else "unknown"
 if operator_information.operator_details is None or operator_information.operator_details.name is None:
@@ -115,7 +134,7 @@ if operator_information.operator_details is None or operator_information.operato
 else:
     operator_name = operator_information.operator_details.name
 
-print(str.format("{0} is a {1} number operated by {2}", operator_information.phone_number, number_type, operator_name))
+print(str.format("{0} is a {1} number, operated in {2} by {3}", operator_information.phone_number, number_type, operator_information.iso_country_code, operator_name))
 ```
 
 You may also use the operator information to determine whether to send an SMS.  For more information on sending an SMS, see the [SMS Quickstart](../../sms/send.md).
