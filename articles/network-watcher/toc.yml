@@ -128,7 +128,7 @@
   - name: Diagnose outbound connection problems
     items:
     - name: Azure portal
-      href: network-watcher-connectivity-portal.md
+      href: connection-troubleshoot-portal.md
     - name: PowerShell
       href: network-watcher-connectivity-powershell.md
     - name: Azure CLI
