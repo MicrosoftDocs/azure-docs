@@ -49,6 +49,8 @@
       href: create-host-cli.md
     - name: Developer SKU
       href: quickstart-developer-sku.md
+  - name: Deploy private-only Bastion
+    href: private-only-deployment.md
   - name: Configure Bastion settings
     items:
     - name: View or upgrade SKU
