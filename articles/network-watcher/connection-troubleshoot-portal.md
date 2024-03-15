@@ -23,12 +23,12 @@ In this article, you learn how to use the connection troubleshoot feature of Azu
 - A second virtual machine with inbound TCP connectivity from 168.63.129.16 over the port being tested (for Port scanner diagnostic test).
 
 > [!NOTE]
-> - By default, Network Watcher is automatically enabled.
+> - By default, Azure enables Network Watcher in a region when you create a virtual network in it.
 > - When you use connection troubleshoot, Azure automatically installs the Network Watcher agent VM extension if it's not already installed. 
 
 ## Test connectivity with reachable virtual machine
 
-In this section, you test the connectivity over RDP from one virtual machine to another.
+In this section, you test the remote desktop port (RDP) connectivity from one virtual machine to another virtual machine in the same virtual network.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -49,7 +49,7 @@ In this section, you test the connectivity over RDP from one virtual machine to 
     | **Probe Settings** |  |
     | Preferred IP version | Select **IPv4**. The other available options are: **Both** and **IPv6**. |
     | Protocol | Select **TCP**. The other available option is: **ICMP**. |
-    | Destination port | Enter **3389**. 3389 is the default port used by RDP. |
+    | Destination port | Enter **3389**. Port 3389 is the default port for RDP. |
     | Source port | Leave blank or enter a source port number that you want to test. |
     | **Connection Diagnostic** |  |
     | Diagnostics tests | Select **Connectivity**, **NSG diagnostic**, **Next hop**, and **Port scanner**. |
@@ -58,57 +58,54 @@ In this section, you test the connectivity over RDP from one virtual machine to 
 
 1. Select **Run diagnostic tests**.
 
-    The test results show that the two virtual machines are communicating with no issues. 
+    - If the two virtual machines are communicating with no issues, you see the following results: 
 
-    - 66 probes were successfully sent with average latency of 2 ms. Select **See details** to see the next hop details.
-    - Outbound connectivity from the source virtual machine is allowed. Select **See details** to see the security rules that are allowing the communication.
-    - Inbound connectivity to the destination virtual machine is allowed. Select **See details** to see the security rules that are allowing the communication.
-    - Azure default system route is used to route traffic between the two virtual machines (Route table ID: System route).
-    - Port 3389 is open on the destination virtual machine.
+        :::image type="content" source="./media/connection-troubleshoot-portal/connectivity-allowed.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection between two virtual machines that are communicating with no issues.":::
 
-    :::image type="content" source="./media/connection-troubleshoot-portal/test-connectivity-vm-results.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection between two virtual machines.":::
+        - 66 probes were successfully sent with average latency of 2 ms. Select **See details** to see the next hop details.
+        - Outbound connectivity from the source virtual machine is allowed. Select **See details** to see the security rules that are allowing the outbound communication from the source virtual machine.
+        - Inbound connectivity to the destination virtual machine is allowed. Select **See details** to see the security rules that are allowing the inbound communication to the destination virtual machine.
+        - Azure default system route is used to route traffic between the two virtual machines (Route table ID: System route).
+        - Port 3389 is reachable on the destination virtual machine.
 
-1. Select **Export to CSV** to download the test results.
+    - If the destination virtual machine has a network security group blocking incoming RDP connection, you see the following results: 
 
-## Test connectivity with unreachable virtual machine
+        :::image type="content" source="./media/connection-troubleshoot-portal/connectivity-denied-destination.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection to a virtual machines that has a denying inbound security rule.":::
 
-In this section, you test connectivity between two virtual machines that have a connectivity issue.
+        - 30 probes were sent and failed to reach the destination virtual machine. Select **See details** to see the next hop details.
+        - Outbound connectivity from the source virtual machine is allowed. Select **See details** to see the security rules that are allowing the outbound communication from the source virtual machine.
+        - Inbound connectivity to the destination virtual machine is denied. Select **See details** to see the security rule that is denying the inbound communication to the destination virtual machine.
+        - Azure default system route is used to route traffic between the two virtual machines (Route table ID: System route).
+        - Port 3389 isn't reachable on the destination virtual machine (port 3389 is unreachable because of the security rule that is denying the inbound communication to the destination port).
+        **Solution**: update the network security group on the destination virtual machine to allow inbound RDP traffic.
 
-1. On the **Connection troubleshoot** page. Enter or select the following values:
+    - If the source virtual machine has a network security group denying RDP connection to the destination, you see the following results: 
 
-    | Setting | Value  |
-    | ------- | ------ |
-    | **Source** |  |
-    | Source type | Select **Virtual machine**. |
-    | Virtual machine | Select the virtual machine that you want to troubleshoot the connection from. |
-    | **Destination** |  |
-    | Destination type | Select **Select a virtual machine**. |
-    | Virtual machine | Select the destination virtual machine. |
-    | **Probe Settings** |  |
-    | Preferred IP version | Select **IPv4**. The other available options are: **Both** and **IPv6**. |
-    | Protocol | Select **TCP**. The other available option is: **ICMP**. |
-    | Destination port | Enter **22**. 22 is the default port used For SSH. |
-    | Source port | Leave blank or enter a source port number that you want to test. |
-    | **Connection Diagnostic** |  |
-    | Diagnostics tests | Select **Connectivity**, **NSG diagnostic**, **Next hop**, and **Port scanner**. |
+        :::image type="content" source="./media/connection-troubleshoot-portal/connectivity-denied-source.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection from a virtual machines that has a denying outbound security rule.":::
 
-1. Select **Run diagnostic tests**.
+        - 30 probes were sent and failed to reach the destination virtual machine. Select **See details** to see the next hop details.
+        - Outbound connectivity from the source virtual machine is denied. Select **See details** to see security rule that is denying the outbound communication from the source virtual machine.
+        - Inbound connectivity to the destination virtual machine is allowed. Select **See details** to see the security rules that are allowing the inbound communication to the destination virtual machine.
+        - Azure default system route is used to route traffic between the two virtual machines (Route table ID: System route).
+        - Port 3389 is reachable on the destination virtual machine.
+        **Solution**: update the network security group on the source virtual machine to allow outbound RDP traffic.
 
-    The test results show that the destination virtual machine isn't reachable (the two virtual machines aren't communicating):
+    - If the operating system on the destination virtual machine doesn't accept incoming connections on port 3389, you see the following results: 
 
-    - 30 probes failed.
-    - Outbound connectivity from the source virtual machine is allowed. Select **See details** to see the security rules that are allowing the communication.
-    - Inbound connectivity to the destination virtual machine is allowed. Select **See details** to see the security rules that are allowing the communication.
-    - Azure default system route is used to route traffic between the two virtual machines (Route table ID: System route).
-    - Port 22 on the destination virtual machine isn't accessible.
+        :::image type="content" source="./media/connection-troubleshoot-portal/connectivity-denied-destination-port.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection to a virtual machines that isn't listening on the tested port.":::
 
-    :::image type="content" source="./media/connection-troubleshoot-portal/test-connectivity-unaccessible-port-results.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection with unreachable virtual machine.":::
+        - 30 probes were sent and failed to reach the destination virtual machine. Select **See details** to see the next hop details.
+        - Outbound connectivity from the source virtual machine is allowed. Select **See details** to see the security rules that are allowing the outbound communication from the source virtual machine.
+        - Inbound connectivity to the destination virtual machine is allowed. Select **See details** to see the security rules that are allowing the inbound communication to the destination virtual machine.
+        - Azure default system route is used to route traffic between the two virtual machines (Route table ID: System route).
+        - Port 3389 isn't reachable on the destination virtual machine (port 3389 on the operating system isn't accepting incoming RDP connections).
+        **Solution**: configure the operating system on the destination virtual machine to accept inbound RDP traffic.
 
-1. Select **Export to CSV** to download the test results.
+1. Select **Export to CSV** to download the test results in csv format.
 
-## Test connectivity with `www.bing.com`
+## Test connectivity to a web address
 
-In this section, you test connectivity between a virtual machines and a web address.
+In this section, you test connectivity between a virtual machine and a web address.
 
 1. On the **Connection troubleshoot** page. Enter or select the following information:
 
@@ -119,7 +116,7 @@ In this section, you test connectivity between a virtual machines and a web addr
     | Virtual machine | Select the virtual machine that you want to troubleshoot the connection from. |
     | **Destination** |  |
     | Destination type | Select **Specify manually**. |
-    | URI, FQDN, or IP address | Enter `www.bing.com`. |
+    | URI, FQDN, or IP address | Enter the web address that you want to test the connectivity to. In this example, `www.bing.com` is used. |
     | **Probe Settings** |  |
     | Preferred IP version | Select **Both**. The other available options are: **IPv4** and **IPv6**. |
     | Protocol | Select **TCP**. The other available option is: **ICMP**. |
@@ -132,13 +129,74 @@ In this section, you test connectivity between a virtual machines and a web addr
 
 1. Select **Run diagnostic tests**.
 
-    The test results show that `www.bing.com` is reachable from **VM1** virtual machine:
+    - If `www.bing.com` is reachable from the source virtual machine, you see the following results: 
 
-    - Connectivity test is successful with 66 probes sent with an average latency of 3 ms.
+        :::image type="content" source="./media/connection-troubleshoot-portal/test-connectivity-bing-reachable.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection with Microsoft Bing website.":::
 
-    :::image type="content" source="./media/connection-troubleshoot-portal/test-connectivity-bing-results.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection with Microsoft Bing search engine website.":::
+        Connectivity test is successful with 66 probes sent with an average latency of 3 ms.
 
-1. Select **Export to CSV** to download the test results.
+    - If `www.bing.com` is unreachable from the source virtual machine due to a security rule, you see the following results: 
+
+        :::image type="content" source="./media/connection-troubleshoot-portal/test-connectivity-bing-unreachable.png" alt-text="Screenshot that shows connection troubleshoot results after unsuccessfully testing the connection with Microsoft Bing website.":::
+
+        30 probes were sent and failed to reach `www.bing.com`. Select **See details** to see the next hop details and the cause of the error.
+
+
+1. Select **Export to CSV** to download the test results in csv format.
+
+## Test connectivity to an IP address
+
+In this section, you test connectivity between a virtual machine and an IP address of another virtual machine.
+
+1. On the **Connection troubleshoot** page. Enter or select the following information:
+
+    | Setting | Value  |
+    | ------- | ------ |
+    | **Source** |  |
+    | Source type | Select **Virtual machine**. |
+    | Virtual machine | Select the virtual machine that you want to troubleshoot the connection from. |
+    | **Destination** |  |
+    | Destination type | Select **Specify manually**. |
+    | URI, FQDN, or IP address | Enter the IP address that you want to test the connectivity to. In this example, `10.10.10.10` is used. |
+    | **Probe Settings** |  |
+    | Preferred IP version | Select **IPv4**. The other available options are: **Both** and **IPv6**. |
+    | Protocol | Select **TCP**. The other available option is: **ICMP**. |
+    | Destination port | Enter any port number. Connection troubleshoot doesn't run port scanner test when the destination is an IP address. |
+    | Source port | Leave blank or enter a source port number that you want to test. |
+    | **Connection Diagnostic** |  |
+    | Diagnostics tests | Select **Connectivity**, **NSG diagnostic**, and **Next hop**. |
+
+    :::image type="content" source="./media/connection-troubleshoot-portal/test-connectivity-ip.png" alt-text="Screenshot that shows connection troubleshoot in the Azure portal to test the connection between a virtual machine and an IP address." lightbox="./media/connection-troubleshoot-portal/test-connectivity-ip.png":::
+
+1. Select **Run diagnostic tests**.
+
+    - If the IP address is reachable, you see the following results: 
+
+        :::image type="content" source="./media/connection-troubleshoot-portal/ip-reachable.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection to a reachable IP address.":::
+
+        - 66 probes were successfully sent with average latency of 4 ms. Select **See details** to see the next hop details.
+        - Outbound connectivity from the source virtual machine is allowed. Select **See details** to see the security rules that are allowing the outbound communication from the source virtual machine.
+        - Azure default system route is used to route traffic to the IP address which is in the same virtual network or a peered virtual network. (Route table ID: System route and Next hop type: Virtual Network).
+
+    - If the IP address is unreachable because the destination virtual machine isn't running, you see the following results: 
+
+        :::image type="content" source="./media/connection-troubleshoot-portal/ip-unreachable-vm-stopped.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection to an IP address of a stopped virtual machine.":::
+
+        - 30 probes were sent and failed to reach the destination virtual machine. Select **See details** to see the next hop details.
+        - Outbound connectivity from the source virtual machine is allowed. Select **See details** to see the security rules that are allowing the outbound communication from the source virtual machine.
+        - Azure default system route is used to route traffic to the IP address which is in the same virtual network or a peered virtual network. (Route table ID: System route and Next hop type: Virtual Network).
+        **Solution**: start the destination virtual machine.
+
+    - If there's no route to the IP address in the routing table of the source virtual machine (because the IP address isn't in the address space of the VM's virtual network or its peered virtual networks for example), you see the following results: 
+
+        :::image type="content" source="./media/connection-troubleshoot-portal/ip-unreachable-route-table.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection to a unreachable IP address with no route in the routing table.":::
+
+        - 30 probes were sent and failed to reach the destination virtual machine. Select **See details** to see the next hop details.
+        - Outbound connectivity from the source virtual machine is denied. Select **See details** to see security rule that is denying the outbound communication from the source virtual machine.
+        - Next hop type is *None* because there isn't a route to the IP address.
+        **Solution**: Associate a route table with a correct route to the subnet of the source virtual machine.
+
+1. Select **Export to CSV** to download the test results in csv format.
 
 ## Next step
 
