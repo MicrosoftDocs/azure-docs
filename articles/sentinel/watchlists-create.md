@@ -147,7 +147,7 @@ Create a shared access signature URL for Microsoft Sentinel to retrieve the watc
 
 ### Step 3: Add Azure to the CORS tab
 
-Before using a SAS URI, add the Azure Portal to the Cross Origin Resource Sharing (CORS).
+Before using a SAS URI, add the Azure portal to the Cross Origin Resource Sharing (CORS).
 
 1. Go to the storage account settings, **Resource sharing** page.
 1. Select the **Blob service** tab.
