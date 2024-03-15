@@ -40,17 +40,17 @@ procedureSection:
       - |
         In the list of role assignments, add a checkmark next to the security principal with the role assignment you want to remove.
 
-          ![Role assignment selected to be removed](./media/role-assignments-remove/rg-role-assignments-select.png)
+          [![Screenshot of role assignment selected to be removed.](./media/role-assignments-remove/rg-role-assignments-select.png)](./media/role-assignments-remove/rg-role-assignments-select.png#lightbox)
       - |
         Click **Remove**.
 
-          ![Remove role assignment message](./media/shared/remove-role-assignment.png)
+          [![Screenshot of remove role assignment message.](./media/shared/remove-role-assignment.png)](./media/shared/remove-role-assignment.png#lightbox)
       - |
         In the remove role assignment message that appears, click **Yes**.
 
             If you see a message that inherited role assignments cannot be removed, you are trying to remove a role assignment at a child scope. You should open Access control (IAM) at the scope where the role was assigned and try again. A quick way to open Access control (IAM) at the correct scope is to look at the **Scope** column and click the link next to **(Inherited)**.
 
-          ![Remove role assignment message for inherited role assignments](./media/role-assignments-remove/remove-role-assignment-inherited.png)
+          [![Screenshot of remove role assignment message for inherited role assignments.](./media/role-assignments-remove/remove-role-assignment-inherited.png)](./media/role-assignments-remove/remove-role-assignment-inherited.png#lightbox)
   - title: |
       Azure PowerShell
     summary: |
