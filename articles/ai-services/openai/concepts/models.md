@@ -73,7 +73,7 @@ The DALL-E models generate images from text prompts that the user provides. DALL
 
 ## Whisper
 
-The Whisper models, can be used for speech to text.
+The Whisper models can be used for speech to text.
 
 You can also use the Whisper model via Azure AI Speech [batch transcription](../../speech-service/batch-transcription-create.md) API. Check out [What is the Whisper model?](../../speech-service/whisper-overview.md) to learn more about when to use Azure AI Speech vs. Azure OpenAI Service.
 
