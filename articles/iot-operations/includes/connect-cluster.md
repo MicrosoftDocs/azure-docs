@@ -11,7 +11,7 @@ ms.custom: include file, ignite-2023, devx-track-azurecli
 
 To connect your cluster to Azure Arc:
 
-1. On the machine where you deployed the Kubernetes cluster, sign in with Azure CLI:
+1. On the machine where you deployed the Kubernetes cluster or your codespace terminal, sign in with Azure CLI:
 
    ```azurecli
    az login
@@ -27,7 +27,7 @@ To connect your cluster to Azure Arc:
    ```bash
    # Azure region where the created resource group will be located
    # Currently supported regions: "eastus", "eastus2", "westus", "westus2", "westus3", "westeurope", or "northeurope"
-   export LOCATION="WestUS3"
+   export LOCATION="<REGION>"
    ```
 
    ```bash
@@ -64,13 +64,13 @@ To connect your cluster to Azure Arc:
    az group create --location $LOCATION --resource-group $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID
    ```
 
-1. Use the [az connectedk8s connect](/cli/azure/connectedk8s#az-connectedk8s-connect) command to Arc-enable your Kubernetes cluster and manage it in the resource group you created in the previous step:
+1. Use the [az connectedk8s connect](/cli/azure/connectedk8s#az-connectedk8s-connect) command to Arc-enable your Kubernetes cluster and manage it as part of your Azure resource group:
 
    ```azurecli
    az connectedk8s connect -n $CLUSTER_NAME -l $LOCATION -g $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID
    ```
 
-1. Get the `objectId` of the Microsoft Entra ID application that the Azure Arc service uses. Run this command in the [Azure Cloud Shell](https://portal.azure.com/#cloudshell) or on your local machine:
+1. Get the `objectId` of the Microsoft Entra ID application that the Azure Arc service uses. Run this command in the [Azure Cloud Shell](https://portal.azure.com/#cloudshell), on your local machine, or in a Cloudspaces terminal:
 
    ```azurecli
    az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query id -o tsv

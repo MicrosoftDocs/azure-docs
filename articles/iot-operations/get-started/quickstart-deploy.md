@@ -15,7 +15,7 @@ ms.date: 01/31/2024
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In this quickstart, you will deploy a suite of IoT services to an Azure Arc-enabled Kubernetes cluster so that you can remotely manage your devices and workloads. Azure IoT Operations Preview is a digital operations suite of services that includes Azure IoT Orchestrator Preview. This quickstart guides you through using Orchestrator to deploy these services to a Kubernetes cluster. At the end of the quickstart, you have a cluster that you can manage from the cloud that's generating sample data to use in the following quickstarts.
+In this quickstart, you will deploy a suite of IoT services to an Azure Arc-enabled Kubernetes cluster so that you can remotely manage your devices and workloads. Azure IoT Operations is a digital operations suite of services that includes Azure IoT Orchestrator Preview. This quickstart guides you through using Orchestrator to deploy these services to a Kubernetes cluster. At the end of the quickstart, you have a cluster that you can manage from the cloud that generates sample data to use in the following quickstarts.
 
 The services deployed in this quickstart include:
 
@@ -30,13 +30,21 @@ The services deployed in this quickstart include:
 
 The following quickstarts in this series build on this one to define sample assets, data processing pipelines, and visualizations. If you want to deploy Azure IoT Operations to run your own workloads, see [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md) and [Deploy Azure IoT Operations Preview extensions to a Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md).
 
+## Before you begin
+
+This series of quickstarts is intended to give you an opportunity to evaluate an end-to-end scenario with Azure IoT Operations. In a true development or production environment, these tasks would be performed by multiple teams working together and some tasks require elevated permissions.
+
+For the best new user experience, we recommend using a free Azure subscription so that you have owner permissions over the resources in these quickstarts. We also recommend using GitHub Codespaces as a virtual environment in which you can quickly begin deploying resources and running commands without installing new tools on your own machines.
+
+Once you're ready to learn more about the individual roles and tasks, the how-to guides provide more specific implementation and permissions details.
+
 ## Prerequisites
 
 Review the prerequisites based on the environment you use to host the Kubernetes cluster.
 
-For this quickstart, we recommend GitHub Codespaces as a quick way to get started in a virtual environment without installing new tools. Or, use Azure Kubernetes Service (AKS) Edge Essentials to create a cluster on Windows devices or K3s on Ubuntu Linux devices.
+For this quickstart, we recommend using a virtual environment as a quick way to get started without installing new tools.
 
-As part of this quickstart, you create a cluster in either Codespaces, AKS Edge Essentials, or Linux. If you want to reuse a cluster that you've deployed Azure IoT Operations to before, refer to the steps in [Clean up resources](#clean-up-resources) to uninstall Azure IoT Operations before continuing.
+As part of this quickstart, you create a cluster in either GitHub Codespaces, AKS Edge Essentials, or K3s on Ubuntu Linux. If you want to reuse a cluster that you've deployed Azure IoT Operations to before, refer to the steps in [Clean up resources](#clean-up-resources) to uninstall Azure IoT Operations before continuing.
 
 # [Virtual](#tab/codespaces)
 
@@ -44,11 +52,13 @@ As part of this quickstart, you create a cluster in either Codespaces, AKS Edge 
 
 * A [GitHub](https://github.com) account.
 
+* Visual Studio Code installed on your development machine. For more information, see [Download Visual Studio Code](https://code.visualstudio.com/download).
+
 # [Windows](#tab/windows)
 
-* You'll use the `AksEdgeQuickStartForAio.ps1` script to set up an AKS Edge Essentials single-machine K3S Linux-only cluster. Ensure that your machine has a minimum of 10 GB RAM, 4 vCPUs, and 40 GB free disk space. To learn more, see the [AKS Edge Essentials system requirements](/azure/aks/hybrid/aks-edge-system-requirements).
-
 * An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+* Ensure that your machine has a minimum of 10 GB RAM, 4 vCPUs, and 40 GB free disk space. To learn more, see the [AKS Edge Essentials system requirements](/azure/aks/hybrid/aks-edge-system-requirements).
 
 * Azure CLI installed on your development machine. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
