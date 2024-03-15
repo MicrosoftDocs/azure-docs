@@ -81,7 +81,7 @@ The following table summarizes the file fields to fill in:
     
 | **Template Column** | **Description** |
 | --- | --- |
-| Server Name | Unique server name or host name of the SAP system to identify each server. Include all the virtual machines attached to a SAP system that you intend to migrate to Azure. |
+| Server Name | Unique server name or host name of the SAP system to identify each server. Include all the virtual machines attached to an SAP system that you intend to migrate to Azure. |
 | Environment | Environment that the server belongs to. Select the most applicable environment from the dropdown menu. |
 | SAP Instance Type | The type of SAP instance running on this machine. For example, App, ASCS, DB, and so on. Single-server and distributed architectures are only supported. |
 | Instance SID | This is the instance System ID (SID) for the ASCS/AP/DB instance. |
@@ -120,11 +120,11 @@ To import SAP Systems inventory, follow these steps:
     :::image type="content" source="./media/tutorial-discover-sap-systems/import-excel.png" alt-text="Screenshot that shows how to import SAP inventory." lightbox="./media/tutorial-discover-sap-systems/import-excel.png":::
  
 1. Under **Import the file**, upload the .xls file and select **Import**.
-1. Review the import details to check for any errors or validation failures.<br> If the import is successful, the SAP systems are discoverd.
+1. Review the import details to check for any errors or validation failures.<br> If the import is successful, the SAP systems are discovered.
 1. To view the discovered SAP systems, do the following:
     1. Navigate to the **Azure Migrate: Servers, databases and web apps** screen.
-    1. Under **Assessment tools**, select the number below **Discoverd SAP® systems**. <br/> The discovered SAP systems displayed on the **Discoverd SAP® systems** page.
-    2. Select a desired system SID.<br> The **Server instance details** blade displays all attributes of servers that make up the SID..
+    1. Under **Assessment tools**, select the number below **Discovered SAP® systems**. <br/> The discovered SAP systems displayed on the **Discovered SAP® systems** page.
+    2. Select a desired system SID.<br> The **Server instance details** blade displays all attributes of servers that make up the SID.
 
 
 ## Next steps

@@ -16,7 +16,7 @@ This article provides an overview of discovery and assessments for on-premises i
 
 To assess SAP inventory and workloads, create a project and add the SAP estate details, including the SAP System ID (SID) details, SAPs numbers for your servers, and server inventory details in the template Excel file. This capability discovers your on-premises inventory and SAP workloads and displays them in a dashboard. 
 
-Based on the discovered SAP workloads, this capability generates an assessment report that includes sizing recommendations and cost estimates for migration them to Azure. The report adheres to the correct reference architecture for SAP on Azure and recommend the most suitable VM types and disk types for your SAP systems.
+Based on the discovered SAP workloads, this capability generates an assessment report that includes sizing recommendations and cost estimates for migration them to Azure. The report adheres to the correct reference architecture for SAP on Azure and recommends the most suitable VM types and disk types for your SAP systems.
 
 ## Key benefits
 
