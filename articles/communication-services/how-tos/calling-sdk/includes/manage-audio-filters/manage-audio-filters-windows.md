@@ -9,7 +9,7 @@ ms.author: t-leejiyoon
 
 The audio filter feature allows different audio preprocessing options to be applied to outgoing audio. There are two types of audio filters: `OutgoingAudioFilters` and `LiveOutgoingAudioFilters`, with `OutgoingAudioFilters` changing settings before the call starts and `LiveOutgoingAudioFilters` changing settings while a call is in progress.
 
-You first need import the Calling SDK:
+You first need to import the Calling SDK:
 
 ```csharp
 using Azure.Communication;
