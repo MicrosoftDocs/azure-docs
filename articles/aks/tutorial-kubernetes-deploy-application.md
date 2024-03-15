@@ -41,7 +41,7 @@ This tutorial requires Azure PowerShell version 5.9.0 or later. Check your versi
 
 ### [Azure Developer CLI](#tab/azure-azd)
 
-This tutorial requires Azure Developer CLI (AZD) version 1.5.1 or later. Check your version with `azd version`. To install or upgrade, see [Install Azure Developer CLI][azure-azd-install].
+This tutorial requires Azure Developer CLI (`azd`) version 1.5.1 or later. Check your version with `azd version`. To install or upgrade, see [Install Azure Developer CLI][azure-azd-install].
 
 ---
 
@@ -113,10 +113,9 @@ In these tutorials, your Azure Container Registry (ACR) instance stores the cont
 
 4. Save and close the file. In `vi`, use `:wq`.
 
-
 ### [Azure Developer CLI](#tab/azure-azd)
 
-AZD doesn't require a container registry step since it's in the template.
+`azd` doesn't require a container registry step since it's in the template.
 
 ---
 
@@ -170,7 +169,7 @@ AZD doesn't require a container registry step since it's in the template.
     service/store-front created
     ```
 
-2. Check the deployment is successful by viewing the pods with `kubectl`
+2. Check the deployment is successful by viewing the pods with `kubectl`.
 
     ```console
     kubectl get pods
@@ -178,11 +177,24 @@ AZD doesn't require a container registry step since it's in the template.
 
 ### [Azure Developer CLI](#tab/azure-azd)
 
-Deployment in AZD in broken down into multiple stages represented by hooks. Run `azd up` as an all-in-one command.
+Deployment in `azd` is broken down into multiple stages represented by hooks. `azd` deploys with all hooks by default.
 
-When you first run azd up, you're prompted to select which Subscription and Region to host your Azure resources.
+1. Deploy the application using the `azd up` command.
 
-You can update these variables for `AZURE_LOCATION` and `AZURE_SUBSCRIPTION_ID` from inside the `.azure/<your-env-name>/.env` file.
+    ```azdeveloper
+    azd up
+    ```
+
+2. Select which subscription and region to host your Azure resources.
+
+    ```output
+    ? Select an Azure Subscription to use:  [Use arrows to move, type to filter]
+    > 1. My Azure Subscription (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)
+    Select an Azure location to use:  [Use arrows to move, type to filter]
+    > 43. (US) East US 2 (eastus2)
+    ```
+
+    You can update the variables for `AZURE_LOCATION` and `AZURE_SUBSCRIPTION_ID` from inside the `.azure/<your-env-name>/.env` file.
 
 ---
 
