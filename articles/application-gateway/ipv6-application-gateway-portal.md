@@ -14,7 +14,7 @@ ms.custom: mvc, mode-ui
 # Configure Application Gateway with a frontend public IPv6 address using the Azure portal
 
 > [!IMPORTANT]
-> Application Gateway IPv6 support is generally available. However, Azure portal updates to support IPv6 are currently being rolled out and will be completely available within the next few weeks. In the meantime, continue using the [preview registration process](/azure/azure-resource-manager/management/preview-features?tabs=azure-portal) in the Azure portal to opt in for **Allow Application Gateway IPv6 Access**. 
+> Application Gateway IPv6 support is generally available. The IPv6 feature can be accessed through PowerShell and CLI. Azure portal updates to support IPv6 are currently being rolled out and will be completely available within the next few weeks in all regions. In the meantime, continue using the [preview registration process](/azure/azure-resource-manager/management/preview-features?tabs=azure-portal) in the Azure portal to opt in for **Allow Application Gateway IPv6 Access**. 
 
 [Azure Application Gateway](overview.md) supports dual stack (IPv4 and IPv6) frontend connections from clients. To use IPv6 frontend connectivity, you need to create a new Application Gateway. Currently you can’t upgrade existing IPv4 only Application Gateways to dual stack (IPv4 and IPv6) Application Gateways. Also, currently backend IPv6 addresses aren't supported.
 
