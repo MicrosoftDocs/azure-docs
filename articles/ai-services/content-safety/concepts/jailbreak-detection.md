@@ -78,7 +78,7 @@ If you need a higher RPS, please [contact us](mailto:contentsafetysupport@micros
 
 ## Next steps
 
-Follow the quickstart to get started using Azure AI Content Safety to detect jailbreak risk.
+Follow the quickstart to get started using Azure AI Content Safety to detect user input risks.
 
 > [!div class="nextstepaction"]
-> [Detect jailbreak risk](../quickstart-jailbreak.md)
+> [Prompt Shields quickstart](../quickstart-jailbreak.md)

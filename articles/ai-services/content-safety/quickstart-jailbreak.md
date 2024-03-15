@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Detect jailbreak risk (preview)"
+title: "Quickstart: Prompt Shields (preview)"
 titleSuffix: Azure AI services
-description: Learn how to detect large language model jailbreak attack risks and mitigate risk with Azure AI Content Safety.
+description: Learn how to detect large language model input attack risks and mitigate risk with Azure AI Content Safety.
 services: ai-services
 author: PatrickFarley
 manager: nitinme
