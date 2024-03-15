@@ -40,7 +40,7 @@ Here's an example of the application registration page.
 
 You need the service principal's object ID and the tenant ID. You need this information for permission assignment operations later in this article. All applications are registered in Microsoft Entra ID in the tenant. Two types of objects get created when the app registration is completed:
 
-- Application object - The application object ID is what you see under App Registrations in Microsoft Entra ID. The object ID should *not* be used to grant any EA roles.
+- Application object - The application ID is what you see under Enterprise Applications. The ID should *not* be used to grant any EA roles.
 - Service Principal object - The Service Principal object is what you see in the Enterprise Registration window in Microsoft Entra ID. The object ID is used to grant EA roles to the service principal.
 
 1. Open Microsoft Entra ID, and then select **Enterprise applications**.
