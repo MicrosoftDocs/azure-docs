@@ -68,7 +68,7 @@ After a Log Analytics workspace is configured, access the Azure API Management A
 > [!TIP]
 > Azure workbooks are customizable and can be shared with others. You can also create your own workbooks based on the Azure API Management Analytics workbook. [Learn more](../azure-monitor/visualize/workbooks-manage.md).
 
-## Analytics
+## Analytics dashboard
 
 An analytics dashboard is also available in the Azure portal, and analytics data can be accessed using the API Management REST API. 
 
