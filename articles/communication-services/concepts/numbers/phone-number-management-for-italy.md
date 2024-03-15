@@ -14,7 +14,7 @@ ms.custom: references_regions
 ---
 
 # Phone number management for Italy
-Use the below tables to find all the relevant information on number availability, eligibility and restrictions for phone numbers in Italy.
+Use the below tables to find all the relevant information on number availability, eligibility, and restrictions for phone numbers in Italy.
 
 ## Number types and capabilities availability
 
@@ -28,7 +28,7 @@ Use the below tables to find all the relevant information on number availability
 
 \** Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
 
-\*** Phone numbers from Italy can only be purchased for own use. Reselling or suballocating to another party is not allowed.
+\*** Phone numbers from Italy can only be purchased for own use. Reselling or suballocating to another party isn't allowed.
 
 ## Subscription eligibility
 
@@ -41,7 +41,7 @@ More details on eligible subscription types are as follows:
 | Toll-Free and Local (Geographic/National) | Modern Customer Agreement (Field and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement*, Pay-As-You-Go |
 | Alphanumeric Sender ID            | Modern Customer Agreement (Field Led and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement**, Pay-As-You-Go                                      |
 
-\* In some countries/regions, number purchases are only allowed for own use. Reselling or suballcoating to another parties is not allowed. Due to this, purchases for CSP and LSP customers is not allowed.
+\* In some countries/regions, number purchases are only allowed for own use. Reselling or suballcoating to another parties isn't allowed. Due to this, purchases for CSP and LSP customers isn't allowed.
 
 \** Applications from all other subscription types are reviewed and approved on a case-by-case basis. Reach out to acstns@microsoft.com for assistance with your application.
 
