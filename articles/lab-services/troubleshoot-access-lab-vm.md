@@ -7,7 +7,7 @@ ms.service: lab-services
 author: ntrogh
 ms.author: nicktrog
 ms.topic: troubleshooting
-ms.date: 12/05/2022
+ms.date: 03/15/2024
 ---
 
 # Troubleshoot accessing lab VMs in Azure Lab Services
