@@ -79,7 +79,7 @@ To run the assessment, do the following:
 
 ## Review an assessment
 
-To view an assessment, use these steps:
+To view an assessment, follow these steps:
 
 1. Navigate to the **Servers, databases and web apps** page.
 1. Within **Assessment tools** section, select the image next to **SAP® Systems (Preview)** under **Assessments**.
