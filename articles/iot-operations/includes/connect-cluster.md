@@ -3,7 +3,7 @@
  description: include file
  author: kgremban
  ms.topic: include
- ms.date: 11/03/2023
+ ms.date: 03/15/2024
  ms.author: kgremban
 ms.custom: include file, ignite-2023, devx-track-azurecli
 ---
@@ -16,6 +16,12 @@ To connect your cluster to Azure Arc:
    ```azurecli
    az login
    ```
+
+   > [!TIP]
+   > If you're using a GitHub codespace in a browser, `az login` returns a localhost error in the browser window after logging in. To fix, either:
+   >
+   > * Open the codespace in VS Code desktop, and then return to the browser terminal and rerun `az login`.
+   > * Or, after you get the localhost error on the browser, copy the URL from the browser and run `curl "<URL>"` in a new terminal tab. You should see a JSON response with the message "You have logged into Microsoft Azure!."
 
 1. Set environment variables for the rest of the setup. Replace values in `<>` with valid values or names of your choice. A new cluster and resource group are created in your Azure subscription based on the names you provide:
 
@@ -76,7 +82,7 @@ To connect your cluster to Azure Arc:
    az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query id -o tsv
    ```
 
-   Make a note of the `objectId` that's returned. You use it in the next step.
+   Make a note of the `objectId`. You use it in the next step.
 
 1. Use the [az connectedk8s enable-features](/cli/azure/connectedk8s#az-connectedk8s-enable-features) command to enable custom location support on your cluster. This command uses the `objectId` of the Microsoft Entra ID application that the Azure Arc service uses. Run this command on the machine where you deployed the Kubernetes cluster:
 
