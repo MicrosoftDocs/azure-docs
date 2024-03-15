@@ -11,7 +11,7 @@ metadata:
   ms.topic: hub-page
   ms.custom:
     - ignite-2023
-  ms.date: 06/06/2023
+  ms.date: 02/14/2024
   ms.author: franlanglois
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -37,7 +37,7 @@ productDirectory:
       imageSrc: ./media/index/datadog.svg
       links:
         - url: ./datadog/overview.md
-          text: Cloud-scale observability and security for your Azure, hybrid, or multi-cloud environment to troubleshoot quickly, increase uptime, and control costs.
+          text: Cloud-scale observability and security for your Azure, hybrid, or multicloud environment to troubleshoot quickly, increase uptime, and control costs.
     # Card 3
     - title: Logz.io
       imageSrc: ./media/index/logz.io.svg

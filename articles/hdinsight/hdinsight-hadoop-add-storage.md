@@ -92,7 +92,7 @@ foreach ($name in $value ) { $name.Name.Split(".")[4]}
 
 1. Observe the keys that begin with `fs.azure.account.key`. The account name is part of the key as seen in this sample image:
 
-   :::image type="content" source="./media/hdinsight-hadoop-add-storage/apache-ambari-verification.png" alt-text="verification through Apache Ambari":::
+   :::image type="content" source="./media/hdinsight-hadoop-add-storage/apache-ambari-verification.png" alt-text="verification through Apache Ambari.":::
 
 ## Remove storage account
 

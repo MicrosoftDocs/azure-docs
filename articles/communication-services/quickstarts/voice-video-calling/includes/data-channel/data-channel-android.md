@@ -71,7 +71,7 @@ dataChannelCallFeature.addOnReceiverCreatedListener(receiverCreatedListener);
 MessageReceivedListener messageReceivedListener = new MessageReceivedListener() {
     @Override
     public void onMessageReceived(PropertyChangedEvent e) {
-        DataChannelMessage message = e.getReceiver().popMessage(); // read the data message from the receiver
+        DataChannelMessage message = e.getReceiver().receiveMessage(); // read the data message from the receiver
         int sequence = message.getSequenceNumber(); // get the message sequence number
         byte[] data = message.getData(); // get the data content
     }
