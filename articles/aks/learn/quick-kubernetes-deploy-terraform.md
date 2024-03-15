@@ -2,7 +2,7 @@
 title: 'Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using Terraform'
 description: Learn how to quickly deploy a Kubernetes cluster using Terraform and deploy an application in Azure Kubernetes Service (AKS).
 ms.topic: quickstart
-ms.date: 01/12/2024
+ms.date: 03/15/2024
 ms.custom: devx-track-terraform
 content_well_notification: 
   - AI-contribution
@@ -21,15 +21,13 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 > [!NOTE]
 > To get started with quickly provisioning an AKS cluster, this article includes steps to deploy a cluster with default settings for evaluation purposes only. Before deploying a production-ready cluster, we recommend that you familiarize yourself with our [baseline reference architecture][baseline-reference-architecture] to consider how it aligns with your business requirements.
 
-:::zone pivot="development-environment-azure-cli"
-
 ## Before you begin
 
 * This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
 * You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Follow the instructions based on your command line interface.
 
-### [Azure CLI](#tab/azure-cli)
+:::zone pivot="development-environment-azure-cli"
 
 * To learn more about creating a Windows Server node pool, see [Create an AKS cluster that supports Windows Server containers](quick-windows-container-deploy-cli.md).
 
@@ -45,45 +43,19 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 * Create an AzAPI resource [azapi_resource](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_resource).
 * Create an AzAPI resource to generate an SSH key pair using [azapi_resource_action](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_resource_action).
 
-### [Azure Developer CLI](#tab/azure-azd)
-
-* [Install the Azure Developer CLI (AZD)][azd]
-* [Install and configure Terraform](/azure/developer/terraform/quickstart-configure).
-* Clone the [AKS-Store Demo][aks-store-demo].
-
-    ```azurecli-interactive
-    azd init --template aks-store-demo
-    ```
-
 ---
 
 ## Login to your Azure account
 
-### [Azure CLI](#tab/azure-cli)
-
 First, log into your Azure account and authenticate using one of the methods described in the following section.
 
 [!INCLUDE [authenticate-to-azure.md](~/azure-dev-docs-pr/articles/terraform/includes/authenticate-to-azure.md)]
-
-### [Azure Developer CLI](#tab/azure-azd)
-
-1. Log into your Azure account using azd.
-
-    ```azurecli-interactive
-    azd auth login
-    ```
-
-2. Select your subscription and region.
-
-<!-- TODO: Add in output once code is merged -->
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ---
 
 ## Implement the Terraform code
-
-### [Azure CLI](#tab/azure-cli)
 
 > [!NOTE]
 > The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/201-k8s-cluster-with-tf-and-aks). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/201-k8s-cluster-with-tf-and-aks/TestRecord.md).
@@ -174,12 +146,6 @@ First, log into your Azure account and authenticate using one of the methods des
 * When you created the AKS cluster, monitoring was enabled to capture health metrics for both the cluster nodes and pods. These health metrics are available in the Azure portal. For more information on container health monitoring, see [Monitor Azure Kubernetes Service health](/azure/azure-monitor/insights/container-insights-overview).
 * Several key values classified as output when you applied the Terraform execution plan. For example, the host address, AKS cluster user name, and AKS cluster password are output.
 
-### [Azure Developer CLI](#tab/azure-azd)
-
-<!-- TODO: Steps for each file. -->
-
----
-
 ## Deploy the application
 
 To deploy the application, you use a manifest file to create all the objects required to run the [AKS Store application][aks-store-demo]. A [Kubernetes manifest file][kubernetes-deployment] defines a cluster's desired state, such as which container images to run. The manifest includes the following Kubernetes deployments and services:
@@ -194,7 +160,6 @@ To deploy the application, you use a manifest file to create all the objects req
 > [!NOTE]
 > We don't recommend running stateful containers, such as Rabbit MQ, without persistent storage for production. These are used here for simplicity, but we recommend using managed services, such as Azure CosmosDB or Azure Service Bus.
 
-### [Azure CLI](#tab/azure-cli)
 
 1. Create a file named `aks-store-quickstart.yaml` and copy in the following manifest:
 
@@ -450,10 +415,6 @@ To deploy the application, you use a manifest file to create all the objects req
     service/store-front created
     ```
 
-### [Azure Developer CLI](#tab/azure-azd)
-
-<!-- instructions for azd up, simplified ed. -->
-
 ### Test the application
 
 When the application runs, a Kubernetes service exposes the application front end to the internet. This process can take a few minutes to complete.
@@ -514,7 +475,162 @@ When the application runs, a Kubernetes service exposes the application front en
 
 :::zone pivot="development-environment-azure-developer"
 
-Testing for Azure Developer zone pivot.
+* [Install the Azure Developer CLI (AZD)][azd]
+* [Install and configure Terraform](/azure/developer/terraform/quickstart-configure).
+* You can review the application code used in the Azure-Samples/[aks-store-demo repo][aks-store-demo].
+
+## Clone the Azure Developer template
+
+1. Clone the AKS store demo template from the **Azure-Samples repository** using the `azd init` command with the `--template` parameter.
+
+    ```azurecli-interactive
+    azd init --template aks-store-demo
+    ```
+
+1. Enter an environment name for your project. The environment name should use only alphanumeric characters and hyphens, such as the following example environment name:
+
+    ```output
+    Enter a new environment name: aks-terraform-azd
+    ```
+
+## Login to your Azure account
+
+1. Sign in to your account using the `azd auth login` command.
+
+    ```azurecli-interactive
+    azd auth login
+    ```
+
+1. Copy the device code that appears and press `enter` to sign in.
+
+    ```output
+    Start by copying the next code: XXXXXXXXX
+    Then press enter and continue to log in from your browser...
+    ```
+
+1. Authenticate with your credentials on your organization's sign in page.
+
+1. Open your original terminal window and verify you received a successful sign in message similar to the following message:
+
+    ```output
+    Waiting for you to complete authentication in the browser...
+    Device code authentication completed.
+    Logged in to Azure.
+    ```
+
+[!INCLUDE [azd-login-ts](../includes/azd/azd-login-ts.md)]
+
+## Deploy the application
+
+To deploy the application, you use the `azd up` command to create all the objects required to run the [AKS Store application][aks-store-demo]. 
+
+* An `azure.yaml` file defines a cluster's desired state, such as which container images to fetch and includes the following Kubernetes deployments and services:
+
+:::image type="content" source="media/quick-kubernetes-deploy-terraform/aks-store-architecture.png" alt-text="Screenshot of Azure Store sample architecture." lightbox="media/quick-kubernetes-deploy-terraform/aks-store-architecture.png":::
+
+* **Store front**: Web application for customers to view products and place orders.
+* **Product service**: Shows product information.
+* **Order service**: Places orders.
+* **Rabbit MQ**: Message queue for an order queue.
+
+> [!NOTE]
+> We don't recommend running stateful containers, such as Rabbit MQ, without persistent storage for production. These are used here for simplicity, but we recommend using managed services, such as Azure CosmosDB or Azure Service Bus.
+
+### Generate Terraform plans
+
+Within your Azure Developer template, the `/infra/terraform` folder contains all the code used to generate the Terraform plan.
+
+Terraform deploys and runs commands using `terraform apply` as part of `azd`.
+
+A successful Terraform deployment plan results in a similar following message:
+
+    ```output
+    Plan: 5 to add, 0 to change, 0 to destroy.
+    ...
+    Saved the plan to: /workspaces/aks-store-demo/.azure/aks-terraform-azd/infra/terraform/main.tfplan
+    ```
+
+### Deploy application resources
+
+1. Create the application resources using the `azd up` command.
+
+    ```azdeveloper
+    azd up
+    ```
+
+1. Select an Azure subscription to bill your usage.
+
+    ```output
+    ? Select an Azure Subscription to use:  [Use arrows to move, type to filter]
+    > 1. My Azure Subscription (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)
+    ```
+
+1. Select a region to deploy your application to.
+
+    ```output
+    Select an Azure location to use:  [Use arrows to move, type to filter]
+      40. (South America) Brazil Southeast (brazilsoutheast)
+      41. (US) Central US (centralus)
+      42. (US) East US (eastus)
+    > 43. (US) East US 2 (eastus2)
+      44. (US) East US STG (eastusstg)
+      45. (US) North Central US (northcentralus)
+      46. (US) South Central US (southcentralus)
+    ```
+
+1. Wait as azd automatically runs the commands for pre-provision and post-provision steps. Once completed, you should see an output with 3 `SUCCESS:` similar to the following example output:
+
+    ```output
+    SUCCESS: Your application was provisioned in Azure in 4 minutes 50 seconds.
+
+    SUCCESS: Your application was deployed to Azure in less than a second.
+
+    SUCCESS: Your up workflow to provision and deploy to Azure completed in 5 minutes 11 seconds.
+    ```
+
+## Test the application
+
+When the application runs, a Kubernetes service exposes the application front end to the internet. This process can take a few minutes to complete.
+
+1. Check the status of the deployed pods using the `kubectl get pods` command. Make all pods are `Running` before proceeding.
+
+    ```console
+    kubectl get pods
+    ```
+
+1. Check for a public IP address for the store-front application. Monitor progress using the `kubectl get service` command with the `--watch` argument.
+
+    ```azurecli-interactive
+    kubectl get service store-front --watch
+    ```
+
+    The **EXTERNAL-IP** output for the `store-front` service initially shows as *pending*:
+
+    ```output
+    NAME          TYPE           CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE
+    store-front   LoadBalancer   10.0.100.10   <pending>     80:30025/TCP   4h4m
+    ```
+
+1. Once the **EXTERNAL-IP** address changes from *pending* to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process.
+
+    The following example output shows a valid public IP address assigned to the service:
+
+    ```output
+    NAME          TYPE           CLUSTER-IP    EXTERNAL-IP    PORT(S)        AGE
+    store-front   LoadBalancer   10.0.100.10   20.62.159.19   80:30025/TCP   4h5m
+    ```
+
+1. Open a web browser to the external IP address of your service to see the Azure Store app in action.
+
+    :::image type="content" source="media/quick-kubernetes-deploy-terraform/aks-store-application.png" alt-text="Screenshot of AKS Store sample application." lightbox="media/quick-kubernetes-deploy-terraform/aks-store-application.png":::
+
+### Delete application resources
+
+1. Delete all the resources created in the quickstart using the `azd down` command. This uses the main.tfplan generated to clean up all created services.
+
+    ```azdeveloper
+    azd down
+    ```
 
 :::zone-end
 
