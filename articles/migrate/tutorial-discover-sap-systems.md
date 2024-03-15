@@ -43,11 +43,13 @@ To set up a migration project, follow these steps:
         2. **Region**: Select the region in which you want to create the project.
     
      > [!Note]
-     > You can use the **Advanced** configuration section to create an Azure Migrate project with private endpoint connectivity. [Learn more](discover-and-assess-using-private-endpoints.md#create-a-project-with-private-endpoint-connectivity)
+     > In the **Advanced** configuration, the default connectivity is set to public endpoint. You can also create an Azure Migrate project with private endpoint connectivity. [Learn more](discover-and-assess-using-private-endpoints.md#create-a-project-with-private-endpoint-connectivity)
 
-1. Select **Create**. <br/>Wait for a few minutes for the project deployment. The Azure Migrate: Discovery and assessment tool is added by default to the new project.
-    
+1. Select **Create**.
+
     :::image type="content" source="./media/tutorial-discover-sap-systems/create-project-sap.png" alt-text="Screenshot that shows how to create a project." lightbox="./media/tutorial-discover-sap-systems/create-project-sap.png":::
+
+    Wait for a few minutes for the project deployment.
     
 ## Prepare the import file
 
@@ -60,11 +62,11 @@ To prepare the import file, do the following:
 
 To download the template, follow these steps:
 1. On the **Azure Migrate** page, under **Migration goals**, select **Servers, databases and web apps**.
-1. On the **Servers, databases and web apps** page, under **Assessments tools**, from the **Discover** dropdown menu, select **Using import**.
+1. On the **Servers, databases and web apps** page, under **Assessments tools**, select **Using import** from the **Discover** dropdown menu.
 
     :::image type="content" source="./media/tutorial-discover-sap-systems/using-import.png" alt-text="Screenshot that shows how to download a template using import option." lightbox="./media/tutorial-discover-sap-systems/using-import.png":::
 
-1. On the **Discover** page, select **SAP® inventory (XLS)** in the **File type**.
+1. On the **Discover** page, for **File type**, select **SAP® inventory (XLS)**.
 1. Select **Download** to download the template.
 
     :::image type="content" source="./media/tutorial-discover-sap-systems/download-template.png" alt-text="Screenshot that shows how to download a template." lightbox="./media/tutorial-discover-sap-systems/download-template.png":::
@@ -76,7 +78,7 @@ To download the template, follow these steps:
 ### Add on-premises SAP infrastructure
 
 Collect on-premises SAP system inventory and add it into the template file.
-- To collect data, export it from the SAP system and fill in the template with the [relevant on-premises SAP system inventory](https://microsoftapc.sharepoint.com/teams/SAPEmbrace95/Shared%20Documents/Forms/AllItems.aspx?id=%2Fteams%2FSAPEmbrace95%2FShared%20Documents%2FGeneral%2FEngineering%20New%2FFeature%20Discussions%2FAZ%2DMigrate%2FSAP%5FCOLLECTOR%5FADVISOR%2FE2E%20Tests%2FCases%20V3%20%28SelfHost%29&p=true&ga=1&LOF=1).
+- To collect data, export it from the SAP system and fill in the template with the relevant on-premises SAP system inventory.
 - To review sample data, download the [sample import file](https://github.com/Azure/Discovery-and-Assessment-for-SAP-systems-with-AzMigrate/tree/main/Import%20file%20samples).
 
 
@@ -120,13 +122,13 @@ To import SAP Systems inventory, follow these steps:
 
     :::image type="content" source="./media/tutorial-discover-sap-systems/import-excel.png" alt-text="Screenshot that shows how to import SAP inventory." lightbox="./media/tutorial-discover-sap-systems/import-excel.png":::
 
-1. Review the import details to check for any errors or validation failures.<br> If the import is successful, the SAP systems are discovered.
+    Review the import details to check for any errors or validation failures. After the successful import, you can view the discovered SAP systems.
 
 ## View discovered SAP systems
 
 To view the discovered SAP systems, follow these steps:
 1. On the **Azure Migrate** page, under **Migration goals**, select **Servers, databases and web apps**.
-1. On the **Servers, databases and web apps** page, under **Assessments tools**, select the number below **Discovered SAP® systems**.
+1. On the **Servers, databases and web apps** page, under **Assessments tools**, select the number associated with **Discovered SAP® systems**.
 
     :::image type="content" source="./media/tutorial-discover-sap-systems/discovered-systems.png" alt-text="Screenshot that shows discovered SAP inventory." lightbox="./media/tutorial-discover-sap-systems/discovered-systems.png":::
 

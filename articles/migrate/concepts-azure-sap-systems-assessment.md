@@ -20,7 +20,7 @@ Based on the discovered SAP workloads, this capability generates an assessment r
 
 ## Key benefits
 
--    A faster and easier way to discover and assess your SAP estates for your migration to Azure.
+-    A faster and easier way to discover and assess your SAP estates for migration to Azure.
 - A comprehensive and integrated solution for both SAP and non-SAP workloads and provides a unified view of your migration readiness.
 - A reliable and accurate assessment that follows the best practices and guidelines for SAP on Azure.
 
