@@ -4,7 +4,7 @@ titleSuffix: Microsoft Sentinel
 description: This article explains how to view, create, manage, and visualize threat intelligence indicators in Microsoft Sentinel.
 author: austinmccollum
 ms.topic: how-to
-ms.date: 3/06/2024
+ms.date: 3/14/2024
 ms.author: austinmc
 appliesTo: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
 ms.collection: usx-security
@@ -45,11 +45,11 @@ For example:
 
 #### [Azure portal](#tab/azure-portal)
 
-:::image type="content" source="media/work-with-threat-indicators/geolocation-whois-ti-sentinel.png" alt-text="Screenshot of the Threat intelligence page with an indicator showing GeoLocation and WhoIs data." lightbox="media/work-with-threat-indicators/geolocation-whois-ti-sentinel.png":::
+:::image type="content" source="media/work-with-threat-indicators/geolocation-whois-sentinel.png" alt-text="Screenshot of the Threat intelligence page with an indicator showing GeoLocation and WhoIs data." lightbox="media/work-with-threat-indicators/geolocation-whois-sentinel.png":::
 
 #### [Defender portal](#tab/defender-portal)
 
-:::image type="content" source="media/work-with-threat-indicators/geolocation-whois-ti-defender.png" alt-text="Screenshot of the Threat intelligence page with an indicator showing GeoLocation and WhoIs data from the Defender portal." lightbox="media/work-with-threat-indicators/geolocation-whois-ti-defender.png":::
+:::image type="content" source="media/work-with-threat-indicators/geolocation-whois-defender.png" alt-text="Screenshot of the Threat intelligence page with an indicator showing GeoLocation and WhoIs data from the Defender portal." lightbox="media/work-with-threat-indicators/geolocation-whois-defender.png":::
 
 ---
 
@@ -67,7 +67,7 @@ Imported threat indicators are listed in the **Microsoft Sentinel > ThreatIntell
 
 1. Open the [Azure portal](https://portal.azure.com/) and navigate to the **Microsoft Sentinel** service.
 
-1. Select the workspace to which you’ve imported threat indicators using either threat intelligence data connector.
+1. Select the workspace to which you've imported threat indicators using either threat intelligence data connector.
 
 1. Select **Logs** from the **General** section of the Microsoft Sentinel menu.
 
@@ -85,11 +85,7 @@ The **Threat intelligence** page also allows you to create threat indicators dir
 
 ### Create a new indicator
 
-1. From the [Azure portal](https://portal.azure.com/), navigate to the **Microsoft Sentinel** service.
-
-1. Choose the **workspace** to which you’ve imported threat indicators using either threat intelligence data connector.
-
-1. Select **Threat Intelligence** from the Threat Management section of the Microsoft Sentinel menu.
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Threat management**, select **Threat intelligence**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Threat management** > **Threat intelligence**.
 
 1. Select the **Add new** button from the menu bar at the top of the page.
 

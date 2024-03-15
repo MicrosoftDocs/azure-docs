@@ -113,7 +113,7 @@ To connect to Threat Intelligence Platform (TIP) feeds, see [connect Threat Inte
 ### MISP Open Source Threat Intelligence Platform
 
 - Push threat indicators from MISP to Microsoft Sentinel using the TI upload indicators API with [MISP2Sentinel](https://www.misp-project.org/2023/08/26/MISP-Sentinel-UploadIndicatorsAPI.html/).
-- Here is the Azure Marketplace link for [MISP2Sentinel](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoftsentinelcommunity.azure-sentinel-solution-misp2sentinel?tab=Overview).
+- Here is the Azure Marketplace link for [MISP2Sentinel](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsentinelcommunity.azure-sentinel-solution-misp2sentinel?tab=Overview).
 - [Learn more about the MISP Project](https://www.misp-project.org/).
 
 ### Palo Alto Networks MineMeld

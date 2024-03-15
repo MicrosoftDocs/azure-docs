@@ -40,12 +40,11 @@ If you didn't use a watchlist template to create your file,
    
    #### [Azure portal](#tab/azure-portal)
     
-   :::image type="content" source="./media/watchlists-create/sentinel-watchlist-new2.png" alt-text="Screenshot of add watchlist option on watchlist page." lightbox="./media/watchlists-create/sentinel-watchlist-new2.png":::
+   :::image type="content" source="./media/watchlists-create/sentinel-watchlist-new.png" alt-text="Screenshot of add watchlist option on watchlist page." lightbox="./media/watchlists-create/sentinel-watchlist-new.png":::
 
    #### [Defender portal](#tab/defender-portal)
 
    :::image type="content" source="./media/watchlists-create/sentinel-watchlist-new-defender.png" alt-text="Screenshot of add watchlist option on watchlist page." lightbox="./media/watchlists-create/sentinel-watchlist-new-defender.png":::
-
    ---
 
 1. On the **General** page, provide the name, description, and alias for the watchlist.
@@ -148,7 +147,7 @@ Create a shared access signature URL for Microsoft Sentinel to retrieve the watc
 
 ### Step 3: Add Azure to the CORS tab
 
-Before using a SAS URI, add the azure portal to the Cross Origin Resource Sharing (CORS).
+Before using a SAS URI, add the Azure Portal to the Cross Origin Resource Sharing (CORS).
 
 1. Go to the storage account settings, **Resource sharing** page.
 1. Select the **Blob service** tab.
@@ -164,7 +163,7 @@ For more information, see [CORS support for Azure Storage](/rest/api/storageserv
 
 1. Select **+ New**.
 
-   :::image type="content" source="./media/watchlists-create/sentinel-watchlist-new2.png" alt-text="Screenshot of the add watchlist on the watchlist page." lightbox="./media/watchlists-create/sentinel-watchlist-new2.png":::
+   :::image type="content" source="./media/watchlists-create/sentinel-watchlist-new.png" alt-text="Screenshot of the add watchlist on the watchlist page." lightbox="./media/watchlists-create/sentinel-watchlist-new.png":::
 
 1. On the **General** page, provide the name, description, and alias for the watchlist.
 
