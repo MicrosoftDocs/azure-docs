@@ -48,7 +48,7 @@ You can provide feedback on any issue you find in an Azure Maps map using the fe
 
 ### Using the search bar
 
-If the map does not appear in the desired location when bringing up the feedback tool, you can pan the map to the desired location using your mouse. Another option is to use the search bar, just type in the desired location and select the enter key. Once you have selected the desired location, select the `x` in the upper right-hand side of the search results view to return to the feedback tool.
+If the map does not appear in the desired location when bringing up the feedback tool, you can pan the map to the desired location using your mouse. Another option is to use the search bar, just type in the desired location and select the **Enter** key. Once you have selected the desired location, select the **`X`** in the upper right-hand side of the search results view to return to the feedback tool.
 
 :::image type="content" source="./media/how-to-use-feedback-tool/searchbar.png" lightbox="./media/how-to-use-feedback-tool/searchbar.png" alt-text="A screenshot showing Bing Maps search bar.":::
 
