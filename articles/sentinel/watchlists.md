@@ -1,10 +1,14 @@
 ---
-title: What is a watchlist - Microsoft Sentinel
-description: Learn what watchlists are in Microsoft and when to use them.
+title: What is a watchlist
+titleSuffix: Microsoft Sentinel
+description: Learn how watchlists allow you to correlate data with events and when to use them in Microsoft Sentinel.
 author: cwatson-cat
 ms.author: cwatson
-ms.topic: conceptual
-ms.date: 01/05/2023
+ms.topic: concept
+ms.date: 3/14/2024
+appliesTo: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+ms.collection: usx-security
+#Customer intent:
 ---
 
 # Use watchlists in Microsoft Sentinel
