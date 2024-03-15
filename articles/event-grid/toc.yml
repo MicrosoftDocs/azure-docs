@@ -35,10 +35,8 @@ items:
           items:
           - name: Azure portal
             href: mqtt-routing-to-azure-functions-portal.md
-        - name: Route MQTT messages to Azure Event Hubs using custom topics 
-          items: 
           - name: Azure CLI
-            href: mqtt-routing-to-event-hubs-cli.md
+            href: mqtt-routing-to-azure-functions-cli.md
       - name: Samples
         href: https://github.com/Azure-Samples/MqttApplicationSamples
       - name: Concepts
