@@ -46,7 +46,7 @@ More detailed information and other options for connecting to the dev feed can b
 While still in the application directory, install the Azure Communication Services PhoneNumbers client library for .NET package by using the following command.
 
 ```console
-dotnet add package Azure.Communication.PhoneNumbers --version 1.3.0-beta.2
+dotnet add package Azure.Communication.PhoneNumbers --version 1.3.0-beta.4
 ```
 
 Add a `using` directive to the top of **Program.cs** to include the `Azure.Communication` namespace.
@@ -79,7 +79,7 @@ Phone Number clients can be authenticated using connection string acquired from 
 // This code retrieves your connection string from an environment variable.
 string? connectionString = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_CONNECTION_STRING");
   
-PhoneNumbersClient client = new PhoneNumbersClient(connectionString, new PhoneNumbersClientOptions(PhoneNumbersClientOptions.ServiceVersion.V2023_05_01_Preview));
+PhoneNumbersClient client = new PhoneNumbersClient(connectionString, new PhoneNumbersClientOptions(PhoneNumbersClientOptions.ServiceVersion.V2024_03_01_Preview));
 ```
 
 Phone Number clients can also authenticate with Microsoft Entra authentication. With this option,
@@ -92,12 +92,12 @@ TokenCredential tokenCredential = new DefaultAzureCredential();
 client = new PhoneNumbersClient(endpoint, tokenCredential);
 ```
 
-### Look up operator information for a number
+### Look up phone number formatting
 
-To search for a phone number's operator information, call `SearchOperatorInformationAsync` from the `PhoneNumbersClient`.
+To look up the national and international formatting for a number, call  `SearchOperatorInformationAsync` from the `PhoneNumbersClient`.
 
 ```csharp
-OperatorInformationResult searchResult = await client.SearchOperatorInformationAsync(new[] { "<target-phone-number>" });
+OperatorInformationResult formattingResult = await client.SearchOperatorInformationAsync(new[] { "<target-phone-number>" });
 ```
 
 Replace `<target-phone-number>` with the phone number you're looking up, usually a number you'd like to send a message to.
@@ -105,13 +105,33 @@ Replace `<target-phone-number>` with the phone number you're looking up, usually
 > [!WARNING]
 > Provide phone numbers in E.164 international standard format, for example, +14255550123.
 
+### Look up operator information for a number
+
+To search for a phone number's operator information, call `SearchOperatorInformationAsync` from the `PhoneNumbersClient`, passing `true` for the `IncludeAdditionalOperatorDetails` option.
+
+```csharp
+OperatorInformationResult searchResult = await client.SearchOperatorInformationAsync(new[] { "<target-phone-number>" }, new OperatorInformationOptions() { IncludeAdditionalOperatorDetails = true });
+```
+
+> [!WARNING]
+> Using this functionality will incur a charge to your account
+
 ### Use operator information
 
 You can now use the operator information.  For this quickstart guide, we can print some of the details to the console.
 
+First, we can print out details about the number format.
+
+```csharp
+OperatorInformation formattingInfo = formattingResult.Values[0];
+Console.WriteLine($"{formattingInfo.PhoneNumber} is formatted {formattingInfo.InternationalFormat} internationally, and {formattingInfo.NationalFormat} nationally");
+```
+
+Next, we can print out details about the phone number and operator.
+
 ```csharp
 OperatorInformation operatorInformation = searchResult.Values[0];
-Console.WriteLine($"{operatorInformation.PhoneNumber} is a {operatorInformation.NumberType ?? "unknown"} number, operated by {operatorInformation.OperatorDetails.Name ?? "an unknown operator"}");
+Console.WriteLine($"{operatorInformation.PhoneNumber} is a {operatorInformation.NumberType ?? "unknown"} number, operated in {operatorInformation.IsoCountryCode} by {operatorInformation.OperatorDetails.Name ?? "an unknown operator"}");
 ```
 
 You may also use the operator information to determine whether to send an SMS.  For more information on sending an SMS, see the [SMS Quickstart](../../sms/send.md).
@@ -121,7 +141,7 @@ You may also use the operator information to determine whether to send an SMS.  
 Run the application from your terminal or command window with the `dotnet run` command.
 
 ```console
-dotnet run
+dotnet run --interactive
 ```
 
 ## Sample code
