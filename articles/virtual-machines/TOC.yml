@@ -285,6 +285,8 @@
         href: m-series.md
       - name: Msv2 and Mdsv2 Medium Memory series
         href: msv2-mdsv2-series.md
+      - name: Msv2 and Mdsv2 migration guide
+        href: msv2-mdsv2-isolated-retirement.md
       - name: Mv2-series
         href: mv2-series.md
       - name: Msv3 and Mdsv3 Medium Memory Series
