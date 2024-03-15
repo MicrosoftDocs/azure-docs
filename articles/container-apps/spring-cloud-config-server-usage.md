@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Configure settings for the Spring Cloud Configure Server component in Azure Container Apps (preview)"
+title: "Configure settings for the Spring Cloud Configure Server component in Azure Container Apps (preview)
 description: Learn how to configure a Spring Cloud Config Server component for your container app.
 services: container-apps
 author: craigshoemaker
@@ -9,13 +9,15 @@ ms.date: 03/13/2024
 ms.author: cshoe
 ---
 
-# Tutorial: Configure settings for the Spring Cloud Config Server component in Azure Container Apps (preview)
+# Configure settings for the Spring Cloud Config Server component in Azure Container Apps (preview)
 
 Spring Cloud Config Server provides a centralized location to make configuration data available to multiple applications. Use the following guidance to learn how to configure and manage your Spring Cloud Config Server component.
 
 ## Show
 
 You can show the details of an individual component by name using the `show` command.
+
+Before you run the following command, replace placeholders surrounded by `<>` with your values.
 
 ```azurecli
 az containerapp env java-component spring-cloud-config show \
@@ -27,6 +29,8 @@ az containerapp env java-component spring-cloud-config show \
 ## List
 
 You can list all registered Java components using the `list` command.
+
+Before you run the following command, replace placeholders surrounded by `<>` with your values.
 
 ```azurecli
 az containerapp env java-component list \
@@ -48,6 +52,8 @@ az containerapp update \
 ## Unbind
 
 To break the connection between your container app and the Spring Cloud Config Server component, use the the `--unbind` parameter of the `update` command.
+
+Before you run the following command, replace placeholders surrounded by `<>` with your values.
 
 ``` azurecli
 az containerapp update \

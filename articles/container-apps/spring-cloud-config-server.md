@@ -1,5 +1,5 @@
 ---
-title: Connect to a managed Spring Cloud Config Server in Azure Container Apps (preview)
+title: "Tutorial: Connect to a managed Spring Cloud Config Server in Azure Container Apps (preview)"
 description: Learn how to connect a Spring Cloud Config Server to your container app.
 services: container-apps
 author: craigshoemaker
@@ -9,7 +9,7 @@ ms.date: 03/13/2024
 ms.author: cshoe
 ---
 
-# Connect to a managed Spring Cloud Config Server in Azure Container Apps (preview)
+# Tutorial: Connect to a managed Spring Cloud Config Server in Azure Container Apps (preview)
 
 Spring Cloud Config Server provides a centralized location to make configuration data available to multiple applications. In this article, you learn to connect an app hosted in Azure Container Apps to a Java Spring Cloud Config Server instance.
 
