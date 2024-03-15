@@ -242,7 +242,6 @@ For Assistants you need a combination of a supported model, and a supported regi
 | Region | `gpt-35-turbo (0613)` | `gpt-35-turbo (1106)` | `gpt-4 (0613)` | `gpt-4 (1106)` | `gpt-4 (0125)` | 
 |-----|---|---|---|---|---|
 | Australia East | ✅ | ✅ | ✅ |✅ | |
-| East US |  | |  | | ✅ |
 | East US 2 | ✅ | | ✅ |✅ | |
 | Sweden Central | ✅ |✅ |✅ |✅| |
 
@@ -250,7 +249,6 @@ Provisioned Throughput Unit (PTU) availability
 
 | Region | `gpt-35-turbo (1106)` | `gpt-4 (1106)` | `gpt-4 (0125)` |  
 |-----|---|---|---|
-| East US | ✅ | ✅ | |
 | East US 2 | | ✅ | ✅ |
 | Sweden Central | ✅ |✅ |✅ |
 
