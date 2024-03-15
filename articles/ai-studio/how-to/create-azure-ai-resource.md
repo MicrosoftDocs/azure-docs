@@ -73,7 +73,7 @@ If your organization is using [Azure Policy](../../governance/policy/overview.md
 
 ## Manage your Azure AI resource from the Azure portal
 
-### Azure AI resource keys
+### Azure AI hub resource keys
 View your keys and endpoints for your Azure AI resource from the overview page within the Azure portal.
 
 :::image type="content" source="../media/how-to/resource-manage-view-keys.png" alt-text="Screenshot of the Azure AI resource in the Azure portal showing the keys and endpoints." lightbox="../media/how-to/resource-manage-view-keys.png":::
@@ -111,6 +111,13 @@ From the Azure portal view, navigate to the encryption tab, to find the encrypti
 For Azure AI resources that use CMK encryption mode, you can update the encryption key to a new key version. This update operation is constrained to keys and key versions within the same Key Vault instance as the original key.
 
 :::image type="content" source="../media/how-to/resource-manage-encryption.png" alt-text="Screenshot of the Encryption page of the Azure AI resource in the Azure portal." lightbox="../media/how-to/resource-manage-encryption.png":::
+
+### Update Azure Application Insights and Azure Container Registry
+To use custom environments for Prompt Flow, you are required to configure an Azure Container Registry for your AI hub. When using Azure Application Insights for Prompt Flow deployments, a configured Azure Application Insights resource is required for your AI hub.
+
+The above two Azure resources can be setup when your AI hub is created, or updated afterwards. To update, navigate to the 'properties tab' for your Azure AI hub resource in the Azure portal. Then, select 'Update Azure Application Insights'. Alternatively, use Azure SDK/CLI options or infrastructure-as-code templates to update Azure Application Insights and Azure Container Registry.
+
+:::image type="content" source="../media/how-to/resource-manage-encryption.png" alt-text="Screenshot of the Encryption page of the Azure AI resource in the Azure portal." lightbox="../media/how-to/resource-manage-update-associated-resources.png":::
 
 ## Manage your Azure AI resource from the Manage tab within the AI Studio
 
