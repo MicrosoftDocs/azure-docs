@@ -92,7 +92,16 @@ landingContent:
             url: ./troubleshoot-general.md
           - text: Create SAP systems assessment
             url: ./tutorial-assess-sap-systems.md
-
+  - title: SAP Systems
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Assess SAP Systems
+            url: ./concepts-azure-sap-systems-assessment.md
+      - linkListType: tutorial
+        links:
+          - text: Assess VMware VMs with Server Assessment
+            url: ./tutorial-discover-vmware.md
   - title: Learn more
     linkLists:
       - linkListType: learn
