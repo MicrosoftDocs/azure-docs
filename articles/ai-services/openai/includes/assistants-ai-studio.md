@@ -37,9 +37,9 @@ author: mrbullwinkle
     | **Assistant name** | Your deployment name that is associated with a specific model. |
     | **Instructions** | Instructions are similar to system messages this is where you give the model guidance about how it should behave and any context it should reference when generating a response. You can describe the assistant's personality, tell it what it should and shouldn't answer, and tell it how to format responses. You can also provide examples of the steps it should take when answering responses. |
     | **Deployment** | This is where you set which model deployment to use with your assistant. |
-    | **Functions**| Create custom function definitions for the models to formulate API calls and structure data outputs based on your specifications |
+    | **Functions**| Create custom function definitions for the models to formulate API calls and structure data outputs based on your specifications. Not used in this quickstart. |
     | **Code interpreter** | Code interpreter provides access to a sandboxed Python environment that can be used to allow the model to test and execute code. |
-    | **Files** | You can upload up to 20 files, with a max file size of 512 MB to use with tools. |
+    | **Files** | You can upload up to 20 files, with a max file size of 512 MB to use with tools. Not used in this quickstart. |
     
     
 1. Select your deployment from the **Deployments** dropdown.
