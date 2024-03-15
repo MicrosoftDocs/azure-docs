@@ -53,7 +53,7 @@ az containerapp update \
 
 ## Unbind
 
-To break the connection between your container app and the Spring Cloud Config Server component, use the the `--unbind` parameter of the `update` command.
+To break the connection between your container app and the Spring Cloud Config Server component, use the `--unbind` parameter of the `update` command.
 
 Before you run the following command, replace placeholders surrounded by `<>` with your values.
 
@@ -112,7 +112,7 @@ The following configuration settings are available on the `spring.cloud.config.s
   - You can configure the Health Indicator to check more applications along with custom profiles and custom labels
 
 - **spring.cloud.config.server.accept-empty**
-  - You can set `spring.cloud.config.server.accept-empty` to `false` so that the server returns a HTTP `404` status, if the application is not found. By default, this flag is set to `true`.
+  - You can set `spring.cloud.config.server.accept-empty` to `false` so that the server returns an HTTP `404` status, if the application is not found. By default, this flag is set to `true`.
 
 - **Encryption and decryption (symmetric)**
   - **encrypt.key**
