@@ -14,6 +14,10 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+* [Large volumes (Preview) improvement:](large-volumes-requirements-considerations.md) new minimum size of 50 TiB
+
+    Large volumes support a minimum size of 50 TiB. Large volumes still support a maximum quota of 500 TiB. 
+
 ## March 2024
 
 * [Volume enhancement: create volumes with the same file path, share name, or volume path in different availability zones](manage-availability-zone-volume-placement.md#file-path-uniqueness) (Preview)
