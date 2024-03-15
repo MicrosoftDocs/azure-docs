@@ -46,8 +46,8 @@ The IPv6 Application Gateway preview is available to all public cloud regions wh
 * IPv6 private Link is currently not supported
 * IPv6-only Application Gateway is currently not supported. Application Gateway must be dual stack (IPv6 and IPv4)
 * Deletion of frontend IP addresses isn't supported
-* Application Gateway Ingress Controller (AGIC) does not support IPv6 configuration
-* Existing IPv4 Application Gateways cannot be upgraded to dual stack Application Gateways
+* Application Gateway Ingress Controller (AGIC) doesn't support IPv6 configuration
+* Existing IPv4 application gateways can't be upgraded to dual stack application gateways
 
 > [!NOTE]
 > If you use WAF v2 SKU for a frontend with both IPv4 and IPv6 addresses, WAF rules only apply to IPv4 traffic. IPv6 traffic bypasses WAF and may get blocked by some custom rule.
@@ -119,7 +119,7 @@ Create the application gateway using the tabs on the **Create application gatewa
 
 ### Backends tab
 
-The backend pool is used to route requests to the backend servers that serve the request. Backend pools can be composed of NICs, Virtual Machine Scale Sets, public IP addresses, internal IP addresses, fully qualified domain names (FQDN), and multi-tenant backends like Azure App Service. In this example, you create an empty backend pool with your application gateway and then add backend targets to the backend pool.
+The backend pool is used to route requests to the backend servers that serve the request. Backend pools can be composed of NICs, Virtual Machine Scale Sets, public IP addresses, internal IP addresses, fully qualified domain names (FQDN), and multitenant backends like Azure App Service. In this example, you create an empty backend pool with your application gateway and then add backend targets to the backend pool.
 
 1. On the **Backends** tab, select **Add a backend pool**.
 
@@ -156,7 +156,7 @@ On the **Configuration** tab, the frontend and backend pool are connected with a
 
 4. On the **Backend targets** tab, select your backend pool for the **Backend target**. For example, **myBackendPool**.
 
-5. For the **Backend setting**, select **Add new**. The Backend setting determines the behavior of the routing rule. In the **Add Backend setting** pane, enter a Backend settings name. For example, **myBackendSetting**. 
+5. For the **Backend setting**, select **Add new**. The backend setting determines the behavior of the routing rule. In the **Add backend setting** pane, enter a backend settings name. For example, **myBackendSetting**. 
 
 6. Accept the default values for other settings and then select **Add**. 
 
