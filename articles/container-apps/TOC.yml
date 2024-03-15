@@ -310,6 +310,8 @@
         displayName: java
       - name: Use Spring Cloud Eureka Server
         href: spring-cloud-eureka-server-usage.md
+      - name: Use Spring Cloud Config Server
+        href: spring-cloud-config-server-usage.md
         displayName: java
       - name: Tutorials
         items:
@@ -318,6 +320,8 @@
             displayName: java
           - name: Connect to Spring Cloud Eureka Server
             href: spring-cloud-eureka-server.md
+          - name: Connect to Spring Cloud Config Server
+            href: spring-cloud-config-server.md
             displayName: java
 - name: Billing & quotas
   items:
