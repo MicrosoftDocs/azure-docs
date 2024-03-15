@@ -58,6 +58,7 @@ The following capabilities are only available in the Azure portal.
 |Capability  |Learn more  |
 |---------|---------|
 |Tasks   |     [Use tasks to manage incidents in Microsoft Sentinel](incident-tasks.md)    |
+|Add entities to threat intelligence from incidents | [Add entity to threat indicators](add-entity-to-threat-intelligence.md)   |
 
 
 ## Quick reference
