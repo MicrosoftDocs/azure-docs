@@ -10,6 +10,8 @@ The enablement of managed prometheus will automatically deploy the custom resour
 
 ### Create a Pod or Service Monitor
 Use the [Pod and Service Monitor templates](https://github.com/Azure/prometheus-collector/tree/main/otelcollector/customresources) and follow the API specification to create your custom resources([PodMonitor](https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/api.md#podmonitor) and [Service Monitor](https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/api.md#monitoring.coreos.com/v1.ServiceMonitor)). **Note** that the only change required to the existing OSS CRs for being picked up by the Managed Prometheus is the API group - **azmonitoring.coreos.com/v1**.
+>Note - Please make sure to use the **labelLimit, labelNameLengthLimit and labelValueLengthLimit** specified in the templates so that they are not dropped during processing.
+
 Your pod and service monitors should look like the examples below:
 
 #### Example Pod Monitor -

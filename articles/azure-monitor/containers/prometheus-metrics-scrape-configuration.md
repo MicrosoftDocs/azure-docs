@@ -146,19 +146,21 @@ and apply the YAML using the following command: `kubectl apply -f .\ama-metrics-
 
 ## Configure custom Prometheus scrape jobs
 
-You can configure the metrics add-on to scrape targets other than the default ones by using the same configuration format as the [Prometheus configuration file](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#configuration-file).
+You can scrape Prometheus metrics using Prometheus - Pod Monitors and Service Monitors(**Recommended**), similar to the OSS Prometheus operator.
+Follow the instructions to [create and apply custom resources](prometheus-metrics-scrape-crd.md) on your cluster.
 
-Follow the instructions to [create, validate, and apply the configmap](prometheus-metrics-scrape-validate.md) for your cluster.
-
-Additionally, you can also scrape Prometheus metrics using Prometheus - Pod Monitors and Service Monitors, similar to the OSS Prometheus operator.
-Follow the instructions to [create and apply custom resources]() on your cluster.
-
+Additionally, you can follow the instructions to [create, validate, and apply the configmap](prometheus-metrics-scrape-validate.md) for your cluster.
+The configuration format is similar to [Prometheus configuration file](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#configuration-file). 
 
 ## Prometheus configuration tips and examples
 
 Learn some tips from examples in this section.
 
-### Configuration file for custom scrape config
+### [Configuration using CRD for custom scrape config](#tab/CRDConfig)
+Use the [Pod and Service Monitor templates](https://github.com/Azure/prometheus-collector/tree/main/otelcollector/customresources) and follow the API specification to create your custom resources([PodMonitor](https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/api.md#podmonitor) and [Service Monitor](https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/api.md#monitoring.coreos.com/v1.ServiceMonitor)). **Note** that the only change required to the existing OSS CRs for being picked up by the Managed Prometheus is the API group - **azmonitoring.coreos.com/v1**. See [here](prometheus-metrics-scrape-crd.md) to learn more
+
+
+### [Configuration file for custom scrape config](#tab/ConfigFile)
 
 The configuration format is the same as the [Prometheus configuration file](https://aka.ms/azureprometheus-promioconfig). Currently, the following sections are supported:
 
@@ -178,10 +180,142 @@ Any other unsupported sections must be removed from the config before they're ap
 
 See the [Apply config file](prometheus-metrics-scrape-validate.md#deploy-config-file-as-configmap) section to create a configmap from the Prometheus config.
 
+---
+
 > [!NOTE]
 > When custom scrape configuration fails to apply because of validation errors, default scrape configuration continues to be used.
+> If you want to use global settings that apply to all the scrape jobs, and only have [Custom Resources](prometheus-metrics-scrape-crd.md) you would still need to create a configmap with just the global settings(Settings for each of these in the custom resources will override the ones in the global section)
+
 
 ## Scrape configs
+### [Scrape Configs using CRD](#tab/CRDScrapeConfig)
+Currently, the supported methods of target discovery for custom resources are pod and service monitor
+
+#### Pod and Service Monitors
+Targets discovered using pod and service monitors have different `__meta_*` labels depending on what monitor is used. You can use the labels in the `relabelings` section to filter targets or replace labels for the targets.
+
+See the [Pod and Service Monitor examples](https://github.com/Azure/prometheus-collector/tree/main/otelcollector/deploy/example-custom-resources) of pod and service monitors.
+
+### Relabelings
+The `relabelings` section is applied at the time of target discovery and applies to each target for the job. The following examples show ways to use `relabelings`.
+
+#### Add a label
+Add a new label called `example_label` with the value `example_value` to every metric of the job. Use `__address__` as the source label only because that label always exists and adds the label for every target of the job.
+
+```yaml
+relabelings:
+- sourceLabels: [__address__]
+  targetLabel: example_label
+  replacement: 'example_value'
+```
+
+#### Use Pod or Service Monitor labels
+
+Targets discovered using pod and service monitors have different `__meta_*` labels depending on what monitor is used. The `__*` labels are dropped after discovering the targets. To filter by using them at the metrics level, first keep them using `relabelings` by assigning a label name. Then use `metricRelabelings` to filter.
+
+```yaml
+# Use the kubernetes namespace as a label called 'kubernetes_namespace'
+relabelings:
+- sourceLabels: [__meta_kubernetes_namespace]
+  action: replace
+  targetLabel: kubernetes_namespace
+
+# Keep only metrics with the kubernetes namespace 'default'
+metricRelabelings:
+- sourceLabels: [kubernetes_namespace]
+  action: keep
+  regex: 'default'
+```
+
+#### Job and instance relabeling
+
+You can change the `job` and `instance` label values based on the source label, just like any other label.
+
+```yaml
+# Replace the job name with the pod label 'k8s app'
+relabelings:
+- sourceLabels: [__meta_kubernetes_pod_label_k8s_app]
+  targetLabel: job
+
+# Replace the instance name with the node name. This is helpful to replace a node IP
+# and port with a value that is more readable
+relabelings:
+- sourceLabels: [__meta_kubernetes_node_name]]
+  targetLabel: instance
+```
+
+### Metric Relabelings
+
+Metric relabelings are applied after scraping and before ingestion. Use the `metricRelabelings` section to filter metrics after scraping. The following examples show how to do so.
+
+#### Drop metrics by name
+
+```yaml
+# Drop the metric named 'example_metric_name'
+metricRelabelings:
+- sourceLabels: [__name__]
+  action: drop
+  regex: 'example_metric_name'
+```
+
+#### Keep only certain metrics by name
+
+```yaml
+# Keep only the metric named 'example_metric_name'
+metricRelabelings:
+- sourceLabels: [__name__]
+  action: keep
+  regex: 'example_metric_name'
+```
+
+```yaml
+# Keep only metrics that start with 'example_'
+metricRelabelings:
+- sourceLabels: [__name__]
+  action: keep
+  regex: '(example_.*)'
+```
+
+#### Rename metrics
+Metric renaming isn't supported.
+
+#### Filter metrics by labels
+
+```yaml
+# Keep metrics only where example_label = 'example'
+metricRelabelings:
+- sourceLabels: [example_label]
+  action: keep
+  regex: 'example'
+```
+
+```yaml
+# Keep metrics only if `example_label` equals `value_1` or `value_2`
+metricRelabelings:
+- sourceLabels: [example_label]
+  action: keep
+  regex: '(value_1|value_2)'
+```
+
+```yaml
+# Keep metrics only if `example_label_1 = value_1` and `example_label_2 = value_2`
+metricRelabelings:
+- sourceLabels: [example_label_1, example_label_2]
+  separator: ';'
+  action: keep
+  regex: 'value_1;value_2'
+```
+
+```yaml
+# Keep metrics only if `example_label` exists as a label
+metricRelabelings:
+- sourceLabels: [example_label_1]
+  action: keep
+  regex: '.+'
+```
+
+
+### [Scrape Configs using Config file](#tab/ConfigFileScrapeConfig)
 Currently, the supported methods of target discovery for a [scrape config](https://aka.ms/azureprometheus-promioconfig-scrape) are either [`static_configs`](https://aka.ms/azureprometheus-promioconfig-static) or [`kubernetes_sd_configs`](https://aka.ms/azureprometheus-promioconfig-sdk8s) for specifying or discovering targets.
 
 #### Static config
@@ -318,6 +452,8 @@ metric_relabel_configs:
   action: keep
   regex: '.+'
 ```
+
+---
 
 ### TLS based scraping
 
