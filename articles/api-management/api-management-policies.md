@@ -82,11 +82,11 @@ More information about policies:
 
 
 ## Caching
-Get from cache
-Store to cache
-Get value from cache
-Store value in cache
-Remove value from cache
+|  [Get from cache](cache-lookup-policy.md) | Perform cache lookup and return a valid cached response when available. | Yes | Yes | Yes |
+|  [Store to cache](cache-store-policy.md) | Caches response according to the specified cache control configuration. | Yes | Yes | Yes |
+|  [Get value from cache](cache-lookup-value-policy.md) | Retrieve a cached item by key. | Yes | Yes | Yes |
+|  [Store value in cache](cache-store-value-policy.md) | Store an item in the cache by key. | Yes | Yes | Yes |
+|  [Remove value from cache](cache-remove-value-policy.md) | Remove an item in the cache by key. | Yes | Yes | Yes |
 
 
 ## Transformation
@@ -158,12 +158,7 @@ Wait
 ## Authentication policies
 
 ## Caching policies
- |  [Get from cache](cache-lookup-policy.md) | Perform cache lookup and return a valid cached response when available.
- |  [Store to cache](cache-store-policy.md) | Caches response according to the specified cache control configuration.
- |  [Get value from cache](cache-lookup-value-policy.md) | Retrieve a cached item by key.
- |  [Store value in cache](cache-store-value-policy.md) | Store an item in the cache by key.
- |  [Remove value from cache](cache-remove-value-policy.md) | Remove an item in the cache by key.
-
+ 
 ## Cross-domain policies
 - [Allow cross-domain calls](cross-domain-policy.md) | Makes the API accessible from Adobe Flash and Microsoft Silverlight browser-based clients.
 - [CORS](cors-policy.md) | Adds cross-origin resource sharing (CORS) support to an operation or an API to allow cross-domain calls from browser-based clients.
