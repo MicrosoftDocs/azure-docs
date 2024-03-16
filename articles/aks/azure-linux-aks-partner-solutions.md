@@ -17,9 +17,9 @@ Our third party partners featured in this article have introduction guides to he
 | Solutions          | Partners                                                                                       |
 |--------------------|------------------------------------------------------------------------------------------------|
 | DevOps             | [Advantech](#advantech) <br> [Akuity](#akuity) <br> [Anchore](#anchore) <br> [Hashicorp](#hashicorp) <br> [Kong](#kong) <br> [Spot By NetApp](#spot-by-netapp) |
-| Networking         | [Buoyant](#buoyant) <br> [Isovalent](#isovalent) <br> [Solo.io](#solo-io) <br> [Tetrate](#tetrate) <br> [Tigera, Inc](#tigera-inc) |
-| Observability      | [Anchore](#anchore) <br> [Buoyant](#buoyant) <br> [Isovalent](#isovalent) <br> [Dynatrace](#dynatrace) <br> [Solo.io](#solo-io) <br> [Tigera, Inc](#tigera-inc) |
-| Security           | [Anchore](#anchore) <br> [Buoyant](#buoyant) <br> [Isovalent](#isovalent) <br> [Kong](#kong) <br> [Solo.io](#solo-io) <br> [Tetrate](#tetrate) <br> [Tigera, Inc](#tigera-inc) <br> [Wiz](#wiz) |
+| Networking         | [Buoyant](#buoyant) <br> [Isovalent](#isovalent) <br> [Solo](#solo) <br> [Tetrate](#tetrate) <br> [Tigera, Inc](#tigera-inc) |
+| Observability      | [Anchore](#anchore) <br> [Buoyant](#buoyant) <br> [Isovalent](#isovalent) <br> [Dynatrace](#dynatrace) <br> [Solo](#solo) <br> [Tigera, Inc](#tigera-inc) |
+| Security           | [Anchore](#anchore) <br> [Buoyant](#buoyant) <br> [Isovalent](#isovalent) <br> [Kong](#kong) <br> [Solo](#solo) <br> [Tetrate](#tetrate) <br> [Tigera, Inc](#tigera-inc) <br> [Wiz](#wiz) |
 | Storage            | [Catalogic](#catalogic) <br> [Veeam](#veeam)                                                   |
 | Config Management  | [Corent](#corent)                                                                              |
 | Migration          | [Catalogic](#catalogic)                                                                        |
@@ -188,7 +188,7 @@ Isovalent provides enterprise-grade support from their experienced team of exper
 
 For more information, see [Isovalent Solutions](https://isovalent.com/blog/post/isovalent-azure-linux/) and [Isovalent on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/isovalentinc1662143158090.isovalent-cilium-enterprise?tab=overview).
 
-### Solo.io
+### Solo
 
 :::image type="icon" source="./media/azure-linux-aks-partner-solutions/solo.png":::
 
