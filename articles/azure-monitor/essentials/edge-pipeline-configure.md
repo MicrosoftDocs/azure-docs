@@ -50,52 +50,44 @@ The following three components must be installed and configured for the Azure Mo
 - Deploy the Azure Monitor Pipeline Configuration to the cluster.
 
 ## Deploy Azure Monitor Pipeline Arc Extension
-From Azure CLI, run the following command to install the Azure Monitor Pipeline Controller into the specified cluster in the specified namespace without automatic upgrades.
 
 ### [Portal](#tab/Portal)
 
 
 ### [CLI](#tab/CLI)
 
+Use the `az k8s-extension create` command with `--extension-type microsoft.monitor.pipelinecontroller` to install the Azure Monitor Pipeline Controller. Provide a name for the extension that's 10 characters or less.
 
 ```azurecli
-az k8s-extension create --name <name> --extension-type microsoft.monitor.pipelinecontroller --scope cluster --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --release-train preview --release-namespace <release-namespace> --version 0.1.1-23318.7-privatepreview --debug --auto-upgrade false
+az k8s-extension create --name <extension-name> --extension-type microsoft.monitor.pipelinecontroller --scope cluster --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --release-train preview --release-namespace <release-namespace> --version 0.1.1-23318.7-privatepreview --debug --auto-upgrade false
 ```
 
-Replace the following parameters with the appropriate values:
-
-| Parameter | Description |
-|:---|:--|
-| `name` | Name of the extension in your cluster. Limited to 10 characters or less. |
-| `cluster-name` | Name of the Arc-connected Kubernetes cluster resource. |
-| `resource-group` | Name of the resource group. |
-| `release-namespace` | Namespace to install the extension. |
-
+---
 
 ## Give the Arc extension access to your DCR
-A system identity is created when you deploy the extension. This identity is used when the pipeline connects to Azure Monitor.
+A system identity is created when you deploy the extension. This identity is used when the pipeline connects to Azure Monitor and requires access to the DCR used in the data collection scenario.
 
-Run the following command to get the object id of the System Assigned Identity:
+### [CLI](#tab/CLI)
+
+Use the `az k8s-extension show` command with `--cluster-type connectedClusters --query "identity.principalId"` to get the object id of the System Assigned Identity.
 
 ```azurecli
 az k8s-extension show --name <name> --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --query "identity.principalId" -o tsv
 ```
 
-Use the output from this command as input to this next command to entitle Azure Monitor Pipeline to send its telemetry to the DCR created in the section above.
+Use the output from this command with `az role assignment create` to allow the Azure Monitor Pipeline to send its telemetry to the DCR.
 
 ```azurecli
 az role assignment create --assignee "<extension principal ID>" --role "Monitoring Metrics Publisher" --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Insights/dataCollectionRules/<dcr-name>"
 ```
 
-
-| Parameter | Description |
-|:---|:--|
-| `extension principal ID` | Guid returned from the previous command. |
-| `scope`  | Resource ID of the DCR. |
-
 Verify access to the DCR from the Access Control (IAM) option for the DCR in the Azure portal. The identity should be listed as a Monitoring Metrics Publisher.
 
+
 [Placeholder for image]()
+---
+
+
 
 ## Deploy the Azure Monitor Pipeline Configuration to the cluster
 
