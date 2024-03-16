@@ -228,7 +228,7 @@ procedureSection:
       - |  
         In some cases, the `discard` option may have performance implications. Alternatively, you can run the `fstrim` command manually from the command line, or add it to your crontab to run regularly:
 
-        **ubuntu**
+        **Ubuntu**
 
         ```bash
         sudo apt-get install util-linux
