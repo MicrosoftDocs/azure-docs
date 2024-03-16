@@ -5,7 +5,7 @@ description: In this quickstart, you use an Azure Resource Manager template (ARM
 author: abell
 ms.service: private-link
 ms.topic: quickstart
-ms.date: 03/30/2023
+ms.date: 03/12/2024
 ms.author: abell
 ms.custom: subject-armqs, mode-arm, template-quickstart, devx-track-arm-template
 ---
@@ -13,6 +13,8 @@ ms.custom: subject-armqs, mode-arm, template-quickstart, devx-track-arm-template
 # Quickstart: Create a private link service using an ARM template
 
 In this quickstart, you use an Azure Resource Manager template (ARM template) to create a private link service.
+
+:::image type="content" source="./media/create-private-link-service-portal/private-link-service-qs-resources.png" alt-text="Diagram of resources created in private endpoint quickstart.":::
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 

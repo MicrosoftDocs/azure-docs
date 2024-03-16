@@ -8,8 +8,8 @@ metadata:
   description: Azure Germany is a physically isolated instance of Microsoft Azure that uses world-class security and compliance services that are critical to German data privacy regulations
   ms.service: germany
   ms.topic: landing-page
-  author: rolyon
-  ms.author: rolyon
+  author: gitralf
+  ms.author: ralfwi
   ms.date: 03/05/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new

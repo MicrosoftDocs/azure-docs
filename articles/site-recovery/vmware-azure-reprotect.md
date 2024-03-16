@@ -6,7 +6,7 @@ manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ankitadutta
-ms.date: 05/27/2021
+ms.date: 03/13/2024
 ---
 
 # Reprotect from Azure to on-premises

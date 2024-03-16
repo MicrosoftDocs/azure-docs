@@ -31,9 +31,9 @@ To make the initial data set available, the hotel reviews are first imported int
 
 + Azure Storage. [Create an account](../storage/common/storage-account-create.md) or [find an existing one](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). The account type must be **StorageV2 (general purpose V2)**.
 
-## Upload data to Azure Storage and get a connection string
+The skillset in this examples uses Azure AI Services for enrichments. Because the workload is so small, Azure AI services is tapped behind the scenes to provide free processing for up to 20 transactions daily. A small workload means that you can skip creating or attaching an Azure AI multi-service resource.
 
-<!-- This step uses Azure AI Search, Azure Blob Storage, and [Azure AI services](https://azure.microsoft.com/services/cognitive-services/) for the AI. Because the workload is so small, Azure AI services is tapped behind the scenes to provide free processing for up to 20 transactions daily. A small workload means that you can skip creating or attaching an Azure AI multi-service resource. -->
+## Upload data to Azure Storage and get a connection string
 
 1. [Download HotelReviews_Free.csv](https://github.com/Azure-Samples/azure-search-sample-data/blob/main/hotelreviews/HotelReviews_data.csv). This CSV contains 19 pieces of customer feedback about a single hotel (originates from Kaggle.com).
 
@@ -52,7 +52,7 @@ To make the initial data set available, the hotel reviews are first imported int
   ```
 
 > [!NOTE]
-> See [Connect using a managed identity](search-howto-managed-identities-data-sources.md) if you don't want to provide sensitive data on the connection. 
+> See [Connect using a managed identity](search-howto-managed-identities-data-sources.md) if you don't want to provide sensitive data on the connection string. 
 
 ## Copy a key and URL
 
@@ -150,7 +150,7 @@ A skillset defines enrichments (skills) and your knowledge store. [Create Skills
 
     ```http
     ### Create a skillset
-    POST {{baseUrl}}/skillset?api-version=2023-11-01  HTTP/1.1
+    POST {{baseUrl}}/skillsets?api-version=2023-11-01  HTTP/1.1
         Content-Type: application/json
         api-key: {{apiKey}}
     
@@ -313,11 +313,11 @@ A skillset defines enrichments (skills) and your knowledge store. [Create Skills
 
 [Create Indexer](/rest/api/searchservice/create-indexer) creates and runs the indexer. Indexer execution starts by cracking the documents, extracting text and images, and initializing the skillset. The indexer checks for the other objects that you created: the datasource, the index, and the skillset. 
 
-1. Paste in the following example to create the skillset.
+1. Paste in the following example to create the indexer.
 
     ```http
-    ### Create a skillset
-    POST {{baseUrl}}/skillset?api-version=2023-11-01  HTTP/1.1
+    ### Create indexer
+    POST {{baseUrl}}/indexers?api-version=2023-11-01  HTTP/1.1
         Content-Type: application/json
         api-key: {{apiKey}}
     

@@ -4,7 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn about the different model capabilities that are available with Azure OpenAI.
 ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 03/06/2024
+ms.date: 03/14/2024
 ms.custom: references_regions, build-2023, build-2023-dataai, refefences_regions
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
@@ -21,8 +21,8 @@ Azure OpenAI Service is powered by a diverse set of models with different capabi
 | [GPT-4](#gpt-4-and-gpt-4-turbo-preview) | A set of models that improve on GPT-3.5 and can understand and generate natural language and code. |
 | [GPT-3.5](#gpt-35) | A set of models that improve on GPT-3 and can understand and generate natural language and code. |
 | [Embeddings](#embeddings-models) | A set of models that can convert text into numerical vector form to facilitate text similarity. |
-| [DALL-E](#dall-e-models-preview) (Preview) | A series of models in preview that can generate original images from natural language. |
-| [Whisper](#whisper-models-preview) (Preview) | A series of models in preview that can transcribe and translate speech to text. |
+| [DALL-E](#dall-e-models) | A series of models that can generate original images from natural language. |
+| [Whisper](#whisper-models) | A series of models in preview that can transcribe and translate speech to text. |
 | [Text to speech](#text-to-speech-models-preview) (Preview) | A series of models in preview that can synthesize text to speech. |
 
 ## GPT-4 and GPT-4 Turbo Preview
@@ -67,15 +67,15 @@ The third generation embeddings models support reducing the size of the embeddin
 
 OpenAI's MTEB benchmark testing found that even when the third generation model's dimensions are reduced to less than `text-embeddings-ada-002` 1,536 dimensions performance remains slightly better.
 
-## DALL-E (Preview)
+## DALL-E
 
-The DALL-E models, currently in preview, generate images from text prompts that the user provides.
+The DALL-E models generate images from text prompts that the user provides. DALL-E 3 is generally available for use with the REST APIs. DALL-E 2 and DALL-E 3 with client SDKs are in preview.
 
-## Whisper (Preview)
+## Whisper
 
-The Whisper models, currently in preview, can be used for speech to text.
+The Whisper models, can be used for speech to text.
 
-You can also use the Whisper model via Azure AI Speech [batch transcription](../../speech-service/batch-transcription-create.md) API. Check out [What is the Whisper model?](../../speech-service/whisper-overview.md) to learn more about when to use Azure AI Speech vs. Azure OpenAI Service. 
+You can also use the Whisper model via Azure AI Speech [batch transcription](../../speech-service/batch-transcription-create.md) API. Check out [What is the Whisper model?](../../speech-service/whisper-overview.md) to learn more about when to use Azure AI Speech vs. Azure OpenAI Service.
 
 ## Text to speech (Preview)
 
@@ -200,12 +200,12 @@ The following Embeddings models are available with [Azure Government](/azure/azu
 |--|--|
 |`text-embedding-ada-002` (version 2) |US Gov Virginia<br>US Gov Arizona |
 
-### DALL-E models (Preview)
+### DALL-E models
 
 |  Model ID  | Feature Availability | Max Request (characters) |
 |  --- |  --- | :---: |
-| dalle2 | East US | 1,000 |
-| dall-e-3 | Sweden Central | 4,000 |
+| dalle2 (preview) | East US | 1,000 |
+| dall-e-3 | East US, Australia East, Sweden Central | 4,000 |
 
 ### Fine-tuning models
 
@@ -222,11 +222,11 @@ The following Embeddings models are available with [Azure Government](/azure/azu
 | `gpt-35-turbo` (0125)  | North Central US <br> Sweden Central  | 16,385 | Sep 2021 |
 
 
-### Whisper models (Preview)
+### Whisper models
 
 |  Model ID  | Model Availability | Max Request (audio file size) |
 |  --- |  --- | :---: |
-| `whisper` | North Central US <br> West Europe | 25 MB |
+| `whisper` | East US 2 <br> North Central US <br> Norway East <br> South India <br> Sweden Central <br> West Europe | 25 MB |
 
 ### Text to speech models (Preview)
 
@@ -239,13 +239,18 @@ The following Embeddings models are available with [Azure Government](/azure/azu
 
 For Assistants you need a combination of a supported model, and a supported region. Certain tools and capabilities require the latest models. For example [parallel function](../how-to/assistant-functions.md) calling requires the latest 1106 models.
 
+| Region | `gpt-35-turbo (0613)` | `gpt-35-turbo (1106)` | `gpt-4 (0613)` | `gpt-4 (1106)` | `gpt-4 (0125)` | 
+|-----|---|---|---|---|---|
+| Australia East | ✅ | ✅ | ✅ |✅ | |
+| East US 2 | ✅ | | ✅ |✅ | |
+| Sweden Central | ✅ |✅ |✅ |✅| |
 
-| Region | `gpt-35-turbo (0613)` | `gpt-35-turbo (1106)` | `gpt-4 (0613)` | `gpt-4 (1106)` | 
-|-----|---|---|---|---|
-| Australia East | ✅ | ✅ | ✅ |✅ |
-| East US 2 | ✅ | ⬜| ✅ |✅ |
-| Sweden Central | ✅ |✅ |✅ |✅|
+Provisioned Throughput Unit (PTU) availability 
 
+| Region | `gpt-35-turbo (1106)` | `gpt-4 (1106)` | `gpt-4 (0125)` |  
+|-----|---|---|---|
+| East US 2 | | ✅ | ✅ |
+| Sweden Central | ✅ |✅ |✅ |
 
 ## Next steps
 
