@@ -22,7 +22,7 @@ With a network security perimeter:
 - Diagnostic Logs are enabled for PaaS resources within perimeter for Audit and Compliance.
 - Resources in private endpoints can additionally accept communication from customer virtual networks, with network security perimeter and private endpoints providing independent controls.
 
-:::image type="content" source="media/create-network-security-perimeter-portal/network-security-perimeter-overview.png" alt-text="Diagram of network security perimeter and private network for Azure services.":::
+    :::image type="content" source="media/network-security-perimeter-overview/network-security-perimeter-overview.png" alt-text="Diagram of network security perimeter and private network for Azure services.":::
 
 [!INCLUDE [network-security-perimeter-preview-message](../../includes/network-security-perimeter-preview-message.md)]
 

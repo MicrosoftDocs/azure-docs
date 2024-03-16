@@ -61,6 +61,7 @@ az keyvault create --name $key_vault_name --resource-group test-rg --location we
 ```
  
 ## Create a network security perimeter
+
 In this step, create a network security perimeter with the `az network perimeter create` command.
 
 > [!NOTE]
