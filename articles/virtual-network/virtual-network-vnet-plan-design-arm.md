@@ -107,4 +107,4 @@ Policies are applied to the following hierarchy: management group, subscription,
 
 ## Next steps
 
-Learn about all tasks, settings, and options for a [virtual network](manage-virtual-network.md), [subnet and service endpoint](virtual-network-manage-subnet.md), [network interface](virtual-network-network-interface.md), [peering](virtual-network-manage-peering.md),  [network and application security group](manage-network-security-group.md), or [route table](manage-route-table.yml).
+Learn about all tasks, settings, and options for a [virtual network](manage-virtual-network.yml), [subnet and service endpoint](virtual-network-manage-subnet.md), [network interface](virtual-network-network-interface.md), [peering](virtual-network-manage-peering.md),  [network and application security group](manage-network-security-group.md), or [route table](manage-route-table.yml).
