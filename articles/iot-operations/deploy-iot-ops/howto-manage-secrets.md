@@ -133,8 +133,7 @@ az iot ops init --name "<your unique key vault name>" --resource-group "<the nam
     --no-deploy
 ```
 
->[!TIP]
->If the service principal logged in to the CLI has secret `set` permissions, then the `init` command can create the secret in Key Vault on your behalf if it doesn't already exist.
+One step that the `init` command takes is to create a Key Vault secret to use for the Azure IoT Operations service account. This step requires that the principal logged in to the CLI has secret `set` permissions. If you want to use an existing secret, you can specify it with the `--kv-sat-secret-name` parameter, in which case the logged in principal only needs secret `get` permissions.
 
 ## Add a secret to an Azure IoT Operations component
 
