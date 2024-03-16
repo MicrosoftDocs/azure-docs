@@ -20,24 +20,29 @@ When the Azure Monitor agent for Linux is installed, it configures the local Sys
 :::image type="content" source="media/azure-monitor-agent/linux-agent-syslog-communication.png" lightbox="media/azure-monitor-agent/linux-agent-syslog-communication.png" alt-text="Diagram that shows Syslog daemon and Azure Monitor Agent communication.":::
 
 The following facilities are supported with the Syslog collector:
-* alert
-* audit
-* auth
-* authpriv
-* clock (formerly mark)
-* cron
-* daemon
-* ftp
-* kern
-* local0-local7
-* lpr
-* mail
-* news
-* nopri
-* ntp
-* syslog
+* None
+* Kern
 * user
+* mail
+* daemon
+* auth
+* syslog
+* lpr
+* news
 * uucp
+* ftp
+* ntp
+* audit
+* alert
+* mark
+* local0
+* local1
+* local2
+* local3
+* local4
+* local5
+* local6
+* local7
 
 For some device types that don't allow local installation of Azure Monitor Agent, the agent can be installed instead on a dedicated Linux-based log forwarder. The originating device must be configured to send Syslog events to the Syslog daemon on this forwarder instead of the local daemon. For more information, see the [Sentinel tutorial](../../sentinel/forward-syslog-monitor-agent.md).
 

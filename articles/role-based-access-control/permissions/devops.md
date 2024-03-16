@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 02/07/2024
+ms.date: 03/01/2024
 ms.custom: generated
 ---
 
@@ -45,6 +45,8 @@ Azure service: [Azure Chaos Studio](/azure/chaos-studio/)
 > | Microsoft.Chaos/targets/capabilities/read | Gets all Capabilities that extend a Target resource. |
 
 ## Microsoft.DevTestLab
+
+Quickly create environments using reusable templates and artifacts.
 
 Azure service: [Azure Lab Services](/azure/lab-services/)
 
@@ -168,6 +170,8 @@ Azure service: [Azure Lab Services](/azure/lab-services/)
 > | Microsoft.DevTestLab/schedules/Retarget/action | Updates a schedule's target resource Id. |
 
 ## Microsoft.LabServices
+
+Set up labs for classrooms, trials, development and testing, and other scenarios.
 
 Azure service: [Azure Lab Services](/azure/lab-services/)
 
@@ -361,6 +365,8 @@ Azure service: [Microsoft Defender for Cloud](/azure/defender-for-cloud/)
 > | Microsoft.SecurityDevOps/Operations/read | read Operations |
 
 ## Microsoft.VisualStudio
+
+The powerful and flexible environment for developing applications in the cloud.
 
 Azure service: [Azure DevOps](/azure/devops/)
 

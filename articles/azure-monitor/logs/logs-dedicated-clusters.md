@@ -98,6 +98,9 @@ N/A
 
 #### [CLI](#tab/cli)
 
+> [!NOTE]
+> The minimum commitment tier supported in CLI is 500 currently. Use REST to configure lower commitment tiers with minimum of 100.
+
 ```azurecli
 az account set --subscription "cluster-subscription-id"
 
@@ -109,6 +112,9 @@ az resource wait --created --ids $clusterResourceId --include-response-body true
 ```
 
 #### [PowerShell](#tab/powershell)
+
+> [!NOTE]
+> The minimum commitment tier supported in PowerShell is 500 currently. Use REST to configure lower commitment tiers with minimum of 100.
 
 ```powershell
 Select-AzSubscription "cluster-subscription-id"
@@ -520,7 +526,7 @@ N/A
 ```azurecli
 az account set --subscription "cluster-subscription-id"
 
-az monitor log-analytics cluster update --resource-group "resource-group-name" --name "cluster-name"  --sku-capacity 100
+az monitor log-analytics cluster update --resource-group "resource-group-name" --name "cluster-name"  --sku-capacity 500
 ```
 
 #### [PowerShell](#tab/powershell)
@@ -528,7 +534,7 @@ az monitor log-analytics cluster update --resource-group "resource-group-name" -
 ```powershell
 Select-AzSubscription "cluster-subscription-id"
 
-Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -SkuCapacity 100
+Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -SkuCapacity 500
 ```
 
 #### [REST API](#tab/restapi)
@@ -705,6 +711,8 @@ Authorization: Bearer <token>
 - A maximum of two workspace link operations on particular workspace is allowed in 30 day period.
 
 - Moving a cluster to another resource group or subscription isn't currently supported.
+
+- Moving a cluster to another region isn't supported.
 
 - Cluster update shouldn't include both identity and key identifier details in the same operation. In case you need to update both, the update should be in two consecutive operations.
 

@@ -7,10 +7,12 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/22/2019
+ms.date: 02/27/2024
 ms.author: alkohli
 ---
 # Use the Azure portal to manage bandwidth schedules on your Azure Stack Edge Pro FPGA  
+
+[!INCLUDE [Azure Stack Edge Pro FPGA end-of-life](../../includes/azure-stack-edge-fpga-eol.md)]
 
 This article describes how to manage users on your Azure Stack Edge Pro FPGA. Bandwidth schedules allow you to configure network bandwidth usage across multiple time-of-day schedules. These schedules can be applied to the upload and download operations from your device to the cloud.
 

@@ -14,7 +14,7 @@ metadata:
   ms.reviewer: micflan
   ms.author: banders
   ms.custom: engagement-fy24
-  ms.date: 08/23/2023
+  ms.date: 02/28/2024
 
 highlightedContent:
   items:
@@ -97,6 +97,8 @@ productDirectory:
     - title: Cost allocation
       imageSrc: ./media/cost-allocation.svg
       links:
+        - url: costs/cost-allocation-introduction.md
+          text: Introduction to cost allocation
         - url: costs/enable-tag-inheritance.md
           text: Enable tag inheritance
         - url: costs/allocate-costs.md
@@ -133,7 +135,7 @@ conceptualContent:
       links:
         - url: manage/create-subscription.md
           itemType: how-to-guide
-          text: Create an additional subscription
+          text: Create another subscription
         - url: manage/add-change-subscription-administrator.md
           itemType: how-to-guide
           text: Change administrator

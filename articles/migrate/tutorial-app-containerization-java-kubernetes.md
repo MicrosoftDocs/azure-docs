@@ -114,6 +114,9 @@ If you just created a free Azure account, you're the owner of your subscription.
    .\AppContainerizationInstaller.ps1
    ```
 
+> [!NOTE]
+> For Windows Server 2022, edit line 135 and remove `PowerShell-ISE` from the feature list, as it's no longer supported.
+
 ## Launch the App Containerization tool
 
 1. Open a browser on any machine that can connect to the Windows machine running the App Containerization tool, and open the tool URL: **https://*machine name or IP address*: 44369**.

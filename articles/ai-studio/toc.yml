@@ -175,6 +175,9 @@
     - name: Deploy Llama 2 family models
       href: how-to/deploy-models-llama.md
       displayName: maas, as a service
+    - name: Deploy Mistral family models
+      href: how-to/deploy-models-mistral.md
+      displayName: maas, as a service
     - name: Deploy open models
       href: how-to/deploy-models-open.md
       displayName: oss, open source

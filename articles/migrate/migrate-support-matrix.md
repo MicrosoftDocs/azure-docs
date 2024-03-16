@@ -5,7 +5,7 @@ author: MaryMichael-MS
 ms.author: v-michaelar
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 02/14/2024
+ms.date: 03/06/2024
 ms.custom: engagement-fy24
 ---
 
@@ -73,6 +73,8 @@ Create a key vault for VMware agentless migration | To migrate VMware VMs with a
 
 ## Supported geographies 
 
+#### [Azure Public cloud](#tab/public)
+
 ### Public cloud
 
 You can create a project in many geographies in the public cloud.
@@ -106,6 +108,8 @@ United States | Central US or West US 2
 > [!NOTE]
 > For Switzerland geography, Switzerland West is only available for REST API users and need an approved subscription.
 
+#### [Azure for US Government](#tab/gov)
+
 ### Azure Government
 
 **Task** | **Geography** | **Details**
@@ -114,11 +118,13 @@ Create project | United States | Metadata is stored in US Gov Arizona, US Gov Vi
 Target assessment | United States | Target regions: US Gov Arizona, US Gov Virginia, US Gov Texas
 Target replication | United States | Target regions: US DoD Central, US DoD East, US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia
 
-### Azure operated by 21Vianet (Microsoft Azure operated by 21Vianet)
+#### [Azure operated by 21Vianet](#tab/21via)
 
 **Geography** | **Metadata storage location**
 --- | ---
 Microsoft Azure operated by 21Vianet | China North 2
+
+---
 
 ## VMware assessment and migration
 

@@ -57,7 +57,7 @@ To help you decide which networking mode to use, see [Choosing a network model][
 
 > **Best practice guidance**
 >
-> Use network policies to secure traffic between pods. Windows supports Azure Network Policy Manager and Calico Network Policy. For more information, see [Differences between Azure Network Policy Manager and Calico Network Policy][azurenpm-vs-calico].
+> Use network policies to secure traffic between pods. Windows supports Azure Network Policy Manager and Calico Network Policy. For more information, see [Differences between Network Policy engines: Cilium, Azure NPM, and Calico][azurenpm-vs-calico].
 
 When managing traffic between pods, you should apply the principle of least privilege. The Network Policy feature in Kubernetes allows you to define and enforce ingress and egress traffic rules between the pods in your cluster. For more information, see [Secure traffic between pods using network policies in AKS][network-policies-aks].
 
@@ -111,7 +111,7 @@ To learn more about Windows containers on AKS, see the following resources:
 [azure-cni-choose-network-model]: ./azure-cni-overlay.md#choosing-a-network-model-to-use
 [network-concepts-for-aks-applications]: ./concepts-network.md
 [windows-vs-linux]: ./windows-vs-linux-containers.md
-[azurenpm-vs-calico]: ./use-network-policies.md#differences-between-azure-network-policy-manager-and-calico-network-policy-and-their-capabilities
+[azurenpm-vs-calico]: ./use-network-policies.md#differences-between-network-policy-engines-cilium-azure-npm-and-calico
 [network-policies-aks]: ./use-network-policies.md
 [dsr]: ../load-balancer/load-balancer-multivip-overview.md#rule-type-2-backend-port-reuse-by-using-floating-ip
 [upgrade-aks-cluster]: ./upgrade-cluster.md

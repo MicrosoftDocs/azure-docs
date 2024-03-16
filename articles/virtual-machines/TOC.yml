@@ -88,7 +88,7 @@
     - name: Create VM images
       href: ./windows/tutorial-custom-images.md
     - name: Manage networking
-      href: ./windows/tutorial-virtual-network.md  
+      href: ./windows/tutorial-virtual-network.md
     - name: Load Balance VMs
       href: ../load-balancer/quickstart-load-balancer-standard-public-powershell.md?toc=/azure/virtual-machines/toc.json
     - name: Create and manage a scale set
@@ -182,6 +182,8 @@
       href: sizes.md
     - name: General purpose
       items:
+      - name: Dasv6 and Dadsv6-series
+        href: dasv6-dadsv6-series.md
       - name: Overview
         displayName: General purpose, sizes, size, vm size
         href: sizes-general.md
@@ -195,16 +197,24 @@
           href: ./b-series-cpu-credit-model/b-series-cpu-credit-model.md
         - name: B-series V1
           href: sizes-b-series-burstable.md
-        - name: Bsv2-series 
-          href: bsv2-series.md 
-        - name: Basv2-series  
-          href: basv2.md   
+        - name: Bsv2-series
+          href: bsv2-series.md
+        - name: Basv2-series
+          href: basv2.md
         - name: Bpsv2-series
-          href: bpsv2-arm.md    
-      - name: DCsv2-series
-        href: dcv2-series.md
-      - name: DCsv3 and DCdsv3-series
-        href: dcv3-series.md
+          href: bpsv2-arm.md
+      - name: DC-series confidential
+        items:
+        - name: DCsv2-series
+          href: dcv2-series.md
+        - name: DCsv3 and DCdsv3-series
+          href: dcv3-series.md
+        - name: DCasv5 and DCadsv5-series
+          href: dcasv5-dcadsv5-series.md
+        - name: DCas_cc_v5 and DCads_cc_v5-series
+          href: dcasccv5-dcadsccv5-series.md
+        - name: DCesv5 and DCedsv5-series
+          href: dcesv5-dcedsv5-series.md  
       - name: Dv2 and DSv2-series
         href: dv2-dsv2-series.md
       - name: Dv3 and DSv3-series
@@ -221,12 +231,8 @@
         href: ddv5-ddsv5-series.md
       - name: Dasv5 and Dadsv5-series
         href: dasv5-dadsv5-series.md
-      - name: DCasv5 and DCadsv5-series
-        href: dcasv5-dcadsv5-series.md
-      - name: DCas_cc_v5 and DCads_cc_v5-series
-        href: dcasccv5-dcadsccv5-series.md
-      - name: DCesv5 and DCedsv5-series
-        href: dcesv5-dcedsv5-series.md
+      - name: Dalsv6 and Daldsv6-series
+        href: dalsv6-daldsv6-series.md
       - name: Dpsv5 and Dpdsv5-series
         href: dpsv5-dpdsv5-series.md
       - name: Dplsv5 and Dpldsv5-series
@@ -240,6 +246,8 @@
         href: sizes-compute.md
       - name: Fsv2-series
         href: fsv2-series.md
+      - name: Fasv6 and Falsv6-series
+        href: fasv6-falsv6-series.md
       - name: FX-series
         href: fx-series.md
     - name: Memory optimized
@@ -253,6 +261,16 @@
         href: ev3-esv3-series.md
       - name: Eav4 and Easv4-series
         href: eav4-easv4-series.md
+      - name: Easv6 and Eadsv6-series
+        href: easv6-eadsv6-series.md
+      - name: EC-series confidential
+        items:
+        - name: ECasv5 and ECadsv5-series
+          href: ecasv5-ecadsv5-series.md
+        - name: ECas_cc_v5 and ECads_cc_v5-series
+          href: ecasccv5-ecadsccv5-series.md
+        - name: ECesv5 and ECedsv5-series
+          href: ecesv5-ecedsv5-series.md  
       - name: Edv4 and Edsv4-series
         href: edv4-edsv4-series.md
       - name: Ev4 and Esv4-series
@@ -260,23 +278,19 @@
       - name: Ev5 and Esv5-series
         href: ev5-esv5-series.md
       - name: Ebdsv5 and Ebsv5 series
-        href: ebdsv5-ebsv5-series.md   
+        href: ebdsv5-ebsv5-series.md
       - name: Edv5 and Edsv5-series
         href: edv5-edsv5-series.md
       - name: Easv5 and Eadsv5-series
         href: easv5-eadsv5-series.md
-      - name: ECasv5 and ECadsv5-series
-        href: ecasv5-ecadsv5-series.md
-      - name: ECas_cc_v5 and ECads_cc_v5-series
-        href: ecasccv5-ecadsccv5-series.md
-      - name: ECesv5 and ECedsv5-series
-        href: ecesv5-ecedsv5-series.md
       - name: Epsv5 and Epdsv5-series
         href: epsv5-epdsv5-series.md
       - name: M-series
         href: m-series.md
       - name: Msv2 and Mdsv2 Medium Memory series
         href: msv2-mdsv2-series.md
+      - name: Msv2 and Mdsv2 migration guide
+        href: msv2-mdsv2-isolated-retirement.md
       - name: Mv2-series
         href: mv2-series.md
       - name: Msv3 and Mdsv3 Medium Memory Series
@@ -382,7 +396,7 @@
         href: set-up-hpc-vms.md
       - name: Configure and optimize VMs
         displayName: Configure and optimize Infiniband enabled VMs
-        href: configure.md        
+        href: configure.md
       - name: HB-series
         href: hb-series.md
         items:
@@ -442,7 +456,7 @@
     - name: Enable NVMe
       items:
       - name: Enable NVMe and SCSI interface
-        href: enable-nvme-interface.md  
+        href: enable-nvme-interface.md
       - name: Enable NVMe FAQ
         href: enable-nvme-faqs.yml
     - name: Previous generation and retired sizes
@@ -539,6 +553,8 @@
       - name: Export an image to a managed disk
         href: managed-disk-from-image-version.md
         desplayName: export, image version, disk, SIG, gallery
+      - name: Migrate Managed image to Compute gallery
+        href: migration-managed-image-to-compute-gallery.md
       - name: Purchase plan information
         href: marketplace-images.md
       - name: Deprecated images FAQ
@@ -566,7 +582,7 @@
         displayName: MTHR, multi-tenant, multitenant, hosting, rights, windows 10, windows 11, find
         href: ./windows/windows-desktop-multitenant-hosting-deployment.md
     - name: Generalizing a VM
-      displayName: generalize sysprep deprovision 
+      displayName: generalize sysprep deprovision
       href: generalize.md
     - name: Linux custom images
       items:
@@ -741,7 +757,7 @@
         displayName: Image builder, images, building, packer
         href: ./windows/build-image-with-packer.md
     - name: Capture a legacy managed image
-      href: capture-image-resource.md
+      href: capture-image-resource.yml
   - name: Dedicated hosts
     displayName: sole-tenant, sole tenant, isolated, isolation
     items:
@@ -869,6 +885,8 @@
         href: /rest/api/compute/virtual-machines/create-or-update?tabs=HTTP#create-a-vm-with-ssh-authentication
       - name: LAMP stack
         href: ./linux/tutorial-lamp-stack.md
+      - name: LEMP stack
+        href: ./linux/tutorial-lemp-stack.md
       - name: Continuous delivery
         items:
         - name: Configure Rolling deployment strategy
@@ -1025,7 +1043,7 @@
         href: ./extensions/hpc-compute-infiniband-windows.md
       - name: Enable Infiniband
         displayName: InfiniBand Drivers, Infiband, drivers, extensions
-        href: ./extensions/enable-infiniband.md        
+        href: ./extensions/enable-infiniband.md
     - name: NVIDIA GPU Drivers
       items:
       - name: Linux
@@ -1081,6 +1099,8 @@
       items:
       - name: Chef
         href: ./extensions/chef.md
+      - name: Salt Minion
+        href: ./extensions/salt-minion.md
       - name: Stackify Retrace
         href: ./extensions/stackify-retrace-linux.md
       - name: Tenable
@@ -1164,7 +1184,7 @@
         displayName: availability and scale, availability, scale, single instance virtual machines, availability zones, AV zones
         href: ./move-virtual-machines-regional-zonal-faq.md
   - name: Virtual Machine Scale Sets
-    items: 
+    items:
     - name: Overview
       href: ../virtual-machine-scale-sets/flexible-virtual-machine-scale-sets.md
     - name: Scaling profiles
@@ -1206,6 +1226,8 @@
     href: managed-disks-overview.md
   - name: Disk types
     href: disks-types.md
+  - name: Understand Disk Storage billing
+    href: disks-understand-billing.md
   - name: Disk redundancy options
     href: disks-redundancy.md
   - name: What's new in Azure Disk Storage
@@ -1487,7 +1509,7 @@
         href: ./windows/convert-unmanaged-to-managed-disks.md
   - name: Create resources
     items:
-      - name: Create a disk from a VHD - CLI 
+      - name: Create a disk from a VHD - CLI
         href: ./scripts/create-managed-disk-from-vhd.md
       - name: Create a disk from a snapshot - CLI
         href: ./scripts/create-managed-disk-from-snapshot.md
@@ -1615,7 +1637,7 @@
   - name: Create VM - multiple IPs
     items:
     - name: Azure portal
-      href: ../virtual-network/ip-services/virtual-network-multiple-ip-addresses-portal.md?toc=/azure/virtual-machines/toc.json
+      href: ../virtual-network/ip-services/virtual-network-multiple-ip-addresses-portal.yml?toc=/azure/virtual-machines/toc.json
     - name: Azure PowerShell
       href: ../virtual-network/ip-services/virtual-network-multiple-ip-addresses-powershell.md?toc=/azure/virtual-machines/toc.json
     - name: Azure CLI
@@ -1690,8 +1712,6 @@
     - name: Windows
       displayName: Security baselines
       href: /security/benchmark/azure/baselines/virtual-machines-windows-security-baseline?toc=/azure/virtual-machines/toc.json
-  - name: Recommendations
-    href: security-recommendations.md
   - name: Trusted launch
     items:
     - name: Overview
@@ -1705,7 +1725,7 @@
       href: boot-integrity-monitoring-overview.md
     - name: Trusted Launch FAQs
       href: trusted-launch-faq.md
- 
+
   - name: Just-in-time access
     href: ../security-center/security-center-just-in-time.md
   - name: Policy
@@ -1728,7 +1748,7 @@
         href: ../governance/policy/assign-policy-azurecli.md?toc=/azure/virtual-machines/toc.json
       - name: Terraform
         displayName: assign, compliance, hcl, policy
-        href: ../governance/policy/assign-policy-terraform.md?toc=/azure/virtual-machines/toc.json      
+        href: ../governance/policy/assign-policy-terraform.md?toc=/azure/virtual-machines/toc.json
       - name: Azure PowerShell
         displayName: assign, compliance
         href: ../governance/policy/assign-policy-powershell.md?toc=/azure/virtual-machines/toc.json
@@ -2050,7 +2070,7 @@
       - name: VMSnapshot extension
         href: virtual-machines-restore-points-vm-snapshot-extension.md
       - name: Cross-region copy
-        href: virtual-machines-restore-points-copy.md        
+        href: virtual-machines-restore-points-copy.md
     - name: Manage VM restore points
       href: manage-restore-points.md
     - name: Tutorials
@@ -2062,7 +2082,7 @@
       - name: Portal
         href: virtual-machines-create-restore-points-portal.md
       - name: How to copy VM restore points to another region
-        href: virtual-machines-copy-restore-points-how-to.md        
+        href: virtual-machines-copy-restore-points-how-to.md
     - name: Support matrix
       href: concepts-restore-points.md
     - name: Troubleshooting
@@ -2104,8 +2124,12 @@
     href: ./linux/tutorial-azure-devops-blue-green-strategy.md
 - name: Cost optimization
   items:
-  - name: Overview
-    href: ./plan-to-manage-costs.md
+  - name: Plan to manage costs
+    href: ./cost-optimization-plan-to-manage-costs.md
+  - name: Monitor costs
+    href: ./cost-optimization-monitor-costs.md
+  - name: Best practices
+    href: ./cost-optimization-best-practices.md
 - name: Resources
   items:
   - name: Cloud adoption framework
