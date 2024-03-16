@@ -79,7 +79,7 @@ procedureSection:
       Find the disk
     summary: | 
       Once connected to your VM, you need to find the disk. In this example, we're using `lsblk` to list the disks.
-    code: |
+    code: |  
       ```bash
       lsblk -o NAME,HCTL,SIZE,MOUNTPOINT | grep -i "sd"
       ```
@@ -134,7 +134,7 @@ procedureSection:
 
 
       The following example uses `parted` on `/dev/sdc`, which is where the first data disk will typically be on most VMs. Replace `sdc` with the correct option for your disk. We're also formatting it using the [XFS](https://xfs.wiki.kernel.org/) filesystem.
-
+    
       ```bash
       sudo parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
       sudo mkfs.xfs /dev/sdc1
@@ -188,7 +188,8 @@ procedureSection:
       >
       > The *nofail* option ensures that the VM starts even if the filesystem is corrupt or the disk does not exist at boot time. Without this option, you may encounter behavior as described in [Cannot SSH to Linux VM due to FSTAB errors](/archive/blogs/linuxonazure/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting)
 
-- title: |
+
+  - title: |
       Verify the disk
     summary: |
       You can now use `lsblk` again to see the disk and the mountpoint.
