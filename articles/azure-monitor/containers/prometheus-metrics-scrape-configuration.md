@@ -186,6 +186,7 @@ See the [Apply config file](prometheus-metrics-scrape-validate.md#deploy-config-
 
 > [!NOTE]
 > When custom scrape configuration fails to apply because of validation errors, default scrape configuration continues to be used.
+
 > If you want to use global settings that apply to all the scrape jobs, and only have [Custom Resources](prometheus-metrics-scrape-crd.md) you would still need to create a configmap with just the global settings(Settings for each of these in the custom resources will override the ones in the global section)
 
 
