@@ -4,11 +4,12 @@ titleSuffix: Azure OpenAI
 description: Walkthrough on how to get started with Azure OpenAI assistants with new features like code interpreter and retrieval.
 manager: nitinme
 ms.service: azure-ai-openai
+ms.custom: devx-track-python
 ms.topic: quickstart
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 02/01/2024
-zone_pivot_groups: openai-quickstart
+zone_pivot_groups: openai-quickstart-assistants
 recommendations: false
 ---
 
@@ -26,6 +27,12 @@ Azure OpenAI Assistants (Preview) allows you to create AI assistants tailored to
 ::: zone pivot="programming-language-python"
 
 [!INCLUDE [Python SDK quickstart](includes/assistants-python.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-csharp"
+
+[!INCLUDE [C# quickstart](includes/assistants-csharp.md)]
 
 ::: zone-end
 

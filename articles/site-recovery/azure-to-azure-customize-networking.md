@@ -24,7 +24,7 @@ You can provide the following key resource configurations for the failover VM wh
 
 - [Internal load balancer](../load-balancer/load-balancer-overview.md)
 - [Public IP](../virtual-network/public-ip-addresses.md)
-- [Secondary IP](../virtual-network/ip-services/virtual-network-multiple-ip-addresses-portal.md)
+- [Secondary IP](../virtual-network/ip-services/virtual-network-multiple-ip-addresses-portal.yml)
 - [Network security group](../virtual-network/manage-network-security-group.md) both for the subnet and for the NIC
 
 ## Prerequisites

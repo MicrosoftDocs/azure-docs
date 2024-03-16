@@ -78,5 +78,5 @@ To learn more about the security alerts from these threat protection features, s
 
 - [Reference table for all Defender for Cloud alerts](alerts-reference.md)
 - [Security alerts in Defender for Cloud](alerts-overview.md)
-- [Manage and respond to security alerts in Defender for Cloud](managing-and-responding-alerts.md)
+- [Manage and respond to security alerts in Defender for Cloud](managing-and-responding-alerts.yml)
 - [Continuously export Defender for Cloud data](continuous-export.md)

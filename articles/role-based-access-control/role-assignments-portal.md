@@ -1,7 +1,6 @@
 ---
 title: Assign Azure roles using the Azure portal - Azure RBAC
 description: Learn how to grant access to Azure resources for users, groups, service principals, or managed identities using the Azure portal and Azure role-based access control (Azure RBAC).
-services: active-directory
 author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
@@ -176,5 +175,5 @@ If you selected one of the following storage roles, follow the steps in this sec
 ## Next steps
 
 - [Assign a user as an administrator of an Azure subscription](role-assignments-portal-subscription-admin.md)
-- [Remove Azure role assignments](role-assignments-remove.md)
+- [Remove Azure role assignments](role-assignments-remove.yml)
 - [Troubleshoot Azure RBAC](troubleshooting.md)

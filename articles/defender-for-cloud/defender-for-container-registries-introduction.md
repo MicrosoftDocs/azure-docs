@@ -40,9 +40,9 @@ To protect the Azure Resource Manager based registries in your subscription, ena
 
 Defender for Cloud identifies Azure Resource Manager based ACR registries in your subscription and seamlessly provides Azure-native vulnerability assessment and management for your registry's images.
 
-**Microsoft Defender for container registries** includes a vulnerability scanner to scan the images in your Azure Resource Manager-based Azure Container Registry registries and provide deeper visibility into your images'  vulnerabilities. The integrated scanner is powered by Qualys, the industry-leading vulnerability scanning vendor.
+**Microsoft Defender for container registries** includes a vulnerability scanner to scan the images in your Azure Resource Manager-based Azure Container Registry registries and provide deeper visibility into your images' vulnerabilities.
 
-When issues are found – by Qualys or Defender for Cloud – you'll get notified in the workload protection dashboard. For every vulnerability, Defender for Cloud provides actionable recommendations, along with a severity classification, and guidance for how to remediate the issue. For details of Defender for Cloud's recommendations for containers, see the [reference list of recommendations](recommendations-reference.md#container-recommendations).
+When issues are found, you'll get notified in the workload protection dashboard. For every vulnerability, Defender for Cloud provides actionable recommendations, along with a severity classification, and guidance for how to remediate the issue. For details of Defender for Cloud's recommendations for containers, see the [reference list of recommendations](recommendations-reference.md#container-recommendations).
 
 Defender for Cloud filters and classifies findings from the scanner. When an image is healthy, Defender for Cloud marks it as such. Defender for Cloud generates security recommendations only for images that have issues to be resolved. Defender for Cloud provides details of each reported vulnerability and a severity classification. Additionally, it gives guidance for how to remediate the specific vulnerabilities found on each image.
 
@@ -72,7 +72,7 @@ Below is a high-level diagram of the components and benefits of protecting your 
 
 ### How does Defender for Cloud scan an image?
 
-Defender for Cloud pulls the image from the registry and runs it in an isolated sandbox with the Qualys scanner. The scanner extracts a list of known vulnerabilities.
+Defender for Cloud pulls the image from the registry and runs it in an isolated sandbox with the scanner. The scanner extracts a list of known vulnerabilities.
 
 Defender for Cloud filters and classifies findings from the scanner. When an image is healthy, Defender for Cloud marks it as such. Defender for Cloud generates security recommendations only for images that have issues to be resolved. By only notifying you when there are problems, Defender for Cloud reduces the potential for unwanted informational alerts.
 
@@ -90,7 +90,7 @@ If you connect unsupported registries to your Azure subscription, Defender for C
 
 Yes. If you have an organizational need to ignore a finding, rather than remediate it, you can optionally disable it. Disabled findings don't impact your secure score or generate unwanted noise.
 
-[Learn about creating rules to disable findings from the integrated vulnerability assessment tool](defender-for-containers-vulnerability-assessment-azure.md#disable-specific-findings).
+[Learn about creating rules to disable findings from the integrated vulnerability assessment tool](disable-vulnerability-findings-containers.md).
 
 ### Why is Defender for Cloud alerting me to vulnerabilities about an image that isn’t in my registry?
 
@@ -99,4 +99,4 @@ Defender for Cloud provides vulnerability assessments for every image pushed or 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Scan your images for vulnerabilities](defender-for-containers-vulnerability-assessment-azure.md)
+> [Scan your images for vulnerabilities](agentless-vulnerability-assessment-azure.md)
