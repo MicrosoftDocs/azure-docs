@@ -13,11 +13,20 @@ Azure Monitor pipeline for edge and multicloud is an Azure Monitor component tha
 
 Azure Monitor Pipeline will be deployed on an Arc-enabled K8s cluster in the customers’ environment.  
 
-
 ## Prerequisites
 
+- This process assumes that you already have a data collection process that sends data to a Log Analytics workspace using a [data collection rule (DCR)](./data-collection-rule-overview.md). If not, then see the following articles to create a DCR and any required tables in your workspace.
+
 - Arc-enabled Kubernetes cluster with an external IP address.
-    - You can use Azure Kubernetes Service (AKS) if you don’t already have a cluster.
+
+
+
+## Components
+
+
+| Component | Description |
+|:---|:--|
+| Arc-enabled Kubernetes cluster | with an external IP address.  You can use Azure Kubernetes Service (AKS) if you don’t already have a cluster.
 - Workload generating OTLP or Syslog data.
 - Log Analytics workspace
 - Azure CLI
@@ -31,14 +40,6 @@ Azure Monitor Pipeline will be deployed on an Arc-enabled K8s cluster in the cus
       - Microsoft.Monitor
 
 
-## Onboarding
-
-## Create Data Collection Endpoint (DCE)
-Create a Data Collection Endpoint if you don't already have one in the same region as your Kubrenetes cluster.  See [Create a data collection endpoint](./data-collection-endpoint-overview.md#create-a-data-collection-endpoint)
-
-## Create tables in Log Analytics workspace
-When you use the Azure portal to create the table, the DCR is created for you. See [Create a custom table](../logs/create-custom-table.md?tabs=azure-portal-1%2Cazure-portal-2%2Cazure-portal-3#create-a-custom-table)
-
 
 ## Pipeline installation
 
@@ -46,10 +47,16 @@ The following three components must be installed and configured for the Azure Mo
 
 - Azure Monitor Pipeline Controller Arc Extension
 - Entitle installed Arc Extension to send telemetry to your Log Analytics Workspace via DCR
-- mDeploy the Azure Monitor Pipeline Configuration to the cluster.
+- Deploy the Azure Monitor Pipeline Configuration to the cluster.
 
-## Deploy the Azure Monitor Pipeline Arc Extension
+## Deploy Azure Monitor Pipeline Arc Extension
 From Azure CLI, run the following command to install the Azure Monitor Pipeline Controller into the specified cluster in the specified namespace without automatic upgrades.
+
+### [Portal](#tab/Portal)
+
+
+### [CLI](#tab/CLI)
+
 
 ```azurecli
 az k8s-extension create --name <name> --extension-type microsoft.monitor.pipelinecontroller --scope cluster --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --release-train preview --release-namespace <release-namespace> --version 0.1.1-23318.7-privatepreview --debug --auto-upgrade false
