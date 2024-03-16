@@ -228,27 +228,26 @@ procedureSection:
       - |  
         In some cases, the `discard` option may have performance implications. Alternatively, you can run the `fstrim` command manually from the command line, or add it to your crontab to run regularly:
 
-        # [Ubuntu](#tab/ubuntu)
+        **ubuntu**
 
         ```bash
         sudo apt-get install util-linux
         sudo fstrim /datadrive
         ```
 
-        # [RHEL](#tab/rhel)
+        **RHEL**
 
         ```bash
         sudo yum install util-linux
         sudo fstrim /datadrive
         ```
 
-        # [SUSE](#tab/suse)
+        **SUSE
 
         ```bash
         sudo zypper install util-linux
         sudo fstrim /datadrive
         ```
-        ---
 
 relatedContent:
   - text: Troubleshoot Linux VM device name changes
