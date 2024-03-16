@@ -23,7 +23,7 @@ In the Azure portal, navigate to cost analysis for your scope. For example: **Co
 
 In the default view, the top chart has the Actual/Amortized cost and forecast cost sections. The solid color of the chart shows your Actual/Amortized cost. The shaded color shows the forecast cost.
 
-:::image type="content" border="true" source="./media/cost-analysis-common-uses/enrollment-forecast.png" lightbox="./media/cost-analysis-common-uses/enrollment-forecast.png" alt-text="Forecast cost.":::
+:::image type="content" border="true" source="./media/cost-analysis-common-uses/enrollment-forecast.png" lightbox="./media/cost-analysis-common-uses/enrollment-forecast.png" alt-text="Screenshot showing Forecast cost in cost analysis.":::
 
 ## View forecast costs grouped by service
 
@@ -35,7 +35,7 @@ Select **Group by** > **Service name**.
 
 The view shows your costs grouped for each service. The forecast cost isn't calculated for each service. It's projected for the **Total** of all your services.
 
-:::image type="content" border="true" source="./media/cost-analysis-common-uses/forecast-group-by-service.png" lightbox="./media/cost-analysis-common-uses/forecast-group-by-service.png" alt-text="Grouped forecast cost.":::
+:::image type="content" border="true" source="./media/cost-analysis-common-uses/forecast-group-by-service.png" lightbox="./media/cost-analysis-common-uses/forecast-group-by-service.png" alt-text="Screenshot showing Grouped and forecast cost.":::
 
 ## View forecast costs for a service
 
@@ -52,7 +52,7 @@ You can add more customizations to the view.
 1. Add a second filter for **Meter** and select a value to filter for an individual type of meter under your selected service name.
 1. Group by **Resource** to see the specific resources that are accruing cost. The forecast cost isn't calculated for each service. It's projected for the **Total** of all your resources.
 
-:::image type="content" border="true" source="./media/cost-analysis-common-uses/forecast-by-service.png" lightbox="./media/cost-analysis-common-uses/forecast-by-service.png" alt-text="Forecast cost for a service.":::
+:::image type="content" border="true" source="./media/cost-analysis-common-uses/forecast-by-service.png" lightbox="./media/cost-analysis-common-uses/forecast-by-service.png" alt-text="Screenshot showing Forecast and resource cost.":::
 
 ## View your Azure and AWS costs together  
 
@@ -84,17 +84,17 @@ Viewing costs by an Azure service can help you to better understand the parts of
 1. Select **Cost by service** and then group by **Service tier**.
 1. Change the view to **Table**.
 
-:::image type="content" border="true" source="./media/cost-analysis-common-uses/breakdown-by-service.png" lightbox="./media/cost-analysis-common-uses/breakdown-by-service.png" alt-text="Cost breakdown by Azure service.":::
+:::image type="content" border="true" source="./media/cost-analysis-common-uses/breakdown-by-service.png" lightbox="./media/cost-analysis-common-uses/breakdown-by-service.png" alt-text="Screenshot showing cost breakdown by Azure service in a table.":::
 
 ## Review invoiced charges in Cost analysis
 
 To view your invoice details in the Azure portal, navigate to Cost analysis for the scope associated with the invoice that you're analyzing. Select the **Invoice details** view. Invoice details show you the charges as seen on the invoice.
 
-:::image type="content" border="true" source="./media/cost-analysis-common-uses/invoice-details.png" lightbox="./media/cost-analysis-common-uses/invoice-details.png" alt-text="Example showing invoice details.":::
+:::image type="content" border="true" source="./media/cost-analysis-common-uses/invoice-details.png" lightbox="./media/cost-analysis-common-uses/invoice-details.png" alt-text="Screenshot showing invoice detail cost.":::
 
 Viewing invoice details, you can identify the service that has unexpected costs and determine which resources are directly associated with the resource in Cost analysis. For example, if you want to analyze charges for the Virtual Machines service, navigate to the **Accumulated cost** view. Then, set the granularity to **Daily** and filter charges **Service name: Virtual machines** and group charges by **Resource**.
 
-:::image type="content" border="true" source="./media/cost-analysis-common-uses/virtual-machines.png" lightbox="./media/cost-analysis-common-uses/virtual-machines.png" alt-text="Example showing accumulated costs for virtual machines.":::
+:::image type="content" border="true" source="./media/cost-analysis-common-uses/virtual-machines.png" lightbox="./media/cost-analysis-common-uses/virtual-machines.png" alt-text="Screenshot showing accumulated costs for virtual machines by resource.":::
 
 ## View cost breakdown by Azure resource
 
@@ -106,7 +106,7 @@ The view is only available for subscription and resource group scopes.
 1. Select **Cost by resource**.
 1. Change the view to **Table**.
 
-:::image type="content" border="true" source="./media/cost-analysis-common-uses/cost-by-resource.png" lightbox="./media/cost-analysis-common-uses/cost-by-resource.png" alt-text="View cost breakdown by Azure resource.":::
+:::image type="content" border="true" source="./media/cost-analysis-common-uses/cost-by-resource.png" lightbox="./media/cost-analysis-common-uses/cost-by-resource.png" alt-text="Screenshot showing a cost breakdown by Azure resource in a table view.":::
 
 ## View cost breakdown by selected dimensions
 
@@ -114,10 +114,10 @@ Dimensions allow you to organize your costs based on various metadata values sho
 
 1. In the Azure portal, navigate to cost analysis for your scope. For example: **Cost Management + Billing** > **Cost Management** > **Cost analysis**.
 1. Select the **Group by** filter.  
-    :::image type="content" border="true" source="./media/cost-analysis-common-uses/group-by.png" lightbox="./media/cost-analysis-common-uses/group-by.png" alt-text="Select a Group by item.":::
+    :::image type="content" border="true" source="./media/cost-analysis-common-uses/group-by.png" lightbox="./media/cost-analysis-common-uses/group-by.png" alt-text="Screenshot that shows selecting a Group by item.":::
 1. Optionally, you save the view for later use.
 1. Select a pie chart below the graph to view more detailed data.  
-    :::image type="content" border="true" source="./media/cost-analysis-common-uses/drill-down.png" lightbox="./media/cost-analysis-common-uses/drill-down.png" alt-text="View cost breakdown by selected dimensions.":::
+    :::image type="content" border="true" source="./media/cost-analysis-common-uses/drill-down.png" lightbox="./media/cost-analysis-common-uses/drill-down.png" alt-text="Screenshot showing cost breakdown by selected dimensions in cost analysis.":::
 
 ## View costs per day or by month
 
@@ -126,7 +126,7 @@ Looking at daily and monthly costs can help you to better understand if there's 
 1. In the Azure portal, navigate to cost analysis for your scope. For example: **Cost Management + Billing** > **Cost Management** > **Cost analysis**.
 1. Set the **Granularity** to **Monthly** or **Daily**.
 
-:::image type="content" border="true" source="./media/cost-analysis-common-uses/daily-granularity.png" lightbox="./media/cost-analysis-common-uses/daily-granularity.png" alt-text="View costs per day.":::
+:::image type="content" border="true" source="./media/cost-analysis-common-uses/daily-granularity.png" lightbox="./media/cost-analysis-common-uses/daily-granularity.png" alt-text="Screenshot showing view costs per day.":::
 
 
 ## View your Spot VM charges
@@ -136,7 +136,7 @@ Spot VMs can provide large cost savings for workloads that can handle interrupti
 1. In the Azure portal, navigate to cost analysis for your scope. For example, **Cost Management + Billing** > **Cost Management** > **Cost analysis**.
 2. Add a filter for **Pricing Model: Spot**.
 
-:::image type="content" border="true" source="./media/cost-analysis-common-uses/spot-vm-filter.png" alt-text="Example showing Spot VM filter.":::
+:::image type="content" border="true" source="./media/cost-analysis-common-uses/spot-vm-filter.png" alt-text="Screenshot showing the Spot VM filter.":::
 
 The Pricing Model dimension is also used to view on demand and reservation charges.
 
@@ -151,7 +151,7 @@ Reserved instances provide a way for you to save money with Azure. With reservat
 1. Add a filter for **Pricing Model: Reservation**.
 1. Under **Scope** and next to the cost shown, select the down arrow symbol, select either **Actual cost** or **Amortized cost** metric.
 
-:::image type="content" border="true" source="./media/cost-analysis-common-uses/metric-cost.png" alt-text="Select a cost metric.":::
+:::image type="content" border="true" source="./media/cost-analysis-common-uses/metric-cost.png" alt-text="Screenshot that shows selecting a cost metric.":::
 
 Each metric affects how data is shown for your reservation charges.
 
@@ -176,7 +176,7 @@ To identify how much cost is currently being wasted each month for your reservat
 1. Group charges by **Charge Type**.
 1. Review the results for `unusedreservation` values.
 
-:::image type="content" border="true" source="./media/cost-analysis-common-uses/view-reservation-cost.png" lightbox="./media/cost-analysis-common-uses/view-reservation-cost.png" alt-text="Example showing reservation use.":::
+:::image type="content" border="true" source="./media/cost-analysis-common-uses/view-reservation-cost.png" lightbox="./media/cost-analysis-common-uses/view-reservation-cost.png" alt-text="Screenshot showing underused reservations.":::
 
 ### View utilization in Reservations
 
@@ -191,7 +191,7 @@ Support for tags applies to usage reported *after* the tag was applied to the re
 1. In the Azure portal, navigate to cost analysis for your scope. For example: **Cost Management + Billing** > **Cost Management** > **Cost analysis**.
 1. Select **Group by** for your tag.
 
-:::image type="content" border="true" source="./media/cost-analysis-common-uses/tag.png" lightbox="./media/cost-analysis-common-uses/tag.png" alt-text="View costs for a specific tag.":::
+:::image type="content" border="true" source="./media/cost-analysis-common-uses/tag.png" lightbox="./media/cost-analysis-common-uses/tag.png" alt-text="Screenshot that shows viewing costs for a specific tag.":::
 
 ## Download your usage details
 
@@ -199,9 +199,9 @@ Your usage details report file, in CSV format, provides a breakdown of all the c
 
 1. In the Azure portal, navigate to the **Usage and Charges** tab for a billing account or subscription. For example: **Cost Management + Billing** > **Billing** > **Usage + charges**.
 1. Select the line item to download from and then select the download symbol.  
-    :::image type="content" border="true" source="./media/cost-analysis-common-uses/download1.png" lightbox="./media/cost-analysis-common-uses/download1.png" alt-text="Download usage and charges.":::
+    :::image type="content" border="true" source="./media/cost-analysis-common-uses/download1.png" lightbox="./media/cost-analysis-common-uses/download1.png" alt-text="Screenshot showing the Usage + charges page were start a download.":::
 1.  Select the usage file to download.  
-    :::image type="content" border="true" source="./media/cost-analysis-common-uses/download2.png" alt-text="Choose a usage file to download.":::
+    :::image type="content" border="true" source="./media/cost-analysis-common-uses/download2.png" alt-text="Screenshot showing the Download Usage + charges page to select a file to download.":::
 
 ## View monthly EA cost breakdown
 
@@ -212,9 +212,9 @@ Costs are only shown for your active enrollment. If you transferred an enrollmen
 
 1. In the Azure portal, navigate to **Cost Management + Billing** > **Overview**.
 1. Select **Breakdown** for the current month and view your Azure Prepayment (previously called monetary commitment) burn down.  
-    :::image type="content" border="true" source="./media/cost-analysis-common-uses/breakdown1.png" lightbox="./media/cost-analysis-common-uses/breakdown1.png" alt-text="EA costs overview - breakdown summary.":::
+    :::image type="content" border="true" source="./media/cost-analysis-common-uses/breakdown1.png" lightbox="./media/cost-analysis-common-uses/breakdown1.png" alt-text="Screenshot showing an EA costs overview - breakdown summary.":::
 1.  Select the **Usage and Charges** tab and view the prior month's breakdown in the chosen timespan.  
-    :::image type="content" border="true" source="./media/cost-analysis-common-uses/breakdown2.png" lightbox="./media/cost-analysis-common-uses/breakdown2.png" alt-text="Usage and charges tab.":::
+    :::image type="content" border="true" source="./media/cost-analysis-common-uses/breakdown2.png" lightbox="./media/cost-analysis-common-uses/breakdown2.png" alt-text="Screenshot showing the Usage + charges page where you choose a time span to view.":::
 
 ## View enrollment monthly cost by term
 
@@ -226,7 +226,7 @@ Use a graphical view of your enrollment's monthly costs to understand the cost t
 
 You can group by and filter your data for a more detailed analysis.
 
-:::image type="content" border="true" source="./media/cost-analysis-common-uses/enrollment-term1.png" lightbox="./media/cost-analysis-common-uses/enrollment-term1.png" alt-text="Monthly enrollment cost by term.":::
+:::image type="content" border="true" source="./media/cost-analysis-common-uses/enrollment-term1.png" lightbox="./media/cost-analysis-common-uses/enrollment-term1.png" alt-text="Screenshot showing monthly enrollment cost by term.":::
 
 ## View EA enrollment accumulated costs
 
@@ -235,7 +235,7 @@ View the net accumulated charges over time to understand overall expenditures fo
 1. In the Azure portal, navigate to cost analysis for your scope. For example: **Cost Management + Billing** > **Cost Management** > **Cost analysis**.
 1. Select your enrollment and then view your current accumulated costs.
 
-:::image type="content" border="true" source="./media/cost-analysis-common-uses/cost-analysis-enrollment.png" lightbox="./media/cost-analysis-common-uses/cost-analysis-enrollment.png" alt-text="Enrollment accumulated costs.":::
+:::image type="content" border="true" source="./media/cost-analysis-common-uses/cost-analysis-enrollment.png" lightbox="./media/cost-analysis-common-uses/cost-analysis-enrollment.png" alt-text="Screenshot showing accumulated costs for an enrollment.":::
 
 ## Next steps
 - If you haven't already completed the first quickstart for Cost Management, read it at [Start analyzing costs](quick-acm-cost-analysis.md).
