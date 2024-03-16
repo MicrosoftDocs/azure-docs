@@ -22,19 +22,19 @@ The following table describes the network topologies supported by each network f
 | :------------------- |:---------------:|
 |Connectivity to Oracle database cluster in a local virtual network| Yes |
 |Connectivity to Oracle database cluster in a peered virtual network (Same region)|Yes |
-|Connectivity to Oracle database cluster in a peered VNet\* (Cross region or global peering) with VWAN \*|Yes |
+|Connectivity to Oracle database cluster in a spoke VNet in a different region with VWAN |Yes |
 |Connectivity to Oracle database cluster in a peered virtual network* (Cross region or global peering)* without VWAN| No|
 |On-premises connectivity to Oracle database cluster via Global and Local Expressroute |Yes|
 |ExpressRoute (ER) FastPath |No |
 |Connectivity from on-premises to Oracle database cluster in a spoke virtual network over ExpressRoute gateway and virtual network peering with gateway transit|Yes |
 |On-premises connectivity to Delegated Subnet via VPN GW| Yes |
-|Connectivity from on-premises to BMI in a spoke virtual network over VPN gateway and virtual network peering with gateway transit| Yes |
+|Connectivity from on-premises to Oracle database in a spoke virtual network over VPN gateway and virtual network peering with gateway transit| Yes |
 |Connectivity over Active/Passive VPN gateways| Yes |
 |Connectivity over Active/Active VPN gateways| No |
 |Connectivity over Active/Active Zone Redundant gateways| No |
 |Transit connectivity via vWAN for Oracle database cluster provisioned in spoke virtual networks| Yes |
 |On-premises connectivity to Oracle database cluster via vWAN attached SD-WAN| No|
-|On-premises connectivity via Secured HUB(Az PowerShell module Firewall NVA) | No|
+|On-premises connectivity via Secured HUB (Firewall NVA) | No|
 |Connectivity from Oracle database cluster on Oracle Database@Azure nodes to Azure resources|Yes|
 
 * You can overcome this limitation by setting Site-to-Site VPN.
@@ -47,12 +47,11 @@ The following table describes the configuration of supported network features:
 | :------------------- | -------------------: |
 |Delegated subnet per virtual network |1|
 |[Network Security Groups](../../virtual-network/network-security-groups-overview.md) on Oracle Database@Azure-delegated subnets|No|
-|[User-defined routes (UDRs)](../../virtual-network/virtual-networks-udr-overview.md#user-defined) on Oracle Database@Azure-delegated subnets with VWAN|Yes|
-[User-defined routes (UDRs)](../../virtual-network/virtual-networks-udr-overview.md#user-defined) on Oracle Database@Azure-delegated subnets without VWAN| No|
+|[User-defined routes (UDRs)](../../virtual-network/virtual-networks-udr-overview.md#user-defined) on Oracle Database@Azure-delegated subnets|Yes|
 |Connectivity from Oracle database cluster to [private endpoints](../../private-link/private-endpoint-overview.md) in the same virtual network on Azure-delegated subnets|No|
-|Connectivity from BareMetal to [private endpoints](../../private-link/private-endpoint-overview.md) in a different spoke virtual network connected to vWAN|Yes|
+|Connectivity from Oracle database cluster to [private endpoints](../../private-link/private-endpoint-overview.md) in a different spoke virtual network connected to vWAN|Yes|
 |Load balancers for Oracle database cluster traffic|No|
-|Dual stack (IPv4 and IPv6) virtual network|IPv4 only supported|
+|Dual stack (IPv4 and IPv6) virtual network|IPv4 only supported.|
 
 ## Next steps
 

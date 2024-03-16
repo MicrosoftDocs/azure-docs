@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 ms.service: api-management
 ms.topic: article
-ms.date: 12/01/2022
+ms.date: 03/08/2024
 ms.author: danlep
 ---
 
@@ -86,7 +86,7 @@ More information about policies:
 -   [Convert XML to JSON](xml-to-json-policy.md) - Converts request or response body from XML to JSON.
 -   [Find and replace string in body](find-and-replace-policy.md) - Finds a request or response substring and replaces it with a different substring.
 -   [Mask URLs in content](redirect-content-urls-policy.md) - Rewrites (masks) links in the response body so that they point to the equivalent link via the gateway.
--   [Set backend service](set-backend-service-policy.md) - Changes the backend service for an incoming request.
+-   [Set backend service](set-backend-service-policy.md) - Changes the backend service base URL of an incoming request to a URL or a [backend](backends.md). Referencing a backend resource allows you to manage the backend service base URL and other settings in a single place. Also implement [load balancing of traffic across a pool of backend services](backends.md#load-balanced-pool-preview) and [circuit breaker rules](backends.md#circuit-breaker-preview) to protect the backend from too many requests.
 - [Set body](set-body-policy.md) - Sets the message body for a request or response.
 -   [Set HTTP header](set-header-policy.md) - Assigns a value to an existing response and/or request header or adds a new response and/or request header.
 -   [Set query string parameter](set-query-parameter-policy.md) - Adds, replaces value of, or deletes request query string parameter.
