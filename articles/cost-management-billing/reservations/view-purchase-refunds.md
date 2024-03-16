@@ -51,7 +51,7 @@ An Enterprise enrollment administrator can view reservation transactions with th
 1. Get the [Cost Management Power BI App](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp).
 1. Navigate to the RI Purchases report.
 
-:::image type="content" border="true" source="./media/view-purchase-refunds/power-bi-reservation-transactions.png" lightbox="./media/view-purchase-refunds/power-bi-reservation-transactions.png" alt-text="Example showing reservation transactions.":::
+:::image type="content" border="true" source="./media/view-purchase-refunds/power-bi-reservation-transactions.png" lightbox="./media/view-purchase-refunds/power-bi-reservation-transactions.png" alt-text="Screenshot showing reservation transactions.":::
 
 To learn more, see [Cost Management Power BI App for Enterprise Agreements](../costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md).
 

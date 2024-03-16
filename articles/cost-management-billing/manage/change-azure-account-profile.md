@@ -100,7 +100,7 @@ You're prompted in the Azure portal to verify or update your email address every
 
 Enter the email address where you want to receive communications about your account. By entering an email address, you're opting in to receive communications from Microsoft.
 
-:::image type="content" border="true" source="./media/change-azure-account-profile/update-contact-information.png" alt-text="Example of the prompt to update your contact information.":::
+:::image type="content" border="true" source="./media/change-azure-account-profile/update-contact-information.png" alt-text="Screenshot showing the prompt to update your contact information.":::
 
 ### Change your contact email address
 
@@ -110,7 +110,7 @@ You can change your contact email address by using one of the following methods.
 1. Go to the [Contact information](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) area in the Azure portal and enter the new email address. 
 1. In the Azure portal, select the icon with your initials or picture. Then, select the context menu (**...**). Next, select **My Contact Information** from the menu and enter the new email address.
 
-:::image type="content" border="true" source="./media/change-azure-account-profile/azure-contact-information.png" alt-text="Example of updating an email address in Azure.":::
+:::image type="content" border="true" source="./media/change-azure-account-profile/azure-contact-information.png" alt-text="Screenshot that shows updating an email address for contact information.":::
 
 ### Opt out of marketing emails
 
@@ -118,7 +118,7 @@ To opt out of receiving marketing emails:
 
 1. Go to the [request form](https://account.microsoft.com/profile/permissions-link-request) to submit a request by using your profile email address. You'll receive a link by email to update your preferences.
 1. Select the link to open the **Manage communication permissions** page. This page shows you the types of marketing communications that the email address is opted in to. Clear any selections that you want to opt out of, and then select **Save**.  
-    :::image type="content" border="true" source="./media/change-azure-account-profile/manage-communication-permissions.png" alt-text="Example of the page for managing communication permissions.":::
+    :::image type="content" border="true" source="./media/change-azure-account-profile/manage-communication-permissions.png" alt-text="Screenshot showing the manage communication permission page with contact options.":::
 
 When you opt out of marketing communications, you still receive service notifications, based on your account.
 
@@ -138,7 +138,7 @@ Changing the country or region for an existing account isn't supported. However,
 
 1. Sign in to the Azure portal, select **Subscription** from the left pane, and then select the subscription that you want to rename.
 1. Select **Overview**, and then select **Rename** from the command bar.  
-    :::image type="content" border="true" source="./media/change-azure-account-profile/rename-sub.png" alt-text="Example of renaming Azure subscription.":::
+    :::image type="content" border="true" source="./media/change-azure-account-profile/rename-sub.png" alt-text="Screenshot showing where to rename an Azure subscription.":::
 1. After you change the name, select **Save**.
 
 ## Need help? Contact us.

@@ -58,7 +58,7 @@ This section describes common scenarios for organizing costs and corresponding b
 |---------|---------|
 |Contoso is a small organization that needs a single monthly invoice but group costs by their departments - marketing and engineering.  | A billing profile for Contoso and an invoice section each for marketing and engineering departments. |
 
-:::image type="content" border="false" source="./media/mca-section-invoice/organize-billing-scenario2.png" alt-text="Diagram showing a  multiple billing scenario.":::
+:::image type="content" border="false" source="./media/mca-section-invoice/organize-billing-scenario2.png" alt-text="Diagram showing a multiple billing scenario.":::
 
 |Scenario  |Structure  |
 |---------|---------|
@@ -86,7 +86,7 @@ To create an invoice section, you need to be a **billing profile owner** or a **
 
 5. Enter a name for the invoice section.
 
-   :::image type="content" border="true" source="./media/mca-section-invoice/mca-create-invoice-section.png" lightbox="./media/mca-section-invoice/mca-create-invoice-section-zoomed-in.png" alt-text="Screenshot that shows invoice section creation page.":::
+   :::image type="content" border="true" source="./media/mca-section-invoice/mca-create-invoice-section.png" lightbox="./media/mca-section-invoice/mca-create-invoice-section-zoomed-in.png" alt-text="Screenshot that shows the invoice section creation page.":::
 
 6. Select **Create**.
 
@@ -102,15 +102,15 @@ To create a billing profile, you need to be a **billing account owner** or a **b
 
 2. Search for **Cost Management + Billing**.
 
-   :::image type="content" border="true" source="./media/mca-section-invoice/search-cmb.png" alt-text="Screenshot that shows search in portal for cost management + billing.":::
+   :::image type="content" border="true" source="./media/mca-section-invoice/search-cmb.png" alt-text="Screenshot that shows search in the Azure portal for Cost Management + billing.":::
 
 3. Select **Billing profiles** from the left-hand pane and then select **Add** from the top of the page.
 
-   :::image type="content" border="true" source="./media/mca-section-invoice/mca-list-profiles.png" lightbox="./media/mca-section-invoice/mca-list-profiles-zoomed-in.png" alt-text="Screenshot that shows billing profile list with Add selected.":::
+   :::image type="content" border="true" source="./media/mca-section-invoice/mca-list-profiles.png" lightbox="./media/mca-section-invoice/mca-list-profiles-zoomed-in.png" alt-text="Screenshot that shows a billing profile list with Add selected.":::
 
 4. Fill the form and select **Create**.
 
-   :::image type="content" border="true" source="./media/mca-section-invoice/mca-add-profile.png" lightbox="./media/mca-section-invoice/mca-add-profile-zoomed-in.png" alt-text="Screenshot that shows billing profile creation page.":::
+   :::image type="content" border="true" source="./media/mca-section-invoice/mca-add-profile.png" lightbox="./media/mca-section-invoice/mca-add-profile-zoomed-in.png" alt-text="Screenshot that shows the billing profile creation page.":::
 
     |Field  |Definition  |
     |---------|---------|
@@ -131,15 +131,15 @@ Once you have customized your billing account based on your needs, you can link 
 
 2. Search for **Subscriptions**.
 
-   :::image type="content" border="true" source="./media/mca-section-invoice/search-subscriptions.png" lightbox="./media/mca-section-invoice/search-subscriptions.png" alt-text="Screenshot that shows search for subscription in the Azure portal.":::
+   :::image type="content" border="true" source="./media/mca-section-invoice/search-subscriptions.png" lightbox="./media/mca-section-invoice/search-subscriptions.png" alt-text="Screenshot that shows a search for a subscription.":::
 
 3. Select **Add** from the top of the page.
 
-   :::image type="content" border="true" source="./media/mca-section-invoice/subscription-add.png" alt-text="Screenshot that shows the Add button in Subscriptions view for a new subscription.":::
+   :::image type="content" border="true" source="./media/mca-section-invoice/subscription-add.png" alt-text="Screenshot that shows the Add option in the Subscriptions view for a new subscription.":::
 
 4. If you have access to multiple billing accounts, select your Microsoft Customer Agreement billing account.
 
-   :::image type="content" border="true" source="./media/mca-section-invoice/mca-create-azure-subscription.png" alt-text="Screenshot that shows the Create subscription pane.":::
+   :::image type="content" border="true" source="./media/mca-section-invoice/mca-create-azure-subscription.png" alt-text="Screenshot that shows the Create subscription page.":::
 
 5. Select the billing profile that will be billed for the subscription's usage. The charges for Azure usage and other purchases for this subscription will be billed to the selected billing profile's invoice.
 
@@ -161,7 +161,7 @@ If you have existing Azure subscriptions or other products such as Azure Marketp
 
 3. To link a subscription to a new invoice section, select **Azure subscriptions** from the left-side of the screen. For other products such as Azure Marketplace and App source resources, select **Recurring charges**.
 
-   :::image type="content" border="true" source="./media/mca-section-invoice/mca-select-change-invoice-section.png" lightbox="./media/mca-section-invoice/mca-select-change-invoice-section-zoomed-in.png" alt-text="Screenshot that shows the option to change invoice section.":::
+   :::image type="content" border="true" source="./media/mca-section-invoice/mca-select-change-invoice-section.png" lightbox="./media/mca-section-invoice/mca-select-change-invoice-section-zoomed-in.png" alt-text="Screenshot that shows the option to change an invoice section.":::
 
 4. In the page, select the ellipsis (three dots) for the subscription or product that you want to link to a new invoice section. Select **Change invoice section**.
 
@@ -217,7 +217,7 @@ The total charges for using 100 TB of data in this scenario is **184.0** (92.0 *
 
 Azure reservations with shared scope are applied to subscriptions in a single billing profile and are not shared across billing profiles.
 
-:::image type="content" border="false" source="./media/mca-section-invoice/mca-reservations-benefits-by-bg.png" alt-text="Diagram showing  reservation application for different billing account structures.":::
+:::image type="content" border="false" source="./media/mca-section-invoice/mca-reservations-benefits-by-bg.png" alt-text="Diagram showing reservation application for different billing account structures.":::
 
 In the above image, Contoso has two subscriptions. The Azure Reservation benefit is applied differently depending on how the billing account is structured. In the scenario on the left, the reservation benefit is applied to both subscriptions being billed to the engineering billing profile. In the scenario on the right, the reservation benefit will only be applied to subscription 1 since it’s the only subscription being billed to the engineering billing profile.
 

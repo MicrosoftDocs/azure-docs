@@ -56,7 +56,7 @@ For other subscription types, you can get standard retail prices with the [Azure
 
 You can view the estimated cost per month while adding a service in the Azure portal. For example, when you choose the size of your Windows VM, you see the estimated monthly cost for the compute hours:
 
-:::image type="content" border="true" source="./media/plan-manage-costs/vm-size-cost.png" alt-text="Example: an A1 Windows VM showing estimated cost per month.":::
+:::image type="content" border="true" source="./media/plan-manage-costs/vm-size-cost.png" alt-text="Screenshot showing an A1 Windows VM with estimated cost per month.":::
 
 The mentioned prices are for example purposes only. They are not intended to imply actual costs.
 
@@ -96,7 +96,7 @@ In the Azure portal, you can also optimize and reduce Azure costs with auto shut
 
 Depending on your scenario, you can configure auto shutdown for your VMs in the Azure portal. For more information, see [Auto shutdown for VMs using Azure Resource Manager](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/).
 
-:::image type="content" border="true" source="./media/plan-manage-costs/auto-shutdown.png" alt-text="Screenshot of auto shutdown option in the portal.":::
+:::image type="content" border="true" source="./media/plan-manage-costs/auto-shutdown.png" alt-text="Screenshot of the auto shutdown option in the Azure portal.":::
 
 Auto shutdown isn't the same as when you shut down within the VM with power options. Auto shutdown stops and deallocates your VMs to stop additional usage charges. For more information, see pricing FAQ for [Linux VMs](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) and [Windows VMs](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) about VM states.
 
@@ -106,11 +106,11 @@ For more cost-cutting features for your development and test environments, check
 
 [Azure Advisor](../../advisor/advisor-overview.md) helps you reduce costs by identifying resources with low usage. Search for **Advisor** in the Azure portal:
 
-:::image type="content" border="true" source="./media/plan-manage-costs/advisor-button.png" alt-text="Screenshot of Azure Advisor button in Azure portal.":::
+:::image type="content" border="true" source="./media/plan-manage-costs/advisor-button.png" alt-text="Screenshot of Azure Advisor button in the Azure portal.":::
 
 Select **Cost** from the left-hand side. You'll see actionable recommendations in the **Cost** tab:
 
-:::image type="content" border="true" source="./media/plan-manage-costs/advisor-action.png" alt-text="Screenshot of Advisor cost recommendation example.":::
+:::image type="content" border="true" source="./media/plan-manage-costs/advisor-action.png" alt-text="Screenshot of an Advisor cost recommendation.":::
 
 The mentioned prices are for example purposes only. They are not intended to imply actual costs.
 

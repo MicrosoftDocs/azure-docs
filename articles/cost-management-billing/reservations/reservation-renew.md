@@ -27,7 +27,7 @@ Go to Azure portal > **Reservations**.
 1. Select the reservation.
 2. Select **Renewal**.
 3. Select **Automatically purchase a new reservation upon expiry**.  
-  :::image type="content" border="true" source="./media/reservation-renew/reservation-renewal.png" alt-text="Example showing reservation renewal.":::
+  :::image type="content" border="true" source="./media/reservation-renew/reservation-renewal.png" alt-text="Screenshot showing reservation renewal.":::
 
 ## If you don't renew
 

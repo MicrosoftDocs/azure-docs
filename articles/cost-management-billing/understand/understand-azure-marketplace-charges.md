@@ -20,24 +20,7 @@ External services are published by third-party software vendors in the Azure Mar
 - Each external service has a different billing model. Some services are billed in a pay-as-you-go fashion while others have fixed monthly charges.
 - You can't use monthly free credits for external services. If you're using an Azure subscription that includes [free credits](https://azure.microsoft.com/pricing/spending-limits/), they can't be applied to charges from external services. When you provision a new external service or resource, a warning is shown:
 
-    :::image type="content" border="true" source="./media/understand-azure-marketplace-charges/credit-warning.png" alt-text="Marketplace purchase warning.":::
-
-<!-- ## View external service spending and history in the Azure portal
-You can view a list of the external services that are on each subscription within the [Azure portal](https://portal.azure.com/):
-
-1. Sign in to the [Azure portal](https://portal.azure.com/) as the account administrator.
-2. In the Hub menu, select **Subscriptions**.
-
-    :::image type="content" border="true" source="./media/understand-azure-marketplace-charges/sub-button.png" alt-text="Select Subscriptions in the Hub menu.":::
-3. In the **Subscriptions** blade, select the subscription that you want to view, and then select **External services**.
-
-    :::image type="content" border="true" source="./media/understand-azure-marketplace-charges/select-sub-external-services.png" alt-text="Select a subscription in the billing blade.":::
-4. You should see each of your external service orders, the publisher name, service tier you bought, name you gave the resource, and the current order status. To see past bills, select an external service.
-
-    :::image type="content" border="true" source="./media/understand-azure-marketplace-charges/external-service-blade2.png" alt-text="Select an external service.":::
-5. From here, you can view past bill amounts including the tax breakdown.
-
-    :::image type="content" border="true" source="./media/understand-azure-marketplace-charges/billing-overview-blade.png" alt-text="View external services billing history."::: -->
+    :::image type="content" border="true" source="./media/understand-azure-marketplace-charges/credit-warning.png" alt-text="Screenshot showing a warning that Marketplace charges are billed separately.":::
 
 ## External spending for EA customers
 
@@ -59,19 +42,19 @@ You can view and download your Azure Marketplace invoices from the Azure portal 
 1. In the subscription drop-down, select the subscription associated with your Marketplace services.
 1. Review the **Type** column in the list of invoices. If an invoice is for a Marketplace service, the type will be **Azure Marketplace and Reservations**. 
 
-    :::image type="content" border="true" source="./media/understand-azure-marketplace-charges/marketplace-type-twd.png" alt-text="screenshot of Azure Marketplace type in invoice grid.":::
+    :::image type="content" border="true" source="./media/understand-azure-marketplace-charges/marketplace-type-twd.png" alt-text="Screenshot showing billing invoices with Azure Marketplace and Reservations hightlighted..":::
 
 1. To filter by type so that you are only looking at invoices for Azure Marketplace and Reservations, select the **Type** filter. Then select **Azure Marketplace and Reservations** in the drop-down.
 
-    :::image type="content" border="true" source="./media/understand-azure-marketplace-charges/type-filter.png" alt-text="screenshot of Type filter selected, showing Azure Marketplace and Reservation selected in the drop-down.":::
+    :::image type="content" border="true" source="./media/understand-azure-marketplace-charges/type-filter.png" alt-text="Screenshot showing the Azure Marketplace and Reservation selected in the drop-down.":::
 
 1. Select the download icon on the right for the invoice you want to download.
 
-    :::image type="content" border="true" source="./media/understand-azure-marketplace-charges/download-icon-marketplace.png" alt-text="screenshot that shows download icon selected for invoice.":::
+    :::image type="content" border="true" source="./media/understand-azure-marketplace-charges/download-icon-marketplace.png" alt-text="Screenshot showing the download symbol selected for invoice.":::
 
 1. Under **Invoice**, select the blue **Download** button.
 
-    :::image type="content" border="true" source="./media/understand-azure-marketplace-charges/invoice-download-marketplace.png" alt-text="screenshot that shows download button for invoice in context pane.":::
+    :::image type="content" border="true" source="./media/understand-azure-marketplace-charges/invoice-download-marketplace.png" alt-text="Screenshot showing where to select Download.":::
 
 ## Pay for external services in the Azure portal
 
@@ -82,17 +65,17 @@ If you don't have an MCA or MPA, you can pay for your Marketplace invoices in th
 1. Follow the steps in the previous section, [View and download invoices for external services](#view-and-download-invoices-for-external-services), to find your Marketplace invoices.
 1. Select the blue **Pay now** link for the invoice you want to pay.
 
-    :::image type="content" border="true" source="./media/understand-azure-marketplace-charges/pay-now-twd.png" alt-text="screenshot that shows Pay now link selected in invoices grid.":::
+    :::image type="content" border="true" source="./media/understand-azure-marketplace-charges/pay-now-twd.png" alt-text="Screenshot showing Pay now link selected in invoices grid.":::
 
     >[!NOTE]
     > You will only see the **Pay now** link if the type of your invoice is **Azure Marketplace and Reservations** and the invoice payment status is due or past due.
 
 1. In the new page, select the blue **Select payment method** link.
 
-    :::image type="content" border="true" source="./media/understand-azure-marketplace-charges/select-payment-method-pay-now-twd.png" alt-text="screenshot that shows select payment method link selected.":::
+    :::image type="content" border="true" source="./media/understand-azure-marketplace-charges/select-payment-method-pay-now-twd.png" alt-text="Screenshot showing the Select payment method option on the Pay now page.":::
 
 1. After selecting a payment method, select the blue **Pay now** button in the bottom left of the page.
-    :::image type="content" border="true" source="./media/understand-azure-marketplace-charges/pay-now-button-twd.png" alt-text="screenshot that shows pay now button selected.":::
+    :::image type="content" border="true" source="./media/understand-azure-marketplace-charges/pay-now-button-twd.png" alt-text="Screenshot showing Pay now selected.":::
 
 ## Change default payment for external services
 
@@ -100,10 +83,10 @@ When purchasing an external service, you choose an Azure subscription for the re
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **All Resources** in the left navigation menu.
-     :::image type="content" border="true" source="./media/understand-azure-marketplace-charges/all-resources.png" alt-text="screenshot of all resources menu item.":::
+     :::image type="content" border="true" source="./media/understand-azure-marketplace-charges/all-resources.png" alt-text="Screenshot showing the All resources page.":::
 1. Search for your external service.
 1. Look for the name of the subscription in the **Subscription** column.
-    :::image type="content" border="true" source="./media/understand-azure-marketplace-charges/sub-selected.png" alt-text="screenshot of subscription name for resource.":::
+    :::image type="content" border="true" source="./media/understand-azure-marketplace-charges/sub-selected.png" alt-text="Screenshot showing the subscription name for resource.":::
 1. Select the subscription name and [update the active payment method](../manage/change-credit-card.md).
 
 ## Cancel an external service order
@@ -112,13 +95,13 @@ If you want to cancel your external service order, delete the resource in the [A
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **All Resources** in the left navigation menu.
-    :::image type="content" border="true" source="./media/understand-azure-marketplace-charges/all-resources.png" alt-text="Screenshot of all resources menu item.":::
+    :::image type="content" border="true" source="./media/understand-azure-marketplace-charges/all-resources.png" alt-text="Screenshot showing the All resource page with an external service order.":::
 1. Search for your external service.
 1. Check the box next to the resource you want to delete.
 1. Select **Delete** in the command bar.
-    :::image type="content" border="true" source="./media/understand-azure-marketplace-charges/delete-button.png" alt-text="Screenshot of delete button.":::
+    :::image type="content" border="true" source="./media/understand-azure-marketplace-charges/delete-button.png" alt-text="Screenshot showing the All resources page where you select Delete.":::
 1. Type *'Yes'* in the confirmation blade.
-    :::image type="content" border="true" source="./media/understand-azure-marketplace-charges/delete-resource.PNG" alt-text="Delete Resource.":::
+    :::image type="content" border="true" source="./media/understand-azure-marketplace-charges/delete-resource.PNG" alt-text="Screenshot showing the Delete resources page where you type Yes to delete the resource.":::
 1. Select **Delete**.
 
 ## Check billing account type

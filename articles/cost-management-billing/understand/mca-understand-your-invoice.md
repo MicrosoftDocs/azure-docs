@@ -83,7 +83,7 @@ The details show the cost for each invoice section broken down by product order.
 
 The total amount due for each service family is calculated by subtracting *Azure credits* from *Credits/charges* and adding *Tax*:
 
-:::image type="content" border="true" source="./media/mca-understand-your-invoice/invoicesectiondetails.png" alt-text="Screenshot shwoing the details by invoice section.":::
+:::image type="content" border="true" source="./media/mca-understand-your-invoice/invoicesectiondetails.png" alt-text="Screenshot showing the details by invoice section.":::
 
 | Term |Description |
 | --- | --- |
