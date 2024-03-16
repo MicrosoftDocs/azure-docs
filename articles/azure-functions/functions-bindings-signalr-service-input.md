@@ -38,7 +38,7 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 [FunctionName("negotiate")]
 public static SignalRConnectionInfo Negotiate(
     [HttpTrigger(AuthorizationLevel.Anonymous)]HttpRequest req,
-    [SignalRConnectionInfo(HubName = "chat")]SignalRConnectionInfo connectionInfo)
+    [SignalRConnectionInfo(HubName = "hubName1")]SignalRConnectionInfo connectionInfo)
 {
     return connectionInfo;
 }
@@ -64,7 +64,7 @@ const { app, input } = require('@azure/functions');
 const inputSignalR = input.generic({
     type: 'signalRConnectionInfo',
     name: 'connectionInfo',
-    hubName: 'hub',
+    hubName: 'hubName1',
     connectionStringSetting: 'AzureSignalRConnectionString',
 });
 
@@ -125,7 +125,7 @@ public SignalRConnectionInfo negotiate(
             authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> req,
         @SignalRConnectionInfoInput(
             name = "connectionInfo",
-            hubName = "chat") SignalRConnectionInfo connectionInfo) {
+            HubName = "hubName1") SignalRConnectionInfo connectionInfo) {
     return connectionInfo;
 }
 ```
@@ -164,7 +164,7 @@ public static string Negotiate([HttpTrigger(AuthorizationLevel.Anonymous)] HttpR
 public static SignalRConnectionInfo Negotiate(
     [HttpTrigger(AuthorizationLevel.Anonymous)]HttpRequest req,
     [SignalRConnectionInfo
-        (HubName = "chat", UserId = "{headers.x-ms-client-principal-id}")]
+        (HubName = "hubName1", UserId = "{headers.x-ms-client-principal-id}")]
         SignalRConnectionInfo connectionInfo)
 {
     // connectionInfo contains an access key token with a name identifier claim set to the authenticated user
@@ -199,7 +199,7 @@ Here's binding data in the *function.json* file:
 {
     "type": "signalRConnectionInfo",
     "name": "connectionInfo",
-    "hubName": "chat",
+    "hubName": "hubName1",
     "userId": "{headers.x-ms-client-principal-id}",
     "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
     "direction": "in"
@@ -217,7 +217,7 @@ const { app, input } = require('@azure/functions');
 const inputSignalR = input.generic({
     type: 'signalRConnectionInfo',
     name: 'connectionInfo',
-    hubName: 'hub',
+    hubName: 'hubName1',
     connectionStringSetting: 'AzureSignalRConnectionString',
     userId: '{headers.x-ms-client-principal-id}',
 });
@@ -240,7 +240,7 @@ Here's binding data in the *function.json* file:
 {
     "type": "signalRConnectionInfo",
     "name": "connectionInfo",
-    "hubName": "chat",
+    "hubName": "hubName1",
     "userId": "{headers.x-ms-client-principal-id}",
     "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
     "direction": "in"
@@ -288,7 +288,7 @@ public SignalRConnectionInfo negotiate(
             authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> req,
         @SignalRConnectionInfoInput(
             name = "connectionInfo",
-            hubName = "chat",
+            HubName = "hubName1",
             userId = "{headers.x-ms-client-principal-id}") SignalRConnectionInfo connectionInfo) {
     return connectionInfo;
 }

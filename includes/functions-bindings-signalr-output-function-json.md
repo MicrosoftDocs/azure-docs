@@ -13,8 +13,8 @@ Example function.json:
 ```json
 {
   "type": "signalR",
-  "name": "signalRMessages",
-  "hubName": "<hub_name>",
+  "name": "signalROutput",
+  "hubName": "hubName1",
   "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
   "direction": "out"
 }

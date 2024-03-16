@@ -16,9 +16,10 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 Use the *SignalR* output binding to send one or more messages using Azure SignalR Service. You can broadcast a message to:
 
 - All connected clients
+- Connected clients in a specified group
 - Connected clients authenticated to a specific user
 
-The output binding also allows you to manage groups.
+The output binding also allows you to manage groups, such as adding a client or user to a group, removing a client or user from a group.
 
 For information on setup and configuration details, see the [overview](functions-bindings-signalr-service.md).
 
@@ -44,9 +45,9 @@ The following example shows a function that sends a message using the output bin
 [FunctionName("SendMessage")]
 public static Task SendMessage(
     [HttpTrigger(AuthorizationLevel.Anonymous, "post")]object message,
-    [SignalR(HubName = "chat")]IAsyncCollector<SignalRMessage> signalRMessages)
+    [SignalR(HubName = "hubName1")]IAsyncCollector<SignalRMessage> signalROutput)
 {
-    return signalRMessages.AddAsync(
+    return signalROutput.AddAsync(
         new SignalRMessage
         {
             Target = "newMessage",
@@ -99,7 +100,7 @@ Here's the JavaScript code:
 
 ```javascript
 module.exports = async function (context, req) {
-    context.bindings.signalRMessages = [{
+    context.bindings.signalROutput = [{
         "target": "newMessage",
         "arguments": [ req.body ]
     }];
@@ -116,9 +117,9 @@ Complete PowerShell examples are pending.
 Here's the Python code:
 
 ```python
-def main(req: func.HttpRequest, outMessage: func.Out[str]) -> func.HttpResponse:
+def main(req: func.HttpRequest, signalROutput: func.Out[str]) -> func.HttpResponse:
     message = req.get_json()
-    outMessage.set(json.dumps({
+    signalROutput.set(json.dumps({
         'target': 'newMessage',
         'arguments': [ message ]
     }))
@@ -129,7 +130,7 @@ def main(req: func.HttpRequest, outMessage: func.Out[str]) -> func.HttpResponse:
 
 ```java
 @FunctionName("sendMessage")
-@SignalROutput(name = "$return", hubName = "chat")
+@SignalROutput(name = "$return", HubName = "hubName1")
 public SignalRMessage sendMessage(
         @HttpTrigger(
             name = "req",
@@ -161,9 +162,9 @@ You can send a message only to connections that have been authenticated to a use
 [FunctionName("SendMessage")]
 public static Task SendMessage(
     [HttpTrigger(AuthorizationLevel.Anonymous, "post")]object message,
-    [SignalR(HubName = "chat")]IAsyncCollector<SignalRMessage> signalRMessages)
+    [SignalR(HubName = "hubName1")]IAsyncCollector<SignalRMessage> signalROutput)
 {
-    return signalRMessages.AddAsync(
+    return signalROutput.AddAsync(
         new SignalRMessage
         {
             // the message will only be sent to this user ID
@@ -192,9 +193,9 @@ Complete PowerShell examples are pending.
 Here's the Python code:
 
 ```python
-def main(req: func.HttpRequest, outMessages: func.Out[str]) -> func.HttpResponse:
+def main(req: func.HttpRequest, signalROutput: func.Out[str]) -> func.HttpResponse:
     message = req.get_json()
-    outMessage.set(json.dumps({
+    signalROutput.set(json.dumps({
         #message will only be sent to this user ID
         'userId': 'userId1',
         'target': 'newMessage',
@@ -207,7 +208,7 @@ def main(req: func.HttpRequest, outMessages: func.Out[str]) -> func.HttpResponse
 
 ```java
 @FunctionName("sendMessage")
-@SignalROutput(name = "$return", hubName = "chat")
+@SignalROutput(name = "$return", HubName = "hubName1")
 public SignalRMessage sendMessage(
         @HttpTrigger(
             name = "req",
@@ -260,7 +261,7 @@ Here's the JavaScript code:
 
 ```javascript
 module.exports = async function (context, req) {
-    context.bindings.signalRMessages = [{
+    context.bindings.signalROutput = [{
         "target": "newMessage",
         "arguments": [ req.body ],
         "userId": "userId1",
@@ -286,9 +287,9 @@ You can send a message only to connections that have been added to a group by se
 [FunctionName("SendMessage")]
 public static Task SendMessage(
     [HttpTrigger(AuthorizationLevel.Anonymous, "post")]object message,
-    [SignalR(HubName = "chat")]IAsyncCollector<SignalRMessage> signalRMessages)
+    [SignalR(HubName = "hubName1")]IAsyncCollector<SignalRMessage> signalROutput)
 {
-    return signalRMessages.AddAsync(
+    return signalROutput.AddAsync(
         new SignalRMessage
         {
             // the message will be sent to the group with this name
@@ -342,7 +343,7 @@ Here's the JavaScript code:
 
 ```javascript
 module.exports = async function (context, req) {
-    context.bindings.signalRMessages = [{
+    context.bindings.signalROutput = [{
         "target": "newMessage",
         "arguments": [ req.body ],
         "groupName": "myGroup",
@@ -360,9 +361,9 @@ Complete PowerShell examples are pending.
 Here's the Python code:
 
 ```python
-def main(req: func.HttpRequest, outMessage: func.Out[str]) -> func.HttpResponse:
+def main(req: func.HttpRequest, signalROutput: func.Out[str]) -> func.HttpResponse:
     message = req.get_json()
-    outMessage.set(json.dumps({
+    signalROutput.set(json.dumps({
         #message will only be sent to this group
         'groupName': 'myGroup',
         'target': 'newMessage',
@@ -376,7 +377,7 @@ def main(req: func.HttpRequest, outMessage: func.Out[str]) -> func.HttpResponse:
 
 ```java
 @FunctionName("sendMessage")
-@SignalROutput(name = "$return", hubName = "chat")
+@SignalROutput(name = "$return", HubName = "hubName1")
 public SignalRMessage sendMessage(
         @HttpTrigger(
             name = "req",
@@ -414,7 +415,7 @@ Specify `GroupAction` to add or remove a member. The following example adds a us
 public static Task AddToGroup(
     [HttpTrigger(AuthorizationLevel.Anonymous, "post")]HttpRequest req,
     ClaimsPrincipal claimsPrincipal,
-    [SignalR(HubName = "chat")]
+    [SignalR(HubName = "hubName1")]
         IAsyncCollector<SignalRGroupAction> signalRGroupActions)
 {
     var userIdClaim = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier);
@@ -523,8 +524,8 @@ Complete PowerShell examples are pending.
 The following example adds a user to a group.
 
 ```python
-def main(req: func.HttpRequest, action: func.Out[str]) -> func.HttpResponse:
-    action.set(json.dumps({
+def main(req: func.HttpRequest, signalROutput: func.Out[str]) -> func.HttpResponse:
+    signalROutput.set(json.dumps({
         'userId': 'userId1',
         'groupName': 'myGroup',
         'action': 'add'
@@ -534,8 +535,8 @@ def main(req: func.HttpRequest, action: func.Out[str]) -> func.HttpResponse:
 The following example removes a user from a group.
 
 ```python
-def main(req: func.HttpRequest, action: func.Out[str]) -> func.HttpResponse:
-    action.set(json.dumps({
+def main(req: func.HttpRequest, signalROutput: func.Out[str]) -> func.HttpResponse:
+    signalROutput.set(json.dumps({
         'userId': 'userId1',
         'groupName': 'myGroup',
         'action': 'remove'
@@ -549,7 +550,7 @@ The following example adds a user to a group.
 
 ```java
 @FunctionName("addToGroup")
-@SignalROutput(name = "$return", hubName = "chat")
+@SignalROutput(name = "$return", HubName = "hubName1")
 public SignalRGroupAction addToGroup(
         @HttpTrigger(
             name = "req",
@@ -569,7 +570,7 @@ The following example removes a user from a group.
 
 ```java
 @FunctionName("removeFromGroup")
-@SignalROutput(name = "$return", hubName = "chat")
+@SignalROutput(name = "$return", HubName = "hubName1")
 public SignalRGroupAction removeFromGroup(
         @HttpTrigger(
             name = "req",
