@@ -77,7 +77,7 @@ Learn [which identifiers strongly identify an entity](entities-reference.md).
 
 ## Entity pages
 
-Information about entity pages can now be found at [Investigate entities with entity pages in Microsoft Sentinel](entity-pages.md).
+Information about entity pages can now be found at [Entity pages in Microsoft Sentinel](entity-pages.md).
 
 ## Next steps
 

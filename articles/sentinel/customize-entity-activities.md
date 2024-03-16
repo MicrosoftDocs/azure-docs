@@ -3,7 +3,7 @@ title: Customize activities on Microsoft Sentinel entity timelines | Microsoft D
 description: Add customized activities to those Microsoft Sentinel tracks and displays on the timeline of entity pages
 author: yelevin
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 03/16/2024
 ms.author: yelevin
 ---
 
@@ -12,6 +12,7 @@ ms.author: yelevin
 > [!IMPORTANT]
 >
 > - Activity customization is in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> - [!INCLUDE [unified-soc-preview-without-alert](includes/unified-soc-preview-without-alert.md)]
 
 ## Introduction
 
@@ -23,20 +24,38 @@ In addition to the activities tracked and presented in the timeline by Microsoft
 
 ## Getting started
 
+- Users of Microsoft Sentinel in the Azure portal, select the **Azure portal** tab below.
+- Users of the unified security operations platform in the Microsoft Defender portal, select the **Defender portal** tab.
+
+# [Azure portal](#tab/azure)
+
 1. From the Microsoft Sentinel navigation menu, select **Entity behavior**.
 
-1. In the **Entity behavior** blade, select **Customize entity page** at the top of the screen.
+1. On the **Entity behavior** page, select **Customize entity page (Preview)** at the top of the screen.
 
     :::image type="content" source="./media/customize-entity-activities/entity-behavior-blade.png" alt-text="Entity behavior page":::
 
-1. You'll see a page with a list of any activities you've created in the **My activities** tab. In the **Activity templates** tab, you'll see the collection of activities offered out-of-the-box by Microsoft security researchers. These are the activities that are already being tracked and displayed on the timelines in your entity pages.
+# [Defender portal](#tab/defender)
 
-    > [!NOTE]
-    > - As long as you have not created any user-defined activities, your entity pages will display all the activities listed under the **Activity templates** tab.
-    >
-    > - Once you define a single custom activity, your entity pages will display **only** those activities that appear in the **My activities** tab.
-    >
-    > - If you want to continue seeing the out-of-the-box activities in your entity pages, you must create an activity for each template you want to be tracked and displayed. Follow the instructions under "Create an activity from a template" below.
+1. In the Microsoft Defender portal, find an entity page.
+    1. Select **Assets > Devices** or **Identities**.
+    1. Select a device or a user from the list. If you selected a user, then select **View user page** on the following popup.
+
+1. On the entity page, select **Sentinel events**.
+
+1. Select **Customize Sentinel activities**.
+    :::image type="content" source="media/customize-entity-activities/identity-entity-page-defender.png" alt-text="Screenshot of Defender entity page menu.":::
+    
+---
+
+You'll see a page with a list of any activities you've created in the **My activities** tab. In the **Activity templates** tab, you'll see the collection of activities offered out-of-the-box by Microsoft security researchers. These are the activities that are already being tracked and displayed on the timelines in your entity pages.
+
+> [!NOTE]
+> - As long as you have not created any user-defined activities, your entity pages will display all the activities listed under the **Activity templates** tab.
+>
+> - Once you define a single custom activity, your entity pages will display **only** those activities that appear in the **My activities** tab.
+>
+> - If you want to continue seeing the out-of-the-box activities in your entity pages, you must create an activity for each template you want to be tracked and displayed. Follow the instructions under "Create an activity from a template" below.
 
 ## Create an activity from a template
 
@@ -52,7 +71,17 @@ In addition to the activities tracked and presented in the timeline by Microsoft
 
 1. Click the **Create activity** button at the bottom of the preview pane to start the activity creation wizard.
 
-    :::image type="content" source="./media/customize-entity-activities/activity-details.png" alt-text="View activity details":::
+    # [Azure portal](#tab/azure)
+
+    :::image type="content" source="./media/customize-entity-activities/activity-details.png" alt-text="Screenshot of activity template list in Azure portal.":::
+
+    # [Defender portal](#tab/defender)
+
+    :::image type="content" source="./media/customize-entity-activities/activity-details-defender.png" alt-text="Screenshot of activity template list in Defender portal.":::
+
+    When you select **Create activity** in the Defender portal, you are redirected to the activity wizard in the Azure portal in a new tab.
+
+    ---
 
 1. The **Activity wizard - Create new activity from template** will open, with its fields already populated from the template. You can make changes as you like in the **General** and **Activity configuration** tabs, or leave everything as is to continue viewing the out-of-the-box activity.
 
