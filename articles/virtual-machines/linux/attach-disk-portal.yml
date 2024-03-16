@@ -142,7 +142,7 @@ procedureSection:
       ```
 
       Use the [`partprobe`](https://linux.die.net/man/8/partprobe) utility to make sure the kernel is aware of the new partition and filesystem. Failure to use `partprobe` can cause the blkid or lslbk commands to not return the UUID for the new filesystem immediately.
-    - |
+
       ### Mount the disk
 
       Create a directory to mount the file system using `mkdir`. The following example creates a directory at `/datadrive`:
