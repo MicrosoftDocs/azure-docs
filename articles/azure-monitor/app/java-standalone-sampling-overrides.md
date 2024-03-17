@@ -1,5 +1,5 @@
 ---
-title: Sampling overrides (preview) - Azure Monitor Application Insights for Java
+title: Sampling overrides - Azure Monitor Application Insights for Java
 description: Learn to configure sampling overrides in Azure Monitor Application Insights for Java.
 ms.topic: conceptual
 ms.date: 11/15/2023
@@ -8,7 +8,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 ms.reviewer: mmcc
 ---
 
-# Sampling overrides (preview) - Azure Monitor Application Insights for Java
+# Sampling overrides - Azure Monitor Application Insights for Java
 
 > [!NOTE]
 > The sampling overrides feature is in GA, starting from 3.5.0.
