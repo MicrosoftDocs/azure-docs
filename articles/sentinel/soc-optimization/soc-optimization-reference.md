@@ -1,6 +1,6 @@
 ---
 title: SOC optimization reference (Preview)
-description: Learn about the SOC optimization recommendations available in the Microsoft Defender portal with Microsoft Sentinel.
+description: Learn about the SOC optimization recommendations available to help you optimize your security operations.
 ms.service: defender-xdr
 ms.pagetype: security
 ms.author: bagol
@@ -20,7 +20,7 @@ appliesto: Microsoft Sentinel in the Microsoft Defender portal
 
 Use SOC optimization recommendations to help you close coverage gaps against specific threats and tighten your ingestion rates against data that doesn't provide security value. SOC optimizations help you optimize your Microsoft Sentinel workspace, without having your SOC teams spend time on manual analysis and research.
 
-Microsoft Sentinel SOC optimizations in the Microsoft Defender portal include the following types of recommendations:
+Microsoft Sentinel SOC optimizations include the following types of recommendations:
 
 - **Threat-based optimizations** recommend adding security controls that help you close coverage gaps.
 

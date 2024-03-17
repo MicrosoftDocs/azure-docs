@@ -1,6 +1,6 @@
 ---
 title: Optimize security operations (Preview)
-description: Use SOC optimization recommendations with Microsoft Defender XDR and Microsoft Sentinel to optimize your security operations center (SOC) team activities.
+description: Use SOC optimization recommendations to optimize your security operations center (SOC) team activities.
 ms.service: defender-xdr
 ms.pagetype: security
 ms.author: bagol
