@@ -41,30 +41,6 @@ Use this section to help determine which connection method is right for your clo
 > [!NOTE]
 > While most connection methods are relevant for OT sensors only, [Direct connections](#direct-connections) are also used for [Enterprise IoT sensors](eiot-sensor.md).
 
-## Proxy connections with an Azure proxy
-
-The following image shows how you can connect your sensors to the Defender for IoT portal in Azure through a proxy in the Azure VNET. This configuration ensures confidentiality for all communications between your sensor and Azure.
-
-:::image type="content" source="media/architecture-connections/proxy.png" alt-text="Diagram of a proxy connection using an Azure proxy." border="false":::
-
-Depending on your network configuration, you can access the VNET via a VPN connection or an ExpressRoute connection.
-
-This method uses a proxy server hosted within Azure. To handle load balancing and failover, the proxy is configured to scale automatically behind a load balancer.
-
-For more information, see [Connect via an Azure proxy](connect-sensors.md#set-up-an-azure-proxy).
-
-## Proxy connections with proxy chaining
-
-The following image shows how you can connect your sensors to the Defender for IoT portal in Azure through multiple proxies, using different levels of the Purdue model and the enterprise network hierarchy.
-
-:::image type="content" source="media/architecture-connections/proxy-chaining.png" alt-text="Diagram of a proxy connection using proxy chaining." border="false":::
-
-This method supports connecting your sensors with either direct internet access, private VPN or ExpressRoute, the sensor will establish an SSL-encrypted tunnel to transfer data from the sensor to the service endpoint via multiple proxy servers. The proxy server doesn't perform any data inspection, analysis, or caching.
-
-It is the customer's responsibility to set up and maintain third-party proxy services with proxy chaining; Microsoft does not provide support for them.
-
-For more information, see [Connect via proxy chaining](connect-sensors.md#connect-via-proxy-chaining).
-
 ## Direct connections
 
 The following image shows how you can connect your sensors to the Defender for IoT portal in Azure directly over the internet from remote sites, without traversing the enterprise network.
@@ -78,6 +54,30 @@ With direct connections:
 - The sensor initiates all connections to the Azure portal. Initiating connections only from the sensor protects internal network devices from unsolicited inbound connections, but also means that you don't need to configure any inbound firewall rules.
 
 For more information, see [Provision sensors for cloud management](ot-deploy/provision-cloud-management.md).
+
+## Proxy connections with proxy chaining
+
+The following image shows how you can connect your sensors to the Defender for IoT portal in Azure through multiple proxies, using different levels of the Purdue model and the enterprise network hierarchy.
+
+:::image type="content" source="media/architecture-connections/proxy-chaining.png" alt-text="Diagram of a proxy connection using proxy chaining." border="false":::
+
+This method supports connecting your sensors with either direct internet access, private VPN or ExpressRoute, the sensor will establish an SSL-encrypted tunnel to transfer data from the sensor to the service endpoint via multiple proxy servers. The proxy server doesn't perform any data inspection, analysis, or caching.
+
+It is the customer's responsibility to set up and maintain third-party proxy services with proxy chaining; Microsoft does not provide support for them.
+
+For more information, see [Connect via proxy chaining](connect-sensors.md#connect-via-proxy-chaining).
+
+## Proxy connections with an Azure proxy
+
+The following image shows how you can connect your sensors to the Defender for IoT portal in Azure through a proxy in the Azure VNET. This configuration ensures confidentiality for all communications between your sensor and Azure.
+
+:::image type="content" source="media/architecture-connections/proxy.png" alt-text="Diagram of a proxy connection using an Azure proxy." border="false":::
+
+Depending on your network configuration, you can access the VNET via a VPN connection or an ExpressRoute connection.
+
+This method uses a proxy server hosted within Azure. To handle load balancing and failover, the proxy is configured to scale automatically behind a load balancer.
+
+For more information, see [Connect via an Azure proxy](connect-sensors.md#set-up-an-azure-proxy).
 
 ## Multicloud connections
 
