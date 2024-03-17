@@ -1,7 +1,7 @@
 ---
 title: HPE ProLiant DL360 OT monitoring - Microsoft Defender for IoT
 description: Learn about the HPE ProLiant DL360 appliance when used for OT monitoring with Microsoft Defender for IoT.
-ms.date: 14/03/2024
+ms.date: 03/14/2024
 ms.topic: reference
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Dell PowerEdge R350 for OT monitoring - Microsoft Defender for IoT
 description: Learn about the Dell PowerEdge R350 appliance's configuration when used for OT monitoring with Microsoft Defender for IoT in enterprise deployments.
-ms.date: 14/3/2024
+ms.date: 03/14/2024
 ms.topic: reference
 ---
 
