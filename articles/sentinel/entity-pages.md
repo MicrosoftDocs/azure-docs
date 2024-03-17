@@ -32,15 +32,15 @@ More specifically, entity pages consist of three parts:
 
 If you're investigating an incident using the **[new investigation experience](investigate-incidents.md)**, you'll be able to see a panelized version of the entity page right inside the incident details page. You have a [list of all the entities in a given incident](investigate-incidents.md#explore-the-incidents-entities), and selecting an entity opens a side panel with three "cards"&mdash;**Info**, **Timeline**, and **Insights**&mdash; showing all the same information described above, within the specific time frame corresponding with that of the alerts in the incident.
 
-If you're using the **[unified security operations platform](microsoft-sentinel-defender-portal.md)** in the Microsoft Defender portal, the **timeline** and **insights** panels appear in the **Sentinel events** tab of the Defender entity page. For more information, see [link](link).
+If you're using the **[unified security operations platform](microsoft-sentinel-defender-portal.md)** in the Microsoft Defender portal, the **timeline** and **insights** panels appear in the **Sentinel events** tab of the Defender entity page.
 
 # [Azure portal](#tab/azure)
 
-:::image type="content" source="./media/entity-pages/entity-page-sentinel.png" alt-text="Screenshot of an example of a timeline on an entity page in the Azure portal.":::
+:::image type="content" source="./media/entity-pages/entity-page-sentinel.png" alt-text="Screenshot of an example of an entity page in the Azure portal.":::
 
 # [Defender portal](#tab/defender)
 
-:::image type="content" source="./media/entity-pages/entity-pages-timeline-defender.png" alt-text="Screenshot of an example of a timeline on an entity page in the Defender portal.":::
+:::image type="content" source="./media/entity-pages/entity-pages-timeline-defender.png" alt-text="Screenshot of an example of an entity page in the Defender portal.":::
 
 ---
 
@@ -101,6 +101,11 @@ The insights are based on the following data sources:
 - Heartbeat (Azure Monitor Agent)
 - CommonSecurityLog (Microsoft Sentinel)
 
+Generally speaking, each entity insight displayed on the entity page is accompanied by a link that will take you to a page where the query underlying the insight is displayed, along with the results, so you can examine the results in greater depth.
+
+- In Microsoft Sentinel in the Azure portal, the link takes you to the **Logs** page.
+- In the unified security operations platform in the Microsoft Defender portal, the link takes you to the **Advanced hunting** page.
+
 ## How to use entity pages
 
 Entity pages are designed to be part of multiple usage scenarios, and can be accessed from incident management, the investigation graph, bookmarks, or directly from the entity search page under **Entity behavior** in the Microsoft Sentinel main menu.
@@ -121,13 +126,12 @@ Microsoft Sentinel currently offers the following entity pages:
     > The **IP address entity page** (now in preview) contains **geolocation data** supplied by the **Microsoft Threat Intelligence service**. This service combines geolocation data from Microsoft solutions and third-party vendors and partners. The data is then available for analysis and investigation in the context of a security incident. For more information, see also [Enrich entities in Microsoft Sentinel with geolocation data via REST API (Public preview)](geolocation-data-api.md).
 
 - Azure resource (**Preview**)
-- IoT device (**Preview**)
-
+- IoT device (**Preview**)&mdash;only in Microsoft Sentinel in the Azure portal for now.
 ## Next steps
 
 In this document, you learned about getting information about entities in Microsoft Sentinel using entity pages. For more information about entities and how you can use them, see the following articles:
 
-- [Classify and analyze data using entities in Microsoft Sentinel](entities.md).
+- [Learn about entities in Microsoft Sentinel](entities.md).
 - [Customize activities on entity page timelines](customize-entity-activities.md).
 - [Identify advanced threats with User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel](identify-threats-with-entity-behavior-analytics.md)
 - [Enable entity behavior analytics](./enable-entity-behavior-analytics.md) in Microsoft Sentinel.

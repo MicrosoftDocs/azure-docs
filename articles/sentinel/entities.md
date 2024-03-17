@@ -38,11 +38,11 @@ In order to minimize the risk of this happening, you should verify that all of y
 
 The following types of entities are currently identified in Microsoft Sentinel:
 
-- [Account](entities-reference.md#account) \*
-- [Host](entities-reference.md#host) \*
-- [IP address](entities-reference.md#ip) \*
+- [Account](entities-reference.md#account)
+- [Host](entities-reference.md#host)
+- [IP address](entities-reference.md#ip)
 - [URL](entities-reference.md#url)
-- [Azure resource](entities-reference.md#azure-resource) \*
+- [Azure resource](entities-reference.md#azure-resource)
 - [Cloud application](entities-reference.md#cloud-application)
 - [DNS resolution](entities-reference.md#dns-resolution)
 - [File](entities-reference.md#file)
@@ -58,8 +58,6 @@ The following types of entities are currently identified in Microsoft Sentinel:
 - [Submission mail](entities-reference.md#submission-mail)
 
 You can view these entities' identifiers and other relevant information in the [entities reference](entities-reference.md).
-
-\* Entity types marked with an asterisk are supported in the unified security operations platform in the Microsoft Defender portal. <!--What does this support mean? Only these 4 have a Sentinel tab in their entity page? Are these the only ones that have entity pages in Defender? File, process, mailbox don't? -->
 
 ## Entity mapping
 
