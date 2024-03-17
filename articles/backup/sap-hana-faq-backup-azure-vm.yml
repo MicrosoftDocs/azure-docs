@@ -295,4 +295,4 @@ additionalContent: |
   ## Next steps
   
   - Learn how to [back up SAP HANA databases](./backup-azure-sap-hana-database.md) running on Azure VMs.
-  - Learn how to [troubleshoot SAP HANA backup](backup-azure-sap-hana-database-troubleshoot.md).
+  - Learn how to [troubleshoot SAP HANA database backup](backup-azure-sap-hana-database-troubleshoot.md).
