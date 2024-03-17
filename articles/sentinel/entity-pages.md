@@ -34,17 +34,19 @@ If you're investigating an incident using the **[new investigation experience](i
 
 If you're using the **[unified security operations platform](microsoft-sentinel-defender-portal.md)** in the Microsoft Defender portal, the **timeline** and **insights** panels appear in the **Sentinel events** tab of the Defender entity page. For more information, see [link](link).
 
-## The timeline
-
 # [Azure portal](#tab/azure)
 
-:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/entity-pages-timeline.png" alt-text="Screenshot of an example of a timeline on an entity page in the Azure portal.":::
+:::image type="content" source="./media/entity-pages/entity-page-sentinel.png" alt-text="Screenshot of an example of a timeline on an entity page in the Azure portal.":::
 
 # [Defender portal](#tab/defender)
 
 :::image type="content" source="./media/entity-pages/entity-pages-timeline-defender.png" alt-text="Screenshot of an example of a timeline on an entity page in the Defender portal.":::
 
 ---
+
+## The timeline
+
+# [Azure portal](#tab/azure)
 
 The timeline is a major part of the entity page's contribution to behavior analytics in Microsoft Sentinel. It presents a story about entity-related events, helping you understand the entity's activity within a specific time frame.
 
@@ -59,6 +61,30 @@ The following types of items are included in the timeline.
 - **Anomalies**: UEBA detections based on dynamic baselines created for each entity across various data inputs and against its own historical activities, those of its peers, and those of the organization as a whole.
 
 - **Activities**: aggregation of notable events relating to the entity. A wide range of activities are collected automatically, and you can now [customize this section by adding activities](customize-entity-activities.md) of your own choosing.
+
+:::image type="content" source="./media/entity-pages/entity-pages-timeline-sentinel.png" alt-text="Screenshot of an example of a timeline on an entity page in the Azure portal.":::
+
+# [Defender portal](#tab/defender)
+
+The timeline on the **Sentinel events** tab adds a major part of the entity page's contribution to behavior analytics in the unified security operations platform in Microsoft Defender. It presents a story about entity-related events, helping you understand the entity's activity within a specific time frame.
+
+In particular, you'll see on the Sentinel events timeline alerts and events from third-party sources collected only by Microsoft Sentinel, such as syslog/CEF and custom logs ingested through the Azure Monitor Agent or custom connectors.
+
+The following types of items are included in the timeline.
+
+- **Alerts**: any alerts in which the entity is defined as a **mapped entity**. Note that if your organization has created [custom alerts using analytics rules](./detect-threats-custom.md), you should make sure that the rules' entity mapping is done properly.
+
+- **Bookmarks**: any bookmarks that include the specific entity shown on the page.
+
+- **Anomalies**: UEBA detections based on dynamic baselines created for each entity across various data inputs and against its own historical activities, those of its peers, and those of the organization as a whole.
+
+- **Activities**: aggregation of notable events relating to the entity. A wide range of activities are collected automatically, and you can now [customize this section by adding activities](customize-entity-activities.md) of your own choosing.
+
+:::image type="content" source="./media/entity-pages/entity-pages-timeline-defender.png" alt-text="Screenshot of an example of a timeline on an entity page in the Defender portal.":::
+
+This timeline displays information from the past 24 hours. This period is not currently adjustable.
+
+---
 
 ## Entity insights
 

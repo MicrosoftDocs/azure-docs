@@ -20,7 +20,7 @@ In addition to the activities tracked and presented in the timeline by Microsoft
 
 - Add new activities to the entity timeline by modifying existing out-of-the-box activity templates.
 
-- Add new activities from custom logs - for example, from a physical access-control log, you can add a user's entry and exit activities for a particular building to the user's timeline.
+- Add new activities from custom logs. For example, from a physical access-control log, you can add a user's entry and exit activities for a particular restricted area&mdash;say, a server room&mdash;to the user's timeline.
 
 ## Getting started
 
@@ -37,31 +37,30 @@ In addition to the activities tracked and presented in the timeline by Microsoft
 
 # [Defender portal](#tab/defender)
 
-1. In the Microsoft Defender portal, find an entity page.
+1. In the Microsoft Defender portal, find any entity page.
     1. Select **Assets > Devices** or **Identities**.
     1. Select a device or a user from the list. If you selected a user, then select **View user page** on the following popup.
 
-1. On the entity page, select **Sentinel events**.
+1. On the entity page, select the **Sentinel events** tab.
 
-1. Select **Customize Sentinel activities**.
+1. On the **Sentinel events** tab, select **Customize Sentinel activities**.
     :::image type="content" source="media/customize-entity-activities/identity-entity-page-defender.png" alt-text="Screenshot of Defender entity page menu.":::
     
 ---
 
-You'll see a page with a list of any activities you've created in the **My activities** tab. In the **Activity templates** tab, you'll see the collection of activities offered out-of-the-box by Microsoft security researchers. These are the activities that are already being tracked and displayed on the timelines in your entity pages.
+On the **Customize Sentinel activities** page, you'll see a list of any activities you've created in the **My activities** tab. In the **Activity templates** tab, you'll see the collection of activities offered out-of-the-box by Microsoft security researchers. These are the activities that are already being tracked and displayed on the timelines in your entity pages.
 
-> [!NOTE]
-> - As long as you have not created any user-defined activities, your entity pages will display all the activities listed under the **Activity templates** tab.
->
-> - Once you define a single custom activity, your entity pages will display **only** those activities that appear in the **My activities** tab.
->
-> - If you want to continue seeing the out-of-the-box activities in your entity pages, you must create an activity for each template you want to be tracked and displayed. Follow the instructions under "Create an activity from a template" below.
+- As long as you have not created any user-defined activities, your entity pages will display *all* the activities listed under the **Activity templates** tab.
+
+- Once you create or customize an activity, your entity pages will display *only* those activities, which appear in the **My activities** tab.
+
+- If you want to continue seeing the out-of-the-box activities in your entity pages, you must create an activity for each template you want to be tracked and displayed. Follow the instructions under "Create an activity from a template" below.
 
 ## Create an activity from a template
 
-1. Click on the **Activity templates** tab to see the various activities available by default. You can filter the list by entity type as well as by data source. Selecting an activity from the list will display the following details in the preview pane:
+1. Select the **Activity templates** tab to see the various activities available by default. You can filter the list by entity type as well as by data source. Selecting an activity from the list will display the following information in the details pane:
 
-    -  A description of the activity
+    - A description of the activity
 
     - The data source that provides the events that make up the activity
 
@@ -69,7 +68,7 @@ You'll see a page with a list of any activities you've created in the **My activ
 
     - The query that results in the detection of this activity
 
-1. Click the **Create activity** button at the bottom of the preview pane to start the activity creation wizard.
+1. Select **Create activity** at the bottom of the details pane to start the activity creation wizard.
 
     # [Azure portal](#tab/azure)
 
