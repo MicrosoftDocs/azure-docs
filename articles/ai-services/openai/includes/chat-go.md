@@ -40,6 +40,7 @@ import (
 	"os"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/to"
 )
 
@@ -56,12 +57,7 @@ func main() {
 		return
 	}
 
-	keyCredential, err := azopenai.NewKeyCredential(azureOpenAIKey)
-
-	if err != nil {
-		//  TODO: Update the following line with your application specific error handling logic
-		log.Fatalf("ERROR: %s", err)
-	}
+	keyCredential := azcore.NewKeyCredential(azureOpenAIKey)
 
 	client, err := azopenai.NewClientWithKeyCredential(azureOpenAIEndpoint, keyCredential, nil)
 
@@ -72,18 +68,18 @@ func main() {
 
 	// This is a conversation in progress.
 	// NOTE: all messages, regardless of role, count against token usage for this API.
-	messages := []azopenai.ChatMessage{
+	messages := []azopenai.ChatRequestMessageClassification{
 		// You set the tone and rules of the conversation with a prompt as the system role.
-		{Role: to.Ptr(azopenai.ChatRoleSystem), Content: to.Ptr("You are a helpful assistant.")},
+		&azopenai.ChatRequestSystemMessage{Content: to.Ptr("You are a helpful assistant.")},
 
 		// The user asks a question
-		{Role: to.Ptr(azopenai.ChatRoleUser), Content: to.Ptr("Does Azure OpenAI support customer managed keys?")},
+		&azopenai.ChatRequestUserMessage{Content: azopenai.NewChatRequestUserMessageContent("Does Azure OpenAI support customer managed keys?")},
 
 		// The reply would come back from the Azure OpenAI model. You'd add it to the conversation so we can maintain context.
-		{Role: to.Ptr(azopenai.ChatRoleAssistant), Content: to.Ptr("Yes, customer managed keys are supported by Azure OpenAI")},
+		&azopenai.ChatRequestAssistantMessage{Content: to.Ptr("Yes, customer managed keys are supported by Azure OpenAI")},
 
 		// The user answers the question based on the latest reply.
-		{Role: to.Ptr(azopenai.ChatRoleUser), Content: to.Ptr("Do other Azure AI services support this too?")},
+		&azopenai.ChatRequestUserMessage{Content: azopenai.NewChatRequestUserMessageContent("Do other Azure AI services support this too?")},
 
 		// from here you'd keep iterating, sending responses back from the chat completions API
 	}
@@ -91,8 +87,8 @@ func main() {
 	resp, err := client.GetChatCompletions(context.TODO(), azopenai.ChatCompletionsOptions{
 		// This is a conversation in progress.
 		// NOTE: all messages count against token usage for this API.
-		Messages:   messages,
-		Deployment: modelDeploymentID,
+		Messages:       messages,
+		DeploymentName: &modelDeploymentID,
 	}, nil)
 
 	if err != nil {
