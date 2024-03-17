@@ -1100,7 +1100,7 @@
     href: bring-your-own-ml.md
 - name: Optimize your security operations
   items:
-  - name: View and manage SOC optimizations
+  - name: Optimize your security operations
     href: soc-optimization/soc-optimization-access.md
   - name: SOC optimization reference
     href: soc-optimization/soc-optimization-reference.md

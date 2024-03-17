@@ -11,8 +11,8 @@ ms.collection:
   - tier1
   - usx-security
 ms.topic: how-to
-ms.date: 02/29/2024
-appliesto: Microsoft Sentinel in the Microsoft Defender portal
+ms.date: 03/17/2024
+appliesto: Microsoft Sentinel in the Azure and Microsoft Defender portals
 #customerIntent: As a SOC admin or SOC engineer, I want to learn about about how to optimize my security operations center with SOC optimization recommendations.
 ---
 
@@ -72,6 +72,7 @@ Manage your optimizations by selecting one of the following actions:
 |Action |Description  |
 |---------|---------|
 |**Complete**     | Complete an optimization when you've completed each recommended action. <br><br>If a change in your environment is detected that makes the recommendation irrelevant, the optimization is automatically completed and moved to the **Completed** tab. <br><br>For example, you might have an optimization related to a previously unused table. If your table is now used in a new analytics rule, the optimization recommendation is now irrelevant. <br><br>In such cases, a banner shows in the **Overview** tab with the number of automatically completed optimizations since your last visit.        |
+| **In progress** | Mark an optimization as *In progress* to notify other team members that you're actively working on it. | 
 |**Dismiss**     |  Dismiss an optimization if you're not planning to take the recommended action and no longer want to see it in the list.       |
 |**Provide feedback**     | We invite you to share your thoughts on the recommended actions with the Microsoft team! <br><br>When sharing your feedback, be careful not to share any confidential data. For more information, see  [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement).      |
 

@@ -11,8 +11,8 @@ ms.collection:
   - tier1
   - usx-security
 ms.topic: reference
-ms.date: 02/29/2024
-appliesto: Microsoft Sentinel in the Microsoft Defender portal
+ms.date: 03/17/2024
+appliesto: Microsoft Sentinel in the Azure and Microsoft Defender portals
 #customer intent: As a SOC admin or SOC engineer, I want to learn about the SOC optimization recommendations available to help me optimize my security operations.
 ---
 
