@@ -859,7 +859,7 @@
             "source_path_from_root": "/articles/lab-services/get-started-manage-labs.md",
             "redirect_url": "/azure/lab-services/quick-create-lab-portal",
             "redirect_document_id": false
-        },
+        }
 
     ]
 }
