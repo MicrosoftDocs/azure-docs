@@ -1,6 +1,6 @@
 ---
 title: SOC optimization reference (Preview)
-description: Learn about the SOC optimization recommendations available in the Microsoft Defender portal with Microsoft Sentinel.
+description: Learn about the SOC optimization recommendations available to help you optimize your security operations.
 ms.service: defender-xdr
 ms.pagetype: security
 ms.author: bagol
@@ -12,7 +12,7 @@ ms.collection:
   - usx-security
 ms.topic: reference
 ms.date: 03/17/2024
-appliesto: Microsoft Sentinel in the Azure and Microsoft Defender portals
+appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
 #customer intent: As a SOC admin or SOC engineer, I want to learn about the SOC optimization recommendations available to help me optimize my security operations.
 ---
 
@@ -20,7 +20,7 @@ appliesto: Microsoft Sentinel in the Azure and Microsoft Defender portals
 
 Use SOC optimization recommendations to help you close coverage gaps against specific threats and tighten your ingestion rates against data that doesn't provide security value. SOC optimizations help you optimize your Microsoft Sentinel workspace, without having your SOC teams spend time on manual analysis and research.
 
-Microsoft Sentinel SOC optimizations in the Microsoft Defender portal include the following types of recommendations:
+Microsoft Sentinel SOC optimizations include the following types of recommendations:
 
 - **Threat-based optimizations** recommend adding security controls that help you close coverage gaps.
 
@@ -28,10 +28,7 @@ Microsoft Sentinel SOC optimizations in the Microsoft Defender portal include th
 
 This article provides a reference of the SOC optimization recommendations available.
 
-> [!IMPORTANT]
-> SOC optimization is available as part of the public preview for the unified security operations platform in the Microsoft Defender portal. For more information, see [Connect Microsoft Sentinel to Microsoft Defender XDR](https://aka.ms/onboard-microsoft-sentinel).
->
-
+[!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
 
 ## Data value optimizations
 
@@ -41,11 +38,19 @@ Data value optimizations only look at billable tables that ingested data in the 
 
 The following table lists the available data value SOC optimization recommendations:
 
+### [Azure portal](#tab/azure-portal)
+
+TBD
+
+### [Defender portal](#tab/defender-portal)
+
 |Observation  |Action  |
 |---------|---------|
 |The table wasn’t used by analytic rules or detections in the last 30 days but was used by other sources, such as workbooks, log queries, hunting queries.     |    Turn on analytics rule templates <br>OR<br>Move to basic logs if the table is eligible    |
 |The table wasn’t used at all in the last 30 days     | Turn on analytics rule templates <br>OR<br> Stop data ingestion or archive the table       |
 |The table was only used by Azure Monitor     |  Turn on any relevant analytics rule templates for tables with security value <br>OR<br>Move to a non-security Log Analytics workspace       |
+
+---
 
 If a table is chosen for [UEBA](/azure/sentinel/enable-entity-behavior-analytics) or a [threat intelligence matching analytics rule](/azure/sentinel/use-matching-analytics-to-detect-threats), SOC optimization doesn't recommend any changes in ingestion.
 
@@ -60,11 +65,19 @@ To provide threat-based recommendations, SOC optimization looks at your ingested
 
 The following table lists the available threat-based SOC optimization recommendations:
 
+### [Azure portal](#tab/azure-portal)
+
+TBD
+
+### [Defender portal](#tab/defender-portal)
+
 |Observation  |Action  |
 |---------|---------|
 |There are data sources, but detections are missing.     |   Turn on analytics rule templates based on the threat.      |
 |Templates are turned on, but data sources are missing.     |    Connect new data sources.     |
 |There are no existing detections or data sources.     |   Connect detections and data sources or install a solution.      |
+
+---
 
 ## Next step
 

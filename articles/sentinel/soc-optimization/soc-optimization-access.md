@@ -1,6 +1,6 @@
 ---
 title: Optimize security operations (Preview)
-description: Use SOC optimization recommendations with Microsoft Defender XDR and Microsoft Sentinel to optimize your security operations center (SOC) team activities.
+description: Use SOC optimization recommendations to optimize your security operations center (SOC) team activities.
 ms.service: defender-xdr
 ms.pagetype: security
 ms.author: bagol
@@ -12,7 +12,7 @@ ms.collection:
   - usx-security
 ms.topic: how-to
 ms.date: 03/17/2024
-appliesto: Microsoft Sentinel in the Azure and Microsoft Defender portals
+appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
 #customerIntent: As a SOC admin or SOC engineer, I want to learn about about how to optimize my security operations center with SOC optimization recommendations.
 ---
 
@@ -24,15 +24,20 @@ SOC optimizations are high-fidelity and actionable recommendations to help you i
 
 Use SOC optimization recommendations to help you close coverage gaps against specific threats and tighten your ingestion rates against data that doesn't provide security value. SOC optimizations help you optimize your Microsoft Sentinel workspace, without having your SOC teams spend time on manual analysis and research.
 
-> [!IMPORTANT]
-> SOC optimization is available as part of the public preview for the unified security operations platform in the Microsoft Defender portal. For more information, see [Connect Microsoft Sentinel to Microsoft Defender XDR](https://aka.ms/onboard-microsoft-sentinel).
->
+[!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
 
 ## Access the SOC optimization page
 
-In the Microsoft Defender portal, select **SOC optimization** from the left-side navigation menu. For example:
+Select **SOC optimization** from the left-side navigation menu.
 
+### [Azure portal](#tab/azure-portal)
+
+TBD
+
+### [Defender portal](#tab/defender-portal)
 :::image type="content" source="media/security-optimization-access/soc-optimization-xdr.png" alt-text="Screenshot of the SOC optimization page in Microsoft Defender XDR.":::
+
+---
 
 ## Understand SOC optimization overview metrics
 
