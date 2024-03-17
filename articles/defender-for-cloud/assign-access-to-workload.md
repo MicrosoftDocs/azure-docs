@@ -3,7 +3,7 @@ title: Assign access to workload owners
 description: Learn how to assign access to a workload owner of an Amazon Web Service or Google Cloud Project connector.
 ms.author: dacurwin
 ms.topic: how-to
-ms.date: 03/13/2024
+ms.date: 03/17/2024
 #customer intent: As a workload owner, I want to learn how to assign access to my AWS or GCP connector so that I can view the suggested recommendations provided by Defender for Cloud.
 ---
 
@@ -20,15 +20,17 @@ Assign permission to users, on specific security connectors, below the parent co
 
 ## Configure permissions on the security connector
 
-Sign in to the [Azure portal](https://portal.azure.com/).
+Permissions for security connectors are managed through Azure role-based access control (RBAC). You can assign roles to users, groups, and applications at a subscription, resource group, or resource level. 
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Navigate to **Microsoft Defender for Cloud** > **Environment settings**
 
 1. Locate the relevant AWS or GCP connector.
 
-    ### [All resources](#tab/all-resources)
+1. Assign permissions to the workload owners with All resources or the Azure Resource Graph option in the Azure portal.
 
-    1. Sign in to the [Azure portal](https://portal.azure.com/).
+    ### [All resources](#tab/all-resources)
     
     1. Search for and select **All resources**.
     
@@ -55,7 +57,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
     
         :::image type="content" source="media/assign-access-to-workload/resource-graph-explorer.png" alt-text="Screenshot that shows you how to search for and select resource graph explorer." lightbox="media/assign-access-to-workload/resource-graph-explorer.png":::
     
-    1. Run the following relevant query to locate the security connector:
+    1. Copy and paste the following query to locate the security connector:
     
         ### [AWS](#tab/aws)
         
@@ -85,7 +87,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
     
         :::image type="content" source="media/assign-access-to-workload/formatted-results.png" alt-text="Screenshot that shows where the formatted results toggle is located on the screen." lightbox="media/assign-access-to-workload/formatted-results.png":::
     
-    1. In the results, select the relevant subscription and resource group to locate the relevant security connector.
+    1. Select the relevant subscription and resource group to locate the relevant security connector.
     
     ---
     
@@ -105,12 +107,14 @@ Sign in to the [Azure portal](https://portal.azure.com/).
     
 1. Search for and select the relevant user or group.
     
-1. Select **Select**.
+1. Select the **Select** button.
     
 1. Select **Next**.
     
+1. Select **Review + assign**.
+
 1. Review the information.
-    
+
 1. Select **Review + assign**.
 
 After setting the permission for the security connector, the workload owners will be able to view recommendations in Defender for Cloud for the AWS and GCP resources that are associated with the security connector.
@@ -118,4 +122,4 @@ After setting the permission for the security connector, the workload owners wil
 ## Next step
 
 > [!div class="nextstepaction"]
-> [RBAC permissions](permissions.md).
+> [RBAC permissions](permissions.md)
