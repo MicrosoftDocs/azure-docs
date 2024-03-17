@@ -5,7 +5,7 @@ ms.date: 07/14/2022
 ms.author: dacurwin
 author: dcurwin
 ---
-## Remove the Defender agent
+## Remove the Defender sensor
 
 ::: zone pivot="defender-for-container-arc"
 To remove this - or any - Defender for Cloud extension, it's not enough to turn off auto provisioning:
@@ -31,7 +31,7 @@ You can remove the extension using Azure portal, Azure CLI, or REST API as expla
 
 ### [**Azure CLI**](#tab/k8s-remove-cli)
 
-### Use Azure CLI to remove the Defender agent
+### Use Azure CLI to remove the Defender sensor
 
 1. Remove the Microsoft Defender for Kubernetes Arc extension with the following commands:
 
@@ -59,7 +59,7 @@ You can remove the extension using Azure portal, Azure CLI, or REST API as expla
 
 ### [**REST API**](#tab/k8s-remove-api)
 
-### Use REST API to remove the Defender agent
+### Use REST API to remove the Defender sensor
 
 To remove the extension using the REST API, run the following DELETE command:
 
