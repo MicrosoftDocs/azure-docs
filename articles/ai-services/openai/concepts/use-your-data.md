@@ -129,7 +129,7 @@ Mapping these fields correctly helps ensure the model has better response and ci
 
 ### Search filter (API)
 
-If you want to implement additional value-based criteria for query execution, you can set up a search filter using the `filter` parameter in the [REST API](../references/azure-search.md).
+If you want to implement additional value-based criteria for query execution, you can set up a [search filter](/azure/search/search-filters) using the `filter` parameter in the [REST API](../references/azure-search.md).
 
 
 # [Azure Cosmos DB for MongoDB vCore](#tab/mongo-db)
@@ -271,9 +271,9 @@ You can modify the following additional settings in the **Data parameters** sect
 
 |Parameter name  | Description  |
 |---------|---------|
-| **Limit responses to your data** | This flag configures the chatbot's approach to handling queries unrelated to the data source or when search documents are insufficient for a complete answer. When this setting is disabled, the model supplements its responses with its own knowledge in addition to your documents. When this setting is enabled, the model attempts to only rely on your documents for responses. This is the `inScope` parameter in the API. |
-|**Retrieved documents**     |  This parameter is an integer that can be set to 3, 5, 10, or 20, and controls the number of document chunks provided to the large language model for formulating the final response. By default, this is set to 5. The search process can be noisy and sometimes, due to chunking, relevant information might be spread across multiple chunks in the search index. Selecting a top-K number, like 5, ensures that the model can extract relevant information, despite the inherent limitations of search and chunking. However, increasing the number too high can potentially distract the model. Additionally, the maximum number of documents that can be effectively used depends on the version of the model, as each has a different context size and capacity for handling documents. If you find that responses are missing important context, try increasing this parameter. This is the `topNDocuments` parameter in the API. |
-| **Strictness**     | Determines the system's aggressiveness in filtering search documents based on their similarity scores. The system queries Azure Search or other document stores, then decides which documents to provide to large language models like ChatGPT. Filtering out irrelevant documents can significantly enhance the performance of the end-to-end chatbot. Some documents are excluded from the top-K results if they have low similarity scores before forwarding them to the model. This is controlled by an integer value ranging from 1 to 5. Setting this value to 1 means that the system will minimally filter documents based on search similarity to the user query. Conversely, a setting of 5 indicates that the system will aggressively filter out documents, applying a very high similarity threshold. If you find that the chatbot omits relevant information, lower the filter's strictness (set the value closer to 1) to include more documents. Conversely, if irrelevant documents distract the responses, increase the threshold (set the value closer to 5). This is the `strictness` parameter in the API. |
+| **Limit responses to your data** | This flag configures the chatbot's approach to handling queries unrelated to the data source or when search documents are insufficient for a complete answer. When this setting is disabled, the model supplements its responses with its own knowledge in addition to your documents. When this setting is enabled, the model attempts to only rely on your documents for responses. This is the `inScope` parameter in the API, and set to true by default. |
+|**Retrieved documents**     |  This parameter is an integer that can be set to 3, 5, 10, or 20, and controls the number of document chunks provided to the large language model for formulating the final response. By default, this is set to 5. The search process can be noisy and sometimes, due to chunking, relevant information might be spread across multiple chunks in the search index. Selecting a top-K number, like 5, ensures that the model can extract relevant information, despite the inherent limitations of search and chunking. However, increasing the number too high can potentially distract the model. Additionally, the maximum number of documents that can be effectively used depends on the version of the model, as each has a different context size and capacity for handling documents. If you find that responses are missing important context, try increasing this parameter. This is the `topNDocuments` parameter in the API, and is 5 by default. |
+| **Strictness**     | Determines the system's aggressiveness in filtering search documents based on their similarity scores. The system queries Azure Search or other document stores, then decides which documents to provide to large language models like ChatGPT. Filtering out irrelevant documents can significantly enhance the performance of the end-to-end chatbot. Some documents are excluded from the top-K results if they have low similarity scores before forwarding them to the model. This is controlled by an integer value ranging from 1 to 5. Setting this value to 1 means that the system will minimally filter documents based on search similarity to the user query. Conversely, a setting of 5 indicates that the system will aggressively filter out documents, applying a very high similarity threshold. If you find that the chatbot omits relevant information, lower the filter's strictness (set the value closer to 1) to include more documents. Conversely, if irrelevant documents distract the responses, increase the threshold (set the value closer to 5). This is the `strictness` parameter in the API, and set to 3 by default. |
 
 ### System message
 
@@ -383,46 +383,14 @@ You can send a streaming request using the `stream` parameter, allowing data to 
 
 #### Conversation history for better results
 
-When you chat with a model, providing a history of the chat will help the model return higher quality results. 
+When you chat with a model, providing a history of the chat will help the model return higher quality results. You don't need to include the `context` property of the assistant messages in your API requests for better response quality. See [the API reference documentation](../references/on-your-data.md#examples) for examples.
 
-```json
-{
-    "dataSources": [
-        {
-            "type": "AzureCognitiveSearch",
-            "parameters": {
-                "endpoint": "'$AZURE_AI_SEARCH_ENDPOINT'",
-                "key": "'$AZURE_AI_SEARCH_API_KEY'",
-                "indexName": "'$AZURE_AI_SEARCH_INDEX'"
-            }
-        }
-    ],
-    "messages": [
-        {
-            "role": "user",
-            "content": "What are the differences between Azure Machine Learning and Azure AI services?"
-        },
-        {
-            "role": "tool",
-            "content": "{\"citations\": [{\"content\": \"title: Azure AI services and Machine Learning\\ntitleSuffix: Azure AI services\\ndescription: Learn where Azure AI services fits in with other Azure offerings for machine learning.\\nAzure AI services and machine learning\\nAzure AI services provides machine learning capabilities to solve general problems such as...\\n \"articles\\\\cognitive-services\\\\cognitive-services-and-machine-learning.md\", \"url\": null, \"metadata\": {\"chunking\": \"orignal document size=1018. Scores=0.32200050354003906 and 1.2880020141601562.Org Highlight count=115.\"}, \"chunk_id\": \"0\"}], \"intent\": \"[\\\"What are the differences between Azure Machine Learning and Azure AI services?\\\"]\"}"
-        },
-        {
-            "role": "assistant",
-            "content": " \nAzure Machine Learning is a product and service tailored for data scientists to build, train, and deploy machine learning models [doc1]..."
-        },
-        {
-            "role": "user",
-            "content": "How do I use Azure machine learning?"
-        }
-    ]
-}
-```
 
 ## Token usage estimation for Azure OpenAI On Your Data
 
 Azure OpenAI On Your Data Retrieval Augmented Generation (RAG) service that leverages both a search service (such as Azure AI Search) and generation (Azure OpenAI models) to let users get answers for their questions based on provided data. 
 
-As part of this RAG pipeline, there are are three steps at a high-level: 
+As part of this RAG pipeline, there are three steps at a high-level: 
 
 1. Reformulate the user query into a list of search intents. This is done by making a call to the model with a prompt that includes instructions, the user question, and conversation history. Let's call this an *intent prompt*. 
 

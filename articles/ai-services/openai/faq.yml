@@ -173,7 +173,7 @@ sections:
       - question: |
           How do I deploy a model with the REST API? 
         answer:
-          There are currently two different REST APIs that allow model deployment. For the latest model deployment features such as the ability to specify a model version during deployment for models like text-embedding-ada-002 Version 2, use the [Deployments - Create Or Update](/rest/api/cognitiveservices/accountmanagement/deployments/create-or-update?tabs=HTTP) REST API call. 
+          There are currently two different REST APIs that allow model deployment. For the latest model deployment features such as the ability to specify a model version during deployment for models like text-embedding-ada-002 Version 2, use the [Deployments - Create Or Update](/rest/api/aiservices/accountmanagement/deployments/create-or-update?tabs=HTTP) REST API call. 
       - question: |
           Can I use quota to increase the max token limit of a model?
         answer:
