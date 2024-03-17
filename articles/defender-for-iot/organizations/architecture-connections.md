@@ -33,9 +33,9 @@ Use this section to help determine which connection method is right for your clo
 
 |If ...  |... Then use  |
 |---------|---------|
-|- You require private connectivity between your sensor and Azure,  <br>- Your site is connected to Azure via ExpressRoute, or  <br>- Your site is connected to Azure over a VPN  | **[Proxy connections with an Azure proxy](#proxy-connections-with-an-azure-proxy)**        |
-|- Your sensor needs a proxy to reach from the OT network to the cloud, or <br>- You want multiple sensors to connect to Azure through a single point    | **[Proxy connections with proxy chaining](#proxy-connections-with-proxy-chaining)**        |
 |- You want to connect your sensor to Azure directly    | **[Direct connections](#direct-connections)**        |
+|- Your sensor needs a proxy to reach from the OT network to the cloud, or <br>- You want multiple sensors to connect to Azure through a single point    | **[Proxy connections with proxy chaining](#proxy-connections-with-proxy-chaining)**        |
+|- You require private connectivity between your sensor and Azure,  <br>- Your site is connected to Azure via ExpressRoute, or  <br>- Your site is connected to Azure over a VPN  | **[Proxy connections with an Azure proxy](#proxy-connections-with-an-azure-proxy)**        |
 |- You have sensors hosted in multiple public clouds | **[Multicloud connections](#multicloud-connections)** |
 
 > [!NOTE]
