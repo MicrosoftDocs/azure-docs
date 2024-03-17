@@ -18,7 +18,7 @@ This article describes how to:
 
 - You need Owner permissions on the subscription to create a new security standard.
 - You need Security Admin permissions to create custom recommendations.
-- To create custom recommendations, you must have the [Defender CSPM plan](concept-cloud-security-posture-management.md) enabled.
+- To create custom recommendations based on KQL, you must have the [Defender CSPM plan](concept-cloud-security-posture-management.md) enabled. All customers can create custom recommendations based on Azure Policy.
 - [Review support in Azure clouds](support-matrix-cloud-environment.md) for custom recommendations.
 
 We recommend watching this episode of [Defender for Cloud in the field](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/creating-custom-recommendations-amp-standards-for-aws-gcp/ba-p/3810248) to learn more about the feature, and dig into creating KQL queries.
