@@ -4,7 +4,7 @@ description: Identify and remediate security gaps in endpoint detection and resp
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
-ms.date: 03/13/2024
+ms.date: 03/17/2024
 ai-usage: ai-assisted
 #customer intent: As a user, I want to learn how to review and remediate endpoint detection and response recommendations in order to ensure the security of my virtual machine.
 ---
@@ -33,7 +33,12 @@ The recommendations mentioned in this article are only available if you have the
 
 - You must enable [agentless scanning for virtual machines](enable-agentless-scanning-vms.md#enabling-agentless-scanning-for-machines).
 
-
+> [!NOTE]
+> The Log Analytics Agent (MMA) retirement is set for August 2024. Once MMA is retired, all of Defender for Server's features and capabilities will utilize the Microsoft Defender for Endpoint (MDE) integration, complemented by agentless capabilities and will no longer depend on either the Log Analytics Agent (MMA) or the Azure Monitoring Agent (AMA).
+>
+> This page contains the replacement process for [the MMA process](endpoint-protection-recommendations-technical.md) which is set to be retired.
+>
+> Learn more about the migration and the deprecation process of the endpoint protection related recommendations. 
 
 ## Review and remediate endpoint detection and response discovery recommendations
 
