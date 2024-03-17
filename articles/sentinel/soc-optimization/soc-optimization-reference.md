@@ -1,15 +1,19 @@
 ---
-title: SOC optimization reference
+title: SOC optimization reference (Preview)
 description: Learn about the SOC optimization recommendations available in the Microsoft Defender portal with Microsoft Sentinel.
-ms.service: microsoft-sentinel
+ms.service: defender-xdr
+ms.pagetype: security
 ms.author: bagol
 author: batamig
+manager: raynew
 ms.collection:
+  - m365-security
+  - tier1
   - usx-security
 ms.topic: reference
-ms.date: 03/05/2024
-appliesto: Microsoft Sentinel in both the Azure and Microsoft Defender portals
-#customer intent: As a SOC admin, I want to learn about the SOC optimization recommendations available to me in the Microsoft Defender portal with Microsoft Sentinel.
+ms.date: 02/29/2024
+appliesto: Microsoft Sentinel in the Microsoft Defender portal
+#customer intent: As a SOC admin or SOC engineer, I want to learn about the SOC optimization recommendations available to help me optimize my security operations.
 ---
 
 # SOC optimization reference of recommendations (Preview)
@@ -18,23 +22,24 @@ Use SOC optimization recommendations to help you close coverage gaps against spe
 
 Microsoft Sentinel SOC optimizations in the Microsoft Defender portal include the following types of recommendations:
 
-- **Threat-based optimization recommendations** suggest adding security controls that help you close coverage gaps.
+- **Threat-based optimizations** recommend adding security controls that help you close coverage gaps.
 
-- **Cost-based optimization recommendations** suggest ways to improve your data use, such as a better data plan for your organization.
+- **Data value optimizations** recommend ways to improve your data use, such as a better data plan for your organization.
 
 This article provides a reference of the SOC optimization recommendations available.
 
-> [!NOTE]
-> SOC optimization is available for Microsoft Sentinel customers, with Microsoft Sentinel integrated into Microsoft Defender XDR. For more information, see [Connect Microsoft Sentinel to Microsoft Defender XDR (preview)](/microsoft-365/security/defender/microsoft-sentinel-onboard).
+> [!IMPORTANT]
+> SOC optimization is available as part of the public preview for the unified security operations platform in the Microsoft Defender portal. For more information, see [Connect Microsoft Sentinel to Microsoft Defender XDR](https://aka.ms/onboard-microsoft-sentinel).
 >
 
-## Cost-based optimizations
+
+## Data value optimizations
 
 To optimize your cost to security value ratio, SOC optimization surfaces hardly-used data connectors or tables, and suggests ways to either reduce the cost of a table or improve its value, depending on your coverage. This type of optimization is also called *data value optimization*.
 
-Cost-based optimizations only look at billable tables that ingested data in the past 30 days.
+Data value optimizations only look at billable tables that ingested data in the past 30 days.
 
-The following table lists the available cost-based SOC optimization recommendations:
+The following table lists the available data value SOC optimization recommendations:
 
 |Observation  |Action  |
 |---------|---------|
