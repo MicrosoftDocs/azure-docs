@@ -1,6 +1,6 @@
 ---
 title: Azure Firewall Basic features
-description: Learn about Azure Firewall Basic features
+description: Learn about Azure Firewall Basic features.
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -37,7 +37,7 @@ High availability is built in, so no extra load balancers are required and there
 
 ## Availability Zones
 
-Azure Firewall can be configured during deployment to span multiple Availability Zones for increased availability. You can also associate Azure Firewall to a specific zone for proximity reasons.  For more information on availability, see the Azure Firewall [Service Level Agreement (SLA)](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1).
+Azure Firewall can be configured during deployment to span multiple Availability Zones for increased availability. You can also associate Azure Firewall to a specific zone for proximity reasons. For more information on availability, see the Azure Firewall [Service Level Agreement (SLA)](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1).
 
 There's no extra cost for a firewall deployed in more than one Availability Zone. However, there are added costs for inbound and outbound data transfers associated with Availability Zones. For more information, see [Bandwidth pricing details](https://azure.microsoft.com/pricing/details/bandwidth/).
 
@@ -76,6 +76,8 @@ All outbound virtual network traffic IP addresses are translated to the Azure Fi
 If your organization uses a public IP address range for private networks, Azure Firewall will SNAT the traffic to one of the firewall private IP addresses in AzureFirewallSubnet. You can configure Azure Firewall to not SNAT your public IP address range. For more information, see [Azure Firewall SNAT private IP address ranges](snat-private-range.md).
 
 You can monitor SNAT port utilization in Azure Firewall metrics. Learn more and see our recommendation on SNAT port utilization in our [firewall logs and metrics documentation](logs-and-metrics.md#metrics).
+
+For more detailed information about Azure Firewall NAT behaviors, see [Azure Firewall NAT Behaviors](https://techcommunity.microsoft.com/t5/azure-network-security-blog/azure-firewall-nat-behaviors/ba-p/3825834).
 
 ## Inbound DNAT support
 
