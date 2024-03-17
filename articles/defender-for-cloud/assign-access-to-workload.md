@@ -1,7 +1,8 @@
 ---
 title: Assign access to workload owners
 description: Learn how to assign access to a workload owner of an Amazon Web Service or Google Cloud Project connector.
-ms.author: dacurwin
+ms.author: elkrieger
+author: Elazark
 ms.topic: how-to
 ms.date: 03/17/2024
 #customer intent: As a workload owner, I want to learn how to assign access to my AWS or GCP connector so that I can view the suggested recommendations provided by Defender for Cloud.
