@@ -112,7 +112,7 @@ Customizable chart views are downloaded as an image, smart views aren't. To down
 
 When you download table data, smart views include an extra option to include nested details. There are a few extra columns available in smart views. We recommend starting with smart views when you download data.
 
-:::image type="content" source="./media/quick-acm-cost-analysis/download-file.png" alt-text="Screenshot showing the Download options in cost analysis. " lightbox="./media/quick-acm-cost-analysis/download-file.png" :::
+:::image type="content" source="./media/quick-acm-cost-analysis/download-file.png" alt-text="Screenshot showing the Download options in cost analysis." lightbox="./media/quick-acm-cost-analysis/download-file.png" :::
 
 Although Power BI is available for all Microsoft Customer Agreement billing profiles and Enterprise Agreement billing accounts, you only see the option from the smart view Download pane when using a supported scope.
 
