@@ -17,7 +17,9 @@ Assign permission to users, on specific security connectors, below the parent co
 
 ## Prerequisites
 
-- 
+- An Azure account. If you don't already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/free/).
+
+- At least one security connector for [Azure](connect-azure-subscription.md), [AWS](quickstart-onboard-aws.md) or [GCP](quickstart-onboard-gcp.md).
 
 ## Configure permissions on the security connector
 
