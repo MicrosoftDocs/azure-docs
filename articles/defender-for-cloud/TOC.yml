@@ -324,10 +324,7 @@
       items:
       - name: Choose standards for your compliance dashboard
         href: update-regulatory-compliance-packages.md
-      - name: Create custom standards/recommendations (Azure)
-        displayName: initiatives, custom, policies
-        href: custom-security-policies.md
-      - name: Create custom standards/recommendations (AWS/GCP)
+      - name: Create custom standards/recommendations
         href: create-custom-recommendations.md
       - name: Manage MCSB recommendations
         href: manage-mcsb.md
