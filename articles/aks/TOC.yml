@@ -288,8 +288,6 @@
               href: artifact-streaming.md
             - name: Add an Azure Spot node pool
               href: spot-node-pool.md
-            - name: Multi-instance GPU node pool
-              href: gpu-multi-instance.md
             - name: Node pool snapshot
               href: node-pool-snapshot.md
             - name: Use system node pools
@@ -305,7 +303,31 @@
             - name: Use the Azure portal
               href: virtual-nodes-portal.md
     - name: Workloads
-      items:
+      items:    
+        - name: GPU workloads
+          items:
+            - name: Use GPUs
+              href: gpu-cluster.md
+            - name: Use Windows GPUs
+              href: use-windows-gpu.md
+            - name: Multi-instance GPU node pool
+              href: gpu-multi-instance.md
+        - name: Vertical Pod Autoscaler
+          items:
+            - name: About Vertical Pod Autoscaler 
+              href: vertical-pod-autoscaler.md
+            - name: Vertical Pod Autoscaler API reference
+              href: vertical-pod-autoscaler-api-reference.md
+        - name: Configure Metrics Server VPA
+          href: use-metrics-server-vertical-pod-autoscaler.md
+        - name: Proximity placement groups
+          href: reduce-latency-ppg.md
+        - name: Cluster autoscaler
+          items:
+            - name: Cluster autoscaler overview
+              href: cluster-autoscaler-overview.md
+            - name: Use the cluster autoscaler on AKS
+              href: cluster-autoscaler.md
         - name: Node autoprovision
           href: node-autoprovision.md
         - name: Availability zones
@@ -452,6 +474,8 @@
               href: azure-cni-overlay.md
             - name: Use Azure CNI for dynamic IP allocation
               href: configure-azure-cni-dynamic-ip-allocation.md
+            - name: Use Azure CNI VNet - Static Block Allocation (Preview)
+              href: configure-azure-cni-static-block-allocation.md
             - name: Use Azure CNI Powered by Cilium
               href: azure-cni-powered-by-cilium.md
             - name: Use kubenet
@@ -744,8 +768,6 @@
           href: /visualstudio/bridge/bridge-to-kubernetes-vs?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Use OpenFaaS
           href: openfaas.md
-        - name: Use GPUs
-          href: gpu-cluster.md
         - name: Create containerized app with Draft
           href: draft.md
         - name: Build Django app with PostgreSQL
