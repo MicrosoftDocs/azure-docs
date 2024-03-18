@@ -245,7 +245,7 @@ For Assistants you need a combination of a supported model, and a supported regi
 | East US 2 | ✅ | | ✅ |✅ | |
 | Sweden Central | ✅ |✅ |✅ |✅| |
 
-For information on Provisioned Throughput Unit (PTU) availability, see [provisioned throughput](./concepts/provisioned-throughput). 
+For information on Provisioned Throughput Unit (PTU) availability, see [provisioned throughput](./concepts/provisioned-throughput.md). 
 
 | Region | `gpt-35-turbo (1106)` | `gpt-4 (1106)` | `gpt-4 (0125)` |  
 |-----|---|---|---|
