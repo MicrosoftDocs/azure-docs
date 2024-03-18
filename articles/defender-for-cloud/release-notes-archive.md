@@ -324,7 +324,7 @@ We recommend updating your custom scripts, workflows, and governance rules to co
 Legacy PCI DSS v3.2.1 and legacy SOC TSP have been fully deprecated in the Defender for Cloud compliance dashboard, and replaced by [SOC 2  Type 2](/azure/compliance/offerings/offering-soc-2) initiative and [PCI DSS v4](/azure/compliance/offerings/offering-pci-dss) initiative-based compliance standards.
 We have fully deprecated support of [PCI DSS](/azure/compliance/offerings/offering-pci-dss) standard/initiative in Microsoft Azure operated by 21Vianet.
 
-Learn how to [customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
+Learn how to [customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.yml).
 
 ### Two Defender for DevOps recommendations now include Azure DevOps scan findings
 
@@ -660,7 +660,7 @@ We're updating these standards for customers in Azure Government and Microsoft A
 - [SOC 2 Type 2](/azure/compliance/offerings/offering-soc-2)
 - [ISO 27001:2013](/azure/compliance/offerings/offering-iso-27001)
 
-Learn how to [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
+Learn how to [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.yml).
 
 ### New preview recommendation for Azure SQL Servers
 
@@ -710,7 +710,7 @@ Learn more about [viewing vulnerabilities for running images](defender-for-conta
 
 ### Announcing support for the AWS CIS 1.5.0 compliance standard
 
-Defender for Cloud now supports the CIS Amazon Web Services Foundations v1.5.0 compliance standard. The standard can be [added to your Regulatory Compliance dashboard](update-regulatory-compliance-packages.md), and builds on MDC's existing offerings for multicloud recommendations and standards.
+Defender for Cloud now supports the CIS Amazon Web Services Foundations v1.5.0 compliance standard. The standard can be [added to your Regulatory Compliance dashboard](update-regulatory-compliance-packages.yml), and builds on MDC's existing offerings for multicloud recommendations and standards.
 
 This new standard includes both existing and new recommendations that extend Defender for Cloud's coverage to new AWS services and resources.
 
@@ -1963,7 +1963,7 @@ Security recommendations in Defender for Cloud are supported by the Azure Securi
 
 [Azure Security Benchmark](/security/benchmark/azure/introduction) is the Microsoft-authored, Azure-specific set of guidelines for security and compliance best practices based on common compliance frameworks. This widely respected benchmark builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on cloud-centric security.
 
-From Ignite 2021, Azure Security Benchmark **v3** is available in [Defender for Cloud's regulatory compliance dashboard](update-regulatory-compliance-packages.md) and enabled as the new default initiative for all Azure subscriptions protected with Microsoft
+From Ignite 2021, Azure Security Benchmark **v3** is available in [Defender for Cloud's regulatory compliance dashboard](update-regulatory-compliance-packages.yml) and enabled as the new default initiative for all Azure subscriptions protected with Microsoft
 Defender for Cloud.
 
 Enhancements for v3 include:
@@ -2820,13 +2820,13 @@ We've added three standards for use with Azure Security Center. Using the regula
 - [CMMC Level 3](../governance/policy/samples/cmmc-l3.md)
 - [New Zealand ISM Restricted](../governance/policy/samples/new-zealand-ism.md)
 
-You can assign these to your subscriptions as described in [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
+You can assign these to your subscriptions as described in [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.yml).
 
 :::image type="content" source="media/release-notes/additional-regulatory-compliance-standards.png" alt-text="Three standards added for use with Azure Security Center's regulatory compliance dashboard." lightbox="media/release-notes/additional-regulatory-compliance-standards.png":::
 
 Learn more in:
 
-- [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md)
+- [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.yml)
 - [Tutorial: Improve your regulatory compliance](regulatory-compliance-dashboard.md)
 - [FAQ - Regulatory compliance dashboard](faq-regulatory-compliance.yml)
 
@@ -2975,7 +2975,7 @@ From the regulatory compliance dashboard's toolbar, you can now download Azure a
 
 You can select the tab for the relevant reports types (PCI, SOC, ISO, and others) and use filters to find the specific reports you need.
 
-Learn more about [Managing the standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
+Learn more about [Managing the standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.yml).
 
 :::image type="content" source="media/release-notes/audit-reports-list-regulatory-compliance-dashboard.png" alt-text="Filtering the list of available Azure Audit reports.":::
 
@@ -3171,7 +3171,7 @@ Existing recommendations are unaffected and as the benchmark grows, changes will
 To learn more, see the following pages:
 
 - [Learn more about Azure Security Benchmark](/security/benchmark/azure/introduction)
-- [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md)
+- [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.yml)
 
 ### Vulnerability assessment for on-premises and multicloud machines is released for general availability (GA)
 
@@ -3536,7 +3536,7 @@ Related links:
 
 The NIST SP 800-171 R2 standard is now available as a built-in initiative for use with Azure Security Center's regulatory compliance dashboard. The mappings for the controls are described in [Details of the NIST SP 800-171 R2 Regulatory Compliance built-in initiative](../governance/policy/samples/nist-sp-800-171-r2.md).
 
-To apply the standard to your subscriptions and continuously monitor your compliance status, use the instructions in [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
+To apply the standard to your subscriptions and continuously monitor your compliance status, use the instructions in [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.yml).
 
 :::image type="content" source="media/release-notes/nist-sp-800-171-r2-standard.png" alt-text="The NIST SP 800 171 R2 standard in Security Center's regulatory compliance dashboard":::
 
@@ -3654,7 +3654,7 @@ Security Center's regulatory compliance dashboard provides insights into your co
 
 The dashboard includes a default set of regulatory standards. If any of the supplied standards isn't relevant to your organization, it's now a simple process to remove them from the UI for a subscription. Standards can be removed only at the *subscription* level; not the management group scope.
 
-Learn more in [Remove a standard from your dashboard](update-regulatory-compliance-packages.md).
+Learn more in [Remove a standard from your dashboard](update-regulatory-compliance-packages.yml).
 
 ### Microsoft.Security/securityStatuses table removed from Azure Resource Graph (ARG)
 
@@ -4396,7 +4396,7 @@ Now, you can add standards such as:
 
 In addition, we've recently added the [Azure Security Benchmark](/security/benchmark/azure/introduction), the Microsoft-authored Azure-specific guidelines for security and compliance best practices based on common compliance frameworks. Additional standards will be supported in the dashboard as they become available.
 
-Learn more about [customizing the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
+Learn more about [customizing the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.yml).
 
 ### Identity recommendations now included in Azure Security Center free tier
 
@@ -4569,7 +4569,7 @@ The Regulatory Compliance dashboard provides insights into your compliance postu
 
 The regulatory compliance dashboard has thus far supported four built-in standards:  Azure CIS 1.1.0, PCI-DSS, ISO 27001, and SOC-TSP. We are now announcing the public preview release of additional supported standards: NIST SP 800-53 R4, SWIFT CSP CSCF v2020, Canada Federal PBMM and UK Official together with UK NHS. We are also releasing an updated version of Azure CIS 1.1.0, covering more controls from the standard and enhancing extensibility.
 
-[Learn more about customizing the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
+[Learn more about customizing the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.yml).
 
 ### Threat Protection for Azure Kubernetes Service (preview)
 

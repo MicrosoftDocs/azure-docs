@@ -63,5 +63,5 @@ By default, when you enable Defender for Cloud, the following standards are enab
 
 ## Next steps
 
-- [Assign regulatory compliance standards](update-regulatory-compliance-packages.md)
+- [Assign regulatory compliance standards](update-regulatory-compliance-packages.yml)
 - [Improve regulatory compliance](regulatory-compliance-dashboard.md)
