@@ -67,11 +67,21 @@ Automatic is the default option for a runtime. You can start an automatic runtim
     - If you choose serverless compute, you can set following settings:
         - Customize the VM size that the runtime uses.
         - Customize the idle time, which saves code by deleting the runtime automatically if it isn't in use.
-        - Set the user-assigned managed identity. The automatic runtime uses this identity to pull a base image and install packages. Make sure that the user-assigned managed identity has Azure Container Registry pull permission.
-            
-            If you don't set this identity, we use the user identity by default. [Learn more about how to create and update user-assigned identities for a workspace](../how-to-identity-based-service-authentication.md#to-create-a-workspace-with-multiple-user-assigned-identities-use-one-of-the-following-methods).
+        - Set the user-assigned managed identity. The automatic runtime uses this identity to pull a base image and install packages. Make sure that the user-assigned managed identity has Azure Container Registry `acrpull` permission. If you don't set this identity, we use the user identity by default. [Learn more about how to create and update user-assigned identities for a workspace](../how-to-identity-based-service-authentication.md#to-create-a-workspace-with-multiple-user-assigned-identities-use-one-of-the-following-methods). 
 
             :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-automatic-settings.png" alt-text="Screenshot of prompt flow with advanced settings using serverless compute for starting an automatic runtime on a flow page." lightbox = "./media/how-to-create-manage-runtime/runtime-creation-automatic-settings.png":::
+
+        > [!TIP]
+        > The following [Azure RBAC role assignments](../role-based-access-control/role-assignments.md) are required on your user-assigned managed identity for your Azure Machine Learning workspace to access data on the workspace-associated resources.
+        
+        |Resource|Permission|
+        |---|---|
+        |Azure Machine Learning workspace|Contributor|
+        |Azure Storage|Contributor (control plane) + Storage Blob Data Contributor (data plane, optional, to enable data preview in the Azure Machine Learning studio)|
+        |Azure Key Vault (when using [RBAC permission model](../key-vault/general/rbac-guide.md))|Contributor (control plane) + Key Vault Administrator (data plane)|
+        |Azure Key Vault (when using [access policies permission model](../key-vault/general/assign-access-policy.md))|Contributor + any access policy permissions besides **purge** operations|
+        |Azure Container Registry|Contributor|
+        |Azure Application Insights|Contributor|
 
     - If you choose compute instance, you can only set idle shutdown time. 
         - As it is running on an existing compute instance the VM size is fixed and cannot change in runtime side.
