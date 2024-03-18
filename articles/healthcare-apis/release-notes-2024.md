@@ -19,7 +19,7 @@ This article describes features, enhancements, and bug fixes released in 2024 fo
 
 ### DICOM service
 
-#### Azure Health Data Services DICOM service with Azure Data Lake Storage is generally available
+#### Integration with Azure Data Lake Storage is generally available
 
 Azure Data Lake Storage integration for the DICOM service in Azure Health Data Services is generally available. The DICOM service provides cloud-scale storage for medical imaging data using the DICOMweb standard. With the integration of Azure Data Lake Storage, organizations can enjoy full control over their imaging data and increased flexibility for accessing and working with that data through the Azure storage ecosystem and APIs.
 
