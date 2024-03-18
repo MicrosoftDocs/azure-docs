@@ -19,6 +19,18 @@ In this step-by-step tutorial, you build a chat room with authentication and pri
 - [Azure Storage](https://azure.microsoft.com/services/storage/?WT.mc_id=serverlesschatlab-tutorial-antchu): Storage service that Azure Functions requires.
 - [Azure App Service](https://azure.microsoft.com/products/app-service/): Service that provides user authentication.
 
+# [Model v4](#tab/nodejs-v4)
+
+> [!NOTE]
+> You can get the code mentioned in this article from [GitHub](https://github.com/aspnet/AzureSignalR-samples/blob/90523e17ee5fec184a197b143bb5070bc6d4f312/samples/ServerlessChatWithAuth/v4-model/).
+
+# [Isolated process](#tab/isolated-process)
+
+> [!NOTE]
+> You can get the code mentioned in this article from [GitHub](https://github.com/aspnet/AzureSignalR-samples/blob/90523e17ee5fec184a197b143bb5070bc6d4f312/samples/ServerlessChatWithAuth/v3-model/).
+
+---
+
 ## Prerequisites
 
 - An Azure account with an active subscription. If you don't have one, you can [create one for free](https://azure.microsoft.com/free/).
@@ -132,86 +144,86 @@ When the chat app first opens in the browser, it requires valid connection crede
 
 1. From the root project folder, create the `negotiate` function from a built-in template by using the following command:
 
-```bash
-func new --template "HTTP trigger" --name negotiate
-```
+    ```bash
+    func new --template "HTTP trigger" --name negotiate
+    ```
 
 1. Open _src/functions/negotiate.js_, update the content as follows:
 
-```javascript
-const { app, input } = require('@azure/functions');
+    ```javascript
+    const { app, input } = require('@azure/functions');
 
-const inputSignalR = input.generic({
-    type: 'signalRConnectionInfo',
-    name: 'connectionInfo',
-    hubName: 'default',
-    connectionStringSetting: 'AzureSignalRConnectionString',
-    userId: '{query.x-ms-signalr-userid}'
-});
+    const inputSignalR = input.generic({
+        type: 'signalRConnectionInfo',
+        name: 'connectionInfo',
+        hubName: 'default',
+        connectionStringSetting: 'AzureSignalRConnectionString',
+        userId: '{query.x-ms-signalr-userid}'
+    });
 
-app.post('negotiate', {
-    authLevel: 'function',
-    handler: (request, context) => {
-        return { body: JSON.stringify(context.extraInputs.get(inputSignalR)) }
-    },
-    route: 'negotiate',
-    extraInputs: [inputSignalR],
-});
-```
+    app.post('negotiate', {
+        authLevel: 'function',
+        handler: (request, context) => {
+            return { body: JSON.stringify(context.extraInputs.get(inputSignalR)) }
+        },
+        route: 'negotiate',
+        extraInputs: [inputSignalR],
+    });
+    ```
 
-The function contains an HTTP trigger binding to receive requests from SignalR clients. The function also contains a SignalR input binding to generate valid credentials for a client to connect to an Azure SignalR Service hub named `default`.
+    The function contains an HTTP trigger binding to receive requests from SignalR clients. The function also contains a SignalR input binding to generate valid credentials for a client to connect to an Azure SignalR Service hub named `default`.
 
-This function takes the SignalR connection information from the input binding and returns it to the client in the HTTP response body..
+    This function takes the SignalR connection information from the input binding and returns it to the client in the HTTP response body..
 
-There's no `userId` property in the `signalRConnectionInfo` binding for local development. You'll add it later to set the username of a SignalR connection when you deploy the function app to Azure.
+    There's no `userId` property in the `signalRConnectionInfo` binding for local development. You'll add it later to set the username of a SignalR connection when you deploy the function app to Azure.
 
 # [Model v3](#tab/nodejs-v3)
 
 1. Open _negotiate/function.json_ to view the function binding configuration.
 
-The function contains an HTTP trigger binding to receive requests from SignalR clients. The function also contains a SignalR input binding to generate valid credentials for a client to connect to an Azure SignalR Service hub named `default`.
+    The function contains an HTTP trigger binding to receive requests from SignalR clients. The function also contains a SignalR input binding to generate valid credentials for a client to connect to an Azure SignalR Service hub named `default`.
 
-```json
-{
-  "disabled": false,
-  "bindings": [
+    ```json
     {
-      "authLevel": "anonymous",
-      "type": "httpTrigger",
-      "direction": "in",
-      "methods": ["post"],
-      "name": "req",
-      "route": "negotiate"
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "res"
-    },
-    {
-      "type": "signalRConnectionInfo",
-      "name": "connectionInfo",
-      "hubName": "default",
-      "connectionStringSetting": "AzureSignalRConnectionString",
-      "direction": "in"
+      "disabled": false,
+      "bindings": [
+        {
+          "authLevel": "anonymous",
+          "type": "httpTrigger",
+          "direction": "in",
+          "methods": ["post"],
+          "name": "req",
+          "route": "negotiate"
+        },
+        {
+          "type": "http",
+          "direction": "out",
+          "name": "res"
+        },
+        {
+          "type": "signalRConnectionInfo",
+          "name": "connectionInfo",
+          "hubName": "default",
+          "connectionStringSetting": "AzureSignalRConnectionString",
+          "direction": "in"
+        }
+      ]
     }
-  ]
-}
-```
+    ```
 
-There's no `userId` property in the `signalRConnectionInfo` binding for local development. You'll add it later to set the username of a SignalR connection when you deploy the function app to Azure.
+    There's no `userId` property in the `signalRConnectionInfo` binding for local development. You'll add it later to set the username of a SignalR connection when you deploy the function app to Azure.
 
 1. Close the _negotiate/function.json_ file.
 
 1. Open _negotiate/index.js_ to view the body of the function:
 
-```javascript
-module.exports = async function (context, req, connectionInfo) {
-  context.res.body = connectionInfo;
-};
-```
+    ```javascript
+    module.exports = async function (context, req, connectionInfo) {
+      context.res.body = connectionInfo;
+    };
+    ```
 
-This function takes the SignalR connection information from the input binding and returns it to the client in the HTTP response body. The SignalR client uses this information to connect to the Azure SignalR Service instance.
+    This function takes the SignalR connection information from the input binding and returns it to the client in the HTTP response body. The SignalR client uses this information to connect to the Azure SignalR Service instance.
 
 ---
 
