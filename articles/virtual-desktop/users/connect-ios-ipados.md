@@ -3,7 +3,7 @@ title: Connect to Azure Virtual Desktop with the Remote Desktop client for iOS a
 description: Learn how to connect to Azure Virtual Desktop using the Remote Desktop client for iOS and iPadOS.
 author: dknappettmsft
 ms.topic: how-to
-ms.date: 03/18/2024
+ms.date: 03/19/2024
 ms.author: daknappe
 ---
 
