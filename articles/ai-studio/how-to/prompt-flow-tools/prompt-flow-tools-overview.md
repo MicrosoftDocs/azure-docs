@@ -38,7 +38,7 @@ To discover more custom tools developed by the open-source community, see [More 
 
 ## Remarks
 - If existing tools don't meet your requirements, you can [develop your own custom tool and make a tool package](https://microsoft.github.io/promptflow/how-to-guides/develop-a-tool/create-and-use-tool-package.html).
-- To install the custom tools, if you're using the automatic runtime, you can readily install the package by adding the custom tool package name into the `requirements.txt` file in the flow folder. Then select the **Save and install** button to start installation. After completion, you can see the custom tools displayed in the tool list. To learn more, see [How to create and manage a runtime](../create-manage-runtime.md).
+- To install the custom tools, if you're using the automatic runtime, you can readily install the publicly released package by adding the custom tool package name into the `requirements.txt` file in the flow folder. Then select the **Save and install** button to start installation. After completion, you can see the custom tools displayed in the tool list. In addition, if you want to use local or private feed package, please build an image first, then set up the runtime based on your image. To learn more, see [How to create and manage a runtime](../create-manage-runtime.md).
 :::image type="content" source="../../media/prompt-flow/install-package-on-automatic-runtime.png" alt-text="Screenshot of how to install packages on automatic runtime."lightbox = "../../media/prompt-flow/install-package-on-automatic-runtime.png":::
 
 ## Next steps
