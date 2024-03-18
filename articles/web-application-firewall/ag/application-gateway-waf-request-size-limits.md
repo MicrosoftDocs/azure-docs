@@ -13,7 +13,6 @@ ms.topic: conceptual
 
 Web Application Firewall allows you to configure request size limits within lower and upper bounds.
 
-Request size limits are global in scope.
 
 ## Limits
 
