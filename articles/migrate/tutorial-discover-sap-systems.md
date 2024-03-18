@@ -11,7 +11,7 @@ ms.custom:
 
 ---
 
-# Tutorial: Discover SAP systems with Azure Migrate: Discovery and Assessment (preview)
+# Tutorial: Discover SAP systems with Azure Migrate (preview)
 
 As part of your migration journey to Azure, discover your on-premises SAP inventory and workloads.
 
@@ -21,8 +21,9 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Set up an Azure Migrate project
-> * Prepare an import file
-> * Import the server inventory and perform an assessment
+> * Prepare the import file
+> * Import the SAP systems inventory
+> * View discovered SAP systems
 
 > [!NOTE]
 > Tutorials show the quickest path for trying out a scenario and using default options. 
@@ -43,7 +44,7 @@ To set up a migration project, follow these steps:
         2. **Region**: Select the region in which you want to create the project.
     
      > [!Note]
-     > In the **Advanced** configuration, the default connectivity is set to public endpoint. You can also create an Azure Migrate project with private endpoint connectivity. [Learn more](discover-and-assess-using-private-endpoints.md#create-a-project-with-private-endpoint-connectivity)
+     > In the **Advanced** configuration, the default connectivity is set to public endpoint. You can also create an Azure Migrate project with private endpoint connectivity. [Learn more.](discover-and-assess-using-private-endpoints.md#create-a-project-with-private-endpoint-connectivity)
 
 1. Select **Create**.
 
@@ -56,7 +57,6 @@ To set up a migration project, follow these steps:
 To prepare the import file, do the following:
 1. Download the template file.
 1. Add on-premises SAP infrastructure details.
-1. Import SAP Systems inventory.
 
 ### Download the template file
 
@@ -86,21 +86,21 @@ The following table summarizes the file fields to fill in:
     
 | **Template Column** | **Description** |
 | --- | --- |
-| Server Name <sup>*</sup> | Unique server name or host name of the SAP system to identify each server. Include all the virtual machines attached to an SAP system that you intend to migrate to Azure. |
+| Server Name <sup>*</sup> | Unique server name or host name of the SAP system to identify each server. Include all the virtual machines attached to a SAP system that you intend to migrate to Azure. |
 | Environment <sup>*</sup> | Environment that the server belongs to. |
 | SAP Instance Type <sup>*</sup> | The type of SAP instance running on this machine. <br/>For example, App, ASCS, DB, and so on. Single-server and distributed architectures are only supported. |
-| Instance SID <sup>*</sup> | This is the instance System ID (SID) for the ASCS/AP/DB instance. |
+| Instance SID <sup>*</sup> | Instance System ID (SID) for the ASCS/AP/DB instance. |
 | System SID <sup>*</sup> | SID of SAP System. |
 | Landscape SID <sup>*</sup> | SID of the customer's production system in each landscape. |
-| Application <sup>*</sup> | Optional column to specify any organizational identifier, such as HR, Finance, Marketing, and so on. |
+| Application <sup>*</sup> | Any organizational identifier, such as HR, Finance, Marketing, and so on. |
 | SAP Product <sup>*</sup> | SAP application component. <br/>For example, SAP S/4HANA 2022, SAP ERP ENHANCE, and so on. |
 | SAP Product Version | The version of the SAP product. |
 | Operating System <sup>*</sup> | The operating system running on the host server. |
-| Database Type <sup>*</sup> | This column is applicable only if **SAP Instance Type** column is **Database**. |
+| Database Type | Optional column and it is not applicable for all SAP Instance Types except **Database**.|
 | SAPS* | The SAP Application Performance Standard (SAPS) for each server in the SAP system. |
 | CPU | The number of CPUs on the on-premises server. |
 | Max. CPUload[%] | The maximum CPU load in percentage of the on-premises server. Exclude the percentage symbol while you enter this value. |
-| RAM Size (GB) | RAM size in GB of the on-premises server. |
+| RAM Size (GB) | RAM size of the on-premises server. |
 | CPU Type | CPU type of the on-premises server.<br/> For example, Xeon Platinum 8171M, and Xeon E5-2673 v3. |
 | HW Manufacturer | The manufacturer company of the on-premises server. |
 | Model | The on-premises hardware is either a physical server or virtual machine. |
@@ -108,14 +108,14 @@ The following table summarizes the file fields to fill in:
 | Total Disk Size(GB) <sup>*</sup> | Total disk volume capacity of the on-premises server. Include the disk volume for each individual disk and provide the total sum. |
 | Total Disk IOPS <sup>*</sup> | Total disk Input/Output Operations Per Second (IOPS) of all the disks on the on-premises server. |
 | Source DB Size(GB) <sup>*</sup> | The size of on-premises database. |
-| Target HANA RAM Size(GB) | This is an optional field and is **Not Applicable** for all SAP Instance Types except **DB**. Fill this field only when migrating an AnyDb database to SAP S/4HANA and provide the desired target HANA database size. |
+| Target HANA RAM Size(GB) | Optional column and it is **Not Applicable** for all SAP Instance Types except **DB**. Fill this field only when migrating an AnyDb database to SAP S/4HANA and provide the desired target HANA database size. |
 
 <sup>*</sup> These fields are mandatory.
 
-### Import SAP Systems inventory
+## Import SAP systems inventory
 After you add information to the import file, import the file from your machine to Azure Migrate.
 
-To import SAP Systems inventory, follow these steps:
+To import SAP systems inventory, follow these steps:
 
 1. On the **Azure Migrate** page, under **Migration goals**, select **Servers, databases and web apps**.
 1. On the **Servers, databases and web apps** page, under **Assessments tools**, from the **Discover** dropdown menu, select **Using import**.
@@ -124,9 +124,9 @@ To import SAP Systems inventory, follow these steps:
 
     :::image type="content" source="./media/tutorial-discover-sap-systems/import-excel.png" alt-text="Screenshot that shows how to import SAP inventory." lightbox="./media/tutorial-discover-sap-systems/import-excel.png":::
 
-    Review the import details to check for any errors or validation failures. After the successful import, you can view the discovered SAP systems.
+    Review the import details to check for any errors or validation failures. After a successful import, you can view the discovered SAP systems.
     > [!Note]
-    > After completing a discovery import, we recommend you wait for 15 minutes before starting a new assessment. This ensures that all Excel data is accurately used during the assessment calculation.
+    > After you complete a discovery import, we recommend you to wait for 15 minutes before you start a new assessment. This ensures that all Excel data is accurately used during the assessment calculation.
 
 ## View discovered SAP systems
 
@@ -136,7 +136,7 @@ To view the discovered SAP systems, follow these steps:
 
     :::image type="content" source="./media/tutorial-discover-sap-systems/discovered-systems.png" alt-text="Screenshot that shows discovered SAP inventory." lightbox="./media/tutorial-discover-sap-systems/discovered-systems.png":::
 
-1. On the **Discovered SAP® systems** page, select a desired system SID.<br> The **Server instance details** blade displays all attributes of servers that make up the SID.
+1. On the **Discovered SAP® systems** page, select a desired system SID.<br> The **Server instance details** blade displays all the attributes of servers that make up the SID.
 
 > [!Note]
 > Wait for 10 minutes and ensure that the imported information is fully reflected in the **Server instance details** blade.
