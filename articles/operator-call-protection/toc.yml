@@ -24,3 +24,5 @@ items:
   items:
   - name: Responsible AI FAQ
     href: responsible-ai-faq.md
+  - name: Microsoft's Responsible AI principles
+    href: https://www.microsoft.com/ai/responsible-ai
