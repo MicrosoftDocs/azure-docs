@@ -43,13 +43,13 @@ The data product factory (preview) offers:
 
 The data product factory (preview) is a self-service environment for partners to design, create, and test new Data Products.
 
-Each Data Product is defined by a Data Product Definition: a set of files defining the transformation, aggregation, summarization, and visualization of the data.
+Each Data Product is defined by a data product definition: a set of files defining the transformation, aggregation, summarization, and visualization of the data.
 
 The data product factory is delivered as a GitHub-based SDK containing:
 - A development environment and sandbox for local design and testing. The environment and sandbox provide a tight feedback loop to accelerate the development cycle for ingestion, enrichment, and insights.
 - Documentation including step-by-step tutorials for designing, testing, publishing, and monetizing Data Products.
-- Sample Data Product Definitions to kickstart design and creation.
-- Tools to automatically generate and validate Data Product Definitions.
+- Sample data product definitions to kickstart design and creation.
+- Tools to automatically generate and validate data product definitions.
 
 ## Next step
 
