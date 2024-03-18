@@ -32,7 +32,7 @@ ONNX Runtime is used in high-scale Microsoft services such as Bing, Office, and 
 - __Azure SQL product family__: Run native scoring on data in [Azure SQL Edge](../azure-sql-edge/onnx-overview.md) and [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/machine-learning-services-overview).
 - __ML.NET__: [Run ONNX models in ML.NET](/dotnet/machine-learning/tutorials/object-detection-onnx).
 
-:::image type="content" source="media/concept-onnx/onnx.png" alt-text="ONNX flow diagram showing training, converters, and deployment" lightbox="media/concept-onnx/onnx.png":::
+:::image type="content" source="media/concept-onnx/onnx.png" alt-text="ONNX flow diagram showing training, converters, and deployment." lightbox="media/concept-onnx/onnx.png":::
 
 ## How to obtain ONNX models
 
