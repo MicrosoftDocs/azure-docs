@@ -105,6 +105,8 @@
                   href: howto-cluster-runtime-upgrade.md
                 - name: Credential Rotation
                   href: howto-credential-rotation.md
+                - name: Credential Manager Key Vault
+                  href: how-to-credential-manager-key-vault.md
                 - name: Service Principal Rotation
                   href: howto-service-principal-rotation.md
         - name: Network Fabric
