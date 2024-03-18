@@ -49,7 +49,7 @@ The following list mentions fields that have specific guidelines for DHCP events
 | --- | --- | --- | --- |
 | **EventType** | Mandatory | Enumerated | Indicate the operation reported by the record. <br><Br> Possible values are `Assign`, `Renew`, `Release` and `DNS Update`. <br><br>Example: `Assign`| 
 | **EventSchemaVersion** | Mandatory | String | The version of the schema documented here is **0.1**. |
-| **EventSchema** | Mandatory | String | The name of the schema documented here is **Dhcp**. |
+| **EventSchema** | Mandatory | String | The name of the schema documented here is **DhcpEvent**. |
 | **Dvc** fields| -      | -    | For DHCP events, device fields refer to the system that reports the DHCP event. |
 
 
