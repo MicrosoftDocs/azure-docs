@@ -475,7 +475,7 @@ When the application runs, a Kubernetes service exposes the application front en
 
 :::zone pivot="development-environment-azure-developer"
 
-* [Install the Azure Developer CLI (AZD)][azd]
+* [Install the Azure Developer CLI (AZD)][azd-install]
 * [Install and configure Terraform](/azure/developer/terraform/quickstart-configure).
 * You can review the application code used in the Azure-Samples/[aks-store-demo repo][aks-store-demo].
 
@@ -681,11 +681,10 @@ To learn more about AKS and walk through a complete code-to-deployment example, 
 [intro-azure-linux]: ../../azure-linux/intro-azure-linux.md
 [aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
 [baseline-reference-architecture]: /azure/architecture/reference-architectures/containers/aks/baseline-aks?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
-[azd]: /azure/developer/azure-developer-cli/install-azd
+[azd-install]: /azure/developer/azure-developer-cli/install-azd
 [azd-up]: /azure/developer/azure-developer-cli/reference#azd-up
 [azd-init]: /azure/developer/azure-developer-cli/reference#azd-init
 [azd-up]: /azure/developer/azure-developer-cli/reference#azd-up
 [az-auth-login]: /azure/developer/azure-developer-cli/reference#azd-auth-login
-[azd-install]: /azure/developer/azure-developer-cli/install-azd
 [azd-down]: /azure/developer/azure-developer-cli/reference#azd-down
 [aks-home]: /azure/aks
