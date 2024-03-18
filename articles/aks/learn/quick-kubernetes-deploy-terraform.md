@@ -479,48 +479,52 @@ When the application runs, a Kubernetes service exposes the application front en
 * [Install and configure Terraform](/azure/developer/terraform/quickstart-configure).
 * You can review the application code used in the Azure-Samples/[aks-store-demo repo][aks-store-demo].
 
-## Clone the Azure Developer template
+## Clone the Azure Developer CLI template
 
-1. Clone the AKS store demo template from the **Azure-Samples repository** using the `azd init` command with the `--template` parameter.
+1. Clone the AKS store demo template from the **Azure-Samples** repository using the [`azd init`][azd-init] command with the `--template` parameter.
 
-    ```azurecli-interactive
-    azd init --template aks-store-demo
+    ```azdeveloper
+    azd init --template Azure-Samples/aks-store-demo
     ```
 
-1. Enter an environment name for your project. The environment name should use only alphanumeric characters and hyphens, such as the following example environment name:
+2. Enter an environment name for your project that uses only alphanumeric characters and hyphens, such as *aks-terraform-1*.
 
     ```output
-    Enter a new environment name: aks-terraform-azd
+    Enter a new environment name: aks-terraform-1
     ```
 
-## Login to your Azure account
+## Sign in to your Azure Cloud account
 
-1. Sign in to your account using the `azd auth login` command.
+The `azd` template contains all the code needed to create the services, but you need to sign in to your Azure account in order to host the application on AKS.
 
-    ```azurecli-interactive
+1. Sign in to your account using the [`azd auth login`][az-auth-login] command.
+
+    ```azdeveloper
     azd auth login
     ```
 
-1. Copy the device code that appears and press `enter` to sign in.
+2. Copy the device code that appears in the output and press enter to sign in.
 
     ```output
     Start by copying the next code: XXXXXXXXX
     Then press enter and continue to log in from your browser...
     ```
 
-1. Authenticate with your credentials on your organization's sign in page.
+    > [!IMPORTANT]
+    > If you're using an out-of-network virtual machine or GitHub Codespace, certain Azure security policies cause conflicts when used to sign in with `azd auth login`. If you run into an issue here, you can follow the azd auth workaround provided below, which involves using a `curl` request to the localhost URL you were redirected to after running [`azd auth login`][az-auth-login].
 
-1. Open your original terminal window and verify you received a successful sign in message similar to the following message:
+3. Authenticate with your credentials on your organization's sign in page.
+4. Confirm that it's you trying to connect from the Azure CLI.
+5. Verify the message "Device code authentication completed. Logged in to Azure." appears in your original terminal.
 
     ```output
     Waiting for you to complete authentication in the browser...
     Device code authentication completed.
     Logged in to Azure.
     ```
-
 [!INCLUDE [azd-login-ts](../includes/azd/azd-login-ts.md)]
 
-## Deploy the application
+## Create and deploy resources for your cluster
 
 To deploy the application, you use the `azd up` command to create all the objects required to run the [AKS Store application][aks-store-demo]. 
 
@@ -536,71 +540,75 @@ To deploy the application, you use the `azd up` command to create all the object
 > [!NOTE]
 > We don't recommend running stateful containers, such as Rabbit MQ, without persistent storage for production. These are used here for simplicity, but we recommend using managed services, such as Azure CosmosDB or Azure Service Bus.
 
-### Generate Terraform plans
-
-Within your Azure Developer template, the `/infra/terraform` folder contains all the code used to generate the Terraform plan.
-
-Terraform deploys and runs commands using `terraform apply` as part of `azd`.
-
-A successful Terraform deployment plan results in a similar following message:
-
-    ```output
-    Plan: 5 to add, 0 to change, 0 to destroy.
-    ...
-    Saved the plan to: /workspaces/aks-store-demo/.azure/aks-terraform-azd/infra/terraform/main.tfplan
-    ```
-
 ### Deploy application resources
 
-1. Create the application resources using the `azd up` command.
+`azd` runs all the hooks inside of the [`azd-hooks` folder](https://github.com/Azure-Samples/aks-store-demo/tree/main/azd-hooks) to preregister, provision, and deploy the application services.
+
+The `azd` template for this quickstart creates a new resource group with an AKS cluster and an Azure key vault. The key vault stores client secrets and runs the services in the `pets` namespace
+
+1. Create all the application resources using the [`azd up`][azd-up] command.
 
     ```azdeveloper
     azd up
     ```
 
-1. Select an Azure subscription to bill your usage.
+2. Select an Azure subscription for your billing usage.
 
     ```output
     ? Select an Azure Subscription to use:  [Use arrows to move, type to filter]
     > 1. My Azure Subscription (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)
     ```
 
-1. Select a region to deploy your application to.
+3. Select a region to deploy your application to.
 
     ```output
     Select an Azure location to use:  [Use arrows to move, type to filter]
-      40. (South America) Brazil Southeast (brazilsoutheast)
-      41. (US) Central US (centralus)
-      42. (US) East US (eastus)
+      1.  (South America) Brazil Southeast (brazilsoutheast)
+      2.  (US) Central US (centralus)
+      3.  (US) East US (eastus)
     > 43. (US) East US 2 (eastus2)
-      44. (US) East US STG (eastusstg)
-      45. (US) North Central US (northcentralus)
-      46. (US) South Central US (southcentralus)
+      4.  (US) East US STG (eastusstg)
+      5.  (US) North Central US (northcentralus)
+      6.  (US) South Central US (southcentralus)
     ```
 
-1. Wait as azd automatically runs the commands for pre-provision and post-provision steps. Once completed, you should see an output with 3 `SUCCESS:` similar to the following example output:
+    `azd` automatically runs the preprovisioning and postprovisioning commands to create the resources for your application. This process can take a few minutes to complete. Once complete, you should see an output similar to the following example:
 
     ```output
-    SUCCESS: Your application was provisioned in Azure in 4 minutes 50 seconds.
-
-    SUCCESS: Your application was deployed to Azure in less than a second.
-
-    SUCCESS: Your up workflow to provision and deploy to Azure completed in 5 minutes 11 seconds.
+    SUCCESS: Your workflow to provision and deploy to Azure completed in 9 minutes 40 seconds.
     ```
+
+### Generate Terraform plans
+
+Within your Azure Developer template, the `/infra/terraform` folder contains all the code used to generate the Terraform plan.
+
+Terraform deploys and runs commands using `terraform apply` as part of `azd`'s provisioning step. Once complete, you should see an output similar to the following example:
+
+```output
+Plan: 5 to add, 0 to change, 0 to destroy.
+...
+Saved the plan to: /workspaces/aks-store-demo/.azure/aks-terraform-azd/infra/terraform/main.tfplan
+```
 
 ## Test the application
 
 When the application runs, a Kubernetes service exposes the application front end to the internet. This process can take a few minutes to complete.
 
-1. Check the status of the deployed pods using the `kubectl get pods` command. Make all pods are `Running` before proceeding.
+1. Set your namespace as the demo namespace `pets` using the [`kubectl set-context`][kubectl-set-context] command.
+
+    ```console
+    kubectl config set-context --current --namespace=pets
+    ```
+
+2. Check the status of the deployed pods using the [`kubectl get pods`][kubectl-get-pods] command. Make sure all pods are `Running` before proceeding.
 
     ```console
     kubectl get pods
     ```
 
-1. Check for a public IP address for the store-front application. Monitor progress using the `kubectl get service` command with the `--watch` argument.
+3. Check for a public IP address for the store-front application and monitor progress using the [`kubectl get service`][kubectl-get] command with the `--watch` argument.
 
-    ```azurecli-interactive
+    ```console
     kubectl get service store-front --watch
     ```
 
@@ -611,25 +619,39 @@ When the application runs, a Kubernetes service exposes the application front en
     store-front   LoadBalancer   10.0.100.10   <pending>     80:30025/TCP   4h4m
     ```
 
-1. Once the **EXTERNAL-IP** address changes from *pending* to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process.
+4. Once the **EXTERNAL-IP** address changes from *pending* to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process.
 
-    The following example output shows a valid public IP address assigned to the service:
+    The following sample output shows a valid public IP address assigned to the service:
 
     ```output
     NAME          TYPE           CLUSTER-IP    EXTERNAL-IP    PORT(S)        AGE
     store-front   LoadBalancer   10.0.100.10   20.62.159.19   80:30025/TCP   4h5m
     ```
 
-1. Open a web browser to the external IP address of your service to see the Azure Store app in action.
+5. Open a web browser to the external IP address of your service to see the Azure Store app in action.
 
-    :::image type="content" source="media/quick-kubernetes-deploy-terraform/aks-store-application.png" alt-text="Screenshot of AKS Store sample application." lightbox="media/quick-kubernetes-deploy-terraform/aks-store-application.png":::
+    :::image type="content" source="media/quick-kubernetes-deploy-cli/aks-store-application.png" alt-text="Screenshot of AKS Store sample application." lightbox="media/quick-kubernetes-deploy-cli/aks-store-application.png":::
 
-### Delete application resources
+## Delete the cluster
 
-1. Delete all the resources created in the quickstart using the `azd down` command. This uses the main.tfplan generated to clean up all created services.
+Once you're finished with the quickstart, clean up unnecessary resources to avoid Azure charges.
+
+1. Delete all the resources created in the quickstart using the [`azd down`][azd-down] command.
 
     ```azdeveloper
     azd down
+    ```
+
+2. Confirm your decision to remove all used resources from your subscription by typing `y` and pressing `Enter`.
+
+    ```output
+    ? Total resources to delete: 14, are you sure you want to continue? (y/N)
+    ```
+
+3. Allow purge to reuse the quickstart variables if applicable by typing `y` and pressing `Enter`.
+
+    ```output
+    [Warning]: These resources have soft delete enabled allowing them to be recovered for a period or time after deletion. During this period, their names may not be reused. In the future, you can use the argument --purge to skip this confirmation.
     ```
 
 :::zone-end
@@ -647,6 +669,12 @@ To learn more about AKS and walk through a complete code-to-deployment example, 
 > [!div class="nextstepaction"]
 > [Learn more about using AKS.][aks-home]
 
+<!-- LINKS - External -->
+[aks-store-demo]: https://github.com/Azure-Samples/aks-store-demo
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubectl-set-context]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#config-set-context
+[kubectl-get-pods]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get-pods
+
 <!-- LINKS - internal -->
 [kubernetes-concepts]: ../concepts-clusters-workloads.md
 [kubernetes-deployment]: ../concepts-clusters-workloads.md#deployments-and-yaml-manifests
@@ -654,7 +682,10 @@ To learn more about AKS and walk through a complete code-to-deployment example, 
 [aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
 [baseline-reference-architecture]: /azure/architecture/reference-architectures/containers/aks/baseline-aks?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
 [azd]: /azure/developer/azure-developer-cli/install-azd
+[azd-up]: /azure/developer/azure-developer-cli/reference#azd-up
+[azd-init]: /azure/developer/azure-developer-cli/reference#azd-init
+[azd-up]: /azure/developer/azure-developer-cli/reference#azd-up
+[az-auth-login]: /azure/developer/azure-developer-cli/reference#azd-auth-login
+[azd-install]: /azure/developer/azure-developer-cli/install-azd
+[azd-down]: /azure/developer/azure-developer-cli/reference#azd-down
 [aks-home]: /azure/aks
-
-<!-- LINKS - External -->
-[aks-store-demo]: https://github.com/Azure-Samples/aks-store-demo
