@@ -9,7 +9,7 @@ ms.topic: concept-article
 ms.author: kritifaujdar
 author: fkriti
 ms.reviewer: mopeakande
-ms.date: 03/15/2024
+ms.date: 03/18/2024
 
 #customer intent: As a data scientist, I want learn how to use ONNX to create machine learning models and accelerate inferencing.
 ---
