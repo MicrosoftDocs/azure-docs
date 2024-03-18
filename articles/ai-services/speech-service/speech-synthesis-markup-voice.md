@@ -36,11 +36,11 @@ For information about the supported values for attributes of the `voice` element
 
 #### Single voice example
 
-This example uses the `en-US-JennyNeural` voice. 
+This example uses the `en-US-AvaNeural` voice. 
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-AvaNeural">
         This is the text that is spoken.
     </voice>
 </speak>
@@ -50,15 +50,15 @@ This example uses the `en-US-JennyNeural` voice.
 
 Within the `speak` element, you can specify multiple voices for text to speech output. These voices can be in different languages. For each voice, the text must be wrapped in a `voice` element.
 
-This example alternates between the `en-US-JennyNeural` and `en-US-ChristopherNeural` voices. 
+This example alternates between the `en-US-AvaNeural` and `en-US-ChristopherNeural` voices. 
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-AvaNeural">
         Good morning!
     </voice>
     <voice name="en-US-ChristopherNeural">
-        Good morning to you too Jenny!
+        Good morning to you too Ava!
     </voice>
 </speak>
 ```
@@ -83,7 +83,7 @@ You use the `effect` attribute to optimize the auditory experience for scenarios
     
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural" effect="eq_car">
+    <voice name="en-US-AvaNeural" effect="eq_car">
         This is the text that is spoken.
     </voice>
 </speak>
@@ -264,13 +264,13 @@ Use the [multilingual voices section](language-support.md?tabs=tts#multilingual-
 
 For information about the supported values for attributes of the `lang` element, see [Adjust speaking language](#adjust-speaking-languages). 
 
-You must specify `en-US` as the default language within the `speak` element, whether or not the language is adjusted elsewhere. In this example, the primary language for `en-US-JennyMultilingualNeural` is `en-US`. 
+You must specify `en-US` as the default language within the `speak` element, whether or not the language is adjusted elsewhere. In this example, the primary language for `en-US-AvaMultilingualNeural` is `en-US`. 
 
-This SSML snippet shows how to use `<lang xml:lang>` to speak `de-DE` with the `en-US-JennyMultilingualNeural` neural voice.
+This SSML snippet shows how to use `<lang xml:lang>` to speak `de-DE` with the `en-US-AvaMultilingualNeural` neural voice.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
-    <voice name="en-US-JennyMultilingualNeural">
+    <voice name="en-US-AvaMultilingualNeural">
         <lang xml:lang="de-DE">
             Wir freuen uns auf die Zusammenarbeit mit Ihnen!
         </lang>
@@ -282,7 +282,7 @@ Within the `speak` element, you can specify multiple languages including `en-US`
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
-    <voice name="en-US-JennyMultilingualNeural">
+    <voice name="en-US-AvaMultilingualNeural">
         <lang xml:lang="es-MX">
             ¡Esperamos trabajar con usted!
         </lang>
@@ -322,7 +322,7 @@ This SSML snippet illustrates how the `rate` attribute is used to change the spe
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-AvaNeural">
         <prosody rate="+30.00%">
             Enjoy using text to speech.
         </prosody>
@@ -336,7 +336,7 @@ This SSML snippet illustrates how the `volume` attribute is used to change the v
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-AvaNeural">
         <prosody volume="+20.00%">
             Enjoy using text to speech.
         </prosody>
@@ -350,7 +350,7 @@ This SSML snippet illustrates how the `pitch` attribute is used so that the voic
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-AvaNeural">
         Welcome to <prosody pitch="high">Enjoy using text to speech.</prosody>
     </voice>
 </speak>
@@ -362,7 +362,7 @@ This SSML snippet illustrates how the `contour` attribute is used to change the 
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-AvaNeural">
         <prosody contour="(60%,-60%) (100%,+80%)" >
             Were you the only person in the room?
         </prosody>
@@ -393,7 +393,7 @@ This SSML snippet demonstrates how you can use the `emphasis` element to add
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
-    <voice name="en-US-GuyNeural">
+    <voice name="en-US-AndrewNeural">
     I can help you join your <emphasis level="moderate">meetings</emphasis> fast.
     </voice>
 </speak>
@@ -425,7 +425,7 @@ This SSML snippet illustrates how to use `src` attribute to insert audio from tw
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-AvaNeural">
         <p>
             <audio src="https://contoso.com/opinionprompt.wav"/>
             Thanks for offering your opinion. Please begin speaking after the beep.
@@ -457,7 +457,7 @@ In this example, the original audio is around 15 seconds. The `mstts:audiodurati
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US">
-<voice name="en-US-JennyNeural">
+<voice name="en-US-AvaNeural">
 <mstts:audioduration value="20s"/>
 If we're home schooling, the best we can do is roll with what each day brings and try to have fun along the way.
 A good place to start is by trying out the slew of educational apps that are helping children stay happy and smash their schooling at the same time.
@@ -494,7 +494,7 @@ For information about the supported values for attributes of the `mstts:backgrou
 ```xml
 <speak version="1.0" xml:lang="en-US" xmlns:mstts="http://www.w3.org/2001/mstts">
     <mstts:backgroundaudio src="https://contoso.com/sample.wav" volume="0.7" fadein="3000" fadeout="4000"/>
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-AvaNeural">
         The text provided in this document will be spoken over the background audio.
     </voice>
 </speak>

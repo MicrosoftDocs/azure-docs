@@ -49,7 +49,7 @@ The following list mentions fields that have specific guidelines for DHCP events
 | --- | --- | --- | --- |
 | **EventType** | Mandatory | Enumerated | Indicate the operation reported by the record. <br><Br> Possible values are `Assign`, `Renew`, `Release` and `DNS Update`. <br><br>Example: `Assign`| 
 | **EventSchemaVersion** | Mandatory | String | The version of the schema documented here is **0.1**. |
-| **EventSchema** | Mandatory | String | The name of the schema documented here is **Dhcp**. |
+| **EventSchema** | Mandatory | String | The name of the schema documented here is **DhcpEvent**. |
 | **Dvc** fields| -      | -    | For DHCP events, device fields refer to the system that reports the DHCP event. |
 
 
@@ -87,7 +87,7 @@ The fields below are specific to DHCP events, but many are similar to fields in 
 | <a name="srcuserid"></a>**SrcUserId** | Optional | String | A machine-readable, alphanumeric, unique representation of the source user. Format and supported types include:<br>- **SID** (Windows): `S-1-5-21-1377283216-344919071-3415362939-500`<br>- **UID** (Linux): `4578`<br>- **AADID** (Microsoft Entra ID): `9267d02c-5f76-40a9-a9eb-b686f3ca47aa`<br>- **OktaId**: `00urjk4znu3BcncfY0h7`<br>- **AWSId**: `72643944673`<br><br>Store the ID type in the [SrcUserIdType](#srcuseridtype) field. If other IDs are available, we recommend that you normalize the field names to SrcUserSid, SrcUserUid, SrcUserAadId, SrcUserOktaId and UserAwsId, respectively.<br><br>Example: `S-1-12` |
 | <a name="srcuseridtype"></a>**SrcUserIdType** | Conditional | Enumerated | The type of the ID stored in the [SrcUserId](#srcuserid) field. Supported values include: `SID`, `UIS`, `AADID`, `OktaId`, and `AWSId`. |
 | <a name="srcusername"></a>**SrcUsername** | Optional | String | The Source username, including domain information when available. Use one of the following formats and in the following order of priority:<br>- **Upn/Email**: `johndow@contoso.com`<br>- **Windows**: `Contoso\johndow`<br>- **DN**: `CN=Jeff Smith,OU=Sales,DC=Fabrikam,DC=COM`<br>- **Simple**: `johndow`. Use the Simple form only if domain information is not available.<br><br>Store the Username type in the [SrcUsernameType](#srcusernametype) field. If other IDs are available, we recommend that you normalize the field names to **SrcUserUpn**, **SrcUserWindows** and **SrcUserDn**.<br><br>For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).<br><br>Example: `AlbertE` |
-| **Username** | Alias | | Alias for [SrcUsername](#srcusername) |
+| **User** | Alias | | Alias for [SrcUsername](#srcusername) |
 | <a name="srcusernametype"></a>**SrcUsernameType** | Conditional | Enumerated | Specifies the type of the username stored in the [SrcUsername](#srcusername) field. Supported values are: `UPN`, `Windows`, `DN`, and `Simple`. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).<br><br>Example: `Windows` |
 | **SrcUserType** | Optional | Enumerated | The type of Actor. Allowed values are:<br>- `Regular`<br>- `Machine`<br>- `Admin`<br>- `System`<br>- `Application`<br>- `Service Principal`<br>- `Other`<br><br>**Note**: The value may be provided in the source record using different terms, which should be normalized to these values. Store the original value in the [EventOriginalUserType](#srcoriginalusertype) field. |
 | <a name="srcoriginalusertype"></a>**SrcOriginalUserType** | | | The original source user type, if provided by the source. |
