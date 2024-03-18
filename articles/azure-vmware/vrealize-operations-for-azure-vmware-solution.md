@@ -11,11 +11,7 @@ ms.custom: engagement-fy23
 
 Aria Operations is an operations management platform that allows VMware infrastructure administrators to monitor system resources. These system resources could be application-level or infrastructure level (both physical and virtual) objects. Most VMware administrators use Aria Operations to monitor and manage their VMware private cloud components – vCenter Server, ESXi, NSX, vSAN, and VMware HCX. Each provisioned Azure VMware Solution private cloud includes a dedicated vCenter Server, NSX Manager, vSAN, and HCX deployment.
 
-Thoroughly review [Before you begin](#before-you-begin) and [Prerequisites](#prerequisites) first. Then, we walk you through the two typical deployment topologies:
-
-> [!div class="checklist"]
-> * [On-premises Aria Operations managing Azure VMware Solution deployment](#on-premises-aria-operations-managing-azure-vmware-solution-deployment)
-> * [Aria Operations Cloud managing Azure VMware Solution deployment](#aria-operations-cloud-managing-azure-vmware-solution-deployment)
+Thoroughly review [Before you begin](#before-you-begin) and [Prerequisites](#prerequisites) first.
 
 ## Before you begin
 * Review the [Aria Operations product documentation](https://docs.vmware.com/en/VMware-Aria-Operations/index.html) to learn more about deploying Aria Operations.
