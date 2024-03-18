@@ -16,6 +16,7 @@ As security analysts and investigators, you want to be proactive about looking f
 For example, one built-in query provides data about the most uncommon processes running on your infrastructure. You wouldn't want an alert each time they run. They could be entirely innocent. But you might want to take a look at the query on occasion to see if there's anything unusual.
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 ## Use built-in queries
 
