@@ -20,10 +20,6 @@ In this quickstart, you'll create a feature flag in Azure App Configuration and 
 
 Finish the tutorial: [Use dynamic configuration in Azure Kubernetes Service](./enable-dynamic-configuration-azure-kubernetes-service.md)
 
-> [!TIP]
-> The Azure Cloud Shell is a free, interactive shell that you can use to run the command line instructions in this article. It has common Azure tools preinstalled, including the .NET Core SDK. If you're logged in to your Azure subscription, launch your [Azure Cloud Shell](https://shell.azure.com) from shell.azure.com. You can learn more about Azure Cloud Shell by [reading our documentation](../cloud-shell/overview.md)
->
-
 ## Use a feature flag
 
 In this section, you will use feature flags in a simple ASP.NET web application and run it in Azure Kubernetes Service (AKS). 
@@ -136,7 +132,7 @@ In this section, you will use feature flags in a simple ASP.NET web application 
     ```
 
     > [!TIP]
-    > When no `selectors` is specified in `featureFlag` section, Kubernetes Provider doesn't load feature flags from your App Configuration store. The default refresh interval of feature flags is 30 seconds when `featureFlag.refresh` enabled. You can customize this behavior via the `featureFlag.refresh.interval` parameter.
+    > When no `selectors` are specified in `featureFlag` section, the Kubernetes Provider will not load feature flags from your App Configuration store. The default refresh interval of feature flags is 30 seconds when `featureFlag.refresh` enabled. You can customize this behavior via the `featureFlag.refresh.interval` parameter.
 
 1. Run the following command to deploy the application to the AKS cluster.
 
@@ -150,7 +146,7 @@ In this section, you will use feature flags in a simple ASP.NET web application 
 
 1. Update the **Beta** feature flag in your App Configuration store. Enable the flag by selecting the checkbox under **Enabled**.
 
-1. After refreshing the browser a few times, you will see the updated content once the ConfigMap is updated in 30 seconds.
+1. After refreshing the browser multiple times, the updated content will become visible once the ConfigMap has been updated within 30 seconds.
 
     ![Screenshot showing Kubernetes Provider after using configMap with feature flag enabled.](./media/quickstarts/kubernetes-provider-feature-flag-home.png)
 
