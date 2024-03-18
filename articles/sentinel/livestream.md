@@ -1,6 +1,6 @@
 ---
-title: Use hunting Livestream in Microsoft Sentinel to detect threats | Microsoft Docs
-description: This article describes how to use hunting Livestream in Microsoft Sentinel to keep track of data.
+title: Detect threats by using hunting livestream in Microsoft Sentinel 
+description: Learn how to use hunting livestream in Microsoft Sentinel to actively monitor a compromise event.
 ms.topic: how-to
 ms.date: 03/12/2024
 ms.author: austinmc
@@ -9,7 +9,7 @@ ms.collection: usx-security
 appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
 ---
 
-# Use hunting livestream in Microsoft Sentinel to detect threats
+# Detect threats by using hunting livestream in Microsoft Sentinel
 
 Use hunting livestream to create interactive sessions that let you test newly created queries as events occur, get notifications from the sessions when a match is found, and launch investigations if necessary. You can quickly create a livestream session using any Log Analytics query.
 
@@ -30,7 +30,7 @@ Use hunting livestream to create interactive sessions that let you test newly cr
 
 You can create a livestream session from an existing hunting query, or create your session from scratch.
 
-1. In the Azure portal, navigate to **Sentinel** > **Threat management** > **Hunting**.
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Threat management**, select **Hunting**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Threat management** > **Hunting**.
 
 1. To create a livestream session from a hunting query:
     
@@ -42,7 +42,7 @@ You can create a livestream session from an existing hunting query, or create yo
 
 1. To create a livestream session from scratch: 
     
-    1. Select the **Livestream** tab
+    1. Select the **Livestream** tab.
     1. Select **+ New livestream**.
     
 1. On the **Livestream** pane:
@@ -65,7 +65,9 @@ You can create a livestream session from an existing hunting query, or create yo
 
 ## View your livestream sessions
 
-1. In the Azure portal, navigate to **Sentinel** > **Threat management** > **Hunting** > **Livestream** tab.
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Threat management**, select **Hunting**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Threat management** > **Hunting**.
+
+1. Select the **Livestream** tab.
 
 1. Select the livestream session you want to view or edit. For example:
     
