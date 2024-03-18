@@ -76,17 +76,19 @@ Your application will access an Azure SignalR Service instance. Use the followin
 
 1. Run the following command in your terminal to create a new JavaScript Functions project:
 
-  # [Model v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
-    ```bash
-    func init --worker-runtime node --language javascript --name my-app --model V4
-    ```
+```bash
+func init --worker-runtime node --language javascript --name my-app --model V4
+```
 
-  # [Model v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
-    ```bash
-    func init --worker-runtime node --language javascript --name my-app --model V3
-    ```
+```bash
+func init --worker-runtime node --language javascript --name my-app --model V3
+```
+  
+---
 
 By default, the generated project includes a _host.json_ file that contains the extension bundles that include the SignalR extension. For more information about extension bundles, see [Register Azure Functions binding extensions](../azure-functions/functions-bindings-register.md#extension-bundles).
 
@@ -211,79 +213,90 @@ When the chat app first opens in the browser, it requires valid connection crede
 
     This function takes the SignalR connection information from the input binding and returns it to the client in the HTTP response body. The SignalR client uses this information to connect to the Azure SignalR Service instance.
 
+  ---
+
 [Having issues? Let us know.](https://aka.ms/asrs/qsauth)
 
 ### Create a function to send chat messages
 
 The web app also requires an HTTP API to send chat messages. Create an HTTP trigger function that sends messages to all connected clients that use Azure SignalR Service:
 
-1. From the root project folder, create an HTTP trigger function named `sendMessage` from the template by using the following command:
+  # [Model v4](#tab/nodejs-v4)
+  1. From the root project folder, create an HTTP trigger function named `sendMessage` from the template by using the following command:
 
-   ```bash
-   func new --name sendMessage --template "Http trigger"
-   ```
+  ```bash
+  func new --name sendMessage --template "Http trigger"
+  ```
 
-1. To configure bindings for the function, replace the content of _sendMessage/function.json_ with the following code:
+  # [Model v3](#tab/nodejs-v3)
 
-   ```json
-   {
-     "disabled": false,
-     "bindings": [
-       {
-         "authLevel": "anonymous",
-         "type": "httpTrigger",
-         "direction": "in",
-         "name": "req",
-         "route": "messages",
-         "methods": ["post"]
-       },
-       {
-         "type": "http",
-         "direction": "out",
-         "name": "res"
-       },
-       {
-         "type": "signalR",
-         "name": "$return",
-         "hubName": "default",
-         "direction": "out"
-       }
-     ]
-   }
-   ```
+  1. From the root project folder, create an HTTP trigger function named `sendMessage` from the template by using the following command:
 
-   The preceding code makes two changes to the original file:
+    ```bash
+    func new --name sendMessage --template "Http trigger"
+    ```
 
-   - It changes the route to `messages` and restricts the HTTP trigger to the `POST` HTTP method.
-   - It adds an Azure SignalR Service output binding that sends a message returned by the function to all clients connected to an Azure SignalR Service hub named `default`.
+  1. To configure bindings for the function, replace the content of _sendMessage/function.json_ with the following code:
 
-1. Replace the content of _sendMessage/index.js_ with the following code:
+    ```json
+    {
+      "disabled": false,
+      "bindings": [
+        {
+          "authLevel": "anonymous",
+          "type": "httpTrigger",
+          "direction": "in",
+          "name": "req",
+          "route": "messages",
+          "methods": ["post"]
+        },
+        {
+          "type": "http",
+          "direction": "out",
+          "name": "res"
+        },
+        {
+          "type": "signalR",
+          "name": "$return",
+          "hubName": "default",
+          "direction": "out"
+        }
+      ]
+    }
+    ```
 
-   ```javascript
-   module.exports = async function (context, req) {
-     const message = req.body;
-     message.sender =
-       (req.headers && req.headers["x-ms-client-principal-name"]) || "";
+    The preceding code makes two changes to the original file:
 
-     let recipientUserId = "";
-     if (message.recipient) {
-       recipientUserId = message.recipient;
-       message.isPrivate = true;
-     }
+    - It changes the route to `messages` and restricts the HTTP trigger to the `POST` HTTP method.
+    - It adds an Azure SignalR Service output binding that sends a message returned by the function to all clients connected to an Azure SignalR Service hub named `default`.
 
-     return {
-       userId: recipientUserId,
-       target: "newMessage",
-       arguments: [message],
-     };
-   };
-   ```
+  1. Replace the content of _sendMessage/index.js_ with the following code:
 
-   This function takes the body from the HTTP request and sends it to clients connected to Azure SignalR Service. It invokes a function named `newMessage` on each client.
+    ```javascript
+    module.exports = async function (context, req) {
+      const message = req.body;
+      message.sender =
+        (req.headers && req.headers["x-ms-client-principal-name"]) || "";
 
-   The function can read the sender's identity and can accept a `recipient` value in the message body to allow you to send a message privately to a single user. You'll use these functionalities later in the tutorial.
+      let recipientUserId = "";
+      if (message.recipient) {
+        recipientUserId = message.recipient;
+        message.isPrivate = true;
+      }
 
-1. Save the file.
+      return {
+        userId: recipientUserId,
+        target: "newMessage",
+        arguments: [message],
+      };
+    };
+    ```
+
+    This function takes the body from the HTTP request and sends it to clients connected to Azure SignalR Service. It invokes a function named `newMessage` on each client.
+
+    The function can read the sender's identity and can accept a `recipient` value in the message body to allow you to send a message privately to a single user. You'll use these functionalities later in the tutorial.
+
+  1. Save the file.
 
 [Having issues? Let us know.](https://aka.ms/asrs/qsauth)
 
