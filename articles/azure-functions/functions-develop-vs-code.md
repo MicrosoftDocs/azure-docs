@@ -389,7 +389,7 @@ When you run your functions in Azure from Visual Studio Code, the extension uses
 
 ### Run functions locally
 
-The local runtime is the same runtime that hosts your function app in Azure. Local settings are read from the [local.settings.json file](#local-settings). To run your Functions project locally, you must meet [more requirements](#run-local-requirements).
+The local runtime is the same runtime that hosts your function app in Azure. Local settings are read from the [local.settings.json file](#local-settings). To run your Functions project locally, you must meet [more requirements](#prerequisites).
 
 #### Configure the project to run locally
 

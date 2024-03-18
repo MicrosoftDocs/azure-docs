@@ -307,8 +307,7 @@ SSH enables secure communication between a container and a client. With SSH enab
     :::image type="content" source="media/functions-create-function-linux-custom-image/linux-custom-kudu-ssh-top.png" alt-text="Screenshot that shows Linux top command running in an SSH session.":::
 ::: zone-end
 :::zone pivot="container-apps"  
-## 
-
+<!---For when we support connecting to the container console -->
 ::: zone-end
 
 ## Next steps
