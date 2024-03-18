@@ -53,7 +53,7 @@ The Azure portal hierarchy for Cost Management consists of:
 
 The following diagram illustrates simple Azure EA hierarchies.
 
-![Diagram of simple Azure EA hierarchies](./media/understand-ea-roles/ea-hierarchies.png)
+:::image type="content" border="false" source="./media/understand-ea-roles/ea-hierarchies.png" alt-text="Diagram of simple Azure EA hierarchies.":::
 
 ## Enterprise user roles
 
