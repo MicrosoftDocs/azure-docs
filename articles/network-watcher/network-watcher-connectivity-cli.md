@@ -46,7 +46,7 @@ This example checks connectivity to a destination virtual machine over port 80.
 
 ### Example
 
-```azurecli
+```azurecli-interactive
 az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-resource Database0 --dest-port 80
 ```
 
@@ -127,7 +127,7 @@ This example checks connectivity between a virtual machine and a remote endpoint
 
 ### Example
 
-```azurecli
+```azurecli-interactive
 az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address 13.107.21.200 --dest-port 80
 ```
 
@@ -185,7 +185,7 @@ The following example checks the connectivity to a website.
 
 ### Example
 
-```azurecli
+```azurecli-interactive
 az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address https://bing.com --dest-port 80
 ```
 
@@ -231,7 +231,7 @@ The following example checks the connectivity from a virtual machine to a blog s
 
 ### Example
 
-```azurecli
+```azurecli-interactive
 az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address https://contosoexamplesa.blob.core.windows.net/
 ```
 
