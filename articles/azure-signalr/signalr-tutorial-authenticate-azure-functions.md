@@ -280,7 +280,7 @@ The web app also requires an HTTP API to send chat messages. Create an HTTP trig
 
     The function can read the sender's identity and can accept a `recipient` value in the message body to allow you to send a message privately to a single user. You'll use these functionalities later in the tutorial.
 
-    1. Save the file.
+1. Save the file.
 
 # [Model v3](#tab/nodejs-v3)
 
