@@ -607,9 +607,6 @@ items:
     href: monitor-azure-monitor.md
 - name: Data collection
   items:
-  - name: Overview
-    displayName: data collection, data collection rules
-    href: essentials/data-collection.md
   - name: Data sources
     href: data-sources.md
   - name: Data collection methods
@@ -631,6 +628,8 @@ items:
       - name: Structure
         displayName: Data collection rules
         href: essentials/data-collection-rule-structure.md
+      - name: Workspace transformation data-sources.md
+        href: essentials/data-collection-rule-workspace.md
       - name: Monitor
         displayName: Data collection rules
         href: essentials/data-collection-monitor.md
