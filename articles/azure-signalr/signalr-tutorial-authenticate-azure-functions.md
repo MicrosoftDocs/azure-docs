@@ -244,36 +244,36 @@ The web app also requires an HTTP API to send chat messages. Create an HTTP trig
 1. Open the _src/functions/sendMessage.js_ file, update the content as follows:
 
     ```js
-      const { app, output } = require('@azure/functions');
+    const { app, output } = require('@azure/functions');
 
-      const signalR = output.generic({
-          type: 'signalR',
-          name: 'signalR',
-          hubName: 'default',
-          connectionStringSetting: 'AzureSignalRConnectionString',
-      });
+    const signalR = output.generic({
+        type: 'signalR',
+        name: 'signalR',
+        hubName: 'default',
+        connectionStringSetting: 'AzureSignalRConnectionString',
+    });
 
-      app.http('messages', {
-          methods: ['POST'],
-          authLevel: 'anonymous',
-          extraOutputs: [signalR],
-          handler: async (request, context) => {
-              const message = await request.json();
-              message.sender = request.headers && request.headers.get('x-ms-client-principal-name') || '';
+    app.http('messages', {
+        methods: ['POST'],
+        authLevel: 'anonymous',
+        extraOutputs: [signalR],
+        handler: async (request, context) => {
+            const message = await request.json();
+            message.sender = request.headers && request.headers.get('x-ms-client-principal-name') || '';
 
-              let recipientUserId = '';
-              if (message.recipient) {
-                  recipientUserId = message.recipient;
-                  message.isPrivate = true;
-              }
-              context.extraOutputs.set(signalR,
-                  {
-                      'userId': recipientUserId,
-                      'target': 'newMessage',
-                      'arguments': [message]
-                  });
-          }
-      });
+            let recipientUserId = '';
+            if (message.recipient) {
+                recipientUserId = message.recipient;
+                message.isPrivate = true;
+            }
+            context.extraOutputs.set(signalR,
+                {
+                    'userId': recipientUserId,
+                    'target': 'newMessage',
+                    'arguments': [message]
+                });
+        }
+    });
     ```
 
     The function contains an HTTP trigger and a SignalR output binding. It takes the body from the HTTP request and sends it to clients connected to Azure SignalR Service. It invokes a function named `newMessage` on each client.
