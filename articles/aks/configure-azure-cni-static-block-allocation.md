@@ -59,9 +59,9 @@ where N is any positive integer and N > 0
 This feature is **_not_** available in the following regions:
 
 - US South
-- EastUS2
-- WestUS
-- WestUS2
+- East US 2
+- West US
+- West US 2
 
 ## Plan IP addressing
 
@@ -93,7 +93,7 @@ The [deployment parameters][azure-cni-deployment-parameters]for configuring basi
 ## Before you begin
 
 - If using the Azure CLI, you need the `aks-preview` extension. See [Install the `aks-preview` Azure CLI extension](#install-the-aks-preview-azure-cli-extension).
-- If using ARM or the REST API, the AKS API version must be *2024-01-02-preview or later*.
+- If using ARM or the REST API, the AKS API version must be _2024-01-02-preview or later_.
 
 ### Install the `aks-preview` Azure CLI extension
 
@@ -117,7 +117,7 @@ The [deployment parameters][azure-cni-deployment-parameters]for configuring basi
     az feature register --namespace "Microsoft.ContainerService" --name "AzureVnetScalePreview"
     ```
 
-    It takes a few minutes for the status to show *Registered*.
+    It takes a few minutes for the status to show _Registered_.
 
 2. Verify the registration status using the [`az feature show`][az-feature-show] command.
 
@@ -185,44 +185,11 @@ az aks nodepool add --cluster-name $clusterName -g $resourceGroup  -n newnodepoo
     --no-wait
 ```
 
-## Monitor IP subnet usage
-
-Azure CNI provides the capability to monitor IP subnet usage. To enable IP subnet usage monitoring, follow the steps below:
-
-### Get the YAML file
-
-1. Download or grep the file named container-azm-ms-agentconfig.yaml from [GitHub][github].
-
-2. Find **`azure_subnet_ip_usage`** in integrations. Set `enabled` to `true`.
-
-3. Save the file.
-
-### Get the AKS credentials
-
-Set the variables for subscription, resource group and cluster. Consider the following as examples:
-
-```azurecli-interactive
-az account set -s $subscription
-az aks get-credentials -n $clusterName -g $resourceGroup
-```
-
-### Apply the config
-
-1.	Open terminal in the folder the downloaded **container-azm-ms-agentconfig.yaml** file is saved.
-
-2.	First, apply the config using the command: `kubectl apply -f container-azm-ms-agentconfig.yaml`
-
-3.	This will restart the pod and after 5-10 minutes, the metrics will be visible.
-
-4.	To view the metrics on the cluster, go to Workbooks on the cluster page in the Azure portal, and find the workbook named "Subnet IP Usage". Your view will look similar to the following:
-
-    :::image type="content" source="media/configure-azure-cni-dynamic-ip-allocation/ip-subnet-usage.png" alt-text="A diagram of the Azure portal's workbook blade is shown, and metrics for an AKS cluster's subnet IP usage are displayed.":::
-
 ## Static allocation of CIDR blocks and enhanced subnet support FAQs
 
 * **Can I assign multiple pod subnets to a cluster?**
 
-  Yes, multiple subnets can be assigned to a cluster but only one subnet can be assigned to each node pool. Different node pools across the same/different cluster can share the same subnet.
+  Multiple subnets can be assigned to a cluster but only one subnet can be assigned to each node pool. Different node pools across the same/different cluster can share the same subnet.
 
 * **Can I assign Pod subnets from a different VNet altogether?**
 
