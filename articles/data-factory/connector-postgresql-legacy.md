@@ -51,19 +51,19 @@ Use the following steps to create a linked service to PostgreSQL in the Azure po
 
     # [Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Create a new linked service with Azure Data Factory UI.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot showing Create a new linked service with Azure Data Factory UI.":::
 
     # [Azure Synapse](#tab/synapse-analytics)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot showing Create a new linked service with Azure Synapse UI.":::
 
 2. Search for Postgre and select the PostgreSQL connector.
 
-    :::image type="content" source="media/connector-postgresql-legacy/postgresql-legacy-connector.png" alt-text="Select the PostgreSQL connector.":::    
+    :::image type="content" source="media/connector-postgresql-legacy/postgresql-legacy-connector.png" alt-text="Screenshot showing Select the PostgreSQL connector.":::    
 
 1. Configure the service details, test the connection, and create the new linked service.
 
-    :::image type="content" source="media/connector-postgresql-legacy/configure-postgresql-legacy-linked-service.png" alt-text="Configure a linked service to PostgreSQL.":::
+    :::image type="content" source="media/connector-postgresql-legacy/configure-postgresql-legacy-linked-service.png" alt-text="Screenshot showing Configure a linked service to PostgreSQL.":::
 
 ## Connector configuration details
 
