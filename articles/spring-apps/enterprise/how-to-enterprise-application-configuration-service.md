@@ -377,7 +377,7 @@ az spring application-configuration-service delete \
 
 ## Examine configuration file in ConfigMap
 
-The following section shows you how to check the content of configuration file pulled by Application Configuration Service from upstream Git repositories.
+The following section shows you how to examine the content of configuration file pulled by Application Configuration Service from upstream Git repositories in related Kubernetes ConfigMap (understand more in [Refresh strategies](#refresh-strategies)).
 
 ### Assign an Azure role
 First you must have the Azure roles `Azure Spring Apps Application Configuration Service Config File Pattern Reader Role` assigned to you.
