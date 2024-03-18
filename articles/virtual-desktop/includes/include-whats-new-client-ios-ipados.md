@@ -2,7 +2,7 @@
 author: dknappettmsft
 ms.author: daknappe
 ms.topic: include
-ms.date: 01/19/2024
+ms.date: 03/18/2024
 ---
 
 ## Latest client versions
@@ -11,8 +11,18 @@ The following table lists the current versions available for the public and beta
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public  | 10.5.4         | [App Store](https://apps.apple.com/app/microsoft-remote-desktop/id714464092) |
-| Beta    | 10.5.4         | [TestFlight](https://testflight.apple.com/join/vkLIflUJ) |
+| Public  | 10.5.5         | [App Store](https://apps.apple.com/app/microsoft-remote-desktop/id714464092) |
+| Beta    | 10.5.5         | [TestFlight](https://testflight.apple.com/join/vkLIflUJ) |
+
+## Updates for version 10.5.5
+
+*Published: February 24, 2024*
+
+In this release, we've made the following changes:
+
+- Fixed accessibility issues.
+- Fixed bugs reported by users and internal telemetry.
+- As of this release, the iOS client only supports iOS 16 and 17.
 
 ## Updates for version 10.5.4
 
