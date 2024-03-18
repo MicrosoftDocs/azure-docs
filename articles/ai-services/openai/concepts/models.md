@@ -247,11 +247,6 @@ For Assistants you need a combination of a supported model, and a supported regi
 
 For information on Provisioned Throughput Unit (PTU) availability, see [provisioned throughput](./concepts/provisioned-throughput.md). 
 
-| Region | `gpt-35-turbo (1106)` | `gpt-4 (1106)` | `gpt-4 (0125)` |  
-|-----|---|---|---|
-| East US 2 | | ✅ | ✅ |
-| Sweden Central | ✅ |✅ |✅ |
-
 ## Next steps
 
 - [Learn more about working with Azure OpenAI models](../how-to/working-with-models.md)
