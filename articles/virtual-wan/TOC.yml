@@ -136,8 +136,12 @@
   items:
   - name: Upgrade from Basic to Standard
     href: upgrade-virtual-wan.md
-  - name: Create an NVA in a virtual hub
-    href: How-to-nva-hub.md
+  - name: Integrated NVA in a virtual hub
+    items:
+    - name: Create a NVA in a virtual hub 
+      href: how-to-nva-hub.md
+    - name: Configure DNAT/Internet inbound
+      href: how-to-network-virtual-appliance-inbound.md
   - name: Connect a VNet to a virtual hub
     items:
     - name: Azure portal

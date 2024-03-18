@@ -1,7 +1,7 @@
 ---
 title: List of built-in policy definitions
 description: List built-in policy definitions for Azure Policy. Categories include Tags, Regulatory Compliance, Key Vault, Kubernetes, Guest Configuration, and more.
-ms.date: 02/22/2024
+ms.date: 03/13/2024
 ms.topic: sample
 ms.custom: generated
 ---
@@ -49,6 +49,10 @@ The name of each built-in links to the policy definition in the Azure portal. Us
 ## Azure Active Directory
 
 [!INCLUDE [azure-policy-reference-policies-azure-active-directory](../../../../includes/policy/reference/bycat/policies-azure-active-directory.md)]
+
+## Azure Ai Services
+
+[!INCLUDE [azure-policy-reference-policies-azure-ai-services](../../../../includes/policy/reference/bycat/policies-azure-ai-services.md)]
 
 ## Azure Arc
 
@@ -246,6 +250,10 @@ The name of each built-in links to the policy definition in the Azure portal. Us
 
 [!INCLUDE [azure-policy-reference-policies-migrate](../../../../includes/policy/reference/bycat/policies-migrate.md)]
 
+## Mobile Network
+
+[!INCLUDE [azure-policy-reference-policies-mobile-network](../../../../includes/policy/reference/bycat/policies-mobile-network.md)]
+
 ## Monitoring
 
 [!INCLUDE [azure-policy-reference-policies-monitoring](../../../../includes/policy/reference/bycat/policies-monitoring.md)]
@@ -317,6 +325,10 @@ The name of each built-in links to the policy definition in the Azure portal. Us
 ## Synapse
 
 [!INCLUDE [azure-policy-reference-policies-synapse](../../../../includes/policy/reference/bycat/policies-synapse.md)]
+
+## System Policy
+
+[!INCLUDE [azure-policy-reference-policies-system-policy](../../../../includes/policy/reference/bycat/policies-system-policy.md)]
 
 ## Tags
 

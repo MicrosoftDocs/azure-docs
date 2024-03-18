@@ -12,7 +12,7 @@ This article lists the security alerts you might get from Microsoft Defender for
 
 At the bottom of this page, there's a table describing the Microsoft Defender for Cloud kill chain aligned with version 9 of the [MITRE ATT&CK matrix](https://attack.mitre.org/versions/v9/).
 
-[Learn how to respond to these alerts](managing-and-responding-alerts.md).
+[Learn how to respond to these alerts](managing-and-responding-alerts.yml).
 
 [Learn how to export alerts](continuous-export.md).
 
@@ -3015,7 +3015,7 @@ SQL.MySQL_SuspiciousIpAnomaly)
 ## Alerts for Resource Manager
 
 > [!NOTE]
-> Alerts with a **delegated access** indication are triggered due to activity of third-party service providers. learn more about [service providers activity indications](/azure/defender-for-cloud/defender-for-resource-manager-usage).
+> Alerts with a **delegated access** indication are triggered due to activity of third-party service providers. learn more about [service providers activity indications](defender-for-resource-manager-usage.md).
 
 [Further details and notes](defender-for-resource-manager-introduction.md)
 
@@ -5257,5 +5257,5 @@ Defender for Cloud's supported kill chain intents are based on [version 9 of the
 ## Next steps
 
 - [Security alerts in Microsoft Defender for Cloud](alerts-overview.md)
-- [Manage and respond to security alerts in Microsoft Defender for Cloud](managing-and-responding-alerts.md)
+- [Manage and respond to security alerts in Microsoft Defender for Cloud](managing-and-responding-alerts.yml)
 - [Continuously export Defender for Cloud data](continuous-export.md)

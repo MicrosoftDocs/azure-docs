@@ -28,6 +28,19 @@ Azure Database for MySQL flexible server provides various metrics to understand 
 
 All Azure metrics have a one-minute frequency, and each metric provides 30 days of history. You can configure alerts on the metrics. For step-by-step guidance, see [How to set up alerts](./how-to-alert-on-metric.md). Other tasks include setting up automated actions, performing advanced analytics, and archiving history. For more information, see the [Azure Metrics Overview](../../azure-monitor/data-platform.md).
 
+### Troubleshooting Metrics
+Sometimes, you might run into issues with creating, customizing, or interpreting charts in Azure metrics explorer. 
+The situation of a *Chart showing no data* could arise due to various factors. These might include the Microsoft Insights resource provider not being registered for your subscription, or you lacking adequate access rights to your Azure Database for MySQL - Flexible Server. Other possibilities could be that your resource didn't generate metrics within the chosen time frame, or the selected time range exceeds 30 days.
+
+Several reasons that follow can cause this behavior:
+
+- *Microsoft.Insights resource provider isn’t registered*: Exploring metrics requires Microsoft.Insights resource provider registered in your subscription. Register your server manually by following steps described in [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
+- *Insufficient access rights to your resource*: Ensure that you have sufficient permissions for your Azure Database for MySQL - Flexible Server from which you’re exploring metrics. Your resource didn’t emit metrics during the selected time range: Change the time of the chart to a wider range. In Azure, [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) controls access to metrics. You must be a member of [monitoring reader](../../role-based-access-control/built-in-roles.md#monitoring-reader), [monitoring contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor), or [contributor](../../role-based-access-control/built-in-roles.md#contributor) to explore metrics for any resource.
+- *Your resource didn’t emit metrics during the selected time range*: This could be due to several reasons. One possibility is that your resource didn’t generate metrics within the chosen time frame. Change the time of the chart to a wider range to see if this resolves the issue. For more detailed information on troubleshooting this issue, refer to the [Azure Monitor metrics troubleshooting guide](../../azure-monitor/essentials/metrics-troubleshoot.md#your-resource-didnt-emit-metrics-during-the-selected-time-range).
+- *Time range greater than 30 days*: Verify that the difference between start- and end- dates in the time picker doesn’t exceed the 30-day interval. For more detailed information on troubleshooting metrics, refer to the [Azure Monitor metrics troubleshooting guide](../../azure-monitor/essentials/metrics-troubleshoot.md).
+- *Dashed Line Indication*: In Azure Monitor, the presence of a dashed line signifies a gap in data, or a "null value", between two points of known time grain data. This is a deliberate design that helps in the detection of missing data points. If your chart displays dashed lines, it indicates missing data and you can refer to the [documentation for further information.](../../azure-monitor/essentials/metrics-troubleshoot.md#chart-shows-dashed-line)
+
+For more detailed information on troubleshooting metrics, refer to the [Azure Monitor metrics troubleshooting guide.](../../azure-monitor/essentials/metrics-troubleshoot.md)
 
 ## List of metrics
 These metrics are available for Azure Database for MySQL flexible server:
@@ -72,6 +85,7 @@ These metrics are available for Azure Database for MySQL flexible server:
 |Replica SQL Status|replica_sql_running|State|Replica SQL Status indicates the state of [replication SQL thread](https://dev.mysql.com/doc/refman/8.0/en/replication-implementation-details.html). Metric value is 1 if the SQL thread is running and 0 if not.|
 |HA IO Status|ha_io_running|State|HA IO Status indicates the state of [HA replication](./concepts-high-availability.md). Metric value is 1 if the I/O thread is running and 0 if not.|
 |HA SQL Status|ha_sql_running|State|HA SQL Status indicates the state of [HA replication](./concepts-high-availability.md). Metric value is 1 if the SQL thread is running and 0 if not.|
+|HA Replication Lag|ha_replication_lag|Seconds|HA Replication lag is the number of seconds the HA Standby server is behind in replaying the transactions received from the source server. This metric is calculated from "Seconds_behind_Master" from the command "SHOW SLAVE STATUS" and is available for HA standby servers only.|
 
 
 > [!NOTE]
@@ -107,7 +121,7 @@ These metrics are available for Azure Database for MySQL flexible server:
 |Metric display name|Metric|Unit|Description|
 |---|---|---|---|
 |InnoDB Row Lock Time|innodb_row_lock_time|Milliseconds|InnoDB row lock time measures the duration of time in milliseconds for InnoDB row-level locks.|
-|InnoDB Row Lock Waits|innodb_row_lock_waits|Count|InnoDB row lock waits count the number of times a query had to wait for an InnoDB row-level lock.|
+|InnoDB Row Lock Waits|innodb_row_lock_waits|Count|InnoDB row lock waits metric counts the number of times a query had to wait for an InnoDB row-level lock.|
 |Innodb_buffer_pool_reads|Innodb_buffer_pool_reads|Count|The total count of logical reads that InnoDB engine couldn't satisfy from the Innodb buffer pool, and had to be fetched from the disk.|
 |Innodb_buffer_pool_read_requests|Innodb_buffer_pool_read_requests|Count|The total count of logical read requests to read from the Innodb Buffer pool.|
 |Innodb_buffer_pool_pages_free|Innodb_buffer_pool_pages_free|Count|The total count of free pages in InnoDB buffer pool.|
@@ -119,7 +133,7 @@ These metrics are available for Azure Database for MySQL flexible server:
 ## Server logs
 
 In Azure Database for MySQL flexible server, users can configure and download server logs to assist with troubleshooting efforts. With this feature enabled, an Azure Database for MySQL flexible server instance starts capturing events of the selected log type and writes them to a file. You can then use the Azure portal and Azure CLI to download the files to work with them.
-The server logs feature is disabled by default. For information about how to enable server logs, see [How to enable and download server logs for Azure Database for MySQL flexible server](./how-to-server-logs-portal.md)
+The server logs feature is disabled by default. For information about how to enable server logs, see [How to enable and download server logs for Azure Database for MySQL flexible server.](./how-to-server-logs-portal.md)
 
 Server logs support [slow query logs](./concepts-slow-query-logs.md) and [error logs](./concepts-error-logs.md) for enabling and downloading.
 To perform a historical analysis of your data, in the Azure portal, on the Diagnostics settings pane for your server, add a diagnostic setting to send the logs to Log Analytics workspace, Azure Storage, or event hubs. For more information, see [Set up diagnostics](./tutorial-query-performance-insights.md#set-up-diagnostics).

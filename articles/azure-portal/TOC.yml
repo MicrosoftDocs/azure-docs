@@ -54,7 +54,7 @@
     - name: Create an Azure support request
       href: supportability/how-to-create-azure-support-request.md
     - name: Manage an Azure support request
-      href: supportability/how-to-manage-azure-support-request.yml
+      href: supportability/how-to-manage-azure-support-request.md
     - name: Capture a browser trace for troubleshooting
       href: capture-browser-trace.md
 - name: Azure mobile app
@@ -62,7 +62,7 @@
   - name: Overview
     href: mobile-app/overview.md
     displayName: mobile, app, ios, android
-  - name: Home
+  - name: Azure mobile app Home
     href: mobile-app/home.md
     displayName: mobile, app, start
   - name: Alerts and notifications
@@ -71,6 +71,9 @@
   - name: Microsoft Entra ID
     href: mobile-app/microsoft-entra-id.md
     displayName: mobile, app
+  - name: Learn about Azure
+    href: mobile-app/learn-training.md
+    displayName: mobile, app, training
 - name: Reference
   items:
   - name: Keyboard shortcuts

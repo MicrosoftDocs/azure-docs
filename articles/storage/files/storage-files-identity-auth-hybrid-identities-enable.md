@@ -47,7 +47,7 @@ Clients must be Microsoft Entra joined or [Microsoft Entra hybrid joined](../../
 
 This feature doesn't currently support user accounts that you create and manage solely in Microsoft Entra ID. User accounts must be [hybrid user identities](../../active-directory/hybrid/whatis-hybrid-identity.md), which means you'll also need AD DS and either [Microsoft Entra Connect](../../active-directory/hybrid/whatis-azure-ad-connect.md) or [Microsoft Entra Connect cloud sync](../../active-directory/cloud-sync/what-is-cloud-sync.md). You must create these accounts in Active Directory and sync them to Microsoft Entra ID. To assign Azure Role-Based Access Control (RBAC) permissions for the Azure file share to a user group, you must create the group in Active Directory and sync it to Microsoft Entra ID.
 
-You must disable multi-factor authentication (MFA) on the Microsoft Entra app representing the storage account.
+You must disable multifactor authentication (MFA) on the Microsoft Entra app representing the storage account.
 
 With Microsoft Entra Kerberos, the Kerberos ticket encryption is always AES-256. But you can set the SMB channel encryption that best fits your needs.
 
@@ -153,7 +153,7 @@ You can configure the API permissions from the [Azure portal](https://portal.azu
   > [!IMPORTANT]
   > If you're connecting to a storage account via a private endpoint/private link using Microsoft Entra Kerberos authentication, you'll also need to add the private link FQDN to the storage account's Microsoft Entra application. For instructions, see the entry in our [troubleshooting guide](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication?toc=/azure/storage/files/toc.json#error-1326---the-username-or-password-is-incorrect-when-using-private-link).
 
-## Disable multi-factor authentication on the storage account
+## Disable multifactor authentication on the storage account
 
 Microsoft Entra Kerberos doesn't support using MFA to access Azure file shares configured with Microsoft Entra Kerberos. You must exclude the Microsoft Entra app representing your storage account from your MFA conditional access policies if they apply to all apps.
 
@@ -290,5 +290,5 @@ For more information, see these resources:
 
 - [Potential errors when enabling Microsoft Entra Kerberos authentication for hybrid users](files-troubleshoot-smb-authentication.md#potential-errors-when-enabling-azure-ad-kerberos-authentication-for-hybrid-users)
 - [Overview of Azure Files identity-based authentication support for SMB access](storage-files-active-directory-overview.md)
-- [Create a profile container with Azure Files and Microsoft Entra ID](../../virtual-desktop/create-profile-container-azure-ad.md)
+- [Create a profile container with Azure Files and Microsoft Entra ID](../../virtual-desktop/create-profile-container-azure-ad.yml)
 - [FAQ](storage-files-faq.md)

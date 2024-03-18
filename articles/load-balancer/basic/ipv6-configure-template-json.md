@@ -8,8 +8,9 @@ manager: kumudD
 ms.service: load-balancer
 ms.topic: how-to
 ms.custom: devx-track-arm-template
-ms.date: 04/17/2023
+ms.date: 03/12/2024
 ms.author: mbender
+ROBOTS: NOINDEX, NOFOLLOW
 ---
 
 # Deploy an IPv6 dual stack application with Basic Load Balancer in Azure - Template

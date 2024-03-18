@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 02/07/2024
+ms.date: 03/01/2024
 ms.custom: generated
 ---
 
@@ -16,6 +16,8 @@ This article lists the permissions for the Azure resource providers in the Ident
 
 
 ## Microsoft.AAD
+
+Join Azure virtual machines to a domain without domain controllers.
 
 Azure service: [Microsoft Entra Domain Services](/entra/identity/domain-services/)
 
@@ -76,6 +78,8 @@ Azure service: Azure Active Directory
 > | microsoft.aadiam/tenants/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs for tenants |
 
 ## Microsoft.ADHybridHealthService
+
+Robust monitoring of your on-premises identity infrastructure.
 
 Azure service: [Microsoft Entra ID](/entra/identity/)
 
@@ -156,6 +160,8 @@ Azure service: [Microsoft Entra ID](/entra/identity/)
 
 ## Microsoft.AzureActiveDirectory
 
+Synchronize on-premises directories and enable single sign-on.
+
 Azure service: [Azure Active Directory B2C](/azure/active-directory-b2c/)
 
 > [!div class="mx-tableFixed"]
@@ -175,6 +181,8 @@ Azure service: [Azure Active Directory B2C](/azure/active-directory-b2c/)
 > | Microsoft.AzureActiveDirectory/operations/read | Read all API operations available for Microsoft.AzureActiveDirectory resource provider |
 
 ## Microsoft.ManagedIdentity
+
+An automatically managed identity in Microsoft Entra ID that authenticates to any service that supports Microsoft Entra
 
 Azure service: [Managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/)
 

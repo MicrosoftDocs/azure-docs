@@ -92,7 +92,7 @@ The following table describes the permissions available for IoT Hub service API 
 > - Both [Invoke Component Command](/rest/api/iothub/service/digitaltwin/invokecomponentcommand) and [Invoke Root Level Command](/rest/api/iothub/service/digitaltwin/invokerootlevelcommand) require `Microsoft.Devices/IotHubs/directMethods/invoke/action`.
 
 > [!NOTE]
-> To get data from IoT Hub by using Microsoft Entra ID, [set up routing to a separate event hub](iot-hub-devguide-messages-d2c.md#event-hubs-as-a-routing-endpoint). To access the [the built-in Event Hubs compatible endpoint](iot-hub-devguide-messages-read-builtin.md), use the connection string (shared access key) method as before. 
+> To get data from IoT Hub by using Microsoft Entra ID, [set up routing to a custom Event Hubs endpoint](iot-hub-devguide-messages-d2c.md). To access the [the built-in Event Hubs compatible endpoint](iot-hub-devguide-messages-read-builtin.md), use the connection string (shared access key) method as before. 
 
 <a name='enforce-azure-ad-authentication'></a>
 
