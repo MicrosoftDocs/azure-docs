@@ -153,24 +153,20 @@ procedureSection:
       - |
         To change the subscription, click the **Subscription** list.
 
-  - title: |
-      User-assigned managed identity
+        ### User-assigned managed identity
+
+        1. In the Azure portal, open a user-assigned managed identity.
+
+        1. Click **Azure role assignments**.
+
+            You see a list of roles assigned to the selected user-assigned managed identity at various scopes such as management group, subscription, resource group, or resource. This list includes all role assignments you have permission to read.
+
+            ![Screenshot of role assignments for a user-assigned managed identity.](./media/shared/role-assignments-user-assigned.png)
+
+        1. To change the subscription, click the **Subscription** list.
+  - title: | 
+      List number of role assignments
     summary: |
-      Follow these steps:
-    steps:
-      - |
-        In the Azure portal, open a user-assigned managed identity.
-      - |
-        Click **Azure role assignments**.
-
-        You see a list of roles assigned to the selected user-assigned managed identity at various scopes such as management group, subscription, resource group, or resource. This list includes all role assignments you have permission to read.
-
-        ![Screenshot of role assignments for a user-assigned managed identity.](./media/shared/role-assignments-user-assigned.png)
-      - |
-        To change the subscription, click the **Subscription** list.
-
-        ## List number of role assignments
-
         You can have up to **4000** role assignments in each subscription. This limit includes role assignments at the subscription, resource group, and resource scopes. To help you keep track of this limit, the **Role assignments** tab includes a chart that lists the number of role assignments for the current subscription.
 
         ![Screenshot of Access control and number of role assignments chart.](./media/role-assignments-list-portal/access-control-role-assignments-chart.png)
@@ -179,18 +175,17 @@ procedureSection:
 
         ![Screenshot of Access control and Add role assignment warning.](./media/role-assignments-list-portal/add-role-assignment-warning.png)
 
-  - title: |
-      Download role assignments
-    summary: |
-      You can download role assignments at a scope in CSV or JSON formats. This can be helpful if you need to inspect the list in a spreadsheet or take an inventory when migrating a subscription.
+        ## Download role assignments
 
-      When you download role assignments, you should keep in mind the following criteria:
+        You can download role assignments at a scope in CSV or JSON formats. This can be helpful if you need to inspect the list in a spreadsheet or take an inventory when migrating a subscription.
 
-      - If you don't have permissions to read the directory, such as the Directory Readers role, the DisplayName, SignInName, and ObjectType columns will be blank.
-      - Role assignments whose security principal has been deleted are not included.
-      - Access granted to classic administrators are not included.
+        When you download role assignments, you should keep in mind the following criteria:
 
-      Follow these steps to download role assignments at a scope.
+        - If you don't have permissions to read the directory, such as the Directory Readers role, the DisplayName, SignInName, and ObjectType columns will be blank.
+        - Role assignments whose security principal has been deleted are not included.
+        - Access granted to classic administrators are not included.
+
+        Follow these steps to download role assignments at a scope.
     steps:
       - |
         In the Azure portal, click **All services** and then select the scope where you want to download the role assignments. For example, you can select **Management groups**, **Subscriptions**, **Resource groups**, or a resource.
