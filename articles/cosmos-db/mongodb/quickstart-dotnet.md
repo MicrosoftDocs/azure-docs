@@ -27,11 +27,11 @@ packages/Microsoft.Azure.Cosmos) | [Azure Developer CLI](/azure/developer/azure-
 
 ## Setting up
 
-Deploy this project's development container to your environment. Then, use the Azure Developer CLI (`azd`) to create an Azure Cosmos DB for NoSQL account and deploy a containerized sample application. The sample application uses the client library to manage, create, read, and query sample data.
+Deploy this project's development container to your environment. Then, use the Azure Developer CLI (`azd`) to create an Azure Cosmos DB for MongoDB account and deploy a containerized sample application. The sample application uses the client library to manage, create, read, and query sample data.
 
 ::: zone pivot="devcontainer-codespace"
 
-[![Open in GitHub Codespaces](https://img.shields.io/static/v1?style=for-the-badge&label=GitHub+Codespaces&message=Open&color=brightgreen&logo=github)](https://github.com/alexwolfmsft/cosmos-db-mongo-dotnet-quickstart?template=false&quickstart=1&azure-portal=true)
+[![Open in GitHub Codespaces](https://img.shields.io/static/v1?style=for-the-badge&label=GitHub+Codespaces&message=Open&color=brightgreen&logo=github)](https://codespaces.new/alexwolfmsft/cosmos-db-mongo-dotnet-quickstart?template=false&quickstart=1&azure-portal=true)
 
 ::: zone-end
 
@@ -166,7 +166,7 @@ Sand Surfboard
 
 ## Clean up resources
 
-When you no longer need the Azure Cosmos DB for NoSQL account, you can delete the corresponding resource group.
+When you no longer need the Azure Cosmos DB for MongoDB account, you can delete the corresponding resource group.
 
 ### [Azure CLI / Resource Manager template](#tab/azure-cli)
 
