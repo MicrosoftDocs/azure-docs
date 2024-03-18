@@ -143,6 +143,19 @@ Repeat these steps for each VM onto which you want to install the agent.
     - Port 36001/TCP inbound from the MCCs
     - Port 443/TCP outbound to Azure
 
+    You can configure this with:
+    ```
+    sudo firewall-cmd --permanent --new-service=mcc-connection 
+    sudo firewall-cmd --permanent --service=mcc-connection --add-port=36001/tcp 
+    sudo firewall-cmd --add-service=mcc-connection --permanent 
+
+    sudo firewall-cmd --permanent --new-service=azure-connection
+    sudo firewall-cmd --permanent --service=azure-connection --add-port=443/tcp 
+    sudo firewall-cmd --add-service=azure-connection --permanent 
+
+    sudo firewall-cmd --reload 
+    ```
+
     ---
 
 ## Ensure that VM can resolve Microsoft hostnames
