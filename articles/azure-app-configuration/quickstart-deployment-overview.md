@@ -17,9 +17,7 @@ Azure App Configuration supports following methods to read and manage your confi
 - [Bicep](./quickstart-bicep.md)
 - Terraform
 
-## Manage Azure App Configuration resources
-Azure App Configuration resources can be managed during deployment.
-
+## Manage Azure App Configuration resources in deployment
 ### Authorization
 You must have permissions to manage Azure App Configuration resources. Azure role-based access control (Azure RBAC) roles that provide these permissions include the Microsoft.AppConfiguration/configurationStores/write or Microsoft.AppConfiguration/configurationStores/* action. Built-in roles with this action include:
 - The Azure Resource Manager Owner role
@@ -27,8 +25,8 @@ You must have permissions to manage Azure App Configuration resources. Azure rol
 
 To learn more about Azure RBAC and Microsoft Entra ID, see [Authorize access to Azure App Configuration using Microsoft Entra ID](./concetp-enable-rbac.md)
 
-## Manage Azure App Configuration data
-Azure App Configuration data, such as key-values and snapshots, can be managed during deployment. 
+## Manage Azure App Configuration data in deployment
+Azure App Configuration data, such as key-values and snapshots, can be managed in deployment. It's recommended to configure **Pass-through** ARM authentication mode to require proper Azure App Configuration data plane authorization.
 
 ### ARM authentication mode
 # [Azure portal](#tab/portal)
@@ -47,10 +45,10 @@ To configure ARM authentication mode of Azure App Configuration resource in the 
 ---
 
 > [!NOTE]
-> Local authentication mode is for backward compatibility and has several limitations. Local authentication mode does not support proper auditing for accessing data during deployment. Key-value data access inside an ARM template/Bicep/Terraform is disabled if access key authentication is disabled under local authentication mode. For more information, see [disable access  we key authentication](./howto-disable-access-key-authentication.md#limitations). Azure App Configuration data plane permissions are not required for accessing data under local authentication mode. 
+> Local authentication mode is for backward compatibility and has several limitations. It does not support proper auditing for accessing data in deployment. Under local authentication mode, key-value data access inside an ARM template/Bicep/Terraform is disabled if [access key authentication is disabled](./howto-disable-access-key-authentication.md#limitations). Azure App Configuration data plane permissions are not required for accessing data under local authentication mode. 
 
 ### Authorization
-You must have permissions to read and manage Azure App Configuration data during deployment. In addition to the permissions required for Azure App Configuration resource, which are provided by built-in Owner or Contributor roles, Azure App Configuration data plane permissions including Microsoft.AppConfiguration/configurationStores/keyValues/read and Microsoft.AppConfiguration/configurationStores/snapshots/read are also required under pass-through authentication mode. Built-in roles with this action include:
+You must have permissions to read and manage Azure App Configuration data in deployment. In addition to the permissions required for Azure App Configuration resource, which are provided by built-in Owner or Contributor roles, Azure App Configuration data plane permissions including Microsoft.AppConfiguration/configurationStores/keyValues/read and Microsoft.AppConfiguration/configurationStores/snapshots/read are also required under pass-through authentication mode. Built-in roles with this action include:
 - App Configuration Data Owner
 - App Configuration Data Reader
 
