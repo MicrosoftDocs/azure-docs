@@ -77,7 +77,7 @@ Automatic is the default option for a runtime. You can start an automatic runtim
         |Resource|Permission|
         |---|---|
         |Azure Machine Learning workspace|Contributor|
-        |Azure Storage|Contributor (control plane) + Storage Blob Data Contributor (data plane, optional, to enable data preview in the Azure Machine Learning studio)|
+        |Azure Storage|Contributor (control plane) + Storage Blob|File Data Contributor (data plane, optional, to enable data preview in the Azure Machine Learning studio)|
         |Azure Key Vault (when using [RBAC permission model](../../key-vault/general/rbac-guide.md))|Contributor (control plane) + Key Vault Administrator (data plane)|
         |Azure Key Vault (when using [access policies permission model](../../key-vault/general/assign-access-policy.md))|Contributor + any access policy permissions besides **purge** operations|
         |Azure Container Registry|Contributor|
