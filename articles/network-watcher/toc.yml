@@ -130,7 +130,7 @@
     - name: Azure portal
       href: connection-troubleshoot-portal.md
     - name: PowerShell
-      href: network-watcher-connectivity-powershell.md
+      href: connection-troubleshoot-powershell.md
     - name: Azure CLI
       href: network-watcher-connectivity-cli.md
     - name: REST
