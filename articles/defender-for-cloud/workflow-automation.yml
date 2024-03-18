@@ -92,7 +92,8 @@ procedureSection:
       - |
         Select your logic app and save the automation. The logic app dropdown only shows those with supporting Defender for Cloud connectors mentioned above.
   - title: |
-      ## Manually trigger a logic app
+      Manually trigger a logic app
+    summary: |
       You can also run logic apps manually when viewing any security alert or recommendation.
 
       To manually run a logic app, open an alert, or a recommendation and select **Trigger logic app**.
@@ -100,7 +101,7 @@ procedureSection:
       [![Manually trigger a logic app.](media/workflow-automation/manually-trigger-logic-app.png)](media/workflow-automation/manually-trigger-logic-app.png#lightbox)
 
       ## Configure workflow automation at scale
-    summary: |
+  
       Automating your organization's monitoring and incident response processes can greatly improve the time it takes to investigate and mitigate security incidents.
 
       To deploy your automation configurations across your organization, use the supplied Azure Policy 'DeployIfNotExist' policies described below to create and configure workflow automation procedures.
