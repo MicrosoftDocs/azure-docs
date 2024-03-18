@@ -10,6 +10,8 @@ ms.subservice: change-analysis
 
 # Use Change Analysis in Azure Monitor
 
+[!INCLUDE [transition](../includes/change/change-analysis-is-moving.md)]
+
 While standard monitoring solutions might alert you to a live site issue, outage, or component failure, they often don't explain the cause. Let's say your site worked five minutes ago, and now it's broken. What changed in the last five minutes? 
 
 Change Analysis is designed to answer that question in Azure Monitor.
