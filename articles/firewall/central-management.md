@@ -35,7 +35,7 @@ Policies are billed based on firewall associations. A policy with zero or one fi
 The following leading third-party solutions support Azure Firewall central management using standard Azure REST APIs. Each of these solutions has its own unique characteristics and features:
 
 - [AlgoSec CloudFlow](https://www.algosec.com/azure/) 
-- [Barracuda Cloud Security Guardian](https://www.barracuda.com/products/cloudsecurityguardian/for_azure)
+- [Barracuda Cloud Security Guardian](https://app.barracuda.com/products/cloudsecurityguardian/for_azure)
 - [Tufin Orca](https://www.tufin.com/products/tufin-orca)
 
 

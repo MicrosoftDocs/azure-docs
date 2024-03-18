@@ -126,7 +126,7 @@ To reduce the number of role assignments in the subscription, add principals (us
 
     :::image type="content" source="media/troubleshoot-limits/role-assignments-filter-remove.png" alt-text="Screenshot of Access control (IAM) page that shows role assignments with the same role and at the same scope, but for different principals." lightbox="media/troubleshoot-limits/role-assignments-filter-remove.png":::
 
-1. Select and remove the principal-based role assignments. For more information, see [Remove Azure role assignments](role-assignments-remove.md).
+1. Select and remove the principal-based role assignments. For more information, see [Remove Azure role assignments](role-assignments-remove.yml).
 
 ### Solution 2 - Remove redundant role assignments
 
@@ -200,7 +200,7 @@ To reduce the number of role assignments in the subscription, remove redundant r
 
 1. Find the principal.
 
-1. Select and remove the role assignment. For more information, see [Remove Azure role assignments](role-assignments-remove.md).
+1. Select and remove the role assignment. For more information, see [Remove Azure role assignments](role-assignments-remove.yml).
 
 ### Solution 3 - Replace multiple built-in role assignments with a custom role assignment
 
@@ -267,7 +267,7 @@ To reduce the number of role assignments in the subscription, replace multiple b
 
 1. Find the principal and built-in role assignments.
 
-1. Remove the built-in role assignments from the principal. For more information, see [Remove Azure role assignments](role-assignments-remove.md).
+1. Remove the built-in role assignments from the principal. For more information, see [Remove Azure role assignments](role-assignments-remove.yml).
 
 ### Solution 4 - Make role assignments eligible
 
@@ -348,5 +348,5 @@ Follow these steps to find and delete unused Azure custom roles.
 
 ## Next steps
 
-- [Remove Azure role assignments](./role-assignments-remove.md)
+- [Remove Azure role assignments](./role-assignments-remove.yml)
 - [Create or update Azure custom roles using the Azure portal](custom-roles-portal.md)
