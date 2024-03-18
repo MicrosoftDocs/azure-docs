@@ -34,11 +34,9 @@ The recommendations mentioned in this article are only available if you have the
 - You must enable [agentless scanning for virtual machines](enable-agentless-scanning-vms.md#enabling-agentless-scanning-for-machines).
 
 > [!NOTE]
-> The Log Analytics Agent (also known as MMA) is set to be retired in August 2024. All of the Defender for Servers features that rely on MMA including the ones mentioned on this page, will remain available through the [Microsoft Defender for Endpoint (MDE) integration](enable-defender-for-endpoint.md) or the [agentless scanning](enable-agentless-scanning-vms.md#enabling-agentless-scanning-for-machines) capability.
+> The feature described on this page is the replacement feature for the [MMA based feature](endpoint-protection-recommendations-technical.md), which is set to be retired along with the MMA retirement in August 2024.
 >
-> The feature described on this page is the replacement feature for the [MMA process](endpoint-protection-recommendations-technical.md) of this feature, which is set to be retired along with the MMA.
->
-> Learn more about the migration and the deprecation process of the endpoint protection related recommendations. 
+> Learn more about the migration and the [deprecation process of the endpoint protection related recommendations](prepare-deprecation-log-analytics-mma-agent.md#endpoint-protection-recommendations-experience). 
 
 ## Review and remediate endpoint detection and response discovery recommendations
 
