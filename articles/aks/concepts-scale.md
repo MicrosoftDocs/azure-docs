@@ -61,8 +61,7 @@ Your applications may experience some disruption as pods are scheduled on differ
 
 ## Kubernetes Event-driven Autoscaling (KEDA)
 
-[Kubernetes Event-driven Autoscaling][keda-official-documentation] (KEDA) is an open source component for event-driven autoscaling of workloads. It scales workloads dynamically based on the number of events received.
-KEDA scales workload dynamically based on the number of events received. KEDA extends Kubernetes with a custom resource definition (CRD), referred to as a *ScaledObject* to describe how applications should be scaled in response to specific traffic.
+[Kubernetes Event-driven Autoscaling][keda-official-documentation] (KEDA) is an open source component for event-driven autoscaling of workloads. It scales workloads dynamically based on the number of events received. KEDA extends Kubernetes with a custom resource definition (CRD), referred to as a *ScaledObject*, to describe how applications should be scaled in response to specific traffic.
 
 KEDA scaling is useful in scenarios where workloads receive bursts of traffic or handle high volumes of data. It is different from Horizontal Pod Autoscaler, as KEDA is event-driven and scales based on the number of events, while HPA is metrics-driven based on the resource utilization (for example, CPU and memory).
 
