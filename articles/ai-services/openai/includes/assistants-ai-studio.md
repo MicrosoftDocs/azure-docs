@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Getting started with Azure OpenAI Assistants (Preview) in AI Studio
+title: Quickstart - getting started with Azure OpenAI assistants (preview) in AI Studio
 titleSuffix: Azure OpenAI
 description: Walkthrough on how to get started with Azure OpenAI assistants with new features like code interpreter in AI Studio (Preview).
 manager: nitinme
@@ -90,7 +90,7 @@ You could also consult the logs in the right-hand panel to confirm that code int
 
 ## Key concepts
 
-While using the Assistants playground, keep the following concepts im mind. 
+While using the Assistants playground, keep the following concepts in mind. 
 
 ### Tools
 
