@@ -1,13 +1,14 @@
 ---
-title: Assessment checks for endpoint detection and response solutions
-description: How the endpoint protection solutions are discovered and identified as healthy.
-ms.topic: conceptual
+title: Assessment checks for endpoint detection and response
+description: How the endpoint protection solutions are discovered, identified, and maintained for optimal security.
+ms.topic: concept-article
 ms.author: dacurwin
 author: dcurwin
-ms.date: 02/01/2024
+ms.date: 03/13/2024
+#customer intent: As a reader, I want to understand the assessment checks for endpoint detection and response solutions so that I can ensure the security of my systems.
 ---
 
-# Assessment checks for endpoint detection and response solutions
+# Assessment checks for endpoint detection and response solutions (MMA)
 
 Microsoft Defender for Cloud provides health assessments of [supported](supported-machines-endpoint-solutions-clouds-servers.md#endpoint-supported) versions of Endpoint protection solutions. This article explains the scenarios that lead Defender for Cloud to generate the following two recommendations:
 
@@ -22,6 +23,7 @@ Microsoft Defender for Cloud provides health assessments of [supported](supporte
 
 ## Windows Defender
 
+The table explains the scenarios that lead Defender for Cloud to generate the following two recommendations for Windows Defender:
 
 | Recommendation | Appears when |
 |--|--|
@@ -30,6 +32,8 @@ Microsoft Defender for Cloud provides health assessments of [supported](supporte
 
 ## Microsoft System Center endpoint protection
 
+The table explains the scenarios that lead Defender for Cloud to generate the following two recommendations for Microsoft System Center endpoint protection:
+
 | Recommendation | Appears when |
 |--|--|
 | **Endpoint protection should be installed on your machines** | importing **SCEPMpModule ("$env:ProgramFiles\Microsoft Security Client\MpProvider\MpProvider.psd1")** and running **Get-MProtComputerStatus** results in **AMServiceEnabled = false** |
@@ -37,11 +41,15 @@ Microsoft Defender for Cloud provides health assessments of [supported](supporte
 
 ## Trend Micro
 
+The table explains the scenarios that lead Defender for Cloud to generate the following two recommendations for Trend Micro:
+
 | Recommendation | Appears when |
 |--|--|
 | **Endpoint protection should be installed on your machines** | any of the following checks aren't met: <br><br> - **HKLM:\SOFTWARE\TrendMicro\Deep Security Agent** exists <br> - **HKLM:\SOFTWARE\TrendMicro\Deep Security Agent\InstallationFolder** exists <br> - The **dsa_query.cmd** file is found in the Installation Folder <br> - Running **dsa_query.cmd** results with **Component.AM.mode: on - Trend Micro Deep Security Agent detected** |
 
 ## Symantec endpoint protection
+
+The table explains the scenarios that lead Defender for Cloud to generate the following two recommendations for Symantec endpoint protection:
 
 | Recommendation | Appears when |
 |--|--|
@@ -50,6 +58,8 @@ Microsoft Defender for Cloud provides health assessments of [supported](supporte
 
 ## McAfee endpoint protection for Windows
 
+The table explains the scenarios that lead Defender for Cloud to generate the following two recommendations for McAfee endpoint protection for Windows:
+
 | Recommendation | Appears when |
 |--|--| 
 | **Endpoint protection should be installed on your machines** | any of the following checks aren't met: <br><br> - **HKLM:\SOFTWARE\McAfee\Endpoint\AV\ProductVersion** exists <br> - **HKLM:\SOFTWARE\McAfee\AVSolution\MCSHIELDGLOBAL\GLOBAL\enableoas = 1**|
@@ -57,12 +67,16 @@ Microsoft Defender for Cloud provides health assessments of [supported](supporte
 
 ## McAfee Endpoint Security for Linux Threat Prevention
 
+The table explains the scenarios that lead Defender for Cloud to generate the following two recommendations for McAfee Endpoint Security for Linux Threat Prevention:
+
 | Recommendation | Appears when |
 |--|--|  
 | **Endpoint protection should be installed on your machines** | any of the following checks aren't met: <br> <br> - File **/opt/McAfee/ens/tp/bin/mfetpcli** exists <br> - **"/opt/McAfee/ens/tp/bin/mfetpcli --version"** output is: **McAfee name = McAfee Endpoint Security for Linux Threat Prevention and McAfee version >= 10** |
 | **Endpoint protection health issues should be resolved on your machines** | any of the following checks aren't met: <br> <br> - **"/opt/McAfee/ens/tp/bin/mfetpcli --listtask"** returns **Quick scan, Full scan** and both of the scans <= 7 days <br> - **"/opt/McAfee/ens/tp/bin/mfetpcli --listtask"** returns **DAT and engine Update time** and both of them <= 7 days <br> - **"/opt/McAfee/ens/tp/bin/mfetpcli --getoasconfig --summary"** returns **On Access Scan** status |
 
 ## Sophos Antivirus for Linux
+
+The table explains the scenarios that lead Defender for Cloud to generate the following two recommendations for Sophos Antivirus for Linux:
 
 | Recommendation | Appears when |
 |--|--|

@@ -28,11 +28,11 @@ POST {endpoint}/openai/deployments/{deployment-id}/chat/completions?api-version=
 ```
 
 **Supported versions**
-* `2024-02-15-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2024-02-15-preview/inference.json)
+* `2024-02-15-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2024-02-15-preview/inference.json).
 * `2024-02-01` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2024-02-01).
 
 > [!NOTE]
-> [Azure Machine learning indexes](./azure-machine-learning.md), [Pinecone](./pinecone.md), and [Elasticsearch](./elasticsearch.md) are only supported in the `2024-02-15-preview` API version.
+> [Azure Machine learning indexes](./azure-machine-learning.md), [Pinecone](./pinecone.md), and [Elasticsearch](./elasticsearch.md) are only supported in the `2024-02-15-preview` API version as a preview.
 
 ## URI parameters
 
@@ -48,7 +48,6 @@ The request body inherits the same schema of chat completions API request. This 
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
-| `messages` | [ChatMessage](#chat-message)[] | True | The array of messages to generate chat completions for, in the chat format. The [request chat message](#chat-message) has a `context` property, which is added for Azure OpenAI On Your Data.|
 | `data_sources` | [DataSource](#data-source)[] | True | The configuration entries for Azure OpenAI On Your Data. There must be exactly one element in the array. If `data_sources` is not provided, the service uses chat completions model directly, and does not use Azure OpenAI On Your Data.|
 
 ## Response body
@@ -57,17 +56,17 @@ The response body inherits the same schema of chat completions API response. The
 
 ## Chat message
 
-In both request and response, when the chat message `role` is `assistant`, the chat message schema inherits from the chat completions assistant chat message, and is extended with the property `context`.
+The response assistant message schema inherits from the chat completions assistant [chat message](../reference.md#chatmessage), and is extended with the property `context`.
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
-| `context` | [Context](#context) | False | Represents the incremental steps performed by the Azure OpenAI On Your Data while processing the request, including the detected search intent and the retrieved documents. |
+| `context` | [Context](#context) | False | Represents the incremental steps performed by the Azure OpenAI On Your Data while processing the request, including the retrieved documents. |
 
 ## Context
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
-| `citations` | [Citation](#citation)[] | False | The data source retrieval result, used to generate the assistant message in the response.|
-| `intent` | string | False | The detected intent from the chat history, used to pass to the next turn to carry over the context.|
+| `citations` | [Citation](#citation)[] | False | The data source retrieval result, used to generate the assistant message in the response. Clients can render references from the citations. |
+| `intent` | string | False | The detected intent from the chat history. Passing back the previous intent is no longer needed. Ignore this property. |
 
 ## Citation
 
@@ -85,13 +84,13 @@ This list shows the supported data sources.
 
 * [Azure AI Search](./azure-search.md)
 * [Azure Cosmos DB for MongoDB vCore](./cosmos-db.md)
-* [Azure Machine Learning index](./azure-machine-learning.md)
-* [Elasticsearch](./elasticsearch.md)
-* [Pinecone](./pinecone.md)
+* [Azure Machine Learning index (preview)](./azure-machine-learning.md)
+* [Elasticsearch (preview)](./elasticsearch.md)
+* [Pinecone (preview)](./pinecone.md)
 
 ## Examples
 
-This example shows how to pass context with conversation history for better results.
+This example shows how to pass conversation history for better results.
 
 Prerequisites:
 * Configure the role assignments from Azure OpenAI system assigned managed identity to Azure search service. Required roles: `Search Index Data Reader`, `Search Service Contributor`.
@@ -137,10 +136,7 @@ completion = client.chat.completions.create(
         },
         {
             "role": "assistant",
-            "content": "DRI stands for Directly Responsible Individual of a service. Which service are you asking about?",
-            "context": {
-                "intent": "[\"Who is DRI?\", \"What is the meaning of DRI?\", \"Define DRI\"]"
-            }
+            "content": "DRI stands for Directly Responsible Individual of a service. Which service are you asking about?"
         },
         {
             "role": "user",
@@ -191,14 +187,11 @@ az rest --method POST \
     "messages": [
         {
             "role": "user",
-            "content": "Who is DRI?",
+            "content": "Who is DRI?"
         },
         {
             "role": "assistant",
-            "content": "DRI stands for Directly Responsible Individual of a service. Which service are you asking about?",
-            "context": {
-              "intent": "[\"Who is DRI?\", \"What is the meaning of DRI?\", \"Define DRI\"]"
-            }
+            "content": "DRI stands for Directly Responsible Individual of a service. Which service are you asking about?"
         },
         {
             "role": "user",
