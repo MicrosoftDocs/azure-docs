@@ -106,7 +106,7 @@ sections:
           3. Run nslookup for each one with suffixes s1, s2, and s3 to get the IP addresses of all three instances running in three availability zones, 
           
               > [!NOTE]
-              > The IP address returned by the `nslookup` command isn't a static IP address. However, it remains constant until the underlying deployment is deleted or moved to a different cluster.
+              > The IP address returned by the `nslookup` command isn't a static IP address. It remains constant until the underlying deployment is deleted or moved to a different cluster, however using IN addresses is not recommended or supported, and you will need to keep track of changes to the IP addresses.
           
       - question: |
           Where can I find the IP address of the client sending/receiving messages to/from a namespace? 

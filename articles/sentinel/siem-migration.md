@@ -6,7 +6,6 @@ author: austinmccollum
 ms.topic: how-to
 ms.date: 3/11/2024
 ms.author: austinmc
-appliesto: Microsoft Sentinel
 #customer intent: As an SOC administrator, I want to use the SIEM migration experience so I can migrate to Microsoft Sentinel.
 ---
 

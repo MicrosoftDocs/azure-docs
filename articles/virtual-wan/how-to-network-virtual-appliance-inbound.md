@@ -80,9 +80,6 @@ The list below corresponds to the diagram above and describes the packet flow fo
 
 ## Managing DNAT/Internet Inbound configurations
 
-> [!Important]
-> The Azure portal experience for Destination NAT (DNAT) for Virtual WAN integrated Network Virtual Appliances is currently rolling out. If you do not see the DNAT options described below available in Portal, reach out to your NVA provider. 
-
 The following section describes how to manage NVA configurations related to internet inbound and DNAT.
 
 1. Navigate to your Virtual WAN Hub. Select **Network Virtual Appliances** under Third Party Providers. Click on **Manage Configurations** next to the NVA.

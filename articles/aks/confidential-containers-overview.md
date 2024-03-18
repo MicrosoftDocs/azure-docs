@@ -2,7 +2,7 @@
 title: Confidential Containers (preview) with Azure Kubernetes Service (AKS)
 description: Learn about Confidential Containers (preview) on an Azure Kubernetes Service (AKS) cluster to maintain security and protect sensitive information.
 ms.topic: article
-ms.date: 02/09/2024
+ms.date: 03/18/2024
 ---
 
 # Confidential Containers (preview) with Azure Kubernetes Service (AKS)
@@ -44,7 +44,6 @@ Confidential Containers (preview) are appropriate for deployment scenarios that 
 The following are considerations with this preview of Confidential Containers:
 
 * An increase in pod startup time compared to runc pods and kernel-isolated pods.
-* Pulling container images from a private container registry or container images that originate from a private container registry in a Confidential Containers pod manifest isn't supported in this release.
 * Version 1 container images aren't supported.
 * Updates to secrets and ConfigMaps aren't reflected in the guest.
 * Ephemeral containers and other troubleshooting methods like `exec` into a container,

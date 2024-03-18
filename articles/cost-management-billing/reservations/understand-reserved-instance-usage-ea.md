@@ -88,7 +88,7 @@ In the Azure portal, navigate to [Cost management + billing](https://portal.azur
 1. Select the billing account.
 2. Select **Usage + charges**.
 3. Select **Download**.  
-![Example showing where to Download the CSV usage data file in the Azure portal](./media/understand-reserved-instance-usage-ea/portal-download-csv.png)
+:::image type="content" border="true" source="./media/understand-reserved-instance-usage-ea/portal-download-csv.png" alt-text="Screenshot showing where to Download the CSV usage data file in the Azure portal.":::
 4. In **Download Usage + Charges** , under **Usage Details Version 2** , select **All Charges (usage and purchases)** and then select download. Repeat for **Amortized charges (usage and purchases)**.
 
 ## Download usage for your Microsoft Customer Agreement
@@ -151,7 +151,7 @@ Keep in mind that if you have an underutilized reservation, the _UnusedReservati
 
 Reservation costs are available in [cost analysis](https://aka.ms/costanalysis). By default, cost analysis shows **Actual cost**, which is how costs will be shown on your bill. To view reservation purchases broken down and associated with the resources which used the benefit, switch to **Amortized cost**:
 
-![Example showing where to select amortized cost in cost analysis](./media/understand-reserved-instance-usage-ea/portal-cost-analysis-amortized-view.png)
+:::image type="content" border="true" source="./media/understand-reserved-instance-usage-ea/portal-cost-analysis-amortized-view.png" alt-text="Screenshot showing where to select amortized cost in cost analysis.":::
 
 Group by charge type to see a break down of usage, purchases, and refunds; or by reservation for a breakdown of reservation and on-demand costs. Remember the only reservation costs you will see when looking at actual cost are purchases, but costs will be allocated to the individual resources which used the benefit when looking at amortized cost. You will also see a new **UnusedReservation** charge type when looking at amortized cost.
 
