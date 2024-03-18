@@ -39,7 +39,7 @@ Some filters are only available to specific offers. For example, a billing profi
 | **InvoiceSectionId**| Unique identifier for the MCA invoice section. | Unique identifier for the EA department or MCA invoice section. |
 | **InvoiceSectionName**| Name of the invoice section. | Name of the EA department or MCA invoice section. |
 | **Location** | Break down costs by resource location or region. | Purchases and Marketplace usage may be shown as **unassigned**, or **No resource location**. |
-| **Meter** | Break down costs by usage meter. | Purchases and Marketplace usage will show as **unassigned** or **No meter**. Refer to **Charge type** to identify purchases and **Publisher type** to identify Marketplace charges. |
+| **Meter** | Break down costs by usage meter. | Purchases and Marketplace usage might show as **unassigned** or **No meter**. Refer to **Charge type** to identify purchases and **Publisher type** to identify Marketplace charges. |
 | **Operation** | Break down AWS¹ costs by operation. | Applicable only to AWS scopes and management groups. Azure data doesn't include operation and will show as **No operation** - use **Meter** instead. |
 | **Pricing model** | Break down costs by on-demand, reservation, or spot usage. | Purchases show as **OnDemand**. If you see **Not applicable**, group by **Reservation** to determine whether the usage is reservation or on-demand usage and **Charge type** to identify purchases.
 | **PartNumber** | The identifier used to get specific meter pricing. | |
