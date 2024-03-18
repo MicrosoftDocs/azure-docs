@@ -6,21 +6,15 @@ author: tomvcassidy
 ms.service: container-instances
 services: container-instances
 ms.topic: how-to
-ms.date: 06/17/2022
+ms.date: 03/18/2024
 ms.custom: devx-track-arm-template
 ---
 
-# Deploy an Azure Container Instances (ACI) container group in an availability zone (preview)
+# Deploy an Azure Container Instances (ACI) container group in an availability zone
 
 An [availability zone][availability-zone-overview] is a physically separate zone in an Azure region. You can use availability zones to protect your containerized applications from an unlikely failure or loss of an entire data center. Three types of Azure services support availability zones: *zonal*, *zone-redundant*, and *always-available* services. You can learn more about these types of services and how they promote resiliency in the [Highly available services section of Azure services that support availability zones](../availability-zones/az-region.md#highly-available-services).
 
 Azure Container Instances (ACI) supports *zonal* container group deployments, meaning the instance is pinned to a specific, self-selected availability zone. The availability zone is specified at the container group level. Containers within a container group can't have unique availability zones. To change your container group's availability zone, you must delete the container group and create another container group with the new availability zone.
-
-> [!IMPORTANT]
-> This feature is currently in preview. Previews are made available to you on the condition that you agree to the supplemental terms of use.
-
-> [!IMPORTANT]
-> Zonal container group deployments are supported in most regions where ACI is available for Linux and Windows Server 2019 container groups. For details, see [Regions and resource availability][container-regions].
 
 > [!NOTE]
 > Examples in this article are formatted for the Bash shell. If you prefer another shell, adjust the line continuation characters accordingly.
@@ -28,11 +22,7 @@ Azure Container Instances (ACI) supports *zonal* container group deployments, me
 ## Limitations
 
 > [!IMPORTANT]
-> This feature is currently not available for Azure portal.
-
 * Container groups with GPU resources don't support availability zones at this time.
-* Virtual Network injected container groups don't support availability zones at this time.
-* Windows Server 2016 container groups don't support availability zones at this time.
 
 ### Version requirements
 
