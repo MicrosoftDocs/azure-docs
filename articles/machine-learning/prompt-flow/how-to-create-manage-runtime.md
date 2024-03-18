@@ -72,14 +72,14 @@ Automatic is the default option for a runtime. You can start an automatic runtim
             :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-automatic-settings.png" alt-text="Screenshot of prompt flow with advanced settings using serverless compute for starting an automatic runtime on a flow page." lightbox = "./media/how-to-create-manage-runtime/runtime-creation-automatic-settings.png":::
 
         > [!TIP]
-        > The following [Azure RBAC role assignments](../role-based-access-control/role-assignments.md) are required on your user-assigned managed identity for your Azure Machine Learning workspace to access data on the workspace-associated resources.
+        > The following [Azure RBAC role assignments](../../role-based-access-control/role-assignments.md) are required on your user-assigned managed identity for your Azure Machine Learning workspace to access data on the workspace-associated resources.
         
         |Resource|Permission|
         |---|---|
         |Azure Machine Learning workspace|Contributor|
         |Azure Storage|Contributor (control plane) + Storage Blob Data Contributor (data plane, optional, to enable data preview in the Azure Machine Learning studio)|
-        |Azure Key Vault (when using [RBAC permission model](../key-vault/general/rbac-guide.md))|Contributor (control plane) + Key Vault Administrator (data plane)|
-        |Azure Key Vault (when using [access policies permission model](../key-vault/general/assign-access-policy.md))|Contributor + any access policy permissions besides **purge** operations|
+        |Azure Key Vault (when using [RBAC permission model](../../key-vault/general/rbac-guide.md))|Contributor (control plane) + Key Vault Administrator (data plane)|
+        |Azure Key Vault (when using [access policies permission model](../../key-vault/general/assign-access-policy.md))|Contributor + any access policy permissions besides **purge** operations|
         |Azure Container Registry|Contributor|
         |Azure Application Insights|Contributor|
 
