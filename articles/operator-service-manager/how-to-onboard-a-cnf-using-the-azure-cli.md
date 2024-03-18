@@ -11,9 +11,12 @@ ms.custom: devx-track-azurecli
 ---
 # Onboard a Containerized Network Function (CNF) to Azure Operator Service Manager (AOSM)
 
-In this how-to guide, Network Function Publishers and Service Designers learn how to use the Azure CLI extension to onboard a containerised network function to AOSM.
+In this how-to guide, Network Function Publishers and Service Designers learn how to use the Azure CLI extension to onboard a containerised network function to AOSM. Onboarding is a multi-step process. You will first execute the steps required to meet the prerequisites for using AOSM. You will then use the Azure CLI AOSM extension to:
 
-The `az aosm` CLI extension is intended to provide support for publishing Azure Operator Service Manager designs and definitions. The CLI extension aids in the process of publishing Network Function Definitions (NFDs) and Network Service Designs (NSDs) to use with Azure Operator Service Manager.
+1. Convert your Helm charts and values.yaml into BICEP files that define a Network Function Definition (NFD).
+2. Publish the NFD and upload the NF images to an AOSM-managed ACR.
+3. Add your published NFD to the BICEP files that define a Network Service Design (NSD).
+4. Publish the NSD.
 
 ## Configure onboarding prerequisites
 
@@ -78,7 +81,26 @@ az provider show -n Microsoft.HybridNetwork --query "{RegistrationState: registr
 az provider show -n Microsoft.ContainerRegistry --query "{RegistrationState: registrationState, ProviderName: namespace}"
 ```
 
-Once the registration is successful, you can proceed with using the Azure Operator Service Manager (AOSM).
+Once the registration is successful, you can proceed with onboarding a CNF to AOSM.
+
+## Workflow summary
+
+A generic workflow of using the CLI extension is:
+
+1. Find the prerequisite items you require for your use-case.
+
+1. Run a `generate-config` command to output an example JSONC config file for subsequent commands.
+
+1. Fill in the config file.
+
+1. Run a `build` command to output one or more bicep templates for your Network Function Definition or Network Service Design.
+
+1. Review the output of the build command, edit the output as necessary for your requirements.
+
+1. Run a `publish` command to:
+   - Create all prerequisite resources such as Publisher, Artifact Stores, Groups.
+   - Deploy those bicep templates.
+   - Upload artifacts to the artifact stores.
 <!--
 Remove all the comments in this template before you sign-off or merge to the main branch.
 
