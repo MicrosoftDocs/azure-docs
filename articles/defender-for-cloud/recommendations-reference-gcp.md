@@ -2,7 +2,7 @@
 title: Reference table for all security recommendations for GCP resources
 description: This article lists all Microsoft Defender for Cloud security recommendations that help you harden and protect your Google Cloud Platform (GCP) resources.
 ms.topic: reference
-ms.date: 03/12/2024
+ms.date: 03/13/2024
 ms.custom: generated
 ai-usage: ai-assisted
 ---
@@ -22,6 +22,18 @@ Your secure score is based on the number of security recommendations you complet
 **Description**: This recommendation evaluates the config property of a node pool for the key-value pair, 'imageType': 'COS.'
 
 **Severity**: Low
+
+### [EDR configuration issues should be resolved on GCP virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/f36a15fb-61a6-428c-b719-6319538ecfbc)
+
+**Description**: To protect virtual machines from the latest threats and vulnerabilities, resolve all identified configuration issues with the installed Endpoint Detection and Response (EDR) solution. <br> Note: Currently, this recommendation only applies to resources with Microsoft Defender for Endpoint (MDE) enabled.
+
+**Severity**: High
+
+### [EDR solution should be installed on GCP Virtual Machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/68e595c1-a031-4354-b37c-4bdf679732f1)
+
+**Description**: To protect virtual machines, install an Endpoint Detection and Response (EDR) solution. EDRs help prevent, detect, investigate, and respond to advanced threats. Use Microsoft Defender for Servers to deploy Microsoft Defender for Endpoint. If resource is classified as "Unhealthy", it doesn't have a supported EDR solution installed [Place Holder link - Learn more]. If you have an EDR solution installed which isn't discoverable by this recommendation, you can exempt it.
+
+**Severity**: High
 
 ### [Ensure 'Block Project-wide SSH keys' is enabled for VM instances](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/00f8a6a6-cf69-4c11-822e-3ebf4910e545)
 
