@@ -783,22 +783,18 @@ For more information about Java, see the [Java supplemental documentation](java-
     ```typescript
     // Import the useAzureMonitor function, the AzureMonitorOpenTelemetryOptions class, the trace module, the ProxyTracerProvider class, the BatchSpanProcessor class, the NodeTracerProvider class, and the OTLPTraceExporter class from the @azure/monitor-opentelemetry, @opentelemetry/api, @opentelemetry/sdk-trace-base, @opentelemetry/sdk-trace-node, and @opentelemetry/exporter-trace-otlp-http packages, respectively.
     const { useAzureMonitor, AzureMonitorOpenTelemetryOptions } = require("@azure/monitor-opentelemetry");
-    const { trace, ProxyTracerProvider } = require("@opentelemetry/api");
     const { BatchSpanProcessor } = require('@opentelemetry/sdk-trace-base');
-    const { NodeTracerProvider } = require('@opentelemetry/sdk-trace-node');
     const { OTLPTraceExporter } = require('@opentelemetry/exporter-trace-otlp-http');
-
-    // Enable Azure Monitor integration.
-    useAzureMonitor();
 
     // Create a new OTLPTraceExporter object.
     const otlpExporter = new OTLPTraceExporter();
 
-    // Get the NodeTracerProvider instance.
-    const tracerProvider = ((trace.getTracerProvider() as ProxyTracerProvider).getDelegate() as NodeTracerProvider);
-
-    // Add a BatchSpanProcessor to the NodeTracerProvider instance.
-    tracerProvider.addSpanProcessor(new BatchSpanProcessor(otlpExporter));
+    // Enable Azure Monitor integration.
+    const options: AzureMonitorOpenTelemetryOptions = {
+        // Add the SpanEnrichingProcessor
+        spanProcessors: [new BatchSpanProcessor(otlpExporter)] 
+    }
+    useAzureMonitor(options);
     ```
 
 #### [Python](#tab/python)
