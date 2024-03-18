@@ -3,11 +3,10 @@ title: Azure Disk Backup support matrix
 description: Provides a summary of support settings and limitations Azure Disk Backup.
 ms.topic: conceptual
 ms.date: 03/18/2024
-ms.custom: references_regions
+ms.custom: references_regions, engagement-fy24
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
-ms.custom: engagement-fy24
 ---
 
 # Azure Disk Backup support matrix
