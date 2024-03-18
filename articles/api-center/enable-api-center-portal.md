@@ -4,7 +4,7 @@ description: Enable the API Center portal, an automatically generated website th
 author: dlepow
 ms.service: api-center
 ms.topic: how-to
-ms.date: 01/26/2024
+ms.date: 03/18/2024
 ms.author: danlep 
 ms.custom: 
 # Customer intent: As an API program manager, I want to enable a portal for developers and other API stakeholders in my organization to discover the APIs in my organization's API center.
@@ -16,7 +16,6 @@ This article shows how to enable your *API Center portal*, an automatically gene
 
 > [!IMPORTANT]
 > The Azure-hosted API Center portal is experimental and will be removed from API Center in an upcoming release. You will have an option to self-host an API Center portal for API discovery in an upcoming release.
-> [!VIDEO https://www.youtube.com/embed/7Z45FdCLFbA]
 
 [!INCLUDE [api-center-preview-feedback](includes/api-center-preview-feedback.md)]
 
