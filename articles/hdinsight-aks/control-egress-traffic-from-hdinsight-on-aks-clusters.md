@@ -14,7 +14,7 @@ HDInsight on AKS is a managed Platform as a Service (PaaS) that runs on Azure Ku
 
 By default, HDInsight on AKS clusters allow outbound network connections from clusters to any destination, if the destination is reachable from the node's network interface. This means that cluster resources can access any public or private IP address, domain name, or URL on the internet or on your virtual network.  
 
-However, in some scenarios, you may want to control or restrict the egress traffic from your cluster for security, compliance, or cost reasons.  
+However, in some scenarios, you may want to control or restrict the egress traffic from your cluster for security, compliance reasons.  
 
 For example, you may want to: 
 
@@ -35,11 +35,11 @@ Some of the most common ones are:
 
 1. Use Outbound cluster pool with User defined routing to control egress traffic at the subnet level.
 
-1. The AKS control plane, or API server has internal IP addresses. You can ensure network traffic between AKS Control plane / API server and HDInsight on AKS node pools remains on the private network only.
+1. Use Private AKS cluster feature - To ensure AKS control plane, or API server has internal IP addresses. The network traffic between AKS Control plane / API server and HDInsight on AKS node pools (clusters) remains on the private network only.
 
 1. Avoid creating public IPs for the cluster, use private ingress feature on your clusters.
 
-In the following sections, we describe each method and tool in more detail.
+In the following sections, we describe each method in detail.
 
 ### Outbound with load balancer
 
@@ -53,7 +53,7 @@ Once you opt for this configuration, HDInsight on AKS automatically completes cr
 
 A public IP created by HDInsight on AKS, and it's an AKS-managed resource, which means that AKS manages the lifecycle of that public IP and doesn't require user action directly on the public IP resource.   
 
-When clusters are created, then certain ingress public IPs also get created.  
+When clusters are created, then certain ingress public IPs also get created. 
 
 To allow requests to be sent to the cluster, you need to [allowlist the traffic](./secure-traffic-by-nsg.md#inbound-security-rules-ingress-traffic). You can also configure certain [rules in the NSG ](./secure-traffic-by-nsg.md#inbound-security-rules-ingress-traffic) to do a coarse-grained control. 
 
@@ -209,13 +209,12 @@ Once the cluster pool is created, you can observe in the MC Group that there's n
 
 ### Cluster pool creation with private AKS  
 
-In a private cluster, the control plane or API server has internal IP addresses that are defined in the [RFC1918 - Address Allocation for Private Internet document](https://datatracker.ietf.org/doc/html/rfc1918). By using a private cluster, you can ensure network traffic between your API server and your HDInsight on AKS workload clusters remains on the private network only. 
+With private AKS, the control plane or API server has internal IP addresses that are defined in the [RFC1918 - Address Allocation for Private Internet document](https://datatracker.ietf.org/doc/html/rfc1918). By using this option of private AKS, you can ensure network traffic between your API server and your HDInsight on AKS workload clusters remains on the private network only. 
 
 :::image type="content" source="./media/control-egress traffic-from-hdinsight-on-aks-clusters/enable-private-aks.png" alt-text="Screenshot showing enabled private AKS." lightbox="./media/control-egress traffic-from-hdinsight-on-aks-clusters/enable-private-aks.png":::
 
-When you provision a private AKS cluster, AKS by default creates a private FQDN with a private DNS zone. An extra public FQDN with a corresponding A record in Azure public DNS. The agent nodes continue to use the A record in the private DNS zone to resolve the private IP address of the private endpoint for communication to the API server. 
-
-As HDInsight on AKS automatically inserts the A record to the private DNS zone, for private ingress.
+> [!IMPORTANT]
+> When you provision a private AKS cluster, AKS by default creates a private FQDN with a private DNS zone. An extra public FQDN with a corresponding A record in Azure public DNS. The agent nodes continue to use the A record in the private DNS zone to resolve the private IP address of the private endpoint for communication to the API server. As HDInsight on AKS Resource provider automatically inserts the A record to the private DNS zone, for private ingress.
 
  
 
@@ -237,7 +236,6 @@ Well-know FQDN： `{clusterName}.{clusterPoolName}.{subscriptionId}.{region}.hdi
 The well-know FQDN is like a public cluster, but it can only be resolved to a CNAME with subdomain, which means well-know FQDN of private cluster must be used with correct `Private DNS zone setting` to make sure FQDN can be finally solved to correct Private IP address. 
 
  
-
 > [!NOTE]
 > HDInsight on AKS creates private DNS zone in the cluster pool, virtual network. If your client applications are in same virtual network, you need not configure the private DNS zone again. In case you're using a client application in a different virtual network, you're required to use virutal network peering to bind to private dns zone in the cluster pool virtual network or use private endpoints in the virutal network, and private dns zones, to add the A-record to the private endpoint private IP. 
 
