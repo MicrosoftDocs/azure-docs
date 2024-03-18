@@ -29,7 +29,7 @@ You can update HCX Connector and HCX Cloud systems during separate maintenance w
 
 - Ensure that you have a backup and snapshot of HCX connector in the on-premises environment, if applicable.
 - For more information, see the [HCX support policy for legacy vSphere environment](https://kb.vmware.com/s/article/82702).
-- Check that you are using the [latest VMware HCX version validated with Azure VMware Solution](/introduction.md#vmware-software-versions).
+- Check that you are using the [latest VMware HCX version validated with Azure VMware Solution](introduction.md#vmware-software-versions).
 
 ### Backup HCX 
 - Azure VMware Solution backs up HCX Cloud Manager configuration daily.
