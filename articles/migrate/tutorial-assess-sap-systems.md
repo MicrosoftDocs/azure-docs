@@ -58,8 +58,6 @@ To create an assessment for the discovered SAP systems, follow these steps:
         1. **Is Disaster Recovery (DR) Environment required?**: Select **Yes** to enable Disaster Recovery (DR) for your SAP systems.
         1. **Disaster Recovery (DR) location**: Select DR location if DR is enabled.
 
-            :::image type="content" source="./media/tutorial-assess-sap-systems/target-settings-edit.png" alt-text="Screenshot that shows the fields in target settings." lightbox="./media/tutorial-assess-sap-systems/target-settings-edit.png":::
-
     1. **Pricing settings**:
          1.  **Currency**: Select the currency you want to use for cost view in assessment.
          1. **OS license**: Select the OS license.
