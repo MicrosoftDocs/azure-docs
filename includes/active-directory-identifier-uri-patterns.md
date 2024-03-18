@@ -33,4 +33,4 @@ The following API and HTTP scheme-based application ID URI formats are supported
 
 > [!IMPORTANT]
 > The application ID URI value must not end with a slash "/" character.
-> Single tenant applications with configured access token version 2 are exempted from uri validation, including verified domain.
+> Single tenant applications where the accessTokenAcceptedVersion is set to 2, are exempted from the verified domain check for the identifierUri property. The aud claim value in the token is the appId GUID when the token version is 2.
