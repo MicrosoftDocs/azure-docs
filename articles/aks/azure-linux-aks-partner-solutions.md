@@ -16,10 +16,10 @@ Our third party partners featured in this article have introduction guides to he
 
 | Solutions          | Partners                                                                                       |
 |--------------------|------------------------------------------------------------------------------------------------|
-| DevOps             | [Advantech](#advantech) <br> [Akuity](#akuity) <br> [Anchore](#anchore) <br> [Hashicorp](#hashicorp) <br> [Kong](#kong) <br> [Spot By NetApp](#spot-by-netapp) |
-| Networking         | [Buoyant](#buoyant) <br> [Isovalent](#isovalent) <br> [Solo.io](#soloio) <br> [Tetrate](#tetrate) <br> [Tigera, Inc](#tigera-inc) |
-| Observability      | [Anchore](#anchore) <br> [Buoyant](#buoyant) <br> [Isovalent](#isovalent) <br> [Dynatrace](#dynatrace) <br> [Solo.io](#soloio) <br> [Tigera, Inc](#tigera-inc) |
-| Security           | [Anchore](#anchore) <br> [Buoyant](#buoyant) <br> [Isovalent](#isovalent) <br> [Kong](#kong) <br> [Solo.io](#soloio) <br> [Tetrate](#tetrate) <br> [Tigera, Inc](#tigera-inc) <br> [Wiz](#wiz) |
+| DevOps             | [Advantech](#advantech) <br> [Akuity](#akuity) <br> [Anchore](#anchore) <br> [Hashicorp](#hashicorp) <br> [Kong](#kong) <br> [NetApp](#spot-by-netapp) |
+| Networking         | [Buoyant](#buoyant) <br> [Isovalent](#isovalent) <br> [Solo.io](#soloio) <br> [Tetrate](#tetrate) <br> [Tigera](#tigera-inc) |
+| Observability      | [Anchore](#anchore) <br> [Buoyant](#buoyant) <br> [Isovalent](#isovalent) <br> [Dynatrace](#dynatrace) <br> [Solo.io](#soloio) <br> [Tigera](#tigera-inc) |
+| Security           | [Anchore](#anchore) <br> [Buoyant](#buoyant) <br> [Isovalent](#isovalent) <br> [Kong](#kong) <br> [Solo.io](#soloio) <br> [Tetrate](#tetrate) <br> [Tigera](#tigera-inc) <br> [Wiz](#wiz) |
 | Storage            | [Catalogic](#catalogic) <br> [Veeam](#veeam)                                                   |
 | Config Management  | [Corent](#corent)                                                                              |
 | Migration          | [Catalogic](#catalogic)                                                                        |
