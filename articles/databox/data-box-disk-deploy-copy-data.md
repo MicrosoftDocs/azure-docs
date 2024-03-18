@@ -61,6 +61,7 @@ Review the following considerations before you copy the data to the disks:
 
 - It is your responsibility to ensure that you copy your local data to the folders that correspond to the appropriate data format. For instance, copy block blob data to the *BlockBlob* folder. Block blobs being archived should be copied to the *BlockBlob_Archive* folder. If the local data format doesn't match the appropriate folder for the chosen storage type, the data upload to Azure fails in a later step.
 - While copying data, ensure that the data size conforms to the size limits described within in the [Azure storage and Data Box Disk limits](data-box-disk-limits.md) article.
+- Do not deactivate BitLocker on the disks as this will lead to the upload at Azure failing when the disks are returned. Deactivating BitLocker leaves the disks in an unlocked state which is a security concern.
 - To preserve metadata such as ACLs, timestamps, and file attributes when transferring data to Azure Files, follow the guidance within the [Preserving file ACLs, attributes, and timestamps with Azure Data Box Disk](data-box-disk-file-acls-preservation.md) article.
 - If you use both Data Box Disk and other applications to upload data simultaneously, you may experience upload job failures and data corruption.
 
