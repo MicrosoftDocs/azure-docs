@@ -55,6 +55,23 @@ To export data to an event hub or Log Analytics workspace in a different tenant:
 
 - Create and submit the request to the Azure REST API to configure the required resources. You must manage the bearer tokens in both the context of the local (workspace) tenant and the remote (continuous export) tenant.
 
+## Export to a Log Analytics workspace
+
+If you want to analyze Microsoft Defender for Cloud data inside a Log Analytics workspace or use Azure alerts together with Defender for Cloud alerts, set up continuous export to your Log Analytics workspace.
+
+### Log Analytics tables and schemas
+
+Security alerts and recommendations are stored in the **SecurityAlert** and **SecurityRecommendation** tables respectively.
+
+The name of the Log Analytics solution that contains these tables depends on whether you enabled the enhanced security features: Security (the Security and Audit solution) or SecurityCenterFree.
+
+> [!TIP]
+> To see the data on the destination workspace, you must enable one of these solutions: Security and Audit or SecurityCenterFree.
+
+![Screenshot that shows the SecurityAlert table in Log Analytics.](./media/continuous-export/log-analytics-securityalert-solution.png)
+
+To view the event schemas of the exported data types, see [Log Analytics table schemas](https://aka.ms/ASCAutomationSchemas).
+
 ## Related content
 
 - [Continuously export Microsoft Defender for Cloud data](continuous-export.md)

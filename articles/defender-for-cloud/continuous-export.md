@@ -30,7 +30,7 @@ Required roles and permissions:
     
     Learn more about [Azure Monitor and Log Analytics workspace solutions](/previous-versions/azure/azure-monitor/insights/solutions).
 
-## Set up continuous export on the Defender for Cloud pages in the Azure portal
+## Set up continuous export in the Azure portal
 
 You can set up continuous export on the Microsoft Defender for Cloud pages in the Azure portal, by using the REST API, or at scale by using provided Azure Policy templates.
 
@@ -73,138 +73,6 @@ You can set up continuous export on the Microsoft Defender for Cloud pages in th
 
 > [!NOTE]
 > Log Analytics supports only records that are up to 32 KB in size. When the data limit is reached, an alert displays the message **Data limit has been exceeded**.
-
-### [REST API](#tab/rest-api)
-
-### Set up continuous export by using the REST API
-
-You can set up and manage continuous export by using the Microsoft Defender for Cloud [automations API](/rest/api/defenderforcloud/automations). Use this API to create or update rules for exporting to any of the following destinations:
-
-- Azure Event Hubs
-- Log Analytics workspace
-- Azure Logic Apps
-
-You also can send the data to an [event hub or Log Analytics workspace in a different tenant](#export-data-to-an-event-hub-or-log-analytics-workspace-in-another-tenant).
-
-Here are some examples of options that you can use only in the API:
-
-- **Greater volume**: You can create multiple export configurations on a single subscription by using the API. The **Continuous Export** page in the Azure portal supports only one export configuration per subscription.
-
-- **Additional features**: The API offers parameters that aren't shown in the Azure portal. For example, you can add tags to your automation resource and define your export based on a wider set of alert and recommendation properties than the ones that are offered on the **Continuous export** page in the Azure portal.
-
-- **Focused scope**: The API offers you a more granular level for the scope of your export configurations. When you define an export by using the API, you can define it at the resource group level. If you're using the **Continuous export** page in the Azure portal, you must define it at the subscription level.
-
-    > [!TIP]
-    > These API-only options are not shown in the Azure portal. If you use them, a banner informs you that other configurations exist.
-
-### [Azure Policy](#tab/azure-policy)
-
-<a name="configure-continuous-export-at-scale-using-the-supplied-policies"></a>
-
-### Set up continuous export at scale by using provided policies
-
-Automating your organization's monitoring and incident response processes can help you reduce the time it takes to investigate and mitigate security incidents.
-
-To deploy your continuous export configurations across your organization, use the provided Azure Policy `DeployIfNotExist` policies to create and configure continuous export procedures.
-
-To implement these policies:
-
-1. In the following table, choose a policy to apply:
-
-    |Goal  |Policy  |Policy ID  |
-    |---------|---------|---------|
-    |Continuous export to Event Hubs|[Deploy export to Event Hubs for Microsoft Defender for Cloud alerts and recommendations](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcdfcce10-4578-4ecd-9703-530938e4abcb)|cdfcce10-4578-4ecd-9703-530938e4abcb|
-    |Continuous export to Log Analytics workspace|[Deploy export to Log Analytics workspace for Microsoft Defender for Cloud alerts and recommendations](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fffb6f416-7bd2-4488-8828-56585fef2be9)|ffb6f416-7bd2-4488-8828-56585fef2be9|
-
-    > [!TIP]
-    > You can also find the policies by searching Azure Policy:
-    >
-    > 1. Open Azure Policy.
-    >
-    >    :::image type="content" source="./media/continuous-export/opening-azure-policy.png" alt-text="Screenshot that shows accessing Azure Policy.":::
-    >
-    > 1. On the Azure Policy menu, select **Definitions** and search for the policies by name.
-
-1. On the relevant page in Azure Policy, select **Assign**.
-
-    :::image type="content" source="./media/continuous-export/export-policy-assign.png" alt-text="Screenshot that shows assigning the Azure Policy.":::
-
-1. Select each tab and set the parameters to meet your requirements:
-
-    1. On the **Basics** tab, set the scope for the policy. To use centralized management, assign the policy to the management group that contains the subscriptions that use the continuous export configuration.
-
-    1. On the **Parameters** tab, set the resource group and data type details.
-
-        > [!TIP]
-        > Each parameter has a tooltip that explains the options that are available.
-        >
-        > The Azure Policy **Parameters** tab (1) provides access to configuration options that are similar to options that you can access on the Defender for Cloud **Continuous export** page (2).
-        >
-        > :::image type="content" source="./media/continuous-export/azure-policy-next-to-continuous-export.png" alt-text="Screenshot that shows comparing the parameters in continuous export with Azure Policy." lightbox="./media/continuous-export/azure-policy-next-to-continuous-export.png":::
-        >
-
-    1. Optionally, to apply this assignment to existing subscriptions, select the **Remediation** tab, and then select the option to create a remediation task.
-
-1. Review the summary page, and then select **Create**.
-
----
-
-## Export to a Log Analytics workspace
-
-If you want to analyze Microsoft Defender for Cloud data inside a Log Analytics workspace or use Azure alerts together with Defender for Cloud alerts, set up continuous export to your Log Analytics workspace.
-
-### Log Analytics tables and schemas
-
-Security alerts and recommendations are stored in the **SecurityAlert** and **SecurityRecommendation** tables respectively.
-
-The name of the Log Analytics solution that contains these tables depends on whether you enabled the enhanced security features: Security (the Security and Audit solution) or SecurityCenterFree.
-
-> [!TIP]
-> To see the data on the destination workspace, you must enable one of these solutions: Security and Audit or SecurityCenterFree.
-
-![Screenshot that shows the SecurityAlert table in Log Analytics.](./media/continuous-export/log-analytics-securityalert-solution.png)
-
-To view the event schemas of the exported data types, see [Log Analytics table schemas](https://aka.ms/ASCAutomationSchemas).
-
-## Continuously export to an event hub behind a firewall
-
-You can enable continuous export as a trusted service so that you can send data to an event hub that has Azure Firewall enabled.
-
-To grant access to continuous export as a trusted service:
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. Go to **Microsoft Defender for Cloud** > **Environmental settings**.
-
-1. Select the relevant resource.
-
-1. Select **Continuous export**.
-
-1. Select **Export as a trusted service**.
-
-    :::image type="content" source="media/continuous-export/export-as-trusted.png" alt-text="Screenshot that shows where the checkbox is located to select export as trusted service.":::
-
-You must add the relevant role assignment to the destination event hub.
-
-To add the relevant role assignment to the destination event hub:
-
-1. Go to the selected event hub.
-
-1. In the resource menu, select **Access control (IAM)** > **Add role assignment**.
-
-    :::image type="content" source="media/continuous-export/add-role-assignment.png" alt-text="Screenshot that shows the Add role assignment button." lightbox="media/continuous-export/add-role-assignment.png":::
-
-1. Select **Azure Event Hubs Data Sender**.
-
-1. Select the **Members** tab.
-
-1. Choose **+ Select members**.
-
-1. Search for and then select **Windows Azure Security Resource Provider**.
-
-    :::image type="content" source="media/continuous-export/windows-security-resource.png" alt-text="Screenshot that shows you where to enter and search for Microsoft Azure Security Resource Provider." lightbox="media/continuous-export/windows-security-resource.png":::
-
-1. Select **Review + assign**.
 
 ## View exported alerts and recommendations in Azure Monitor
 
