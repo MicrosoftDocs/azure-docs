@@ -217,3 +217,7 @@ You can follow this document to set up layer 4 load balancing for such multi-clu
     ```bash
     KUBECONFIG=aks-member-2 kubectl get pods -n kuard-demo -o wide
     ```
+
+## Access the Kubernetes API of the Fleet resource cluster
+
+If the Azure Kubernetes Fleet Manager resource was created with the hub cluster enabled, then it can be used to centrally control scenarios like Kubernetes object propagation. To access the Kubernetes API of the Fleet resource cluster, follow the steps in the [Access the Kubernetes API of the Fleet resource cluster with Azure Kubernetes Fleet Manager](access-fleet-kubernetes-api.md) article.

@@ -301,6 +301,10 @@ The Fleet scheduler prioritizes the stability of existing workload placements, a
 
 Resource-only changes (updating the resources or updating the `ResourceSelector` in the `ClusterResourcePlacement` object) will be rolled out gradually in existing placements but will **not** trigger rescheduling of the workload.
 
+## Access the Kubernetes API of the Fleet resource cluster
+
+If the Azure Kubernetes Fleet Manager resource was created with the hub cluster enabled, then it can be used to centrally control scenarios like Kubernetes object propagation. To access the Kubernetes API of the Fleet resource cluster, follow the steps in the [Access the Kubernetes API of the Fleet resource cluster with Azure Kubernetes Fleet Manager](access-fleet-kubernetes-api.md) article.
+
 ## Next steps
 
 * Review the [`ClusterResourcePlacement` documentation and more in the open-source fleet repository][fleet-doc] for more examples
