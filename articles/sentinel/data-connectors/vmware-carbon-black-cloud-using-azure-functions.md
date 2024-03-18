@@ -17,7 +17,7 @@ The [VMware Carbon Black Cloud](https://www.vmware.com/products/carbon-black-clo
 | Connector attribute | Description |
 | --- | --- |
 | **Application settings** | apiId<br/>apiKey<br/>workspaceID<br/>workspaceKey<br/>uri<br/>timeInterval<br/>CarbonBlackOrgKey<br/>CarbonBlackLogTypes<br/>s3BucketName<br/>EventPrefixFolderName<br/>AlertPrefixFolderName<br/>AWSAccessKeyId<br/>AWSSecretAccessKey<br/>SIEMapiId (Optional)<br/>SIEMapiKey (Optional)<br/>logAnalyticsUri (optional) |
-| **Azure function app code** | https://github.com/Azure/Azure-Sentinel |
+| **Azure function app code** | https://aka.ms/sentinelcarbonblackazurefunctioncode |
 | **Log Analytics table(s)** | CarbonBlackEvents_CL<br/> CarbonBlackAuditLogs_CL<br/> CarbonBlackNotifications_CL<br/> |
 | **Data collection rules support** | Not currently supported |
 | **Supported by** | [Microsoft](https://support.microsoft.com/) |
