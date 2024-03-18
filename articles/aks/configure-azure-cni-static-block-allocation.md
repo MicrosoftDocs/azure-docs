@@ -80,8 +80,10 @@ Ideal values with no IP wastage would require the max pods value to conform to t
 **Example 2:** max_pods = 31, CIDR Blocks allocated per node = 2, Total IPs available for pods = (16 * 2) - 1 = 32 - 1 = 31, IP wastage per node = 31 - 31 = 0 **[Ideal Case]**
 **Example 3:** max_pods = 32, CIDR Blocks allocated per node = 3, Total IPs available for pods = (16 * 3) - 1 = 48 - 1 = 47, IP wastage per node = 47 - 32 = 15 **[High Wastage - Not Recommended Case]**
 
-
 The planning of IPs for Kubernetes services remain unchanged.
+
+> [!NOTE]
+> Ensure your VNet has a sufficiently large and contiguous address space to support your cluster's scale.
 
 ## Deployment parameters
 
