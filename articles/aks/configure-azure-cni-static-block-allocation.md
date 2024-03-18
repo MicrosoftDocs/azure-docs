@@ -13,7 +13,7 @@ ms.custom: references_regions, devx-track-azurecli
 
 # Configure Azure CNI Networking for static allocation of CIDR blocks and enhanced subnet support in Azure Kubernetes Service (AKS) - (Preview)
 
-A limitation of [Azure CNI Dynamic IP Allocation](configure-azure-cni-dynamic-ip-allocation.md) is the scalability of the pod subnet size beyond a /16 subnet. Even with a large subnet, large clusters may still be limited to 65k pods due to an azure address mapping limit. 
+A limitation of [Azure CNI Dynamic IP Allocation](configure-azure-cni-dynamic-ip-allocation.md) is the scalability of the pod subnet size beyond a /16 subnet. Even with a large subnet, large clusters may still be limited to 65k pods due to an Azure address mapping limit. 
 The new static block allocation capability in Azure CNI solves this problem by assigning CIDR blocks to Nodes rather than individual IPs.
 
 It offers the following benefits:
