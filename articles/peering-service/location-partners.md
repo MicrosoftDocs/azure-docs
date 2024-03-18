@@ -26,7 +26,7 @@ The following table provides information on the Peering Service connectivity par
 | [AMS-IX](https://www.ams-ix.net/ams/service/microsoft-azure-peering-service-maps) | Europe |
 | [Atman](https://www.atman.pl/en/atman-internet-maps/) | Europe |
 | [BBIX](https://www.bbix.net/en/service/) | Japan |
-| [CCL](https://concepts.co.nz/news/general-news/) | Oceania |
+| [CCL](https://concepts.co.nz/news) | Oceania |
 | [CMC Networks](https://www.cmcnetworks.net/products/microsoft-azure-peering-services.html) | Africa |
 | [Colt](https://www.colt.net/product/cloud-prioritisation/)| Asia, Europe |
 | [Converge ICT](https://www.convergeict.com/enterprise/microsoft-azure-peering-service-maps/) | Asia |
