@@ -4,7 +4,7 @@ description: Search jobs are asynchronous log queries in Azure Monitor that make
 ms.topic: conceptual
 ms.date: 10/01/2022
 ms.custom: references_regions 
-#customer-intent: As a data scientist or workspace administrator, I want an efficient way to search through large volumes of data in a table, including archived and basic logs.
+# Customer intent: As a data scientist or workspace administrator, I want an efficient way to search through large volumes of data in a table, including archived and basic logs.
 ---
 
 # Run search jobs in Azure Monitor

@@ -33,8 +33,8 @@ The [Azure Network Security GitHub repository](https://github.com/Azure/Azure-Ne
 
 The following prerequisites are required to set up analytic rules:
 
-- A working WAF and a Log Analytic Workspace that is configured to receive logs from the respective Azure Application Gateway or Azure Front Door. For more information, see [Resource logs for Azure Web Application Firewall](ag/web-application-firewall-logs.md).
-- Additionally, Microsoft Sentinel should be enabled for the Log Analytic Workspace that is being used here. For more information, see [Quickstart: Onboard Microsoft Sentinel](../sentinel/quickstart-onboard.md).
+- A working WAF and a Log Analytics Workspace that is configured to receive logs from the respective Azure Application Gateway or Azure Front Door. For more information, see [Resource logs for Azure Web Application Firewall](ag/web-application-firewall-logs.md).
+- Additionally, Microsoft Sentinel should be enabled for the Log Analytics Workspace that is being used here. For more information, see [Quickstart: Onboard Microsoft Sentinel](../sentinel/quickstart-onboard.md).
 
 Use the following steps to configure an analytic rule in Sentinel.
 
@@ -70,7 +70,7 @@ Use the following steps to configure an analytic rule in Sentinel.
    ```
    :::image type="content" source="media/waf-new-threat-detection/rule-query.png" alt-text="Screenshot showing the rule query." lightbox="media/waf-new-threat-detection/rule-query.png":::
    > [!NOTE]
-   > It is important to ensure that the WAF logs are already in the Log Analytic Workspace before you create this Analytical rule. Otherwise, Sentinel will not recognize some of the columns in the query and you will have to add extra input like `| extend action_s = column_ifexists(“action_s”, “”), transactionId_g = column_ifexists(“transactionId_g”, “”)` for each column that gives an error. This input creates the column names manually and assigns them null values. To skip this step, send the WAF logs to the workspace first.
+   > It is important to ensure that the WAF logs are already in the Log Analytics Workspace before you create this Analytical rule. Otherwise, Sentinel will not recognize some of the columns in the query and you will have to add extra input like `| extend action_s = column_ifexists(“action_s”, “”), transactionId_g = column_ifexists(“transactionId_g”, “”)` for each column that gives an error. This input creates the column names manually and assigns them null values. To skip this step, send the WAF logs to the workspace first.
 
 1. On the **Incident Settings** page, Enable the **Create incidents from alerts triggered by this analytics rule.** The alert grouping can be configured as required.
 1. Optionally, you can also add any automated response to the incident if needed. See [Automated detection and response for Azure WAF with Microsoft Sentinel](afds/automated-detection-response-with-sentinel.md) for more detailed information on automated response configuration.

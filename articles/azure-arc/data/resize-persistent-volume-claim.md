@@ -4,8 +4,8 @@ description: Explains how to resize a persistent volume claim for a volume used 
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-sqlmi
-author: dnethi
-ms.author: dinethi
+author: AbdullahMSFT
+ms.author: amamun
 ms.reviewer: mikeray
 ms.date: 07/19/2023
 ms.topic: how-to

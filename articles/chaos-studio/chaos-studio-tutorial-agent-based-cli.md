@@ -1,12 +1,13 @@
 ---
 title: Create an experiment using an agent-based fault with Azure CLI
 description: Create an experiment that uses an agent-based fault and configure the chaos agent with the Azure CLI.
-author: prasha-microsoft 
+author: prasha-microsoft
 ms.topic: how-to
 ms.date: 11/10/2021
-ms.author: prashabora
+ms.author: abbyweisberg
+ms.reviewer: prashabora
 ms.service: chaos-studio
-ms.custom: template-how-to, ignite-fall-2021, devx-track-azurecli 
+ms.custom: template-how-to, devx-track-azurecli
 ms.devlang: azurecli
 ---
 
@@ -19,7 +20,7 @@ You can use these same steps to set up and run an experiment for any agent-based
 ## Prerequisites
 
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-- A virtual machine. If you don't have a VM, you can [create one](../virtual-machines/linux/quick-create-portal.md).
+- A virtual machine running an operating system in the [version compatibility](chaos-studio-versions.md) list. If you don't have a VM, you can [create one](../virtual-machines/linux/quick-create-portal.md).
 - A network setup that permits you to [SSH into your VM](../virtual-machines/ssh-keys-portal.md).
 - A user-assigned managed identity. If you don't have a user-assigned managed identity, you can [create one](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).
 

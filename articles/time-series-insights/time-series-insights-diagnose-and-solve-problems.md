@@ -8,7 +8,6 @@ manager: cnovak
 ms.reviewer: orspodek
 ms.topic: troubleshooting
 ms.date: 09/29/2020
-ms.custom: seodec18
 ---
 
 # Diagnose and solve issues in your Azure Time Series Insights Gen1 environment

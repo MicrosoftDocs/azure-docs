@@ -6,7 +6,6 @@ ms.author: xujiang1
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 07/10/2023
-ms.custom: seodec18
 ---
 
 # Azure Stream Analytics job metrics
@@ -29,7 +28,7 @@ Azure Stream Analytics provides a serverless, distributed streaming processing s
 [!INCLUDE [metrics-scenarios](./includes/metrics-scenarios.md)]
 
 ## Get help
-For further assistance, try the [Microsoft Q&A page for Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
+For further assistance, try the [Microsoft Q&A page for Azure Stream Analytics](/answers/tags/179/azure-stream-analytics).
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
@@ -38,4 +37,3 @@ For further assistance, try the [Microsoft Q&A page for Azure Stream Analytics](
 * [Analyze Stream Analytics job performance by using metrics and dimensions](./stream-analytics-job-analysis-with-metric-dimensions.md)
 * [Monitor a Stream Analytics job with the Azure portal](./stream-analytics-monitoring.md)
 * [Get started with Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-

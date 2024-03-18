@@ -4,7 +4,7 @@ description: This article tells what Azure Update Manager in Azure is and the sy
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 11/13/2023
+ms.date: 02/21/2024
 ms.topic: overview
 ---
 
@@ -80,15 +80,22 @@ You need the following permissions to create and manage update deployments. The 
 
 Actions |Permission |Scope |
 --- | --- | --- |
-|Install update on Azure VMs |Microsoft.Compute/virtualMachines/installPatches/action ||
+|Read Azure VM properties | Microsoft.Compute/virtualMachines/read ||
 |Update assessment on Azure VMs |Microsoft.Compute/virtualMachines/assessPatches/action ||
-|Install update on Azure Arc-enabled server |Microsoft.HybridCompute/machines/installPatches/action ||
+|Read assessment data for Azure VMs | Microsoft.Compute/virtualMachines/patchAssessmentResults/latest </br> Microsoft.Compute/virtualMachines/patchAssessmentResults/latest/softwarePatches ||
+|Install update on Azure VMs |Microsoft.Compute/virtualMachines/installPatches/action ||
+|Read patch installation data for Azure VMs | Microsoft.Compute/virtualMachines/patchInstallationResults </br> Microsoft.Compute/virtualMachines/patchInstallationResults/softwarePatches ||
+|Read Azure Arc-enabled server properties | Microsoft.HybridCompute/machines/read||
 |Update assessment on Azure Arc-enabled server |Microsoft.HybridCompute/machines/assessPatches/action ||
+|Read assessment data for Azure Arc-enabled server | Microsoft.HybridCompute/machines/patchAssessmentResults </br> Microsoft.HybridCompute/machines/patchAssessmentResults/softwarePatches ||
+|Install update on Azure Arc-enabled server |Microsoft.HybridCompute/machines/installPatches/action ||
+|Read patch installation data for Azure Arc-enabled server | Microsoft.HybridCompute/machines/patchInstallationResults </br> Microsoft.HybridCompute/machines/patchInstallationResults/softwarePatches||
 |Register the subscription for the Microsoft.Maintenance resource provider| Microsoft.Maintenance/register/action | Subscription|
 |Create/modify maintenance configuration |Microsoft.Maintenance/maintenanceConfigurations/write |Subscription/resource group |
 |Create/modify configuration assignments |Microsoft.Maintenance/configurationAssignments/write |Subscription |
 |Read permission for Maintenance updates resource |Microsoft.Maintenance/updates/read |Machine |
 |Read permission for Maintenance apply updates resource |Microsoft.Maintenance/applyUpdates/read |Machine |
+
 
 ### VM images
 

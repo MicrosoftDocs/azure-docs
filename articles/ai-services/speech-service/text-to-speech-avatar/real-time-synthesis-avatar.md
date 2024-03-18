@@ -2,13 +2,13 @@
 title: Real-time synthesis for text to speech avatar (preview) - Speech service
 titleSuffix: Azure AI services
 description: Learn how to use text to speech avatar with real-time synthesis.
-author: sally-baolian
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: overview
-ms.date: 11/15/2023
-ms.author: v-baolianzou
-keywords: text to speech avatar
+ms.date: 2/24/2024
+ms.reviewer: v-baolianzou
+ms.author: eur
+author: eric-urban
 ---
 
 # How to do real-time synthesis for text to speech avatar (preview)
@@ -55,7 +55,7 @@ Specify the language or voice of `SpeechConfig` to match your input text and use
 const speechConfig = SpeechSDK.SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
 // Set either the `SpeechSynthesisVoiceName` or `SpeechSynthesisLanguage`.
 speechConfig.speechSynthesisLanguage = "en-US";
-speechConfig.speechSynthesisVoiceName = "en-US-JennyNeural";   
+speechConfig.speechSynthesisVoiceName = "en-US-AvaNeural";   
 ```
 
 All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech," and you select es-ES-ElviraNeural, the text is spoken in English with a Spanish accent.

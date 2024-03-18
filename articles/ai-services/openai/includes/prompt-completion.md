@@ -1,12 +1,12 @@
 ---
 title: How to work with prompt engineering and the Completion API
 titleSuffix: Azure OpenAI
-description: Learn how to work with the Completion API for prompt engineering
+description: Learn how to work with the Completion API for prompt engineering.
 author: mrbullwinkle 
 ms.author: mbullwin 
 ms.service: azure-ai-openai
 ms.topic: include
-ms.date: 03/21/2023
+ms.date: 02/16/2024
 manager: nitinme
 keywords: ChatGPT
 ---
@@ -24,7 +24,7 @@ In the first example below, a key part of the instructions is shared only at the
 |------|----------|
 |`Your task is to verify if a statement is supported by a specific quote from the following set of snippets`.<br>---<br>`SNIPPETS`<br>`[1] 14 percent chance of megaquake hitting Seattle, experts say SEATTLE - There's a 14 percent chance of a magnitude 9 Cascadia earthquake hitting Seattle in the next 50 years, the U.S. Geological Survey estimates. "Unfortunately, we are unable to...`<br><br>`[2] Earthquake experts lay out latest outlook for Seattle's 'Really Big One’`<br>`“We say that there's approximately a 14% chance of another approximately magnitude-9 earthquake occurring in the next 50 years,” said a geophysicist at the University of Washington...`<br>|`Yes, the statement is directly implied by the snippets.`|
 
-In this next example, we give the exact statement we want to check (“Several sources mention a chance of another eruption”) *before* we give the snippet context. This allows the token representations extracted from the snippets to be tailored to the statement we are checking. Now the resulting model response is accurate:
+In this next example, we give the exact statement we want to check (“Several sources mention a chance of another eruption”) *before* we give the snippet context. This allows the token representations extracted from the snippets to be tailored to the statement we're checking. Now the resulting model response is accurate:
 
 |Prompt|Completion|
 |------|----------|
@@ -95,7 +95,7 @@ If you find that the model response is not as desired, it can often be helpful t
 |`No additional guidance given to the model` | `A human and a computer are having a discussion.`<br> `Human: "Why are you upset at me?"<br>Computer: "I don't know what you're talking about."`<br>`Human: "No, you clearly are. Tell me why."`<br>`Computer: I'm upset because you didn't listen to me when I told you that I wanted to try out for the team."`<br>`Human: "What are you going to do about that?"`<br>`Computer: I'm going to try out for the team no matter what."`|
 |`On the right is the same conversation but preceded by a meta prompt encouraging the model to be kind`|`You must be kind and seek common ground. Try not to repeat your responses.`<br>`A human and a computer are having a discussion.`<br>`Human: "Why are you upset at me?"`<br>`Computer: "I don't know what you're talking about."`<br>`Human: "I want to know why you're upset."`<br>`Computer: "I'm not upset."`<br>`Human: "Are you saying I’m lying?"`<br>`Computer: No, I'm saying that you're upset because you feel like you're not being treated fairly.`<br>`Human: "What are you going to do about that?"`<br>`Computer: I will continue to try to be fair in my decisions and will try to provide a better experience for you.`|
 
-While meta prompts can often help minimize unintentional bad outputs, keep in mind they are not robust against adversarial attacks since they are vulnerable to prompt injection.
+While meta prompts can often help minimize unintentional bad outputs, keep in mind they aren't robust against adversarial attacks since they are vulnerable to prompt injection.
 
 Further, conditional statements explaining what the model should do if it encounters a particular circumstance are often more effective than just telling the model not to do something.  
 

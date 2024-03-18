@@ -3,7 +3,7 @@ title: Use Logstash to stream logs with HTTP Data Collection API (legacy)
 description: Learn how to use Logstash to forward logs from external data sources to Microsoft Sentinel using the HTTP Data Collection API.
 author: yelevin
 ms.topic: how-to
-ms.custom: mvc, ignite-fall-2021
+ms.custom: mvc
 ms.date: 11/09/2021
 ms.author: yelevin
 ---

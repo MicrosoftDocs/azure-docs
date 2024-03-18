@@ -6,7 +6,7 @@ ms.subservice: flexible-server
 ms.topic: overview
 author: varun-dhawan
 ms.author: varundhawan
-ms.custom: mvc, ignite-2022
+ms.custom: mvc
 ms.date: 01/25/2024
 ---
 

@@ -103,7 +103,7 @@ Azure Spring Apps is a serverless app platform that enables you to build, deploy
 
 > **When to use:** As a fully managed service Azure Spring Apps is a good choice when you're minimizing operational cost running Spring Boot and Spring Cloud apps on Azure.
 >
-> **Get started:** [Deploy your first Spring Boot app in Azure Spring Apps](../../spring-apps/quickstart.md).
+> **Get started:** [Deploy your first Spring Boot app in Azure Spring Apps](../../spring-apps/enterprise/quickstart.md).
 
 ### Enhance your applications with Azure services
 

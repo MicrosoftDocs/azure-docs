@@ -11,8 +11,6 @@ author: vijetajo
 ms.reviewer: sgilley
 ms.date: 01/23/2024
 ms.custom:
-  - ignite-fall-2021
-  - event-tier1-build-2022
   - cliv2
   - build-2023
   - ignite-2023

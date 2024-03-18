@@ -11,7 +11,7 @@ ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: B2C
 
-#customer intent: I'm a developer configuring Azure AD B2C with Cloudflare WAF. I need to enable and configure the Web Application Firewall, so I can protect my application from malicious attacks such as SQL Injection and cross-site scripting (XSS).
+# Customer intent: I'm a developer configuring Azure AD B2C with Cloudflare WAF. I need to enable and configure the Web Application Firewall, so I can protect my application from malicious attacks such as SQL Injection and cross-site scripting (XSS).
 ---
 # Tutorial: Configure Cloudflare Web Application Firewall with Azure Active Directory B2C
 

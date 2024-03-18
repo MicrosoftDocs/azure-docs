@@ -450,7 +450,6 @@ To learn more about using IoT device SDKS, see:
 
 To learn more about planning your IoT Hub deployment, see:
 
-* [Azure Certified Device Catalog](https://devicecatalog.azure.com/)
 * [How an IoT Edge device can be used as a gateway](../iot-edge/iot-edge-as-gateway.md)
 * [Connecting IoT Devices to Azure: IoT Hub and Event Hubs](../iot-hub/iot-hub-compare-event-hubs.md)
 * [Choose the right IoT Hub tier for your solution](../iot-hub/iot-hub-scaling.md)

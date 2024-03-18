@@ -1,9 +1,8 @@
 ---
-title: Connect to HiveServer2 using Beeline or install Beeline locally to connect from your local - Azure HDInsight 
+title: Connect to HiveServer2 using Beeline or install Beeline locally to connect from your local - Azure HDInsight
 description: Learn how to connect to the Apache Beeline client to run Hive queries with Hadoop on HDInsight. Beeline is a utility for working with HiveServer2 over JDBC.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: contperf-fy21q1
 ms.date: 06/12/2023
 ---
 # Connect to HiveServer2 using Beeline or install Beeline locally to connect from your local

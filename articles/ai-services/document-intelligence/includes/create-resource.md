@@ -5,7 +5,6 @@ ms.topic: include
 ms.date: 11/15/2023
 ms.author: lajanuar
 ms.custom:
-  - ignite-fall-2021
   - ignite-2023
 ---
 

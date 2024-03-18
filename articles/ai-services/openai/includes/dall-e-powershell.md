@@ -44,7 +44,7 @@ Create and assign persistent environment variables for your key and endpoint.
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$Env:AZURE_OPENAI_KEY = 'YOUR_KEY_VALUE'
+$Env:AZURE_OPENAI_API_KEY = 'YOUR_KEY_VALUE'
 ```
 
 ```powershell
@@ -54,7 +54,7 @@ $Env:AZURE_OPENAI_ENDPOINT = 'YOUR_ENDPOINT'
 # [Command Line](#tab/command-line)
 
 ```CMD
-setx AZURE_OPENAI_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE"
+setx AZURE_OPENAI_API_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE"
 ```
 
 ```CMD
@@ -64,7 +64,7 @@ setx AZURE_OPENAI_ENDPOINT "REPLACE_WITH_YOUR_ENDPOINT_HERE"
 # [Bash](#tab/bash)
 
 ```Bash
-echo export AZURE_OPENAI_KEY="REPLACE_WITH_YOUR_KEY_VALUE_HERE" >> /etc/environment && source /etc/environment
+echo export AZURE_OPENAI_API_KEY="REPLACE_WITH_YOUR_KEY_VALUE_HERE" >> /etc/environment && source /etc/environment
 ```
 
 ```Bash
@@ -85,7 +85,7 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
    ```powershell
    # Azure OpenAI metadata variables
    $openai = @{
-     api_key     = $Env:AZURE_OPENAI_KEY
+     api_key     = $Env:AZURE_OPENAI_API_KEY
      api_base    = $Env:AZURE_OPENAI_ENDPOINT # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
      api_version = '2023-06-01-preview' # this may change in the future
    }

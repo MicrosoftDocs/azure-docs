@@ -3,7 +3,7 @@ title: Common questions about Azure Resource Mover?
 description: Get answers to common questions about  Azure Resource Mover
 author: ankitaduttaMSFT
 ms.service: resource-mover
-ms.custom: ignite-2022, engagement-fy23, UpdateFrequency.5
+ms.custom: engagement-fy23, UpdateFrequency.5
 ms.topic: conceptual
 ms.date: 10/12/2023
 ms.author: ankitadutta

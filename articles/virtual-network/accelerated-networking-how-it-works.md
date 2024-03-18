@@ -6,7 +6,6 @@ ms.service: virtual-network
 ms.topic: how-to
 ms.tgt_pltfrm: vm-linux
 ms.custom: linux-related-content
-ms.workload: infrastructure
 ms.date: 04/18/2023
 ms.author: steveesp
 ---

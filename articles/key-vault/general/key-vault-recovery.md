@@ -7,7 +7,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: how-to
 ms.author: mbaldwin
 author: msmbaldwin
-ms.date: 08/18/2022
+ms.date: 02/20/2024
 ---
 
 # Azure Key Vault recovery management with soft delete and purge protection

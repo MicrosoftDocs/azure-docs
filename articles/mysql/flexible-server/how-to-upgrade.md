@@ -3,7 +3,7 @@ title: Major version upgrade
 description: Learn how to upgrade major version for an Azure Database for MySQL - Flexible Server instance.
 ms.service: mysql
 ms.subservice: flexible-server
-ms.custom: ignite-2022, devx-track-azurecli
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 author: code-sidd
 ms.author: sisawant
@@ -152,7 +152,7 @@ To perform a major version upgrade of an Azure Database for MySQL flexible serve
 
 - **I'm currently using Burstable SKU, does Microsoft plan to support major version upgrade for this SKU in the future?**
   
-  Burstable SKU is not able to support major version upgrade due to the performance limitation of this SKU. Microsoft is still working on a way to make this SKU available for major version upgrade.
+  Burstable SKU is not able to support major version upgrade due to the performance limitation of this SKU. 
   
   If you need to perform a major version upgrade on your Azure Database for MySQL flexible server instance and are currently using Burstable SKU, one temporary solution would be to upgrade to General Purpose or Business Critical SKU, perform the upgrade, and then switch back to Burstable SKU.
   

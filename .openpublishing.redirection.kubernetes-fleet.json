@@ -1,0 +1,9 @@
+{
+    "redirections": [
+       {
+            "source_path_from_root": "/articles/kubernetes-fleet/architectural-overview.md",
+            "redirect_url": "/azure/kubernetes-fleet/concepts-fleet",
+            "redirect_document_id": true
+        }
+    ]
+}

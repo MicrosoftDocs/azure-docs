@@ -7,7 +7,7 @@ ms.custom:
   - devx-track-js
   - devx-track-python
   - ignite-2023
-ms.date: 09/01/2023
+ms.date: 02/26/2024
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -31,7 +31,7 @@ This article details some of the differences between supported versions, how you
 
 ## Languages
 
-All functions in a function app must share the same language. You choose the language of functions in your function app when you create the app. The language of your function app is maintained in the [FUNCTIONS\_WORKER\_RUNTIME](functions-app-settings.md#functions_worker_runtime) setting, and shouldn't be changed when there are existing functions. 
+All functions in a function app must share the same language. You choose the language of functions in your function app when you create the app. The language of your function app is maintained in the [FUNCTIONS\_WORKER\_RUNTIME](functions-app-settings.md#functions_worker_runtime) setting, and can't be changed when there are existing functions. 
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
@@ -41,14 +41,11 @@ For information about the language versions of previously supported versions of 
 
 The version of the Functions runtime used by published apps in Azure is dictated by the [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version) application setting. In some cases and for certain languages, other settings can apply.  
 
-By default, function apps created in the Azure portal, by the Azure CLI, or from Visual Studio tools are set to version 4.x. You can modify this version if needed. You can only downgrade the runtime version to 1.x after you create your function app but before you add any functions. Moving to a later version is allowed even with apps that have existing functions. 
+By default, function apps created in the Azure portal, by the Azure CLI, or from Visual Studio tools are set to version 4.x. You can modify this version if needed. You can only downgrade the runtime version to 1.x after you create your function app but before you add any functions. Updating to a later major version is allowed even with apps that have existing functions. 
 
 ### Migrating existing function apps
 
-When your app has existing functions, you must take precautions before moving to a later runtime version. The following articles detail breaking changes between versions, including language-specific breaking changes. They also provide you with step-by-step instructions for a successful migration of your existing function app. 
-
-+ [Migrate from runtime version 3.x to version 4.x](./migrate-version-3-version-4.md) 
-+ [Migrate from runtime version 1.x to version 4.x](./migrate-version-1-version-4.md)
+[!INCLUDE [functions-migrate-apps](../../includes/functions-migrate-apps.md)]
 
 ### Changing version of apps in Azure
 
@@ -60,7 +57,7 @@ The following major runtime version values are used:
 | `~1` | 1.x |
 
 >[!IMPORTANT]
-> Don't arbitrarily change this app setting, because other app setting changes and changes to your function code might be required. You should instead change this setting in the **Function runtime settings** tab of the function app **Configuration** in the Azure portal when you are ready to make a major version upgrade. For existing function apps, [follow the migration instructions](#migrating-existing-function-apps).
+> Don't arbitrarily change this app setting, because other app setting changes and changes to your function code might be required.  For existing function apps, [follow the migration instructions](#migrating-existing-function-apps).
 
 ### Pinning to a specific minor version
 
@@ -82,7 +79,7 @@ For C# script, update the extension bundle reference in the host.json as follows
     "version": "2.0",
     "extensionBundle": {
         "id": "Microsoft.Azure.Functions.ExtensionBundle",
-        "version": "[2.*, 3.0.0)"
+        "version": "[4.0.0, 5.0.0)"
     }
 }
 ```
@@ -98,7 +95,7 @@ If you receive a warning about your extension bundle version not meeting a minim
     "version": "2.0",
     "extensionBundle": {
         "id": "Microsoft.Azure.Functions.ExtensionBundle",
-        "version": "[2.*, 3.0.0)"
+        "version": "[4.0.0, 5.0.0)"
     }
 }
 ```  
