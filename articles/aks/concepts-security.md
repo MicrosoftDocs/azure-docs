@@ -4,7 +4,7 @@ description: Learn about security in Azure Kubernetes Service (AKS), including m
 author: miwithro
 ms.topic: conceptual
 ms.custom: build-2023
-ms.date: 01/11/2024
+ms.date: 03/18/2024
 ms.author: miwithro
 ---
 
@@ -81,6 +81,7 @@ Because of compliance or regulatory requirements, certain workloads may require 
 * [Kernel isolated containers][azure-confidential-containers] to use as the agent nodes in an AKS cluster. These containers are completely isolated to a specific hardware type and isolated from the Azure Host fabric, the host operating system, and the hypervisor. They are dedicated to a single customer. Select [one of the isolated VMs sizes][isolated-vm-size] as the **node size** when creating an AKS cluster or adding a node pool.
 * [Confidential Containers][confidential-containers] (preview), also based on Kata Confidential Containers, encrypts container memory and prevents data in memory during computation from being in clear text, readable format, and tampering. It helps isolate your containers from other container groups/pods, as well as VM node OS kernel. Confidential Containers (preview) uses hardware based memory encryption (SEV-SNP).
 * [Pod Sandboxing][pod-sandboxing] (preview) provides an isolation boundary between the container application and the shared kernel and compute resources (CPU, memory, and network) of the container host.
+* [Trusted Launch][trusted-launch] (preview) protects Azure Generation 2 VMs against advanced and persistent attack techniques by combining technologies that can be independently enabled, like secure boot and virtualized version of trusted platform module (vTPM). Administrators can deploy AKS worker nodes, where the underlying virtual machines have verified and signed bootloaders, OS kernels, and drivers.
 
 ## Network security
 
@@ -160,3 +161,4 @@ For more information on core Kubernetes and AKS concepts, see:
 [microsoft-vulnerability-management-aks]: concepts-vulnerability-management.md
 [aks-vulnerability-management-nodes]: concepts-vulnerability-management.md#worker-nodes
 [manage-ssh-access]: manage-ssh-node-access.md
+[trusted-launch]: use-trusted-launch.md
