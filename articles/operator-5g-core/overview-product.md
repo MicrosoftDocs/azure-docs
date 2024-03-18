@@ -25,7 +25,7 @@ Streamlined in-service software upgrades minimize downtime and complexity during
 Azure Operator 5G Core's observability stack provides a rich set of insightful dashboards out-of-the-box. Operators can use their existing analytics solutions for further analysis or use Azure Operator Insights, which combines the power of Artificial Intelligence and Machine Learning to provide advanced analytics capabilities. Azure Operator 5G Core generates detailed Event Data Records, which provide operators with the insights to optimize network performance and improve subscriber Quality of Experience. 
   
 
-## Key Features and Benefits  
+## Key features and benefits  
 
 Azure Operator 5G Core includes the following key features for operating secure, carrier-grade network functions at scale.  
 
@@ -99,7 +99,7 @@ Once deployed, Azure Operator 5G Core provides an inventory view of clusters and
   
 Disconnected "break-glass" mode maintains data when connectivity between the Azure public cloud regions and local on-premises platforms is lost. Azure Operator 5G Core also allows operators to ingest the telemetry data into their chosen analytics solution for further analysis.  
 
-### Key Benefits
+### Key benefits
 
 The key benefits of Azure Operator 5G Core include:  
 
@@ -109,7 +109,7 @@ The key benefits of Azure Operator 5G Core include: 
 - Cloud-native architecture with no rigid deployment constraints.
 - Support for  Microsoft’s Zero-Trust security model. 
 
-## Supported Regions
+## Supported regions
 
 For Public Preview, Azure Operator 5G Core deployment is supported in the following Azure regions:
 
