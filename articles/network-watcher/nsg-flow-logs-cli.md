@@ -7,21 +7,14 @@ ms.service: network-watcher
 ms.topic: how-to
 ms.date: 05/31/2023
 ms.author: halkazwini
-ms.custom: template-how-to, engagement-fy23, devx-track-azurecli
+ms.custom: devx-track-azurecli
 ---
 
 # Manage NSG flow logs using the Azure CLI
 
-> [!div class="op_single_selector"]
-> - [Azure portal](nsg-flow-logging.md)
-> - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
-> - [Azure CLI](network-watcher-nsg-flow-logging-cli.md)
-> - [REST API](network-watcher-nsg-flow-logging-rest.md)
-> - [ARM template](network-watcher-nsg-flow-logging-azure-resource-manager.md)
+Network security group flow logging is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through a network security group. For more information about network security group flow logging, see [NSG flow logs overview](nsg-flow-logs-overview.md).
 
-Network security group flow logging is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through a network security group. For more information about network security group flow logging, see [NSG flow logs overview](network-watcher-nsg-flow-logging-overview.md).
-
-In this article, you learn how to create, change, disable, or delete an NSG flow log using the Azure CLI. You can learn how to manage an NSG flow log using the [Azure portal](nsg-flow-logging.md), [PowerShell](network-watcher-nsg-flow-logging-powershell.md), [REST API](network-watcher-nsg-flow-logging-rest.md), or [ARM template](network-watcher-nsg-flow-logging-azure-resource-manager.md).
+In this article, you learn how to create, change, disable, or delete an NSG flow log using the Azure CLI. You can learn how to manage an NSG flow log using the [Azure portal](nsg-flow-logging.md), [PowerShell](nsg-flow-logs-powershell.md), [REST API](nsg-flow-logs-rest.md), or [ARM template](nsg-flow-logs-azure-resource-manager.md).
 
 ## Prerequisites
 
@@ -138,7 +131,7 @@ NSG flow log files saved to a storage account follow this path:
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{NetworkSecurityGroupName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
 
-For information about the structure of a flow log, see [Log format of NSG flow logs](network-watcher-nsg-flow-logging-overview.md#log-format).
+For information about the structure of a flow log, see [Log format of NSG flow logs](nsg-flow-logs-overview.md#log-format).
 
 ## Disable a flow log
 
