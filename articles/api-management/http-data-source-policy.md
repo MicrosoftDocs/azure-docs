@@ -6,11 +6,13 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 03/07/2023
+ms.date: 03/18/2024
 ms.author: danlep
 ---
 
 # HTTP data source for a resolver
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 The `http-data-source` resolver policy configures the HTTP request and optionally the HTTP response to resolve data for an object type and field in a GraphQL schema. The schema must be imported to API Management as a GraphQL API.  
 
@@ -214,6 +216,6 @@ type User {
 
 ## Related policies
 
-* [GraphQL resolver policies](api-management-policies.md#graphql-resolver-policies)
+* [GraphQL resolvers](api-management-policies.md#graphql-resolvers)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

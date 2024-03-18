@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 10/19/2023
+ms.date: 03/18/2024
 ms.author: danlep
 ---
 
