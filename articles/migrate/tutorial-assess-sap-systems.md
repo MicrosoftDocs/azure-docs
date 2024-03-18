@@ -1,12 +1,12 @@
 ---
 title: Assess SAP systems for the migration 
-description: Learn how to assess SAP systems with the Azure Migrate Discovery and assessment.
+description: Learn how to assess SAP systems with Azure Migrate.
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 03/07/2024
+ms.date: 03/19/2024
 ms.custom: 
 
 ---
