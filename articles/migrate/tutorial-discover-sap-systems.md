@@ -55,7 +55,7 @@ To set up a migration project, follow these steps:
 
 To prepare the import file, do the following:
 1. Download the template file.
-1. Add on-premises SAP infrastructure.
+1. Add on-premises SAP infrastructure details.
 1. Import SAP Systems inventory.
 
 ### Download the template file
@@ -75,7 +75,7 @@ To download the template, follow these steps:
    > To avoid any duplication or inadvertent errors affecting from one discovery file to another discovery file, we recommend you use a new file for every discovery that you plan to run.
    > Use the [sample import file templates](https://github.com/Azure/Discovery-and-Assessment-for-SAP-systems-with-AzMigrate/tree/main/Import%20file%20samples) as guidance to prepare the import file of your SAP landscape.
 
-### Add on-premises SAP infrastructure
+### Add on-premises SAP infrastructure details
 
 Collect on-premises SAP system inventory and add it into the template file.
 - To collect data, export it from the SAP system and fill in the template with the relevant on-premises SAP system inventory.
@@ -86,18 +86,18 @@ The following table summarizes the file fields to fill in:
     
 | **Template Column** | **Description** |
 | --- | --- |
-| Server Name | Unique server name or host name of the SAP system to identify each server. Include all the virtual machines attached to an SAP system that you intend to migrate to Azure. |
-| Environment | Environment that the server belongs to. |
-| SAP Instance Type | The type of SAP instance running on this machine. <br/>For example, App, ASCS, DB, and so on. Single-server and distributed architectures are only supported. |
-| Instance SID | This is the instance System ID (SID) for the ASCS/AP/DB instance. |
-| System SID | SID of SAP System. |
-| Landscape SID | SID of the customer's production system in each landscape. |
-| Application | Optional column to specify any organizational identifier, such as HR, Finance, Marketing, and so on. |
+| Server Name* | Unique server name or host name of the SAP system to identify each server. Include all the virtual machines attached to an SAP system that you intend to migrate to Azure. |
+| Environment* | Environment that the server belongs to. |
+| SAP Instance Typ* | The type of SAP instance running on this machine. <br/>For example, App, ASCS, DB, and so on. Single-server and distributed architectures are only supported. |
+| Instance SID* | This is the instance System ID (SID) for the ASCS/AP/DB instance. |
+| System SID* | SID of SAP System. |
+| Landscape SID* | SID of the customer's production system in each landscape. |
+| Application* | Optional column to specify any organizational identifier, such as HR, Finance, Marketing, and so on. |
 | SAP Product | SAP application component. <br/>For example, SAP S/4HANA 2022, SAP ERP ENHANCE, and so on. |
 | SAP Product Version | The version of the SAP product. |
-| Operating System | The operating system running on the host server. |
-| Database Type | This column is applicable only if **SAP Instance Type** column is **Database**. |
-| SAPS | The SAP Application Performance Standard (SAPS) for each server in the SAP system. |
+| Operating System* | The operating system running on the host server. |
+| Database Type* | This column is applicable only if **SAP Instance Type** column is **Database**. |
+| SAPS* | The SAP Application Performance Standard (SAPS) for each server in the SAP system. |
 | CPU | The number of CPUs on the on-premises server. |
 | Max. CPUload[%] | The maximum CPU load in percentage of the on-premises server. Exclude the percentage symbol while you enter this value. |
 | RAM Size (GB) | RAM size in GB of the on-premises server. |
@@ -105,10 +105,11 @@ The following table summarizes the file fields to fill in:
 | HW Manufacturer | The manufacturer company of the on-premises server. |
 | Model | The on-premises hardware is either a physical server or virtual machine. |
 | CPU Mhz | The CPU clock speed of the on-premises server. |
-| Total Disk Size(GB) | Total disk volume capacity of the on-premises server. Include the disk volume for each individual disk and provide the total sum. |
-| Total Disk IOPS | Total disk Input/Output Operations Per Second (IOPS) of all the disks on the on-premises server. |
-| Source DB Size(GB) | The size of on-premises database. |
+| Total Disk Size(GB)* | Total disk volume capacity of the on-premises server. Include the disk volume for each individual disk and provide the total sum. |
+| Total Disk IOPS* | Total disk Input/Output Operations Per Second (IOPS) of all the disks on the on-premises server. |
+| Source DB Size(GB)* | The size of on-premises database. |
 | Target HANA RAM Size(GB) | This is an optional field and is **Not Applicable** for all SAP Instance Types except **DB**. Fill this field only when migrating an AnyDb database to SAP S/4HANA and provide the desired target HANA database size. |
+| * - mandatory fields |
 
 ### Import SAP Systems inventory
 After you add information to the import file, import the file from your machine to Azure Migrate.
@@ -123,6 +124,8 @@ To import SAP Systems inventory, follow these steps:
     :::image type="content" source="./media/tutorial-discover-sap-systems/import-excel.png" alt-text="Screenshot that shows how to import SAP inventory." lightbox="./media/tutorial-discover-sap-systems/import-excel.png":::
 
     Review the import details to check for any errors or validation failures. After the successful import, you can view the discovered SAP systems.
+    > [!Note]
+    > After completing a discovery import, we recommend you wait for 15 minutes before starting a new assessment. This will ensure that all Excel data is accurately utilized during the assessment calculation.
 
 ## View discovered SAP systems
 
@@ -133,6 +136,9 @@ To view the discovered SAP systems, follow these steps:
     :::image type="content" source="./media/tutorial-discover-sap-systems/discovered-systems.png" alt-text="Screenshot that shows discovered SAP inventory." lightbox="./media/tutorial-discover-sap-systems/discovered-systems.png":::
 
 1. On the **Discovered SAP® systems** page, select a desired system SID.<br> The **Server instance details** blade displays all attributes of servers that make up the SID.
+
+> [!Note]
+> Wait for 10 minutes and ensure that the imported information is fully reflected.
 
 
 ## Next steps
