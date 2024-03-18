@@ -53,7 +53,7 @@ Azure Cosmos DB for MongoDB vCore is organized into easy to understand cluster t
 
 Cosmos DB for MongoDB vCore is built with flexibility for developers in mind. The service offers high capacity vertical and horizontal scaling with no shard key required until the database surpasses TBs. The service also supports automatically sharding existing databases with no downtime. Developers can easily scale their clusters up or down, vertically and horizontally, all with no downtime, to meet their needs.
 
-# Next steps
+## Next steps
 
 - Read more about [feature compatibility with MongoDB](compatibility.md).
 - Review options for [migrating from MongoDB to Azure Cosmos DB for MongoDB vCore](migration-options.md)
