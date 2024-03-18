@@ -288,7 +288,7 @@ az search private-endpoint-connection show \
 To update the connection, use [**az search private-endpoint-connection update**](/cli/azure/search/private-endpoint-connection#az-search-private-endpoint-connection-update). The following example sets a private endpoint connection to rejected:
 
 ```azurecli-interactive
-az search private-endpoint-connection show \
+az search private-endpoint-connection update \
     --name <pe-connection-name> \
     --service-name <search-service-name> \
     --resource-group <search-service-resource-group-name> 

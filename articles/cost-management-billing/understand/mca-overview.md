@@ -22,7 +22,7 @@ Your billing account for the Microsoft Customer Agreement contains one or more b
 
 The following diagram shows the relationship between a billing account, billing profiles, and invoice sections.
 
-![Diagram showing the Microsoft Customer Agreement billing hierarchy](./media/mca-overview/mca-billing-hierarchy.png)
+:::image type="content" border="false" source="./media/mca-overview/mca-billing-hierarchy.png" alt-text="Diagram showing the Microsoft Customer Agreement billing hierarchy.":::
 
 Roles on the billing account have the highest level of permissions. By default, only the user who signed up for Azure gets access to the billing account. These roles should be assigned to users that need to view invoices, and track costs for your entire organization like finance or IT managers. For more information, see [billing account roles and tasks](../manage/understand-mca-roles.md#billing-account-roles-and-tasks).
 

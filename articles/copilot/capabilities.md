@@ -1,7 +1,7 @@
 ---
 title:  Microsoft Copilot for Azure (preview) capabilities
 description: Learn about the things you can do with Microsoft Copilot for Azure (preview).
-ms.date: 03/06/2024
+ms.date: 03/18/2024
 ms.topic: conceptual
 ms.service: copilot-for-azure
 ms.custom:
@@ -31,12 +31,16 @@ Use Microsoft Copilot for Azure (preview) to perform many basic tasks. There are
   - [Get information about Azure Monitor metrics and logs](get-monitoring-information.md)
   - [Work smarter with Azure Stack HCI](work-smarter-edge.md)
   - [Secure and protect storage accounts](improve-storage-accounts.md)
+  - [Improve Azure SQL Database-driven applications](/azure/azure-sql/copilot/copilot-azure-sql-overview#microsoft-copilot-for-azure-enhanced-scenarios)
 - Write and optimize code:
   - [Generate Azure CLI scripts](generate-cli-scripts.md)
   - [Discover performance recommendations with Code Optimizations](optimize-code-application-insights.md)
   - [Author API Management policies](author-api-management-policies.md)
   - [Generate Kubernetes YAML files](generate-kubernetes-yaml.md)
   - [Troubleshoot apps faster with App Service](troubleshoot-app-service.md)
+
+> [!NOTE]
+> Microsoft Copilot for Azure (preview) includes access to Copilot in Azure SQL Database (preview). This offering can help you streamline the design, operation, optimization, and health of Azure SQL Database-driven applications. It improves productivity in the Azure portal by offering natural language to SQL conversion and self-help for database administration. For more information, see [Copilot in Azure SQL Database (preview)](https://aka.ms/sqlcopilot).
 
 ## Get information
 
