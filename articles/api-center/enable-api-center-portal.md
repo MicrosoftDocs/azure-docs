@@ -14,6 +14,8 @@ ms.custom:
 
 This article shows how to enable your *API Center portal*, an automatically generated website that developers and other stakeholders in your organization can use to discover the APIs in your [API center](overview.md). The portal is hosted by Azure at a unique URL and restricts user access based on Azure role-based access control.
 
+> [!IMPORTANT]
+> The Azure-managed API center portal is experimental and will be removed from API Center in an upcoming release. You will have an option to self-host an API center portal for API discovery in an upcoming release. 
 > [!VIDEO https://www.youtube.com/embed/7Z45FdCLFbA]
 
 [!INCLUDE [api-center-preview-feedback](includes/api-center-preview-feedback.md)]
