@@ -33,7 +33,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Authorization
 
-Managing Azure App Configuration resource inside an ARM template requires Azure Resource Manager role, such as contributor or owner. Accessing Azure App Configuration data (key-values, snapshots) requires additional Azure App Configuration [data plane roles](concept-enable-rbac.md) with [pass-through](./quickstart-deployment-overview.md#arm-authentication-mode) ARM authentication mode.
+Managing Azure App Configuration resource inside an ARM template requires Azure Resource Manager role, such as contributor or owner. Accessing Azure App Configuration data (key-values, snapshots) requires additional Azure App Configuration [data plane roles](concept-enable-rbac.md) under [pass-through](./quickstart-deployment-overview.md#arm-authentication-mode) ARM authentication mode.
 
 ## Review the template
 

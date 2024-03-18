@@ -48,14 +48,14 @@ To configure ARM authentication mode of Azure App Configuration resource in the 
 > Local authentication mode is for backward compatibility and has several limitations. It does not support proper auditing for accessing data in deployment. Under local authentication mode, key-value data access inside an ARM template/Bicep/Terraform is disabled if [access key authentication is disabled](./howto-disable-access-key-authentication.md#limitations). Azure App Configuration data plane permissions are not required for accessing data under local authentication mode.
 
 ### Authorization
-In addition to the permissions required for managing Azure App Configuration resource, you must have data plane permissions to read and manage Azure App Configuration data in deployment under pass-through mode. Azure App Configuration data plane permissions includes Microsoft.AppConfiguration/configurationStores/keyValues/read and Microsoft.AppConfiguration/configurationStores/snapshots/read. Built-in roles with this action include:
+In addition to the permissions required for managing Azure App Configuration resource, you must have data plane permissions to read and manage Azure App Configuration data in deployment under pass-through mode. Azure App Configuration data plane permissions include Microsoft.AppConfiguration/configurationStores/keyValues/read and Microsoft.AppConfiguration/configurationStores/snapshots/read. Built-in roles with this action include:
 - App Configuration Data Owner
 - App Configuration Data Reader
 
 To learn more about Azure RBAC and Microsoft Entra ID, see [Authorize access to Azure App Configuration using Microsoft Entra ID](./concetp-enable-rbac.md)
 
 ### ARM private access
-[Azure Resource Management Private Link](../../includes/resource-manager-create-rmpl.md) can be set up to restrict access for managing resources in your virtual network. Azure App Configuration supports ARM Private Link access to the App Configuration data with pass-through authentication mode and ARM private access enabled. 
+[Azure Resource Management Private Link](../../includes/resource-manager-create-rmpl.md) can be set up to restrict access for managing resources in your virtual network. Azure App Configuration supports ARM Private Link access to the App Configuration data under pass-through authentication mode and ARM private access enabled.
 
 # [Azure portal](#tab/portal)
 
@@ -71,7 +71,7 @@ To configure ARM private access of Azure App Configuration resource in the Azure
     :::image type="content" border="true" source="./media/quickstarts/deployment/enable-arm-private-access.png" alt-text="Screenshot showing pass-through authentication mode being selected under Azure Resource Manager Authentication Mode":::
 
 > [!NOTE]
-> ARM private access can only be enabled with pass-through authentication mode.
+> ARM private access can only be enabled under pass-through authentication mode.
 
 ## Next steps
 
