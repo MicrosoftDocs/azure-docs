@@ -11,6 +11,9 @@ ms.author: danlep
 ---
 
 # Find and replace string in body
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 The `find-and-replace` policy finds a request or response substring and replaces it with a different substring.
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
@@ -44,6 +47,6 @@ The `find-and-replace` policy finds a request or response substring and replaces
 
 ## Related policies
 
-* [API Management transformation policies](api-management-transformation-policies.md)
+* [Transformation](api-management-policies.md#transformation)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

@@ -11,6 +11,8 @@ ms.author: danlep
 ---
 # Restrict caller IPs
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 The `ip-filter` policy filters (allows/denies) calls from specific IP addresses and/or address ranges.
 
 [!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)]
@@ -62,6 +64,6 @@ In the following example, the policy only allows requests coming either from the
 
 ## Related policies
 
-* [API Management access restriction policies](api-management-access-restriction-policies.md)
+* [Authentication and authorization](api-management-policies.md#authentication-and-authorization)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

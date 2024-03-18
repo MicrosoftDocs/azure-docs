@@ -12,6 +12,8 @@ ms.author: danlep
 
 # Validate headers
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 The `validate-headers` policy validates the response headers against the API schema.
 
 > [!IMPORTANT]
@@ -68,6 +70,6 @@ The `validate-headers` policy validates the response headers against the API sch
 
 ## Related policies
 
-* [API Management validation policies](validation-policies.md)
+* [Content validation](api-management-policies.md#content-validation)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

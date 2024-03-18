@@ -12,6 +12,8 @@ ms.author: danlep
 
 # Forward request
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 The `forward-request` policy forwards the incoming request to the backend service specified in the request [context](api-management-policy-expressions.md#ContextVariables). The backend service URL is specified in the API [settings](./import-and-publish.md) and can be changed using the [set backend service](api-management-transformation-policies.md) policy.
 
 > [!IMPORTANT]
@@ -151,6 +153,6 @@ This operation level policy doesn't forward requests to the backend service.
 
 ## Related policies
 
-* [API Management advanced policies](api-management-advanced-policies.md)
+* [Routing](api-management-policies.md#routing)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

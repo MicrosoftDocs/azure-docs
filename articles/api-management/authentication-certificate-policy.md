@@ -12,6 +12,8 @@ ms.author: danlep
 
 # Authenticate with client certificate
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
  Use the `authentication-certificate` policy to authenticate with a backend service using a client certificate. When the certificate is [installed into API Management](./api-management-howto-mutual-certificates.md) first, identify it first by its thumbprint or certificate ID (resource name). 
 
 > [!CAUTION]
@@ -63,6 +65,6 @@ ms.author: danlep
 
 ## Related policies
 
-* [API Management authentication policies](api-management-authentication-policies.md)
+* [Authentication and authorization](api-management-policies.md#authentication-and-authorization)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

@@ -13,7 +13,6 @@ ms.author: danlep
 # Limit call rate by subscription
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
-This section provides links to reference articles for all API Management policies.
 
 The `rate-limit` policy prevents API usage spikes on a per subscription basis by limiting the call rate to a specified number per a specified time period. When the call rate is exceeded, the caller receives a `429 Too Many Requests` response status code.
 

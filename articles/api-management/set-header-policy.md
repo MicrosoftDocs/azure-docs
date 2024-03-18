@@ -12,6 +12,8 @@ ms.author: danlep
 
 # Set header
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 The `set-header` policy assigns a value to an existing HTTP response and/or request header or adds a new response and/or request header.
 
  Use the policy to insert a list of HTTP headers into an HTTP message. When placed in an inbound pipeline, this policy sets the HTTP headers for the request being passed to the target service. When placed in an outbound pipeline, this policy sets the HTTP headers for the response being sent to the gateway’s client.
@@ -101,6 +103,6 @@ This example shows how to apply policy at the API level to supply context inform
 
 ## Related policies
 
-- [API Management transformation policies](api-management-transformation-policies.md)
+- [Transformation](api-management-policies.md#transformation)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

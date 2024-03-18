@@ -13,7 +13,6 @@ ms.author: danlep
 # Limit concurrency
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
-This section provides links to reference articles for all API Management policies.
 
 The `limit-concurrency` policy prevents enclosed policies from executing by more than the specified number of requests at any time. When that number is exceeded, new requests will fail immediately with the `429` Too Many Requests status code.
 

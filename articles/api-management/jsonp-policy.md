@@ -12,6 +12,8 @@ ms.author: danlep
 
 # JSONP
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 The `jsonp` policy adds JSON with padding (JSONP) support to an operation or an API to allow cross-domain calls from JavaScript browser-based clients. JSONP is a method used in JavaScript programs to request data from a server in a different domain. JSONP bypasses the limitation enforced by most web browsers where access to web pages must be in the same domain.
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
@@ -50,6 +52,6 @@ If you add the callback parameter `?cb=XXX`, it will return a JSONP result, wrap
 
 ## Related policies
 
-* [API Management cross-domain policies](api-management-cross-domain-policies.md)
+* [Cross-domain](api-management-policies.md#cross-domain)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

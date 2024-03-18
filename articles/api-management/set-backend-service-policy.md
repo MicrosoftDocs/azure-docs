@@ -11,6 +11,9 @@ ms.author: danlep
 ---
 
 # Set backend service
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 Use the `set-backend-service` policy to redirect an incoming request to a different backend than the one specified in the API settings for that operation. This policy changes the backend service base URL of the incoming request to a URL or [backend](backends.md) specified in the policy.
 
 Referencing a backend entity allows you to manage the backend service base URL and other settings in a single place and reuse them across multiple APIs and operations. Also implement [load balancing of traffic across a pool of backend services](backends.md#load-balanced-pool-preview) and [circuit breaker rules](backends.md#circuit-breaker-preview) to protect the backend from too many requests.
@@ -98,6 +101,6 @@ In this example the policy routes the request to a service fabric backend, using
 
 ## Related policies
 
-* [API Management transformation policies](api-management-transformation-policies.md)
+* [Routing](api-management-policies.md#routing)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

@@ -12,6 +12,8 @@ ms.author: danlep
 
 # Rewrite URL
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 The `rewrite-uri` policy converts a request URL from its public form to the form expected by the web service, as shown in the following example.
 
 - Public URL - `http://api.example.com/storenumber/ordernumber`
@@ -88,6 +90,6 @@ You can only add query string parameters using the policy. You can't add extra t
 
 ## Related policies
 
-- [API Management transformation policies](api-management-transformation-policies.md)
+- [Transformation](api-management-policies.md#transformation)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

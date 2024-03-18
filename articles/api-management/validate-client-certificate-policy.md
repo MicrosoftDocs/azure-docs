@@ -12,6 +12,8 @@ ms.author: danlep
 
 # Validate client certificate
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 Use the `validate-client-certificate` policy to enforce that a certificate presented by a client to an API Management instance matches specified validation rules and claims such as subject or issuer for one or more certificate identities.
 
 To be considered valid, a client certificate must match all the validation rules defined by the attributes at the top-level element and match all defined claims for at least one of the defined identities. 
@@ -104,6 +106,6 @@ The following example validates a client certificate to match the policy's defau
 
 ## Related policies
 
-* [API Management access restriction policies](api-management-access-restriction-policies.md)
+* [Authentication and authorization](api-management-policies.md#authentication-and-authorization)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

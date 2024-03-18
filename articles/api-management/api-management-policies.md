@@ -24,15 +24,6 @@ More information about policies:
 > [!IMPORTANT]
 >  [Limit call rate by subscription](rate-limit-policy.md) and [Set usage quota by subscription](quota-policy.md) have a dependency on the subscription key. A subscription key isn't required when other policies are applied.
 
-
-|Policy  |Description  |Dedicated gateway  | Consumption gateway |Self-hosted gateway  |
-|---------|---------|---------|---------|---------|
-|Row1     |         |         |         |     |
-|Row2     |         |         |         |        |
-|Row3     |         |         |         |    |
-|Row4     |         |         |         |    |
-
-
 ## Rate limiting and quotas
 
 |Policy  |Description  |Dedicated gateway  | Consumption gateway     | Self-hosted gateway |
@@ -43,9 +34,6 @@ More information about policies:
 | [Set usage quota by key](quota-by-key-policy.md) |  Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per key basis. | Yes | No | Yes | 
 | [Limit concurrency](limit-concurrency-policy.md) | Prevents enclosed policies from executing by more than the specified number of requests at a time. | Yes | Yes | Yes |
 
-
-
-
 ## Authentication and authorization
 
 |Policy  |Description  |Dedicated gateway  | Consumption gateway |Self-hosted gateway  |
@@ -54,12 +42,11 @@ More information about policies:
 | [Get authorization context](get-authorization-context-policy.md) | Gets the authorization context of a specified [connection](credentials-overview.md) to a credential provider configured in the API Management instance. | Yes | Yes | No |
 | [Restrict caller IPs](ip-filter-policy.md) | Filters (allows/denies) calls from specific IP addresses and/or address ranges. | Yes | Yes | Yes |
 | [Validate Microsoft Entra token](validate-azure-ad-token-policy.md) | Enforces existence and validity of a Microsoft Entra (formerly called Azure Active Directory) JWT extracted from either a specified HTTP header, query parameter, or token value. | Yes | Yes | Yes |
-| [Validate JWT](validate-jwt-policy.md) | Enforces existence and validity of a JWT extracted from either a specified HTTP Header, query parameter, or token value. | Yes | Yes | Yes |
+| [Validate JWT](validate-jwt-policy.md) | Enforces existence and validity of a JWT extracted from either a specified HTTP header, query parameter, or token value. | Yes | Yes | Yes |
 | [Validate client certificate](validate-client-certificate-policy.md) |Enforces that a certificate presented by a client to an API Management instance matches specified validation rules and claims. | Yes | Yes | Yes |
 | [Authenticate with Basic](authentication-basic-policy.md) | Authenticate with a backend service using Basic authentication. | Yes | Yes | Yes |
 | [Authenticate with client certificate](authentication-certificate-policy.md) | Authenticate with a backend service using client certificates. | Yes | Yes | Yes |
 | [Authenticate with managed identity](authentication-managed-identity-policy.md) | Authenticate with a backend service using a [managed identity](../active-directory/managed-identities-azure-resources/overview.md). | Yes | Yes | Yes |
-
 
 ## Content Validation
 
@@ -80,15 +67,15 @@ More information about policies:
 |  [Set backend service](set-backend-service-policy.md) | Changes the backend service base URL of an incoming request to a URL or a [backend](backends.md). Referencing a backend resource allows you to manage the backend service base URL and other settings in a single place. Also implement [load balancing of traffic across a pool of backend services](backends.md#load-balanced-pool-preview) and [circuit breaker rules](backends.md#circuit-breaker-preview) to protect the backend from too many requests.
 |  [Set HTTP proxy](proxy-policy.md) | Allows you to route forwarded requests via an HTTP proxy. | Yes | Yes | Yes |
 
-
 ## Caching
 
+|Policy  |Description  |Dedicated gateway  | Consumption gateway |Self-hosted gateway  |
+|---------|---------|---------|---------|---------|
 |  [Get from cache](cache-lookup-policy.md) | Perform cache lookup and return a valid cached response when available. | Yes | Yes | Yes |
 |  [Store to cache](cache-store-policy.md) | Caches response according to the specified cache control configuration. | Yes | Yes | Yes |
 |  [Get value from cache](cache-lookup-value-policy.md) | Retrieve a cached item by key. | Yes | Yes | Yes |
 |  [Store value in cache](cache-store-value-policy.md) | Store an item in the cache by key. | Yes | Yes | Yes |
 |  [Remove value from cache](cache-remove-value-policy.md) | Remove an item in the cache by key. | Yes | Yes | Yes |
-
 
 ## Transformation
 
@@ -106,8 +93,8 @@ More information about policies:
 |  [Find and replace string in body](find-and-replace-policy.md) | Finds a request or response substring and replaces it with a different substring. | Yes | Yes | Yes |
 |  [Mask URLs in content](redirect-content-urls-policy.md) | Rewrites (masks) links in the response body so that they point to the equivalent link via the gateway. | Yes | Yes | Yes |
 | [Transform XML using an XSLT](xsl-transform-policy.md) | Applies an XSL transformation to XML in the request or response body. | Yes | Yes | Yes |
-|  [Return response](return-response-policy.md) | Aborts pipeline execution and returns the specified response directly to the caller.
-|  [Mock response](mock-response-policy.md) | Aborts pipeline execution and returns a mocked response directly to the caller.
+|  [Return response](return-response-policy.md) | Aborts pipeline execution and returns the specified response directly to the caller. | Yes | Yes | Yes |
+|  [Mock response](mock-response-policy.md) | Aborts pipeline execution and returns a mocked response directly to the caller.     | Yes | Yes | Yes |
 
 ## Cross-domain
 
@@ -117,71 +104,40 @@ More information about policies:
 | [CORS](cors-policy.md) | Adds cross-origin resource sharing (CORS) support to an operation or an API to allow cross-domain calls from browser-based clients.     | Yes | Yes | Yes |
 | [JSONP](jsonp-policy.md) | Adds JSON with padding (JSONP) support to an operation or an API to allow cross-domain calls from JavaScript browser-based clients. | Yes | Yes | Yes |
 
-
 ## Integration and external communication
 
 |Policy  |Description  |Dedicated gateway  | Consumption gateway |Self-hosted gateway  |
 |---------|---------|---------|---------|---------|
  |  [Send request](send-request-policy.md) | Sends a request to the specified URL. | Yes | Yes | Yes |
  |  [Send one way request](send-one-way-request-policy.md) | Sends a request to the specified URL without waiting for a response. | Yes | Yes | Yes |
-|  [Log to event hub](log-to-eventhub-policy.md) | Sends messages in the specified format to an event hub defined by a Logger entity.
-| [Send request to a service (Dapr)](set-backend-service-dapr-policy.md)| Uses Dapr runtime to locate and reliably communicate with a Dapr microservice. To learn more about service invocation in Dapr, see the description in this [README](https://github.com/dapr/docs/blob/master/README.md#service-invocation) file.
-| [Send message to Pub/Sub topic (Dapr)](publish-to-dapr-policy.md) | Uses Dapr runtime to publish a message to a Publish/Subscribe topic. To learn more about Publish/Subscribe messaging in Dapr, see the description in this [README](https://github.com/dapr/docs/blob/master/README.md) file.
-| [Trigger output binding ](invoke-dapr-binding-policy.md) | Uses Dapr runtime to invoke an external system via output binding. To learn more about bindings in Dapr, see the description in this [README](https://github.com/dapr/docs/blob/master/README.md) file.
-
+|  [Log to event hub](log-to-eventhub-policy.md) | Sends messages in the specified format to an event hub defined by a Logger entity.| Yes | Yes | Yes |
+| [Send request to a service (Dapr)](set-backend-service-dapr-policy.md)| Uses Dapr runtime to locate and reliably communicate with a Dapr microservice. To learn more about service invocation in Dapr, see the description in this [README](https://github.com/dapr/docs/blob/master/README.md#service-invocation) file.     | No | No | Yes |
+| [Send message to Pub/Sub topic (Dapr)](publish-to-dapr-policy.md) | Uses Dapr runtime to publish a message to a Publish/Subscribe topic. To learn more about Publish/Subscribe messaging in Dapr, see the description in this [README](https://github.com/dapr/docs/blob/master/README.md) file. | No | No | Yes |
+| [Trigger output binding (Dapr)](invoke-dapr-binding-policy.md) | Uses Dapr runtime to invoke an external system via output binding. To learn more about bindings in Dapr, see the description in this [README](https://github.com/dapr/docs/blob/master/README.md) file. | No | No | Yes |
 
 ## Logging
-Trace
-Emit metrics
+
+|Policy  |Description  |Dedicated gateway  | Consumption gateway |Self-hosted gateway  |
+|---------|---------|---------|---------|---------|
+|  [Trace](trace-policy.md) | Adds custom traces into the [request tracing](./api-management-howto-api-inspector.md) output in the test console, Application Insights telemetries, and resource logs. | Yes | Yes | Yes |
+|  [Emit metrics](emit-metric-policy.md) | Sends custom metrics to Application Insights at execution. | Yes | Yes | Yes |
 
 ## GraphQL resolvers
-Azure SQL data source for resolver
-Cosmos DB data source for resolver
-HTTP data source for resolver
-Publish event to GraphQL subscription
+
+|Policy  |Description  |Dedicated gateway  | Consumption gateway |Self-hosted gateway  |
+|---------|---------|---------|---------|---------|
+| [Azure SQL data source for resolver](sql-data-source-policy.md) | Configures the Azure SQL request and optional response to resolve data for an object type and field in a GraphQL schema. | Yes | No | No |
+| [Cosmos DB data source for resolver](cosmosdb-data-source-policy.md) | Configures the Cosmos DB request and optional response to resolve data for an object type and field in a GraphQL schema. | Yes | No | No |
+| [HTTP data source for resolver](http-data-source-policy.md) | Configures the HTTP request and optionally the HTTP response to resolve data for an object type and field in a GraphQL schema. | Yes | Yes | No |
+| [Publish event to GraphQL subscription](publish-event-policy.md) | Publishes an event to one or more subscriptions specified in a GraphQL API schema. Configure the policy in a GraphQL resolver for a related field in the schema for another operation type such as a mutation. | Yes | Yes | No |
 
 ## Policy control and flow
 
-|  [Control flow](choose-policy.md) | Conditionally applies policy statements based on the results of the evaluation of Boolean [expressions](api-management-policy-expressions.md).
-|  [Include fragment](include-fragment-policy.md) | Inserts a policy fragment in the policy definition.
-|  [Retry](retry-policy.md) | Retries execution of the enclosed policy statements, if and until the condition is met. Execution will repeat at the specified time intervals and up to the specified retry count.
- |  [Wait](wait-policy.md) | Waits for enclosed [Send request](send-request-policy.md), [Get value from cache](cache-lookup-value-policy.md), or [Control flow](choose-policy.md) policies to complete before proceeding.
-
-
-## Access restriction policies
-
-## Advanced policies
-
- |  [Emit metrics](emit-metric-policy.md) | Sends custom metrics to Application Insights at execution.
-
-
-  
-
- |  [Trace](trace-policy.md) | Adds custom traces into the [request tracing](./api-management-howto-api-inspector.md) output in the test console, Application Insights telemetries, and resource logs.
-
-
-## Authentication policies
-
-## Caching policies
- 
-## Cross-domain policies
-
-## Dapr integration policies
-
-## GraphQL resolver policies
-- [Azure SQL data source for resolver](sql-data-source-policy.md) | Configures the Azure SQL request and optional response to resolve data for an object type and field in a GraphQL schema.
-- [Cosmos DB data source for resolver](cosmosdb-data-source-policy.md) | Configures the Cosmos DB request and optional response to resolve data for an object type and field in a GraphQL schema.
-- [HTTP data source for resolver](http-data-source-policy.md) | Configures the HTTP request and optionally the HTTP response to resolve data for an object type and field in a GraphQL schema.
-- [Publish event to GraphQL subscription](publish-event-policy.md) | Publishes an event to one or more subscriptions specified in a GraphQL API schema. Configure the policy in a GraphQL resolver for a related field in the schema for another operation type such as a mutation. 
-
-## Transformation policies
- 
-
-
-
-
-## Validation policies
-
-
+|Policy  |Description  |Dedicated gateway  | Consumption gateway |Self-hosted gateway  |
+|---------|---------|---------|---------|---------|
+|  [Control flow](choose-policy.md) | Conditionally applies policy statements based on the results of the evaluation of Boolean [expressions](api-management-policy-expressions.md). | Yes | Yes | Yes |
+|  [Include fragment](include-fragment-policy.md) | Inserts a policy fragment in the policy definition. | Yes | Yes | Yes |
+|  [Retry](retry-policy.md) | Retries execution of the enclosed policy statements, if and until the condition is met. Execution will repeat at the specified time intervals and up to the specified retry count. | Yes | Yes | Yes |
+ |  [Wait](wait-policy.md) | Waits for enclosed [Send request](send-request-policy.md), [Get value from cache](cache-lookup-value-policy.md), or [Control flow](choose-policy.md) policies to complete before proceeding. | Yes | Yes | Yes |
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]	

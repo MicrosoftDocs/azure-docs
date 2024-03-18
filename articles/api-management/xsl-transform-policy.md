@@ -12,6 +12,8 @@ ms.author: danlep
 
 # Transform XML using an XSLT
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 The `xsl-transform` policy applies an XSL transformation to XML in the request or response body.
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
@@ -100,6 +102,6 @@ The `xsl-transform` policy applies an XSL transformation to XML in the request o
 
 ## Related policies
 
-- [API Management transformation policies](api-management-transformation-policies.md)
+- [Transformation](api-management-policies.md#transformation)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

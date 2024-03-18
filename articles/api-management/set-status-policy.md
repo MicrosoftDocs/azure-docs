@@ -12,6 +12,9 @@ ms.author: danlep
 
 # Set status code
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
+
 The `set-status` policy sets the HTTP status code to the specified value.
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
@@ -56,9 +59,8 @@ This example shows how to return a 401 response if the authorization token is in
 ```
 
 
-
 ## Related policies
 
-* [API Management advanced policies](api-management-advanced-policies.md)
+* [Transformation](api-management-policies.md#transformation)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]
