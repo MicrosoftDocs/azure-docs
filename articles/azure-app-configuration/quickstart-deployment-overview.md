@@ -23,7 +23,7 @@ You must have permissions to manage Azure App Configuration resources. Azure rol
 - The Azure Resource Manager Owner role
 - The Azure Resource Manager Contributor role
 
-To learn more about Azure RBAC and Microsoft Entra ID, see [Authorize access to Azure App Configuration using Microsoft Entra ID](./concetp-enable-rbac.md)
+To learn more about Azure RBAC and Microsoft Entra ID, see [Authorize access to Azure App Configuration using Microsoft Entra ID](./concetp-enable-rbac.md).
 
 ## Manage Azure App Configuration data in deployment
 Azure App Configuration data, such as key-values and snapshots, can be managed in deployment. It's recommended to configure **Pass-through** ARM authentication mode to require proper Azure App Configuration data plane authorization.
@@ -38,23 +38,23 @@ To configure ARM authentication mode of Azure App Configuration resource in the 
 
     :::image type="content" border="true" source="./media/access-settings-blade.png" alt-text="Screenshot showing how to access an Azure App Configuration resources access settings blade":::
 
-3. Select the recommended **Pass-through** authentication mode under **Azure Resouce Manager Authentication Mode**.
+3. Select the recommended **Pass-through** authentication mode under **Azure Resource Manager Authentication Mode**.
 
     :::image type="content" border="true" source="./media/quickstarts/deployment/select-passthrough-authentication-mode.png" alt-text="Screenshot showing pass-through authentication mode being selected under Azure Resource Manager Authentication Mode":::
 
 ---
 
 > [!NOTE]
-> Local authentication mode is for backward compatibility and has several limitations. It does not support proper auditing for accessing data in deployment. Under local authentication mode, key-value data access inside an ARM template/Bicep/Terraform is disabled if [access key authentication is disabled](./howto-disable-access-key-authentication.md#limitations). Azure App Configuration data plane permissions are not required for accessing data under local authentication mode. 
+> Local authentication mode is for backward compatibility and has several limitations. It does not support proper auditing for accessing data in deployment. Under local authentication mode, key-value data access inside an ARM template/Bicep/Terraform is disabled if [access key authentication is disabled](./howto-disable-access-key-authentication.md#limitations). Azure App Configuration data plane permissions are not required for accessing data under local authentication mode.
 
 ### Authorization
-You must have permissions to read and manage Azure App Configuration data in deployment. In addition to the permissions required for Azure App Configuration resource, which are provided by built-in Owner or Contributor roles, Azure App Configuration data plane permissions including Microsoft.AppConfiguration/configurationStores/keyValues/read and Microsoft.AppConfiguration/configurationStores/snapshots/read are also required under pass-through authentication mode. Built-in roles with this action include:
+In addition to the permissions required for managing Azure App Configuration resource, you must have data plane permissions to read and manage Azure App Configuration data in deployment under pass-through mode. Azure App Configuration data plane permissions includes Microsoft.AppConfiguration/configurationStores/keyValues/read and Microsoft.AppConfiguration/configurationStores/snapshots/read. Built-in roles with this action include:
 - App Configuration Data Owner
 - App Configuration Data Reader
 
 To learn more about Azure RBAC and Microsoft Entra ID, see [Authorize access to Azure App Configuration using Microsoft Entra ID](./concetp-enable-rbac.md)
 
-### ARM prviate access
+### ARM private access
 [Azure Resource Management Private Link](../../includes/resource-manager-create-rmpl.md) can be set up to restrict access for managing resources in your virtual network. Azure App Configuration supports ARM Private Link access to the App Configuration data with pass-through authentication mode and ARM private access enabled. 
 
 # [Azure portal](#tab/portal)
@@ -62,7 +62,7 @@ To learn more about Azure RBAC and Microsoft Entra ID, see [Authorize access to 
 To configure ARM private access of Azure App Configuration resource in the Azure portal, follow these steps:
 
 1. Navigate to your Azure App Configuration resource in the Azure portal.
-2. Locate the **Networkinng** setting under **Settings**.
+2. Locate the **Networking** setting under **Settings**.
 
     :::image type="content" border="true" source="./media/networking-blade.png" alt-text="Screenshot showing how to access an Azure App Configuration resources networking blade":::
 
