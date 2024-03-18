@@ -1,31 +1,30 @@
 ---
-title: Flink® Application Mode Cluster on HDInsight on AKS
+title: Apache Flink® Application Mode Cluster on HDInsight on AKS
 description: Learn about  Flink® Application Mode Cluster on HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: how-to
 ms.date: 03/13/2024
 ---
 
-# Application Mode Cluster on HDInsight on AKS
+# Apache Flink Application Mode Cluster on HDInsight on AKS
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
-Flink Application Mode Cluster
+Application Mode Cluster
 
-HDInsight on AKS offers a Flink Application mode cluster. This cluster lets you manage cluster Flink app mode lifecycle using the Azure portal (easy-to-use interface) and ARM Rest APIs. Application mode clusters designed to support large and long-running jobs with dedicated resources. When you need to do resource-intensive or extensive data processing tasks, you can use the Application Mode Cluster. This mode enables you to assign dedicated resources for specific Flink applications, ensuring that they have enough computing power and memory to handle large workloads efficiently.  
+HDInsight on AKS offers a Flink Application mode cluster. This cluster lets you manage cluster Flink application mode lifecycle using the Azure portal with easy-to-use interface and Azure Resource Management Rest APIs. Application mode clusters are designed to support large and long-running jobs with dedicated resources, and handle resource-intensive or extensive data processing tasks. This deployment mode enables you to assign dedicated resources for specific Flink applications, ensuring that they have enough computing power and memory to handle large workloads efficiently.  
 
 :::image type="content" source="./media/application-mode-cluster-on-hdinsight-on-aks/job-manager.png" alt-text="Screenshot showing job manager." lightbox="./media/application-mode-cluster-on-hdinsight-on-aks/job-manager.png":::
 
 ## Advantages
 
-1. Simplified Cluster deployment With Job jar.
+1. Simplified cluster deployment with Job jar.
 
 1. User friendly REST API: HDInsight on AKS provides user friendly ARM Rest APIs to manager app mode job operation like Update, Savepoint, Cancel, Delete.  
- 
 
-1. Easy Job Updates and State Management: The native Azure portal integration provides a hassle-free experience for updating jobs and restoring them to their last saved state (savepoint). This functionality ensures continuity and data integrity throughout the job lifecycle.
+1. Easy to manage Job Updates and State Management: The native Azure portal integration provides a hassle-free experience for updating jobs and restoring them to their last saved state (savepoint). This functionality ensures continuity and data integrity throughout the job lifecycle.
 
-1. Automate Flink Job using Azure Pipeline: Using HDInsight on AKS, Flink users have access to user-friendly ARM Rest API, you can seamlessly integrate Flink job operations into your Azure Pipeline.
+1. Automate Flink Job(s) using Azure Pipelines or other CI/CD tools: Using HDInsight on AKS, Flink users have access to user-friendly ARM Rest API, you can seamlessly integrate Flink job operations into your Azure Pipeline or other CI/CD tools.
 
 ## Key Features
 
