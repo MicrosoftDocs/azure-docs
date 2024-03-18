@@ -35,6 +35,7 @@ We're excited to announce that the 10.1 release of the Service Fabric runtime ha
 | Release date | Release | More info |
 |---|---|---|
 | November 1, 2023 | Azure Service Fabric 10.1 Release  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_101RTO.md) |
+| DATE | Azure Service Fabric 10.1 Second Refresh Release | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_101CU2.md) |
 
 ## Service Fabric 10.0
 
@@ -54,6 +55,7 @@ We're excited to announce that the 10.0 release of the Service Fabric runtime ha
 |---|---|---|
 | September 09, 2023 | Azure Service Fabric 10.0 Release  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_10.md) |
 | November 1, 2023 | Azure Service Fabric 10.0 First Refresh Release  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_100CU1.md) |
+| DATE | Azure Service Fabric 10.1 Third Refresh Release | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_100CU3.md) |
 
 ## Service Fabric 9.1
 
@@ -76,6 +78,7 @@ Instead, you should enable Automatic OS upgrades through Virtual Machine Scale S
 | June 19, 2023 | Azure Service Fabric 9.1 Fifth Refresh Release  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_91CU5.md) |
 | August 30, 2023 | Azure Service Fabric 9.1 Sixth Refresh Release  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_91CU6.md) |
 | November 1, 2023 | Azure Service Fabric 9.1 Seventh Refresh Release  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_91CU7.md) |
+| DATE | Azure Service Fabric 9.1 Ninth Refresh Release  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_91CU9.md) |
 
 ## Service Fabric 9.0
 
