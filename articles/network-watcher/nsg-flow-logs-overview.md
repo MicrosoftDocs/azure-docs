@@ -2,8 +2,8 @@
 title: NSG flow logs overview
 titleSuffix: Azure Network Watcher
 description: Learn about NSG flow logs feature of Azure Network Watcher, which allows you to log information about IP traffic flowing through a network security group.
-ms.author: halkazwini
 author: halkazwini
+ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: concept-article
 ms.date: 02/15/2024
@@ -15,7 +15,7 @@ ms.date: 02/15/2024
 
 Network security group (NSG) flow logging is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through a [network security group](../virtual-network/network-security-groups-overview.md). Flow data is sent to Azure Storage from where you can access it and export it to any visualization tool, security information and event management (SIEM) solution, or intrusion detection system (IDS) of your choice.
 
-:::image type="content" source="./media/network-watcher-nsg-flow-logging-overview/nsg-flow-logs-portal.png" alt-text="Screenshot showing Network Watcher NSG flow logs page in the Azure portal.":::
+:::image type="content" source="./media/nsg-flow-logs-overview/nsg-flow-logs-portal.png" alt-text="Screenshot showing Network Watcher NSG flow logs page in the Azure portal.":::
 
 ## Why use flow logs?
 
@@ -389,7 +389,7 @@ Here's an example format of a version 2 NSG flow log:
 
 ### Log tuple and bandwidth calculation
 
-![Screenshot that shows an example of a flow log tuple.](./media/network-watcher-nsg-flow-logging-overview/tuple.png)
+![Screenshot that shows an example of a flow log tuple.](./media/nsg-flow-logs-overview/tuple.png)
 
 Here's an example bandwidth calculation for flow tuples from a TCP conversation between 185.170.185.105:35370 and 10.2.0.4:23:
 
@@ -403,11 +403,11 @@ For continuation (`C`) and end (`E`) flow states, byte and packet counts are agg
 
 To learn how to create, change, disable, or delete NSG flow logs, see one of the following guides:
 
-- [Azure portal](./nsg-flow-logging.md)
-- [PowerShell](./network-watcher-nsg-flow-logging-powershell.md)
-- [Azure CLI](./network-watcher-nsg-flow-logging-cli.md)
-- [REST API](./network-watcher-nsg-flow-logging-rest.md)
-- [Azure Resource Manager](./network-watcher-nsg-flow-logging-azure-resource-manager.md)
+- [Azure portal](nsg-flow-logs-portal.md)
+- [PowerShell](nsg-flow-logs-powershell.md)
+- [Azure CLI](nsg-flow-logs-cli.md)
+- [REST API](nsg-flow-logs-rest.md)
+- [Azure Resource Manager](nsg-flow-logs-azure-resource-manager.md)
 
 ## Working with flow logs
 
@@ -538,6 +538,6 @@ Storage of logs is charged separately. For more information, see [Azure Blob Sto
 
 ## Related content
 
-- To learn how to manage NSG flow logs, see [Create, change, disable, or delete NSG flow logs using the Azure portal](nsg-flow-logging.md).
+- To learn how to manage NSG flow logs, see [Create, change, disable, or delete NSG flow logs using the Azure portal](nsg-flow-logs-portal.md).
 - To find answers to some of the most frequently asked questions about NSG flow logs, see [Flow logs FAQ](frequently-asked-questions.yml#flow-logs).
 - To learn about traffic analytics, see [Traffic analytics overview](traffic-analytics.md).
