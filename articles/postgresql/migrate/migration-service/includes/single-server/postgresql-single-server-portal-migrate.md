@@ -2,7 +2,7 @@
 title: PostgreSQL - Single Server to Flexible Server portal migration
 author: markingmyname
 ms.author: maghan
-ms.date: 03/19/2024
+ms.date: 03/15/2024
 ms.service: postgresql
 ms.topic: include
 ---
@@ -74,7 +74,7 @@ The first tab is **Setup**. In case you missed it, allowlist necessary extension
 - **Migrate** - Skips validations and starts migrations.
 - **Validate and Migrate** - Performs validation before triggering a migration. Migration gets triggered only if there are no validation failures.
 
-It's always a good practice to choose **Validate** or **Validate and Migrate** option to perform premigration validations before running the migration. 
+It's always a good practice to choose **Validate** or **Validate and Migrate** option to perform premigration validations before running the migration.
 
 If the **Online** migration preview is selected, Logical replication must be turned on in the source Single server. If it's not turned on, the migration service automatically turns on logical replication at the source Single server. Replication can also be set up manually under the **Replication** tab in the Single server-side pane by setting the Azure replication support level to **Logical**. Either approach restarts the source single server.
 
@@ -84,7 +84,7 @@ Select the **Next : Connect to Source** button.
 
 The **Source** tab prompts you to give details related to the Single Server, which is the source of the databases.
 
-After you make the **Subscription** and  **Resource Group** selections, the dropdown list for server names shows Single Servers under that resource group across regions. Select the source that you want to migrate databases from. You can migrate databases from a Single Server to a target Flexible Server in the same region. Cross-region migrations are enabled only for India, China, and UAE servers.
+After you make the **Subscription** and **Resource Group** selections, the dropdown list for server names shows Single Servers under that resource group across regions. Select the source that you want to migrate databases from. You can migrate databases from a Single Server to a target Flexible Server in the same region. Cross-region migrations are enabled only for India, China, and UAE servers.
 
 After you choose the Single Server source, the **Location**, **PostgreSQL version**, and **Server admin login name** boxes are populated automatically. The server admin sign-in name is the admin username used to create the Single Server. In the **Password** box, enter the password for that admin user. The migration service migrates single server databases as the admin user.
 
@@ -156,7 +156,7 @@ The **Validation status** moves to **Failed** state if there are any errors in t
 
 ### Migrate
 
-After the **PerformingPreRequisiteSteps** substrate is completed, the migration moves to the substrate of **Migrating Data** when the Cloning/Copying of the databases takes place.  The time for migration to complete depends on the size and shape of the databases you're migrating. The migration is quick if the data is mostly evenly distributed across all the tables. Skewed table sizes take a relatively longer time.
+After the **PerformingPreRequisiteSteps** substrate is completed, the migration moves to the substrate of **Migrating Data** when the Cloning/Copying of the databases takes place. The time for migration to complete depends on the size and shape of the databases you're migrating. The migration is quick if the data is mostly evenly distributed across all the tables. Skewed table sizes take a relatively longer time.
 
 When you select any of the databases in migration, a fan-out pane appears. It has all the table count - copied, queued, copying, and errors apart from the database migration status.
 
@@ -245,7 +245,7 @@ The first tab is **Setup**. In case you missed it, allowlist necessary extension
 - **Migrate** - Skips validations and starts migrations.
 - **Validate and Migrate** - Performs validation before triggering a migration. Migration gets triggered only if there are no validation failures.
 
-It's always a good practice to choose **Validate** or **Validate and Migrate** option to perform premigration validations before running the migration. 
+It's always a good practice to choose **Validate** or **Validate and Migrate** option to perform premigration validations before running the migration.
 
 If the **Online** migration preview is selected, Logical replication must be turned on in the source Single server. If it's not turned on, the migration service automatically turns on logical replication at the source Single server. Replication can also be set up manually under the **Replication** tab in the Single server-side pane by setting the Azure replication support level to **Logical**. Either approach restarts the source single server.
 
@@ -255,7 +255,7 @@ Select the **Next : Connect to Source** button.
 
 The **Source** tab prompts you to give details related to the Single Server, which is the source of the databases.
 
-After you make the **Subscription** and  **Resource Group** selections, the dropdown list for server names shows Single Servers under that resource group across regions. Select the source that you want to migrate databases from. You can migrate databases from a Single Server to a target Flexible Server in the same region. Cross-region migrations are enabled only for India, China, and UAE servers.
+After you make the **Subscription** and **Resource Group** selections, the dropdown list for server names shows Single Servers under that resource group across regions. Select the source that you want to migrate databases from. You can migrate databases from a Single Server to a target Flexible Server in the same region. Cross-region migrations are enabled only for India, China, and UAE servers.
 
 After you choose the Single Server source, the **Location**, **PostgreSQL version**, and **Server admin login name** boxes are populated automatically. The server admin sign-in name is the admin username used to create the Single Server. In the **Password** box, enter the password for that admin user. The migration service migrates single server databases as the admin user.
 
@@ -327,7 +327,7 @@ The **Validation status** moves to **Failed** state if there are any errors in t
 
 ### Migrate
 
-After the **PerformingPreRequisiteSteps** substrate is completed, the migration moves to the substrate of **Migrating Data** when the Cloning/Copying of the databases takes place.  The time for migration to complete depends on the size and shape of the databases you're migrating. The migration is quick if the data is mostly evenly distributed across all the tables. Skewed table sizes take a relatively longer time.
+After the **PerformingPreRequisiteSteps** substrate is completed, the migration moves to the substrate of **Migrating Data** when the Cloning/Copying of the databases takes place. The time for migration to complete depends on the size and shape of the databases you're migrating. The migration is quick if the data is mostly evenly distributed across all the tables. Skewed table sizes take a relatively longer time.
 
 When you select any of the databases in migration, a fan-out pane appears. It has all the table count - copied, queued, copying, and errors apart from the database migration status.
 
