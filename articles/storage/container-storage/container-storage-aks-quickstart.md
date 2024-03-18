@@ -4,7 +4,7 @@ description: Create a Linux-based Azure Kubernetes Service (AKS) cluster, instal
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: quickstart
-ms.date: 03/14/2024
+ms.date: 03/18/2024
 ms.author: kendownie
 ms.custom:
   - devx-track-azurecli
@@ -83,6 +83,9 @@ Before deploying Azure Container Storage, you'll need to decide which back-end s
 
 - **Ephemeral Disk**: This option uses local NVMe drives or temp SSD on the AKS cluster nodes. It's extremely latency sensitive (low sub-ms latency), so it's best for applications with no data durability requirement or with built-in data replication support such as Cassandra. AKS discovers the available ephemeral storage on AKS nodes and acquires the drives for volume deployment.
 
+> [!NOTE]
+> For Azure Elastic SAN and Azure Disks, Azure Container Storage will deploy the backing storage for you as part of the installation, as long as you have owner-level access to the Azure subscription. You don't need to create your own Elastic SAN or Azure Disk.
+
 ### Resource consumption
 
 Azure Container Storage requires certain node resources to run components for the service. Based on your storage pool type selection, which you'll specify when you install Azure Container Storage, these are the resources that will be consumed:
@@ -92,12 +95,11 @@ Azure Container Storage requires certain node resources to run components for th
 | Azure Elastic SAN | None | None |
 | Azure Disks | 1 | 1 GiB |
 | Ephemeral Disk - Temp SSD |  1 | 1 GiB |
-| Ephemeral Disk - Local NVMe |  25% of cores (depending on node size) | 2 GiB |
+| Ephemeral Disk - Local NVMe |  25% of cores (depending on node size)\* | 2 GiB |
 
-The resources consumed are per node, and will be consumed for each node in the node pool where Azure Container Storage will be installed.
+The resources consumed are per node, and will be consumed for each node in the node pool where Azure Container Storage will be installed. If your nodes don't have enough resources, Azure Container Storage will fail to run. Kubernetes will automatically re-try to initialize these failed pods, so if resources get liberated, these pods can be initialized again.
 
-> [!NOTE]
-> For Azure Elastic SAN and Azure Disks, Azure Container Storage will deploy the backing storage for you as part of the installation. You don't need to create your own Elastic SAN or Azure Disk.  
+\*In a storage pool type Ephemeral Disk - Local NVMe, if you're using multiple VM SKU types for your cluster nodes, the 25% of CPU cores consumed applies to the smallest SKU used. For example, if you're using a mix of 8-core and 16-core VM types, resource consumption is 2 cores.
 
 ## Choose a VM type for your cluster
 
@@ -111,16 +113,20 @@ You'll specify the VM type when you create the cluster in the next section. Foll
 
 If you already have an AKS cluster deployed, skip this section and go to [Install Azure Container Storage on an existing AKS cluster](#install-azure-container-storage-on-an-existing-aks-cluster).
 
+The following table shows the parameters you can provide for the storage pool that's created when Azure Container Storage is installed.
+
+| **Parameter** | **Backing storage type** | **Description** | **Available values** | **Mandatory (Y/N)** | **Default value** |
+|---------------|--------------------------|-----------------|----------------------|---------------------|-------------------|
+| --enable-azure-container-storage | All | Storage pool type to enable during installation | azureDisk, ephemeralDisk, elasticSan | Y | N/A |
+| --storage-pool-option | Ephemeral Disk only | Ephemeral Disk SKU to enable | NVMe, Temp | Y (only when using Ephemeral Disk) | If this parameter isn't specified, the Ephemeral Disk SKU will be local NVMe |
+| --azure-container-storage-nodepools | All | Name of the node pool(s) on which Azure Container Storage will be installed | Comma separated list of node pool names (if specifying multiple node pools) | N | nodepool1\* |
+| --storage-pool-name | All | Storage pool name | N/A | N | azuredisk, ephemeraldisk, elasticsan |
+| --storage-pool-size | All | Storage pool capacity | Storage capacity in Gi or Ti | N | Azure Disks: 512 Gi<br/>Local NVMe: Full disk</br>Temp SSD: 95% of disk capacity<br/>Elastic SAN: 1 Ti |
+| --storage-pool-sku | Azure Disks, Elastic SAN only | Storage pool SKU (performance/redundancy) | Azure Disks: Premium_LRS, Standard_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, PremiumV2_LRS, StandardSSD_ZRS<br/>Elastic SAN: Premium_LRS, Premium_ZRS | N | Premium_LRS |
+
+\*If there are any existing node pools with the `acstor.azure.com/io-engine:acstor` label, Azure Container Storage will be installed there by default. Otherwise, it will be installed in the system node pool, which by default is named `nodepool1`.
+
 Run the following command to create a new AKS cluster, install Azure Container Storage, and create a storage pool. Replace `<cluster-name>` and `<resource-group-name>` with your own values, and specify which VM type you want to use. You'll need a node pool of at least three Linux VMs. Replace `<storage-pool-type>` with `azureDisk`, `ephemeralDisk`, or `elasticSan`. If you select `ephemeralDisk`, you can also specify --storage-pool-option, and the values can be `NVMe` or `Temp`.
-
-Optional storage pool parameters:
-
-| **Parameter**      | **Default** |
-|----------------|-------------|
-| --storage-pool-name | mypool-<random 7 char lowercase> |
-| --storage-pool-size | 512Gi (1Ti for Elastic SAN) |
-| --storage-pool-sku | Premium_LRS |
-| --storage-pool-option | NVMe |
 
 ```azurecli-interactive
 az aks create -n <cluster-name> -g <resource-group-name> --node-vm-size Standard_D4s_v3 --node-count 3 --enable-azure-container-storage <storage-pool-type>
