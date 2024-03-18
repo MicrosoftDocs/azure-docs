@@ -7,7 +7,11 @@
 - name: Quickstarts
   items:
   - name: Create a fleet and join member clusters
-    href: quickstart-create-fleet-and-members.md
+    items:
+    - name: Use the Azure CLI
+      href: quickstart-create-fleet-and-members.md
+    - name: Use the Azure portal
+      href: quickstart-create-fleet-and-members-portal.md
 - name: Concepts
   items:
   - name: Fleets and member clusters
