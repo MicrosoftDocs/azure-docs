@@ -2,7 +2,7 @@
 title: Deployment overview
 titleSuffix: Azure App Configuration
 description: Learn how to use Azure App Configuration in deployment.
-author: maud-lv
+author: haiyiwen
 ms.author: haiyiwen
 ms.date: 03/15/2024
 ms.service: azure-app-configuration
@@ -26,7 +26,7 @@ You must have permissions to manage Azure App Configuration resources. Azure rol
 To learn more about Azure RBAC and Microsoft Entra ID, see [Authorize access to Azure App Configuration using Microsoft Entra ID](./concetp-enable-rbac.md).
 
 ## Manage Azure App Configuration data in deployment
-Azure App Configuration data, such as key-values and snapshots, can be managed in deployment. It's recommended to configure **Pass-through** ARM authentication mode to require proper Azure App Configuration data plane authorization.
+Azure App Configuration data, such as key-values and snapshots, can be managed in deployment. It is recommended to configure **Pass-through** ARM authentication mode to require proper Azure App Configuration data plane authorization.
 
 ### ARM authentication mode
 # [Azure portal](#tab/portal)
@@ -52,7 +52,7 @@ In addition to the permissions required for managing Azure App Configuration res
 - App Configuration Data Owner
 - App Configuration Data Reader
 
-To learn more about Azure RBAC and Microsoft Entra ID, see [Authorize access to Azure App Configuration using Microsoft Entra ID](./concetp-enable-rbac.md)
+To learn more about Azure RBAC and Microsoft Entra ID, see [Authorize access to Azure App Configuration using Microsoft Entra ID](./concetp-enable-rbac.md).
 
 ### ARM private access
 [Azure Resource Management Private Link](../../includes/resource-manager-create-rmpl.md) can be set up to restrict access for managing resources in your virtual network. Azure App Configuration supports ARM Private Link access to the App Configuration data under pass-through authentication mode and ARM private access enabled.
