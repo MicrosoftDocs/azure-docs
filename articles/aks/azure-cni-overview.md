@@ -6,7 +6,7 @@ ms.author: allensu
 ms.service: azure-kubernetes-service
 ms.subservice: aks-networking
 ms.topic: concept-article
-ms.date: 9/13/2023
+ms.date: 02/29/2024
 
 #CustomerIntent: As a network administrator, I want learn about Azure CNI networking so that I can deploy Azure CNI networking in an AKS cluster.
 ---
@@ -19,7 +19,7 @@ With [Azure Container Networking Interface (CNI)][cni-networking], every pod get
 
 > [!NOTE]
 > 
-> This article is only introducing traditional Azure CNI. For [Azure CNI Overlay][azure-cni-overlay] and [Azure CNI for dynamic IP allocation][configure-azure-cni-dynamic-ip-allocation], refer to their documentation instead.  
+> This article is only introducing traditional Azure CNI. For [Azure CNI Overlay][azure-cni-overlay], [Azure CNI VNet for dynamic IP allocation][configure-azure-cni-dynamic-ip-allocation], and [Azure CNI VNet - Static Block Allocation (Preview)][configure-azure-cni-static-block-allocation]. Please refer to their documentation instead.  
 
 ## Prerequisites
 
@@ -193,3 +193,4 @@ Learn more about networking in AKS in the following articles:
 [prerequisites]: configure-azure-cni.md#prerequisites
 [azure-cni-overlay]: azure-cni-overlay.md
 [configure-azure-cni-dynamic-ip-allocation]: configure-azure-cni-dynamic-ip-allocation.md
+[configure-azure-cni-static-block-allocation]: configure-azure-cni-static-block-allocation.md
