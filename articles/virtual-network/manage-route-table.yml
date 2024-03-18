@@ -377,6 +377,7 @@ procedureSection:
         | Destination IP address | Enter the **destination IP** to want to view the next hop for the VM. |
       - |
         Select **Next hop**.
+        
         After a short wait, Azure tells you the next hop type and the ID of the route that routed the traffic. Learn more about next hop types that you see returned in [Virtual network traffic routing](virtual-networks-udr-overview.md).
   
         ### Validate routing between two endpoints - commands
