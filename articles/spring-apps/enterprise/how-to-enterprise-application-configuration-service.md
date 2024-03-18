@@ -375,7 +375,7 @@ az spring application-configuration-service delete \
 
 ---
 
-## Check configuration file in the ConfigMap
+## Examine configuration file in ConfigMap
 
 The following section shows you how to check the content of configuration file pulled by Application Configuration Service from upstream Git repositories.
 
@@ -417,7 +417,7 @@ Use the following command to assign an Azure role:
 
 ---
 
-### Check configuration file in the ConfigMap with Azure CLI
+### Examine configuration file in ConfigMap with Azure CLI
 
 Use the following command to view the content of configuration file by [Pattern](#pattern):
 
@@ -548,7 +548,7 @@ If the latest changes aren't reflected in the applications, check the following 
   - Confirm that the branch of the desired config file changes is updated.
   - Confirm that the pattern configured in the Application Configuration Service matches the updated config files.
   - Confirm that the application is bound to the Application Configuration Service.
-- Confirm that the `ConfigMap` containing the configuration file for the [Pattern](#pattern) used by the application is updated according to [Check configuration file in the ConfigMap](#check-configuration-file-in-the-configmap) section. If it isn't updated, raise a ticket.
+- Confirm that the `ConfigMap` containing the configuration file for the [Pattern](#pattern) used by the application is updated according to [Examine configuration file in ConfigMap](#check-configuration-file-in-the-configmap) section. If it isn't updated, raise a ticket.
 - Confirm that the `ConfigMap` is mounted to the application as a file according to [Check configuration file in the container](#check-configuration-file-in-the-container) section. If the file isn't updated, wait for the Kubernetes refresh interval (1 minute), or force a refresh by restarting the application.
 
 After checking these items, the applications should be able to read the updated configurations. If the applications still aren't updated, raise a ticket.
