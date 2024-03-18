@@ -58,9 +58,6 @@ You can secure your AI hub, AI projects, and managed resources in a managed virt
 
 When you create an AI project from the AI hub, the project inherits the network configuration from the AI hub. For more information on creating an AI project, see [Create an Azure AI project](create-projects.md).
 
-> [!TIP]
-> After the AI project is created, AI Studio may display an error message if your client can't resolve the DNS name of the AI project. For more information, see the [DNS resolution](#dns-resolution) section.
-
 ## Create a compute instance
 
 When you create a compute instance from the AI hub, the compute instance inherits the network configuration from the AI hub. For more information on creating a compute instance, see [Create a compute instance](create-manage-compute.md).
@@ -75,15 +72,4 @@ The managed virtual network doesn't directly provide access to your clients. Ins
 | [ExpressRoute](https://azure.microsoft.com/services/expressroute/) | Connects on-premises networks into the cloud over a private connection. Connection is made using a connectivity provider. |
 | [Azure Bastion](/azure/bastion/bastion-overview) | Connects to a virtual machine inside the Azure Virtual Network using your web browser. |
 
-> [!TIP]
-> When connecting using Azure VPN gateway or ExpressRoute, you might need to use a to enable name resolution for your clients. For more information, see the [DNS resolution](#dns-resolution) section.
-
-### DNS resolution
-
-Depending on your network configuration, you might need to configure DNS resolution before your clients can connect to the AI hub, AI project, or compute instances.
-
-> [!TIP]
-> Your clients do not directly connect to the managed virtual network. Instead, they connect to an Azure Virtual Network that you manage. The private endpoint for your AI hub surfaces IP addresses and FQDNs for the AI hub, AI project, and managed compute resources in your Azure Virtual Network.
-
-For more information, see the [custom DNS] article.
 
