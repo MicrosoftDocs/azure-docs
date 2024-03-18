@@ -86,7 +86,7 @@ Another good metric to watch is average QPU by ServerResourceType. This metric c
 
 ### Detailed diagnostic logging
 
-Use Azure Monitor Logs for more detailed diagnostics of scaled out server resources. With logs, you can use Log Analytics queries to break out QPU and memory by server and replica. For more information, see [Analyze logs in Log Analytics workspace](monitor-analysis-services.md#analyze-logs-in-log-analytics-workspace). For example queries, see [Sample Kusto queries]((monitor-analysis-services.md#sample-kusto-queries).
+Use Azure Monitor Logs for more detailed diagnostics of scaled out server resources. With logs, you can use Log Analytics queries to break out QPU and memory by server and replica. For more information, see [Analyze logs in Log Analytics workspace](monitor-analysis-services.md#analyze-logs-in-log-analytics-workspace). For example queries, see [Sample Kusto queries](monitor-analysis-services.md#sample-kusto-queries).
 
 ## Configure scale-out
 
