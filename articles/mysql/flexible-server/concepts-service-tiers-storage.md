@@ -112,6 +112,8 @@ The unique feature of the burstable compute tier is its ability to “burst”, 
 
 However, it’s important to note that once a burstable instance exhausts its CPU credits, it operates at its base CPU performance. For example, the base CPU performance of a Standard_B1s is 20% that is, 0.2 Vcore. If Burstable tier server is running a workload that requires more CPU performance than the base level, and it has exhausted its CPU credits, the server may experience performance limitations and eventually could affect various system operations for your server.
 
+And due to this throttling, server may have connectivity and restarting issues, and the best action for such scenarios is to stop workload on server to gain credit per [credit banking formula](../../virtual-machines/b-series-cpu-credit-model/b-series-cpu-credit-model.md#b-series-cpu-credit-model) or upgrade server to General Purpose or Memory Optimized Tiers.
+
 Therefore, while the Burstable compute tier offers significant cost and flexibility advantages for certain types of workloads, **it is not recommended for production workloads** that require consistent CPU performance. The Burstable tier doesn't support functionality of creating [Read Replicas](./concepts-read-replicas.md) and [High availability](./concepts-high-availability.md) feature. For such workloads and features, other compute tiers, such as the General Purpose or Business Critical are more appropriate.
 
 For more information on the Azure's B-series CPU credit model, see the [B-series burstable instances](../../virtual-machines/sizes-b-series-burstable.md) and [B-series CPU credit model](../../virtual-machines/b-series-cpu-credit-model/b-series-cpu-credit-model.md#b-series-cpu-credit-model).
