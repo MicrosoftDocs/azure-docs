@@ -179,7 +179,7 @@ For more information, see Cognitive Services Compliance and Privacy notes at htt
 #### Return type
 `azure_cognitive.entity[]`, a collection of entities, where each defines the text identifying the entity, category of the entity and confidence score of the match. For example, if invoked with a `text` set to `'For more information, see Cognitive Services Compliance and Privacy notes.'`, and `language` set to `'en'`, it could return `{"(\"Cognitive Services\",Skill,\"\",0.94)"}`.
 
-## PII detection
+## Personal data(Personally Identifiable data) detection
 Identifies [personal data](../../ai-services/language-service/personally-identifiable-information/overview.md) found in the input text and categorizes those entities into types.
 
 ### `azure_cognitive.recognize_pii_entities`
@@ -297,7 +297,7 @@ select * from pg_available_extensions where name = 'azure_ai';
 ```
 
 #### Arguments
-For more details on parameters see [Translator API](../../ai-services/translator/reference/v3-0-translate.md). 
+For more information on parameters, see [Translator API](../../ai-services/translator/reference/v3-0-translate.md). 
 ##### `text`
 `text` the input text to be translated
 
@@ -317,22 +317,22 @@ For more details on parameters see [Translator API](../../ai-services/translator
 `boolean DEFAULT 'plain'` Defines the type of text being translated. Valid values are 'plain' or 'html'. Any HTML needs to be well-formed.
 
 ##### `profanity_action`
-`boolean DEFAULT 'NoAction'` Specifices how profanities are treated in translations. Valid values are 'NoAction' , 'Marked', or 'Deleted'. 'NoAction' is the default behavior and profanity passes from source to target. 'Deleted' indicates that profane words are removed without replacement. 'Marked' replaces the marked word in the output with the profanity_marker parameter.
+`boolean DEFAULT 'NoAction'` Specifies how profanities are treated in translations. Valid values are 'NoAction', 'Marked', or 'Deleted'. 'NoAction' is the default behavior and profanity passes from source to target. 'Deleted' indicates that profane words are removed without replacement. 'Marked' replaces the marked word in the output with the profanity_marker parameter.
 
 ##### `profanity_marker`
-`boolean DEFAULT 'Asterisk'` Specifices how profanities are marked in translations. Possible values are 'Asterisk' which replaces profane words with *** or 'Tag' which replaces profane words with '\<profanity> \</profanity>' tags.
+`boolean DEFAULT 'Asterisk'` Specifies how profanities are marked in translations. Possible values are 'Asterisk' that replaces profane words with *** or 'Tag' that replaces profane words with '\<profanity> \</profanity>' tags.
 
 ##### `suggested_source_language`
-`text DEFAULT NULL` Specifices fallback language if the language of input text cannot be identified.
+`text DEFAULT NULL` Specifies fallback language if the language of input text can't be identified.
 
 ##### `source_script`
-`text DEFAULT NULL` Specifices script of the input text.
+`text DEFAULT NULL` Specifies script of the input text.
 
 ##### `target_script`
-`text DEFAULT NULL` Specifices script of the input text.
+`text DEFAULT NULL` Specifies script of the input text.
 
 #### Return type
-`azure_cognitive.translated_text_result`, a json array of translated texts. Details of the response body can be found in the [response body](../../ai-services/translator/reference/v3-0-translate.md#response-body)
+`azure_cognitive.translated_text_result`, a json array of translated texts. Details of the response body can be found in the [response body](../../ai-services/translator/reference/v3-0-translate.md#response-body).
 
 ## Examples
 
@@ -362,7 +362,7 @@ select  (unnest(a.translations)).*
 from azure_cognitive.translate('Language Translation in real time in multiple languages is quite cool', array['es', 'pt', 'zh-Hans']) a;
 ```
 
-### PII detection examples
+### Personal data detection examples
 ```postgresql
 select 
 	'Contoso employee with email Contoso@outlook.com is using our awesome API' as InputColumn,

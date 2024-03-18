@@ -15,7 +15,7 @@ Azure AI extension gives the ability to invoke any machine learning models deplo
 
 ## Prerequisites
 1. [Enable and configure](generative-ai-azure-overview.md#enable-the-azure_ai-extension) the `azure_ai` extension.
-1. Create a machine learning workspace and [deploy a model with an online endpoint](../../machine-learning/how-to-deploy-online-endpoints.md) using CLI, Python, or Azure Machine Learning Studio or [deploy an mlflow model to an online endpoint](../../machine-learning/how-to-deploy-mlflow-models-online-endpoints.md).
+1. Create a machine learning workspace and [deploy a model with an online endpoint](../../machine-learning/how-to-deploy-online-endpoints.md) using CLI, Python, or Azure Machine Learning studio or [deploy an mlflow model to an online endpoint](../../machine-learning/how-to-deploy-mlflow-models-online-endpoints.md).
 1. Make sure that the status of the deployment to ensure the model was deployed successfully and test the model invoking the endpoint to ensure the model runs successfully.
 1. Get the [URI](../../machine-learning/how-to-authenticate-online-endpoint.md#get-the-scoring-uri-for-the-endpoint) and the  [Key](../../machine-learning/how-to-authenticate-online-endpoint.md#get-the-key-or-token-for-data-plane-operations), which are needed to configure the extension to communicate with Azure Machine Learning.
 
@@ -23,8 +23,8 @@ Azure AI extension gives the ability to invoke any machine learning models deplo
 > You can explore Azure Machine Learning [samples](https://github.com/Azure/azureml-examples)
 
 
-## Configure Azure ML endpoint 
-In the Azure Machine Learning Studio, under **Endpoints** > **Pick your endpoint** > **Consume** you can find the endpoint URI and Key for the online endpoint. Use these values to configure the `azure_ai` extension to use the online inferencing endpoint.
+## Configure Azure Machine Learning endpoint 
+In the Azure Machine Learning studio, under **Endpoints** > **Pick your endpoint** > **Consume** you can find the endpoint URI and Key for the online endpoint. Use these values to configure the `azure_ai` extension to use the online inferencing endpoint.
 
 ```postgresql
 select azure_ai.set_setting('azure_ml.scoring_endpoint','<URI>'); 
@@ -43,7 +43,7 @@ azure_ml.inference(input_data jsonb, timeout_ms integer DEFAULT NULL, throw_on_e
 `jsonb` json containing the request payload for the model.
 
 ##### `timeout_ms`
-`integer DEFAULT NULL` timeout in milliseconds after which the operation is stopped. The deployment of a model itself can have a timeout specified that is a lower value than the timeout parameter in the user defined function. If this timeout is exceeded,  the scoring operation would timeout.
+`integer DEFAULT NULL` timeout in milliseconds after which the operation is stopped. The deployment of a model itself can have a timeout specified that is a lower value than the timeout parameter in the user defined function. If this timeout is exceeded,  the scoring operation would fail.
 
 ##### `throw_on_error`
 `boolean DEFAULT true` on error should the function throw an exception resulting in a rollback of wrapping transactions.
@@ -55,8 +55,8 @@ azure_ml.inference(input_data jsonb, timeout_ms integer DEFAULT NULL, throw_on_e
 `jsonb` scoring output for the model that was invoked in JSONB.
 
 ## Examples
-### Invoke the maching learning model.
-This calls the model with the input_data returns a jsonb payload.
+### Invoke the matching learning model.
+This calls the model with the input_data and returns a jsonb payload.
 
 ```postgresql
 -- Invoke model, input data depends on the model.
