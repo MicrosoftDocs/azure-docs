@@ -49,7 +49,4 @@ items:
   items:
   - name: REST API Reference
     href: /rest/api/mobilepacketcore 
-- name: Resources
-  items:
-  - name: Azure Operator 5G Core support
-    href: support-5g-core.md     
+  
