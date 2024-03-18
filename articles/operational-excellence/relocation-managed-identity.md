@@ -34,7 +34,7 @@ Managed identities for Azure resources is a feature of Azure Entra UID. Each of 
 ## Prepare and move
 
 1. Copy user-assigned managed identity assigned permissions. You can list [Azure role assignments](/azure/role-based-access-control/role-assignments-list-powershell) but that may not be enough depending on how permissions were granted to the user-assigned managed identity. You should confirm that your solution doesn't depend on permissions granted using a service specific option.
-1. Create a [new user-assigned managed identity](/entra/identity/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-powershell#create-a-user-assigned-managed-identity-2) at the target region.
+1. Create a [new user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-powershell#create-a-user-assigned-managed-identity-2) at the target region.
 1. Grant the managed identity the same permissions as the original identity that it's replacing, including Group membership. You can review [Assign Azure roles to a managed identity](/azure/role-based-access-control/role-assignments-portal-managed-identity), and [Group membership](/entra/fundamentals/groups-view-azure-portal).
 1. Specify the new identity in the properties of the resource instance that uses the newly created user assigned managed identity.
 
