@@ -14,16 +14,27 @@ ms.custom: mvc
 
 # Provide data feedback to Azure Maps
 
-Available since 2018, Azure Maps has been providing fresh map data, easy-to-use REST APIs, and powerful SDKs to support enterprise customers with various business use cases. The real world is constantly changing, and it’s crucial to have factual digital representations. The Azure Maps feedback tool exists to empower customers of both Bing and Azure Maps to communicate issues, which are shared with our data providers and their map editors. They can quickly evaluate and incorporate feedback into our mapping products.  
+Available since 2018, Azure Maps has been providing fresh map data, easy-to-use REST APIs, and powerful SDKs to support enterprise customers with various business use cases. The real world is constantly changing, and it’s crucial to have factual digital representations. The Azure Maps feedback tool exists to empower customers of both Bing and Azure Maps to communicate issues, which are shared with our data providers and their map editors. They can quickly evaluate and incorporate feedback into our mapping products.
+
+## How to access the feedback tool
+
+There are three ways to access the feedback tool.
+
+1. **Azure Maps Account**. You can access the feedback tool in your **Azure Maps Account** from a link in the **Provide Map Data Feedback** tab of the **Overview** section.
+
+    :::image type="content" source="./media/how-to-use-feedback-tool/provide-map-data-feedback-link.png"  lightbox="./media/how-to-use-feedback-tool/provide-map-data-feedback-link.png" alt-text="A screenshot showing the 'Provide Map Data Feedback' link in the overview section of an Azure Maps Account.":::
+
+1. **Web SDK map control**. You can access the feedback tool from a link in the lower right-hand side of the map.
+
+    :::image type="content" source="./media/how-to-use-feedback-tool/web-sdk-map-control.png"  lightbox="./media/how-to-use-feedback-tool/web-sdk-map-control.png" alt-text="A screenshot showing the link to the Azure Maps feedback tool from an Azure Maps map created using the Web SDK map control.":::
+
+1. **URL**. You can access the feedback tool directly from the [Azure Maps feedback tool] URL.
 
 ## Providing feedback
 
 You can provide feedback on any issue you find in an Azure Maps map using the feedback tool. The following example demonstrates how to provide feedback when you encounter a road recently changed to become a two-way road.
 
-1. Navigate to the [Azure Maps feedback tool]. You can access the feedback tool in your **Azure Maps Account** from a link in the **Provide Map Data Feedback** tab of the **Overview** section.
-
-    :::image type="content" source="./media/how-to-use-feedback-tool/provide-map-data-feedback-link.png"  lightbox="./media/how-to-use-feedback-tool/provide-map-data-feedback-link.png" alt-text="A screenshot showing the 'Provide Map Data Feedback' link in the overview section of an Azure Maps Account.":::
-
+1. Navigate to the [Azure Maps feedback tool].
 1. Zoom in to the problem area on the map.
 
     :::image type="content" source="./media/how-to-use-feedback-tool/zoom-in-problem-area.png" lightbox="./media/how-to-use-feedback-tool/zoom-in-problem-area.png" alt-text="A screenshot showing the Azure Maps feedback tool.":::
