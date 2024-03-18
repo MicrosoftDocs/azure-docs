@@ -34,7 +34,7 @@ You can think of it as a thin wrapper that bundles together all the OpenTelemetr
 
 ### Why should I use the "Azure Monitor OpenTelemetry Distro"?
 
-The Azure Monitor OpenTelemetry Distro is the only currently supported way to use OpenTelemetry with Azure Monitor.
+For languages without a standalone OpenTelemetry exporter, including Java and Node.js, the Azure Monitor OpenTelemetry Distro is the only currently supported way to use OpenTelemetry with Azure Monitor. For languages with a standalone OpenTelemetry exporter, including .NET and Python, you have the option of using either the Azure Monitor OpenTelemetry Distro or the appropriate standalone OpenTelemetry exporter depending on your telemetry scenario. For more information, see [When should I use the Azure Monitor OpenTelemetry exporter?](#when-should-i-use-the-azure-monitor-opentelemetry-exporter).
 
 ### How can I test out the Azure Monitor OpenTelemetry Distro?
 

@@ -11,12 +11,13 @@ ms.reviewer: mmcc
 
 # Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python, and Java applications
 
-This article describes how to enable and configure OpenTelemetry-based data collection to power the experiences within [Azure Monitor Application Insights](app-insights-overview.md#application-insights-overview). We walk through how to install the *Azure Monitor OpenTelemetry Distro*. The Distro [automatically collects](opentelemetry-add-modify.md#automatic-data-collection) traces, metrics, logs, and exceptions across your application and its dependencies. 
+This article describes how to enable and configure OpenTelemetry-based data collection to power the experiences within [Azure Monitor Application Insights](app-insights-overview.md#application-insights-overview). We walk through how to install the *Azure Monitor OpenTelemetry Distro*. The Azure Monitor OpenTelemetry Distro provides an [OpenTelemetry distribution](https://opentelemetry.io/docs/concepts/distributions/#what-is-a-distribution) that includes support for features specific to Azure Monitor. The Distro [automatically collects](opentelemetry-add-modify.md#automatic-data-collection) traces, metrics, logs, and exceptions across your application and its dependencies.
+ 
 There are several advantages to using the Azure Monitor OpenTelemetry Distro:
 
 - Reduces enablement effort
 - Supported by Microsoft
-- Brings in Azure Specific features such as:
+- Brings in Azure-specific features such as:
    - Preserves traces with service components using Application Insights SDKs
    - [Microsoft Entra authentication](azure-ad-authentication.md)
    - [Offline Storage and Automatic Retries](opentelemetry-configuration.md#offline-storage-and-automatic-retries)
