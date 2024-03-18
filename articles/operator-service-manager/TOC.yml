@@ -70,10 +70,12 @@
     href: how-to-create-site-network-service.md
   - name: Use Azure Operator Service Manager (AOSM) CLI extension
     href: how-to-use-azure-operator-service-manager-cli-extension.md
+  - name: Onboard a Containerized Network Function (CNF) using the Azure Operator Service Manager (AOSM) CLI Extension
+    href: how-to-onboard-a-cnf-using-the-azure-cli.md
 - name: Resources
   expanded: false
   items:
   - name: Glossary
     href: glossary.md
-  - name: REST API 
+  - name: REST API
     href: /rest/api/hybridnetwork
