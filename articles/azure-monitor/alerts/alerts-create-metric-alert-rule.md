@@ -26,6 +26,15 @@ To create a metric alert rule, you must have the following permissions:
 
 [!INCLUDE [alerts-wizard-access](../includes/alerts-wizard-access.md)]
 
+### Edit an existing alert rule
+
+1. In the [portal](https://portal.azure.com/), either from the home page or from a specific resource, select **Alerts** from the left pane.
+1. Select **Alert rules**.
+1. Select the alert rule you want to edit, and then select **Edit**.
+
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-edit-alert-rule.png" alt-text="Screenshot that shows steps to edit an existing metric alert rule.":::
+1. Select any of the tabs for the alert rule to edit the settings.
+
 [!INCLUDE [alerts-wizard-scope](../includes/alerts-wizard-scope.md)]
 
 ## Configure the alert rule conditions
