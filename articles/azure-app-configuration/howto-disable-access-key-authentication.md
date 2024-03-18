@@ -21,7 +21,6 @@ Disabling access key authentication will delete all access keys. If any running 
 
 > [!WARNING]
 > If any clients are currently accessing data in your Azure App Configuration resource with access keys, then Microsoft recommends that you migrate those clients to [Microsoft Entra ID](./concept-enable-rbac.md) before disabling access key authentication.
-> Additionally, it is recommended to read the [limitations](#limitations) section below to verify the limitations won't affect the intended usage of the resource.
 
 # [Azure portal](#tab/portal)
 

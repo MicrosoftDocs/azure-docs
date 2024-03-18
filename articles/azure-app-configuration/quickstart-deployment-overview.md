@@ -27,7 +27,7 @@ You must have permissions to manage Azure App Configuration resources. Azure rol
 - The Azure Resource Manager Owner role
 - The Azure Resource Manager Contributor role
 
-To learn more about Azure RBAC and Microsoft Entra ID, see [Authorize access to Azure App Configuration using Microsoft Entra ID](./concetp-enable-rbac.md).
+To learn more about Azure RBAC and Microsoft Entra ID, see [Authorize access to Azure App Configuration using Microsoft Entra ID](./concept-enable-rbac.md).
 
 ## Manage Azure App Configuration data in deployment
 
@@ -51,7 +51,7 @@ To configure ARM authentication mode of Azure App Configuration resource in the 
 ---
 
 > [!NOTE]
-> Local authentication mode is for backward compatibility and has several limitations. It does not support proper auditing for accessing data in deployment. Under local authentication mode, key-value data access inside an ARM template/Bicep/Terraform is disabled if [access key authentication is disabled](./howto-disable-access-key-authentication.md#limitations). Azure App Configuration data plane permissions are not required for accessing data under local authentication mode.
+> Local authentication mode is for backward compatibility and has several limitations. It does not support proper auditing for accessing data in deployment. Under local authentication mode, key-value data access inside an ARM template/Bicep/Terraform is disabled if [access key authentication is disabled](./howto-disable-access-key-authentication.md). Azure App Configuration data plane permissions are not required for accessing data under local authentication mode.
 
 ### Azure App Configuration Authorization
 
@@ -60,7 +60,7 @@ In addition to the permissions required for managing Azure App Configuration res
 - App Configuration Data Owner
 - App Configuration Data Reader
 
-To learn more about Azure RBAC and Microsoft Entra ID, see [Authorize access to Azure App Configuration using Microsoft Entra ID](./concetp-enable-rbac.md).
+To learn more about Azure RBAC and Microsoft Entra ID, see [Authorize access to Azure App Configuration using Microsoft Entra ID](./concept-enable-rbac.md).
 
 ### ARM private access
 
@@ -77,7 +77,7 @@ To configure ARM private access of Azure App Configuration resource in the Azure
 
 3. Check **Enable Azure Resource Manager Private Access** under **Private Access**.
 
-    :::image type="content" border="true" source="./media/quickstarts/deployment/enable-arm-private-access.png" alt-text="Screenshot showing pass-through authentication mode being selected under Azure Resource Manager Authentication Mode":::
+    :::image type="content" border="true" source="./media/quickstarts/deployment/enable-arm-private-access.png" alt-text="Screenshot showing Enable Azure Resource Manager Private Access is checked":::
 
 > [!NOTE]
 > ARM private access can only be enabled under pass-through authentication mode.
