@@ -81,7 +81,7 @@ Since you don't create the virtual network and subnets separately from the AKS c
 * Simple websites with low traffic.
 * Lifting and shifting workloads into containers.
 
-For production deployments, both kubenet and Azure CNI are valid options. Environments which require separation of control and management, Azure CNI may the preferred option. However, services such as “Calico” and Azure Network Security Groups can serve to protect resources for Kubenet deployments. Additionally, kubenet is suited for Linux only environments where IP address range conservation is a priority.
+For production deployments, both kubenet and Azure CNI are valid options. Environments which require separation of control and management, Azure CNI may the preferred option.  Additionally, kubenet is suited for Linux only environments where IP address range conservation is a priority.
 
 You can also [configure your own IP address ranges and virtual networks using kubenet][aks-configure-kubenet-networking]. Like Azure CNI networking, these address ranges shouldn't overlap each other or any networks associated with the cluster (virtual networks, subnets, on-premises and peered networks).
 
