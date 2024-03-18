@@ -4,7 +4,7 @@ description: Learn to improve network performance and eliminate errors using UDR
 author: mbender-ms
 ms.author: mbender
 ms.topic: overview 
-ms.date: 03/05/2024
+ms.date: 03/18/2024
 ms.service: virtual-network-manager
 # Customer Intent: As a network engineer, I want learn how I can automate UDR management to improve network performance and eliminate errors in Azure Virtual Network Manager.
 ---
@@ -17,7 +17,7 @@ User-defined Route(UDR) management allows customers to describe their designed r
 
 ## Why UDR management is important
 
-We are addressing the need for automation and simplification in managing routing behaviors. Customers often desire to achieve various routing behaviors, and currently, they resort to manually creating User-Defined Routes (UDRs) or utilizing custom scripts. However, these methods are prone to errors and overly complicated. Some customers also utilize the Azure-managed hub in Virtual WAN, but this option has certain limitations (such as the inability to customize the hub or lack of IPV6 support) that may not be relevant to all customers.
+We're addressing the need for automation and simplification in managing routing behaviors. Customers often desire to achieve various routing behaviors, and currently, they resort to manually creating User-Defined Routes (UDRs) or utilizing custom scripts. However, these methods are prone to errors and overly complicated. Some customers also utilize the Azure-managed hub in Virtual WAN, but this option has certain limitations (such as the inability to customize the hub or lack of IPV6 support) not be relevant to all customers.
 
 ## How does UDR management works
 
@@ -29,7 +29,7 @@ In virtual network manager, you create rule collections to describe the UDRs nee
 - Next hop
 - Route destination 
 
-Routing configurations create UDRs for customers based on what the route rules specify. For example, you can specify that the spoke network network group, consisting of two virtual networks, VNet1 and VNet2s, accesses the DNS service's address through a Firewall. Your network manager will then create UDRs to make this routing behavior happen.
+Routing configurations create UDRs for customers based on what the route rules specify. For example, you can specify that the spoke network group, consisting of two virtual networks, *VNet1* and *VNet2*, accesses the DNS service's address through a Firewall. Your network manager will then create UDRs to make this routing behavior happen.
 
 :::image type="content" source="media/concept-udr-management/udr-management-example.png" alt-text="Diagram of user-defined rules being applied to virtual networks to route DNS traffic through firewall.":::
 
@@ -43,11 +43,11 @@ Here are the common routing scenarios that you can simplify and automate by usin
 | **Routing scenarios**                              | **Description**  |
 |--------------------------------------------------|---------------|
 | Spoke network -> Network Virtual Appliance -> Spoke network |  Use this scenario for traffic bound between two spoke virtual networks connecting through a network virtual appliance. |
-| Spoke network -> Network Virtual Appliance -> Endpoint or Sevice in Hub network | Use this scenario for traffic from a spoke network to a service endpoint in a hub network connecting through a network virtual appliance. |
-| Subnet -> Network Virtual Appliance -> Subnet even in the same VNet |              |
-| Spoke network -> Network Virtual Appliance -> On-premises network/internet | Use this scenario when you have traffic outbound through a network virtual appliance to the Internet or a on-premises location, such as hybrid network scenarios. |
+| Spoke network -> Network Virtual Appliance -> Endpoint or Service in Hub network | Use this scenario for traffic from a spoke network to a service endpoint in a hub network connecting through a network virtual appliance. |
+| Subnet -> Network Virtual Appliance -> Subnet even in the same virtual network |              |
+| Spoke network -> Network Virtual Appliance -> On-premises network/internet | Use this scenario when you have traffic outbound through a network virtual appliance to the Internet or an on-premises location, such as hybrid network scenarios. |
 | Cross-hub and spoke network via Network Virtual Appliances in each hub |              |
-| hub and spoke network with Spoke network to onprem needs to go via Network Virtual Appliance | 6             |
+| hub and spoke network with Spoke network to on-premises needs to go via Network Virtual Appliance | 6             |
 | GW -> Network Virtual Appliance -> Spoke network                               |              |
 
 ## Next step
