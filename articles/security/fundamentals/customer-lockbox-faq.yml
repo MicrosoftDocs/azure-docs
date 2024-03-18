@@ -21,15 +21,15 @@ sections:
       - question: |
           What does Microsoft do when a customer rejects a Customer Lockbox request?
         answer: |
-          If a customer rejects a Customer Lockbox request, no access to customer content occurs. If a user in your organization continues to experience a service issue requiring Microsoft to access customer content to resolve the issue, then the service issue might persist and Microsoft will inform the user about this.
+          If a customer rejects a Customer Lockbox request, no access to customer content occurs. If a user in your organization continues to experience a service issue requiring Microsoft to access customer content to resolve the issue, then the service issue might persist and Microsoft will inform the user.
       - question: |
           Can I assign the Customer Lockbox approver role at the management group level?
         answer: |
           No, role assignments scoped to management groups are not supported in Customer Lockbox for Microsoft Azure at this time.
       - question: |
-          Can I use PIM to activate the Customer Lockbox approver role after a Customer Lockbox request is initiated?
+          Can I use Privileged Identity Management (PIM) to activate the Customer Lockbox approver role after a Customer Lockbox request is initiated?
         answer: |
-          Role assignments must be in place before Customer Lockbox for Microsoft Azure starts to process a request. Any role assignments made after Customer Lockbox for Microsoft Azure starts to process a given request will not be recognized. Because of this, to use PIM eligible assignments for the Customer Lockbox approver role, users are required to activate the role before the Customer Lockbox request is initiated.
+          Role assignments must be in place before Customer Lockbox for Microsoft Azure starts to process a request. Any role assignments made after Customer Lockbox for Microsoft Azure starts to process a given request will not be recognized. Using PIM eligible assignments for the Customer Lockbox approver role requires users to activate the role before the Customer Lockbox request is initiated.
 
   - name: Customer Lockbox Approver Role for Subscriptions (public preview)
     questions:
@@ -55,11 +55,11 @@ sections:
       - question: |
           If I add a second user's email address as an alternate email to an existing Customer Lockbox approver user's account, will the second user be able to see and approve/reject Customer Lockbox requests?
         answer: |
-          No, this feature only allows customers to receive Customer Lockbox request notifications on alternate email addresses, but it does not provide the ability to configure other users as Customer Lockbox approvers. For example, Alice has the subscription owner role for subscription X and she adds Bob's email address as alternate email/other email in her user profile who has a reader role. When a Customer Lockbox request is created for a resource scoped to subscription ‘X', Bob will receive the email notification, but he'll not be able to approve/reject the Customer Lockbox request as he does not have the required privileges for it (subscription owner role).
+          No, this feature only allows customers to receive Customer Lockbox request notifications on alternate email addresses, but it does not provide the ability to configure other users as Customer Lockbox approvers. For example, Alice has the subscription owner role for subscription X and she adds Bob's email address as alternate email/other email in her user profile who has a reader role. When a Customer Lockbox request is created for a resource scoped to subscription "X", Bob receives the email notification, but he'll not be able to approve/reject the Customer Lockbox request as he does not have the required privileges for it (subscription owner role).
       - question: |
           Can I add more than one alternate email address to a user account?
         answer: |
-          You can add multiple email addresses in the other field but currently Customer Lockbox for Microsoft Azure supports sending notifications only to the first email address in "other emails" despite multiple email ids configured.
+          You can add multiple email addresses in the other field but currently Customer Lockbox for Microsoft Azure supports sending notifications only to the first email address in "other emails" despite multiple email IDs configured.
       - question: |
           Can I use alternate email notification functionality with Microsoft Purview Customer Lockbox or Customer Lockbox for Power Platform and Dynamics 365?
         answer: |
@@ -67,7 +67,7 @@ sections:
       - question: |
           Will the alternate email notification work for both tenant-scoped and subscription-scoped Customer Lockbox requests?
         answer: |
-          Yes, alternate email notifications will work for all Customer Lockbox requests.
+          Yes, alternate email notifications work for all Customer Lockbox requests.
 
 additionalContent: |
 
