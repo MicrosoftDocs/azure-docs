@@ -87,7 +87,7 @@ The following properties are supported for PostgreSQL linked service:
 | ***Additional connection properties:*** |  |  |
 | schema | Sets the schema search path. | No |
 | pooling | Whether connection pooling should be used. | No |
-| timeout | The time to wait (in seconds) while trying to establish a connection before terminating the attempt and generating an error. | No |
+| connectionTimeout | The time to wait (in seconds) while trying to establish a connection before terminating the attempt and generating an error. | No |
 | commandTimeout | The time to wait (in seconds) while trying to execute a command before terminating the attempt and generating an error. Set to zero for infinity. | No |
 | trustServerCertificate | Whether to trust the server certificate without validating it. | No |
 | sslCertificate | Location of a client certificate to be sent to the server. | No |
