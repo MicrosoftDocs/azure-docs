@@ -38,11 +38,9 @@ Azure Monitor managed service for Prometheus supports recording rules and alert 
 
 Alerts fired by alert rules can trigger actions or notifications, as defined in the [action groups](../alerts/action-groups.md) configured for the alert rule. You can also view fired and resolved Prometheus alerts in the Azure portal along with other alert types. 
 
-## Service limits & quotas
+## Service limits and quotas
 
-See [Azure Monitor service limits](../service-limits.md#prometheus-metrics) for service limits and quotas for Azure Monitor Managed service for Prometheus.
-
-There are some default quotas for ingestion limits applied to Azure Monitor Managed service for Prometheus and you can request an increase for the same. To see the ingestion quotas and their usage, see [monitor and request a quota increase](../containers/prometheus-metrics-troubleshoot.md#metrics-throttling).
+Azure Monitor Managed service for Prometheus has default limits and quotas for ingestion. When you reach the ingestion limits throttling can occur. You can request an increase in these limits. For more information on throttling and requesting increased limits, see [Metrics throttling](../containers/prometheus-metrics-troubleshoot.md#metrics-throttling). For information on Prometheus metrics limits, see [Azure Monitor service limits](../service-limits.md#prometheus-metrics).
 
 ## Limitations/Known issues - Azure Monitor managed Service for Prometheus
 
