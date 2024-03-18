@@ -60,7 +60,7 @@ const { OpenAIClient, AzureKeyCredential } = require("@azure/openai");
 
 // You will need to set these environment variables or edit the following values
 const endpoint = process.env["AZURE_OPENAI_ENDPOINT"] ;
-const azureApiKey = process.env["AZURE_OPENAI_KEY"] ;
+const azureApiKey = process.env["AZURE_OPENAI_API_KEY"] ;
 
 // The prompt to generate images from
 const prompt = "a monkey eating a banana";

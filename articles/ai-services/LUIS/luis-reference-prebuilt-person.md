@@ -80,6 +80,6 @@ The following example shows the resolution of the **builtin.personName** entity.
 
 ## Next steps
 
-Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
+
 
 Learn about the [email](luis-reference-prebuilt-email.md), [number](luis-reference-prebuilt-number.md), and [ordinal](luis-reference-prebuilt-ordinal.md) entities.

@@ -110,6 +110,7 @@ Find more open-source Azure Maps projects.
 [Azure Maps Jupyter Notebook samples]: https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook
 [Azure Maps Leaflet plugin]: https://github.com/azure-samples/azure-maps-leaflet
 [Azure Maps OpenLayers plugin]: https://github.com/azure-samples/azure-maps-openlayers
+[Azure Maps Open Source Projects]: https://github.com/Microsoft/Maps/blob/master/AzureMaps.md
 [Azure Maps Overview Map module]: https://github.com/Azure-Samples/azure-maps-overview-map
 [Azure Maps Scale Bar Control module]: https://github.com/Azure-Samples/azure-maps-scale-bar-control
 [Azure Maps Selection Control module]: https://github.com/Azure-Samples/azure-maps-selection-control
@@ -123,7 +124,7 @@ Find more open-source Azure Maps projects.
 [BotBuilder Location]: https://github.com/Microsoft/BotBuilder-Location
 [Cesium JS]: https://cesium.com/cesiumjs/
 [Code samples]: /samples/browse/?products=azure-maps
-[geocoding services]: /rest/api/maps/search?view=rest-maps-1.0
+[geocoding services]: /rest/api/maps/search?view=rest-maps-1.0&preserve-view=true
 [Implement IoT spatial analytics using Azure Maps]: https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing
 [leaflet]: https://leafletjs.com
 [LiveMaps]: https://github.com/Azure-Samples/LiveMaps

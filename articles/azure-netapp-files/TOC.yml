@@ -51,6 +51,10 @@
         href: network-file-system-group-memberships.md
       - name: Understand file locking
         href: understand-file-locks.md  
+      - name: Understand volume languages
+        href: understand-volume-languages.md
+      - name: Understand file path lengths 
+        href: understand-path-lengths.md 
   - name: Azure NetApp Files essentials 
     items:
     - name: Storage hierarchy of Azure NetApp Files

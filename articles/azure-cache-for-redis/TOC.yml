@@ -127,14 +127,16 @@
     href: cache-best-practices-scale.md
   - name: Server load management best practice
     href: cache-best-practices-server-load.md
+  - name: Performance testing
+    href: cache-best-practices-performance.md
 
 
 - name: Authentication and authorization
   items:
-  - name: Role-based access control
-    href: cache-configure-role-based-access-control.md
   - name: Microsoft Entra ID for authentication
     href: cache-azure-active-directory-for-authentication.md
+  - name: Role-based access control
+    href: cache-configure-role-based-access-control.md
   - name: Managed identity for storage accounts
     href: cache-managed-identity.md
 
@@ -236,11 +238,11 @@
       href: cache-best-practices-kubernetes.md
   - name: Artificial Intelligence
     items:
-      - name: Vector Search
+      - name: Vector search concepts
         href: cache-overview-vector-similarity.md
       - name: Vector similarity search
         href: cache-tutorial-vector-similarity.md
-      - name: Semantic caching search
+      - name: Semantic caching
         href: cache-tutorial-semantic-cache.md
   - name: ASP.NET
     items:

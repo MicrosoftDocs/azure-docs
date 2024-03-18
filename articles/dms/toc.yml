@@ -109,6 +109,8 @@
       href: tutorial-mysql-azure-mysql-offline-portal.md
     - name: to Azure Database for MySQL (online)
       href: tutorial-mysql-azure-external-to-flex-online-portal.md 
+    - name: to Azure Database for MySQL (Replicate Changes)
+      href: tutorial-mysql-azure-external-replicate-changes-portal.md       
   - name: Migrate Azure DB for MySQL - Single Server
     items:
     - name: to Azure DB for MySQL Flexible Server (online)

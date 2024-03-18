@@ -86,7 +86,7 @@ Azure Storage tasks are supported in the following public regions:
 
 ## Pricing and billing
 
-List pricing information here.
+You can try the feature for free during the preview, paying only for transactions invoked on your storage account. Pricing information for the feature will be published before general availability.
 
 ## Next steps
 

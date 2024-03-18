@@ -42,7 +42,7 @@ On a Windows 64-bit machine with [Python2.7](https://www.python.org/downloads/re
 C:\Python27\Scripts\pip2.7.exe download -d <output dir> <package name>
 ```
 
-Once the packages are downloaded, you can import them into your automation account.
+Once the packages are downloaded, you can import them into your Automation account.
 
 ### Runbook
 

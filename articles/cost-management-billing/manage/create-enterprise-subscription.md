@@ -7,7 +7,7 @@ ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 04/18/2023
+ms.date: 02/16/2024
 ms.author: banders
 ---
 
@@ -25,11 +25,14 @@ To learn more about billing accounts and identify your billing account type, see
 
 You need the following permissions to create subscriptions for an EA:
 
--  Account Owner role on the Enterprise Agreement enrollment. For more information, see [Understand Azure Enterprise Agreement administrative roles in Azure](understand-ea-roles.md).
+- An Enterprise Administrator can create a new subscription under any active enrollment account.
+- Account Owner role on the Enterprise Agreement enrollment.
+
+For more information, see [Understand Azure Enterprise Agreement administrative roles in Azure](understand-ea-roles.md).
 
 ## Create an EA subscription
 
-An account owner uses the following information to create an EA subscription.
+A user with Enterprise Administrator or Account Owner permissions can use the following steps to create a new EA subscription.
 
 >[!NOTE]
 > If you want to create an Enterprise Dev/Test subscription, an enterprise administrator must enable account owners to create them. Otherwise, the option to create them isn't available. To enable the dev/test offer for an enrollment, see [Enable the enterprise dev/test offer](direct-ea-administration.md#enable-the-enterprise-devtest-offer).
@@ -46,7 +49,7 @@ An account owner uses the following information to create an EA subscription.
 1. Select your **Subscription directory**. It's the Microsoft Entra ID where the new subscription will get created.
 1. Select a **Management group**. It's the Microsoft Entra management group that the new subscription is associated with. You can only select management groups in the current directory.
 1. Select more or more **Subscription owners**. You can select only users or service principals in the selected subscription directory. You can't select guest directory users. If you select a service principal, enter its App ID.   
-    :::image type="content" source="./media/create-enterprise-subscription/create-subscription-advanced-tab.png" alt-text="Screenshot showing the Advanced tab where you specify the directory, management group, and owner for the EA subscription. " lightbox="./media/create-enterprise-subscription/create-subscription-advanced-tab.png" :::
+    :::image type="content" source="./media/create-enterprise-subscription/create-subscription-advanced-tab.png" alt-text="Screenshot showing the Advanced tab where you specify the directory, management group, and owner for the EA subscription." lightbox="./media/create-enterprise-subscription/create-subscription-advanced-tab.png" :::
 1. Select the **Tags** tab.
 1. Enter tag pairs for **Name** and **Value**.  
     :::image type="content" source="./media/create-enterprise-subscription/create-subscription-tags-tab.png" alt-text="Screenshot showing the tags tab where you enter tag and value pairs." lightbox="./media/create-enterprise-subscription/create-subscription-tags-tab.png" :::

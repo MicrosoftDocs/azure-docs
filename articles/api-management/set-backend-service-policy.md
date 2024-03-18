@@ -6,12 +6,14 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 12/02/2022
+ms.date: 03/14/2024
 ms.author: danlep
 ---
 
 # Set backend service
-Use the `set-backend-service` policy to redirect an incoming request to a different backend than the one specified in the API settings for that operation. This policy changes the backend service base URL of the incoming request to the one specified in the policy.
+Use the `set-backend-service` policy to redirect an incoming request to a different backend than the one specified in the API settings for that operation. This policy changes the backend service base URL of the incoming request to a URL or [backend](backends.md) specified in the policy.
+
+Referencing a backend entity allows you to manage the backend service base URL and other settings in a single place and reuse them across multiple APIs and operations. Also implement [load balancing of traffic across a pool of backend services](backends.md#load-balanced-pool-preview) and [circuit breaker rules](backends.md#circuit-breaker-preview) to protect the backend from too many requests.
 
 > [!NOTE]
 > Backend entities can be managed via [Azure portal](how-to-configure-service-fabric-backend.md), management [API](/rest/api/apimanagement), and [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement). 
@@ -29,7 +31,7 @@ Use the `set-backend-service` policy to redirect an incoming request to a differ
 | Attribute         | Description                                            | Required | Default |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
 |base-url|New backend service base URL. Policy expressions are allowed.|One of `base-url` or `backend-id` must be present.|N/A|
-|backend-id|Identifier (name) of the backend to route primary or secondary replica of a partition. Policy expressions are allowed. |One of `base-url` or `backend-id` must be present.|N/A|
+|backend-id|Identifier (name) of the [backend](backends.md) to route primary or secondary replica of a partition. Policy expressions are allowed. |One of `base-url` or `backend-id` must be present.|N/A|
 |sf-resolve-condition|Only applicable when the backend is a Service Fabric service. Condition identifying if the call to Service Fabric backend has to be repeated with new resolution. Policy expressions are allowed.|No|N/A|
 |sf-service-instance-name|Only applicable when the backend is a Service Fabric service. Allows changing service instances at runtime. Policy expressions are allowed. |No|N/A|
 |sf-partition-key|Only applicable when the backend is a Service Fabric service. Specifies the partition key of a Service Fabric service. Policy expressions are allowed. |No|N/A|

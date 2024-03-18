@@ -11,6 +11,9 @@ ms.author: anfdocs
 
 # Understand NFSv4.x access control lists in Azure NetApp Files
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 The NFSv4.x protocol can provide access control in the form of [access control lists (ACLs)](/windows/win32/secauthz/access-control-lists), which conceptually similar to ACLs used in [SMB via Windows NTFS permissions](network-attached-file-permissions-smb.md). An NFSv4.x ACL consists of individual [Access Control Entries (ACEs)](/windows/win32/secauthz/access-control-entries), each of which provides an access control directive to the server. 
 
 :::image type="content" source="./media/nfs-access-control-lists/access-control-entity-to-client-diagram.png" alt-text="Diagram of access control entity to Azure NetApp Files." lightbox="./media/nfs-access-control-lists/access-control-entity-to-client-diagram.png":::

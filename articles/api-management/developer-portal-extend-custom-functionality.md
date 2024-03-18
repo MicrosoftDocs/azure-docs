@@ -7,6 +7,7 @@ ms.author: danlep
 ms.date: 10/27/2023
 ms.service: api-management
 ms.topic: how-to
+ms.custom: devx-track-extended-azdevcli
 ---
 
 # Extend the developer portal with custom widgets

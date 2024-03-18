@@ -8,8 +8,8 @@ ms.author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
 
-ms.topic: conceptual
-ms.date: 01/11/2024
+ms.topic: concept-article
+ms.date: 02/05/2024
 ms.subservice: B2C
 
 
@@ -25,6 +25,7 @@ The following best practices and recommendations cover some of the primary aspec
 
 | Best practice | Description |
 |--|--|
+| Create emergency access account | This emergency access account helps you gain access to your Azure AD B2C tenant in circumstances such as the only administrator is unreachable when the credential is needed. [Learn how to create an emergency access account](tenant-management-emergency-access-account.md#create-emergency-access-account)  |
 | Choose user flows for most scenarios | The Identity Experience Framework of Azure AD B2C is the core strength of the service. Policies fully describe identity experiences such as sign-up, sign-in, or profile editing. To help you set up the most common identity tasks, the Azure AD B2C portal includes predefined, configurable policies called user flows. With user flows, you can create great user experiences in minutes, with just a few clicks. [Learn when to use user flows vs. custom policies](user-flow-overview.md#comparing-user-flows-and-custom-policies).|
 | App registrations | Every application (web, native) and API that is being secured must be registered in Azure AD B2C. If an app has both a web and native version of iOS and Android, you can register them as one application in Azure AD B2C with the same client ID. Learn how to [register OIDC, SAML, web, and native apps](./tutorial-register-applications.md?tabs=applications). Learn more about [application types that can be used in Azure AD B2C](./application-types.md). |
 | Move to monthly active users billing | Azure AD B2C has moved from monthly active authentications to monthly active users (MAU) billing. Most customers will find this model cost-effective. [Learn more about monthly active users billing](https://azure.microsoft.com/updates/mau-billing/). |

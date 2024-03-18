@@ -302,3 +302,5 @@ In this quickstart, you learned how to use Azure Cache for Redis from a Java app
 
 > [!div class="nextstepaction"]
 > [Create an ASP.NET web app that uses an Azure Cache for Redis.](./cache-web-app-howto.md)
+> [!div class="nextstepaction"]
+> [Use Java with Azure Cache for Redis on Azure Kubernetes Service](/azure/developer/java/ee/how-to-deploy-java-liberty-jcache)
