@@ -83,11 +83,16 @@ To view Log Analytics workspace health metrics:
 1. Select **Metrics** from the Log Analytics workspace menu. This opens [Metrics Explorer](../essentials/metrics-charts.md) in context of your Log Analytics workspace.
 1. In the **Metric** field, select one of the Log Analytics workspace health metrics:
 
-   | Metric name | Description |
-   | - | - |
-   | Query count | Total number of user queries in the Log Analytics workspace within the selected time range.<br>This number includes only user-initiated queries, and doesn't include queries initiated by Sentinel rules and alert-related queries. |
-   | Query failure count | Total number of failed user queries in the Log Analytics workspace within the selected time range.<br>This number includes all queries that return 5XX response codes - except 504 *Gateway Timeout* - which indicate an error related to the application gateway or the backend server.|
-   | AvailabilityRate_Query | Percentage of successful user queries in the Log Analytics workspace within the selected time range.<br>This number includes all queries that return 2XX, 4XX, and 504 response codes; in other words, all user queries that don't result in a service error. |
+   | Category | Metric name | Scope | Description |
+   | - | - | - | - |
+   | SLI | AvailabilityRate_Query | Workspace | Percentage of successful user queries in the Log Analytics workspace within the selected time range.<br>This number includes all queries that return 2XX, 4XX, and 504 response codes; in other words, all user queries that don't result in a service error. |
+   | SLI | Ingestion Time | Workspace or table | Time in seconds it took since record recieved in Azure Monitor Logs cloud service until it was available for queries. It is recommended to examine ingestion time for specific tables. See more details [here](./data-ingestion-time.md). |
+   | SLI | Ingestion Volume | Workspace or table | Number of records ingested into a workspace or a table. |
+   | User Queries | Query count | Workspace | Total number of user queries in the Log Analytics workspace within the selected time range.<br>This number includes only user-initiated queries, and doesn't include queries initiated by Sentinel rules and alert-related queries. |
+   | User Queries | Query failure count | Workspace | Total number of failed user queries in the Log Analytics workspace within the selected time range.<br>This number includes all queries that return 5XX response codes - except 504 *Gateway Timeout* - which indicate an error related to the application gateway or the backend server.|
+   | [Data Export](./logs-data-export.md) | Bytes Exported | Workspace | Total number of bytes exported to destination from Log Analytics workspace within the selected time range. The size of data exported is the number of bytes in the exported JSON formatted data. 1 GB = 10^9 bytes. |
+   | [Data Export](./logs-data-export.md) | Export Failures | Workspace | Total number of failed export requests in the Log Analytics workspace within the selected time range. <br>This number includes export failures that can result by Azure Monitor, destination resource availability, or throttling.  |
+   | [Data Export](./logs-data-export.md) | Records exported | Workspace | Total number of records exported from Log Analytics workspace within the selected time range. |   
 
 ## Investigate Log Analytics workspace health issues
 

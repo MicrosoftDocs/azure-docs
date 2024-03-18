@@ -38,15 +38,16 @@ To learn how to move your virtual network using Resource Mover, see [Move Azure 
 
 ## Prerequisites
 
-- Identify any independent resources that are also associated with the virtual network, such as:
-    - [Network Peering](/azure/virtual-network/virtual-network-peering-overview)
-    - [Load Balancer](/azure/load-balancer/load-balancer-overview)
-    - [User Defined Routes (UDR)](/azure/virtual-network/virtual-networks-udr-overview#user-defined)
-    - [NAT gateway](/azure/nat-gateway/nat-overview)
-    - [DDOS Protection Plan](/azure/ddos-protection/)
-    - [Network Security Group (NSG)](./relocation-virtual-network-nsg.md)
-    - [Reserved private IP address (public static IP address)](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip)
-    - [Application Security Groups (ASG)](/azure/virtual-network/application-security-groups)
+- Identify any dependent resources that are also associated with the virtual network, such as:
+
+- [Network Peering](/azure/virtual-network/virtual-network-peering-overview)
+  - [Load Balancer](/azure/load-balancer/load-balancer-overview)
+  - [User Defined Routes (UDR)](/azure/virtual-network/virtual-networks-udr-overview#user-defined)
+  - [NAT gateway](/azure/nat-gateway/nat-overview)
+  - [DDOS Protection Plan](/azure/ddos-protection/)
+  - [Network Security Group (NSG)](./relocation-virtual-network-nsg.md)
+  - [Reserved private IP address (public static IP address)](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip)
+  - [Application Security Groups (ASG)](/azure/virtual-network/application-security-groups)
 
 - Confirm that your virtual network is in the source Azure region.
 
