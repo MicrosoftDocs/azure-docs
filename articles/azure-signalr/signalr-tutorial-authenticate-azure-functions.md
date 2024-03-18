@@ -24,7 +24,7 @@ In this step-by-step tutorial, you build a chat room with authentication and pri
 > [!NOTE]
 > You can get the code mentioned in this article from [GitHub](https://github.com/aspnet/AzureSignalR-samples/blob/90523e17ee5fec184a197b143bb5070bc6d4f312/samples/ServerlessChatWithAuth/v4-model/).
 
-# [Isolated process](#tab/isolated-process)
+# [Model v3](#tab/nodejs-v3)
 
 > [!NOTE]
 > You can get the code mentioned in this article from [GitHub](https://github.com/aspnet/AzureSignalR-samples/blob/90523e17ee5fec184a197b143bb5070bc6d4f312/samples/ServerlessChatWithAuth/v3-model/).
@@ -236,48 +236,48 @@ The web app also requires an HTTP API to send chat messages. Create an HTTP trig
 # [Model v4](#tab/nodejs-v4)
 1. From the root project folder, create an HTTP trigger function named `sendMessage` from the template by using the following command:
 
-```bash
-func new --name sendMessage --template "Http trigger"
-```
+  ```bash
+  func new --name sendMessage --template "Http trigger"
+  ```
 
 1. Open the _src/functions/sendMessage.js_ file, update the content as follows:
 
-```js
-const { app, output } = require('@azure/functions');
+  ```js
+  const { app, output } = require('@azure/functions');
 
-const signalR = output.generic({
-    type: 'signalR',
-    name: 'signalR',
-    hubName: 'default',
-    connectionStringSetting: 'AzureSignalRConnectionString',
-});
+  const signalR = output.generic({
+      type: 'signalR',
+      name: 'signalR',
+      hubName: 'default',
+      connectionStringSetting: 'AzureSignalRConnectionString',
+  });
 
-app.http('messages', {
-    methods: ['POST'],
-    authLevel: 'anonymous',
-    extraOutputs: [signalR],
-    handler: async (request, context) => {
-        const message = await request.json();
-        message.sender = request.headers && request.headers.get('x-ms-client-principal-name') || '';
+  app.http('messages', {
+      methods: ['POST'],
+      authLevel: 'anonymous',
+      extraOutputs: [signalR],
+      handler: async (request, context) => {
+          const message = await request.json();
+          message.sender = request.headers && request.headers.get('x-ms-client-principal-name') || '';
 
-        let recipientUserId = '';
-        if (message.recipient) {
-            recipientUserId = message.recipient;
-            message.isPrivate = true;
-        }
-        context.extraOutputs.set(signalR,
-            {
-                'userId': recipientUserId,
-                'target': 'newMessage',
-                'arguments': [message]
-            });
-    }
-});
-```
+          let recipientUserId = '';
+          if (message.recipient) {
+              recipientUserId = message.recipient;
+              message.isPrivate = true;
+          }
+          context.extraOutputs.set(signalR,
+              {
+                  'userId': recipientUserId,
+                  'target': 'newMessage',
+                  'arguments': [message]
+              });
+      }
+  });
+  ```
 
-The function contains an HTTP trigger and a SignalR output binding. It takes the body from the HTTP request and sends it to clients connected to Azure SignalR Service. It invokes a function named `newMessage` on each client.
+  The function contains an HTTP trigger and a SignalR output binding. It takes the body from the HTTP request and sends it to clients connected to Azure SignalR Service. It invokes a function named `newMessage` on each client.
 
-The function can read the sender's identity and can accept a `recipient` value in the message body to allow you to send a message privately to a single user. You'll use these functionalities later in the tutorial.
+  The function can read the sender's identity and can accept a `recipient` value in the message body to allow you to send a message privately to a single user. You'll use these functionalities later in the tutorial.
 
 1. Save the file.
 
@@ -285,9 +285,9 @@ The function can read the sender's identity and can accept a `recipient` value i
 
 1. From the root project folder, create an HTTP trigger function named `sendMessage` from the template by using the following command:
 
-```bash
-func new --name sendMessage --template "Http trigger"
-```
+  ```bash
+  func new --name sendMessage --template "Http trigger"
+  ```
 
 1. To configure bindings for the function, replace the content of _sendMessage/function.json_ with the following code:
 
