@@ -224,10 +224,16 @@
         items:
         - name: Overview
           href: business-applications/power-platform-solution-overview.md 
+          displayName: Power Platform
         - name: Content overview
+          displayName: Power Platform
           href: business-applications/power-platform-solution-security-content.md
         - name: Deploy solution
+          displayName: Power Platform
           href: business-applications/deploy-power-platform-solution.md
+        - name: Troubleshoot
+          displayName: Power Platform
+          href: business-applications/power-platform-solution-troubleshoot.md
   - name: Integrate Microsoft Defender for IoT
     items:
     - name: Connect Defender for IoT data with Microsoft Sentinel
