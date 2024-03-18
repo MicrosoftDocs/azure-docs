@@ -57,7 +57,7 @@ You must have permissions to read and manage Azure App Configuration data during
 To learn more about Azure RBAC and Microsoft Entra ID, see [Authorize access to Azure App Configuration using Microsoft Entra ID](./concetp-enable-rbac.md)
 
 ### ARM prviate access
-[Azure Resource Management Private Link]() can be set up to restrict access for managing resources in your virtual network. Azure App Configuration supports ARM Private Link access to the App Configuration data with pass-through authentication mode and ARM private access enabled. 
+[Azure Resource Management Private Link](../../includes/resource-manager-create-rmpl.md) can be set up to restrict access for managing resources in your virtual network. Azure App Configuration supports ARM Private Link access to the App Configuration data with pass-through authentication mode and ARM private access enabled. 
 
 # [Azure portal](#tab/portal)
 
