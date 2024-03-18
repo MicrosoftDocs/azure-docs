@@ -46,6 +46,8 @@
     items:
     - name: Administer Arc-enabled SCVMM
       href: administer-arc-scvmm.md
+    - name: Remove your SCVMM environment from Azure Arc
+      href: remove-scvmm-from-azure-arc.md
     - name: Perform recovery operations for Arc resource bridge
       href: disaster-recovery.md
 
