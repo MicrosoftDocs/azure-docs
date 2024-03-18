@@ -1,20 +1,20 @@
 ---
-title: What is the Data Product Factory (preview) for Azure Operator Insights?
-description: Learn about the Data Product Factory (preview) for Azure Operator Insights, and how it can help you design and create new Data Products.
+title: What is the data product factory (preview) for Azure Operator Insights?
+description: Learn about the data product factory (preview) for Azure Operator Insights, and how it can help you design and create new Data Products.
 author: rcdun
 ms.author: rdunstan
 ms.reviewer: sergeyche
 ms.service: operator-insights
 ms.topic: overview
 
-#CustomerIntent: As a partner developing a Data Product, I want to understand what the Data Product Factory is so that I can use it.
+#CustomerIntent: As a partner developing a Data Product, I want to understand what the data product factory is so that I can use it.
 ---
 
-# What is the Data Product Factory (preview) for Azure Operator Insights?
+# What is the data product factory (preview) for Azure Operator Insights?
 
-The Azure Operator Insights Data Product Factory (preview) allows partners to easily design and create new Data Products for the Azure Operator Insights platform. Partners can develop pipelines to analyze network data and offer insights and proactive troubleshooting with generative AI, while allowing the Azure Operator Insights platform to process operator-scale data.
+The data product factory (preview) for Azure Operator Insights allows partners to easily design and create new Data Products for the Azure Operator Insights platform. Partners can develop pipelines to analyze network data and offer insights and proactive troubleshooting with generative AI, while allowing the Azure Operator Insights platform to process operator-scale data.
 
-:::image type="content" source="media/data-product-factory/data-product-factory.png" alt-text="The Data Product Factory is based on Azure Operator Insights Platform. You can publish to the Azure Marketplace.":::
+:::image type="content" source="media/data-product-factory/data-product-factory.png" alt-text="The data product factory is based on Azure Operator Insights Platform. You can publish to the Azure Marketplace.":::
 
 ## Data Products and data meshes
 
@@ -24,9 +24,9 @@ All Data Products can include prebuilt dashboards to allow operators to start an
 
 Data Products share a standardized and composable architecture and use the Azure Operator Insights platform to process data. The common features allow partners to develop individual data products or combine them together in a data mesh. Combining data products together allows end-to-end insights for operator multi-site multi-vendor networks.
 
-## Features of the Data Product Factory (preview)
+## Features of the data product factory (preview)
 
-The Data Product Factory (preview) offers:
+The data product factory (preview) offers:
 
 - Integration with Azure Marketplace for discoverability and monetization.
 - Acceleration of time to business value with "no code" / "low code" techniques that allow rapid onboarding of new data sources from operator networks, more quickly than IT-optimized toolkits.
@@ -39,13 +39,13 @@ The Data Product Factory (preview) offers:
   - Integration into workflow and ticketing systems empowering automation based on AI-generated insights.
   - Integration into network-wide management solutions such as OSS/NMS platforms.
 
-## Using the Data Product Factory (preview)
+## Using the data product factory (preview)
 
-The Data Product Factory (preview) is a self-service environment for partners to design, create, and test new Data Products.
+The data product factory (preview) is a self-service environment for partners to design, create, and test new Data Products.
 
 Each Data Product is defined by a Data Product Definition: a set of files defining the transformation, aggregation, summarization, and visualization of the data.
 
-The Data Product Factory is delivered as a GitHub-based SDK containing:
+The data product factory is delivered as a GitHub-based SDK containing:
 - A development environment and sandbox for local design and testing. The environment and sandbox provide a tight feedback loop to accelerate the development cycle for ingestion, enrichment, and insights.
 - Documentation including step-by-step tutorials for designing, testing, publishing, and monetizing Data Products.
 - Sample Data Product Definitions to kickstart design and creation.
@@ -53,4 +53,4 @@ The Data Product Factory is delivered as a GitHub-based SDK containing:
 
 ## Next step
 
-Apply for access to the Data Product Factory SDK by contacting your Microsoft representative.
+Apply for access to the data product factory SDK by contacting your Microsoft representative.
