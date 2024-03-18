@@ -57,7 +57,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     ```
 
     > [!TIP]
-    > When no parameter is passed to the `UseFeatureFlags` method, it loads *all* feature flags with *no label* in your App Configuration store. The default refresh expiration of feature flags is 30 seconds. You can customize this behavior via the `FeatureFlagOptions` parameter. For example, the following code snippet loads only feature flags that start with *TestApp:* in their *key name* and have the label *dev*. The code also changes the refresh expiration time to 5 minutes. Note that this refresh expiration time is separate from that for regular key-values.
+    > When no parameter is passed to the `UseFeatureFlags` method, it loads *all* feature flags with *no label* in your App Configuration store. The default refresh interval of feature flags is 30 seconds. You can customize this behavior via the `FeatureFlagOptions` parameter. For example, the following code snippet loads only feature flags that start with *TestApp:* in their *key name* and have the label *dev*. The code also changes the refresh interval time to 5 minutes. Note that this refresh interval time is separate from that for regular key-values.
     >
     > ```csharp
     > options.UseFeatureFlags(featureFlagOptions =>

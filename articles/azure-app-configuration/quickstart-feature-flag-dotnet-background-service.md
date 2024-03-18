@@ -19,9 +19,8 @@ In this quickstart, you incorporate Azure App Configuration into a .NET backgrou
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
-- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
-- [.NET SDK 6.0 or later](https://dotnet.microsoft.com/download) - also available in the [Azure Cloud Shell](https://shell.azure.com).
+Follow the documents to create a .NET background service with dynamic configuration.
+- [Tutorial: Use dynamic configuration in a .NET background service](./enable-dynamic-configuration-dotnet-background-service.md)
 
 ## Add a feature flag
 
@@ -30,58 +29,44 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 > [!div class="mx-imgBorder"]
 > ![Enable feature flag named Beta](media/add-beta-feature-flag.png)
 
-## Create a .NET background service
-
-You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a new .NET app project. The advantage of using the .NET CLI over Visual Studio is that it's available across the Windows, macOS, and Linux platforms.  Alternatively, use the preinstalled tools available in the [Azure Cloud Shell](https://shell.azure.com).
-
-1. Create a new folder for your project.
-
-2. In the new folder, run the following command to create a new .NET background service project:
-
-    ```dotnetcli
-    dotnet new worker
-    ```
-
 ## Use the feature flag
 
-1. Add references to the `Microsoft.Extensions.Configuration.AzureAppConfiguration` and `Microsoft.FeatureManagement` NuGet packages by running the following commands:
+1. Add references to the `Microsoft.FeatureManagement` NuGet package by running the following commands.
 
     ```dotnetcli
-    dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
     dotnet add package Microsoft.FeatureManagement
     ```
 
-1. Run the following command to restore packages for your project:
+1. Run the following command to restore packages for your project.
 
     ```dotnetcli
     dotnet restore
     ```
 
-1. Open *Program.cs* and add the following statements:
+1. Open *Program.cs* and add the following statements.
 
     ```csharp
-    using Microsoft.Extensions.Configuration;
-    using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     using Microsoft.FeatureManagement;
     ```
 
-1. Connect to App Configuration. Register configuration and feature management services.
+1. Add a call to the `UseFeatureFlags` method inside the `AddAzureAppConfiguration` call and register feature management services.
 
     ```csharp
     // Existing code in Program.cs
     // ... ...
 
-    var builder = Host.CreateApplicationBuilder(args);
-
     builder.Configuration.AddAzureAppConfiguration(options =>
     {
-        options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
-            .UseFeatureFlags();
+        options.Connect(Environment.GetEnvironmentVariable("ConnectionString"));
+
+        // Use feature flags
+        options.UseFeatureFlags();
 
         // Register the refresher so that the Worker service can consume it through DI
         builder.Services.AddSingleton(options.GetRefresher());
     });
 
+    // Register feature management services
     builder.Services.AddFeatureManagement();
 
     // The rest of existing code in Program.cs
@@ -89,7 +74,7 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
     ```
 
     > [!TIP]
-    > When no parameter is passed to the `UseFeatureFlags` method, it loads *all* feature flags with *no label* in your App Configuration store. The default refresh expiration of feature flags is 30 seconds. You can customize this behavior via the `FeatureFlagOptions` parameter. For example, the following code snippet loads only feature flags that start with *TestApp:* in their *key name* and have the label *dev*. The code also changes the refresh expiration time to 5 minutes. Note that this refresh expiration time is separate from that for regular key-values.
+    > When no parameter is passed to the `UseFeatureFlags` method, it loads *all* feature flags with *no label* in your App Configuration store. The default refresh interval of feature flags is 30 seconds. You can customize this behavior via the `FeatureFlagOptions` parameter. For example, the following code snippet loads only feature flags that start with *TestApp:* in their *key name* and have the label *dev*. The code also changes the refresh interval time to 5 minutes. Note that this refresh interval time is separate from that for regular key-values.
     >
     > ```csharp
     > options.UseFeatureFlags(featureFlagOptions =>
@@ -102,11 +87,10 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
 1. Open *Worker.cs* and add a reference to the .NET Feature Management library.
 
     ```csharp
-    using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     using Microsoft.FeatureManagement;
     ```
 
-1. Inject `IConfigurationRefresher` and `IFeatureManager` to the `Worker` service and switch the running mode depending on the `Beta` feature flag state.
+1. Inject `IConfigurationRefresher` and `IFeatureManager` to the `Worker` service and log the feature flag state.
 
     ```csharp
     public class Worker : BackgroundService
@@ -117,9 +101,9 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
 
         public Worker(ILogger<Worker> logger, IConfigurationRefresher refresher, IFeatureManager featureManager)
         {
-            _logger = logger;
-            _refresher = refresher;
-            _featureManager = featureManager;
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _refresher = refresher ?? throw new ArgumentNullException(nameof(refresher));
+            _featureManager = featureManager ?? throw new ArgumentNullException(nameof(featureManager));
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -133,11 +117,11 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
                 {
                     if (await _featureManager.IsEnabledAsync("Beta"))
                     {
-                        _logger.LogInformation("[{time}]: Worker running in Beta mode.", DateTimeOffset.Now);
+                        _logger.LogInformation("[{time}]: Worker is running with Beta feature.", DateTimeOffset.Now);
                     }
                     else
                     {
-                        _logger.LogInformation("[{time}]: Worker running in stable mode.", DateTimeOffset.Now);
+                        _logger.LogInformation("[{time}]: Worker is running.", DateTimeOffset.Now);
                     }
                 }
                 
@@ -218,15 +202,10 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
 
 ## Next steps
 
-In this quickstart, you added feature management capability to a .NET background service on top of dynamic configuration. For more information about dynamic configuration, continue to the following tutorial.
-
-> [!div class="nextstepaction"]
-> [Enable dynamic configuration](./enable-dynamic-configuration-dotnet.md)
-
 To enable feature management capability for other types of apps, continue to the following tutorials.
 
 > [!div class="nextstepaction"]
-> [Use feature flags in .NET apps](./quickstart-feature-flag-dotnet.md)
+> [Use feature flags in .NET console apps](./quickstart-feature-flag-dotnet.md)
 
 > [!div class="nextstepaction"]
 > [Use feature flags in ASP.NET Core apps](./quickstart-feature-flag-aspnet-core.md)
