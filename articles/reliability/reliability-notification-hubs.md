@@ -84,8 +84,8 @@ Paired and flexible region recovery only backs up metadata. You must implement a
 
 Azure Notification Hubs supports two types of device registrations: installations and registrations. We recommend that you back up your registrations to either:
 
-1. **A storage solution of your choice**: If a DR event occurs, there will be some downtime for restoration activities.
-1. **Another hub you create in another region**: Use this option to back up your registrations. As a working hub, you can implement code to switch to this copy. To keep a secondary notification hub in sync with the primary notification hub, you can use one of the following options to back up your registrations:
+-  **A storage solution of your choice**: If a DR event occurs, there will be some downtime for restoration activities.
+- **Another hub you create in another region**: Use this option to back up your registrations. As a working hub, you can implement code to switch to this copy. To keep a secondary notification hub in sync with the primary notification hub, you can use one of the following options to back up your registrations:
    - **For installations**: Use an app backend that simultaneously creates and updates installations in both notification hubs. Installations enable you to specify your own unique device identifier, making it more suitable for the replication scenario. For more information, see this [sample code](https://github.com/Azure/azure-notificationhubs-dotnet/tree/main/Samples/RedundantHubSample).
    - **For registrations**: Use an app backend that gets a regular dump of registrations from the primary notification hub as a backup. It can then perform a bulk insert into the secondary notification hub. See [Export and import Azure Notification Hubs registrations in bulk](/azure/notification-hubs/export-modify-registrations-bulk).
 
