@@ -310,6 +310,8 @@ items:
     href: concepts-data-redundancy.md
 - name: How-to guides
   items:
+  - name: Create a data factory in UI
+    href: quickstart-create-data-factory.md
   - name: Create Data Factory Programmatically
     items:
     - name: Create data factory - Azure CLI
@@ -472,7 +474,11 @@ items:
     - name: Google Ads
       href: connector-google-adwords.md
     - name: Google BigQuery
-      href: connector-google-bigquery.md
+      items:
+      - name: Google BigQuery
+        href: connector-google-bigquery.md
+      - name: Google BigQuery (Legacy)
+        href: connector-google-bigquery-legacy.md
     - name: Google Cloud Storage
       href: connector-google-cloud-storage.md
     - name: Google Sheets
@@ -548,7 +554,11 @@ items:
     - name: Phoenix
       href: connector-phoenix.md
     - name: PostgreSQL
-      href: connector-postgresql.md
+      items:
+      - name: PostgreSQL
+        href: connector-postgresql.md
+      - name: PostgreSQL (legacy)
+        href: connector-postgresql-legacy.md
     - name: Presto
       href: connector-presto.md
     - name: Quickbase
@@ -602,7 +612,11 @@ items:
     - name: Smartsheet
       href: connector-smartsheet.md
     - name: Snowflake
-      href: connector-snowflake.md
+      items:
+      - name: Snowflake
+        href: connector-snowflake.md
+      - name: Snowflake (legacy)
+        href: connector-snowflake-legacy.md
     - name: Spark
       href: connector-spark.md
     - name: SQL Server
@@ -1233,7 +1247,7 @@ items:
         displayName: troubleshooting
       - name: Google Ads
         href: connector-troubleshoot-google-ads.md
-        displayName: troubleshooting      
+        displayName: troubleshooting
       - name: Hive
         href: connector-troubleshoot-hive.md
         displayName: troubleshooting
@@ -1251,6 +1265,9 @@ items:
         displayName: troubleshooting
       - name: REST
         href: connector-troubleshoot-rest.md
+        displayName: troubleshooting
+      - name: Salesforce and Salesforce Service Cloud
+        href: connector-troubleshoot-salesforce.md
         displayName: troubleshooting
       - name: SAP Table, SAP Business Warehouse Open Hub, and SAP ODP
         href: connector-troubleshoot-sap.md
@@ -1319,30 +1336,30 @@ items:
     - name: Advanced topics
       href: sap-change-data-capture-advanced-topics.md
       displayName: SAP, change data capture, CDC
-- name: Managed Airflow
+- name: Workflow Orchestration Manager
   items:
   - name: Tutorials
     items:
     - name: Run an existing pipeline with Airflow
       href: tutorial-run-existing-pipeline-with-airflow.md
   - name: Concepts
-    href: concept-managed-airflow.md
-  - name: Get Started with Managed Airflow
-    href: get-started-with-managed-airflow.md
+    href: concepts-workflow-orchestration-manager.md
+  - name: Get Started
+    href: get-started-with-workflow-orchestration-manager.md
   - name: How-to
     items:
-    - name: Create Managed Airflow Environment
-      href: create-managed-airflow-environment.md
+    - name: Create Airflow Environment
+      href: create-airflow-environment.md
     - name: Import Dags using Azure Blob Storage
       href: airflow-import-dags-blob-storage.md
     - name: Delete Dags
-      href: delete-dags-in-managed-airflow.md
+      href: delete-dags-in-workflow-orchestration-manager.md
     - name: How to change the Airflow password
       href: password-change-airflow.md
     - name: Install a Private Package
       href: airflow-install-private-package.md
     - name: Enable Azure Key Vault for Airflow
-      href: enable-azure-key-vault-for-managed-airflow.md
+      href: enable-azure-key-vault.md
     - name: Kubernetes secret to access private container registry
       href: kubernetes-secret-pull-image-from-private-container-registry.md
     - name: Rest APIs for the Airflow integrated runtime
@@ -1352,8 +1369,8 @@ items:
     - name: Sync a GitHub repository
       href: airflow-sync-github-repository.md
     - name: Diagnostic logs and metrics
-      href: how-to-diagnostic-logs-and-metrics-for-managed-airflow.md
-    - name: CI/CD Patterns with Managed Airflow
+      href: diagnostic-logs-and-metrics-for-workflow-orchestration-manager.md
+    - name: CI/CD Patterns
       href: ci-cd-pattern-with-airflow.md
     - name: Airflow Configurations
       href: airflow-configurations.md

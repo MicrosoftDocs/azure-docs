@@ -4,7 +4,7 @@ description: Learn what capabilities are available to manage and monitor Azure S
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sngun
-ms.date: 11/02/2022
+ms.date: 03/14/2024
 ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
@@ -50,6 +50,10 @@ Things to consider when viewing metrics and setting alerts:
 For a programmatic experience when monitoring Synapse SQL via T-SQL, the service provides a set of Dynamic Management Views (DMVs). These views are useful when actively troubleshooting and identifying performance bottlenecks with your workload.
 
 To view the list of DMVs that apply to Synapse SQL, review [dedicated SQL pool DMVs](../sql/reference-tsql-system-views.md#dedicated-sql-pool-dynamic-management-views-dmvs).
+
+> [!NOTE]
+> You need to resume your dedicated SQL Pool to monitor the queries using the Query activity tab.
+> The **Query activity** tab cannot be used to view historical executions. To check the query history, it is recommended to enable [diagnostics](sql-data-warehouse-monitor-workload-portal.md) to export the available DMVs to one of the available destinations (such as Log Analytics) for future reference. By design, DMVs contain records of the last 10,000 executed queries only. Once this limit is reached, the DMV data will be flushed, and new records will be inserted. Additionally, after any pause, resume, or scale operation, the DMV data will be cleared.
 
 ## Metrics and diagnostics logging
 

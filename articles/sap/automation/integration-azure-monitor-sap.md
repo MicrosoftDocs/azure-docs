@@ -50,6 +50,30 @@ The [key components](../monitor/about-azure-monitor-sap-solutions.md#what-is-the
 The example shows the parameters that are required for the deployment of Azure Monitor for SAP resource in the workload zone. Optionally, you can choose to use an existing log analytics workspace that exists in the same subscription as your workload zone.
 
 ```terraform
+#########################################################################################
+#  AMS Subnet variables                                                                 #
+#########################################################################################
+
+# If defined these parameters control the subnet name and the subnet prefix
+# ams_subnet_name is an optional parameter and should only be used if the default naming is not acceptable
+# ams_subnet_name = ""
+
+# ams_subnet_address_prefix is a mandatory parameter if the subnets are not defined in the workload or if existing subnets are not used
+ams_subnet_address_prefix = "10.242.25.0/24"
+
+# ams_subnet_arm_id is an optional parameter that if provided specifies Azure resource identifier for the existing subnet to use
+#ams_subnet_arm_id = ""
+
+# ams_subnet_nsg_name is an optional parameter and should only be used if the default naming is not acceptable for the network security group name
+# ams_subnet_nsg_name = ""
+
+# ams_subnet_nsg_arm_id is an optional parameter that if provided specifies Azure resource identifier for the existing network security group to use
+# ams_subnet_nsg_arm_id = ""
+
+#########################################################################################
+#  AMS instance variables                                                               #
+#########################################################################################
+
 # If defined these parameters control the ams instance (Azure monitor for SAP)
 # create_ams_instance is an optional parameter, and should be set true is the AMS instance is to be created.
 create_ams_instance = true
