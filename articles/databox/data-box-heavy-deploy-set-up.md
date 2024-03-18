@@ -56,7 +56,11 @@ Before you begin, make sure that:
 1. You should have a host computer connected to the datacenter network. Your Data Box Heavy will copy the data from this computer. Your host computer must run a [Supported operating system](data-box-heavy-system-requirements.md).
 1. Your datacenter needs to have high-speed network. We strongly recommend that you have at least one 10-GbE connection. 
 1. You need to have a laptop with RJ-45 cable to connect to the local UI and configure the device. Use the laptop to configure each node of the device once.
-1. You need one 40-Gbps cable or 10-Gbps cable per device node.
+1. The following cables are shipped with the device -
+   - 4 x Mellanox passive copper cables VPI 2M - MC2206130-002
+   - 4 x Mellanox Ethernet cable adapters - MAM1Q00A-QSA
+   - Regional power cord 
+1. You need one 40-Gbps cable or 10-Gbps cable per device node. If you have your own cables - 
     - Choose cables that are compatible with the Mellanox MCX314A-BCCT network interface.
     - For the 40-Gbps cable, device end of the cable needs to be QSFP+.
     - For the 10-Gbps cable, you need an SFP+ cable that plugs into a 10-Gbps switch on one end, with a QSFP+ to SFP+ adapter (or the QSA adapter) for the end that plugs into the device.
