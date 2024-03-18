@@ -174,7 +174,7 @@ procedureSection:
   - title: |
       Azure OpenAI embeddings multiple input support
     summary: |
-      OpenAI and Azure OpenAI currently support input arrays up to 2048 input items for text-embedding-ada-002. Both require the max input token limit per API request to remain under 8191 for this model.
+      OpenAI and Azure OpenAI currently support input arrays up to 2,048 input items for text-embedding-ada-002. Both require the max input token limit per API request to remain under 8,191 for this model.
     code: |
       <table>
       <tr>
