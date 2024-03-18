@@ -210,8 +210,8 @@ Anomaly engine alerts describe detected anomalies in network activity.
 
 Protocol engine alerts describe detected deviations in the packet structure, or field values compared to protocol specifications.
 
-| Title | Description | Severity | Category | MITRE ATT&CK <br> tactics and techniques |
-|--|--|--|--|--|
+| Title | Description | Severity | Category | MITRE ATT&CK <br> tactics and techniques | Learnable |
+|--|--|--|--|--|--|
 | **Excessive Malformed Packets In a Single Session [*](#ot-alerts-turned-off-by-default)** | An abnormal number of malformed packets sent from the source device to the destination device. This alert might indicate erroneous communications, or an attempt to manipulate the targeted device. <br><br> Threshold: 2 malformed packets in 10 minutes | Medium | Illegal Commands | **Tactics:** <br> - Impair Process Control <br><br> **Techniques:** <br> - T0806: Brute Force I/O | Not learnable | 
 | **Firmware Update** | A source device sent a command to update firmware on a destination device. Verify that recent programming, configuration and  firmware upgrades made to the destination device are valid. | Low | Firmware Change | **Tactics:** <br> - Inhibit Response Function <br> - Persistence <br><br> **Techniques:** <br> - T0857: System Firmware | Learnable |
 | **Function Code Not Supported by Outstation** | The destination device received an invalid request. | Medium | Illegal Commands | **Tactics:** <br> - Impair Process Control <br><br> **Techniques:** <br> - T0855: Unauthorized Command Message | Not learnable | 
@@ -275,8 +275,8 @@ Malware engine alerts describe detected malicious network activity.
 
 Operational engine alerts describe detected operational incidents, or malfunctioning entities.
 
-| Title | Description | Severity | Category | MITRE ATT&CK <br> tactics and techniques |
-|--|--|--|--|--|
+| Title | Description | Severity | Category | MITRE ATT&CK <br> tactics and techniques | Learnable |
+|--|--|--|--|--|--|
 | **An S7 Stop PLC Command was Sent** | The source device sent a stop command to a destination controller. The controller will stop operating until a start command is sent. | Low | Restart/ Stop Commands | **Tactics:** <br> - Lateral Movement <br> - Defense Evasion <br> - Execution <br> - Inhibit Response Function <br><br> **Techniques:** <br> - T0843: Program Download <br> - T0858: Change Operating Mode <br> - T0814: Denial of Service | Not learnable |
 | **BACNet Operation Failed** | A server returned an error code.  This alert indicates a server error or an invalid request by a client. | Medium | Command Failures | **Tactics:** <br> - Impair Process Control <br><br> **Techniques:** <br> - T0855: Unauthorized Command Message | Not learnable |
 | **Bad MMS Device State** | An MMS Virtual Manufacturing Device (VMD) sent a status message. The message indicates that the server may not be configured correctly, partially operational, or not operational at all. | Medium | Operational Issues | **Tactics:** <br> - Inhibit Response Function <br><br> **Techniques:** <br> - T0814: Denial of Service | Not learnable |
