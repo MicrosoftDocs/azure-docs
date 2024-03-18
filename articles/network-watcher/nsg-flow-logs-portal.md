@@ -109,7 +109,7 @@ Create a flow log for your network security group and enable traffic analytics. 
 
     | Setting | Value |
     | ------- | ----- |
-    | Flow Logs Version | Select the flow log version. Version 2 is selected by default when you create a flow log using the Azure portal. For more information about flow logs versions, see [Log format of NSG flow logs](network-watcher-nsg-flow-logs-portal-overview.md#log-format). |
+    | Flow Logs Version | Select the flow log version. Version 2 is selected by default when you create a flow log using the Azure portal. For more information about flow logs versions, see [Log format of NSG flow logs](nsg-flow-logs-overview.md#log-format). |
     | **Traffic Analytics** |   |
     | Enable Traffic Analytics | Select the checkbox to enable traffic analytics for your flow log. |
     | Traffic Analytics processing interval  | Select the processing interval that you prefer, available options are: **Every 1 hour** and **Every 10 mins**. The default processing interval is every one hour. For more information, see [Traffic Analytics](traffic-analytics.md). |
