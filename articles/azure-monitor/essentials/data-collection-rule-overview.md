@@ -14,13 +14,16 @@ Data collection rules (DCRs) are sets of instructions supporting [data collectio
 
 DCRs are stored in Azure so that you can centrally manage them. Different components of a data collection workflow will access the DCR for particular information that it requires. In some cases, you can use the Azure portal to configure data collection, and Azure Monitor will create and manage the DCR for you. Other scenarios will require you to create your own DCR. You may also choose to customize an existing DCR to meet your required functionality.
 
+## Data collection in Azure Monitor
+DCRs are part of a new [ETL](/azure/architecture/data-guide/relational-data/etl)-like data collection pipeline being implemented by Azure Monitor that improves on legacy data collection methods. This process uses a common data ingestion pipeline for all data sources and provides a standard method of configuration that's more manageable and scalable than current methods. Specific advantages of the new data collection include the following:
 
-## Basic operation
-One example of how DCRs are used is the Logs Ingestion API that allows you to send custom data to Azure Monitor. This scenario is illustrated in the following diagram. Prior to using the API, you create a DCR that defines the structure of the data that you're going to send and the Log Analytics workspace and table that will receive the data. If the data needs to be formatted before it's stored, you can include a [transformation](data-collection-transformations.md) in the DCR.
+- Common set of destinations for different data sources.
+- Ability to apply a transformation to filter or modify incoming data before it's stored.
+- Consistent method for configuration of different data sources.
+- Scalable configuration options supporting infrastructure as code and DevOps processes.
 
-Each call to the API specifies the DCR to use, and Azure Monitor references this DCR to determine what to do with the incoming data. If your requirements change, you can modify the DCR without making any changes to the application sending the data.
+When implementation is complete, all data collected by Azure Monitor will use the new data collection process and be managed by DCRs. Currently, only certain data collection methods support the ingestion pipeline, and they may have limited configuration options. There's no difference between data collected with the new ingestion pipeline and data collected using other methods. The data is all stored together as [Logs](../logs/data-platform-logs.md) and [Metrics](data-platform-metrics.md), supporting Azure Monitor features such as log queries, alerts, and workbooks. The only difference is in the method of collection.
 
-:::image type="content" source="media/data-collection-rule-overview/overview-log-ingestion-api.png" lightbox="media/data-collection-rule-overview/overview-log-ingestion-api.png" alt-text="Diagram that shows basic operation for DCR using logs ingestion API." border="false":::
 
 ## Data collection rule associations (DCRAs)
 Data collection rule associations (DCRAs) associate a DCR with an object being monitored, for example a virtual machine with the Azure Monitor agent (AMA). A single object can be associated with multiple DCRs, and a single DCR can be associated with multiple objects.
@@ -73,6 +76,12 @@ Use the following to return DCR associations for a VM.
 az monitor data-collection rule association list --resource "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.Compute/virtualMachines/my-vm "
 ```
 ---
+
+
+
+
+
+
 
 ## Supported regions
 Data collection rules are available in all public regions where Log Analytics workspaces and the Azure Government and China clouds are supported. Air-gapped clouds aren't yet supported.
