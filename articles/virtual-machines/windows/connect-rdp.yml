@@ -89,6 +89,6 @@ procedureSection:
         Get-AzRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -LocalPath "C:\Path\to\folder"
         ```
 
-nextStep:
-  text: If you have difficulty connecting, see Troubleshoot Remote Desktop connections
-  url: /troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+relatedContent:
+  - text: Troubleshoot Remote Desktop connections
+    url: /troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
