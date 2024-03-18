@@ -1,13 +1,13 @@
 ---
 title: Test connectivity to IoT MQ with MQTT clients
-description: Learn how to use common and standard MQTT tools to test connectivity to Azure IoT MQ.
+description: Learn how to use common and standard MQTT tools to test connectivity to Azure IoT MQ in a nonproduction environment.
 author: PatAltimore
 ms.author: patricka
 ms.subservice: mq
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 11/15/2023
+ms.date: 03/18/2024
 
 #CustomerIntent: As an operator or developer, I want to test MQTT connectivity with tools that I'm already familiar with to know that I set up my Azure IoT MQ broker correctly.
 ---
@@ -16,13 +16,19 @@ ms.date: 11/15/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-This article shows different ways to test connectivity to Azure IoT MQ Preview with MQTT clients.
+This article shows different ways to test connectivity to Azure IoT MQ Preview with MQTT clients in a nonproduction environment.
 
 By default:
 
 - IoT MQ deploys a [TLS-enabled listener](howto-configure-brokerlistener.md) on port 8883 with *ClusterIp* as the service type. *ClusterIp* means that the broker is accessible only from within the Kubernetes cluster. To access the broker from outside the cluster, you must configure a service of type *LoadBalancer* or *NodePort*.
 
 - IoT MQ only accepts [Kubernetes service accounts for authentication](howto-configure-authentication.md) for connections from within the cluster. To connect from outside the cluster, you must configure a different authentication method.
+
+> [!CAUTION]
+> For production scenarios, you should use TLS and service accounts authentication to secure your IoT solution. For more information, see:
+> [Configure TLS with automatic certificate management to secure MQTT communication in Azure IoT MQ Preview](./howto-configure-tls-auto.md)
+> [Configure authentication in Azure IoT MQ Preview](./howto-configure-authentication.md)
+> [Expose Kubernetes services to external devices](/azure/aks/hybrid/aks-edge-howto-expose-service) using port forwarding or a virtual switch with Azure Kubernetes Services Edge Essentials.
 
 Before you begin, [install or deploy IoT Operations](../get-started/quickstart-deploy.md). Use the following options to test connectivity to IoT MQ with MQTT clients.
 
@@ -170,7 +176,7 @@ To configure a load balancer:
     kubectl patch brokerlistener listener --namespace azure-iot-operations --type='json' --patch='[{"op": "replace", "path": "/spec/serviceType", "value": "loadBalancer"}]'
     ```
 
-1. Wait for the service to be updated, You should see output similar to the following:
+1. Wait for the service to be updated.
 
     ```console
     kubectl get service aio-mq-dmqtt-frontend --namespace azure-iot-operations
@@ -216,12 +222,6 @@ Port forwarding is also useful for testing IoT MQ locally on your development ma
 
 To learn more, see [Use Port Forwarding to Access Applications in a Cluster](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/) for minikube.
 
-## Expose Azure Kubernetes Service Edge Essentials services
-
-To make Kubernetes services accessible to external devices, you can expose the services using port forwarding or a virtual switch.
-
-For more information about exposing AKS Edge Essentials services, see [Expose Kubernetes services to external devices](/azure/aks/hybrid/aks-edge-howto-expose-service).
-
 ## No TLS and no authentication
 
 The reason that IoT MQ uses TLS and service accounts authentication by default is to provide a secure-by-default experience that minimizes inadvertent exposure of your IoT solution to attackers. You shouldn't turn off TLS and authentication in production.
@@ -250,7 +250,7 @@ If you understand the risks and need to use an insecure port in a well-controlle
 
     The `authenticationEnabled` and `authorizationEnabled` fields are set to `false` to turn off authentication and authorization. The `port` field is set to `1883` to use common MQTT port.
 
-1. Wait for the service to be updated. You should see output similar to the following:
+1. Wait for the service to be updated.
 
     ```console
     kubectl get service my-unique-service-name --namespace azure-iot-operations
