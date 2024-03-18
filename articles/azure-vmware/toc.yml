@@ -33,7 +33,7 @@ items:
     href: tutorial-configure-networking.md
   - name: 4 - Access a private cloud
     href: tutorial-access-private-cloud.md
-  - name: 5 - Create an NSX-T Data Center network segment
+  - name: 5 - Create an NSX network segment
     href: tutorial-nsx-t-network-segment.md
   - name: 6 - Peer on-premises to private cloud
     href: tutorial-expressroute-global-reach-private-cloud.md
@@ -129,13 +129,13 @@ items:
     items:
     - name: Set an external identity source for vCenter Server
       href: configure-identity-source-vcenter.md
-    - name: Set an external identity source for NSX-T Data Center
+    - name: Set an external identity source for NSX
       href: configure-external-identity-source-nsx-t.md
   - name: Configure internet connectivity
     items:
     - name: Enable Managed SNAT for Azure VMware Solution workloads
       href: enable-managed-snat-for-workloads.md
-    - name: Enable public IP on the NSX-T Data Center Edge for Azure VMware Solution
+    - name: Enable public IP on the NSX Edge for Azure VMware Solution
       href: enable-public-ip-nsx-edge.md
     - name: Disable internet access or enable a default route
       href: disable-internet-access.md
@@ -151,7 +151,7 @@ items:
       href: configure-hcx-network-extension.md
     - name: VMware HCX Mobility Optimized Networking (MON) guidance
       href: vmware-hcx-mon-guidance.md
-    - name: Configure NSX-T Data Center network components
+    - name: Configure NSX network components
       href: configure-nsx-network-components-azure-portal.md
     - name: Configure port mirroring
       href: configure-port-mirroring-azure-vmware-solution.md
@@ -247,7 +247,7 @@ items:
       href: configure-hcx-network-extension.md
     - name: Configure VMware HCX network extension high availability
       href: configure-hcx-network-extension-high-availability.md
-    - name: Configure VMware vRealize Operations
+    - name: Configure VMware Aria Operations
       href: vrealize-operations-for-azure-vmware-solution.md
     - name: Deploy VMware Horizon
       href: azure-vmware-solution-horizon.md
@@ -257,7 +257,7 @@ items:
       href: enable-hcx-access-over-internet.md
     - name: Configure VMware Cloud Director Service in Azure VMware Solution
       href: configure-vmware-cloud-director-service-azure-vmware-solution.md
-    - name: Enable VMware Cloud director service with Azure VMware solution (Preview)
+    - name: Enable VMware Cloud Director Service with Azure VMware solution
       href: enable-vmware-cds-with-azure.md
     - name: Deploy VMware Cloud Director Availability in Azure VMware Solution
       href: deploy-vmware-cloud-director-availability-in-azure-vmware-solution.md
