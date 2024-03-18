@@ -166,8 +166,9 @@ display(df_vcore)
 Output:
  :::image type="content" source="./media/connect-from-databricks/display-agg.png" alt-text="Screenshot of the Display Aggregate Data.":::
 
-## Next steps
+## Related Content
 
-The following articles demonstrate Spark integration with Azure Cosmos DB for MongoDB vCore. 
- 
-* [How to Connect with Studio3T](how-to-connect-studio-3t.md)
+The following articles demonstrate how to use aggregation pipelines in Azure Cosmos DB for MongoDB vCore:
+
+* [Maven central](hhttps://mvnrepository.com/artifact/org.mongodb.spark/mongo-spark-connector) is where you can find Spark Connector.
+* [Aggregation Pipeline](../tutorial-aggregation.md)
