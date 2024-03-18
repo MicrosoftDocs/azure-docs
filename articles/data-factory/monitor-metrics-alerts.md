@@ -78,7 +78,7 @@ Sign in to the Azure portal, and use the main menu at the top left of the screen
 
 1. Next, select the **Condition** tab and define the alert condition, then select **Next: Actions**.
 
-        :::image type="content" source="media/monitor-using-azure-monitor/select-condition.png" alt-text="Screenshot that shows the definition of the alert condition.":::
+   :::image type="content" source="media/monitor-using-azure-monitor/select-condition.png" alt-text="Screenshot that shows the definition of the alert condition.":::
 
 1. On the **Basics** tab, select an existing action group or create a new one.
 
