@@ -17,7 +17,7 @@ The [VMware Carbon Black Cloud](https://www.vmware.com/products/carbon-black-clo
 | Connector attribute | Description |
 | --- | --- |
 | **Application settings** | apiId<br/>apiKey<br/>workspaceID<br/>workspaceKey<br/>uri<br/>timeInterval<br/>CarbonBlackOrgKey<br/>CarbonBlackLogTypes<br/>s3BucketName<br/>EventPrefixFolderName<br/>AlertPrefixFolderName<br/>AWSAccessKeyId<br/>AWSSecretAccessKey<br/>SIEMapiId (Optional)<br/>SIEMapiKey (Optional)<br/>logAnalyticsUri (optional) |
-| **Azure function app code** | https://aka.ms/sentinelcarbonblackazurefunctioncode |
+| **Azure function app code** | Download: https://aka.ms/sentinelcarbonblackazurefunctioncode |
 | **Log Analytics table(s)** | CarbonBlackEvents_CL<br/> CarbonBlackAuditLogs_CL<br/> CarbonBlackNotifications_CL<br/> |
 | **Data collection rules support** | Not currently supported |
 | **Supported by** | [Microsoft](https://support.microsoft.com/) |
@@ -120,7 +120,7 @@ Use the following step-by-step instructions to deploy the VMware Carbon Black co
 2. Select **Timer Trigger**.
 3. Enter a unique Function **Name** and modify the cron schedule, if needed. The default value is set to run the Function App every 5 minutes. (Note: the Timer trigger should match the `timeInterval` value below to prevent overlapping data), click **Create**.
 4. Click on **Code + Test** on the left pane. 
-5. Copy the [Function App Code]((https://aka.ms/sentinelcarbonblackazurefunctioncode) and paste into the Function App `run.ps1` editor.
+5. Copy the Function App Code from the downloaded - https://aka.ms/sentinelcarbonblackazurefunctioncode and paste into the Function App `run.ps1` editor.
 5. Click **Save**.
 
 
