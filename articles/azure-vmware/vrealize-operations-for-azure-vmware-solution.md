@@ -53,11 +53,11 @@ VMware Aria Operations Cloud supports the Azure VMware Solution, including the v
 
 When you connect the Azure VMware Solution vCenter Server to Aria Operations using a vCenter Server CloudAdmin Account, you see a warning:
 
-:::image type="content" source="./media/Aria-operations-manager/warning-adapter-instance-creation-succeeded.png" alt-text="Screenshot shows a Warning message that states the adapter instance was created successfully.":::
+:::image type="content" source="./media/vrealize-operations-manager/warning-adapter-instance-creation-succeeded.png" alt-text="Screenshot shows a Warning message that states the adapter instance was created successfully.":::
 
 The warning occurs because the **cloudadmin@vsphere.local** user in Azure VMware Solution doesn't have sufficient privileges to do all vCenter Server actions required for registration. However, the privileges are sufficient for the adapter instance to do data collection, as seen in the following example:
 
-:::image type="content" source="./media/Aria-operations-manager/adapter-instance-to-perform-data-collection.png" alt-text="Screenshot shows the adapter instance to collect data.":::
+:::image type="content" source="./media/vrealize-operations-manager/adapter-instance-to-perform-data-collection.png" alt-text="Screenshot shows the adapter instance to collect data.":::
 
 For more information, see [Privileges Required for Configuring a vCenter Server Adapter Instance](https://docs.vmware.com/en/VMware-Aria-Operations/8.16/Configuring-Operations/GUID-3BFFC92A-9902-4CF2-945E-EA453733B426.html).
 
