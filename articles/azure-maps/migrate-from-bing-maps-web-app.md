@@ -124,7 +124,7 @@ Loading a map in both SDKs follows the same set of steps;
 
 * Add a reference to the Map SDK.
 * Add a `div` tag to the body of the page that acts as a placeholder for the map.
-* Create a JavaScript function that gets called when the page loads.
+* Create a JavaScript function that gets called once the page loads.
 * Create an instance of the respective map class.
 
 **Key differences**
