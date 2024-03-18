@@ -49,4 +49,4 @@ Once that you confirm your service is back online, you can proceed to delete any
 ## Next steps
 
 
-- [Manage user-assigned managed identities](/entra/identity/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-powershell#delete-a-user-assigned-managed-identity-2)
+- [Manage user-assigned managed identities](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-powershell#delete-a-user-assigned-managed-identity-2)
