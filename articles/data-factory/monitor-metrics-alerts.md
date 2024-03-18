@@ -1,6 +1,6 @@
 ---
 title: Data Factory metrics and alerts
-description: Learn about metrics available for monitoring Azure Data Factory.
+description: This article shows you how to create monitoring alerts for metrics available for Azure Data Factory.
 author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
