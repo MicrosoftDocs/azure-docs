@@ -128,7 +128,6 @@ drwxr-xr-x 4 root    root    4096 Dec 14 00:16 ..
 total 16
 drwx------ 2 aziotks aziotks 4096 Jan 23 17:23 .
 drwxr-xr-x 4 root    root    4096 Dec 14 00:16 ..
--rw------- 1 aziotks aziotks 3326 Jan 14 00:29 azure-iot-test-only.root.ca.key.pem
 -rw------- 1 aziotks aziotks 3243 Jan 14 00:28 iot-edge-device-ca-devicename.key.pem
 ```
 
