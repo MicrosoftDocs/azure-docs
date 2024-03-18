@@ -2,7 +2,7 @@
 title: Use GPUs for Windows node pools on Azure Kubernetes Service (AKS)
 description: Learn how to use Windows GPUs for high performance compute or graphics-intensive workloads on Azure Kubernetes Service (AKS).
 ms.topic: article
-ms.date: 03/12/2024
+ms.date: 03/18/2024
 #Customer intent: As a cluster administrator or developer, I want to create an AKS cluster that can use high-performance GPU-based VMs for compute-intensive workloads using a Windows os.
 ---
 
@@ -39,7 +39,7 @@ To view supported GPU-enabled VMs, see [GPU-optimized VM sizes in Azure][gpu-sku
 
 ## Using Windows GPU with automatic driver installation
 
-Using NVIDIA GPUs involves the installation of various NVIDIA software components such as the [DirectX device plugin for Kubernetes](https://github.com/aarnaud/k8s-directx-device-plugin), GPU driver installation, and more. When creating a Windows node pool with a supported GPU-enabled VM, these components are automatically installed.
+Using NVIDIA GPUs involves the installation of various NVIDIA software components such as the [DirectX device plugin for Kubernetes](https://github.com/aarnaud/k8s-directx-device-plugin), GPU driver installation, and more. When creating a Windows node pool with a supported GPU-enabled VM, these components and the appropriate NVIDIA CUDA or GRID drivers are installed. For NC and ND series VM sizes, the CUDA driver is installed. For NV series VM sizes, the GRID driver is installed.
 
 [!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
 
@@ -90,6 +90,7 @@ To create a Windows GPU-enabled node pool, you need to use a supported GPU-enabl
         --name gpunp \
         --node-count 1 \
         --os-type Windows \
+        --kubernetes-version 1.29.0 \
         --node-vm-size Standard_NC6s_v3
     ```
 
