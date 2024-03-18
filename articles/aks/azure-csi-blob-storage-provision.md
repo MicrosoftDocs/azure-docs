@@ -4,6 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to create a static or dynamic persistent volume with Azure Blob storage for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 ms.topic: article
 ms.custom: linux-related-content
+ms.subservice: aks-storage
 ms.date: 01/18/2024
 ---
 

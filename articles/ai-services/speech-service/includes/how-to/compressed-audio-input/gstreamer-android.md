@@ -73,7 +73,7 @@ APP_PLATFORM = android-21
 APP_BUILD_SCRIPT = Android.mk
 ```
 
-You can build `libgstreamer_android.so` by using the following command on Ubuntu 18.04 or 20.04. The following command lines have been tested for [GStreamer Android version 1.14.4](https://gstreamer.freedesktop.org/data/pkg/android/1.14.4/gstreamer-1.0-android-universal-1.14.4.tar.bz2) with [Android NDK b16b.](https://dl.google.com/android/repository/android-ndk-r16b-linux-x86_64.zip)
+You can build `libgstreamer_android.so` by using the following command on Ubuntu 18.04 or 20.04. The following command lines have been tested for [GStreamer Android version 1.14.4](https://gstreamer.freedesktop.org/download/) with [Android NDK b16b.](https://dl.google.com/android/repository/android-ndk-r16b-linux-x86_64.zip)
 
 ```sh
 # Assuming wget and unzip are already installed on the system
@@ -83,7 +83,7 @@ wget https://dl.google.com/android/repository/android-ndk-r16b-linux-x86_64.zip
 unzip -q -o android-ndk-r16b-linux-x86_64.zip
 export PATH=$PATH:$(pwd)/android-ndk-r16b
 export NDK_PROJECT_PATH=$(pwd)/android-ndk-r16b
-wget https://gstreamer.freedesktop.org/data/pkg/android/1.14.4/gstreamer-1.0-android-universal-1.14.4.tar.bz2
+wget https://gstreamer.freedesktop.org/download/
 mkdir gstreamer_android
 tar -xjf gstreamer-1.0-android-universal-1.14.4.tar.bz2 -C $(pwd)/gstreamer_android/
 export GSTREAMER_ROOT_ANDROID=$(pwd)/gstreamer_android

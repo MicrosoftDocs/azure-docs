@@ -90,7 +90,7 @@ Note the following points:
 
 Reservation purchases calculated by the recommendations engine are shown on the **Recommended** tab in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/docs). Here's an example image.
 
-![Image showing recommendations](./media/determine-reservation-purchase/select-product-ri.png)
+:::image type="content" border="true" source="./media/determine-reservation-purchase/select-product-ri.png" alt-text="Screenshot showing reservation purchase recommendations.":::
 
 Learn more about [recommendations](reserved-instance-purchase-recommendations.md#recommendations-in-the-azure-portal).
 

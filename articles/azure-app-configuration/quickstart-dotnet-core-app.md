@@ -31,7 +31,7 @@ Add the following key-value to the App Configuration store and leave **Label** a
 
 ## Create a .NET console app
 
-You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a new .NET console app project. The advantage of using the .NET CLI over Visual Studio is that it's available across the Windows, macOS, and Linux platforms.  Alternatively, use the preinstalled tools available in the [Azure Cloud Shell](https://shell.azure.com).
+You can use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a new .NET console app project. The advantage of using the .NET CLI over Visual Studio is that it's available across the Windows, macOS, and Linux platforms.  Alternatively, use the preinstalled tools available in the [Azure Cloud Shell](https://shell.azure.com).
 
 1. Create a new folder for your project.
 
@@ -62,7 +62,7 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
 
-4. Use App Configuration by calling the `builder.AddAzureAppConfiguration()` method in the `Program.cs` file.
+4. Use App Configuration by calling the `AddAzureAppConfiguration` method in the `Program.cs` file.
 
     ```csharp
     var builder = new ConfigurationBuilder();
