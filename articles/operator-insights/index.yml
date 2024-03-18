@@ -96,5 +96,5 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Data product factory (preview)
+          - text: Azure Operator Insights data product factory (preview)
             url: data-product-factory.md

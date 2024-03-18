@@ -10,11 +10,11 @@ ms.topic: overview
 #CustomerIntent: As a partner developing a Data Product, I want to understand what the data product factory is so that I can use it.
 ---
 
-# What is the data product factory (preview) for Azure Operator Insights?
+# What is the Azure Operator Insights data product factory (preview)?
 
-Data Products process data from operator networks, enrich it, and make it available for analysis. They can include prebuilt dashboards, and allow operators to view their data in other analysis tools. For more information, see [What is Azure Operator Insights?](overview.md).
+Azure Operator Insights Data Products process data from operator networks, enrich it, and make it available for analysis. They can include prebuilt dashboards, and allow operators to view their data in other analysis tools. For more information, see [What is Azure Operator Insights?](overview.md).
 
-The data product factory (preview) for Azure Operator Insights allows partners to easily design and create new Data Products for the Azure Operator Insights platform. Partners can develop pipelines to analyze network data and offer insights, while allowing the Azure Operator Insights platform to process operator-scale data.
+The Azure Operator Insights data product factory (preview) allows partners to easily design and create new Data Products for the Azure Operator Insights platform. Partners can develop pipelines to analyze network data and offer insights, while allowing the Azure Operator Insights platform to process operator-scale data.
 
 :::image type="content" source="media/data-product-factory/data-product-factory.png" alt-text="The data product factory is based on Azure Operator Insights Platform. You can publish to the Azure Marketplace.":::
 

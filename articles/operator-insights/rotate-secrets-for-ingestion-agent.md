@@ -8,7 +8,7 @@ ms.service: operator-insights
 ms.topic: how-to
 ms.date: 02/29/2024
 
-#CustomerIntent: As a someone managing an agent that has already been set up, I want to rotate its secrets so that data products in Azure Operator Insights continue to receive the correct data.
+#CustomerIntent: As a someone managing an agent that has already been set up, I want to rotate its secrets so that Data Products in Azure Operator Insights continue to receive the correct data.
 ---
 # Rotate secrets for Azure Operator Insights ingestion agents
 
