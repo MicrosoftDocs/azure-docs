@@ -26,9 +26,9 @@ By default, Azure IoT MQ Preview:
 
 > [!CAUTION]
 > For production scenarios, you should use TLS and service accounts authentication to secure your IoT solution. For more information, see:
-> [Configure TLS with automatic certificate management to secure MQTT communication in Azure IoT MQ Preview](./howto-configure-tls-auto.md)
-> [Configure authentication in Azure IoT MQ Preview](./howto-configure-authentication.md)
-> [Expose Kubernetes services to external devices](/azure/aks/hybrid/aks-edge-howto-expose-service) using port forwarding or a virtual switch with Azure Kubernetes Services Edge Essentials.
+> - [Configure TLS with automatic certificate management to secure MQTT communication in Azure IoT MQ Preview](./howto-configure-tls-auto.md)
+> - [Configure authentication in Azure IoT MQ Preview](./howto-configure-authentication.md)
+> - [Expose Kubernetes services to external devices](/azure/aks/hybrid/aks-edge-howto-expose-service) using port forwarding or a virtual switch with Azure Kubernetes Services Edge Essentials.
 
 Before you begin, [install or deploy IoT Operations](../get-started/quickstart-deploy.md). Use the following options to test connectivity to IoT MQ with MQTT clients in a nonproduction environment.
 
