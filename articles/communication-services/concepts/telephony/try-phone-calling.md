@@ -1,5 +1,5 @@
 ---
-title: Try phone calling - Azure Communication Services
+title: Try Phone Calling - Azure Communication Services
 description: Confirm a phone number can connect without an app or other code.
 author: boris-bazilevskiy
 manager: dacarte
@@ -28,15 +28,15 @@ Try Phone Calling, now in public preview, is a tool in Azure preview portal to h
 
 ## Overview
 
-Open the [Azure Preview Portal](https://preview.portal.azure.com/#home) and search for **Try Phone Calling**. Then Enter a phone number, select a caller ID for this call, and the tool generates the code. You can also select **Use my connection string** and Try Phone Calling automatically gets the `connection string` for the resource.
+Open the [Azure preview portal](https://preview.portal.azure.com/#home) and search for **Try Phone Calling**. Then Enter a phone number, select a caller ID for this call, and the tool generates the code. You can also select **Use my connection string** and Try Phone Calling automatically gets the `connection string` for the resource.
 
 ![alt text](../media/try-phone-calling.png "Make a phone call")
 
 You can run generated code right from the tool page and see the status of the call. You can also copy the generated code into an application and enrich it with other Azure Communication Services features such as chat, SMS, and voice and video calling.
 
-## Azure Preview Portal
+## Azure preview portal
 
-The Try Phone Calling tool is in public preview, and is only available from the [Azure Preview Portal](https://preview.portal.azure.com/#home).
+The Try Phone Calling tool is in public preview, and is only available from the [Azure preview portal](https://preview.portal.azure.com/#home).
 
 ## Next steps
 

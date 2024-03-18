@@ -37,7 +37,7 @@ If you answer **yes** to the following questions, then Voice Calling (PSTN) is t
 With this option:
 - You get numbers directly from Microsoft and can call phones around the world.
 - You don't need to deploy or maintain any on-premises system because Voice Calling (PSTN) operates through Azure Communication Services.
-- Note: If necessary, you can choose to connect a supported Session Border Controller (SBC) through Azure Communication Services direct routing for interoperability with third-party Pprivate branch exchanges (PBXs), analog devices, and other third-party telephony equipment supported by the SBC.
+- Note: If necessary, you can choose to connect a supported Session Border Controller (SBC) through Azure Communication Services direct routing for interoperability with third-party private branch exchanges (PBXs), analog devices, and other third-party telephony equipment supported by the SBC.
 
 This option requires an uninterrupted connection to Azure Communication Services.  
 
