@@ -51,7 +51,7 @@ zone_pivot_groups: acs-azp-azpnew-azcli-java-csharp-js-python
 
 Common Questions and Issues:
 
-- When a phone number is released, the phone number shows up in your ACS resource on Azure Portal until the end of the billing cycle. It also can't be repurchased until the end of the billing cycle.
+- When a phone number is released, the phone number shows up in your ACS resource on Azure portal until the end of the billing cycle. It also can't be repurchased until the end of the billing cycle.
 
 - When a Communication Services resource is deleted, the phone numbers associated with that resource are automatically released at the same time.
 
