@@ -12,6 +12,8 @@ ms.author: jodowns
 
 # Front Door routing limits
 
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
+
 Each Front Door profile has a *composite route limit*.
 
 Your Front Door profile's composite route metric is derived from the number of routes, and the front end domains, protocols, and paths associated with that route.

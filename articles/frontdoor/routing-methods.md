@@ -12,6 +12,8 @@ ms.author: duau
 
 # Traffic routing methods to origin
 
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
+
 Azure Front Door supports four different traffic routing methods to determine how your HTTP/HTTPS traffic is distributed between different origins. When user requests reach the Front Door edge locations, the configured routing method gets applied to ensure requests are forwarded to the best backend resource.
 
 > [!NOTE]

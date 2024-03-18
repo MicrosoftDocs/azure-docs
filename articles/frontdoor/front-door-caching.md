@@ -12,6 +12,8 @@ zone_pivot_groups: front-door-tiers
 
 # Caching with Azure Front Door
 
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
+
 Azure Front Door is a modern content delivery network (CDN), with dynamic site acceleration and load balancing capabilities. When caching is configured on your route, the edge site that receives each request checks its cache for a valid response. Caching helps to reduce the amount of traffic sent to your origin server. If no cached response is available, the request is forwarded to the origin.
 
 Each Front Door edge site manages its own cache, and requests might get served by different edge sites. As a result, you might still see some traffic reach your origin, even if you served cached responses.
