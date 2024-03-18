@@ -46,6 +46,8 @@
     href: /cli/azure/fleet
   - name: REST
     href: /rest/api/fleet
+  - name: Terraform
+    href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_fleet_manager
   - name: PowerShell
     href: /powershell/module/az.fleet
   - name: .NET
