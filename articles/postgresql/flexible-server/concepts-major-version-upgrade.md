@@ -4,7 +4,7 @@ description: Learn about the concepts of in-place major version upgrade with Azu
 author: kabharati
 ms.author: kabharati
 ms.reviewer: rajsell
-ms.date: 01/16/2024
+ms.date: 03/18/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.custom: references_regions
@@ -45,6 +45,19 @@ Here are some of the important considerations with in-place major version upgrad
 -	If an in-place major version upgrade fails, the service restores the server to its previous state using a backup taken as part of second step described in this list.
 
 -	Once the in-place major version upgrade is successful, there are no automated ways to revert to the earlier version. However, you can perform a Point-In-Time Recovery (PITR) to a time prior to the upgrade to restore the previous version of the database instance.
+
+## Major Version Upgrade Logs 
+
+Major Version Upgrade Logs (PG_Upgrade_Logs) provides direct access to detailed logs through the [Server Logs](./how-to-server-logs-portal.md). Here’s how to integrate `PG_Upgrade_Logs` into your upgrade process, ensuring a smoother and more transparent transition to new PostgreSQL versions.
+
+#### Setting Up PostgreSQL Version Upgrade Logs
+1. **Access via Azure Portal or CLI**: To start utilizing the PG_Upgrade_Logs feature, you can configure and access the logs either through the Azure Portal or by using the [Command Line Interface (CLI)](./how-to-server-logs-cli.md). This flexibility allows you to choose the method that best fits your workflow.
+2. **Server Logs UI**: Once set up, the upgrade logs will be accessible through the Server Logs UI, where you can monitor the progress and details of your PostgreSQL major version upgrades in real time. This provides a centralized location for viewing logs, making it easier to track and troubleshoot the upgrade process.
+
+#### Utilizing Upgrade Logs for Troubleshooting
+
+- **Insightful Diagnostics**: The PG_Upgrade_Logs feature provides valuable insights into the upgrade process, capturing detailed information about the operations performed and highlighting any errors or warnings that occur. This level of detail is instrumental in diagnosing and resolving issues that may arise during the upgrade, ensuring a smoother transition.
+- **Streamlined Troubleshooting**: With direct access to these logs, you can quickly identify and address potential upgrade obstacles, reducing downtime and minimizing the impact on your operations. The logs serve as a crucial tool in your troubleshooting arsenal, enabling more efficient and effective problem resolution.
 
 ## Limitations  
 
