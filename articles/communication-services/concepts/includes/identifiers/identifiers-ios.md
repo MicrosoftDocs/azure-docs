@@ -85,7 +85,7 @@ let gcchTeamsAppIdentifier = MicrosoftTeamsAppIdentifier(appId: botId, cloudEnvi
 
 #### API reference
 
-[MicrosoftBotIdentifier](https://azure.github.io/azure-sdk-for-ios/AzureCommunicationCommon/Classes/MicrosoftBotIdentifier.html)
+[MicrosoftTeamsAppIdentifier](https://azure.github.io/azure-sdk-for-ios/AzureCommunicationCommon/Classes/MicrosoftBotIdentifier.html)
 
 ### Unknown
 

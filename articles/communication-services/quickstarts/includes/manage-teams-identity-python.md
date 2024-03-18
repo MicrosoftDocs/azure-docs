@@ -15,7 +15,7 @@ ms.author: gistefan
 
 ## Set up prerequisites
 
-- [Python](https://www.python.org/downloads/) 3.7+.
+- [Python](https://www.python.org/downloads/) 3.8+.
 
 ## Final code
 Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/manage-teams-identity-mobile-and-desktop).

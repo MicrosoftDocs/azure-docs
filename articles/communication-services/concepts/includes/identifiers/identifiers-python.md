@@ -94,7 +94,7 @@ gcch_teams_app_identifier = MicrosoftTeamsAppIdentifier(
 
 #### API reference
 
-[MicrosoftBotIdentifier](/python/api/azure-communication-identity/azure.communication.identity.microsoftbotidentifier?view=azure-python-preview&preserve-view=true)
+[MicrosoftTeamsAppIdentifier](/python/api/azure-communication-identity/azure.communication.identity.microsoftteamsappidentifier?view=azure-python)
 
 ### Unknown
 
