@@ -12,10 +12,10 @@ ms.date: 03/06/2024
 
 ---
   
-# Quickstart: Creating a Arc Site in Azure Arc site manager
+# Quickstart: Creating a site in Azure Arc site manager
  
 
-The purpose of this quickstart is to enable starting with Azure Arc site manager and guides on how to create a intiial site for resources currently grouped within a single resource group. In this quickstart you will create your first site. Once you create your first Arc site, you will be ready to view your resources within Arc, and conduct functions, depending on the specific resources, such as Inventory, Connectivity status, Updates, and Alerts.
+The purpose of this quickstart is to enable starting with Azure Arc site manager and guides on how to create a initial site for resources currently grouped within a single resource group. In this quickstart you will create your first site. Once you create your first Arc site, you will be ready to view your resources within Arc, and conduct functions, depending on the specific resources, such as Inventory, Connectivity status, Updates, and Alerts.
 
 For full status on which resources support what functions within Arc sites, please view the overview.md here.
 
