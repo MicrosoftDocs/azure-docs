@@ -1,7 +1,6 @@
 ---
 title: Add or edit Azure role assignment conditions using the REST API - Azure ABAC
 description: Learn how to add, edit, list, or delete attribute-based access control (ABAC) conditions in Azure role assignments using the REST API and Azure role-based access control (Azure RBAC).
-services: active-directory
 author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
@@ -122,7 +121,7 @@ To list a role assignment condition, use the [Role Assignments](/rest/api/author
 
 To delete a role assignment condition, edit the role assignment condition and set both the condition and condition version to either an empty string or null.
 
-Alternatively, if you want to delete both the role assignment and the condition, you can use the [Role Assignments - Delete](/rest/api/authorization/role-assignments/delete) API. For more information, see [Remove Azure role assignments](role-assignments-remove.md).
+Alternatively, if you want to delete both the role assignment and the condition, you can use the [Role Assignments - Delete](/rest/api/authorization/role-assignments/delete) API. For more information, see [Remove Azure role assignments](role-assignments-remove.yml).
 
 ## Next steps
 

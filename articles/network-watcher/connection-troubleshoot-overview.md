@@ -151,4 +151,4 @@ Connection troubleshoot returns fault types about the connection. The following 
 
 To learn how to use connection troubleshoot to test and troubleshoot connections, continue to:
 > [!div class="nextstepaction"]
-> [Troubleshoot connections using the Azure portal](network-watcher-connectivity-portal.md)
+> [Troubleshoot connections using the Azure portal](connection-troubleshoot-portal.md)

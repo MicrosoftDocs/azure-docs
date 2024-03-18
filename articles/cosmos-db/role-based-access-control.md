@@ -26,7 +26,7 @@ The following are the built-in roles supported by Azure Cosmos DB:
 |**Built-in role**  |**Description**  |
 |---------|---------|
 |[DocumentDB Account Contributor](../role-based-access-control/built-in-roles.md#documentdb-account-contributor)|Can manage Azure Cosmos DB accounts.|
-|[Cosmos DB Account Reader](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Can read Azure Cosmos DB account data.|
+|[Cosmos DB Account Reader Role](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Can read Azure Cosmos DB account data.|
 |[CosmosBackupOperator](../role-based-access-control/built-in-roles.md#cosmosbackupoperator)| Can submit a restore request in the Azure portal for a periodic backup enabled database or a container. Can modify the backup interval and retention in the Azure portal. Cannot access any data or use Data Explorer.  |
 | [CosmosRestoreOperator](../role-based-access-control/built-in-roles.md#cosmosrestoreoperator) | Can perform a restore action for an Azure Cosmos DB account with continuous backup mode.|
 |[Cosmos DB Operator](../role-based-access-control/built-in-roles.md#cosmos-db-operator)|Can provision Azure Cosmos DB accounts, databases, and containers. Cannot access any data or use Data Explorer.|

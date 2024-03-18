@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: davidsmatlak
   ms.author: davidsmatlak
-  ms.date: 06/02/2021
+  ms.date: 02/29/2024
 
 landingContent:
   - title: About Azure Policy
@@ -40,7 +40,7 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Assign a policy (Portal)
+          - text: Assign a policy (Azure portal)
             url: ./assign-policy-portal.md
           - text: Assign a policy (Azure CLI)
             url: ./assign-policy-azurecli.md

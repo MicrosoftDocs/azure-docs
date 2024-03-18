@@ -93,4 +93,4 @@ Prospective customers accessing Defender EASM with a 30-day trial can also see t
 
 ## Next steps 
 
-- [Microsoft Defender External Attack Surface Management (Defender EASM) overview](index.md)   
+- [Microsoft Defender External Attack Surface Management (Defender EASM) overview](overview.md)   
