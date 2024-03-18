@@ -56,7 +56,7 @@ When an AKS cluster is created or scaled up, the nodes are automatically deploye
 
 For more information about the security upgrade process for Linux and Windows worker nodes, see [Security patching nodes][aks-vulnerability-management-nodes].
 
-AKS clusters running Azure Generation 2 VMs includes support for [Trusted Launch][trusted-launch] (preview), which protects against advanced and persistent attack techniques by combining technologies that can be independently enabled, like secure boot and virtualized version of trusted platform module (vTPM). Administrators can deploy AKS worker nodes and have confidence in the entire boot chan's integrity because the underlying virtual machine has verified and signed bootloaders, OS kernels, and drivers.
+AKS clusters running Azure Generation 2 VMs includes support for [Trusted Launch][trusted-launch] (preview), which protects against advanced and persistent attack techniques by combining technologies that can be independently enabled, like secure boot and virtualized version of trusted platform module (vTPM). Administrators can deploy AKS worker nodes with verified and signed bootloaders, OS kernels, and drivers to ensure integrity of the entire boot chain of the underlying VM.
 
 ### Node authorization
 
