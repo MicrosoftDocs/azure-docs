@@ -419,9 +419,20 @@
             - name: Prepare Azure resources for exporting to Splunk and QRadar
               displayName: azure, resources, Splunk, QRadar
               href: export-to-splunk-or-qradar.md
-            - name: Export to a Log Analytics workspace or Azure Event Hubs
-              displayName: continuous, log analytics, workspace, event hubs, azure
-              href: continuous-export.md
+            - name: Continuous export
+              items:
+              - name: Setup continuous export in the Azure portal
+                displayName: continuous, log analytics, workspace, event hubs, azure
+                href: continuous-export.md
+              - name: Setup continuous export with REST API
+                displayName: continuous, setup, export
+                href: continuous-export-rest-api.md
+              - name: Setup continuous export with Azure policy
+                displayName: continuous, setup, export, policy
+                href: continuous-export-azure-policy.md
+              - name: Continuous export to an event hub behind a firewall
+                displayName: continuous, export, event hub, firewall
+                href: continuous-export-event-hub-firewall.md
             - name: Download a CSV report of all alerts
               displayName: CSV report, alerts
               href: continuous-export.md#manual-one-time-export-of-alerts-and-recommendations
