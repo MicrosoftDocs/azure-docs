@@ -22,7 +22,7 @@ In this release, we made the following changes:
 
 - Fixed accessibility issues.
 - Fixed bugs reported by users and internal telemetry.
-- As of this release, the iOS client only supports iOS 16 and 17.
+- As of this release, the iOS client only supports iOS 16 and later.
 
 ## Updates for version 10.5.4
 
