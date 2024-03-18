@@ -11,9 +11,9 @@ ms.custom: devx-track-azurecli
 
 # Use Azure Operator Service Manager (AOSM) CLI extension
 
-In this how-to guide, Network Function Publishers and Service Designers learn how to use the Azure CLI extension to get started with Network Function Definitions (NFDs) and Network Service Designs (NSDs).
+In this how-to guide, Network Function Publishers and Network Service Designers learn how to use the Azure CLI extension to get started with Network Function Definitions (NFDs) and Network Service Designs (NSDs).
 
-The `az aosm` CLI extension is intended to provide support for publishing Azure Operator Service Manager designs and definitions. The CLI extension aids in the process of publishing Network Function Definitions (NFDs) and Network Service Designs (NSDs) to use with Azure Operator Service Manager.
+The `az aosm` CLI extension is intended to provide support for publishing Network Function Definitions (NFDs) and Network Service Designs (NSDs) to use with Azure Operator Service Manager.
 
 ## Prerequisites
 
@@ -25,7 +25,7 @@ Use the Bash environment in the Azure cloud shell. For more information, see [St
 
 For users that prefer to run CLI reference commands locally refer to [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
-If you're running on Window or macOS, consider running Azure CLI in a Docker container. For more information, see [How to run the Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
+If you're running on Windows or macOS, consider running Azure CLI in a Docker container. For more information, see [How to run the Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
 
 If you're using a local installation, sign into the Azure CLI using the `az login` command and complete the prompts displayed in your terminal to finish authentication. For more sign-in options, refer to [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
@@ -36,6 +36,7 @@ Install the Azure Operator Service Manager (AOSM) CLI extension using this comma
 ```azurecli
 az extension add --name aosm
 ```
+
 1. Run `az version` to see the version and dependent libraries that are installed.
 1. Run `az upgrade` to upgrade to the current version of Azure CLI.
 
@@ -48,6 +49,7 @@ Before you begin using the Azure Operator Service Manager, make sure to register
 az provider register --namespace Microsoft.HybridNetwork
 az provider register --namespace Microsoft.ContainerRegistry
 ```
+
 Verify the registration status of the resource providers. Execute the following commands.
 
 ```azurecli
@@ -63,8 +65,8 @@ az provider show -n Microsoft.ContainerRegistry --query "{RegistrationState: reg
 
 For those utilizing Containerized Network Functions, it's essential to ensure that the following packages are installed on the machine from which you're executing the CLI:
 
--  **Install Helm**, refer to [Install Helm CLI](https://helm.sh/docs/intro/install/).
--  In some circumstances, **install docker**, refer to [Install the Docker Engine](https://docs.docker.com/engine/install/). Only needed if the source image is in your local docker repository, or you don't have subscription-wide permissions required to push charts and images.
+- **Install Helm**, refer to [Install Helm CLI](https://helm.sh/docs/intro/install/).
+- In some circumstances, **install docker**, refer to [Install the Docker Engine](https://docs.docker.com/engine/install/). Only needed if you don't have subscription-wide permissions required to push charts and images.
 
 ## Permissions
 
@@ -74,30 +76,30 @@ You require the Contributor role over this subscription in order to create a Res
 
 ### Permissions for publishing CNFs
 
-If sourcing the CNF images from an existing ACR, you need to have `Reader`/`AcrPull` permissions from this ACR, and ideally, `Contributor` role + `AcrPush` role (or a custom role that allows the `importImage` action and `AcrPush`) over the whole subscription in order to be able to import to the new Artifact store. If you have these, you don't need docker to be installed locally, and the image copy is quick.
+When sourcing the CNF images from an existing ACR, you need to have `Reader`/`AcrPull` permissions from this ACR, and ideally, `Contributor` role + `AcrPush` role (or a custom role that allows the `importImage` action and `AcrPush`) over the whole subscription in order to be able to import to the new Artifact store. If you have these, you don't need docker to be installed locally, and the image copy is quick.
 
 If you don't have the subscription-wide permissions then you can run the `az aosm nfd publish` command using the `--no-subscription-permissions` flag to pull the image to your local machine and then push it to the Artifact Store using manifest credentials scoped only to the store. Requires docker to be installed locally.
 
 ## Azure Operator Service Manager (AOSM) CLI extension overview
 
-Network Function Publishers and Service Designers use the Azure CLI extension to help with the publishing of Network Function Definitions (NFDs) and Network Service Designs (NSDs).
+Network Function Publishers and Network Service Designers use the Azure CLI extension to help with the publishing of Network Function Definitions (NFDs) and Network Service Designs (NSDs).
 
-As explained in [Roles and Interfaces](roles-interfaces.md), a Network Function Publisher has various responsibilities. The CLI extension assists with the items shown in bold: 
+As explained in [Roles and Interfaces](roles-interfaces.md), a Network Function Publisher has various responsibilities. The CLI extension assists with the items shown in bold:
 
 - Create the network function.
-- **Encode that in a Network Function Design (NFD)**.
-- **Determine the deployment parameters to expose to the Service Designer**.
-- **Onboard the Network Function Design (NFD) to Azure Operator Service Manager (AOSM)**.
+- **Encode that in a Network Function Definition (NFD)**.
+- **Determine the deployment parameters to expose to the Network Service Designer**.
+- **Onboard the Network Function Definition (NFD) to Azure Operator Service Manager (AOSM)**.
 - **Upload the associated artifacts**.
-- Validate the Network Function Design (NFD).
+- Validate the Network Function Definition (NFD).
 
-A Service Designer also has various responsibilities, of which the CLI extension assists with the items in bold:
+A Network Service Designer also has various responsibilities, of which the CLI extension assists with the items in bold:
 
-- Choose which Network Function Definitions are included in the Service Design.
+- Choose which Network Function Definitions are included in the Network Service Design.
 - **Encode that into a Network Service Design**.
 - Combine Azure infrastructure into the Network Service Design.
 - **Determine how to parametrize the service by defining one or more Configuration Group Schemas (CGSs)**.
-- **Determine how inputs from the Service Operator map down to parameters required by the Network Function Definitions** and the Azure infrastructure.
+- **Determine how inputs from the Network Service Operator map down to parameters required by the Network Function Definitions** and the Azure infrastructure.
 - **Onboard the Network Service Design (NSD) to Azure Operator Service Manager (AOSM)**.
 - **Upload the associated artifacts**.
 - Validate the Network Service Design (NSD).
@@ -108,7 +110,7 @@ A generic workflow of using the CLI extension is:
 
 1. Find the prerequisite items you require for your use-case.
 
-1. Run a `generate-config` command to output an example JSON config file for subsequent commands.
+1. Run a `generate-config` command to output an example JSONC config file for subsequent commands.
 
 1. Fill in the config file.
 
@@ -117,15 +119,15 @@ A generic workflow of using the CLI extension is:
 1. Review the output of the build command, edit the output as necessary for your requirements.
 
 1. Run a `publish` command to:
-    * Create all prerequisite resources such as Resource Group, Publisher, Artifact Stores, Groups.
-    * Deploy those bicep templates.
-    * Upload artifacts to the artifact stores.
+   - Create all prerequisite resources such as Publisher, Artifact Stores, Groups.
+   - Deploy those bicep templates.
+   - Upload artifacts to the artifact stores.
 
 ## VNF start point
 
-For VNFs, you need a single ARM template that would create the Azure resources for your VNF, for example a Virtual Machine, disks and NICs. The ARM template must be stored on the machine from which you're executing the CLI. 
+For VNFs, you need at least one ARM template that would create the Azure resources for your VNF, for example a Virtual Machine, disks and NICs. The ARM template must be stored on the machine from which you're executing the CLI.
 
-For Virtualized Network Function Definition Versions (VNF NFDVs), the networkFunctionApplications list must contain one VhdImageFile and one ARM template. It's unusual to include more than one VhdImageFile and more than one ARM template. Unless you have a strong reason not to, the ARM template should deploy a single VM. The Service Designer should include numerous copies of the Network Function Definition (NFD) with the Network Service Design (NSD) if you want to deploy multiple VMs. The ARM template (for both AzureCore and Nexus) can only deploy ARM resources from the following Resource Providers:
+For Virtualized Network Function Definition Versions (VNF NFDVs), the networkFunctionApplications list must contain one VhdImageFile and one ARM template. It's unusual to include more than one VhdImageFile and more than one ARM template. Unless you have a strong reason not to, the ARM template should deploy a single VM. The Network Service Designer should include numerous copies of the Network Function Definition (NFD) with the Network Service Design (NSD) if you want to deploy multiple VMs. The ARM template (for both AzureCore and Nexus) can only deploy ARM resources from the following Resource Providers:
 
 - Microsoft.Compute
 
@@ -145,52 +147,63 @@ You also need a VHD image that would be used for the VNF Virtual Machine. The VH
 
 ## CNF start point
 
+**TODO: THIS SECTION IS EXACTLY THE SAME AS THE one in cnf prerequisites. Make sure all the changes there are applied here (or just link it)**
+
 For deployments of Containerized Network Functions (CNFs), it's crucial to have the following stored on the machine from which you're executing the CLI:
 
-- **Helm Packages with Schema** - These packages should be present on your local storage and referenced within the `input.json` configuration file. When following this quickstart, you download the required helm package.
-- **Creating a Sample Configuration File** - Generate an example configuration file for defining a CNF deployment. Issue this command to generate an `input.json` file that you need to populate with your specific configuration.
+- **Helm Packages with Schema** - These packages should be present on your local storage and referenced within the `cnf-input.jsonc` configuration file. When following this quickstart, you download the required helm package.
+- **Optional: Mapping File (default_values)**: Optionally, you can provide a file (on disk) under the `default_values` parameter. This file should mirror `values.yaml`, with your selected values replaced by deployment parameters. Doing so exposes them as parameters to the CNF. Or, you can leave this blank in `cnf-input.jsonc` and the CLI generates the file. By default in this case, every value within `values.yaml` is exposed as a deployment parameter. This quickstart guides you through creation of this file. **TODO: I DOUBT THIS IS RIGHT**
 
-    ```azurecli
-    az aosm nfd generate-config
-    ```
-
-- **Images for your CNF** - Here are the options:
-  - A reference to an existing Azure Container Registry that contains the images for your CNF. Currently, only one ACR and namespace are supported per CNF. The images to be copied from this ACR are populated automatically based on the helm package schema. You must have Reader/AcrPull permissions on this ACR. To use this option, fill in `source_registry` and optionally `source_registry_namespace` in the input.json file.
-  - The image name of the source docker image from local machine. This image name is for a limited use case where the CNF only requires a single docker image that exists in the local docker repository. To use this option, fill in `source_local_docker_image` in the input.json file. Requires docker to be installed. This quickstart guides you through downloading an nginx docker image to use for this option.
-- **Optional: Mapping File (path_to_mappings)**: Optionally, you can provide a file (on disk) named path_to_mappings. This file should mirror `values.yaml`,  with your selected values replaced by deployment parameters. Doing so exposes them as parameters to the CNF. Or, you can leave this blank in `input.json` and the CLI generates the file. By default in this case, every value within `values.yaml` is exposed as a deployment parameter. Alternatively use the `--interactive` CLI argument to interactively make choices. This quickstart guides you through creation of this file.
-
-When configuring the `input.json` file, ensure that you list the Helm packages in the order they should be deployed. For instance, if package "A" must be deployed before package "B," your `input.json` should resemble the following structure:
+When configuring the `cnf-input.jsonc` file, ensure that you list the Helm packages in the order they should be deployed. For instance, if package "A" must be deployed before package "B," your `cnf-input.jsonc` should resemble the following structure: **TODO: does it still follow this order in the new CLI?**
 
 ```json
-"helm_packages": [
-    {
-        "name": "A",
-        "path_to_chart": "Path to package A",
-        "path_to_mappings": "Path to package A mappings",
-        "depends_on": [
-            "Names of the Helm packages this package depends on"
-        ]
-    },
-    {
-        "name": "B",
-        "path_to_chart": "Path to package B",
-        "path_to_mappings": "Path to package B mappings",
-        "depends_on": [
-            "Names of the Helm packages this package depends on"
-        ]
-    }
-]
+    // List of Helm packages to be included in the CNF.
+    "helm_packages": [
+        {
+            // The name of the Helm package.
+            "name": "A",
+            // The file path to the helm chart on the local disk, relative to the directory from which the command is run.
+            // Accepts .tgz, .tar or .tar.gz, or an unpacked directory. Use Linux slash (/) file separator even if running on Windows.
+            "path_to_chart": "",
+            // The file path (absolute or relative to this configuration file) of YAML values file on the local disk which will be used instead of the values.yaml file present in the helm chart.
+            // Accepts .yaml or .yml. Use Linux slash (/) file separator even if running on Windows.
+            "default_values": "",
+            // Names of the Helm packages this package depends on.
+            // Leave as an empty array if there are no dependencies.
+            "depends_on": [
+            ]
+        },
+        {
+            // The name of the Helm package.
+            "name": "B",
+            // The file path to the helm chart on the local disk, relative to the directory from which the command is run.
+            // Accepts .tgz, .tar or .tar.gz, or an unpacked directory. Use Linux slash (/) file separator even if running on Windows.
+            "path_to_chart": "",
+            // The file path (absolute or relative to this configuration file) of YAML values file on the local disk which will be used instead of the values.yaml file present in the helm chart.
+            // Accepts .yaml or .yml. Use Linux slash (/) file separator even if running on Windows.
+            "default_values": "",
+            // Names of the Helm packages this package depends on.
+            // Leave as an empty array if there are no dependencies.
+            "depends_on": [
+            ]
+        }
+    ]
 ```
+
 Following these guidelines ensures a well organized and structured approach to deploy Containerized Network Functions (CNFs) with Helm packages and associated configurations.
 
 ## NSD start point
-For NSDs, you need to know the details of the Network Function Definitions (NFDs) to incorporate into your design: 
+
+For NSDs, you need to know the details of the Network Function Definitions (NFDs) to incorporate into your design:
+
 - the NFD Publisher resource group
-- the NFD Publisher name and scope
+- the NFD Publisher name
 - the name of the Network Function Definition Group
 - the location, type and version of the Network Function Definition Version
 
 You can use the `az aosm nfd` commands to create all of these resources.
+
+You can also specify Arm Resource Element Templates in order to spin up infrastructure.
 
 ## Azure Operator Service Manager (AOSM) commands
 
@@ -210,42 +223,23 @@ Get help on command arguments:
 
 - `az aosm nfd build -h`
 
-### Definition type commands
+Definition type commands:
 
-All these commands take a `--definition-type` argument of `vnf` or `cnf`.
+All NFD commands take a `--definition-type` argument of `vnf` or `cnf`.
 
 Create an example config file for building a definition:
 
-- `az aosm nfd generate-config`
+- `az aosm nfd generate-config --definition-type <nf-type>`
 
-This command outputs a file called `input.json`, which must be filled in. Once the config file is filled in the following commands can be run.
+This command outputs a JSONC file, which must be filled in. Once the config file is filled in the following commands can be run.
 
 Build an NFD definition locally:
 
-- `az aosm nfd build --config-file input.json`
-
-More options on building an NFD definition locally:
-
-- Choose which of the VNF ARM template parameters you want to expose as NFD deploymentParameters, with the option of interactively choosing each one:
-
-  - `az aosm nfd build --config-file input.json --definition_type vnf --order_params`
-  - `az aosm nfd build --config-file input.json --definition_type vnf --order_params --interactive`
-
-Choose which of the CNF Helm values parameters you want to expose as NFD deploymentParameters:
-
-- `az aosm nfd build --config-file input.json --definition_type cnf --interactive`
+- `az aosm nfd build --config-file <input-file> --definition-type <nf-type>`
 
 Publish a prebuilt definition:
 
-- `az aosm nfd publish --config-file input.json`
-
-Delete a published definition:
-
-- `az aosm nfd delete --config-file input.json`
-
-Delete a published definition and the publisher, artifact stores and NFD group:
-
-- `az aosm nfd delete --config-file input.json --clean`
+- `az aosm nfd publish --build-output-folder <output-folder> --definition-type <nf-type>`
 
 ### NSD commands
 
@@ -261,23 +255,15 @@ Create an example config file for building a definition:
 
 - `az aosm nsd generate-config`
 
-This command outputs a file called `input.json`, which must be filled in. Once the config file is filled in the following commands can be run.
+This command outputs a a JSONC file, which must be filled in. Once the config file is filled in the following commands can be run.
 
 Build an NSD locally:
 
-- `az aosm nsd build --config-file input.json`
+- `az aosm nsd build --config-file <input-file>`
 
 Publish a prebuilt design:
 
-- `az aosm nsd publish --config-file input.json`
-
-Delete a published design:
-
-- `az aosm nsd delete --config-file input.json`
-
-Delete a published design and the publisher, artifact stores and NSD group:
-
-- `az aosm nsd delete --config-file input.json --clean`
+- `az aosm nsd publish --build-output-folder <output-folder>`
 
 ## Edit the build output before publishing
 
@@ -289,16 +275,14 @@ The following sections describe some common ways that you can use to edit the bu
 
 ### Network Function Definitions (NFDs)
 
-- Change the `versionState` of the `networkfunctiondefinitionversions` resource from `Preview` to `Active`. Active NFDVs are immutable whereas Preview NFDVs are mutable and in draft state.
 - For CNFs, change the `releaseNamespace` of the `helmMappingRuleProfile` to change the kubernetes namespace that the chart is deployed to.
 
 ### Network Service Designs (NSDs)
 
 - Add Azure Infrastructure to your Network Service Design (NSD). Adding Azure infrastructure to your can involve:
-    * Writing ARM templates to deploy the infrastructure.
-    * Adding Configuration Group Schemas(CGSs) for these ARM templates.
-    * Adding `ResourceElementTemplates` (RETs) of type `ArmResourceDefinition` to your NSD. The RETs look the same as `NetworkFunctionDefinition` RETs apart from the `type` field.
-    * Adding the infrastructure ARM templates to the `artifact_manifest.bicep` file.
-    * Editing the `configMappings` files to incorporate any outputs from the infrastructure templates as inputs to the `NetworkFunctionDefinition` ResourceElementTemplates. For example: `"customLocationId": "{outputparameters('infraretname').infraretname.customLocationId.value}"`
-    * Editing the `dependsOnProfile` for the `NetworkFunctionDefinition` ResourceElementTemplates (RETs) to ensure that infrastructure RETs are deployed before NF RETs.
-- Change the `versionState` of the `networkservicedesignversions` resource from `Preview` to `Active`. Active NSDs are immutable whereas Preview NSDs are mutable and in draft state.    
+  - Writing ARM templates to deploy the infrastructure.
+  - Adding Configuration Group Schemas (CGSs) for these ARM templates.
+  - Adding `ResourceElementTemplates` (RETs) of type `ArmResourceDefinition` to your NSD. The RETs look the same as `NetworkFunctionDefinition` RETs apart from the `type` field.
+  - Adding the infrastructure ARM templates to the `artifact_manifest.bicep` file.
+  - Editing the `configMappings` files to incorporate any outputs from the infrastructure templates as inputs to the `NetworkFunctionDefinition` ResourceElementTemplates. For example: `"customLocationId": "{outputparameters('infraretname').infraretname.customLocationId.value}"`
+  - Editing the `dependsOnProfile` for the `NetworkFunctionDefinition` ResourceElementTemplates (RETs) to ensure that infrastructure RETs are deployed before NF RETs.

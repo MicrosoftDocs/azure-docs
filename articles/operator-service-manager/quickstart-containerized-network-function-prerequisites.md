@@ -1,5 +1,4 @@
 ---
-
 title: Prerequisites for Using Azure Operator Service Manager
 description: Use this Quickstart to install and configure the necessary prerequisites for Azure Operator Service Manager
 author: HollyCl
@@ -12,7 +11,7 @@ ms.date: 09/08/2023
 
 # Quickstart: Complete the prerequisites to deploy a Containerized Network Function in Azure Operator Service Manager
 
-In this Quickstart, you complete the tasks necessary prior to using the Azure Operator Service Manager (AOSM). 
+In this Quickstart, you complete the tasks necessary prior to using the Azure Operator Service Manager (AOSM).
 
 ## Prerequisites
 
@@ -35,6 +34,7 @@ Install the Azure Operator Service Manager (AOSM) CLI extension using this comma
 ```azurecli
 az extension add --name aosm
 ```
+
 1. Run `az version` to see the version and dependent libraries that are installed.
 1. Run `az upgrade` to upgrade to the current version of Azure CLI.
 
@@ -70,26 +70,32 @@ For those utilizing Containerized Network Functions, it's essential to ensure th
 
 For deployments of Containerized Network Functions (CNFs), it's crucial to have the following stored on the machine from which you're executing the CLI:
 
-- **Helm Packages with Schema** - These packages should be present on your local storage and referenced within the `input.json` configuration file. When following this quickstart, you download the required helm package.
-- **Creating a Sample Configuration File** - Generate an example configuration file for defining a CNF deployment. Issue this command to generate an `input.json` file that you need to populate with your specific configuration.
+- **Helm Packages with Schema** - These packages should be present on your local storage and referenced within the `cnf-input.jsonc` configuration file. When following this quickstart, you download the required helm package.
+- **Creating a Sample Configuration File** - Generate an example configuration file for defining a CNF deployment. Issue this command to generate an `cnf-input.jsonc` file that you need to populate with your specific configuration.
 
-    ```azurecli
-    az aosm nfd generate-config --definition-type cnf
-    ```
+  ```azurecli
+  az aosm nfd generate-config --definition-type cnf
+  ```
 
 - **Images for your CNF** - Here are the options:
-  - A reference to an existing Azure Container Registry that contains the images for your CNF. Currently, only one ACR and namespace are supported per CNF. The images to be copied from this ACR are populated automatically based on the helm package schema. You must have Reader/AcrPull permissions on this ACR. To use this option, fill in `source_registry` and optionally `source_registry_namespace` in the input.json file.
-  - The image name of the source docker image from local machine. This image name is for a limited use case where the CNF only requires a single docker image that exists in the local docker repository. To use this option, fill in `source_local_docker_image` in the input.json file. Requires docker to be installed. This quickstart guides you through downloading an nginx docker image to use for this option.
-- **Optional: Mapping File (path_to_mappings)**: Optionally, you can provide a file (on disk) named path_to_mappings. This file should mirror `values.yaml`,  with your selected values replaced by deployment parameters. Doing so exposes them as parameters to the CNF. Or, you can leave this blank in `input.json` and the CLI generates the file. By default in this case, every value within `values.yaml` is exposed as a deployment parameter. Alternatively use the `--interactive` CLI argument to interactively make choices. This quickstart guides you through creation of this file.
+  - A reference to existing Container Registries that contain the images for your CNF. Azure Container Registries are preferred but all other Container Registries are also supported. The images to be copied from these registries are populated automatically based on the helm package schema. You must have Reader/AcrPull permissions on any ACRs referenced or run `docker login` command when using other private Container Registries. To use this option, fill in `image_sources` in the `cnf-input.jsonc` file.
+- **Optional: Mapping File (default_values)**: Optionally, you can provide a file (on disk) under the `default_values` parameter. This file should mirror `values.yaml`, with your selected values replaced by deployment parameters. Doing so exposes them as parameters to the CNF. Or, you can leave this blank in `cnf-input.jsonc` and the CLI generates the file. By default in this case, every value within `values.yaml` is exposed as a deployment parameter. This quickstart guides you through creation of this file. **TODO: I DOUBT THIS IS RIGHT**
 
-When configuring the `input.json` file, ensure that you list the Helm packages in the order they should be deployed. For instance, if package "A" must be deployed before package "B," your `input.json` should resemble the following structure:
+When configuring the `cnf-input.jsonc` file, ensure that you list the Helm packages in the order they should be deployed. For instance, if package "A" must be deployed before package "B," your `cnf-input.jsonc` should resemble the following structure: **TODO: does it still follow this order in the new CLI?**
 
-```json
+```jsonc
 "helm_packages": [
     {
+        // The name of the Helm package.
         "name": "A",
+        // The file path to the helm chart on the local disk, relative to the directory from which the command is run.
+        // Accepts .tgz, .tar or .tar.gz, or an unpacked directory. Use Linux slash (/) file separator even if running on Windows.
         "path_to_chart": "Path to package A",
-        "path_to_mappings": "Path to package A mappings",
+        // The file path (absolute or relative to this configuration file) of YAML values file on the local disk which will be used instead of the values.yaml file present in the helm chart.
+        // Accepts .yaml or .yml. Use Linux slash (/) file separator even if running on Windows.
+        "default_values": "Path to default values A",
+        // Names of the Helm packages this package depends on.
+        // Leave as an empty array if there are no dependencies.
         "depends_on": [
             "Names of the Helm packages this package depends on"
         ]
@@ -97,20 +103,15 @@ When configuring the `input.json` file, ensure that you list the Helm packages i
     {
         "name": "B",
         "path_to_chart": "Path to package B",
-        "path_to_mappings": "Path to package B mappings",
+        "default_values": "Path to default values B",
         "depends_on": [
             "Names of the Helm packages this package depends on"
         ]
     }
 ]
 ```
+
 Following these guidelines ensures a well organized and structured approach to deploy Containerized Network Functions (CNFs) with Helm packages and associated configurations.
-
-### Download nginx image to local docker repo
-
-For this quickstart, you  download the nginx docker image to your local repository. The Azure Operator Service Manager (AOSM) Azure CLI extension pushes the image from there to the Azure Operator Service Manager (AOSM) Artifact Store ACR. The CLI extension also supports copying the image from an existing ACR. Copying the image is the expected default use-case, but  it's slower for a quickstart to create an ACR to copy from so this method isn't used here.
-
-Issue the following command: `docker pull nginx:stable`
 
 ### Download sample Helm chart
 
@@ -118,144 +119,146 @@ Download the sample Helm chart from here [Sample Helm chart](https://download.mi
 
 ## Dive into Helm charts
 
+In this quickstart, you will configure the Azure Operator Service Manager (AOSM) CLI to copy the nginx docker image to a Azure Operator Service Manager (AOSM) Artifact Store ACR.
+
 This section introduces you to a basic Helm chart that sets up nginx and configures it to listen on a specified port. The Helm chart furnished in this section already incorporates a `values.schema.json` file.
 
 ### Sample values.schema.json file
 
 ```json
 {
-    "$schema": "http://json-schema.org/draft-07/schema",
-    "additionalProperties": true,
-    "properties": {
-        "affinity": {
-            "additionalProperties": false,
-            "properties": {},
-            "type": "object"
-        },
-        "fullnameOverride": {
-            "type": "string"
-        },
-        "image": {
-            "additionalProperties": false,
-            "properties": {
-                "pullPolicy": {
-                    "type": "string"
-                },
-                "repository": {
-                    "type": "string"
-                },
-                "tag": {
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "imagePullSecrets": {
-            "items": {
-                "anyOf": []
-            },
-            "type": "array"
-        },
-        "ingress": {
-            "additionalProperties": false,
-            "properties": {
-                "annotations": {
-                    "additionalProperties": false,
-                    "properties": {},
-                    "type": "object"
-                },
-                "enabled": {
-                    "type": "boolean"
-                },
-                "hosts": {
-                    "items": {
-                        "anyOf": [
-                            {
-                                "additionalProperties": false,
-                                "properties": {
-                                    "host": {
-                                        "type": "string"
-                                    },
-                                    "paths": {
-                                        "items": {
-                                            "anyOf": []
-                                        },
-                                        "type": "array"
-                                    }
-                                },
-                                "type": "object"
-                            }
-                        ]
-                    },
-                    "type": "array"
-                },
-                "tls": {
-                    "items": {
-                        "anyOf": []
-                    },
-                    "type": "array"
-                }
-            },
-            "type": "object"
-        },
-        "nameOverride": {
-            "type": "string"
-        },
-        "nodeSelector": {
-            "additionalProperties": false,
-            "properties": {},
-            "type": "object"
-        },
-        "podSecurityContext": {
-            "additionalProperties": false,
-            "properties": {},
-            "type": "object"
-        },
-        "replicaCount": {
-            "type": "integer"
-        },
-        "resources": {
-            "additionalProperties": false,
-            "properties": {},
-            "type": "object"
-        },
-        "securityContext": {
-            "additionalProperties": false,
-            "properties": {},
-            "type": "object"
-        },
-        "service": {
-            "additionalProperties": false,
-            "properties": {
-                "port": {
-                    "type": "integer"
-                },
-                "type": {
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "serviceAccount": {
-            "additionalProperties": false,
-            "properties": {
-                "create": {
-                    "type": "boolean"
-                },
-                "name": {
-                    "type": "null"
-                }
-            },
-            "type": "object"
-        },
-        "tolerations": {
-            "items": {
-                "anyOf": []
-            },
-            "type": "array"
-        }
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "additionalProperties": true,
+  "properties": {
+    "affinity": {
+      "additionalProperties": false,
+      "properties": {},
+      "type": "object"
     },
-    "type": "object"
+    "fullnameOverride": {
+      "type": "string"
+    },
+    "image": {
+      "additionalProperties": false,
+      "properties": {
+        "pullPolicy": {
+          "type": "string"
+        },
+        "repository": {
+          "type": "string"
+        },
+        "tag": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "imagePullSecrets": {
+      "items": {
+        "anyOf": []
+      },
+      "type": "array"
+    },
+    "ingress": {
+      "additionalProperties": false,
+      "properties": {
+        "annotations": {
+          "additionalProperties": false,
+          "properties": {},
+          "type": "object"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "hosts": {
+          "items": {
+            "anyOf": [
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "host": {
+                    "type": "string"
+                  },
+                  "paths": {
+                    "items": {
+                      "anyOf": []
+                    },
+                    "type": "array"
+                  }
+                },
+                "type": "object"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "tls": {
+          "items": {
+            "anyOf": []
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "nameOverride": {
+      "type": "string"
+    },
+    "nodeSelector": {
+      "additionalProperties": false,
+      "properties": {},
+      "type": "object"
+    },
+    "podSecurityContext": {
+      "additionalProperties": false,
+      "properties": {},
+      "type": "object"
+    },
+    "replicaCount": {
+      "type": "integer"
+    },
+    "resources": {
+      "additionalProperties": false,
+      "properties": {},
+      "type": "object"
+    },
+    "securityContext": {
+      "additionalProperties": false,
+      "properties": {},
+      "type": "object"
+    },
+    "service": {
+      "additionalProperties": false,
+      "properties": {
+        "port": {
+          "type": "integer"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "serviceAccount": {
+      "additionalProperties": false,
+      "properties": {
+        "create": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "null"
+        }
+      },
+      "type": "object"
+    },
+    "tolerations": {
+      "items": {
+        "anyOf": []
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
 }
 ```
 
@@ -266,109 +269,87 @@ Although this article doesn't delve into the intricacies of Helm, a few elements
 ### Sample values.yaml file
 
 ```yml
-# Default values for nginxdemo. 
-# This is a YAML-formatted file. 
-# Declare variables to be passed into your templates. 
+# Default values for nginxdemo.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
 
- 
-replicaCount: 1 
- 
+replicaCount: 1
 
-image: 
+image:
+  # Repository gets overwritten by AOSM to the Artifact Store ACR, however we've hard-coded the image name and tag in deployment.yaml
 
-  # Repository gets overwritten by AOSM to the Artifact Store ACR, however we've hard-coded the image name and tag in deployment.yaml 
+  repository: overwriteme
+  tag: stable
+  pullPolicy: IfNotPresent
 
-  repository: overwriteme 
-  tag: stable 
-  pullPolicy: IfNotPresent 
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
 
+serviceAccount:
+  # Specifies whether a service account should be created
 
-imagePullSecrets: [] 
-nameOverride: "" 
-fullnameOverride: "" 
+  create: false
 
- 
-serviceAccount: 
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
 
-  # Specifies whether a service account should be created 
+  name:
 
-  create: false 
+podSecurityContext:
+  {}
 
-  # The name of the service account to use. 
-  # If not set and create is true, a name is generated using the fullname template 
+  # fsGroup: 2000
 
-  name: 
- 
+securityContext:
+  {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
 
-podSecurityContext: 
+service:
+  type: ClusterIP
+  port: 80
 
-  {} 
+ingress:
+  enabled: false
+  annotations:
+    {}
 
-  # fsGroup: 2000 
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
 
- 
-securityContext: 
+  hosts:
+    - host: chart-example.local
+      paths: []
 
-  {} 
-  # capabilities: 
-  #   drop: 
-  #   - ALL 
-  # readOnlyRootFilesystem: true 
-  # runAsNonRoot: true 
-  # runAsUser: 1000 
+  tls: []
 
- 
-service: 
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
 
-  type: ClusterIP 
-  port: 80 
+resources:
+  {}
 
-  
-ingress: 
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
 
-  enabled: false 
-  annotations: 
+nodeSelector: {}
 
-    {} 
+tolerations: []
 
-    # kubernetes.io/ingress.class: nginx 
-    # kubernetes.io/tls-acme: "true" 
-
-  hosts: 
-
-    - host: chart-example.local 
-      paths: [] 
-
-  
-  tls: [] 
-
-  #  - secretName: chart-example-tls 
-  #    hosts: 
-  #      - chart-example.local 
-
- 
-resources: 
-
-  {} 
-
-  # We usually recommend not to specify default resources and to leave this as a conscious 
-  # choice for the user. This also increases chances charts run on environments with little 
-  # resources, such as Minikube. If you do want to specify resources, uncomment the following 
-  # lines, adjust them as necessary, and remove the curly braces after 'resources:'. 
-  # limits: 
-  #   cpu: 100m 
-  #   memory: 128Mi 
-  # requests: 
-  #   cpu: 100m 
-  #   memory: 128Mi 
- 
-
-nodeSelector: {} 
-
- 
-tolerations: [] 
-
- 
 affinity: {}
 ```
 
@@ -379,25 +360,25 @@ affinity: {}
 ### Sample service.yaml file
 
 ```yml
-apiVersion: v1 
-kind: Service 
+apiVersion: v1
+kind: Service
 
-metadata: 
-  name: {{ include "nginxdemo.fullname" . }} 
-  labels: 
+metadata:
+  name: {{ include "nginxdemo.fullname" . }}
+  labels:
 
-{{ include "nginxdemo.labels" . | indent 4 }} 
+{{ include "nginxdemo.labels" . | indent 4 }}
 
-spec: 
-  type: {{ .Values.service.type }} 
-  ports: 
-    - port: {{ .Values.service.port }} 
-      targetPort: http 
-      protocol: TCP 
-      name: http 
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
 
-  selector: 
-    app.kubernetes.io/name: {{ include "nginxdemo.name" . }} 
+  selector:
+    app.kubernetes.io/name: {{ include "nginxdemo.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
 ```
 
@@ -406,15 +387,15 @@ spec:
 ### Sample nginx_config_map.yaml file
 
 ```yml
-apiVersion: v1 
-kind: ConfigMap 
-metadata: 
-  name: nginx-config 
-# This writes the nginx config file to the ConfigMap and deployment.yaml mounts it as a volume  
-# to the right place. 
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-config
+# This writes the nginx config file to the ConfigMap and deployment.yaml mounts it as a volume
+# to the right place.
 
-data: 
-  default.conf: | 
+data:
+  default.conf: |
     log_format client '$remote_addr - $remote_user $request_time $upstream_response_time ' 
                     '[$time_local] "$request" $status $body_bytes_sent $request_body "$http_referer" ' 
                     '"$http_user_agent" "$http_x_forwarded_for"'; 
@@ -446,7 +427,7 @@ data:
         location = /cnf/test {   
             error_page 405 =200 $uri; 
         } 
-   
+
 
         location = /post_thing { 
             # turn off logging here to avoid double logging 
@@ -461,76 +442,76 @@ data:
 **Sample deployment.yaml file**
 
 ```yml
-apiVersion: apps/v1 
-kind: Deployment 
-metadata: 
-  name: {{ include "nginxdemo.fullname" . }} 
-  labels: 
-{{ include "nginxdemo.labels" . | indent 4 }} 
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "nginxdemo.fullname" . }}
+  labels:
+{{ include "nginxdemo.labels" . | indent 4 }}
 
-spec: 
-  replicas: {{ .Values.replicaCount }} 
-  selector: 
-    matchLabels: 
-      app.kubernetes.io/name: {{ include "nginxdemo.name" . }} 
-      app.kubernetes.io/instance: {{ .Release.Name }} 
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: {{ include "nginxdemo.name" . }}
+      app.kubernetes.io/instance: {{ .Release.Name }}
 
-  template: 
-    metadata: 
-      labels: 
-        app.kubernetes.io/name: {{ include "nginxdemo.name" . }} 
-        app.kubernetes.io/instance: {{ .Release.Name }} 
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: {{ include "nginxdemo.name" . }}
+        app.kubernetes.io/instance: {{ .Release.Name }}
 
-    spec: 
-      # Copied from sas 
-      imagePullSecrets: {{ mustToPrettyJson (ternary (list ) .Values.imagePullSecrets (kindIs "invalid" .Values.imagePullSecrets)) }} 
-      serviceAccountName: {{ template "nginxdemo.serviceAccountName" . }} 
-      securityContext: 
-        {{- toYaml .Values.podSecurityContext | nindent 8 }} 
-      containers: 
-        - name: {{ .Chart.Name }} 
-          securityContext: 
-            {{- toYaml .Values.securityContext | nindent 12 }} 
-          # Want this to evaluate to acr-name.azurecr.io/nginx:stable (or specific version) 
-          # docker tag nginx:stable acr-name.azurecr.io/nginx:stable 
-          # docker push acr-name.azurecr.io/nginx:stable 
-          # Image hard coded to that put in the Artifact Store ACR for this CNF POC 
-          image: "{{ .Values.image.repository }}/nginx:stable" 
-          imagePullPolicy: {{ .Values.image.pullPolicy }} 
-          ports: 
-            - name: http 
-              containerPort: 80 
-              protocol: TCP 
-          livenessProbe: 
-            httpGet: 
-              path: / 
-              port: http 
-          readinessProbe: 
-            httpGet: 
-              path: / 
-              port: http 
-          resources: 
-            {{- toYaml .Values.resources | nindent 12 }} 
-          # Gets the nginx config from the configMap - see nginx_config_map.yaml 
-          volumeMounts: 
-            - name: nginx-config-volume 
-              mountPath: /etc/nginx/conf.d/default.conf 
-              subPath: default.conf 
-      volumes: 
-        - name: nginx-config-volume 
-          configMap: 
-            name: nginx-config 
-      {{- with .Values.nodeSelector }} 
-      nodeSelector: 
-        {{- toYaml . | nindent 8 }} 
-      {{- end }} 
-    {{- with .Values.affinity }} 
-      affinity: 
-        {{- toYaml . | nindent 8 }} 
-    {{- end }} 
-    {{- with .Values.tolerations }} 
-      tolerations: 
-        {{- toYaml . | nindent 8 }} 
+    spec:
+      # Copied from sas
+      imagePullSecrets: {{ mustToPrettyJson (ternary (list ) .Values.imagePullSecrets (kindIs "invalid" .Values.imagePullSecrets)) }}
+      serviceAccountName: {{ template "nginxdemo.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          # Want this to evaluate to acr-name.azurecr.io/nginx:stable (or specific version)
+          # docker tag nginx:stable acr-name.azurecr.io/nginx:stable
+          # docker push acr-name.azurecr.io/nginx:stable
+          # Image hard coded to that put in the Artifact Store ACR for this CNF POC
+          image: "{{ .Values.image.repository }}/nginx:stable"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          # Gets the nginx config from the configMap - see nginx_config_map.yaml
+          volumeMounts:
+            - name: nginx-config-volume
+              mountPath: /etc/nginx/conf.d/default.conf
+              subPath: default.conf
+      volumes:
+        - name: nginx-config-volume
+          configMap:
+            name: nginx-config
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+    {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
     {{- end }}
 ```
 
