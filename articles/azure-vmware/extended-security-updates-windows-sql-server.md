@@ -5,7 +5,7 @@ author: MikeWeiner-Microsoft
 ms.author: michwe
 ms.service: azure-vmware
 ms.topic: how-to  
-ms.date: 03/04/2024
+ms.date: 03/18/2024
 ---
 
 # Extended Security Updates (ESU) for Windows Server and SQL Server in Azure VMware Solution virtual machines
@@ -38,7 +38,7 @@ When you contact support, the ticket should be raised under the category of Azur
 
 ### SQL Server
 For SQL Server environments running in a VM in AVS, you can use Extended Security Updates enabled by Azure Arc to configure ESUs and automate patching. The configuration steps are 
-1.	Follow the steps outlined in [Deploy Arc-enabled VMware vSphere for Azure VMware Solution private cloud](https://learn.microsoft.com/en-us/azure/azure-vmware/deploy-arc-for-azure-vmware-solution?tabs=windows) to enable the AVS environment.  
+1.	Follow the steps outlined in [Deploy Arc-enabled VMware vSphere for Azure VMware Solution private cloud](https://learn.microsoft.com/azure/azure-vmware/deploy-arc-for-azure-vmware-solution?tabs=windows) to enable the AVS environment.  
 
 2.	You should then follow the steps discussed here: [Subscribe to Extended Security Updates enabled by Azure Arc](https://learn.microsoft.com/sql/sql-server/end-of-support/sql-server-extended-security-updates?#subscribe-to-extended-security-updates-enabled-by-azure-arc) to subscribe to Extended Security Updates through the SQL Server Configuration experience. 
 
@@ -57,8 +57,8 @@ For machines running SQL Server where **Guest Management** is enabled the Azure 
 
 
 ## Related content
-- [How to get Extended Security Updates (ESU) for Windows Server 2008, 2008 R2, 2012, and 2012 R2](https://learn.microsoft.com/en-us/windows-server/get-started/extended-security-updates-deploy#extended-security-updates-on-azure)  
-- [Extended Security Updates (ESUs) for SQL Server](https://learn.microsoft.com/en-us/sql/sql-server/end-of-support/sql-server-extended-security-updates)
+- [How to get Extended Security Updates (ESU) for Windows Server 2008, 2008 R2, 2012, and 2012 R2](https://learn.microsoft.com/windows-server/get-started/extended-security-updates-deploy#extended-security-updates-on-azure)  
+- [Extended Security Updates (ESUs) for SQL Server](https://learn.microsoft.com/sql/sql-server/end-of-support/sql-server-extended-security-updates)
 - Planning your Windows Server and SQL Server end of support: [Extended Security Updates for SQL Server and Windows Server](https://www.microsoft.com/en-us/windows-server/extended-security-updates)
  
 
