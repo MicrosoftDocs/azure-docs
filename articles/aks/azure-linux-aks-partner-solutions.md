@@ -5,7 +5,7 @@ description: Discover partner-tested solutions that enable you to build, test, d
 ms.author: schaffererin
 author: schaffererin
 ms.topic: article
-ms.date: 02/16/2024
+ms.date: 03/18/2024
 ---
 
 # Azure Linux AKS Container Host partner solutions
@@ -68,7 +68,7 @@ For more information, see [Akuity Solutions](https://akuity.io/).
 |----------|------------|
 | Anchore | DevOps <br> Observability <br> Security |
 
-Anchore is an software bill of materials (SBOM) - powered software supply chain management solution designed for a cloud-native world.
+Anchore is a software bill of materials (SBOM) powered software supply chain management solution designed for a cloud-native world.
 
 <details> <summary> See more </summary><br>
 
@@ -137,18 +137,19 @@ Spot Ocean allows organizations to effectively manage their containers’ infras
 
 <details> <summary> See more </summary><br>
 
-Ocean ensures cloud-native applications always get continuously optimized infrastructure that are balanced for performance, availability, and cost.
+Ocean ensures cloud-native applications always get continuously optimized infrastructure that's balanced for performance, availability, and cost.
 
-Spot Ocean continuously analyzes how containers use the underling infrastructure, and automatically scales compute resources to maximize utilization and availability with an optimal blend of spot VMs, reserved instances, savings plans and pay-as-you-go compute resources.
+Spot Ocean continuously analyzes how containers use the underling infrastructure, and automatically scales compute resources to maximize utilization and availability with an optimal blend of spot VMs, reserved instances, savings plans, and pay-as-you-go compute resources.
 
-With Spot Ocean users gain:
-- Automation and multi-cloud management: Reduce heavy lift infrastructure management efforts and increase operational efficiency
-- Cost Optimization: control and significantly reduce infrastructure cost
-- Availability: optimize uptime by predicting and automatically addressing resource needs and instance interruptions
+With Spot Ocean, users gain:
+
+* Automation and multicloud management: Reduce heavy lift infrastructure management efforts and increase operational efficiency
+* Cost Optimization: control and significantly reduce infrastructure cost
+* Availability: optimize uptime by predicting and automatically addressing resource needs and instance interruptions
 
 </details>
 
-For more information, see [Spot By NetApp Solutions](https://spot.io/product/ocean/) and [Spot By NetApp on Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.spot?tab=Overview).
+For more information, see [Spot By NetApp Solutions](https://spot.io/product/ocean/) and [Spot By NetApp on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/netapp.spot?tab=Overview).
 
 ## Networking
 
@@ -208,7 +209,7 @@ Observability pipelines let you analyze many data sources that you already have.
 |----------|------------|
 | Solo distribution of Istio | Networking <br> Security <br> Observability |
 
-The Solo distribution of Istio is a hardened Istio enterprise image, which maintains n-4 support for CVEs and other security fixes. The image support timeline is longer than the community Istio support timeline, which provides n-1 support with an additional 6 weeks of extended time to upgrade the n-2 version to n-1.
+The Solo distribution of Istio is a hardened Istio enterprise image, which maintains n-4 support for CVEs and other security fixes. The image support timeline is longer than the community Istio support timeline, which provides n-1 support with an additional six weeks of extended time to upgrade the n-2 version to n-1.
 
 For more information, see [Solo Gloo Mesh Core Solutions](https://docs.solo.io/gloo-mesh-core/main/about/overview/) and [Solo distribution of Istio Solutions](https://docs.solo.io/gloo-mesh-enterprise/main/reference/version/gloo_mesh_istio/).
 
@@ -224,11 +225,11 @@ Fully managed, active security platform with full-stack observability for contai
 
 <details> <summary> See more </summary><br>
 
-Calico Cloud enables organizations to prevent attacks using zero trust and to detect, troubleshoot, and automatically mitigate exposure risks from security breaches across multi-cloud and hybrid deployments. Calico Cloud is built on Calico Open Source, the most widely adopted container networking and security solution. It supports multiple dataplanes, including eBPF, Windows, and Linux.
+Calico Cloud enables organizations to prevent attacks using zero trust and to detect, troubleshoot, and automatically mitigate exposure risks from security breaches across multicloud and hybrid deployments. Calico Cloud is built on Calico Open Source, the most widely adopted container networking and security solution. It supports multiple data planes, including eBPF, Windows, and Linux.
 
 </details>
 
-For more information, see [Tigera Solutions](https://www.tigera.io/) and [Tigera on Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/tigerainc1620235671643.calicocloudsaas?tab=overview).
+For more information, see [Tigera Solutions](https://www.tigera.io/) and [Tigera on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/tigerainc1620235671643.calicocloudsaas?tab=overview).
 
 ## Observability
 
@@ -276,9 +277,9 @@ For more information, see [Tetrate Solutions](https://istio.tetratelabs.io/downl
 |----------|------------|
 | WIZ Cloud Infrastructure Security Platform | Security |
 
-Wiz is the unified cloud security platform for cloud security and development teams that includes prevention, active detection and response. Use Wiz solution to reduce risk, gain unmatched visibility, accurate prioritization and business agility.
+Wiz is the unified cloud security platform for cloud security and development teams that includes prevention, active detection, and response. Use Wiz solution to reduce risk, gain unmatched visibility, accurate prioritization, and business agility.
 
-For more information, see [Wiz Solutions](https://wiz.io/) and [Wiz on Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/wizinc1627338511749.wiz-azure-marketplace?tab=overview).
+For more information, see [Wiz Solutions](https://wiz.io/) and [Wiz on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/wizinc1627338511749.wiz-azure-marketplace?tab=overview).
 
 ## Storage
 
