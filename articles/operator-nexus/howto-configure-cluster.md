@@ -246,7 +246,7 @@ Some examples of deployment progress shown in detailedStatusMessage are `Hardwar
 
 :::image type="content" source="./media/nexus-deploy-kcp-status.png" lightbox="./media/nexus-deploy-kcp-status.png" alt-text="Screenshot of Azure portal showing cluster deploy progress kcp init.":::
 
-:::image type="content" source="./media/nexus-deploy-extention-status.png" lightbox="./media/nexus-deploy-extention-status.png" alt-text="Screenshot of Azure portal showing cluster deploy progress extenstion application.":::
+:::image type="content" source="./media/nexus-deploy-extension-status.png" lightbox="./media/nexus-deploy-extension-status.png" alt-text="Screenshot of Azure portal showing cluster deploy progress extension application.":::
 
 The Cluster deployment is complete when detailedStatus is set to `Running` and detailedStatusMessage shows message `Cluster is up and running`.
 
