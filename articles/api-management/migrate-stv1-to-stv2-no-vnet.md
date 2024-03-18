@@ -29,11 +29,12 @@ If you need to migrate a *VNnet-injected* API Management hosted on the `stv1` pl
 
 API Management platform migration from `stv1` to `stv2` involves updating the underlying compute alone and has no impact on the service/API configuration persisted in the storage layer. For an instance that's not deployed in a VNet:
 
-* The upgrade process involves creating a new compute in parallel to the old compute. The old compute takes 15-45 mins to be deleted.
-* The API Management status in the portal will be **Updating**.
 * You can choose whether the VIP address of the instance will change, or whether the original VIP address is preserved.
-* Azure manages the management endpoint DNS, and updates to the new compute immediately on successful migration. 
-* The gateway and portal DNS points to the new compute immediately.
+* The upgrade process involves creating a new compute in parallel to the old compute.
+* The API Management status in the portal will be **Updating**.
+* If you choose to preserve the VIP address, migration includes an additional step of moving the VIP from the old compute to the new compute during which the APIs will be unresponsive.
+* Azure manages the management endpoint DNS, and updates to the new compute immediately on successful migration.
+* The default gateway and portal DNS point to the new compute immediately.
 * If you choose to have your API Management instance receive a new VIP address, you'll need to update network dependencies to use the new VIP address.
 
 ## Prerequisites
@@ -111,11 +112,11 @@ After successful migration to a new VIP address, update any network dependencies
 
 - **What are the prerequisites for the migration?**
 
-   For non-VNet-injected instances, no prerequisites are required. If you migrate preserving your public IP address, this will render your API Management instance unresponsive for approximately 15 minutes. If you can't afford any downtime, then choose the **New virtual IP address** option that makes API Management available on a new IP. Network dependencies need to be updated with the new public virtual IP address.
+   For non-VNet-injected instances, no prerequisites are required. If you migrate preserving your public IP address, this will render your API Management instance unresponsive for approximately 15 minutes. There may not be a downtime if you choose the **New virtual IP address** option that makes API Management available on a new IP. Instances configured with a custom domain using an A record and/or having network dependencies on the public virtual IP address will have a downtime when a new virtual IP address is requested.
 
 - **Will the migration cause a downtime?**
    
-   For non-VNet-injected instances, there's a downtime of approximately 15 minutes only if you choose to preserve the original IP address. However, there's no downtime if you migrate with a new IP address.
+   For non-VNet-injected instances, there's a downtime of approximately 15 minutes only if you choose to preserve the original IP address. However, there's no downtime if you migrate with a new IP address and have no network dependencies on the new IP. Network dependencies include custom domain name without a CNAME, IP allow–listing, firewall rules, and VNets.
 
 - **Can data or configuration losses occur by/during the migration?**
 
@@ -165,15 +166,6 @@ After successful migration to a new VIP address, update any network dependencies
 
    For an API Management that's not inject in a VNet, follow the [migration steps](#migrate-the-instance-to-stv2-platform) using the portal or the Azure CLI. All the regions will be migrated to `stv2`.
 
-
-
-- **Can I test the new gateway before switching the live traffic?**
-
-    - By default, the old and the new managed gateways coexist for 15 mins, which is a small window of time to validate the deployment. 
-    - The migration process automatically updates the default domain names, and if being used, the traffic routes to the new gateways immediately.
-    - If custom domain names are in use, the corresponding DNS records might need to be updated with the new IP address if not using CNAME. Customers can update their hosts file to the new API Management IP and validate the instance before making the switch. During this validation process, the old gateway continues to serve the live traffic.
-    
-
 - **What should we consider for self-hosted gateways?**
 
    You don't need to do anything in your self-hosted gateways. You just need to migrate API Management instances running in Azure that are impacted by the `stv1` platform retirement. Note that there could be a new IP for the Configuration endpoint of the API Management instance, and any networking restrictions pinned to the IP should be updated.
@@ -184,7 +176,7 @@ After successful migration to a new VIP address, update any network dependencies
 
 - **Is there any impact on cost once we migrated to stv2?**
 
-   The billing model remains the same for `stv2` and there won't be any more cost incurred after the migration.
+   The billing model remains the same for `stv2` and there won't be any more cost incurred during and after the migration.
 
 - **What RBAC permissions are required for the stv1 to stv2 migration?**
 
