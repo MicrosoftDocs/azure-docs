@@ -128,92 +128,92 @@ When the chat app first opens in the browser, it requires valid connection crede
 > [!NOTE]
 > This function must be named `negotiate` because the SignalR client requires an endpoint that ends in `/negotiate`.
 
-  # [Model v4](#tab/nodejs-v4)
+# [Model v4](#tab/nodejs-v4)
 
-  1. From the root project folder, create the `negotiate` function from a built-in template by using the following command:
+1. From the root project folder, create the `negotiate` function from a built-in template by using the following command:
 
-      ```bash
-      func new --template "HTTP trigger" --name negotiate
-      ```
+```bash
+func new --template "HTTP trigger" --name negotiate
+```
 
-  1. Open _src/functions/negotiate.js_, update the content as follows:
+1. Open _src/functions/negotiate.js_, update the content as follows:
 
-      ```javascript
-      const { app, input } = require('@azure/functions');
+```javascript
+const { app, input } = require('@azure/functions');
 
-      const inputSignalR = input.generic({
-          type: 'signalRConnectionInfo',
-          name: 'connectionInfo',
-          hubName: 'default',
-          connectionStringSetting: 'AzureSignalRConnectionString',
-          userId: '{query.x-ms-signalr-userid}'
-      });
+const inputSignalR = input.generic({
+    type: 'signalRConnectionInfo',
+    name: 'connectionInfo',
+    hubName: 'default',
+    connectionStringSetting: 'AzureSignalRConnectionString',
+    userId: '{query.x-ms-signalr-userid}'
+});
 
-      app.post('negotiate', {
-          authLevel: 'function',
-          handler: (request, context) => {
-              return { body: JSON.stringify(context.extraInputs.get(inputSignalR)) }
-          },
-          route: 'negotiate',
-          extraInputs: [inputSignalR],
-      });
-      ```
+app.post('negotiate', {
+    authLevel: 'function',
+    handler: (request, context) => {
+        return { body: JSON.stringify(context.extraInputs.get(inputSignalR)) }
+    },
+    route: 'negotiate',
+    extraInputs: [inputSignalR],
+});
+```
 
-      The function contains an HTTP trigger binding to receive requests from SignalR clients. The function also contains a SignalR input binding to generate valid credentials for a client to connect to an Azure SignalR Service hub named `default`.
+The function contains an HTTP trigger binding to receive requests from SignalR clients. The function also contains a SignalR input binding to generate valid credentials for a client to connect to an Azure SignalR Service hub named `default`.
 
-      This function takes the SignalR connection information from the input binding and returns it to the client in the HTTP response body..
+This function takes the SignalR connection information from the input binding and returns it to the client in the HTTP response body..
 
-      There's no `userId` property in the `signalRConnectionInfo` binding for local development. You'll add it later to set the username of a SignalR connection when you deploy the function app to Azure.
+There's no `userId` property in the `signalRConnectionInfo` binding for local development. You'll add it later to set the username of a SignalR connection when you deploy the function app to Azure.
 
-  # [Model v3](#tab/nodejs-v3)
+# [Model v3](#tab/nodejs-v3)
 
-  1. Open _negotiate/function.json_ to view the function binding configuration.
+1. Open _negotiate/function.json_ to view the function binding configuration.
 
-    The function contains an HTTP trigger binding to receive requests from SignalR clients. The function also contains a SignalR input binding to generate valid credentials for a client to connect to an Azure SignalR Service hub named `default`.
+The function contains an HTTP trigger binding to receive requests from SignalR clients. The function also contains a SignalR input binding to generate valid credentials for a client to connect to an Azure SignalR Service hub named `default`.
 
-    ```json
+```json
+{
+  "disabled": false,
+  "bindings": [
     {
-      "disabled": false,
-      "bindings": [
-        {
-          "authLevel": "anonymous",
-          "type": "httpTrigger",
-          "direction": "in",
-          "methods": ["post"],
-          "name": "req",
-          "route": "negotiate"
-        },
-        {
-          "type": "http",
-          "direction": "out",
-          "name": "res"
-        },
-        {
-          "type": "signalRConnectionInfo",
-          "name": "connectionInfo",
-          "hubName": "default",
-          "connectionStringSetting": "AzureSignalRConnectionString",
-          "direction": "in"
-        }
-      ]
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "methods": ["post"],
+      "name": "req",
+      "route": "negotiate"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "type": "signalRConnectionInfo",
+      "name": "connectionInfo",
+      "hubName": "default",
+      "connectionStringSetting": "AzureSignalRConnectionString",
+      "direction": "in"
     }
-    ```
+  ]
+}
+```
 
-    There's no `userId` property in the `signalRConnectionInfo` binding for local development. You'll add it later to set the username of a SignalR connection when you deploy the function app to Azure.
+There's no `userId` property in the `signalRConnectionInfo` binding for local development. You'll add it later to set the username of a SignalR connection when you deploy the function app to Azure.
 
-  1. Close the _negotiate/function.json_ file.
+1. Close the _negotiate/function.json_ file.
 
-  1. Open _negotiate/index.js_ to view the body of the function:
+1. Open _negotiate/index.js_ to view the body of the function:
 
-    ```javascript
-    module.exports = async function (context, req, connectionInfo) {
-      context.res.body = connectionInfo;
-    };
-    ```
+```javascript
+module.exports = async function (context, req, connectionInfo) {
+  context.res.body = connectionInfo;
+};
+```
 
-    This function takes the SignalR connection information from the input binding and returns it to the client in the HTTP response body. The SignalR client uses this information to connect to the Azure SignalR Service instance.
+This function takes the SignalR connection information from the input binding and returns it to the client in the HTTP response body. The SignalR client uses this information to connect to the Azure SignalR Service instance.
 
-  ---
+---
 
 [Having issues? Let us know.](https://aka.ms/asrs/qsauth)
 
@@ -221,82 +221,125 @@ When the chat app first opens in the browser, it requires valid connection crede
 
 The web app also requires an HTTP API to send chat messages. Create an HTTP trigger function that sends messages to all connected clients that use Azure SignalR Service:
 
-  # [Model v4](#tab/nodejs-v4)
-  1. From the root project folder, create an HTTP trigger function named `sendMessage` from the template by using the following command:
+# [Model v4](#tab/nodejs-v4)
+1. From the root project folder, create an HTTP trigger function named `sendMessage` from the template by using the following command:
 
-  ```bash
-  func new --name sendMessage --template "Http trigger"
-  ```
+```bash
+func new --name sendMessage --template "Http trigger"
+```
 
-  # [Model v3](#tab/nodejs-v3)
+1. Open the _src/functions/sendMessage.js_ file, update the content as follows:
 
-  1. From the root project folder, create an HTTP trigger function named `sendMessage` from the template by using the following command:
+```js
+const { app, output } = require('@azure/functions');
 
-    ```bash
-    func new --name sendMessage --template "Http trigger"
-    ```
+const signalR = output.generic({
+    type: 'signalR',
+    name: 'signalR',
+    hubName: 'default',
+    connectionStringSetting: 'AzureSignalRConnectionString',
+});
 
-  1. To configure bindings for the function, replace the content of _sendMessage/function.json_ with the following code:
+app.http('messages', {
+    methods: ['POST'],
+    authLevel: 'anonymous',
+    extraOutputs: [signalR],
+    handler: async (request, context) => {
+        const message = await request.json();
+        message.sender = request.headers && request.headers.get('x-ms-client-principal-name') || '';
 
-    ```json
-    {
-      "disabled": false,
-      "bindings": [
-        {
-          "authLevel": "anonymous",
-          "type": "httpTrigger",
-          "direction": "in",
-          "name": "req",
-          "route": "messages",
-          "methods": ["post"]
-        },
-        {
-          "type": "http",
-          "direction": "out",
-          "name": "res"
-        },
-        {
-          "type": "signalR",
-          "name": "$return",
-          "hubName": "default",
-          "direction": "out"
+        let recipientUserId = '';
+        if (message.recipient) {
+            recipientUserId = message.recipient;
+            message.isPrivate = true;
         }
-      ]
+        context.extraOutputs.set(signalR,
+            {
+                'userId': recipientUserId,
+                'target': 'newMessage',
+                'arguments': [message]
+            });
     }
-    ```
+});
+```
 
-    The preceding code makes two changes to the original file:
+The function contains an HTTP trigger and a SignalR output binding. It takes the body from the HTTP request and sends it to clients connected to Azure SignalR Service. It invokes a function named `newMessage` on each client.
 
-    - It changes the route to `messages` and restricts the HTTP trigger to the `POST` HTTP method.
-    - It adds an Azure SignalR Service output binding that sends a message returned by the function to all clients connected to an Azure SignalR Service hub named `default`.
+The function can read the sender's identity and can accept a `recipient` value in the message body to allow you to send a message privately to a single user. You'll use these functionalities later in the tutorial.
 
-  1. Replace the content of _sendMessage/index.js_ with the following code:
+1. Save the file.
 
-    ```javascript
-    module.exports = async function (context, req) {
-      const message = req.body;
-      message.sender =
-        (req.headers && req.headers["x-ms-client-principal-name"]) || "";
+# [Model v3](#tab/nodejs-v3)
 
-      let recipientUserId = "";
-      if (message.recipient) {
-        recipientUserId = message.recipient;
-        message.isPrivate = true;
-      }
+1. From the root project folder, create an HTTP trigger function named `sendMessage` from the template by using the following command:
 
-      return {
-        userId: recipientUserId,
-        target: "newMessage",
-        arguments: [message],
-      };
-    };
-    ```
+```bash
+func new --name sendMessage --template "Http trigger"
+```
 
-    This function takes the body from the HTTP request and sends it to clients connected to Azure SignalR Service. It invokes a function named `newMessage` on each client.
+1. To configure bindings for the function, replace the content of _sendMessage/function.json_ with the following code:
 
-    The function can read the sender's identity and can accept a `recipient` value in the message body to allow you to send a message privately to a single user. You'll use these functionalities later in the tutorial.
+```json
+{
+  "disabled": false,
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "route": "messages",
+      "methods": ["post"]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "type": "signalR",
+      "name": "$return",
+      "hubName": "default",
+      "direction": "out"
+    }
+  ]
+}
+```
 
-  1. Save the file.
+  The preceding code makes two changes to the original file:
+
+  - It changes the route to `messages` and restricts the HTTP trigger to the `POST` HTTP method.
+  - It adds an Azure SignalR Service output binding that sends a message returned by the function to all clients connected to an Azure SignalR Service hub named `default`.
+
+1. Replace the content of _sendMessage/index.js_ with the following code:
+
+```javascript
+module.exports = async function (context, req) {
+  const message = req.body;
+  message.sender =
+    (req.headers && req.headers["x-ms-client-principal-name"]) || "";
+
+  let recipientUserId = "";
+  if (message.recipient) {
+    recipientUserId = message.recipient;
+    message.isPrivate = true;
+  }
+
+  return {
+    userId: recipientUserId,
+    target: "newMessage",
+    arguments: [message],
+  };
+};
+```
+
+This function takes the body from the HTTP request and sends it to clients connected to Azure SignalR Service. It invokes a function named `newMessage` on each client.
+
+The function can read the sender's identity and can accept a `recipient` value in the message body to allow you to send a message privately to a single user. You'll use these functionalities later in the tutorial.
+
+1. Save the file.
+
+---
 
 [Having issues? Let us know.](https://aka.ms/asrs/qsauth)
 
@@ -304,14 +347,57 @@ The web app also requires an HTTP API to send chat messages. Create an HTTP trig
 
 The chat application's UI is a simple single-page application (SPA) created with the Vue JavaScript framework by using the [ASP.NET Core SignalR JavaScript client](/aspnet/core/signalr/javascript-client). For simplicity, the function app hosts the webpage. In a production environment, you can use [Static Web Apps](https://azure.microsoft.com/products/app-service/static) to host the webpage.
 
+# [Model v4](#tab/nodejs-v4)
+1. Create a file named _index.html_ in the root directory of your function project.
+
+1. Copy and paste the content of [index.html](https://github.com/aspnet/AzureSignalR-samples/blob/da0aca70f490f3d8f4c220d0c88466b6048ebf65/samples/ServerlessChatWithAuth/content/index.html) to your file. Save the file.
+
+1. From the root project folder, create an HTTP trigger function named `index` from the template by using this command:
+
+```bash
+func new --name index --template "Http trigger"
+```
+
+1. Modify the content of _src/functions/index.js_ to the following code:
+
+```js
+const { app } = require('@azure/functions');
+const { readFile } = require('fs/promises');
+
+app.http('index', {
+    methods: ['GET'],
+    authLevel: 'anonymous',
+    handler: async (context) => {
+        const content = await readFile('index.html', 'utf8', (err, data) => {
+            if (err) {
+                context.err(err)
+                return
+            }
+        });
+
+        return {
+            status: 200,
+            headers: {
+                'Content-Type': 'text/html'
+            },
+            body: content,
+        };
+    }
+});
+```
+
+The function reads the static webpage and returns it to the user.
+
+# [Model v3](#tab/nodejs-v3)
+
 1. Create a folder named _content_ in the root directory of your function project.
 1. In the _content_ folder, create a file named _index.html_.
 1. Copy and paste the content of [index.html](https://github.com/aspnet/AzureSignalR-samples/blob/da0aca70f490f3d8f4c220d0c88466b6048ebf65/samples/ServerlessChatWithAuth/content/index.html) to your file. Save the file.
 1. From the root project folder, create an HTTP trigger function named `index` from the template by using this command:
 
-   ```bash
-   func new --name index --template "Http trigger"
-   ```
+  ```bash
+  func new --name index --template "Http trigger"
+  ```
 
 1. Modify the content of `index/index.js` to the following code:
 
@@ -354,6 +440,8 @@ The chat application's UI is a simple single-page application (SPA) created with
    }
    ```
 
+---
+
 1. Test your app locally. Start the function app by using this command:
 
    ```bash
@@ -378,6 +466,24 @@ You've been running the function app and chat app locally. Now, deploy them to A
 
 So far, the chat app works anonymously. In Azure, you'll use [App Service authentication](../app-service/overview-authentication-authorization.md) to authenticate the user. The user ID or username of the authenticated user is passed to the `SignalRConnectionInfo` binding to generate connection information authenticated as the user.
 
+# [Model v4](#tab/nodejs-v4)
+
+1. Open _src/functions/negotiate.js_ file.
+1. Insert a `userId` property into the `inputSignalR` binding with the value `{headers.x-ms-client-principal-name}`. This value is a [binding expression](../azure-functions/functions-triggers-bindings.md) that sets the username of the SignalR client to the name of the authenticated user. The binding should now look like this example:
+
+
+```javascript
+const inputSignalR = input.generic({
+    type: 'signalRConnectionInfo',
+    name: 'connectionInfo',
+    hubName: 'default',
+    connectionStringSetting: 'AzureSignalRConnectionString',
+    userId: '{headers.x-ms-client-principal-name}'
+});
+```
+
+# [Model v3](#tab/nodejs-v3)
+
 1. Open _negotiate/function.json_.
 1. Insert a `userId` property into the `SignalRConnectionInfo` binding with the value `{headers.x-ms-client-principal-name}`. This value is a [binding expression](../azure-functions/functions-triggers-bindings.md) that sets the username of the SignalR client to the name of the authenticated user. The binding should now look like this example:
 
@@ -390,6 +496,8 @@ So far, the chat app works anonymously. In Azure, you'll use [App Service authen
      "direction": "in"
    }
    ```
+
+---
 
 1. Save the file.
 
