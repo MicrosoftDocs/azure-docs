@@ -22,10 +22,10 @@ Azure App Configuration supports following methods to read and manage your confi
 
 ### Azure Resource Manager Authorization
 
-You must have permissions to manage Azure App Configuration resources. Azure role-based access control (Azure RBAC) roles that provide these permissions include the Microsoft.AppConfiguration/configurationStores/write or Microsoft.AppConfiguration/configurationStores/* action. Built-in roles with this action include:
+You must have Azure Resource Manager permissions to manage Azure App Configuration resources. Azure role-based access control (Azure RBAC) roles that provide these permissions include the Microsoft.AppConfiguration/configurationStores/write or Microsoft.AppConfiguration/configurationStores/* action. Built-in roles with this action include:
 
-- The Azure Resource Manager Owner role
-- The Azure Resource Manager Contributor role
+- Owner
+- Contributor
 
 To learn more about Azure RBAC and Microsoft Entra ID, see [Authorize access to Azure App Configuration using Microsoft Entra ID](./concept-enable-rbac.md).
 
@@ -55,7 +55,7 @@ To configure ARM authentication mode of Azure App Configuration resource in the 
 
 ### Azure App Configuration Authorization
 
-In addition to the permissions required for managing Azure App Configuration resource, you must have data plane permissions to read and manage Azure App Configuration data in deployment under pass-through mode. Azure App Configuration data plane permissions include Microsoft.AppConfiguration/configurationStores/keyValues/read and Microsoft.AppConfiguration/configurationStores/snapshots/read. Built-in roles with this action include:
+In addition to the permissions required for managing Azure App Configuration resource, you must have Azure App Configuration data plane permissions to read and manage Azure App Configuration data in deployment under pass-through mode. Azure App Configuration data plane permissions include Microsoft.AppConfiguration/configurationStores/keyValues/read and Microsoft.AppConfiguration/configurationStores/snapshots/read. Built-in roles with this action include:
 
 - App Configuration Data Owner
 - App Configuration Data Reader
