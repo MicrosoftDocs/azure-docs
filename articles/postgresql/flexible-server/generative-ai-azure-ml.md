@@ -55,7 +55,7 @@ azure_ml.inference(input_data jsonb, timeout_ms integer DEFAULT NULL, throw_on_e
 `jsonb` scoring output for the model that was invoked in JSONB.
 
 ## Examples
-### Invoke the matching learning model.
+### Invoke the matchine learning model.
 This calls the model with the input_data and returns a jsonb payload.
 
 ```postgresql
