@@ -7,7 +7,7 @@ ms.author: allensu
 ms.service: azure-kubernetes-service
 ms.subservice: aks-networking
 ms.topic: article
-ms.date: 03/14/2024
+ms.date: 03/18/2024
 ms.custom: references_regions, devx-track-azurecli
 ---
 
@@ -18,11 +18,11 @@ The new static block allocation capability in Azure CNI solves this problem by a
 
 It offers the following benefits:
 
-* **Better IP Scalability**: CIDR blocks are statically allocated to the cluster nodes and are present for the lifetime of the node, as opposed to the traditional dynamic allocation of individual IPs with traditional CNI. This enables routing based on CIDR blocks and helps scale the cluster limit up to 1 million pods from the traditional 65K pods per cluster. Your Azure Virtual Network must be large enough to accommodate the scale of your cluster. 
-* **Flexibility**: Node and pod subnets can be scaled independently. A single pod subnet can be shared across multiple node pools of a cluster or across multiple AKS clusters deployed in the same VNet. You can also configure a separate pod subnet for a node pool.  
-* **High performance**: Since pods are assigned virtual network IPs, they have direct connectivity to other cluster pods and resources in the VNet.
-* **Separate VNet policies for pods**: Since pods have a separate subnet, you can configure separate VNet policies for them that are different from node policies. This enables many useful scenarios such as allowing internet connectivity only for pods and not for nodes, fixing the source IP for pod in a node pool using an Azure NAT Gateway, and using NSGs to filter traffic between node pools.  
-* **Kubernetes network policies**: Cilium, Azure NPM, and Calico work with this new solution.
+- **Better IP Scalability**: CIDR blocks are statically allocated to the cluster nodes and are present for the lifetime of the node, as opposed to the traditional dynamic allocation of individual IPs with traditional CNI. This enables routing based on CIDR blocks and helps scale the cluster limit up to 1 million pods from the traditional 65K pods per cluster. Your Azure Virtual Network must be large enough to accommodate the scale of your cluster. 
+- **Flexibility**: Node and pod subnets can be scaled independently. A single pod subnet can be shared across multiple node pools of a cluster or across multiple AKS clusters deployed in the same VNet. You can also configure a separate pod subnet for a node pool.  
+- **High performance**: Since pods are assigned virtual network IPs, they have direct connectivity to other cluster pods and resources in the VNet.
+- **Separate VNet policies for pods**: Since pods have a separate subnet, you can configure separate VNet policies for them that are different from node policies. This enables many useful scenarios such as allowing internet connectivity only for pods and not for nodes, fixing the source IP for pod in a node pool using an Azure NAT Gateway, and using NSGs to filter traffic between node pools.  
+- **Kubernetes network policies**: Cilium, Azure NPM, and Calico work with this new solution.
 
 This article shows you how to use Azure CNI Networking for static allocation of CIDRs and enhanced subnet support in AKS.
 
@@ -31,12 +31,13 @@ This article shows you how to use Azure CNI Networking for static allocation of 
 > [!NOTE]
 > When using static block allocation of CIDRs, exposing an application as a Private Link Service using a Kubernetes Load Balancer Service isn't supported.
 
-* Review the [prerequisites][azure-cni-prereq] for configuring basic Azure CNI networking in AKS, as the same prerequisites apply to this article.
-* Review the [deployment parameters][azure-cni-deployment-parameters] for configuring basic Azure CNI networking in AKS, as the same parameters apply.
-* AKS Engine and DIY clusters aren't supported.
-* Azure CLI version `2.37.0` or later with extension aks-preview of version '2.0.0b2' or later
-* If you have an existing cluster, you need to enable Container Insights for monitoring IP subnet usage. You can enable Container Insights using the [`az aks enable-addons`][az-aks-enable-addons] command, as shown in the following example:
-* Register the subscription-level feature flag for your subscription: 'Microsoft.ContainerService/AzureVnetScalePreview'
+- Review the [prerequisites][azure-cni-prereq] for configuring basic Azure CNI networking in AKS, as the same prerequisites apply to this article.
+- Review the [deployment parameters][azure-cni-deployment-parameters] for configuring basic Azure CNI networking in AKS, as the same parameters apply.
+- AKS Engine and DIY clusters aren't supported.
+- Azure CLI version `2.37.0` or later with extension aks-preview of version '2.0.0b2' or later
+- If you have an existing cluster, you need to enable Container Insights for monitoring IP subnet usage. You can enable Container Insights using the [`az aks enable-addons`][az-aks-enable-addons] command, as shown in the following example:
+- Register the subscription-level feature flag for your subscription: 'Microsoft.ContainerService/AzureVnetScalePreview'
+
     ```azurecli-interactive
     az aks enable-addons --addons monitoring --name <cluster-name> --resource-group <resource-group-name>
     ```
@@ -86,9 +87,9 @@ The planning of IPs for Kubernetes services remain unchanged.
 
 The [deployment parameters][azure-cni-deployment-parameters]for configuring basic Azure CNI networking in AKS are all valid, with two exceptions:
 
-* The **vnet subnet id** parameter now refers to the subnet related to the cluster's nodes.
-* The parameter **pod subnet id** is used to specify the subnet whose IP addresses will be statically or dynamically allocated to pods in the node pool.
-* The **pod ip allocation mode** parameter specifies whether to use dynamic individual or static block allocation.
+- The **vnet subnet id** parameter now refers to the subnet related to the cluster's nodes.
+- The parameter **pod subnet id** is used to specify the subnet whose IP addresses will be statically or dynamically allocated to pods in the node pool.
+- The **pod ip allocation mode** parameter specifies whether to use dynamic individual or static block allocation.
 
 ## Before you begin
 
@@ -125,7 +126,7 @@ The [deployment parameters][azure-cni-deployment-parameters]for configuring basi
     az feature show --namespace "Microsoft.ContainerService" --name "AzureVnetScalePreview"
     ```
 
-3. When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider using the [`az provider register`][az-provider-register] command.
+3. When the status reflects *Registered*, refresh the registration of the _Microsoft.ContainerService_ resource provider using the [`az provider register`][az-provider-register] command.
 
     ```azurecli-interactive
     az provider register --namespace Microsoft.ContainerService
@@ -187,15 +188,15 @@ az aks nodepool add --cluster-name $clusterName -g $resourceGroup  -n newnodepoo
 
 ## Static allocation of CIDR blocks and enhanced subnet support FAQs
 
-* **Can I assign multiple pod subnets to a cluster?**
+- **Can I assign multiple pod subnets to a cluster?**
 
   Multiple subnets can be assigned to a cluster but only one subnet can be assigned to each node pool. Different node pools across the same/different cluster can share the same subnet.
 
-* **Can I assign Pod subnets from a different VNet altogether?**
+- **Can I assign Pod subnets from a different VNet altogether?**
 
   No, the pod subnet should be from the same VNet as the cluster.  
 
-* **Can some node pools in a cluster use Dynamic IP allocation while others use the new Static Block allocation?**
+- **Can some node pools in a cluster use Dynamic IP allocation while others use the new Static Block allocation?**
 
 Yes, different node pools can use different allocation modes. However, once a subnet is used in one allocation mode it can only be used in the same allocation mode across all the node pools it is associated.
 
@@ -203,9 +204,9 @@ Yes, different node pools can use different allocation modes. However, once a su
 
 Learn more about networking in AKS in the following articles:
 
-* [Use a static IP address with the Azure Kubernetes Service (AKS) load balancer](static-ip.md)
-* [Use an internal load balancer with Azure Kubernetes Service (AKS)](internal-lb.md)
-* [Use the application routing addon in Azure Kubernetes Service (AKS)](app-routing.md)
+- [Use a static IP address with the Azure Kubernetes Service (AKS) load balancer](static-ip.md)
+- [Use an internal load balancer with Azure Kubernetes Service (AKS)](internal-lb.md)
+- [Use the application routing addon in Azure Kubernetes Service (AKS)](app-routing.md)
 
 <!-- LINKS - External -->
 [github]: https://raw.githubusercontent.com/microsoft/Docker-Provider/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml
