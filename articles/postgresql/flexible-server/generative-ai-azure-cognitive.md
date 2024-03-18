@@ -179,7 +179,7 @@ For more information, see Cognitive Services Compliance and Privacy notes at htt
 #### Return type
 `azure_cognitive.entity[]`, a collection of entities, where each defines the text identifying the entity, category of the entity and confidence score of the match. For example, if invoked with a `text` set to `'For more information, see Cognitive Services Compliance and Privacy notes.'`, and `language` set to `'en'`, it could return `{"(\"Cognitive Services\",Skill,\"\",0.94)"}`.
 
-## Personal data(Personally Identifiable data) detection
+## PII (Personally Identifiable data) detection
 Identifies [personal data](../../ai-services/language-service/personally-identifiable-information/overview.md) found in the input text and categorizes those entities into types.
 
 ### `azure_cognitive.recognize_pii_entities`
@@ -213,7 +213,7 @@ For more information, see Cognitive Services Compliance and Privacy notes at htt
 `azure_cognitive.pii_entity_recognition_result`, a result containing the redacted text, and entities as `azure_cognitive.entity[]`. Each entity contains the nonredacted text, personal data category, subcategory, and a score indicating the confidence that the entity correctly matches the identified substring. For example, if invoked with a `text` set to `'My phone number is +1555555555, and the address of my office is 16255 NE 36th Way, Redmond, WA 98052.'`, and `language` set to `'en'`, it could return `("My phone number is ***********, and the address of my office is ************************************.","{""(+1555555555,PhoneNumber,\\""\\"",0.8)"",""(\\""16255 NE 36th Way, Redmond, WA 98052\\"",Address,\\""\\"",1)""}")`.
 
 ## Document summarization
-[Document and conversation summarization](../../ai-services/language-service/summarization/overview.md#tab/document-summarizationdocument-summarization) uses natural language processing techniques to generate a summary for documents.
+[Document summarization](../../ai-services/language-service/summarization/overview.md#tab/document-summarizationdocument-summarization) uses natural language processing techniques to generate a summary for documents.
 
 ### `azure_cognitive.summarize_abstractive`
 [Document abstractive summarization](../../ai-services/language-service/summarization/overview.md#tab/document-summarization) produces a summary that might not use the same words in the document but yet captures the main idea. 
@@ -247,7 +247,7 @@ For more information, see Cognitive Services Compliance and Privacy notes at htt
 `text[]`, a collection of summaries with each one not exceeding the defined `sentence_count`. For example, if invoked with a `text` set to `'PostgreSQL features transactions with atomicity, consistency, isolation, durability (ACID) properties, automatically updatable views, materialized views, triggers, foreign keys, and stored procedures. It is designed to handle a range of workloads, from single machines to data warehouses or web services with many concurrent users. It was the default database for macOS Server and is also available for Linux, FreeBSD, OpenBSD, and Windows.'`, and `language` set to `'en'`, it could return `{"PostgreSQL is a database system with advanced features such as atomicity, consistency, isolation, and durability (ACID) properties. It is designed to handle a range of workloads, from single machines to data warehouses or web services with many concurrent users. PostgreSQL was the default database for macOS Server and is available for Linux, BSD, OpenBSD, and Windows."}`.
 
 ### `azure_cognitive.summarize_extractive`
-[Document extractive](../../ai-services/language-service/summarization/how-to/document-summarization.md) summarization produces a summary extracting key sentences within the document. 
+[Document extractive summarization](../../ai-services/language-service/summarization/how-to/document-summarization.md) produces a summary extracting key sentences within the document. 
 
 ```postgresql
 azure_cognitive.summarize_extractive(text text, language text, timeout_ms integer DEFAULT 3600000, throw_on_error boolean DEFAULT true, sentence_count integer DEFAULT 3, sort_by text DEFAULT 'offset'::text, disable_service_logs boolean DEFAULT false)
