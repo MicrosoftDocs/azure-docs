@@ -14,7 +14,7 @@ ms.author: allensu
 # Test network latency between Azure VMs
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This article describes how to test network latency between Azure virtual machines (VMs) by using the publicly available tools [Latte](https://github.com/microsoft/latte) for Windows or [SockPerf](https://github.com/mellanox/sockperf) for Linux.
 

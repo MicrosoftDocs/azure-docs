@@ -13,7 +13,7 @@ ms.date: 04/25/2023
 # Use external file storage in Azure Lab Services
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This article covers some of the options for using external file storage in Azure Lab Services. [Azure Files](https://azure.microsoft.com/services/storage/files/) offers fully managed file shares in the cloud, [accessible via SMB 2.1 and SMB 3.0](/azure/storage/files/storage-how-to-use-files-windows). An Azure Files share can be connected either publicly or privately within a virtual network. You can also configure the share to use a lab user’s Active Directory credentials for connecting to the file share. If you're on a Linux machine, you can also use Azure NetApp Files with NFS volumes for external file storage with Azure Lab Services.
 

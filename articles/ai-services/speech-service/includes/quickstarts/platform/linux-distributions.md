@@ -63,7 +63,7 @@ sudo apt-get install build-essential libssl-dev ca-certificates libasound2 wget
 # [RHEL 7/8 and CentOS 7/8](#tab/rhel-centos)
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 Install the development tools and libraries:
 

@@ -18,7 +18,7 @@ ms.subservice: B2C
 # Tutorial to configure Azure Active Directory B2C with Strata
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 In this tutorial, learn how to integrate Azure Active Directory B2C (Azure AD B2C) with Strata [Maverics Identity Orchestrator](https://www.strata.io/), which helps protect on-premises applications. It connects to identity systems, migrates users and credentials, synchronizes policies and configurations, and abstracts authentication and session management. Use Strata to transition from legacy, to Azure AD B2C, without rewriting applications. 
 

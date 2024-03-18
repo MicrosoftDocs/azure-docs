@@ -21,7 +21,7 @@ gstreamer1.0-plugins-ugly
 # [RHEL/CentOS](#tab/centos)
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 ```sh
 sudo yum install gstreamer1 \

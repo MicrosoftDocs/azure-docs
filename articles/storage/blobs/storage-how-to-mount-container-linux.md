@@ -14,7 +14,7 @@ ms.custom: engagement-fy23, linux-related-content
 # How to mount Azure Blob Storage as a file system with BlobFuse v1
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 > [!IMPORTANT]
 > [BlobFuse2](blobfuse2-what-is.md) is the latest version of BlobFuse and has many significant improvements over the version discussed in this article, BlobFuse v1. To learn about the improvements made in BlobFuse2, see [the list of BlobFuse2 enhancements](blobfuse2-what-is.md#blobfuse2-enhancements-from-blobfuse-v1).

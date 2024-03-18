@@ -12,7 +12,7 @@ ms.author: allensu
 # Test VM network throughput by using NTTTCP
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This article describes how to use the free NTTTCP tool from Microsoft to test network bandwidth and throughput performance on Azure Windows or Linux virtual machines (VMs). A tool like NTTTCP targets the network for testing and minimizes the use of other resources that could affect performance.
 

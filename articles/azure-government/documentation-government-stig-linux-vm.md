@@ -13,7 +13,7 @@ ms.date: 06/14/2023
 # Deploy STIG-compliant Linux Virtual Machines (Preview)
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 Microsoft Azure Security Technical Implementation Guides (STIGs) solution templates help you accelerate your [DoD STIG compliance](https://public.cyber.mil/stigs/) by delivering an automated solution to deploy virtual machines and apply STIGs through the Azure portal.
 
