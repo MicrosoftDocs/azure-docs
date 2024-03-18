@@ -14,18 +14,18 @@ Extended Security Updates (ESUs) provide a way for customers to continue to run 
 
 Only in Azure, which includes Azure VMware Solution (AVS), are ESUs free of charge for additional years past their end-of-support. For more information on timelines, see [Extended Security updates for SQL Server and Windows Server]. 
 
-The way to configure Windows Server and SQL Server virtual machines for no-cost ESUs in Azure VMware Solution is provided in the following sections. The process is distinct to the Azure VMware Solution private cloud architecture.  
+How to configure Windows Server and SQL Server virtual machines for no-cost ESUs in Azure VMware Solution is provided in the following sections. The process is distinct to the Azure VMware Solution private cloud architecture.  
 
 For more information about ESUs for Window Server and SQL Server, see the following articles:
 
 - [What are Extended Security Updates - SQL Server](https://learn.microsoft.com/sql/sql-server/end-of-support/sql-server-extended-security-updates)
 - [Extend Security Updates for Windows Server overview](https://learn.microsoft.com/windows-server/get-started/extended-security-updates-overview)
 
-## Configure Windows Server and SQL Server for ESUs in AVS
+## Configure Windows Server and SQL Server for ESUs in Azure VMware Solution
 In this section, we show how to configure the virtual machines running Windows Server and SQL Server for ESUs at no-cost in Azure VMware Solution.
 
 ### Windows Server 
-For Windows Server environments running in VMs in AVS, the process to enable ESUs requires contacting [Microsoft Support] for help in configuration. 
+For Windows Server environments running in VMs in Azure VMware Solution, the process to enable ESUs requires contacting [Microsoft Support] for help in configuration. 
 
 When you contact support, the ticket should be raised under the category of Azure VMware Solution and requires the following information:
 -	Customer Name and Tenant ID
@@ -37,16 +37,16 @@ When you contact support, the ticket should be raised under the category of Azur
 > If you create Extended Security Update licenses for Windows through Azure Arc, this will result in billing charges for the ESUs. 
 
 ### SQL Server
-For SQL Server environments running in a VM in AVS, you can use Extended Security Updates enabled by Azure Arc to configure ESUs and automate patching. The configuration steps are 
+For SQL Server environments running in a VM in Azure VMware Solution, you can use Extended Security Updates enabled by Azure Arc to configure ESUs and automate patching. The configuration steps are 
 1.	Follow the steps outlined in [Deploy Arc-enabled VMware vSphere for Azure VMware Solution private cloud](https://learn.microsoft.com/azure/azure-vmware/deploy-arc-for-azure-vmware-solution?tabs=windows) to enable the AVS environment.  
 
 2.	You should then follow the steps discussed here: [Subscribe to Extended Security Updates enabled by Azure Arc](https://learn.microsoft.com/sql/sql-server/end-of-support/sql-server-extended-security-updates?#subscribe-to-extended-security-updates-enabled-by-azure-arc) to subscribe to Extended Security Updates through the SQL Server Configuration experience. 
 
 > [!WARNING]
-> If you register SQL Server instances in a different manner than documented in this step it will not be integrated into AVS and result in you being billed for ESUs.
+> If you register SQL Server instances in a different manner than documented in this step it will not be integrated into Azure VMware Solution and result in you being billed for ESUs.
 
 #### View ESU subscription status
-For machines running SQL Server where **Guest Management** is enabled the Azure Extension for SQL Server should be registered. You can validate the extension is installed through these steps.
+For machines running SQL Server where **Guest Management** is enabled, the Azure Extension for SQL Server should be registered. You can validate the extension is installed through these steps.
 
 -	From the Azure portal 
     - Go to **vCenter Server Inventory** and **Virtual Machines** clicking through one of the Arc-enabled VMs. Here you see the *Machine-Azure Arc (AVS)* page. 
