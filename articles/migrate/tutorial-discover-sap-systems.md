@@ -88,7 +88,7 @@ The following table summarizes the file fields to fill in:
 | --- | --- |
 | Server Name <sup>*</sup> | Unique server name or host name of the SAP system to identify each server. Include all the virtual machines attached to an SAP system that you intend to migrate to Azure. |
 | Environment <sup>*</sup> | Environment that the server belongs to. |
-| SAP Instance Typ <sup>*</sup> | The type of SAP instance running on this machine. <br/>For example, App, ASCS, DB, and so on. Single-server and distributed architectures are only supported. |
+| SAP Instance Type <sup>*</sup> | The type of SAP instance running on this machine. <br/>For example, App, ASCS, DB, and so on. Single-server and distributed architectures are only supported. |
 | Instance SID <sup>*</sup> | This is the instance System ID (SID) for the ASCS/AP/DB instance. |
 | System SID <sup>*</sup> | SID of SAP System. |
 | Landscape SID <sup>*</sup> | SID of the customer's production system in each landscape. |
@@ -126,7 +126,7 @@ To import SAP Systems inventory, follow these steps:
 
     Review the import details to check for any errors or validation failures. After the successful import, you can view the discovered SAP systems.
     > [!Note]
-    > After completing a discovery import, we recommend you wait for 15 minutes before starting a new assessment. This will ensure that all Excel data is accurately utilized during the assessment calculation.
+    > After completing a discovery import, we recommend you wait for 15 minutes before starting a new assessment. This ensures that all Excel data is accurately used during the assessment calculation.
 
 ## View discovered SAP systems
 
@@ -139,7 +139,7 @@ To view the discovered SAP systems, follow these steps:
 1. On the **Discovered SAP® systems** page, select a desired system SID.<br> The **Server instance details** blade displays all attributes of servers that make up the SID.
 
 > [!Note]
-> Wait for 10 minutes and ensure that the imported information is fully reflected.
+> Wait for 10 minutes and ensure that the imported information is fully reflected in the **Server instance details** blade.
 
 
 ## Next steps
