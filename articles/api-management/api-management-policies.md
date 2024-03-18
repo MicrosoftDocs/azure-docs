@@ -82,6 +82,7 @@ More information about policies:
 
 
 ## Caching
+
 |  [Get from cache](cache-lookup-policy.md) | Perform cache lookup and return a valid cached response when available. | Yes | Yes | Yes |
 |  [Store to cache](cache-store-policy.md) | Caches response according to the specified cache control configuration. | Yes | Yes | Yes |
 |  [Get value from cache](cache-lookup-value-policy.md) | Retrieve a cached item by key. | Yes | Yes | Yes |
@@ -91,33 +92,43 @@ More information about policies:
 
 ## Transformation
 
-Set request method
-Set status code
-Set variable
-Set body
-Set HTTP header
-Set query string parameter
-Rewrite URL
-Convert JSON to XML
-Convert XML to JSON
-Find and replace string in body
-Mask URLs in content
-Transform XML using an XSLT
-Return response
-Mock response
+|Policy  |Description  |Dedicated gateway  | Consumption gateway |Self-hosted gateway  |
+|---------|---------|---------|---------|---------|
+|  [Set request method](set-method-policy.md) | Allows you to change the HTTP method for a request. | Yes | Yes | Yes |
+|  [Set status code](set-status-policy.md) | Changes the HTTP status code to the specified value.    | Yes | Yes | Yes |
+|  [Set variable](set-variable-policy.md) | Persists a value in a named [context](api-management-policy-expressions.md#ContextVariables) variable for later access. | Yes | Yes | Yes |
+| [Set body](set-body-policy.md) | Sets the message body for a request or response. | Yes | Yes | Yes |
+|  [Set HTTP header](set-header-policy.md) | Assigns a value to an existing response and/or request header or adds a new response and/or request header. | Yes | Yes | Yes |
+|  [Set query string parameter](set-query-parameter-policy.md) | Adds, replaces value of, or deletes request query string parameter. | Yes | Yes | Yes | 
+|  [Rewrite URL](rewrite-uri-policy.md) | Converts a request URL from its public form to the form expected by the web service. | Yes | Yes | Yes |
+|  [Convert JSON to XML](json-to-xml-policy.md) | Converts request or response body from JSON to XML. | Yes | Yes | Yes |
+|  [Convert XML to JSON](xml-to-json-policy.md) | Converts request or response body from XML to JSON. | Yes | Yes | Yes |
+|  [Find and replace string in body](find-and-replace-policy.md) | Finds a request or response substring and replaces it with a different substring. | Yes | Yes | Yes |
+|  [Mask URLs in content](redirect-content-urls-policy.md) | Rewrites (masks) links in the response body so that they point to the equivalent link via the gateway. | Yes | Yes | Yes |
+| [Transform XML using an XSLT](xsl-transform-policy.md) | Applies an XSL transformation to XML in the request or response body. | Yes | Yes | Yes |
+|  [Return response](return-response-policy.md) | Aborts pipeline execution and returns the specified response directly to the caller.
+|  [Mock response](mock-response-policy.md) | Aborts pipeline execution and returns a mocked response directly to the caller.
 
-## Cross-Domain
-Allow cross-domain calls
-CORS
-JSONP
+## Cross-domain
 
-## Integration and External Communication
-Send request
-Send one-way request
-Log to event hub
-Send request to a service (Dapr)
-Send message to Pub/Sub topic (Dapr)
-Trigger output binding (Dapr)
+|Policy  |Description  |Dedicated gateway  | Consumption gateway |Self-hosted gateway  |
+|---------|---------|---------|---------|---------|
+| [Allow cross-domain calls](cross-domain-policy.md) | Makes the API accessible from Adobe Flash and Microsoft Silverlight browser-based clients. | Yes | Yes | Yes |
+| [CORS](cors-policy.md) | Adds cross-origin resource sharing (CORS) support to an operation or an API to allow cross-domain calls from browser-based clients.     | Yes | Yes | Yes |
+| [JSONP](jsonp-policy.md) | Adds JSON with padding (JSONP) support to an operation or an API to allow cross-domain calls from JavaScript browser-based clients. | Yes | Yes | Yes |
+
+
+## Integration and external communication
+
+|Policy  |Description  |Dedicated gateway  | Consumption gateway |Self-hosted gateway  |
+|---------|---------|---------|---------|---------|
+ |  [Send request](send-request-policy.md) | Sends a request to the specified URL. | Yes | Yes | Yes |
+ |  [Send one way request](send-one-way-request-policy.md) | Sends a request to the specified URL without waiting for a response. | Yes | Yes | Yes |
+|  [Log to event hub](log-to-eventhub-policy.md) | Sends messages in the specified format to an event hub defined by a Logger entity.
+| [Send request to a service (Dapr)](set-backend-service-dapr-policy.md)| Uses Dapr runtime to locate and reliably communicate with a Dapr microservice. To learn more about service invocation in Dapr, see the description in this [README](https://github.com/dapr/docs/blob/master/README.md#service-invocation) file.
+| [Send message to Pub/Sub topic (Dapr)](publish-to-dapr-policy.md) | Uses Dapr runtime to publish a message to a Publish/Subscribe topic. To learn more about Publish/Subscribe messaging in Dapr, see the description in this [README](https://github.com/dapr/docs/blob/master/README.md) file.
+| [Trigger output binding ](invoke-dapr-binding-policy.md) | Uses Dapr runtime to invoke an external system via output binding. To learn more about bindings in Dapr, see the description in this [README](https://github.com/dapr/docs/blob/master/README.md) file.
+
 
 ## Logging
 Trace
@@ -129,45 +140,33 @@ Cosmos DB data source for resolver
 HTTP data source for resolver
 Publish event to GraphQL subscription
 
-## Control flow
+## Policy control and flow
 
-Include fragment
-Retry
-Wait
+|  [Control flow](choose-policy.md) | Conditionally applies policy statements based on the results of the evaluation of Boolean [expressions](api-management-policy-expressions.md).
+|  [Include fragment](include-fragment-policy.md) | Inserts a policy fragment in the policy definition.
+|  [Retry](retry-policy.md) | Retries execution of the enclosed policy statements, if and until the condition is met. Execution will repeat at the specified time intervals and up to the specified retry count.
+ |  [Wait](wait-policy.md) | Waits for enclosed [Send request](send-request-policy.md), [Get value from cache](cache-lookup-value-policy.md), or [Control flow](choose-policy.md) policies to complete before proceeding.
 
 
 ## Access restriction policies
 
 ## Advanced policies
- |  [Control flow](choose-policy.md) | Conditionally applies policy statements based on the results of the evaluation of Boolean [expressions](api-management-policy-expressions.md).
- |  [Emit metrics](emit-metric-policy.md) | Sends custom metrics to Application Insights at execution.
- |  [Include fragment](include-fragment-policy.md) | Inserts a policy fragment in the policy definition.
 
- |  [Log to event hub](log-to-eventhub-policy.md) | Sends messages in the specified format to an event hub defined by a Logger entity.
- |  [Mock response](mock-response-policy.md) | Aborts pipeline execution and returns a mocked response directly to the caller.
- |  [Retry](retry-policy.md) | Retries execution of the enclosed policy statements, if and until the condition is met. Execution will repeat at the specified time intervals and up to the specified retry count.
- |  [Return response](return-response-policy.md) | Aborts pipeline execution and returns the specified response directly to the caller.
- |  [Send one way request](send-one-way-request-policy.md) | Sends a request to the specified URL without waiting for a response.
- |  [Send request](send-request-policy.md) | Sends a request to the specified URL.
- |  [Set request method](set-method-policy.md) | Allows you to change the HTTP method for a request.
- |  [Set status code](set-status-policy.md) | Changes the HTTP status code to the specified value.
- |  [Set variable](set-variable-policy.md) | Persists a value in a named [context](api-management-policy-expressions.md#ContextVariables) variable for later access.
+ |  [Emit metrics](emit-metric-policy.md) | Sends custom metrics to Application Insights at execution.
+
+
+  
+
  |  [Trace](trace-policy.md) | Adds custom traces into the [request tracing](./api-management-howto-api-inspector.md) output in the test console, Application Insights telemetries, and resource logs.
- |  [Wait](wait-policy.md) | Waits for enclosed [Send request](send-request-policy.md), [Get value from cache](cache-lookup-value-policy.md), or [Control flow](choose-policy.md) policies to complete before proceeding.
+
 
 ## Authentication policies
 
 ## Caching policies
  
 ## Cross-domain policies
-- [Allow cross-domain calls](cross-domain-policy.md) | Makes the API accessible from Adobe Flash and Microsoft Silverlight browser-based clients.
-- [CORS](cors-policy.md) | Adds cross-origin resource sharing (CORS) support to an operation or an API to allow cross-domain calls from browser-based clients.
-- [JSONP](jsonp-policy.md) | Adds JSON with padding (JSONP) support to an operation or an API to allow cross-domain calls from JavaScript browser-based clients.
 
 ## Dapr integration policies
- | [Send request to a service](set-backend-service-dapr-policy.md): Uses Dapr runtime to locate and reliably communicate with a Dapr microservice. To learn more about service invocation in Dapr, see the description in this [README](https://github.com/dapr/docs/blob/master/README.md#service-invocation) file.
- | [Send message to Pub/Sub topic](publish-to-dapr-policy.md): Uses Dapr runtime to publish a message to a Publish/Subscribe topic. To learn more about Publish/Subscribe messaging in Dapr, see the description in this [README](https://github.com/dapr/docs/blob/master/README.md) file.
- | [Trigger output binding](invoke-dapr-binding-policy.md): Uses Dapr runtime to invoke an external system via output binding. To learn more about bindings in Dapr, see the description in this [README](https://github.com/dapr/docs/blob/master/README.md) file.
 
 ## GraphQL resolver policies
 - [Azure SQL data source for resolver](sql-data-source-policy.md) | Configures the Azure SQL request and optional response to resolve data for an object type and field in a GraphQL schema.
@@ -176,16 +175,10 @@ Wait
 - [Publish event to GraphQL subscription](publish-event-policy.md) | Publishes an event to one or more subscriptions specified in a GraphQL API schema. Configure the policy in a GraphQL resolver for a related field in the schema for another operation type such as a mutation. 
 
 ## Transformation policies
- |  [Convert JSON to XML](json-to-xml-policy.md) | Converts request or response body from JSON to XML.
- |  [Convert XML to JSON](xml-to-json-policy.md) | Converts request or response body from XML to JSON.
- |  [Find and replace string in body](find-and-replace-policy.md) | Finds a request or response substring and replaces it with a different substring.
- |  [Mask URLs in content](redirect-content-urls-policy.md) | Rewrites (masks) links in the response body so that they point to the equivalent link via the gateway.
  
-- [Set body](set-body-policy.md) | Sets the message body for a request or response.
- |  [Set HTTP header](set-header-policy.md) | Assigns a value to an existing response and/or request header or adds a new response and/or request header.
- |  [Set query string parameter](set-query-parameter-policy.md) | Adds, replaces value of, or deletes request query string parameter.
- |  [Rewrite URL](rewrite-uri-policy.md) | Converts a request URL from its public form to the form expected by the web service.
- |  [Transform XML using an XSLT](xsl-transform-policy.md) | Applies an XSL transformation to XML in the request or response body.
+
+
+
 
 ## Validation policies
 
