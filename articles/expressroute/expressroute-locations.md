@@ -122,7 +122,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Liquid Intelligent Technologies](https://liquidcloud.africa/connect/)** | Supported | Supported | Cape Town<br/>Johannesburg |
 | **[LGUplus](http://www.uplus.co.kr/)** |Supported |Supported | Seoul |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** | Supported | Supported | Amsterdam<br/>Amsterdam2<br/>Atlanta<br/>Auckland<br/>Chicago<br/>Dallas<br/>Denver<br/>Dubai2<br/>Dublin<br/>Frankfurt<br/>Geneva<br/>Hong Kong<br/>Hong Kong2<br/>Las Vegas<br/>London<br/>London2<br/>Los Angeles<br/>Madrid<br/>Melbourne<br/>Miami<br/>Minneapolis<br/>Montreal<br/>Munich<br/>New York<br/>Osaka<br/>Oslo<br/>Paris<br/>Perth<br/>Phoenix<br/>Quebec City<br/>Queretaro (Mexico)<br/>San Antonio<br/>Seattle<br/>Silicon Valley<br/>Singapore<br/>Singapore2<br/>Stavanger<br/>Stockholm<br/>Sydney<br/>Sydney2<br/>Tokyo<br/>Tokyo2<br/>Toronto<br/>Vancouver<br/>Washington DC<br/>Washington DC2<br/>Zurich |
-| **[Momentum Telecom](https://gomomentum.com/)** | Supported | Supported | Atlanta</br>Chicago<br/>Chicago2</br>Dallas</br>Miami</br>New York<br/>Silicon Valley</br>Washington DC2 |
+| **[Momentum Telecom](https://gomomentum.com/)** | Supported | Supported | Chicago</br>Dallas</br>Miami</br>New York<br/>Silicon Valley</br>Washington DC2 |
 | **[MTN](https://www.mtnbusiness.co.za/en/Cloud-Solutions/Pages/microsoft-express-route.aspx)** | Supported | Supported | London |
 | **MTN Global Connect** | Supported | Supported | Cape Town<br/>Johannesburg|
 | **[National Telecom](https://www.nc.ntplc.co.th/cat/category/264/855/CAT+Direct+Cloud+Connect+for+Microsoft+ExpressRoute?lang=en_EN)** | Supported | Supported | Bangkok |
