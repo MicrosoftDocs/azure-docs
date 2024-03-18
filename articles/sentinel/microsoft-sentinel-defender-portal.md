@@ -92,7 +92,7 @@ The following table lists the changes in navigation between the Azure and Defend
 |Workbooks     | Microsoft Sentinel > Threat management> Workbooks      |
 |Hunting     | Microsoft Sentinel > Threat management >  Hunting      |
 |Notebooks     | Microsoft Sentinel > Threat management >  Notebooks         |
-|Entity behavior     |  Not available. Find the entity pages for the user, device, IP, and Azure resource entity types on the details page for each of those entities as they appear within incidents and alerts.      |
+|Entity behavior     | Not available. Find the entity pages for the user, device, IP, and Azure resource entity types on the details page for each of those entities as they appear within incidents and alerts.  Also find user entities in Assets > Identities, and device entities in Assets > Devices.     |
 |Threat intelligence    | Microsoft Sentinel > Threat management >  Threat intelligence        |
 |MITRE ATT&CK|Microsoft Sentinel > Threat management > MITRE ATT&CK  |
 
