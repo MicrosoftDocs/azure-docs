@@ -65,15 +65,22 @@ This feature is **_not_** available in the following regions:
 
 ## Plan IP addressing
 
-Planning your IP addressing is much simpler with this feature. Since the nodes and pods scale independently, their address spaces can also be planned separately. Since pod subnets can be configured to the granularity of a node pool, you can always add a new subnet when you add a node pool. The system pods in a cluster/node pool also receive IPs from the pod subnet, so this behavior needs to be accounted for.
+Planning your IP addressing is more flexible and granular. Since the nodes and pods scale independently, their address spaces can also be planned separately. Since pod subnets can be configured to the granularity of a node pool, you can always add a new subnet when you add a node pool. The system pods in a cluster/node pool also receive IPs from the pod subnet, so this behavior needs to be accounted for.
 
-IPs are allocated to nodes based on your max pod settings and in CIDR blocks of /28 (16 IP Addresses). 1 IP is selected across all the CIDR blocks assigned to the node for DNS and node-level routing. Thus the calculation of max pods per node is:
+In this scenario, CIDR blocks of /28 (16 IPs) are allocated to nodes based on your '--max-pod' configuration for your node pool which defines the maximum number of pods per node. 1 IP is reserved on each node from all the available IPs on that node for internal purposes. 
+
+Thus while determining and planning your IPs it is essential to define your '--max-pods' configuration and it can be calculated best as below:
 `max_pods_per_node = (16 * N) - 1`
 where N is any positive integer greater than 0
 
-This means that if you define max pods per node set to 30, when a node is provisioned, two blocks of 16 IPs will be allocated to the node and are reserved for the lifetime of that node. Subnet IP allocation should be planned with a minimum of 16 IPs per node in the cluster and the max pod count per node when considering scaling. 
+Ideal values with no IP wastage would require the max pods value to conform to the above expression.
 
-The planning of IPs for Kubernetes services and Docker bridge remain unchanged.
+**Example 1:** max_pods = 30, CIDR Blocks allocated per node = 2, Total IPs available for pods = (16 * 2) - 1 = 32 - 1 = 31, IP wastage per node = 31 - 30 = 1 **[Low wastage - Acceptable Case]**
+**Example 2:** max_pods = 31, CIDR Blocks allocated per node = 2, Total IPs available for pods = (16 * 2) - 1 = 32 - 1 = 31, IP wastage per node = 31 - 31 = 0 **[Ideal Case]**
+**Example 3:** max_pods = 32, CIDR Blocks allocated per node = 3, Total IPs available for pods = (16 * 3) - 1 = 48 - 1 = 47, IP wastage per node = 47 - 32 = 15 **[High Wastage - Not Recommended Case]**
+
+
+The planning of IPs for Kubernetes services remain unchanged.
 
 ## Deployment parameters
 
@@ -96,7 +103,7 @@ The [deployment parameters][azure-cni-deployment-parameters]for configuring basi
     az extension add --name aks-preview
     ```
 
-2. Update to the latest version of the extension using the [`az extension update`][az-extension-update] command.
+2. Update to the latest version of the extension using the [`az extension update`][az-extension-update] command. The extension should have a version of '2.0..0b2' or later
 
     ```azurecli-interactive
     az extension update --name aks-preview
@@ -215,7 +222,7 @@ az aks get-credentials -n $clusterName -g $resourceGroup
 
 * **Can I assign multiple pod subnets to a cluster?**
 
-  Multiple subnets can be assigned to a cluster but only one subnet can be assigned to each node pool. Different node pools across the same/different cluster can share the same subnet.
+  Yes, multiple subnets can be assigned to a cluster but only one subnet can be assigned to each node pool. Different node pools across the same/different cluster can share the same subnet.
 
 * **Can I assign Pod subnets from a different VNet altogether?**
 
