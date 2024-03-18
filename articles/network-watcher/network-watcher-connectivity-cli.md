@@ -8,6 +8,8 @@ ms.service: network-watcher
 ms.topic: how-to
 ms.date: 03/18/2024
 ms.custom: devx-track-azurecli
+
+#CustomerIntent: As an Azure administrator, I want to learn how to use Connection Troubleshoot to diagnose outbound connectivity issues in Azure using the Azure CLI.
 ---
 
 # Troubleshoot outbound connections using the Azure CLI
