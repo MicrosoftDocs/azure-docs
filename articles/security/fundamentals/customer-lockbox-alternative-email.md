@@ -47,7 +47,7 @@ Here are the steps to set up the Customer Lockbox for Microsoft Azure alternate 
 1. Select the user and select on edit properties.
     :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-alternative-email-edit-properties.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-alternative-email-edit-properties.png" alt-text="Alt Email 3":::
 1. Navigate to Contact Information Tab
-    :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-alternative-email-contact-information.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-alternative-email-contact-information.pngg" alt-text="Alt Email 4":::
+    :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-alternative-email-contact-information.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-alternative-email-contact-information.png" alt-text="Alt Email 4":::
 1. Select Add email under 'Other emails' category and then select Add.
     :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-alternative-email-add-email.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-alternative-email-add-email.png" alt-text="Alt Email 5":::
 1. Add alternate email address in the text field and select save.
