@@ -442,7 +442,7 @@ And here is an example output of this command:
 
 You can also use this command with `--export-path {/path/to/target/folder}` parameter to export the configuration file to the specified folder. It supports both relative path and absolute path. If not specified, it will take the path of current directory.
 
-## Check configuration file in the container
+## Examine configuration file in the app
 After you bind the app to the Application Configuration Service and set the [Pattern](#pattern) for the app deployment according to [Use Application Configuration Service with applications](#use-application-configuration-service-with-applications) section, the ConfigMap containing the configuration file for the pattern should be mounted to the application container. You can check the configuration files in each instance of that app deployment with following steps:
 
 1. Connect to one of the instances according to [Connect to an app instance for troubleshooting](./how-to-connect-to-app-instance-for-troubleshooting.md).
@@ -549,7 +549,7 @@ If the latest changes aren't reflected in the applications, check the following 
   - Confirm that the pattern configured in the Application Configuration Service matches the updated config files.
   - Confirm that the application is bound to the Application Configuration Service.
 - Confirm that the `ConfigMap` containing the configuration file for the [Pattern](#pattern) used by the application is updated according to [Examine configuration file in ConfigMap](#examine-configuration-file-in-configmap) section. If it isn't updated, raise a ticket.
-- Confirm that the `ConfigMap` is mounted to the application as a file according to [Check configuration file in the container](#check-configuration-file-in-the-container) section. If the file isn't updated, wait for the Kubernetes refresh interval (1 minute), or force a refresh by restarting the application.
+- Confirm that the `ConfigMap` is mounted to the application as a file according to [Examine configuration file in the app](#examine-configuration-file-in-the-app) section. If the file isn't updated, wait for the Kubernetes refresh interval (1 minute), or force a refresh by restarting the application.
 
 After checking these items, the applications should be able to read the updated configurations. If the applications still aren't updated, raise a ticket.
 
