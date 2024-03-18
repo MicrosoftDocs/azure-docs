@@ -11,7 +11,11 @@ ms.topic: conceptual
 
 # Web Application Firewall request and file upload size limits
 
-Web Application Firewall allows you to configure request size limits within lower and upper bounds. Application Gateways WAFs running CRS 3.2 or later have additional request and file upload size controls, including the ability to disable max size enforcement for requests and/or file uploads.
+Web Application Firewall allows you to configure request size limits within a lower and upper boundary. Application Gateways WAFs running CRS 3.2 or later have additional request and file upload size controls, including the ability to disable max size enforcement for requests and/or file uploads.
+
+
+> [!IMPORTANT]
+> We are in the process of deploying a new feature for Application Gateway v2 WAFs running Core Rule Set (CRS) 3.2 or later that allows for greater control of your request body size, file upload size, and request body inspection. If you are running Application Gateway v2 WAF with CRS 3.2 or later, and you notice requests getting rejected (or not getting rejected) for a size limit please refer to the troubleshooting steps at the bottom of this page.
 
 
 ## Limits
@@ -25,7 +29,9 @@ Only requests with Content-Type of *multipart/form-data* are considered for file
 To set request size limits in the Azure portal, configure **Global parameters** in the WAF policy resource's **Policy settings** page.
 
 >[!NOTE]
->If you are running CRS 3.2 or later, and you have a high priority custom rule that takes action based on the content of a request's headers, this will take precedence over any max request size, or max file upload size, limits. This optimization let's the WAF run high priority custom rules that don't require reading, and/or measuring, the full WAF request, or file upload, to run first before performing the full request inspection.
+>If you are running CRS 3.2 or later, and you have a high priority custom rule that takes action based on the content of a request's headers, cookies, or URI, this will take precedence over any max request size, or max file upload size, limits. This optimization let's the WAF run high priority custom rules that don't require reading and/or measuring the full WAF request (or file upload) first before performing the full request inspection.
+>
+>Example: If you have a custom rule with priority 0 (the highest priority) set to approve a request with the header xyz, even if the request's size is larger than your maximum request size limit, it will get approved. This is because the WAF will attempt to run all high priority custom rules that don't require reading the request body before enforcing any rules or size constraints that require reading the full request body.
 
 
 ## Request body inspection
@@ -39,6 +45,10 @@ For older WAFs running CRS 3.1 (or lower) turning off the request body inspectio
 When your WAF receives a request that's over the size limit, the behavior depends on the mode of your WAF and the version of the managed ruleset you use.
 - When your WAF policy is in prevention mode, WAF logs and blocks requests and file uploads that are over the size limits.
 - When your WAF policy is in detection mode, WAF inspects the body up to the limit specified and ignores the rest. If the `Content-Length` header is present and is greater than the file upload limit, WAF ignores the entire body and logs the request.
+
+## Trouble Shooting
+
+
 
 ## Next steps
 
