@@ -245,7 +245,7 @@ For Assistants you need a combination of a supported model, and a supported regi
 | East US 2 | ✅ | | ✅ |✅ | |
 | Sweden Central | ✅ |✅ |✅ |✅| |
 
-For information on Provisioned Throughput Unit (PTU) availability, see [provisioned throughput](./concepts/provisioned-throughput.md). 
+For information on Provisioned Throughput Unit (PTU) availability, see [provisioned throughput](./provisioned-throughput.md). 
 
 ## Next steps
 
