@@ -74,7 +74,7 @@ Alternately, modify the default function app behavior by editing the following s
 |Setting  |Description  |Default value  |
 |---------|---------|---------|
 |**FULL_SYNC_INTERVAL_DAYS**     |  The number of days until a full data ingestion occurs.       |    `7`     |
-|**TIMER_SCHEDULE**     |    A [NCRONTAB](/azure/azure-functions/functions-bindings-timer?tabs=python-v2%2Cisolated-process%2Cnodejs-v4&pivots=programming-language-python#ncrontab-examples) schedule that defines when the function triggers   |  `0 0 2 *` * *        |
+|**TIMER_SCHEDULE**     |    A [NCRONTAB](/azure/azure-functions/functions-bindings-timer?tabs=python-v2%2Cisolated-process%2Cnodejs-v4&pivots=programming-language-python#ncrontab-examples) schedule that defines when the function triggers   |  `0 0 2 * * *`        |
 
 
 For more information, see [Working with app settings](/azure/azure-functions/functions-how-to-use-azure-function-app-settings?tabs=portal#settings).
