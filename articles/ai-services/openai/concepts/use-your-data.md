@@ -129,7 +129,7 @@ Mapping these fields correctly helps ensure the model has better response and ci
 
 ### Search filter (API)
 
-If you want to implement additional value-based criteria for query execution, you can set up a search filter using the `filter` parameter in the [REST API](../references/azure-search.md).
+If you want to implement additional value-based criteria for query execution, you can set up a [search filter](/azure/search/search-filters) using the `filter` parameter in the [REST API](../references/azure-search.md).
 
 
 # [Azure Cosmos DB for MongoDB vCore](#tab/mongo-db)
@@ -271,9 +271,9 @@ You can modify the following additional settings in the **Data parameters** sect
 
 |Parameter name  | Description  |
 |---------|---------|
-| **Limit responses to your data** | This flag configures the chatbot's approach to handling queries unrelated to the data source or when search documents are insufficient for a complete answer. When this setting is disabled, the model supplements its responses with its own knowledge in addition to your documents. When this setting is enabled, the model attempts to only rely on your documents for responses. This is the `inScope` parameter in the API. |
-|**Retrieved documents**     |  This parameter is an integer that can be set to 3, 5, 10, or 20, and controls the number of document chunks provided to the large language model for formulating the final response. By default, this is set to 5. The search process can be noisy and sometimes, due to chunking, relevant information might be spread across multiple chunks in the search index. Selecting a top-K number, like 5, ensures that the model can extract relevant information, despite the inherent limitations of search and chunking. However, increasing the number too high can potentially distract the model. Additionally, the maximum number of documents that can be effectively used depends on the version of the model, as each has a different context size and capacity for handling documents. If you find that responses are missing important context, try increasing this parameter. This is the `topNDocuments` parameter in the API. |
-| **Strictness**     | Determines the system's aggressiveness in filtering search documents based on their similarity scores. The system queries Azure Search or other document stores, then decides which documents to provide to large language models like ChatGPT. Filtering out irrelevant documents can significantly enhance the performance of the end-to-end chatbot. Some documents are excluded from the top-K results if they have low similarity scores before forwarding them to the model. This is controlled by an integer value ranging from 1 to 5. Setting this value to 1 means that the system will minimally filter documents based on search similarity to the user query. Conversely, a setting of 5 indicates that the system will aggressively filter out documents, applying a very high similarity threshold. If you find that the chatbot omits relevant information, lower the filter's strictness (set the value closer to 1) to include more documents. Conversely, if irrelevant documents distract the responses, increase the threshold (set the value closer to 5). This is the `strictness` parameter in the API. |
+| **Limit responses to your data** | This flag configures the chatbot's approach to handling queries unrelated to the data source or when search documents are insufficient for a complete answer. When this setting is disabled, the model supplements its responses with its own knowledge in addition to your documents. When this setting is enabled, the model attempts to only rely on your documents for responses. This is the `inScope` parameter in the API, and set to true by default. |
+|**Retrieved documents**     |  This parameter is an integer that can be set to 3, 5, 10, or 20, and controls the number of document chunks provided to the large language model for formulating the final response. By default, this is set to 5. The search process can be noisy and sometimes, due to chunking, relevant information might be spread across multiple chunks in the search index. Selecting a top-K number, like 5, ensures that the model can extract relevant information, despite the inherent limitations of search and chunking. However, increasing the number too high can potentially distract the model. Additionally, the maximum number of documents that can be effectively used depends on the version of the model, as each has a different context size and capacity for handling documents. If you find that responses are missing important context, try increasing this parameter. This is the `topNDocuments` parameter in the API, and is 5 by default. |
+| **Strictness**     | Determines the system's aggressiveness in filtering search documents based on their similarity scores. The system queries Azure Search or other document stores, then decides which documents to provide to large language models like ChatGPT. Filtering out irrelevant documents can significantly enhance the performance of the end-to-end chatbot. Some documents are excluded from the top-K results if they have low similarity scores before forwarding them to the model. This is controlled by an integer value ranging from 1 to 5. Setting this value to 1 means that the system will minimally filter documents based on search similarity to the user query. Conversely, a setting of 5 indicates that the system will aggressively filter out documents, applying a very high similarity threshold. If you find that the chatbot omits relevant information, lower the filter's strictness (set the value closer to 1) to include more documents. Conversely, if irrelevant documents distract the responses, increase the threshold (set the value closer to 5). This is the `strictness` parameter in the API, and set to 3 by default. |
 
 ### System message
 
@@ -383,44 +383,55 @@ You can send a streaming request using the `stream` parameter, allowing data to 
 
 #### Conversation history for better results
 
-When you chat with a model, providing a history of the chat will help the model return higher quality results. 
+When you chat with a model, providing a history of the chat will help the model return higher quality results. You don't need to include the `context` property of the assistant messages in your API requests for better response quality. See [the API reference documentation](../references/on-your-data.md#examples) for examples.
 
-```json
-{
-    "dataSources": [
-        {
-            "type": "AzureCognitiveSearch",
-            "parameters": {
-                "endpoint": "'$AZURE_AI_SEARCH_ENDPOINT'",
-                "key": "'$AZURE_AI_SEARCH_API_KEY'",
-                "indexName": "'$AZURE_AI_SEARCH_INDEX'"
-            }
-        }
-    ],
-    "messages": [
-        {
-            "role": "user",
-            "content": "What are the differences between Azure Machine Learning and Azure AI services?"
-        },
-        {
-            "role": "tool",
-            "content": "{\"citations\": [{\"content\": \"title: Azure AI services and Machine Learning\\ntitleSuffix: Azure AI services\\ndescription: Learn where Azure AI services fits in with other Azure offerings for machine learning.\\nAzure AI services and machine learning\\nAzure AI services provides machine learning capabilities to solve general problems such as...\\n \"articles\\\\cognitive-services\\\\cognitive-services-and-machine-learning.md\", \"url\": null, \"metadata\": {\"chunking\": \"orignal document size=1018. Scores=0.32200050354003906 and 1.2880020141601562.Org Highlight count=115.\"}, \"chunk_id\": \"0\"}], \"intent\": \"[\\\"What are the differences between Azure Machine Learning and Azure AI services?\\\"]\"}"
-        },
-        {
-            "role": "assistant",
-            "content": " \nAzure Machine Learning is a product and service tailored for data scientists to build, train, and deploy machine learning models [doc1]..."
-        },
-        {
-            "role": "user",
-            "content": "How do I use Azure machine learning?"
-        }
-    ]
-}
-```
 
 ## Token usage estimation for Azure OpenAI On Your Data
 
+Azure OpenAI On Your Data Retrieval Augmented Generation (RAG) service that leverages both a search service (such as Azure AI Search) and generation (Azure OpenAI models) to let users get answers for their questions based on provided data. 
 
+As part of this RAG pipeline, there are three steps at a high-level: 
+
+1. Reformulate the user query into a list of search intents. This is done by making a call to the model with a prompt that includes instructions, the user question, and conversation history. Let's call this an *intent prompt*. 
+
+1. For each intent, multiple document chunks are retrieved from the search service. After filtering out irrelevant chunks based on the user-specified threshold of strictness and reranking/aggregating the chunks based on internal logic, the user-specified number of document chunks are chosen. 
+
+1. These document chunks, along with the user question, conversation history, role information, and instructions are sent to the model to generate the final model response. Let's call this the *generation prompt*. 
+
+In total, there are two calls made to the model: 
+
+* For processing the intent: The token estimate for the *intent prompt* includes those for the user question, conversation history and the instructions sent to the model for intent generation. 
+
+* For generating the response: The token estimate for the *generation prompt* includes those for the user question, conversation history, the retrieved list of document chunks, role information and the instructions sent to it for generation. 
+
+The model generated output tokens (both intents and response) need to be taken into account for total token estimation. Summing up all the four columns below gives the average total tokens used for generating a response. 
+
+| Model	| Generation prompt token count | Intent prompt token count | Response token count | Intent token count |
+|--|--|--|--|--|
+| gpt-35-turbo-16k | 4297 | 1366 | 111 | 25 |
+| gpt-4-0613 | 3997 | 1385 | 118 | 18 |
+| gpt-4-1106-preview | 4538 | 811 | 119 | 27 |
+| gpt-35-turbo-1106 | 4854 | 1372 | 110 | 26 |
+
+The above numbers are based on testing on a data set with:
+
+* 191 conversations 
+* 250 questions
+* 10 average tokens per question
+* 4 conversational turns per conversation on average 
+
+And the following [parameters](#runtime-parameters).
+
+|Setting  |Value  |
+|---------|---------|
+|Number of retrieved documents     | 5         |
+|Strictness     |     3    |
+|Chunk size     | 1024        |
+|Limit responses to ingested data?     | True         |
+
+These estimates will vary based on the values set for the above parameters. For example, if the number of retrieved documents is set to 10 and strictness is set to 1, the token count will go up. If returned responses aren't limited to the ingested data, there are fewer instructions given to the model and the number of tokens will go down.  
+
+The estimates also depend on the nature of the documents and questions being asked. For example, if the questions are open-ended, the responses are likely to be longer. Similarly, a longer system message would contribute to a longer prompt that consumes more tokens, and if the conversation history is long, the prompt will be longer.
 
 | Model | Max tokens for system message | Max tokens for model response |
 |--|--|--|
@@ -429,15 +440,17 @@ When you chat with a model, providing a history of the chat will help the model 
 | GPT-4-0613-8K | 400 | 1500 |
 | GPT-4-0613-32K | 2000 | 6400 |
 
-The table above shows the total number of tokens available for each model type. It also determines the maximum number of tokens that can be used for the [system message](#system-message) and the model response. Additionally, the following also consume tokens:
+The table above shows the maximum number of tokens that can be used for the [system message](#system-message) and the model response. Additionally, the following also consume tokens:
 
 
 
-* The meta prompt (MP): if you limit responses from the model to the grounding data content (`inScope=True` in the API), the maximum number of tokens is 4,036 tokens. Otherwise (for example if `inScope=False`) the maximum is 3,444 tokens. This number is variable depending on the token length of the user question and conversation history. This estimate includes the base prompt and the query rewriting prompts for retrieval.
+* The meta prompt: if you limit responses from the model to the grounding data content (`inScope=True` in the API), the maximum number of tokens higher. Otherwise (for example if `inScope=False`) the maximum is lower. This number is variable depending on the token length of the user question and conversation history. This estimate includes the base prompt and the query rewriting prompts for retrieval.
 * User question and history: Variable but capped at 2,000 tokens.
 * Retrieved documents (chunks): The number of tokens used by the retrieved document chunks depends on multiple factors. The upper bound for this is the number of retrieved document chunks multiplied by the chunk size. It will, however, be truncated based on the tokens available tokens for the specific model being used after counting the rest of fields. 
 
     20% of the available tokens are reserved for the model response. The remaining 80% of available tokens include the meta prompt, the user question and conversation history, and the system message. The remaining token budget is used by the retrieved document chunks. 
+
+In order to compute the number of tokens consumed by your input (such as your question, the system message/role information), use the following code sample.
 
 ```python 
 import tiktoken
@@ -451,6 +464,7 @@ class TokenEstimator(object):
       
 token_output = TokenEstimator.estimate_tokens(input_text)
 ```
+
 
 ## Troubleshooting 
 

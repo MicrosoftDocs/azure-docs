@@ -443,11 +443,11 @@ Rather than creating a new template spec for the revised template, add a new ver
 1. Deploy that version. Provide a prefix for the storage account name.
 
    ```azurecli
-    az deployment group create \
+   az deployment group create \
       --resource-group storageRG \
       --template-spec $id \
       --parameters namePrefix='demoaccount'
-    ```
+   ```
 
 # [Portal](#tab/azure-portal)
 
@@ -478,7 +478,7 @@ Rather than creating a new template spec for the revised template, add a new ver
 
 1. Again, you must make some changes to your local template to make it work with template specs. Copy the following template and save it locally as azuredeploy.json.
 
-   ```json
+    ```json
     {
       "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",

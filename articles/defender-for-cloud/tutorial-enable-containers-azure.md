@@ -21,14 +21,14 @@ You can learn more about Defender for Container's pricing on the [pricing page](
 
 - Ensure the [required Fully Qualified Domain Names (FQDN)/application](../aks/limit-egress-traffic.md) endpoints are configured for outbound access so the Defender agent can connect to Microsoft Defender for Cloud to send security data and events.
 
-    > [!Note]
+    > [!NOTE]
     > By default, AKS clusters have unrestricted outbound (egress) internet access.
 
 ## Enable the Defender for Containers plan
 
 By default, when enabling the plan through the Azure portal, Microsoft Defender for Containers is configured to automatically enable all capabilities and install required components to provide the protections offered by plan, including the assignment of a default workspace.
 
-If you would prefer to [assign a custom workspace](/azure/defender-for-cloud/defender-for-containers-enable?pivots=defender-for-container-aks&tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api#assign-a-custom-workspace), one can be assigned through the Azure Policy.
+If you would prefer to [assign a custom workspace](defender-for-containers-enable.md?pivots=defender-for-container-aks&tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api#assign-a-custom-workspace), one can be assigned through the Azure Policy.
 
 **To enable Defender for Containers plan on your subscription**:
 
