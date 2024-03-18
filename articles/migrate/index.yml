@@ -98,8 +98,8 @@ landingContent:
             url: ./concepts-azure-sap-systems-assessment.md
       - linkListType: tutorial
         links:
-          - text: Assess VMware VMs with Server Assessment
-            url: ./tutorial-discover-vmware.md
+          - text: Discover SAP Systems
+            url: ./tutorial-discover-sap-systems.md
   - title: Learn more
     linkLists:
       - linkListType: learn
