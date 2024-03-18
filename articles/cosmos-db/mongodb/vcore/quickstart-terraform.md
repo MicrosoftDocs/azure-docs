@@ -19,7 +19,7 @@ This document provides instructions on using Terraform to deploy Azure Cosmos DB
 - An Azure subscription.
 
 ## Terraform Configuration
-Create a main.tf file and include the following configuration. Replace the resource group placeholder values with your own:
+Create a main.tf file and include the following configuration. Replace the resource group placeholder values (and region if needed) with your own:
 
 ```hcl
 terraform {
