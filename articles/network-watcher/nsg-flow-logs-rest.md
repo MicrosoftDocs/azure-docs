@@ -3,25 +3,17 @@ title: Manage NSG flow logs - Azure REST API
 titleSuffix: Azure Network Watcher
 description: Learn how to create, change, or disable Azure Network Watcher NSG flow logs using REST API.
 author: halkazwini
+ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
 ms.date: 06/01/2023
-ms.author: halkazwini
-ms.custom: template-how-to, engagement-fy23
 ---
 
 # Manage NSG flow logs using REST API
 
-> [!div class="op_single_selector"]
-> - [Azure portal](nsg-flow-logging.md)
-> - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
-> - [Azure CLI](network-watcher-nsg-flow-logging-cli.md)
-> - [REST API](network-watcher-nsg-flow-logging-rest.md)
-> - [ARM template](network-watcher-nsg-flow-logging-azure-resource-manager.md)
+Network security group flow logging is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through a network security group. For more information about network security group flow logging, see [NSG flow logs overview](nsg-flow-logs-overview.md).
 
-Network security group flow logging is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through a network security group. For more information about network security group flow logging, see [NSG flow logs overview](network-watcher-nsg-flow-logging-overview.md).
-
-This article shows you how to use the REST API to enable, disable, and query flow logs using the REST API. You can learn how to manage an NSG flow log using the [Azure portal](nsg-flow-logging.md), [PowerShell](network-watcher-nsg-flow-logging-powershell.md), [Azure CLI](network-watcher-nsg-flow-logging-cli.md), or [ARM template](network-watcher-nsg-flow-logging-azure-resource-manager.md).
+This article shows you how to use the REST API to enable, disable, and query flow logs using the REST API. You can learn how to manage an NSG flow log using the [Azure portal](nsg-flow-logging.md), [PowerShell](nsg-flow-logs-powershell.md), [Azure CLI](nsg-flow-logs-cli.md), or [ARM template](nsg-flow-logs-azure-resource-manager.md).
 
 In this article, uou learn how to:
 
