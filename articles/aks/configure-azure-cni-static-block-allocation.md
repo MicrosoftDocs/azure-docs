@@ -34,7 +34,7 @@ This article shows you how to use Azure CNI Networking for static allocation of 
 * Review the [prerequisites][azure-cni-prereq] for configuring basic Azure CNI networking in AKS, as the same prerequisites apply to this article.
 * Review the [deployment parameters][azure-cni-deployment-parameters] for configuring basic Azure CNI networking in AKS, as the same parameters apply.
 * AKS Engine and DIY clusters aren't supported.
-* Azure CLI version `2.37.0` or later.
+* Azure CLI version `2.37.0` or later with extension aks-preview of version '2.0.0b2' or later
 * If you have an existing cluster, you need to enable Container Insights for monitoring IP subnet usage. You can enable Container Insights using the [`az aks enable-addons`][az-aks-enable-addons] command, as shown in the following example:
 * Register the subscription-level feature flag for your subscription: 'Microsoft.ContainerService/AzureVnetScalePreview'
     ```azurecli-interactive
