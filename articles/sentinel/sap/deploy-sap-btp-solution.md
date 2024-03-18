@@ -25,7 +25,7 @@ Before you begin, verify that:
 - Your organization uses SAP BTP (in a Cloud Foundry environment) to streamline interactions with SAP applications and other business applications.
 - You have an SAP BTP account (which supports BTP accounts in the Cloud Foundry environment). You can also use a [SAP BTP trial account](https://cockpit.hanatrial.ondemand.com/).
 - You have the SAP BTP auditlog-management service and service key (see [Set up the BTP account and solution](#set-up-the-btp-account-and-solution)).
-- You have the Sentinel Contributor role on the target Sentinel workspace.
+- You have the Microsoft Sentinel Contributor role on the target Microsoft Sentinel workspace.
 
 ## Set up the BTP account and solution
 
@@ -67,8 +67,8 @@ To set up the BTP account and the solution:
 1. When the solution deployment is finished, return to your Microsoft Sentinel workspace and select **Data connectors**.
 1. In the search bar, enter **BTP**, and then select **SAP BTP**.
 1. Select **Open connector page**.
-1. On the connector page, make sure that you meet the required prerequisites and complete the configuration steps. Click **Add account**.
-1. Specify the parameters that you defined in step 4 in this section. The subaccount name specified will be projected as a column in the SAPBTPAuditLog_CL table. This can be used to filter the logs when adding multiple subaccounts.
+1. On the connector page, make sure that you meet the required prerequisites listed and complete the configuration steps. When you're ready, select **Add account**.
+1. Specify the parameters that you defined earlier during the configuration. The subaccount name specified is projected as a column in the `SAPBTPAuditLog_CL` table, and can be used to filter the logs when you have multiple subaccounts.
 
     > [!NOTE]
     > Retrieving audits for the global account doesn't automatically retrieve audits for the subaccount. Follow the connector configuration steps for each of the subaccounts you want to monitor, and also follow these steps for the global account. Review these [account auditing configuration considerations](#consider-your-account-auditing-configurations).
@@ -101,14 +101,16 @@ You also can retrieve the logs via the UI:
 1. In the new instance, create a service key.
 1. View the service key and retrieve the required parameters from step 4 of the configuration instructions in the data connector UI (**url**, **uaa.url**, **uaa.clientid**, and **uaa.clientsecret**).
 
-## Rotating the BTP client secret
+## Rotate the BTP client secret
 
-It is recommended to periodically rotate the client secrets of the BTP subaccounts. The following example script can be used to demonstrate the process of updating a data connector. The script will fetch the secret from Azure Key Vault and update the existing data connector with a new secret.
+We recommend that you periodically rotate the BPT subaccount client secrets. The following sample script demonstrates the process of updating an existing data connector with a new secret fetched from Azure Key Vault.
 
-1. Collect the required parameters for the script, subscription id, resource group and workspace name of the Sentinel workspace. The key vault and name of the key vault secret, and the name of the data connector to update.
+Before you start, collect the values you'll need for the scripts parameters, including:
 
-    > [!NOTE]
-    > Identify the name of the data connector by opening the SAP BTP data connector in data connectors blade. It should look like "BTP_{connector name}".
+ - The subscription ID, resource group, and workspace name for your Microsoft Sentinel workspace.
+ - The key vault and the name of the key vault secret.
+ - The name of the data connector you want to update with a new secret.  To identify the data connector name, open the SAP BPT data connector in the Microsoft Sentinel data connectors page. The data connector name has the following syntax: *BTP_{connector name}*
+
 
 ```powershell
 param(
