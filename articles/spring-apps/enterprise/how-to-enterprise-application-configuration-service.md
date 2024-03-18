@@ -417,7 +417,7 @@ Use the following command to assign an Azure role:
 
 ---
 
-### Examine configuration file in ConfigMap with Azure CLI
+### Examine configuration file with Azure CLI
 
 Use the following command to view the content of configuration file by [Pattern](#pattern):
 
