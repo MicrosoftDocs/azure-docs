@@ -20,6 +20,12 @@ ms.custom:
 
 This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc-enabled data services.
 
+### Streamlined network endpoints
+
+Prior to this release, Azure Arc data processing endpoint was at `san-af-<region>-prod.azurewebsites.net`.
+
+Beginning with this release both Azure Arc data processing, and Azure Arc data telemetry use `*.<region>.arcdataservices.com`. 
+
 ## March 12, 2024
 
 **Image tag**:`v1.28.0_2024-03-12`|

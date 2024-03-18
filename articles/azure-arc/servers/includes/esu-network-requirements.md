@@ -23,7 +23,7 @@ You can enable the following subset of endpoints:
 |`*.his.arc.azure.com`|Metadata and hybrid identity services|Always| Private |
 |`*.guestconfiguration.azure.com`| Extension management and guest configuration services |Always| Private |
 |`www.microsoft.com/pkiops/certs`| Intermediate certificate updates for ESUs (note: uses HTTP/TCP 80 and HTTPS/TCP 443) | Always for automatic updates, or temporarily if downloading certificates manually. | Public |
-|`san-af-<region>-prod.azurewebsites.net`| Azure Arc data processing service| SQL Server ESUs | Public|
+|`*.<region>.arcdataservices.com`| Azure Arc data processing service and service telemetry.| SQL Server ESUs | Public|
 
 #### [Azure Government](#tab/azure-government)
 
