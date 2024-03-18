@@ -34,7 +34,7 @@ After importing API definitions or APIs from API Management, you can add metadat
 
 * An API center in your Azure subscription. If you haven't created one, see [Quickstart: Create your API center](set-up-api-center.md).
 
-* One or more instances of Azure API Management, in the same or a different subscription. When you use the bulk-import option, the API Management instance and API center must be in the same directory. If you haven't created one, see [Create an Azure API Management instance](../api-management/get-started-create-service-instance.md).
+* One or more instances of Azure API Management, in the same or a different subscription. When you import APIs directly from API Management, the API Management instance and API center must be in the same directory. If you haven't created one, see [Create an Azure API Management instance](../api-management/get-started-create-service-instance.md).
 
 * One or more APIs managed in your API Management instance that you want to add to your API center. 
 
@@ -281,7 +281,7 @@ To allow import of APIs, assign your API center's managed identity the **API Man
         --scope $scope 
 ---
 
-### Bulk-import APIs from your API Management instance
+### Import APIs directly from your API Management instance
 
 Use the [az apic service import-from-apim](/cli/azure/apic/service#az-apic-service-import-from-apim) command to import one or more APIs from your API Management instance to your API center. 
 
