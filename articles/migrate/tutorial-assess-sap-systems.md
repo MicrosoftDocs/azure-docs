@@ -13,9 +13,9 @@ ms.custom:
 
 # Tutorial: Assess SAP systems for migration to Azure (preview)
 
-As part of your migration journey to Azure, discover your on-premises SAP inventory and workloads.
+As part of your migration journey to Azure, assess which environment on Azure meets the needs of your on-premises SAP inventory and workloads.
 
-This tutorial explains how to perform import-based assessments for your on-premises SAP systems using import option, which helps to generate an assessment report, featuring cost, and sizing recommendations based on cost and performance. 
+This tutorial explains how to perform assessments for your on-premises SAP systems using import option for Discovery. This assessment helps to generate an assessment report, featuring cost, and sizing recommendations based on cost and performance. 
 
 In this tutorial, you learn how to:
 
@@ -34,8 +34,9 @@ Before you get started, ensure that you've:
 - [Discovered the SAP systems](./tutorial-discover-sap-systems.md) you want to assess using the Azure Migrate.
 
 > [!NOTE]
-> If you want to try this feature in an existing project, ensure you are currently within the same project.
-> If you want to create a new project for assessment, [create a new project](./create-manage-projects.md#create-a-project-for-the-first-time).
+> - If you want to try this feature in an existing project, ensure you are currently within the same project.
+> - If you want to create a new project for assessment, [create a new project](./create-manage-projects.md#create-a-project-for-the-first-time).
+> - For SAP discovery and assessment to be accessible, you must create the project in either the Asia or United States geographies. The location selected for the project **doesn't limit** the target regions that you can select in the assessment settings, see [Create an assessment](#create-an-assessment). You can select any Azure region as the target for your assessments.
 
 
 ## Create an assessment
@@ -86,6 +87,9 @@ To run the assessment, follow these steps:
 
 1. Navigate to the **Create assessment** page and select **Review + create assessment** tab to review your assessment settings.
 1. Select **Create assessment**.
+
+> [!NOTE]
+> Assessments typically take approximately 5-10 minutes to complete. Wait for 5 to 10 minutes after clicking on **Create assessment**. Then, refresh the page and check if the assessment computation has been completed.
 
 ## Review an assessment
 
