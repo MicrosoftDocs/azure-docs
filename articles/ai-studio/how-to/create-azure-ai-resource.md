@@ -1,7 +1,7 @@
 ---
 title: How to create and manage an Azure AI hub resource
 titleSuffix: Azure AI Studio
-description: This article describes how to create and manage an Azure AI hub resource
+description: This article describes how to create and manage an Azure AI hub resource.
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
@@ -23,7 +23,7 @@ In this article, you learn how to create and manage an Azure AI hub resource in 
 
 ## Create an Azure AI hub resource in AI Studio
 
-To create a new Azure AI hub resource, you need either the Owner or Contributor role on the resource group or on an existing Azure AI hub resource. If you are unable to create an Azure AI hub resource due to permissions, reach out to your administrator. If your organization is using [Azure Policy](../../governance/policy/overview.md), don't create the resource in AI Studio. Create the Azure AI hub resource [in the Azure portal](#create-a-secure-azure-ai-hub-resource-in-the-azure-portal) instead.
+To create a new Azure AI hub resource, you need either the Owner or Contributor role on the resource group or on an existing Azure AI hub resource. If you're unable to create an Azure AI hub resource due to permissions, reach out to your administrator. If your organization is using [Azure Policy](../../governance/policy/overview.md), don't create the resource in AI Studio. Create the Azure AI hub resource [in the Azure portal](#create-a-secure-azure-ai-hub-resource-in-the-azure-portal) instead.
 
 Follow these steps to create a new Azure AI hub resource in AI Studio.
 
@@ -32,7 +32,7 @@ Follow these steps to create a new Azure AI hub resource in AI Studio.
 
 1. Enter your AI hub name, subscription, resource group, and location details.
 
-1. In the **Azure OpenAI** dropdown, you can select an existing Azure OpenAI resource to bring all your deployments into AI Studio. If you do not bring one, we will create one for you.
+1. In the **Azure OpenAI** dropdown, you can select an existing Azure OpenAI resource to bring all your deployments into AI Studio. If you don't bring one, we'll create one for you.
 
     :::image type="content" source="../media/how-to/resource-create-advanced.png" alt-text="Screenshot of the Create an Azure AI hub resource wizard with the option to set basic information." lightbox="../media/how-to/resource-create-advanced.png":::
 
@@ -126,11 +126,12 @@ For Azure AI hub resources that use CMK encryption mode, you can update the encr
 :::image type="content" source="../media/how-to/resource-manage-encryption.png" alt-text="Screenshot of the Encryption page of the Azure AI hub resource in the Azure portal." lightbox="../media/how-to/resource-manage-encryption.png":::
 
 ### Update Azure Application Insights and Azure Container Registry
-To use custom environments for Prompt Flow, you are required to configure an Azure Container Registry for your AI hub. When using Azure Application Insights for Prompt Flow deployments, a configured Azure Application Insights resource is required for your AI hub.
 
-The above two Azure resources can be setup when your AI hub is created, or updated afterwards. To update, navigate to the 'properties tab' for your Azure AI hub resource in the Azure portal. Then, select 'Update Azure Application Insights'. Alternatively, use Azure SDK/CLI options or infrastructure-as-code templates to update Azure Application Insights and Azure Container Registry.
+To use custom environments for Prompt Flow, you're required to configure an Azure Container Registry for your AI hub. To use Azure Application Insights for Prompt Flow deployments, a configured Azure Application Insights resource is required for your AI hub.
 
-:::image type="content" source="../media/how-to/resource-manage-encryption.png" alt-text="Screenshot of the Encryption page of the Azure AI resource in the Azure portal." lightbox="../media/how-to/resource-manage-update-associated-resources.png":::
+You can configure your AI hub for these resources during creation or update after creation. To update Azure Application Insights from the Azure portal, navigate to the **Properties** for your Azure AI hub resource in the Azure portal, then select **Change Application Insights**. You can also use the Azure SDK/CLI options or infrastructure-as-code templates to update both Azure Application Insights and Azure Container Registry for the AI Hub.
+
+:::image type="content" source="../media/how-to/resource-manage-update-associated-resources.png" alt-text="Screenshot of the properties page of the Azure AI resource in the Azure portal." lightbox="../media/how-to/resource-manage-update-associated-resources.png":::
 
 ## Manage your Azure AI hub resource from the Manage tab within the AI Studio
 
