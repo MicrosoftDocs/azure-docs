@@ -58,6 +58,8 @@ Get started with Azure Kubernetes Fleet Manager (Fleet) by using the Azure porta
 
 7. Select **Review + create** > **Create** to create the Fleet resource.
 
+    It takes a few minutes to create the Fleet resource. When your deployment is complete, you can navigate to your resource by selecting **Go to resource**.
+
 ## Next steps
 
 * [Orchestrate updates across multiple member clusters](./update-orchestration.md).

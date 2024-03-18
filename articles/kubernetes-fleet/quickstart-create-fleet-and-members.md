@@ -58,7 +58,7 @@ Get started with Azure Kubernetes Fleet Manager (Fleet) by using the Azure CLI t
 
 ## Create a resource group
 
-An [Azure resource group](../azure-resource-manager/management/overview.md) is a logical group in which Azure resources are deployed and managed. When you create a resource group, you're prompted to specify a location. This location is the storage location of your resource group metadata and where your resources will run in Azure if you don't specify another location during resource creation.
+An [Azure resource group](../azure-resource-manager/management/overview.md) is a logical group in which Azure resources are deployed and managed. When you create a resource group, you're prompted to specify a location. This location is the storage location of your resource group metadata and where your resources run in Azure if you don't specify another location during resource creation.
 
 Set the Azure subscription and create a resource group using the [`az group create`][az-group-create] command.
 
@@ -85,20 +85,20 @@ The following output example resembles successful creation of the resource group
 
 ## Create a Fleet resource
 
-You can create a Fleet resource to later group your AKS clusters as member clusters. By default, this resource enables member cluster grouping and update orchestration. If the fleet hub is enabled, additional preview features are enabled, such as Kubernetes object propagation to member clusters and L4 service load balancing across multiple member clusters.
+You can create a Fleet resource to later group your AKS clusters as member clusters. By default, this resource enables member cluster grouping and update orchestration. If the Fleet hub is enabled, other preview features are enabled, such as Kubernetes object propagation to member clusters and L4 service load balancing across multiple member clusters.
 
 > [!IMPORTANT]
 > As of now, once a Fleet resource has been created, it's not possible to change the hub mode for the fleet resource.
 
 ### Update orchestration only (default)
 
-If you want to use Fleet only for update orchestration, you can create a Fleet resource without the hub cluster using the [`az fleet create`][az-fleet-create] command. This is the default experience when creating a new Fleet resource.
+If you want to use Fleet only for update orchestration, which is the default experience when creating a new Fleet resource, you can create a Fleet resource without the hub cluster using the [`az fleet create`][az-fleet-create] command.
 
 ```azurecli-interactive
 az fleet create --resource-group ${GROUP} --name ${FLEET} --location eastus
 ```
 
-The output will look similar to the following example:
+Your output should look similar to the following example output:
 
 ```output
 {
@@ -136,7 +136,7 @@ If you want to use Fleet for Kubernetes object propagation and multi-cluster loa
 az fleet create --resource-group ${GROUP} --name ${FLEET} --location eastus --enable-hub
 ```
 
-Output will look similar to the example above.
+Your output should look similar to the example output in the previous section.
 
 ## Join member clusters
 
@@ -180,7 +180,7 @@ Fleet currently supports joining existing AKS clusters as member clusters.
         --member-cluster-id ${MEMBER_CLUSTER_ID_3}
     ```
 
-    The outputs will look similar to the following example:
+    Your outputs should look similar to the following example output:
 
     ```output
     {
@@ -208,7 +208,7 @@ Fleet currently supports joining existing AKS clusters as member clusters.
     az fleet member list --resource-group ${GROUP} --fleet-name ${FLEET} -o table
     ```
 
-    If successful, the output will look similar to the following example:
+    If successful, your output should look similar to the following example output:
 
     ```output
     ClusterResourceId                                                                                                                                Name          ProvisioningState    ResourceGroup
