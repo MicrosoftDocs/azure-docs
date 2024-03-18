@@ -18,7 +18,7 @@ In the unified security operations platform in the Microsoft Defender portal, en
 | Entity category | Characterization | Main examples |
 | --------------- | ---------------- | ------------- |
 | Assets          | <li>Internal objects<li>Protected objects<li>Inventoried objects | <li>Accounts (Users)<li>Hosts (Devices)<li>Mailboxes<li>Azure resources |
-| Evidence        | <li>External items<li>Not in your control<li>Indicators of compromise | <li>IP addresses<li>Files<li>Processes<li>URLs |
+| Other entities<br>*(evidence)*        | <li>External items<li>Not in your control<li>Indicators of compromise | <li>IP addresses<li>Files<li>Processes<li>URLs |
 
 ## Entity identifiers
 

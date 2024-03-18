@@ -78,7 +78,7 @@ On the **Customize Sentinel activities** page, you'll see a list of any activiti
 
     :::image type="content" source="./media/customize-entity-activities/activity-details-defender.png" alt-text="Screenshot of activity template list in Defender portal.":::
 
-    When you select **Create activity** in the Defender portal, you are redirected to the activity wizard in the Azure portal in a new tab.
+    When you select **Create activity** in the Defender portal, you are redirected to the Microsoft Sentinel activity wizard in the Azure portal in a new tab.
 
     ---
 
@@ -139,8 +139,7 @@ At least one identifier is required in a query.
 | | Host_NetBiosName + Host_NTDomain | similar to fully qualified domain name (FQDN) |
 | | Host_NetBiosName + Host_DnsDomain | similar to fully qualified domain name (FQDN) |
 | | Host_AzureID | the Microsoft Entra object ID of the host in Microsoft Entra ID (if Microsoft Entra domain joined) |
-| | Host_OMSAgentID | the OMS Agent ID of the agent installed on a specific host (unique per host) |
-|
+| | Host_OMSAgentID | the OMS Agent ID of the agent installed on a specific host (unique per host) 
 
 Based on the entity selected you will see the available identifiers. Clicking on the relevant identifiers will paste the identifier into the query, at the location of the cursor.
 
@@ -226,5 +225,6 @@ You can also use the **Activities** filter to present or hide specific activitie
 ## Next steps
 
 In this document, you learned how to create custom activities for your entity page timelines. To learn more about Microsoft Sentinel, see the following articles:
-- Get the complete picture on [entity pages](identify-threats-with-entity-behavior-analytics.md).
+- Get the complete picture on [entity pages](entity-pages.md).
+- Learn about [User and Entity Behavior Analytics (UEBA)](identify-threats-with-entity-behavior-analytics.md).
 - See the full list of [entities and identifiers](entities-reference.md).

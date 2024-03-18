@@ -4,7 +4,7 @@ description: Enable User and Entity Behavior Analytics in Microsoft Sentinel, an
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
-ms.date: 07/05/2023
+ms.date: 03/18/2024
 ---
 
 # Enable User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel 
