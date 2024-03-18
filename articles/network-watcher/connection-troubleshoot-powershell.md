@@ -1,33 +1,39 @@
 ---
-title: Troubleshoot connections - Azure PowerShell
+title: Troubleshoot outbound connections - Azure PowerShell
 titleSuffix: Azure Network Watcher
-description: Learn how to use the connection troubleshoot capability of Azure Network Watcher using PowerShell.
-services: network-watcher
+description: Learn how to use the connection troubleshoot feature of Azure Network Watcher to troubleshoot outbound connections using Azure PowerShell.
 author: halkazwini
+ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 01/07/2021
-ms.author: halkazwini
+ms.date: 03/15/2024
 ms.custom: devx-track-azurepowershell
+
+#CustomerIntent: As an Azure administrator, I want to learn how to use Connection Troubleshoot to diagnose outbound connectivity issues in Azure using PowerShell.
 ---
 
-# Troubleshoot connections with Azure Network Watcher using PowerShell
+# Troubleshoot outbound connections using PowerShell
 
-> [!div class="op_single_selector"]
-> - [Portal](network-watcher-connectivity-portal.md)
-> - [PowerShell](network-watcher-connectivity-powershell.md)
-> - [Azure CLI](network-watcher-connectivity-cli.md)
-> - [Azure REST API](network-watcher-connectivity-rest.md)
+In this article, you learn how to use the connection troubleshoot feature of Azure Network Watcher to diagnose and troubleshoot connectivity issues. For more information about connection troubleshoot, see [Connection troubleshoot overview](connection-troubleshoot-overview.md).
 
-Learn how to use connection troubleshoot to verify whether a direct TCP connection from a virtual machine to a given endpoint can be established.
+## Prerequisites
 
-## Before you begin
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An instance of Network Watcher in the region you want to troubleshoot a connection.
-* Virtual machines to troubleshoot connections with.
+- Azure Cloud Shell or Azure PowerShell.
 
-> [!IMPORTANT]
-> Connection troubleshoot requires that the VM you troubleshoot from has the `AzureNetworkWatcherExtension` VM extension installed. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/extensions/network-watcher-windows.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/extensions/network-watcher-linux.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). The extension is not required on the destination endpoint.
+    The steps in this article run the Azure PowerShell cmdlets interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloudshell** at the upper-right corner of a code block. Select **Copy** to copy the code and then paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
+
+    You can also [install Azure PowerShell locally](/powershell/azure/install-azure-powershell) to run the cmdlets. This article requires the Azure PowerShell `Az` module. To find the installed version, run `Get-Module -ListAvailable Az`. If you run PowerShell locally, sign in to Azure using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
+
+- Network Watcher enabled in the region of the virtual machine (VM) you want to troubleshoot. For more information, see [Enable or disable Azure Network Watcher](network-watcher-create.md).
+
+- A virtual machine with Network Watcher agent VM extension installed on it. To install the extension, see [Network Watcher Agent virtual machine extension for Windows](../virtual-machines/extensions/network-watcher-windows.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json) or [Network Watcher Agent virtual machine extension for Linux](../virtual-machines/extensions/network-watcher-linux.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json). To update an already installed extension, see [Update Azure Network Watcher extension to the latest version](../virtual-machines/extensions/network-watcher-update.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json).
+
+- A second virtual machine with inbound TCP connectivity from 168.63.129.16 over the port being tested (for Port scanner diagnostic test).
+
+> [!NOTE]
+> - By default, Azure enables Network Watcher in a region when you create a virtual network in it.
 
 ## Check connectivity to a virtual machine
 
@@ -35,7 +41,7 @@ This example checks a connection to a destination virtual machine over port 80. 
 
 ### Example
 
-```powershell
+```azurepowershell-interactive
 $rgName = "ContosoRG"
 $sourceVMName = "MultiTierApp0"
 $destVMName = "Database0"
@@ -52,7 +58,7 @@ Test-AzNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1
 
 ### Response
 
-The following response is from the previous example.  In this response, the `ConnectionStatus` is **Unreachable**. You can see that all the probes sent failed. The connectivity failed at the virtual appliance due to a user-configured `NetworkSecurityRule` named **UserRule_Port80**, configured to block incoming traffic on port 80. This information can be used to research connection issues.
+The following response is from the previous example. In this response, the `ConnectionStatus` is **Unreachable**. You can see that all the probes sent failed. The connectivity failed at the virtual appliance due to a user-configured `NetworkSecurityRule` named **UserRule_Port80**, configured to block incoming traffic on port 80. This information can be used to research connection issues.
 
 ```
 ConnectionStatus : Unreachable
@@ -129,7 +135,7 @@ This example checks connectivity between a virtual machine and a remote endpoint
 
 ### Example
 
-```powershell
+```azurepowershell-interactive
 $rgName = "ContosoRG"
 $sourceVMName = "MultiTierApp0"
 
@@ -192,7 +198,7 @@ The following example checks connectivity to a website. This example requires th
 
 ### Example
 
-```powershell
+```azurepowershell-interactive
 $rgName = "ContosoRG"
 $sourceVMName = "MultiTierApp0"
 
@@ -244,7 +250,7 @@ The following example checks connectivity from a virtual machine to a blog stora
 
 ### Example
 
-```powershell
+```azurepowershell-interactive
 $rgName = "ContosoRG"
 $sourceVMName = "MultiTierApp0"
 
@@ -259,7 +265,7 @@ Test-AzNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1
 
 ### Response
 
-The following json is the example response from running the previous cmdlet. As the destination is reachable, the `ConnectionStatus` property shows as **Reachable**.  You are provided the details regarding the number of hops required to reach the storage blob and latency.
+The following json is the example response from running the previous cmdlet. As the destination is reachable, the `ConnectionStatus` property shows as **Reachable**. You're provided the details regarding the number of hops required to reach the storage blob and latency.
 
 ```json
 ConnectionStatus : Reachable
@@ -290,8 +296,7 @@ Hops             : [
                    ]
 ```
 
-## Next steps
+## Next step
 
-Determine whether certain traffic is allowed in or out of your VM by visiting [Check IP flow verify](diagnose-vm-network-traffic-filtering-problem.md).
-
-If traffic is being blocked and it should not be, see [Manage Network Security Groups](../virtual-network/manage-network-security-group.md) to track down the network security group and security rules that are defined.
+> [!div class="nextstepaction"]
+> [Manage packet captures](packet-capture-vm-powershell.md)

@@ -137,7 +137,7 @@ As the user that requested the transfer:
 1. Search for **Cost Management + Billing**.
 1. In the billing scopes page, select the billing account where the transfer request was started and then in the left menu, select **Transfer requests**.
 1. Select the billing profile and invoice section where the transfer request was started and review the status.  
-    :::image type="content" source="./media/mca-request-billing-ownership/transfer-requests-status-completed.png" alt-text="Screenshot that shows the list of transfers with their status. " lightbox="./media/mca-request-billing-ownership/transfer-requests-status-completed.png" :::
+    :::image type="content" source="./media/mca-request-billing-ownership/transfer-requests-status-completed.png" alt-text="Screenshot that shows the list of transfers with their status." lightbox="./media/mca-request-billing-ownership/transfer-requests-status-completed.png" :::
 
 The Transfer requests page displays the following information:
 

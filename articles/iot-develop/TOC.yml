@@ -170,6 +170,6 @@
     - name: Service updates
       href: https://azure.microsoft.com/updates/?product=iot-hub
     - name: Technical case studies
-      href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
+      href: https://microsoft.github.io/generative-ai-for-beginners/#/
     - name: Videos
       href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
