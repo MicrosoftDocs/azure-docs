@@ -185,7 +185,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Viasat](https://news.viasat.com/newsroom/press-releases/viasat-introduces-direct-cloud-connect-a-new-service-providing-fast-secure-private-connections-to-business-critical-cloud-services)** | Supported | Supported | Washington DC2 |
 | **[Vocus Group NZ](https://www.vocus.co.nz/business/cloud-data-centres)** | Supported | Supported | Auckland<br/>Sydney |
 | **Vodacom** | Supported | Supported | Cape Town<br/>Johannesburg|
-| **[Vodafone](https://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** | Supported | Supported | Amsterdam2<br/>Chicago<br/>Dallas<br/>Hong Kong2<br/>London<br/>London2<br/>Milan<br/>Silicon Valley<br/>Singapore |
+| **[Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/global-LAN-WLAN-services/APM)** | Supported | Supported | Amsterdam2<br/>Chicago<br/>Dallas<br/>Hong Kong2<br/>London<br/>London2<br/>Milan<br/>Silicon Valley<br/>Singapore |
 | **[Vi (Vodafone Idea)](https://www.myvi.in/business/enterprise-solutions/connectivity/vpn-extended-connect)** | Supported | Supported | Chennai<br/>Mumbai2 |
 | **Vodafone Qatar** | Supported | Supported | Doha |
 | **XL Axiata** | Supported | Supported | Jakarta |
