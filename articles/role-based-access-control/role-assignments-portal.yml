@@ -182,7 +182,7 @@ procedureSection:
 
           After a few moments, the security principal is assigned the role at the selected scope.
 
-            ![Screenshot of role assignment list after assigning role.](./media/role-assignments-portal/rg-role-assignments.png)
+          ![Screenshot of role assignment list after assigning role.](./media/role-assignments-portal/rg-role-assignments.png)
       - |
         If you don't see the description for the role assignment, click **Edit columns** to add the **Description** column.
 
