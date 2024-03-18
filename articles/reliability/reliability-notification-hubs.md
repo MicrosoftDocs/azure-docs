@@ -101,7 +101,7 @@ There is a period of time during which devices with unopened apps don't receive 
 To enable disaster recovery for a new namespace, follow the procedure in the [Create an Azure notification hub in the Azure portal](/azure/notification-hubs/create-notification-hub-portal).
 
 
-To enable or disable disaster recovery for an an existing namespace:
+To enable or disable disaster recovery for an existing namespace:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. On the left menu, select **All services**.
