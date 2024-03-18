@@ -3,7 +3,7 @@ title: Bicep functions - resources
 description: Describes the functions to use in a Bicep file to retrieve values about resources.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 2024-02-29
+ms.date: 03/18/2024
 ---
 
 # Resource functions for Bicep
