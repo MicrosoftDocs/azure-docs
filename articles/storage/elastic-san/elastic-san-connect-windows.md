@@ -24,10 +24,6 @@ You must use a cluster manager when connecting an individual elastic SAN volume 
 - [Configure a virtual network endpoint](elastic-san-networking.md)
 - [Configure virtual network rules](elastic-san-networking.md#configure-virtual-network-rules)
 
-## Limitations
-
-[!INCLUDE [elastic-san-regions](../../../includes/elastic-san-regions.md)]
-
 ## Connect to volumes
 
 ### Set up your client environment
@@ -63,7 +59,7 @@ Enable-MSDSMAutomaticClaim -BusType iSCSI
 
 # Set the default load balancing policy based on your requirements. In this example, we set it to round robin
 # which should be optimal for most workloads.
-Set-MSDSMGlobalDefaultLoadBalancePolicy -Policy RR
+mpclaim -L -M 2
 ```
 
 ### Attach Volumes to the client

@@ -22,6 +22,17 @@ To help you stay up to date with the latest developments, this article covers:
 
 This page is updated regularly with the latest developments in Azure Private 5G Core.
 
+## February 2024
+### New Entra ID user role needed for distributed tracing tool
+
+**Type:** New feature
+
+**Date available:** February 21, 2024
+
+Access to the [distributed tracing](distributed-tracing.md) tool now requires a dedicated sas.user role in Microsoft Entra ID. This user is available from AP5GC version 4.2310.0-8, and required from AP5GC version 2402 onwards. If you are using Microsoft Entra ID authentication, you should create this user prior to upgrading to version 2402 to avoid losing access to the tracing tool. Entra ID access to the packet core dashboards is unchanged.
+
+See [Enable Microsoft Entra ID for local monitoring tools](enable-azure-active-directory.md) for details.
+
 ## December 2023
 ### Packet Capture
 

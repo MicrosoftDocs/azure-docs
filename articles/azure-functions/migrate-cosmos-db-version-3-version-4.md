@@ -4,7 +4,7 @@ description: This article shows you how to upgrade your existing function apps u
 ms.service: azure-functions
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: how-to 
-ms.date: 10/05/2023
+ms.date: 03/04/2024
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -206,6 +206,9 @@ namespace CosmosDBSamples
     }
 }
 ```
+
+> [!NOTE]
+> If your scenario relied on the dynamic nature of the `Document` type to identify different schemas and types of events, you can use a base abstract type with the common properties across your types or dynamic types like `JObject` that allow to access properties like `Document` did.
 
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"  

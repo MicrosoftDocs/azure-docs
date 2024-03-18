@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 02/13/2024
+ms.date: 02/22/2024
 ---
 
 # Make outbound connections through a shared private link
@@ -116,7 +116,7 @@ When you complete the steps in this section, you have a shared private link that
 
 1. On the **Shared Private Access** page, select **+ Add Shared Private Access**.
 
-1. Select either **Connect to an Azure resource in my directory** or **Connect to an Azure resource by resource ID or alias**.
+1. Select either **Connect to an Azure resource in my directory** or **Connect to an Azure resource by resource ID**.
 
 1. If you select the first option (recommended), the portal helps you pick the appropriate Azure resource and fills in other properties, such as the group ID of the resource and the resource type.
 
@@ -139,7 +139,7 @@ When you complete the steps in this section, you have a shared private link that
 > [!NOTE]
 > Preview API versions, either `2020-08-01-preview` or `2021-04-01-preview`, are required for group IDs that are in preview. The following resource types are in preview: `managedInstance`, `mySqlServer`, `sites`. 
 
-While tools like Azure portal, Azure PowerShell, or the Azure CLI have built-in mechanisms for account sign-in, a REST client like Postman needs to provide a bearer token that allows your request to go through. 
+While tools like Azure portal, Azure PowerShell, or the Azure CLI have built-in mechanisms for account sign-in, a REST client  needs to provide a bearer token that allows your request to go through. 
 
 Because it's easy and quick, this section uses Azure CLI steps for getting a bearer token. For more durable approaches, see [Manage with REST](search-manage-rest.md).
 
@@ -163,22 +163,28 @@ Because it's easy and quick, this section uses Azure CLI steps for getting a bea
    az account get-access-token
    ```
 
-1. Switch to a REST client and set up a [GET Shared Private Link Resource](/rest/api/searchmanagement/shared-private-link-resources/get). This step allows you to review existing shared private links to ensure you're not duplicating a link. There can be only one shared private link for each resource and subresource combination.
+1. Switch to a REST client and set up a [GET Shared Private Link Resource](/rest/api/searchmanagement/shared-private-link-resources/get). Review existing shared private links to ensure you're not duplicating a link. There can be only one shared private link for each resource and subresource combination.
 
     ```http
-    GET https://https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{rg-name}}/providers/Microsoft.Search/searchServices/{{service-name}}/sharedPrivateLinkResources?api-version={{api-version}}
+    @subscriptionId = PASTE-HERE
+    @rg-name = PASTE-HERE
+    @service-name = PASTE-HERE
+    @token = PASTE-TOKEN-HERE
+
+    GET https://https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{rg-name}}/providers/Microsoft.Search/searchServices/{{service-name}}/sharedPrivateLinkResources?api-version=2023-11-01 HTTP/1.1
+      Content-type: application/json
+      Authorization: Bearer {{token}}
     ```
-
-1. On the **Authorization** page, select **Bearer Token** and then paste in the token.
-
-1. Set the content type to JSON.
 
 1. Send the request. You should get a list of all shared private link resources that exist for your search service. Make sure there's no existing shared private link for the resource and subresource combination.
 
-1. Formulate a PUT request to [Create or Update Shared Private Link](/rest/api/searchmanagement/shared-private-link-resources/create-or-update) for the Azure PaaS resource. Provide a URI and request body similar to the following example:
+1. Formulate a PUT request to [Create or Update Shared Private Link](/rest/api/searchmanagement/shared-private-link-resources/create-or-update) for the Azure PaaS resource. 
 
     ```http
-    PUT https://https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{rg-name}}/providers/Microsoft.Search/searchServices/{{service-name}}/sharedPrivateLinkResources/{{shared-private-link-name}}?api-version={{api-version}}
+    PUT https://https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{rg-name}}/providers/Microsoft.Search/searchServices/{{service-name}}/sharedPrivateLinkResources/{{shared-private-link-name}}?api-version=2023-11-01 HTTP/1.1
+      Content-type: application/json
+      Authorization: Bearer {{token}}
+
     {
         "properties":
          {
@@ -191,8 +197,6 @@ Because it's easy and quick, this section uses Azure CLI steps for getting a bea
          }
     }
     ```
-
-1. As before, provide the bearer token and make sure the content type is JSON. 
 
    If the Azure PaaS resource is in a different subscription, use the Azure CLI to change the subscription, and then get a bearer token that is valid for that subscription:
 
@@ -266,7 +270,7 @@ A `202 Accepted` response is returned on success. The process of creating an out
 
 ## 2 - Approve the private endpoint connection
 
-Approval of the private endpoint connection is granted on the Azure PaaS side. It might be automatic if the service consumer has Azure role-based access control (RBAC) permissions on the service provider resource. Otherwise, manual approval is required. For details, see [Manage Azure private endpoints](/azure/private-link/manage-private-endpoint).
+Approval of the private endpoint connection is granted on the Azure PaaS side. It might be automatic if the service consumer has a role assignment on the service provider resource. Otherwise, manual approval is required. For details, see [Manage Azure private endpoints](/azure/private-link/manage-private-endpoint).
 
 This section assumes manual approval and the portal for this step, but you can also use the REST APIs of the Azure PaaS resource. [Private Endpoint Connections (Storage Resource Provider)](/rest/api/storagerp/privateendpointconnections) and [Private Endpoint Connections (Cosmos DB Resource Provider)](/rest/api/cosmos-db-resource-provider/2023-03-15/private-endpoint-connections) are two examples.
 

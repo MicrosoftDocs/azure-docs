@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 2/22/2024
 ms.reviewer: eur
 ms.author: eur
 author: eric-urban
@@ -126,6 +126,6 @@ The Azure AI code samples in GitHub Codespaces help you quickly get started with
 
 ## Next steps
 
-- [Get started building a sample copilot application](https://github.com/azure/aistudio-copilot-sample)
+- [Build your own copilot using Azure AI CLI and SDK](../tutorials/deploy-copilot-sdk.md)
 - [Try the Azure AI CLI from Azure AI Studio in a browser](develop-in-vscode.md)
 - [Azure SDK for Python reference documentation](/python/api/overview/azure/ai)

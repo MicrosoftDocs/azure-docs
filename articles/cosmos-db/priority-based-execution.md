@@ -49,11 +49,7 @@ To get started using priority-based execution, navigate to the **Features** page
 #### [.NET SDK v3](#tab/net-v3)
 
 ```csharp
-using Microsoft.Azure.Cosmos.PartitionKey;
-using Microsoft.Azure.Cosmos.PriorityLevel;
-
-Using Mircosoft.Azure.Cosmos.PartitionKey; 
-Using Mircosoft.Azure.Cosmos.PriorityLevel; 
+using Microsoft.Azure.Cosmos;
 
 //update products catalog with low priority
 RequestOptions catalogRequestOptions = new ItemRequestOptions{PriorityLevel = PriorityLevel.Low}; 

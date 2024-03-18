@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Evaluates a boolean expression and returns the result of one of two expressions 
 
 ## Syntax
 
-```sql
+```nosql
 IIF(<bool_expr>, <true_expr>, <not_true_expr>)
 ```
 
@@ -40,7 +41,7 @@ Returns an expression, which could be of any type.
 
 This first example evaluates a static boolean expression and returns one of two potential expressions.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/iif/query.sql" highlight="2-7":::  
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/iif/query.sql" highlight="2-7":::  
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/iif/result.json":::
 
@@ -50,7 +51,7 @@ This example evaluates one of two potential expressions on multiple items in a c
 
 The query uses fields in the original items.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/iif-fields/query.sql" highlight="3":::  
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/iif-fields/query.sql" highlight="3":::  
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/iif-fields/result.json":::
 
