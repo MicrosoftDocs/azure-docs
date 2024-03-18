@@ -171,7 +171,7 @@ procedureSection:
 
 relatedContent:
   - text: List Azure role assignments using the Azure portal
-    url: role-assignments-list-portal.md
+    url: role-assignments-list-portal.yml
   - text: List Azure role assignments using Azure PowerShell
     url: role-assignments-list-powershell.md
   - text: Troubleshoot Azure RBAC
