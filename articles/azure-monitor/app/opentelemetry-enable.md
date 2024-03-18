@@ -294,23 +294,23 @@ Azure Monitor OpenTelemetry sample applications are available for all supported 
 
 #### [ASP.NET Core](#tab/aspnetcore)
 
-- https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore/tests/Azure.Monitor.OpenTelemetry.AspNetCore.Demo
+- [ASP.NET Core sample app](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore/tests/Azure.Monitor.OpenTelemetry.AspNetCore.Demo)
 
 ##### [.NET](#tab/net)
 
-- https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/tests/Azure.Monitor.OpenTelemetry.Exporter.Demo
+- [NET sample app](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/tests/Azure.Monitor.OpenTelemetry.Exporter.Demo)
 
 ##### [Java](#tab/java)
 
-- https://github.com/Azure-Samples/ApplicationInsights-Java-Samples
+- [Java sample apps](https://github.com/Azure-Samples/ApplicationInsights-Java-Samples)
 
 ##### [Node.js](#tab/nodejs)
 
-- https://github.com/Azure-Samples/azure-monitor-opentelemetry-node.js
+- [Node.js sample app](https://github.com/Azure-Samples/azure-monitor-opentelemetry-node.js)
 
 ##### [Python](#tab/python)
 
-- https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor/azure-monitor-opentelemetry/samples
+- [Python sample apps](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor/azure-monitor-opentelemetry/samples)
 
 ---
 
