@@ -209,7 +209,7 @@ additionalContent:
             url: configure-hcx-network-extension.md
           - text: Configure HCX network extension high availability
             url: configure-hcx-network-extension-high-availability.md
-          - text: Configure VMware vRealize Operations
+          - text: Configure VMware Aria Operations
             url: vrealize-operations-for-azure-vmware-solution.md
           - text: Deploy VMware Horizon
             url: azure-vmware-solution-horizon.md
