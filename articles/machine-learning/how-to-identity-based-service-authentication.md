@@ -43,8 +43,8 @@ The following table lists the supported configurations when authenticating to __
 | ---- | :----: | :----: |
 | Admin user | ✓ | ✓ |
 | Workspace system-assigned managed identity | ✓ | ✓ |
-| Workspace system-assigned and user-assigned managed identity | No | ✓ |
-| Compute system-assigned or user-assigned managed identity</br>with the ACRPull role assigned to the identity  | No | No |
+| Workspace system-assigned and user-assigned managed identity |  | ✓ |
+| Compute system-assigned or user-assigned managed identity</br>with the ACRPull role assigned to the identity  |  |  |
 
 ## User-assigned managed identity
 
