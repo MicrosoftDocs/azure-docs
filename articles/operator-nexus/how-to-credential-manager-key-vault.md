@@ -19,7 +19,8 @@ Azure Operator Nexus utilizes secrets and certificates to manage component secur
   [appropriate CLI extensions](./howto-install-cli-extensions.md)
 - Get the *Subscription ID* for the customer's subscription
 
-> [!NOTE] A single Key Vault can be used for any number of clusters.
+> [!NOTE]
+> A single Key Vault can be used for any number of clusters.
 
 ## Writing Credential Updates to a Customer Key Vault on Nexus Cluster
 
