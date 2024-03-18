@@ -395,6 +395,8 @@
           href: ../cdn/cdn-manage-powershell.md?toc=/azure/frontdoor/TOC.json
         - name: Onboard a root or apex domain
           href: ../cdn/onboard-apex-domain.md?toc=/azure/frontdoor/TOC.json
+        - name: Set up managed identity
+          href: ../cdn/managed-identity.md?toc=/azure/frontdoor/TOC.json
         - name: Improve performance by compressing files
           href: ../cdn/cdn-improve-performance.md?toc=/azure/frontdoor/TOC.json
         - name: Endpoint multi-origin
