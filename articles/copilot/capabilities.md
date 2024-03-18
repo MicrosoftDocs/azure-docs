@@ -38,7 +38,8 @@ Use Microsoft Copilot for Azure (preview) to perform many basic tasks. There are
   - [Generate Kubernetes YAML files](generate-kubernetes-yaml.md)
   - [Troubleshoot apps faster with App Service](troubleshoot-app-service.md)
 
-Microsoft Copilot for Azure (preview) also allows access to Copilot in Azure SQL Database (preview). This offering can help you streamline the design, operation, optimization, and health of Azure SQL Database-driven applications. It improves productivity in the Azure portal by offering natural language to SQL conversion and self-help for database administration. For more information, see [Copilot in Azure SQL Database (preview)](https://aka.ms/sqlcopilot).
+> [!NOTE]
+> Microsoft Copilot for Azure (preview) also allows access to Copilot in Azure SQL Database (preview). This offering can help you streamline the design, operation, optimization, and health of Azure SQL Database-driven applications. It improves productivity in the Azure portal by offering natural language to SQL conversion and self-help for database administration. For more information, see [Copilot in Azure SQL Database (preview)](https://aka.ms/sqlcopilot).
 
 ## Get information
 
