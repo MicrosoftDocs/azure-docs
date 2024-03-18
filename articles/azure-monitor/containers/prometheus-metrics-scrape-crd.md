@@ -6,13 +6,13 @@ ms.date: 3/13/2024
 ms.reviewer: aul
 ---
 # Custom Resource Definitions
-The enablement of managed prometheus will automatically deploy the custom resource definitions (CRD) for [pod monitors](https://github.com/Azure/prometheus-collector/blob/main/otelcollector/deploy/addon-chart/azure-monitor-metrics-addon/templates/ama-metrics-podmonitor-crd.yaml) and [service monitors](https://github.com/Azure/prometheus-collector/blob/main/otelcollector/deploy/addon-chart/azure-monitor-metrics-addon/templates/ama-metrics-servicemonitor-crd.yaml). These are the same custom resource definitions (CRD) as [OSS Pod monitors](https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/api.md#monitoring.coreos.com/v1.PodMonitor) and [OSS service monitors](https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/api.md#monitoring.coreos.com/v1.ServiceMonitor) for Prometheus, except for a change in the group name. If you have existing Prometheus CRDs and custom resources on your cluster, these will not conflict with the CRDs created by the add-on. At the same time, the CRDs created for the OSS Prometheus will not be picked up by the managed Prometheus addon. This is intentional for the purposes of isolation of scrape jobs.
+The enablement of managed prometheus automatically deploys the custom resource definitions (CRD) for [pod monitors](https://github.com/Azure/prometheus-collector/blob/main/otelcollector/deploy/addon-chart/azure-monitor-metrics-addon/templates/ama-metrics-podmonitor-crd.yaml) and [service monitors](https://github.com/Azure/prometheus-collector/blob/main/otelcollector/deploy/addon-chart/azure-monitor-metrics-addon/templates/ama-metrics-servicemonitor-crd.yaml). These custom resource definitions are the same custom resource definitions (CRD) as [OSS Pod monitors](https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/api.md#monitoring.coreos.com/v1.PodMonitor) and [OSS service monitors](https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/api.md#monitoring.coreos.com/v1.ServiceMonitor) for Prometheus, except for a change in the group name. If you have existing Prometheus CRDs and custom resources on your cluster, these CRDs won't conflict with the CRDs created by the add-on. At the same time, the managed Prometheus addon does not pick up the CRDs created for the OSS Prometheus. This separation is intentional for the purposes of isolation of scrape jobs.
 
 ### Create a Pod or Service Monitor
-Use the [Pod and Service Monitor templates](https://github.com/Azure/prometheus-collector/tree/main/otelcollector/customresources) and follow the API specification to create your custom resources([PodMonitor](https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/api.md#podmonitor) and [Service Monitor](https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/api.md#monitoring.coreos.com/v1.ServiceMonitor)). **Note** that the only change required to the existing OSS CRs for being picked up by the Managed Prometheus is the API group - **azmonitoring.coreos.com/v1**.
+Use the [Pod and Service Monitor templates](https://github.com/Azure/prometheus-collector/tree/main/otelcollector/customresources) and follow the API specification to create your custom resources([PodMonitor](https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/api.md#podmonitor) and [Service Monitor](https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/api.md#monitoring.coreos.com/v1.ServiceMonitor)). **Note** that the only change required to the existing OSS CRs(Custom Resources) for being picked up by the Managed Prometheus is the API group - **azmonitoring.coreos.com/v1**.
 >Note - Please make sure to use the **labelLimit, labelNameLengthLimit and labelValueLengthLimit** specified in the templates so that they are not dropped during processing.
 
-Your pod and service monitors should look like the examples below:
+Your pod and service monitors should look like the following examples:
 
 #### Example Pod Monitor -
 
@@ -81,15 +81,15 @@ spec:
 You can then deploy the pod or service monitor using kubectl apply.
 
 
-Once applied any errors in the custom resources should show up and the pod or service monitors will fail to apply.  
-A successful pod monitor creation looks like below - 
+When applied, any errors in the custom resources should show up and the pod or service monitors should fail to apply.  
+A successful pod monitor creation looks like the following - 
 ```bash
 podmonitor.azmonitoring.coreos.com/my-pod-monitor created
 ```
 
 ### Examples
 #### Create a sample application
-Deploy a sample application exposing prometheus metrics to be configured by pod/service monitor
+Deploy a sample application exposing prometheus metrics to be configured by pod/service monitor.
 
 ```bash
 kubectl apply -f https://github.com/Azure/prometheus-collector/blob/main/internal/referenceapp/prometheus-reference-app.yaml
@@ -109,7 +109,7 @@ kubectl apply -f https://github.com/Azure/prometheus-collector/blob/main/otelcol
 ```
 
 ### Troubleshooting
-Once the pod or service monitors are successfully applied, if you want to make sure that the pod/service monitor targets are picked up by the addon, follow the instructions [here](prometheus-metrics-troubleshoot.md#prometheus-interface) for general troubleshooting of custom resources and also to ensure the targets show up in 127.0.0.1/targets
+When the pod or service monitors are successfully applied, if you want to make sure that the pod or service monitor targets get picked up by the addon, follow the instructions [here](prometheus-metrics-troubleshoot.md#prometheus-interface) for general troubleshooting of custom resources and also to ensure the targets show up in 127.0.0.1/targets.
 
   :::image type="content" source="media/prometheus-metrics-troubleshoot/image-pod-service-monitor.png" alt-text="Screenshot showing targets for pod/service monitor" lightbox="media/prometheus-metrics-troubleshoot/image-pod-service-monitor.png":::
 
