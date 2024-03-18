@@ -34,11 +34,9 @@ Before you get started, ensure that you've:
 - [Discovered the SAP systems](./tutorial-discover-sap-systems.md) you want to assess using the Azure Migrate.
 
 > [!NOTE]
-> If you want to try this feature in an existing project, ensure you are currently within the same project.
-> If you want to create a new project for assessment, [create a new project](./create-manage-projects.md#create-a-project-for-the-first-time).
-
-> [!NOTE]
-> For SAP discovery and assessment to be accessible, you must create the project in either the Asia or United States geographies. The location selected for the project does not restrict the target regions you can choose in the assessment settings, see [Create an assessment](#create-an-assessment). You can select any Azure region as the target for your assessments.
+> - If you want to try this feature in an existing project, ensure you are currently within the same project.
+> - If you want to create a new project for assessment, [create a new project](./create-manage-projects.md#create-a-project-for-the-first-time).
+> - For SAP discovery and assessment to be accessible, you must create the project in either the Asia or United States geographies. The location selected for the project **doesn't limit** the target regions that you can select in the assessment settings, see [Create an assessment](#create-an-assessment). You can select any Azure region as the target for your assessments.
 
 
 ## Create an assessment

@@ -86,17 +86,17 @@ The following table summarizes the file fields to fill in:
     
 | **Template Column** | **Description** |
 | --- | --- |
-| Server Name* | Unique server name or host name of the SAP system to identify each server. Include all the virtual machines attached to an SAP system that you intend to migrate to Azure. |
-| Environment* | Environment that the server belongs to. |
-| SAP Instance Typ* | The type of SAP instance running on this machine. <br/>For example, App, ASCS, DB, and so on. Single-server and distributed architectures are only supported. |
-| Instance SID* | This is the instance System ID (SID) for the ASCS/AP/DB instance. |
-| System SID* | SID of SAP System. |
-| Landscape SID* | SID of the customer's production system in each landscape. |
-| Application* | Optional column to specify any organizational identifier, such as HR, Finance, Marketing, and so on. |
-| SAP Product | SAP application component. <br/>For example, SAP S/4HANA 2022, SAP ERP ENHANCE, and so on. |
+| Server Name <sup>*</sup> | Unique server name or host name of the SAP system to identify each server. Include all the virtual machines attached to an SAP system that you intend to migrate to Azure. |
+| Environment <sup>*</sup> | Environment that the server belongs to. |
+| SAP Instance Typ <sup>*</sup> | The type of SAP instance running on this machine. <br/>For example, App, ASCS, DB, and so on. Single-server and distributed architectures are only supported. |
+| Instance SID <sup>*</sup> | This is the instance System ID (SID) for the ASCS/AP/DB instance. |
+| System SID <sup>*</sup> | SID of SAP System. |
+| Landscape SID <sup>*</sup> | SID of the customer's production system in each landscape. |
+| Application <sup>*</sup> | Optional column to specify any organizational identifier, such as HR, Finance, Marketing, and so on. |
+| SAP Product <sup>*</sup> | SAP application component. <br/>For example, SAP S/4HANA 2022, SAP ERP ENHANCE, and so on. |
 | SAP Product Version | The version of the SAP product. |
-| Operating System* | The operating system running on the host server. |
-| Database Type* | This column is applicable only if **SAP Instance Type** column is **Database**. |
+| Operating System <sup>*</sup> | The operating system running on the host server. |
+| Database Type <sup>*</sup> | This column is applicable only if **SAP Instance Type** column is **Database**. |
 | SAPS* | The SAP Application Performance Standard (SAPS) for each server in the SAP system. |
 | CPU | The number of CPUs on the on-premises server. |
 | Max. CPUload[%] | The maximum CPU load in percentage of the on-premises server. Exclude the percentage symbol while you enter this value. |
@@ -105,11 +105,12 @@ The following table summarizes the file fields to fill in:
 | HW Manufacturer | The manufacturer company of the on-premises server. |
 | Model | The on-premises hardware is either a physical server or virtual machine. |
 | CPU Mhz | The CPU clock speed of the on-premises server. |
-| Total Disk Size(GB)* | Total disk volume capacity of the on-premises server. Include the disk volume for each individual disk and provide the total sum. |
-| Total Disk IOPS* | Total disk Input/Output Operations Per Second (IOPS) of all the disks on the on-premises server. |
-| Source DB Size(GB)* | The size of on-premises database. |
+| Total Disk Size(GB) <sup>*</sup> | Total disk volume capacity of the on-premises server. Include the disk volume for each individual disk and provide the total sum. |
+| Total Disk IOPS <sup>*</sup> | Total disk Input/Output Operations Per Second (IOPS) of all the disks on the on-premises server. |
+| Source DB Size(GB) <sup>*</sup> | The size of on-premises database. |
 | Target HANA RAM Size(GB) | This is an optional field and is **Not Applicable** for all SAP Instance Types except **DB**. Fill this field only when migrating an AnyDb database to SAP S/4HANA and provide the desired target HANA database size. |
-| * - mandatory fields |
+
+<sup>*</sup> These fields are mandatory.
 
 ### Import SAP Systems inventory
 After you add information to the import file, import the file from your machine to Azure Migrate.
