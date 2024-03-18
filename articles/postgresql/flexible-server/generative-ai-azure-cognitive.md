@@ -26,7 +26,7 @@ Azure AI extension gives the ability to invoke the [language services](../../ai-
 
 ## Configure azure_ai extension with Azure Cognitive Services 
 
-In the Language resource, under **Resource Management** > **Keys and Endpoints** you can find the endpoint, keys, and Location/Region for your language resource. Use the endpoint and key to enable `azure_ai` extension to invoke the model deployment. The Location/Region setting is only required for the translation function.
+In the Language resource, under **Resource Management** > **Keys and Endpoint** you can find the endpoint, keys, and Location/Region for your language resource. Use the endpoint and key to enable `azure_ai` extension to invoke the model deployment. The Location/Region setting is only required for the translation function.
 
 ```postgresql
 select azure_ai.set_setting('azure_cognitive.endpoint','https://<endpoint>.cognitiveservices.azure.com'); 
@@ -302,7 +302,7 @@ For more details on parameters see [Translator API](../../ai-services/translator
 `text` the input text to be translated
 
 ##### `target_language`
-`text` two-letter ISO 639-1 representation of the language that the input text is written in. Check [language support](../../ai-services/language-service/concepts/language-support.md) for allowed values.
+`text` two-letter ISO 639-1 representation of the language that you want the input text to be translated to. Check [language support](../../ai-services/language-service/concepts/language-support.md) for allowed values.
 
 ##### `timeout_ms`
 `integer DEFAULT 3600000` timeout in milliseconds after which the operation is stopped.
@@ -362,7 +362,7 @@ select  (unnest(a.translations)).*
 from azure_cognitive.translate('Language Translation in real time in multiple languages is quite cool', array['es', 'pt', 'zh-Hans']) a;
 ```
 
-### PII detection
+### PII detection examples
 ```postgresql
 select 
 	'Contoso employee with email Contoso@outlook.com is using our awesome API' as InputColumn,

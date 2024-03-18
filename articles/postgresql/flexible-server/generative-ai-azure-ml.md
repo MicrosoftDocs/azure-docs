@@ -16,11 +16,11 @@ Azure AI extension gives the ability to invoke any machine learning models deplo
 ## Prerequisites
 1. [Enable and configure](generative-ai-azure-overview.md#enable-the-azure_ai-extension) the `azure_ai` extension.
 1. Create a machine learning workspace and [deploy a model with an online endpoint](../../machine-learning/how-to-deploy-online-endpoints.md) using CLI, Python, or Azure Machine Learning Studio or [deploy an mlflow model to an online endpoint](../../machine-learning/how-to-deploy-mlflow-models-online-endpoints.md).
-1. Ensure the status of the deployment to ensure the model was deployed successfully and invoke the endpoint to ensure the model runs successfully.
-1. Get the [URI](../../machine-learning/how-to-authenticate-online-endpoint.md#get-the-scoring-uri-for-the-endpoint) and the  [Key](../../machine-learning/how-to-authenticate-online-endpoint.md#get-the-key-or-token-for-data-plane-operations), which are needed to configure the extension to communicate with Azure Machine learning.
+1. Make sure that the status of the deployment to ensure the model was deployed successfully and test the model invoking the endpoint to ensure the model runs successfully.
+1. Get the [URI](../../machine-learning/how-to-authenticate-online-endpoint.md#get-the-scoring-uri-for-the-endpoint) and the  [Key](../../machine-learning/how-to-authenticate-online-endpoint.md#get-the-key-or-token-for-data-plane-operations), which are needed to configure the extension to communicate with Azure Machine Learning.
 
 > [!NOTE]
-> You can explore Azure Machine learning [samples](https://github.com/Azure/azureml-examples)
+> You can explore Azure Machine Learning [samples](https://github.com/Azure/azureml-examples)
 
 
 ## Configure Azure ML endpoint 
@@ -32,7 +32,7 @@ select azure_ai.set_setting('azure_ml.endpoint_key', '<Key>');
 ```
 
 ### `azure_ml.inference`
-Scores the input data invoking an Azure Machine Learning model deployment on an [Online endpoint](../../machine-learning/how-to-authenticate-online-endpoint.md).
+Scores the input data invoking an Azure Machine Learning model deployment on an [online endpoint](../../machine-learning/how-to-authenticate-online-endpoint.md).
 
 ```postgresql
 azure_ml.inference(input_data jsonb, timeout_ms integer DEFAULT NULL, throw_on_error boolean DEFAULT true, deployment_name text DEFAULT NULL)
@@ -54,6 +54,32 @@ azure_ml.inference(input_data jsonb, timeout_ms integer DEFAULT NULL, throw_on_e
 #### Return type
 `jsonb` scoring output for the model that was invoked in JSONB.
 
+## Examples
+### Invoke the maching learning model.
+This calls the model with the input_data returns a jsonb payload.
+
+```postgresql
+-- Invoke model, input data depends on the model.
+  SELECT * FROM azure_ml.inference('
+  {
+    "input_data": [
+      [1,2,3,4,5,6,7,8],
+      [-1,-2,-3,-4,-5,-6,-7,-8]
+    ],
+    "params": {}
+  }', deployment_name=>'Housingprediction' ) 
+
+-- Get JSON elements from model output
+SELECT jsonb_array_elements(inference.inference) as MedianHousePrediction 
+FROM azure_ml.inference('
+{
+  "input_data": [
+    [1,2,3,4,5,6,7,8],
+    [-1,-2,-3,-4,-5,-6,-7,-8]
+  ],
+ "params": {}
+}', deployment_name=>'Housingprediction' )
+```
 
 ## Next steps
 - [Learn more about Azure Open AI integration](./generative-ai-azure-openai.md)
