@@ -194,6 +194,6 @@ You can define the resolver as follows:
 For more resolver examples, see:
 
 
-* [GraphQL resolver policies](api-management-policies.md#graphql-resolver-policies)
+* [GraphQL resolver policies](api-management-policies.md#graphql-resolvers)
 
 * [Sample APIs for Azure API Management](https://github.com/Azure-Samples/api-management-sample-apis)

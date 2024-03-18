@@ -48,7 +48,7 @@ You can access an editor in the portal to view your API's OData schema. If the A
 
 ## Secure your OData API
 
-Secure your OData API by applying both existing [access control policies](../articles/api-management/api-management-policies.md#access-restriction-policies) and an [OData validation policy](../articles/api-management/validate-odata-request-policy.md) to protect against attacks through OData API requests.
+Secure your OData API by applying both existing [authentication and authorization policies](../articles/api-management/api-management-policies.md#authentication-and-authorization) and an [OData validation policy](../articles/api-management/validate-odata-request-policy.md) to protect against attacks through OData API requests.
 
 > [!TIP]
 > In the portal, configure policies for your OData API on the **API policies** tab.
