@@ -96,8 +96,6 @@ ms.custom: references_regions
 | `id-ID` | Indonesian (Indonesia) | `id-ID-GadisNeural` (Female)<br/>`id-ID-ArdiNeural` (Male) |
 | `is-IS` | Icelandic (Iceland) | `is-IS-GudrunNeural`<sup>2</sup> (Female)<br/>`is-IS-GunnarNeural`<sup>2</sup> (Male) |
 | `it-IT` | Italian (Italy) | `it-IT-ElsaNeural` (Female)<br/>`it-IT-IsabellaNeural` (Female)<br/>`it-IT-DiegoNeural` (Male)<br/>`it-IT-BenignoNeural` (Male)<br/>`it-IT-CalimeroNeural` (Male)<br/>`it-IT-CataldoNeural` (Male)<br/>`it-IT-FabiolaNeural` (Female)<br/>`it-IT-FiammaNeural` (Female)<br/>`it-IT-GianniNeural` (Male)<br/>`it-IT-ImeldaNeural` (Female)<br/>`it-IT-IrmaNeural` (Female)<br/>`it-IT-LisandroNeural` (Male)<br/>`it-IT-PalmiraNeural` (Female)<br/>`it-IT-PierinaNeural` (Female)<br/>`it-IT-RinaldoNeural` (Male)<br/>`it-IT-GiuseppeNeural`<sup>1</sup> (Male) |
-| `iu-CANS-CA` | Inuktitut (Syllabics, Canada) | `iu-Cans-CA-SiqiniqNeural`<sup>1,2</sup> (Female)<br/>`iu-Cans-CA-TaqqiqNeural`<sup>1,2</sup> (Male) |
-| `iu-LATN-CA` | Inuktitut (Latin, Canada) | `iu-Latn-CA-SiqiniqNeural`<sup>1,2</sup> (Female)<br/>`iu-Latn-CA-TaqqiqNeural`<sup>1,2</sup> (Male) |
 | `ja-JP` | Japanese (Japan) | `ja-JP-NanamiNeural` (Female)<br/>`ja-JP-KeitaNeural` (Male)<br/>`ja-JP-AoiNeural` (Female)<br/>`ja-JP-DaichiNeural` (Male)<br/>`ja-JP-MayuNeural` (Female)<br/>`ja-JP-NaokiNeural` (Male)<br/>`ja-JP-ShioriNeural` (Female) |
 | `jv-ID` | Javanese (Latin, Indonesia) | `jv-ID-SitiNeural`<sup>2</sup> (Female)<br/>`jv-ID-DimasNeural`<sup>2</sup> (Male) |
 | `ka-GE` | Georgian (Georgia) | `ka-GE-EkaNeural`<sup>2</sup> (Female)<br/>`ka-GE-GiorgiNeural`<sup>2</sup> (Male) |

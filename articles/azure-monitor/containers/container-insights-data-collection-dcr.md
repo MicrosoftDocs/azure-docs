@@ -87,7 +87,7 @@ The **Collected data** option allows you to select the tables that are populated
 
 > [!NOTE]
 > Minimum version required for Azure CLI is 2.51.0.
-    - For AKS clusters, [aks-preview](../../aks/cluster-configuration.md#install-the-aks-preview-azure-cli-extension) version 0.5.147 or higher
+    - For AKS clusters, [aks-preview](../../aks/cluster-configuration.md) version 0.5.147 or higher
     - For Arc enabled Kubernetes and AKS hybrid, [k8s-extension](../../azure-arc/kubernetes/extensions.md#prerequisites) version 1.4.3 or higher
 
 ## AKS cluster
