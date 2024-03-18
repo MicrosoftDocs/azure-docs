@@ -97,4 +97,4 @@ If your Azure Kubernetes Fleet Manager resource was created with the hub cluster
 <!-- LINKS --->
 [fleet-apispec]: https://github.com/Azure/fleet/blob/main/docs/api-references.md
 [troubleshooting-guide]: https://github.com/Azure/fleet/blob/main/docs/troubleshooting/README.md
-[az-fleet-get-credentials]: /cli/azure/aks/fleet#az-fleet-get-credentials
+[az-fleet-get-credentials]: /cli/azure/fleet#az-fleet-get-credentials
