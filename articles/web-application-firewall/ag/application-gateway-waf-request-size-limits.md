@@ -9,28 +9,16 @@ ms.author: victorh
 ms.topic: conceptual 
 ---
 
-# Web Application Firewall request size limits
+# Web Application Firewall request and file upload size limits
 
-Web Application Firewall allows you to configure request size limits within lower and upper bounds.
+Web Application Firewall allows you to configure request size limits within lower and upper bounds. Application Gateways WAFs running CRS 3.2 or later have additional request and file upload size controls, including the ability to disable max size enforcement for requests and/or file uploads.
 
 
 ## Limits
 
-The following two size limits configurations are available:
+The request body size field and the file upload size limit are both configurable within the WAF. The maximum request body size field is specified in kilobytes and controls overall request size limit excluding any file uploads. The file upload limit field is specified in MB and it governs the maximum allowed file upload size. The request size limits and file upload size limits can be found here: [Application Gateway limits](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits#application-gateway-limits).
 
-- The maximum request body size field is specified in kilobytes and controls overall request size limit excluding any file uploads. This field has a minimum value of 8 KB and a maximum value of 128 KB. The default value for request body size is 128 KB.
-- The file upload limit field is specified in MB and it governs the maximum allowed file upload size. This field can have a minimum value of 1 MB and the following maximums:
-
-   - 100 MB for v1 Medium WAF gateways
-   - 500 MB for v1 Large WAF gateways
-   - 750 MB for v2 WAF gateways 
-
-The default value for file upload limit is 100 MB.
-
-For CRS 3.2 (on the WAF_v2 SKU) and newer, the maximum request body size enforcement and max file upload size enforcement can be disabled and the WAF will no longer reject a request, or file upload, for being too large. Additionally, the limits for the request body size limit and the file upload size limit are as follows when using a WAF policy running CRS 3.2 (on the WAF_v2 SKU) or newer for Application Gateway:
-   
-   - 2 MB request body size limit
-   - 4 GB file upload limit 
+For Application Gateway v2 WAFs running Core Rule Set 3.2, or newer, the maximum request body size enforcement and max file upload size enforcement can be disabled and the WAF will no longer reject a request, or file upload, for being too large. When maximum request body size enforcement and max file upload size enforcement are disabled within the WAF the maximum size allowable is determined by Application Gateway's limits which can be found here: [Application Gateway limits](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits#application-gateway-limits).
 
 Only requests with Content-Type of *multipart/form-data* are considered for file uploads. For content to be considered as a file upload, it has to be a part of a multipart form with a *filename* header. For all other content types, the request body size limit applies.
 
