@@ -40,7 +40,7 @@ ms.author: greglin
 | Maximum header size for HTTP/2|16 KB| |
 | Maximum file upload size (Standard SKU) |V2 - 4 GB<br>V1 - 2 GB | |
 | Maximum file upload size (WAF SKU) |V1 Medium - 100 MB<br>V1 Large - 500 MB<br>V2 - 750 MB<br>V2 (with CRS 3.2 or newer) - 4 GB<sup>3</sup>|1 MB - Minimum Value<br>100 MB - Default value|
-| WAF body size limit (without files)|V1 or V2 (with CRS 3.1 and older) - 128 KB<br>V2 (with CRS 3.2 or newer) - 2 MB<sup>3</sup>| |
+| WAF body size limit (without files)|V1 or V2 (with CRS 3.1 and older) - 128 KB<br>V2 (with CRS 3.2 or newer) - 2 MB<sup>3</sup>|8 KB - Minimum Value<br>128 KB - Default value|
 | Maximum Private Link Configurations| 2 | 1 for public IP, 1 for private IP |
 | Maximum Private Link IP Configurations| 8 | |
 | Maximum WAF custom rules per WAF policy|100||
