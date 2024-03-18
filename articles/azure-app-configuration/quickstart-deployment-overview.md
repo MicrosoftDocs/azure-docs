@@ -2,7 +2,7 @@
 title: Deployment overview
 titleSuffix: Azure App Configuration
 description: Learn how to use Azure App Configuration in deployment.
-author: haiyiwen
+author: maud-lv
 ms.author: haiyiwen
 ms.date: 03/15/2024
 ms.service: azure-app-configuration
@@ -64,7 +64,7 @@ To learn more about Azure RBAC and Microsoft Entra ID, see [Authorize access to 
 
 ### ARM private access
 
-[Azure Resource Management Private Link](../../includes/resource-manager-create-rmpl.md) can be set up to restrict access for managing resources in your virtual network. Azure App Configuration supports ARM Private Link access to the App Configuration data under pass-through authentication mode and ARM private access enabled.
+[Azure Resource Management Private Link](../azure-resource-manager/management/create-private-link-access-portal.md) can be set up to restrict access for managing resources in your virtual network. Azure App Configuration supports ARM Private Link access to the App Configuration data under pass-through authentication mode and ARM private access enabled.
 
 # [Azure portal](#tab/portal)
 
