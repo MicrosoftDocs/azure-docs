@@ -23,6 +23,10 @@ ms.custom: references_regions
   **In which Azure regions is Azure Container Storage available?**  
   [!INCLUDE [container-storage-regions](../../../includes/container-storage-regions.md)]
 
+* <a id="storage-pool-parameters"></a>
+  **What parameters can I specify for the storage pool that's created when Azure Container Storage is installed with the `az aks create` command?**  
+  [!INCLUDE [container-storage-storage-pool-parameters](../../../includes/container-storage-storage-pool-parameters.md)]
+
 * <a id="azure-container-storage-limitations"></a>
   **Which other Azure services does Azure Container Storage support?**  
   Currently, Azure Container Storage supports only Azure Kubernetes Service (AKS) with storage pools provided by Azure Disks, Ephemeral Disk, or Azure Elastic SAN.

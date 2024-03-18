@@ -113,20 +113,9 @@ You'll specify the VM type when you create the cluster in the next section. Foll
 
 If you already have an AKS cluster deployed, skip this section and go to [Install Azure Container Storage on an existing AKS cluster](#install-azure-container-storage-on-an-existing-aks-cluster).
 
-The following table shows the parameters you can provide for the storage pool that's created when Azure Container Storage is installed.
+Run the following command to create a new AKS cluster, install Azure Container Storage, and create a storage pool. Replace `<cluster-name>` and `<resource-group-name>` with your own values, and specify which VM type you want to use. You'll need a node pool of at least three Linux VMs. Replace `<storage-pool-type>` with `azureDisk`, `ephemeralDisk`, or `elasticSan`. If you select `ephemeralDisk`, you can also specify `--storage-pool-option`, and the values can be `NVMe` or `Temp`.
 
-| **Parameter** | **Backing storage type** | **Description** | **Available values** | **Mandatory (Y/N)** | **Default value** |
-|---------------|--------------------------|-----------------|----------------------|---------------------|-------------------|
-| --enable-azure-container-storage | All | Storage pool type to enable during installation | azureDisk, ephemeralDisk, elasticSan | Y | N/A |
-| --storage-pool-option | Ephemeral Disk only | Ephemeral Disk SKU to enable | NVMe, Temp | Y (only when using Ephemeral Disk) | If this parameter isn't specified, the Ephemeral Disk SKU will be local NVMe |
-| --azure-container-storage-nodepools | All | Name of the node pool(s) on which Azure Container Storage will be installed | Comma separated list of node pool names (if specifying multiple node pools) | N | nodepool1\* |
-| --storage-pool-name | All | Storage pool name | N/A | N | azuredisk, ephemeraldisk, elasticsan |
-| --storage-pool-size | All | Storage pool capacity | Storage capacity in Gi or Ti | N | Azure Disks: 512 Gi<br/>Local NVMe: Full disk</br>Temp SSD: 95% of disk capacity<br/>Elastic SAN: 1 Ti |
-| --storage-pool-sku | Azure Disks, Elastic SAN only | Storage pool SKU (performance/redundancy) | Azure Disks: Premium_LRS, Standard_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, PremiumV2_LRS, StandardSSD_ZRS<br/>Elastic SAN: Premium_LRS, Premium_ZRS | N | Premium_LRS |
-
-\*If there are any existing node pools with the `acstor.azure.com/io-engine:acstor` label, Azure Container Storage will be installed there by default. Otherwise, it will be installed in the system node pool, which by default is named `nodepool1`.
-
-Run the following command to create a new AKS cluster, install Azure Container Storage, and create a storage pool. Replace `<cluster-name>` and `<resource-group-name>` with your own values, and specify which VM type you want to use. You'll need a node pool of at least three Linux VMs. Replace `<storage-pool-type>` with `azureDisk`, `ephemeralDisk`, or `elasticSan`. If you select `ephemeralDisk`, you can also specify --storage-pool-option, and the values can be `NVMe` or `Temp`.
+If you want to specify additional storage pool parameters, see [this table](container-storage-faq.md#storage-pool-parameters).
 
 ```azurecli-interactive
 az aks create -n <cluster-name> -g <resource-group-name> --node-vm-size Standard_D4s_v3 --node-count 3 --enable-azure-container-storage <storage-pool-type>
@@ -151,13 +140,13 @@ To check the status of a storage pool, run the following command:
 kubectl describe sp <storage-pool-name> -n acstor
 ```
 
-If the `Message` doesn't say `StoragePool is ready`, then your storage pool is still creating or ran into a problem.
+If the `Message` doesn't say `StoragePool is ready`, then your storage pool is still creating or ran into a problem. See [Troubleshoot Azure Container Storage](troubleshoot-container-storage.md).
 
 ## Install Azure Container Storage on an existing AKS cluster
 
 If you already have an AKS cluster that meets the [VM requirements](#choose-a-vm-type-for-your-cluster), run the following command to install Azure Container Storage on the cluster and create a storage pool. Replace `<cluster-name>` and `<resource-group-name>` with your own values. Replace `<storage-pool-type>` with `azureDisk`, `ephemeraldisk`, or `elasticSan`.
 
-Running this command will enable Azure Container Storage on a node pool named `nodepool1`, which is the default node pool name. If you want to install it on other node pools, see [Install Azure Container Storage on specific node pools](#install-azure-container-storage-on-specific-node-pools).
+Running this command will enable Azure Container Storage on a node pool named `nodepool1`, which is the default node pool name. If you want to install it on other node pools, see [Install Azure Container Storage on specific node pools](#install-azure-container-storage-on-specific-node-pools). If you want to specify additional storage pool parameters, see [this table](container-storage-faq.md#storage-pool-parameters).
 
 > [!IMPORTANT]
 > **If you created your AKS cluster using the Azure portal:** The cluster will likely have a user node pool and a system/agent node pool. However, if your cluster consists of only a system node pool, which is the case with test/dev clusters created with the Azure portal, you'll need to first [add a new user node pool](../../aks/create-node-pools.md#add-a-node-pool) and then label it. This is because when you create an AKS cluster using the Azure portal, a taint `CriticalAddOnsOnly` is added to the system/agent node pool, which blocks installation of Azure Container Storage on the system node pool. This taint isn't added when an AKS cluster is created using Azure CLI.
