@@ -30,14 +30,14 @@ This article walks you through connecting Azure Cosmos DB for MongoDB vCore usin
 
 You can follow instructions to [provision an Azure Databricks cluster](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal). We recommend selecting Databricks runtime version 7.6, which supports Spark 3.0.
 
-:::image type="content" source="./media/migrate-databricks/databricks-cluster-creation.png" alt-text="Diagram of databricks new cluster creation.":::
+:::image type="content" source="../media/migrate-databricks/databricks-cluster-creation.png" alt-text="Diagram of databricks new cluster creation.":::
 
 
 ## Add dependencies
 
 Add the MongoDB Connector for Spark library to your cluster to connect to both native MongoDB and Azure Cosmos DB for MongoDB endpoints. In your cluster, select **Libraries** > **Install New** > **Maven**, and then add `org.mongodb.spark:mongo-spark-connector_2.12:3.0.1` Maven coordinates.
 
-:::image type="content" source="./media/migrate-databricks/databricks-cluster-dependencies.png" alt-text="Diagram of adding databricks cluster dependencies.":::
+:::image type="content" source="../media/migrate-databricks/databricks-cluster-dependencies.png" alt-text="Diagram of adding databricks cluster dependencies.":::
 
 Select **Install**, and then restart the cluster when installation is complete.
 
@@ -98,7 +98,7 @@ Output:
  :::image type="content" source="./media/connect-from-databricks/print-schema.png" alt-text="Screenshot of the Print Schema.":::
 
 **DataFrame**
- :::image type="content" source="./media/connect-from-databricks/display-dataframe.png" alt-text="Screenshot of the Display DataFrame.":::
+ :::image type="content" source="./media/connect-from-databricks/display-df-vcore.png" alt-text="Screenshot of the Display DataFrame.":::
 
 ### Filter data from Azure Cosmos DB for MongoDB vCore
 
@@ -115,7 +115,7 @@ display(df_v)
 ```
 
 Output:
- :::image type="content" source="./media/connect-from-databricks/display-filtered-data.png" alt-text="Screenshot of the Display Filtered DataFrame.":::
+ :::image type="content" source="./media/connect-from-databricks/display-filter.png" alt-text="Screenshot of the Display Filtered DataFrame.":::
 
 ### Create a view or temporary table and run SQL queries against it
 
@@ -133,7 +133,7 @@ display(df_v)
 ```
 
 Output:
- :::image type="content" source="./media/connect-from-databricks/display-sql-query.png" alt-text="Screenshot of the Display SQL Query.":::
+ :::image type="content" source="./media/connect-from-databricks/display-sql.png" alt-text="Screenshot of the Display SQL Query.":::
 
 ### Write data to Azure Cosmos DB for MongoDB vCore
 
@@ -164,7 +164,7 @@ display(df_vcore)
 ```
 
 Output:
- :::image type="content" source="./media/connect-from-databricks/display-aggregate-data.png" alt-text="Screenshot of the Display Aggregate Data.":::
+ :::image type="content" source="./media/connect-from-databricks/display-agg.png" alt-text="Screenshot of the Display Aggregate Data.":::
 
 ## Next steps
 
