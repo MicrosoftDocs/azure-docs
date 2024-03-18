@@ -4,7 +4,7 @@ description: Identify and remediate security gaps in endpoint detection and resp
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
-ms.date: 03/17/2024
+ms.date: 03/18/2024
 ai-usage: ai-assisted
 #customer intent: As a user, I want to learn how to review and remediate endpoint detection and response recommendations in order to ensure the security of my virtual machine.
 ---
@@ -29,14 +29,14 @@ The recommendations mentioned in this article are only available if you have the
 
 - You must have either of the following plans enabled on Defender for Cloud enabled on your subscription: 
     - [Defender for Servers plan 2](tutorial-enable-servers-plan.md)
-    - [Defender CSPM](tutorial-enable-cspm-plan.md) 
+    - [Defender Cloud Security Posture Management (CSPM)](tutorial-enable-cspm-plan.md) 
 
 - You must enable [agentless scanning for virtual machines](enable-agentless-scanning-vms.md#enabling-agentless-scanning-for-machines).
 
 > [!NOTE]
-> The Log Analytics Agent (MMA) retirement is set for August 2024. Once MMA is retired, all of Defender for Server's features and capabilities will utilize the Microsoft Defender for Endpoint (MDE) integration, complemented by agentless capabilities and will no longer depend on either the Log Analytics Agent (MMA) or the Azure Monitoring Agent (AMA).
+> The Log Analytics Agent (also known as MMA) is set to be retired in August 2024. All of the Defender for Servers features that rely on MMA including the ones mentioned on this page, will remain available through the [Microsoft Defender for Endpoint (MDE) integration](enable-defender-for-endpoint.md) or the [agentless scanning](enable-agentless-scanning-vms.md#enabling-agentless-scanning-for-machines) capability.
 >
-> This page contains the replacement process for [the MMA process](endpoint-protection-recommendations-technical.md) which is set to be retired.
+> The feature described on this page is the replacement feature for the [MMA process](endpoint-protection-recommendations-technical.md) of this feature, which is set to be retired along with the MMA.
 >
 > Learn more about the migration and the deprecation process of the endpoint protection related recommendations. 
 
@@ -52,7 +52,7 @@ If these checks present issues, the recommendation offers different remediation 
 
 ### Supported solutions and platforms
 
-The following endpoint detection and response solutions are supported by Defender for Cloud:
+The following endpoint detection and response solutions are supported in Defender for Cloud:
 
 | Endpoint detection and response solution | Supported platforms |
 |--|--|
