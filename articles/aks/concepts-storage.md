@@ -24,7 +24,7 @@ This article introduces the core concepts that provide storage to your applicati
 * [Storage classes](#storage-classes)
 * [Persistent volume claims](#persistent-volume-claims)
 
-![Storage options for applications in an Azure Kubernetes Services (AKS) cluster](media/concepts-storage/aks-storage-concepts.png)
+![Storage options for applications in an Azure Kubernetes Services (AKS) cluster](media/concepts-storage/aks-storage-concept.png)
 
 ## Ephemeral OS disk
 
@@ -141,7 +141,7 @@ You can use the following Azure Storage data services to provide the PersistentV
 
  As noted in the [Volumes](#volumes) section, the choice of Disks or Files is often determined by the need for concurrent access to the data or the performance tier.
 
-![Persistent volumes in an Azure Kubernetes Services (AKS) cluster](media/concepts-storage/aks-storage-persistent-volumes.png)
+![Persistent volumes in an Azure Kubernetes Services (AKS) cluster](media/concepts-storage/aks-storage-persistent-volume.png)
 
 A cluster administrator can *statically* create a PersistentVolume, or the volume is created *dynamically* by the Kubernetes API server. If a pod is scheduled and requests currently unavailable storage, Kubernetes can create the underlying Azure Disk or File storage and attach it to the pod. Dynamic provisioning uses a *StorageClass* to identify what type of Azure storage needs to be created.
 
@@ -198,7 +198,7 @@ A PersistentVolumeClaim requests storage of a particular StorageClass, access mo
 
 The pod definition includes the volume mount once the volume has been connected to the pod.
 
-![Persistent volume claims in an Azure Kubernetes Services (AKS) cluster](media/concepts-storage/aks-storage-persistent-volume-claims.png)
+![Persistent volume claims in an Azure Kubernetes Services (AKS) cluster](media/concepts-storage/aks-storage-persistent-volume-claim.png)
 
 Once an available storage resource has been assigned to the pod requesting storage, PersistentVolume is *bound* to a PersistentVolumeClaim. Persistent volumes are 1:1 mapped to claims.
 
