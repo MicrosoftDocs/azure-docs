@@ -115,7 +115,7 @@ Managed and self-hosted gateways support all available [policies](api-management
 | Policy | Managed (Dedicated)  | Managed (Consumption) | Self-hosted<sup>1</sup>  |
 | --- | ----- | ----- | ---------- |
 | [Dapr integration](api-management-policies.md#integration-and-external-communication) |  ❌ | ❌ | ✔️ |
-| [GraphQL resolvers](api-management-policies.md#graphql-resolves) and [GraphQL validation](api-management-policies.md#content-validation)|  ✔️ | ✔️ | ❌ |
+| [GraphQL resolvers](api-management-policies.md#graphql-resolvers) and [GraphQL validation](api-management-policies.md#content-validation)|  ✔️ | ✔️ | ❌ |
 | [Get authorization context](get-authorization-context-policy.md) |  ✔️ |  ✔️ | ❌ |
 | [Quota and rate limit](api-management-policies.md#rate-limiting-and-quotas) |  ✔️ |  ✔️<sup>2</sup> | ✔️<sup>3</sup>
 

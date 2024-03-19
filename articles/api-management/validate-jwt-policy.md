@@ -237,7 +237,7 @@ This example shows how to use the `validate-jwt` policy to authorize access to o
 ```
 
 ## Related policies 
-* [API Management access restriction policies](api-management-access-restriction-policies.md)
+* [Authentication and authorization](api-management-policies.md#authentication-and-authorization)
 
 
 

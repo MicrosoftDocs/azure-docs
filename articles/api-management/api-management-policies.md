@@ -5,14 +5,15 @@ services: api-management
 author: dlepow
 ms.service: api-management
 ms.topic: article
-ms.date: 03/15/2024
+ms.date: 03/19/2024
 ms.author: danlep
 ---
 
 # API Management policy reference
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
-This section provides links to reference articles for all API Management policies.
+
+This section provides brief descriptions and links to reference articles for all API Management policies.The API Management [gateways](api-management-gateways-overview.md) that support each policy are indicated. For detailed policy settings and examples, see the linked reference articles.
 
 More information about policies:
 
@@ -44,9 +45,9 @@ More information about policies:
 | [Validate Microsoft Entra token](validate-azure-ad-token-policy.md) | Enforces existence and validity of a Microsoft Entra (formerly called Azure Active Directory) JWT extracted from either a specified HTTP header, query parameter, or token value. | Yes | Yes | Yes |
 | [Validate JWT](validate-jwt-policy.md) | Enforces existence and validity of a JWT extracted from either a specified HTTP header, query parameter, or token value. | Yes | Yes | Yes |
 | [Validate client certificate](validate-client-certificate-policy.md) |Enforces that a certificate presented by a client to an API Management instance matches specified validation rules and claims. | Yes | Yes | Yes |
-| [Authenticate with Basic](authentication-basic-policy.md) | Authenticate with a backend service using Basic authentication. | Yes | Yes | Yes |
-| [Authenticate with client certificate](authentication-certificate-policy.md) | Authenticate with a backend service using client certificates. | Yes | Yes | Yes |
-| [Authenticate with managed identity](authentication-managed-identity-policy.md) | Authenticate with a backend service using a [managed identity](../active-directory/managed-identities-azure-resources/overview.md). | Yes | Yes | Yes |
+| [Authenticate with Basic](authentication-basic-policy.md) | Authenticates with a backend service using Basic authentication. | Yes | Yes | Yes |
+| [Authenticate with client certificate](authentication-certificate-policy.md) | Authenticates with a backend service using client certificates. | Yes | Yes | Yes |
+| [Authenticate with managed identity](authentication-managed-identity-policy.md) | Authenticates with a backend service using a [managed identity](../active-directory/managed-identities-azure-resources/overview.md). | Yes | Yes | Yes |
 
 ## Content Validation
 
@@ -56,26 +57,26 @@ More information about policies:
 | [Validate GraphQL request](validate-graphql-request-policy.md) | Validates and authorizes a request to a GraphQL API. | Yes | Yes | Yes |
 | [Validate OData request](validate-odata-request-policy.md) | Validates a request to an OData API to ensure conformance with the OData specification. | Yes | Yes | Yes |
 | [Validate parameters](validate-parameters-policy.md) | Validates the request header, query, or path parameters against the API schema. | Yes | Yes | Yes |
-| [Validate headers](validate-headers-policy.md) | Validates the response headers against the API schema.
-| [Validate status code](validate-status-code-policy.md) | Validates the HTTP status codes in responses against the API schema.
+| [Validate headers](validate-headers-policy.md) | Validates the response headers against the API schema. | Yes | Yes | Yes |
+| [Validate status code](validate-status-code-policy.md) | Validates the HTTP status codes in responses against the API schema. | Yes | Yes | Yes |
 
 ## Routing
 
 |Policy  |Description  |Dedicated gateway  | Consumption gateway |Self-hosted gateway  |
 |---------|---------|---------|---------|---------|
 |  [Forward request](forward-request-policy.md) | Forwards the request to the backend service. | Yes | Yes | Yes |
-|  [Set backend service](set-backend-service-policy.md) | Changes the backend service base URL of an incoming request to a URL or a [backend](backends.md). Referencing a backend resource allows you to manage the backend service base URL and other settings in a single place. Also implement [load balancing of traffic across a pool of backend services](backends.md#load-balanced-pool-preview) and [circuit breaker rules](backends.md#circuit-breaker-preview) to protect the backend from too many requests.
+|  [Set backend service](set-backend-service-policy.md) | Changes the backend service base URL of an incoming request to a URL or a [backend](backends.md). Referencing a backend resource allows you to manage the backend service base URL and other settings in a single place. Also implement [load balancing of traffic across a pool of backend services](backends.md#load-balanced-pool-preview) and [circuit breaker rules](backends.md#circuit-breaker-preview) to protect the backend from too many requests. | Yes | Yes | Yes |
 |  [Set HTTP proxy](proxy-policy.md) | Allows you to route forwarded requests via an HTTP proxy. | Yes | Yes | Yes |
 
 ## Caching
 
 |Policy  |Description  |Dedicated gateway  | Consumption gateway |Self-hosted gateway  |
 |---------|---------|---------|---------|---------|
-|  [Get from cache](cache-lookup-policy.md) | Perform cache lookup and return a valid cached response when available. | Yes | Yes | Yes |
+|  [Get from cache](cache-lookup-policy.md) | Performs cache lookup and return a valid cached response when available. | Yes | Yes | Yes |
 |  [Store to cache](cache-store-policy.md) | Caches response according to the specified cache control configuration. | Yes | Yes | Yes |
-|  [Get value from cache](cache-lookup-value-policy.md) | Retrieve a cached item by key. | Yes | Yes | Yes |
-|  [Store value in cache](cache-store-value-policy.md) | Store an item in the cache by key. | Yes | Yes | Yes |
-|  [Remove value from cache](cache-remove-value-policy.md) | Remove an item in the cache by key. | Yes | Yes | Yes |
+|  [Get value from cache](cache-lookup-value-policy.md) | Retrieves a cached item by key. | Yes | Yes | Yes |
+|  [Store value in cache](cache-store-value-policy.md) | Stores an item in the cache by key. | Yes | Yes | Yes |
+|  [Remove value from cache](cache-remove-value-policy.md) | Removes an item in the cache by key. | Yes | Yes | Yes |
 
 ## Transformation
 

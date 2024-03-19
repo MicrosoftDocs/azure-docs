@@ -63,6 +63,6 @@ For more information and examples of this policy, see [Custom caching in Azure A
 
 ## Related policies
 
-* [Caching policies](api-management-policies.md#caching)
+* [Caching](api-management-policies.md#caching)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

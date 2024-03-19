@@ -163,5 +163,5 @@ The preceding policy definition consists of two parts:
 
 ## Related content
 
-* Learn more about [access restriction policies](api-management-access-restriction-policies.md)
+* Learn more about [authentication and authorization policies](api-management-policies.md#authentication-and-authorization) in Azure API Management.
 * Learn more about [scopes and permissions](../active-directory/develop/scopes-oidc.md) in Microsoft Entra ID.
