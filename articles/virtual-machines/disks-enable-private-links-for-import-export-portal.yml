@@ -26,7 +26,7 @@ procedureSection:
   - title: |
       Create a disk access resource
     summary: |
-      Follow the below steps:
+      Follow these steps:
     steps:
       - |   
         Sign in to the [Azure portal](https://portal.azure.com) and navigate to **Disk Accesses**.
