@@ -5,7 +5,7 @@ description: Use this article to build and deploy a question and answer copilot 
 manager: nitinme
 ms.service: azure-ai-studio
 ms.topic: tutorial
-ms.date: 2/8/2024
+ms.date: 3/19/2024
 ms.reviewer: eur
 ms.author: eur
 author: eric-urban
@@ -58,7 +58,7 @@ Follow these steps to deploy an Azure OpenAI chat model for your copilot.
     
     :::image type="content" source="../media/tutorials/copilot-deploy-flow/deploy-create.png" alt-text="Screenshot of the deployments page with a button to create a new project." lightbox="../media/tutorials/copilot-deploy-flow/deploy-create.png":::
 
-1. On the **Select a model** page, select the model you want to deploy from the **Model** dropdown. For example, select **gpt-35-turbo-16k**. Then select **Confirm**.
+1. On the **Select a model** page, select the model you want to deploy from the list of models. For example, select **gpt-35-turbo-16k**. Then select **Confirm**.
 
     :::image type="content" source="../media/tutorials/copilot-deploy-flow/deploy-gpt-35-turbo-16k.png" alt-text="Screenshot of the model selection page." lightbox="../media/tutorials/copilot-deploy-flow/deploy-gpt-35-turbo-16k.png":::
 
@@ -77,7 +77,7 @@ In the [Azure AI Studio](https://ai.azure.com) playground you can observe how yo
 
     :::image type="content" source="../media/tutorials/copilot-deploy-flow/playground-chat.png" alt-text="Screenshot of the chat playground with the chat mode and model selected." lightbox="../media/tutorials/copilot-deploy-flow/playground-chat.png":::
 
-1. In the **System message** text box on the **Assistant setup** pane, provide this prompt to guide the assistant: "You're an AI assistant that helps people find information." You can tailor the prompt for your scenario. For more information, see [prompt samples](../how-to/models-foundation-azure-ai.md#prompt-samples). 
+1. In the **System message** text box on the **Assistant setup** pane, provide this prompt to guide the assistant: "You are an AI assistant that helps people find information." You can tailor the prompt for your scenario. For more information, see [prompt samples](../how-to/models-foundation-azure-ai.md#prompt-samples). 
 1. Select **Apply changes** to save your changes, and when prompted to see if you want to update the system message, select **Continue**. 
 1. In the chat session pane, enter the following question: "How much do the TrailWalker hiking shoes cost", and then select the right arrow icon to send.
 
