@@ -237,7 +237,7 @@ az aosm nsd generate-config --output-file <nsd-output-filename.jsonc>
 >[!NOTE]
 > The resource element template section defines which NFD is included in the NSD. The properties must match those used in the input file passed to the `az aosm nfd build` command. This is because the Azure CLI AOSM Extension validates that the NFD has been correctly onboarded when building the NSD.
 
-3. Execute the following command to build the Network Service Definition Group and Version BICEP templates.
+3. Execute the following command to build the Network Service Design Group and Version BICEP templates.
 
 ```azurecli
 az aosm nsd build --config-file <nsd-output-filename.jsonc>
