@@ -1,13 +1,13 @@
 ---
-title: Monitor Azure Logic Apps
-description: Start here to learn how to monitor Azure Logic Apps.
-ms.date: 03/11/2024
+title: Monitoring overview
+description: Start here to learn about monitoring for Azure Logic Apps.
+ms.date: 03/19/2024
 ms.custom: horz-monitor
 ms.topic: conceptual
 ms.service: logic-apps
 ---
 
-# Monitor Azure Logic Apps
+# Overview: Monitor Azure Logic Apps
 
 [!INCLUDE [horz-monitor-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
 
@@ -63,6 +63,7 @@ For a detailed guide showing how to view and create queries for Azure Logic Apps
 Here are some sample queries for analyzing Azure Logic Apps workflow executions.
 
 #### Total executions
+
 Total billable executions by operation name.
 
 ```kusto
@@ -74,6 +75,7 @@ AzureDiagnostics
 ```
 
 #### Execution distribution
+
 Hourly time chart for logic app execution distribution by workflow.
 
 ```kusto
@@ -86,6 +88,7 @@ AzureDiagnostics
 ```
 
 #### Execution status summary
+
 Completed executions by workflow, status, and error.
 
 ```kusto
@@ -97,6 +100,7 @@ AzureDiagnostics
 ```
 
 #### Triggered failures count
+
 Action or trigger failures for all logic app workflow executions by resource name.
 
 ```kusto

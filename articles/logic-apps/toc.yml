@@ -433,7 +433,7 @@ items:
       href: logic-apps-deploy-azure-resource-manager-templates.md
   - name: Monitor
     items:
-      - name: Monitor
+      - name: Overview
         href: monitor-logic-apps-overview.md
       - name: Monitor workflows
         href: monitor-logic-apps.md
