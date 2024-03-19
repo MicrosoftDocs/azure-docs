@@ -533,7 +533,7 @@
         href: auto-deploy-vulnerability-assessment.md
       - name: Transition to Microsoft Defender Vulnerability Management for servers
         displayName: qualys, rapid7, vulnerability, migrate, transition, Microsoft Defender Vulnerability Management, mdvm
-        href: how-to-transition-to-built-in.md
+        href: how-to-transition-to-built-in.yml
       - name: Common questions 
         displayName: questions, common, MDVM, Qualys, BYOL, bring your own license, agent, consolidated, vulnerability, management, faq, frequently asked questions
         href: faq-scanner-detection.yml
