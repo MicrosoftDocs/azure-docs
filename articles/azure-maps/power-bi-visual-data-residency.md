@@ -1,7 +1,7 @@
 ---
-title: Power BI Azure Maps Visual Data Residency
+title: Azure Maps Power BI visual Data Residency
 titleSuffix: Microsoft Azure Maps Power BI visual
-description: This article covers the Power BI Azure Maps Visual Data Residency.
+description: This article covers the Azure Maps Power BI visual Data Residency.
 author: deniseatmicrosoft
 ms.author: limingchen 
 ms.date: 03/22/2024
@@ -10,9 +10,9 @@ ms.service: azure-maps
 services: azure-maps
 ---
 
-# Power BI Azure Maps Visual Data Residency
+# Azure Maps Power BI visual Data Residency
 
-The Azure Maps visual can get a users' tenant location and use it to call the correct Azure Maps geographic endpoints. For instance, if a user's tenant is located in Europe, Power BI calls the Azure Maps' `eu` endpoint `eu.atlas.microsoft.com`, ensuring that their data doesn't leave the Europe boundary. Similarly if users' tenant is in the US, `us.atlas.microsoft.com` is called and users' data doesn't leave the US boundary. For the rest of world, the Azure Maps visual calls `atlas.microsoft.com` redirecting them to the nearest region to fulfill their requests.
+The Azure Maps Power BI visual can get a users' tenant location and use it to call the correct Azure Maps geographic endpoints. For instance, if a user's tenant is located in Europe, Power BI calls the Azure Maps' `eu` endpoint `eu.atlas.microsoft.com`, ensuring that their data doesn't leave the Europe boundary. Similarly if users' tenant is in the US, `us.atlas.microsoft.com` is called and users' data doesn't leave the US boundary. For the rest of world, the Azure Maps Power BI visual calls `atlas.microsoft.com` redirecting them to the nearest region to fulfill their requests.
 
 ## Tenent location
 
