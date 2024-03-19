@@ -22,7 +22,7 @@ Before you follow the steps in this article, make sure you have the following pr
 
     # [Azure CLI](#tab/cli)
 
-    [!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
+    [!INCLUDE [cli v2](machine-learning-cli-v2.md)]
 
     The [Azure CLI](/cli/azure/) and the `ml` [extension for Azure Machine Learning](../how-to-configure-cli.md).
 
@@ -32,7 +32,7 @@ Before you follow the steps in this article, make sure you have the following pr
 
     # [Python](#tab/python)
 
-    [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
+    [!INCLUDE [sdk v2](machine-learning-sdk-v2.md)]
 
     Install the [Azure Machine Learning SDK for Python](https://aka.ms/sdk-v2-install).
 
