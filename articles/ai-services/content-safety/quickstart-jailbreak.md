@@ -27,8 +27,8 @@ Follow this guide to use Azure AI Content Safety Prompt Shields to ensure your l
 The following section walks through a sample request with cURL. Paste the following command into a text editor, and make the following changes.
 
 1. Replace `<endpoint>` with the endpoint URL associated with your resource.
-2. Replace `<your_subscription_key>` with one of the keys for your resource.
-3. Optionally, replace the `"userPrompt"` or `"documents"` fields in the body with your own text you'd like to analyze.
+1. Replace `<your_subscription_key>` with one of the keys for your resource.
+1. Optionally, replace the `"userPrompt"` or `"documents"` fields in the body with your own text you'd like to analyze.
 
 ```shell
 curl --location --request POST '<endpoint>/contentsafety/text:shieldPrompt?api-version=2024-02-15-preview' \
