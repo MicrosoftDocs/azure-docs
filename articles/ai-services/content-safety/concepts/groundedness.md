@@ -18,17 +18,17 @@ The Groundedness detection API detects whether the text responses of large langu
 
 ## Key terms
 
-- **Retrieval Augmented Generation (RAG)**: RAG is a technique for augmenting LLM knowledge with other data. LLMs can reason about wide-ranging topics, but their knowledge is limited to the public data up to a specific point in time that they were trained on. If you want to build AI applications that can reason about private data or data introduced after a model’s cutoff date, you need to provide the model with the specific information it needs. The process of bringing the appropriate information and inserting it into the model prompt is known as Retrieval Augmented Generation (RAG). For more information, see [Retrieval-augmented generation (RAG)](https://python.langchain.com/docs/use_cases/question_answering/).
+- **Retrieval Augmented Generation (RAG)**: RAG is a technique for augmenting LLM knowledge with other data. LLMs can reason about wide-ranging topics, but their knowledge is limited to the public data that was available at the time they were trained. If you want to build AI applications that can reason about private data or data introduced after a model’s cutoff date, you need to provide the model with that specific information. The process of bringing the appropriate information and inserting it into the model prompt is known as Retrieval Augmented Generation (RAG). For more information, see [Retrieval-augmented generation (RAG)](https://python.langchain.com/docs/use_cases/question_answering/).
 
-- **Groundedness and Ungroundedness in LLMs**: This refers to the extent to which the model’s outputs are based on provided information or reflect reliable sources accurately. A grounded response adheres closely to the given information, avoiding speculation or fabrication. In groundedness measures, source information is crucial and serves as the grounding source. 
+- **Groundedness and Ungroundedness in LLMs**: This refers to the extent to which the model’s outputs are based on provided information or reflect reliable sources accurately. A grounded response adheres closely to the given information, avoiding speculation or fabrication. In groundedness measurements, source information is crucial and serves as the grounding source.
 
 ## Groundedness detection features
 
-- **Domain Selection**: You can select predefined domains: either `medical` or `generic`. Users can choose an established domain to ensure more tailored detection that aligns with the specific needs of their field.
-- **Task Specification**: This feature lets you select the task you're doing, such as QnA (questioning & answering) and Summarization, with adjustable settings according to the task types.
-- **Speed vs Interpretability**: There are two modes that trade off speed with performance.
-   - Non-Reasoning mode: Offers fast detection capability, easy to embed into online applications.
-   - Reasoning mode: Offers detailed explanation for detected ungrounded segments easy for understanding and mitigation.
+- **Domain Selection**: Users can choose an established domain to ensure more tailored detection that aligns with the specific needs of their field. Currently the available domains are `MEDICAL` and `GENERIC`.
+- **Task Specification**: This feature lets you select the task you're doing, such as QnA (question & answering) and Summarization, with adjustable settings according to the task type.
+- **Speed vs Interpretability**: There are two modes that trade off speed with result interpretability.
+   - Non-Reasoning mode: Offers fast detection capability; easy to embed into online applications.
+   - Reasoning mode: Offers detailed explanations for detected ungrounded segments; better for understanding and mitigation.
 
 ##  Use cases
 
@@ -45,20 +45,23 @@ Groundedness detection supports text-based Summarization and QnA tasks to ensure
 
 ## Limitations
 
-**Language availability**
+### Language availability
+
 Currently, the Groundedness detection API supports English language content. While our API doesn't restrict the submission of non-English content, we can't guarantee the same level of quality and accuracy in the analysis of other language content. We recommend that users submit content primarily in English to ensure the most reliable and accurate results from the API.
 
-**Text length limitations**
-Please note that the maximum character limit for the grounding sources is 55,000 characters, and for the text and query, it's 7,500 characters for each API call. If your input (either text or grounding sources) exceeds these character limitations per API call, you'll encounter an error.
+### Text length limitations
 
-**Regions**
+The maximum character limit for the grounding sources is 55,000 characters per API call, and for the text and query, it's 7,500 characters per API call. If your input (either text or grounding sources) exceeds these character limitations, you'll encounter an error.
+
+### Regions
+
 To use this API, you must create your Azure AI Content Safety resource in the supported regions. Currently, it's available in the following Azure regions:
 - East US 2
 - East US (only for non-reasoning)
 - West US
 - Sweden Central
 
-**TPS limitations**
+### TPS limitations
 
 | Pricing Tier | Requests per 10 seconds |
 | :----------- | :--------------------------- |
@@ -67,3 +70,9 @@ To use this API, you must create your Azure AI Content Safety resource in the su
 
 If you need a higher rate, [contact us](mailto:contentsafetysupport@microsoft.com) to request it.
 
+## Next steps
+
+Follow the quickstart to get started using Azure AI Content Safety to detect groundedness.
+
+> [!div class="nextstepaction"]
+> [Groundedness detection quickstart](../quickstart-groundedness.md)

@@ -13,7 +13,7 @@ ms.author: pafarley
 
 # Quickstart: Prompt Shields 
 
-Follow this guide to use Azure AI Content Safety Prompt Shields to ensure your large language model (LLM) inputs are checked for both User Prompt and Documents.
+Follow this guide to use Azure AI Content Safety Prompt Shields to check your large language model (LLM) inputs for both User Prompt and Document attacks.
 
 ## Prerequisites
 
@@ -22,9 +22,9 @@ Follow this guide to use Azure AI Content Safety Prompt Shields to ensure your l
   * The resource takes a few minutes to deploy. After it finishes, Select **go to resource**. In the left pane, under **Resource Management**, select **Subscription Key and Endpoint**. The endpoint and either of the keys are used to call APIs.
 * [cURL](https://curl.haxx.se/) installed
 
-## Analyzing attacks
+## Analyze attacks
 
-The following section walks through a sample request with cURL. Paste the following command into a text editor, and make the following changes.
+This section walks through a sample request with cURL. Paste the command below into a text editor, and make the following changes.
 
 1. Replace `<endpoint>` with the endpoint URL associated with your resource.
 1. Replace `<your_subscription_key>` with one of the keys for your resource.
@@ -77,8 +77,6 @@ After you submit your request, you'll receive JSON data reflecting the analysis 
 ```
 
 The JSON fields in the output are defined here:
-
-Expand table
 
 | Name    | Description      | Type  |
 | ------ | ------ | ---- |

@@ -14,7 +14,7 @@ ms.author: pafarley
 
 # Prompt Shields
 
-Generative AI models can pose risks of exploitation by malicious actors. To mitigate these risks, we integrate safety mechanisms to restrict the behavior of large language models (LLMs) within a safe operational scope. However, despite these safeguards, LLMs can still be vulnerable to adversarial inputs, potentially bypassing the integrated safety protocols.
+Generative AI models can pose risks of exploitation by malicious actors. To mitigate these risks, we integrate safety mechanisms to restrict the behavior of large language models (LLMs) within a safe operational scope. However, despite these safeguards, LLMs can still be vulnerable to adversarial inputs that bypass the integrated safety protocols.
 
 Prompt Shields is a unified API that analyzes LLM inputs and detects User Prompt attacks and Document attacks, which are two common types of adversarial inputs.
 
@@ -24,13 +24,15 @@ Previously called **Jailbreak risk detection**, this shield targets User Prompt 
 
 ### Prompt Shields for Documents
 
-This shield aims to safeguard against attacks that use information not directly supplied by the user or developer, such as external documents or images. Attackers might embed hidden instructions in these materials in order gain to unauthorized control over the LLM session.
+This shield aims to safeguard against attacks that use information not directly supplied by the user or developer, such as external documents or images. Attackers might embed hidden instructions in these materials in order to gain unauthorized control over the LLM session.
 
 ## Types of input attacks
 
+The two types of input attacks that Prompt Shields detects are described in this table.
+
 | Type | Attacker | Entry point    | Method    | Objective/impact   | Resulting behavior  |
 |-------|----------|---------|---------|---------|---------|
-| User Prompt attacks | User     | User prompts      | Ignoring system prompts/RLHF training  | Altering intended LLM behavior         | Restricted actions performed against training |
+| User Prompt attacks | User     | User prompts      | Ignoring system prompts/RLHF training  | Altering intended LLM behavior         | Performing restricted actions against training |
 | Document attacks   | Third party | Third-party content (documents, emails) | Misinterpreting third-party content   | Gaining unauthorized access or control | Executing unintended commands or actions      |
 
 ### Subtypes of User Prompt attacks
@@ -63,11 +65,15 @@ This shield aims to safeguard against attacks that use information not directly 
 
 ## Limitations
 
-**Language availability** Currently, the Prompt Shields API supports the English language. While our API doesn't restrict the submission of non-English content, we can't guarantee the same level of quality and accuracy in the analysis of such content. The API is optimized for English, and using languages other than English may result in suboptimal performance. We recommend users to primarily submit content in English to ensure the most reliable and accurate results from the API.
+### Language availability
 
-**Text length limitations** Please note that the maximum character limit for the Prompt Shields is 10,000 characters. and for the user prompts, it is 10,000 characters for each API call, for the documents, 10K also. If your input (either user prompts or documents) exceeds these character limitations per API call, you'll encounter an error.
+Currently, the Prompt Shields API supports the English language. While our API doesn't restrict the submission of non-English content, we can't guarantee the same level of quality and accuracy in the analysis of such content. We recommend users to primarily submit content in English to ensure the most reliable and accurate results from the API.
 
-**TPS limitations**
+### Text length limitations
+
+The maximum character limit for Prompt Shields is 10,000 characters per API call, between both the user prompts and documents combines. If your input (either user prompts or documents) exceeds these character limitations, you'll encounter an error.
+
+### TPS limitations
 
 | Pricing Tier | Requests per 10 seconds |
 | :----------- | :---------------------------- |
