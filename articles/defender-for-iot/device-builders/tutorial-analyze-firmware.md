@@ -41,22 +41,22 @@ If this is your first interaction with **Firmware analysis**, then you'll need t
 
 1. Sign into the Azure portal and go to Defender for IoT.
 
-:::image type="content" source="media/tutorial-analyze-firmware/Getting-Started.png" alt-text="Screenshot of the 'Getting started' page" lightbox="media/tutorial-analyze-firmware/Getting-Started.png":::
+:::image type="content" source="media/tutorial-firmware-analysis/defender-portal.png" alt-text="Screenshot of the 'Getting started' page" lightbox="media/tutorial-firmware-analysis/defender-portal.png":::
 
 2. Select **Set up a subscription** in the **Get Started** card, or select the **Subscription management** subtab.
 
-:::image type="content" source="media/tutorial-analyze-firmware/Subscription-Management.png" alt-text="Screenshot of the 'Subscription management' page" lightbox="media/tutorial-analyze-firmware/Subscription-Management.png":::
+:::image type="content" source="media/tutorial-firmware-analysis/subscription-management.png" alt-text="Screenshot of the 'Subscription management' page" lightbox="media/tutorial-firmware-analysis/subscription-management.png":::
 
 3. Select **Onboard a new subscription**
 
-:::image type="content" source="media/tutorial-analyze-firmware/Onboard-Subscription.png" alt-text="Screenshot of the 'Onboard subscription' pane appearing on the right side of the screen" lightbox="media/tutorial-analyze-firmware/Onboard-Subscription.png":::
+:::image type="content" source="media/tutorial-firmware-analysis/onboard-subscription.png" alt-text="Screenshot of the 'Onboard subscription' pane appearing on the right side of the screen" lightbox="media/tutorial-firmware-analysis/onboard-subscription.png":::
 
 4. In the **Onboard subscription** pane, select a subscription from the drop-down list.
 5. Select a resource group from the **Resource group** drop-down or create a new resource group.
 6. Select a region to use for storage in the **Location** drop-down.
 7. Select **Onboard** to onboard your subscription to Defender for Firmware Analysis.
 
-:::image type="content" source="media/tutorial-analyze-firmware/Completed-Onboarding.png" alt-text="Screenshot of the 'Onboard subscription' pane when it's completed" lightbox="media/tutorial-analyze-firmware/Completed-Onboarding.png":::
+:::image type="content" source="media/tutorial-firmware-analysis/completed-onboarding.png" alt-text="Screenshot of the 'Onboard subscription' pane when it's completed" lightbox="media/tutorial-firmware-analysis/completed-onboarding.png":::
 
 ## View firmware analysis results
 
