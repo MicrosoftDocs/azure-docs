@@ -49,7 +49,7 @@ More information about policies:
 | [Authenticate with client certificate](authentication-certificate-policy.md) | Authenticates with a backend service using client certificates. | Yes | Yes | Yes |
 | [Authenticate with managed identity](authentication-managed-identity-policy.md) | Authenticates with a backend service using a [managed identity](../active-directory/managed-identities-azure-resources/overview.md). | Yes | Yes | Yes |
 
-## Content Validation
+## Content validation
 
 |Policy  |Description  |Dedicated gateway  | Consumption gateway |Self-hosted gateway  |
 |---------|---------|---------|---------|---------|
