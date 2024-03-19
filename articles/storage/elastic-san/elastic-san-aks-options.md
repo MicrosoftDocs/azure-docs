@@ -4,7 +4,7 @@ description: Learn about the deployment options you have for using Azure Elastic
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: conceptual
-ms.date: 03/14/2024
+ms.date: 03/19/2024
 ms.author: rogarana
 ---
 
@@ -19,9 +19,9 @@ If you use the [Kubernetes iSCSI CSI driver](elastic-san-connect-aks.md), you ca
 
 ## Azure Container Storage Preview
 
-Azure Container Storage Preview is an Azure native solution that allows you to use Elastic SAN with AKS. When using Azure Container Storage, you programmatically manage and deploy storage. When you use Azure Container Storage like this, the system deploys a SAN exclusively for use AKS. That SAN can't be used for any other workloads and snapshots of the SAN is not currently supported with this configuration.
+Azure Container Storage Preview is a cloud-based volume management, deployment, and orchestration service built natively for containers. For AKS clusters, you can install Azure Container Storage as an extension to new or existing AKS clusters. After it's installed as an extension, you can use Azure Container Storage to configure Elastic SAN as the backing storage for your AKS clusters, in an Azure native configuration. When using Azure Container Storage, you programmatically manage and deploy storage through the Kubernetes control plane. In this case, Azure Container Storage deploys a SAN exclusively for use with your AKS cluster. That SAN can't be used for any other workloads and volume snapshots of that SAN's volume isn't currently supported with this configuration.
 
 ## Next steps
 
-- [Use Azure Container Storage Preview with Azure Elastic SAN](../container-storage/use-container-storage-with-elastic-san.md)
 - [Connect Azure Elastic SAN volumes to an Azure Kubernetes Service cluster](elastic-san-connect-aks.md)
+- [Use Azure Container Storage Preview with Azure Elastic SAN](../container-storage/use-container-storage-with-elastic-san.md)
