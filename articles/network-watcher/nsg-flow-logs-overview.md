@@ -415,8 +415,8 @@ To learn how to create, change, disable, or delete NSG flow logs, see one of the
 
 To learn how to read and export NSG flow logs, see one of the following guides:
 
-- [Download and view flow logs from the portal](./nsg-flow-logging.md#download-a-flow-log)
-- [Read flow logs by using PowerShell functions](./network-watcher-read-nsg-flow-logs.md)
+- [Download and view flow logs from the portal](nsg-flow-logs-portal.md#download-a-flow-log)
+- [Read flow logs by using PowerShell functions](network-watcher-read-nsg-flow-logs.md)
 - [Export NSG flow logs to Splunk](https://www.splunk.com/en_us/blog/platform/splunking-azure-nsg-flow-logs.html)
 
 NSG flow log files are stored in a storage account at the following path:

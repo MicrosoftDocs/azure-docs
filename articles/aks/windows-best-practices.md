@@ -30,11 +30,12 @@ You might want to containerize existing applications and run them using Windows 
 
 > **Best practice guidance**
 >
-> Windows Server 2022 provides the latest security and performance improvements and is the recommended OS for Windows node pools on AKS.
+> Windows Server 2022 provides improved security and performance, and is the recommended OS for Windows node pools on AKS.
 
 AKS uses Windows Server 2019 and Windows Server 2022 as the host OS versions and only supports process isolation. AKS doesn't support container images built by other versions of Windows Server. For more information, see [Windows container version compatibility](/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
-Windows Server 2022 is the default OS for Kubernetes version 1.25 and later. Windows Server 2019 will retire after Kubernetes version 1.32 reaches end of service and won't be supported in future releases. For more information, see the [AKS release notes][aks-release-notes].
+Windows Server 2022 is the default OS for Kubernetes version 1.25 and later. Windows Server 2019 will retire after Kubernetes version 1.32 reaches end of life (EOL). Windows Server 2022 will retire after Kubernetes version 1.34 reaches its end of life (EOL). For more information, see [AKS release notes][aks-release-notes]. To stay up to date on the latest Windows Server OS versions and learn more about our roadmap of what's planned for support on AKS, see our [AKS public roadmap](https://github.com/azure/aks/projects/1).
+
 
 ## Networking
 
