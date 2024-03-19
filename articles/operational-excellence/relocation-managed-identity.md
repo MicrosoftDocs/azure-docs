@@ -20,7 +20,7 @@ Moving user-assigned managed identities across Azure regions isn't supported.  Y
 
 ## Prerequisites
 
-Managed identities for Azure resources is a feature of Azure Entra UID. Each of the Azure services that support managed identities for Azure resources is subject to its own timeline. 
+Managed identities for Azure resources is a feature of Azure Entra ID. Each of the Azure services that support managed identities for Azure resources is subject to its own timeline. 
 
 - Make sure that you review the [availability status of managed identities for your resource](/entra/identity/managed-identities-azure-resources/managed-identities-status)
 - Understand [known issues with managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/known-issues).
