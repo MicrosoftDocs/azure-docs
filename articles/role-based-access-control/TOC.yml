@@ -71,7 +71,7 @@
     - name: Portal
       href: role-assignments-list-portal.md
     - name: PowerShell
-      href: role-assignments-list-powershell.md
+      href: role-assignments-list-powershell.yml
     - name: CLI
       href: role-assignments-list-cli.yml
     - name: REST API
