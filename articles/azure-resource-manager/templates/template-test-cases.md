@@ -4,8 +4,6 @@ description: Describes the template tests that are run by the Azure Resource Man
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
 ms.date: 11/09/2022
-ms.author: tomfitz
-author: tfitzmac
 ---
 
 # Test cases for ARM templates
