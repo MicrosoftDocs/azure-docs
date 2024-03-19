@@ -210,7 +210,7 @@ After you update the VNet configuration, the status of your API Management insta
 
 - **Can I upgrade my stv1 instance to the same subnet?**
 
-   - You can't migrate the `stv1` instance to the same subnet in a single pass without downtime. However, you can optionally move your migrated instance back to the original subnet. More details [here](#optional-migrate-back-to-original-vnet-and-subnet).
+   - You can't migrate the `stv1` instance to the same subnet in a single pass without downtime. However, you can optionally move your migrated instance back to the original subnet. More details [here](#optional-migrate-back-to-original-subnet).
    - The old gateway takes between 15 mins to 45 mins to vacate the subnet, so that you can initiate the move. However, you can request to increase this time to up to 48 hours by a support ticket.
    - A new public IP is required for each switch.
    - Ensure that the old subnet's networking for [NSG](./api-management-using-with-internal-vnet.md?tabs=stv2#configure-nsg-rules) and [firewall](./api-management-using-with-vnet.md?tabs=stv2#force-tunnel-traffic-to-on-premises-firewall-using-expressroute-or-network-virtual-appliance) is updated for `stv2` dependencies.
