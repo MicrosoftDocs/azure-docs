@@ -1,3 +1,11 @@
+---
+author: dlepow
+ms.service: api-management
+ms.topic: include
+ms.date: 02/13/2024
+ms.author: danlep
+---
+
 ## Confirm settings before old gateway is purged
 
 After successful migration of a VNet-injected API Management instance, the old and the new compute created during migration coexist for a short period of time, approximately 15 mins, which is a small window of time you can use to validate the deployment and that your applications work as expected. (*This window can be extended to 48 hours by contacting Azure support in advance.*) 
