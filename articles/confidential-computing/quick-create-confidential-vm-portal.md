@@ -7,11 +7,7 @@ ms.subservice: confidential-computing
 ms.topic: quickstart
 ms.date: 12/01/2023
 ms.author: RunCai
-ms.custom:
-  - mode-ui
-  - linux-related-content
-  - has-azure-ad-ps-ref
-  - ignite-2023
+ms.custom: mode-ui, has-azure-ad-ps-ref, ignite-2023
 ---
 
 # Quickstart: Create confidential VM on in the Azure portal
