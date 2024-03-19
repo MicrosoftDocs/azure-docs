@@ -233,6 +233,8 @@
     href: smb-performance.md
   - name: NFS performance
     href: nfs-performance.md
+  - name: NFS large directory best practices
+    href: nfs-large-directories.md    
   - name: Scalability and performance targets
     href: storage-files-scale-targets.md
   - name: Understanding billing

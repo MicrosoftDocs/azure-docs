@@ -22,7 +22,7 @@ Quota rules only come into effect on the CRR/CZR destination volume after the re
 
 * A quota rule is specific to a volume and is applied to an existing volume.  
 * Deleting a volume results in deleting all the associated quota rules for that volume. 
-* You can create a maximum number of 100 quota rules for a volume. You can [request limit increase](azure-netapp-files-resource-limits.md#request-limit-increase) through the portal.
+* You can create a maximum number of 100 quota rules for a volume.
 * Azure NetApp Files doesn't support individual group quota and default group quota for SMB and dual protocol volumes.
 * Group quotas track the consumption of disk space for files owned by a particular group. A file can only be owned by exactly one group. 
 * Auxiliary groups only help in permission checks. You can't use auxiliary groups to restrict the quota (disk space) for a file.

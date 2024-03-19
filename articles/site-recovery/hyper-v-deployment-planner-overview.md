@@ -5,7 +5,7 @@ author: ankitaduttaMSFT
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 3/13/2020
+ms.date: 03/13/2024
 ms.author: ankitadutta
 
 ---
@@ -32,6 +32,8 @@ The tool provides the following details:
 * RPO that can be achieved for a given bandwidth
 * Impact on the desired RPO if lower bandwidth is provisioned.
 
+> [!NOTE]
+> The recommended bandwidth in Deployment planner is applicable only for compatible Hyper-V VMs. 
     
 **Azure infrastructure requirements**
 

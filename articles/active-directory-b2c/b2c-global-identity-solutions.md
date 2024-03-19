@@ -5,7 +5,7 @@ description: Learn how to configure Azure AD B2C to provide customer identity an
 author: gargi-sinha
 manager: martinco
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: B2C
