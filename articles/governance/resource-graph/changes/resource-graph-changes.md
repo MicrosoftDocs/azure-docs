@@ -21,7 +21,7 @@ Change Analysis helps you:
  
 ## Change Analysis architecture
 
-Change Analysis experiences across the Azure portal are powered using the Azure Resource Graph [`Microsoft.ResourceGraph/resources` API](https://learn.microsoft.com/en-us/rest/api/azureresourcegraph/resourcegraph/resources/resources). This section describes what data to expect in Change Analysis experiences.
+Change Analysis experiences across the Azure portal are powered using the Azure Resource Graph [`Microsoft.ResourceGraph/resources` API](/rest/api/azureresourcegraph/resourcegraph/resources/resources). This section describes what data to expect in Change Analysis experiences.
 
 ### Changes in the `resourceChanges` table
 
