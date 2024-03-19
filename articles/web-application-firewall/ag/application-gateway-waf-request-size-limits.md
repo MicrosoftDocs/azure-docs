@@ -15,7 +15,7 @@ Web Application Firewall allows you to configure request size limits within a lo
 
 
 > [!IMPORTANT]
-> We are in the process of deploying a new feature for Application Gateway v2 Web Application Firewalls running Core Rule Set 3.2 or later that allows for greater control of your request body size, file upload size, and request body inspection. If you are running Application Gateway v2 Web Application Firewall with Core Rule Set 3.2 or later, and you notice requests getting rejected (or not getting rejected) for a size limit please refer to the troubleshooting steps at the bottom of this page.
+> We are in the process of deploying a new feature for Application Gateway v2 Web Application Firewalls running Core Rule Set 3.2 or later that allows for greater control of your request body size, file upload size, and request body inspection. If you're running Application Gateway v2 Web Application Firewall with Core Rule Set 3.2 or later, and you notice requests getting rejected (or not getting rejected) for a size limit please refer to the troubleshooting steps at the bottom of this page.
 
 
 ## Limits
@@ -28,7 +28,7 @@ Only requests with Content-Type of *multipart/form-data* are considered for file
 
 
 >[!NOTE]
->If you are running Core Rule Set 3.2 or later, and you have a high priority custom rule that takes action based on the content of a request's headers, cookies, or URI, this will take precedence over any max request size, or max file upload size, limits. This optimization let's the Web Application Firewall run high priority custom rules that don't require reading and/or measuring the full Web Application Firewall request (or file upload) first before performing the full request inspection.
+>If you're running Core Rule Set 3.2 or later, and you have a high priority custom rule that takes action based on the content of a request's headers, cookies, or URI, this will take precedence over any max request size, or max file upload size, limits. This optimization let's the Web Application Firewall run high priority custom rules that don't require reading and/or measuring the full Web Application Firewall request (or file upload) first before performing the full request inspection.
 >
 >Example: If you have a custom rule with priority 0 (the highest priority) set to approve a request with the header xyz, even if the request's size is larger than your maximum request size limit, it will get approved. This is because the Web Application Firewall will attempt to run all high priority custom rules that don't require reading the request body before enforcing any rules or size constraints that require reading the full request body.
 
@@ -47,7 +47,7 @@ When your Web Application Firewall receives a request that's over the size limit
 
 ## Trouble Shooting
 
-If you are an Application Gateway v2 Web Application Firewall customer running Core Rule Set 3.2 or later and you have issues with requests, or file uploads, getting rejected incorrectly for maximum size, or if you see requests not getting inspected fully, you may need to verify that all values are set correctly. Using PowerShell or the Azure Command Line Interface you can verify what each value is set to, and update any values as needed. 
+If you're an Application Gateway v2 Web Application Firewall customer running Core Rule Set 3.2 or later and you have issues with requests, or file uploads, getting rejected incorrectly for maximum size, or if you see requests not getting inspected fully, you may need to verify that all values are set correctly. Using PowerShell or the Azure Command Line Interface you can verify what each value is set to, and update any values as needed. 
 
 **Enforce request body inspection**
 - PS: "RequestBodyCheck"
@@ -69,7 +69,7 @@ If you are an Application Gateway v2 Web Application Firewall customer running C
 - CLI: "max_request_body_size_in_kb"
 - Controls how large a request body can be before the Web Application Firewall rejects it for exceeding the max size setting.
 
-**Enforce maxium file upload limit**
+**Enforce maximum file upload limit**
 - PS: "FileUploadEnforcement"
 - CLI: "file_upload_enforcement"
 - Controls if your Web Application Firewall will enforce a max size limit on file uploads; when turned off it will not reject any file uploads for being too large.
@@ -91,7 +91,7 @@ $plcy = Get-AzApplicationGatewayFirewallPolicy -Name <policy-name> -ResourceGrou
 $plcy.PolicySettings
 ```
 
-You can use these commands to update the policy settings to the desired values for inspection limit and max size limitation related fields. You can swap out “RequestBodyEnforcement” in the example below for one of the other values that you want to update.
+You can use these commands to update the policy settings to the desired values for inspection limit and max size limitation related fields. You can swap out 'RequestBodyEnforcement' in the example below for one of the other values that you want to update.
 
 ```azurepowershell-interactive
 $plcy = Get-AzApplicationGatewayFirewallPolicy -Name <policy-name> -ResourceGroupName <resourcegroup-name>
