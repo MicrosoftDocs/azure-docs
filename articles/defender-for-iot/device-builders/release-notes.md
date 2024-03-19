@@ -23,7 +23,7 @@ For more information, see [Upgrade the Microsoft Defender for IoT micro agent](u
 - **User choice in resource group**: Pick your own resource group to use Defender for IoT Firmware Analysis during the onboarding process.
 - **New UI format with Firmware inventory**: Subtabs to organize Getting started, Settings for resource group and subscription management, and Firmware inventory.
 
-:::image type="content" source="media/whats-new-firmware-analysis/firmware-inventory-tab.png" alt-text="Screenshot that shows the new Download as PDF button." lightbox="media/whats-new-firmware-analysis/firmware-inventory-tab.png":::
+:::image type="content" source="media/whats-new-firmware-analysis/firmware-inventory-tab.png" alt-text="Screenshot that shows the firmware inventory in the new UI." lightbox="media/whats-new-firmware-analysis/firmware-inventory-tab.png":::
 
 - **Enhanced documentation**: Updates to [Tutorial: Analyze an IoT/OT firmware image](../../../articles/defender-for-iot/device-builders/tutorial-analyze-firmware.md) documentation addressing the new onboarding experience.
 
