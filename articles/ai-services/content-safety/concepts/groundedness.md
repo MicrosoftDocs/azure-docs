@@ -37,13 +37,11 @@ Groundedness detection supports text-based Summarization and QnA tasks to ensure
 **Summarization tasks**:
 - Medical summarization: In the context of medical news articles, Groundedness detection can be used to ensure that the summary does not contain fabricated or misleading information, guaranteeing that readers obtain accurate and reliable medical information.
 - Academic paper summarization: When generating summaries of academic papers or research articles, the function can help ensure that the summarized content accurately represents the key findings and contributions without introducing false claims.
-- Legal document summarization: In legal environments, where summarizing lengthy legal documents is common, the function can confirm that the summary does not contain any erroneous statements or omissions that could lead to legal disputes.
 
 **QnA tasks**:
 - Customer support chatbots: In customer support, the function can be used to validate the answers provided by AI chatbots, ensuring that customers receive accurate and trustworthy information when they ask questions about products or services.
 - Medical QnA: For medical QnA, the function assists in verifying the accuracy of medical answers and advice provided by AI systems to healthcare professionals and patients, reducing the risk of medical errors.
 - Educational QnA: In educational settings, the function can be applied to QnA tasks to confirm that answers to academic questions or test prep queries are factually accurate, supporting the learning process.
-- Financial and investment queries: For financial and investment-related questions, the function can validate the answers given by AI systems, helping users make informed financial decisions based on accurate information.
 
 ## Limitations
 
