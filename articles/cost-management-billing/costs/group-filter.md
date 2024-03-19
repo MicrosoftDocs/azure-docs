@@ -63,7 +63,7 @@ Some filters are only available to specific offers. For example, a billing profi
 | **Tag** | Break down costs by tag values for a specific tag key. | Purchases, tenant resources not associated with subscriptions, subscription resources not deployed to a resource group, and classic resources cannot be tagged and will show as **Tags not supported**. Services that don't include tags in usage data will show as **Tags not available**. Any remaining cases where tags aren't specified on a resource will show as **Untagged**. Learn more about [tags support for each resource type](../../azure-resource-manager/management/tag-support.md). |
 | **UnitOfMeasure**| The billing unit of measure for the service. For example, compute services are billed per hour. | |
 
-¹ The Connector for AWS in the Cost Management service retires on March 31, 2025. Users should to consider alternative solutions for AWS cost management reporting. On March 31, 2024, Azure will disable the ability to add new Connectors for AWS for all customers. For more information, see [Retire your Amazon Web Services (AWS) connector](retire-aws-connector.md).
+¹ The Connector for AWS in the Cost Management service retires on March 31, 2025. Users should consider alternative solutions for AWS cost management reporting. On March 31, 2024, Azure will disable the ability to add new Connectors for AWS for all customers. For more information, see [Retire your Amazon Web Services (AWS) connector](retire-aws-connector.md).
 
 For more information about terms, see [Understand the terms used in the Azure usage and charges file](../understand/understand-usage.md).
 

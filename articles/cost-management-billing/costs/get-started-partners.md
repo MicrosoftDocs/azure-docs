@@ -240,7 +240,7 @@ The following data fields are found in usage detail files and Cost Management AP
 | **partnerEarnedCreditRate** | Rate of discount applied if there is a partner earned credit (PEC) based on partner admin link access. | The rate of partner earned credit (PEC). For example, 0% or 15%. |
 | **partnerEarnedCreditApplied** | Indicates whether the partner earned credit has been applied. | N/A |
 
-¹ The Connector for AWS in the Cost Management service retires on March 31, 2025. Users should to consider alternative solutions for AWS cost management reporting. On March 31, 2024, Azure will disable the ability to add new Connectors for AWS for all customers. For more information, see [Retire your Amazon Web Services (AWS) connector](retire-aws-connector.md).
+¹ The Connector for AWS in the Cost Management service retires on March 31, 2025. Users should consider alternative solutions for AWS cost management reporting. On March 31, 2024, Azure will disable the ability to add new Connectors for AWS for all customers. For more information, see [Retire your Amazon Web Services (AWS) connector](retire-aws-connector.md).
 
 ## View Partner Earned Credit (PEC) resource costs
 

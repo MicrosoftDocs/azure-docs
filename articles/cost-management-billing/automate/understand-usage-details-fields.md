@@ -123,7 +123,7 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 
 ³ For more information about pricing terms and definitions, see [Pricing behavior in cost details](automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-details).
 
-⁴ The Connector for AWS in the Cost Management service retires on March 31, 2025. Users should to consider alternative solutions for AWS cost management reporting. On March 31, 2024, Azure will disable the ability to add new Connectors for AWS for all customers. For more information, see [Retire your Amazon Web Services (AWS) connector](../costs/retire-aws-connector.md).
+⁴ The Connector for AWS in the Cost Management service retires on March 31, 2025. Users should consider alternative solutions for AWS cost management reporting. On March 31, 2024, Azure will disable the ability to add new Connectors for AWS for all customers. For more information, see [Retire your Amazon Web Services (AWS) connector](../costs/retire-aws-connector.md).
 
 The cost details file itself doesn’t uniquely identify individual records with an ID. Instead, you can use fields in the file flagged with ¹ to create a unique ID yourself.
 
