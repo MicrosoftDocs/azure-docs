@@ -22,10 +22,10 @@ Azure API Management provides built-in analytics for your APIs so that you can a
 
 * API Management provides analytics using an [Azure workbook](../azure-monitor/visualize/workbooks-overview.md) based on data in an Azure Log Analytics workspace. 
 
-* Your API Management instance also includes an *analytics dashboard* in the Azure portal, and analytics data can be accessed using the API Management REST API. Equivalent data is shown in the analytics workbook and dashboard.
+* Your API Management instance also includes a legacy *analytics dashboard* in the Azure portal, and analytics data can be accessed using the API Management REST API. Equivalent data is shown in the analytics workbook and dashboard.
 
 > [!IMPORTANT]
-> The Azure workbook is the recommended way to access analytics data. The analytics dashboard is deprecated. 
+> The Azure workbook is the recommended way to access analytics data. 
 
 With API analytics, analyze the usage and performance of the APIs in your API Management instance across several dimensions, including:
 
@@ -45,7 +45,9 @@ With API analytics, analyze the usage and performance of the APIs in your API Ma
 
 ## Analytics workbook
 
-To use the Azure API Management Analytics workbook, you need to configure a Log Analytics workspace as a data source for API Management gateway logs. If you haven't configured one, the following are brief steps to send gateway logs to a Log Analytics workspace. For more information, see [Tutorial: Monitor published APIs](api-management-howto-use-azure-monitor.md#resource-logs). This is a one-time setup.
+To use the Azure API Management Analytics workbook, you need to configure a Log Analytics workspace as a data source for API Management gateway logs. 
+
+If you need to configure one, the following are brief steps to send gateway logs to a Log Analytics workspace. For more information, see [Tutorial: Monitor published APIs](api-management-howto-use-azure-monitor.md#resource-logs). This is a one-time setup.
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. In the left-hand menu, under **Monitoring**, select **Diagnostic settings** > **+ Add diagnostic setting**.
@@ -68,7 +70,7 @@ After a Log Analytics workspace is configured, access the Azure API Management A
 
 ## Analytics dashboard
 
-An analytics dashboard is also available in the Azure portal, and analytics data can be accessed using the API Management REST API. 
+A legacy analytics dashboard is also available in the Azure portal, and analytics data can be accessed using the API Management REST API. 
 
 ### Analytics dashboard - portal
 
