@@ -30,16 +30,18 @@ The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum
 #### Sidecar Capacity and Istiod CPU and Memory
 
 **Azure CNI Overlay**
+
 |   Churn (%) | Churn Rate (sidecars/sec)   |   Sidecar Capacity |   Istiod Memory (GB) |   Istiod CPU |
 |-------------|-----------------------------|--------------------|----------------------|--------------|
-|           0 |--|              35000 |                 47.8 |           15 |
+|           0 |--                           |              35000 |                 47.8 |           15 |
 |          25 | 41.7                        |              25000 |                 37.2 |           16 |
 |          50 | 52.1                        |              25000 |                 39.8 |           16 |
 
 **Azure CNI Overlay with Cilium**
+
 |   Churn (%) | Churn Rate (sidecars/sec)   |   Sidecar Capacity |   Istiod Memory (GB) |   Istiod CPU |
 |-------------|-----------------------------|--------------------|----------------------|--------------|
-|           0 |--|              30000 |                 41.2 |           15 |
+|           0 |--                           |              30000 |                 41.2 |           15 |
 |          25 | 41.7                        |              25000 |                 36.1 |           16 |
 |          50 | 37.9                        |              25000 |                 42.7 |           16 |
 
