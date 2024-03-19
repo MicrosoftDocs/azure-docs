@@ -11,14 +11,14 @@ ms.date: 04/18/2022
 |--|--|--|--|--|
 | Helm chart (direct connected mode only) | 443 | `arcdataservicesrow1.azurecr.io` | Outbound |Provisions the Azure Arc data controller bootstrapper and cluster level objects, such as custom resource definitions, cluster roles, and cluster role bindings, is pulled from an Azure Container Registry. | 
 | Azure monitor APIs <sup>*</sup> | 443 |`*.ods.opinsights.azure.com`<br/>`*.oms.opinsights.azure.com`<br/>`*.monitoring.azure.com` | Outbound | Azure Data Studio and Azure CLI connect to the Azure Resource Manager APIs to send and retrieve data to and from Azure for some features. See [Azure Monitor APIs](#azure-monitor-apis). |
-| Azure Arc data processing service <sup>*</sup>| 443 |`*.<region>-arcdataservices.com` <sup>2</sup> | Outbound | |
+| Azure Arc data processing service <sup>*</sup>| 443 |`*.<region>.arcdataservices.com` <sup>2</sup> | Outbound | |
 
 <sup>1</sup> Requirement depends on deployment mode:
 
   - For direct mode, the controller pod on the Kubernetes cluster needs to have outbound connectivity to the endpoints to send the logs, metrics, inventory, and billing information to Azure Monitor/Data Processing Service. 
   - For indirect mode, the machine that runs `az arcdata dc upload` needs to have the outbound connectivity to Azure Monitor and Data Processing Service.
 
-<sup>2</sup> Prior to the [March 12, 2024](../version-log.md#march-12-2024) release, Azure Arc data processing service was at `san-af-<region>-prod.azurewebsites.net`. For extension versions up to and including [February 13, 2024](../version-log.md#february-13-2024), use `san-af-<region>-prod.azurewebsites.net`.
+<sup>2</sup> For extension versions up to and including [February 13, 2024](../release-notes.md#february-13-2024), use `san-af-<region>-prod.azurewebsites.net`.
 
 ### Azure Monitor APIs
 
