@@ -15,9 +15,8 @@ The DCR is primarily used to configure data collection of performance and invent
 
 Specific configuration you can perform with the DCR includes:
 
-- Enable/disable collection and namespace filtering for performance and inventory data
+- Enable/disable collection and namespace filtering for performance and inventory data (Use [ConfigMap](./container-insights-data-collection-configmap.md) for namespace filtering of logs.)
 - Define collection interval for performance and inventory data
-- Enable/disable collection of stdout and stderr logs
 - Enable/disable Syslog collection
 - Select log schema
 
@@ -87,10 +86,10 @@ The **Collected data** option allows you to select the tables that are populated
 
 > [!NOTE]
 > Minimum version required for Azure CLI is 2.51.0.
-    - For AKS clusters, [aks-preview](../../aks/cluster-configuration.md#install-the-aks-preview-azure-cli-extension) version 0.5.147 or higher
-    - For Arc enabled Kubernetes and AKS hybrid, [k8s-extension](../../azure-arc/kubernetes/extensions.md#prerequisites) version 1.4.3 or higher
-
-## AKS cluster
+```
+- For AKS clusters, [aks-preview](../../aks/cluster-configuration.md) version 0.5.147 or higher
+- For Arc enabled Kubernetes and AKS hybrid, [k8s-extension](../../azure-arc/kubernetes/extensions.md#prerequisites) version 1.4.3 or higher
+```## AKS cluster
 
 When you use CLI to configure monitoring for your AKS cluster, you provide the configuration as a JSON file using the following format. Each of these settings is described in [Data collection parameters](#data-collection-parameters).
 
@@ -215,7 +214,7 @@ The following table describes the supported data collection settings and the nam
 |:---|:---|
 | Collection frequency<br>CLI: `interval`<br>ARM: `dataCollectionInterval` | Determines how often the agent collects data.  Valid values are 1m - 30m in 1m intervals The default value is 1m. If the value is outside the allowed range, then it defaults to *1 m*. |
 | Namespace filtering<br>CLI: `namespaceFilteringMode`<br>ARM: `namespaceFilteringModeForDataCollection` | *Include*: Collects only data from the values in the *namespaces* field.<br>*Exclude*: Collects data from all namespaces except for the values in the *namespaces* field.<br>*Off*: Ignores any *namespace* selections and collect data on all namespaces.
-| Namespace filtering<br>CLI: `namespaces`<br>ARM: `namespacesForDataCollection` | Array of comma separated Kubernetes namespaces to collect inventory and perf data based on the _namespaceFilteringMode_.<br>For example, *namespaces = \["kube-system", "default"]* with an _Include_ setting collects only these two namespaces. With an _Exclude_ setting, the agent collects data from all other namespaces except for _kube-system_ and _default_. With an _Off_ setting, the agent collects data from all namespaces including _kube-system_ and _default_. Invalid and unrecognized namespaces are ignored. |
+| Namespace filtering<br>CLI: `namespaces`<br>ARM: `namespacesForDataCollection` | Array of comma separated Kubernetes namespaces to collect inventory and perf data based on the _namespaceFilteringMode_.<br>For example, *namespaces = ["kube-system", "default"]* with an _Include_ setting collects only these two namespaces. With an _Exclude_ setting, the agent collects data from all other namespaces except for _kube-system_ and _default_. With an _Off_ setting, the agent collects data from all namespaces including _kube-system_ and _default_. Invalid and unrecognized namespaces are ignored. |
 | Enable ContainerLogV2<br>CLI: `enableContainerLogV2`<br>ARM: `enableContainerLogV2` | Boolean flag to enable ContainerLogV2 schema. If set to true, the stdout/stderr Logs are ingested to [ContainerLogV2](container-insights-logs-schema.md) table. If not, the container logs are ingested to **ContainerLog** table, unless otherwise specified in the ConfigMap. When specifying the individual streams, you must include the corresponding table for ContainerLog or ContainerLogV2. |
 | Collected Data<br>CLI: `streams`<br>ARM: `streams` | An array of container insights table streams. See the supported streams above to table mapping. |
 

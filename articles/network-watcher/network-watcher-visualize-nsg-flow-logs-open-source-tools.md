@@ -30,7 +30,7 @@ In this article, we set up a solution that allows you to visualize Network Secur
 
 ### Enable Network Security Group flow logging
 
-For this scenario, you must have Network Security Group Flow Logging enabled on at least one Network Security Group in your account. For instructions on enabling Network Security Flow Logs, see the following article [Introduction to flow logging for Network Security Groups](network-watcher-nsg-flow-logging-overview.md).
+For this scenario, you must have Network Security Group Flow Logging enabled on at least one Network Security Group in your account. For instructions on enabling Network Security Flow Logs, see the following article [Introduction to flow logging for Network Security Groups](nsg-flow-logs-overview.md).
 
 ### Set up the Elastic Stack
 
