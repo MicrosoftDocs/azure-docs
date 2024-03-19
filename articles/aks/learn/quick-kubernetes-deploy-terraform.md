@@ -45,8 +45,6 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 * Create an AzAPI resource [azapi_resource](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_resource).
 * Create an AzAPI resource to generate an SSH key pair using [azapi_resource_action](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_resource_action).
 
----
-
 ## Login to your Azure account
 
 First, log into your Azure account and authenticate using one of the methods described in the following section.
@@ -54,8 +52,6 @@ First, log into your Azure account and authenticate using one of the methods des
 [!INCLUDE [authenticate-to-azure.md](~/azure-dev-docs-pr/articles/terraform/includes/authenticate-to-azure.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
-
----
 
 ## Implement the Terraform code
 
@@ -482,7 +478,7 @@ When the application runs, a Kubernetes service exposes the application front en
 
 ## Clone the Azure Developer CLI template
 
-The Azure Developer CLI allows you to quickly download samples from the **Azure-Samples** repository. In our quickstart, you will download the `aks-store-demo` application. For more information on the general uses cases see the [`azd` overview][azd-overview].
+The Azure Developer CLI allows you to quickly download samples from the **Azure-Samples** repository. In our quickstart, you download the `aks-store-demo` application. For more information on the general uses cases, see the [`azd` overview][azd-overview].
 
 1. Clone the AKS store demo template from the **Azure-Samples** repository using the [`azd init`][azd-init] command with the `--template` parameter.
 
@@ -514,7 +510,7 @@ The `azd` template contains all the code needed to create the services, but you 
     ```
 
     > [!IMPORTANT]
-    > If you're using an out-of-network virtual machine or GitHub Codespace, certain Azure security policies cause conflicts when used to sign in with `azd auth login`. If you run into an issue here, you can follow the azd auth workaround provided below, which involves using a `curl` request to the localhost URL you were redirected to after running [`azd auth login`][az-auth-login].
+    > If you're using an out-of-network virtual machine or GitHub Codespace, certain Azure security policies cause conflicts when used to sign in with `azd auth login`. If you run into an issue here, you can follow the azd auth workaround provided, which involves using a `curl` request to the localhost URL you were redirected to after running [`azd auth login`][az-auth-login].
 
 3. Authenticate with your credentials on your organization's sign in page.
 4. Confirm that it's you trying to connect from the Azure CLI.
@@ -545,7 +541,7 @@ To deploy the application, you use the `azd up` command to create all the object
 
 ### Deploy application resources
 
-The `azd` template for this quickstart creates a new resource group with an AKS cluster and an Azure Key Vault. The key vault stores client secrets and runs the services in the `pets` namespace
+The `azd` template for this quickstart creates a new resource group with an AKS cluster and an Azure Key Vault. The key vault stores client secrets and runs the services in the `pets` namespace.
 
 1. Create all the application resources using the [`azd up`][azd-up] command.
 
@@ -577,7 +573,7 @@ The `azd` template for this quickstart creates a new resource group with an AKS 
       6.  (US) South Central US (southcentralus)
     ```
 
-    `azd` automatically runs the preprovisioning and postprovisioning commands to create the resources for your application. This process can take a few minutes to complete. Once complete, you should see an output similar to the following example:
+    `azd` automatically runs the preprovision and postprovision hooks to create the resources for your application. This process can take a few minutes to complete. Once complete, you should see an output similar to the following example:
 
     ```output
     SUCCESS: Your workflow to provision and deploy to Azure completed in 9 minutes 40 seconds.
@@ -656,7 +652,7 @@ Once you're finished with the quickstart, clean up unnecessary resources to avoi
 3. Allow purge to reuse the quickstart variables if applicable by typing `y` and pressing `Enter`.
 
     ```output
-    [Warning]: These resources have soft delete enabled allowing them to be recovered for a period or time after deletion. During this period, their names may not be reused. In the future, you can use the argument --purge to skip this confirmation.
+    [Warning]: These resources have soft delete enabled allowing them to be recovered for a period or time after deletion. During this period, their names can't be reused. In the future, you can use the argument --purge to skip this confirmation.
     ```
 
 :::zone-end
@@ -687,7 +683,6 @@ To learn more about AKS and walk through a complete code-to-deployment example, 
 [aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
 [baseline-reference-architecture]: /azure/architecture/reference-architectures/containers/aks/baseline-aks?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
 [azd-install]: /azure/developer/azure-developer-cli/install-azd
-[azd-up]: /azure/developer/azure-developer-cli/reference#azd-up
 [azd-init]: /azure/developer/azure-developer-cli/reference#azd-init
 [azd-up]: /azure/developer/azure-developer-cli/reference#azd-up
 [az-auth-login]: /azure/developer/azure-developer-cli/reference#azd-auth-login
