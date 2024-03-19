@@ -6618,6 +6618,16 @@
             "source_path_from_root": "/articles/azure-monitor/insights/resource-group-insights.md",
             "redirect_url": "/azure/azure-resource-manager/management/resource-group-insights",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/data-collection-endpoint-sample.md",
+            "redirect_url": "/azure/azure-monitor/essentials/data-collection-endpoint-overview#sample-data-collection-endpoint",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/data-collection.md",
+            "redirect_url": "/azure/azure-monitor/essentials/data-collection-rules",
+            "redirect_document_id": false
         }
     ]
 }

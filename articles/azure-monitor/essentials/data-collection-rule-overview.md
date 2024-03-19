@@ -4,7 +4,7 @@ description: Overview of data collection rules (DCRs) in Azure Monitor including
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/15/2023
+ms.date: 03/18/2024
 ms.reviewer: nikeist
 ms.custom: references_regions
 ---
@@ -97,8 +97,6 @@ The diagram below shows data collection for the [Logs ingestion API](../logs/log
 :::image type="content" source="media/data-collection-transformations/transformation-data-ingestion-api.png" lightbox="media/data-collection-transformations/transformation-data-ingestion-api.png" alt-text="Diagram showing data collection for custom application using logs ingestion API." border="false":::
 
 See [Logs ingestion API in Azure Monitor (Preview)](../logs/logs-ingestion-api-overview.md) for details on the Logs ingestion API.
-
-
 
 
 
