@@ -17,6 +17,9 @@ The Azure Managed Instance for Apache Cassandra service requires certain network
 
 ## Virtual network service tags
 
+> [!TIP]
+> If you use [VPN](use-vpn.md) then you don't need to open any other connection.
+
 If you're using Azure Firewall to restrict outbound access, we highly recommend using [virtual network service tags](../virtual-network/service-tags-overview.md). Below are the tags required to make Azure SQL Managed Instance for Apache Cassandra function properly.
 
 | Destination Service Tag                                                             | Protocol | Port    | Use  |
@@ -86,3 +89,4 @@ In this article, you learned about network rules to properly manage the service.
 
 * [Overview of Azure SQL Managed Instance for Apache Cassandra](introduction.md)
 * [Manage Azure SQL Managed Instance for Apache Cassandra resources using Azure CLI](manage-resources-cli.md)
+* [Use a VPN with Azure Managed Instance for Apache Cassandra](use-vpn.md)
