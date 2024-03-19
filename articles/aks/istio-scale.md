@@ -86,7 +86,7 @@ The sidecar Envoy proxy collects raw telemetry data after responding to a client
 
 The following evaluates the impact of adding sidecar proxies to the data path, showcasing the P90 and P99 latency.
 
-| | |
+| Azure CNI Overlay |Azure CNI Overlay with Cilium |
 :-------------------------:|:-------------------------:
 [ ![Diagram that compares P99 latency for Azure CNI Overlay.](./media/aks-istio-addon/latency-box-plot/overlay-azure_p99.png) ](./media/aks-istio-addon/latency-box-plot/overlay-azure_p99.png#lightbox) |  [ ![Diagram that compares P90 latency for Azure CNI Overlay with Cilium.](./media/aks-istio-addon/latency-box-plot/overlay-cilium_p99.png) ](./media/aks-istio-addon/latency-box-plot/overlay-cilium_p99.png#lightbox)
 [ ![Diagram that compares P90 latency for Azure CNI Overlay.](./media/aks-istio-addon/latency-box-plot/overlay-azure_p90.png) ](./media/aks-istio-addon/latency-box-plot/overlay-azure_p90.png#lightbox)  |  [ ![Diagram that compares P90 latency for Azure CNI Overlay with Cilium.](./media/aks-istio-addon/latency-box-plot/overlay-cilium_p90.png) ](./media/aks-istio-addon/latency-box-plot/overlay-cilium_p90.png#lightbox)
