@@ -11,7 +11,7 @@ ms.custom: devx-track-azurecli
 ---
 # Onboard a Containerized Network Function (CNF) to Azure Operator Service Manager (AOSM)
 
-In this how-to guide, Network Function Publishers and Service Designers learn how to use the Azure CLI extension to onboard a containerized network function to AOSM. The CNF can subsequently be deployed onto an Azure Arc-connected Kubernetes Cluster, including a Azure Operator Nexus cluster.
+In this how-to guide, Network Function Publishers and Service Designers learn how to use the Azure CLI AOSM extension to onboard a containerized network function to AOSM. The CNF can subsequently be deployed onto an Azure Arc-connected Kubernetes Cluster, including an Azure Operator Nexus cluster.
 
 Onboarding is a multi-step process. Once you meet the prerequisites, you'll use the Azure CLI AOSM extension to:
 
