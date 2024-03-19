@@ -26,7 +26,7 @@ This article describes how to set up continuous export to a Log Analytics worksp
 Required roles and permissions:
 - Security Admin or Owner for the resource group
 - Write permissions for the target resource.
-- If you use the [Azure Policy DeployIfNotExist policies](#set-up-continuous-export-at-scale-by-using-provided-policies), you must have permissions that let you assign policies.
+- If you use the [Azure Policy DeployIfNotExist policies](continuous-export-azure-policy.md), you must have permissions that let you assign policies.
 - To export data to Event Hubs, you must have Write permissions on the Event Hubs policy.
 - To export to a Log Analytics workspace: 
     - If it *has the SecurityCenterFree solution*, you must have a minimum of Read permissions for the workspace solution: `Microsoft.OperationsManagement/solutions/read`.
@@ -71,7 +71,7 @@ You can set up continuous export on the Microsoft Defender for Cloud pages in th
 
 1. Under **Export target**, choose where you'd like the data saved. Data can be saved in a target of a different subscription (for example, in a central Event Hubs instance or in a central Log Analytics workspace).
 
-    You can also send the data to an [event hub or Log Analytics workspace in a different tenant](#export-data-to-an-event-hub-or-log-analytics-workspace-in-another-tenant).
+    You can also send the data to an [event hub or Log Analytics workspace in a different tenant](benefits-of-continuous-export.md#export-data-to-an-event-hub-or-log-analytics-workspace-in-another-tenant)
 
 1. Select **Save**.
 

@@ -37,7 +37,7 @@ You can set up and manage continuous export by using the Microsoft Defender for 
 - Log Analytics workspace
 - Azure Logic Apps
 
-You also can send the data to an [event hub or Log Analytics workspace in a different tenant](#export-data-to-an-event-hub-or-log-analytics-workspace-in-another-tenant).
+You also can send the data to an [event hub or Log Analytics workspace in a different tenant](benefits-of-continuous-export.md#export-data-to-an-event-hub-or-log-analytics-workspace-in-another-tenant).
 
 Here are some examples of options that you can use only in the API:
 
