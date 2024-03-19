@@ -108,6 +108,16 @@ Set-AzApplicationGatewayFirewallPolicy -InputObject $plcy
 
 You can you Azure CLI to return the current values for these fields from your Azure policy settings and update the fields to the desired values using [these commands](/cli/azure/network/application-gateway/waf-policy/policy-setting).
 
+```azurecli-interactive
+az network application-gateway waf-policy update --name <WAF Policy name> --resource-group <WAF policy RG> --set policySettings.request_body_inspect_limit_in_kb='2000' policySettings.max_request_body_size_in_kb='2000' policySettings.file_upload_limit_in_mb='3500' --query policySettings -o table
+```
+
+**Output:**
+```azurecli-interactive
+FileUploadEnforcement    FileUploadLimitInMb    MaxRequestBodySizeInKb    Mode       RequestBodyCheck    RequestBodyEnforcement    RequestBodyInspectLimitInKB    State
+-----------------------  ---------------------  ------------------------  ---------  ------------------  ------------------------  -----------------------------  -------
+True                     3500                   2000                      Detection  True                True                      2000                           Enabled
+```
 
 ## Next steps
 
