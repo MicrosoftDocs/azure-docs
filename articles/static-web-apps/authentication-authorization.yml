@@ -15,8 +15,8 @@ title: |
   Authenticate and authorize Static Web Apps
 introduction: |
   > [!WARNING]
-  > Due to changes in X(formerly Twitter) API policy we can’t continue to support it as part of the pre-configured providers for your app.
-  > If you want to continue to use X(formerly Twitter) for authentication/authorization with your app, update your app configuration to [register a custom provider](./authentication-custom.md).
+  > Due to changes in X (formerly Twitter) API policy we can’t continue to support it as part of the pre-configured providers for your app.
+  > If you want to continue to use X (formerly Twitter) for authentication/authorization with your app, update your app configuration to [register a custom provider](./authentication-custom.md).
 
 
   Azure Static Web Apps provides a streamlined authentication experience, where no other actions or configurations are required to use GitHub and Microsoft Entra ID for authentication.
