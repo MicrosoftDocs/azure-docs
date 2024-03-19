@@ -65,11 +65,11 @@ Before you can set up managed identity for Azure Front Door, you must have an Az
     
     1. Search and select the user assigned manage identity. Then select **Add** to add the user managed identity to the Azure CDN profile.
     
-        :::image type="content" source="./media/managed-identity/add-user-managed-identity.png" alt-text="Screenshot of the add user assigned managed identity page.":::
+        :::image type="content" source="./media/managed-identity/add-user-managed-identity.png" alt-text="Screenshot of the add a user assigned managed identity page.":::
     
     1. You see the name of the user assigned managed identity you selected show in the Azure CDN profile.
     
-        :::image type="content" source="./media/managed-identity/user-assigned-configured.png" alt-text="Screenshot of the add user assigned managed identity added to Front Door profile.":::
+        :::image type="content" source="./media/managed-identity/user-assigned-configured.png" alt-text="Screenshot of the add a user assigned managed identity added to an Azure CDN profile.":::
 
 ## Configure Key Vault access policy
 
@@ -77,7 +77,7 @@ Before you can set up managed identity for Azure Front Door, you must have an Az
 
     :::image type="content" source="./media/managed-identity/access-policies.png" alt-text="Screenshot of the access policies page for a Key Vault.":::
 
-1. On the **Permissions** tab of the *Create an access policy* page, select **List** and **Get** under *Secret permissions*. Then select **Next** to configure the principal tab.
+1. On the **Permissions** tab of the *Create an access policy* page, select **List** and **Get** for *Secret permissions*. Then select **Next** to configure the principal tab.
 
     :::image type="content" source="./media/managed-identity/permissions.png" alt-text="Screenshot of the permissions tab for the Key Vault access policy.":::
 
