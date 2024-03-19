@@ -14,11 +14,7 @@ ms.reviewer: rosouz
 
 Azure Cosmos DB reserved capacity helps you save money by committing to a reservation for Azure Cosmos DB resources for either one year or three years. With Azure Cosmos DB reserved capacity, you can get a discount on the throughput provisioned for Azure Cosmos DB resources. Examples of resources are databases and containers (tables, collections, and graphs).
 
-You can buy Azure Cosmos DB reserved capacity from the [Azure portal](https://portal.azure.com). Pay for the reservation [upfront or with monthly payments](../cost-management-billing/reservations/prepare-buy-reservation.md). To buy reserved capacity:
-
-* You must be in the Owner role for at least one Enterprise or individual  subscription with pay-as-you-go rates.  
-* For Enterprise subscriptions, **Add Reserved Instances** must be enabled in the [EA portal](https://ea.azure.com). Or, if that setting is disabled, you must be an EA Admin on the subscription.
-* For the Cloud Solution Provider (CSP) program, only admin agents or sales agents can buy Azure Cosmos DB reserved capacity.
+You can buy Azure Cosmos DB reserved capacity from the [Azure portal](https://portal.azure.com). Pay for the reservation [upfront or with monthly payments](../cost-management-billing/reservations/prepare-buy-reservation.md). 
 
 ## Overview
 
@@ -28,12 +24,24 @@ In this example, any provisioned throughput above 10,000 RU/s will be billed usi
 
 Please note that:
  * There is no limit to the number of reservations.
- * You don't need to purchase all reservations in the same day.
+ * You don't need to purchase all reservations in the same day. You can buy more reservations at any moment
  * You can combine different reservations in the same purchase.
+
+After you buy a reservation, it's applied immediately to any existing Azure Cosmos DB resources that match the terms of the reservation. If you don’t have any existing Azure Cosmos DB resources, the reservation will apply when you deploy a new Azure Cosmos DB instance that matches the terms of the reservation. In both cases, the period of the reservation starts immediately after a successful purchase.
+
+When your reservation expires, your Azure Cosmos DB instances continue to run and are billed at the regular pay-as-you-go rates.
+
+## Required permissions
+
+The required permissions to purchase reserved capacity for Azure Cosmos DB are:
+
+* You must be in the Owner role for at least one Enterprise or individual  subscription with pay-as-you-go rates.  
+* For Enterprise subscriptions, **Add Reserved Instances** must be enabled in the [EA portal](https://ea.azure.com). Or, if that setting is disabled, you must be an EA Admin on the subscription.
+* For the Cloud Solution Provider (CSP) program, only admin agents or sales agents can buy Azure Cosmos DB reserved capacity.
 
 ## Reservations usage
 
-Azure Cosmos DB reserved capacity covers throughput provisioned for your resources. It doesn't cover the storage and networking charges. As soon as you buy a reservation, the throughput charges that match the reservation attributes are no longer charged at the pay-as-you go rates. For more information on reservations, see the [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) article.
+As soon as you buy a reservation, the throughput charges that match the reservation attributes are no longer charged at the pay-as-you go rates. For more information on reservations, see the [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) article.
 
 ### Autoscale provisioned throughput
 
@@ -114,7 +122,7 @@ Please [create a support request](https://portal.azure.com/#blade/Microsoft_Azur
 
 ## Sample Scenario 1
 
-Imagine this hypothetical scenario: A company is working in a new application but isn't sure about the requirements.
+Imagine this hypothetical scenario: A company is working ón a new application but isn't sure about the throughput requirements.
 
 * On day 1 they purchased reserved capacity for their DEV/Test environment:
   * Total of 800 RU/s, or 8 units of the 100 RU/s SKU. 
@@ -198,11 +206,7 @@ For a 30,000 RU/s reservation, in standard provisioned throughput, you should bu
 
    :::image type="content" source="./media/reserved-capacity/reserved-capacity-summary.png" alt-text="Reserved capacity summary":::
 
-8. Select **Review + buy** and then **buy now**. You see the following page when the purchase is successful:
-
-After you buy a reservation, it's applied immediately to any existing Azure Cosmos DB resources that match the terms of the reservation. If you don’t have any existing Azure Cosmos DB resources, the reservation will apply when you deploy a new Azure Cosmos DB instance that matches the terms of the reservation. In both cases, the period of the reservation starts immediately after a successful purchase.
-
-When your reservation expires, your Azure Cosmos DB instances continue to run and are billed at the regular pay-as-you-go rates.
+8. Select **Review + buy** and then **buy now**.
 
 ## Cancel, exchange, or refund reservations
 
