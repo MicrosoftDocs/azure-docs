@@ -20,7 +20,7 @@ You can buy Azure Cosmos DB reserved capacity from the [Azure portal](https://po
 
 The size of the reserved capacity purchase should be based on the total amount of throughput that the existing or soon-to-be-deployed Azure Cosmos DB resources will use on an hourly basis. For example: Purchase 10,000 RU/s reserved capacity if that's your consistent hourly usage pattern. 
 
-In this example, any provisioned throughput above 10,000 RU/s will be billed using your Pay-as-you-go rate. If the provisioned throughput is below 10,000 RU/s in an hour, then the extra reserved capacity for that hour will be wasted.
+In this example, any provisioned throughput above 10,000 RU/s will be billed using your pay-as-you-go rate. If the provisioned throughput is below 10,000 RU/s in an hour, then the extra reserved capacity for that hour will be wasted.
 
 Please note that:
  * There is no limit to the number of reservations.
@@ -115,7 +115,7 @@ You can maximize savings with the biggest reservation for your scenario. Example
 
 Please [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) to purchase any quantity of the reservations bigger than 1,000,000 RU/s.
 
-## Sample Scenario 1
+## Sample scenario 1
 
 Imagine this hypothetical scenario: A company is working on a new application but isn't sure about the throughput requirements.
 
@@ -135,7 +135,7 @@ Imagine this hypothetical scenario: A company is working on a new application bu
   * Three-years term, to maximize the discounts.
   * Paid Monthly.
 
-## Sample Scenario 2
+## Sample scenario 2
 
 Imagine this hypothetical scenario: A company needs a 10,950,000 three-years reservation. In the same purchase they got:
 
@@ -228,7 +228,7 @@ The reservation discount is applied automatically to the Azure Cosmos DB resourc
    * [What are Azure reservations?](../cost-management-billing/reservations/save-compute-costs-reservations.md)  
    * [Manage Azure reservations](../cost-management-billing/reservations/manage-reserved-vm-instance.md)  
    * [Understand reservation usage for your Enterprise enrollment](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)  
-   * [Understand reservation usage for your Pay-As-You-Go subscription](../cost-management-billing/reservations/understand-reserved-instance-usage.md)
+   * [Understand reservation usage for your pay-as-you-go subscription](../cost-management-billing/reservations/understand-reserved-instance-usage.md)
    * [Azure reservations in the Partner Center CSP program](/partner-center/azure-reservations)
 
 Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
