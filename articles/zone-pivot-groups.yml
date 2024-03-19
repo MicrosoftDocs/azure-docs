@@ -1712,16 +1712,16 @@ groups:
     title: JavaScript
   - id: programming-language-python
     title: Python
-- id: acs-azcli-azp-azpnew-java-net-python-csharp-js
+- id: acs-azp-azpnew-azcli-java-csharp-js-python
   title: Platform
   prompt: Choose a platform
   pivots:
-  - id: platform-azcli
-    title: Azure CLI
   - id: platform-azp
     title: Azure portal
   - id: platform-azp-new
     title: Azure portal (new)
+  - id: platform-azcli
+    title: Azure CLI
   - id: programming-language-java
     title: Java
   - id: programming-language-csharp
@@ -2003,7 +2003,11 @@ groups:
   prompt: Choose your preferred usage method
   pivots:
   - id: programming-language-studio
-    title: Studio (DALL-E 3)
+    title: Studio 
+  - id: rest-api
+    title: REST 
+  - id: programming-language-python
+    title: Python 
   - id: programming-language-csharp
     title: C#
   - id: programming-language-java
@@ -2012,12 +2016,9 @@ groups:
     title: JavaScript
   - id: programming-language-go
     title: Go
-  - id: programming-language-python
-    title: Python (DALL-E 3)
   - id: programming-language-powershell
     title: PowerShell
-  - id: rest-api
-    title: REST (DALL-E 3)
+
 # Owner: pafarley
 - id: openai-quickstart-gpt-v
   title: Programming languages
