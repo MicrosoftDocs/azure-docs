@@ -68,6 +68,7 @@ Cosmos DB portal services are transitioning to new infrastructure in 2024. As pa
 ##### Azure China
 
 |Database Account API|IP addresses|
+|--------------------|------------|
 |All|XX.XX.XX.XX|
 |MongoDB only|52.131.240.99, 143.64.61.130|
 |Apache Cassandra only|40.73.99.146, 143.64.62.47|
@@ -75,6 +76,7 @@ Cosmos DB portal services are transitioning to new infrastructure in 2024. As pa
 ##### Azure US Gov
 
 |Database Account API|IP addresses|
+|--------------------|------------|
 |All|XX.XX.XX.XX|
 |MongoDB only|52.244.176.112, 52.247.148.42|
 |Apache Cassandra only|52.244.50.101, 52.227.165.24|
