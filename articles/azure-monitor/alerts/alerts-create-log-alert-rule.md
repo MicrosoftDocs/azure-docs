@@ -8,16 +8,6 @@ ms.date: 02/28/2024
 ms.reviewer: nolavime
 ---
 
----
-title: Create Azure Monitor log search alert rules
-description: This article shows you how to create a new log search alert rule.
-author: AbbyMSFT
-ms.author: abbyweisberg
-ms.topic: how-to
-ms.date: 02/28/2024
-ms.reviewer: nolavime
----
-
 # Create or edit a log search alert rule
 
 This article shows you how to create a new log search alert rule or edit an existing log search alert rule. To learn more about alerts, see the [alerts overview](alerts-overview.md).
