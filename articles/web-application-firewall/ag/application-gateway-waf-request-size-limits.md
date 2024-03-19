@@ -45,7 +45,7 @@ When your Web Application Firewall receives a request that's over the size limit
 - When your Web Application Firewall policy is in prevention mode, Web Application Firewall logs and blocks requests and file uploads that are over the size limits.
 - When your Web Application Firewall policy is in detection mode, Web Application Firewall inspects the body up to the limit specified and ignores the rest. If the `Content-Length` header is present and is greater than the file upload limit, Web Application Firewall ignores the entire body and logs the request.
 
-## Trouble Shooting
+## Troubleshooting
 
 If you're an Application Gateway v2 Web Application Firewall customer running Core Rule Set 3.2 or later and you have issues with requests, or file uploads, getting rejected incorrectly for maximum size, or if you see requests not getting inspected fully, you may need to verify that all values are set correctly. Using PowerShell or the Azure Command Line Interface you can verify what each value is set to, and update any values as needed. 
 
@@ -104,9 +104,9 @@ Set-AzApplicationGatewayFirewallPolicy -InputObject $plcy
 - [Policy Settings Class](/dotnet/api/microsoft.azure.commands.network.models.psapplicationgatewayfirewallpolicysettings)
 - [New Policy Settings](/powershell/module/az.network/new-azapplicationgatewayfirewallpolicysetting)
 
-### Command Line Interface
+### Command line interface
 
-You can you Azure CLI to return the current values for these fields from your Azure policy settings and update the fields to the desired values using [these commands](/cli/azure/network/application-gateway/waf-policy/policy-setting).
+You can use Azure CLI to return the current values for these fields from your Azure policy settings and update the fields to the desired values using [these commands](/cli/azure/network/application-gateway/waf-policy/policy-setting).
 
 ```azurecli-interactive
 az network application-gateway waf-policy update --name <WAF Policy name> --resource-group <WAF policy RG> --set policySettings.request_body_inspect_limit_in_kb='2000' policySettings.max_request_body_size_in_kb='2000' policySettings.file_upload_limit_in_mb='3500' --query policySettings -o table
