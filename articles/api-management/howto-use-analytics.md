@@ -5,25 +5,27 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 03/14/2024
+ms.date: 03/18/2024
 ms.author: danlep
 ---
+
 # Get API analytics in Azure API Management
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
 
 Azure API Management provides built-in analytics for your APIs so that you can analyze their usage and performance. Use analytics for high-level monitoring and troubleshooting of your APIs. For other monitoring features, including near real-time metrics and resource logs for diagnostics and auditing, see [Tutorial: Monitor published APIs](api-management-howto-use-azure-monitor.md).
 
 :::image type="content" source="media/howto-use-analytics/analytics-report-portal.png" alt-text="Screenshot of API analytics in the portal." lightbox="media/howto-use-analytics/analytics-report-portal.png":::
 
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## About API analytics
 
-API Management provides analytics using an [Azure workbook](../azure-monitor/visualize/workbooks-overview.md) based on data in an Azure Log Analytics workspace. 
+* API Management provides analytics using an [Azure workbook](../azure-monitor/visualize/workbooks-overview.md) based on data in an Azure Log Analytics workspace. 
 
-Your API Management instance also includes an analytics dashboard in the Azure portal, and analytics data can be accessed using the API Management REST API. Equivalent data is shown in the analytics workbook and dashboard.
+* Your API Management instance also includes an *analytics dashboard* in the Azure portal, and analytics data can be accessed using the API Management REST API. Equivalent data is shown in the analytics workbook and dashboard.
 
 > [!IMPORTANT]
-> The Azure workbook is the recommended way to access analytics data. Support for the analytics dashboard is deprecated and will be removed in a future release. [Learn more](./breaking-changes/overview.md). 
+> The Azure workbook is the recommended way to access analytics data. The analytics dashboard is deprecated. 
 
 With API analytics, analyze the usage and performance of the APIs in your API Management instance across several dimensions, including:
 
@@ -57,11 +59,7 @@ To use the Azure API Management Analytics workbook, you need to configure a Log 
 After a Log Analytics workspace is configured, access the Azure API Management Analytics workbook to analyze the usage and performance of your APIs.
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
-1. In the left-hand menu, under **Monitoring**, select **Workbooks** > **All**.
-1. Under **Azure API Management Analytics**, select **Analytics Overview**.
-    
-    :::image type="content" source="media/howto-use-analytics/workbook-analytics-overview.png" alt-text="Screenshot showing Azure API Management Analytics workbook in the portal" lightbox="media/howto-use-analytics/workbook-analytics-overview.png":::
-
+1. In the left-hand menu, under **Monitoring**, select **Insights**. The workbook with analytics data opens.
 1. Select a time range for data.
 1. Select a report category for analytics data, such as **Timeline**, **Geography**, and so on.
 
