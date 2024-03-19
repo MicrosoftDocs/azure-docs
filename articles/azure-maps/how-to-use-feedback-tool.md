@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Provide data feedback to Azure Maps
 
-Available since 2018, Azure Maps has been providing fresh map data, easy-to-use REST APIs, and powerful SDKs to support enterprise customers with various business use cases. The real world is constantly changing, and it’s crucial to have factual digital representations. The Azure Maps feedback tool exists to empower customers of both Bing and Azure Maps to communicate issues, which are shared with our data providers and their map editors. They can quickly evaluate and incorporate feedback into our mapping products.
+Azure Maps is a set of mapping and geospatial APIs and a Web SDK that enables developers and organizations to build intelligent location-based experiences for applications across many different industries and use cases. While Azure Maps continually updates its underlying map data to ensure the most current and accurate map content possible, the Azure Maps feedback tool is a useful resource for customers to report issues with the map data. The feedback tool empowers both Azure Maps and Bing Maps customers to communicate map data corrections to Microsoft. All suggested map data corrections submitted via the feedback tool are carefully evaluated and promptly addressed.
 
 ## How to access the feedback tool
 
@@ -59,7 +59,7 @@ You can provide feedback on any issue you find in an Azure Maps map using the fe
 
 ### Using the search bar
 
-If the map does not appear in the desired location when bringing up the feedback tool, you can pan the map to the desired location using your mouse. Another option is to use the search bar, just type in the desired location and select the **Enter** key. Once you have selected the desired location, select the **`X`** in the upper right-hand side of the search results view to return to the feedback tool.
+If the map doesn't appear in the desired location when bringing up the feedback tool, you can pan the map to the desired location using your mouse. Another option is to use the search bar, just type in the desired location and select search icon :::image type="icon" source="./media/how-to-use-feedback-tool/search.png"::: or press the **Enter** key. Once done, select the **`X`** in the upper right-hand side of the search results view to return to the feedback tool.
 
 :::image type="content" source="./media/how-to-use-feedback-tool/searchbar.png" lightbox="./media/how-to-use-feedback-tool/searchbar.png" alt-text="A screenshot showing Bing Maps search bar.":::
 
