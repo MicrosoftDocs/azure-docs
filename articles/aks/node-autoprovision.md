@@ -67,8 +67,8 @@ NAP is based on the Open Source [Karpenter](https://karpenter.sh) project, and t
 - The only network configuration allowed is Cilium + Overlay + Azure
 - You can't enable in a cluster where node pools have cluster autoscaler enabled
 ### Unsupported features:
-- Windows and Azure Linux node pools
-- Kubelet configuration through Node pool configuration
+- Windows node pools
+- Applying custom configuration to the node kubelet
 - IPv6 clusters
 - [Service Principals](./kubernetes-service-principal.md)
    > [!NOTE]
@@ -77,7 +77,7 @@ NAP is based on the Open Source [Karpenter](https://karpenter.sh) project, and t
 - CustomCATrustCertificates
 - [Start Stop mode](./start-stop-cluster.md)
 - [HTTP proxy](./http-proxy.md)
-- [OutboundType](./egress-outboundtype.md) mutation (all OutboundTypes are supported, you just cannot change them once created)
+- [OutboundType](./egress-outboundtype.md) mutation. All OutboundTypes are supported, however you can't change them after creation.
 
 ## Enable node autoprovisioning
 
