@@ -16,7 +16,7 @@ ms.custom: subject-relocation
 
 Azure Key Vault doesn't support key vault relocation to another region. 
 
-Instead of relocation, you'll need to:
+Instead of relocation, you need to:
 
 - Create a new key vault with the relocation of the associated Azure services. 
 - Regenerate any required [keys](/azure/key-vault/keys/about-keys), [secrets](/azure/key-vault/secrets/about-secrets), or [certificates](/azure/key-vault/certificates/about-certificates). In some cases, you may need to transfer the secrets or certificates from your existing key vault to the relocated key vault.
@@ -24,8 +24,6 @@ Instead of relocation, you'll need to:
 ![Diagram showing Azure Key vault relocation pattern](./media/key-vault/akv_relocation_pattern.png)
 
 ## Prerequisites
-
-Here are some considerations and checks which need to be performed as prerequisites:
 
 - Verify that your Azure subscription allows you to create Key Vaults in the target region. To enable the required quota, contact support.
 - Create a dependency map with all the Azure services used by the Key Vault. For the services that are in scope of the relocation, you must elect the appropriate relocation strategy. 
@@ -42,11 +40,10 @@ Here are some considerations and checks which need to be performed as prerequisi
 
 ## Consideration for Service Endpoints
 
-The virtual network service endpoints for Azure Key Vault restrict access to a specified virtual network. The endpoints can also restrict access to a list of IPv4 (internet protocol version 4) address ranges. Any user connecting to the Key Vault from outside those sources is denied access. If Service endpoints were configured in the source region for the Key Vault resource, the same would need to be done in the target one. The steps for this scenario are mentioned below:
+The virtual network service endpoints for Azure Key Vault restrict access to a specified virtual network. The endpoints can also restrict access to a list of IPv4 (internet protocol version 4) address ranges. Any user connecting to the Key Vault from outside those sources is denied access. If Service endpoints were configured in the source region for the Key Vault resource, the same would need to be done in the target one. 
 
 For a successful recreation of the Key Vault to the target region, the VNet and Subnet must be created beforehand. In case the move of these two resources is being carried out with the Azure Resource Mover tool, the service endpoints won’t be configured automatically. Hence, they need to be configured manually, which can be done through the [Azure portal](/azure/key-vault/general/quick-create-portal), the [Azure CLI](/azure/key-vault/general/quick-create-cli), or [Azure PowerShell](/azure/key-vault/general/quick-create-powershell).
 
-Also, changes need to be made in the IaC of the Key Vault. In the `networkAcl` section, under _virtualNetworkRules_, add the rule for the target subnet. Ensure that the _ignoreMissingVnetServiceEndpoint_ flag is set to False, so that the IaC fails to deploy the Key Vault in case the service endpoint isn’t configured in the target region. This will ensure that the prerequisites in the target region are met.
 
 ## Consideration for Private Endpoint
 
@@ -122,7 +119,7 @@ Keep in mind the following concepts:
 - Key vault names are globally unique. You can't reuse a vault name.
 - You need to reconfigure your access policies and network configuration settings in the new key vault.
 - You need to reconfigure soft-delete and purge protection in the new key vault.
-- The backup and restore operation won't preserve your autorotation settings. You might need to reconfigure the settings.
+- The backup and restore operation doesn't preserve your autorotation settings. You might need to reconfigure the settings.
 
 ## Modify the template
 
@@ -185,7 +182,7 @@ To deploy the template by using Azure portal:
    }
    ```
 
-10. In case you have configured a service endpoint in your key vault, in the _networkAcl_ section, under _virtualNetworkRules_, add the rule for the target subnet. Ensure that the _ignoreMissingVnetServiceEndpoint_ flag is set to False, so that the IaC fails to deploy the Key Vault in case the service endpoint isn’t configured in the target region. This will ensure that the prerequisites in the target region are met.
+10. In case you configured a service endpoint in your key vault, in the _networkAcl_ section, under _virtualNetworkRules_, add the rule for the target subnet. Ensure that the _ignoreMissingVnetServiceEndpoint_ flag is set to False, so that the IaC fails to deploy the Key Vault in case the service endpoint isn’t configured in the target region. 
 
     _parameter.json_
 
@@ -267,7 +264,7 @@ To deploy the template by using PowerShell:
    }
    ```
 
-4. In case you have configured a service endpoint in your key vault, in the _networkAcl_ section, under _virtualNetworkRules_, add the rule for the target subnet. Ensure that the _ignoreMissingVnetServiceEndpoint_ flag is set to False, so that the IaC fails to deploy the Key Vault in case the service endpoint isn’t configured in the target region. This will ensure that the prerequisites in the target region are met.
+4. In case you have configured a service endpoint in your key vault, in the _networkAcl_ section, under _virtualNetworkRules_, add the rule for the target subnet. Ensure that the _ignoreMissingVnetServiceEndpoint_ flag is set to False, so that the IaC fails to deploy the Key Vault in case the service endpoint isn’t configured in the target region.
 
    _parameter.json_
 
@@ -322,7 +319,7 @@ Deploy the template to create a new key vault in the target region.
 
 3. Select **I agree to the terms and conditions stated above**, and then select **Select Purchase**.
 
-4. Access Policies and Network configuration settings (private endpoints) need to be re-configured in the new Key Vault. Soft delete and purge protection need to be re-configured in the new key vault as well as the _Autorotation settings_.
+4. Access Policies and Network configuration settings (private endpoints) need to be re-configured in the new Key Vault. Soft delete and purge protection need to be re-configured in the new key vault and the _Autorotation settings_.
 
 #### [PowerShell](#tab/azure-powershell)
 
@@ -344,7 +341,7 @@ Deploy the template to create a new key vault in the target region.
 
 ---
 
-3. Access Policies and Network configuration settings (private endpoints) need to be re-configured in the new Key Vault. Soft delete and purge protection need to be re-configured in the new key vault as well as the _Autorotation settings_.
+3. Access Policies and Network configuration settings (private endpoints) need to be re-configured in the new Key Vault. Soft delete and purge protection need to be re-configured in the new key vault and as the _Autorotation settings_.
 
 > [!TIP]
 > If you receive an error which states that the XML specified is not syntactically valid, compare the JSON in your template with the schemas described in the Azure Resource Manager documentation.
