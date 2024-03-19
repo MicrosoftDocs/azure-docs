@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Data Factory
 description: This article contains important reference material you need when you monitor Azure Data Factory.
-ms.date: 02/26/2024
+ms.date: 03/19/2024
 ms.custom: horz-monitor
 ms.topic: reference
 author: jonburchel
