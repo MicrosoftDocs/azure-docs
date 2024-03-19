@@ -325,7 +325,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Cloud Services](../../cloud-services/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Cloud Shell](../../cloud-shell/overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
-| [Cognitive Search](../../search/index.yml) (formerly Azure Search) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Azure AI Search](../../search/index.yml) (formerly Azure Cognitive Search) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure AI services: Computer Vision](../../ai-services/computer-vision/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure AI services: Content Moderator](../../ai-services/content-moderator/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure AI containers](../../ai-services/cognitive-services-container-support.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
