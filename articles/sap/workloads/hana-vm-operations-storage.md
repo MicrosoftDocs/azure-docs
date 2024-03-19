@@ -7,7 +7,7 @@ keywords: 'SAP, Azure HANA, Storage Ultra disk, Premium storage'
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 08/03/2023
+ms.date: 03/18/2024
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -96,6 +96,22 @@ Accumulating multiple Azure disks underneath a stripe set, is accumulative from 
 
 > [!IMPORTANT]
 > In case you're using LVM or mdadm as volume manager to create stripe sets across multiple Azure premium disks, the three SAP HANA FileSystems /data, /log and /shared must not be put in a default or root volume group. It's highly recommended to follow the Linux Vendors guidance which is typically to create individual Volume Groups for /data, /log and /shared.
+
+## Considerations for the HANA shared file system
+
+When sizing the HANA file systems the spotlight is on the data and log file HANA systems. Yet, appropriately sizing **/hana/shared** also plays an important role in operating a stable HANA system, especially when deployed in HA configuration.  
+If undersized, **/hana/shared** could become I/O saturated or latency can increase. For example: writing a large dump, or intensive tracing, HANA backup location left pointing to /hana/shared could exceed the available throughput / IOps. 
+
+If the HANA system is in HA configuration, a slow response from the shared file system, i.e. **/hana/shared** could result in cluster resources timeouts, which in turn may lead to unnecessary failovers, as the HANA resource agents erroneously assume the database is not available.    
+
+The SAP guidelines for **/hana/shared**  for recommended recommended sizes would look like:
+
+| Volume | Recommended Size | 
+| --- | --- |
+| /hana/shared scale-up | Min(1 TB, 1 x RAM) |
+| /hana/shared scale-out | 1 x RAM of worker node<br /> per four worker nodes  |
+
+In addition to the documented guidelines, when sizing **/hana/shared** ensure that there is enough bandwidth to absorb the above described operations.    
 
 
 ## Azure Premium Storage v1 configurations for HANA
