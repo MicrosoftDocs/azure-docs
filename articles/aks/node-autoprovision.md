@@ -64,9 +64,12 @@ NAP is based on the Open Source [Karpenter](https://karpenter.sh) project, and t
     ```
 
 ## Limitations
+
 - The only network configuration allowed is Cilium + Overlay + Azure
 - You can't enable in a cluster where node pools have cluster autoscaler enabled
+
 ### Unsupported features:
+
 - Windows node pools
 - Applying custom configuration to the node kubelet
 - IPv6 clusters
