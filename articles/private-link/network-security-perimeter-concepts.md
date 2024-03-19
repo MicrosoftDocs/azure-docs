@@ -71,8 +71,10 @@ When creating a network security perimeter, you can specify the following proper
 
 Administrators add PaaS resources to a perimeter by creating resource associations when creating a network security perimeter. These association offer different access modes for PaaS resources within a perimeter. The access modes are:
 
-- **Learning mode**: In learning mode, network security perimeter logs all traffic that would have been denied if the perimeter was in enforced mode. This allows network administrators to understand the existing access patterns of their PaaS services. Learning mode is the default mode when a PaaS resource is added to a perimeter, and is useful for migrating existing PaaS services to network security perimeter.
-- **Enforced mode**: In enforced mode, network security perimeter logs and denies all traffic that isn't explicitly allowed by access rules. Network administrators can shift to enforced mode once they're sure of the expected access patterns of their PaaS services.
+| **Mode** | **Description** |
+|----------------|--------|
+| **Learning mode**  | In *learning* mode, network security perimeter logs all traffic that would have been denied if the perimeter was in enforced mode. This allows network administrators to understand the existing access patterns of their PaaS services before implementing enforcement of access rules. |
+| **Enforced mode**  | In *enforced* mode, network security perimeter logs and denies all traffic that isn't explicitly allowed by access rules. This ensures that the resource will continue to be secured by the perimeter even if its configuration is modified. |
 
 Learn more on transitioning from learning mode to enforced mode in [transitioning to a network security perimeter](network-security-perimeter-transitioning.md) article.
 
@@ -142,7 +144,7 @@ Limitation/Issue 	Comments
   
 | Limitation/Issue | Description |
 |-----------------|-------------|
-| **Network security perimeter configuration changes are not re-evaluated on active connections previously approved.** | Existing connections may not be interrupted when you remove a security rule that allowed the connection. Modifying network security perimeter rules will only affect new connections. </br>When a new rule is created or an existing rule is updated in a network security perimeter, it will only apply to new connections. Existing connections aren't reevaluated with the new rules. |
+| **Network security perimeter configuration changes are not re-evaluated on active connections previously approved.** | Existing connections won't be interrupted when you remove a security rule that allowed the connection. Modifying network security perimeter rules will only affect new connections. </br>When a new rule is created or an existing rule is updated in a network security perimeter, it will only apply to new connections. Existing connections aren't reevaluated with the new rules. |
 | **Network security perimeter restrictions on control plane operations over ARM** | Enforcement is planned with Azure Resource Manager integration with network security perimeter. |
 | **Data plane restrictions on resources with deployments inside customers network with Vnet Integration** | Enforced by virtual network controls like Network Security Groups, Application Security Groups, User-defined Routes, Azure Firewall, and network virtual appliances. |
 | **Network security perimeter resources generating logs will not produce additional logs** | When a resource generates a log for network security perimeter access, the corresponding outbound, and inbound access to save the log won't generate other logging, primarily to avoid duplicate, and potentially circular loops of communication. |
