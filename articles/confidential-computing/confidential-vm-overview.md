@@ -85,20 +85,22 @@ Confidential VMs support the following VM sizes:
 - Memory Optimized without local disk: ECasv5-series, ECesv5-series
 - Memory Optimized with local disk: ECadsv5-series, ECedsv5-series
 
- For more information, see the [AMD deployment options](virtual-machine-solutions-amd.md).
 ### OS support
 Confidential VMs support the following OS options:
 
-| Linux                                             | Windows                                          | Windows                       |
-|---------------------------------------------------|--------------------------------------------------|-------------------------------|
-| **Ubuntu**                                        | **Windows 11**                                   | **Windows Server Datacenter** |
-| 20.04 <span class="pill purple">LTS</span> (SEV-SNP Only)        | 22H2 Pro                                         | 2019                          |
-| 22.04 <span class="pill purple">LTS</span>        | 22H2 Pro <span class="pill red">ZH-CN</span>     | 2019 Server Core              |
-|                                                   | 22H2 Pro N                                       |                               |
-| **RHEL**                                          | 22H2 Enterprise                                  | 2022                          |
-| 9.2 <span class="pill purple">Tech Preview (SEV-SNP Only)</span> | 22H2 Enterprise N                                | 2022 Server Core              |
-| 9.3 (SEV-SNP Only)                                | 22H2 Enterprise Multi-session                    | 2022 Azure Edition            |
-|                                                   |                                                  | 2022 Azure Edition Core       |
+| Linux                                                                                    | Windows Client                                   | Windows Server                |
+|------------------------------------------------------------------------------------------|--------------------------------------------------|-------------------------------|
+| **Ubuntu**                                                                               | **Windows 11**                                   | **Windows Server Datacenter** |
+| 20.04 <span class="pill purple">LTS</span> (AMD SEV-SNP Only)                            | 22H2 Pro                                         | 2019 Server Core              |
+| 22.04 <span class="pill purple">LTS</span>                                               | 22H2 Pro <span class="pill red">ZH-CN</span>     |                               |
+|                                                                                          | 22H2 Pro N                                       | 2022 Server Core              |
+| **RHEL**                                                                                 | 22H2 Enterprise                                  | 2022 Azure Edition            |
+| 9.3 <span class="pill purple">(AMD SEV-SNP Only)</span>                                  | 22H2 Enterprise N                                | 2022 Azure Edition Core       |
+| [9.3 <span class="pill purple">Preview (Intel TDX Only)](https://aka.ms/tdx-rhel-93-preview)</span>                       | 22H2 Enterprise Multi-session                    |                               |
+|                                                                                          |                                                  |                               |
+| **SUSE (Tech Preview)**                                                                                 |                                                  |                               |
+| [15 SP5 <span class="pill purple">(Intel TDX, AMD SEV-SNP)](https://aka.ms/cvm-sles-preview)</span>            |                                                  |                               |
+| [15 SP5 for SAP <span class="pill purple">(Intel TDX, AMD SEV-SNP)](https://aka.ms/cvm-sles-preview)</span>    |                                                  |                               |
 
 ### Regions
 

@@ -12,17 +12,17 @@ ms.date: 09/08/2023
 #CustomerIntent: As an OT user, I want process data at the edge so that I can send well-structured, complete, and relevant data to the cloud for storage and analysis.
 ---
 
-# Process data at the edge
+# Process data at the edge with Azure IoT Data Processor Preview pipelines
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
 Industrial assets generate data in many different formats and use various communication protocols. This diversity of data sources, coupled with varying schemas and unit measures, makes it difficult to use and analyze raw industrial data effectively. Furthermore, for compliance, security, and performance reasons, you can’t upload all datasets to the cloud.
 
-To process this data traditionally requires expensive, complex, and time-consuming data engineering. Azure IoT Data Processor (preview) is a configurable data processing service that can manage the complexities and diversity of industrial data. Use Data Processor to make data from disparate sources more understandable, usable, and valuable.
+To process this data traditionally requires expensive, complex, and time-consuming data engineering. Azure IoT Data Processor Preview is a configurable data processing service that can manage the complexities and diversity of industrial data. Use Data Processor to make data from disparate sources more understandable, usable, and valuable.
 
-## What is Azure IoT Data Processor?
+## What is Azure IoT Data Processor Preview?
 
-Azure IoT Data Processor (preview) is a component of Azure IoT Operations Preview. Data Processor lets you aggregate, enrich, normalize, and filter the data from your devices. Data Processor is a pipeline-based data processing engine that lets you process data at the edge before you send it to the other services either at the edge or in the cloud:
+Azure IoT Data Processor Preview is a component of Azure IoT Operations Preview. Data Processor lets you aggregate, enrich, normalize, and filter the data from your devices. Data Processor is a pipeline-based data processing engine that lets you process data at the edge before you send it to the other services either at the edge or in the cloud:
 
 :::image type="content" source="media/azure-iot-operations-architecture.svg" alt-text="Diagram of the Azure IoT Operations architecture that highlights the Data Processor component." lightbox="media/azure-iot-operations-architecture-high-resolution.png" border="false":::
 
@@ -41,6 +41,8 @@ Key Data Processor features include:
 - Ability to process data from various sources and publish the data to various destinations.
 
 - As a data agnostic data processing platform, Data Processor can ingest data in any format, process the data, and then write it out to a destination. To support these capabilities, Data Processor can deserialize and serialize various formats. For example, it can serialize to parquet in order to write files to Microsoft Fabric.
+
+- Automatic and configurable retry policies to handle transient errors when sending data to cloud destinations.
 
 ## What is a pipeline?
 
@@ -64,18 +66,20 @@ Data Processor pipelines can use the following stages:
 | [Source - MQ](howto-configure-datasource-mq.md) | Retrieves data from an MQTT broker. |
 | [Source - HTTP endpoint](howto-configure-datasource-http.md) | Retrieves data from an HTTP endpoint. |
 | [Source - SQL](howto-configure-datasource-sql.md) | Retrieves data from a Microsoft SQL Server database. |
+| [Source - InfluxDB](howto-configure-datasource-influxdb.md) | Retrieves data from an InfluxDB database. |
 | [Filter](howto-configure-filter-stage.md) | Filters data coming through the stage. For example, filter out any message with temperature outside of the `50F-150F` range. |
 | [Transform](howto-configure-transform-stage.md) | Normalizes the structure of the data. For example, change the structure from `{"Name": "Temp", "value": 50}` to `{"temp": 50}`. |
 | [LKV](howto-configure-lkv-stage.md) | Stores selected metric values into an LKV store. For example, store only temperature and humidity measurements into LKV, ignore the rest. A subsequent stage can enrich a message with the stored LKV data. |
 | [Enrich](howto-configure-enrich-stage.md) | Enriches messages with data from the reference data store. For example, add an operator name and lot number from the operations dataset. |
 | [Aggregate](howto-configure-aggregate-stage.md) | Aggregates values passing through the stage. For example, when temperature values are sent every 100 milliseconds, emit an average temperature metric every 30 seconds. |
 | [Call out](howto-configure-grpc-callout-stage.md) | Makes a call to an external HTTP or gRPC service. For example, call an Azure Function to convert from a custom message format to JSON. |
-| [Destination - MQ](howto-configure-destination-mq-broker.md) | Writes your processed, clean and contextualized data to an MQTT topic. |
+| [Destination - MQ](howto-configure-destination-mq-broker.md) | Writes your processed, clean, and contextualized data to an MQTT topic. |
 | [Destination - Reference](howto-configure-destination-reference-store.md) | Writes your processed data to the built-in reference store. Other pipelines can use the reference store to enrich their messages. |
-| [Destination - gRPC](howto-configure-destination-grpc.md) | Sends your processed, clean and contextualized data to a gRPC endpoint. |
-| [Destination - Fabric Lakehouse](../connect-to-cloud/howto-configure-destination-fabric.md) | Sends your processed, clean and contextualized data to a Microsoft Fabric lakehouse in the cloud. |
-| [Destination - Azure Data Explorer](../connect-to-cloud/howto-configure-destination-data-explorer.md) | Sends your processed, clean and contextualized data to an Azure Data Explorer endpoint in the cloud. |
-
+| [Destination - gRPC](howto-configure-destination-grpc.md) | Sends your processed, clean, and contextualized data to a gRPC endpoint. |
+| [Destination - HTTP](howto-configure-destination-http.md) | Sends your processed, clean, and contextualized data to an HTTP endpoint. |
+| [Destination - Fabric Lakehouse](../connect-to-cloud/howto-configure-destination-fabric.md) | Sends your processed, clean, and contextualized data to a Microsoft Fabric lakehouse in the cloud. |
+| [Destination - Azure Data Explorer](../connect-to-cloud/howto-configure-destination-data-explorer.md) | Sends your processed, clean, and contextualized data to an Azure Data Explorer endpoint in the cloud. |
+| [Destination - Azure Blob Storage](../connect-to-cloud/howto-configure-destination-blob.md) | Sends your processed, clean, and contextualized data to an Azure Blob Storage endpoint in the cloud. |
 
 ## Next step
 

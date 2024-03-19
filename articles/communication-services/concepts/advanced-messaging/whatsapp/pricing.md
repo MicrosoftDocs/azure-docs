@@ -6,14 +6,12 @@ author: darmour
 manager: sundraman
 services: azure-communication-services
 ms.author: darmour
-ms.date: 06/26/2023
+ms.date: 02/12/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
 # Advanced Messaging pricing in Azure Communication Services
-
-[!INCLUDE [Public Preview Disclaimer](../../../includes/public-preview-include-document.md)]
 
 Prices for Advanced Messaging in Azure Communication Services consist of two components: the usage fee and the channel fee.
 

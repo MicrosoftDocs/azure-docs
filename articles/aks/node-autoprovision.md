@@ -68,6 +68,7 @@ NAP is based on the Open Source [Karpenter](https://karpenter.sh) project, and t
 - Windows and Azure Linux node pools aren't supported yet
 - Kubelet configuration through Node pool configuration is not supported
 - NAP can only be enabled on new clusters currently
+- It is not currently possible to stop nodepools or clusters which use the NAP feature
 
 ## Enable node autoprovisioning
 

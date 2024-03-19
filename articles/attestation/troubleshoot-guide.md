@@ -32,9 +32,9 @@ User with Reader role trying to edit an attestation policy in PowerShell
 
   ```powershell
   Set-AzAttestationPolicy : Operation returned HTTP Status Code 401
-At line:1 char:1
-+ Set-AzAttestationPolicy -Name $attestationProvider -ResourceGroupName ...
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  At line:1 char:1
+  + Set-AzAttestationPolicy -Name $attestationProvider -ResourceGroupName ...
+  + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     + CategoryInfo          : CloseError: (:) [Set-AzAttestationPolicy], RestException
     + FullyQualifiedErrorId : Microsoft.Azure.Commands.Attestation.SetAzureAttestationPolicy
   ```
@@ -57,7 +57,7 @@ To verify the roles in PowerShell, run the below steps:
 
 a. Launch PowerShell and log into Azure via the "Connect-AzAccount" cmdlet
 
-b. Refer to the guidance [here](../role-based-access-control/role-assignments-list-powershell.md) to verify your Azure role assignment on the attestation provider
+b. Refer to the guidance [here](../role-based-access-control/role-assignments-list-powershell.yml) to verify your Azure role assignment on the attestation provider
 
 c. If you don't find an appropriate role assignment, follow the instructions in [here](../role-based-access-control/role-assignments-powershell.md)
 

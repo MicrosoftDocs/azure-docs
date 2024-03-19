@@ -7,6 +7,7 @@ author: asudbring
 ms.topic: how-to
 ms.date: 04/05/2023
 ms.author: allensu
+ROBOTS: NOINDEX
 ---
 
 # HTTP application routing add-on for Azure Kubernetes Service (AKS) (retired)

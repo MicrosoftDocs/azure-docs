@@ -59,6 +59,7 @@ Virtual networks are supported in [regions where Azure AI services are available
 > - `AzureResourceManager`
 > - `CognitiveServicesManagement`
 > - `CognitiveServicesFrontEnd`
+> - `Storage` (Speech Studio only)
 
 ## Change the default network access rule
 
@@ -401,11 +402,11 @@ You can manage IP network rules for Azure AI services resources through the Azur
 
    ```azurepowershell-interactive
    $parameters = @{
-    "ResourceGroupName" = "myresourcegroup"
-    "Name" = "myaccount"
-    }
-    (Get-AzCognitiveServicesAccountNetworkRuleSet @parameters).IPRules
-    ```
+     "ResourceGroupName" = "myresourcegroup"
+     "Name" = "myaccount"
+   }
+   (Get-AzCognitiveServicesAccountNetworkRuleSet @parameters).IPRules
+   ```
 
 1. Add a network rule for an individual IP address.
 

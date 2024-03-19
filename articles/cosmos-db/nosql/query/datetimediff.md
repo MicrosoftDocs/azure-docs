@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Returns the difference, as a signed integer, of the specified date and time part
   
 ## Syntax
   
-```sql
+```nosql
 DateTimeDiff(<date_time_part>, <start_date_time>, <end_date_time>)
 ```
 
@@ -43,7 +44,7 @@ Returns a numeric value that is a signed integer.
 
 The following examples compare **February 4, 2019 16:00 UTC** and **March 5, 2018 05:00 UTC** using various date and time parts.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/datetimediff/query.sql" highlight="2-11":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/datetimediff/query.sql" highlight="2-11":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/datetimediff/result.json":::
 
