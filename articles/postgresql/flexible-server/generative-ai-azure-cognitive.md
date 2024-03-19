@@ -398,7 +398,6 @@ For more information on parameters, see [Translator API](../../ai-services/trans
 `boolean DEFAULT 'plain'` Defines the type of text being translated. Valid values are 'plain' or 'html'. Any HTML needs to be well-formed.
 
 ##### `profanity_action`
-
 `boolean DEFAULT 'NoAction'` Specifies how profanities are treated in translations. Valid values are 'NoAction' , 'Marked', or 'Deleted'. 'NoAction' is the default behavior and profanity passes from source to target. 'Deleted' indicates that profane words are removed without replacement. 'Marked' replaces the marked word in the output with the profanity_marker parameter.
 
 ##### `profanity_marker`
@@ -412,50 +411,6 @@ For more information on parameters, see [Translator API](../../ai-services/trans
 
 ##### `target_script`
 `text DEFAULT NULL` Specific script of the input text.
-
-#### Return type
-
-`azure_cognitive.translated_text_result`, a json array of translated texts. Details of the response body can be found in the [response body](../../ai-services/translator/reference/v3-0-translate.md#response-body).
-
-## Examples
-
-### Sentiment Analysis examples
-
-```postgresql
-select b.*
-from azure_cognitive.analyze_sentiment('The book  was not great, It is mediocre at best','en') b
-```
-
-### Summarization examples
-
-```postgresql
-SELECT
-    bill_id,
-    unnest(azure_cognitive.summarize_abstractive(bill_text, 'en')) abstractive_summary
-FROM bill_summaries
-WHERE bill_id = '114_hr2499';
-```
-
-### Translation examples
-
-```postgresql
--- Translate into Portuguese
-select  a.*
-from azure_cognitive.translate('Language Translation in real time in multiple languages is quite cool', 'pt') a;
-
--- Translate to multiple languages
-select  (unnest(a.translations)).*
-from azure_cognitive.translate('Language Translation in real time in multiple languages is quite cool', array['es', 'pt', 'zh-Hans']) a;
-```
-
-### Personal data detection examples
-
-```postgresql
-select
-    'Contoso employee with email Contoso@outlook.com is using our awesome API' as InputColumn,
-    pii_entities.*
-    from azure_cognitive.recognize_pii_entities('Contoso employee with email Contoso@outlook.com is using our awesome API', 'en') as pii_entities
-```
 
 ## Related content
 
