@@ -43,7 +43,7 @@ To use a hosted spatial dataset as a reference layer:
 1. Navigate to the **Format** pane.
 1. Expand the **Reference Layer** section.
 1. Select **URL** from the **Type** drop-down list.
-1. Select **Enter a URL** and enter a valid URL pointing to your hosted file. Hosted files must be a valid spatial datasets with a `.json`, `.geojson`, `.wkt`, `.kml` or `.shp` extension.
+1. Select **Enter a URL** and enter a valid URL pointing to your hosted file. Hosted files must be a valid spatial dataset with a `.json`, `.geojson`, `.wkt`, `.kml` or `.shp` extension.
 
     :::image type="content" source="./media/power-bi-visual/reference-layer-hosted.png" alt-text="Screenshot showing the reference layers section when hosting a file control.":::
 
@@ -65,7 +65,7 @@ The following are all settings in the **Format** pane that are available in the 
 
 Properties can be added to each feature within the GeoJSON file to customize styling. This feature uses the simple data layer feature in the Azure Maps Web SDK. For more information, see this document on [supported style properties]. Custom icon images aren't supported within the Azure Maps Power BI visual as a security precaution.
 
-The following are examples showing how to set a point features `color` property to red.
+The following are examples showing how to set a point features `color` property to `red`.
 
 **GeoJSON**
 
