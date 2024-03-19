@@ -1,7 +1,7 @@
 ---
 title: Supported regions for Change tracking and inventory using Azure Monitoring Agent
 description: This article describes the supported region mappings between an Automation account and monitoring agent workspace as it relates to certain features of Azure Automation.
-ms.date: 03/04/2024
+ms.date: 03/13/2024
 services: automation
 ms.topic: conceptual
 ms.custom: references_regions
@@ -33,7 +33,7 @@ The following table shows the supported mappings:
 |**Switzerland**| SwitzerlandNorth|
 |**United Arab Emirates**| UAENorth|
 |**United Kingdom**| UKSouth|
-|**US Gov**| USGovVirginia </br> USGovArizona <sup>1</sup>|
+|**US Gov** <sup>1</sup>| USGovVirginia </br> USGovArizona |
 |**US**| EastUS</br> EastUS2</br> WestUS </br> WestUS2 </br> NorthCentralUS </br> CentralUS </br> SouthCentralUS </br> WestCentralUS|
 
 <sup>1</sup> Currently, in this region, we support onboarding via Azure portal and onboarding via policy will soon be supported.
