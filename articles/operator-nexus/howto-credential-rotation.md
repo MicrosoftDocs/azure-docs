@@ -4,7 +4,7 @@ description: Describes the credential rotation lifecycle including automated rot
 ms.service: azure-operator-nexus
 ms.custom: template-how-to
 ms.topic: how-to
-ms.date: 03/12/2024
+ms.date: 03/19/2024
 author: eak13
 ms.author: ekarandjeff
 ---
@@ -16,22 +16,22 @@ This article describes the Operator Nexus credential rotation lifecycle includin
 ## Prerequisites
 
 - Target cluster and fabric must be in running and healthy state.
-- BMC, Pure Admin & Console User credential updates are written to a user provided key vault, if provided. Users provide key vault information on the Cluster resource.
+- Platform credential updates are written to a user provided key vault, if provided. Users provide key vault information on the Cluster resource during Cluster create or update.
   - For more information on adding key vault information to the Cluster, see [Create and provision a Cluster](howto-configure-cluster.md).
-  - Adding or updating key vault information to an active Cluster can also be provided via a Cluster update command.
+  - The Cluster update command allows users to add or change key vault information.
   - For information on configuring the key vault to receive credential rotation updates, see [Setting up Key Vault for Managed Credential Rotation](how-to-credential-manager-keyvault.md).
 
 ## Rotating credentials
 
-The Operator Nexus Platform provides managed credential rotation for the following credentials:
+The Operator Nexus Platform offers a managed credential rotation process that automatically rotates the following credentials:
 
 - Baseboard Management Controller (BMC)
 - Pure Storage Array Administrator
 - Console User for emergency access
 
-The managed credential process automatically rotates these credentials every 60 days. The updated credentials are written to the key vault provided on the Cluster. The last rotation timestamps are currently not visible to users, but is a planned enhancement to the Operator Nexus Platform.
+The managed credential process automatically rotates these credentials every 60 days. The updated credentials are written to the key vault associated with the Cluster resource. The last rotation timestamps are currently not visible to users, but is a planned enhancement to the Operator Nexus Platform.
 
-Credential rotation support for Operator Nexus Fabric devices or a manual rotation of the above Platform credentials requires a support ticket. Instructions for generating a support request are described in the next section.
+Operator Nexus also provides a service for preemptive rotation of the above Platform credentials. This available to customers upon request through a support ticket. Credential rotation for Operator Nexus Fabric devices also requires a support ticket. Instructions for generating a support request are described in the next section.
 
 ## Create a support request
 
