@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 03/07/2024
+ms.date: 03/19/2024
 ms.author: alkohli
 ---
 
@@ -56,11 +56,11 @@ The infrastructure cluster on your device provides persistent storage and is sho
     The Kubernetes cluster allows for application orchestration whereas the infrastructure cluster provides persistent storage.
 
 
-## Supported networking topologies
+## Supported network topologies
 
-Based on the use-case and workloads, you can select how the two Azure Stack Edge device nodes will be connected. The networking topologies available will differ depending on whether you use an Azure Stack Edge Pro GPU device or an Azure Stack Edge Pro 2 device.
+Based on the use-case and workloads, you can select how the two Azure Stack Edge device nodes will be connected. Network topologies will differ depending on whether you use an Azure Stack Edge Pro GPU device or an Azure Stack Edge Pro 2 device.
 
-The supported network topologies for each of the device types are described here.
+At a high level, supported network topologies for each of the device types are described here.
 
 ### [Azure Stack Edge Pro GPU](#tab/1) 
 
@@ -91,65 +91,51 @@ For more information, see how to [Choose a network topology for your device node
 
 On your Azure Stack Edge Pro 2 device node, the following network topologies are supported:
 
-- **Option 1** - Port 1 and Port 2 in separate subnets, Port 3 and Port 4 use and external virtual switch.
+- **Option 1** - Port 1 and Port 2 are in different subnets. Separate virtual switches will be created. Port 3 and Port 4 connect to an external virtual switch.
  
-- **Option 2** - Port 1 and Port 2 in the same subnet, Port 3 and Port 4 use an external virtual switch.
+- **Option 2** - Port 1 and Port 2 are in the same subnet. A teamed virtual switch will be created. Port 3 and Port 4 connect to an external virtual switch.
 
-- **Option 3** - Port 1 and Port 2 in separate subnets, Port 3 and Port 4 are connected back-to-back, switchless.
+- **Option 3** - Port 1 and Port 2 are in separate subnets. A teamed virtual switch will be created. Port 3 and Port 4 are connected back-to-back, switchless for Port 3 and Port 4.
 
-- **Option 4** - Port 1 and Port 2 in the same subnet, Port 3 and Port 4 are connected back-to-back, switchless.
+- **Option 4** - Port 1 and Port 2 are in the same subnet. A teamed virtual switch will be created. Port 3 and Port 4 are connected back-to-back, switchless for Port 3 and Port 4.
 
-Usage considerations:
+  > [!NOTE]
+  > If you run PMEC workloads, use Option 1 or Option 2.
 
-- Port 1 is used for initial configuration. Port 1 is then reconfigured and assigned an IP address that may or may not be in the same subnet as the Port 2.
-- Port 1 and Port 2 are used for clustering, storage and management traffic. 
-- If you select the **Using external switches** option, Port 1 and Port 2 are used for storage in both teaming and non-teaming modes.
-- **Switchless** and **Using external switches** options are for Port 3 and Port 4. 
-- When using the **Switchless** option, Port 3 and Port 4 are connected back-to-back directly without a switch. These ports are dedicated to storage and Azure Stack Edge cluster traffic. Port 3 and Port 4 aren't available for workload traffic.
-- For Private Multi-Access Edge Computing (PMEC) workload deployments:
-  - If you run PMEC workloads, use option 1 or option 2.
-  - Port 3 and Port 4 are used for PMEC workload deployments or for storage traffic.
-  - For PMEC/AP5GC workload deployments, select the **Using external switches** option. In this case, Port 3 and Port 4 are reserved for PMEC/AP5GC workloads.
-  - Port 3 and Port 4 are used for PMEC workload deployments or for storage traffic.
+Usage considerations on your Azure Stack Edge Pro 2 device nodes:
 
+- **Switchless for Port 3 and Port 4** - Use this option when you don't have high speed switches available in the environment, or you want to dedicate Port 3 and Port 4 for storage and cluster traffic.
+  - **Port 1 and Port 2 in separate subnets** - This is the default option. In this case, Port 1 and Port 2 have separate virtual switches and are connected to separate subnets.
+  - **Port 1 and Port 2 in the same subnet** - In this case, Port 1 and Port 2 have a teamed virtual switch and both ports are in the same subnet.
+- **Using external switches for Port 3 and Port 4** - Use this option when you have high speed switches (>=10 GbE bandwidth) available for use with your device nodes and you want to allow a VM network adapter to connect to the virtual network created on Port 3 or Port 4, like a PMEC use case.
+- Additional options for **Switchless** scenarios that use **external switches**:
+  - **Port 1 and Port 2 in separate subnets** - This is the default option. In this case, Port 1 and Port 2 have separate virtual switches and are connected to separate subnets.
+  - **Port 1 and Port 2 in the same subnet** - In this case, Port 1 and Port 2 have a teamed virtual switch and both ports are in the same subnet.
 
-- **Switchless** - Use this option when you don't have high speed switches available in the environment for storage and cluster traffic. There are further sub-options:
+Additional considerations:
 
-    - **With Port 1 and Port 2 in separate subnets** - This is the default option. In this case, Port 1 and Port 2 have separate virtual switches and are connected to separate subnets.
-    
-    - **With Port 1 and Port 2 in same subnets** - In this case, Port 1 and Port 2 have a teamed virtual switch and both the ports are in the same subnet.
+- Port 1 is used for initial configuration. Port 1 is then reconfigured and assigned an IP address that may or may not be in the same subnet as Port 2.  
+- If you select the **Using external switches** option, Port 1 and Port 2 are used for storage in both teaming and non-teaming modes. 
+- When using the **Switchless** option, Port 3 and Port 4 are connected back-to-back directly, without a switch. These ports are dedicated to storage and Azure Stack Edge cluster traffic. Port 3 and Port 4 aren't available for workload traffic. 
+ 
+Pros and cons for supported topologies are summarized as follows: 
 
-    In each case, Port 3 and Port 4 are connected back-to-back directly without a switch. These ports are dedicated to storage and Azure Stack Edge cluster traffic and aren't available for workload traffic. 
-
-- **Using external switches** - Use this option when you have high speed switches (10 GbE switches) available for use with your device nodes for storage and cluster traffic. There are further sub-options:
-
-    - **With Port 1 and Port 2 in separate subnets** - This is the default option. In this case, Port 1 and Port 2 have separate virtual switches and are connected to separate subnets.
-    
-    - **With Port 1 and Port 2 in same subnets** - In this case, Port 1 and Port 2 have a teamed virtual switch and both the ports are in the same subnet.
-
-    In each case, Port 3 and Port 4 are reserved for PMEC workload deployments. 
-
-The pros and cons for each of the above supported topologies can be summarized as follows:
-
-|     Local web UI option                                                           | Advantages                                                               | Disadvantages                                                         |
-|----------------------------------------------------------------|--------------------------------------------------------------------------|-----------------------------------------------------------------------|
-| Switchless,   Port 1 and Port 2 in separate subnet, separate virtual switches             | Redundant paths for management   and storage traffic.                     | Clients need to reconnect if   Port 1 or Port 2 fails.                |
-|                                                                | No single point of failure   within the device.                          |                                                                       |
-|                                                                | Lots of bandwidth for storage   and cluster traffic across the nodes.    |                                                                       |
-|                                                                | Can be deployed with Port 1 and   Port 2 in different subnets.           |                                                                       |
-|                                                                |                                                                          |                                                                       |
-| Switchless,   Port 1 and Port 2 in the same subnet, teamed virtual switch             | Redundant paths for management   and storage traffic.                    | Teamed virtual switch is a   single point of failure in the software. |
-|                                                                | Lots of bandwidth for storage   and cluster traffic across the nodes.    |                                                                       |
-|                                                                | Higher fault tolerance.                                                  |                                                                       |
-|                                                                |                                                                          |                                                                       |
-| Using   external switch, Port 1 and Port 2 in separate subnet, separate virtual switches | Two independent virtual switches   and network paths provide redundancy. | Clients need to reconnect if   Port 1 or Port 2 fails.                |
-|                                                                | No single point of failure with   the device.                            |                                                                       |
-|                                                                | Port 1 and Port 2 can be   connected to different subnets.               |                                                                       |
-|                                                                |                                                                          |                                                                       |
-| Using   external switch, Port 1 and Port 2 in same subnet, teamed virtual switch     | Load balancing.                                                          | Teamed switch is a single point   of failure in software.             |
-|                                                                | Higher fault toelerance.                                                 | Can't be deployed in an   environment with different subnets.         |
-|                                                                | Two independent, redundant paths   between the nodes.                    |                                                                       |
-|                                                                | Clients do not need to   reconnect.                                      |                                                                       |
+| Local web UI option | Advantages | Disadvantages |
+|---------------------|------------|---------------|
+| Port 3 and Port 4 Switchless, Port 1 and Port 2 in separate subnet, separate virtual switches. | Redundant paths for management and storage traffic. | Clients must reconnect if Port 1 or Port 2 fails. |
+|    | No single point of failure within the device. | VM workload can't leverage Port 3 or Port 4 to connect to network endpoints other than a peer Azure Stack Edge node. This is why PMEC workloads can't use this option. |
+|    | Lots of bandwidth for storage and cluster traffic across nodes. |    |
+|    | Can be deployed with Port 1 and Port 2 in different subnets. |   |
+| Port 3 and Port 4 are Switchless, Port 1 and Port 2 are in the same subnet, teamed virtual switch. | Redundant paths for management and storage traffic. | VM workload can't leverage Port 3 or Port 4 to connect to network endpoints other than a peer Azure Stack Edge node. This is why PMEC workloads can't use this option. |
+|   | Lots of bandwidth for storage and cluster traffic across nodes. |    |
+|   | Higher fault tolerance. |   |
+| Port 3 and Port 4 use an external switch with >=10Gbps link bandwidth, Port 1 and Port 2 in separate subnets, separate virtual switches | Two independent virtual switches and network paths provide redundancy. | Clients must reconnect if Port 1 or Port 2 fails. |
+|   | No single point of failure with the device. |   |
+|   | Port 1 and Port 2 can be connected to different subnets. |  |
+| Port 3 and Port 4 use an external switch with >=10Gbps link bandwidth, Port 1 and Port 2 in the same subnet, teamed virtual switch. | Load balancing. |   |
+|    | Higher fault tolerance. | Can't be deployed in an environment with different subnets. | 
+|    | Two independent, redundant paths between nodes. |   |
+|    | Clients do not need to reconnect. |  |
 
 ---
 
