@@ -488,7 +488,7 @@
       - name: Apply updates
         href: azure-stack-edge-gpu-install-update.md 
       - name: Reset, reactivate device
-        href: azure-stack-edge-reset-reactivate-device.md
+        href: azure-stack-edge-reset-reactivate-device.yml
       - name: Return device
         href: azure-stack-edge-return-device.md     
       - name: Replace device
