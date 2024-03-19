@@ -19,7 +19,7 @@ For more information, see [Upgrade the Microsoft Defender for IoT micro agent](u
 
 **Updates to Defender for IoT Firmware Analysis:**
 
-- **Azure CLI and PowerShell commands**: Automate your workflow of analyzing firmware images by using the [Firmware Analysis Azure CLI](/azure/service-page/firmware%20analysis) or the [Firmware Analysis PowerShell commands](/powershell/module/az.firmwareanalysis).
+- **Azure CLI and PowerShell commands**: Automate your workflow of analyzing firmware images by using the [Firmware Analysis Azure CLI](/cli/azure/service-page/firmware%20analysis) or the [Firmware Analysis PowerShell commands](/powershell/module/az.firmwareanalysis).
 - **User choice in resource group**: Pick your own resource group to use Defender for IoT Firmware Analysis during the onboarding process.
 - **New UI format with Firmware inventory**: Subtabs to organize Getting started, Settings for resource group and subscription management, and Firmware inventory.
 
