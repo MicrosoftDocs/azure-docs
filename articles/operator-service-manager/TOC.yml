@@ -56,6 +56,22 @@
 - name: How-to guides
   expanded: false
   items:
+  - name: Prepare to use Azure Operator Service Manager (AOSM)
+    expanded: false
+    items:
+      - name: Prepare to use Azure Operator Service Manager (AOSM) to deploy on Azure Operator Nexus
+        href: prepare-to-deploy-with-aosm-on-nexus.md
+      - name: Prepare to use Azure Operator Service Manager (AOSM) to deploy on Azure Core
+        href: prepare-to-deploy-with-aosm-on-azure-core.md
+  - name: Onboard Network Functions to Azure Operator Service Manager (AOSM)
+    expanded: false
+    items:
+      - name: Use Azure Operator Service Manager (AOSM) CLI extension
+        href: how-to-use-azure-operator-service-manager-cli-extension.md
+      - name: Onboard a Containerized Network Function (CNF) using the Azure Operator Service Manager (AOSM) CLI Extension
+        href: how-to-onboard-a-cnf-using-the-azure-cli.md
+      - name: Onboard a Virtualized Network Function (VNF) using the Azure Operator Service Manager (AOSM) CLI Extension
+        href: how-to-onboard-a-vnf-using-the-azure-cli.md
   - name: Create a custom role
     href: how-to-create-custom-role.md
   - name: Assign a custom role
@@ -68,12 +84,6 @@
     href: how-to-delete-operator-resources.md
   - name: Create site network service
     href: how-to-create-site-network-service.md
-  - name: Use Azure Operator Service Manager (AOSM) CLI extension
-    href: how-to-use-azure-operator-service-manager-cli-extension.md
-  - name: Onboard a Containerized Network Function (CNF) using the Azure Operator Service Manager (AOSM) CLI Extension
-    href: how-to-onboard-a-cnf-using-the-azure-cli.md
-  - name: Onboard a Virtualized Network Function (VNF) using the Azure Operator Service Manager (AOSM) CLI Extension
-    href: how-to-onboard-a-vnf-using-the-azure-cli.md
 - name: Resources
   expanded: false
   items:
