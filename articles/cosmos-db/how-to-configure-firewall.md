@@ -53,6 +53,31 @@ You can enable requests to access the Azure portal by selecting the **Allow acce
 
 :::image type="content" source="./media/how-to-configure-firewall/enable-azure-portal.png" alt-text="Screenshot showing how to enable Azure portal access" border="true":::
 
+#### New Azure portal IP Addresses
+
+Cosmos DB portal services are transitioning to new infrastructure in 2024. As part of this transition, new IP addresses will be required to allow some portal functionality such as Data Explorer. 
+
+##### Azure Public
+
+|Account API|IP addresses|
+|All||
+|MongoDB only||
+|Apache Cassandra only||
+
+##### Azure China
+
+|Account API|IP addresses|
+|All||
+|MongoDB only||
+|Apache Cassandra only||
+
+##### Azure US Gov
+
+|Account API|IP addresses|
+|All||
+|MongoDB only||
+|Apache Cassandra only||
+
 > [!NOTE]
 > If you are experiencing challenges connecting to your Azure Cosmos DB account from the Data Explorer, review the [Data Explorer troubleshooting guide](/troubleshoot/azure/cosmos-db/data-explorer).
 
