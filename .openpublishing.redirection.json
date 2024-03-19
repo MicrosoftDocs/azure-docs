@@ -41,6 +41,11 @@
       "redirect_document_id": false
     },
     {
+        "source_path": "articles/internet-analyzer/index.yml",
+        "redirect_url": "/previous-versions/azure/internet-analyzer/internet-analyzer-overview",
+        "redirect_document_id": false
+    },
+    {
       "source_path": "articles/batch/batch-pool-no-public-ip-address.md",
       "redirect_url": "/previous-versions/azure/batch/articles/batch/batch-pool-no-public-ip-address",
       "redirect_document_id": false

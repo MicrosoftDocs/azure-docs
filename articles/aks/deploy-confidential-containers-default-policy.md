@@ -3,7 +3,7 @@ title: Deploy an AKS cluster with Confidential Containers (preview)
 description: Learn how to create an Azure Kubernetes Service (AKS) cluster with Confidential Containers (preview) and a default security policy by using the Azure CLI.
 ms.topic: quickstart
 ms.date: 01/10/2024
-ms.custom: devx-track-azurecli, ignite-fall-2023, mode-api, linux-related-content
+ms.custom: devx-track-azurecli, ignite-fall-2023, mode-api
 ---
 
 # Deploy an AKS cluster with Confidential Containers and a default policy
