@@ -23,7 +23,7 @@ Secrets management in Azure IoT Operations Preview uses Azure Key Vault as the m
 
 ## Configure a secret store on your cluster
 
-Azure IoT Operations supports Key Vault for storing secrets and certificates. The `az iot ops init` Azure CLI command automates the steps to create a key vault, set up a service principal to give access to the key vault, and configure the secrets that you need for running Azure IoT Operations.
+Azure IoT Operations supports Key Vault for storing secrets and certificates. The `az iot ops init` Azure CLI command automates the steps to set up a service principal to give access to the key vault and configure the secrets that you need for running Azure IoT Operations.
 
 For more information, see [Deploy Azure IoT Operations Preview extensions to a Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md?tabs=cli).
 
