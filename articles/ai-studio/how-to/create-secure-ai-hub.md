@@ -1,5 +1,5 @@
 ---
-title: Create a secure AI hub and project
+title: Create a secure AI hub
 titleSuffix: Azure AI Studio
 description: Create an Azure AI hub inside a managed virtual network. The managed virtual network secures access to managed resources such as computes.
 ms.service: azure-ai-studio
@@ -12,6 +12,8 @@ ms.topic: how-to
 ---
 
 # How to create a secure AI hub and project with a managed virtual network
+
+[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 
 You can secure your AI hub, AI projects, and managed resources in a managed virtual network. With a managed virtual network, inbound access is only allowed through a private endpoint for your AI hub resource. Outbound access can be configured to allow either all outbound access, or only allowed outbound that you specify. For more information, see [Managed virtual network](configure-managed-network.md).
 
@@ -52,15 +54,7 @@ You can secure your AI hub, AI projects, and managed resources in a managed virt
 
         1. Select **Ok** to save the endpoint configuration.
 
-1. Select **Review + create**, then **Create** to create the AI hub.
-
-## Create an AI project
-
-When you create an AI project from the AI hub, the project inherits the network configuration from the AI hub. For more information on creating an AI project, see [Create an Azure AI project](create-projects.md).
-
-## Create a compute instance
-
-When you create a compute instance from the AI hub, the compute instance inherits the network configuration from the AI hub. For more information on creating a compute instance, see [Create a compute instance](create-manage-compute.md).
+1. Select **Review + create**, then **Create** to create the AI hub. Once the AI hub has been created, any AI projects or compute instances created from the AI hub inherit the network configuration.
 
 ## Connect to the AI hub
 
@@ -72,4 +66,8 @@ The managed virtual network doesn't directly provide access to your clients. Ins
 | [ExpressRoute](https://azure.microsoft.com/services/expressroute/) | Connects on-premises networks into the cloud over a private connection. Connection is made using a connectivity provider. |
 | [Azure Bastion](/azure/bastion/bastion-overview) | Connects to a virtual machine inside the Azure Virtual Network using your web browser. |
 
+## Next steps
 
+- [Create a project](create-projects.md)
+- [Learn more about Azure AI Studio](../what-is-ai-studio.md)
+- [Learn more about Azure AI hub resources](../concepts/ai-resources.md)
