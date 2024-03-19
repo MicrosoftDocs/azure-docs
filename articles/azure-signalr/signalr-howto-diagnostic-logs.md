@@ -34,11 +34,10 @@ Resource logs are disabled by default. To enable resource logs by using diagnost
 
 1. In the [Azure portal](https://portal.azure.com), under **Monitoring**, select **Diagnostic settings**.
 
-    :::image type="content" alt-text="Pane navigation to diagnostic settings." source="media/signalr-tutorial-diagnostic-logs/diagnostic-settings-menu-item.png" lightbox="media/signalr-tutorial-diagnostic-logs/diagnostic-settings-menu-item.png:::
+    :::image type="content" alt-text="Pane navigation to diagnostic settings." source="media/signalr-tutorial-diagnostic-logs/diagnostic-settings-menu-item.png" lightbox="media/signalr-tutorial-diagnostic-logs/diagnostic-settings-menu-item.png":::
    You get a full view of the diagnostic settings.
 
-    ![](./)
-    :::image type="content" alt-text="Diagnostic settings full view." source="media/signalr-tutorial-diagnostic-logs/azure-signalr-diagnostic-settings.png" lightbox="media/signalr-tutorial-diagnostic-logs/azure-signalr-diagnostic-settings.png:::
+    :::image type="content" alt-text="Diagnostic settings full view." source="media/signalr-tutorial-diagnostic-logs/azure-signalr-diagnostic-settings.png" lightbox="media/signalr-tutorial-diagnostic-logs/azure-signalr-diagnostic-settings.png":::
 
 1. Configure the log source settings.
    1. In **Log Source Settings** section, a table shows collecting behaviors for each log type. 
@@ -50,7 +49,7 @@ Resource logs are disabled by default. To enable resource logs by using diagnost
    4. Set the archive target that you want. Currently, Azure SignalR Service supports **Archive to a storage account** and **Send to Log Analytics**.
    5. Select the logs you want to archive. Only `AllLogs` is available for resource log. It only controls whether you want to archive the logs. To configure which log types need to be generated in Azure SignalR Service, configure in **Log Source Settings** section.
 
-    :::image type="content" alt-text="Diagnostics settings pane." source="media/signalr-tutorial-diagnostic-logs/diagnostics-settings-pane.png" lightbox="media/signalr-tutorial-diagnostic-logs/diagnostics-settings-pane.png:::
+    :::image type="content" alt-text="Diagnostics settings pane." source="media/signalr-tutorial-diagnostic-logs/diagnostics-settings-pane.png" lightbox="media/signalr-tutorial-diagnostic-logs/diagnostics-settings-pane.png":::
 
    6. Save the new diagnostics setting. The new setting takes effect in about 10 minutes. After that, logs are sent to the configured archival target. For more information about configuring log destination settings, see the [overview of Azure resource logs](../azure-monitor/essentials/platform-logs-overview.md).
 
