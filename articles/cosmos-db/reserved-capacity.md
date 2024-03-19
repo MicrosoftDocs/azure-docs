@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/11/2024
 ms.author: sidandrews
-ms.reviewer: jucocchi
+ms.reviewer: rosouz
 ---
 
 # Optimize cost with reserved capacity in Azure Cosmos DB
@@ -26,7 +26,10 @@ The size of the reserved capacity purchase should be based on the total amount o
 
 In this example, any provisioned throughput above 10,000 RU/s will be billed using your Pay-as-you-go rate. If provisioned throughput is below 10,000 RU/s in an hour, then the extra reserved capacity for that hour will be wasted.
 
-Please note that there is no limit to the number of reservations. You don't need to purchase all reservations in the same day.
+Please note that:
+ * There is no limit to the number of reservations.
+ * You don't need to purchase all reservations in the same day.
+ * You can combine different reservations in the same purchase.
 
 ## Reservations usage
 
@@ -65,22 +68,22 @@ Reserved capacity has two different discount modes:
  * Fixed discounts when you buy less than one million RU/s, using multiples of the 100 RU/s SKU. You can buy from 1 to 9999 units of this SKU.
  * Progressive discounts when you one million RU/s or more, using multiple units of the 1 to 30 millions SKUs. You can buy from 1 to 9999 units of these SKU.
 
-Please note that you can mix and match many SKUs in the same purchase.
+Please note that you can mix and match any reservations options and sizes in the same purchase.
 
-### Discounts for reservations smaller than one million RU/s
+### Fixed discounts reservations
 
-This option, using multiples of the 100 RU/s SKU, allows you to reserve any capacity between 100 and 999,900 RU/s since you can choose quantities between 1 and 9999 units of the 100 RU/s SKU.
+This option, using multiples of the 100 RU/s, allows you to reserve any capacity between 100 and 999,900 RU/s, with fixed discounts:
 
-|Reservation SKU  | One-Year Single Discount  | Three-Years  Discount
+|Reservation | One-Year Single Discount  | Three-Years  Discount
 |---------|---------|---------|
 | 100 RU/s |  20% | 30% |
 | 100 Multi-master RU/s |  20% | 30% |
 
-### Discounts for reservations equal or bigger than one million RU/s
+### Progressive discounts reservations
 
-You can buy up to 9999 units of the one-million SKUs, with the variable discounts rates below:
+This option, using multiples of our bigger reservation sizes, allows you to reserve any capacity starting on 1,000,000 RU/s, with progressive discounts:
 
-|Reservation SKU | One-Year Discount  | Three-Years Discount |
+|Reservation  | One-Year Discount  | Three-Years Discount |
 |---------|---------|---------|
 | 1,000,000 RU/s | 27.0% | 39.5% | 32.0% | 44.5% |
 | 1,000,000 Multi-master | 32.0% | 44.5% |
@@ -105,9 +108,9 @@ You can buy up to 9999 units of the one-million SKUs, with the variable discount
 | 30,000,000 RU/s | 43.4% | 58.3% |
 | 30,000,000 Multi-master RU/s | 48.4% | 63.3% |
 
-You can maximize savings with the biggest SKU for your scenario. Example: You need 2 million RU/s, one year term. If you purchase 2 units of the 1,000,000 RU/s SKU, your discount will br 27.0%. If you purchase 1 unit of the 2,000,000 RU/s SKU, you will have exactly the same reserved capacity, but a 28.5% discount.
+You can maximize savings with the biggest reservation for your scenario. Example: You need 2 million RU/s, one year term. If you purchase 2 units of the 1,000,000 RU/s SKU, your discount will be 27.0%. If you purchase 1 unit of the 2,000,000 RU/s SKU, you will have exactly the same reserved capacity, but a 28.5% discount.
 
-Please [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) to purchase any quantity of the reservations above.
+Please [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) to purchase any quantity of the reservations bigger than 1,000,000 RU/s.
 
 ## Sample Scenario 1
 
@@ -136,16 +139,6 @@ Imagine this hypothetical scenario: A company needs a 10,950,000 three-years res
  * One unit of the 10,000,000 RU/s SKU, paid monthly.
  * 9000 units of the 100 RU/s SKU, paid monthly.
  * 500 units of the 100 RU/s SKU, paid upfront.
-
-
-
-## Existing reservations
-
-Existing auto-renew reservations may have these situations:
-
- * If the reservation size is smaller than one million RU/s, it will be renewed with multiples of the 100 RU/s SKU, with the same one-year or three-years term.
- * If the reservation size is equal or bigger than one million RU/s, there are no changes and it will renewed with the same settings.
-
 
 ## Determine the required throughput before purchase
 
