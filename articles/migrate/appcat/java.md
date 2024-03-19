@@ -38,6 +38,12 @@ You can use the following services as deployment targets:
 * Azure Spring Apps
 * Azure Kubernetes Service
 * Azure Container Apps
+* cloud-readiness
+* discovery
+* linux
+* openjdk11
+* openjdk17
+* openjdk21
 
 You can use the following services as resource services:
 
@@ -75,9 +81,12 @@ appcat-cli-<version>    # APPCAT_HOME
       ├── airsonic.war
       ├── run-assessment
       ├── run-assessment-custom-rules
+      ├── run-assessment-exclude-packages
       ├── run-assessment-no-code-report
+      ├── run-assessment-openjdk21
       ├── run-assessment-zip-report
       └── run-discovery
+        
 ```
 
 * *docs*: This directory contains the documentation of `appcat`.
@@ -131,6 +140,12 @@ Available target technologies:
     azure-appservice
     azure-container-apps
     azure-spring-apps
+    cloud-readiness
+    discovery
+    linux
+    openjdk11
+    openjdk17
+    openjdk21
 ```
 
 Then, you can run `appcat` using one of the available Azure targets, as shown in the following example:
