@@ -22,6 +22,8 @@
 - name: Quickstarts
   expanded: false
   items:
+  - name: Onboard Subscription to Azure Operator Service Manager
+    href: quickstart-onboard-subscription-to-aosm.md
   - name: Containerized Network Function (CNF)
     expanded: false
     items:
