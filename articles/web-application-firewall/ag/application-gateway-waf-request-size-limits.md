@@ -48,7 +48,53 @@ When your WAF receives a request that's over the size limit, the behavior depend
 
 ## Trouble Shooting
 
+If you are an Application Gateway v2 WAF customer running CRS 3.2 or later and you have issues with requests, or file uploads, getting rejected incorectly for maximum size, or if you see requests not getting inspected fully, you may need to verify that all values are set correctly. You can do this by using PowerShell or the Azure Command Line Interface to verify what each value is set to, and update any values as needed. 
 
+**Enforce request body inspection**
+- PS: "RequestBodyCheck"
+- CLI: "request_body_check"
+- Controls if your WAF will inspect the request body and apply managed and custom rules to the request body traffic per your WAF policy’s settings.
+
+**Maximum request body inspection limit (KB)**
+- PS: "RequestBodyInspectLimitInKB"
+- CLI: "request_body_inspect_limit_in_kb"
+- Controls how deep into a request body the WAF will inspect and apply managed/custom rules. Generally speaking, you’d want to set this to the max possible setting, but some customers might want to set it to a lower value to improve performance.
+
+**Enforce maximum request body limit**
+- PS: "RequestBodyEnforcement"
+- CLI: "request_body_enforcement"
+- Control if your WAF will enforce a max size limit on request bodies; when turned off it will not reject any requests for being too large.
+
+**Maximum request body size (KB)**
+- PS: "MaxRequestBodySizeInKB"
+- CLI: "max_request_body_size_in_kb"
+- Controls how large a request body can be before the WAF rejects it for exceeding the max size setting.
+
+**Enforce maxium file upload limit**
+- PS: "FileUploadEnforcement"
+- CLI: "file_upload_enforcement"
+- Controls if your WAF will enforce a max size limit on file uploads; when turned off it will not reject any file uploads for being too large.
+
+**Maximum file upload size (MB)**
+- PS: "FileUploadLimitInMB"
+- CLI: file_upload_limit_in_mb
+- Controls how large a file upload can be before the WAF rejects it for exceeding the max size setting.
+
+>[!NOTE]
+>**"Inspect request body"** previously controlled if the request body was inspected and rules applied as well as if a maximum size limit was enforced on request bodies. Now this is handled by two separate fields that can be turned ON/OFF independently.
+
+###PowerShell
+
+You can use the following PowerShell comannds to return your Azure policy, look at its current settings, and update the policy settings to the desired values for inspection limit and max size limitation related fields.
+
+- [Get WAF Policy](https://learn.microsoft.com/en-us/powershell/module/az.network/get-azapplicationgatewayfirewallpolicy)
+- [Polcy Settings Properties](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.commands.network.models.psapplicationgatewaywebapplicationfirewallpolicy.policysettings?view=az-ps-latest#microsoft-azure-commands-network-models-psapplicationgatewaywebapplicationfirewallpolicy-policysettings)
+- [Polci Settings Class](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.commands.network.models.psapplicationgatewayfirewallpolicysettings)
+- [New Polci Settings](https://learn.microsoft.com/en-us/powershell/module/az.network/new-azapplicationgatewayfirewallpolicysetting)
+
+###Command Line Interface
+
+You can you Azure CLI to return the current values for these fields from your Azure policy settings and update the fields to the desired values using [these commands](https://learn.microsoft.com/en-us/cli/azure/network/application-gateway/waf-policy/policy-setting)
 
 ## Next steps
 
