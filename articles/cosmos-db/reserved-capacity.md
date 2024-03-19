@@ -77,7 +77,7 @@ We offer both fixed and progressive discounts options. Please note that you can 
 
 This option, using multiples of the 100 RU/s, allows you to reserve any capacity between 100 and 999,900 RU/s, with fixed discounts:
 
-|Reservation | One-Year Single Discount  | Three-Years  Discount
+| Reservation | One-Year Single Discount  | Three-Years  Discount
 |---------|---------|---------|
 | 100 RU/s |  20% | 30% |
 | 100 Multi-master RU/s |  20% | 30% |
@@ -86,9 +86,9 @@ This option, using multiples of the 100 RU/s, allows you to reserve any capacity
 
 This option, using multiples of our bigger reservation sizes, allows you to reserve any capacity starting on 1,000,000 RU/s, with progressive discounts:
 
-|Reservation  | One-Year Discount  | Three-Years Discount |
+| Reservation  | One-Year Discount  | Three-Years Discount |
 |---------|---------|---------|
-| 1,000,000 RU/s | 27.0% | 39.5% | 32.0% | 44.5% |
+| 1,000,000 RU/s | 27.0% | 39.5% | 
 | 1,000,000 Multi-master | 32.0% | 44.5% |
 | 2,000,000 RU/s | 28.5% | 42.3% |
 | 2,000,000 Multi-master RU/s | 33.5% | 47.3% |
