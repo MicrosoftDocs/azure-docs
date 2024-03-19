@@ -19,7 +19,7 @@ This article describes the Operator Nexus credential rotation lifecycle includin
 - Platform credential updates are written to a user provided key vault, if provided. Users provide key vault information on the Cluster resource during Cluster create or update.
   - For more information on adding key vault information to the Cluster, see [Create and provision a Cluster](howto-configure-cluster.md).
   - The Cluster update command allows users to add or change key vault information.
-  - For information on configuring the key vault to receive credential rotation updates, see [Setting up Key Vault for Managed Credential Rotation](how-to-credential-manager-keyvault.md).
+  - For information on configuring the key vault to receive credential rotation updates, see [Setting up Key Vault for Managed Credential Rotation](how-to-credential-manager-key-vault.md).
 
 ## Rotating credentials
 
