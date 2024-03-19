@@ -82,7 +82,8 @@ To perform a vector search, use the `$search` aggregation pipeline stage the que
 |`efSearch`     |integer    |The size of the dynamic candidate list for search (`40` by default). A higher value provides better recall at the cost of speed.     |
 |`k`        |integer    |The number of results to return. it should be less than or equal to `efSearch`    |
 
-Note that creating an HSNW index with large datasets can result in your Azure Cosmos DB for MongoDB vCore resource running out of memory, or can limit the performance of other operations running on your database. If you encounter such issues, these can be mitigated by scaling your resource to a higher cluster tier, or reducing the size of the dataset.
+> [!NOTE]
+> Creating an HSNW index with large datasets can result in your Azure Cosmos DB for MongoDB vCore resource running out of memory, or can limit the performance of other operations running on your database. If you encounter such issues, these can be mitigated by scaling your resource to a higher cluster tier, or reducing the size of the dataset.
 
 ### Create an vector index using IVF
 
@@ -161,11 +162,6 @@ use test;
 
 db.createCollection("exampleCollection");
 
-```javascript
-use test;
-
-db.createCollection("exampleCollection");
-
 db.runCommand({ 
     "createIndexes": "exampleCollection",
     "indexes": [
@@ -203,7 +199,6 @@ db.exampleCollection.insertMany([
 ### Perform a vector search
 
 Continuing with the last example, create another vector, `queryVector`. Vector search measures the distance between `queryVector` and the vectors in the `contentVector` path of your documents. You can set the number of results that the search returns by setting the parameter `k`, which is set to `2` here. You can also set `efSearch`, which is an integer that controls the size of the candidate vector list. A higher value may improve accuracy, however the search will be slower as a result. This is an optional parameter with a default value of 40.
-
 
 ```javascript
 const queryVector = [0.52, 0.28, 0.12];
