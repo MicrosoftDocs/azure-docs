@@ -132,7 +132,7 @@
     - name: PowerShell
       href: connection-troubleshoot-powershell.md
     - name: Azure CLI
-      href: network-watcher-connectivity-cli.md
+      href: connection-troubleshoot-cli.md
     - name: REST
       href: network-watcher-connectivity-rest.md
   - name: Diagnose VPN gateway and connections
