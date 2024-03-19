@@ -499,7 +499,7 @@ In a scenario where activity from a suspicious IP address is detected, one of th
 
 Defenders for Cloud security alerts are automatically exported to a default Log Analytics workspace on the resource level. This causes an indeterministic behavior and therefore we have deprecated this feature.
 
-Instead, you can export your security alerts to a dedicated Log Analytics workspace with [Continuous Export](continuous-export.md#set-up-a-continuous-export).
+Instead, you can export your security alerts to a dedicated Log Analytics workspace with [Continuous Export](continuous-export.md).
 
 If you have already configured continuous export of your alerts to a Log Analytics workspace, no further action is required.
 
@@ -771,7 +771,7 @@ You can now enable the continuous export of alerts and recommendations, as a tru
 
 You can enable continuous export as the alerts or recommendations are generated. You can also define a schedule to send periodic snapshots of all of the new data.
 
-Learn how to enable [continuous export to an Event Hubs behind an Azure firewall](continuous-export.md#continuously-export-to-an-event-hub-behind-a-firewall).
+Learn how to enable [continuous export to an Event Hubs behind an Azure firewall](continuous-export-event-hub-firewall.md).
 
 ### The name of the Secure score control Protect your applications with Azure advanced networking solutions is changed
 
@@ -3484,7 +3484,7 @@ These tools have been enhanced and expanded in the following ways:
 
 - **Continuous export's deployifnotexist policies enhanced**. The policies now:
 
-  - **Check whether the configuration is enabled.** If it isn't, the policy will show as non-compliant and create a compliant resource. Learn more about the supplied Azure Policy templates in the "Deploy at scale with Azure Policy tab" in [Set up a continuous export](continuous-export.md#set-up-a-continuous-export).
+  - **Check whether the configuration is enabled.** If it isn't, the policy will show as non-compliant and create a compliant resource. Learn more about the supplied Azure Policy templates in the "Deploy at scale with Azure Policy tab" in [Set up a continuous export](continuous-export.md).
 
   - **Support exporting security findings.** When using the Azure Policy templates, you can configure your  continuous export to include findings. This is relevant when exporting recommendations that have 'sub' recommendations, like findings from vulnerability assessment scanners or specific system updates for the 'parent' recommendation "System updates should be installed on your machines".
 
@@ -4221,7 +4221,7 @@ The policy definitions can be found in Azure Policy:
 
 Get started with [workflow automation templates](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation).
 
-Learn more about using the two export policies in [Configure workflow automation at scale using the supplied policies](workflow-automation.md) and [Set up a continuous export](continuous-export.md#set-up-a-continuous-export).
+Learn more about using the two export policies in [Configure workflow automation at scale using the supplied policies](workflow-automation.md) and [Set up a continuous export](continuous-export.md).
 
 ### New recommendation for using NSGs to protect non-internet-facing virtual machines
 

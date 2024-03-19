@@ -21,7 +21,7 @@ Continuous export of Microsoft Defender for Cloud security alerts and recommenda
 Required roles and permissions:
 - Security Admin or Owner for the resource group
 - Write permissions for the target resource.
-- If you use the [Azure Policy DeployIfNotExist policies](#set-up-continuous-export-at-scale-by-using-provided-policies), you must have permissions that let you assign policies.
+- If you use the [Azure Policy DeployIfNotExist policies](continuous-export-azure-policy.md), you must have permissions that let you assign policies.
 - To export data to Event Hubs, you must have Write permissions on the Event Hubs policy.
 - To export to a Log Analytics workspace: 
     - If it *has the SecurityCenterFree solution*, you must have a minimum of Read permissions for the workspace solution: `Microsoft.OperationsManagement/solutions/read`.

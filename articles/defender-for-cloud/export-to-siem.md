@@ -150,7 +150,7 @@ To stream alerts into **ArcSight**, **SumoLogic**, **Syslog servers**, **LogRhyt
 
 1. Enable continuous export:
     - At the [subscription level](continuous-export.md).
-    - At the [Management Group level using Azure Policy](continuous-export.md?tabs=azure-policy#configure-continuous-export-at-scale-using-the-supplied-policies).
+    - At the [Management Group level using Azure Policy](continuous-export-azure-policy.md).
 
 1. Connect the event hub to your preferred solution using the built-in connectors:
 
