@@ -1,5 +1,5 @@
 ---
-title: How to onboard a VNF using the Azure Operator Service Manager CLI extension
+title: How to onboard a VNF for deployment on Azure Operator Nexus using the Azure Operator Service Manager CLI extension
 description: Learn how to onboard a VNF using the Azure Operator Service Manager CLI extension.
 author: peterwhiting
 ms.author: peterwhiting
@@ -10,11 +10,9 @@ ms.custom: devx-track-azurecli
 
 ---
 
-# Onboard a Virtualized Network Function (VNF) to Azure Operator Service Manager (AOSM)
+# Onboard a Virtualized Network Function (VNF) for deployment on Azure Operator Nexus to Azure Operator Service Manager (AOSM)
 
-**TODO: Should this doc be Nexus specific? I've written it for Nexus VNFs, but not explicitly put that in the title. Or should it be platform-agnostic, in which case there are loads of assumptions and pre-reqs per platform that just won't be called out?**
-
-In this how-to guide, Network Function Publishers and Service Designers learn how to use the Azure CLI AOSM extension to onboard a virtualized network function to AOSM. Onboarding is a multi-step process. Once you meet the prerequisites, you'll use the Azure CLI AOSM extension to:
+In this how-to guide, Network Function Publishers and Service Designers learn how to use the Azure CLI AOSM extension to onboard a virtualized network function to AOSM. This VNF can subsequently be deployed on [Azure Operator Nexus](https://learn.microsoft.com/en-us/azure/operator-nexus/overview). Onboarding is a multi-step process. Once you meet the prerequisites, you'll use the Azure CLI AOSM extension to:
 
 1. Create the BICEP files that define a Network Function Definition (NFD).
 1. Publish the NFD and upload the VNF image to an AOSM-managed Azure Container Registry (ACR).
@@ -23,7 +21,11 @@ In this how-to guide, Network Function Publishers and Service Designers learn ho
 
 ## Prerequisites
 
+- You have access to an Azure Operator Nexus instance and have completed [the prerequisites for workload deployment](https://learn.microsoft.com/en-us/azure/operator-nexus/quickstarts-tenant-workload-prerequisites?tabs=azure-cli).
 - You have [enabled AOSM](quickstart-onboard-subscription-to-aosm.md) on your Azure subscription.
+
+> [!NOTE]
+> It is strongly recommended that you have tested that the VM deployment succeeds on your Azure Operator Nexus instance before onboarding the VNF to AOSM.
 
 ### Permissions
 
@@ -31,10 +33,10 @@ In this how-to guide, Network Function Publishers and Service Designers learn ho
 - You require the `Reader`/`AcrPull` role assignments on the source ACR containing your images.
 - For the fastest image transfers, you require the `Contributor` and `AcrPush` role assignments on the subscription that will contain the AOSM managed Artifact Store. Alternatively, you can use the `--no-subscription-permissions` parameter when publishing images. This parameter means that you don't require subscription scoped permissions.
 
-### Virtual Machine (VM) Azure Resource Manager (ARM) Templates and images
+### Azure Operator Nexus Virtual Machine (VM) images and Azure Resource Manager (ARM) Templates
 
-- You must create an [image for the Azure Operator Nexus Virtual Machine](https://learn.microsoft.com/en-us/azure/operator-nexus/howto-virtual-machine-image). This image must be available in an ACR
-- You must have an [ARM template that deploys an Azure Operator Nexus Virtual Machine](https://learn.microsoft.com/en-us/azure/operator-nexus/quickstarts-virtual-machine-deployment-arm?tabs=azure-cli)
+- You have created an [image for the Azure Operator Nexus Virtual Machine](https://learn.microsoft.com/en-us/azure/operator-nexus/howto-virtual-machine-image). This image must be available in an ACR
+- You have created an [ARM template that deploys an Azure Operator Nexus Virtual Machine](https://learn.microsoft.com/en-us/azure/operator-nexus/quickstarts-virtual-machine-deployment-arm?tabs=azure-cli)
 - The VM ARM template (for both AzureCore and Nexus) can only deploy ARM resources from the following Resource Providers
 
   - Microsoft.Compute
@@ -52,9 +54,6 @@ In this how-to guide, Network Function Publishers and Service Designers learn ho
   - Microsoft.ManagedIdentity
 
 - The VNF ARM template should deploy one VM. Multiple VMs can be deployed by including multiple instances of the NFD in the NSD
-
-> [!NOTE]
-> It is strongly recommended that you have tested that the VM deployment succeeds on your Azure Operator Nexus instance before onboarding the VNF to AOSM.
 
 ### Register necessary resource providers
 
