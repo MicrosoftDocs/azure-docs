@@ -86,7 +86,7 @@ In this step, you create two virtual networks to become members of a network gro
     | **Resource group** | Select **rg-vnm**. |
     | **Virtual network name** | Enter **vnet-spoke-002**. |
     | **Region** | Select **(US) East US**. |
-\   | **Edit subnet window** | |
+    | **Edit subnet window** | |
     | **Subnet purpose** | Leave as **Default**. |
     | **Name** | Leave as **default**. |
     | **IPv4** | |

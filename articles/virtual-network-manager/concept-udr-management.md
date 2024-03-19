@@ -53,5 +53,5 @@ Here are the common routing scenarios that you can simplify and automate by usin
 ## Next step
 
 > [!div class="nextstepaction"]
-> Learn to monitor with [diagnostic logs in network security perimeter](./network-security-perimeter-diagnostic-logs.md)
+> Learn to how to [create user-defined routes in Azure Virtual Network Manager](how-to-create-user-defined-routes.md).
 
