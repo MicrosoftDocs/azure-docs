@@ -23,27 +23,27 @@ Before you begin, ensure you have the following:
 
 Follow these steps to create a single-node Edge Storage Accelerator cluster using K3s.
 
-### 1. Create and configure a K3s cluster on Ubuntu
+### Step 1: Create and configure a K3s cluster on Ubuntu
 
 Follow the [Azure IoT Operations K3s installation instructions](/azure/iot-operations/get-started/quickstart-deploy?tabs=linux#connect-a-kubernetes-cluster-to-azure-arc) to install K3s on your machine.
 
-### 2. Prepare Linux using a single-node cluster
+### Step 2: Prepare Linux using a single-node cluster
 
 See [Prepare Linux using a single-node cluster](single-node-cluster.md) to set up a single-node K3s cluster.
 
-### 3. Install Edge Storage Accelerator
+### Step 3: Install Edge Storage Accelerator
 
 Follow the instructions in [Install Edge Storage Accelerator](install-edge-storage-accelerator.md) to install Edge Storage Accelerator on your single-node Ubuntu K3s cluster.
 
-### 4. Create Persistent Volume (PV)
+### Step 4: Create Persistent Volume (PV)
 
 Create a Persistent Volume (PV) by following the steps in [Create a PV](create-pv.md).
 
-### 5. Create Persistent Volume Claim (PVC)
+### Step 5: Create Persistent Volume Claim (PVC)
 
 Create a Persistent Volume Claim (PVC) to bind with the PV created in the previous step. See [Create a PVC](create-pvc.md) for guidance.
 
-### 6. Attach application to Edge Storage
+### Step 6: Attach application to Edge Storage
 
 Follow the instructions in [Edge Storage Accelerator: Attach your app](attach-app.md) to attach your application.
 
