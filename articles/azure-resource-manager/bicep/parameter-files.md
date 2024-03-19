@@ -3,7 +3,7 @@ title: Create parameters files for Bicep deployment
 description: Create parameters file for passing in values during deployment of a Bicep file
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 01/17/2024
+ms.date: 03/19/2024
 ---
 
 # Create parameters files for Bicep deployment
@@ -29,6 +29,40 @@ using '<path>/<file-name>.bicep'
 param <first-parameter-name> = <first-value>
 param <second-parameter-name> = <second-value>
 ```
+
+You can use the [using statement] with Bicep file, ARM JSON templates, Bicep modules, and template specs. For example:
+
+```bicep
+using './main.bicep'
+
+...
+```
+
+```bicep
+using './azuredeploy.json'
+
+...
+```
+
+```bicep
+using 'br/public:storage/storage-account:3.0.1'
+
+...
+```
+
+```bicep
+using 'br:myacr.azurecr.io/bicep/modules/storage:v1'
+
+...
+```
+
+```bicep
+using 'ts:00000000-0000-0000-0000-000000000000/myResourceGroup/storageSpec:1.0'
+
+...
+```
+
+For more information, see the [using statement](./bicep-using.md)/
 
 You can use expressions with the default value. For example:
 
