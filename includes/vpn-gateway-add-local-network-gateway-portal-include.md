@@ -27,7 +27,8 @@
    >
    > * Azure VPN Gateway supports only one IPv4 address for each FQDN. If the domain name resolves to multiple IP addresses, VPN Gateway uses the first IP address returned by the DNS servers. To eliminate the uncertainty, we recommend that your FQDN always resolve to a single IPv4 address. IPv6 isn't supported.
    > * VPN Gateway maintains a DNS cache that's refreshed every 5 minutes. The gateway tries to resolve the FQDNs for disconnected tunnels only. Resetting the gateway also triggers FQDN resolution.
-   >
+   > * Although the Azure VPN Gateway supports multiple connections to different Local Network Gateways with different FQDNs, all FQDNs must resolve to different IP addresses.
+   >  
 
 1. On the **Advanced** tab, you can configure BGP settings, if needed.
 1. After you specify the values, select **Review + create** at the bottom of the page to validate the page.
