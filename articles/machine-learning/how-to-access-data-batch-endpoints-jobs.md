@@ -11,9 +11,9 @@ ms.author: fasantia
 ms.date: 5/01/2023
 ms.reviewer: mopeakande
 ms.custom:
-- devplatv2
-- devx-track-azurecli
-- ignite-2023
+  - devplatv2
+  - devx-track-azurecli
+  - ignite-2023
 ---
 
 # Create jobs and input data for batch endpoints
@@ -475,14 +475,14 @@ Azure Machine Learning data assets (formerly known as datasets) are supported as
 
    __Request__
     
-```
-```http
-POST jobs HTTP/1.1
-Host: <ENDPOINT_URI>
-Authorization: Bearer <TOKEN>
-Content-Type: application/json
-```
-```### Input data from data stores
+    ```http
+    POST jobs HTTP/1.1
+    Host: <ENDPOINT_URI>
+    Authorization: Bearer <TOKEN>
+    Content-Type: application/json
+    ```
+
+### Input data from data stores
 
 Data from Azure Machine Learning registered data stores can be directly referenced by batch deployments jobs. In this example, you first upload some data to the default data store in the Azure Machine Learning workspace and then run a batch deployment on it. Follow these steps to run a batch endpoint job using data stored in a data store.
 
