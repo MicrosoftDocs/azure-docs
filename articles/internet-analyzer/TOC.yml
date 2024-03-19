@@ -1,29 +1,10 @@
 - name: Internet Analyzer Documentation
   href: index.yml
 - name: Overview
-  items: 
-  - name: About Internet Analyzer
-    href: internet-analyzer-overview.md
 - name: Tutorial
-  items:
-  - name: Create an Internet Analyzer test using Portal
-    href: internet-analyzer-create-test-portal.md
-  - name: Create an Internet Analyzer test using CLI
-    href: internet-analyzer-cli.md  
 - name: How-to guides
-  items:
-  - name: Embed client
-    href: internet-analyzer-embed-client.md
-  - name: Configure a custom endpoint
-    href: internet-analyzer-custom-endpoint.md
-  - name: Interpreting your scorecard
-    href: internet-analyzer-scorecard.md
 - name: Resources
   items:
-  - name: Internet Analyzer FAQ
-    href: internet-analyzer-faq.md
-  - name: Internet Analyzer troubleshooting
-    href: troubleshoot.md
   - name: Internet Analyzer CLI reference
     href: /cli/azure/internet-analyzer
   - name: Azure Roadmap

@@ -1,6 +1,46 @@
 {
     "redirections": [
     {
+      "source_path": "articles/internet-analyzer/internet-analyzer-cli.md",
+      "redirect_url": "/previous-versions/azure/internet-analyzer/internet-analyzer-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/internet-analyzer/internet-analyzer-create-test-portal.md",
+      "redirect_url": "/previous-versions/azure/internet-analyzer/internet-analyzer-create-test-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/internet-analyzer/internet-analyzer-custom-endpoint.md",
+      "redirect_url": "/previous-versions/azure/internet-analyzer/internet-analyzer-custom-endpoint",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/internet-analyzer/internet-analyzer-embed-client.md",
+      "redirect_url": "/previous-versions/azure/internet-analyzer/internet-analyzer-embed-client",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/internet-analyzer/internet-analyzer-faq.md",
+      "redirect_url": "/previous-versions/azure/internet-analyzer/internet-analyzer-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/internet-analyzer/internet-analyzer-overview.md",
+      "redirect_url": "/previous-versions/azure/internet-analyzer/internet-analyzer-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/internet-analyzer/internet-analyzer-scorecard.md",
+      "redirect_url": "/previous-versions/azure/internet-analyzer/internet-analyzer-scorecard",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/internet-analyzer/troubleshoot.md",
+      "redirect_url": "/previous-versions/azure/internet-analyzer/troubleshoot",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/batch/batch-pool-no-public-ip-address.md",
       "redirect_url": "/previous-versions/azure/batch/articles/batch/batch-pool-no-public-ip-address",
       "redirect_document_id": false
