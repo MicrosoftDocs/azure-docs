@@ -59,24 +59,25 @@ Cosmos DB portal services are transitioning to new infrastructure in 2024. As pa
 
 ##### Azure Public
 
-|Account API|IP addresses|
-|All||
-|MongoDB only||
-|Apache Cassandra only||
+|Database Account API|IP addresses|
+|--------------------|------------|
+|All|XX.XX.XX.XX|
+|MongoDB only|20.245.81.54, 40.118.23.126, 40.80.152.199, 13.95.130.121|
+|Apache Cassandra only|40.113.96.14, 104.42.11.145, 137.117.230.240, 168.61.72.237|
 
 ##### Azure China
 
-|Account API|IP addresses|
-|All||
-|MongoDB only||
-|Apache Cassandra only||
+|Database Account API|IP addresses|
+|All|XX.XX.XX.XX|
+|MongoDB only|52.131.240.99, 143.64.61.130|
+|Apache Cassandra only|40.73.99.146, 143.64.62.47|
 
 ##### Azure US Gov
 
-|Account API|IP addresses|
-|All||
-|MongoDB only||
-|Apache Cassandra only||
+|Database Account API|IP addresses|
+|All|XX.XX.XX.XX|
+|MongoDB only|52.244.176.112, 52.247.148.42|
+|Apache Cassandra only|52.244.50.101, 52.227.165.24|
 
 > [!NOTE]
 > If you are experiencing challenges connecting to your Azure Cosmos DB account from the Data Explorer, review the [Data Explorer troubleshooting guide](/troubleshoot/azure/cosmos-db/data-explorer).
