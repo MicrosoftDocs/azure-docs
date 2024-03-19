@@ -10,13 +10,17 @@ ms.date: 03/18/2024
 
 # Setup continuous export to an event hub behind a firewall
 
+In a situation where an event hub is behind a firewall, you can enable continuous export as a trusted service so that you can send data to the event hub.
+
 ## Prerequisites
 
-## Continuous export to an event hub behind a firewall
+- [Setup continuous export in the Azure portal](continuous-export.md) or [setup continuous export with Azure Policy](continuous-export-azure-policy.md) or [setup continuous export with REST API](continuous-export-rest-api.md).
+
+## Setup continuous export to the eventhub
 
 You can enable continuous export as a trusted service so that you can send data to an event hub that has Azure Firewall enabled.
 
-To grant access to continuous export as a trusted service:
+**To grant access to continuous export as a trusted service**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -30,7 +34,7 @@ To grant access to continuous export as a trusted service:
 
     :::image type="content" source="media/continuous-export/export-as-trusted.png" alt-text="Screenshot that shows where the checkbox is located to select export as trusted service.":::
 
-You must add the relevant role assignment to the destination event hub.
+## Add the relevant role assignment to the destination event hub.
 
 To add the relevant role assignment to the destination event hub:
 

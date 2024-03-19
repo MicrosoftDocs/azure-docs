@@ -433,6 +433,9 @@
               - name: Continuous export to an event hub behind a firewall
                 displayName: continuous, export, event hub, firewall
                 href: continuous-export-event-hub-firewall.md
+              - name: View exported data in Azure Monitor
+                displayName: continuous, view, exported, data, monitor
+                href: continuous-export-view-data.md
             - name: Download a CSV report of all alerts
               displayName: CSV report, alerts
               href: continuous-export.md#manual-one-time-export-of-alerts-and-recommendations

@@ -19,6 +19,10 @@ This article describes how to set up continuous export to a Log Analytics worksp
 
 ## Prerequisites
 
+- You need a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
+
+- You must [enable Microsoft Defender for Cloud](get-started.md#enable-defender-for-cloud-on-your-azure-subscription) on your Azure subscription.
+
 Required roles and permissions:
 - Security Admin or Owner for the resource group
 - Write permissions for the target resource.
@@ -74,31 +78,6 @@ You can set up continuous export on the Microsoft Defender for Cloud pages in th
 > [!NOTE]
 > Log Analytics supports only records that are up to 32 KB in size. When the data limit is reached, an alert displays the message **Data limit has been exceeded**.
 
-## View exported alerts and recommendations in Azure Monitor
-
-You might also choose to view exported security alerts or recommendations in [Azure Monitor](../azure-monitor/alerts/alerts-overview.md).
-
-Azure Monitor provides a unified alerting experience for various Azure alerts, including a diagnostic log, metric alerts, and custom alerts that are based on Log Analytics workspace queries.
-
-To view alerts and recommendations from Defender for Cloud in Azure Monitor, configure an alert rule that's based on Log Analytics queries (a log alert rule):
-
-1. On the Azure Monitor **Alerts** page, select **New alert rule**.
-
-    ![Screenshot that shows the Azure Monitor alerts page.](./media/continuous-export/azure-monitor-alerts.png)
-
-1. On the **Create rule** pane, set up your new rule the same way you'd configure a [log alert rule in Azure Monitor](../azure-monitor/alerts/alerts-unified-log.md):
-
-    - For **Resource**, select the Log Analytics workspace to which you exported security alerts and recommendations.
-
-    - For **Condition**, select **Custom log search**. In the page that appears, configure the query, lookback period, and frequency period. In the search query, you can enter **SecurityAlert** or **SecurityRecommendation** to query the data types that Defender for Cloud continuously exports to as you enable the continuous export to Log Analytics feature.
-
-    - Optionally, create an [action group](../azure-monitor/alerts/action-groups.md) to trigger. Action groups can automate sending an email, creating an ITSM ticket, running a webhook, and more, based on an event in your environment.
-
-    ![Screenshot that shows the Azure Monitor create alert rule pane.](./media/continuous-export/azure-monitor-alert-rule.png)
-
-The Defender for Cloud alerts or recommendations appear (depending on your configured continuous export rules and the condition that you defined in your Azure Monitor alert rule) in Azure Monitor alerts, with automatic triggering of an action group (if provided).
-
-<a name="manual-one-time-export-of-alerts-and-recommendations"></a>
 
 ## Manually export alerts and recommendations
 

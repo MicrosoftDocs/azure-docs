@@ -1,5 +1,5 @@
 ---
-title: Setup continuous export withAzure Policy
+title: Setup continuous export with Azure Policy
 description: Learn how to set up continuous export of Microsoft Defender for Cloud security alerts and recommendations with Azure Policy.
 author: dcurwin
 ms.author: dacurwin
@@ -10,10 +10,26 @@ ms.date: 03/18/2024
 
 # Setup continuous export with Azure Policy
 
+Continuous export of Microsoft Defender for Cloud security alerts and recommendations can help you analyze the data in Log Analytics or Azure Event Hubs. You can set up continuous export in Defender for Cloud at scale, by using provided Azure Policy templates.
+
 ## Prerequisites
 
+- You need a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
 
-## Set up continuous export at scale by using provided policies
+- You must [enable Microsoft Defender for Cloud](get-started.md#enable-defender-for-cloud-on-your-azure-subscription) on your Azure subscription.
+
+Required roles and permissions:
+- Security Admin or Owner for the resource group
+- Write permissions for the target resource.
+- If you use the [Azure Policy DeployIfNotExist policies](#set-up-continuous-export-at-scale-by-using-provided-policies), you must have permissions that let you assign policies.
+- To export data to Event Hubs, you must have Write permissions on the Event Hubs policy.
+- To export to a Log Analytics workspace: 
+    - If it *has the SecurityCenterFree solution*, you must have a minimum of Read permissions for the workspace solution: `Microsoft.OperationsManagement/solutions/read`.
+    - If it *doesn't have the SecurityCenterFree solution*, you must have write permissions for the workspace solution: `Microsoft.OperationsManagement/solutions/action`.
+    
+    Learn more about [Azure Monitor and Log Analytics workspace solutions](/previous-versions/azure/azure-monitor/insights/solutions).
+
+## Set up continuous export at scale with Azure Policy
 
 Automating your organization's monitoring and incident response processes can help you reduce the time it takes to investigate and mitigate security incidents.
 

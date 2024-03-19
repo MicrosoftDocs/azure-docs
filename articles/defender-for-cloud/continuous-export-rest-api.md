@@ -1,5 +1,33 @@
+---
+title: Setup continuous export with REST API
+description: Learn how to set up continuous export of Microsoft Defender for Cloud security alerts and recommendations with REST API.
+author: dcurwin
+ms.author: dacurwin
+ms.topic: how-to
+ms.date: 03/18/2024
+# customer intent: As a reader, I want to learn how to set up continuous export of Microsoft Defender for Cloud security alerts and recommendations using the REST API, so that I can integrate it into my own applications.
+---
 
-## REST API
+# Setup continuous export with REST API
+
+Continuous export of Microsoft Defender for Cloud security alerts and recommendations can help you analyze the data in Log Analytics or Azure Event Hubs. You can set up continuous export in Defender for Cloud by using the REST API.
+
+## Pre-requisites
+
+- You need a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
+
+- You must [enable Microsoft Defender for Cloud](get-started.md#enable-defender-for-cloud-on-your-azure-subscription) on your Azure subscription.
+
+Required roles and permissions:
+- Security Admin or Owner for the resource group
+- Write permissions for the target resource.
+- If you use the [Azure Policy DeployIfNotExist policies](#set-up-continuous-export-at-scale-by-using-provided-policies), you must have permissions that let you assign policies.
+- To export data to Event Hubs, you must have Write permissions on the Event Hubs policy.
+- To export to a Log Analytics workspace: 
+    - If it *has the SecurityCenterFree solution*, you must have a minimum of Read permissions for the workspace solution: `Microsoft.OperationsManagement/solutions/read`.
+    - If it *doesn't have the SecurityCenterFree solution*, you must have write permissions for the workspace solution: `Microsoft.OperationsManagement/solutions/action`.
+    
+    Learn more about [Azure Monitor and Log Analytics workspace solutions](/previous-versions/azure/azure-monitor/insights/solutions).
 
 ### Set up continuous export by using the REST API
 
