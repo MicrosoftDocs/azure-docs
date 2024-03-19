@@ -21,37 +21,36 @@ introduction: |
   > If you detach a disk it is not automatically deleted. If you have subscribed to Premium storage, you will continue to incur storage charges for the disk. For more information, see [Pricing and Billing when using Premium Storage](../disks-types.md#billing).
 
   If you want to use the existing data on the disk again, you can reattach it to the same virtual machine, or another one.
-
-  ## Detach a data disk using PowerShell
-
-  You can *hot* remove a data disk using PowerShell, but make sure nothing is actively using the disk before detaching it from the VM.
-
-  In this example, we remove the disk named **myDisk** from the VM **myVM** in the **myResourceGroup** resource group. First you remove the disk using the [Remove-AzVMDataDisk](/powershell/module/az.compute/remove-azvmdatadisk) cmdlet. Then, you update the state of the virtual machine, using the [Update-AzVM](/powershell/module/az.compute/update-azvm) cmdlet, to complete the process of removing the data disk.
-
-  ```azurepowershell-interactive
-  $VirtualMachine = Get-AzVM `
-     -ResourceGroupName "myResourceGroup" `
-     -Name "myVM"
-  Remove-AzVMDataDisk `
-     -VM $VirtualMachine `
-     -Name "myDisk"
-  Update-AzVM `
-     -ResourceGroupName "myResourceGroup" `
-     -VM $VirtualMachine
-  ```
-
-  The disk stays in storage but is no longer attached to a virtual machine.
-
-  ### Lower latency
-
-  In select regions, the disk detach latency has been reduced, so you'll see an improvement of up to 15%. This is useful if you have planned/unplanned failovers between VMs, you're scaling your workload, or are running a high scale stateful workload such as Azure Kubernetes Service. However, this improvement is limited to the explicit disk detach command, `Remove-AzVMDataDisk`. You won't see the performance improvement if you call a command that may implicitly perform a detach, like `Update-AzVM`. You don't need to take any action other than calling the explicit detach command to see this improvement.
-
-  [!INCLUDE [virtual-machines-disks-fast-attach-detach-regions](../../../includes/virtual-machines-disks-fast-attach-detach-regions.md)]
-
 procedureSection:
   - title: |
-      Detach a data disk using the portal
+      Detach a data disk using PowerShell
     summary: |
+      You can *hot* remove a data disk using PowerShell, but make sure nothing is actively using the disk before detaching it from the VM.
+
+      In this example, we remove the disk named **myDisk** from the VM **myVM** in the **myResourceGroup** resource group. First you remove the disk using the [Remove-AzVMDataDisk](/powershell/module/az.compute/remove-azvmdatadisk) cmdlet. Then, you update the state of the virtual machine, using the [Update-AzVM](/powershell/module/az.compute/update-azvm) cmdlet, to complete the process of removing the data disk.
+
+      ```azurepowershell-interactive
+      $VirtualMachine = Get-AzVM `
+        -ResourceGroupName "myResourceGroup" `
+        -Name "myVM"
+      Remove-AzVMDataDisk `
+        -VM $VirtualMachine `
+        -Name "myDisk"
+      Update-AzVM `
+        -ResourceGroupName "myResourceGroup" `
+        -VM $VirtualMachine
+      ```
+
+      The disk stays in storage but is no longer attached to a virtual machine.
+
+      ### Lower latency
+
+      In select regions, the disk detach latency has been reduced, so you'll see an improvement of up to 15%. This is useful if you have planned/unplanned failovers between VMs, you're scaling your workload, or are running a high scale stateful workload such as Azure Kubernetes Service. However, this improvement is limited to the explicit disk detach command, `Remove-AzVMDataDisk`. You won't see the performance improvement if you call a command that may implicitly perform a detach, like `Update-AzVM`. You don't need to take any action other than calling the explicit detach command to see this improvement.
+
+      [!INCLUDE [virtual-machines-disks-fast-attach-detach-regions](../../../includes/virtual-machines-disks-fast-attach-detach-regions.md)]
+
+      ## Detach a data disk using the portal
+
       You can *hot* remove a data disk, but make sure nothing is actively using the disk before detaching it from the VM.
     steps:
       - | 
