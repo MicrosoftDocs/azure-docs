@@ -14,7 +14,7 @@ ms.custom: devx-track-azurepowershell
 
 Network security group flow logging is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through a network security group. For more information about network security group flow logging, see [NSG flow logs overview](nsg-flow-logs-overview.md).
 
-In this article, you learn how to create, change, disable, or delete an NSG flow log using Azure PowerShell. You can learn how to manage an NSG flow log using the [Azure portal](nsg-flow-logging.md), [Azure CLI](nsg-flow-logs-cli.md), [REST API](nsg-flow-logs-rest.md), or [ARM template](nsg-flow-logs-azure-resource-manager.md).
+In this article, you learn how to create, change, disable, or delete an NSG flow log using Azure PowerShell. You can learn how to manage an NSG flow log using the [Azure portal](nsg-flow-logs-portal.md), [Azure CLI](nsg-flow-logs-cli.md), [REST API](nsg-flow-logs-rest.md), or [ARM template](nsg-flow-logs-azure-resource-manager.md).
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ In this article, you learn how to create, change, disable, or delete an NSG flow
 
 - [Azure Cloud Shell](/azure/cloud-shell/overview) or Azure PowerShell installed locally.
 
-    - The steps in this article run the Azure PowerShell cmdlets interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloudshell** at the upper-right corner of a code block. Select **Copy** to copy the code and then paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
+    - The steps in this article run the Azure PowerShell cmdlets interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloud Shell** at the upper-right corner of a code block. Select **Copy** to copy the code and then paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
     
     - You can also [install Azure PowerShell locally](/powershell/azure/install-azure-powershell) to run the cmdlets. If you run PowerShell locally, sign in to Azure using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
 
