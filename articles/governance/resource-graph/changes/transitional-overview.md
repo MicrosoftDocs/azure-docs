@@ -3,7 +3,7 @@ title: Azure Monitor Change Analysis vs. Azure Resource Graph Change Analysis (P
 description: Learn the differences between Azure Monitor and Azure Resource Graph Change Analysis.
 author: iancarter-msft
 ms.author: iancarter
-ms.date: 03/11/2024
+ms.date: 03/19/2024
 ms.topic: conceptual
 ---
 
@@ -34,14 +34,14 @@ Change Analysis is in the process of moving from Azure Monitor to Azure Resource
 
 The transition from Azure Monitor to Azure Resource Graph highlights some key architectural differences in how Change Analysis works. 
 
-### Proxy vs. tracked resource change data
+### How data is collected
 
-The following table outlines the differences between how Azure Monitor Change Analysis and Azure Resource Graph Change Analysis collect proxy and tracked resource change data.
+The following table outlines the differences between how Azure Monitor Change Analysis and Azure Resource Graph Change Analysis collect resource change data.
 
 | Scenario | Azure Monitor | Azure Resource Graph |
 | -------- | ------------- | -------------------- |
-| Tracked resources | [Change Analysis queries for data from several data sources, including Azure Resource Manager using Azure Resource Graph.](../../../azure-monitor/change/change-analysis.md#azure-resource-manager-resource-properties-changes) Azure Resource Manager notifies Azure Resource Graph via the resource provider when a tracked resource is created, updated, or deleted. The `Microsoft.ChangeAnalysis` resource provider specifies whether a resource should be tracked in a special configuration file. | Change Analysis notifies Azure Resource Graph when a tracked resource is created, updated, or deleted. Instead of notifying via the `Microsoft.ChangeAnalysis` resource provider, Change Analysis UX sends queries directly to Azure Resource Graph. |
-| Proxy resources | Change Analysis queries every six hours for the latest state of resources in subscriptions previously onboarded to the `Microsoft.ChangeAnalysis` resource provider. If the resource's state has changed since the previous check, then a single change is calculated. | Currently an opt-in feature. Resource providers must send a special notification to Azure Resource Graph to indicate when a proxy resource is created, updated, or deleted. |
+| Change data in the `resourceChanges` table | [Change Analysis queries for data from several data sources, including Azure Resource Manager using Azure Resource Graph.](../../../azure-monitor/change/change-analysis.md#azure-resource-manager-resource-properties-changes) Azure Resource Manager notifies Azure Resource Graph via the resource provider when a resource is created, updated, or deleted. The `Microsoft.ChangeAnalysis` resource provider specifies whether a resource should be tracked in a special configuration file. | Change Analysis notifies Azure Resource Graph when a resource is created, updated, or deleted. Instead of notifying via the `Microsoft.ChangeAnalysis` resource provider, Change Analysis UX sends queries directly to Azure Resource Graph. |
+| Change data in other tables | Change Analysis queries every six hours for the latest state of resources in subscriptions previously onboarded to the `Microsoft.ChangeAnalysis` resource provider. If the resource's state has changed since the previous check, then a single change is calculated. | Currently an opt-in feature. Each resource provider must update their services to push data to Azure Resource Graph when these resources types are created, updated, or deleted via the Azure Resource Manager control plane. For these resource types, you can expect [certain known limitations for changes saved in the `resourceChanges` table.](./resource-graph-changes.md#limitations) |
 
 ## Next steps
 

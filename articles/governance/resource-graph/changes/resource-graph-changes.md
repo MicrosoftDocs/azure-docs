@@ -3,7 +3,7 @@ title: Analyze changes to your Azure resources (Preview)
 description: Learn to use the Resource Graph Change Analysis tool to explore and analyze changes in your resources.
 author: iancarter-msft
 ms.author: iancarter
-ms.date: 03/15/2024
+ms.date: 03/19/2024
 ms.topic: conceptual
 ---
 
@@ -21,26 +21,31 @@ Change Analysis helps you:
  
 ## Change Analysis architecture
 
-### Proxy vs. tracked resources
+Change Analysis experiences across the Azure portal are powered using the Azure Resource Graph [`Microsoft.ResourceGraph/resources` API](https://learn.microsoft.com/en-us/rest/api/azureresourcegraph/resourcegraph/resources/resources). This section describes what data to expect in Change Analysis experiences.
 
-In Azure Resource Graph, change data can be collected on either proxy or tracked resources. 
+### Changes in the `resourceChanges` table
 
-#### Proxy resource change data 
+Change data is available in the `resourceChanges` table of the `Microsoft.ResourceGraph/resources` API for many of the Azure resources you interact with, including App Services (`Microsoft.Web/sites`) or Virtual Machines (`Microsoft.Compute/virtualMachines`). You can find these resources via:
+- The Azure portal's search bar 
+- The Azure portal's **All resources** blade. 
 
-With proxy resources, Azure Resource Manager proxies calls to the appropriate resource provider when requested. The appropriate `GET https://management.azure.com/{some_proxy_resource_id}` HTTP request is saved in a JSON response payload for calculation of changes over time. Azure Resource Manager might not keep track of the resource's state. 
+Resource providers configure which resource types Azure Resource Graph pulls data from as they are created, updated, and deleted via the Azure Resource Manager control plane. For many resources, the process looks like the following:
 
-Proxy resource changes require opt-in, extra effort by resource providers, resulting in:
-- A different table to query
-- No guaranteed SLA
-- A limited availability of proxy resource change data
+1. Azure Resource Graph saves the latest state of a resource in the `resources` table of the `Microsoft.ResourceGraph/resources` API.
+1. If a resource is in the `resources` table, Azure Resource Graph calculates the difference between the previous state and latest state. That difference is saved as a `Microsoft.Resources/changes` object in the `resourceChanges` table of the `Microsoft.ResourceGraph/resources` API.
+1. Change data is created shortly after resource operations are finished.
 
-Currently, collecting change data for proxy resources is an opt-in feature. Resource providers must send a special notification to Azure Resource Graph to indicate when a proxy resource is created, updated, or deleted.
+[See all known limitations for changes saved in the `resourceChanges` table.](#limitations)
 
-#### Tracked resource change data
+### Changes in other tables
 
-For tracked resources, Resource Graph works with their complex and highly scalable set of systems to provide quick and automatically tracked resource changes for many Azure resources. You can use queries provided by Resource Graph to retrieve and review resource change data over time. 
+While many resource providers allow Azure Resource Graph to pull the state of some resources, they also may disallow Azure Resource Graph from pulling the state of other resources. For these "disallowed" resource types, no data exists in Change Analysis or the `resources` and `resourceChanges` tables of the `Microsoft.ResourceGraph/resources` API. 
 
-Change Analysis notifies Azure Resource Graph when a tracked resource is created, updated, or deleted. Instead of notifying via the `Microsoft.ChangeAnalysis` resource provider, Change Analysis UX sends queries directly to Azure Resource Graph. Azure Resource Graph collects and stores snapshots of all tracked resources, compiled in a JSON payload when a `GET https://management.azure.com/{some_resource_id}` HTTP request is made.
+Each resource provider must update their services to push data to Azure Resource Graph when these resources types are created, updated, or deleted via the Azure Resource Manager control plane. For these resource types, you can expect [certain known limitations for changes saved in the `resourceChanges` table.](#limitations)
+
+> [!NOTE]
+> **Send feedback for more data**
+> Visit [the Change Analysis (Preview) experience](./view-resource-changes.md) on the Azure portal and submit feedback for data you'd like to see in Change Analysis and the `Microsoft.ResourceGraph/resources` API.
 
 ## Cost
 
@@ -50,17 +55,24 @@ You can use Azure Resource Graph Change Analysis at no extra cost.
 
 Azure Resource Graph Change Analysis currently presents some known limitations.
 
-- Some proxy resource change data is no longer provided 
-- No annotations on change data, including:
+- **No annotations on change data,** including:
   - Importance levels (noisy, normal, important)
   - Description of a changed property as per the Azure REST API specs
   - Removal of translating the object ID of who/what changed a property to the object's display name in Microsoft Entra
-- No `Microsoft.Web/sites`-specific data, such as:
+- **No `Microsoft.Web/sites`-specific data,** such as:
   - Configuration changes
   - App Settings changes
   - Environment variables changes
   - File changes
-- Programmatic callers need to use the `Microsoft.ResourceGraph/resources` API, instead of the `Microsoft.ChangeAnalysis/*` APIs 
+- **Programmatic callers:** Programmatic callers need to use the `Microsoft.ResourceGraph/resources` API, instead of the `Microsoft.ChangeAnalysis/*` APIs 
+- **How change data is collected:**
+  - `resourceChanges` table:
+    - Changes made to a resource's data plane API, such as writing data to a table in a storage account, are not observed by Azure Resource Graph.
+    - Resource change data for child resource types are [in a separate table](#changes-in-other-tables). 
+  - Changes collected in tables other than `resourceChanges`:
+    - The latest state and change data for these resource types are stored in a separate table from `resources` and `resourceChanges`.
+    - Data for these resource types may be delayed.
+    - Data for these resource types may be lost and irrecoverable.
 
 ## Next steps
 
