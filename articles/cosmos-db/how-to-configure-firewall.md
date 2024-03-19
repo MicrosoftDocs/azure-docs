@@ -75,7 +75,7 @@ During this transition, the **Allow access from Azure portal** option will add b
 |MongoDB only|52.131.240.99, 143.64.61.130|
 |Apache Cassandra only|40.73.99.146, 143.64.62.47|
 
-##### Azure US Gov
+##### Azure US Government
 
 |Database Account API|IP addresses|
 |--------------------|------------|
