@@ -77,7 +77,7 @@ Assign the VM Contributor role to the Azure account. This role provides permissi
 > [!IMPORTANT]
 > Virtual networks are a regional service, so make sure you create your virtual network in the desired target Azure region. For example, if you're planning on replicating and migrating VMs from your on-premises environment to the East US Azure Region, your target virtual network *must be created* in the East US Region. To connect virtual networks in different regions, see [Virtual network peering](../virtual-network/virtual-network-peering-overview.md).
 
-[Set up](../virtual-network/manage-virtual-network.md#create-a-virtual-network) an Azure virtual network. When you replicate to Azure, Azure VMs are created and joined to the Azure virtual network that you specified when you set up migration.
+[Set up](../virtual-network/manage-virtual-network.yml#create-a-virtual-network) an Azure virtual network. When you replicate to Azure, Azure VMs are created and joined to the Azure virtual network that you specified when you set up migration.
 
 ## Prepare for migration
 
@@ -162,7 +162,8 @@ A Mobility service agent must be preinstalled on the source physical machines to
 
 - [System Center Configuration Manager](../site-recovery/vmware-azure-mobility-install-configuration-mgr.md)
 - [Azure Arc for servers and custom script extensions](../azure-arc/servers/overview.md)
-- [Manual installation](../site-recovery/vmware-physical-mobility-service-overview.md)
+- [Install Mobility agent for Windows](../site-recovery/vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-command-prompt-classic)
+- [Install Mobility agent for Linux](../site-recovery/vmware-physical-mobility-service-overview.md#linux-machine-1)
 
 1. Extract the contents of the installer tarball to a local folder (for example, */tmp/MobSvcInstaller*) on the machine:
 

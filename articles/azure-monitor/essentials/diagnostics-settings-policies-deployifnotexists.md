@@ -104,15 +104,15 @@ To apply a policy using the PowerShell, use the following commands:
 1. Set up your environment.
     Select your subscription and set your resource group
     ```azurepowershell
-        Select-AzSubscription <subscriptionID>
-        $rg = Get-AzResourceGroup -Name <resource groups name>    
+    Select-AzSubscription <subscriptionID>
+    $rg = Get-AzResourceGroup -Name <resource groups name>    
     ```
 
 1. Get the policy definition and configure the parameters for the policy. In the example below we assign the policy to send keyVault logs to a Log Analytics workspace
     ```azurepowershell
-      $definition = Get-AzPolicyDefinition |Where-Object Name -eq 6b359d8f-f88d-4052-aa7c-32015963ecc1
-      $params =  @{"logAnalytics"="/subscriptions/<subscriptionID/resourcegroups/<resourcgroup>/providers/microsoft.operationalinsights/workspaces/<log anlaytics workspace name>"}  
-     ```
+    $definition = Get-AzPolicyDefinition |Where-Object Name -eq 6b359d8f-f88d-4052-aa7c-32015963ecc1
+    $params =  @{"logAnalytics"="/subscriptions/<subscriptionID/resourcegroups/<resourcgroup>/providers/microsoft.operationalinsights/workspaces/<log anlaytics workspace name>"}  
+    ```
 
 1. Assign the policy 
     ```azurepowershell
@@ -124,7 +124,7 @@ To apply a policy using the PowerShell, use the following commands:
     ```
 
 1. Assign the required role or roles to the system assigned Managed Identity
-     ```azurepowershell
+    ```azurepowershell
         $principalID=$policyAssignment.Identity.PrincipalId
         $roleDefinitionIds=$definition.Properties.policyRule.then.details.roleDefinitionIds
         $roleDefinitionIds | ForEach-Object {

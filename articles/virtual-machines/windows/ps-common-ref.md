@@ -24,7 +24,7 @@ These variables might be useful if running more than one of the commands in this
 | Task | Command |
 | ---- | ------- |
 | Create a simple VM | [New-AzVM](/powershell/module/az.compute/new-azvm) -Name $myVM <BR></BR><BR></BR> New-AzVM has a set of *simplified* parameters, where all that is required is a single name. The value for -Name will be used as the name for all of the resources required for creating a new VM. You can specify more, but this is all that is required.|
-| Create a VM from a custom image | New-AzVm -ResourceGroupName $myResourceGroup -Name $myVM ImageName "myImage" -Location $location  <BR></BR><BR></BR>You need to have already created your own [managed image](capture-image-resource.md). You can use an image to make multiple, identical VMs. |
+| Create a VM from a custom image | New-AzVm -ResourceGroupName $myResourceGroup -Name $myVM ImageName "myImage" -Location $location  <BR></BR><BR></BR>You need to have already created your own [managed image](capture-image-resource.yml). You can use an image to make multiple, identical VMs. |
 
 
 

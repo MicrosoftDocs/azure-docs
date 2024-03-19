@@ -39,7 +39,7 @@
     displayName: alerts, portal, resource graph, monitor, log analytics, query
     href: ./alerts-query-quickstart.md
   - name: Run ARG query with Power BI connector
-    displayName: portal, resource graph, query, power bi
+    displayName: portal, resource graph, query, power bi connector
     href: ./power-bi-connector-quickstart.md
 - name: Tutorials
   items:
@@ -89,11 +89,14 @@
 - name: Troubleshoot
   items:
   - name: Alerts
-    displayName: alerts, portal, resource graph, monitor, log analytics, query, error, violation
+    displayName: alerts, portal, resource graph, monitor, log analytics, query, error, violation, troubleshoot
     href: ./troubleshoot/alerts.md
   - name: Common issues
-    displayName: errors, violation
+    displayName: errors, violation, troubleshoot
     href: ./troubleshoot/general.md
+  - name: Power BI connector
+    displayName: errors, violation, troubleshoot, power bi connector
+    href: ./troubleshoot/power-bi-connector.md
 - name: Reference
   items:
   - name: Keyboard shortcuts

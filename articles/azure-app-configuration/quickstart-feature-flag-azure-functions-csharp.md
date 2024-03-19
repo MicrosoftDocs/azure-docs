@@ -7,21 +7,23 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
-ms.date: 3/20/2023
+ms.date: 02/17/2024
 ms.author: malev
 ---
 # Quickstart: Add feature flags to an Azure Functions app
 
-In this quickstart, you create an Azure Functions app and use feature flags in it. You use the feature management from Azure App Configuration to centrally store all your feature flags and control their states.
+In this quickstart, you create an Azure Functions C# code project and use feature flags in it. You use the feature management from Azure App Configuration to centrally store all your feature flags and control their states.
 
 The .NET Feature Management libraries extend the framework with feature flag support. These libraries are built on top of the .NET configuration system. They integrate with App Configuration through its .NET configuration provider.
+
+>[!NOTE]  
+>This article currently only supports [C# in-process function apps](../azure-functions/functions-dotnet-class-library.md) that run on .NET 6.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 - An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs) with the **Azure development** workload.
-- [Azure Functions tools](../azure-functions/functions-develop-vs.md#check-your-tools-version)
 
 ## Add a feature flag
 
@@ -30,9 +32,32 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 > [!div class="mx-imgBorder"]
 > ![Enable feature flag named Beta](media/add-beta-feature-flag.png)
 
-## Create a Functions app
+## Create a Functions project
 
-[!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
+The Azure Functions project template in Visual Studio creates a C# class library project that you can publish to a function app in Azure. You can use a function app to group functions as a logical unit for easier management, deployment, scaling, and sharing of resources.
+
+1. From the Visual Studio menu, select **File** > **New** > **Project**.
+
+1. In **Create a new project**, enter *functions* in the search box, choose the **Azure Functions** template, and then select **Next**.
+
+1. In **Configure your new project**, enter a **Project name** for your project, and then select **Create**. The function app name must be valid as a C# namespace, so don't use underscores, hyphens, or any other nonalphanumeric characters.
+
+1. For the **Create a new Azure Functions application** settings, use the values in the following table:
+
+    | Setting      | Value  | Description                      |
+    | ------------ |  ------- |----------------------------------------- |
+    | **.NET version** | **.NET 6** | This value creates a function project that runs in-process with version 4.x of the Azure Functions runtime. For more information, see [Azure Functions runtime versions overview](../azure-functions/functions-versions.md).   |
+    | **Function template** | **HTTP trigger** | This value creates a function triggered by an HTTP request. |
+    | **Storage account (AzureWebJobsStorage)**  | **Storage emulator** | Because a function app in Azure requires a storage account, one is assigned or created when you publish your project to Azure. An HTTP trigger doesn't use an Azure Storage account connection string; all other trigger types require a valid Azure Storage account connection string.  |
+    | **Authorization level** | **Anonymous** | The created function can be triggered by any client without providing a key. This authorization setting makes it easy to test your new function. For more information about keys and authorization, see [Authorization keys](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) and [HTTP and webhook bindings](../azure-functions/functions-bindings-http-webhook.md). |
+    
+    ![Screenshot of Azure Functions project settings](../../includes/media/functions-vs-tools-create/functions-project-settings.png)
+
+    ---
+
+    Make sure you set the **Authorization level** to **Anonymous**. If you choose the default level of **Function**, you're required to present the [function key](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) in requests to access your function endpoint.
+
+1. Select **Create** to create the function project and HTTP trigger function.
 
 ## Connect to an App Configuration store
 

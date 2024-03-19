@@ -236,6 +236,8 @@ Stay up to date on Azure Maps:
 [Get Map Tile]: /rest/api/maps/render/get-map-tile
 [Get Weather along route API]: /rest/api/maps/weather/getweatheralongroute
 [Render]: /rest/api/maps/render
+[Render v1]: /rest/api/maps/render?view=rest-maps-1.0
+[Render v2]: /rest/api/maps/render
 [REST APIs]: /rest/api/maps/
 [Route]: /rest/api/maps/route
 [Search]: /rest/api/maps/search?view=rest-maps-1.0&preserve-view=true

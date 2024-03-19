@@ -111,7 +111,7 @@ To create a new update deployment, select **Schedule update deployment**. The **
 | Maintenance window |Number of minutes set for updates. The value can't be less than 30 minutes and no more than 6 hours |
 | Reboot control| Determines how reboots should be handled. Available options are:</br>Reboot if required (Default)</br>Always reboot</br>Never reboot</br>Only reboot - will not install updates|
 
-Update Deployments can also be created programmatically. To learn how to create an Update Deployment with the REST API, see [Software Update Configurations - Create](/rest/api/automation/softwareupdateconfigurations/create). There is also a sample runbook that can be used to create a weekly Update Deployment. To learn more about this runbook, see [Create a weekly update deployment for one or more VMs in a resource group](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
+Update Deployments can also be created programmatically. To learn how to create an Update Deployment with the REST API, see [Software Update Configurations - Create](/rest/api/automation/softwareupdateconfigurations/create). There is also a sample runbook that can be used to create a weekly Update Deployment.
 
 After you have completed configuring the schedule, click **Create** button and you return to the status dashboard.
 Notice that the **Scheduled** table shows the deployment schedule you created.
