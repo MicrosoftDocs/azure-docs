@@ -215,13 +215,13 @@ When the search service endpoint is private, some portal features are disabled. 
 
 1. Close the remote desktop connection to *myVM*. 
 
-1. To verify that your service isn't accessible on a public endpoint, open Postman on your local workstation and attempt the first several tasks in the quickstart. If you receive an error that the remote server doesn't exist, you've successfully configured a private endpoint for your search service.
+1. To verify that your service isn't accessible on a public endpoint, open a REST client on your local workstation and attempt the first several tasks in the quickstart. If you receive an error that the remote server doesn't exist, you've successfully configured a private endpoint for your search service.
 
 <a id="portal-access-private-search-service"></a>
 
 ## Use the Azure portal to access a private search service
 
-When the search service endpoint is private, some portal features are disabled. You can view and manage service level information, but index, indexer, and skillset information is hidden for security reasons. 
+When the search service endpoint is private, some portal features are disabled. You can view and manage service level information, but index, indexer, and skillset information are hidden for security reasons. 
 
 To work around this restriction, connect to Azure portal from a browser on a virtual machine inside the virtual network. The portal uses the private endpoint on the connection and gives you visibility into content and operations.
 
