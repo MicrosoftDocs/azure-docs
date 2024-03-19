@@ -23,11 +23,7 @@ In this how-to guide, Network Function Publishers and Service Designers learn ho
 
 ## Prerequisites
 
-### Azure Subscription
-
-An Azure account with an active subscription is required. If you don't have an Azure subscription, follow the instructions here [Start free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) to create an account before you begin.
-
-Contact your Microsoft account team to register your Azure subscription for access to AOSM or express your interest through the [partner registration form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR7lMzG3q6a5Hta4AIflS-llUMlNRVVZFS00xOUNRM01DNkhENURXU1o2TS4u).
+- You have [enabled AOSM](quickstart-onboard-subscription-to-aosm.md) on your Azure subscription.
 
 ### Permissions
 
@@ -60,14 +56,14 @@ Contact your Microsoft account team to register your Azure subscription for acce
 > [!NOTE]
 > It is strongly recommended that you have tested that the VM deployment succeeds on your Azure Operator Nexus instance before onboarding the VNF to AOSM.
 
-### Register your subscription with the AOSM service
+### Register necessary resource providers
 
-Before you begin using the Azure Operator Service Manager, make sure to register the required resource provider. Execute the following commands. This registration process can take up to 5 minutes.
+Before you begin using the Azure Operator Service Manager, make sure to register the required resource providers. Execute the following commands. This registration process can take up to 5 minutes.
 
 ```azurecli
 # Register Resource Provider
-az provider register --namespace Microsoft.HybridNetwork
 az provider register --namespace Microsoft.ContainerRegistry
+az provider register --namespace Microsoft.ContainerInstance
 ```
 
 > [!NOTE]
@@ -81,8 +77,8 @@ Execute the following commands:
 
 ```azurecli
 # Query the Resource Provider
-az provider show -n Microsoft.HybridNetwork --query "{RegistrationState: registrationState, ProviderName: namespace}"
 az provider show -n Microsoft.ContainerRegistry --query "{RegistrationState: registrationState, ProviderName: namespace}"
+az provider show -n Microsoft.ContainerInstance --query "{RegistrationState: registrationState, ProviderName: namespace}"
 ```
 
 ### Download and install Azure CLI

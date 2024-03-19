@@ -15,7 +15,7 @@ In this Quickstart, you complete the tasks necessary prior to using the Azure Op
 
 ## Prerequisites
 
-Contact your Microsoft account team to register your Azure subscription for access to Azure Operator Service Manager (AOSM) or express your interest through the [partner registration form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR7lMzG3q6a5Hta4AIflS-llUMlNRVVZFS00xOUNRM01DNkhENURXU1o2TS4u).
+- You have [enabled AOSM](quickstart-onboard-subscription-to-aosm.md) on your Azure subscription.
 
 ## Download and install Azure CLI
 
@@ -38,13 +38,12 @@ az extension add --name aosm
 1. Run `az version` to see the version and dependent libraries that are installed.
 1. Run `az upgrade` to upgrade to the current version of Azure CLI.
 
-## Register and verify required resource providers
+## Register necessary resource providers
 
-Before you begin using the Azure Operator Service Manager, execute the following commands to register the required resource provider. This registration process can take up to 5 minutes.
+Before you begin using the Azure Operator Service Manager, execute the following commands to register the required resource providers. This registration process can take up to 5 minutes.
 
 ```azurecli
 # Register Resource Provider
-az provider register --namespace Microsoft.HybridNetwork
 az provider register --namespace Microsoft.ContainerRegistry
 ```
 
@@ -52,7 +51,6 @@ Verify the registration status of the resource providers. Execute the following 
 
 ```azurecli
 # Query the Resource Provider
-az provider show -n Microsoft.HybridNetwork --query "{RegistrationState: registrationState, ProviderName: namespace}"
 az provider show -n Microsoft.ContainerRegistry --query "{RegistrationState: registrationState, ProviderName: namespace}"
 ```
 
@@ -396,44 +394,44 @@ metadata:
 
 data:
   default.conf: |
-    log_format client '$remote_addr - $remote_user $request_time $upstream_response_time ' 
-                    '[$time_local] "$request" $status $body_bytes_sent $request_body "$http_referer" ' 
-                    '"$http_user_agent" "$http_x_forwarded_for"'; 
+    log_format client '$remote_addr - $remote_user $request_time $upstream_response_time '
+                    '[$time_local] "$request" $status $body_bytes_sent $request_body "$http_referer" '
+                    '"$http_user_agent" "$http_x_forwarded_for"';
 
-    server { 
-        listen       80; 
-        listen       {{ .Values.service.port }}; 
-        listen  [::]:80; 
-        server_name  localhost; 
+    server {
+        listen       80;
+        listen       {{ .Values.service.port }};
+        listen  [::]:80;
+        server_name  localhost;
 
-        access_log  /var/log/nginx/host.access.log  client; 
+        access_log  /var/log/nginx/host.access.log  client;
 
-        location / { 
-            root   /usr/share/nginx/html; 
-            index  index.html index.htm; 
-            error_page 405 =200 $uri; 
-        } 
-
-
-        #error_page  404              /404.html; 
-        # redirect server error pages to the static page /50x.html 
-        # 
-        error_page   500 502 503 504  /50x.html; 
-        location = /50x.html { 
-            root   /usr/share/nginx/html; 
-        } 
+        location / {
+            root   /usr/share/nginx/html;
+            index  index.html index.htm;
+            error_page 405 =200 $uri;
+        }
 
 
-        location = /cnf/test {   
-            error_page 405 =200 $uri; 
-        } 
+        #error_page  404              /404.html;
+        # redirect server error pages to the static page /50x.html
+        #
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   /usr/share/nginx/html;
+        }
 
 
-        location = /post_thing { 
-            # turn off logging here to avoid double logging 
-            access_log off; 
-            error_page 405 =200 $uri; 
-        } 
+        location = /cnf/test {
+            error_page 405 =200 $uri;
+        }
+
+
+        location = /post_thing {
+            # turn off logging here to avoid double logging
+            access_log off;
+            error_page 405 =200 $uri;
+        }
     }
 ```
 

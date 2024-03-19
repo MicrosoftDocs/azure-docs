@@ -20,13 +20,9 @@ In this how-to guide, Network Function Publishers and Service Designers learn ho
 
 ## Prerequisites
 
-### Azure Subscription
+- You have [enabled AOSM](quickstart-onboard-subscription-to-aosm.md) on your Azure subscription.
 
-An Azure account with an active subscription is required. If you don't have an Azure subscription, follow the instructions here [Start free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) to create an account before you begin.
-
-Contact your Microsoft account team to register your Azure subscription for access to AOSM or express your interest through the [partner registration form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR7lMzG3q6a5Hta4AIflS-llUMlNRVVZFS00xOUNRM01DNkhENURXU1o2TS4u).
-
-### Permissions
+### Configure Permissions
 
 - You require the Contributor role over your subscription in order to create a Resource Group, or an existing Resource Group where you have the Contributor role.
 - You require the `Reader`/`AcrPull` role assignments on the source ACR containing your images.
@@ -37,15 +33,14 @@ Contact your Microsoft account team to register your Azure subscription for acce
 The Helm packages you intend to onboard must be present on the local storage of the machine from which you're executing the CLI.
 
 > [!NOTE]
-> It is strongly recommended that the Helm package contains a schema for the helm values, that the helm package templates as you expect when `helm template` is run using the values.yaml you intend use in onboarding to AOSM, and that you have tested that `helm install` succeeds on your target Arc-connected Kubernetes environment.
+> It is strongly recommended that the Helm package contains a schema for the helm values, that the helm package templates as you expect when `helm template` is run using the values.yaml you intend to use in onboarding to AOSM, and that you have tested that `helm install` succeeds on your target Arc-connected Kubernetes environment.
 
-### Register your subscription with the AOSM service
+### Register necessary resource providers
 
-Before you begin using the Azure Operator Service Manager, make sure to register the required resource provider. Execute the following commands. This registration process can take up to 5 minutes.
+Before you begin using the Azure Operator Service Manager, make sure to register the required resource providers. Execute the following commands. This registration process can take up to 5 minutes.
 
 ```azurecli
 # Register Resource Provider
-az provider register --namespace Microsoft.HybridNetwork
 az provider register --namespace Microsoft.ContainerRegistry
 ```
 
@@ -60,7 +55,6 @@ Execute the following commands:
 
 ```azurecli
 # Query the Resource Provider
-az provider show -n Microsoft.HybridNetwork --query "{RegistrationState: registrationState, ProviderName: namespace}"
 az provider show -n Microsoft.ContainerRegistry --query "{RegistrationState: registrationState, ProviderName: namespace}"
 ```
 

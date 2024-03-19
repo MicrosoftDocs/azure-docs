@@ -17,7 +17,7 @@ The `az aosm` CLI extension is intended to provide support for publishing Networ
 
 ## Prerequisites
 
-Contact your Microsoft account team to register your Azure subscription for access to Azure Operator Service Manager (AOSM) or express your interest through the [partner registration form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR7lMzG3q6a5Hta4AIflS-llUMlNRVVZFS00xOUNRM01DNkhENURXU1o2TS4u).
+- You have [enabled AOSM](quickstart-onboard-subscription-to-aosm.md) on your Azure subscription.
 
 ### Download and install Azure CLI
 
@@ -40,13 +40,12 @@ az extension add --name aosm
 1. Run `az version` to see the version and dependent libraries that are installed.
 1. Run `az upgrade` to upgrade to the current version of Azure CLI.
 
-### Register and verify required resource providers
+### Register necessary resource providers
 
-Before you begin using the Azure Operator Service Manager, make sure to register the required resource provider. Execute the following commands. This registration process can take up to 5 minutes.
+Before you begin using the Azure Operator Service Manager, make sure to register the required resource providers. Execute the following commands. This registration process can take up to 5 minutes.
 
 ```azurecli
 # Register Resource Provider
-az provider register --namespace Microsoft.HybridNetwork
 az provider register --namespace Microsoft.ContainerRegistry
 ```
 
@@ -54,12 +53,12 @@ Verify the registration status of the resource providers. Execute the following 
 
 ```azurecli
 # Query the Resource Provider
-az provider show -n Microsoft.HybridNetwork --query "{RegistrationState: registrationState, ProviderName: namespace}"
 az provider show -n Microsoft.ContainerRegistry --query "{RegistrationState: registrationState, ProviderName: namespace}"
 ```
 
 > [!NOTE]
 > It may take a few minutes for the resource provider registration to complete. Once the registration is successful, you can proceed with using the Azure Operator Service Manager (AOSM).
+
 
 ### Containerized Network Function (CNF) requirements
 
