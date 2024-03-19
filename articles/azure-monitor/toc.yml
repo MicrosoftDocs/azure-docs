@@ -631,7 +631,7 @@ items:
       - name: Monitor
         displayName: Data collection rules
         href: essentials/data-collection-monitor.md
-      - name: Data collection rules
+      - name: Samples
         href: essentials/data-collection-rule-samples.md      
       - name: Transformations
         items:
@@ -648,7 +648,7 @@ items:
           items:
           - name: Overview
             displayName: Workspace transformations
-            href: logs/data-collection-rule-workspace.md
+            href: essentials/data-collection-rule-workspace.md
           - name: Azure portal
             displayName: Workspace transformations
             href: logs/tutorial-workspace-transformations-portal.md
