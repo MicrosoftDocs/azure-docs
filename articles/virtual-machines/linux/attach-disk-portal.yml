@@ -250,7 +250,7 @@ procedureSection:
 relatedContent:
   - text: Troubleshoot Linux VM device name changes
     url: /troubleshoot/azure/virtual-machines/troubleshoot-device-names-problems
-  - text: attach a data disk
+  - text: attach a data disk using the Azure CLI
     url: add-disk.md
 #For more information, and to help troubleshoot disk issues, see [Troubleshoot Linux VM device name changes](/troubleshoot/azure/virtual-machines/troubleshoot-device-names-problems).
 
