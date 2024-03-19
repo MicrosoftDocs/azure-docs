@@ -35,7 +35,7 @@ procedureSection:
       - |
         Select the VM you'd like to attach the disk to from the list.
       - |
-        In the **Virtual machines** page, under **Settings**, choose **Disks**.
+        In the **Virtual machines** page, under **Settings**, select **Disks**.
 
   - title: |
       Attach a new disk
