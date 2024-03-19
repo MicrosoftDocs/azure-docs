@@ -386,7 +386,12 @@ print(response.model_dump_json(indent=2))
   "created": 1699386280, 
   "id": "chatcmpl-8IMI4HzcmcK6I77vpOJCPt0Vcf8zJ", 
   "model": "gpt-35-turbo-instruct", 
-  "object": "chat.completion", 
+  "object": "text.completion",
+  "usage": { 
+    "completion_tokens": 40, 
+    "prompt_tokens": 11, 
+    "total_tokens": 417 
+  },  
   "prompt_filter_results": [ 
     { 
       "content_filter_results": { 
@@ -417,12 +422,7 @@ print(response.model_dump_json(indent=2))
       }, 
       "prompt_index": 0 
     } 
-  ], 
-  "usage": { 
-    "completion_tokens": 40, 
-    "prompt_tokens": 11, 
-    "total_tokens": 417 
-  } 
+  ]
 } 
 ```
 
@@ -495,7 +495,12 @@ print(response)
   "created": 1699386280, 
   "id": "chatcmpl-8IMI4HzcmcK6I77vpOJCPt0Vcf8zJ", 
   "model": "gpt-35-turbo-instruct", 
-  "object": "chat.completion", 
+  "object": "text.completion",
+  "usage": { 
+    "completion_tokens": 40, 
+    "prompt_tokens": 11, 
+    "total_tokens": 417 
+  },  
   "prompt_filter_results": [ 
     { 
       "content_filter_results": { 
@@ -526,12 +531,7 @@ print(response)
       }, 
       "prompt_index": 0 
     } 
-  ], 
-  "usage": { 
-    "completion_tokens": 40, 
-    "prompt_tokens": 11, 
-    "total_tokens": 417 
-  } 
+  ]
 } 
 ```
 
