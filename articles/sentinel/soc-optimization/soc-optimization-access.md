@@ -36,7 +36,7 @@ In the Microsoft Defender portal, select **SOC optimization** from the left-side
 
 ## Understand SOC optimization overview metrics
 
-Optimization metrics shown at the top of the **Overview** tab differ, depending on how efficiently you are using your data. For example, customers with few recommendations to implement will see fewer metrics.
+Optimization metrics shown at the top of the **Overview** tab give you a high level understanding of how efficiently you're using your data, and will change over time as you implement recommendations.
 
 Supported metrics at the top of the **Overview** tab include:
 
@@ -67,7 +67,7 @@ Scroll down to the bottom of the details pane for a link to where you can take t
 
 ### Manage optimizations
 
-Manage your optimizations by selecting one of the following actions:
+By default, optimization statuses are Active. Change their statuses by selecting one of the following actions:
 
 |Action |Description  |
 |---------|---------|
