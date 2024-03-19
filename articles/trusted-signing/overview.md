@@ -9,7 +9,7 @@ ms.date: 01/05/2024 #Required; mm/dd/yyyy format.
 ms.custom: template-overview #Required; leave this attribute/value as-is.
 ---
 
-# What is Trusted Signing
+# What is Trusted Signing?
 
 <!-- 2. Introductory paragraph ----------------------------------------------------------
 
@@ -20,8 +20,6 @@ services add artwork or videos below the introduction.
 
 -->
 
-[Introductory paragraph]
-TODO: Add your introductory paragraph
 
 <!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info
 directly into the article text.
@@ -36,8 +34,6 @@ mentioned as available, without any discussion.
 
 -->
 
-[Article body]
-TODO: Add your article body
 
 <!-- Top tasks ------------------------------------------------------------------------------
 

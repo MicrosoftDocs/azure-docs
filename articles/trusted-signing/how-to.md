@@ -1,6 +1,6 @@
 ---
 title: Signing with Trusted Signing #Required; page title is displayed in search results. Include the brand.
-description: Learn how to set up signing with Trusted Signing #Required; article description that is displayed in search results. 
+description: Learn how to set up signing with Trusted Signing. #Required; article description that is displayed in search results. 
 author: microsoftshawarma #Required; your GitHub user alias, with correct capitalization.
 ms.author: rakiasegev #Required; microsoft alias of author; optional team alias.
 ms.service: azure-code-signing #Required; service per approved list. slug assigned by ACOM.
@@ -32,8 +32,6 @@ introduction.
 
 -->
 # Setting Up Trusted Signing
-[Add your introductory paragraph]
-TODO: Add your introductory paragraph
 
 <!-- 3. Prerequisites --------------------------------------------------------------------
 
@@ -45,10 +43,6 @@ Visual Studio 2019 or later).
 
 -->
 
-## Prerequisites and Dependencies
-TODO: Determine if prerequisites are appropriate
-TODO: List the prerequisites if appropriate
-
 <!-- 4. Task H2s ------------------------------------------------------------------------------
 
 Required: Each major step in completing a task should be represented as an H2 in the article.
@@ -59,21 +53,6 @@ Procedure steps use ordered lists.
 
 -->
 
-## 1 - [Doing the first thing]
-TODO: Add introduction sentence(s)
-TODO: Add ordered list of procedure steps
-
-## 2 - [Doing the second thing]
-TODO: Add introduction sentence(s)
-TODO: Add ordered list of procedure steps
-
-## 3 - [Doing the next thing]
-TODO: Add introduction sentence(s)
-TODO: Add ordered list of procedure steps
-
-## [N - Doing the last thing]
-TODO: Add introduction sentence(s)
-TODO: Add ordered list of procedure steps
 
 <!-- 5. Next steps ------------------------------------------------------------------------
 
@@ -83,8 +62,6 @@ Add a context sentence for the following links.
 
 -->
 
-## Next steps
-TODO: Add your next step link(s)
 
 <!--
 Remove all the comments in this template before you sign-off or merge to the main branch.
