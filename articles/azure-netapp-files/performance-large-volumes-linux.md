@@ -21,7 +21,7 @@ This article describes the tested performance capabilities of a single [Azure Ne
 
 ## Test methodologies
 
-* Azure NetApp Files large volumes offers three service levels, each with throughput limits. The service levels can be scaled up or down nondisruptively as your performance needs change.  
+* The Azure NetApp Files large volumes feature offers three service levels, each with throughput limits. The service levels can be scaled up or down nondisruptively as your performance needs change.  
 
     * Ultra service level: 10,240 MiB/s
     * Premium service level: 6,400 MiB/s
@@ -32,7 +32,7 @@ This article describes the tested performance capabilities of a single [Azure Ne
 
 * Random I/O: The same single large volume delivers over 700,000 operations per second. 
 
-* Metadata-heavy workloads are particularly advantageous for Azure NetApp File large volumes due to the large volume’s increased parallelism. Performance benefits are particularly noticeable in workloads heavy in file creation, unlink, and file renames as typical with VCS applications, and EDA workloads where there are high file counts present. For more information on performance of high metadata workloads, see [Benefits of using Azure NetApp Files for electronic design automation](electronic-design-automation-benefits.md).
+* Metadata-heavy workloads are advantageous for Azure NetApp File large volumes due to the large volume’s increased parallelism. Performance benefits are noticeable in workloads heavy in file creation, unlink, and file renames as typical with VCS applications, and EDA workloads where there are high file counts present. For more information on performance of high metadata workloads, see [Benefits of using Azure NetApp Files for electronic design automation](electronic-design-automation-benefits.md).
 
 [FIO](https://fio.readthedocs.io/en/latest/fio_doc.html), a synthetic workload generator designed as a storage stress test, was used to drive these test results.
 
@@ -41,12 +41,12 @@ This article describes the tested performance capabilities of a single [Azure Ne
     * **Scale-out compute**, which refers to using multiple VMs to generate the maximum load possible on a single Azure NetApp Files volume. 
     * **Scale-up compute**, which refers to using a large VM to test the upper boundaries of a single client on a single Azure NetApp Files volume. 
     
-## Synopsis
+## Summary
 
 * A single large volume can deliver sequential throughput up to the service level limits in all but the pure sequential write scenario. For sequential writes, the synthetic tests found the upper limit to be 8500 MiB/s.
 <!-- * Using 8-KiB random workloads, 10,240 MiB/s isn't achievable. As such, more than 700,000 8-KiB operations were achieved. -->
 
-As I/O types shift toward metadata intensive operations, the scenario changes again. Metadata workloads are particularly advantageous for Azure NetApp File large volumes. When you run workloads rich in file creation, unlink, and file renames, you will notice a significant amount of performance. Typical of such primitives are the VCS application and EDA workloads where files are created, renamed, or linked at very high rates. 
+As I/O types shift toward metadata intensive operations, the scenario changes again. Metadata workloads are particularly advantageous for Azure NetApp File large volumes. When you run workloads rich in file creation, unlink, and file renames, you can notice a significant amount of performance. Typical of such primitives are the VCS application and EDA workloads where files are created, renamed, or linked at very high rates. 
 
 <!-- 
 ## Test methodologies and tools
@@ -77,17 +77,17 @@ Tests observed performance thresholds of a single large volume on scale-out and 
 | Azure VM egress bandwidth limit | 2000MiB/s (2GiB/s) |
 | Operating system | RHEL 8.4 |
 | Large volume size | 101 TiB Ultra (10,240 MiB/s throughput) |
-| Mount options | hard,rsize=65536,wsize=65536,vers=3  <br /> **NOTE:** Use of both 262144 and 65536 had similar performance results |
+| Mount options | hard,rsize=65536,wsize=65536,vers=3  <br /> **NOTE:** Use of both 262144 and 65536 had similar performance results. |
 
 ### 256 KiB sequential workloads (MiB/s) 
 
-The graph below represents a 256 KiB sequential workload and a 1-TiB working set. It shows that a single Azure NetApp Files large volume can handle between approximately 8,518 MiB/s pure sequential writes and 9,970 MiB/s pure sequential reads. 
+The graph represents a 256 KiB sequential workload and a 1 TiB working set. It shows that a single Azure NetApp Files large volume can handle between approximately 8,518 MiB/s pure sequential writes and 9,970 MiB/s pure sequential reads. 
 
 :::image type="content" source="./media/performance-large-volumes-linux/256-kib-sequential-reads.png" alt-text="Bar chart of a 256-KiB sequential workload on a large volume." lightbox="./media/performance-large-volumes-linux/256-kib-sequential-reads.png":::
 
-### 8 KiB Random Workload (IOPS)
+### 8-KiB random workload (IOPS)
 
-The graph below represents an 8-KiB random workload and a 1-TiB working set. The graph shows that an Azure NetApp Files large volume can handle between approximately 474,000 pure random writes and approximately 709,000 pure random reads.
+The graph represents an 8-KiB random workload and a 1 TiB working set. The graph shows that an Azure NetApp Files large volume can handle between approximately 474,000 pure random writes and approximately 709,000 pure random reads.
 
 :::image type="content" source="./media/performance-large-volumes-linux/random-workload-chart.png" alt-text="Bar chart of a random workload on a large volume." lightbox="./media/performance-large-volumes-linux/random-workload-chart.png":::
 
@@ -108,7 +108,7 @@ The tests in this section were run with the following configuration:
 
 The graphs in this section show the results for the client-side mount option of `nconnect` with NFSv3. For more information, see [Linux NFS mount options best practices for Azure NetApp File](performance-linux-mount-options.md#nconnect).
 
-The following graphs compare the advantages of `nconnect` with an NFS-mounted volume without `nconnect`. In the tests, FIO generated the workload from a single E104id-v5 instance in the East US Azure region using a 64-KiB sequential workload; a 256 I/0 size was used, which is the largest I/O size recommended by Azure NetApp Files resulted in comparable performance numbers. For more details, see [`rsize` and `wsize`](performance-linux-mount-options.md#rsize-and-wsize). 
+The following graphs compare the advantages of `nconnect` with an NFS-mounted volume without `nconnect`. In the tests, FIO generated the workload from a single E104id-v5 instance in the East US Azure region using a 64-KiB sequential workload; a 256 I/0 size was used, which is the largest I/O size recommended by Azure NetApp Files resulted in comparable performance numbers. For more information, see [`rsize` and `wsize`](performance-linux-mount-options.md#rsize-and-wsize). 
 
 
 ### Linux read throughput 
@@ -117,19 +117,18 @@ The following graphs show 256-KiB sequential reads of ~10,000MiB/s with `nconn
 
 Note that 10,000 MiB/s bandwidth is offered by a large volume in the Ultra service level. 
 
-:::image type="content" source="./media/performance-large-volumes-linux/throughput-comparison-nconnect.png.png" alt-text="Comparison of read throughput with and without nconnect." lightbox="./media/performance-large-volumes-linux/throughput-comparison-nconnect.png.png":::
-
+:::image type="content" source="./media/performance-large-volumes-linux/throughput-comparison-nconnect.png" alt-text="Comparison of read throughput with and without nconnect." lightbox="./media/performance-large-volumes-linux/throughput-comparison-nconnect.png":::
 
 ### Linux write throughput
 
 The following graphs show sequential writes. Using `nconnect` provides observable benefits for sequential writes at 6,600 MiB/s, roughly four times that of mounts without `nconnect`. 
 
-:::image type="content" source="./media/performance-large-volumes-linux/write-throughput-comparison.png" alt-text="Comparison of write throughput with and without nconnect." lightbox="./media/performance-large-volumes-linux/write-throughput-comparison-nconnect.png":::
+:::image type="content" source="./media/performance-large-volumes-linux/write-throughput-comparison.png" alt-text="Comparison of write throughput with and without nconnect." lightbox="./media/performance-large-volumes-linux/write-throughput-comparison.png":::
 
 
 ### Linux read IOPS
 
-The following graphs show 8 KiB random reads of ~426,000 read IOPS with `nconnect`, roughly seven times what is observed without `nconnect`. 
+The following graphs show 8-KiB random reads of ~426,000 read IOPS with `nconnect`, roughly seven times what is observed without `nconnect`. 
 
 
 :::image type="content" source="./media/performance-large-volumes-linux/read-iops-comparison.png" alt-text="Charts comparing read IOPS with and without IOPS." lightbox="./media/performance-large-volumes-linux/read-iops-comparison.png":::

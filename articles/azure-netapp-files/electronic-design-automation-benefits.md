@@ -1,6 +1,6 @@
 ---
 title: Benefits of using Azure NetApp Files for electronic design automation 
-description: 
+description: Explains the solution Azure NetApp Files provides for meeting the needs of the semiconductor and chip design industry. Presents test scenarios running a standard industry benchmark for electronic design automation (EDA) using Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-ahibbard
@@ -17,11 +17,11 @@ ms.author: anfdocs
 ---
 # Benefits of using Azure NetApp Files for electronic design automation 
 
-Innovation is an identifying hallmark of the semiconductor industry. Such innovation allowed Gordon Moore's 1965 tenet known as Moore's Law to hold true for more than fifty years, namely that one can expect processing speeds to double approximately every year or two.  For instance, innovation in the semiconductor industry has helped evolve Moore’s Law by stacking chips into smaller form factors to scale performance to previously unthought of levels through parallelism. 
+Innovation is an identifying hallmark of the semiconductor industry. Such innovation allowed Gordon Moore's 1965 tenet known as Moore's Law to hold true for more than fifty years, namely that one can expect processing speeds to double approximately every year or two. For instance, innovation in the semiconductor industry has helped evolve Moore’s Law by stacking chips into smaller form factors to scale performance to previously unthought of levels through parallelism. 
 
-Semiconductor (or Electronic Design Automation/EDA) firms are most interested in time to market (TTM). TTM is often predicated upon the time it takes for workloads, such as chip design validation and pre-foundry work like tape-out to complete. TTM concerns also help keeps EDA licensing costs down: less time spent on work means more time available for the licenses. That said, the more bandwidth and capacity available to the server farm, the better. 
+Semiconductor (or Electronic Design Automation [EDA]) firms are most interested in time to market (TTM). TTM is often predicated upon the time it takes for workloads, such as chip design validation and pre-foundry work like tape-out to complete. TTM concerns also help keeps EDA licensing costs down: less time spent on work means more time available for the licenses. That said, the more bandwidth and capacity available to the server farm, the better. 
 
-Azure NetApp Files helps reduce the amount of time EDA jobs take with a highly performant, parallelized file system solution: [Azure NetApp Files large volumes](large-volumes-requirements-considerations.md). Recent EDA benchmark tests show that a single large volume is 20 times more performant than previously achievable with a single Azure NetApp Files regular volume.  
+Azure NetApp Files helps reduce the time EDA jobs take with a highly performant, parallelized file system solution: [Azure NetApp Files large volumes](large-volumes-requirements-considerations.md). Recent EDA benchmark tests show that a single large volume is 20 times more performant than previously achievable with a single Azure NetApp Files regular volume.  
 
 The Azure NetApp Files large volumes feature is ideal for the storage needs of this most demanding industry, namely:  
 
@@ -43,7 +43,7 @@ The following chart illustrates the test results.
 
 :::image type="content" source="./media/electronic-design-automation-benefits/latency-throughput-graph.png" alt-text="Chart comparing latency and throughput between large and regular volumes." lightbox="./media/electronic-design-automation-benefits/latency-throughput-graph.png":::
 
-The 2020 internal testing also explored single endpoint limits, the limits were reached with six volumes. Large Volume outperforms the six regular volume scenario by 260% as shown below:
+The 2020 internal testing also explored single endpoint limits, the limits were reached with six volumes. Large Volume outperforms the scenario with six regular volume by 260%.
 
 | Scenario	| I/O Rate at 2ms latency | I/O Rate at performance edge (~7ms) | MiB/s at 2ms latency | MiB/s performance edge (~7ms) |
 | - | - | - | - | - | 
@@ -53,7 +53,7 @@ The 2020 internal testing also explored single endpoint limits, the limits were 
 
 ## Simplicity at scale
 
-With a large volume, performance is not the entire story. Simple performance is the end goal. Customers prefer a single namespace/mount point as opposed to managing multiple volumes for ease of use and application management. 
+With a large volume, performance isn't the entire story. Simple performance is the end goal. Customers prefer a single namespace/mount point as opposed to managing multiple volumes for ease of use and application management. 
 
 ## Testing Tool
 
@@ -75,8 +75,7 @@ The EDA workload in this test has been generated using a standard industry bench
 | Mkdir | 1% |
 | Ulink | 1% |
 | Ulink2 | 1% |
-| 
-- Append
+| - Append
 - Custom2 
 - Lock
 - Mmap_read
@@ -93,8 +92,7 @@ The EDA workload in this test has been generated using a standard industry bench
 | - | - | 
 | Read | 50% | 
 | Write | 50% | 
-|
-- Custom2
+| - Custom2
 - Mmap_read
 - Random_read
 - Read_file
@@ -113,8 +111,8 @@ The results were produced using the below configuration details:
 | Instance Type	| D16s_v5 |
 | Instance  Count | 10 |
 | Mount Options | nocto,actimeo=600,hard,rsize=262144,wsize=262144,vers=3,tcp,noatime,nconnect=8 |
-| Client tunables |
-```
+| Client tunables 
+|```
 # Network parameters. In unit of bytes
 net.core.wmem_max = 16777216
 net.core.wmem_default = 1048576
@@ -153,11 +151,11 @@ sunrpc.tcp_slot_table_entries = 128
 ```
 |
 
-Mount options `nocto`, `noatime`, and `actimeo=600` work together to alleviate the effect of some metadata operations for an EDA workload over the NFSv3 protocol. These mount options both reduce the number of metadata operations taking place as well as cache some metadata attributes on the client allowing EDA workloads to push further than it would otherwise. It's essential to consider individual workload requirements as these mount options may not be universally applicable. For more information, see [Linux NFS mount options best practices for Azure NetApp File](performance-linux-mount-options.md).
+Mount options `nocto`, `noatime`, and `actimeo=600` work together to alleviate the effect of some metadata operations for an EDA workload over the NFSv3 protocol. These mount options both reduce the number of metadata operations taking place as well as cache some metadata attributes on the client allowing EDA workloads to push further than it would otherwise. It's essential to consider individual workload requirements as these mount options aren't universally applicable. For more information, see [Linux NFS mount options best practices for Azure NetApp File](performance-linux-mount-options.md).
 
 ## Summary
 
-EDA workloads require file storage that can handle high file counts, large capacity, and a large number of parallel operations across potentially thousands of client workstations. This is in addition to being able to perform at a level that reduces the time it takes for testing and validation jobs to complete to save money on licenses and expedite time to market for the latest and greatest chipsets. Azure NetApp Files large volumes can handle all of the above with performance comparable to what would be seen in on-premises deployments.
+EDA workloads require file storage that can handle high file counts, large capacity, and a large number of parallel operations across potentially thousands of client workstations. EDA workloads also need to perform at a level that reduces the time it takes for testing and validation to complete so to save money on licenses and to expedite time to market for the latest and greatest chipsets. Azure NetApp Files large volumes can handle all of the above with performance comparable to what would be seen in on-premises deployments.
 
 ## Next steps
 
