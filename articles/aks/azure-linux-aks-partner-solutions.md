@@ -5,7 +5,7 @@ description: Discover partner-tested solutions that enable you to build, test, d
 ms.author: schaffererin
 author: schaffererin
 ms.topic: article
-ms.date: 03/18/2024
+ms.date: 03/19/2024
 ---
 
 # Azure Linux AKS Container Host partner solutions
@@ -16,7 +16,7 @@ Our third party partners featured in this article have introduction guides to he
 
 | Solutions          | Partners                                                                                       |
 |--------------------|------------------------------------------------------------------------------------------------|
-| DevOps             | [Advantech](#advantech) <br> [Akuity](#akuity) <br> [Anchore](#anchore) <br> [Hashicorp](#hashicorp) <br> [Kong](#kong) <br> [NetApp](#spot-by-netapp) |
+| DevOps             | [Advantech](#advantech) <br> [Akuity](#akuity) <br> [Anchore](#anchore) <br> [Hashicorp](#hashicorp) <br> [Kong](#kong) <br> [NetApp](#netapp) |
 | Networking         | [Buoyant](#buoyant) <br> [Isovalent](#isovalent) <br> [Solo.io](#soloio) <br> [Tetrate](#tetrate) <br> [Tigera](#tigera-inc) |
 | Observability      | [Anchore](#anchore) <br> [Buoyant](#buoyant) <br> [Isovalent](#isovalent) <br> [Dynatrace](#dynatrace) <br> [Solo.io](#soloio) <br> [Tigera](#tigera-inc) |
 | Security           | [Anchore](#anchore) <br> [Buoyant](#buoyant) <br> [Isovalent](#isovalent) <br> [Kong](#kong) <br> [Solo.io](#soloio) <br> [Tetrate](#tetrate) <br> [Tigera](#tigera-inc) <br> [Wiz](#wiz) |
@@ -125,7 +125,7 @@ Kong’s extensive ecosystem of community and enterprise plugins delivers critic
 
 For more information, see [Kong Solutions](https://konghq.com/) and [Kong on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/konginc1581527938760.kong-enterprise?tab=Overview).
 
-### Spot By NetApp
+### NetApp
 
 :::image type="icon" source="./media/azure-linux-aks-partner-solutions/spotbynetapp.png":::
 
