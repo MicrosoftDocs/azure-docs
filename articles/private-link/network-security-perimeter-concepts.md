@@ -78,6 +78,20 @@ Administrators add PaaS resources to a perimeter by creating resource associatio
 
 Learn more on transitioning from learning mode to enforced mode in [transitioning to a network security perimeter](network-security-perimeter-transitioning.md) article.
 
+Private-link resource
+A private-link resource is the network security perimeter aware PaaS resource which can be associated. Currently, we have 8 PaaS services onboarded to network security perimeter and many more being onboarded in future. Below are the onboarded services:
+
+| Private-link resource name | Resource type | Resources |
+|---------------------------|---------------|-----------|
+| Azure Monitor             | Microsoft.Insights/dataCollectionEndpoints<br>Microsoft.Insights/ScheduledQueryRules<br>Microsoft.Insights/actionGroups<br>Microsoft.OperationalInsights/workspaces | Log Analytics, App Insights, Alerts, Notification Service, Monitor Essentials, App Insights Profiler |
+| Cognitive Search          | Microsoft.Search/searchServices | - |
+| Cognitive Services        | Microsoft.CognitiveServices/accounts | Form Recognizer, Anomaly Detector, Immersive Reader, Computer Vision |
+| Cosmos DB                 | Microsoft.DocumentDB/databaseAccounts | - |
+| Event Hubs                | Microsoft.EventHub/namespaces | - |
+| Key Vault                 | Microsoft.KeyVault/vaults | - |
+| SQL DB                    | Microsoft.Sql/servers | - |
+| Storage                   | Microsoft.Storage/storageAccounts | - |
+
 ## Supported PaaS services
 
 Currently, network security perimeter supports the following onboarded PaaS services: 
