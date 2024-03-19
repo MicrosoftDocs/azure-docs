@@ -64,6 +64,7 @@ You can enable agentless scanning on
 1. Select **Save**.
 
 **To enable scanning of CMK encrypted disks in Azure (preview)**:
+
 For agentless scanning to cover Azure VMs with CMK encrypted disks, you need to grant Defender for Cloud additional permissions to create a secure copy of these disks. To do so, additional permissions are needed on Key Vaults used for CMK encryption for your VMs.
 
 To manually assign the permissions, follow the below instructions according to your Key Vault type:
