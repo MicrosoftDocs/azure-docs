@@ -61,7 +61,7 @@ Operationally, the DecryptBlobFile skill takes the URL and SAS token for each bl
 
 1. Select **Review + create**, make sure you agree to the terms, and then select **Create** to deploy the Azure Function.
 
-    :::image type="content" source="media/indexing-encrypted-blob-files/arm-template.png" alt-text="Screenshot of the arm template page in Azure portal." border="true":::
+    :::image type="content" source="media/indexing-encrypted-blob-files/arm-template.png" alt-text="Screenshot of the ARM template page in Azure portal." border="true":::
 
 1. Wait for the deployment to finish.
 
