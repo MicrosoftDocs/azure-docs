@@ -1,13 +1,15 @@
 ---
 title: Frequently asked questions about Defender for IoT Firmware analysis
 description: Find answers to some of the common questions about Defender for IoT Firmware Analysis.
+keywords: firmware analysis, frequently asked questions, support, Azure PowerShell, Azure CLI
 ms.topic: conceptual
 ms.date: 01/10/2024
 ---
 
 # Frequently asked questions about Defender for IoT Firmware Analysis
-
 This article addresses frequent questions about Defender for IoT Firmware Analysis.
+
+[Defender for IoT Firmware Analysis](/azure/defender-for-iot/device-builders/overview-firmware-analysis) is a tool that analyzes firmware images and provides an understanding of security vulnerabilities in the firmware images.
 
 ## What types of firmware images does Defender for IoT Firmware Analysis support?
 Defender for IoT Firmware Analysis supports unencrypted images that contain file systems with embedded Linux operating systems. Defender for IoT Firmware Analysis supports the following file system formats:
