@@ -44,10 +44,10 @@ This article discusses the technical details regarding the migration tool as per
 - For virtual networks with multiple Cloud Services, each Cloud Service is migrated one after the other. 
 
 ### Migration of deployments not in a virtual network
-- In 2017, Azure started automatically creating new deployments (without customer specified virtual network) into a platform created “default” virtual network. These default virtual networks are hidden from customers.   
+- In late 2018, Azure started automatically creating new deployments (without customer specified virtual network) into a platform created “default” virtual network. These default virtual networks are hidden from customers.   
 - As part of the migration, this default virtual network will be exposed to customers once in Azure Resource Manager. To manage or update the deployment in Azure Resource Manager, customers need to add this virtual network information in the NetworkConfiguration section of the .cscfg file.    
 - The default virtual network, when migrated to Azure Resource Manager, is placed in the same resource group as the Cloud Service.
-- Cloud Services created before this time will not be in any virtual network and cannot be migrated using the tool. Consider redeploying these Cloud Services directly in Azure Resource Manager. 
+- Cloud Services created before this time (before end of 2018) will not be in any virtual network and cannot be migrated using the tool. Consider redeploying these Cloud Services directly in Azure Resource Manager. Another approach is to migrate via creating new Staging deployment and VIPSwap Check more details [here](./non-vnet-migration.md)
 - To check if a deployment is eligible to migrate, run the validate API on the deployment. The result of Validate API will contain error message explicitly mentioning if this deployment is eligible to migrate.     
 
 ### Load Balancer   
