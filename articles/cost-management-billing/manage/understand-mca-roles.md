@@ -195,21 +195,21 @@ The following table shows what role you need to complete tasks in the context of
 
 2. Search for **Cost Management + Billing**.
 
-   ![Screenshot that shows Azure portal search](./media/understand-mca-roles/billing-search-cost-management-billing.png)
+   :::image type="content" border="true" source="./media/understand-mca-roles/billing-search-cost-management-billing.png" alt-text="Screenshot that shows Azure portal search.":::
 
 3. Select **Access control (IAM)** at a scope such as billing account, billing profile, or invoice section, where you want to give access.
 
 4. The Access control (IAM) page lists users and groups that are assigned to each role for that scope.
 
-   ![Screenshot that shows list of admins for billing account](./media/understand-mca-roles/billing-list-admins.png)
+   :::image type="content" border="true" source="./media/understand-mca-roles/billing-list-admins.png" alt-text="Screenshot that shows list of admins for billing account.":::
 
 5. To give access to a user, Select **Add** from the top of the page. In the Role drop-down list, select a role. Enter the email address of the user to whom you want to give access. Select **Save** to assign the role.
 
-   ![Screenshot that shows adding an admin to a billing account](./media/understand-mca-roles/billing-add-admin.png)
+   :::image type="content" border="true" source="./media/understand-mca-roles/billing-add-admin.png" alt-text="Screenshot that shows adding an admin to a billing account.":::
 
 6. To remove access for a user, select the user with the role assignment you want to remove. Select Remove.
 
-   ![Screenshot that shows removing an admin from a billing account](./media/understand-mca-roles/billing-remove-admin.png)
+   :::image type="content" border="true" source="./media/understand-mca-roles/billing-remove-admin.png" alt-text="Screenshot that shows removing an admin from a billing account.":::
 
 ## Check access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
