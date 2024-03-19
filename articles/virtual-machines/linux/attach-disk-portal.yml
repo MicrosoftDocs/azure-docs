@@ -23,7 +23,6 @@ prerequisites:
     Before you attach disks to your VM, review these tips:
   dependencies:
     - The size of the virtual machine controls how many data disks you can attach. For details, see [Sizes for virtual machines](../sizes.md).
-    - After attaching the disk, you need to [connect to the Linux VM to mount the new disk](#connect-to-the-linux-vm-to-mount-the-new-disk).
 
 procedureSection:
   - title: |
