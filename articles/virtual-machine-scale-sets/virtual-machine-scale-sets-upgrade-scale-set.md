@@ -290,6 +290,19 @@ Some properties may be changed, with exceptions depending on the current value. 
 - imageReferenceOffer
 - Availability Zones (Preview)
 
+#### Examples
+To update your scale set to use a different OS version, you need to set all the updated properties in a single call. In this example, we are changing from Unbuntu Server 20.04 to 22.04. 
+
+```azure-cli
+az vmss update \
+--resource-group myResourceGroup \
+--name myScaleSet \
+--set virtualMachineProfile.storageProfile.imageReference.offer=0001-com-ubuntu-server-jammy \
+--set virtualMachineProfile.storageProfile.imageReference.publisher=Canonical \
+--set virtualMachineProfile.storageProfile.imageReference.sku=22_04-lts-gen2 \
+--set virtualMachineProfile.storageProfile.imageReference.version=latest
+```
+
 ### Properties that require deallocation to change
 Some properties may only be changed to certain values if the VMs in the scale set are deallocated. These properties include:
 
