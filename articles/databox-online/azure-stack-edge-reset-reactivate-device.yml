@@ -52,27 +52,27 @@ procedureSection:
     
       1. On the **Azure services** page of Azure portal, select **Azure Stack Edge**.
       
-        [![Screenshot of Azure services page on Azure portal. The Azure Stack Edge option is highlighted.](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-select-azure-stack-edge-00.png)](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-select-azure-stack-edge-00.png#lightbox)
+          [![Screenshot of Azure services page on Azure portal. The Azure Stack Edge option is highlighted.](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-select-azure-stack-edge-00.png)](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-select-azure-stack-edge-00.png#lightbox)
 
       1. On the **Azure Stack Edge** page, select **+ Create**.
 
-        [![Screenshot of Azure Stack Edge page on Azure portal. The Create resource option is highlighted.](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-create-new-resource-01.png)](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-create-new-resource-01.png#lightbox)
+          [![Screenshot of Azure Stack Edge page on Azure portal. The Create resource option is highlighted.](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-create-new-resource-01.png)](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-create-new-resource-01.png#lightbox)
 
       1. On the **Manage Azure Stack Edge** page, select **Manage a device**.
 
-        [![Screenshot of Manage Azure Stack Edge page on Azure portal. The Manage a device button is highlighted.](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-manage-device-02.png)](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-manage-device-02.png#lightbox)
+          [![Screenshot of Manage Azure Stack Edge page on Azure portal. The Manage a device button is highlighted.](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-manage-device-02.png)](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-manage-device-02.png#lightbox)
 
       1. On the **Basics** tab, specify project details for your resource, and then select **Next: Tags**. 
 
-        [![Screenshot of Create management resource page Basics tab on Azure portal. The Project details fields are highlighted.](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-create-management-resource-03.png)](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-create-management-resource-03.png#lightbox)
+          [![Screenshot of Create management resource page Basics tab on Azure portal. The Project details fields are highlighted.](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-create-management-resource-03.png)](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-create-management-resource-03.png#lightbox)
 
       1. On the **Tags** tab, specify **Name** and **Value** tags for your management resource, and then select **Review + create**.   
 
-        [![Screenshot of Create management resource page Tags tab on Azure portal. The Name and Value fields are highlighted.](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-create-tags-04.png)](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-create-tags-04.png#lightbox)
+          [![Screenshot of Create management resource page Tags tab on Azure portal. The Name and Value fields are highlighted.](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-create-tags-04.png)](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-create-tags-04.png#lightbox)
 
       1. On the **Review + create** tab, review **Terms and conditions** and **Basics** for your management resource, and then review and accept the **Privacy terms**. To complete the operation, select **Create**.
 
-        [![Screenshot of Create management resource page Review and create tab on Azure portal. The Privacy terms checkbox is highlighted.](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-create-resource-05.png)](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-create-resource-05.png#lightbox)
+          [![Screenshot of Create management resource page Review and create tab on Azure portal. The Privacy terms checkbox is highlighted.](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-create-resource-05.png)](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-create-resource-05.png#lightbox)
 
       After you create the management resource for your device, use the following steps to complete device configuration.
     steps:
