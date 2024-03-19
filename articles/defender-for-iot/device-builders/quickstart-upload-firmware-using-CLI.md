@@ -90,7 +90,7 @@ az firmwareanalysis firmware show
 
 Look for the "status" field to display "Ready", then run the following commands to retrieve your firmware analysis results.
 
-If you would like to automate the process of checking your analysis's status, you can use the [`az resource wait`](/cli/azure/resource?view=azure-cli-latest#az-resource-wait) command.
+If you would like to automate the process of checking your analysis's status, you can use the [`az resource wait`](/cli/azure/resource?#az-resource-wait) command.
 
 The `az resource wait` command has a `--timeout` parameter, which is the time in seconds that the analysis will end if "status" does not reach "Ready" within the timeout frame. The default timeout is 3600, which is one hour. Large images may take longer to analyze, so you can set the timeout using the `--timeout` parameter according to your needs. Here's an example of how you can use the `az resource wait` command with the `--timeout` parameter to automate checking your analysis's status, assuming that you have already created a firmware and stored the firmware ID in a variable named `$FWID`:
 
