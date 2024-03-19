@@ -162,9 +162,9 @@ procedureSection:
         "location": "{connectorRegion}"
       }
       ```
-  - title: |
-      Remove the old vulnerability assessment solution
-    summary: |
+  
+      ## Remove the old vulnerability assessment solution
+    
       After migrating to the built-in Defender Vulnerability Management solution in Defender for Cloud, offboard each VM from their old vulnerability assessment solution. To delete the VM, you can use the [Remove-AzVMExtension PowerShell cmdlet](/powershell/module/az.compute/remove-azvmextension) or a [REST API Delete request](/rest/api/compute/virtual-machine-extensions/delete?tabs=HTTP).
 
 nextStep:
