@@ -20,7 +20,7 @@ This article discusses the technical details regarding the migration tool as per
 
 ### Extensions and plugin migration 
 - All enabled and supported extensions will be migrated. 
-- Disabled extensions will not be migrated. 
+- Disabled extensions won't be migrated. 
 - Plugins are a legacy concept and should be removed before migration. They are supported for migration and but after migration, if extension needs to be enabled, plugin needs to be removed first before installing the extension. Remote desktop plugins and extensions are most impacted by this. 	
  
 ### Certificate migration
@@ -28,7 +28,7 @@ This article discusses the technical details regarding the migration tool as per
 - The reference to this Key Vault is specified in the template or passed through PowerShell or Azure CLI. 
 
 ### Service Configuration and Service Definition files
-- The .cscfg and .csdef files needs to be updated for Cloud Services (extended support) with minor changes. 
+- The .cscfg and .csdef files need to be updated for Cloud Services (extended support) with minor changes. 
 - The names of resources like virtual network and VM SKU are different. See [Translation of resources and naming convention post migration](#translation-of-resources-and-naming-convention-post-migration)
 - Customers can retrieve their new deployments through [PowerShell](/powershell/module/az.cloudservice/?preserve-view=true&view=azps-5.4.0#cloudservice) and [REST API](/rest/api/compute/cloudservices/get). 
 
@@ -55,7 +55,7 @@ This article discusses the technical details regarding the migration tool as per
 
 ### Key Vault
 - As part of migration, Azure automatically creates a new Key Vault and migrates all the certificates to it. The tool does not allow you to use an existing Key Vault. 
-- Cloud Services (extended support) require a Key Vault located in the same region and subscription. This Key Vault is automatically created as part of the migration. 
+- Cloud Services (extended support) requires a Key Vault located in the same region and subscription. This Key Vault is automatically created as part of the migration. 
 
 ## Resources and features not available for migration
 These are top scenarios involving combinations of resources, features and Cloud Services. This list is not exhaustive. 
@@ -124,7 +124,7 @@ As part of migration, the resource names are changed, and few Cloud Services fea
 
 ### Portal refreshed after Prepare. Experience restarted and Commit or Abort not visible anymore. 
 - Portal stores the migration information locally and therefore after refresh, it will start from validate phase even if the Cloud Service is in the prepare phase.  
-- You can use portal to go through the validate and prepare steps again to expose the Abort and Commit button. It will not cause any failures.
+- You can use portal to go through the validate and prepare steps again to expose the Abort and Commit button. It won't cause any failures.
 - Customers can use PowerShell or REST API to abort or commit. 
 
 ### How much time can the operations take?<br>
