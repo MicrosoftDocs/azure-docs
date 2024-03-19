@@ -26,6 +26,9 @@ introduction: |
   - [Transition with Azure policy for Azure VMs](#transition-with-azure-policy-for-azure-vms)
   - [Transition with Defender for Cloud's portal](#transition-with-defender-for-clouds-portal)
   - [Transition with REST API](#transition-with-rest-api)
+prerequisites:
+  summary: |
+    For prerequisites and other requirements, see [Support for the Defender for Servers plan](support-matrix-defender-for-servers.md).
 procedureSection:
   - title: |
       Transition with Azure policy for Azure VMs 
