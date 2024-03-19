@@ -8,12 +8,14 @@ ms.service: internet-peering
 ms.topic: concept-article
 ms.date: 03/19/2024
 
-#CustomerIntent: As a network architect, I want know peering policy and requirements so that I can design and create a peering with Microsoft.
+#CustomerIntent: As a network architect, I want know Microsoft's peering policy and requirements so that I can design and create a peering with Microsoft.
 ---
 
 # Peering policy
 
-Microsoft maintains a selective peering policy designed to ensure the best possible customer experience backed by industry standards and best practices, scaling for future demand and strategic placement of peering. As such, Microsoft reserves the right to make exceptions to the policy as deemed necessary. Microsoft's general requirements from your network are explained in the following sections. These requirements are applicable to both Direct peering and Exchange peering requests. 
+Microsoft maintains a selective peering policy designed to ensure the best possible customer experience backed by industry standards and best practices, scaling for future demand and strategic placement of peering. As such, Microsoft reserves the right to make exceptions to the policy as deemed necessary.
+
+In this article, you learn about Microsoft's general requirements from your network. These requirements are applicable to both Direct peering and Exchange peering requests. 
 
 ## Technical requirements
 
@@ -61,7 +63,6 @@ Microsoft maintains a selective peering policy designed to ensure the best possi
     - Microsoft only establishes Direct peering with internet service providers (ISPs) or network service providers (NSPs).
     - Peers are expected to upgrade their ports when peak utilization exceeds 50% and maintain diverse capacity in each metro, either within a single location or across several locations in a metro.
     - Each Direct peering consists of two connections to two Microsoft edge routers from the peer edge routers. Microsoft requires dual BGP sessions across these connections. The peer may choose not to deploy redundant devices at their end.
-
 
 ## Traffic requirements
 
