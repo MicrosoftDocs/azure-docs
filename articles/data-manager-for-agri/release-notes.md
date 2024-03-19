@@ -23,10 +23,15 @@ Azure Data Manager for Agriculture Preview is updated on an ongoing basis. To st
 
 [!INCLUDE [public-preview-notice.md](includes/public-preview-notice.md)]
 
+## March 2024
+
+### Copilot Templates for Agriculture
+Our copilot templates for agriculture enable seamless retrieval of data stored in our data manager and customers own data. Many customers have proprietary data outside of our data manager, for example Agronomy PDFs, market price data etc. Such customers can benefit from our orchestration framework that allows for plugins, embedded data structures, and sub processes to be selected as part of the query flow. While Data Manager for Agriculture isn't required to operationalize copilot templates for agriculture, the data manager enables customers to more easily integrate generative AI scenarios for their users. Learn more about this [here](concepts-llm-apis.md).
+
 ## November 2023
 
 ### LLM capability
-Our LLM capability enables seamless selection of APIs mapped to farm operations today. This enables use cases that are based on tillage, planting, applications and harvesting type of farm operations. In the time to come we'll add the capability to select APIs mapped to soil sensors, weather, and imagery type of data. The skills in our LLM capability allow for a combination of results, calculation of area, ranking, summarizing to help serve customer prompts. These capabilities enable others to build their own agriculture copilots that deliver insights to farmers. Learn more about this [here](concepts-llm-apis.md).
+Our LLM capability enables seamless selection of APIs mapped to farm operations today. This enables use cases that are based on tillage, planting, applications, and harvesting type of farm operations. In the time to come we'll add the capability to select APIs mapped to soil sensors, weather, and imagery type of data. The skills in our LLM capability allow for a combination of results, calculation of area, ranking, summarizing to help serve customer prompts. These capabilities enable others to build their own agriculture copilots that deliver insights to farmers. Learn more about this [here](concepts-llm-apis.md).
 
 ### Imagery enhancements
 We improved our satellite ingestion service. The improvements include:
@@ -43,7 +48,7 @@ Listing of activities by party ID and by activity ID is consolidated into a more
 ## October 2023
 
 ### Azure portal experience enhancement
-We released a new user friendly experience to install ISV solutions that are available for Azure Data Manager for Agriculture users. You can now go to your Azure Data Manager for Agriculture instance on the Azure portal, view and install available solutions in a seamless user experience. Today the ISV solutions available are from Bayer AgPowered services, you can see the marketplace listing [here](https://azuremarketplace.microsoft.com/marketplace/apps?search=bayer&page=1). You can learn more about installing ISV solutions [here](how-to-set-up-isv-solution.md).
+We released a new user friendly experience to install ISV solutions that are available for Azure Data Manager for Agriculture users. You can now go to your Azure Data Manager for Agriculture instance on the Azure portal, view, and install available solutions in a seamless user experience. Today the ISV solutions available are from Bayer AgPowered services, you can see the marketplace listing [here](https://azuremarketplace.microsoft.com/marketplace/apps?search=bayer&page=1). You can learn more about installing ISV solutions [here](how-to-set-up-isv-solution.md).
 
 ## July 2023
 
@@ -51,10 +56,10 @@ We released a new user friendly experience to install ISV solutions that are ava
 We deprecated the old weather APIs from API version 2023-07-01. The old weather APIs are replaced with new simple yet powerful provider agnostic weather APIs. Have a look at the API documentation [here](/rest/api/data-manager-for-agri/#weather). 
 
 ### New farm operations connector
-We added support for Climate FieldView as a built-in data source. You can now auto sync planting, application and harvest activity files from FieldView accounts directly into Azure Data Manager for Agriculture. Learn more about this [here](concepts-farm-operations-data.md).
+We added support for Climate FieldView as a built-in data source. You can now auto sync planting, application, and harvest activity files from FieldView accounts directly into Azure Data Manager for Agriculture. Learn more about this [here](concepts-farm-operations-data.md).
 
 ### Common Data Model now with geo-spatial support
-We updated our data model to improve flexibility. The boundary object is deprecated in favor of a geometry property that is now supported in nearly all data objects. This change brings consistency to how space is handled across hierarchy, activity and observation themes. It allows for more flexible integration when ingesting data from a provider with strict hierarchy requirements. You can now sync data that might not perfectly align with an existing hierarchy definition and resolve the conflicts with spatial overlap queries. Learn more [here](concepts-hierarchy-model.md).
+We updated our data model to improve flexibility. The boundary object is deprecated in favor of a geometry property that is now supported in nearly all data objects. This change brings consistency to how space is handled across hierarchy, activity, and observation themes. It allows for more flexible integration when ingesting data from a provider with strict hierarchy requirements. You can now sync data that might not perfectly align with an existing hierarchy definition and resolve the conflicts with spatial overlap queries. Learn more [here](concepts-hierarchy-model.md).
 
 ## June 2023
 
