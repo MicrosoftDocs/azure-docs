@@ -33,8 +33,7 @@ To connect your cluster to Azure Arc:
    ```bash
    # Azure region where the created resource group will be located
    # Currently supported regions: "eastus", "eastus2", "westus", "westus2", "westus3", "westeurope", or "northeurope"
-   export LOCATION="<REGION>"
-   ```
+   export LOCATION=<REGION>
 
    ```bash
    # Name of a new resource group to create which will hold the Arc-enabled cluster and Azure IoT Operations resources
@@ -76,7 +75,7 @@ To connect your cluster to Azure Arc:
    az connectedk8s connect -n $CLUSTER_NAME -l $LOCATION -g $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID
    ```
 
-1. Get the `objectId` of the Microsoft Entra ID application that the Azure Arc service uses. Run this command in the [Azure Cloud Shell](https://portal.azure.com/#cloudshell), on your local machine, or in a Cloudspaces terminal:
+1. Get the `objectId` of the Microsoft Entra ID application that the Azure Arc service uses. Run this command in the [Azure Cloud Shell](https://portal.azure.com/#cloudshell), on your local machine, or in a codespace terminal:
 
    ```azurecli
    az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query id -o tsv

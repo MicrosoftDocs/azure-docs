@@ -32,7 +32,7 @@ The following quickstarts in this series build on this one to define sample asse
 
 ## Before you begin
 
-This series of quickstarts is intended to give you an opportunity to evaluate an end-to-end scenario with Azure IoT Operations. In a true development or production environment, these tasks would be performed by multiple teams working together and some tasks require elevated permissions.
+This series of quickstarts is intended to give you an opportunity to evaluate an end-to-end scenario with Azure IoT Operations. In a true development or production environment, these tasks would be performed by multiple teams working together and some tasks might require elevated permissions.
 
 For the best new user experience, we recommend using a free Azure subscription so that you have owner permissions over the resources in these quickstarts. We also recommend using GitHub Codespaces as a virtual environment in which you can quickly begin deploying resources and running commands without installing new tools on your own machines. For more information about these options, continue to the prerequisites.
 
