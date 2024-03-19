@@ -26,7 +26,6 @@ For Application Gateway v2 WAFs running Core Rule Set 3.2, or newer, the maximum
 
 Only requests with Content-Type of *multipart/form-data* are considered for file uploads. For content to be considered as a file upload, it has to be a part of a multipart form with a *filename* header. For all other content types, the request body size limit applies.
 
-To set request size limits in the Azure portal, configure **Global parameters** in the WAF policy resource's **Policy settings** page.
 
 >[!NOTE]
 >If you are running CRS 3.2 or later, and you have a high priority custom rule that takes action based on the content of a request's headers, cookies, or URI, this will take precedence over any max request size, or max file upload size, limits. This optimization let's the WAF run high priority custom rules that don't require reading and/or measuring the full WAF request (or file upload) first before performing the full request inspection.
