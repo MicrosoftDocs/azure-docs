@@ -11,8 +11,7 @@ ms.collection: usx-security
 
 # Microsoft Sentinel in the Microsoft Defender portal
 
-Microsoft Sentinel is available as part of the public preview for the unified security operations platform in the Microsoft Defender portal. 
-This article describes the Microsoft Sentinel experience in the Microsoft Defender portal.
+Microsoft Sentinel is available as part of the public preview for the unified security operations platform in the Microsoft Defender portal. This article describes the Microsoft Sentinel experience in the Microsoft Defender portal.
 
 ## New and improved capabilities
 
@@ -30,9 +29,9 @@ The following table describes the new or improved capabilities available in the 
 
  Most Microsoft Sentinel capabilites are available in both the Azure and Defender portals. In the Defender portal, some Microsoft Sentinel experiences open out to the Azure portal for you to complete a task.
 
-This section covers the Microsoft Sentinel capabilities or unified SOC platform integrations that are only available in either the Azure portal or Defender portal. It excludes the Microsoft Sentinel experiences that open the Azure portal from the Defender portal.
+This section covers the Microsoft Sentinel capabilities or integrations in the unified SOC platform that are only available in either the Azure portal or Defender portal. It excludes the Microsoft Sentinel experiences that open the Azure portal from the Defender portal.
 
-## Defender portal only
+### Defender portal only
 
 The following capabilities are only available in the Defender portal.
 
@@ -41,13 +40,14 @@ The following capabilities are only available in the Defender portal.
 |Attack disrupt for SAP  |  [Automatic attack disruption in Microsoft Defender XDR](/microsoft-365/security/defender/automatic-attack-disruption)         |
 |SOC optimization   |   [Optimize your security operations with Microsoft Defender XDR](https://go.microsoft.com/fwlink/p/?linkid=2264237)      |
 
-## Azure portal only
+### Azure portal only
 
 The following capabilities are only available in the Azure portal.
 
 |Capability  |Learn more  |
 |---------|---------|
 |Tasks   |     [Use tasks to manage incidents in Microsoft Sentinel](incident-tasks.md)    |
+|Add entities to threat intelligence from incidents | [Add entity to threat indicators](add-entity-to-threat-intelligence.md)   |
 
 
 ## Quick reference
@@ -82,7 +82,7 @@ The following table lists the changes in navigation between the Azure and Defend
 |Workbooks     | Microsoft Sentinel > Threat management> Workbooks      |
 |Hunting     | Microsoft Sentinel > Threat management >  Hunting      |
 |Notebooks     | Microsoft Sentinel > Threat management >  Notebooks         |
-|Entity behavior     |  Find the entity pages for the user, device, IP, and Azure resource entity types on the details page for each of those entities as they appear within incidents and alerts.      |
+|Entity behavior     | Assets > Identities<br> Assets > Devices<br><br>  Find the entity pages for the user, device, IP, and Azure resource entity types from incidents and alerts as they appear.       |
 |Threat intelligence    | Microsoft Sentinel > Threat management >  Threat intelligence        |
 |MITRE ATT&CK|Microsoft Sentinel > Threat management > MITRE ATT&CK  |
 
