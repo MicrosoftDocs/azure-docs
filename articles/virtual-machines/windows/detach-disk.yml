@@ -30,14 +30,14 @@ introduction: |
 
   ```azurepowershell-interactive
   $VirtualMachine = Get-AzVM `
-  -ResourceGroupName "myResourceGroup" `
-  -Name "myVM"
+     -ResourceGroupName "myResourceGroup" `
+     -Name "myVM"
   Remove-AzVMDataDisk `
-  -VM $VirtualMachine `
-  -Name "myDisk"
+     -VM $VirtualMachine `
+     -Name "myDisk"
   Update-AzVM `
-  -ResourceGroupName "myResourceGroup" `
-  -VM $VirtualMachine
+     -ResourceGroupName "myResourceGroup" `
+     -VM $VirtualMachine
   ```
 
   The disk stays in storage but is no longer attached to a virtual machine.
