@@ -8,7 +8,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: availability
 ms.date: 11/22/2022
 ms.reviewer: jushiman
-ms.custom: mimckitt, devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template, linux-related-content
+ms.custom: mimckitt, devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template
 ---
 
 # Create a Virtual Machine Scale Set that uses Availability Zones
@@ -316,4 +316,3 @@ With [Rolling upgrades + MaxSurge](virtual-machine-scale-sets-upgrade-policy.md)
 ## Next steps
 
 Now that you have created a scale set in an Availability Zone, you can learn how to [Deploy applications on Virtual Machine Scale Sets](tutorial-install-apps-cli.md) or [Use autoscale with Virtual Machine Scale Sets](tutorial-autoscale-cli.md).
-

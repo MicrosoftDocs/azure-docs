@@ -3,7 +3,7 @@ title: Azure boot diagnostics
 description: Overview of Azure boot diagnostics and managed boot diagnostics
 services: virtual-machines
 ms.service: virtual-machines
-ms.custom: linux-related-content
+ms.custom:
 author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
