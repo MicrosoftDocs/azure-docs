@@ -1,6 +1,6 @@
 ---
 title: Integrate Azure AI Language Services with Azure Database for PostgreSQL
-description: Create AI applications with sentiment analysis, summarization or key phrase extraction using Azure AI Language and Azure Database for PostgreSQL - Flexible Server.
+description: Create AI applications with sentiment analysis, summarization, or key phrase extraction using Azure AI Language and Azure Database for PostgreSQL - Flexible Server.
 author: mulander
 ms.author: adamwolk
 ms.reviewer: maghan
@@ -223,7 +223,7 @@ For more information, see Cognitive Services Compliance and Privacy notes at htt
 
 ## Personally Identifiable data (PII) detection
 
-Identifies [personal data](../../ai-services/language-service/personally-identifiable-information/overview.md) found in the input text and categorizes those entities into types.
+ Identifies [PII data](../../ai-services/language-service/personally-identifiable-information/overview.md) found in the input text and categorizes those entities into types.
 
 ### `azure_cognitive.recognize_pii_entities`
 
@@ -398,13 +398,13 @@ For more information on parameters, see [Translator API](../../ai-services/trans
 `boolean DEFAULT 'plain'` Defines the type of text being translated. Valid values are 'plain' or 'html'. Any HTML needs to be well-formed.
 
 ##### `profanity_action`
-`boolean DEFAULT 'NoAction'` Specifies how profanities are treated in translations. Valid values are 'NoAction' , 'Marked', or 'Deleted'. 'NoAction' is the default behavior and profanity passes from source to target. 'Deleted' indicates that profane words are removed without replacement. 'Marked' replaces the marked word in the output with the profanity_marker parameter.
+`boolean DEFAULT 'NoAction'` Specifies how profanities are treated in translations. Valid values are 'NoAction', 'Marked', or 'Deleted'. 'NoAction' is the default behavior and profanity passes from source to target. 'Deleted' indicates that profane words are removed without replacement. 'Marked' replaces the marked word in the output with the profanity_marker parameter.
 
 ##### `profanity_marker`
-`boolean DEFAULT 'Asterisk'` Specifies how profanities are marked in translations. Possible values are 'Asterisk' which replaces profane words with *** or 'Tag' which replaces profane words with '\<profanity> \</profanity>' tags.
+`boolean DEFAULT 'Asterisk'` Specifies how profanities are marked in translations. Possible values are 'Asterisk' that replaces profane words with *** or 'Tag' that replaces profane words with '\<profanity> \</profanity>' tags.
 
 ##### `suggested_source_language`
-`text DEFAULT NULL` Specifies fallback language if the language of input text cannot be identified.
+`text DEFAULT NULL` Specifies fallback language if the language of input text can't be identified.
 
 ##### `source_script`
 `text DEFAULT NULL` Specific script of the input text.
