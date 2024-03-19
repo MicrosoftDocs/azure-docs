@@ -32,7 +32,7 @@ Use SOC optimization recommendations to help you close coverage gaps against spe
 
 In the Microsoft Defender portal, select **SOC optimization** from the left-side navigation menu. For example:
 
-:::image type="content" source="media/security-optimization-access/soc-optimization-xdr.png" alt-text="Screenshot of the SOC optimization page in Microsoft Defender XDR.":::
+:::image type="content" source="media/soc-optimization-access/soc-optimization-xdr.png" alt-text="Screenshot of the SOC optimization page in Microsoft Defender XDR." lightbox="media/soc-optimization-access/soc-optimization-xdr.png"::::::
 
 ## Understand SOC optimization overview metrics
 
