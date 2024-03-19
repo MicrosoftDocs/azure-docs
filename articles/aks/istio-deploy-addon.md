@@ -102,7 +102,9 @@ istiod-asm-1-18-74f7f7c46c-xfdtl   1/1     Running   0          2m
 
 ## Enable sidecar injection
 
-To automatically install sidecar to any new pods, annotate your namespaces with the revision label corresponding to the control plane revision currently installed. If you're unsure which revision is installed, use:
+To automatically install sidecar to any new pods, you will need to annotate your namespaces with the revision label corresponding to the control plane revision currently installed. 
+
+If you're unsure which revision is installed, use:
 ```bash
 az aks show --resource-group ${RESOURCE_GROUP} --name ${CLUSTER}  --query 'serviceMeshProfile.istio.revisions'
 ```
@@ -185,10 +187,8 @@ reviews       ClusterIP   10.0.73.95     <none>        9080/TCP   86s
 kubectl get pods
 ```
 
-Confirm that all the pods have status of `Running` with a second READY container.
-
 ```
-NAME          TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE
+NAME                              READY   STATUS    RESTARTS   AGE
 details-v1-558b8b4b76-2llld       2/2     Running   0          2m41s
 productpage-v1-6987489c74-lpkgl   2/2     Running   0          2m40s
 ratings-v1-7dc98c7588-vzftc       2/2     Running   0          2m41s
@@ -197,8 +197,8 @@ reviews-v2-7d79d5bd5d-8zzqd       2/2     Running   0          2m41s
 reviews-v3-7dbcdcbc56-m8dph       2/2     Running   0          2m41s
 ```
 
-> [!NOTE]
-> Each pod has two containers, one of which is the Envoy sidecar injected by Istio and the other is the application container.
+
+Confirm that all the pods have status of `Running` with 2 containers in the `READY` column. The second container (`istio-proxy`) added to each pod is the Envoy sidecar injected by Istio, and the other is the application container.
 
 To test this sample application against ingress, check out [next-steps](#next-steps).
 
