@@ -124,15 +124,11 @@ procedureSection:
 
         > [!NOTE]
         > Install the SARIF SAST Scans Tab extension on the Azure DevOps organization in order to ensure that the generated analysis results will be displayed automatically under the Scans tab.
-  - title: |
-      Learn more
-    summary: |
-      Follow this step:
-    steps:
-      - |
-        Learn how to [create your first pipeline](/azure/devops/pipelines/create-first-pipeline).
+
 
 relatedContent:
+  - text: Create your first pipeline
+    url: /azure/devops/pipelines/create-first-pipeline
   - text: DevOps Security in Defender for Cloud
     url: defender-for-devops-introduction.md
   - text: Connect your Azure DevOps Environment to Defender for Cloud
