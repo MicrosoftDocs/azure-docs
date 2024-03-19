@@ -38,8 +38,14 @@ items:
     href: elastic-san-connect-windows.md
   - name: Connect to an Elastic SAN volume - Linux
     href: elastic-san-connect-linux.md
-  - name: Connect to an Elastic SAN volume - AKS
-    href: elastic-san-connect-aks.md
+  - name: Connect to AKS
+    items: 
+    - name: Options for using an Elastic SAN with AKS
+      href: elastic-san-aks-options.md
+    - name: Use Azure Container Storage
+      href: ../container-storage/use-container-storage-with-elastic-san.md?toc=/azure/storage/elastic-san/toc.json&bc=/azure/storage/elastic-san/breadcrumb/toc.json
+    - name: Use Kubernetes iSCSI CSI driver
+      href: elastic-san-connect-aks.md
   - name: Expand an Elastic SAN
     href: elastic-san-expand.md
   - name: Use volume snapshots
