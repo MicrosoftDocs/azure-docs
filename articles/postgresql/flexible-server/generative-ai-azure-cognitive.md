@@ -265,11 +265,11 @@ For more information, see Cognitive Services Compliance and Privacy notes at htt
 
 ## Document summarization
 
-[Document summarization](../../ai-services/language-service/summarization/overview.md#tab/document-summarizationdocument-summarization) uses natural language processing techniques to generate a summary for documents.
+[Document summarization](../../ai-services/language-service/summarization/overview.md) uses natural language processing techniques to generate a summary for documents.
 
 ### `azure_cognitive.summarize_abstractive`
 
-[Document abstractive summarization](../../ai-services/language-service/summarization/overview.md#tab/document-summarization) produces a summary that might not use the same words in the document but yet captures the main idea.
+[Document abstractive summarization](../../ai-services/language-service/summarization/overview.md) produces a summary that might not use the same words in the document but yet captures the main idea.
 
 ```postgresql
 azure_cognitive.summarize_abstractive(text text, language text, timeout_ms integer DEFAULT 3600000, throw_on_error boolean DEFAULT true, sentence_count integer DEFAULT 3, disable_service_logs boolean DEFAULT false)
