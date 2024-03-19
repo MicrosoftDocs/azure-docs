@@ -117,6 +117,7 @@ To use Windows Server 2022, specify the following parameters:
 >
 > - Specifying the `OsSKU` parameter requires PowerShell Az module version 9.2.0 or higher.
 > - Windows Server 2022 requires Kubernetes version 1.23.0 or higher.
+> - Windows Server 2022 is being retired after Kubernetes version 1.34 reaches its end of life (EOL). For more information about this retirement, see the [AKS release notes][aks-release-notes].
 
 To add a Windows Server 2022 node pool, call the [New-AzAksNodePool][new-azaksnodepool] cmdlet:
 
