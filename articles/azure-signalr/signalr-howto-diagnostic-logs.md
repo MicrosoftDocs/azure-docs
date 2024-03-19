@@ -34,7 +34,8 @@ Resource logs are disabled by default. To enable resource logs by using diagnost
 
 1. In the [Azure portal](https://portal.azure.com), under **Monitoring**, select **Diagnostic settings**.
 
-    :::image type="content" alt-text="Pane navigation to diagnostic settings." source="media/signalr-tutorial-diagnostic-logs/diagnostic-settings-menu-item.png" lightbox="media/signalr-tutorial-diagnostic-logs/diagnostic-settings-menu-item.png":::
+    :::image type="content" alt-text="Pane navigation to diagnostic settings." source="media/signalr-tutorial-diagnostic-logs/diagnostic-settings-menu-item.png":::
+
    You get a full view of the diagnostic settings.
 
     :::image type="content" alt-text="Diagnostic settings full view." source="media/signalr-tutorial-diagnostic-logs/azure-signalr-diagnostic-settings.png" lightbox="media/signalr-tutorial-diagnostic-logs/azure-signalr-diagnostic-settings.png":::
@@ -62,7 +63,7 @@ To query resource logs, follow these steps:
 
 1. Select **Logs** in your target Log Analytics.
 
-    :::image type="content" alt-text="Log Analytics menu item" source="./media/signalr-tutorial-diagnostic-logs/log-analytics-menu-item.png" lightbox="./media/signalr-tutorial-diagnostic-logs/log-analytics-menu-item.png":::
+    :::image type="content" alt-text="Log Analytics menu item" source="./media/signalr-tutorial-diagnostic-logs/log-analytics-menu-item.png":::
 
 2. Enter *SignalRServiceDiagnosticLogs* and select time range. For advanced query, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md)
 
