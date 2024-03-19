@@ -35,7 +35,7 @@ In this article, you learn about Microsoft's general requirements from your netw
     - We recommend peers set a max-prefix of 2000 (IPv4) and 500 (IPv6) routes on peering sessions with Microsoft.
     - Unless specifically agreed upon beforehand, peers are expected to announce consistent routes in all locations where they peer with Microsoft.
     - In general, Microsoft advertises all Microsoft routes, with some regional specifics as appropriate.  All prefixes are properly registered within the RADb.
-    - Microsoft also announces 3rd party address space under “Bring Your Own IP” and “Bring Your Own ASN” products. BYOIP prefixes are all properly registered as AS8075, and BYOASN ASNs will be included in AS-SET AS-MICROSOFT.
+    - Microsoft also announces third party address space under “Bring Your Own IP” and “Bring Your Own ASN” products. BYOIP prefixes are all properly registered as AS8075, and BYOASN ASNs will be included in AS-SET AS-MICROSOFT.
     - Neither party will establish a static route, a route of last resort, or otherwise send traffic to the other party for a route not announced via BGP.
     - Peers are required to register their routes in a public Internet Routing Registry (IRR) database, for the purposes of filtering, and keep this information up to date.      
     - Peers adhere to MANRS industry standards for route security.  At its sole discretion, Microsoft may choose:
@@ -54,12 +54,12 @@ In this article, you learn about Microsoft's general requirements from your netw
 - The locations where you can connect with Microsoft for Direct peering or Exchange peering are listed in [PeeringDB](https://www.peeringdb.com/net/694)
 
 - **Exchange peering:**
-    - Peers are expected to have at minimum a 10 Gbps connection to the exchange.
+    - Peers are expected to have at minimum a 10-Gbps connection to the exchange.
     - Peers are expected to upgrade their ports when peak utilization exceeds 50%.
     - Microsoft encourages peers to maintain diverse connectivity to exchange to support failover scenarios.
 
 - **Direct peering:**
-    - Interconnection must be over 100 Gbps single-mode fiber.
+    - Interconnection must be over 100-Gbps single-mode fiber.
     - Microsoft only establishes Direct peering with internet service providers (ISPs) or network service providers (NSPs).
     - Peers are expected to upgrade their ports when peak utilization exceeds 50% and maintain diverse capacity in each metro, either within a single location or across several locations in a metro.
     - Each Direct peering consists of two connections to two Microsoft edge routers from the peer edge routers. Microsoft requires dual BGP sessions across these connections. The peer may choose not to deploy redundant devices at their end.
