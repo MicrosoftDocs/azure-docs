@@ -47,7 +47,7 @@ When your WAF receives a request that's over the size limit, the behavior depend
 
 ## Trouble Shooting
 
-If you are an Application Gateway v2 WAF customer running CRS 3.2 or later and you have issues with requests, or file uploads, getting rejected incorectly for maximum size, or if you see requests not getting inspected fully, you may need to verify that all values are set correctly. You can do this by using PowerShell or the Azure Command Line Interface to verify what each value is set to, and update any values as needed. 
+If you are an Application Gateway v2 WAF customer running CRS 3.2 or later and you have issues with requests, or file uploads, getting rejected incorrectly for maximum size, or if you see requests not getting inspected fully, you may need to verify that all values are set correctly. You can do this by using PowerShell or the Azure Command Line Interface to verify what each value is set to, and update any values as needed. 
 
 **Enforce request body inspection**
 - PS: "RequestBodyCheck"
