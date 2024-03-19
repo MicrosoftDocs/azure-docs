@@ -44,23 +44,15 @@ To implement these policies:
     |Continuous export to Event Hubs|[Deploy export to Event Hubs for Microsoft Defender for Cloud alerts and recommendations](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcdfcce10-4578-4ecd-9703-530938e4abcb)|cdfcce10-4578-4ecd-9703-530938e4abcb|
     |Continuous export to Log Analytics workspace|[Deploy export to Log Analytics workspace for Microsoft Defender for Cloud alerts and recommendations](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fffb6f416-7bd2-4488-8828-56585fef2be9)|ffb6f416-7bd2-4488-8828-56585fef2be9|
 
-1. On the relevant page in Azure Policy, select **Assign**.
+1. Select **Assign**.
 
-    :::image type="content" source="./media/continuous-export/export-policy-assign.png" alt-text="Screenshot that shows assigning the Azure Policy.":::
+    :::image type="content" source="./media/continuous-export-azure-policy/export-policy-assign.png" alt-text="Screenshot that shows assigning the Azure Policy.":::
 
 1. Select each tab and set the parameters to meet your requirements:
 
     1. On the **Basics** tab, set the scope for the policy. To use centralized management, assign the policy to the management group that contains the subscriptions that use the continuous export configuration.
 
-    1. On the **Parameters** tab, set the resource group and data type details.
-
-        > [!TIP]
-        > Each parameter has a tooltip that explains the options that are available.
-        >
-        > The Azure Policy **Parameters** tab (1) provides access to configuration options that are similar to options that you can access on the Defender for Cloud **Continuous export** page (2).
-        >
-        > :::image type="content" source="./media/continuous-export/azure-policy-next-to-continuous-export.png" alt-text="Screenshot that shows comparing the parameters in continuous export with Azure Policy." lightbox="./media/continuous-export/azure-policy-next-to-continuous-export.png":::
-        >
+    1. On the **Parameters** tab, set the resource group name, location and Event Hub details.
 
     1. Optionally, to apply this assignment to existing subscriptions, select the **Remediation** tab, and then select the option to create a remediation task.
 

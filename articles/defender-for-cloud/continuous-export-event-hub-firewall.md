@@ -32,7 +32,7 @@ You can enable continuous export as a trusted service so that you can send data 
 
 1. Select **Export as a trusted service**.
 
-    :::image type="content" source="media/continuous-export/export-as-trusted.png" alt-text="Screenshot that shows where the checkbox is located to select export as trusted service.":::
+    :::image type="content" source="media/continuous-export-event-hub-firewall/export-as-trusted.png" alt-text="Screenshot that shows where the checkbox is located to select export as trusted service.":::
 
 ## Add the relevant role assignment to the destination event hub.
 
@@ -42,7 +42,7 @@ To add the relevant role assignment to the destination event hub:
 
 1. In the resource menu, select **Access control (IAM)** > **Add role assignment**.
 
-    :::image type="content" source="media/continuous-export/add-role-assignment.png" alt-text="Screenshot that shows the Add role assignment button." lightbox="media/continuous-export/add-role-assignment.png":::
+    :::image type="content" source="media/continuous-export-event-hub-firewall/add-role-assignment.png" alt-text="Screenshot that shows the Add role assignment button." lightbox="media/continuous-export-event-hub-firewall/add-role-assignment.png":::
 
 1. Select **Azure Event Hubs Data Sender**.
 
@@ -52,7 +52,7 @@ To add the relevant role assignment to the destination event hub:
 
 1. Search for and then select **Windows Azure Security Resource Provider**.
 
-    :::image type="content" source="media/continuous-export/windows-security-resource.png" alt-text="Screenshot that shows you where to enter and search for Microsoft Azure Security Resource Provider." lightbox="media/continuous-export/windows-security-resource.png":::
+    :::image type="content" source="media/continuous-export-event-hub-firewall/windows-security-resource.png" alt-text="Screenshot that shows you where to enter and search for Microsoft Azure Security Resource Provider." lightbox="media/continuous-export-event-hub-firewall/windows-security-resource.png":::
 
 1. Select **Review + assign**.
 

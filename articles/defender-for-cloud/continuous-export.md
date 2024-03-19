@@ -78,18 +78,6 @@ You can set up continuous export on the Microsoft Defender for Cloud pages in th
 > [!NOTE]
 > Log Analytics supports only records that are up to 32 KB in size. When the data limit is reached, an alert displays the message **Data limit has been exceeded**.
 
-## Manually export alerts and recommendations
-
-To download a CSV file that lists alerts or recommendations, go to the **Security alerts** page or the **Recommendations** page, and then select the **Download CSV report** button.
-
-> [!TIP]
-> Due to Azure Resource Graph limitations, the reports are limited to a file size of 13,000 rows. If you see errors related to too much data being exported, try limiting the output by selecting a smaller set of subscriptions to be exported.
-
-:::image type="content" source="./media/continuous-export/download-alerts-csv.png" alt-text="Screenshot that shows how to download alerts data as a CSV file." lightbox="./media/continuous-export/download-alerts-csv.png":::
-
-> [!NOTE]
-> These reports contain alerts and recommendations for resources from the currently selected subscriptions.
-
 ## Related content
 
 In this article, you learned how to configure continuous exports of your recommendations and alerts. You also learned how to download your alerts data as a CSV file.

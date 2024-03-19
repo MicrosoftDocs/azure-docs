@@ -34,7 +34,7 @@ Microsoft Defender for Cloud has the ability to export all alerts and recommenda
 
 1. Select **Download CSV report**.
 
-    :::image type="content" source="./media/export-alert-to-csv/download-report.png" alt-text="Screenshot that shows how to download alerts data as a CSV file." lightbox="./media/export-alert-to-csv/download-report.png":::
+    :::image type="content" source="./media/export-alerts-to-csv/download-report.png" alt-text="Screenshot that shows how to download alerts data as a CSV file." lightbox="./media/export-alerts-to-csv/download-report.png":::
 
 ## Export recommendations to a CSV file
 

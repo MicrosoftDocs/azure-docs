@@ -4,7 +4,7 @@ description: Learn how to set up continuous export of Microsoft Defender for Clo
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
-ms.date: 03/18/2024
+ms.date: 03/19/2024
 # customer intent: As a reader, I want to learn how to set up continuous export of Microsoft Defender for Cloud security alerts and recommendations using the REST API, so that I can integrate it into my own applications.
 ---
 
@@ -12,7 +12,7 @@ ms.date: 03/18/2024
 
 Continuous export of Microsoft Defender for Cloud security alerts and recommendations can help you analyze the data in Log Analytics or Azure Event Hubs. You can set up continuous export in Defender for Cloud by using the REST API.
 
-## Pre-requisites
+## Prerequisites
 
 - You need a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
 
