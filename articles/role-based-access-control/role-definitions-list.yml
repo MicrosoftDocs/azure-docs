@@ -45,291 +45,290 @@ procedureSection:
         Click the **Permissions** tab to view and search the permissions for the selected role.
 
         ![Screenshot showing role permissions using new experience.](./media/role-definitions-list/role-permissions.png)
+  - title: |
+      Azure PowerShell
+    summary: |
+      ### List all roles
 
-        ## Azure PowerShell
+      To list all roles in Azure PowerShell, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
 
-        ### List all roles
+      ```azurepowershell
+      Get-AzRoleDefinition | FT Name, Description
+      ```
 
-        To list all roles in Azure PowerShell, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
+      ```Example
+      AcrImageSigner                                    acr image signer
+      AcrQuarantineReader                               acr quarantine data reader
+      AcrQuarantineWriter                               acr quarantine data writer
+      API Management Service Contributor                Can manage service and the APIs
+      API Management Service Operator Role              Can manage service but not the APIs
+      API Management Service Reader Role                Read-only access to service and APIs
+      Application Insights Component Contributor        Can manage Application Insights components
+      Application Insights Snapshot Debugger            Gives user permission to use Application Insights Snapshot Debugge...
+      Automation Job Operator                           Create and Manage Jobs using Automation Runbooks.
+      Automation Operator                               Automation Operators are able to start, stop, suspend, and resume ...
+      ...
+      ```
 
-        ```azurepowershell
-        Get-AzRoleDefinition | FT Name, Description
-        ```
+      ### List a role definition
 
-        ```Example
-        AcrImageSigner                                    acr image signer
-        AcrQuarantineReader                               acr quarantine data reader
-        AcrQuarantineWriter                               acr quarantine data writer
-        API Management Service Contributor                Can manage service and the APIs
-        API Management Service Operator Role              Can manage service but not the APIs
-        API Management Service Reader Role                Read-only access to service and APIs
-        Application Insights Component Contributor        Can manage Application Insights components
-        Application Insights Snapshot Debugger            Gives user permission to use Application Insights Snapshot Debugge...
-        Automation Job Operator                           Create and Manage Jobs using Automation Runbooks.
-        Automation Operator                               Automation Operators are able to start, stop, suspend, and resume ...
-        ...
-        ```
+      To list the details of a specific role, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
 
-        ### List a role definition
+      ```azurepowershell
+      Get-AzRoleDefinition <role_name>
+      ```
 
-        To list the details of a specific role, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
+      ```Example
+      PS C:\> Get-AzRoleDefinition "Contributor"
 
-        ```azurepowershell
-        Get-AzRoleDefinition <role_name>
-        ```
+      Name             : Contributor
+      Id               : b24988ac-6180-42a0-ab88-20f7382dd24c
+      IsCustom         : False
+      Description      : Lets you manage everything except access to resources.
+      Actions          : {*}
+      NotActions       : {Microsoft.Authorization/*/Delete, Microsoft.Authorization/*/Write,
+                        Microsoft.Authorization/elevateAccess/Action}
+      DataActions      : {}
+      NotDataActions   : {}
+      AssignableScopes : {/}
+      ```
 
-        ```Example
-        PS C:\> Get-AzRoleDefinition "Contributor"
+      ### List a role definition in JSON format
 
-        Name             : Contributor
-        Id               : b24988ac-6180-42a0-ab88-20f7382dd24c
-        IsCustom         : False
-        Description      : Lets you manage everything except access to resources.
-        Actions          : {*}
-        NotActions       : {Microsoft.Authorization/*/Delete, Microsoft.Authorization/*/Write,
-                          Microsoft.Authorization/elevateAccess/Action}
-        DataActions      : {}
-        NotDataActions   : {}
-        AssignableScopes : {/}
-        ```
+      To list a role in JSON format, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
 
-        ### List a role definition in JSON format
+      ```azurepowershell
+      Get-AzRoleDefinition <role_name> | ConvertTo-Json
+      ```
 
-        To list a role in JSON format, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
+      ```Example
+      PS C:\> Get-AzRoleDefinition "Contributor" | ConvertTo-Json
 
-        ```azurepowershell
-        Get-AzRoleDefinition <role_name> | ConvertTo-Json
-        ```
+      {
+        "Name": "Contributor",
+        "Id": "b24988ac-6180-42a0-ab88-20f7382dd24c",
+        "IsCustom": false,
+        "Description": "Lets you manage everything except access to resources.",
+        "Actions": [
+          "*"
+        ],
+        "NotActions": [
+          "Microsoft.Authorization/*/Delete",
+          "Microsoft.Authorization/*/Write",
+          "Microsoft.Authorization/elevateAccess/Action",
+          "Microsoft.Blueprint/blueprintAssignments/write",
+          "Microsoft.Blueprint/blueprintAssignments/delete"
+        ],
+        "DataActions": [],
+        "NotDataActions": [],
+        "AssignableScopes": [
+          "/"
+        ]
+      }
+      ```
 
-        ```Example
-        PS C:\> Get-AzRoleDefinition "Contributor" | ConvertTo-Json
+      ### List permissions of a role definition
 
+      To list the permissions for a specific role, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
+    code: |
+      ```azurepowershell
+      Get-AzRoleDefinition <role_name> | FL Actions, NotActions
+      ```
+
+      ```Example
+      PS C:\> Get-AzRoleDefinition "Contributor" | FL Actions, NotActions
+
+      Actions    : {*}
+      NotActions : {Microsoft.Authorization/*/Delete, Microsoft.Authorization/*/Write,
+                  Microsoft.Authorization/elevateAccess/Action,
+                  Microsoft.Blueprint/blueprintAssignments/write...}
+      ```
+
+      ```azurepowershell
+      (Get-AzRoleDefinition <role_name>).Actions
+      ```
+
+      ```Example
+      PS C:\> (Get-AzRoleDefinition "Virtual Machine Contributor").Actions
+
+      Microsoft.Authorization/*/read
+      Microsoft.Compute/availabilitySets/*
+      Microsoft.Compute/locations/*
+      Microsoft.Compute/virtualMachines/*
+      Microsoft.Compute/virtualMachineScaleSets/*
+      Microsoft.DevTestLab/schedules/*
+      Microsoft.Insights/alertRules/*
+      Microsoft.Network/applicationGateways/backendAddressPools/join/action
+      Microsoft.Network/loadBalancers/backendAddressPools/join/action
+      ...
+      ```
+  - title: |
+      Azure CLI
+    summary: |
+      ### List all roles
+
+      To list all roles in Azure CLI, use [az role definition list](/cli/azure/role/definition#az-role-definition-list).
+
+      ```azurecli
+      az role definition list
+      ```
+
+      The following example lists the name and description of all available role definitions:
+
+      ```azurecli
+      az role definition list --output json --query '[].{roleName:roleName, description:description}'
+      ```
+
+      ```json
+      [
         {
-          "Name": "Contributor",
-          "Id": "b24988ac-6180-42a0-ab88-20f7382dd24c",
-          "IsCustom": false,
-          "Description": "Lets you manage everything except access to resources.",
-          "Actions": [
+          "description": "Can manage service and the APIs",
+          "roleName": "API Management Service Contributor"
+        },
+        {
+          "description": "Can manage service but not the APIs",
+          "roleName": "API Management Service Operator Role"
+        },
+        {
+          "description": "Read-only access to service and APIs",
+          "roleName": "API Management Service Reader Role"
+        },
+
+        ...
+
+      ]
+      ```
+
+      The following example lists all of the built-in roles.
+
+      ```azurecli
+      az role definition list --custom-role-only false --output json --query '[].{roleName:roleName, description:description, roleType:roleType}'
+      ```
+
+      ```json
+      [
+        {
+          "description": "Can manage service and the APIs",
+          "roleName": "API Management Service Contributor",
+          "roleType": "BuiltInRole"
+        },
+        {
+          "description": "Can manage service but not the APIs",
+          "roleName": "API Management Service Operator Role",
+          "roleType": "BuiltInRole"
+        },
+        {
+          "description": "Read-only access to service and APIs",
+          "roleName": "API Management Service Reader Role",
+          "roleType": "BuiltInRole"
+        },
+        
+        ...
+
+      ]
+      ```
+
+      ### List a role definition
+
+      To list details of a role, use [az role definition list](/cli/azure/role/definition#az-role-definition-list).
+
+      ```azurecli
+      az role definition list --name {roleName}
+      ```
+
+      The following example lists the *Contributor* role definition:
+
+      ```azurecli
+      az role definition list --name "Contributor"
+      ```
+
+      ```json
+      [
+        {
+          "assignableScopes": [
+            "/"
+          ],
+          "description": "Lets you manage everything except access to resources.",
+          "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c",
+          "name": "b24988ac-6180-42a0-ab88-20f7382dd24c",
+          "permissions": [
+            {
+              "actions": [
+                "*"
+              ],
+              "dataActions": [],
+              "notActions": [
+                "Microsoft.Authorization/*/Delete",
+                "Microsoft.Authorization/*/Write",
+                "Microsoft.Authorization/elevateAccess/Action",
+                "Microsoft.Blueprint/blueprintAssignments/write",
+                "Microsoft.Blueprint/blueprintAssignments/delete"
+              ],
+              "notDataActions": []
+            }
+          ],
+          "roleName": "Contributor",
+          "roleType": "BuiltInRole",
+          "type": "Microsoft.Authorization/roleDefinitions"
+        }
+      ]
+      ```
+
+      ### List permissions of a role definition
+
+      The following example lists just the *actions* and *notActions* of the *Contributor* role.
+    code: |
+      ```azurecli
+      az role definition list --name "Contributor" --output json --query '[].{actions:permissions[0].actions, notActions:permissions[0].notActions}'
+      ```
+
+      ```json
+      [
+        {
+          "actions": [
             "*"
           ],
-          "NotActions": [
+          "notActions": [
             "Microsoft.Authorization/*/Delete",
             "Microsoft.Authorization/*/Write",
             "Microsoft.Authorization/elevateAccess/Action",
             "Microsoft.Blueprint/blueprintAssignments/write",
             "Microsoft.Blueprint/blueprintAssignments/delete"
-          ],
-          "DataActions": [],
-          "NotDataActions": [],
-          "AssignableScopes": [
-            "/"
           ]
         }
-        ```
+      ]
+      ```
 
-        ### List permissions of a role definition
+      The following example lists just the actions of the *Virtual Machine Contributor* role.
 
-        To list the permissions for a specific role, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
+      ```azurecli
+      az role definition list --name "Virtual Machine Contributor" --output json --query '[].permissions[0].actions'
+      ```
 
-        ```azurepowershell
-        Get-AzRoleDefinition <role_name> | FL Actions, NotActions
-        ```
-
-        ```Example
-        PS C:\> Get-AzRoleDefinition "Contributor" | FL Actions, NotActions
-
-        Actions    : {*}
-        NotActions : {Microsoft.Authorization/*/Delete, Microsoft.Authorization/*/Write,
-                    Microsoft.Authorization/elevateAccess/Action,
-                    Microsoft.Blueprint/blueprintAssignments/write...}
-        ```
-
-        ```azurepowershell
-        (Get-AzRoleDefinition <role_name>).Actions
-        ```
-
-        ```Example
-        PS C:\> (Get-AzRoleDefinition "Virtual Machine Contributor").Actions
-
-        Microsoft.Authorization/*/read
-        Microsoft.Compute/availabilitySets/*
-        Microsoft.Compute/locations/*
-        Microsoft.Compute/virtualMachines/*
-        Microsoft.Compute/virtualMachineScaleSets/*
-        Microsoft.DevTestLab/schedules/*
-        Microsoft.Insights/alertRules/*
-        Microsoft.Network/applicationGateways/backendAddressPools/join/action
-        Microsoft.Network/loadBalancers/backendAddressPools/join/action
-        ...
-        ```
-
-        ## Azure CLI
-
-        ### List all roles
-
-        To list all roles in Azure CLI, use [az role definition list](/cli/azure/role/definition#az-role-definition-list).
-
-        ```azurecli
-        az role definition list
-        ```
-
-        The following example lists the name and description of all available role definitions:
-
-        ```azurecli
-        az role definition list --output json --query '[].{roleName:roleName, description:description}'
-        ```
-
-        ```json
+      ```json
+      [
         [
-          {
-            "description": "Can manage service and the APIs",
-            "roleName": "API Management Service Contributor"
-          },
-          {
-            "description": "Can manage service but not the APIs",
-            "roleName": "API Management Service Operator Role"
-          },
-          {
-            "description": "Read-only access to service and APIs",
-            "roleName": "API Management Service Reader Role"
-          },
+          "Microsoft.Authorization/*/read",
+          "Microsoft.Compute/availabilitySets/*",
+          "Microsoft.Compute/locations/*",
+          "Microsoft.Compute/virtualMachines/*",
+          "Microsoft.Compute/virtualMachineScaleSets/*",
+          "Microsoft.Compute/disks/write",
+          "Microsoft.Compute/disks/read",
+          "Microsoft.Compute/disks/delete",
+          "Microsoft.DevTestLab/schedules/*",
+          "Microsoft.Insights/alertRules/*",
+          "Microsoft.Network/applicationGateways/backendAddressPools/join/action",
+          "Microsoft.Network/loadBalancers/backendAddressPools/join/action",
 
           ...
 
+          "Microsoft.Storage/storageAccounts/listKeys/action",
+          "Microsoft.Storage/storageAccounts/read",
+          "Microsoft.Support/*"
         ]
-        ```
-
-        The following example lists all of the built-in roles.
-
-        ```azurecli
-        az role definition list --custom-role-only false --output json --query '[].{roleName:roleName, description:description, roleType:roleType}'
-        ```
-
-        ```json
-        [
-          {
-            "description": "Can manage service and the APIs",
-            "roleName": "API Management Service Contributor",
-            "roleType": "BuiltInRole"
-          },
-          {
-            "description": "Can manage service but not the APIs",
-            "roleName": "API Management Service Operator Role",
-            "roleType": "BuiltInRole"
-          },
-          {
-            "description": "Read-only access to service and APIs",
-            "roleName": "API Management Service Reader Role",
-            "roleType": "BuiltInRole"
-          },
-          
-          ...
-
-        ]
-        ```
-
-        ### List a role definition
-
-        To list details of a role, use [az role definition list](/cli/azure/role/definition#az-role-definition-list).
-
-        ```azurecli
-        az role definition list --name {roleName}
-        ```
-
-        The following example lists the *Contributor* role definition:
-
-        ```azurecli
-        az role definition list --name "Contributor"
-        ```
-
-        ```json
-        [
-          {
-            "assignableScopes": [
-              "/"
-            ],
-            "description": "Lets you manage everything except access to resources.",
-            "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c",
-            "name": "b24988ac-6180-42a0-ab88-20f7382dd24c",
-            "permissions": [
-              {
-                "actions": [
-                  "*"
-                ],
-                "dataActions": [],
-                "notActions": [
-                  "Microsoft.Authorization/*/Delete",
-                  "Microsoft.Authorization/*/Write",
-                  "Microsoft.Authorization/elevateAccess/Action",
-                  "Microsoft.Blueprint/blueprintAssignments/write",
-                  "Microsoft.Blueprint/blueprintAssignments/delete"
-                ],
-                "notDataActions": []
-              }
-            ],
-            "roleName": "Contributor",
-            "roleType": "BuiltInRole",
-            "type": "Microsoft.Authorization/roleDefinitions"
-          }
-        ]
-        ```
-
-        ### List permissions of a role definition
-
-        The following example lists just the *actions* and *notActions* of the *Contributor* role.
-
-        ```azurecli
-        az role definition list --name "Contributor" --output json --query '[].{actions:permissions[0].actions, notActions:permissions[0].notActions}'
-        ```
-
-        ```json
-        [
-          {
-            "actions": [
-              "*"
-            ],
-            "notActions": [
-              "Microsoft.Authorization/*/Delete",
-              "Microsoft.Authorization/*/Write",
-              "Microsoft.Authorization/elevateAccess/Action",
-              "Microsoft.Blueprint/blueprintAssignments/write",
-              "Microsoft.Blueprint/blueprintAssignments/delete"
-            ]
-          }
-        ]
-        ```
-
-        The following example lists just the actions of the *Virtual Machine Contributor* role.
-
-        ```azurecli
-        az role definition list --name "Virtual Machine Contributor" --output json --query '[].permissions[0].actions'
-        ```
-
-        ```json
-        [
-          [
-            "Microsoft.Authorization/*/read",
-            "Microsoft.Compute/availabilitySets/*",
-            "Microsoft.Compute/locations/*",
-            "Microsoft.Compute/virtualMachines/*",
-            "Microsoft.Compute/virtualMachineScaleSets/*",
-            "Microsoft.Compute/disks/write",
-            "Microsoft.Compute/disks/read",
-            "Microsoft.Compute/disks/delete",
-            "Microsoft.DevTestLab/schedules/*",
-            "Microsoft.Insights/alertRules/*",
-            "Microsoft.Network/applicationGateways/backendAddressPools/join/action",
-            "Microsoft.Network/loadBalancers/backendAddressPools/join/action",
-
-            ...
-
-            "Microsoft.Storage/storageAccounts/listKeys/action",
-            "Microsoft.Storage/storageAccounts/read",
-            "Microsoft.Support/*"
-          ]
-        ]
-        ```
-
+      ]
+      ```
   - title: |
       REST API
     summary: |
@@ -517,21 +516,20 @@ procedureSection:
       ### List a role definition
 
       To list the details of a specific role, use the [Role Definitions - Get](/rest/api/authorization/role-definitions/get) or [Role Definitions - Get By ID](/rest/api/authorization/role-definitions/get-by-id) REST API.
-    steps:
-      - |
-        Start with the following request:
 
-        ```http
-        GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2022-04-01
-        ```
+      1. Start with the following request:
 
-        For a tenant-level role definition, you can use this request:
+          ```http
+          GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2022-04-01
+          ```
 
-        ```http
-        GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2022-04-01
-        ```
-      - |
-        Within the URI, replace *{scope}* with the scope for which you want to list the role definition.
+          For a tenant-level role definition, you can use this request:
+
+          ```http
+          GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2022-04-01
+          ```
+
+      1. Within the URI, replace *{scope}* with the scope for which you want to list the role definition.
 
           > [!div class="mx-tableFixed"]
           > | Scope | Type |
@@ -540,48 +538,48 @@ procedureSection:
           > | `subscriptions/{subscriptionId1}` | Subscription |
           > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
           > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1` | Resource |
-      - |  
-        Replace *{roleDefinitionId}* with the role definition identifier.
+          
+      1. Replace *{roleDefinitionId}* with the role definition identifier.
 
           The following example lists the [Reader](built-in-roles.md#reader) role definition:
-          
-          **Request**
-          
-          ```http
-          GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7?api-version=2022-04-01
-          ```
-          
-          **Response**
-          
-          ```json
-          {
-              "properties": {
-                  "roleName": "Reader",
-                  "type": "BuiltInRole",
-                  "description": "View all resources, but does not allow you to make any changes.",
-                  "assignableScopes": [
-                      "/"
-                  ],
-                  "permissions": [
-                      {
-                          "actions": [
-                              "*/read"
-                          ],
-                          "notActions": [],
-                          "dataActions": [],
-                          "notDataActions": []
-                      }
-                  ],
-                  "createdOn": "2015-02-02T21:55:09.8806423Z",
-                  "updatedOn": "2021-11-11T20:13:47.8628684Z",
-                  "createdBy": null,
-                  "updatedBy": null
-              },
-              "id": "/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
-              "type": "Microsoft.Authorization/roleDefinitions",
-              "name": "acdd72a7-3385-48ef-bd42-f606fba81ae7"
-          }
-          ```
+    code: |
+      **Request**
+      
+      ```http
+      GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7?api-version=2022-04-01
+      ```
+      
+      **Response**
+      
+      ```json
+      {
+          "properties": {
+              "roleName": "Reader",
+              "type": "BuiltInRole",
+              "description": "View all resources, but does not allow you to make any changes.",
+              "assignableScopes": [
+                  "/"
+              ],
+              "permissions": [
+                  {
+                      "actions": [
+                          "*/read"
+                      ],
+                      "notActions": [],
+                      "dataActions": [],
+                      "notDataActions": []
+                  }
+              ],
+              "createdOn": "2015-02-02T21:55:09.8806423Z",
+              "updatedOn": "2021-11-11T20:13:47.8628684Z",
+              "createdBy": null,
+              "updatedBy": null
+          },
+          "id": "/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
+          "type": "Microsoft.Authorization/roleDefinitions",
+          "name": "acdd72a7-3385-48ef-bd42-f606fba81ae7"
+      }
+      ```
 
 relatedContent:
   - text: Azure built-in roles
