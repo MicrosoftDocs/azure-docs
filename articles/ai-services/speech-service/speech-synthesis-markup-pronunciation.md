@@ -226,6 +226,10 @@ Usage of the `say-as` element's attributes are described in the following table.
 
 The following content types are supported for the `interpret-as` and `format` attributes. Include the `format` attribute only if `format` column isn't empty in this table.
 
+> [!NOTE]
+> The `characters` and `spell-out` values for the `interpret-as` attribute are supported for all [text to speech locales](language-support.md?tabs=tts).
+> Other `interpret-as` attribute values are supported for all locales of the following languages: Arabic, Catalan, Chinese, Danish, Dutch, English, French, Finnish, German, Hindi, Italian, Japanese, Korean, Norwegian, Polish, Portuguese, Russian, Spanish, and Swedish.
+
 | interpret-as   | format   | Interpretation |
 | ---------- | ---------- | ---------- |
 | `characters`, `spell-out` |  | The text is spoken as individual letters (spelled out). The speech synthesis engine pronounces:<br /><br />`<say-as interpret-as="characters">test</say-as>`<br /><br />As "T E S T." |

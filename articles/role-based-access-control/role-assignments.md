@@ -48,7 +48,7 @@ The following shows an example of the properties in a role assignment when displ
 }
 ```
 
-The following shows an example of the properties in a role assignment when displayed using the [Azure CLI](role-assignments-list-cli.md), or the [REST API](role-assignments-list-rest.md):
+The following shows an example of the properties in a role assignment when displayed using the [Azure CLI](role-assignments-list-cli.yml), or the [REST API](role-assignments-list-rest.md):
 
 ```json
 {

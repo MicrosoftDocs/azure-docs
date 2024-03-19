@@ -104,7 +104,7 @@ The following shows an example of the output:
 
 ## List a condition
 
-To list a role assignment condition, use [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list). For more information, see [List Azure role assignments using Azure CLI](role-assignments-list-cli.md).
+To list a role assignment condition, use [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list). For more information, see [List Azure role assignments using Azure CLI](role-assignments-list-cli.yml).
 
 ## Delete a condition
 

@@ -316,5 +316,5 @@ az role assignment create --assignee "alain@example.com" \
 
 ## Next steps
 
-- [List Azure role assignments using Azure CLI](role-assignments-list-cli.md)
+- [List Azure role assignments using Azure CLI](role-assignments-list-cli.yml)
 - [Use the Azure CLI to manage Azure resources and resource groups](../azure-resource-manager/management/manage-resources-cli.md)

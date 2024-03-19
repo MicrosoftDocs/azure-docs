@@ -18,6 +18,9 @@ Azure Service Health monitors:
 - [Resource health](../../service-health/resource-health-overview.md): information about the health of your individual cloud resources, such as a specific log search alert rule. 
 - [Service health](../../service-health/service-health-overview.md): information about the health of the Azure services and regions you're using, which might affect your log search alert rule, including communications about outages, planned maintenance activities, and other health advisories.
 
+ > [!NOTE]
+> Today, the report health status is supported only for rules with a frequency of 15 minutes or lower. For rules that run at a frequency greater than 15 minutes (such as 30 minutes, 1 hour, etc.), the status in the resource health blade will be ‘Unavailable’.
+
 ## Permissions required
 
 - To view the health of a log search alert rule, you need `read` permissions to the log search alert rule. 
@@ -65,6 +68,7 @@ This table describes the possible resource health status values for a log search
 |NSP validation failed |The query is failing because of NSP validations issues.| Review your network security perimeter rules to ensure your alert rule is correctly configured.|
 |Active alerts limit exceeded |Alert evaluation failed due to exceeding the limit of fired (non- resolved) alerts per day.     |See [Azure Monitor service limits](../service-limits.md).   |
 |Dimension combinations limit exceeded | Alert evaluation failed due to exceeding the allowed limit of dimension combinations values meeting the threshold.|See [Azure Monitor service limits](../service-limits.md).     |
+|Unavailable for unknown reason | Today, the report health status is supported only for rules with a frequency of 15 minutes or lower.| For using Resource Health the fequency should be 5 minutes or lower. |
 
 
 ## Add a new resource health alert
