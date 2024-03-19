@@ -95,7 +95,7 @@ Perform the following steps to deploy an AKS cluster using the Azure CLI.
    The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*, and enables Secure Boot and vTPM:
 
     ```azurecli
-    az aks create --name myAKSCluster --resource-group myResourceGroup --enable-secure-boot --enable-vtpm --enable-managed-identity --generate-ssh-keys
+    az aks create --name myAKSCluster --resource-group myResourceGroup --node-count 1 --enable-secure-boot --enable-vtpm --enable-managed-identity --generate-ssh-keys
     ```
 
 2. Run the following command to get access credentials for the Kubernetes cluster. Use the [az aks get-credentials][az-aks-get-credentials] command and replace the values for the cluster name and the resource group name.

@@ -5,7 +5,7 @@ description: Learn how to use Azure reliability features including availability 
 author: dlepow
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 06/28/2023
+ms.date: 03/08/2024
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
@@ -62,7 +62,11 @@ API Management provides an SLA of 99.99% when you deploy at least one unit in tw
 
 ## Backend availability
 
-Depending on where and how your backend services are hosted, you may need to set up redundant backends in different regions to meet your requirements for service availability. You can manage regional backends and handle failover through API Management to maintain availability. For example:  
+Depending on where and how your backend services are hosted, you may need to set up redundant backends in different regions to meet your requirements for service availability. You can also configure backend properties to improve the resilience and availability of your backend services.
+
+### Regional backends
+
+You can manage regional backends and handle failover through API Management to maintain availability. For example:  
 
 * In multi-region deployments, use [policies to route requests](api-management-howto-deploy-multi-region.md#-route-api-calls-to-regional-backend-services) through regional gateways to regional backends. 
 
@@ -71,6 +75,13 @@ Depending on where and how your backend services are hosted, you may need to set
 * Use caching to reduce failing calls.
 
 For details, see the blog post [Back-end API redundancy with Azure API Manager](https://devblogs.microsoft.com/premier-developer/back-end-api-redundancy-with-azure-api-manager/).
+
+### Configure backend properties for availability
+
+API Management [backend](backends.md) entities allow you to manage and apply backend properties to improve the availability of backends. For example:
+
+* Distribute and load-balance traffic to a [pool of URLs](backends.md#load-balanced-pool-preview)
+* Configure [circuit breaker rules](backends.md#circuit-breaker-preview) to apply the circuit breaker pattern to protect the backend from too many requests
 
 ## Next steps
 

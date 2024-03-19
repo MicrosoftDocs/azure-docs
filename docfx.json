@@ -1306,6 +1306,8 @@
         "articles/iot/**/*yml": "Azure IoT",
         "articles/iot-central/**/*.md": "Azure IoT Central",
         "articles/iot-central/**/*yml": "Azure IoT Central",
+        "articles/iot-dps/**/*.md": "Azure IoT Hub Device Provisioning Service",
+        "articles/iot-dps/**/*.yml": "Azure IoT Hub Device Provisioning Service",
         "articles/iot-operations/**/*.md": "Azure IoT Operations Preview",
         "articles/iot-operations/**/*.yml": "Azure IoT Operations Preview",
         "articles/jenkins/**/*.yml": "Jenkins",
