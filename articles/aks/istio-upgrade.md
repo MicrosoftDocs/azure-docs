@@ -32,7 +32,7 @@ The following example illustrates how to upgrade from revision `asm-1-18` to `as
 1. Initiate a canary upgrade from revision `asm-1-18` to `asm-1-19` using [az aks mesh upgrade start](/cli/azure/aks/mesh#az-aks-mesh-upgrade-start):
 
     ```bash
-    az aks mesh upgrade start --resource-group $RESOURCE_GROUP --name $CLUSTER --revision asm-1-18
+    az aks mesh upgrade start --resource-group $RESOURCE_GROUP --name $CLUSTER --revision asm-1-19
     ```
 
     A canary upgrade means the 1.18 control plane is deployed alongside the 1.17 control plane. They continue to coexist until you either complete or roll back the upgrade.

@@ -29,7 +29,23 @@ export LOCATION=<location>
 
 The add-on requires Azure CLI version 2.57.0 or later installed. You can run `az --version` to verify version. To install or upgrade, see [Install Azure CLI][azure-cli-install].
 
-## Install Istio add-on at the time of cluster creation
+## Query available Istio add-on revisions
+You can use the command below to find information about which Istio add-on revisions are available in a region and their compatibility with AKS cluster versions:
+
+```azurecli-interactive
+az aks mesh get-revisions --location <location> -o table
+```
+
+
+## Install Istio add-on
+### Revision selection
+If you enable the add-on without specifiying a revision, a default supported revision will be installed for you
+
+If you wish to select a revision instead:
+1. Use the `get-revisions` command in the [previous step](#query-available-istio-add-on-revisions) to check which revisions are available for different AKS cluster versions in a region. 
+1. Based on the available revisions, you can include a `--revision asm-X-Y` flag in in the enable command you use for mesh installation
+
+### Install mesh during cluster creation
 
 To install the Istio add-on when creating the cluster, use the `--enable-azure-service-mesh` or`--enable-asm` parameter.
 
@@ -42,7 +58,7 @@ az aks create \
 --enable-asm
 ```
 
-## Install Istio add-on for existing cluster
+### Install mesh for existing cluster
 
 The following example enables Istio add-on for an existing AKS cluster:
 
@@ -86,23 +102,42 @@ istiod-asm-1-18-74f7f7c46c-xfdtl   1/1     Running   0          2m
 
 ## Enable sidecar injection
 
-To automatically install sidecar to any new pods, annotate your namespaces:
-
+To automatically install sidecar to any new pods, annotate your namespaces with the revision label corresponding to the control plane revision currently installed. If you are unsure which revision is installed, use:
 ```bash
-kubectl label namespace default istio.io/rev=asm-1-18
+az aks show --resource-group ${RESOURCE_GROUP} --name ${CLUSTER}  --query 'serviceMeshProfile.istio.revisions'
+```
+
+Apply the revision label:
+```bash
+kubectl label namespace default istio.io/rev=asm-X-Y
 ```
 
 > [!IMPORTANT]
->  The default `istio-injection=enabled` labeling doesn't work. Explicit versioning (`istio.io/rev=asm-1-18`) is required.
+>  The default `istio-injection=enabled` labeling doesn't work. Explicit versioning (ex: `istio.io/rev=asm-1-18`) is required. 
 
-
-For manual injection of sidecar using `istioctl kube-inject`, you need to specify extra parameters for `istioNamespace` (`-i`) and `revision` (`-r`). Example:
+For manual injection of sidecar using `istioctl kube-inject`, you need to specify extra parameters for `istioNamespace` (`-i`) and `revision` (`-r`). For example:
 
 ```bash
-kubectl apply -f <(istioctl kube-inject -f sample.yaml -i aks-istio-system -r asm-1-18) -n foo
+kubectl apply -f <(istioctl kube-inject -f sample.yaml -i aks-istio-system -r asm-X-Y) -n foo
 ```
 
-## Deploy sample application
+## Trigger sidecar injection
+You can either deploy the sample application provided for testing, or trigger sidecar injection for existing workloads.
+
+### Existing applications
+If you have existing applications to be added to the mesh, ensure their namespaces are labelled as in the previous step, and then restart their deployments to trigger sidecar injection:
+```bash
+kubectl rollout restart -n <namespace> <deployment name>
+```
+
+Verify that sidecar injection succeeded by looking for the `istio-proxy` container in the describe output, ex:
+```bash
+kubectl describe pod -n namespace <pod name>
+```
+
+The `istio-proxy` container is the Envoy sidecar. Your application is now part of the data plane.
+
+### Deploy sample application
 
 Use `kubectl apply` to deploy the sample application on the cluster:
 
@@ -150,7 +185,7 @@ reviews       ClusterIP   10.0.73.95     <none>        9080/TCP   86s
 kubectl get pods
 ```
 
-Confirm that all the pods have status of `Running`.
+Confirm that all the pods have status of `Running` with a second READY container.
 
 ```
 NAME          TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE
