@@ -12,7 +12,7 @@ ms.date: 03/18/2024
 ---
 
 # Azure Cosmos DB for MongoDB (vCore) with Terraform
-This document provides instructions on using Terraform to deploy Azure Cosmos DB for MongoDB vCore resources. This involves directly calling the ARM API through Terraform.
+This document provides instructions on using Terraform to deploy Azure Cosmos DB for MongoDB vCore resources. This involves directly calling the ARM API through Terraform. Full support for Terraform is targetted for the second half of 2024.
 
 ## Prerequisites
 - Terraform installed on your machine.
