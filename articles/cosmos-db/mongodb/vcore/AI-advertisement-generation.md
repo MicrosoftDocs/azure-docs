@@ -384,7 +384,7 @@ if __name__ == "__main__":
 ```
 
 ## Output 
-![Output screen](./media/tutorial-adgen/Output.png)
+![Output screen](./media/tutorial-adgen/output.png)
 
 ## Next step
 
