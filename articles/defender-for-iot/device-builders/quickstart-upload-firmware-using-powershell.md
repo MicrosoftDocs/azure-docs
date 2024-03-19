@@ -3,9 +3,8 @@ title: "Quickstart: Upload firmware images to Defender for IoT Firmware Analysis
 description: "Learn how to upload firmware images for analysis using Azure PowerShell."
 author: karengu0
 ms.author: karenguo
-ms.service: Defender for IoT Firmware Analysis
 ms.topic: quickstart
-ms.date: [01/29/2024]
+ms.date: 01/29/2024
 
 ---
 
