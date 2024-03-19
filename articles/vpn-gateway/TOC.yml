@@ -159,9 +159,9 @@
           href: openvpn-azure-ad-tenant-multi-app.md
         - name: Configure Multi-Factor Authentication (MFA)
           href: openvpn-azure-ad-mfa.md
-      - name: Use multiple authentication types
+      - name: Specify multiple authentication types for a P2S connection
         items:
-        - name: Configure certificate authentication + Microsoft Entra ID
+        - name: Configure certificate and Microsoft Entra ID authentication
           href: howto-point-to-site-multi-auth.md          
       - name: OpenVPN tunnel type
         items:
@@ -193,16 +193,28 @@
             href: point-to-site-vpn-client-cert-mac.md
           - name: Linux
             href: point-to-site-vpn-client-cert-linux.md
-        - name: Configure a VPN client
+        - name: Configure VPN clients
           items:
-          - name: Windows native VPN client
-            href: point-to-site-vpn-client-certificate-windows-native.md
-          - name: OpenVPN client
-            href: point-to-site-vpn-client-certificate-windows-openvpn-client.md
-          - name: Azure VPN Client
-            href: point-to-site-vpn-client-certificate-windows-azure-vpn-client.md
           - name: Install client certificates
             href: point-to-site-how-to-vpn-client-install-azure-cert.md
+          - name: Windows clients
+            items:
+            - name: Native VPN client - Windows
+              href: point-to-site-vpn-client-certificate-windows-native.md
+            - name: Azure VPN client - Windows
+              href: point-to-site-vpn-client-certificate-windows-azure-vpn-client.md
+          - name: Linux clients
+            items:
+            - name: OpenVPN client - Linux
+              href: point-to-site-vpn-client-cert-linux.md
+          - name: macOS and iOS clients
+            items:
+            - name: Native VPN client - macOS
+              href: point-to-site-vpn-client-cert-mac.md
+            - name: OpenVPN client - macOS
+              href: point-to-site-vpn-client-cert-mac.md
+            - name: OpenVPN client - iOS
+              href: point-to-site-vpn-client-cert-mac.md
       - name: RADIUS authentication
         items:
         - name: Certificate authentication clients
@@ -217,7 +229,7 @@
           href: openvpn-azure-ad-client.md
         - name: macOS
           href: openvpn-azure-ad-client-mac.md
-        - name: Generate profile files - Microsoft Entra ID
+        - name: Generate profile files
           href: about-vpn-profile-download.md 
       - name: Azure VPN Client - optional settings
         href: azure-vpn-client-optional-configurations.md
