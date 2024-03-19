@@ -53,7 +53,7 @@ You can buy Databricks plans in the [Azure portal](https://portal.azure.com/#bla
 1. Select how many Azure Databricks commit units you want to purchase and complete the purchase.
 
 
-![Example showing Azure Databricks purchase in the Azure portal](./media/prepay-databricks-reserved-capacity/data-bricks-pre-purchase.png)
+:::image type="content" border="true" source="./media/prepay-databricks-reserved-capacity/data-bricks-pre-purchase.png" alt-text="Example showing Azure Databricks purchase in the Azure portal.":::
 
 ## Change scope and ownership
 
