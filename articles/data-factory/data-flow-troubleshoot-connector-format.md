@@ -439,24 +439,6 @@ For Cause 3, work around it with one of the following options:
 
     :::image type="content" source="./media/data-flow-troubleshoot-connector-format/remove-allow-copy-command-true.png" alt-text="Screenshot that shows how to remove 'allowcopycommand:true'."::: 
 
-
-### Failed with an error: "This operation is not permitted on a non-empty directory"
-
-#### Symptoms
-
-When you use Azure Synapse Analytics as a sink in the data flow to preview data, debug/trigger run or do other activities and the enable staging is set to true, your job may fail with the following error message:
-
-`DF-SYS-01 at Sink 'sink': Unable to stage data before write. Check configuration/credentials of storage.`<br/>
-`org.apache.hadoop.fs.azure.AzureException: com.microsoft.azure.storage.StorageException: This operation is not permitted on a non-empty directory.`
-
-#### Cause
-You use the Azure Blob Storage as the staging linked service to link to a storage account that has the enabled hierarchical namespace, and that account uses key authentication in the linked service.
-
-:::image type="content" source="./media/data-flow-troubleshoot-connector-format/storage-account-configuration.png" alt-text="Screenshot that shows the storage account configuration."::: 
-
-#### Recommendation
-Create an Azure Data Lake Gen2 linked service for the storage, and select the Gen2 storage as the staging linked service in data flow activities.
-
 ### Failed with an error: "shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: User does not have permission to perform this action."
 
 #### Symptoms
