@@ -85,8 +85,8 @@ Select **Manage** > **Reviews (Preview)** in the left navigation pane. A list of
 
 At the top of the reviews page, use **Feedback** to tell us about your experience. Use the **Refresh** button to refresh the page as needed.
 
-[!NOTE]
-If you have no reviews, the **Reviews** menu item in the left navigation is greyed out.
+> [!NOTE]
+> If you have no reviews, the **Reviews** menu item in the left navigation is greyed out.
 
 ### Review recommendations
 
@@ -133,8 +133,8 @@ From a review recommendations details page:
 1. You can reject multiple recommendations at a time using the checkbox control, and the same reason for rejection is applied to all selected recommendations. If you need to select a different reason, reject one recommendation at a time.
 1. If you reject a recommendation by mistake, select **Reset** to move it back to the pending state and tab.
 
-[!NOTE]
-The reason for the rejection is visible to your account team. It helps them understand workload context and your business priorities better. Additionally, Microsoft uses this information to improve the quality of recommendations.
+> [!NOTE]
+> The reason for the rejection is visible to your account team. It helps them understand workload context and your business priorities better. Additionally, Microsoft uses this information to improve the quality of recommendations.
 
 ## Implement recommendations
 
@@ -155,8 +155,8 @@ The recommendations are grouped by type:
 * **Reviews**: These recommendations are part of a review for a selected workload.
 * **Automated**: These recommendations are the standard Advisor recommendations for the selected subscriptions.
 
-[!NOTE]
-If none of your resiliency review recommendations are in the *Accepted* state, the **Reviews** tab is hidden.
+> [!NOTE]
+> If none of your resiliency review recommendations are in the *Accepted* state, the **Reviews** tab is hidden.
 
 :::image type="content" source="./media/resiliency-reviews/resiliency-review-recommendation-list-accepted.png" alt-text="Screenshot of the Azure Advisor Resiliency Reviews recommendations page of accepted recommendations." lightbox="./media/resiliency-reviews/resiliency-review-recommendation-list-accepted.png":::
 
