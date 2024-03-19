@@ -23,7 +23,7 @@ To discover your tenant's location in Power BI:
     :::image type="content" source="media/power-bi-visual/help-menu.png" alt-text="Screenshot showing the help menu in Power BI.":::
 
 1. Select **About Power BI**
-1. Once the **About Power BI** dialog box opens, you will see **your data is stored in** followed by the tenent location, which is, in this example, Ireland.
+1. Once the **About Power BI** dialog box opens, notice the **your data is stored in** followed by the tenent location, which is, in this example, Ireland.
 
     :::image type="content" source="media/power-bi-visual/about-power-bi.png" alt-text="Screenshot showing the About Power BI diloag box.":::
 
