@@ -48,7 +48,7 @@ You can find an overview of persistent volume inventory in the **Persistent Volu
 You can enable a recommended alert to alert you when average PV usage for a pod is above 80%. To learn more about alerting, see [Metric alert rules in Container insights (preview)](./container-insights-metric-alerts.md). To learn how to override the default threshold, see the [Configure alertable metrics in ConfigMaps](./container-insights-metric-alerts.md#configure-alertable-metrics-in-configmaps) section.
 
 ## Limitations
-Persistent volumes where storage class is "azureblob-*" will not collect PV metrics. This is due to a limitation in CAdvisor. You can use the following command to show persistent volumes and their properties (including storage class). 
+Persistent volumes where storage class is "azureblob-*" won't collect PV metrics due to a limitation in CAdvisor. The following command will show persistent volumes and their properties (including storage class). 
  
 ```kubectl get pvc```
 
