@@ -33,7 +33,7 @@ procedureSection:
       - |
         Go to the [Azure portal](https://portal.azure.com/) to find the VM. Search for and select **Virtual machines**.
       - |
-        Choose the VM from the list.
+        Select the VM you'd like to attach the disk to from the list.
       - |
         In the **Virtual machines** page, under **Settings**, choose **Disks**.
 
