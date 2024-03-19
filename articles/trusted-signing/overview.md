@@ -55,6 +55,3 @@ What you link to will depend on what is really a next step for the customer. Do 
 section" or a "Resources section" or a "See also section".
 
 --->
-
-## Next steps
-TODO: Add your next step link(s)
