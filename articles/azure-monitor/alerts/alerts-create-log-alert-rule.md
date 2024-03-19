@@ -126,13 +126,13 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
     Select values for these fields under **Number of violations to trigger the alert**:
 
-    |Field  |Description  |
-    |---------|---------|
-    |Number of violations|The number of violations that trigger the alert.|
-    |Evaluation period|The time period within which the number of violations occur. |
-    |Override query time range| If you want the alert evaluation period to be different than the query time range, enter a time range here.<br> The alert time range is limited to a maximum of two days. Even if the query contains an **ago** command with a time range of longer than two days, the two-day maximum time range is applied. For example, even if the query text contains **ago(7d)**, the query only scans up to two days of data. If the query requires more data than the alert evaluation you can change the time range manually. If the query contains **ago** command, it will be changed automatically to 2 days (48 hours).|
-
-    > [!NOTE]
+   |Field  |Description  |
+   |---------|---------|
+   |Number of violations|The number of violations that trigger the alert.|
+   |Evaluation period|The time period within which the number of violations occur. |
+   |Override query time range| If you want the alert evaluation period to be different than the query time range, enter a time range here.<br> The alert time range is limited to a maximum of two days. Even if the query contains an **ago** command with a time range of longer than two days, the two-day maximum time range is applied. For example, even if the query text contains **ago(7d)**, the query only scans up to two days of data. If the query requires more data than the alert evaluation, you can change the time range manually. If the query contains an **ago** command, it will be changed automatically to 2 days (48 hours).|
+   
+   > [!NOTE]
     > If you or your administrator assigned the Azure Policy **Azure Log Search Alerts over Log Analytics workspaces should use customer-managed keys**, you must select **Check workspace linked storage**. If you don't, the rule creation will fail because it won't meet the policy requirements.
 
 1. The **Preview** chart shows query evaluations results over time. You can change the chart period or select different time series that resulted from a unique alert splitting by dimensions.

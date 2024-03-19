@@ -1,6 +1,6 @@
 ---
 title: "Migration service - known issues and limitations"
-description: Providing the limitations of the migration service in Azure Database for PostgreSQL
+description: Providing the limitations and known issues of the migration service in Azure Database for PostgreSQL.
 author: apduvuri
 ms.author: adityaduvuri
 ms.reviewer: maghan
@@ -9,7 +9,7 @@ ms.service: postgresql
 ms.topic: conceptual
 ---
 
-# Known issues and limitations - migration service in Azure Database for PostgreSQL Preview
+# Known issues and limitations for the migration service in Azure Database for PostgreSQL
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../../includes/applies-to-postgresql-flexible-server.md)]
 
@@ -21,7 +21,7 @@ Here are common limitations that apply to migration scenarios:
 
 - You can have only one active migration or validation to your Flexible server.
 
-- The migration service doesn't migrate users and roles.
+- The migration service only supports users and roles migration when the source is Azure Database for PostgreSQL single server.
 
 - The migration service shows the number of tables copied from source to target. You must manually check the data and PostgreSQL objects on the target server post-migration.
 
@@ -49,7 +49,15 @@ Here are common limitations that apply to migration scenarios:
 
 - The migration service is unable to perform migration when the source database is Azure Database for PostgreSQL single server with no public access or is an on-premises/AWS using a private IP, and the target Azure Database for PostgreSQL Flexible Server is accessible only through a private endpoint.
 
-- Migration to burstable SKUs is not supported; databases must first be migrated to a non-burstable SKU and then scaled down if needed.
+- Migration to burstable SKUs isn't supported; databases must first be migrated to a nonburstable SKU and then scaled down if needed.
+
+## Limitations migrating from Azure Database for PostgreSQL single server
+
+- It's required that both the Azure Database for PostgreSQL single server and the Azure Database for PostgreSQL flexible server are in the same Azure region. Exceptions to this limitation are made for Azure Database for PostgreSQL flexible server situated in India, China, and UAE, where cross-region migrations are permitted.
+
+- Microsoft Entra ID users present on your source server aren't migrated to the target server. To mitigate this limitation, visit [Manage Microsoft Entra roles](../../flexible-server/how-to-manage-azure-ad-users.md) to manually create all Microsoft Entra users on your target server before triggering a migration. If Microsoft Entra users aren't created on target server, migration fail.
+
+- If the target flexible server uses SCRAM-SHA-256 password encryption method, connection to flexible server using the users/roles on single server fails since the passwords are encrypted using md5 algorithm. To mitigate this limitation, choose the option MD5 for password_encryption server parameter on your flexible server.
 
 ## Related content
 

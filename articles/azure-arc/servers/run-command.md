@@ -2,7 +2,7 @@
 title: How to remotely and securely configure servers using Run command (Preview)
 description: Learn how to remotely and securely configure servers using Run Command.
 ms.date: 02/07/2024
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 

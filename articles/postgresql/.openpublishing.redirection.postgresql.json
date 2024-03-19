@@ -1569,6 +1569,46 @@
         "source_path_from_root": "/articles/postgresql/flexible-server/concepts-high-availability.md",
         "redirect_url": "https://learn.microsoft.com/azure/reliability/reliability-postgresql-flexible-server",
         "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/migrate/how-to-migrate-single-to-flexible-cli.md",
+        "redirect_url": "/azure/postgresql/migrate/migration-service/tutorial-migration-service-single-to-flexible",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/migrate/how-to-migrate-single-to-flexible-portal.md",
+        "redirect_url": "/azure/postgresql/migrate/migration-service/tutorial-migration-service-single-to-flexible",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/migrate/best-practices-seamless-migration-single-to-flexible.md",
+        "redirect_url": "/azure/postgresql/migrate/migration-service/best-practices-migration-service-postgresql",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/migrate/concepts-single-to-flexible.md",
+        "redirect_url": "/azure/postgresql/migrate/migration-service/concepts-migration-service-postgresql",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/migrate/migration-service/tutorial-migration-service-offline-aws.md",
+        "redirect_url": "/azure/postgresql/migrate/migration-service/tutorial-migration-service-aws",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/migrate/migration-service/tutorial-migration-service-offline-iaas.md",
+        "redirect_url": "/azure/postgresql/migrate/migration-service/tutorial-migration-service-iaas",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/migrate/how-to-migrate-online.md",
+        "redirect_url": "/azure/postgresql/migrate/migration-service/tutorial-migration-service-single-to-flexible",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/migrate/troubleshooting-networking-and-connectivity-issues.md",
+        "redirect_url": "/azure/postgresql/migrate/migration-service/how-to-network-setup-migration-service",
+        "redirect_document_id": false
     }
     ]
 }
