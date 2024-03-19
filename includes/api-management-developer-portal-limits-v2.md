@@ -23,4 +23,4 @@ ms.custom: Include file
 | Maximum size of metadata per page or widget | 350 KB | 350 KB |
 | Maximum number of requests per minute | 200 | 200 |
 
-<sup>1</sup>This limit is for built-in widgets such as text, images, or APIs list. Currently, custom widgets and HTML widgets aren't supported in the v2 tiers.
+<sup>1</sup>Limit for built-in widgets such as text, images, or APIs list. Currently, custom widgets and HTML widgets aren't supported in the v2 tiers.

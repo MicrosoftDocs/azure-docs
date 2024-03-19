@@ -73,7 +73,7 @@ The following limits apply when you use Azure Resource Manager and Azure resourc
 
 ### Limits - API Management v2 tiers
 
-[!INCLUDE [api-management-service-limits](../../../includes/api-management-service-limits.md)]
+[!INCLUDE [api-management-service-limits-v2](../../../includes/api-management-service-limits-v2.md)]
 
 ### Limits - Developer portal in API Management v2 tiers
 
