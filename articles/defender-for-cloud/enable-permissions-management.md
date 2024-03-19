@@ -2,7 +2,7 @@
 title: Enable Permissions Management (Preview)
 description: Learn more how to enable Permissions Management in Microsoft Defender for Cloud.
 ms.topic: conceptual
-ms.date: 11/13/2023
+ms.date: 03/12/2024
 ---
 
 # Enable Permissions Management in Microsoft Defender for Cloud (Preview)

@@ -1,7 +1,7 @@
 ---
 services: ai-services
-author: soferreira
-ms.author: soferreira
+author: mrbullwinkle
+ms.author: mbullwin
 ms.service: openai
 ms.topic: include
 ms.date: 1/25/2024
@@ -11,7 +11,7 @@ ms.date: 1/25/2024
 
 ### Prerequisites
 
-- <a href="https://www.python.org/" target="_blank">Python 3.7.1 or later version</a>
+- <a href="https://www.python.org/" target="_blank">Python 3.8 or later version</a>
 - The following Python libraries: os
 
 ### Set up
@@ -44,7 +44,7 @@ import os
 openai.api_key = os.getenv("AZURE_OPENAI_API_KEY")
 openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT")  # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
 openai.api_type = "azure"
-openai.api_version = "2023-09-01-preview"
+openai.api_version = "2024-02-01"
 
 model_name = "whisper"
 deployment_id = "YOUR-DEPLOYMENT-NAME-HERE" #This will correspond to the custom name you chose for your deployment when you deployed a model."
