@@ -71,7 +71,7 @@ procedureSection:
         When the formatting is complete, select **OK**.
 
 relatedContent:
-  - text: attach a data disk by using PowerShell
+  - text: Attach a data disk by using PowerShell
     url: attach-disk-ps.md
-  - text: change the drive letter of the Windows temporary disk
+  - text: Change the drive letter of the Windows temporary disk
     url: change-drive-letter.md  
