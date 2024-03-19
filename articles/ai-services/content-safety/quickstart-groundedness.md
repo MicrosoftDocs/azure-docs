@@ -19,7 +19,7 @@ Follow this guide to use Azure AI Content Safety Groundedness detection to check
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 
 * Once you have your Azure subscription, <a href="https://aka.ms/acs-create"  title="Create a Content Safety resource"  target="_blank">create a Content Safety resource </a> in the Azure portal to get your key and endpoint. Enter a unique name for your resource, select your subscription, and select a resource group, supported region (East US2, West US, Sweden Central), and supported pricing tier. Then select **Create**.
-   * The resource will take a few minutes to deploy. After it does, go to the new resource. In the left pane, under **Resource Management**, select **API Keys and Endpoints**. Copy one of the subscription key values and endpoint to a temporary location for later use.
+   * The resource takes a few minutes to deploy. After it does, go to the new resource. In the left pane, under **Resource Management**, select **API Keys and Endpoints**. Copy one of the subscription key values and endpoint to a temporary location for later use.
 * [cURL](https://curl.haxx.se/) or [Python](https://www.python.org/downloads/) installed.
 
 ## Test groundedness
@@ -130,9 +130,9 @@ The parameters in the request body are defined in this table:
 | **qna**       | (Optional) This parameter is only used when the task type is QnA.  | String  |
 | - `query`       | (Optional) This is used to submit a question or a query in a Questions and Answers task. Character limit: 7,500. | String  |
 | **Text**   | (Required) The text that needs to be checked. Character limit: 7500. |  String  |
-| **GroundingSources**  | (Required) Uses an array of grounding sources to validate AI-generated text. Restrictions on the total amount of grounding sources that can be analyzed in a single request are 55K characters. | String array    |
-| **Reasoning**  | (Optional) Specifies whether to use the reasoning feature. The default value is `False`. If `True`, the service uses our default GPT resources to provided an explanation and included the "ungrounded" sentence. Be careful: using reasoning will increase the processing time and incur extra fees.| Boolean   |
-| **llmResource**  | (Optional) If you want to use your own GPT resources instead of our default GPT resources, add this field manually and include the subfield below for the GPT resources used. If you do not want to use your own GPT resources, remove this field from the input. | String   |
+| **GroundingSources**  | (Required) Uses an array of grounding sources to validate AI-generated text. Restrictions on the total number of grounding sources that can be analyzed in a single request are 55K characters. | String array    |
+| **Reasoning**  | (Optional) Specifies whether to use the reasoning feature. The default value is `False`. If `True`, the service uses our default GPT resources to provide an explanation and include the "ungrounded" sentence. Be careful: using reasoning increases the processing time and incur extra fees.| Boolean   |
+| **llmResource**  | (Optional) If you want to use your own GPT resources instead of our default GPT resources, add this field manually and include the subfields for the GPT resources used. If you don't want to use your own GPT resources, remove this field from the input. | String   |
 | - `resourceType `| Specifies the type of resource being used, for this version, only allows: `AzureOpenAI`. | Enum|
 | - `azureOpenAIEndpoint `| Endpoint URL for Azure's OpenAI service.  | String |
 | - `azureOpenAIDeploymentName` | Name of the specific deployment to use. | String|
@@ -140,9 +140,9 @@ The parameters in the request body are defined in this table:
 
 ## Use the reasoning feature
 
-The Groundedness detection API provides the option to include _reasoning_ in the API response. When this feature is enabled, the response will include an additional `"reasoning"` value. This value details specific instances and explanations for any detected ungroundedness. If you opt to use reasoning, you must either provide your own GPT resources or use the service's default GPT resources. Be careful: using reasoning will increase the processing time and incur extra fees. 
+The Groundedness detection API provides the option to include _reasoning_ in the API response. When this feature is enabled, the response includes a `"reasoning"` value. This value details specific instances and explanations for any detected ungroundedness. If you opt to use reasoning, you must either provide your own GPT resources or use the service's default GPT resources. Be careful: using reasoning increases the processing time and incur extra fees. 
 
-If you choose not to use reasoning, the API will only classify the ungroundedness of the submitted content as `true` or `false` and provide a confidence score.
+If you choose not to use reasoning, the API only classifies the ungroundedness of the submitted content as `true` or `false` and provide a confidence score.
 
 ### Enable reasoning with your own GPT resource
 
@@ -210,7 +210,7 @@ The JSON objects in the output are defined here:
 | Name  | Description    | Type    |
 | :------------------ | :----------- | ------- |
 | **ungrounded** | Indicates whether the text exhibits ungroundedness.  | Boolean    |
-| **confidenceScore** | The confidence value of the _ungrounded_ designation. The score will range from 0 to 1.	 | Float	 |
+| **confidenceScore** | The confidence value of the _ungrounded_ designation. The score ranges from 0 to 1.	 | Float	 |
 | **ungroundedPercentage** | Specifies the proportion of the text identified as ungrounded, expressed as a number between 0 and 1, where 0 indicates no ungrounded content and 1 indicates entirely ungrounded content.| Float	 |
 | **ungroundedDetails** | Provides insights into ungrounded content with specific examples and percentages.| String |
 | -**`Text`**   |  The specific text that is ungrounded.  | String   |
