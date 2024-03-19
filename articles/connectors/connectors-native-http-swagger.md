@@ -6,7 +6,6 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 12/13/2023
-tags: connectors
 ---
 
 # Connect or call REST API endpoints from workflows in Azure Logic Apps

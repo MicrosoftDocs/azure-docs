@@ -1389,6 +1389,21 @@
       "source_path_from_root": "/articles/iot-central/core/troubleshoot-connection.md",
       "redirect_url": "/azure/iot-central/core/troubleshooting",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/howto-manage-dashboards-with-rest-api.md",
+      "redirect_url": "/azure/iot-central/core/howto-manage-iot-central-with-rest-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/concepts-faq-apaas-paas.md",
+      "redirect_url": "/azure/iot-central/core/howto-migrate-to-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/tutorial-industrial-end-to-end.md",
+      "redirect_url": "/azure/iot/iot-introduction",
+      "redirect_document_id": false
     }
   ]
 }

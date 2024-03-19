@@ -4,7 +4,6 @@ description: Guide for installation of SAP HANA on Azure VMs
 services: virtual-machines-linux
 author: msjuergent
 manager: bburns
-tags: azure-resource-manager
 ms.assetid: c51a2a06-6e97-429b-a346-b433a785c9f0
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads

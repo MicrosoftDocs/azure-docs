@@ -3,7 +3,6 @@ title: "include file"
 description: "include file" 
 services: azure-monitor
 author: rboucher
-tags: azure-service-management
 ms.topic: "include"
 ms.date: 07/22/2019
 ms.author: bwren

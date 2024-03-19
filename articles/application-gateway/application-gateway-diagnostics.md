@@ -6,7 +6,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: article
-ms.date: 01/10/2024
+ms.date: 02/28/2024
 ms.author: greglin 
 ---
 
@@ -87,9 +87,12 @@ Azure generates the activity log by default. The logs are preserved for 90 days 
 
 ### Access log
 
-The access log is generated only if you've enabled it on each Application Gateway instance, as detailed in the preceding steps. The data is stored in the storage account that you specified when you enabled the logging. Each access of Application Gateway is logged in JSON format as shown below. 
+The access log is generated only if you've enabled it on each Application Gateway instance, as detailed in the preceding steps. The data is stored in the storage account that you specified when you enabled the logging. Each access of Application Gateway is logged in JSON format as shown below.
 
 #### For Application Gateway and WAF v2 SKU
+
+> [!NOTE]
+> For TLS/TCP proxy related information, visit [data reference](monitor-application-gateway-reference.md#tlstcp-proxy-logs).
 
 |Value  |Description  |
 |---------|---------|
@@ -219,7 +222,7 @@ The access log is generated only if you've enabled it on each Application Gatewa
 If the application gateway can't complete the request, it stores one of the following reason codes in the error_info field of the access log. 
 
 
-|4XX Errors  |The 4xx error codes indicate that there was an issue with the client's request, and the server can't fulfill it |
+|4XX Errors  | (The 4xx error codes indicate that there was an issue with the client's request, and the Application Gateway can't fulfill it.) |
 |---------|---------|
 |    ERRORINFO_INVALID_METHOD|	The client has sent a request  which is non-RFC compliant.  Possible reasons: client using HTTP method not supported by server, misspelled method, incompatible HTTP protocol version etc.|
   |  ERRORINFO_INVALID_REQUEST	| The server can't fulfill the request because of incorrect syntax.|
@@ -235,7 +238,7 @@ If the application gateway can't complete the request, it stores one of the foll
    | ERRORINFO_HTTPS_NO_CERT | 	Indicates client is not sending a valid and properly configured TLS certificate during Mutual TLS authentication.    |
 
 
-|5XX Errors  |Description  |
+|5XX Errors  | Description  |
 |---------|---------|
   |  ERRORINFO_UPSTREAM_NO_LIVE	| The application gateway is unable to find any active or reachable backend servers to handle incoming requests       |
   |  ERRORINFO_UPSTREAM_CLOSED_CONNECTION	| The backend server closed the connection unexpectedly or before the request was fully processed. This could happen due to backend server reaching its limits, crashing etc.|

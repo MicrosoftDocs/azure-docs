@@ -185,7 +185,16 @@ New-AzNetworkCloudTrunkedNetwork -Name "<YourTrunkedNetworkName>" `
 
 #### Create a cloud services network
 
-Your VM requires at least one cloud services network. You need the egress endpoints that you want to add to the proxy for your VM to access. This list should include any domains needed to pull images or access data, such as `.azurecr.io` or `.docker.io`.
+To create an Operator Nexus virtual machine (VM) or Operator Nexus Kubernetes cluster, you must have a cloud services network. Without this network, you can't create a VM or cluster.
+
+While the cloud services network automatically enables access to essential platform endpoints, you need to add others, such as docker.io, if your application requires them. Configuring the cloud services network proxy is a crucial step in ensuring a successful connection to your desired endpoints. To achieve this, you can add the egress endpoints to the cloud services network during the initial creation or as an update, using the `--additional-egress-endpoints` parameter. While wildcards for the URL endpoints might seem convenient, it isn't recommended for security reasons. For example, if you want to configure the proxy to allow image pull from any repository hosted off docker.io, you can specify `.docker.io` as an endpoint.
+
+The egress endpoints must comply with the domain name structures and hostname specifications outlined in RFC 1034, RFC 1035, and RFC 1123. Valid domain names include alphanumeric characters, hyphens (not at the start or end), and can have subdomains separated by dots. Here are a few examples to demonstrate compliant naming conventions for domain and hostnames.
+  
+- `contoso.com`: The base domain, serving as a second-level domain under the .com top-level domain.
+- `sales.contoso.com`: A subdomain of contoso.com, serving as a third-level domain under the .com top-level domain.
+- `web-server-1.contoso.com`: A hostname for a specific web server, using hyphens to separate the words and the numeral.
+- `api.v1.contoso.com`: Incorporates two subdomains (`v1` and `api`) above the base domain contoso.com.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -224,22 +233,23 @@ New-AzNetworkCloudServicesNetwork -CloudServicesNetworkName "<YourCloudServicesN
 
 ---
 
+After setting up the cloud services network, you can use it to create a VM or cluster that can connect to the egress endpoints you have specified. Remember that the proxy only works with HTTPS.
+
 #### Using the proxy to reach outside of the virtual machine
 
-Once you have created your VM or Kubernetes cluster with this cloud services network, you can use the proxy to reach outside of the virtual machine. Proxy is useful if you need to access resources outside of the virtual machine, such as pulling images or accessing data.
+After creating your Operator Nexus VM or Operator Nexus Kubernetes cluster with this cloud services network, you need to additionally set appropriate environment variables within VM to use tenant proxy and to reach outside of virtual machine. This tenant proxy is useful if you need to access resources outside of the virtual machine, such as managing packages or installing software.
 
 To use the proxy, you need to set the following environment variables:
 
 ```bash
-export HTTP_PROXY=http://169.254.0.11:3128
-export http_proxy=http://169.254.0.11:3128
 export HTTPS_PROXY=http://169.254.0.11:3128
 export https_proxy=http://169.254.0.11:3128
 ```
 
-Once you have set the environment variables, your virtual machine should be able to reach outside of the virtual network using the proxy.
+After setting the proxy environment variables, your virtual machine will be able to reach the configured egress endpoints.
 
-In order to reach the desired endpoints, you need to add the required egress endpoints to the cloud services network. Egress endpoints can be added using the `--additional-egress-endpoints` parameter when creating the network. Be sure to include any domains needed to pull images or access data, such as `.azurecr.io` or `.docker.io`.
+> [!NOTE]
+> HTTP is not supported due to security reasons when using the proxy to access resources outside of the virtual machine. It is required to use HTTPS for secure communication when managing packages or installing software on the Operator Nexus VM or Operator Nexus Kubernetes cluster with this cloud services network.
 
 > [!IMPORTANT]
 > When using a proxy, it's also important to set the `no_proxy` environment variable properly. This variable can be used to specify domains or IP addresses that shouldn't be accessed through the proxy. If not set properly, it can cause issues while accessing services, such as the Kubernetes API server or cluster IP. Make sure to include the IP address or domain name of the Kubernetes API server and any cluster IP addresses in the `no_proxy` variable.
@@ -248,7 +258,7 @@ In order to reach the desired endpoints, you need to add the required egress end
 
 When you're creating a Nexus Kubernetes cluster, you can schedule the cluster onto specific racks or distribute it across multiple racks. This technique can improve resource utilization and fault tolerance.
 
-If you don't specify a zone when you're creating a Nexus Kubernetes cluster, the Azure Operator Nexus platform automatically implements a default anti-affinity rule. This rule aims to prevent scheduling the cluster VM on a node that already has a VM from the same cluster, but it's a best-effort approach and can't make guarantees.
+If you don't specify a zone when you're creating a Nexus Kubernetes cluster, the Azure Operator Nexus platform automatically implements a default anti-affinity rule to spread the VM across racks and bare metal nodes and isn't guaranteed. This rule also aims to prevent scheduling the cluster VM on a node that already has a VM from the same cluster, but it's a best-effort approach and can't make guarantees.
 
 To get the list of available zones in the Azure Operator Nexus instance, you can use the following command:
 

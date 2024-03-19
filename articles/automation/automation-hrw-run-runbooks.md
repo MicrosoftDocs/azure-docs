@@ -3,7 +3,7 @@ title: Run Azure Automation runbooks on a Hybrid Runbook Worker
 description: This article describes how to run runbooks on machines in your local datacenter or other cloud provider with the Hybrid Runbook Worker.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/21/2023
+ms.date: 02/20/2024
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell, linux-related-content
 ---
@@ -341,7 +341,8 @@ You can configure a Windows Hybrid Runbook Worker to run only signed runbooks.
 > Once you've configured a Hybrid Runbook Worker to run only signed runbooks, unsigned runbooks fail to execute on the worker.
 
 > [!NOTE]
->  PowerShell 7.x does not support signed runbooks for Windows and Linux Hybrid Runbook Worker.
+> PowerShell 7.x does not support signed runbooks for Windows and Linux Hybrid Runbook Worker.
+
 
 ### Create signing certificate
 
@@ -413,9 +414,14 @@ You will perform the following steps to complete this configuration:
 * Sign a runbook
 
 > [!NOTE]
->  PowerShell 7.x does not support signed runbooks for Windows and Linux Hybrid Runbook Worker.
+> - PowerShell 7.x does not support signed runbooks for agent-based Windows and agent-based Linux Hybrid Runbook Worker.
+> - Signed PowerShell and Python runbooks aren't supported in extension-based Linux Hybrid Workers.
+
 
 ### Create a GPG keyring and keypair
+
+> [!NOTE]
+> The Create a GPG keyring and keypair are applicable only for the agent-based hybrid workers.
 
 To create the GPG keyring and keypair, use the Hybrid Runbook Worker [nxautomation account](automation-runbook-execution.md#log-analytics-agent-for-linux).
 

@@ -3,7 +3,6 @@ title: Configure rolling deployments for Azure Linux virtual machines
 description: Learn how to set up a classic release pipeline and deploy your application to Linux virtual machines using the rolling deployment strategy.
 author: moala
 manager: jpconnock
-tags: azure-devops-pipelines
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: tutorial

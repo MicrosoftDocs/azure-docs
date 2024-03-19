@@ -1,6 +1,6 @@
 ---
-title: Resource Manager template samples for log query alerts
-description: Sample Azure Resource Manager templates to deploy Azure Monitor log query alerts.
+title: Resource Manager template samples for log search alerts
+description: Sample Azure Resource Manager templates to deploy Azure Monitor log search alerts.
 ms.author: abbyweisberg
 ms.reviewer: yalavi
 ms.topic: sample
@@ -8,9 +8,9 @@ ms.custom: devx-track-arm-template
 ms.date: 11/07/2023
 ---
 
-# Resource Manager template samples for log alert rules in Azure Monitor
+# Resource Manager template samples for log search alert rules in Azure Monitor
 
-This article includes samples of [Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md) to create and configure log query alerts in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
+This article includes samples of [Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md) to create and configure log search alerts in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
@@ -472,7 +472,7 @@ resource alert 'Microsoft.Insights/scheduledQueryRules@2021-08-01' = {
 
 ## Number of results template (up to version 2018-04-16)
 
-The following sample creates a [number of results alert rule](../alerts/alerts-unified-log.md#result-count).
+The following sample creates a [number of results alert rule](../alerts/alerts-types.md#log-alerts).
 
 ### Notes
 
@@ -614,7 +614,7 @@ resource logQueryAlert 'Microsoft.Insights/scheduledQueryRules@2018-04-16' = {
 
 ## Metric measurement template (up to version 2018-04-16)
 
-The following sample creates a [metric measurement alert rule](../alerts/alerts-unified-log.md#calculation-of-a-value).
+The following sample creates a [metric measurement alert rule](../alerts/alerts-types.md#log-alerts).
 
 ### Template file
 

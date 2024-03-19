@@ -10,6 +10,7 @@ ms.author: tarcher
 ms.custom: devx-track-terraform
 content_well_notification: 
   - AI-contribution
+ai-usage: ai-assisted
 ---
 
 # Quickstart: Use Terraform to create a Linux VM

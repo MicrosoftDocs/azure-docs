@@ -5,7 +5,6 @@ services: virtual-machines-linux
 author: ramankumarlive
 manager: kavithag
 editor: ramankum
-tags: azure-service-management
 ms.service: azure-disk-storage
 ms.devlang: azurecli
 ms.topic: sample

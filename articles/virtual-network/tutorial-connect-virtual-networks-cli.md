@@ -3,7 +3,6 @@ title: Connect virtual networks with VNet peering - Azure CLI
 description: In this article, you learn how to connect virtual networks with virtual network peering, using the Azure CLI.
 services: virtual-network
 author: asudbring
-tags: azure-resource-manager
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: how-to

@@ -13,7 +13,7 @@ ms.custom: mimckitt, vmss-flex, linux-related-content
 # Create virtual machines in a scale set using Azure portal
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This article steps through using Azure portal to create a Virtual Machine Scale Set.
 ## Log in to Azure

@@ -19,16 +19,16 @@ Use this guide to get started calling the Azure OpenAI Service image generation 
 
 - An Azure subscription. <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
 - Access granted to DALL-E in the desired Azure subscription.
-- <a href="https://www.python.org/" target="_blank">Python 3.7.1 or later version</a>.
+- <a href="https://www.python.org/" target="_blank">Python 3.8 or later version</a>.
 - The following Python libraries installed: `os`, `requests`, `json`.
-- An Azure OpenAI resource created in the `SwedenCentral` region.
+- An Azure OpenAI resource created in the `EastUS`, `AustraliaEast`, or `SwedenCentral` region.
 - Then, you need to deploy a `dalle3` model with your Azure resource. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
 
-#### [DALL-E 2](#tab/dalle2)
+#### [DALL-E 2 (preview)](#tab/dalle2)
 
 - An Azure subscription. <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
 - Access granted to DALL-E in the desired Azure subscription.
-- <a href="https://www.python.org/" target="_blank">Python 3.7.1 or later version</a>.
+- <a href="https://www.python.org/" target="_blank">Python 3.8 or later version</a>.
 - The following Python libraries installed: `os`, `requests`, `json`.
 - An Azure OpenAI resource created in the East US region. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
 
@@ -70,7 +70,7 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
     api_base = '<your_endpoint>'  # Enter your endpoint here
     api_key = '<your_key>'        # Enter your API key here
 
-    api_version = '2023-12-01-preview'
+    api_version = '2024-02-01'
     url = f"{api_base}/openai/deployments/<dalle3>/images/generations?api-version={api_version}"
     headers= { "api-key": api_key, "Content-Type": "application/json" }
     body = {
@@ -90,7 +90,7 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
 
     The script makes a synchronous image generation API call.
 
-    #### [DALL-E 2](#tab/dalle2)
+    #### [DALL-E 2 (preview)](#tab/dalle2)
 
     ```python
     import requests
@@ -160,7 +160,7 @@ The output from a successful image generation API call looks like the following 
 } 
 ```
 
-#### [DALL-E 2](#tab/dalle2)
+#### [DALL-E 2 (preview)](#tab/dalle2)
 
 ```json
 {
@@ -183,6 +183,81 @@ The output from a successful image generation API call looks like the following 
 ---
 
 The image generation APIs come with a content moderation filter. If the service recognizes your prompt as harmful content, it doesn't generate an image. For more information, see [Content filtering](../concepts/content-filter.md). For examples of error responses, see the [DALL-E how-to guide](../how-to/dall-e.md).
+
+The system returns an operation status of `Failed` and the `error.code` value in the message is set to `contentFilter`. Here's an example:
+
+
+#### [DALL-E 3](#tab/dalle3)
+
+```json
+{
+    "created": 1698435368,
+    "error":
+    {
+        "code": "contentFilter",
+        "message": "Your task failed as a result of our safety system."
+    }
+}
+```
+
+#### [DALL-E 2 (preview)](#tab/dalle2)
+
+```json
+{
+   "created": 1589478378,
+   "error": {
+       "code": "contentFilter",
+       "message": "Your task failed as a result of our safety system."
+   },
+   "id": "9484f239-9a05-41ba-997b-78252fec4b34",
+   "status": "failed"
+}
+```
+
+
+---
+
+It's also possible that the generated image itself is filtered. In this case, the error message is set to `Generated image was filtered as a result of our safety system.`. Here's an example:
+
+
+#### [DALL-E 3](#tab/dalle3)
+
+```json
+{
+    "created": 1698435368,
+    "error":
+    {
+        "code": "contentFilter",
+        "message": "Generated image was filtered as a result of our safety system."
+    }
+}
+```
+
+#### [DALL-E 2 (preview)](#tab/dalle2)
+
+```json
+{
+   "created": 1589478378,
+   "expires": 1589478399,
+   "id": "9484f239-9a05-41ba-997b-78252fec4b34",
+   "lastActionDateTime": 1589478378,
+   "data": [
+       {
+           "url": "<URL_TO_IMAGE>"
+       },
+       {
+           "error": {
+               "code": "contentFilter",
+               "message": "Generated image was filtered as a result of our safety system."
+           }
+       }
+   ],
+   "status": "succeeded"
+}
+```
+
+
+---
 
 ## Clean up resources
 

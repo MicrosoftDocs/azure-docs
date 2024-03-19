@@ -90,17 +90,17 @@ Because most Azure Cache for Redis clients assume that a password and access key
 
 ### Microsoft Entra Client Workflow
 
-1. Configure your client application to acquire a Microsoft Entra token for scope,  `https://redis.azure.com/.default` or `acca5fbb-b7e4-4009-81f1-37e38fd66d78/.default`, using the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview).
+1. Configure your client application to acquire a Microsoft Entra token for scope, `https://redis.azure.com/.default` or `acca5fbb-b7e4-4009-81f1-37e38fd66d78/.default`, using the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview).
 
-1. Update your Redis connection logic to use following `UserName` and `Password`:
+1. Update your Redis connection logic to use following `User` and `Password`:
 
-    `UserName` = Object ID of your managed identity or service principal
-    `Password` = Microsoft Entra token that you acquired using MSAL
+   - `User` = Object ID of your managed identity or service principal
+   - `Password` = Microsoft Entra token that you acquired using MSAL
 
 1. Ensure that your client executes a Redis [AUTH command](https://redis.io/commands/auth/) automatically before your Microsoft Entra token expires using:
 
-    `UserName` = Object ID of your managed identity or service principal
-    `Password` = Microsoft Entra token refreshed periodically
+   - `User` = Object ID of your managed identity or service principal
+   - `Password` = Microsoft Entra token refreshed periodically
 
 ### Client library support
 
