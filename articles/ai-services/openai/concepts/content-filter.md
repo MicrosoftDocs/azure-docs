@@ -424,6 +424,7 @@ print(response.model_dump_json(indent=2))
     "total_tokens": 417 
   } 
 } 
+```
 
 # [OpenAI Python 0.28.1](#tab/python)
 
