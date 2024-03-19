@@ -169,7 +169,7 @@ To get the logs using Azure Toolkit for IntelliJ:
 
 1. The streaming log is visible in the output window.
 
-   :::image type="content" source="media/quickstart-logs-metrics-tracing/streaming-log-output.png" alt-text="Screenshot of the Azure portla that shows the Streaming Log output window." lightbox="media/quickstart-logs-metrics-tracing/streaming-log-output.png":::
+   :::image type="content" source="media/quickstart-logs-metrics-tracing/streaming-log-output.png" alt-text="Screenshot of the Azure portal that shows the Streaming Log output window." lightbox="media/quickstart-logs-metrics-tracing/streaming-log-output.png":::
 
  To learn more about the query language that's used in Log Analytics, see [Azure Monitor log queries](/azure/data-explorer/kusto/query/). To query all your Log Analytics logs from a centralized client, check out [Azure Data Explorer](/azure/data-explorer/query-monitor-data).
 
