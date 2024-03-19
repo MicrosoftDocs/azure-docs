@@ -1,9 +1,9 @@
 ---
 title: "Quickstart: Upload firmware images to Defender for IoT Firmware Analysis using Azure PowerShell"
 description: "Learn how to upload firmware images for analysis using Azure PowerShell."
-author: [karengu0]
-ms.author: [karenguo]
-ms.service: [Defender for IoT Firmware Analysis]
+author: karengu0
+ms.author: karenguo
+ms.service: Defender for IoT Firmware Analysis
 ms.topic: quickstart
 ms.date: [01/29/2024]
 
@@ -13,11 +13,11 @@ ms.date: [01/29/2024]
 
 This article explains how to use Azure PowerShell to upload firmware images to Defender for IoT Firmware Analysis.
 
-[Defender for IoT Firmware Analysis](https://learn.microsoft.com/en-us/azure/defender-for-iot/device-builders/overview-firmware-analysis) is a tool that analyzes firmware images and provides an understanding of security vulnerabilities in the firmware images.
+[Defender for IoT Firmware Analysis](/azure/defender-for-iot/device-builders/overview-firmware-analysis) is a tool that analyzes firmware images and provides an understanding of security vulnerabilities in the firmware images.
 
 ## Prerequisites
 
-This quickstart assumes a basic understanding of Defender for IoT Firmware Analysis. For more information, see [Firmware analysis for device builders](https://learn.microsoft.com/en-us/azure/defender-for-iot/device-builders/overview-firmware-analysis).
+This quickstart assumes a basic understanding of Defender for IoT Firmware Analysis. For more information, see [Firmware analysis for device builders](/azure/defender-for-iot/device-builders/overview-firmware-analysis).
 
 ### Prepare your environment for Azure PowerShell
 
