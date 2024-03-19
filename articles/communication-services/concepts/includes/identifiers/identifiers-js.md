@@ -92,7 +92,7 @@ const gcchTeamsAppIdentifier = { teamsAppId: id, cloud: "gcch" };
 
 #### API reference
 
-[MicrosoftTeamsAppIdentifier](/javascript/api/@azure/communication-common/microsoftteamsappidentifier?view=azure-node-latest)
+[MicrosoftTeamsAppIdentifier](/javascript/api/@azure/communication-common/microsoftteamsappidentifier)
 
 ### Unknown
 

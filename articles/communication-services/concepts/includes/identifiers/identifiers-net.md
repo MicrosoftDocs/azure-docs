@@ -97,7 +97,7 @@ var gcchTeamsAppIdentifier = new MicrosoftTeamsAppIdentifier(bot.Id, Communicati
 
 #### API reference
 
-[MicrosoftTeamsAppIdentifier](/dotnet/api/azure.communication.microsoftteamsappidentifier?view=azure-dotnet)
+[MicrosoftTeamsAppIdentifier](/dotnet/api/azure.communication.microsoftteamsappidentifier)
 
 ### Unknown
 
