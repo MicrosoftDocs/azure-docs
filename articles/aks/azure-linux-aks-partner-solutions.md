@@ -277,7 +277,7 @@ For more information, see [Tetrate Solutions](https://istio.tetratelabs.io/downl
 |----------|------------|
 | WIZ Cloud Infrastructure Security Platform | Security |
 
-Wiz is the unified cloud security platform for cloud security and development teams that includes prevention, active detection, and response. Use Wiz solution to reduce risk, gain unmatched visibility, accurate prioritization, and business agility.
+Wiz is the unified cloud security platform for cloud security and development teams that includes prevention, active detection, and response. Use Wiz solution to reduce risk and gain unmatched visibility, accurate prioritization, and business agility.
 
 For more information, see [Wiz Solutions](https://wiz.io/) and [Wiz on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/wizinc1627338511749.wiz-azure-marketplace?tab=overview).
 
