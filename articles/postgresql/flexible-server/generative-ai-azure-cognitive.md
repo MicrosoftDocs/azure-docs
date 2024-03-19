@@ -265,11 +265,11 @@ For more information, see Cognitive Services Compliance and Privacy notes at htt
 
 ## Document summarization
 
-[Document summarization](../../ai-services/language-service/summarization/overview.md#tab/document-summarizationdocument-summarization) uses natural language processing techniques to generate a summary for documents.
+[Document summarization](../../ai-services/language-service/summarization/overview.md) uses natural language processing techniques to generate a summary for documents.
 
 ### `azure_cognitive.summarize_abstractive`
 
-[Document abstractive summarization](../../ai-services/language-service/summarization/overview.md#tab/document-summarization) produces a summary that might not use the same words in the document but yet captures the main idea.
+[Document abstractive summarization](../../ai-services/language-service/summarization/overview.md) produces a summary that might not use the same words in the document but yet captures the main idea.
 
 ```postgresql
 azure_cognitive.summarize_abstractive(text text, language text, timeout_ms integer DEFAULT 3600000, throw_on_error boolean DEFAULT true, sentence_count integer DEFAULT 3, disable_service_logs boolean DEFAULT false)
@@ -411,6 +411,50 @@ For more information on parameters, see [Translator API](../../ai-services/trans
 
 ##### `target_script`
 `text DEFAULT NULL` Specific script of the input text.
+
+#### Return type
+
+`azure_cognitive.translated_text_result`, a json array of translated texts. Details of the response body can be found in the [response body](../../ai-services/translator/reference/v3-0-translate.md#response-body).
+
+## Examples
+
+### Sentiment Analysis examples
+
+```postgresql
+select b.*
+from azure_cognitive.analyze_sentiment('The book  was not great, It is mediocre at best','en') b
+```
+
+### Summarization examples
+
+```postgresql
+SELECT
+    bill_id,
+    unnest(azure_cognitive.summarize_abstractive(bill_text, 'en')) abstractive_summary
+FROM bill_summaries
+WHERE bill_id = '114_hr2499';
+```
+
+### Translation examples
+
+```postgresql
+-- Translate into Portuguese
+select  a.*
+from azure_cognitive.translate('Language Translation in real time in multiple languages is quite cool', 'pt') a;
+
+-- Translate to multiple languages
+select  (unnest(a.translations)).*
+from azure_cognitive.translate('Language Translation in real time in multiple languages is quite cool', array['es', 'pt', 'zh-Hans']) a;
+```
+
+### Personal data detection examples
+
+```postgresql
+select
+    'Contoso employee with email Contoso@outlook.com is using our awesome API' as InputColumn,
+    pii_entities.*
+    from azure_cognitive.recognize_pii_entities('Contoso employee with email Contoso@outlook.com is using our awesome API', 'en') as pii_entities
+```
 
 ## Related content
 
