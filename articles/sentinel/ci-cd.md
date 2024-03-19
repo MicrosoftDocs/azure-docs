@@ -43,7 +43,7 @@ You can't create duplicate connections, with the same repository and branch, in 
 
 1. Make sure that you're signed into your source control app with the credentials you want to use for your connection. If you're currently signed in using different credentials, sign out first. 
 
-1. For Microsoft Sentinel in the [Azure portal](https://portal.microsoft.com), under **Content management**, select **Repositories**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Content management** > **Repositories**.
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Content management**, select **Repositories**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Content management** > **Repositories**.
 
 1. Select **Add new**, and then, on the **Create new deployment connection** page, enter a meaningful name and description for your connection.
 

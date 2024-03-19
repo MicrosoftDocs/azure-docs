@@ -255,7 +255,7 @@ Azure AI Speech supports OpenAI's Whisper model by using the batch transcription
 To use a Whisper model for batch transcription, you need to set the `model` property. Whisper is a display-only model, so the lexical field isn't populated in the response.
 
 > [!IMPORTANT]
-> Whisper models are currently in preview. You should always use [version 3.2](./migrate-v3-1-to-v3-2.md) of the speech to text API, which is available in a separate preview, for Whisper models.
+> For Whisper models, you should always use [version 3.2](./migrate-v3-1-to-v3-2.md) of the speech to text API.
 
 Whisper models by batch transcription are supported in the East US, Southeast Asia, and West Europe regions.
 
@@ -285,36 +285,38 @@ spx csr list --base --api-version v3.2-preview.1
 
 ::: zone-end
 
-The `displayName` property of a Whisper model contains "Whisper Preview" as shown in this example. Whisper is a display-only model, so the lexical field isn't populated in the transcription.
+The `displayName` property of a Whisper model contains "Whisper" as shown in this example. Whisper is a display-only model, so the lexical field isn't populated in the transcription.
 
 ```json
 {
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2-preview.1/models/base/d9cbeee6-582b-47ad-b5c1-6226583c92b6",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2-preview.1/models/base/e418c4a9-9937-4db7-b2c9-8afbff72d950",
   "links": {
-    "manifest": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2-preview.1/models/base/d9cbeee6-582b-47ad-b5c1-6226583c92b6/manifest"
+    "manifest": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2-preview.1/models/base/e418c4a9-9937-4db7-b2c9-8afbff72d950/manifest"
   },
   "properties": {
     "deprecationDates": {
-      "adaptationDateTime": "2024-10-15T00:00:00Z",
-      "transcriptionDateTime": "2025-10-15T00:00:00Z"
+      "adaptationDateTime": "2025-04-15T00:00:00Z",
+      "transcriptionDateTime": "2026-04-15T00:00:00Z"
     },
     "features": {
       "supportsTranscriptions": true,
       "supportsEndpoints": false,
       "supportsTranscriptionsOnSpeechContainers": false,
-      "supportsAdaptationsWith": [],
+      "supportsAdaptationsWith": [
+        "Acoustic"
+      ],
       "supportedOutputFormats": [
         "Display"
       ]
     },
-    "chargeForAdaptation": false
+    "chargeForAdaptation": true
   },
-  "lastActionDateTime": "2023-07-19T12:46:27Z",
+  "lastActionDateTime": "2024-02-29T15:53:28Z",
   "status": "Succeeded",
-  "createdDateTime": "2023-07-19T12:39:52Z",
+  "createdDateTime": "2024-02-29T15:46:07Z",
   "locale": "en-US",
-  "displayName": "20230707 Whisper Preview",
-  "description": "en-US base model"
+  "displayName": "20240228 Whisper Large V2",
+  "description": "OpenAI Whisper Model in Azure AI Speech (Whisper v2-large)"
 },
 ```
 

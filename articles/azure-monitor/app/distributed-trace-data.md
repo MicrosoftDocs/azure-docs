@@ -11,6 +11,8 @@ ms.custom: devx-track-python, devx-track-csharp, devx-track-dotnet, devx-track-e
 
 # What is distributed tracing and telemetry correlation?
 
+[!INCLUDE [azure-monitor-app-insights-otel-available-notification](../includes/azure-monitor-app-insights-otel-available-notification.md)]
+
 Modern cloud and [microservices](https://azure.com/microservices) architectures have enabled simple, independently deployable services that reduce costs while increasing availability and throughput. However, it has made overall systems more difficult to reason about and debug. Distributed tracing solves this problem by providing a performance profiler that works like call stacks for cloud and microservices architectures.
 
 Azure Monitor provides two experiences for consuming distributed trace data: the [transaction diagnostics](./transaction-search-and-diagnostics.md?tabs=transaction-diagnostics) view for a single transaction/request and the [application map](./app-map.md) view to show how systems interact.

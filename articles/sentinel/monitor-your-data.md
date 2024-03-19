@@ -28,7 +28,7 @@ This article describes how to visualize your data in Microsoft Sentinel by using
 
 Use a template installed from the content hub to create a workbook.
 
-1. For Microsoft Sentinel in the [Azure portal](https://portal.microsoft.com), under **Threat management**, select **Workbooks**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Threat management** > **Workbooks**.
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Threat management**, select **Workbooks**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Threat management** > **Workbooks**.
 
 1. Go to **Workbooks** and then select **Templates** to see the list of workbook templates installed.
 
@@ -58,7 +58,7 @@ For more information, see how to [Create interactive reports with Azure Monitor 
 
 Create a workbook from scratch in Microsoft Sentinel.
 
-1. For Microsoft Sentinel in the [Azure portal](https://portal.microsoft.com), under **Threat management**, select **Workbooks**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Threat management** > **Workbooks**.
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Threat management**, select **Workbooks**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Threat management** > **Workbooks**.
 1. Select **Add workbook**.
 1. To edit the workbook, select **Edit**, and then add text, queries, and parameters as necessary. For more information on how to customize the workbook, see how to [Create interactive reports with Azure Monitor Workbooks](../azure-monitor/visualize/workbooks-overview.md). 
 

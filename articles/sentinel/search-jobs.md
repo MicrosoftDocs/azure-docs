@@ -23,7 +23,7 @@ Use a search job when you start an investigation to find specific events in logs
 
 Go to **Search** in Microsoft Sentinel from the Azure portal or the Microsoft Defender portal to enter your search criteria. Depending on the size of the target dataset, search times vary. While most search jobs take a few minutes to complete, searches across massive data sets that run up to 24 hours are also supported. 
 
-1. For Microsoft Sentinel in the [Azure portal](https://portal.microsoft.com), under **General**, select **Search**. <br>For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Search**.
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **General**, select **Search**. <br>For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Search**.
 1. Select the **Table** menu and choose a table for your search.
 1. In the **Search** box, enter a search term.
 
