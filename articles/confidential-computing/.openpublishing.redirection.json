@@ -38,6 +38,38 @@
         {
             "source_path_from_root": "/articles/confidential-computing/how-to-fortanix-enclave-manager.md",
             "redirect_url": "/azure/confidential-computing/how-to-fortanix-confidential-computing-manager-node-agent"
+        },
+        {
+            "source_path_from_root": "/articles/data-factory/create-managed-airflow-environment.md",
+            "redirect_url": "/azure/data-factory/create-airflow-environment"
+        },
+        {
+            "source_path_from_root": "/articles/data-factory/airflow-create-private-requirement-package.md",
+            "redirect_url": "/azure/data-factory/airflow-install-private-package"
+        },
+        {
+            "source_path_from_root": "/articles/data-factory/concept-managed-airflow.md",
+            "redirect_url": "/azure/data-factory/concepts-workflow-orchestration-manager"
+        },
+        {
+            "source_path_from_root": "/articles/data-factory/delete-dags-in-managed-airflow.md",
+            "redirect_url": "/azure/data-factory/delete-dags-in-workflow-orchestration-manager"
+        },
+        {
+            "source_path_from_root": "/articles/data-factory/enable-azure-key-vault-for-managed-airflow.md",
+            "redirect_url": "/azure/data-factory/enable-azure-key-vault"
+        },
+        {
+            "source_path_from_root": "/articles/data-factory/get-started-with-managed-airflow.md",
+            "redirect_url": "/azure/data-factory/get-started-with-workflow-orchestration-manager"
+        },
+        {
+            "source_path_from_root": "/articles/data-factory/how-does-managed-airflow-work.md",
+            "redirect_url": "/azure/confidential-computing/faq-application-enclaves"
+        },
+        {
+            "source_path_from_root": "/articles/data-factory/how-to-diagnostic-logs-and-metrics-for-managed-airflow.md",
+            "redirect_url": "/azure/data-factory/diagnostic-logs-and-metrics-for-workflow-orchestration-manager"
         }
     ]
 }

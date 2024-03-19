@@ -23,7 +23,7 @@ ms.custom: references_regions
 
 ## Limitations
 
-Azure Elastic SAN doesn't support volume snapshots.
+Volume snapshots aren't currently supported when you use Azure Container Storage to deploy and orchestrate an Elastic SAN.
 
 ## Regional availability
 
