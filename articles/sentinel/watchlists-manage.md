@@ -5,7 +5,7 @@ author: cwatson-cat
 ms.author: cwatson
 ms.topic: how-to
 ms.date: 3/14/2024
-appliesTo: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
 ms.collection: usx-security
 #Customer intent: As a security analyst, I want to edit or bulk edit my watchlists so I can keep them up to date.
 ---

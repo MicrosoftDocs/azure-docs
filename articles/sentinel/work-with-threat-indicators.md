@@ -6,7 +6,7 @@ author: austinmccollum
 ms.topic: how-to
 ms.date: 3/14/2024
 ms.author: austinmc
-appliesTo: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
 ms.collection: usx-security
 #customer intent: As a security analyst, I want to use threat intelligence so I can power my threat detections.
 ---

@@ -6,7 +6,7 @@ author: austinmccollum
 ms.topic: how-to
 ms.date: 3/14/2024
 ms.author: austinmc
-appliesTo: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
 ms.collection: usx-security
 #customer intent: As a SOC admin, I want to connect my Threat Intelligence Platform with the upload indicators API to ingest threat intelligence, so I can utilize the benefits of this updated API.
 ---

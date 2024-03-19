@@ -145,7 +145,7 @@ The last step in the integration process is to enable the **Threat Intelligence 
 
     :::image type="content" source="media/connect-threat-intelligence-tip/tip-data-connector-config.png" alt-text="Screenshot displaying the data connectors page with the TIP data connector listed." lightbox="media/connect-threat-intelligence-tip/tip-data-connector-config.png":::
 
-1. As you’ve already completed the app registration and configured your TIP or custom solution to send threat indicators, the only step left is to select the **Connect** button.
+1. As you've already completed the app registration and configured your TIP or custom solution to send threat indicators, the only step left is to select the **Connect** button.
 
 Within a few minutes, threat indicators should begin flowing into this Microsoft Sentinel workspace. You can find the new indicators in the **Threat intelligence** blade, accessible from the Microsoft Sentinel navigation menu.
 
