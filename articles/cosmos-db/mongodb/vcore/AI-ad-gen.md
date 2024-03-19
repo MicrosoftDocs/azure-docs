@@ -40,7 +40,7 @@ In this guide, we demonstrate how to create dynamic advertising content that res
 ## Running the Script
 Before we dive into the exciting part of generating AI-enhanced advertisements, we need to set up our environment. This setup involves installing the necessary packages to ensure our script runs smoothly. Here’s a step-by-step guide to get everything ready.
 
-### Install Necessary Packages
+### 1.1 Install Necessary Packages
 
 Firstly, we need to install a few Python packages. Open your terminal and run the following commands:
 
@@ -56,7 +56,7 @@ Firstly, we need to install a few Python packages. Open your terminal and run th
  pip show openai
 ```
 
-### Setting Up the OpenAI and Azure Client
+### 1.2 Setting Up the OpenAI and Azure Client
 After installing the necessary packages, the next step involves setting up our OpenAI and Azure clients for the script, which is crucial for authenticating our requests to the OpenAI API and Azure services. 
 
 ```python
@@ -84,11 +84,11 @@ client = AzureOpenAI(
 ## Solution architecture
 ![solution architecture](./media/tutorial-adgen/architecture.png)
 
-## Creating Embeddings and Setting up Cosmos DB
+## 2. Creating Embeddings and Setting up Cosmos DB
 
 After setting up our environment and OpenAI client, we move to the core part of our AI-enhanced advertisement generation project. The following code creates vector embeddings from text descriptions of products and sets up our database in Azure Cosmos DB for MongoDB vCore to store and search these embeddings.
 
-### Create Embeddings
+### 2.1 Create Embeddings
 
 To generate compelling advertisements, we first need to understand the items in our inventory. We do this by creating vector embeddings from descriptions of our items, which allows us to capture their semantic meaning in a form that machines can understand and process. Here's how you can create vector embeddings for an item description using Azure OpenAI:
 
@@ -113,10 +113,10 @@ if embeddings is not None:
 
 The function takes a text input — like a product description — and uses the `client.embeddings.create` method from the OpenAI API to generate a vector embedding for that text. We're using the `text-embedding-ada-002` model here, but you can choose other models based on your requirements. If the process is successful, it prints the generated embeddings; otherwise, it handles exceptions by printing an error message.
 
-## Connect and setup Cosmos DB for MongoDB vCore
+## 3. Connect and setup Cosmos DB for MongoDB vCore
 With our embeddings ready, the next step is to store and index them in a database that supports vector similarity search. Azure Cosmos DB for MongoDB vCore is a perfect fit for this task.
 
-### Set up the connection
+### 3.1 Set up the connection
 To connect to Cosmos DB, we use the pymongo library, which allows us to interact with MongoDB easily. The following code snippet establishes a connection with our Cosmos DB for MongoDB vCore instance:
 ```python
 import pymongo
@@ -128,11 +128,11 @@ mongo_client = pymongo.MongoClient(mongo_conn)
 
 Replace `<USERNAME>`, `<PASSWORD>`, and `<VCORE_CLUSTER_NAME>` with your actual MongoDB username, password, and vCore cluster name, respectively.
 
-## Setting Up the Database and Vector Index in Cosmos DB
+## 4. Setting Up the Database and Vector Index in Cosmos DB
 
 Once you've established a connection to Azure Cosmos DB, the next steps involve setting up your database and collection, and then creating a vector index to enable efficient vector similarity searches. Let's walk through these steps.
 
-### Set Up the Database and Collection
+### 4.1 Set Up the Database and Collection
 
 First, we create a database and a collection within our Cosmos DB instance. Here’s how:
 ```python
@@ -151,7 +151,7 @@ else:
     print("Using collection: '{}'.\n".format(COLLECTION_NAME))
 ```
 
-### Create the vector index
+### 4.2 Create the vector index
 To perform efficient vector similarity searches within our collection, we need to create a vector index. Cosmos DB supports different types of vector indexes, and here we discuss two: IVF and HNSW.
 
 ### IVF
@@ -209,7 +209,7 @@ db.command(
 > [!NOTE]
 > HNSW indexing is only available on M40 cluster tiers and higher. 
 
-## Insert data to the collection
+## 5. Insert data to the collection
 Now insert the inventory data, which includes descriptions and their corresponding vector embeddings, into the newly created collection. To insert data into our collection, we use the `insert_many()` method provided by the `pymongo` library. The method allows us to insert multiple documents into the collection at once. Our data is stored in a JSON file, which we'll load and then insert into the database.
 
 Download the [shoes_with_vectors.json](https://github.com/jayanta-mondal/ignite-demo/blob/main/data/shoes_with_vectors.json) file from the GitHub repository and store it in a `data` directory within your project folder.
@@ -224,10 +224,10 @@ result = collection.insert_many(data)
 print(f"Number of data points added: {len(result.inserted_ids)}")
 ```
 
-## Vector Search in Cosmos DB for MongoDB vCore
+## 6. Vector Search in Cosmos DB for MongoDB vCore
 With our data successfully uploaded, we can now apply the power of vector search to find the most relevant items based on a query. The vector index we created earlier enables us to perform semantic searches within our dataset.
 
-### Conducting a Vector Search
+### 6.1 Conducting a Vector Search
 To perform a vector search, we define a function `vector_search` that takes a query and the number of results to return. The function generates a vector for the query using the `generate_embeddings` function we defined earlier, then uses Cosmos DB's `$search` functionality to find the closest matching items based on their vector embeddings.
 
 ```python
@@ -252,7 +252,7 @@ def vector_search(query, num_results=3):
     results = collection.aggregate(pipeline)
     return results
 ```
-## Perform vector search query
+## 6.2 Perform vector search query
 Finally, we execute our vector search function with a specific query and process the results to display them:
 
 ```python
@@ -269,7 +269,7 @@ for result in results:
     print(f"Purchase: {result['document']['purchase_url']}\n")
 ```
 
-## Generating Ad content with GPT-4 and DALL.E
+## 7. Generating Ad content with GPT-4 and DALL.E
 
 We combine all developed components to craft compelling ads, employing OpenAI's GPT-4 for text and DALL·E 3 for images. Together with vector search results, they form a complete ad. We also introduce Heelie, our intelligent assistant, tasked with creating engaging ad taglines. Through the upcoming code, you see Heelie in action, enhancing our ad creation process.
 
@@ -359,7 +359,7 @@ def render_html_page(ad_topic):
     return html_content
 ```
 
-## Putting it all together
+## 8. Putting it all together
 To make our advertisement generation interactive, we employ Gradio, a Python library for creating simple web UIs. We define a UI that allows users to input ad topics and then dynamically generates and displays the resulting advertisement.
 
 ```python
