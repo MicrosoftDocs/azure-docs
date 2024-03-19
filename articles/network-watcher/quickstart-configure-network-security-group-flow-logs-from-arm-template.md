@@ -14,7 +14,7 @@ ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm, devx-track-arm-t
 
 # Quickstart: Configure Azure Network Watcher NSG flow logs using an Azure Resource Manager (ARM) template
 
-In this quickstart, you learn how to enable NSG flow logs using an Azure Resource Manager (ARM) template and Azure PowerShell. For more information, see [What is Azure Resource Manager?](../azure-resource-manager/management/overview.md) and [NSG flow logs overview](network-watcher-nsg-flow-logging-overview.md).
+In this quickstart, you learn how to enable NSG flow logs using an Azure Resource Manager (ARM) template and Azure PowerShell. For more information, see [What is Azure Resource Manager?](../azure-resource-manager/management/overview.md) and [NSG flow logs overview](nsg-flow-logs-overview.md).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -81,7 +81,7 @@ You can also disable or delete a flow log in the Azure portal:
 
 1. In **Network Watcher | Flow logs**, select the checkbox of the flow log that you want to delete.
 
-1. Select **Disable** or **Delete**. For more information, see [Disable a flow log](nsg-flow-logging.md#disable-a-flow-log) or [Delete a flow log](nsg-flow-logging.md#delete-a-flow-log).
+1. Select **Disable** or **Delete**. For more information, see [Disable a flow log](nsg-flow-logs-portal.md#disable-a-flow-log) or [Delete a flow log](nsg-flow-logs-portal.md#delete-a-flow-log).
 
 ## Related content
 

@@ -7,7 +7,7 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/29/2023
+ms.date: 03/18/2024
 ms.custom:
   - mode-ui
   - ignite-2023
