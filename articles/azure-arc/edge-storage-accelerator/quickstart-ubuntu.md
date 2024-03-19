@@ -1,5 +1,5 @@
 ---
-title: Quickstart - create a single-node Edge Storage Accelerator (ESA) using a K3s cluster
+title: Quickstart - create a single-node Edge Storage Accelerator (ESA) cluster using K3s or AKS Edge Essentials
 description: Learn how to create a single-node Edge Storage Accelerator (ESA) using a K3s cluster.
 author: sethmanheim
 ms.author: sethm
@@ -8,16 +8,20 @@ ms.date: 03/19/2024
 
 ---
 
-## Edge Storage Accelerator Single Node Ubuntu K3s Cluster Quickstart
+# Quickstart: create Edge Storage Accelerator single-node cluster
 
-This quickstart guide shows how to set up a single-node Edge Storage Accelerator (ESA) using a [K3s cluster](https://docs.k3s.io/), based on the instructions provided in the Edge Storage Accelerator documentation.
+This quickstart guide shows how to set up a single-node Edge Storage Accelerator (ESA) using a [K3s](https://docs.k3s.io/) or [AKS Edge Essentials](/azure/aks/hybrid/aks-edge-overview), based on the instructions provided in the Edge Storage Accelerator documentation.
 
-### Prerequisites
+## Prerequisites
 
 Before you begin, ensure you have the following:
 
 - A machine capable of running K3s, meeting the minimum system requirements.
 - Basic understanding of Kubernetes concepts.
+
+## Create a K3s cluster
+
+Follow these steps to create a single-node Edge Storage Accelerator cluster using K3s.
 
 ### 1. Create and configure a K3s cluster on Ubuntu
 
