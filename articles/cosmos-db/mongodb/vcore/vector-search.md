@@ -30,7 +30,7 @@ To perform vector similiarity search over vector properties in your documents, y
 
 ### Create a vector index using HNSW
 
-You can create (Hierarchical Navigable Small World) indexes on M40 cluster tiers and higher. To use create the HSNW index, you need to create a vector index with the `"kind"` parameter set to `"vector-hnsw"` following the template below:
+You can create (Hierarchical Navigable Small World) indexes on M40 cluster tiers and higher. To create the HSNW index, you need to create a vector index with the `"kind"` parameter set to `"vector-hnsw"` following the template below:
 
 ```javascript
 { 
