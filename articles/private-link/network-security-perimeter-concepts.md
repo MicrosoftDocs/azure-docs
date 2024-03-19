@@ -78,8 +78,8 @@ Administrators add PaaS resources to a perimeter by creating resource associatio
 
 Learn more on transitioning from learning mode to enforced mode in [transitioning to a network security perimeter](network-security-perimeter-transitioning.md) article.
 
-Private-link resource
-A private-link resource is the network security perimeter aware PaaS resource which can be associated. Currently, we have 8 PaaS services onboarded to network security perimeter and many more being onboarded in future. Below are the onboarded services:
+## Private-link resources
+A private-link resource is the network security perimeter aware PaaS resource which can be associated. Currently, the current list of onboarded private-link resources are as follows:
 
 | Private-link resource name | Resource type | Resources |
 |---------------------------|---------------|-----------|
@@ -92,34 +92,6 @@ A private-link resource is the network security perimeter aware PaaS resource wh
 | SQL DB                    | Microsoft.Sql/servers | - |
 | Storage                   | Microsoft.Storage/storageAccounts | - |
 
-## Supported PaaS services
-
-Currently, network security perimeter supports the following onboarded PaaS services: 
-
-- Azure Kubernetes Service
-- Azure Key Vault
-- Azure Monitor
-  - Log Analytics
-  - App Insights
-  - Alerts
-  - Notification Service
-  - Monitor Essentials
-  - App Insights Profiler
-- Azure SQL DB
-- Azure Storage
-- Azure Event Hubs
-- Azure Cognitive Search
-- Azure Cosmos DB
-- Azure Cognitive Services
-  - Computer Vision
-  - Forms Recognizer
-  - Content Moderator
-  - Personalizer
-  - Anomaly Detection
-  - Immersive Reader
-  - CLU
-  - Text Analytics
-  - Text Translation
 
 ## Limitations of network security perimeter
 
@@ -127,12 +99,12 @@ Currently, network security perimeter supports the following onboarded PaaS serv
 Network security perimeter is currently available in all public cloud regions. 
 When using network security perimeter to monitor the supported list of private link resources, Azure monitor availability is limited to the following regions:
 
-    - North Central US
-    - East US
-    - East US 2
-    - West US
-    - West US 2
-    - Southcentral US
+  - North Central US
+  - East US
+  - East US 2
+  - West US
+  - West US 2
+  - Southcentral US
 
 > [!NOTE]
 > Though the network security perimeter can be created in any region, the Log analytics workspace to be associated with the network security perimeter needs to be located in one of the Azure Monitor supported regions.
@@ -141,7 +113,6 @@ When using network security perimeter to monitor the supported list of private l
 ### Scale limitations
 
 Network security perimeter functionality can be used to support deployments of PaaS resources with common public network controls with following scale limitations:
-
 
 | **Limitation** | **Description** |
 |-----------------|-----------------|
@@ -154,9 +125,9 @@ Network security perimeter functionality can be used to support deployments of P
 
 ### Other limitations
 
-Limitation/Issue 	Comments
-  
-| Limitation/Issue | Description |
+Network security perimeter has other limitations as follows:
+
+| **Limitation/Issue** | **Description** |
 |-----------------|-------------|
 | **Network security perimeter configuration changes are not re-evaluated on active connections previously approved.** | Existing connections won't be interrupted when you remove a security rule that allowed the connection. Modifying network security perimeter rules will only affect new connections. </br>When a new rule is created or an existing rule is updated in a network security perimeter, it will only apply to new connections. Existing connections aren't reevaluated with the new rules. |
 | **Network security perimeter restrictions on control plane operations over ARM** | Enforcement is planned with Azure Resource Manager integration with network security perimeter. |
