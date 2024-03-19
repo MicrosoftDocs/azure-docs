@@ -28,6 +28,9 @@ Confirm that you have **Reader** access to the Azure Communications Gateway reso
 
 If you don't have these permissions, ask your administrator to set them up by following [Set up user roles for Azure Communications Gateway](provision-user-roles.md).
 
+> [!IMPORTANT]
+> Ensure you have permissions on the AzureCommunicationsGateway enterprise application (not the Project Synergy enterprise application). The AzureCommunicationsGateway enterprise application was created automatically as part of deploying Azure Communications Gateway.
+
 If you're uploading new numbers for an enterprise customer:
 
 * You must complete any internal procedures for assigning numbers.

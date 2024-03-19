@@ -208,7 +208,7 @@ Go to the [Operator Connect homepage](https://operatorconnect.microsoft.com/) an
 
 You must enable Azure Communications Gateway within the Operator Connect or Teams Phone Mobile environment. This process requires configuring your environment with two Application IDs:
 -  The Application ID of the system-assigned managed identity that you found in  [Find the Object ID and Application ID for your Azure Communication Gateway resource](#find-the-object-id-and-application-id-for-your-azure-communication-gateway-resource). This Application ID allows Azure Communications Gateway to use the roles that you set up in [Set up application roles for Azure Communications Gateway](#set-up-application-roles-for-azure-communications-gateway).
-- A standard Application ID for Azure Communications Gateway. This ID always has the value `8502a0ec-c76d-412f-836c-398018e2312b`.
+- A standard Application ID for an automatically created AzureCommunicationsGateway enterprise application. This ID is always `8502a0ec-c76d-412f-836c-398018e2312b`.
 
 To add the Application IDs:
 
