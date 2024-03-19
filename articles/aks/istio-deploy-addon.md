@@ -30,7 +30,7 @@ export LOCATION=<location>
 The add-on requires Azure CLI version 2.57.0 or later installed. You can run `az --version` to verify version. To install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 ## Query available Istio add-on revisions
-You can use the command below to find information about which Istio add-on revisions are available in a region and their compatibility with AKS cluster versions:
+To find information about which Istio add-on revisions are available in a region and their compatibility with AKS cluster versions, use:
 
 ```azurecli-interactive
 az aks mesh get-revisions --location <location> -o table
@@ -39,11 +39,11 @@ az aks mesh get-revisions --location <location> -o table
 
 ## Install Istio add-on
 ### Revision selection
-If you enable the add-on without specifiying a revision, a default supported revision will be installed for you
+If you enable the add-on without specifying a revision, a default supported revision is installed for you.
 
 If you wish to select a revision instead:
-1. Use the `get-revisions` command in the [previous step](#query-available-istio-add-on-revisions) to check which revisions are available for different AKS cluster versions in a region. 
-1. Based on the available revisions, you can include a `--revision asm-X-Y` flag in in the enable command you use for mesh installation
+1. Use the `get-revisions` command in the [previous step](#query-available-istio-add-on-revisions) to check which revisions are available for different AKS cluster versions in a region
+1. Based on the available revisions, you can include a `--revision asm-X-Y` flag in the enable command you use for mesh installation.
 
 ### Install mesh during cluster creation
 
@@ -102,7 +102,7 @@ istiod-asm-1-18-74f7f7c46c-xfdtl   1/1     Running   0          2m
 
 ## Enable sidecar injection
 
-To automatically install sidecar to any new pods, annotate your namespaces with the revision label corresponding to the control plane revision currently installed. If you are unsure which revision is installed, use:
+To automatically install sidecar to any new pods, annotate your namespaces with the revision label corresponding to the control plane revision currently installed. If you're unsure which revision is installed, use:
 ```bash
 az aks show --resource-group ${RESOURCE_GROUP} --name ${CLUSTER}  --query 'serviceMeshProfile.istio.revisions'
 ```
@@ -125,12 +125,12 @@ kubectl apply -f <(istioctl kube-inject -f sample.yaml -i aks-istio-system -r as
 You can either deploy the sample application provided for testing, or trigger sidecar injection for existing workloads.
 
 ### Existing applications
-If you have existing applications to be added to the mesh, ensure their namespaces are labelled as in the previous step, and then restart their deployments to trigger sidecar injection:
+If you have existing applications to be added to the mesh, ensure their namespaces are labeled as in the previous step, and then restart their deployments to trigger sidecar injection:
 ```bash
 kubectl rollout restart -n <namespace> <deployment name>
 ```
 
-Verify that sidecar injection succeeded by looking for the `istio-proxy` container in the describe output, ex:
+Verify that sidecar injection succeeded by ensuring all containers are ready and looking for the `istio-proxy` container in the `kubectl describe` output, for example:
 ```bash
 kubectl describe pod -n namespace <pod name>
 ```
