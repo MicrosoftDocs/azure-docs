@@ -32,7 +32,7 @@ Each API Management [pricing tier](https://aka.ms/apimpricing) offers a distinct
 | Availability zones                                                                           | No          | No        | No    | No       | No       | No       | Yes     |
 | Multiple custom domain names for gateway                                                                 | No          | Yes        | No    | No      | No       | No        | Yes     |
 | Developer portal<sup>2</sup>                                                                 | No          | Yes       | Yes   | Yes      | Yes      | Yes      | Yes     |
-| Built-in | Yes      | Yes                                            | No          | Yes       | Yes   | Yes      | Yes     |
+| Built-in cache | Yes      | Yes                                            | No          | Yes       | Yes   | Yes      | Yes     |
 | API analytics                                                                           | No          | Yes       | Yes   | Yes      | Yes      | Yes      | Yes     |
 | [Self-hosted gateway](self-hosted-gateway-overview.md)<sup>3</sup>                           | No          | Yes       | No    | No       | No       | No       | Yes     |
 | [Workspaces](workspaces-overview.md)                                                         | No          | No       | No    | No     | No     | No       | Yes     |
