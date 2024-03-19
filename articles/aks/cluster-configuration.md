@@ -62,63 +62,25 @@ Additionally, not all VM images support Gen2 VMs. On AKS, Gen2 VMs use [AKS Ubun
 
 Gen2 VMs are supported on Linux. Gen2 VMs on Windows are supported for WS2022 only.
 
-### Generation 2 virtual machines on Windows (preview)
+### Generation 2 virtual machines on Windows
 
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+#### Limitations
 
 * Generation 2 VMs are supported on Windows for WS2022 only.
 * Generation 2 VMs are default for Windows clusters greater than or equal to Kubernetes 1.25.
-  * If your Kubernetes version is greater than 1.25, you only need to set the `vm_size` to get the generation 2 node pool. You can still use WS2019 generation 1 if you define that in the `os_sku`.
-  * If your Kubernetes version is less than 1.25, you can set the `os_sku` to WS2022 and set the `vm_size` to generation 2 to get the generation 2 node pool.
-
-#### Install the aks-preview Azure CLI extension
-
-* Install or update the aks-preview Azure CLI extension using the [`az extension add`][az-extension-add] or the [`az extension update`][az-extension-update] command.
-
-    ```azurecli
-    # Install the aks-preview extension
-    az extension add --name aks-preview
-
-    # Update to the latest version of the aks-preview extension
-    az extension update --name aks-preview
-    ```
-
-#### Register the AKSWindows2022Gen2Preview feature flag
-
-1. Register the AKSWindows2022Gen2Preview feature flag using the [`az feature register`][az-feature-register] command.
-
-    ```azurecli-interactive
-    az feature register --namespace "Microsoft.ContainerService" --name "AKSWindows2022Gen2Preview"
-    ```
-
-    It takes a few minutes for the status to show *Registered*.
-
-2. Verify the registration using the [`az feature show`][az-feature-show] command.
-
-    ```azurecli-interactive
-    az feature show --namespace "Microsoft.ContainerService" --name "AKSWindows2022Gen2Preview"
-    ```
-
-3. When the status reflects *Registered*, refresh the registration of the `Microsoft.ContainerService` resource provider using the [`az provider register`][az-provider-register] command.
-
-    ```azurecli-interactive
-    az provider register --namespace "Microsoft.ContainerService"
-    ```
+* If you select a vm size which supports both Gen 1 and Gen 2, the default for windows node pools will be Gen 1. To specify Gen 2, use custom header `UseWindowsGen2VM=true`.
 
 #### Add a Windows node pool with a generation 2 VM
 
 * Add a node pool with generation 2 VMs on Windows using the [`az aks nodepool add`][az-aks-nodepool-add] command.
 
     ```azurecli
-    # Sample command
-    az aks nodepool add --resource-group myResourceGroup --cluster-name myAKSCluster --name gen2np 
-    --kubernetes-version 1.23.5 --node-vm-size Standard_D32_v4 --os-type Windows --os-sku Windows2022
-
-    # Default command
-    az aks nodepool add --resource-group myResourceGroup --cluster-name myAKSCluster --name gen2np --os-type Windows --kubernetes-version 1.23.5
+    az aks nodepool add --resource-group myResourceGroup --cluster-name myAKSCluster --name gen2np --node-vm-size Standard_D32_v4 --os-type Windows --aks-custom-headers UseWindowsGen2VM=true
     ```
 
-* Determine whether you're on generation 1 or generation 2 using the [`az aks nodepool show`][az-aks-nodepool-show] command, and check that the `nodeImageVersion` contains `gen2`.
+The above example will create a WS2022 node pool with a Gen 2 VM. If you're using a vm size which only supports Gen 2, you do not need to add the custom header. If you're using a kubernetes version where Windows Server 2022 is not default, you need to specify `--os-sku`.  
+
+* Check whether you're using generation 1 or generation 2 using the [`az aks nodepool show`][az-aks-nodepool-show] command, and check that the `nodeImageVersion` contains `gen2`.
 
     ```azurecli
     az aks nodepool show

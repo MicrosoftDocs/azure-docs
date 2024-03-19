@@ -847,6 +847,8 @@ items:
         href: concepts/telephony/direct-routing-infrastructure.md
       - name: Connect to existing telephony
         href: concepts/telephony/direct-routing-provisioning.md
+      - name: Try Phone Calling
+        href: concepts/telephony/try-phone-calling.md
       - name: Certified Session Border Controllers
         href: concepts/telephony/certified-session-border-controllers.md
       - name: Inbound telephony calling capabilities
@@ -1030,7 +1032,7 @@ items:
     - name: Calling (JavaScript)
       href: /javascript/api/azure-communication-services/@azure/communication-calling/
     - name: Calling (Android/Java)
-      href: /java/api/com.azure.android.communication.calling
+      href: https://azure.github.io/azure-sdk-for-android/azure-communication-calling/index.html
     - name: Calling (iOS)
       href: /objectivec/communication-services/calling/
   - name: Call Automation
