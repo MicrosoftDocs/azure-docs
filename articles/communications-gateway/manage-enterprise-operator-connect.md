@@ -50,7 +50,7 @@ If you're uploading new numbers for an enterprise customer:
 |Country | The country for the number. Only required if you're uploading a North American Toll-Free number, otherwise optional.|
 |Ticket number (optional) |The ID of any ticket or other request that you want to associate with this number. Up to 64 characters. |
 
-Each number is automatically assigned to the Operator Connect or Teams Phone Mobile calling profile associated with the Azure Communications Gateway which is being provisioned. 
+Each number is automatically assigned to the Operator Connect or Teams Phone Mobile calling profile associated with the Azure Communications Gateway that is being provisioned.
 
 ## Go to your Communications Gateway resource
 
