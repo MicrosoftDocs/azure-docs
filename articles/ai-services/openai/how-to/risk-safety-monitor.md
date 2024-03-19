@@ -1,7 +1,16 @@
+---
+title: How to use the Risk & Safety dashboard in OpenAI Studio
+titleSuffix: Azure OpenAI Service
+description: Learn how to check statistics and insights from your Azure OpenAI content filtering activity.
+author: PatrickFarley 
+ms.author: pafarley 
+ms.service: azure-ai-openai
+ms.topic: how-to
+ms.date: 03/16/2024
+manager: nitinme
+---
 
-
-
-# How to enable “Risks & safety monitor” for your model deployment (preview) 
+# How to enable Risks & safety monitor for your model deployment (preview) 
 
 After you created a Azure OpenAI model deployment and applied a content filter to ensure the model is generating content in a responsible way, then it’s a natural experience to check the filter result of the content filter. Then use the insights to further fine tune the configuration, eventually to make sure it serves specific business needs as well as responsible AI principal.  
 
