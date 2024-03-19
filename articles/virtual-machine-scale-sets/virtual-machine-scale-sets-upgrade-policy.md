@@ -11,7 +11,7 @@ ms.custom: upgradepolicy
 ---
 # Upgrade policies for Virtual Machine Scale Sets
 
-The upgrade policy of a Virtual Machine Scale Set determines how virtual machines are brought up-to-date with the latest scale set model. 
+The upgrade policy of a Virtual Machine Scale Set determines how virtual machines can be brought up-to-date with the latest scale set model. 
 
 ## Upgrade policy modes
 
@@ -38,7 +38,7 @@ If your scale set is part of a Service Fabric cluster, *Automatic* mode is the o
 
 With a manual upgrade policy, you choose when to update the scale set instances. Nothing happens automatically to the existing virtual machines when changes occur to the scale set model. New instances added to the scale set use the most update-to-date model available. 
 
-Manual upgrade policy is best suited for workloads where the instances in the scale set are composed of different configurations and each configuration might require different updates and changes.
+Manual upgrade policy is best suited for workloads where you require more control over when and how instances are updated.  
 
 ### Rolling upgrade policy
 > [!NOTE]
