@@ -1,6 +1,6 @@
 ---
 title: Integrate Azure AI Language Services with Azure Database for PostgreSQL
-description: Create AI applications with sentiment analysis, summarization, or key phrase extraction using Azure AI Language and Azure Database for PostgreSQL - Flexible Server.
+description: Create AI applications with sentiment analysis, summarization, or key phrase extraction using Azure AI Language Services and Azure Database for PostgreSQL - Flexible Server.
 author: mulander
 ms.author: adamwolk
 ms.reviewer: maghan
@@ -12,7 +12,7 @@ ms.topic: conceptual
 
 # Integrate Azure Database for PostgreSQL - Flexible Server with Azure Cognitive Services (Preview)
 
-Azure AI extension gives the ability to invoke the [language services](../../ai-services/language-service/overview.md#which-language-service-feature-should-i-use) such as sentiment analysis right from within the database.
+Azure AI extension gives the ability to invoke the [Azure AI Language Services](../../ai-services/language-service/overview.md#which-language-service-feature-should-i-use) such as sentiment analysis right from within the database.
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ select azure_ai.set_setting('azure_cognitive.subscription_key', '<API Key>');
 select azure_ai.set_setting('azure_cognitive.region', '<API Key>');
 ```
 
-## Sentiment Analysis
+## Sentiment analysis
 
 [Sentiment analysis](../../ai-services/language-service/sentiment-opinion-mining/overview.md) provides sentiment labels (`negative`,`positive`,`neutral`) and confidence scores for the text passed to the model.
 
@@ -352,7 +352,7 @@ For more information, see Cognitive Services Compliance and Privacy notes at htt
 `azure_cognitive.sentence[]`, a collection of extracted sentences along with their rank score.  
 For example, if invoked with a `text` set to `'PostgreSQL features transactions with atomicity, consistency, isolation, durability (ACID) properties, automatically updatable views, materialized views, triggers, foreign keys, and stored procedures. It is designed to handle a range of workloads, from single machines to data warehouses or web services with many concurrent users. It was the default database for macOS Server and is also available for Linux, FreeBSD, OpenBSD, and Windows.'`, and `language` set to `'en'`, it could return `{"(\"PostgreSQL features transactions with atomicity, consistency, isolation, durability (ACID) properties, automatically updatable views, materialized views, triggers, foreign keys, and stored procedures.\",0.16)","(\"It is designed to handle a range of workloads, from single machines to data warehouses or web services with many concurrent users.\",0)","(\"It was the default database for macOS Server and is also available for Linux, FreeBSD, OpenBSD, and Windows.\",1)"}`.
 
-## Language Translation
+## Language translation
 
 [Azure AI Text Translation](../../ai-services/translator/text-translation-overview.md) enables quick and accurate translation to target languages in real time.
 
@@ -363,7 +363,7 @@ azure_cognitive.translate(text text, target_language text, timeout_ms integer DE
 ```
 
 > [!NOTE]  
-> Translation is only available in version 0.2.0 of azure_ai extension. To check the version
+> Translation is only available in version 0.2.0 of azure_ai extension. To check the version, check the pg_available_extensions catalog view.
 
 ```postgresql
 select * from pg_available_extensions where name = 'azure_ai';
@@ -418,7 +418,7 @@ For more information on parameters, see [Translator API](../../ai-services/trans
 
 ## Examples
 
-### Sentiment Analysis examples
+### Sentiment analysis examples
 
 ```postgresql
 select b.*

@@ -23,7 +23,7 @@ Azure AI extension gives the ability to invoke any machine learning models deplo
 - Get the [URI](../../machine-learning/how-to-authenticate-online-endpoint.md#get-the-scoring-uri-for-the-endpoint) and the [Key](../../machine-learning/how-to-authenticate-online-endpoint.md#get-the-key-or-token-for-data-plane-operations), which are needed to configure the extension to communicate with Azure Machine Learning.
 
 > [!NOTE]  
-> You can explore Azure Machine Learning [samples](https://github.com/Azure/azureml-examples)
+> You can explore Azure Machine Learning [samples](https://github.com/Azure/azureml-examples).
 
 ## Configure Azure Machine Learning endpoint
 
@@ -66,7 +66,7 @@ azure_ml.inference(input_data jsonb, timeout_ms integer DEFAULT NULL, throw_on_e
 
 ## Examples
 
-### Invoke the machine learning model.
+### Invoke the machine learning model
 
 This calls the model with the input_data and returns a jsonb payload.
 
