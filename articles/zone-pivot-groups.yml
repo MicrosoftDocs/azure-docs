@@ -3091,7 +3091,7 @@ groups:
     title: Portal 
   - id: development-environment-azure-cli
     title: CLI
-# Owner: v-ntjandra
+# Owner: schaffererin
 - id: aks-azure-developer-cli
   title: Azure command line interfaces
   prompt: Choose a command line interface

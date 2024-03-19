@@ -1,8 +1,10 @@
 ---
 title: 'Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using Terraform'
 description: Learn how to quickly deploy a Kubernetes cluster using Terraform and deploy an application in Azure Kubernetes Service (AKS).
+ms.author: schaffererin
+author: schaffererin
 ms.topic: quickstart
-ms.date: 03/15/2024
+ms.date: 03/22/2024
 ms.custom: devx-track-terraform
 content_well_notification: 
   - AI-contribution
@@ -159,7 +161,6 @@ To deploy the application, you use a manifest file to create all the objects req
 
 > [!NOTE]
 > We don't recommend running stateful containers, such as Rabbit MQ, without persistent storage for production. These are used here for simplicity, but we recommend using managed services, such as Azure CosmosDB or Azure Service Bus.
-
 
 1. Create a file named `aks-store-quickstart.yaml` and copy in the following manifest:
 
@@ -481,6 +482,8 @@ When the application runs, a Kubernetes service exposes the application front en
 
 ## Clone the Azure Developer CLI template
 
+The Azure Developer CLI allows you to quickly download samples from the **Azure-Samples** repository. In our quickstart, you will download the `aks-store-demo` application. For more information on the general uses cases see the [`azd` overview][azd-overview].
+
 1. Clone the AKS store demo template from the **Azure-Samples** repository using the [`azd init`][azd-init] command with the `--template` parameter.
 
     ```azdeveloper
@@ -542,15 +545,17 @@ To deploy the application, you use the `azd up` command to create all the object
 
 ### Deploy application resources
 
-`azd` runs all the hooks inside of the [`azd-hooks` folder](https://github.com/Azure-Samples/aks-store-demo/tree/main/azd-hooks) to preregister, provision, and deploy the application services.
-
-The `azd` template for this quickstart creates a new resource group with an AKS cluster and an Azure key vault. The key vault stores client secrets and runs the services in the `pets` namespace
+The `azd` template for this quickstart creates a new resource group with an AKS cluster and an Azure Key Vault. The key vault stores client secrets and runs the services in the `pets` namespace
 
 1. Create all the application resources using the [`azd up`][azd-up] command.
 
     ```azdeveloper
     azd up
     ```
+
+    `azd up` runs all the hooks inside of the [`azd-hooks` folder](https://github.com/Azure-Samples/aks-store-demo/tree/main/azd-hooks) to preregister, provision, and deploy the application services.
+
+    Customize hooks to add custom code into the `azd` workflow stages. For more information, see the [`azd` hooks][azd-hooks] reference.    
 
 2. Select an Azure subscription for your billing usage.
 
@@ -687,4 +692,6 @@ To learn more about AKS and walk through a complete code-to-deployment example, 
 [azd-up]: /azure/developer/azure-developer-cli/reference#azd-up
 [az-auth-login]: /azure/developer/azure-developer-cli/reference#azd-auth-login
 [azd-down]: /azure/developer/azure-developer-cli/reference#azd-down
+[azd-hooks]: /azure/developer/azure-developer-cli/reference#azd-hooks
+[azd-overview]: /azure/developer/azure-developer-cli
 [aks-home]: /azure/aks
