@@ -93,7 +93,7 @@ The following limits apply to Azure Event Grid custom topic, system topic, and p
 |--------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | Custom topics per Azure subscription                   | 100<br/>When the limit is reached, you can consider a different region or consider using domains, which can support 100,000 topics. |
 | Event subscriptions per topic                          | 500<br/>This limit can’t be increased.                                                                                              |
-| Publish rate for a custom or a partner topic (ingress) | 5,000 events per second or 5 MB per second (whichever comes first)                                                                  |
+| Publish rate for a custom or a partner topic (ingress) | 5,000 events of 64 KB size per second or 5 MB per second (whichever comes first). An event is counted for limits and pricing purposes as a 64KB data chunk. So, if the event is 128KB, it counts as two events. |
 | Event size                                             | 1 MB<br/>This limit can’t be increased.                                                                                             |
 | Maximum event retention on topics              | 1 day. This limit can't be increased. |
 | Number of incoming events per batch                    | 5,000<br/>This limit can’t be increased                                                                                             |
@@ -110,7 +110,7 @@ The following limits apply to Azure Event Grid domain resource.
 | Topics per domain                             | 100,000                                                            |
 | Event subscriptions per topic within a domain | 500<br/>This limit can’t be increased                              |
 | Domain scope event subscriptions              | 50<br/>This limit can’t be increased                               |
-| Publish rate for a domain (ingress)           | 5,000 events per second or 5 MB per second (whichever comes first) |
+| Publish rate for a domain (ingress)           | 5,000 events of 64 KB size per second or 5 MB per second (whichever comes first). An event is counted for limits and pricing purposes as a 64KB data chunk. So, if the event is 128KB, it counts as two events. |
 | Maximum event retention on domain topics              | 1 day. This limit can't be increased. |
 | Private endpoint connections per domain       | 64                                                                 |
 | IP Firewall rules per topic                   | 128                                                                |

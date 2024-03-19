@@ -1,34 +1,44 @@
 ---
-title: Troubleshoot connections - Azure CLI
+title: Troubleshoot outbound connections - Azure CLI
 titleSuffix: Azure Network Watcher
-description: Learn how to use the connection troubleshoot capability of Azure Network Watcher using the Azure CLI.
-services: network-watcher
+description: Learn how to use the connection troubleshoot feature of Azure Network Watcher to troubleshoot outbound connections using the Azure CLI.
 author: halkazwini
+ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
+ms.date: 03/18/2024
 ms.custom: devx-track-azurecli
-ms.date: 01/07/2021
-ms.author: halkazwini
+
+#CustomerIntent: As an Azure administrator, I want to learn how to use Connection Troubleshoot to diagnose outbound connectivity issues in Azure using the Azure CLI.
 ---
 
-# Troubleshoot connections with Azure Network Watcher using the Azure CLI
+# Troubleshoot outbound connections using the Azure CLI
 
-> [!div class="op_single_selector"]
-> - [PowerShell](network-watcher-connectivity-powershell.md)
-> - [Azure CLI](network-watcher-connectivity-cli.md)
-> - [Azure REST API](network-watcher-connectivity-rest.md)
+In this article, you learn how to use the connection troubleshoot feature of Azure Network Watcher to diagnose and troubleshoot connectivity issues. For more information about connection troubleshoot, see [Connection troubleshoot overview](connection-troubleshoot-overview.md).
 
-Learn how to use connection troubleshoot to verify whether a direct TCP connection from a virtual machine to a given endpoint can be established.
+## Prerequisites
 
-## Before you begin
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-This article assumes you have the following resources:
+- Network Watcher enabled in the region of the virtual machine (VM) you want to troubleshoot. By default, Azure enables Network Watcher in a region when you create a virtual network in it. For more information, see [Enable or disable Azure Network Watcher](network-watcher-create.md).
 
-* An instance of Network Watcher in the region you want to troubleshoot a connection.
-* Virtual machines to troubleshoot connections with.
+- A virtual machine with Network Watcher agent VM extension installed on it and the following outbound TCP connectivity:
+    - to the storage account over port 443
+    - to 169.254.169.254 over port 80
+    - to 168.63.129.16 over port 8037
 
-> [!IMPORTANT]
-> Connection troubleshoot requires that the VM you troubleshoot from has the `AzureNetworkWatcherExtension` VM extension installed. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/extensions/network-watcher-windows.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/extensions/network-watcher-linux.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). The extension is not required on the destination endpoint.
+- A second virtual machine with inbound TCP connectivity from 168.63.129.16 over the port being tested (for Port scanner diagnostic test).
+
+- Azure Cloud Shell or Azure CLI.
+
+    The steps in this article run the Azure CLI commands interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloud Shell** at the upper-right corner of a code block. Select **Copy** to copy the code, and paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
+
+    You can also [install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. If you run Azure CLI locally, sign in to Azure using the [az login](/cli/azure/reference-index#az-login) command.
+
+> [!NOTE]
+> - To install the extension on a Windows virtual machine, see [Network Watcher agent VM extension for Windows](../virtual-machines/extensions/network-watcher-windows.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json).
+> - To install the extension on a Linux virtual machine, see [Network Watcher agent VM extension for Linux](../virtual-machines/extensions/network-watcher-linux.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json).
+> - To update an already installed extension, see [Update Network Watcher agent VM extension to the latest version](../virtual-machines/extensions/network-watcher-update.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json).
 
 ## Check connectivity to a virtual machine
 
@@ -36,7 +46,7 @@ This example checks connectivity to a destination virtual machine over port 80.
 
 ### Example
 
-```azurecli
+```azurecli-interactive
 az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-resource Database0 --dest-port 80
 ```
 
@@ -117,7 +127,7 @@ This example checks connectivity between a virtual machine and a remote endpoint
 
 ### Example
 
-```azurecli
+```azurecli-interactive
 az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address 13.107.21.200 --dest-port 80
 ```
 
@@ -175,7 +185,7 @@ The following example checks the connectivity to a website.
 
 ### Example
 
-```azurecli
+```azurecli-interactive
 az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address https://bing.com --dest-port 80
 ```
 
@@ -221,7 +231,7 @@ The following example checks the connectivity from a virtual machine to a blog s
 
 ### Example
 
-```azurecli
+```azurecli-interactive
 az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address https://contosoexamplesa.blob.core.windows.net/
 ```
 
@@ -260,8 +270,7 @@ The following json is the example response from running the previous cmdlet. As 
 }
 ```
 
-## Next steps
+## Next step
 
-Learn how to automate packet captures with Virtual machine alerts by viewing [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md)
-
-Find if certain traffic is allowed in or out of your VM by visiting [Check IP flow verify](diagnose-vm-network-traffic-filtering-problem.md)
+> [!div class="nextstepaction"]
+> [Manage packet captures](packet-capture-vm-cli.md)

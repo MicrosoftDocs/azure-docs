@@ -41,11 +41,11 @@ This type of information is useful during the incident response process. Such as
 
     The alerts details page opens with more details about the alert. For example, the **Ransomware indicators detected** alert details page:
 
-    [![Ransomware indicators detected alert details page.](media/threat-intelligence-reports/ransomware-indicators-detected-link-to-threat-intel-report.png)](media/threat-intelligence-reports/ransomware-indicators-detected-link-to-threat-intel-report.png#lightbox)
+    :::image type="content" source="media/threat-intelligence-reports/ransomware-indicators-detected-link-to-threat-intel-report.png" alt-text="Ransomware indicators detected alert details page." lightbox="media/threat-intelligence-reports/ransomware-indicators-detected-link-to-threat-intel-report.png":::
 
 1. Select the link to the report, and a PDF will open in your default browser.
 
-    [![Potentially Unsafe Action alert details page.](media/threat-intelligence-reports/threat-intelligence-report.png)](media/threat-intelligence-reports/threat-intelligence-report.png#lightbox)
+    :::image type="content" source="media/threat-intelligence-reports/threat-intelligence-report.png" alt-text="Potentially Unsafe Action alert details page." lightbox="media/threat-intelligence-reports/threat-intelligence-report.png":::
 
     You can optionally download the PDF report.
 

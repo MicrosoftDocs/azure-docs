@@ -3,6 +3,7 @@ title: Configure Azure NetApp Files for Azure Kubernetes Service
 description: Learn how to configure Azure NetApp Files for an Azure Kubernetes Service cluster.
 ms.topic: article
 ms.custom: devx-track-azurecli, linux-related-content
+ms.subservice: aks-storage
 ms.date: 05/08/2023
 ---
 
