@@ -24,10 +24,6 @@ You must use a cluster manager when connecting an individual elastic SAN volume 
 - [Configure a virtual network endpoint](elastic-san-networking.md)
 - [Configure virtual network rules](elastic-san-networking.md#configure-virtual-network-rules)
 
-## Limitations
-
-[!INCLUDE [elastic-san-regions](../../../includes/elastic-san-regions.md)]
-
 ## Connect to volumes
 
 ### Set up your client environment
