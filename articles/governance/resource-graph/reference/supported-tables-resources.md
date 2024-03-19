@@ -1,7 +1,7 @@
 ---
 title: Supported Azure Resource Manager resource types
 description: Provide a list of the Azure Resource Manager resource types supported by Azure Resource Graph and Change History.
-ms.date: 01/29/2023
+ms.date: 03/20/2024
 ms.topic: reference
 ms.custom: generated
 ---
@@ -47,6 +47,12 @@ For sample queries for this table, see [Resource Graph sample queries for adviso
 - microsoft.compute/locations/communitygalleries
 - microsoft.compute/locations/communitygalleries/images
 - microsoft.compute/locations/communitygalleries/images/versions
+
+## computeresources
+
+- microsoft.compute/virtualmachinescalesets/virtualmachines
+- microsoft.compute/virtualmachinescalesets/virtualmachines/networkinterfaces
+- microsoft.compces/ute/virtualmachinescalesets/virtualmachines/networkinterfaipconfigurations/publicipaddresses
 
 ## desktopvirtualizationresources
 
@@ -231,9 +237,9 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - livearena.broadcast/services
 - mailjet.email/services
 - micorosft.web/kubeenvironments
-- microsoft.AAD/domainServices (Azure AD Domain Services)
+- microsoft.AAD/domainServices (Microsoft Entra Domain Services)
 - microsoft.aadiam/azureadmetrics
-- microsoft.aadiam/privateLinkForAzureAD (Private Link for Azure AD)
+- microsoft.aadiam/privateLinkForAzureAD (Private Link for Microsoft Entra ID)
 - microsoft.aadiam/tenants
 - microsoft.AgFoodPlatform/farmBeats (Azure FarmBeats)
 - microsoft.aisupercomputer/accounts
@@ -262,7 +268,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.Automation/automationAccounts/runbooks (Runbook)
 - microsoft.autonomousdevelopmentplatform/accounts
 - microsoft.AutonomousSystems/workspaces (Bonsai)
-- microsoft.AVS/privateClouds (AVS Private clouds)
+- microsoft.AVS/privateClouds (Azure VMware Private clouds)
 - microsoft.azconfig/configurationstores
 - microsoft.AzureActiveDirectory/b2cDirectories (B2C Tenants)
 - microsoft.AzureActiveDirectory/guestUsages (Guest Usages)
@@ -781,7 +787,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.powerplatform/enterprisepolicies
 - microsoft.projectbabylon/accounts
 - microsoft.providerhubdevtest/regionalstresstests
-- microsoft.Purview/Accounts (microsoft Purview accounts)
+- microsoft.Purview/Accounts (Microsoft Purview accounts)
 - microsoft.Quantum/Workspaces (Quantum Workspaces)
 - microsoft.RecommendationsService/accounts (Intelligent Recommendations Accounts)
 - microsoft.RecommendationsService/accounts/modeling (Modeling)
