@@ -127,7 +127,7 @@ The cost details file itself doesn’t uniquely identify individual records with
 
 Some fields might differ in casing and spacing between account types. Older versions of pay-as-you-go cost details files have separate sections for the statement and daily cost.
 
-### Reconcile charges for MCA accounts
+## Reconcile charges for MCA accounts
 
 MCA customers can use the following information to reconcile charges between billing and pricing currencies. 
 
@@ -156,7 +156,18 @@ Although the `ReservationId` itself might differ, it's still part of the same or
 
 For more information, see [Manage Reservations for Azure resources](../reservations/manage-reserved-vm-instance.md).
 
-### Rounding adjustment details
+## Identify EA charges for included quantity
+
+Included quantity (IQ) refers to the amount of a metered resource that can be consumed without incurring any extra cost in an Enterprise Agreement. When dealing with IQ, consider the following points:
+
+Meter characteristics - Meters associated with IQ exhibit specific traits in the cost file because the meters allow consumption without any extra charges. In the cost file, a meter with IQ has:
+
+- **ChargeType**: Usage, **PricingModel**: OnDemand.
+- **Unit price**, **effective price**, and **Cost** set to 0, because you're not billed for their consumption.
+- **Quantity** isn't zero. It shows the actual consumption of the meter.
+- However, the **PayG (pay-as-you-go) price** still shows the retail price, which is nonzero.
+
+## Rounding adjustment details
 
 Rounding adjustment isn't available in the cost details file during an open month. The adjustment is visible when the month closes and the invoice gets generated.
 
@@ -173,7 +184,7 @@ The rounding adjustment record is available in the Cost Details file at the Bill
 
 Here's an example of how rounding adjustment works in practice:
 
-Suppose you have two resources in your subscription, A and B. Resource A costs $0.1234 per hour and resource B costs $0.5678 per hour. You use both resources for 10 hours in a day, so the total cost for each resource is:
+Suppose you have two resources in your subscription: A and B. Resource A costs $0.1234 per hour and resource B costs $0.5678 per hour. You use both resources for 10 hours in a day, so the total cost for each resource is:
 
 - Resource A: $0.1234 x 10 = $1.234
 - Resource B: $0.5678 x 10 = $5.678
@@ -188,7 +199,7 @@ However, when the invoice is generated, the costs are rounded to two decimal pla
 
 The difference between the invoice total and the actual total is $0.002, which is the rounding adjustment. To make sure that Cost Management costs match the invoice, the amount is shown in the cost details file.
 
-### List of terms from older APIs
+## List of terms from older APIs
 
 The following table maps terms used in older APIs to the new terms. Refer to the above table for those descriptions.
 
