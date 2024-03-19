@@ -34,7 +34,7 @@ Before you attach disks to your VM, review these tips:
 
 1. Enter a name for your managed disk. Review the default settings, and update the **Storage type**, **Size (GiB)**, **Encryption** and **Host caching** as necessary.
 
-   :::image type="content" source="./media/attach-disk-portal/create-new-md.png" alt-text="Review disk settings.":::
+   :::image type="content" source="./media/attach-disk-portal/create-new-md.png" alt-text="Screenshot of review disk settings." lightbox="./media/attach-disk-portal/create-new-md.png":::
 
 
 1. When you're done, select **Save** at the top of the page to create the managed disk and update the VM configuration.
