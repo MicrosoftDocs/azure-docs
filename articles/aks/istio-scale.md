@@ -19,7 +19,7 @@ The Istio-based service mesh add-on is logically split into a control plane (`is
 #### Test Specifications
 - One `istiod` instance with default settings
 - Horizontal pod autoscaling disabled
-- Two network plugins tested - Azure CNI Overlay or Azure CNI Overlay with Cilium [ (recommended network plugins for large scale clusters) ](https://learn.microsoft.com/en-us/azure/aks/azure-cni-overlay?tabs=kubectl#choosing-a-network-model-to-use)
+- Two network plugins tested - Azure CNI Overlay or Azure CNI Overlay with Cilium [ (recommended network plugins for large scale clusters) ](https://learn.microsoft.com/azure/aks/azure-cni-overlay?tabs=kubectl#choosing-a-network-model-to-use)
 - Node SKU - Standard D16 v3 (16 vCPU, 64-GB memory)
 - 500 nodes
 - Kubernetes version - `1.28.5`
@@ -52,7 +52,6 @@ The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum
 |---------------------|---------------------------------|
 |               20000 |                           20000 |
 
-
 **CPU and Memory**
 | Resource               |   Azure CNI Overlay |   Azure CNI Overlay with Cilium |
 |------------------------|---------------------|---------------------------------|
@@ -68,7 +67,7 @@ Various factors impact [sidecar performance][data-plane-performance] such as req
 [Fortio][fortio] was used to create the load. The test was conducted with the [Istio benchmark repository][istio-benchmark] that was modified for use with the add-on.
 
 #### Test Specifications
-- Two network plugins tested - Azure CNI Overlay or Azure CNI Overlay with Cilium [ (recommended network plugins for large scale clusters) ](https://learn.microsoft.com/en-us/azure/aks/azure-cni-overlay?tabs=kubectl#choosing-a-network-model-to-use)
+- Two network plugins tested - Azure CNI Overlay or Azure CNI Overlay with Cilium [ (recommended network plugins for large scale clusters) ](/azure/aks/azure-cni-overlay?tabs=kubectl#choosing-a-network-model-to-use)
 - Kubernetes version - `1.28.5`
 - Node SKU - Standard D16 v5 (16 vCPU, 64-GB memory)
 - 25 nodes
@@ -87,8 +86,8 @@ The sidecar Envoy proxy collects raw telemetry data after responding to a client
 The following evaluates the impact of adding sidecar proxies to the data path, showcasing the P90 and P99 latency.
 
 | Azure CNI Overlay |Azure CNI Overlay with Cilium |
-:-------------------------:|:-------------------------:
-[ ![Diagram that compares P99 latency for Azure CNI Overlay.](./media/aks-istio-addon/latency-box-plot/overlay-azure_p99.png) ](./media/aks-istio-addon/latency-box-plot/overlay-azure_p99.png#lightbox) |  [ ![Diagram that compares P90 latency for Azure CNI Overlay with Cilium.](./media/aks-istio-addon/latency-box-plot/overlay-cilium_p99.png) ](./media/aks-istio-addon/latency-box-plot/overlay-cilium_p99.png#lightbox)
+|:-------------------------:|:-------------------------:|
+[ ![Diagram that compares P99 latency for Azure CNI Overlay.](./media/aks-istio-addon/latency-box-plot/overlay-azure_p99.png) ](./media/aks-istio-addon/latency-box-plot/overlay-azure_p99.png#lightbox) |  [ ![Diagram that compares P99 latency for Azure CNI Overlay with Cilium.](./media/aks-istio-addon/latency-box-plot/overlay-cilium_p99.png) ](./media/aks-istio-addon/latency-box-plot/overlay-cilium_p99.png#lightbox)
 [ ![Diagram that compares P90 latency for Azure CNI Overlay.](./media/aks-istio-addon/latency-box-plot/overlay-azure_p90.png) ](./media/aks-istio-addon/latency-box-plot/overlay-azure_p90.png#lightbox)  |  [ ![Diagram that compares P90 latency for Azure CNI Overlay with Cilium.](./media/aks-istio-addon/latency-box-plot/overlay-cilium_p90.png) ](./media/aks-istio-addon/latency-box-plot/overlay-cilium_p90.png#lightbox)
 
 ## Service Entry
