@@ -11,7 +11,7 @@ ms.date: 03/19/2024
 
 # What is a Network Security Perimeter?
 
-Network security perimeter is an offering which provides a secure perimeter for communication of PaaS services deployed outside the virtual network. These PaaS services can communicate with each other within the perimeter, and can also communicate with resources outside the perimeter using public inbound and outbound access rules. Network security perimeter is a feature of Azure Private Link.
+Network security perimeter is a service that provides a secure perimeter for communication of PaaS services deployed outside the virtual network. These PaaS services can communicate with each other within the perimeter, and can also communicate with resources outside the perimeter using public inbound and outbound access rules. Network security perimeter is a feature of Azure Private Link.
 
 Features of network security perimeter include:
     - All resources inside perimeter can communicate with any other resource within perimeter.
@@ -38,7 +38,7 @@ Network security perimeter provides a secure perimeter for communication of PaaS
 
 ## How does network security perimeter work?
 
-Through the use of network security perimeter, you can create a secure perimeter for communication of PaaS services deployed outside the virtual network. Network security perimeter allows you to control network access to Azure PaaS resources. This is achieved by creating a network security perimeter and associating PaaS resources with the perimeter. Once the perimeter is created, you can create inbound and outbound access rules to allow any communication outside the secure perimeter.
+By using network security perimeter, you can create a secure perimeter for communication of PaaS services deployed outside the virtual network. Network security perimeter allows you to control network access to Azure PaaS resources. This is achieved by creating a network security perimeter and associating PaaS resources with the perimeter. Once the perimeter is created, you can create inbound and outbound access rules to allow any communication outside the secure perimeter.
 
 For example, you can create a network security perimeter and associate a set of PaaS services, like Azure Key Vault and SQL DB, with the perimeter. You can then create inbound and outbound access rules to allow any communication outside the secure perimeter. You can also create multiple profiles under the same perimeter to associate PaaS services with similar set of inbound and outbound access requirements.
 
@@ -55,14 +55,24 @@ Network security perimeter composed of the following components:
 | **DiagnosticsSettings** | Extension resource hosted by Microsoft.Insights to collect logs & metrics for all resources in the perimeter. |
 
 > [!NOTE]
-> For organizational and informational safety, Please do not put any personal identifiable or sensitive data in the network security perimeter rules or other network security perimeter configuration.  
+> For organizational and informational safety, Please do not put any personal identifiable or sensitive data in the network security perimeter rules or other network security perimeter configuration.
+
+## Network security perimeter properties
+
+When creating a network security perimeter, you can specify the following properties:
+
+| **Property** | **Description** |
+|------------------|-------------|
+| **Name** | A unique name within the resource group. |
+| **Location** | Supported regions. |
+| **Resource group name** | Name of the resource group where the network security perimeter should be present. |
 
 ## Access modes in network security perimeter
 
-When creating a network security perimeter, administrators add PaaS resources to a perimeter by creating resource associations. The platform offers different access modes for PaaS resources within a perimeter. The access modes are:
+Administrators add PaaS resources to a perimeter by creating resource associations when creating a network security perimeter. These association offer different access modes for PaaS resources within a perimeter. The access modes are:
 
 - **Learning mode**: In learning mode, network security perimeter logs all traffic that would have been denied if the perimeter was in enforced mode. This allows network administrators to understand the existing access patterns of their PaaS services. Learning mode is the default mode when a PaaS resource is added to a perimeter, and is useful for migrating existing PaaS services to network security perimeter.
-- **Enforced mode**: In enforced mode, network security perimeter logs and denies all traffic that is not explicitly allowed by access rules. Network administrators can shift to enforced mode once they are sure of the expected access patterns of their PaaS services.
+- **Enforced mode**: In enforced mode, network security perimeter logs and denies all traffic that isn't explicitly allowed by access rules. Network administrators can shift to enforced mode once they're sure of the expected access patterns of their PaaS services.
 
 Learn more on transitioning from learning mode to enforced mode in [transitioning to a network security perimeter](network-security-perimeter-transitioning.md) article.
 
@@ -132,10 +142,10 @@ Limitation/Issue 	Comments
   
 | Limitation/Issue | Description |
 |-----------------|-------------|
-| **Network security perimeter configuration changes are not re-evaluated on active connections previously approved.** | Existing connections may not be interrupted when you remove a security rule that allowed the connection. Modifying network security perimeter rules will only affect new connections.</br>When a new rule is created or an existing rule is updated in a network security perimeter, it will only apply to new connections. Existing connections are not reevaluated with the new rules. |
-| **Network security perimeter restrictions on control plane operations over ARM** | Enforcement is planned with ARM integration with network security perimeter. |
-| **Data plane restrictions on resources with deployments inside customers network with Vnet Integration** | Enforced by Vnet controls like Network Security Groups, Application Security Groups, User-defined Routes, Azure Firewall, and network virtual appliances. |
-| **Network security perimeter resources generating logs will not produce additional logs** | When a resource generates a log for network security perimeter access, the corresponding outbound and inbound access to save the log will not generate additional logging, primarily to avoid duplicate and potentially circular loops of communication. |
+| **Network security perimeter configuration changes are not re-evaluated on active connections previously approved.** | Existing connections may not be interrupted when you remove a security rule that allowed the connection. Modifying network security perimeter rules will only affect new connections. </br>When a new rule is created or an existing rule is updated in a network security perimeter, it will only apply to new connections. Existing connections aren't reevaluated with the new rules. |
+| **Network security perimeter restrictions on control plane operations over ARM** | Enforcement is planned with Azure Resource Manager integration with network security perimeter. |
+| **Data plane restrictions on resources with deployments inside customers network with Vnet Integration** | Enforced by virtual network controls like Network Security Groups, Application Security Groups, User-defined Routes, Azure Firewall, and network virtual appliances. |
+| **Network security perimeter resources generating logs will not produce additional logs** | When a resource generates a log for network security perimeter access, the corresponding outbound, and inbound access to save the log won't generate other logging, primarily to avoid duplicate, and potentially circular loops of communication. |
 
 > [!NOTE]
 > Refer to individual PaaS documentation for respective limitations.
