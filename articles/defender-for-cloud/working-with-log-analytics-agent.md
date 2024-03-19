@@ -138,7 +138,7 @@ To manually install the Log Analytics agent:
     1. Set the workspace on which you're installing the agent. Make sure the workspace is in the same subscription you use in Defender for Cloud and that you have read/write permissions for the workspace.
 
     1. Select one or both "Servers" or "SQL servers on machines"(Foundational CSPM is the free default), and then select **Save**.
-    
+
         :::image type="content" source="media/working-with-log-analytics-agent/apply-plan-to-workspace.png" alt-text="Screenshot that shows where to set the workspace on which you're installing the agent." lightbox="media/working-with-log-analytics-agent/apply-plan-to-workspace.png":::
 
        >[!NOTE]
