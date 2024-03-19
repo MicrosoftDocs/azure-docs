@@ -44,15 +44,15 @@ Here are some of the metrics emitted by Azure Data Factory version 2.
 | PipelineElapsedTimeRuns | Elapsed time pipeline runs metrics | Count | Total | Number of times, within a minute window, a pipeline runs longer than user-defined expected duration. [(See more.)](tutorial-operationalize-pipelines.md) |
 | IntegrationRuntimeAvailableMemory       | Available memory for integration runtime | Byte    | Total                | The total number of bytes of available memory for the self-hosted integration runtime within a minute window. |
 | IntegrationRuntimeAvailableNodeNumber       | Available nodes for integration runtime | Count    | Total                | The total number of nodes available for the self-hosted integration runtime within a minute window. |
-| IntegrationRuntimeCpuPercentage       | CPU utilization for integration runtime | Percent    | Total                | The percetange of CPU utilization for the self-hosted integration runtime within a minute window. |
+| IntegrationRuntimeCpuPercentage       | CPU utilization for integration runtime | Percent    | Total                | The percentage of CPU utilization for the self-hosted integration runtime within a minute window. |
 | IntegrationRuntimeAverageTaskPickupDelay      | Queue duration for integration runtime | Seconds    | Total                | The queue duration for the self-hosted integration runtime within a minute window. |
 | IntegrationRuntimeQueueLength     | Queue length for integration runtime | Count    | Total                | The total queue length for the self-hosted integration runtime within a minute window. |
-| Maximum allowed entities count | Maxixum number of entities | Count | Total | The maximum number of entities in the Azure Data Factory instance. |
+| Maximum allowed entities count | Maximum number of entities | Count | Total | The maximum number of entities in the Azure Data Factory instance. |
 | Maximum allowed factory size (GB unit) | Maximum size of entities | Gigabyte | Total | The maximum size of entities in the Azure Data Factory instance. |
 | Total entities count | Total number of entities | Count | Total | The total number of entities in the Azure Data Factory instance. |
 | Total factory size (GB unit) | Total size of entities | Gigabyte | Total | The total size of entities in the Azure Data Factory instance. |
 
-For service limits and quotas please see [quotas and limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-data-factory-limits).
+For service limits and quotas, see [quotas and limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-data-factory-limits).
 To access the metrics, complete the instructions in [Azure Monitor data platform](../azure-monitor/data-platform.md).
 
 > [!NOTE]
@@ -62,7 +62,7 @@ To access the metrics, complete the instructions in [Azure Monitor data platform
 
 Sign in to the Azure portal, and use the main menu at the top left of the screen to select **Monitor**, and then **Alerts** to create alerts.
 
-:::image type="content" source="media/monitor-using-azure-monitor/monitor.png" alt-text="Screenshot that shows the Monitoring tab in the Azure Portal menu.":::
+:::image type="content" source="media/monitor-using-azure-monitor/monitor.png" alt-text="Screenshot that shows the Monitoring tab in the Azure portal menu.":::
 
 :::image type="content" source="media/monitor-using-azure-monitor/alerts.png" alt-text="Screenshot showing the Alerts section in the Monitor page for Azure.":::
 
