@@ -22,7 +22,7 @@ Web Application Firewall allows you to configure request size limits within a lo
 
 The request body size field and the file upload size limit are both configurable within the WAF. The maximum request body size field is specified in kilobytes and controls overall request size limit excluding any file uploads. The file upload limit field is specified in megabytes and it governs the maximum allowed file upload size. For the request size limits and file upload size limit see [Application Gateway limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits).
 
-For Application Gateway v2 WAFs running Core Rule Set 3.2, or newer, the maximum request body size enforcement and max file upload size enforcement can be disabled and the WAF will no longer reject a request, or file upload, for being too large. When maximum request body size enforcement and max file upload size enforcement are disabled within the WAF the maximum size allowable is determined by Application Gateway's limits which can be found here: [Application Gateway limits](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits#application-gateway-limits).
+For Application Gateway v2 WAFs running Core Rule Set 3.2, or newer, the maximum request body size enforcement and max file upload size enforcement can be disabled and the WAF will no longer reject a request, or file upload, for being too large. When maximum request body size enforcement and max file upload size enforcement are disabled within the WAF the maximum size allowable is determined by Application Gateway's limits. For more information, see [Application Gateway limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits).
 
 Only requests with Content-Type of *multipart/form-data* are considered for file uploads. For content to be considered as a file upload, it has to be a part of a multipart form with a *filename* header. For all other content types, the request body size limit applies.
 
@@ -87,9 +87,9 @@ If you are an Application Gateway v2 WAF customer running CRS 3.2 or later and y
 You can use the following PowerShell comannds to return your Azure policy, look at its current settings, and update the policy settings to the desired values for inspection limit and max size limitation related fields.
 
 - [Get WAF Policy](/powershell/module/az.network/get-azapplicationgatewayfirewallpolicy)
-- [Polcy Settings Properties](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.commands.network.models.psapplicationgatewaywebapplicationfirewallpolicy.policysettings?view=az-ps-latest#microsoft-azure-commands-network-models-psapplicationgatewaywebapplicationfirewallpolicy-policysettings)
-- [Polcy Settings Class](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.commands.network.models.psapplicationgatewayfirewallpolicysettings)
-- [New Polcy Settings](https://learn.microsoft.com/en-us/powershell/module/az.network/new-azapplicationgatewayfirewallpolicysetting)
+- [Polcy Settings Properties](/dotnet/api/microsoft.azure.commands.network.models.psapplicationgatewaywebapplicationfirewallpolicy.policysettings)
+- [Polcy Settings Class](/dotnet/api/microsoft.azure.commands.network.models.psapplicationgatewayfirewallpolicysettings)
+- [New Policy Settings](/powershell/module/az.network/new-azapplicationgatewayfirewallpolicysetting)
 
 ### Command Line Interface
 
