@@ -120,7 +120,7 @@ Choose one of the following methods to import your API to API Management: import
 
     :::image type="content" source="media/sap-api/get-root-operation.png" alt-text="Get operation for service root":::
 
-Also, configure authentication to your backend using an appropriate method for your environment. For examples, see [API Management authentication policies](api-management-authentication-policies.md).
+Also, configure authentication to your backend using an appropriate method for your environment. For examples, see [API Management authentication and authorization policies](api-management-policies.md#authentication-and-authorization).
 
 ## Test your API
 

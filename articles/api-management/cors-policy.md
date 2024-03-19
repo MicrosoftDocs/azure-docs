@@ -6,11 +6,13 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 01/02/2024
+ms.date: 03/18/2024
 ms.author: danlep
 ---
 
 # CORS
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 The `cors` policy adds cross-origin resource sharing (CORS) support to an operation or an API to allow cross-domain calls from browser-based clients. 
 
@@ -164,6 +166,6 @@ This example demonstrates how to support [preflight requests](https://developer.
 
 ## Related policies
 
-* [API Management cross-domain policies](api-management-cross-domain-policies.md)
+* [Cross-domain](api-management-policies.md#cross-domain)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

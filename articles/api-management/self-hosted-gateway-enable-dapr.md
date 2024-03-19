@@ -36,7 +36,7 @@ template:
 
 ## Dapr integration policies
 
-API Management provides specific [policies](api-management-policies.md#dapr-integration-policies) to interact with Dapr APIs exposed through the self-hosted gateway.
+API Management provides specific [policies](api-management-policies.md#integration-and-external-communication) to interact with Dapr APIs exposed through the self-hosted gateway.
 
 ## Next steps
 

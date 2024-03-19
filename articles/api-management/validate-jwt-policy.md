@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 03/05/2024
+ms.date: 03/18/2024
 ms.author: danlep
 ---
 
@@ -237,7 +237,7 @@ This example shows how to use the `validate-jwt` policy to authorize access to o
 ```
 
 ## Related policies 
-* [API Management access restriction policies](api-management-access-restriction-policies.md)
+* [Authentication and authorization](api-management-policies.md#authentication-and-authorization)
 
 
 

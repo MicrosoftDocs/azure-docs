@@ -5,11 +5,13 @@ services: api-management
 author: dlepow
 ms.service: api-management
 ms.topic: article
-ms.date: 12/05/2022
+ms.date: 03/18/2024
 ms.author: danlep
 ---
 
 # Validate status code
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 The `validate-status-code` policy validates the HTTP status codes in responses against the API schema. This policy may be used to prevent leakage of backend errors, which can contain stack traces.
 
@@ -69,6 +71,6 @@ The `validate-status-code` policy validates the HTTP status codes in responses a
 
 ## Related policies
 
-* [API Management validation policies](validation-policies.md)
+* [Content validation](api-management-policies.md#content-validation)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]
