@@ -312,7 +312,7 @@ You can use the following built-in connectors to access specific services and sy
         [**Azure OpenAI**][azure-openai-doc]<br>(*Standard workflow only*)
         \
         \
-        Connect to Azure Open AI to perform operations on large language models.
+        Connect to Azure OpenAI to perform operations on large language models.
     :::column-end:::
     :::column:::
         [![Azure Service Bus icon][azure-service-bus-icon]][azure-service-bus-doc]
@@ -824,7 +824,7 @@ For more information, review the following documentation:
 [azure-file-storage-doc]: /azure/logic-apps/connectors/built-in/reference/azurefile/ "Connect to Azure File Storage so you can create and manage files in your Azure storage account"
 [azure-functions-doc]: ../logic-apps/logic-apps-azure-functions.md "Integrate logic app workflows with Azure Functions"
 [azure-key-vault-doc]: /azure/logic-apps/connectors/built-in/reference/keyvault/ "Connect to Azure Key Vault to securely store, access, and manage secrets"
-[azure-openai-doc]: https://techcommunity.microsoft.com/t5/azure-integration-services-blog/public-preview-of-azure-openai-and-ai-search-in-app-connectors/ba-p/4049584 "Connect to Azure Open AI to perform operations on large language models"
+[azure-openai-doc]: https://techcommunity.microsoft.com/t5/azure-integration-services-blog/public-preview-of-azure-openai-and-ai-search-in-app-connectors/ba-p/4049584 "Connect to Azure OpenAI to perform operations on large language models"
 [azure-queue-storage-doc]: /azure/logic-apps/connectors/built-in/reference/azurequeues/ "Connect to Azure Storage so you can create and manage queue entries and queues"
 [azure-service-bus-doc]: /azure/logic-apps/connectors/built-in/reference/servicebus/ "Manage messages from Service Bus queues, topics, and topic subscriptions"
 [azure-table-storage-doc]: /azure/logic-apps/connectors/built-in/reference/azuretables/ "Connect to Azure Storage so you can create, update, and query tables and more"

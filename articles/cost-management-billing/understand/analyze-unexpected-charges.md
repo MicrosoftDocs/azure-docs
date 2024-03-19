@@ -119,7 +119,7 @@ Continue reading the following sections for more techniques to determine who own
 
 ### Analyze the audit logs for the resource
 
-If you have permission to view a resource, you should be able to access its audit logs. Review the logs to find the user who was responsible for the most recent changes to a resource. To learn more, see [View and retrieve Azure Activity log events](../../azure-monitor/essentials/activity-log.md#view-the-activity-log).
+If you have permission to view a resource, you should be able to access its audit logs. Review the logs to find the user who was responsible for the most recent changes to a resource. To learn more, see [View and retrieve Azure Activity log events](../../azure-monitor/essentials/activity-log-insights.md#view-the-activity-log).
 
 ### Analyze user permissions to the resource's parent scope
 

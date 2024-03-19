@@ -2,7 +2,6 @@
 title: Monitor Zero Trust (TIC 3.0) security architectures with Microsoft Sentinel
 description: Install and learn how to use the Microsoft Sentinel Zero Trust (TIC3.0) solution for an automated visualization of Zero Trust principles, cross-walked to the Trusted Internet Connections framework.
 ms.date: 01/09/2023
-ms.service: network-access
 author: austinmccollum
 ms.author: austinmc
 ms.topic: how-to

@@ -4,7 +4,7 @@ description: This article shows you how to create a new log search alert rule.
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: how-to
-ms.date: 02/22/2024
+ms.date: 02/28/2024
 ms.reviewer: nolavime
 ---
 
@@ -54,7 +54,13 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-logs-conditions-tab.png" alt-text="Screenshot that shows the Condition tab when creating a new log search alert rule.":::
 
-    For sample log search alert queries that query ARG or ADX, see [Log search alert query samples](./alerts-log-alert-query-samples.md) 
+    For sample log search alert queries that query ARG or ADX, see [Log search alert query samples](./alerts-log-alert-query-samples.md)
+
+   For limitations:
+   * [Cross-service query limitations](../logs/azure-monitor-data-explorer-proxy.md#limitations)
+   * [Combine Azure Resource Graph tables with a Log Analytics workspace](../logs/azure-monitor-data-explorer-proxy.md#combine-azure-resource-graph-tables-with-a-log-analytics-workspace)
+   * Not supported in government clouds
+
 1. Select **Run** to run the alert.
 1. The **Preview** section shows you the query results. When you're finished editing your query, select **Continue Editing Alert**.
 1. The **Condition** tab opens populated with your log query. By default, the rule counts the number of results in the last five minutes. If the system detects summarized query results, the rule is automatically updated with that information.
@@ -120,13 +126,13 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
     Select values for these fields under **Number of violations to trigger the alert**:
 
-    |Field  |Description  |
-    |---------|---------|
-    |Number of violations|The number of violations that trigger the alert.|
-    |Evaluation period|The time period within which the number of violations occur. |
-    |Override query time range| If you want the alert evaluation period to be different than the query time range, enter a time range here.<br> The alert time range is limited to a maximum of two days. Even if the query contains an **ago** command with a time range of longer than two days, the two-day maximum time range is applied. For example, even if the query text contains **ago(7d)**, the query only scans up to two days of data. If the query requires more data than the alert evaluation you can change the time range manually. If the query contains **ago** command, it will be changed automatically to 2 days (48 hours).|
-
-    > [!NOTE]
+   |Field  |Description  |
+   |---------|---------|
+   |Number of violations|The number of violations that trigger the alert.|
+   |Evaluation period|The time period within which the number of violations occur. |
+   |Override query time range| If you want the alert evaluation period to be different than the query time range, enter a time range here.<br> The alert time range is limited to a maximum of two days. Even if the query contains an **ago** command with a time range of longer than two days, the two-day maximum time range is applied. For example, even if the query text contains **ago(7d)**, the query only scans up to two days of data. If the query requires more data than the alert evaluation, you can change the time range manually. If the query contains an **ago** command, it will be changed automatically to 2 days (48 hours).|
+   
+   > [!NOTE]
     > If you or your administrator assigned the Azure Policy **Azure Log Search Alerts over Log Analytics workspaces should use customer-managed keys**, you must select **Check workspace linked storage**. If you don't, the rule creation will fail because it won't meet the policy requirements.
 
 1. The **Preview** chart shows query evaluations results over time. You can change the chart period or select different time series that resulted from a unique alert splitting by dimensions.

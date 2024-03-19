@@ -1,5 +1,65 @@
 {
     "redirections": [
+    {
+      "source_path": "articles/internet-analyzer/internet-analyzer-cli.md",
+      "redirect_url": "/previous-versions/azure/internet-analyzer/internet-analyzer-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/internet-analyzer/internet-analyzer-create-test-portal.md",
+      "redirect_url": "/previous-versions/azure/internet-analyzer/internet-analyzer-create-test-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/internet-analyzer/internet-analyzer-custom-endpoint.md",
+      "redirect_url": "/previous-versions/azure/internet-analyzer/internet-analyzer-custom-endpoint",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/internet-analyzer/internet-analyzer-embed-client.md",
+      "redirect_url": "/previous-versions/azure/internet-analyzer/internet-analyzer-embed-client",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/internet-analyzer/internet-analyzer-faq.md",
+      "redirect_url": "/previous-versions/azure/internet-analyzer/internet-analyzer-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/internet-analyzer/internet-analyzer-overview.md",
+      "redirect_url": "/previous-versions/azure/internet-analyzer/internet-analyzer-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/internet-analyzer/internet-analyzer-scorecard.md",
+      "redirect_url": "/previous-versions/azure/internet-analyzer/internet-analyzer-scorecard",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/internet-analyzer/troubleshoot.md",
+      "redirect_url": "/previous-versions/azure/internet-analyzer/troubleshoot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/batch/batch-pool-no-public-ip-address.md",
+      "redirect_url": "/previous-versions/azure/batch/articles/batch/batch-pool-no-public-ip-address",
+      "redirect_document_id": false
+    }, 
+    {  
+      "source_path": "articles/batch/batch-rendering-applications.md",
+      "redirect_url": "/previous-versions/azure/batch/articles/batch/batch-rendering-applications",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/batch/batch-rendering-using.md",
+      "redirect_url": "/previous-versions/azure/batch/articles/batch/batch-rendering-using",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/batch/batch-rendering-application-reference.md",
+      "redirect_url": "/previous-versions/aure/batch/articles/batch/batch-rendering-application-reference",
+      "redirect_document_id": false
+    },
     	{
            "source_path": "articles/cosmos-db/nosql/sdk-java-spark-v2.md",
            "redirect_url": "/previous-versions/azure/cosmos-db/nosql/sdk-java-spark-v2",
@@ -978,6 +1038,11 @@
         {
             "source_path_from_root": "/articles/analysis-services/analysis-services-compat-level.md",
             "redirect_url": "/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/analysis-services/analysis-services-monitor.md",
+            "redirect_url": "/azure/analysis-services/monitor-analysis-services",
             "redirect_document_id": false
         },
         {
@@ -6681,6 +6746,21 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/role-based-access-control/deny-assignments-portal.md",
+            "redirect_url": "/azure/role-based-access-control/deny-assignments",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/role-based-access-control/deny-assignments-powershell.md",
+            "redirect_url": "/azure/role-based-access-control/deny-assignments",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/role-based-access-control/deny-assignments-rest.md",
+            "redirect_url": "/azure/role-based-access-control/deny-assignments",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/scheduler/scheduler-intro.md",
             "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
             "redirect_document_id": false
@@ -6723,6 +6803,16 @@
         {
             "source_path_from_root": "/articles/scheduler/get-started-portal.md",
             "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/search/search-get-started-retrieval-augmented-generation.md",
+            "redirect_url": "/azure/ai-services/openai/use-your-data-quickstart",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/search/cognitive-search-tutorial-blob-python.md",
+            "redirect_url": "/azure/search/samples-python",
             "redirect_document_id": false
         },
         {
@@ -9361,6 +9451,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/docker/index.yml",
+            "redirect_url": "/dotnet/architecture/microservices/container-docker-introduction/docker-defined",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/vs-azure-tools-docker-edit-and-refresh.md",
             "redirect_url": "/visualstudio/docker/vs-azure-tools-docker-edit-and-refresh",
             "redirect_document_id": false
@@ -10881,9 +10976,10 @@
         {
             "source_path_from_root": "/articles/reliability/disaster-recovery-guidance-overview.md",
             "redirect_url": "/azure/reliability/reliability-guidance-overview",
-            "redirect_document_id": false
+            "redirect_document_id": false  
         },
         {
+
             "source_path_from_root": "/articles/orbital/overview-analytics.md",
             "redirect_url": "/azure/orbital/overview",
             "redirect_document_id": false
@@ -10905,6 +11001,19 @@
             "redirect_document_id": false
         },
         {
+
+            "source_path_from_root": "/articles/ddos-protection/ddos-disaster-recovery-guidance.md",
+            "redirect_url": "../reliability/reliability-ddos.md",
+            "redirect_document_id": false
+        },
+        {
+
+
+            "source_path_from_root": "/articles/azure-functions/functions-monitor-log-analytics.md",
+            "redirect_url": "/azure/azure-functions/monitor-functions",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/cloud-services-php-create-web-role.md",
             "redirect_url": "/azure/cloud-services/cloud-services-php-create-web-role",
             "redirect_document_id": true
@@ -10913,7 +11022,44 @@
             "source_path_from_root": "/articles/networking/disaster-recovery-dns-traffic-manager.md",
             "redirect_url": "/azure/reliability/reliability-traffic-manager",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/notification-hubs/notification-hubs-high-availability.md",
+            "redirect_url": "/azure/reliability/reliability-notification-hubs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/reliability/reliability-guidance-overview.md",
+            "redirect_url": "/azure/reliability/overview-reliability-guidance",
+            "redirect_document_id": false
+        },
+        {
+
+            "source_path_from_root": "/articles/event-hubs/move-across-regions.md",
+            "redirect_url": "/azure/operational-excellence/relocation-event-hub",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/move-workspace-region.md",
+            "redirect_url": "/azure/operational-excellence/relocation-log-analytics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/key-vault/general/move-region.md",
+            "redirect_url": "/azure/operational-excellence/relocation-key-vault",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/event-hubs/move-cluster-across-regions.md",
+            "redirect_url": "/azure/operational-excellence/relocation-event-hub-cluster",
+            "redirect_document_id": false 
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-account-move.md",
+            "redirect_url": "/azure/operational-excellence/relocation-storage-account",
+            "redirect_document_id": false 
         }
+        
         
     ]
 }

@@ -167,6 +167,10 @@
       href: ../reservations/reservation-renew.md
 - name: Cost allocation
   items:
+  - name: Overview
+    items:
+    - name: Cost allocation overview
+      href: cost-allocation-introduction.md
   - name: Tutorials
     items:
     - name: Group and allocate costs using tag inheritance

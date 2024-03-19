@@ -23,6 +23,9 @@ items:
     - name: Architecture overview
       displayName: Architecture,concepts,what is,overview,dev box,devbox,dev center,devcenter,project,networking,intune,azure
       href: concept-dev-box-architecture.md
+    - name: Network requirements
+      displayName: Network,firewall,endpoints,ports,connect,network connection,native,hybrid,hosted,tags
+      href: concept-dev-box-network-requirements.md
     - name: Key concepts
       href: concept-dev-box-concepts.md
 - name: Configure resources

@@ -37,6 +37,7 @@ When you enable [Defender Cloud Security Posture Management (CSPM)](concept-clou
 If you have Defender for Servers P2 already enabled and agentless scanning is turned off, you need to turn on agentless scanning manually.
 
 You can enable agentless scanning on
+
 - [Azure](#agentless-vulnerability-assessment-on-azure)
 - [AWS](#agentless-vulnerability-assessment-on-aws)
 - [GCP](#enable-agentless-scanning-in-gcp)
@@ -58,7 +59,7 @@ You can enable agentless scanning on
 
 1. In the settings pane, turn on **Agentless scanning for machines**.
 
-   :::image type="content" source="media/enable-vulnerability-assessment-agentless/turn-on-agentles-scanning-azure.png" alt-text="Screenshot of settings and monitoring screen to turn on agentless scanning." lightbox="media/enable-vulnerability-assessment-agentless/turn-on-agentles-scanning-azure.png":::
+   :::image type="content" source="media/enable-vulnerability-assessment-agentless/turn-on-agentless-scanning-azure.png" alt-text="Screenshot of settings and monitoring screen to turn on agentless scanning." lightbox="media/enable-vulnerability-assessment-agentless/turn-on-agentless-scanning-azure.png":::
 
 1. Select **Save**.
 
@@ -90,9 +91,9 @@ After you enable agentless scanning, software inventory and vulnerability inform
 
 ### Enable agentless scanning in GCP
 
-1. In Defender for Cloud, select **Environment settings**. 
-1. Select the relevant project or organization. 
-1. For either the Defender Cloud Security Posture Management (CSPM) or Defender for Servers P2 plan, select  **Settings**. 
+1. In Defender for Cloud, select **Environment settings**.
+1. Select the relevant project or organization.
+1. For either the Defender Cloud Security Posture Management (CSPM) or Defender for Servers P2 plan, select  **Settings**.
 
     :::image type="content" source="media/enable-agentless-scanning-vms/gcp-select-plan.png" alt-text="Screenshot that shows where to select the plan for GCP projects." lightbox="media/enable-agentless-scanning-vms/gcp-select-plan.png":::
 
@@ -100,13 +101,13 @@ After you enable agentless scanning, software inventory and vulnerability inform
 
     :::image type="content" source="media/enable-agentless-scanning-vms/gcp-select-agentless.png" alt-text="Screenshot that shows where to select agentless scanning." lightbox="media/enable-agentless-scanning-vms/gcp-select-agentless.png":::
 
-1. Select **Save and Next: Configure Access**. 
+1. Select **Save and Next: Configure Access**.
 1. Copy the onboarding script.
 1. Run the onboarding script in the GCP organization/project scope (GCP portal or gcloud CLI).
-1. Select  **Next: Review and generate**. 
-1. Select  **Update**. 
+1. Select  **Next: Review and generate**.
+1. Select  **Update**.
 
-##  Test the agentless malware scanner's deployment
+## Test the agentless malware scanner's deployment
 
 Security alerts appear on the portal only in cases where threats are detected on your environment. If you do not have any alerts it may be because there are no threats on your environment. You can test to see that the device is properly onboarded and reporting to Defender for Cloud by creating a test file.
 
@@ -167,36 +168,34 @@ The alert `MDC_Test_File malware was detected (Agentless)` will appear within 24
 
 1. Execute the following script.
 
-
 ```powershell
 # Virus test string
 $TEST_STRING = '$$89-barbados-dublin-damascus-notice-pulled-natural-31$$'
- 
+
 # File to be created
 $FILE_PATH = "C:\temp\virus_test_file.txt"
- 
+
 # Create "temp" directory if it does not exist
 $DIR_PATH = "C:\temp"
 if (!(Test-Path -Path $DIR_PATH)) {
-    New-Item -ItemType Directory -Path $DIR_PATH
+   New-Item -ItemType Directory -Path $DIR_PATH
 }
- 
+
 # Write the test string to the file without a trailing newline
 [IO.File]::WriteAllText($FILE_PATH, $TEST_STRING)
- 
+
 # Check if the file was created and contains the correct string
 if (Test-Path -Path $FILE_PATH) {
-    $content = [IO.File]::ReadAllText($FILE_PATH)
-    if ($content -eq $TEST_STRING) {
-        Write-Host "Test file created and validated successfully."
-    } else {
-        Write-Host "Test file does not contain the correct string."
-    }
+    $content = [IO.File]::ReadAllText($FILE_PATH)
+    if ($content -eq $TEST_STRING) {
+      Write-Host "Test file created and validated successfully."
+    } else {
+       Write-Host "Test file does not contain the correct string."
+    }
 } else {
-    Write-Host "Failed to create test file."
+    Write-Host "Failed to create test file."
 }
 ```
-
 
 The alert `MDC_Test_File malware was detected (Agentless)` will appear within 24 hours in the Defender for Cloud Alerts page and in the Defender XDR portal.
 
@@ -221,7 +220,7 @@ Agentless scanning applies to all of the eligible machines in the subscription. 
 
 1. Select **Save**.
 
-## Next steps
+## Related content
 
 Learn more about:
 

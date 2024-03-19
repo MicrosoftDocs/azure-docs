@@ -647,8 +647,7 @@ groups:
     title: JavaScript
   - id: programming-language-rest-api
     title: REST API
-  - id: vision-studio
-    title: Vision Studio
+
 - id: programming-languages-computer-vision-40
   title: Programming languages
   prompt: Choose a programming language.
@@ -663,6 +662,8 @@ groups:
     title: JavaScript
   - id: programming-language-rest-api
     title: REST API
+  - id: vision-studio
+    title: Vision Studio
 - id: programming-languages-vision-40-sdk
   title: Programming languages
   prompt: Choose a programming language.
@@ -1355,6 +1356,16 @@ groups:
     title: .NET
   - id: platform-powershell
     title: PowerShell
+- id: acs-js-csharp-java
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-java
+    title: Java
 - id: acs-js-csharp-java-python
   title: Programming languages
   prompt: Choose a programming language
@@ -1701,16 +1712,16 @@ groups:
     title: JavaScript
   - id: programming-language-python
     title: Python
-- id: acs-azcli-azp-azpnew-java-net-python-csharp-js
+- id: acs-azp-azpnew-azcli-java-csharp-js-python
   title: Platform
   prompt: Choose a platform
   pivots:
-  - id: platform-azcli
-    title: Azure CLI
   - id: platform-azp
     title: Azure portal
   - id: platform-azp-new
     title: Azure portal (new)
+  - id: platform-azcli
+    title: Azure CLI
   - id: programming-language-java
     title: Java
   - id: programming-language-csharp
@@ -1877,6 +1888,21 @@ groups:
     title: Studio
   - id: programming-language-python
     title: Python
+  - id: programming-language-csharp
+    title: C#
+  - id: rest-api
+    title: REST
+# Owner: mbullwin
+- id: openai-quickstart-assistants
+  title: Programming languages
+  prompt: Choose your preferred usage method
+  pivots:
+  - id: programming-language-studio
+    title: Azure OpenAI Studio
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-csharp
+    title: C#
   - id: rest-api
     title: REST
 # Owner: mbullwin
@@ -1977,7 +2003,11 @@ groups:
   prompt: Choose your preferred usage method
   pivots:
   - id: programming-language-studio
-    title: Studio (DALL-E 3)
+    title: Studio 
+  - id: rest-api
+    title: REST 
+  - id: programming-language-python
+    title: Python 
   - id: programming-language-csharp
     title: C#
   - id: programming-language-java
@@ -1986,12 +2016,9 @@ groups:
     title: JavaScript
   - id: programming-language-go
     title: Go
-  - id: programming-language-python
-    title: Python (DALL-E 3)
   - id: programming-language-powershell
     title: PowerShell
-  - id: rest-api
-    title: REST (DALL-E 3)
+
 # Owner: pafarley
 - id: openai-quickstart-gpt-v
   title: Programming languages
@@ -2748,6 +2775,14 @@ groups:
     title: iOS
   - id: programming-language-java
     title: Android
+- id: acs-programming-languages-support-kotlin-swift
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-swift
+    title: iOS
+  - id: programming-language-kotlin
+    title: Android  
 # Owner: jorgegarc
 - id: acs-maui-xamarin-react
   title: Cross-platform pivots
@@ -2929,6 +2964,15 @@ groups:
   - id: method-template
     title: GitHub Actions template
 # Owner: sidandrews
+- id: azure-cosmos-db-apis-nosql-mongodb
+  title: Azure Cosmos DB APIs
+  prompt: Choose an API
+  pivots:
+  - id: api-nosql
+    title: NoSQL
+  - id: api-mongodb
+    title: MongoDB
+# Owner: sidandrews
 - id: azure-cosmos-db-apis-nosql-mongodb-gremlin-table
   title: Azure Cosmos DB APIs
   prompt: Choose an API
@@ -3039,3 +3083,35 @@ groups:
     title: Chrome browser
   - id: firefox-browser
     title: Firefox browser
+# Owner: sudhirsneha
+- id: vmware-discovery-requirements
+  title: Requirements to discover and assess servers in VMware environment
+  prompt: Choose support requirements
+  pivots:
+  - id: vmware-requirements
+    title: VMware
+  - id: server-requirements
+    title: Server
+  - id: migrate-appliance-requirements
+    title: Azure Migrate appliance
+  - id: port-access-requirements
+    title: Port access
+  - id: software-inventory-requirements
+    title: Software inventory
+  - id: sql-server-instance-database-discovery-requirements
+    title: SQL Server instance and database discovery
+  - id: web-apps-discovery
+    title: Web apps discovery
+  - id: dependency-analysis-agentless-requirements
+    title: Dependency analysis Agentless
+  - id: dependency-analysis-agent-based-requirements
+    title: Dependency analysis Agent based
+# Owner: tejaswikolli-web
+- id: container-registry-zones
+  title: Container registry ide
+  prompt: Choose a scope option
+  pivots:
+  - id: development-environment-azure-portal
+    title: Portal 
+  - id: development-environment-azure-cli
+    title: CLI

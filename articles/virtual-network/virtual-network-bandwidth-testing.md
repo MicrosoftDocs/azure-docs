@@ -156,6 +156,7 @@ To measure throughput from Linux machines, use [NTTTCP-for-Linux](https://github
    - For **Ubuntu**, install `build-essential` and `git`.
 
      ```bash
+     sudo apt-get update
      sudo apt-get -y install build-essential
      sudo apt-get -y install git
      ```

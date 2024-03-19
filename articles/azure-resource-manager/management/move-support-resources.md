@@ -186,6 +186,13 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | b2cdirectories | **Yes** | **Yes** | No |
 > | b2ctenants | No | No | No |
 
+## Microsoft.AzureArcData
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription | Region move |
+> | ------------- | ----------- | ---------- | ----------- |
+> | SqlServerInstances | No | No | No |
+
 ## Microsoft.AzureData
 
 > [!div class="mx-tableFixed"]
@@ -1355,7 +1362,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | trafficmanagerprofiles / heatmaps | No | No | No |
 > | trafficmanagerusermetricskeys | No | No | No |
 > | virtualhubs | No | No | No |
-> | virtualnetworkgateways | **Yes** except Basic SKU - see [Networking move guidance](./move-limitations/networking-move-limitations.md)| **Yes** except Basic SKU - see [Networking move guidance](./move-limitations/networking-move-limitations.md) | No |
+> | virtualnetworkgateways | No| No | No |
 > | virtualnetworks | **Yes** | **Yes** | No |
 > | virtualnetworktaps | No | No | No |
 > | virtualrouters | **Yes** | **Yes** | No |
