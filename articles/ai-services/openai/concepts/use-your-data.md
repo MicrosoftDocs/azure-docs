@@ -383,40 +383,8 @@ You can send a streaming request using the `stream` parameter, allowing data to 
 
 #### Conversation history for better results
 
-When you chat with a model, providing a history of the chat will help the model return higher quality results. 
+When you chat with a model, providing a history of the chat will help the model return higher quality results. You don't need to include the `context` property of the assistant messages in your API requests for better response quality. See [the API reference documentation](../references/on-your-data.md#examples) for examples.
 
-```json
-{
-    "dataSources": [
-        {
-            "type": "AzureCognitiveSearch",
-            "parameters": {
-                "endpoint": "'$AZURE_AI_SEARCH_ENDPOINT'",
-                "key": "'$AZURE_AI_SEARCH_API_KEY'",
-                "indexName": "'$AZURE_AI_SEARCH_INDEX'"
-            }
-        }
-    ],
-    "messages": [
-        {
-            "role": "user",
-            "content": "What are the differences between Azure Machine Learning and Azure AI services?"
-        },
-        {
-            "role": "tool",
-            "content": "{\"citations\": [{\"content\": \"title: Azure AI services and Machine Learning\\ntitleSuffix: Azure AI services\\ndescription: Learn where Azure AI services fits in with other Azure offerings for machine learning.\\nAzure AI services and machine learning\\nAzure AI services provides machine learning capabilities to solve general problems such as...\\n \"articles\\\\cognitive-services\\\\cognitive-services-and-machine-learning.md\", \"url\": null, \"metadata\": {\"chunking\": \"orignal document size=1018. Scores=0.32200050354003906 and 1.2880020141601562.Org Highlight count=115.\"}, \"chunk_id\": \"0\"}], \"intent\": \"[\\\"What are the differences between Azure Machine Learning and Azure AI services?\\\"]\"}"
-        },
-        {
-            "role": "assistant",
-            "content": " \nAzure Machine Learning is a product and service tailored for data scientists to build, train, and deploy machine learning models [doc1]..."
-        },
-        {
-            "role": "user",
-            "content": "How do I use Azure machine learning?"
-        }
-    ]
-}
-```
 
 ## Token usage estimation for Azure OpenAI On Your Data
 
