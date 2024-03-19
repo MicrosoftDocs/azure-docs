@@ -111,6 +111,8 @@
       href: performance-azure-vmware-solution-datastore.md
     - name: Large volume performance benchmarks for Linux
       href: performance-large-volumes-linux.md
+    - name: Benefits for electronic design automation 
+      href: electronic-design-automation-benefits.md
     - name: Performance reference for Azure NetApp Files
       items:
       - name: Linux direct I/O best practices
