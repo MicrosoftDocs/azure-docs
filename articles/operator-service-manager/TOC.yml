@@ -72,6 +72,8 @@
     href: how-to-use-azure-operator-service-manager-cli-extension.md
   - name: Onboard a Containerized Network Function (CNF) using the Azure Operator Service Manager (AOSM) CLI Extension
     href: how-to-onboard-a-cnf-using-the-azure-cli.md
+  - name: Onboard a Virtualized Network Function (VNF) using the Azure Operator Service Manager (AOSM) CLI Extension
+    href: how-to-onboard-a-vnf-using-the-azure-cli.md
 - name: Resources
   expanded: false
   items:
