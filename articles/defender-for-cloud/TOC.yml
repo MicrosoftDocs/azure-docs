@@ -324,10 +324,7 @@
       items:
       - name: Choose standards for your compliance dashboard
         href: update-regulatory-compliance-packages.md
-      - name: Create custom standards/recommendations (Azure)
-        displayName: initiatives, custom, policies
-        href: custom-security-policies.md
-      - name: Create custom standards/recommendations (AWS/GCP)
+      - name: Create custom standards/recommendations
         href: create-custom-recommendations.md
       - name: Manage MCSB recommendations
         href: manage-mcsb.md
@@ -570,6 +567,11 @@
       - name: Enable the Defender for Endpoint integration
         displayName: ATP, mdatp, wdatp, mde, mdfe, defender for endpoint, endpoint, edr
         href: enable-defender-for-endpoint.md
+      - name: Assessment checks for endpoint detection and response solutions (MMA)
+        href: endpoint-protection-recommendations-technical.md
+      - name: Review and remediate endpoint detection and response  recommendations (agentless)
+        displayName: defender for endpoint, endpoint, edr
+        href: endpoint-detection-response.md
     - name: Adaptive application controls
       items:
       - name: Understand adaptive application controls
