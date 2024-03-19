@@ -59,7 +59,7 @@ Azure Operator Call Protection and Azure Communications Gateway are fully manage
 
 ## Privacy and security
 
-Azure Operator Call Protection Preview is architected to ensure the security and privacy of customer data.
+Azure Operator Call Protection Preview is architected to defend the security and privacy of customer data.
 
 Azure Operator Call Protection doesn't record the call or store the content of calls. No call content can be accessed or listened to by Microsoft.
 
