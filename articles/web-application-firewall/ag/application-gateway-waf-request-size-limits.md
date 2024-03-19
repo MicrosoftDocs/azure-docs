@@ -86,7 +86,7 @@ If you are an Application Gateway v2 WAF customer running CRS 3.2 or later and y
 
 You can use the following PowerShell comannds to return your Azure policy, look at its current settings, and update the policy settings to the desired values for inspection limit and max size limitation related fields.
 
-- [Get WAF Policy](https://learn.microsoft.com/en-us/powershell/module/az.network/get-azapplicationgatewayfirewallpolicy)
+- [Get WAF Policy](/powershell/module/az.network/get-azapplicationgatewayfirewallpolicy)
 - [Polcy Settings Properties](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.commands.network.models.psapplicationgatewaywebapplicationfirewallpolicy.policysettings?view=az-ps-latest#microsoft-azure-commands-network-models-psapplicationgatewaywebapplicationfirewallpolicy-policysettings)
 - [Polcy Settings Class](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.commands.network.models.psapplicationgatewayfirewallpolicysettings)
 - [New Polcy Settings](https://learn.microsoft.com/en-us/powershell/module/az.network/new-azapplicationgatewayfirewallpolicysetting)
