@@ -60,12 +60,12 @@ To send data to your Azure Monitor Workspace, you will need the following inform
     1. Select Managed Identity, and then choose Select members. Select the subscription that contains the user-assigned identity, and then select User-assigned managed identity. Select the user-assigned identity that you want to use, and then choose Select.
     1. To complete the role assignment, select **Review + assign**.
 
-1. Give the AKS cluster access to the managed identity. This step isn't required if you're using an AKS identity. An AKS identity already has access to the cluster.
+1. Give the AKS cluster or the resource access to the managed identity. This step isn't required if you're using an AKS or VM identity. An AKS or VM identity already has access to the cluster/VM.
 
 > [!IMPORTANT]
 > To complete the steps in this section, you must have owner or user access administrator permissions for the cluster.
 
-- Identify the virtual machine scale sets in the [node resource group](#get-the-name-of-the-aks-node-resource-group) for your AKS cluster.
+- Identify the virtual machine or virtual machine scale sets in the [node resource group](#get-the-name-of-the-aks-node-resource-group) for your AKS cluster.
 
     :::image type="content" source="../containers/media/prometheus-remote-write-managed-identity/resource-group-details-virtual-machine-scale-sets.png" alt-text="Screenshot that shows virtual machine scale sets in the node resource group." lightbox="media/prometheus-remote-write-managed-identity/resource-group-details-virtual-machine-scale-sets.png":::
 
