@@ -35,7 +35,7 @@ This article provides a reference of the SOC optimization recommendations availa
 
 ## Data value optimizations
 
-To optimize your cost to security value ratio, SOC optimization surfaces hardly used data connectors or tables, and suggests ways to either reduce the cost of a table or improve its value, depending on your coverage. This type of optimization is also called *data value optimization*.
+To optimize your cost to security value ratio, SOC optimization surfaces hardly-used data connectors or tables, and suggests ways to either reduce the cost of a table or improve its value, depending on your coverage. This type of optimization is also called *data value optimization*.
 
 Data value optimizations only look at billable tables that ingested data in the past 30 days.
 
