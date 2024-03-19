@@ -22,7 +22,7 @@ To use the Map Control in a web page, you must have one of the following prerequ
 
 ## Create a WebView
 
-Add a `WebView` if your Android application doesn't have one. Do so by adding the `WebView` element to your layout XML or programmatically in your Java code. Be sure it's configured to occupy the desired area of your layout.
+Add a WebView if your Android application doesn't have one. Do so by adding the `WebView` element to your layout XML or programmatically in your Java code. Be sure it's configured to occupy the desired area of your layout.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -41,13 +41,13 @@ Add a `WebView` if your Android application doesn't have one. Do so by adding th
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 ```
 
-Enable internet access by adding permissions in AndroidManifest.xml.
+Enable internet access by adding permissions in _AndroidManifest.xml_.
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET" />
 ```
 
-In your activity or fragment, initialize the WebView and enable JavaScript by updating the settings. Load the HTML file that contains the Web SDK code. You can either load it from the assets folder or from a remote URL.
+In your activity or fragment, initialize the `WebView` and enable JavaScript by updating the settings. Load the HTML file that contains the Web SDK code. You can either load it from the assets folder or from a remote URL.
 
 ```java
 import android.os.Bundle;
@@ -134,13 +134,13 @@ In your HTML file, initialize a map with your subscription key. Replace `<YOUR_S
 </html>
 ```
 
-Save and run the app. A map should be shown within a WebView. Add any features or functionalities that you want to use from the Web SDK. You can refer to the [Azure Maps documentation] and the [Azure Maps Code Samples website] for more use cases.
+Save and run the app. A map will appear within a WebView. Add any required features or functionality from the Web SDK. For more information, see [Azure Maps Documentation] and [Azure Maps Samples].
 
 :::image type="content" source="./media/android-sdk-migration-guide/maps-android.png" alt-text="A screenshot of a map in a WebView.":::
 
 ## Communication between native code and WebView (optional)
 
-To enable communication between your Android application and the WebView, you can use the WebView's `addJavascriptInterface` method to expose a Java object to the JavaScript running in the WebView. It allows you to call Java methods from your JavaScript code. For more information, see the [Android WebView documentation].
+To enable communication between your Android application and the WebView, you can use the WebView's `addJavascriptInterface` method to expose a Java object to the JavaScript running in the WebView. It allows you to call Java methods from your JavaScript code. For more information, see [WebView] in the Android documentation.
 
 ## Clean Up Native Map Implementation
 
@@ -160,9 +160,7 @@ Learn how to add maps to web and mobile applications using the Map Control clien
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [authentication options]: /javascript/api/azure-maps-control/atlas.authenticationoptions
-[Azure Maps documentation]: how-to-use-map-control.md
-[Azure Maps Code Samples website]: https://samples.azuremaps.com/
-[Android WebView documentation]: https://developer.android.com/reference/android/webkit/WebView
+[Azure Maps Documentation]: how-to-use-map-control.md
+[Azure Maps Samples]: https://samples.azuremaps.com/
+[WebView]: https://developer.android.com/reference/android/webkit/WebView
 [Use the Azure Maps map control]: how-to-use-map-control.md
-
-

@@ -5,6 +5,7 @@ description: Learn how to manually create an Ubuntu Linux NFS Server persistent 
 author: ozboms
 ms.topic: article
 ms.date: 01/24/2024
+ms.subservice: aks-storage
 ms.author: obboms
 ---
 
