@@ -85,7 +85,7 @@ Now that you have a web app running on App Service, enable authentication and au
 
 1. For **Tenant type**, select **External configuration** for external users.
 
-1. Select **Create new app registration** to create a new app registration and select the [external tenant](/entra/external-id/customers/quickstart-tenant-setup) you want to use.
+1. Select **Create new app registration** to create a new app registration and select the [customer (external) tenant](/entra/external-id/customers/quickstart-tenant-setup) you want to use.
 
 1. Select **Configure** to configure external authentication.
 
@@ -131,9 +131,9 @@ Now that you have a web app running on App Service, enable authentication and au
 
 ## 4. Verify limited access to the web app
 
-When you enabled the App Service authentication/authorization module in the previous section, an app registration was created in your workforce or external tenant. The app registration has the same display name as your web app. 
+When you enabled the App Service authentication/authorization module in the previous section, an app registration was created in your workforce or customer (external) tenant. The app registration has the same display name as your web app. 
 
-1. To check the settings, sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](/entra/identity/role-based-access-control/permissions-reference#application-developer).  If necessary, use the **Settings** icon  in the top menu to switch to the customer or external tenant with your web app from the **Directories** + **subscriptions** menu.   When you are in the correct tenant:
+1. To check the settings, sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](/entra/identity/role-based-access-control/permissions-reference#application-developer).  If necessary, use the **Settings** icon  in the top menu to switch to the customer (external) tenant with your web app from the **Directories** + **subscriptions** menu.   When you are in the correct tenant:
 
 1. Browse to **Identity** > **Applications** > **App registrations** and select **Applications** > **App registrations** from the menu. 
 1. Select the app registration that was created. 
