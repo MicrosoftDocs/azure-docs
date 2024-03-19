@@ -24,6 +24,14 @@ This article summarizes new releases and features in Azure Database for MySQL fl
 > [!NOTE]  
 > This article references the term slave, which Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
+
+## March 2024
+
+- **Accelerated Logs now supports major version upgrade.**
+    
+   Accelerated Logs has now introduced support for [major version upgrade](./how-to-upgrade.md) allowing an upgrade from MySQL version 5.7 to MySQL version 8.0 with accelerated logs feature enabled.[Learn more.](./concepts-accelerated-logs.md) 
+
+
 ## February 2024
 
 

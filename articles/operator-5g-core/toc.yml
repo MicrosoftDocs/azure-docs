@@ -29,7 +29,7 @@ items:
     href: quickstart-deploy-5g-core.md
   - name: Monitor the status of your Azure Operator 5G Core deployment
     href: quickstart-monitor-deployment-status.md
-  - name: Peform health and configuration checks post-deployment in Azure Operator 5G Core
+  - name: Perform health and configuration checks post-deployment in Azure Operator 5G Core
     href: quickstart-perform-checks-post-deployment.md
 - name: How-to guides
   items:
@@ -49,3 +49,4 @@ items:
   items:
   - name: REST API Reference
     href: /rest/api/mobilepacketcore 
+  
