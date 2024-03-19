@@ -89,7 +89,7 @@ Gives the reason for closing the connection. Includes the following dimension va
 
 Field names for Log Analytics vary slightly from field names for Storage destinations.
 
-### Archive log schema to a storage account
+### Archive log schema for a storage account
 
 Archive log JSON strings include the following elements:
 
@@ -160,5 +160,4 @@ Microsoft.SignalRService/WebPubSub
 
 - See [Monitor Azure SignalR Service](monitor-signalr.md) for a description of monitoring Azure SignalR Service.
 - See [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.
-- [Automatically scale units of an Azure SignalR Service](signalr-howto-scale-autoscale.md)
-- [Use diagnostic logs to monitor SignalR Service](signalr-howto-diagnostic-logs.md)
+- See [Use diagnostic logs to monitor SignalR Service](signalr-howto-diagnostic-logs.md) for detailed instructions on how to enable, query, and troubleshoot with Azure SignalR Service logs.

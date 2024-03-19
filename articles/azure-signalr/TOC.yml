@@ -164,7 +164,7 @@
     - name: Use diagnostic logs to monitor SignalR Service
       href: signalr-howto-diagnostic-logs.md
     - name: Monitoring data reference
-      href: signalr-monitor-reference.md
+      href: monitor-signalr-reference.md
     - name: Audit compliance using Azure Policy
       href: signalr-howto-azure-policy.md
   - name: Troubleshooting

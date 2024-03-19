@@ -34,15 +34,15 @@ Resource logs are disabled by default. To enable resource logs by using diagnost
 
 1. In the [Azure portal](https://portal.azure.com), under **Monitoring**, select **Diagnostic settings**.
 
-    ![Pane navigation to diagnostic settings](./media/signalr-tutorial-diagnostic-logs/diagnostic-settings-menu-item.png)
-
+    :::image type="content" alt-text="Pane navigation to diagnostic settings." source="media/signalr-tutorial-diagnostic-logs/diagnostic-settings-menu-item.png" lightbox="media/signalr-tutorial-diagnostic-logs/diagnostic-settings-menu-item.png:::
    You get a full view of the diagnostic settings.
 
-    ![Diagnostic settings full view](./media/signalr-tutorial-diagnostic-logs/azure-signalr-diagnostic-settings.png)
+    ![](./)
+    :::image type="content" alt-text="Diagnostic settings full view." source="media/signalr-tutorial-diagnostic-logs/azure-signalr-diagnostic-settings.png" lightbox="media/signalr-tutorial-diagnostic-logs/azure-signalr-diagnostic-settings.png:::
 
 1. Configure the log source settings.
    1. In **Log Source Settings** section, a table shows collecting behaviors for each log type. 
-   2. Check the specific log type you want to collect for all connections. Otherwise the log will be collected only for [diagnostic clients](#diagnostic-client).
+   2. Check the specific log type you want to collect for all connections. Otherwise the log is collected only for [diagnostic clients](#diagnostic-client).
 1. Configure the log destination settings.
    1. In **Log Destination Settings** section, a table of diagnostic settings displays the existing diagnostic settings. You can select the link in the table to get access to the log destination to view the collected resource logs.
    2. In this section, select the button **Configure Log Destination Settings** to add, update, or delete diagnostic settings.
@@ -50,9 +50,9 @@ Resource logs are disabled by default. To enable resource logs by using diagnost
    4. Set the archive target that you want. Currently, Azure SignalR Service supports **Archive to a storage account** and **Send to Log Analytics**.
    5. Select the logs you want to archive. Only `AllLogs` is available for resource log. It only controls whether you want to archive the logs. To configure which log types need to be generated in Azure SignalR Service, configure in **Log Source Settings** section.
 
-    ![Diagnostics settings pane](./media/signalr-tutorial-diagnostic-logs/diagnostics-settings-pane.png)
+    :::image type="content" alt-text="Diagnostics settings pane." source="media/signalr-tutorial-diagnostic-logs/diagnostics-settings-pane.png" lightbox="media/signalr-tutorial-diagnostic-logs/diagnostics-settings-pane.png:::
 
-   6. Save the new diagnostics setting. The new setting takes effect in about 10 minutes. After that, logs will be sent to the configured archival target. For more information about configuring log destination settings, see the [overview of Azure resource logs](../azure-monitor/essentials/platform-logs-overview.md).
+   6. Save the new diagnostics setting. The new setting takes effect in about 10 minutes. After that, logs are sent to the configured archival target. For more information about configuring log destination settings, see the [overview of Azure resource logs](../azure-monitor/essentials/platform-logs-overview.md).
 
 Logs are stored in the Storage account configured in **Diagnostics logs** pane. For more details about the storage format and fields, see [Data storage](monitor-signalr.md#data-storage).
 
@@ -69,7 +69,7 @@ To query resource logs, follow these steps:
 
     :::image type="content" alt-text="Query log in Log Analytics" source="./media/signalr-tutorial-diagnostic-logs/query-log-in-log-analytics.png" lightbox="./media/signalr-tutorial-diagnostic-logs/query-log-in-log-analytics.png":::
 
-To use sample queries for Azure SignalR Service, follow the steps below:
+To use sample queries for Azure SignalR Service, follow these steps:
 1. Select **Logs** in your target Log Analytics.
 2. Select the **Queries** tab to open query explorer.
 3. Select **Resource type** to group sample queries in resource type.
@@ -130,13 +130,13 @@ When encountering message related problems, you can take advantage of messaging 
 >
 > For ASP.NET, see [here](/aspnet/signalr/overview/testing-and-debugging/enabling-signalr-tracing) to enable logging in server and client.
 
-If you don't mind potential performance effects and no client-to-server direction message, check the `Messaging` in `Log Source Settings/Types` to enable *collect-all* log collecting behavior. For more information about this behavior, see [collect all section](#collect-all).
+If you don't mind potential performance effects and no client-to-server direction message, check the `Messaging` in `Log Source Settings/Types` to enable *collect-all* log collecting behavior. For more information about this behavior, see [collect all ](#collect-all).
 
-Otherwise, uncheck the `Messaging` to enable *collect-partially* log collecting behavior. This behavior requires configuration in client and server to enable it. For more information, see [collect partially section](#collect-partially).
+Otherwise, uncheck the `Messaging` to enable *collect-partially* log collecting behavior. This behavior requires configuration in client and server to enable it. For more information, see [collect partially](#collect-partially).
 
 #### Message loss
 
-If you encounter message loss problem, the key is to locate the place where you lose the message. Basically, you have three components when using Azure SignalR Service: SignalR service, server, and client. Both server and client are connected to SignalR service but don't connect to each other directly once negotiation is completed. Therefore, you need to consider two directions for messages, and for each direction you need to consider two paths:
+If you encounter message loss problems, the key is to locate the place where you lose the message. Basically, you have three components when using Azure SignalR Service: SignalR service, server, and client. Both server and client are connected to SignalR service but don't connect to each other directly once negotiation is completed. Therefore, you need to consider two directions for messages, and for each direction you need to consider two paths:
 
 * From client to server via SignalR service
   * Path 1: Client to SignalR service
@@ -161,7 +161,7 @@ For **collect partially** collecting behavior:
 
 Once you mark the client as diagnostic client, Azure SignalR Service traces messages in both directions.
 
-By checking the sign-in server and service side, you can easily find out whether the message is pass the server or SignalR service successfully. Basically, by checking if the *received* and *sent* message are matched or not based on message tracing ID, you can tell whether the message loss issue is in server or SignalR service. For more information, see the details below.
+By checking the sign-in server and service side, you can easily find out whether the message is pass the server or SignalR service successfully. Basically, by checking if the *received* and *sent* message are matched or not based on message tracing ID, you can tell whether the message loss issue is in server or SignalR service. For more information, see the following details.
 
 **Details of the message flow**
 
@@ -184,7 +184,7 @@ Once the service message arrives at SignalR service, a log called `Received a <M
 
 In summary, the message log is generated when message goes in and out of the SignalR service and server. You can use these logs to validate whether the message is lost in these components or not.
 
-Below is a typical message loss issue.
+The following example is a typical message loss issue.
 
 ##### A client fails to receive messages in a group
 
@@ -227,11 +227,11 @@ Therefore, SignalR service provides two kinds of collecting behaviors
 * **collect partially**: collect logs in some specific connections
 
 > [!NOTE]
-> To distinguish the connections between those collect logs and those don't collect logs, SignalR service will treat some client as diagnostic client based on the diagnostic client configurations of server and client, in which the resource logs always get collected, while the others don't. For more information, see [collect partially section](#collect-partially).
+> To distinguish the connections between those collect logs and those don't collect logs, SignalR service treats some client as diagnostic client based on the diagnostic client configurations of server and client, in which the resource logs always get collected, while the others don't. For more information, see [collect partially section](#collect-partially).
 
 ### Collect all
 
-Resource logs are collected by all the connections. Take messaging logs for example. When this behavior is enabled, SignalR service will send a notification to server to start generating tracing ID for each message. The tracing ID will be carried in the message to the service, the service will also log the message with tracing ID.
+Resource logs are collected by all the connections. Take messaging logs for example. When this behavior is enabled, SignalR service sends a notification to server to start generating tracing ID for each message. The tracing ID is carried in the message to the service. The service also logs the message with tracing ID.
 
 > [!NOTE]
 > Note that to ensure the performance of SignalR service, SignalR service doesn't await and parse the whole message sent from client. Therefore, the client messages doesn't get logged. If the client is marked as a diagnostic client, the client message is logged in SignalR service.
