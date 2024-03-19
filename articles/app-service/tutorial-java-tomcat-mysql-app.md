@@ -80,6 +80,8 @@ For your convenience, the [sample repository](https://github.com/Azure-Samples/m
     :::column-end:::
 :::row-end:::
 
+::: zone pivot="azure-portal"  
+
 ## 2. Create App Service and MySQL
 
 First, you create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service and Azure Database for MySQL. For the creation process, you'll specify:
@@ -173,7 +175,7 @@ In this step, you use the SSH connection to the app container to verify the JNDI
         1. Select **Go**. 
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-check-config-in-ssh-1.png" alt-text="A screenshot showing how to open the SSH shell for your app from the Azure portal." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-check-config-in-ssh-1.png":::
+        :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-check-config-in-ssh-1.png" alt-text="A screenshot showing how to open the SSH shell for your app from the Azure portal." lightbox="./media/tutorial-java-tomcat-mysql-app/azure-portal-check-config-in-ssh-1.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -182,7 +184,7 @@ In this step, you use the SSH connection to the app container to verify the JNDI
         1. Run `cat /usr/local/tomcat/conf/context.xml`. You should see that a JNDI resource called `jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS` has been added. You will use this data source later.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-check-config-in-ssh-2.png" alt-text="A screenshot showing the commands to run in the SSH shell and their output." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-check-config-in-ssh-2.png":::
+        :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-check-config-in-ssh-2.png" alt-text="A screenshot showing the commands to run in the SSH shell and their output." lightbox="./media/tutorial-java-tomcat-mysql-app/azure-portal-check-config-in-ssh-2.png":::
     :::column-end:::
 :::row-end:::
 
@@ -443,7 +445,7 @@ In this step, you use the SSH connection to the app container to verify the JNDI
         1. Select **Go**. 
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-check-config-in-ssh-1.png" alt-text="A screenshot showing how to open the SSH shell for your app from the Azure portal." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-check-config-in-ssh-1.png":::
+        :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-check-config-in-ssh-1.png" alt-text="A screenshot showing how to open the SSH shell for your app from the Azure portal." lightbox="./media/tutorial-java-tomcat-mysql-app/azure-portal-check-config-in-ssh-1.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -452,7 +454,7 @@ In this step, you use the SSH connection to the app container to verify the JNDI
         1. Run `cat /usr/local/tomcat/conf/context.xml`. You should see that a JNDI resource called `jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS` has been added. You will use this data source later.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-check-config-in-ssh-2.png" alt-text="A screenshot showing the commands to run in the SSH shell and their output." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-check-config-in-ssh-2.png":::
+        :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-check-config-in-ssh-2.png" alt-text="A screenshot showing the commands to run in the SSH shell and their output." lightbox="./media/tutorial-java-tomcat-mysql-app/azure-portal-check-config-in-ssh-2.png":::
     :::column-end:::
 :::row-end:::
 
