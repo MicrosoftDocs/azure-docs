@@ -28,7 +28,7 @@ OpenAI's DALL-E models generate images based on user-provided text prompts. This
 - An Azure OpenAI resource created in the `SwedenCentral` region.
 - Then, you need to deploy a `dalle3` model with your Azure resource. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
 
-#### [DALL-E 2](#tab/dalle2)
+#### [DALL-E 2 (preview)](#tab/dalle2)
 
 - An Azure subscription. <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
 - Access granted to DALL-E in the desired Azure subscription.
@@ -53,7 +53,7 @@ https://<your_resource_name>.deployments/<your_deployment_name>/images/generatio
 where:
 - `<your_resource_name>` is the name of your Azure OpenAI resource.
 - `<your_deployment_name>` is the name of your DALL-E 3 model deployment.
-- `<api_version>` is the version of the API you want to use. For example, `2023-12-01-preview`.
+- `<api_version>` is the version of the API you want to use. For example, `2024-02-01`.
 
 **Required headers**:
 - `Content-Type`: `application/json`
@@ -74,7 +74,7 @@ The following is a sample request body. You specify a number of options, defined
 ```
 
 
-#### [DALL-E 2](#tab/dalle2)
+#### [DALL-E 2 (preview)](#tab/dalle2)
 
 Image generation with DALL-E 2 is asynchronous and requires two API calls.
 
@@ -152,7 +152,7 @@ The output from a successful image generation API call looks like the following 
 } 
 ```
 
-#### [DALL-E 2](#tab/dalle2)
+#### [DALL-E 2 (preview)](#tab/dalle2)
 
 ```json
 {
@@ -195,7 +195,7 @@ If your prompt is flagged, the `error.code` value in the message is set to `cont
 }
 ```
 
-#### [DALL-E 2](#tab/dalle2)
+#### [DALL-E 2 (preview)](#tab/dalle2)
 
 ```json
 {
@@ -226,7 +226,7 @@ It's also possible that the generated image itself is filtered. In this case, th
 }
 ```
 
-#### [DALL-E 2](#tab/dalle2)
+#### [DALL-E 2 (preview)](#tab/dalle2)
 
 ```json
 {
@@ -256,7 +256,7 @@ It's also possible that the generated image itself is filtered. In this case, th
 Your image prompts should describe the content you want to see in the image, as well as the visual style of image. 
 
 > [!TIP]
-> For a thorough look at how you can tweak your text prompts to generate different kinds of images, see the [Dallery DALL-E 2 prompt book](https://dallery.gallery/wp-content/uploads/2022/07/The-DALL%C2%B7E-2-prompt-book-v1.02.pdf)
+> For a thorough look at how you can tweak your text prompts to generate different kinds of images, see the [Dallery DALL-E 2 prompt book](https://dallery.gallery/wp-content/uploads/2022/07/The-DALL%C2%B7E-2-prompt-book-v1.02.pdf).
 
 #### [DALL-E 3](#tab/dalle3)
 
@@ -274,7 +274,7 @@ The updated prompt is visible in the `revised_prompt` field of the data response
 
 While it is not currently possible to disable this feature, you can use special prompting to get outputs closer to your original prompt by adding the following to it: `I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:`.
 
-#### [DALL-E 2](#tab/dalle2)
+#### [DALL-E 2 (preview)](#tab/dalle2)
 
 When writing prompts, consider that the image generation APIs come with a content moderation filter. If the service recognizes your prompt as harmful content, it doesn't generate an image. For more information, see [Content filtering](../concepts/content-filter.md).
 
@@ -314,7 +314,7 @@ With DALL-E 3, you cannot generate more than one image in a single API call: the
 
 The format in which the generated images are returned. Must be one of `url` (a URL pointing to the image) or `b64_json` (the base 64-byte code in JSON format). The default is `url`.
 
-#### [DALL-E 2](#tab/dalle2)
+#### [DALL-E 2 (preview)](#tab/dalle2)
 
 ### Size
 
