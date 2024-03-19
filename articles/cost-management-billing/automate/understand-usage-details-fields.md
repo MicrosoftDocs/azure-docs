@@ -135,6 +135,26 @@ MCA customers can use the following information to reconcile charges between bil
 2.	Convert the calculated `CostInPricingCurrency` to the `CostInBillingCurrency` by: `(CalculatedCostinPricingCurrency)` * `(ExchangeRatePricingToBilling)`
 3.	Summarize the values that you calculated for `CostInBillingCurrency` and compare them to the invoice.
 
+## Reconcile reservation purchases with usage records
+
+Every reservation purchase and usage record has two associated IDs:  `ReservationId` and `ProductOrderId`.
+
+- Reservation purchase records (`PricingModel` = `Reservation`, `ChargeType` = `Purchase`):
+    - The records carry the purchase order ID as `ProductOrderId`.
+    - Additionally, they stamp the same purchase order ID as `ReservationId`.
+- Reservation usage records (`PricingModel` = `Reservation`, `ChargeType` = `Usage`/`UnusedReservation`):
+    - Like purchase records, the usage records also carry the purchase order ID as `ProductOrderId`.
+    - However, the `ReservationId` can differ, as it gets attributed to the resources that benefited from the reservation.
+    - Keep in mind that actions such as split, merge, partial refund, or exchange can create new reservations.
+
+Although the `ReservationId` itself might differ, it's still part of the same order. Therefore, the `ProductOrderId` can be effectively used to associate the purchase with the usage record, facilitating reconciliation between reservation purchases and usage.
+
+| Record type | `ReservationId`	| `ProductOrderId` |
+| --- | --- | --- |
+|Reservation purchase record (actual cost) |	Purchase order ID |	Purchase order ID |
+|Reservation usage record (amortized and actual cost) |	Differing reservation ID |	Purchase order ID |
+
+For more information, see [Manage Reservations for Azure resources](../reservations/manage-reserved-vm-instance.md).
 
 ### Rounding adjustment details
 
