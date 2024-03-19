@@ -21,13 +21,15 @@ Instead of relocation, you'll need to:
 - Create a new key vault with the relocation of the associated Azure services. 
 - Regenerate any required [keys](/azure/key-vault/keys/about-keys), [secrets](/azure/key-vault/secrets/about-secrets), or [certificates](/azure/key-vault/certificates/about-certificates). In some cases, you may need to transfer the secrets or certificates from your existing key vault to the relocated key vault.
 
+![Diagram showing Azure Key vault relocation pattern](./media/key-vault/akv_relocation_pattern.png)
+
 ## Prerequisites
 
 Here are some considerations and checks which need to be performed as prerequisites:
 
 - Verify that your Azure subscription allows you to create Key Vaults in the target region. To enable the required quota, contact support.
 - Create a dependency map with all the Azure services used by the Key Vault. For the services that are in scope of the relocation, you must elect the appropriate relocation strategy. 
-![AKV Relocation Pattern](akv_relocation_pattern.png)
+
 - Depending on your Key Vault design, the following dependent resources might need to be deployed and configured in the target region:
   - [Public IP](/azure/virtual-network/move-across-regions-publicip-portal)
   - [Azure Private Link](./relocation-private-link.md)
