@@ -86,6 +86,14 @@
     href: how-to-delete-operator-resources.md
   - name: Create site network service
     href: how-to-create-site-network-service.md
+- name: Troubleshooting
+  expanded: false
+  items:
+    - name: Azure CLI Extension
+      expanded: true
+      items:
+        - name: Common Issues
+          href: troubleshooting-cli-common-issues.md
 - name: Resources
   expanded: false
   items:
