@@ -31,7 +31,7 @@ The Operator Nexus Platform offers a managed credential rotation process that au
 
 The managed credential process automatically rotates these credentials every 60 days. The updated credentials are written to the key vault associated with the Cluster resource. The last rotation timestamps are currently not visible to users, but is a planned enhancement to the Operator Nexus Platform.
 
-Operator Nexus also provides a service for preemptive rotation of the above Platform credentials. This available to customers upon request through a support ticket. Credential rotation for Operator Nexus Fabric devices also requires a support ticket. Instructions for generating a support request are described in the next section.
+Operator Nexus also provides a service for preemptive rotation of the above Platform credentials. This service is available to customers upon request through a support ticket. Credential rotation for Operator Nexus Fabric devices also requires a support ticket. Instructions for generating a support request are described in the next section.
 
 ## Create a support request
 
