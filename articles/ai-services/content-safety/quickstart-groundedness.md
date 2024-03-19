@@ -20,9 +20,11 @@ Follow this guide to use Azure AI Content Safety Groundedness detection to check
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 
 * Once you have your Azure subscription, <a href="https://aka.ms/acs-create"  title="Create a Content Safety resource"  target="_blank">create a Content Safety resource </a> in the Azure portal to get your key and endpoint. Enter a unique name for your resource, select your subscription, and select a resource group, supported region (East US2, West US, Sweden Central), and supported pricing tier. Then select **Create**.
    * The resource will take a few minutes to deploy. After it does, go to the new resource. In the left pane, under **Resource Management**, select **API Keys and Endpoints**. Copy one of the subscription key values and endpoint to a temporary location for later use.
-* [cURL](https://curl.haxx.se/) installed
+* [cURL](https://curl.haxx.se/) or [Python](https://www.python.org/downloads/) installed.
 
 ## Test groundedness
+
+#### [cURL](#tab/curl)
 
 The following section walks through a sample request with cURL. Paste the following command into a text editor, and make the following changes.
 
@@ -48,6 +50,56 @@ curl --location --request POST '<endpoint>/contentsafety/text:detectGroundedness
   "reasoning": False
 }'
 ```
+
+Open a command prompt and run the cURL command.
+
+
+#### [Python](#tab/python)
+
+Create a new Python file named _quickstart.py_. Open the new file in your preferred editor or IDE.
+
+1. Replace the contents of _quickstart.py_ with the following code. Enter your endpoint URL and key in the appropriate fields. Optionally, replace the `"query"` or `"text"` fields in the body with your own text you'd like to analyze.
+    
+    ```Python
+    
+    import http.client
+    import json
+    
+    conn = http.client.HTTPSConnection("<Endpoint>/contentsafety/text:detectGroundedness?api-version=2024-02-15-preview")
+    payload = json.dumps({
+      "domain": "Generic",
+      "task": "QnA",
+      "qna": {
+        "query": "How much does she currently get paid per hour at the bank?"
+      },
+      "text": "12/hour",
+      "groundingSources": [
+        "I'm 21 years old and I need to make a decision about the next two years of my life. Within a week. I currently work for a bank that requires strict sales goals to meet. IF they aren't met three times (three months) you're canned. They pay me 10/hour and it's not unheard of to get a raise in 6ish months. The issue is, **I'm not a salesperson**. That's not my personality. I'm amazing at customer service, I have the most positive customer service \"reports\" done about me in the short time I've worked here. A coworker asked \"do you ask for people to fill these out? you have a ton\". That being said, I have a job opportunity at Chase Bank as a part time teller. What makes this decision so hard is that at my current job, I get 40 hours and Chase could only offer me 20 hours/week. Drive time to my current job is also 21 miles **one way** while Chase is literally 1.8 miles from my house, allowing me to go home for lunch. I do have an apartment and an awesome roommate that I know wont be late on his portion of rent, so paying bills with 20hours a week isn't the issue. It's the spending money and being broke all the time.\n\nI previously worked at Wal-Mart and took home just about 400 dollars every other week. So I know i can survive on this income. I just don't know whether I should go for Chase as I could definitely see myself having a career there. I'm a math major likely going to become an actuary, so Chase could provide excellent opportunities for me **eventually**."
+      ],
+      "reasoning": False
+    })
+    headers = {
+      'Ocp-Apim-Subscription-Key': '<your_subscription_key>',
+      'Content-Type': 'application/json'
+    }
+    conn.request("POST", "/contentsafety/text:detectGroundedness?api-version=2024-02-15-preview", payload, headers)
+    res = conn.getresponse()
+    data = res.read()
+    print(data.decode("utf-8"))
+    ```
+
+    > [!IMPORTANT]
+    > Remember to remove the key from your code when you're done, and never post your key publicly. For production, use a secure way of storing and accessing your credentials. For more information, see [Azure Key Vault](/azure/key-vault/general/overview).
+
+1. Run the application with the `python` command:
+
+    ```console
+    python quickstart.py
+    ````
+
+Wait a few moments to get the response.
+
+---
 
 > [!TIP]
 > To test a summarization task instead of QnA, use the following sample JSON body:
@@ -88,51 +140,46 @@ The parameters in the request body are defined in this table:
 
 ## Use the reasoning feature
 
-The Groundedness detection API provides the option to include _reasoning_ in the API response. If you opt to use reasoning, you must either provide your own GPT resources or use the service's default GPT resources. When this feature is enabled, the response will include an additional `"reasoning"` value. This value details specific instances and explanations for any detected ungroundedness. If you choose not to use reasoning, the API will only classify the groundedness of the submitted content as `true` or `false` and provide a confidence score.
+The Groundedness detection API provides the option to include _reasoning_ in the API response. When this feature is enabled, the response will include an additional `"reasoning"` value. This value details specific instances and explanations for any detected ungroundedness. If you opt to use reasoning, you must either provide your own GPT resources or use the service's default GPT resources. Be careful: using reasoning will increase the processing time and incur extra fees. 
 
-To allow your Content Safety resource to access Azure OpenAI resources using a managed identity, you'd typically follow these steps.
+If you choose not to use reasoning, the API will only classify the ungroundedness of the submitted content as `true` or `false` and provide a confidence score.
+
+### Enable reasoning with your own GPT resource
+
+You can use your existing Azure OpenAI resource to power the reasoning feature. Use Managed Identity to allow your Content Safety resource to access the Azure OpenAI resource:
 
 1. Enable Managed Identity for Azure AI Content Safety.
 
-    Navigate to your Azure AI Content Safety instance in the Azure portal. Find the "Identity" section under the "Settings" category. Enable the system-assigned managed identity. This action grants your Azure AI Content Safety instance an identity that can be recognized and used within Azure for accessing other resources. 
+    Navigate to your Azure AI Content Safety instance in the Azure portal. Find the **Identity** section under the **Settings** category. Enable the system-assigned managed identity. This action grants your Azure AI Content Safety instance an identity that can be recognized and used within Azure for accessing other resources. 
     
     ![image](https://github.com/Azure/Azure-AI-Content-Safety-Private-Preview/assets/36343326/dfa6677f-1c13-4a80-9c1b-f0b2c19b849f)
 
 1. Assign Role to Managed Identity.
 
-    Navigate to your Azure OpenAI instance, click on "Add role assignment" to start the process of assigning a Azure OpenAI role to the Azure AI Content Safety managed identity. Choose a role that grants the necessary permissions for the tasks you want to perform. Based on your needs, this could be **Contributor** or **User**. The specific roles and permissions might vary based on what you're looking to achieve.
+    Navigate to your Azure OpenAI instance, select **Add role assignment** to start the process of assigning an Azure OpenAI role to the Azure AI Content Safety identity. Choose the **User** role.
 
     ![image](https://github.com/Azure/Azure-AI-Content-Safety-Private-Preview/assets/36343326/0bdab704-2825-4a78-b9b4-56e72aa19718)
 
     ![image](https://github.com/Azure/Azure-AI-Content-Safety-Private-Preview/assets/36343326/5df9be34-0929-4dfa-8e5a-edfd653d0e02)
 
 
-### sample input
+1. In your request to the Groundedness detection API, set the `"Reasoning"` body parameter to `true`, and provide the other needed parameters:
+
 ```json
 {
-    "Domain": "GENERIC",
-    "Task": "QnA",
-    "qna": {
-     "query": "How much does she currently get paid per hour at the bank?"
-    },
-    "Text": "12/hour.",
-    "GroundingSources": [
- "I'm 21 years old and I need to make a decision about the next two years of my life. Within a week. I currently work for a bank that requires strict sales goals to meet. IF they aren't met three times (three months) you're canned. They pay me 10/hour and it's not unheard of to get a raise in 6ish months. The issue is, **I'm not a salesperson**. That's not my personality. I'm amazing at customer service. I have the most positive customer service \"reports\" done about me in the short time I've worked here. A coworker asked \"do you ask for people to fill these out? You have a ton\". That being said, I have a job opportunity at Chase Bank as a part time teller. What makes this decision so hard is that at my current job, I get 40 hours and Chase could only offer me 20 hours/week. Drive time to my current job is also 21 miles **one way** while Chase is literally 1.8 miles from my house, allowing me to go home for lunch. I do have an apartment and an awesome roommate that I know wont be late on his portion of rent, so paying bills with 20 hours a week isn't the issue. It's the spending money and being broke all the time.\n\nI previously worked at Wal-Mart and took home just about 400 dollars every other week. So I know i can survive on this income. I just don't know whether I should go for Chase as I could definitely see myself having a career there. I'm a math major likely going to become an actuary, so Chase could provide excellent opportunities for me **eventually**.",
-       
-    ],
+    ...
     "Reasoning": true,
     "llmResource": {
- "resourceType": "AzureOpenAI",
- "azureOpenAIEndpoint": "<Your_GPT_Endpoint>",
- "azureOpenAIDeploymentName": "<Your_GPT_Deployment>"
+        "resourceType": "AzureOpenAI",
+        "azureOpenAIEndpoint": "<your_OpenAI_endpoint>",
+        "azureOpenAIDeploymentName": "<your_deployment_name>"
     }
 }
 ```
 
 ## Interpret the API response
 
-After you submit your request, you'll receive JSON data reflecting the Groundedness analysis performed. Here’s what a typical output looks like: 
-
+After you submit your request, you'll receive a JSON response reflecting the Groundedness analysis performed. Here’s what a typical output looks like: 
 
 ```json
 {
@@ -177,33 +224,16 @@ The JSON objects in the output are defined here:
 | - `length > codePoint`  | The length of the ungrounded text in terms of Unicode code points. |number    |
 | -**`Reason`** |  Offers explanations for detected ungroundedness. | String  |
 
+## Clean up resources
 
-Python sample request:
+If you want to clean up and remove an Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-```Python
+- [Portal](/azure/ai-services/multi-service-resource?pivots=azportal#clean-up-resources)
+- [Azure CLI](/azure/ai-services/multi-service-resource?pivots=azcli#clean-up-resources)
 
-import http.client
-import json
+## Next steps
 
-conn = http.client.HTTPSConnection("<Endpoint>/contentsafety/text:detectGroundedness?api-version=2024-02-15-preview")
-payload = json.dumps({
-  "domain": "Generic",
-  "task": "QnA",
-  "qna": {
-    "query": "How much does she currently get paid per hour at the bank?"
-  },
-  "text": "12/hour",
-  "groundingSources": [
-    "I'm 21 years old and I need to make a decision about the next two years of my life. Within a week. I currently work for a bank that requires strict sales goals to meet. IF they aren't met three times (three months) you're canned. They pay me 10/hour and it's not unheard of to get a raise in 6ish months. The issue is, **I'm not a salesperson**. That's not my personality. I'm amazing at customer service, I have the most positive customer service \"reports\" done about me in the short time I've worked here. A coworker asked \"do you ask for people to fill these out? you have a ton\". That being said, I have a job opportunity at Chase Bank as a part time teller. What makes this decision so hard is that at my current job, I get 40 hours and Chase could only offer me 20 hours/week. Drive time to my current job is also 21 miles **one way** while Chase is literally 1.8 miles from my house, allowing me to go home for lunch. I do have an apartment and an awesome roommate that I know wont be late on his portion of rent, so paying bills with 20hours a week isn't the issue. It's the spending money and being broke all the time.\n\nI previously worked at Wal-Mart and took home just about 400 dollars every other week. So I know i can survive on this income. I just don't know whether I should go for Chase as I could definitely see myself having a career there. I'm a math major likely going to become an actuary, so Chase could provide excellent opportunities for me **eventually**."
-  ],
-  "reasoning": False
-})
-headers = {
-  'Ocp-Apim-Subscription-Key': '<your_subscription_key>',
-  'Content-Type': 'application/json'
-}
-conn.request("POST", "/contentsafety/text:detectGroundedness?api-version=2024-02-15-preview", payload, headers)
-res = conn.getresponse()
-data = res.read()
-print(data.decode("utf-8"))
-```
+Combine Groundedness detection with other LLM safety features like Prompt Shields.
+
+> [!div class="nextstepaction"]
+> [Prompt Shields quickstart](./quickstart-jailbreak.md)
