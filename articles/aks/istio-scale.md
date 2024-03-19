@@ -19,10 +19,10 @@ The Istio-based service mesh add-on is logically split into a control plane (`is
 #### Test Specifications
 - One `istiod` instance with default settings
 - Horizontal pod autoscaling disabled
-- Two network plugins tested - Azure CNI Overlay or Azure CNI Overlay with Cilium [ (recommended network plugins for large scale clusters) ](https://learn.microsoft.com/azure/aks/azure-cni-overlay?tabs=kubectl#choosing-a-network-model-to-use)
+- Two network plugins tested - Azure CNI Overlay or Azure CNI Overlay with Cilium [ (recommended network plugins for large scale clusters) ](/azure/aks/azure-cni-overlay?tabs=kubectl#choosing-a-network-model-to-use)
 - Node SKU - Standard D16 v3 (16 vCPU, 64-GB memory)
 - 500 nodes
-- Kubernetes version - `1.28.5`
+- Kubernetes version - 1.28.5
 
 ### Pod churn
 The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum number of sidecars Istiod can manage when there's sidecar churning. The churn percent is defined as the percent of sidecars churned down/up during the test. For example, 50% churn for 10,000 sidecars would mean that 5,000 sidecars were churned down, then 5,000 sidecars were churned up. The churn percents tested were determined from the typical churn percentage during deployment rollouts (`maxUnavailable`). The churn rate was calculated by determining the total number of sidecars churned (up and down) over the actual time taken to complete the churning process.
@@ -47,14 +47,14 @@ The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum
 ### Maximum sidecars
 The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum number of sidecars `istiod` can manage with 1,000 services. Each service had `N` sidecars contributing to the overall maximum sidecar count. The API Server resource usage was observed to determine if there was any significant stress from the add-on.
 
-**Sidecar Capacity**
-|   Azure CNI Overlay |   Azure CNI Overlay with Cilium |
+|**Sidecar Capacity**||
 |---------------------|---------------------------------|
+|   Azure CNI Overlay |   Azure CNI Overlay with Cilium |
 |               20000 |                           20000 |
 
-**CPU and Memory**
-| Resource               |   Azure CNI Overlay |   Azure CNI Overlay with Cilium |
+|**CPU and Memory**|||
 |------------------------|---------------------|---------------------------------|
+| Resource               |   Azure CNI Overlay |   Azure CNI Overlay with Cilium |
 | API Server Memory (GB) |                 7   |                             9.7 |
 | API Server CPU         |                 4.3 |                             4.7 |
 | Istiod Memory (GB)     |                43.1 |                            42.6 |
@@ -68,7 +68,7 @@ Various factors impact [sidecar performance][data-plane-performance] such as req
 
 #### Test Specifications
 - Two network plugins tested - Azure CNI Overlay or Azure CNI Overlay with Cilium [ (recommended network plugins for large scale clusters) ](/azure/aks/azure-cni-overlay?tabs=kubectl#choosing-a-network-model-to-use)
-- Kubernetes version - `1.28.5`
+- Kubernetes version - 1.28.5
 - Node SKU - Standard D16 v5 (16 vCPU, 64-GB memory)
 - 25 nodes
 - Two proxy workers
