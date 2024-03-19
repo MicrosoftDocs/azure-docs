@@ -8,7 +8,7 @@ ms.author: shalierxia
 ---
 
 # **Istio service mesh add-on performance**
-The Istio-based service mesh add-on is logically split into a control plane (`istiod`) and a data plane. The data plane is composed of Envoy sidecar proxies inside workload pods. Istiod manages and configures these Envoy proxies.This article presents the performance of the add-on's control and data plane, including resource consumption, sidecar capacity and latency overhead. 
+The Istio-based service mesh add-on is logically split into a control plane (`istiod`) and a data plane. The data plane is composed of Envoy sidecar proxies inside workload pods. Istiod manages and configures these Envoy proxies.This article presents the performance of the add-on's control and data plane, including resource consumption, sidecar capacity, and latency overhead. 
 
 ## Control Plane Performance
 [Istiod’s CPU and memory requirements][control-plane-performance] correlate with the rate of deployment and configuration changes and the number of proxies connected. The scenarios tested were:
@@ -20,7 +20,7 @@ The Istio-based service mesh add-on is logically split into a control plane (`is
 - One `istiod` instance with default settings
 - Horizontal pod autoscaling disabled
 - Two network plugins tested - Azure CNI Overlay or Azure CNI Overlay with Cilium [ (recommended network plugins for large scale clusters) ](https://learn.microsoft.com/en-us/azure/aks/azure-cni-overlay?tabs=kubectl#choosing-a-network-model-to-use)
-- Node SKU - Standard D16 v3 (16 vCPU, 64 GB memory)
+- Node SKU - Standard D16 v3 (16 vCPU, 64-GB memory)
 - 500 nodes
 - Kubernetes version - `1.28.5`
 
@@ -32,14 +32,14 @@ The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum
 **Azure CNI Overlay**
 |   Churn (%) | Churn Rate (sidecars/sec)   |   Sidecar Capacity |   Istiod Memory (GB) |   Istiod CPU |
 |-------------|-----------------------------|--------------------|----------------------|--------------|
-|           0 | --                          |              35000 |                 47.8 |           15 |
+|           0 |--|              35000 |                 47.8 |           15 |
 |          25 | 41.7                        |              25000 |                 37.2 |           16 |
 |          50 | 52.1                        |              25000 |                 39.8 |           16 |
 
 **Azure CNI Overlay with Cilium**
 |   Churn (%) | Churn Rate (sidecars/sec)   |   Sidecar Capacity |   Istiod Memory (GB) |   Istiod CPU |
 |-------------|-----------------------------|--------------------|----------------------|--------------|
-|           0 | --                          |              30000 |                 41.2 |           15 |
+|           0 |--|              30000 |                 41.2 |           15 |
 |          25 | 41.7                        |              25000 |                 36.1 |           16 |
 |          50 | 37.9                        |              25000 |                 42.7 |           16 |
 
@@ -70,10 +70,10 @@ Various factors impact [sidecar performance][data-plane-performance] such as req
 #### Test Specifications
 - Two network plugins tested - Azure CNI Overlay or Azure CNI Overlay with Cilium [ (recommended network plugins for large scale clusters) ](https://learn.microsoft.com/en-us/azure/aks/azure-cni-overlay?tabs=kubectl#choosing-a-network-model-to-use)
 - Kubernetes version - `1.28.5`
-- Node SKU - Standard D16 v5 (16 vCPU, 64 GB memory)
+- Node SKU - Standard D16 v5 (16 vCPU, 64-GB memory)
 - 25 nodes
-- 2 proxy workers
-- 1 KB payload
+- Two proxy workers
+- 1-KB payload
 - 1000 QPS at 2/4/8/16/32/64 client connections
 - `http/1.1` protocol and mutual TLS enabled
 - 26 data points collected
