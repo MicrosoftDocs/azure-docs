@@ -95,7 +95,7 @@ The following steps outline a typical workflow for a Customer Lockbox for Micros
 
     
     Example email:
-    :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-email-notification.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-email-notification.png" alt-text="A screesnhot the the email notification .":::
+    :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-email-notification.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-email-notification.png" alt-text="A screenshot of the email notification.":::
 
 1. The email notification provides a link to the **Customer Lockbox** blade in the Administration module. The designated approver signs in to the Azure portal to view any pending requests that their organization has for Customer Lockbox for Microsoft Azure:
     :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-landing-page.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-landing-page.png" alt-text="A screenshot of the Customer Lockbox for Microsoft Azure landing page.":::
