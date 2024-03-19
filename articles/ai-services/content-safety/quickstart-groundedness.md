@@ -152,16 +152,15 @@ You can use your existing Azure OpenAI resource to power the reasoning feature. 
 
     Navigate to your Azure AI Content Safety instance in the Azure portal. Find the **Identity** section under the **Settings** category. Enable the system-assigned managed identity. This action grants your Azure AI Content Safety instance an identity that can be recognized and used within Azure for accessing other resources. 
     
-    ![image](https://github.com/Azure/Azure-AI-Content-Safety-Private-Preview/assets/36343326/dfa6677f-1c13-4a80-9c1b-f0b2c19b849f)
+    :::image type="content" source="media/content-safety-identity.png" alt-text="Screenshot of a Content Safety identity resource in the Azure portal.":::
 
 1. Assign Role to Managed Identity.
 
     Navigate to your Azure OpenAI instance, select **Add role assignment** to start the process of assigning an Azure OpenAI role to the Azure AI Content Safety identity. Choose the **User** role.
 
-    ![image](https://github.com/Azure/Azure-AI-Content-Safety-Private-Preview/assets/36343326/0bdab704-2825-4a78-b9b4-56e72aa19718)
+    :::image type="content" source="media/add-role-assignment.png" alt-text="Screenshot of adding role assignment in Azure portal.":::
 
-    ![image](https://github.com/Azure/Azure-AI-Content-Safety-Private-Preview/assets/36343326/5df9be34-0929-4dfa-8e5a-edfd653d0e02)
-
+    :::image type="content" source="media/assigned-roles-simple.png" alt-text="Screenshot of the Azure portal with the Contributor and User roles displayed in a list.":::
 
 1. In your request to the Groundedness detection API, set the `"Reasoning"` body parameter to `true`, and provide the other needed parameters:
 
