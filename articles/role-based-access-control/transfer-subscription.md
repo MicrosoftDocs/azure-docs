@@ -96,7 +96,7 @@ To get a list of some of the Azure resources that are impacted when you transfer
 To complete these steps, you will need:
 
 - [Bash in Azure Cloud Shell](../cloud-shell/overview.md) or [Azure CLI](/cli/azure)
-- Account Administrator of the subscription you want to transfer in the source directory
+- Billing account owner of the subscription you want to transfer in the source directory
 - A user account in both the source and target directory for the user making the directory change
 
 ## Step 1: Prepare for the transfer
@@ -398,6 +398,6 @@ If your intent is to remove access from users in the source directory so that th
 ## Next steps
 
 - [Transfer billing ownership of an Azure subscription to another account](../cost-management-billing/manage/billing-subscription-transfer.md)
-- [Transfer Azure subscriptions between subscribers and CSPs](../cost-management-billing/manage/transfer-subscriptions-subscribers-csp.md)
+- [Transfer Azure subscriptions between subscribers and CSPs](../cost-management-billing/manage/transfer-subscriptions-subscribers-csp.yml)
 - [Associate or add an Azure subscription to your Microsoft Entra tenant](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 - [Azure Lighthouse in enterprise scenarios](../lighthouse/concepts/enterprise.md)
