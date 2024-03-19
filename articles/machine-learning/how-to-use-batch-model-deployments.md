@@ -5,11 +5,11 @@ description: In this article, learn how to create a batch endpoint to continuous
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: inferencing
-ms.topic: conceptual
+ms.topic: how-to
 author: santiagxf
 ms.author: fasantia
 ms.reviewer: mopeakande
-ms.date: 11/04/2022
+ms.date: 03/19/2024
 ms.custom: how-to, devplatv2, update-code
 #Customer intent: As an ML engineer or data scientist, I want to create an endpoint to host my models for batch scoring, so that I can use the same endpoint continuously for different large datasets on-demand or on-schedule.
 ---
@@ -18,43 +18,74 @@ ms.custom: how-to, devplatv2, update-code
 
 [!INCLUDE [cli v2](includes/machine-learning-dev-v2.md)]
 
-Batch endpoints provide a convenient way to deploy models to run inference over large volumes of data. They simplify the process of hosting your models for batch scoring, so you can focus on machine learning, not infrastructure. We call this type of deployments *model deployments*.
+Batch endpoints provide a convenient way to deploy models that run inference over large volumes of data. These endpoints simplify the process of hosting your models for batch scoring, so that your focus is on machine learning, rather than the infrastructure.
 
-Use batch endpoints to deploy models when:
+Use batch endpoints for model deployment when:
 
-> [!div class="checklist"]
-> * You have expensive models that requires a longer time to run inference.
-> * You need to perform inference over large amounts of data, distributed in multiple files.
-> * You don't have low latency requirements.
-> * You can take advantage of parallelization.
+- You have expensive models that require a longer time to run inference.
+- You need to perform inference over large amounts of data that is distributed in multiple files.
+- You don't have low latency requirements.
+- You can take advantage of parallelization.
 
-In this article, you'll learn how to use batch endpoints to deploy a machine learning model to perform inference.
-
-## About this example
-
-In this example, we're going to deploy a model to solve the classic MNIST ("Modified National Institute of Standards and Technology") digit recognition problem to perform batch inferencing over large amounts of data (image files). In the first section of this tutorial, we're going to create a batch deployment with a model created using Torch. Such deployment will become our default one in the endpoint. In the second half, [we're going to see how we can create a second deployment](#adding-deployments-to-an-endpoint) using a model created with TensorFlow (Keras), test it out, and then switch the endpoint to start using the new deployment as default.
-
-[!INCLUDE [machine-learning-batch-clone](includes/azureml-batch-clone-samples-with-studio.md)]
-
-The files for this example are in:
-
-```azurecli
-cd endpoints/batch/deploy-models/mnist-classifier
-```
-
-### Follow along in Jupyter Notebooks
-
-You can follow along this sample in the following notebooks. In the cloned repository, open the notebook: [mnist-batch.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/batch/deploy-models/mnist-classifier/mnist-batch.ipynb).
+In this article, you use a batch endpoint to deploy a machine learning model that solves the classic MNIST (Modified National Institute of Standards and Technology) digit recognition problem. Your deployed model then performs batch inferencing over large amounts of data—in this case, image files. You begin by creating a batch deployment of a model that was created using Torch. This deployment becomes the default one in the endpoint. Later, you [create a second deployment](#adding-deployments-to-an-endpoint) of a mode that was created with TensorFlow (Keras), test the second deployment, and then set it as the endpoint's default deployment.
 
 ## Prerequisites
 
 [!INCLUDE [machine-learning-batch-prereqs-studio](includes/azureml-batch-prereqs-with-studio.md)]
 
+## Prepare your system
+
+### Connect to your workspace
+
+# [Azure CLI](#tab/cli)
+
+First, connect to the Azure Machine Learning workspace where you'll work.
+
+If you haven't already set the defaults for the Azure CLI, save your default settings. To avoid passing in the values for your subscription, workspace, resource group, and location multiple times, run this code:
+
+```azurecli
+az account set --subscription <subscription>
+az configure --defaults workspace=<workspace> group=<resource-group> location=<location>
+```
+
+# [Python](#tab/python)
+
+The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we'll connect to the workspace in which you'll perform deployment tasks.
+
+1. Import the required libraries:
+
+    ```python
+    from azure.ai.ml import MLClient, Input, load_component
+    from azure.ai.ml.entities import BatchEndpoint, ModelBatchDeployment, ModelBatchDeploymentSettings, PipelineComponentBatchDeployment, Model, AmlCompute, Data, BatchRetrySettings, CodeConfiguration, Environment, Data
+    from azure.ai.ml.constants import AssetTypes, BatchDeploymentOutputAction
+    from azure.ai.ml.dsl import pipeline
+    from azure.identity import DefaultAzureCredential
+    ```
+
+    > [!NOTE]
+    > Classes `ModelBatchDeployment` and `PipelineComponentBatchDeployment` were introduced in version 1.7.0 of the SDK.
+
+2. Configure workspace details and get a handle to the workspace:
+
+    ```python
+    subscription_id = "<subscription>"
+    resource_group = "<resource-group>"
+    workspace = "<workspace>"
+    
+    ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
+    ```
+
+# [Studio](#tab/azure-studio)
+
+Open the [Azure Machine Learning studio portal](https://ml.azure.com) and sign in using your credentials.
+
+---
+
 ### Create compute
 
-Batch endpoints run on compute clusters. They support both [Azure Machine Learning Compute clusters (AmlCompute)](./how-to-create-attach-compute-cluster.md) or [Kubernetes clusters](./how-to-attach-kubernetes-anywhere.md). Clusters are a shared resource so one cluster can host one or many batch deployments (along with other workloads if desired).
+Batch endpoints run on compute clusters and support both [Azure Machine Learning compute clusters (AmlCompute)](./how-to-create-attach-compute-cluster.md) and [Kubernetes clusters](./how-to-attach-kubernetes-anywhere.md). Clusters are a shared resource, therefore, one cluster can host one or many batch deployments (along with other workloads, if desired).
 
-This article uses a compute created here named `batch-cluster`. Adjust as needed and reference your compute using `azureml:<your-compute-name>` or create one as shown.
+Create a compute named `batch-cluster`, as shown in the following code. You can adjust as needed and reference your compute using `azureml:<your-compute-name>`.
 
 # [Azure CLI](#tab/cli)
 
@@ -64,14 +95,19 @@ This article uses a compute created here named `batch-cluster`. Adjust as needed
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/mnist-classifier/mnist-batch.ipynb?name=create_compute)]
 
-# [Studio](#tab/studio)
+# [Studio](#tab/azure-studio)
 
-*Create a compute cluster as explained in the following tutorial [Create an Azure Machine Learning compute cluster](./how-to-create-attach-compute-cluster.md?tabs=studio).*
+Follow the steps in the tutorial [Create an Azure Machine Learning compute cluster](./how-to-create-attach-compute-cluster.md?tabs=studio) to create a compute cluster.
 
 ---
 
 > [!NOTE]
-> You are not charged for compute at this point as the cluster will remain at 0 nodes until a batch endpoint is invoked and a batch scoring job is submitted. Learn more about [manage and optimize cost for AmlCompute](./how-to-manage-optimize-cost.md#use-azure-machine-learning-compute-cluster-amlcompute).
+> You're not charged for the compute at this point, as the cluster remains at 0 nodes until a batch endpoint is invoked and a batch scoring job is submitted. FOr more information about compute costs, see [Manage and optimize cost for AmlCompute](./how-to-manage-optimize-cost.md#use-azure-machine-learning-compute-cluster-amlcompute).
+
+
+### Clone the examples repository
+
+[!INCLUDE [machine-learning-batch-clone](includes/azureml-batch-clone-samples-with-studio.md)]
 
 
 ## Create a batch endpoint
@@ -97,7 +133,7 @@ A batch endpoint is an HTTPS endpoint that clients can call to trigger a batch s
 
     [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/mnist-classifier/mnist-batch.ipynb?name=name_endpoint)]
     
-    # [Studio](#tab/studio)
+    # [Studio](#tab/azure-studio)
     
     *You'll configure the name of the endpoint later in the creation wizard.*
     
@@ -130,7 +166,7 @@ A batch endpoint is an HTTPS endpoint that clients can call to trigger a batch s
     | `description` | The description of the batch endpoint. This property is optional. |
     | `tags` | The tags to include in the endpoint. This property is optional. |
     
-    # [Studio](#tab/studio)
+    # [Studio](#tab/azure-studio)
     
     *You'll create the endpoint in the same step you create the deployment.*
     
@@ -147,7 +183,7 @@ A batch endpoint is an HTTPS endpoint that clients can call to trigger a batch s
     
     [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/mnist-classifier/mnist-batch.ipynb?name=create_endpoint)]
 
-    # [Studio](#tab/studio)
+    # [Studio](#tab/azure-studio)
     
     *You'll create the endpoint in the same step you are creating the deployment later.*
 
@@ -174,7 +210,7 @@ A model deployment is a set of resources required for hosting the model that doe
 
     [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/mnist-classifier/mnist-batch.ipynb?name=register_model)]
 
-    # [Studio](#tab/studio)
+    # [Studio](#tab/azure-studio)
 
     1. Navigate to the __Models__ tab on the side menu.
 
@@ -223,7 +259,7 @@ A model deployment is a set of resources required for hosting the model that doe
    
     [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/mnist-classifier/mnist-batch.ipynb?name=configure_environment)]
 
-    # [Studio](#tab/studio)
+    # [Studio](#tab/azure-studio)
     
     On [Azure Machine Learning studio portal](https://ml.azure.com), follow these steps:
     
@@ -305,7 +341,7 @@ A model deployment is a set of resources required for hosting the model that doe
     | `settings.logging_level` | The log verbosity level. Allowed values are `warning`, `info`, `debug`. Default is `info`. |
     | `settings.environment_variables` | Dictionary of environment variable name-value pairs to set for each batch scoring job.  |
 
-    # [Studio](#tab/studio)
+    # [Studio](#tab/azure-studio)
    
     On [Azure Machine Learning studio portal](https://ml.azure.com), follow these steps:
     
@@ -371,7 +407,7 @@ A model deployment is a set of resources required for hosting the model that doe
 
     [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/mnist-classifier/mnist-batch.ipynb?name=set_default_deployment)]
 
-    # [Studio](#tab/studio)
+    # [Studio](#tab/azure-studio)
     
     In the wizard, select __Create__ to start the deployment process.
     
@@ -393,7 +429,7 @@ A model deployment is a set of resources required for hosting the model that doe
 
     [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/mnist-classifier/mnist-batch.ipynb?name=query_deployment)]
 
-    # [Studio](#tab/studio)
+    # [Studio](#tab/azure-studio)
     
     1. Navigate to the __Endpoints__ tab on the side menu.
     
@@ -427,7 +463,7 @@ You can run and invoke a batch endpoint using Azure CLI, Azure Machine Learning 
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/mnist-classifier/mnist-batch.ipynb?name=start_batch_scoring_job)]
 
-# [Studio](#tab/studio)
+# [Studio](#tab/azure-studio)
 
 1. Navigate to the __Endpoints__ tab on the side menu.
 
@@ -471,7 +507,7 @@ The following code checks the job status and outputs a link to the Azure Machine
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/mnist-classifier/mnist-batch.ipynb?name=get_job)]
 
-# [Studio](#tab/studio)
+# [Studio](#tab/azure-studio)
 
 1. Navigate to the __Endpoints__ tab on the side menu.
 
@@ -531,7 +567,7 @@ Once you identified the data store you want to use, configure the output as foll
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/mnist-classifier/mnist-batch.ipynb?name=start_batch_scoring_job_set_output)]
 
-# [Studio](#tab/studio)
+# [Studio](#tab/azure-studio)
 
 1. Navigate to the __Endpoints__ tab on the side menu.
 
@@ -585,7 +621,7 @@ Some settings can be overwritten when invoke to make best use of the compute res
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/mnist-classifier/mnist-batch.ipynb?name=start_batch_scoring_job_overwrite)]
 
-# [Studio](#tab/studio)
+# [Studio](#tab/azure-studio)
 
 1. Navigate to the __Endpoints__ tab on the side menu.
 
@@ -631,7 +667,7 @@ In this example, you'll learn how to add a second deployment __that solves the s
    
     [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/mnist-classifier/mnist-batch.ipynb?name=configure_environment_non_default)]
 
-    # [Studio](#tab/studio)
+    # [Studio](#tab/azure-studio)
     
     1. Navigate to the __Environments__ tab on the side menu.
     
@@ -675,7 +711,7 @@ In this example, you'll learn how to add a second deployment __that solves the s
     
     [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/mnist-classifier/mnist-batch.ipynb?name=configure_deployment_non_default)]
     
-    # [Studio](#tab/studio)
+    # [Studio](#tab/azure-studio)
 
     1. Navigate to the __Endpoints__ tab on the side menu.
     
@@ -733,7 +769,7 @@ In this example, you'll learn how to add a second deployment __that solves the s
 
     [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/mnist-classifier/mnist-batch.ipynb?name=create_deployment_non_default)]
 
-    # [Studio](#tab/studio)
+    # [Studio](#tab/azure-studio)
     
     In the wizard, select __Create__ to start the deployment process.
 
@@ -754,7 +790,7 @@ Notice `--deployment-name` is used to specify the deployment we want to execute.
 
 Notice `deployment_name` is used to specify the deployment we want to execute. This parameter allows you to `invoke` a non-default deployment, and it will not update the default deployment of the batch endpoint.
 
-# [Studio](#tab/studio)
+# [Studio](#tab/azure-studio)
 
 1. Navigate to the __Endpoints__ tab on the side menu.
 
@@ -782,7 +818,7 @@ Although you can invoke a specific deployment inside of an endpoint, you'll usua
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/mnist-classifier/mnist-batch.ipynb?name=update_default_deployment)]
 
-# [Studio](#tab/studio)
+# [Studio](#tab/azure-studio)
 
 1. Navigate to the __Endpoints__ tab on the side menu.
 
@@ -824,7 +860,7 @@ Run the following code to delete the batch endpoint and all the underlying deplo
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/mnist-classifier/mnist-batch.ipynb?name=delete_endpoint)]
 
-# [Studio](#tab/studio)
+# [Studio](#tab/azure-studio)
 
 1. Navigate to the __Endpoints__ tab on the side menu.
 
