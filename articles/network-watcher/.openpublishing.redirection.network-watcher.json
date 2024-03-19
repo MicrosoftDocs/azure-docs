@@ -1,6 +1,51 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/network-watcher/network-watcher-connectivity-cli.md",
+            "redirect_url": "/azure/network-watcher/connection-troubleshoot-cli",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/network-watcher-nsg-flow-logging-overview.md",
+            "redirect_url": "/azure/network-watcher/nsg-flow-logs-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/nsg-flow-logging.md",
+            "redirect_url": "/azure/network-watcher/nsg-flow-logs-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/network-watcher-nsg-flow-logging-powershell.md",
+            "redirect_url": "/azure/network-watcher/nsg-flow-logs-powershell",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/network-watcher-nsg-flow-logging-cli.md",
+            "redirect_url": "/azure/network-watcher/nsg-flow-logs-cli",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/network-watcher-nsg-flow-logging-rest.md",
+            "redirect_url": "/azure/network-watcher/nsg-flow-logs-rest",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/network-watcher-nsg-flow-logging-azure-resource-manager.md",
+            "redirect_url": "/azure/network-watcher/nsg-flow-logs-azure-resource-manager",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/network-watcher-connectivity-powershell.md",
+            "redirect_url": "/azure/network-watcher/connection-troubleshoot-powershell",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/network-watcher-connectivity-portal.md",
+            "redirect_url": "/azure/network-watcher/connection-troubleshoot-portal",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/network-watcher/network-watcher-next-hop-overview.md",
             "redirect_url": "/azure/network-watcher/next-hop-overview",
             "redirect_document_id": true

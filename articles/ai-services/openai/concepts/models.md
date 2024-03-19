@@ -4,7 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn about the different model capabilities that are available with Azure OpenAI.
 ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 03/12/2024
+ms.date: 03/14/2024
 ms.custom: references_regions, build-2023, build-2023-dataai, refefences_regions
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
@@ -85,6 +85,17 @@ You can also use the OpenAI text to speech voices via Azure AI Speech. To learn 
 
 ## Model summary table and region availability
 
+> [!NOTE]
+> This article only covers model/region availability that applies to all Azure OpenAI customers with deployment types of **Standard**. Some select customers have access to model/region combinations that are not listed in the unified table below. These tables also do not apply to customers using only **Provisioned** deployment types which have their own unique model/region availability matrix. For more information on **Provisioned** deployments refer to our [Provisioned guidance](./provisioned-throughput.md).
+
+### Standard deployment model availability
+
+[!INCLUDE [Standard Models](../includes/model-matrix/standard-models.md)]
+
+### Standard deployment model quota
+
+[!INCLUDE [Quota](../includes/model-matrix/quota.md)]
+
 ### GPT-4 and GPT-4 Turbo Preview models
 
 GPT-4, GPT-4-32k, and GPT-4 Turbo with Vision are now available to all Azure OpenAI Service customers.  Availability varies by region.  If you don't see GPT-4 in your region, please check back later.
@@ -128,13 +139,16 @@ GPT-4 version 0125-preview is an updated version of the GPT-4 Turbo preview prev
 
 #### Public cloud regions
 
-| Model | Regions where model is available to all subscriptions with Azure OpenAI access | Regions where model is available only to subscriptions with previous access to that model/region |  
-|---|:---|:---|  
-| gpt-4 (0314) | | East US <br> France Central <br> South Central US <br> UK South |  
-| gpt-4 (0613) | Australia East <br> Canada East <br> France Central <br> Sweden Central <br> Switzerland North | East US <br> East US 2 <br> Japan East <br> UK South |  
-| gpt-4 (1106-Preview) | Australia East <br> Canada East <br> East US 2 <br> France Central <br> Norway East <br> South India <br> Sweden Central <br> UK South <br> West US | |  
-| gpt-4 (0125-Preview) | East US <br> North Central US <br> South Central US <br> |
-| gpt-4 (vision-preview) |  Sweden Central <br> West US <br> Japan East <br> Switzerland North <br> Australia East|   |  
+[!INCLUDE [GPT-4](../includes/model-matrix/standard-gpt-4.md)]
+
+#### Select customer access
+
+In addition to the regions above which are available to all Azure OpenAI customers, some select pre-existing customers have been granted access to versions of GPT-4 in additional regions:
+
+| Model | Region |  
+|---|:---|  
+| `gpt-4` (0314) | East US <br> France Central <br> South Central US <br> UK South |  
+| `gpt-4` (0613) | East US <br> East US 2 <br> Japan East <br> UK South |  
 
 #### Azure Government regions
 
@@ -143,7 +157,6 @@ The following GPT-4 models are available with [Azure Government](/azure/azure-go
 |Model ID | Model Availability |
 |--|--|
 | `gpt-4` (1106-Preview) | US Gov Virginia<br>US Gov Arizona |
-
 
 ### GPT-3.5 models
 
@@ -159,19 +172,20 @@ See [model versions](../concepts/model-versions.md) to learn about how Azure Ope
 > [!NOTE]
 > Version `0613` of `gpt-35-turbo` and `gpt-35-turbo-16k` will be retired no earlier than June 13, 2024. Version `0301` of `gpt-35-turbo` will be retired no earlier than July 5, 2024.  See [model updates](../how-to/working-with-models.md#model-updates) for model upgrade behavior.
 
-### GPT-3.5-Turbo model availability
+|  Model ID   | Max Request (tokens) | Training Data (up to) |
+|  --------- |:------:|:----:|
+| `gpt-35-turbo`**<sup>1</sup>** (0301) | 4,096 | Sep 2021 |
+| `gpt-35-turbo` (0613) | 4,096 | Sep 2021 |
+| `gpt-35-turbo-16k` (0613) | 16,384 | Sep 2021 |
+| `gpt-35-turbo-instruct` (0914) | 4,097 |Sep 2021 |
+| `gpt-35-turbo` (1106) | Input: 16,385<br> Output: 4,096 |  Sep 2021|
+| `gpt-35-turbo` (0125) **NEW** | 16,385 | Sep 2021 |
 
+### GPT-3.5-Turbo model availability
 
 #### Public cloud regions
 
-|  Model ID  |   Model Availability  | Max Request (tokens) | Training Data (up to) |
-|  --------- |  -------------------- |:------:|:----:|
-| `gpt-35-turbo`**<sup>1</sup>** (0301) | East US <br> France Central <br> South Central US <br> UK South <br> West Europe | 4,096 | Sep 2021 |
-| `gpt-35-turbo` (0613) | Australia East <br> Canada East <br> East US <br> East US 2 <br> France Central <br> Japan East <br> North Central US <br> Sweden Central <br> Switzerland North <br> UK South | 4,096 | Sep 2021 |
-| `gpt-35-turbo-16k` (0613) | Australia East <br> Canada East <br> East US <br> East US 2 <br> France Central <br> Japan East <br> North Central US <br> Sweden Central <br> Switzerland North<br> UK South | 16,384 | Sep 2021 |
-| `gpt-35-turbo-instruct` (0914) | East US <br> Sweden Central | 4,097 |Sep 2021 |
-| `gpt-35-turbo` (1106) | Australia East <br> Canada East <br> France Central <br> South India <br> Sweden Central<br> UK South <br> West US | Input: 16,385<br> Output: 4,096 |  Sep 2021|
-|`gpt-35-turbo` (0125) **NEW** | Canada East <br> North Central US <br> South Central US | 16,385 | Sep 2021 |
+[!INCLUDE [GPT-35-Turbo](../includes/model-matrix/standard-gpt-35-turbo.md)]
 
 **<sup>1</sup>** This model will accept requests > 4,096 tokens. It is not recommended to exceed the 4,096 input token limit as the newer version of the model are capped at 4,096 tokens. If you encounter issues when exceeding 4,096 input tokens with this model this configuration is not officially supported.
 
@@ -182,15 +196,19 @@ These models can only be used with Embedding API requests.
 > [!NOTE]
 > `text-embedding-3-large` is the latest and most capable embedding model. Upgrading between embedding models is not possible. In order to migrate from using `text-embedding-ada-002` to `text-embedding-3-large` you would need to generate new embeddings.  
 
-|  Model ID  |  Model Availability  | Max Request (tokens) | Output Dimensions |Training Data (up-to)
+|  Model ID | Max Request (tokens) | Output Dimensions |Training Data (up-to)
 |---|---| :---:|:---:|:---:|
-| `text-embedding-ada-002` (version 2) | Australia East <br> Canada East <br> East US <br> East US2 <br> France Central <br> Japan East <br> North Central US <br> Norway East <br> South Central US <br> Sweden Central <br> Switzerland North <br> UK South <br> West Europe <br> West US |8,191 | 1,536 | Sep 2021 |
-| `text-embedding-ada-002` (version 1) | East US <br> South Central US <br> West Europe |2,046 | 1,536 | Sep 2021 |
-| `text-embedding-3-large` | Canada East, East US, East US 2 | 8,191 | 3,072 |Sep 2021 |
-| `text-embedding-3-small` | Canada East, East US, East US 2 | 8,191|  1,536 | Sep 2021 |
+| `text-embedding-ada-002` (version 2) |8,191 | 1,536 | Sep 2021 |
+| `text-embedding-ada-002` (version 1) |2,046 | 1,536 | Sep 2021 |
+| `text-embedding-3-large` | 8,191 | 3,072 |Sep 2021 |
+| `text-embedding-3-small` | 8,191|  1,536 | Sep 2021 |
 
 > [!NOTE]
 > When sending an array of inputs for embedding, the max number of input items in the array per call to the embedding endpoint is 2048.
+
+#### Public cloud regions
+
+[!INCLUDE [Embeddings](../includes/model-matrix/standard-embeddings.md)]
 
 #### Azure Government regions
 
@@ -221,7 +239,6 @@ The following Embeddings models are available with [Azure Government](/azure/azu
 | `gpt-35-turbo` (1106) | North Central US <br> Sweden Central | Input: 16,385<br> Output: 4,096 |  Sep 2021|
 | `gpt-35-turbo` (0125)  | North Central US <br> Sweden Central  | 16,385 | Sep 2021 |
 
-
 ### Whisper models
 
 |  Model ID  | Model Availability | Max Request (audio file size) |
@@ -239,13 +256,13 @@ The following Embeddings models are available with [Azure Government](/azure/azu
 
 For Assistants you need a combination of a supported model, and a supported region. Certain tools and capabilities require the latest models. For example [parallel function](../how-to/assistant-functions.md) calling requires the latest 1106 models.
 
+| Region | `gpt-35-turbo (0613)` | `gpt-35-turbo (1106)` | `gpt-4 (0613)` | `gpt-4 (1106)` | `gpt-4 (0125)` | 
+|-----|---|---|---|---|---|
+| Australia East | ✅ | ✅ | ✅ |✅ | |
+| East US 2 | ✅ | | ✅ |✅ | |
+| Sweden Central | ✅ |✅ |✅ |✅| |
 
-| Region | `gpt-35-turbo (0613)` | `gpt-35-turbo (1106)` | `gpt-4 (0613)` | `gpt-4 (1106)` | 
-|-----|---|---|---|---|
-| Australia East | ✅ | ✅ | ✅ |✅ |
-| East US 2 | ✅ | ⬜| ✅ |✅ |
-| Sweden Central | ✅ |✅ |✅ |✅|
-
+For information on Provisioned Throughput Unit (PTU) availability, see [provisioned throughput](./provisioned-throughput.md). 
 
 ## Next steps
 

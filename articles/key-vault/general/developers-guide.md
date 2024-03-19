@@ -145,7 +145,7 @@ For certificates, you can use:
 For secrets, you can use:
 
 - Key Vault secrets with App Service application settings. For more information, see [Use Key Vault references for App Service and Azure Functions](../../app-service/app-service-key-vault-references.md).
-- Key Vault secrets with the App Configuration service for applications hosted in an Azure VM. For more information, see [Configure applications with App Configuration and Key Vault](/samples/azure/azure-sdk-for-net/app-secrets-configuration/).
+- Key Vault references with Azure App Configuration to streamline your application's access to configuration and secrets. For more information, see [Use Key Vault references in Azure App Configuration](../../azure-app-configuration/use-key-vault-references-dotnet-core.md).
 
 ## Code examples
 

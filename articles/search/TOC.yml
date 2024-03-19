@@ -20,7 +20,7 @@
   - name: Semantic reranking
     href: search-get-started-semantic.md
   - name: Chat with your data (Azure OpenAI Studio)
-    href: search-get-started-retrieval-augmented-generation.md
+    href:  /azure/ai-services/openai/use-your-data-quickstart?context=/azure/search/context/context
   - name: Portal
     items:
     - name: Create an index

@@ -7,7 +7,7 @@ keywords: 'SAP, Azure HANA, Storage Ultra disk, Premium storage'
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 08/03/2023
+ms.date: 03/18/2024
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -50,7 +50,7 @@ Given that low storage latency is critical for DBMS systems, even as DBMS, like 
 Some guiding principles in selecting your storage configuration for HANA can be listed like:
 
 - Decide on the type of storage based on [Azure Storage types for SAP workload](./planning-guide-storage.md) and [Select a disk type](../../virtual-machines/disks-types.md)
-- The overall VM I/O throughput and IOPS limits in mind when sizing or deciding for a VM. Overall VM storage throughput is documented in the article [Memory optimized virtual machine sizes](../../virtual-machines/sizes-memory.md). 
+- The overall VM I/O throughput and IOPS limits in mind when sizing or deciding for a VM. Overall VM storage throughput is documented in the article [Memory optimized virtual machine sizes](../../virtual-machines/sizes-memory.md)   
 - When deciding for the storage configuration, try to stay below the overall throughput of the VM with your **/hana/data** volume configuration. SAP HANA writing savepoints, HANA can be aggressive issuing I/Os. It's easily possible to push up to throughput limits of your **/hana/data** volume when writing a savepoint. If your disk(s) that build the **/hana/data** volume have a higher throughput than your VM allows, you could run into situations where throughput utilized by the savepoint writing is interfering with throughput demands of the redo log writes. A situation that can impact the application throughput
 - If you're considering using HANA System Replication, the storage used for **/hana/data** on each replica must be same and the storage type used for **/hana/log** on each replica must be same. For example, using Azure premium storage v1 for **/hana/data** with one VM and Azure Ultra disk for **/hana/data** in another VM running a replica of the same HANA System replication configuration, isn't supported
 
@@ -97,18 +97,39 @@ Accumulating multiple Azure disks underneath a stripe set, is accumulative from 
 > [!IMPORTANT]
 > In case you're using LVM or mdadm as volume manager to create stripe sets across multiple Azure premium disks, the three SAP HANA FileSystems /data, /log and /shared must not be put in a default or root volume group. It's highly recommended to follow the Linux Vendors guidance which is typically to create individual Volume Groups for /data, /log and /shared.
 
+## Considerations for the HANA shared file system
+
+When sizing the HANA file systems, most attention is given to the data and log file HANA systems. However, **/hana/shared** also plays an important role in operating a stable HANA system, as it hosts essential components like the HANA binaries.  
+If undersized, **/hana/shared** could become I/O saturated due to excessive read/write operations - for instance while writing a large dump, or during intensive tracing, or if backup is written to the **/hana/shared** file system. Latency could also increase.  
+
+If the HANA system is in an HA configuration, slow responses from the shared file system, i.e. **/hana/shared** could cause cluster resources timeouts. These timeouts may lead to unnecessary failovers, because the HANA resource agents might incorrectly assume that the database is not available.    
+
+The SAP guidelines for **/hana/shared** recommended  sizes would look like:
+
+| Volume | Recommended Size | 
+| --- | --- |
+| /hana/shared scale-up | Min(1 TB, 1 x RAM) |
+| /hana/shared scale-out | 1 x RAM of worker node<br /> per four worker nodes  |
+
+Consult the following SAP notes for more details:  
+[3288971 - FAQ: SUSE HAE/RedHat HAA Pacemaker Cluster Resource Manager in SAP HANA System Replication Environments](https://me.sap.com/notes/3288971)  
+[1999930 - FAQ: SAP HANA I/O Analysis](https://me.sap.com/notes/1999930)  
+
+As a best practice, size **/hana/shared** to avoid performance bottlenecks. 
+Remember that a well-sized **/hana/shared** file system contributes to the stability and reliability of your SAP HANA system, especially in HA scenarios.
+ 
 
 ## Azure Premium Storage v1 configurations for HANA
-For detailed HANA storage configuration recommendations using Azure premium storage v1, read the document [SAP HANA Azure virtual machine Premium SSD storage configurations](./hana-vm-premium-ssd-v1.md)
+For detailed HANA storage configuration recommendations using Azure premium storage v1, read the document [SAP HANA Azure virtual machine Premium SSD storage configurations](./hana-vm-premium-ssd-v1.md).  
 
 ## Azure Premium SSD v2 configurations for HANA
-For detailed HANA storage configuration recommendations using Azure premium ssd v2 storage, read the document [SAP HANA Azure virtual machine Premium SSD v2 storage configurations](./hana-vm-premium-ssd-v2.md)
+For detailed HANA storage configuration recommendations using Azure premium ssd v2 storage, read the document [SAP HANA Azure virtual machine Premium SSD v2 storage configurations](./hana-vm-premium-ssd-v2.md).  
 
 ## Azure Ultra disk storage configuration for SAP HANA
-For detailed HANA storage configuration recommendations using Azure Ultra Disk, read the document [SAP HANA Azure virtual machine Ultra Disk storage configurations](./hana-vm-ultra-disk.md)
+For detailed HANA storage configuration recommendations using Azure Ultra Disk, read the document [SAP HANA Azure virtual machine Ultra Disk storage configurations](./hana-vm-ultra-disk.md).  
 
 ## NFS v4.1 volumes on Azure NetApp Files
-For detail on ANF for HANA, read the document [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md)
+For detail on ANF for HANA, read the document [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md).  
 
 ## Next steps
 For more information, see:

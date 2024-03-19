@@ -229,6 +229,6 @@ az network watcher list --out table
 
 To learn more about Network Watcher features, see:
 
-- [NSG flow logs](network-watcher-nsg-flow-logging-overview.md)
+- [NSG flow logs](nsg-flow-logs-overview.md)
 - [Connection monitor](connection-monitor-overview.md)
-- [Connection troubleshoot](network-watcher-connectivity-overview.md)
+- [Connection troubleshoot](connection-troubleshoot-overview.md)
