@@ -112,8 +112,8 @@ The SAP guidelines for **/hana/shared** recommended  sizes would look like:
 | /hana/shared scale-out | 1 x RAM of worker node<br /> per four worker nodes  |
 
 Consult the following SAP notes for more details: 
-[3288971 - FAQ: SUSE HAE/RedHat HAA Pacemaker Cluster Resource Manager in SAP HANA System Replication Environments](https://me.sap.com/notes/3288971)
-[1999930 - FAQ: SAP HANA I/O Analysis](https://me.sap.com/notes/1999930)
+[3288971 - FAQ: SUSE HAE/RedHat HAA Pacemaker Cluster Resource Manager in SAP HANA System Replication Environments](https://me.sap.com/notes/3288971)  
+[1999930 - FAQ: SAP HANA I/O Analysis](https://me.sap.com/notes/1999930)  
 
 As a best practice, size **/hana/shared** to avoid performance bottlenecks. 
 Remember that a well-sized **/hana/shared** file system contributes to the stability and reliability of your SAP HANA system, especially in HA scenarios.
