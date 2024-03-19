@@ -17,7 +17,7 @@ Reference layers enable the enhancement of spatial visualizations by overlaying 
 - [GeoJSON files] with a `.json` or `.geojson` extension
 - [WKT] (Well-Known Text) files with a `.wkt` extension
 - [KML] (Keyhole Markup Language) files with a `.kml` extension
-- [shp] (Shapefile) files with a `.shp` extension
+- [SHP] (Shapefile) files with a `.shp` extension
 
 ## Add a spatial dataset as a reference layer
 
@@ -119,7 +119,7 @@ Add more context to the map:
 [GeoJSON files]: https://wikipedia.org/wiki/GeoJSON
 [WKT]: https://wikipedia.org/wiki/Well-known_text_representation_of_geometry
 [KML]: https://wikipedia.org/wiki/Keyhole_Markup_Language
-[shp]: https://en.wikipedia.org/wiki/Shapefile
+[SHP]: https://en.wikipedia.org/wiki/Shapefile
 [2016 census tracts for Colorado]: https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/Static/data/geojson
 [supported style properties]: spatial-io-add-simple-data-layer.md#default-supported-style-properties
 [Add a tile layer]: power-bi-visual-add-tile-layer.md
