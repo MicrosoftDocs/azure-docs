@@ -57,7 +57,6 @@ For a more detailed overview of reliability principles in Azure, see [Reliabilit
 |Azure Backup|[Reliability in Azure Backup](reliability-backup.md)| [Reliability in Azure Backup](reliability-backup.md) |
 |Azure Bastion||[How do I incorporate Azure Bastion in my Disaster Recovery plan?](../bastion/bastion-faq.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#dr) |
 |Azure Batch|[Reliability in Azure Batch](reliability-batch.md)| [Reliability in Azure Batch](reliability-batch.md#cross-region-disaster-recovery-and-business-continuity) |
-|Azure Bot Service|[Reliability in Azure Bot Service](reliability-bot.md)|[Reliability in Azure Bot Service](reliability-bot.md)|
 |Azure Cache for Redis|[Enable zone redundancy for Azure Cache for Redis](../azure-cache-for-redis/cache-how-to-zone-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|[Configure passive geo-replication for Premium Azure Cache for Redis instances](../azure-cache-for-redis/cache-how-to-geo-replication.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 |Azure Communications Gateway|[Reliability in Azure Communications Gateway](../communications-gateway/reliability-communications-gateway.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|[Reliability in Azure Communications Gateway](../communications-gateway/reliability-communications-gateway.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Azure Container Apps|[Reliability in Azure Container Apps](reliability-azure-container-apps.md)|[Reliability in Azure Container Apps](reliability-azure-container-apps.md)|
@@ -86,14 +85,13 @@ For a more detailed overview of reliability principles in Azure, see [Reliabilit
 |Azure Monitor - Application Insights|[Continuous export advanced storage configuration](../azure-monitor/app/export-telemetry.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#continuous-export-advanced-storage-configuration) |
 |Azure Monitor-Log Analytics |[Enhance data and service resilience in Azure Monitor Logs with availability zones](../azure-monitor/logs/availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [Enable data export](../azure-monitor/logs/logs-data-export.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#enable-data-export) | 
 |Azure Network Watcher|[Service availability and redundancy](../network-watcher/frequently-asked-questions.yml?bc=%2fazure%2freliability%2fbreadcrumb%2ftoc.json&toc=%2fazure%2freliability%2ftoc.json#service-availability-and-redundancy)||
-|Azure Notification Hubs|[High availability for Azure Notification Hubs](../notification-hubs/availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)||
+|Azure Notification Hubs|[Reliability Azure Notification Hubs](reliability-notification-hubs.md)|[Reliability Azure Notification Hubs](reliability-notification-hubs.md)|
 |Azure Operator Nexus|[Reliability in Azure Operator Nexus](reliability-operator-nexus.md)|[Reliability in Azure Operator Nexus](reliability-operator-nexus.md)|
 |Azure Private Link|[Azure Private Link availability](../private-link/availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)||
 |Azure Route Server|[Azure Route Server FAQ](../route-server/route-server-faq.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Azure SQL Server Registry|| [What are Extended Security Updates for SQL Server?](/sql/sql-server/end-of-support/sql-server-extended-security-updates?preserve-view=true&view=sql-server-ver15#configure-regional-redundancy) |
 |Azure Storage - Blob Storage|[Choose the right redundancy option](../storage/common/storage-disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#choose-the-right-redundancy-option)|[Azure storage disaster recovery planning and failover](../storage/common/storage-disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Azure Stream Analytics|| [Achieve geo-redundancy for Azure Stream Analytics jobs](../stream-analytics/geo-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
-|Azure Traffic Manager|[Reliability in Azure Traffic Manager](reliability-traffic-manager.md)|[Reliability in Azure Traffic Manager](reliability-traffic-manager.md)|
 |Azure Virtual WAN|[How are Availability Zones and resiliency handled in Virtual WAN?](../virtual-wan/virtual-wan-faq.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-are-availability-zones-and-resiliency-handled-in-virtual-wan)| [Designing for disaster recovery with ExpressRoute private peering](../expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 |Azure Web Application Firewall|[Deploy an Azure Firewall with Availability Zones using Azure PowerShell](../firewall/deploy-availability-zone-powershell.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|[How do I achieve a disaster recovery scenario across datacenters by using Application Gateway?](../application-gateway/application-gateway-faq.yml?#how-do-i-achieve-a-disaster-recovery-scenario-across-datacenters-by-using-application-gateway) |
   
@@ -124,6 +122,15 @@ For a more detailed overview of reliability principles in Azure, see [Reliabilit
 |Microsoft Defender for Cloud DevOps security|[Reliability in Microsoft Defender for Cloud DevOps security](./reliability-defender-devops.md)|[Reliability in Microsoft Defender for Cloud DevOps security](./reliability-defender-devops.md)|
 |Microsoft Fabric|[Microsoft Fabric](reliability-fabric.md) |[Microsoft Fabric](reliability-fabric.md)|
 |Microsoft Purview|[Reliability for Microsoft Purview](reliability-fabric.md) |[Disaster recovery for Microsoft Purview](/purview/concept-best-practices-migration#implementation-steps)|
+
+
+### ![An icon that signifies this service is non-regional.](media/icon-always-available.svg) Non-regional services (always-available services)
+
+| Product| Availability zone guide | Disaster recovery guide |
+|-------|-------|-------|
+|Azure Bot Service|[Reliability in Azure Bot Service](reliability-bot.md)|[Reliability in Azure Bot Service](reliability-bot.md)|
+|Azure Traffic Manager|[Reliability in Azure Traffic Manager](reliability-traffic-manager.md)|[Reliability in Azure Traffic Manager](reliability-traffic-manager.md)|
+
 
 ## Azure Service Manager Retirement
 
