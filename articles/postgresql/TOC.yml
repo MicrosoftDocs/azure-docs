@@ -405,6 +405,8 @@
         href: flexible-server/generative-ai-azure-openai.md
       - name: Azure Cognitive Services
         href: flexible-server/generative-ai-azure-cognitive.md
+      - name: Azure Machine Learning Services
+        href: flexible-server/generative-ai-azure-machine-learning.md        
     - name: Azure Storage (pg_azure_storage)
       href: flexible-server/reference-pg-azure-storage.md
     - name: Vector similarity search (pgvector)

@@ -12,7 +12,7 @@ ms.reviewer: shseth
 # Azure Monitor Agent extension versions
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This article describes the version details for the Azure Monitor Agent virtual machine extension. This extension deploys the agent on virtual machines, scale sets, and Arc-enabled servers (on-premises servers with Azure Arc agent installed).
 

@@ -10,7 +10,7 @@ ms.reviewer: luki
 # Collect Syslog data sources with the Log Analytics agent
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 Syslog is an event logging protocol that's common to Linux. Applications send messages that might be stored on the local machine or delivered to a Syslog collector. When the Log Analytics agent for Linux is installed, it configures the local Syslog daemon to forward messages to the agent. The agent then sends the messages to Azure Monitor where a corresponding record is created.
 
