@@ -9,16 +9,19 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 03/12/2024
 ms.topic: conceptual
-ms.custom:
-  - references_regions
-  - devx-track-azurecli
-  - ignite-2023
+ms.custom: references_regions, ignite-2023
 #Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc-enabled data services so that I can leverage the capability of the feature.
 ---
 
 # Release notes - Azure Arc-enabled data services
 
 This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc-enabled data services.
+
+### Streamlined network endpoints
+
+Prior to this release, Azure Arc data processing endpoint was at `san-af-<region>-prod.azurewebsites.net`.
+
+Beginning with this release both Azure Arc data processing, and Azure Arc data telemetry use `*.<region>.arcdataservices.com`. 
 
 ## March 12, 2024
 

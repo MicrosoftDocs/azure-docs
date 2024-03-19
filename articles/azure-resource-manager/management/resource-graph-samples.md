@@ -5,6 +5,7 @@ ms.date: 07/07/2022
 ms.topic: sample
 ms.custom: subject-resourcegraph-sample, devx-track-azurepowershell, devx-track-arm-template, devx-track-azurecli
 ---
+
 # Azure Resource Graph sample queries for Azure Resource Manager
 
 This page is a collection of [Azure Resource Graph](../../governance/resource-graph/overview.md)
