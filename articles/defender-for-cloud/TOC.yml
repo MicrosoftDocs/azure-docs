@@ -281,7 +281,9 @@
             - name: Incidents reference list
               displayName: incidents
               href: incidents-reference.md
-
+        - name: Continuous exportable
+          displayName: continuous, export, exportable, exportable data
+          href: benefits-of-continuous-export.md
 
 - name: How-to guides
   items:

@@ -4,7 +4,7 @@ description: Learn how to view the data you exported with continuous export in A
 author: Elazark
 ms.author: Elkrieger
 ms.topic: how-to
-ms.date: 03/18/2024
+ms.date: 03/19/2024
 #customer intent: As a security analyst, I want to be able to view the exported data in Azure Monitor so that I can analyze and respond to security alerts and recommendations effectively.
 ---
 
@@ -32,7 +32,7 @@ To view alerts and recommendations from Defender for Cloud in Azure Monitor, con
 
 1. Select **New alert rule**.
 
-    :::image type="content" source="media/continuous-export/azure-monitor-alerts.png" alt-text="Screenshot that shows the Azure Monitor alerts page." lightbox="media/continuous-export/azure-monitor-alerts.png":::
+    :::image type="content" source="media/continuous-export-view-data/azure-monitor-alerts.png" alt-text="Screenshot that shows the Azure Monitor alerts page." lightbox="media/continuous-export-view-data/azure-monitor-alerts.png":::
 
 1. Set up your new rule the same way you'd configure a [log alert rule in Azure Monitor](../azure-monitor/alerts/alerts-unified-log.md):
 

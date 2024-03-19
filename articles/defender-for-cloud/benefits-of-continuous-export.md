@@ -67,7 +67,7 @@ The name of the Log Analytics solution that contains these tables depends on whe
 > [!TIP]
 > To see the data on the destination workspace, you must enable one of these solutions: Security and Audit or SecurityCenterFree.
 
-![Screenshot that shows the SecurityAlert table in Log Analytics.](./media/continuous-export/log-analytics-securityalert-solution.png)
+:::image type="content" source="media/benefits-of-continuous-export/log-analytics-securityalert-solution.png" alt-text="Screenshot that shows the SecurityAlert table in Log Analytics.":::
 
 To view the event schemas of the exported data types, see [Log Analytics table schemas](https://aka.ms/ASCAutomationSchemas).
 
