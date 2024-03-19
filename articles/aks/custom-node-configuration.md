@@ -14,46 +14,9 @@ Customizing your node configuration allows you to adjust operating system (OS) s
 
 ## Create an AKS cluster with a customized node configuration
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-### Prerequisites for Windows kubelet custom configuration (preview)
-
-Before you begin, make sure you have an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You also need to register the feature flag using the following steps:
-
-
-1. Install the aks-preview extension using the [`az extension add`][az-extension-add] command.
-
-    ```azurecli
-    az extension add --name aks-preview
-    ```
-
-2. Update to the latest version of the extension using the [`az extension update`][az-extension-update] command.
-
-    ```azurecli
-    az extension update --name aks-preview
-    ```
-
-3. Register the `WindowsCustomKubeletConfigPreview` feature flag using the [`az feature register`][az-feature-register] command.
-
-    ```azurecli-interactive
-    az feature register --namespace "Microsoft.ContainerService" --name "WindowsCustomKubeletConfigPreview"
-    ```
-
-    It takes a few minutes for the status to show *Registered*.
-
-4. Verify the registration status using the [`az feature show`][az-feature-show] command.
-
-    ```azurecli-interactive
-    az feature show --namespace "Microsoft.ContainerService" --name "WindowsCustomKubeletConfigPreview"
-    ```
-
-5. When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider using the [`az provider register`][az-provider-register] command.
-
-    ```azurecli-interactive
-    az provider register --namespace Microsoft.ContainerService
-    ```
-
 ### Create config files
+
+OS and kubelet configuration changes require you to create a new configuration file with the parameters and your desired settings. If a value for a parameter is not specified, then the value will be set to the default.
 
 #### Kubelet configuration
 
@@ -197,7 +160,7 @@ Kubelet custom configuration is supported for Linux and Windows node pools. Supp
 | `containerLogMaxFiles` | ≥ 2 | 5 | The maximum number of container log files that can be present for a container. |
 | `podMaxPids` | -1 to kernel PID limit | -1 (∞)| The maximum amount of process IDs that can be running in a Pod |
 
-#### Windows Kubelet custom configuration (preview)
+#### Windows Kubelet custom configuration
 
 | Parameter | Allowed values/interval | Default | Description |
 | --------- | ----------------------- | ------- | ----------- |

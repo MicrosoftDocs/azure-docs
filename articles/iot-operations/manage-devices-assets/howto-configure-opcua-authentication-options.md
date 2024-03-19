@@ -1,6 +1,6 @@
 ---
 title: Configure OPC UA user authentication options
-description: How to configure OPC UA user authentication options to use with Azure IoT OPC UA Broker
+description: How to configure OPC UA user authentication options to use with Azure IoT OPC UA Broker.
 author: timlt
 ms.author: timlt
 ms.subservice: opcua-broker
@@ -12,7 +12,7 @@ ms.date: 03/01/2024
 # with custom OPC UA user authentication options to keep it secure and work with my solution.
 ---
 
-# Configure OPC UA user authentication options
+# Configure OPC UA user authentication options to use with Azure IoT OPC UA Broker Preview
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
@@ -20,7 +20,7 @@ In this article, you learn how to configure OPC UA user authentication options. 
 
 ## Prerequisites
 
-Azure IoT Operations installed. For more information, see [Quickstart: Deploy Azure IoT Operations – to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md).
+Azure IoT Operations Preview installed. For more information, see [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md). 
 
 ## Features supported
 

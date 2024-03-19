@@ -11,31 +11,31 @@ ms.date: 02/19/2024
 #CustomerIntent: As an OT user, I want to create assets in Azure IoT Operations so that I can subscribe to asset data points, and then process the data before I send it to the cloud.
 ---
 
-# Quickstart: Add OPC UA assets to your Azure IoT Operations cluster
+# Quickstart: Add OPC UA assets to your Azure IoT Operations Preview cluster
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In this quickstart, you manually add OPC UA assets to your Azure IoT Operations Preview cluster. These assets publish messages to the Azure IoT MQ (preview) broker in your Azure IoT Operations cluster. Typically, an OT user completes these steps.
+In this quickstart, you manually add OPC UA assets to your Azure IoT Operations Preview cluster. These assets publish messages to the Azure IoT MQ Preview broker in your Azure IoT Operations cluster. Typically, an OT user completes these steps.
 
 An _asset_ is a physical device or logical entity that represents a device, a machine, a system, or a process. For example, a physical asset could be a pump, a motor, a tank, or a production line. A logical asset that you define can have properties, stream telemetry, or generate events.
 
 _OPC UA servers_ are software applications that communicate with assets. _OPC UA tags_ are data points that OPC UA servers expose. OPC UA tags can provide real-time or historical data about the status, performance, quality, or condition of assets.
 
-In this quickstart, you use the Azure IoT Operations portal to create your assets. You can also use the [Azure CLI to complete some of these tasks](/cli/azure/iot/ops/asset).
+In this quickstart, you use the Azure IoT Operations (preview) portal to create your assets. You can also use the [Azure CLI to complete some of these tasks](/cli/azure/iot/ops/asset).
 
 ## Prerequisites
 
-Complete [Quickstart: Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](quickstart-deploy.md) before you begin this quickstart.
+Complete [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](quickstart-deploy.md) before you begin this quickstart.
 
-To sign in to the Azure IoT Operations portal you need a work or school account in the tenant where you deployed Azure IoT Operations. If you're currently using a Microsoft account (MSA), you need to create a Microsoft Entra ID with at least contributor permissions for the resource group that contains your **Kubernetes - Azure Arc** instance. To learn more, see [Known Issues > Create Entra account](../troubleshoot/known-issues.md#azure-iot-operations-preview-portal).
+To sign in to the Azure IoT Operations portal, you need a work or school account in the tenant where you deployed Azure IoT Operations. If you're currently using a Microsoft account (MSA), you need to create a Microsoft Entra ID with at least contributor permissions for the resource group that contains your **Kubernetes - Azure Arc** instance. To learn more, see [Known Issues > Create Entra account](../troubleshoot/known-issues.md#azure-iot-operations-preview-portal).
 
 ## What problem will we solve?
 
-The data that OPC UA servers expose can have a complex structure and can be difficult to understand. Azure IoT Operations provides a way to model OPC UA assets as tags, events, and properties. This modeling makes it easier to understand the data and to use it in downstream processes such as the MQ broker and Azure IoT Data Processor (preview) pipelines.
+The data that OPC UA servers expose can have a complex structure and can be difficult to understand. Azure IoT Operations provides a way to model OPC UA assets as tags, events, and properties. This modeling makes it easier to understand the data and to use it in downstream processes such as the MQ broker and Azure IoT Data Processor Preview pipelines.
 
-## Sign into the Azure IoT Operations portal
+## Sign into the Azure IoT Operations (preview) portal
 
-To create asset endpoints, assets and subscribe to OPC UA tags and events, use the Azure IoT Operations (preview) portal. Navigate to the [Azure IoT Operations](https://iotoperations.azure.com) portal in your browser and sign in with your Microsoft Entra ID credentials.
+To create asset endpoints, assets and subscribe to OPC UA tags and events, use the Azure IoT Operations (preview) portal. Navigate to the [Azure IoT Operations (preview)](https://iotoperations.azure.com) portal in your browser and sign in with your Microsoft Entra ID credentials.
 
 > [!IMPORTANT]
 > You must use a work or school account to sign in to the Azure IoT Operations portal. To learn more, see [Known Issues > Create Entra account](../troubleshoot/known-issues.md#azure-iot-operations-preview-portal).
@@ -104,7 +104,17 @@ The following step lowers the security level for the OPC PLC so that it accepts 
     --config opcPlcSimulation.autoAcceptUntrustedCertificates=true
     ```
 
-1. To enable the configuration change to take effect immediately, first find the name of your `aio-opc-supervisor` pod by using the following command:
+1. To enable the asset endpoint to use an untrusted certificate, run the following command on the machine where your cluster is running:
+
+    ```console
+    kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/quickstarts/opc-ua-connector-0.yaml
+    ```
+
+    The following snippet shows the YAML file that you applied:
+
+    :::code language="yaml" source="~/azure-iot-operations-samples/samples/quickstarts/opc-ua-connector-0.yaml":::
+
+1. To enable the configuration changes to take effect immediately, first find the name of your `aio-opc-supervisor` pod by using the following command:
 
     ```console
     kubectl get pods -n azure-iot-operations
@@ -138,7 +148,7 @@ Enter the following asset information:
 
 :::image type="content" source="media/quickstart-add-assets/create-asset-details.png" alt-text="Screenshot of Azure IoT Operations asset details page.":::
 
-Scroll down on the **Asset details** page and configure any additional properties for the asset such as:
+Scroll down on the **Asset details** page and configure any other properties for the asset such as:
 
 - Manufacturer
 - Manufacturer URI
@@ -149,7 +159,7 @@ Scroll down on the **Asset details** page and configure any additional propertie
 - Serial number
 - Documentation URI
 
-You can remove the sample properties that are already defined and add your own custom properties
+You can remove the sample properties that are already defined and add your own custom properties.
 
 Select **Next** to go to the **Add tags** page.
 
@@ -162,7 +172,7 @@ Add two OPC UA tags on the **Add tags** page. To add each tag, select **Add tag 
 | ns=3;s=FastUInt10  | temperature | none               |
 | ns=3;s=FastUInt100 | Tag 10      | none               |
 
-The **Observability mode** is one of: none, gauge, counter, histogram, or log.
+The **Observability mode** is one of the following values: `none`, `gauge`, `counter`, `histogram`, or `log`.
 
 You can override the default sampling interval and queue size for each tag.
 
@@ -221,9 +231,9 @@ The sample tags you added in the previous quickstart generate messages from your
 }
 ```
 
-## Discover OPC UA data sources by using Akri
+## Discover OPC UA data sources by using Azure IoT Akri Preview
 
-In the previous section, you saw how to add assets manually. You can also use Azure IoT Akri to automatically discover OPC UA data sources and create Akri instance custom resources that represent the discovered devices. Currently, Akri can't detect and create assets that can be ingested into the Azure Device Registry.
+In the previous section, you saw how to add assets manually. You can also use Azure IoT Akri Preview to automatically discover OPC UA data sources and create Akri instance custom resources that represent the discovered devices. Currently, Akri can't detect and create assets that can be ingested into the Azure Device Registry Preview.
 
 When you deploy Azure IoT Operations, the deployment includes the Akri discovery handler pods. To verify these pods are running, run the following command:
 
@@ -259,9 +269,9 @@ To verify the configuration, run the following command to view the Akri instance
 kubectl get akrii -n azure-iot-operations
 ```
 
-Note that it may take a few minutes for the instance to show up.
+It might take a few minutes for the instance to show up.
 
-The output from the previous command looks like the following example. You may need to wait for a few seconds for the Akri instance to be created:
+The output from the previous command looks like the following example. 
 
 ```console
 NAMESPACE              NAME                      CONFIG             SHARED   NODES            AGE
@@ -270,14 +280,30 @@ azure-iot-operations   akri-opcua-asset-dbdef0   akri-opcua-asset   true     ["d
 
 Now you can use these resources in the local cluster namespace.
 
+To confirm that Akri connected to the OPC UA Broker, copy and paste the name of the Akri instance from the previous step into the following command: 
+
+```bash
+kubectl get akrii <AKRI_INSTANCE_NAME> -n azure-iot-operations -o json
+```
+
+The command output looks like the following example. This example output shows the Akri instance `brokerProperties` values and confirms that the OPC UA Broker is connected.
+
+```json
+"spec": {
+
+        "brokerProperties": {
+            "ApplicationUri": "Boiler #2",
+            "AssetEndpointProfile": "{\"spec\":{\"uuid\":\"opc-ua-broker-opcplc-000000-azure-iot-operation\"……   
+```
+
 ## How did we solve the problem?
 
 In this quickstart, you added an asset endpoint and then defined an asset and tags. The assets and tags model data from the OPC UA server to make the data easier to use in an MQTT broker and other downstream processes. You use the thermostat asset you defined in the next quickstart.
 
 ## Clean up resources
 
-If you're not going to continue to use this deployment, delete the Kubernetes cluster that you deployed Azure IoT Operations to and remove the Azure resource group that contains the cluster.
+If you won't use this deployment further, delete the Kubernetes cluster that you deployed Azure IoT Operations to and remove the Azure resource group that contains the cluster.
 
 ## Next step
 
-[Quickstart: Use Data Processor pipelines to process data from your OPC UA assets](quickstart-process-telemetry.md)
+[Quickstart: Use Azure IoT Data Processor Preview pipelines to process data from your OPC UA assets](quickstart-process-telemetry.md)
