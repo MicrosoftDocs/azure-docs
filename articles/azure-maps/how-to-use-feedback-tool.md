@@ -20,15 +20,15 @@ Azure Maps is a set of mapping and geospatial APIs and a Web SDK that enables de
 
 There are three ways to access the feedback tool.
 
-1. **Azure Maps Account**. You can access the feedback tool in your **Azure Maps Account** from a link in the **Provide Map Data Feedback** tab of the **Overview** section.
+- **Azure Maps Account**. You can access the feedback tool in your **Azure Maps Account** from a link in the **Provide Map Data Feedback** tab of the **Overview** section.
 
     :::image type="content" source="./media/how-to-use-feedback-tool/provide-map-data-feedback-link.png"  lightbox="./media/how-to-use-feedback-tool/provide-map-data-feedback-link.png" alt-text="A screenshot showing the 'Provide Map Data Feedback' link in the overview section of an Azure Maps Account.":::
 
-1. **Web SDK map control**. You can access the feedback tool from a link in the lower right-hand side of the map.
+- **Web SDK map control**. You can access the feedback tool from a link in the lower right-hand side of the map.
 
     :::image type="content" source="./media/how-to-use-feedback-tool/web-sdk-map-control.png"  lightbox="./media/how-to-use-feedback-tool/web-sdk-map-control.png" alt-text="A screenshot showing the link to the Azure Maps feedback tool from an Azure Maps map created using the Web SDK map control.":::
 
-1. **URL**. You can access the feedback tool directly from the [Azure Maps feedback tool] URL.
+- **URL**. You can access the feedback tool directly from the [Azure Maps feedback tool] URL.
 
 ## Providing feedback
 
@@ -61,7 +61,7 @@ You can provide feedback on any issue you find in an Azure Maps map using the fe
 
 If the map doesn't appear in the desired location when bringing up the feedback tool, you can pan the map to the desired location using your mouse. Another option is to use the search bar, just type in the desired location and select search icon :::image type="icon" source="./media/how-to-use-feedback-tool/search.png"::: or press the **Enter** key. Once done, select the **`X`** in the upper right-hand side of the search results view to return to the feedback tool.
 
-:::image type="content" source="./media/how-to-use-feedback-tool/searchbar.png" lightbox="./media/how-to-use-feedback-tool/searchbar.png" alt-text="A screenshot showing Bing Maps search bar.":::
+:::image type="content" source="./media/how-to-use-feedback-tool/search-bar.png" lightbox="./media/how-to-use-feedback-tool/search-bar.png" alt-text="A screenshot showing Bing Maps search bar.":::
 
 ## Next steps
 
