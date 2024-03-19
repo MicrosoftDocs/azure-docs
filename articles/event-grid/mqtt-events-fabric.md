@@ -25,14 +25,18 @@ This article shows you how to use Azure Event Grid to send events from MQTT clie
 
 ## Detailed steps
 
-1. In the Azure portal, do these steps:
-    1. [Create an Event Hubs namespace and an event hub](../event-hubs/event-hubs-create.md).
-    1. [Create an Event Grid namespace and a topic](create-view-manage-namespace-topics.md#create-a-namespace-topic). 
-    1. [Enable managed identity on the namespace](event-grid-namespace-managed-identity.md).
-    1. [Add the identity to Azure Event Hubs Data Sender role on the Event Hubs namespace or event hub](/azure/role-based-access-control/role-assignments-portal?tabs=delegate-condition). 
-    1. [Create a subscription to the topic using Azure Event Hubs as the destination type and select your event hub](mqtt-routing-to-event-hubs-portal.md#create-an-event-subscription-with-event-hubs-as-the-endpoint). 
-    1. [Create an Event Grid namespace and enable MQTT broker](mqtt-publish-and-subscribe-portal.md#create-a-namespace). 
-    1. [Enable routing to a namespace topic](mqtt-routing-to-event-hubs-portal.md#configure-routing-in-the-event-grid-namespace).     
+1. Follow steps from the article: [Tutorial: Use namespace topics to route MQTT messages to Azure Event Hubs (Azure portal)](mqtt-routing-to-event-hubs-portal-namespace-topics.md) to:
+    1. Create an Event Grid namespace in the Azure portal.
+    1. Create a namespace topic.
+    1. Enable managed identity for the namespace.
+    1. Enable MQTT broker for the Event Grid namespace.
+    1. Create an Event Hubs namespace.
+    1. Create an event hub.
+    1. Grant Event Grid namespace the permission to send events to the event hub.
+    1. Create an event subscription to namespace topic with the event hub as the endpoint.
+    1. Configure routing for the Event Grid namespace.
+    1. Create clients, topic space, and permission bindings. 
+    1. Use MQTTX tool to send a few test events or messages. 
 1. In Microsoft Fabric, do these steps:
     1. [Create a lakehouse](/fabric/onelake/create-lakehouse-onelake#create-a-lakehouse). 
     2. [Create an event stream](/fabric/real-time-analytics/event-streams/create-manage-an-eventstream#create-an-eventstream).

@@ -30,10 +30,11 @@ The following table provides a comparison between Azure Front Door and Azure CDN
 | Dynamic site delivery | Yes | Yes | Yes | No | Yes | Yes |
 | **Domains and Certs** | | | | | | |
 | Custom domains | Yes - DNS TXT record based domain validation | Yes - DNS TXT record based domain validation | Yes - CNAME based validation | Yes - CNAME based validation | Yes - CNAME based validation | Yes - CNAME based validation |
+| Prevalidated domain integration with Azure PaaS Service | Yes | Yes | No | No | No | No |
 | HTTPS support | Yes | Yes | Yes | Yes | Yes | Yes |
 | Custom domain HTTPS | Yes | Yes | Yes | Yes | Yes | Yes |
 | Bring your own certificate | Yes | Yes | Yes | Yes | Yes | Yes |
-| Supported TLS Versions | TLS1.2, TLS1.0 | TLS1.2, TLS1.0 | TLS1.2, TLS1.0 | TLS 1.2, TLS 1.0/1.1 | TLS 1.2, TLS 1.3 | TLS 1.2, TLS 1.3 |
+| Supported TLS Versions | TLS1.3, TLS1.2, TLS1.0 | TLS1.3 TLS1.2, TLS1.0 | TLS1.3, TLS1.2, TLS1.0 | TLS1.3, TLS 1.2, TLS 1.0/1.1 | TLS 1.2, TLS 1.3 | TLS 1.2, TLS 1.3 |
 | **Caching** | | | | | | |
 | Query string caching | Yes | Yes | Yes | Yes | Yes | Yes |
 | Cache manage (purge, rules, and compression) | Yes | Yes | Yes | Yes | Yes | Yes |
@@ -61,6 +62,8 @@ The following table provides a comparison between Azure Front Door and Azure CDN
 | Geo-filtering | Yes | Yes | Yes | Yes | Yes | Yes |
 | Token authentication | No | No | No | No | No | Yes |
 | DDOS protection | Yes | Yes | Yes | Yes | Yes | Yes |
+| DDOS protection | Yes | Yes | Yes | Yes | Yes | Yes |
+| Domain Fronting Block | Yes | Yes | Yes | Yes | Yes | Yes |
 | **Analytics and reporting** | | | | | | |
 | Monitoring Metrics | Yes (more metrics than Classic) | Yes (more metrics than Classic) | Yes | Yes | Yes | Yes |
 | Advanced analytics/built-in reports | Yes | Yes - includes WAF report | No | No | No | Yes |
@@ -72,7 +75,7 @@ The following table provides a comparison between Azure Front Door and Azure CDN
 | Compression MIME types | Configurable | Configurable | Configurable | Configurable | Configurable | Configurable |
 | Compression encodings | gzip, brotli | gzip, brotli | gzip, brotli | gzip, brotli | gzip, deflate, bzip2 | gzip, deflate, bzip2, brotli |
 | Azure Policy integration | No | No | Yes | No | No | No |
-| Azure Advisory integration | Yes | Yes | No | No | Yes | Yes |
+| Azure Advisory integration | Yes | Yes | No | Yes | Yes | Yes |
 | Managed Identities with Azure Key Vault | Yes | Yes | No | No | No | No |
 | **Pricing** | | | | | | |
 | Simplified pricing | Yes | Yes | No | Yes | Yes | Yes |

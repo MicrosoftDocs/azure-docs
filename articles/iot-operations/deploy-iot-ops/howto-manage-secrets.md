@@ -1,9 +1,9 @@
 ---
-title: Manage secrets - Azure IoT Operations
+title: Manage secrets 
 description: Create, update, and manage secrets that are required to give your Arc-connected cluster access to Azure resources.
 author: kgremban
 ms.author: kgremban
-# ms.subservice: orchestrator
+ms.subservice: orchestrator
 ms.topic: how-to
 ms.date: 12/19/2023
 ms.custom: ignite-2023, devx-track-azurecli
@@ -11,9 +11,11 @@ ms.custom: ignite-2023, devx-track-azurecli
 #CustomerIntent: As an IT professional, I want prepare an Azure-Arc enabled Kubernetes cluster with Key Vault secrets so that I can deploy Azure IoT Operations to it.
 ---
 
-# Manage secrets for your Azure IoT Operations deployment
+# Manage secrets for your Azure IoT Operations Preview deployment
 
-Secrets management in Azure IoT Operations uses Azure Key Vault as the managed vault solution on the cloud and uses the secrets store CSI driver to pull secrets down from the cloud and store them on the edge.
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+
+Secrets management in Azure IoT Operations Preview uses Azure Key Vault as the managed vault solution on the cloud and uses the secrets store CSI driver to pull secrets down from the cloud and store them on the edge.
 
 ## Prerequisites
 
@@ -23,7 +25,7 @@ Secrets management in Azure IoT Operations uses Azure Key Vault as the managed v
 
 Azure IoT Operations supports Azure Key Vault for storing secrets and certificates. The `az iot ops init` Azure CLI command automates the steps to create a key vault, set up a service principal to give access to the key vault, and configure the secrets that you need for running Azure IoT Operations.
 
-For more information, see [Deploy Azure IoT Operations extensions](./howto-deploy-iot-operations.md?tabs=cli).
+For more information, see [Deploy Azure IoT Operations Preview extensions to a Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md?tabs=cli).
 
 ## Configure service principal and Azure Key Vault upfront
 
@@ -163,6 +165,6 @@ kubectl delete pod aio-dp-reader-worker-0 -n azure-iot-operations
 kubectl delete pod aio-dp-runner-worker-0 -n azure-iot-operations
 ```
 
-## Azure IoT MQ secrets
+## Azure IoT MQ Preview secrets
 
-The steps to manage secrets with Azure Key Vault for Azure IoT MQ are different. For more information, see [Manage Azure IoT MQ secrets using Azure Key Vault](../manage-mqtt-connectivity/howto-manage-secrets.md).
+The steps to manage secrets with Azure Key Vault for Azure IoT MQ Preview are different. For more information, see [Manage Azure IoT MQ secrets using Azure Key Vault](../manage-mqtt-connectivity/howto-manage-secrets.md).
