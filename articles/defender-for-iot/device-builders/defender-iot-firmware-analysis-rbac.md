@@ -31,7 +31,7 @@ You can use RBAC at each level of the hierarchy, including at the hidden **defau
 
 Here's the resource hierarchy of Defender for IoT Firmware Analysis:
 
-:::image type="content" source="media/defender-for-iot-firmware-analysis-rbac/resource-hierarchy.png" alt-text="Screenshot of the hidden 'default' resource, of type 'Microsoft.iotfirmwaredefense.workspace'." lightbox="media/defender-for-iot-firmware-analysis-rbac/resource-hierarchy.png":::
+:::image type="content" source="media/defender-for-iot-firmware-analysis-rbac/resource-hierarchy.png" alt-text="The resource hierarchy of firmware images of Defender for IoT Firmware Analysis." lightbox="media/defender-for-iot-firmware-analysis-rbac/resource-hierarchy.png":::
 
 ## Apply Azure RBAC
 
