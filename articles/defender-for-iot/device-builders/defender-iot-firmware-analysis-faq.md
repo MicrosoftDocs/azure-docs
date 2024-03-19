@@ -42,4 +42,4 @@ Defender for IoT Firmware Analysis supports unencrypted images that contain file
 * Zip archive
 
 ## Where can I find the Azure PowerShell and Azure CLI documentation for Defender for IoT Firmware Analysis?
-You can find the documentation for our Azure CLI commands [here](/azure/service-page/firmware%20analysis) and the documentation for our Azure PowerShell commands [here](/powershell/module/az.firmwareanalysis/?#firmwareanalysis)
+You can find the documentation for our Azure CLI commands [here](/cli/azure/firmwareanalysis/firmware) and the documentation for our Azure PowerShell commands [here](/powershell/module/az.firmwareanalysis/?#firmwareanalysis)
