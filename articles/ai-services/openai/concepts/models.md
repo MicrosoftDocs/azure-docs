@@ -86,7 +86,7 @@ You can also use the OpenAI text to speech voices via Azure AI Speech. To learn 
 ## Model summary table and region availability
 
 > [!NOTE]
-> This article only covers model/region availability that applies to all Azure OpenAI customers with deployment types of **Standard**. Some select customers have access to model/region combinations that are not listed below. These tables also do not apply to customers using only **Provisioned** deployment types which have their own unique model/region availability matrix. For more information on **Provisioned** deployments refer to our [Provisioned guidance](./provisioned-throughput.md).
+> This article only covers model/region availability that applies to all Azure OpenAI customers with deployment types of **Standard**. Some select customers have access to model/region combinations that are not listed in the unified table below. These tables also do not apply to customers using only **Provisioned** deployment types which have their own unique model/region availability matrix. For more information on **Provisioned** deployments refer to our [Provisioned guidance](./provisioned-throughput.md).
 
 ### Standard deployment model availability
 
@@ -139,7 +139,16 @@ GPT-4 version 0125-preview is an updated version of the GPT-4 Turbo preview prev
 
 #### Public cloud regions
 
-[!INCLUDE [GPT-4](../includes/model-matrix/standard-gpt4.md)]
+[!INCLUDE [GPT-4](../includes/model-matrix/standard-gpt-4.md)]
+
+#### Select customer access
+
+In addition to the regions above which are available to all Azure OpenAI customers, some select pre-existing customers have been granted access to versions of GPT-4 in additional regions:
+
+| Model | Region |  
+|---|:---|  
+| `gpt-4` (0314) | East US <br> France Central <br> South Central US <br> UK South |  
+| `gpt-4` (0613) | East US <br> East US 2 <br> Japan East <br> UK South |  
 
 #### Azure Government regions
 
@@ -170,7 +179,7 @@ See [model versions](../concepts/model-versions.md) to learn about how Azure Ope
 | `gpt-35-turbo-16k` (0613) | 16,384 | Sep 2021 |
 | `gpt-35-turbo-instruct` (0914) | 4,097 |Sep 2021 |
 | `gpt-35-turbo` (1106) | Input: 16,385<br> Output: 4,096 |  Sep 2021|
-|`gpt-35-turbo` (0125) **NEW** | 16,385 | Sep 2021 |
+| `gpt-35-turbo` (0125) **NEW** | 16,385 | Sep 2021 |
 
 ### GPT-3.5-Turbo model availability
 
