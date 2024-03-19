@@ -4,7 +4,7 @@ description: A description of what's new and changed in Microsoft Defender for C
 author: dcurwin
 ms.author: dacurwin
 ms.topic: reference
-ms.date: 01/03/2024
+ms.date: 01/29/2024
 ---
 
 # Archive for what's new in Defender for Cloud?
@@ -513,7 +513,7 @@ If you don't have the Defender for Endpoint integration enabled in Defender for 
 
 All Defender for Servers customers, have full access to the Defender for Endpoint’s integration as a part of the [Defender for Servers plan](plan-defender-for-servers-select-plan.md#plan-features).  
 
-You can learn more about [Microsoft Defender for Endpoint onboarding options](enable-defender-for-endpoint.md#enable-the-microsoft-defender-for-endpoint-integration).
+You can learn more about [Microsoft Defender for Endpoint onboarding options](enable-defender-for-endpoint.md).
 
 You can also view the [full list of alerts](alerts-reference.md) that are set to be deprecated.
 
@@ -2798,7 +2798,7 @@ When you enable Azure Defender for Servers running Windows Server, a license for
 Support has now been expanded to include Windows Server 2019 and Windows 10 on [Windows Virtual Desktop](../virtual-desktop/overview.md).
 
 > [!NOTE]
-> If you're enabling Defender for Endpoint on a Windows Server 2019 server, ensure it meets the prerequisites described in [Enable the Microsoft Defender for Endpoint integration](enable-defender-for-endpoint.md#enable-the-microsoft-defender-for-endpoint-integration).
+> If you're enabling Defender for Endpoint on a Windows Server 2019 server, ensure it meets the prerequisites described in [Enable the Microsoft Defender for Endpoint integration](enable-defender-for-endpoint.md).
 
 ### Recommendations to enable Azure Defender for DNS and Resource Manager (in preview)
 
@@ -3088,7 +3088,7 @@ When you enable Azure Defender for Servers running Windows Server, a license for
 Support has now been expanded to include Windows Server 2019 and Windows 10 on [Windows Virtual Desktop](../virtual-desktop/overview.md).
 
 > [!NOTE]
-> If you're enabling Defender for Endpoint on a Windows Server 2019 server, ensure it meets the prerequisites described in [Enable the Microsoft Defender for Endpoint integration](enable-defender-for-endpoint.md#enable-the-microsoft-defender-for-endpoint-integration).
+> If you're enabling Defender for Endpoint on a Windows Server 2019 server, ensure it meets the prerequisites described in [Enable the Microsoft Defender for Endpoint integration](enable-defender-for-endpoint.md).
 
 ### Direct link to policy from recommendation details page
 
