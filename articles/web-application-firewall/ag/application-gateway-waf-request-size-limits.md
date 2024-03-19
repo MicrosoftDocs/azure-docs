@@ -100,8 +100,8 @@ Set-AzApplicationGatewayFirewallPolicy -InputObject $plcy
 ```
 
 - [Get WAF Policy](/powershell/module/az.network/get-azapplicationgatewayfirewallpolicy)
-- [Polcy Settings Properties](/dotnet/api/microsoft.azure.commands.network.models.psapplicationgatewaywebapplicationfirewallpolicy.policysettings)
-- [Polcy Settings Class](/dotnet/api/microsoft.azure.commands.network.models.psapplicationgatewayfirewallpolicysettings)
+- [Policy Settings Properties](/dotnet/api/microsoft.azure.commands.network.models.psapplicationgatewaywebapplicationfirewallpolicy.policysettings)
+- [Policy Settings Class](/dotnet/api/microsoft.azure.commands.network.models.psapplicationgatewayfirewallpolicysettings)
 - [New Policy Settings](/powershell/module/az.network/new-azapplicationgatewayfirewallpolicysetting)
 
 ### Command Line Interface
