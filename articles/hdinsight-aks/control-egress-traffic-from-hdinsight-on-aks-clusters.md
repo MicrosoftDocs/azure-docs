@@ -3,7 +3,7 @@ title: Control egress traffic from HDInsight on AKS Clusters
 description: A guide to configure and manage outbound network connections from HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 03/18/2024
+ms.date: 03/19/2024
 ---
 
 # Control egress traffic from HDInsight on AKS Clusters
@@ -125,7 +125,7 @@ Following is an example of setting up firewall rules, and testing your outbound 
         |Virtual network |Select the integrated virtual network. |
         |Public IP address |Select an existing address or create one by selecting Add new. |
     
-        :::image type="content" source="./media/control-egress traffic-from-hdinsight-on-aks-clusters/outbound-user-defined.png" alt-text="Screenshot showing outbound user defined." lightbox="./media/control-egress traffic-from-hdinsight-on-aks-clusters/outbound-user-defined.png":::
+        :::image type="content" source="./media/control-egress traffic-from-hdinsight-on-aks-clusters/create-firewall-page.png" alt-text="Screenshot showing create a firewall basic tab." lightbox="./media/control-egress traffic-from-hdinsight-on-aks-clusters/create-firewall-page.png":::
 
     1. Click Review + create. 
     
@@ -185,7 +185,7 @@ Following is an example of setting up firewall rules, and testing your outbound 
     
     1. In Rules, add a network rule with the subnet as the source address, and specify an FQDN destination.  
     
-    1. You're required to add AKS & HDInsight on AKS rules for allowing traffic for the cluster to function. 
+    1. You need to add AKS and  HDInsight on AKS rules for allowing traffic for the cluster to function. (AKS ApiServer need to be added after the clusterPool is created because you only can get the AKS ApiServer after creating the clusterPool).
     
     1. You can also add the private endpoints for any dependent resources in the same subnet for cluster to access them (example – storage). 
     
@@ -240,7 +240,7 @@ The well-know FQDN is like a public cluster, but it can only be resolved to a CN
 > HDInsight on AKS creates private DNS zone in the cluster pool, virtual network. If your client applications are in same virtual network, you need not configure the private DNS zone again. In case you're using a client application in a different virtual network, you're required to use virutal network peering to bind to private dns zone in the cluster pool virtual network or use private endpoints in the virutal network, and private dns zones, to add the A-record to the private endpoint private IP. 
 
 
-Well-know FQDN： `{clusterName}.privatelink.{clusterPoolName}.{subscriptionId}.{region}.hdinsightaks.net`
+Private FQDN： `{clusterName}.privatelink.{clusterPoolName}.{subscriptionId}.{region}.hdinsightaks.net`
 
 The private FQDN is only for private cluster, recorded as A-RECORD in private DNS zone, is resolved to private IP of cluster.
 
