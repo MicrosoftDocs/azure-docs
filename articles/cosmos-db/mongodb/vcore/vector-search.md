@@ -272,7 +272,7 @@ In this example, `vectorIndex` is returned with all the `cosmosSearch` parameter
 ```
 
 ## Filtered vector search (preview)
-You can now execute vector searches with any supported query filter such as `$lt, $lte, $eq, $neq, $gte, $gt, $in, $nin, and $regex`. Enable the "filtering vector search" feature in the "Preview Features" tab of your Azure Subscription. Learn more about preview features [here](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/preview-features?tabs=azure-portal).
+You can now execute vector searches with any supported query filter such as `$lt, $lte, $eq, $neq, $gte, $gt, $in, $nin, and $regex`. Enable the "filtering vector search" feature in the "Preview Features" tab of your Azure Subscription. Learn more about preview features [here](../../../azure-resource-manager/management/preview-features?tabs=azure-portal).
 
 First, you'll need to define an index for your filter in addition to a vector index. For example, you can define the filter index on a property  
 
@@ -313,7 +313,7 @@ db.exampleCollection.aggregate([
 ## Use LLM Orchestration tools such
 
 ### Use as a vector database with Semantic Kernel
-Use Semantic Kernel to orchestrate your information retrieval from Azure Cosmos DB for MongoDB vCore and your LLM. Learn more [here]([https://python.langchain.com/docs/integrations/vectorstores/azure_cosmos_db](https://github.com/microsoft/semantic-kernel/tree/main/python/semantic_kernel/connectors/memory/azure_cosmosdb)).
+Use Semantic Kernel to orchestrate your information retrieval from Azure Cosmos DB for MongoDB vCore and your LLM. Learn more [here](https://github.com/microsoft/semantic-kernel/tree/main/python/semantic_kernel/connectors/memory/azure_cosmosdb).
 
 https://github.com/microsoft/semantic-kernel/tree/main/python/semantic_kernel/connectors/memory/azure_cosmosdb
 
