@@ -93,4 +93,4 @@ landingContent:
       - linkListType: sample
         links:
           - text: AI-Enhanced Advertisement Generation
-            url: AI-ad-gen.md
+            url: AI-advertisement-generation.md

@@ -12,7 +12,6 @@ ms.date: 03/12/2024
 ---
 
 # AI-Enhanced Advertisement Generation using Azure Cosmos DB for MongoDB vCore
-## Overview
 In this guide, we demonstrate how to create dynamic advertising content that resonates with your audience, using our personalized AI assistant, Heelie. Utilizing Azure Cosmos DB for MongoDB vCore, we harness the [vector similarity search](./vector-search.md) functionality to semantically analyze and match inventory descriptions with advertisement topics. The process is made possible by generating vectors for inventory descriptions using OpenAI embeddings, which significantly enhance their semantic depth. These vectors are then stored and indexed within the Cosmos DB for MongoDB vCore resource. When generating content for advertisements, we vectorize the advertisement topic to find the best-matching inventory items. This is followed by a retrieval augmented generation (RAG) process, where the top matches are sent to OpenAI to craft a compelling advertisement. The entire codebase for the application is available in a [GitHub repository](https://aka.ms/adgen) for your reference.
 
 ## Features
@@ -113,7 +112,7 @@ if embeddings is not None:
 
 The function takes a text input — like a product description — and uses the `client.embeddings.create` method from the OpenAI API to generate a vector embedding for that text. We're using the `text-embedding-ada-002` model here, but you can choose other models based on your requirements. If the process is successful, it prints the generated embeddings; otherwise, it handles exceptions by printing an error message.
 
-## 3. Connect and setup Cosmos DB for MongoDB vCore
+## 3. Connect and set up Cosmos DB for MongoDB vCore
 With our embeddings ready, the next step is to store and index them in a database that supports vector similarity search. Azure Cosmos DB for MongoDB vCore is a perfect fit for this task because it's purpose built to store your transactional data and perform vector search all in one place. 
 
 ### 3.1 Set up the connection
