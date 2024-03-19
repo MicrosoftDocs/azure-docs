@@ -84,7 +84,7 @@ If you are an Application Gateway v2 WAF customer running CRS 3.2 or later and y
 
 ### PowerShell
 
-You can use the following PowerShell comannds to return your Azure policy and look at its current settings. 
+You can use the following PowerShell commands to return your Azure policy and look at its current settings. 
 
 ```azurepowershell-interactive
 $plcy = Get-AzApplicationGatewayFirewallPolicy -Name <policy-name> -ResourceGroupName <resourcegroup-name>
