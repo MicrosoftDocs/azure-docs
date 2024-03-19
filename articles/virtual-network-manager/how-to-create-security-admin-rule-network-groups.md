@@ -1,6 +1,6 @@
 ---
 title: Create a security admin rule using network groups
-description: Learn how to deploy security admin rules using network groups in Azure Virtual Network Manager to define traffic source and destination.
+description: Learn how to deploy security admin rules using network groups as the source and destination in Azure Virtual Network Manager 
 author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
@@ -14,6 +14,46 @@ ms.custom: template-how-to
 In Azure Virtual Network Manager, you can deploy [security admin rules](./concept-security-admins.md) using [network groups](./concept-network-groups.md). This allows you to define the source and destination of the traffic for the security admin rule.    
 
 In this article, you learn how to create a security admin rule using network groups in Azure Virtual Network Manager. You use the Azure portal to create a security admin configuration, add a security admin rule, and deploy the security admin configuration.
+
+> [!IMPORTANT]
+> 
+> Azure Virtual Network Manager is generally available for Virtual Network Manager and hub-and-spoke connectivity configurations. Both Mesh connectivity configurations and the creation of security admin rules with network groups in Azure Virtual Network Manager are in public preview remain in public preview.
+>
+> Security configurations with security admin rules is generally available in the following regions:
+> - Australia East
+> - Australia Southeast
+> - Brazil South
+> - Brazil Southeast
+> - East Asia
+> - Europe North
+> - France South
+> - Germany West Central
+> - India Central
+> - India South
+> - India West
+> - Israel Central
+> - Italy North
+> - Japan East
+> - Jio India West
+> - Korea Central
+> - Norway East
+> - Norway West
+> - Poland Central
+> - Qatar Central
+> - South Africa North
+> - South Africa West
+> - Sweden Central
+> - Sweden South
+> - Switzerland North
+> - UAE North
+> - US East
+> - US North
+> - US West Central
+> 
+> All other regions remain in public preview.
+> 
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/).
 
 ## Prerequisites
 
