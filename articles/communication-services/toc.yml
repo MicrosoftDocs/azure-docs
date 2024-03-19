@@ -725,6 +725,10 @@ items:
     - name: Video constraints
       href: concepts/voice-video-calling/video-constraints.md
       displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
+    - name: Music mode
+      href: concepts/voice-video-calling/music-mode.md
+      displayName: music mode, audio filters, calling
+    
     - name: Simulcast
       href: concepts/voice-video-calling/simulcast.md
       displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
@@ -843,6 +847,8 @@ items:
         href: concepts/telephony/direct-routing-infrastructure.md
       - name: Connect to existing telephony
         href: concepts/telephony/direct-routing-provisioning.md
+      - name: Try Phone Calling
+        href: concepts/telephony/try-phone-calling.md
       - name: Certified Session Border Controllers
         href: concepts/telephony/certified-session-border-controllers.md
       - name: Inbound telephony calling capabilities
