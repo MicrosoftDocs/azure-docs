@@ -83,18 +83,18 @@ If you are an Application Gateway v2 WAF customer running CRS 3.2 or later and y
 >[!NOTE]
 >**"Inspect request body"** previously controlled if the request body was inspected and rules applied as well as if a maximum size limit was enforced on request bodies. Now this is handled by two separate fields that can be turned ON/OFF independently.
 
-###PowerShell
+### PowerShell
 
 You can use the following PowerShell comannds to return your Azure policy, look at its current settings, and update the policy settings to the desired values for inspection limit and max size limitation related fields.
 
 - [Get WAF Policy](https://learn.microsoft.com/en-us/powershell/module/az.network/get-azapplicationgatewayfirewallpolicy)
 - [Polcy Settings Properties](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.commands.network.models.psapplicationgatewaywebapplicationfirewallpolicy.policysettings?view=az-ps-latest#microsoft-azure-commands-network-models-psapplicationgatewaywebapplicationfirewallpolicy-policysettings)
-- [Polci Settings Class](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.commands.network.models.psapplicationgatewayfirewallpolicysettings)
-- [New Polci Settings](https://learn.microsoft.com/en-us/powershell/module/az.network/new-azapplicationgatewayfirewallpolicysetting)
+- [Polcy Settings Class](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.commands.network.models.psapplicationgatewayfirewallpolicysettings)
+- [New Polcy Settings](https://learn.microsoft.com/en-us/powershell/module/az.network/new-azapplicationgatewayfirewallpolicysetting)
 
-###Command Line Interface
+### Command Line Interface
 
-You can you Azure CLI to return the current values for these fields from your Azure policy settings and update the fields to the desired values using [these commands](https://learn.microsoft.com/en-us/cli/azure/network/application-gateway/waf-policy/policy-setting)
+You can you Azure CLI to return the current values for these fields from your Azure policy settings and update the fields to the desired values using [these commands](https://learn.microsoft.com/en-us/cli/azure/network/application-gateway/waf-policy/policy-setting).
 
 ## Next steps
 
