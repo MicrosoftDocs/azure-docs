@@ -1,12 +1,12 @@
 ---
 title: Quickstart - Getting started with Azure OpenAI Assistants (Preview) in AI Studio
-titleSuffix: Azure OpenAI
+titleSuffix: Azure AI Studio
 description: Walkthrough on how to get started with Azure OpenAI assistants with new features like code interpreter in AI Studio (Preview).
 manager: nitinme
 ms.service: azure-ai-studio
 ms.custom:
 ms.topic: quickstart
-ms.date: 03/04/2024
+ms.date: 03/19/2024
 ms.author: mbullwin
 author: mrbullwinkle
 ---
