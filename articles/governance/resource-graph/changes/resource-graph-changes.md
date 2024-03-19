@@ -44,7 +44,8 @@ While many resource providers allow Azure Resource Graph to pull the state of so
 Each resource provider must update their services to push data to Azure Resource Graph when these resources types are created, updated, or deleted via the Azure Resource Manager control plane. For these resource types, you can expect [certain known limitations for changes saved in the `resourceChanges` table.](#limitations)
 
 > [!NOTE]
-> **Send feedback for more data**
+> **Send feedback for more data**  
+>  
 > Visit [the Change Analysis (Preview) experience](./view-resource-changes.md) on the Azure portal and submit feedback for data you'd like to see in Change Analysis and the `Microsoft.ResourceGraph/resources` API.
 
 ## Cost
