@@ -18,9 +18,6 @@ This article explains how to deploy a container group that includes a readiness 
 
 Azure Container Instances also supports [liveness probes](container-instances-liveness-probe.md), which you can configure to cause an unhealthy container to automatically restart.
 
-> [!NOTE]
-> Currently you cannot use a readiness probe in a container group deployed to a virtual network.
-
 ## YAML configuration
 
 As an example, create a `readiness-probe.yaml` file with the following snippet that includes a readiness probe. This file defines a container group that consists of a container running a small web app. The app is deployed from the public `mcr.microsoft.com/azuredocs/aci-helloworld` image. This containerized app is also demonstrated in [Deploy a container instance in Azure using the Azure CLI](container-instances-quickstart.md) and other quickstarts.

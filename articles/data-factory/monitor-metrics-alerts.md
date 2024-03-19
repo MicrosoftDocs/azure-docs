@@ -1,13 +1,13 @@
 ---
 title: Data Factory metrics and alerts
-description: Learn about metrics available for monitoring Azure Data Factory.
+description: This article shows you how to create monitoring alerts for metrics available for Azure Data Factory.
 author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
-ms.date: 10/20/2023
+ms.date: 03/18/2024
 ---
 
 # Data Factory metrics and alerts
@@ -44,15 +44,15 @@ Here are some of the metrics emitted by Azure Data Factory version 2.
 | PipelineElapsedTimeRuns | Elapsed time pipeline runs metrics | Count | Total | Number of times, within a minute window, a pipeline runs longer than user-defined expected duration. [(See more.)](tutorial-operationalize-pipelines.md) |
 | IntegrationRuntimeAvailableMemory       | Available memory for integration runtime | Byte    | Total                | The total number of bytes of available memory for the self-hosted integration runtime within a minute window. |
 | IntegrationRuntimeAvailableNodeNumber       | Available nodes for integration runtime | Count    | Total                | The total number of nodes available for the self-hosted integration runtime within a minute window. |
-| IntegrationRuntimeCpuPercentage       | CPU utilization for integration runtime | Percent    | Total                | The percetange of CPU utilization for the self-hosted integration runtime within a minute window. |
+| IntegrationRuntimeCpuPercentage       | CPU utilization for integration runtime | Percent    | Total                | The percentage of CPU utilization for the self-hosted integration runtime within a minute window. |
 | IntegrationRuntimeAverageTaskPickupDelay      | Queue duration for integration runtime | Seconds    | Total                | The queue duration for the self-hosted integration runtime within a minute window. |
 | IntegrationRuntimeQueueLength     | Queue length for integration runtime | Count    | Total                | The total queue length for the self-hosted integration runtime within a minute window. |
-| Maximum allowed entities count | Maxixum number of entities | Count | Total | The maximum number of entities in the Azure Data Factory instance. |
+| Maximum allowed entities count | Maximum number of entities | Count | Total | The maximum number of entities in the Azure Data Factory instance. |
 | Maximum allowed factory size (GB unit) | Maximum size of entities | Gigabyte | Total | The maximum size of entities in the Azure Data Factory instance. |
 | Total entities count | Total number of entities | Count | Total | The total number of entities in the Azure Data Factory instance. |
 | Total factory size (GB unit) | Total size of entities | Gigabyte | Total | The total size of entities in the Azure Data Factory instance. |
 
-For service limits and quotas please see [quotas and limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-data-factory-limits).
+For service limits and quotas, see [quotas and limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-data-factory-limits).
 To access the metrics, complete the instructions in [Azure Monitor data platform](../azure-monitor/data-platform.md).
 
 > [!NOTE]
@@ -60,43 +60,42 @@ To access the metrics, complete the instructions in [Azure Monitor data platform
 
 ## Data Factory alerts
 
-Sign in to the Azure portal, and select **Monitor** > **Alerts** to create alerts.
+Sign in to the Azure portal, and use the main menu at the top left of the screen to select **Monitor**, and then **Alerts** to create alerts.
 
-:::image type="content" source="media/monitor-using-azure-monitor/alerts_image3.png" alt-text="Screenshot that shows alerts in the portal menu.":::
+:::image type="content" source="media/monitor-using-azure-monitor/monitor.png" alt-text="Screenshot that shows the Monitoring tab in the Azure portal menu.":::
+
+:::image type="content" source="media/monitor-using-azure-monitor/alerts.png" alt-text="Screenshot showing the Alerts section in the Monitor page for Azure.":::
 
 ### Create alerts
 
-1. Select **+ New Alert Rule** to create a new alert.
+1. Select **+ Create** and **Alert rule** to create a new alert.
 
-    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image4.png" lightbox="media/monitor-using-azure-monitor/alerts_image4.png" alt-text="Screenshot that shows creating a new alert rule.":::
+    :::image type="content" source="media/monitor-using-azure-monitor/create-alert-rule.png" alt-text="Screenshot that shows where to create a new alert rule.":::
 
-1. Define the alert condition.
+1. Select the **Scope** and browse to find the data factory instance you want to create the alert for.
 
-    > [!NOTE]
-    > Make sure to select **All** in the **Filter by resource type** dropdown list.
+   :::image type="content" source="media/monitor-using-azure-monitor/select-scope.png" alt-text="Screenshot showing where to select the scope for a new alert rule.":::
 
-    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image5.png" alt-text="Screenshot that shows the selections for opening the pane for choosing a resource.":::
+1. Next, select the **Condition** tab and define the alert condition, then select **Next: Actions**.
 
-    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image6.png" lightbox="media/monitor-using-azure-monitor/alerts_image6.png" alt-text="Screenshot that shows the selections for opening the pane for configuring signal logic.":::
+   :::image type="content" source="media/monitor-using-azure-monitor/select-condition.png" alt-text="Screenshot that shows the definition of the alert condition.":::
 
-    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image7.png" lightbox="media/monitor-using-azure-monitor/alerts_image7.png" alt-text="Screenshot that shows configuring the signal logic.":::
-
-1. Define the alert details.
-
-    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image8.png" lightbox="media/monitor-using-azure-monitor/alerts_image8.png" alt-text="Screenshot that shows alert details.":::
-
-1. Define the action group.
+1. On the **Basics** tab, select an existing action group or create a new one.
 
    > [!NOTE]
    > The action group must be created within the same resource group as the data factory instance in order to be available for use from the data factory.
 
-    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image9.png" alt-text="Screenshot that shows creating a rule, with New action group highlighted.":::
+   :::image type="content" source="media/monitor-using-azure-monitor/create-actions.png" alt-text="Screenshot that shows where to select or create an action group for the alert.":::
 
-    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image10.png" alt-text="Screenshot that shows creating a new action group.":::
+   :::image type="content" source="media/monitor-using-azure-monitor/create-action-group.png" alt-text="Screenshot showing where the Create action group screen.":::
 
-    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image11.png" alt-text="Screenshot that shows configuring email, SMS, push, and voice.":::
+1. You can define email or SMS notifications if you need, on the **Notfications** tab, but this step is optional. To define actions within the action group, select the **Actions** tab and configure any of the **Action type** options you need. This step is also optional. Once you're done configuring notifications or actions for the action group, select **Review + create**.
 
-    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image12.png" lightbox="media/monitor-using-azure-monitor/alerts_image12.png" alt-text="Screenshot that shows defining an action group.":::
+   :::image type="content" source="media/monitor-using-azure-monitor/define-actions.png" alt-text="Screenshot showing where to define actions for your action group.":::
+
+1. On the **Review + create** tab, review your action group definition and select **Create** to finish.
+
+   :::image type="content" source="media/monitor-using-azure-monitor/review-create-action-group.png" alt-text="Screenshot showing the Review + create tab for the newly created action group.":::
 
 ## Related content
 

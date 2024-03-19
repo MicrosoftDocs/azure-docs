@@ -27,7 +27,6 @@ Defender for Cloud includes many advanced threat protection capabilities for vir
 
 Insights provide you with news, suggested reading, and high priority alerts that are relevant in your environment.  
 
-
 ## Next steps
 
 [Learn about](defender-for-cloud-introduction.md) workloads you can protect in Defender for Cloud
