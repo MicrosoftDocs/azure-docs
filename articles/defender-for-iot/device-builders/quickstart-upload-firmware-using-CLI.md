@@ -3,9 +3,8 @@ title: "Quickstart: Upload firmware images to Defender for IoT Firmware Analysis
 description: "Learn how to upload firmware images for analysis using the Azure CLI."
 author: karengu0
 ms.author: karenguo
-ms.service: Defender for IoT Firmware Analysis
 ms.topic: quickstart
-ms.date: [01/29/2024]
+ms.date: 01/29/2024
 
 ---
 
@@ -61,7 +60,7 @@ The output of this command will be a SAS URL. **Save this URL for the next comma
 az storage blob upload -f pathToFile --blob-url sasURL
 ```
 
-Here's an example workflow of how you could use these commands to create and upload a firmware image. To learn more about using variables in CLI commands, visit [How to use variables in Azure CLI commands](/azure/azure-cli-variables):
+Here's an example workflow of how you could use these commands to create and upload a firmware image. To learn more about using variables in CLI commands, visit [How to use variables in Azure CLI commands](/cli/azure/azure-cli-variables?tabs=bash):
 
 ```azurecli
 $filePath=/path/to/image
