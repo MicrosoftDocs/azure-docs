@@ -13,7 +13,7 @@ ms.author: danlep
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-This section provides brief descriptions and links to reference articles for all API Management policies.The API Management [gateways](api-management-gateways-overview.md) that support each policy are indicated. For detailed policy settings and examples, see the linked reference articles.
+This section provides brief descriptions and links to reference articles for all API Management policies. The API Management [gateways](api-management-gateways-overview.md) that support each policy are indicated. For detailed policy settings and examples, see the linked reference articles.
 
 More information about policies:
 
