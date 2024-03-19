@@ -22,9 +22,6 @@ The Groundedness detection API detects whether the text responses of large langu
 
 - **Groundedness and Ungroundedness in LLMs**: This refers to the extent to which the model’s outputs are based on provided information or reflect reliable sources accurately. A grounded response adheres closely to the given information, avoiding speculation or fabrication. In groundedness measures, source information is crucial and serves as the grounding source. 
 
-- **Hallucination in LLMs**: Hallucination involves generating text that contains fabricated, false, or misleading information. Hallucination in LLMs is a broader concept that generally includes ungroundedness. It refers to the generation of text that is not only ungrounded, but also fabricated, false, or misleading. Hallucination encompasses a wider range of inaccuracies, including completely made-up information that may not have any basis in the provided data or known facts.
-    - While all hallucinated content is ungrounded, not all ungrounded content is a hallucination. Hallucination is a broader term that includes any kind of fabricated or false information, whereas ungroundedness specifically refers to deviations from provided information or known facts.
-
 ## Groundedness detection features
 
 - **Domain Selection**: You can select predefined domains: either `medical` or `generic`. Users can choose an established domain to ensure more tailored detection that aligns with the specific needs of their field.
