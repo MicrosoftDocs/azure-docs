@@ -11,7 +11,9 @@ ms.custom: devx-track-azurecli
 ---
 # Onboard a Containerized Network Function (CNF) to Azure Operator Service Manager (AOSM)
 
-In this how-to guide, Network Function Publishers and Service Designers learn how to use the Azure CLI extension to onboard a containerized network function to AOSM. Onboarding is a multi-step process. Once you meet the prerequisites, you'll use the Azure CLI AOSM extension to:
+In this how-to guide, Network Function Publishers and Service Designers learn how to use the Azure CLI extension to onboard a containerized network function to AOSM. The CNF can subsequently be deployed onto an Azure Arc-connected Kubernetes Cluster, including a Azure Operator Nexus cluster.
+
+Onboarding is a multi-step process. Once you meet the prerequisites, you'll use the Azure CLI AOSM extension to:
 
 1. Convert your Helm charts and values.yaml into BICEP files that define a Network Function Definition (NFD).
 1. Publish the NFD and upload the CNF images to an AOSM-managed Azure Container Registry (ACR).
@@ -21,6 +23,10 @@ In this how-to guide, Network Function Publishers and Service Designers learn ho
 ## Prerequisites
 
 - You have [enabled AOSM](quickstart-onboard-subscription-to-aosm.md) on your Azure subscription.
+- If your CNF is intended to run on Azure Operator Nexus, you have access to an Azure Operator Nexus instance and have completed [the prerequisites for workload deployment](https://learn.microsoft.com/en-us/azure/operator-nexus/quickstarts-tenant-workload-prerequisites?tabs=azure-cli).
+
+> [!NOTE]
+> It is strongly recommended that you have tested that a `helm install` of your Helm package succeeds on your target Arc-connected Kubernetes environment.
 
 ### Configure Permissions
 
@@ -33,7 +39,7 @@ In this how-to guide, Network Function Publishers and Service Designers learn ho
 The Helm packages you intend to onboard must be present on the local storage of the machine from which you're executing the CLI.
 
 > [!NOTE]
-> It is strongly recommended that the Helm package contains a schema for the helm values, that the helm package templates as you expect when `helm template` is run using the values.yaml you intend to use in onboarding to AOSM, and that you have tested that `helm install` succeeds on your target Arc-connected Kubernetes environment.
+> It is strongly recommended that the Helm package contains a schema for the helm values and that the helm package templates as you expect when `helm template` is run using the values.yaml you intend to use when onboarding to AOSM.
 
 ### Register necessary resource providers
 

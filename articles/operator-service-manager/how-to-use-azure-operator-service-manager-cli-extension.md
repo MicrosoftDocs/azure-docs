@@ -59,7 +59,6 @@ az provider show -n Microsoft.ContainerRegistry --query "{RegistrationState: reg
 > [!NOTE]
 > It may take a few minutes for the resource provider registration to complete. Once the registration is successful, you can proceed with using the Azure Operator Service Manager (AOSM).
 
-
 ### Containerized Network Function (CNF) requirements
 
 For those utilizing Containerized Network Functions, it's essential to ensure that the following packages are installed on the machine from which you're executing the CLI:
