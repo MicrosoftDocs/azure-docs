@@ -154,7 +154,7 @@ Although the `ReservationId` itself might differ, it's still part of the same or
 |Reservation purchase record (actual cost) |	Purchase order ID |	Purchase order ID |
 |Reservation usage record (amortized and actual cost) |	Differing reservation ID |	Purchase order ID |
 
-For more information, see [Manage Reservations for Azure resources](..reservations/manage-reserved-vm-instance.md).
+For more information, see [Manage Reservations for Azure resources](../reservations/manage-reserved-vm-instance.md).
 
 ### Rounding adjustment details
 
