@@ -18,12 +18,10 @@ Get started with Azure Kubernetes Fleet Manager (Fleet) by using the Azure porta
 
 * Read the [conceptual overview of this feature](./concepts-fleet.md), which provides an explanation of fleets and member clusters referenced in this document.
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* A basic understanding of [Kubernetes core concepts](../aks/concepts-clusters-workloads.md).
 * An identity (user or service principal) with the following permissions on the Fleet and AKS resource types for completing the steps listed in this quickstart:
 
   * Microsoft.ContainerService/fleets/read
   * Microsoft.ContainerService/fleets/write
-  * Microsoft.ContainerService/fleets/listCredentials/action
   * Microsoft.ContainerService/fleets/members/read
   * Microsoft.ContainerService/fleets/members/write
   * Microsoft.ContainerService/fleetMemberships/read

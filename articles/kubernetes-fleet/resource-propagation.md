@@ -24,11 +24,12 @@ Fleet workload placement can deploy any Kubernetes objects to clusters In order 
 
 [!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
 
-## Requirements
+## Prerequisites
 
 - Read the [conceptual overview of this feature](./concepts-resource-propagation.md), which provides an explanation of `MemberCluster` and `ClusterResourcePlacement` referenced in this document.
 - A Kubernetes Fleet with a hub cluster and member clusters (see the [quickstart](quickstart-create-fleet-and-members.md) for provisioning instructions).
 - Member clusters must be labeled appropriately in the hub cluster to match the desired selection criteria. Example labels could include region, environment, team, availability zones, node availability, or anything else desired.
+- If the Azure Kubernetes Fleet Manager resource was created with the hub cluster enabled, then it can be used to centrally control scenarios like Kubernetes object propagation. To access the Kubernetes API of the Fleet resource cluster, follow the steps in the [Access the Kubernetes API of the Fleet resource cluster with Azure Kubernetes Fleet Manager](access-fleet-kubernetes-api.md) article.
 
 ## Resource placement with `ClusterResourcePlacement` resources
 

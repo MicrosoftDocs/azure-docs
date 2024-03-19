@@ -18,19 +18,16 @@ Get started with Azure Kubernetes Fleet Manager (Fleet) by using the Azure CLI t
 
 * Read the [conceptual overview of this feature](./concepts-fleet.md), which provides an explanation of fleets and member clusters referenced in this document.
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* A basic understanding of [Kubernetes core concepts](../aks/concepts-clusters-workloads.md).
 * An identity (user or service principal) which can be used to [log in to Azure CLI](/cli/azure/authenticate-azure-cli). This identity needs to have the following permissions on the Fleet and AKS resource types for completing the steps listed in this quickstart:
 
   * Microsoft.ContainerService/fleets/read
   * Microsoft.ContainerService/fleets/write
-  * Microsoft.ContainerService/fleets/listCredentials/action
   * Microsoft.ContainerService/fleets/members/read
   * Microsoft.ContainerService/fleets/members/write
   * Microsoft.ContainerService/fleetMemberships/read
   * Microsoft.ContainerService/fleetMemberships/write
   * Microsoft.ContainerService/managedClusters/read
   * Microsoft.ContainerService/managedClusters/write
-  * Microsoft.ContainerService/managedClusters/listClusterUserCredential/action
 
 * [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version `2.53.1` or later.
 
@@ -90,9 +87,9 @@ You can create a Fleet resource to later group your AKS clusters as member clust
 > [!IMPORTANT]
 > As of now, once a Fleet resource has been created, it's not possible to change the hub mode for the fleet resource.
 
-### Update orchestration only (default)
+### Option 1 - Create a Fleet without a hub cluster
 
-If you want to use Fleet only for update orchestration, which is the default experience when creating a new Fleet resource, you can create a Fleet resource without the hub cluster using the [`az fleet create`][az-fleet-create] command.
+If you want to use Fleet only for update orchestration, which is the default experience when creating a new Fleet resource, you can create a Fleet resource without the hub cluster using the [`az fleet create`][az-fleet-create] command. For more information, see [What is a hub cluster (preview)?](./concepts-fleet.md#what-is-a-hub-cluster-preview).
 
 ```azurecli-interactive
 az fleet create --resource-group ${GROUP} --name ${FLEET} --location eastus
@@ -128,7 +125,7 @@ Your output should look similar to the following example output:
 }
 ```
 
-### All scenarios enabled
+### Option 2 - Create a Fleet with a hub cluster
 
 If you want to use Fleet for Kubernetes object propagation and multi-cluster load balancing in addition to update orchestration, then you need to create the Fleet resource with the hub cluster enabled by specifying the `--enable-hub` parameter with the [`az fleet create`][az-fleet-create] command.
 
@@ -147,12 +144,6 @@ Fleet currently supports joining existing AKS clusters as member clusters.
     ```azurecli-interactive
     export MEMBER_NAME_1=aks-member-1
     export MEMBER_CLUSTER_ID_1=/subscriptions/${SUBSCRIPTION_ID}/resourceGroups/${GROUP}/providers/Microsoft.ContainerService/managedClusters/${MEMBER_NAME_1}
-
-    export MEMBER_NAME_2=aks-member-2
-    export MEMBER_CLUSTER_ID_2=/subscriptions/${SUBSCRIPTION_ID}/resourceGroups/${GROUP}/providers/Microsoft.ContainerService/managedClusters/${MEMBER_NAME_2}
-
-    export MEMBER_NAME_3=aks-member-3
-    export MEMBER_CLUSTER_ID_3=/subscriptions/${SUBSCRIPTION_ID}/resourceGroups/${GROUP}/providers/Microsoft.ContainerService/managedClusters/${MEMBER_NAME_3}
     ```
 
 2. Join your existing AKS clusters to the Fleet resource using the [`az fleet member create`][az-fleet-member-create] command.
@@ -164,23 +155,9 @@ Fleet currently supports joining existing AKS clusters as member clusters.
         --fleet-name ${FLEET} \
         --name ${MEMBER_NAME_1} \
         --member-cluster-id ${MEMBER_CLUSTER_ID_1}
-
-    # Join the second member cluster
-    az fleet member create \
-        --resource-group ${GROUP} \
-        --fleet-name ${FLEET} \
-        --name ${MEMBER_NAME_2} \
-        --member-cluster-id ${MEMBER_CLUSTER_ID_2}
-
-    # Join the third member cluster
-    az fleet member create \
-        --resource-group ${GROUP} \
-        --fleet-name ${FLEET} \
-        --name ${MEMBER_NAME_3} \
-        --member-cluster-id ${MEMBER_CLUSTER_ID_3}
     ```
 
-    Your outputs should look similar to the following example output:
+    Your output should look similar to the following example output:
 
     ```output
     {
