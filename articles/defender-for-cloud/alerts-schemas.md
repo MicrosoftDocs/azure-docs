@@ -11,7 +11,7 @@ ms.date: 11/09/2021
 
 If your subscription has Defender for Cloud [Defender plans](defender-for-cloud-introduction.md#protect-cloud-workloads) enabled, you receive security alerts when Defender for Cloud detects threats to their resources.
 
-You can view these security alerts in Microsoft Defender for Cloud's pages - [overview dashboard](overview-page.md), [alerts](managing-and-responding-alerts.md), [resource health pages](investigate-resource-health.md), or [workload protections dashboard](workload-protections-dashboard.md) - and through external tools such as:
+You can view these security alerts in Microsoft Defender for Cloud's pages - [overview dashboard](overview-page.md), [alerts](managing-and-responding-alerts.yml), [resource health pages](investigate-resource-health.md), or [workload protections dashboard](workload-protections-dashboard.md) - and through external tools such as:
 
 - [Microsoft Sentinel](../sentinel/index.yml) - Microsoft's cloud-native SIEM. The Sentinel Connector gets alerts from Microsoft Defender for Cloud and sends them to the [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) for Microsoft Sentinel.
 - Third-party SIEMs - Send data to [Azure Event Hubs](../event-hubs/index.yml). Then integrate your Event Hubs data with a third-party SIEM. Learn more in [Stream alerts to a SIEM, SOAR, or IT Service Management solution](export-to-siem.md).
@@ -40,7 +40,7 @@ Microsoft Defender for Cloud audits generated Security alerts as events in Azure
 
 You can view the security alerts events in Activity Log by searching for the Activate Alert event as shown:
 
-[![Searching the Activity log for the Activate Alert event.](media/alerts-schemas/sample-activity-log-alert.png)](media/alerts-schemas/sample-activity-log-alert.png#lightbox)
+:::image type="content" source="media/alerts-schemas/sample-activity-log-alert.png" alt-text="Searching the Activity log for the Activate Alert event." lightbox="media/alerts-schemas/sample-activity-log-alert.png":::
 
 ### Sample JSON for alerts sent to Azure Activity Log
 
@@ -126,7 +126,7 @@ You can view the security alerts events in Activity Log by searching for the Act
 |**subStatus**|The value and localizedValue subfields are empty|
 |**submissionTimestamp**|The UTC timestamp of event submission to Activity Log|
 |**subscriptionId**|The subscription ID of the compromised resource|
-|**properties**|A JSON bag of other properties pertaining to the alert. Properties can change from one alert to the other, however, the following fields appear in all alerts:<br>- severity: The severity of the attack<br>- compromisedEntity: The name of the compromised resource<br>- remediationSteps: Array of remediation steps to be taken<br>- intent: The kill-chain intent of the alert. Possible intents are documented in the [Intentions table](alerts-reference.md#intentions)|
+|**properties**|A JSON bag of other properties pertaining to the alert. Properties can change from one alert to the other, however, the following fields appear in all alerts:<br>- severity: The severity of the attack<br>- compromisedEntity: The name of the compromised resource<br>- remediationSteps: Array of remediation steps to be taken<br>- intent: The kill-chain intent of the alert. Possible intents are documented in the [Intentions table](alerts-reference.md#mitre-attck-tactics)|
 |**relatedEvents**|Constant - empty array|
 
 ### [Workflow automation](#tab/schema-workflow-automation)

@@ -26,6 +26,7 @@ Azure Virtual network service tags can be used to define network access controls
 | Azure Commercial |`<log-analytics-workspace-id>`.ods.opinsights.azure.com |Ingest logs data |Port 443 |Outbound|Yes | 1234a123-aa1a-123a-aaa1-a1a345aa6789.ods.opinsights.azure.com
 | Azure Commercial | management.azure.com | Only needed if sending time series data (metrics) to Azure Monitor [Custom metrics](../essentials/metrics-custom-overview.md) database | Port 443 | Outbound | Yes | - |
 | Azure Commercial | `<virtual-machine-region-name>`.monitoring.azure.com  | Only needed if sending time series data (metrics) to Azure Monitor [Custom metrics](../essentials/metrics-custom-overview.md) database | Port 443 | Outbound | Yes | westus2.monitoring.azure.com |
+| Azure Commercial | `<data-collection-endpoint>`.`<virtual-machine-region-name>`.ingest.monitor.azure.com  | Only needed if sending data to Log Analytics [Custom Logs](./data-collection-text-log.md) table | Port 443 | Outbound | Yes | 275test-01li.eastus2euap-1.canary.ingest.monitor.azure.com |
 | Azure Government | Replace '.com' above with '.us' | Same as above | Same as above | Same as above| Same as above |
 | Microsoft Azure operated by 21Vianet | Replace '.com' above with '.cn' | Same as above | Same as above | Same as above| Same as above |
 

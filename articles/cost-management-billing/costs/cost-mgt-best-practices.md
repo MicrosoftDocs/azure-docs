@@ -62,7 +62,7 @@ Act to reduce your spending. Make the most of it based on the findings gathered 
 
 Everyone in your organization must engage in the cost management lifecycle. They need to stay involved on an ongoing basis to optimize costs. Be rigorous about this iterative process and make it a key tenet of responsible cloud governance in your organization.
 
-![Key principles diagram showing visibility, accountability, and optimization](./media/cost-mgt-best-practices/principles.png)
+:::image type="content" border="false" source="./media/cost-mgt-best-practices/principles.png" alt-text="The Key principles diagram showing visibility, accountability, and optimization.":::
 
 ## Plan with cost in mind
 

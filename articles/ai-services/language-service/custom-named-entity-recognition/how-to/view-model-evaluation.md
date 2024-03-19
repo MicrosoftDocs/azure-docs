@@ -3,12 +3,12 @@ title: Evaluate a Custom Named Entity Recognition (NER) model
 titleSuffix: Azure AI services
 description: Learn how to evaluate and score your Custom Named Entity Recognition (NER) model
 #services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 12/19/2023
-ms.author: aahi
+ms.author: jboback
 ms.custom: language-service-custom-ner
 ---
 

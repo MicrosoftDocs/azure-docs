@@ -1114,7 +1114,7 @@ Some general system constraints might affect your workload:
 
 ### Can't create a database in serverless SQL pool
 
-Serverless SQL pools have limitations, and you can't create more than 20 databases per workspace. If you need to separate objects and isolate them, use schemas.
+Serverless SQL pools have limitations, and you can't create more than 100 databases per workspace. If you need to separate objects and isolate them, use schemas.
 
 If you get the error `CREATE DATABASE failed. User database limit has been already reached` you've created the maximum number of databases that are supported in one workspace.
 

@@ -75,7 +75,7 @@ To upload firmware images:
 ## Invite third parties to interact with your firmware analysis results
 You might want to invite someone to interact solely with your firmware analysis results, without allowing access to other parts of your organization (like other resource groups within your subscription). To allow this type of access, invite the user as a Firmware Analysis Admin at the FirmwareAnalysisRG Resource Group level.
 
-To invite a third party, follow the [Assign Azure roles to external guest users using the Azure portal](../../../articles/role-based-access-control/role-assignments-external-users.md#add-a-guest-user-to-your-directory) tutorial.
+To invite a third party, follow the [Assign Azure roles to external users using the Azure portal](../../../articles/role-based-access-control/role-assignments-external-users.md#invite-an-external-user-to-your-directory) tutorial.
 
 * In step 3, navigate to the **FirmwareAnalysisRG** Resource Group.
 * In step 7, select the **Firmware Analysis Admin** role.

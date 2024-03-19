@@ -327,7 +327,9 @@ Patches have a two month minimum lifecycle. To keep up to date when new patches 
 
 ## Next steps
 
-For information on how to upgrade your cluster, see [Upgrade an Azure Kubernetes Service (AKS) cluster][aks-upgrade].
+For information on how to upgrade your cluster, see:
+- [Upgrade an Azure Kubernetes Service (AKS) cluster][aks-upgrade]
+- [Upgrade multiple AKS clusters via Azure Kubernetes Fleet Manager][fleet-multi-cluster-upgrade]
 
 <!-- LINKS - External -->
 [azure-update-channel]: https://azure.microsoft.com/updates/?product=kubernetes-service
@@ -343,3 +345,4 @@ For information on how to upgrade your cluster, see [Upgrade an Azure Kubernetes
 [preview-terms]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [get-azaksversion]: /powershell/module/az.aks/get-azaksversion
 [aks-tracker]: release-tracker.md
+[fleet-multi-cluster-upgrade]: /azure/kubernetes-fleet/update-orchestration

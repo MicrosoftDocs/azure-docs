@@ -53,6 +53,8 @@ landingContent:
             url: tutorials/deploy-chat-web-app.md
           - text: Build your own copilot using prompt flow
             url: tutorials/deploy-copilot-ai-studio.md
+          - text: Build your own copilot using Azure AI CLI and SDK
+            url: tutorials/deploy-copilot-sdk.md
 
   # Card
   - title: Develop apps

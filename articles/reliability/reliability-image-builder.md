@@ -2,8 +2,8 @@
 title: Reliability in Azure Image Builder
 description: Find out about reliability in Azure Image Builder
 author: ericd-mst-github
-ms.author: kofiforson
-ms.topic: overview 
+ms.author: csudrisforresiliency
+ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: virtual-machines
 ms.subservice: image-builder

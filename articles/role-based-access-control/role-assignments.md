@@ -1,7 +1,6 @@
 ---
 title: Understand Azure role assignments - Azure RBAC
 description: Learn about Azure role assignments in Azure role-based access control (Azure RBAC) for fine-grained access management of Azure resources.
-services: active-directory
 author: johndowns
 ms.service: role-based-access-control
 ms.topic: conceptual
@@ -49,7 +48,7 @@ The following shows an example of the properties in a role assignment when displ
 }
 ```
 
-The following shows an example of the properties in a role assignment when displayed using the [Azure CLI](role-assignments-list-cli.md), or the [REST API](role-assignments-list-rest.md):
+The following shows an example of the properties in a role assignment when displayed using the [Azure CLI](role-assignments-list-cli.yml), or the [REST API](role-assignments-list-rest.md):
 
 ```json
 {

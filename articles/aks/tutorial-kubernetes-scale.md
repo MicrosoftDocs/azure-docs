@@ -2,7 +2,7 @@
 title: Kubernetes on Azure tutorial - Scale applications in Azure Kubernetes Service (AKS)
 description: In this Azure Kubernetes Service (AKS) tutorial, you learn how to scale nodes and pods and implement horizontal pod autoscaling.
 ms.topic: tutorial
-ms.date: 10/23/2023
+ms.date: 03/05/2023
 ms.custom: mvc
 #Customer intent: As a developer or IT pro, I want to learn how to scale my applications in an Azure Kubernetes Service (AKS) cluster so I can provide high availability or respond to customer demand and application load.
 ---
@@ -110,11 +110,11 @@ These resource requests and limits are defined for each container, as shown in t
     spec:
       maxReplicas: 10 # define max replica count
       minReplicas: 3  # define min replica count
+      targetCPUUtilizationPercentage: 50 # target CPU utilization
       scaleTargetRef:
         apiVersion: apps/v1
         kind: Deployment
         name: store-front
-        metrics: 50 # target CPU utilization
     ```
 
 2. Apply the autoscaler manifest file using the `kubectl apply` command.
