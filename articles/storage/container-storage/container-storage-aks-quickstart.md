@@ -4,7 +4,7 @@ description: Create a Linux-based Azure Kubernetes Service (AKS) cluster, instal
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: quickstart
-ms.date: 03/18/2024
+ms.date: 03/19/2024
 ms.author: kendownie
 ms.custom:
   - devx-track-azurecli
@@ -113,9 +113,11 @@ You'll specify the VM type when you create the cluster in the next section. Foll
 
 If you already have an AKS cluster deployed, skip this section and go to [Install Azure Container Storage on an existing AKS cluster](#install-azure-container-storage-on-an-existing-aks-cluster).
 
-Run the following command to create a new AKS cluster, install Azure Container Storage, and create a storage pool. Replace `<cluster-name>` and `<resource-group-name>` with your own values, and specify which VM type you want to use. You'll need a node pool of at least three Linux VMs. Replace `<storage-pool-type>` with `azureDisk`, `ephemeralDisk`, or `elasticSan`. If you select `ephemeralDisk`, you can also specify `--storage-pool-option`, and the values can be `NVMe` or `Temp`.
+Run the following command to create a new AKS cluster, install Azure Container Storage, and create a storage pool. Replace `<cluster-name>` and `<resource-group-name>` with your own values, and specify which VM type you want to use. Replace `<storage-pool-type>` with `azureDisk`, `ephemeralDisk`, or `elasticSan`. If you select `ephemeralDisk`, you can also specify `--storage-pool-option`, and the values can be `NVMe` or `Temp`.
 
-If you want to specify additional storage pool parameters, see [this table](container-storage-faq.md#storage-pool-parameters).
+Running this command will enable Azure Container Storage on the system node pool\* with three Linux VMs. By default, the system node pool is named `nodepool1`. If you want to enable Azure Container Storage on other node pools, see [Install Azure Container Storage on specific node pools](#install-azure-container-storage-on-specific-node-pools). If you want to specify additional storage pool parameters with this command, see [this table](container-storage-faq.md#storage-pool-parameters).
+
+\*If there are any existing node pools with the `acstor.azure.com/io-engine:acstor` label then Azure Container Storage will be installed there by default. Otherwise, it's installed on the system node pool.
 
 ```azurecli-interactive
 az aks create -n <cluster-name> -g <resource-group-name> --node-vm-size Standard_D4s_v3 --node-count 3 --enable-azure-container-storage <storage-pool-type>
@@ -146,7 +148,9 @@ If the `Message` doesn't say `StoragePool is ready`, then your storage pool is s
 
 If you already have an AKS cluster that meets the [VM requirements](#choose-a-vm-type-for-your-cluster), run the following command to install Azure Container Storage on the cluster and create a storage pool. Replace `<cluster-name>` and `<resource-group-name>` with your own values. Replace `<storage-pool-type>` with `azureDisk`, `ephemeraldisk`, or `elasticSan`.
 
-Running this command will enable Azure Container Storage on a node pool named `nodepool1`, which is the default node pool name. If you want to install it on other node pools, see [Install Azure Container Storage on specific node pools](#install-azure-container-storage-on-specific-node-pools). If you want to specify additional storage pool parameters, see [this table](container-storage-faq.md#storage-pool-parameters).
+Running this command will enable Azure Container Storage on the system node pool, which by default is named `nodepool1`\*. If you want to enable it on other node pools, see [Install Azure Container Storage on specific node pools](#install-azure-container-storage-on-specific-node-pools). If you want to specify additional storage pool parameters, see [this table](container-storage-faq.md#storage-pool-parameters).
+
+\*If there are any existing node pools with the `acstor.azure.com/io-engine:acstor` label then Azure Container Storage will be installed there by default. Otherwise, it's installed on the system node pool.
 
 > [!IMPORTANT]
 > **If you created your AKS cluster using the Azure portal:** The cluster will likely have a user node pool and a system/agent node pool. However, if your cluster consists of only a system node pool, which is the case with test/dev clusters created with the Azure portal, you'll need to first [add a new user node pool](../../aks/create-node-pools.md#add-a-node-pool) and then label it. This is because when you create an AKS cluster using the Azure portal, a taint `CriticalAddOnsOnly` is added to the system/agent node pool, which blocks installation of Azure Container Storage on the system node pool. This taint isn't added when an AKS cluster is created using Azure CLI.
@@ -175,13 +179,18 @@ If you want to install Azure Container Storage on specific node pools, follow th
 
 ## Enable additional storage pool types
 
-If you want to enable a storage pool type that wasn't originally enabled during installation of Azure Container Storage, run the following command. Replace `<resource-group-name>`, `<cluster-name>`, and `<storage-pool-type>` with your own values.
+If you want to enable a storage pool type that wasn't originally enabled during installation of Azure Container Storage, run the following command. Replace `<resource-group-name>` and `<cluster-name>`, and with your own values. For `<storage-pool-type>`, specify `azureDisk`, `ephemeralDisk`, or `elasticSan`.
+
+If you want to specify additional storage pool parameters with this command, see [this table](container-storage-faq.md#storage-pool-parameters).
 
 ```azurecli-interactive
 az aks update -n <cluster-name> -g <resource-group-name> --enable-azure-container-storage <storage-pool-type>
 ```
 
 If the new storage pool type that you've enabled takes up more resources than the storage pool type that's already enabled, the [resource consumption](#resource-consumption) will change to the maximum amount.
+
+> [!TIP]
+> If you've added a new node pool to your cluster and want to run Azure Container Storage on that node pool, you can specify the node pool with `--azure-container-storage-nodepools <nodepool-name>` when running the `az aks update` command.
 
 ## Disable storage pool types
 
