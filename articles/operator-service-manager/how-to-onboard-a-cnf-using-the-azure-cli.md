@@ -11,10 +11,10 @@ ms.custom: devx-track-azurecli
 ---
 # Onboard a Containerized Network Function (CNF) to Azure Operator Service Manager (AOSM)
 
-In this how-to guide, Network Function Publishers and Service Designers learn how to use the Azure CLI extension to onboard a containerised network function to AOSM. Onboarding is a multi-step process. Once you meet the prerequisites, you will use the Azure CLI AOSM extension to:
+In this how-to guide, Network Function Publishers and Service Designers learn how to use the Azure CLI extension to onboard a containerized network function to AOSM. Onboarding is a multi-step process. Once you meet the prerequisites, you'll use the Azure CLI AOSM extension to:
 
 1. Convert your Helm charts and values.yaml into BICEP files that define a Network Function Definition (NFD).
-1. Publish the NFD and upload the NF images to an AOSM-managed ACR.
+1. Publish the NFD and upload the CNF images to an AOSM-managed Azure Container Registry (ACR).
 1. Add your published NFD to the BICEP files that define a Network Service Design (NSD).
 1. Publish the NSD.
 
@@ -30,7 +30,7 @@ Contact your Microsoft account team to register your Azure subscription for acce
 
 - You require the Contributor role over your subscription in order to create a Resource Group, or an existing Resource Group where you have the Contributor role.
 - You require the `Reader`/`AcrPull` role assignments on the source ACR containing your images.
-- For the fastest image transfers, you require the `Contributor` and `AcrPush` role assignments on the subscription that will contain the AOSM managed Artifact Store. Alternatively, you can use the `--no-subscription-permissions` parameter when publishing images. This does not require subscription scoped permissions.
+- For the fastest image transfers, you require the `Contributor` and `AcrPush` role assignments on the subscription that will contain the AOSM managed Artifact Store. Alternatively, you can use the `--no-subscription-permissions` parameter when publishing images. This parameter means you don't require subscription scoped permissions.
 
 ### Helm Packages
 
@@ -89,14 +89,14 @@ az extension add --name aosm
 
 Install Helm and the Docker engine by following the linked documents:
 
-- [Install Helm CLI](https://helm.sh/docs/intro/install/).
+- [Install Helm CLI](https://helm.sh/docs/intro/install/)
 - [Install the Docker Engine](https://docs.docker.com/engine/install/)
 
 ## Build the Network Function Definition (NFD)
 
-This section creates a folder in the working directory called `cnf-cli-output`. This folder contains the BICEP templates of the Azure Operator Service Manager resources which define a Network Function Definition and the Artifact Store that will be used to store the container images. This Network Function Definition templates a Network Function that can be deployed using AOSM once it has been included in a Network Service Design.
+This section creates a folder in the working directory called `cnf-cli-output`. This folder contains the BICEP templates of the Azure Operator Service Manager resources that define a Network Function Definition and the Artifact Store that will be used to store the container images. This Network Function Definition templates a Network Function that can be deployed using AOSM once it has been included in a Network Service Design.
 
-1. Login to Azure using the Azure CLI and set the default subscription.
+1. Sign in to Azure using the Azure CLI and set the default subscription.
 
 ```azurecli
 az login
@@ -177,7 +177,7 @@ az aosm nfd publish --build-output-folder cnf-cli-output --definition-type cnf
 
 ## Build the Network Service Design (NSD)
 
-This section creates a folder in the working directory called `nsd-cli-output`. This folder contains the BICEP templates of the Azure Operator Service Manager resources which define a Network Service Design. This Network Service Design templates a Site Network Service resource that will deploy the Network Function you onboarded in the previous sections.
+This section creates a folder in the working directory called `nsd-cli-output`. This folder contains the BICEP templates of the Azure Operator Service Manager resources that define a Network Service Design. This Network Service Design templates a Site Network Service resource that will deploy the Network Function you onboarded in the previous sections.
 
 1. Generate the Azure CLI AOSM Extension NSD input file.
 
