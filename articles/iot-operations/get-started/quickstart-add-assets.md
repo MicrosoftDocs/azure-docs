@@ -29,6 +29,8 @@ Complete [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kube
 
 To sign in to the Azure IoT Operations portal, you need a work or school account in the tenant where you deployed Azure IoT Operations. If you're currently using a Microsoft account (MSA), you need to create a Microsoft Entra ID with at least contributor permissions for the resource group that contains your **Kubernetes - Azure Arc** instance. To learn more, see [Known Issues > Create Entra account](../troubleshoot/known-issues.md#azure-iot-operations-preview-portal).
 
+For this quickstart, we use the **OPC PLC simulator** as our OPC UA Server endpoint. Follow [How to configure an OPC PLC simulator to work with Azure IoT OPC UA Broker](../manage-devices-assets/howto-configure-opc-plc-simulator.md) to make sure that OPC PLC is properly installed and configured before you begin.
+
 ## What problem will we solve?
 
 The data that OPC UA servers expose can have a complex structure and can be difficult to understand. Azure IoT Operations provides a way to model OPC UA assets as tags, events, and properties. This modeling makes it easier to understand the data and to use it in downstream processes such as the MQ broker and Azure IoT Data Processor Preview pipelines.
@@ -83,40 +85,6 @@ To add an asset endpoint:
     ```
 
     When the OPC PLC simulator is running, data flows from the simulator, to the connector, to the OPC UA broker, and finally to the MQ broker.
-
-The following step lowers the security level for the OPC PLC so that it accepts connections from any client without an explicit peer certificate trust operation. To enable the asset endpoint to use an untrusted certificate:
-
-> [!CAUTION]
-> Don't use untrusted certificates in production environments. To learn more, see [Configure an OPC PLC simulator](../manage-devices-assets/howto-configure-opc-plc-simulator.md).
-
-1. Run the following command to enable the use of an untrusted certificate. Replace the two placeholders with your cluster name and resource group name:
-
-    ```azurecli
-    az k8s-extension update \
-    --version 0.3.0-preview \
-    --name opc-ua-broker \
-    --release-train preview \
-    --cluster-name <cluster-name> \
-    --resource-group <azure-resource-group> \
-    --cluster-type connectedClusters \
-    --auto-upgrade-minor-version false \
-    --config opcPlcSimulation.deploy=true \
-    --config opcPlcSimulation.autoAcceptUntrustedCertificates=true
-    ```
-
-1. To enable the configuration change to take effect immediately, first find the name of your `aio-opc-supervisor` pod by using the following command:
-
-    ```console
-    kubectl get pods -n azure-iot-operations
-    ```
-
-    The name of your pod looks like `aio-opc-supervisor-956fbb649-k9ppr`.
-
-1. Restart the `aio-opc-supervisor` pod by using a command that looks like the following example. Use the `aio-opc-supervisor` pod name from the previous step:
-
-    ```console
-    kubectl delete pod aio-opc-supervisor-956fbb649-k9ppr -n azure-iot-operations
-    ```
 
 ## Manage your assets
 
@@ -204,7 +172,7 @@ The sample tags you added in the previous quickstart generate messages from your
 
 ```json
 {
-    "Timestamp": "2024-03-08T00:54:58.6572007Z", 
+    "Timestamp": "2024-03-08T00:54:58.6572007Z",
     "MessageType": "ua-deltaframe",
     "payload": {
       "temperature": {
@@ -261,7 +229,7 @@ kubectl get akrii -n azure-iot-operations
 
 It might take a few minutes for the instance to show up.
 
-The output from the previous command looks like the following example. 
+The output from the previous command looks like the following example.
 
 ```console
 NAMESPACE              NAME                      CONFIG             SHARED   NODES            AGE
@@ -270,7 +238,7 @@ azure-iot-operations   akri-opcua-asset-dbdef0   akri-opcua-asset   true     ["d
 
 Now you can use these resources in the local cluster namespace.
 
-To confirm that Akri connected to the OPC UA Broker, copy and paste the name of the Akri instance from the previous step into the following command: 
+To confirm that Akri connected to the OPC UA Broker, copy and paste the name of the Akri instance from the previous step into the following command:
 
 ```bash
 kubectl get akrii <AKRI_INSTANCE_NAME> -n azure-iot-operations -o json
@@ -283,7 +251,7 @@ The command output looks like the following example. This example output shows t
 
         "brokerProperties": {
             "ApplicationUri": "Boiler #2",
-            "AssetEndpointProfile": "{\"spec\":{\"uuid\":\"opc-ua-broker-opcplc-000000-azure-iot-operation\"……   
+            "AssetEndpointProfile": "{\"spec\":{\"uuid\":\"opc-ua-broker-opcplc-000000-azure-iot-operation\"……
 ```
 
 ## How did we solve the problem?
