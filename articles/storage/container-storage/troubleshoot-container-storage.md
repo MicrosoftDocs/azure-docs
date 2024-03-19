@@ -3,9 +3,9 @@ title: Troubleshoot Azure Container Storage Preview
 description: Troubleshoot common problems with Azure Container Storage, including installation and storage pool issues.
 author: khdownie
 ms.service: azure-container-storage
-ms.date: 03/14/2024
+ms.date: 03/19/2024
 ms.author: kendownie
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Troubleshoot Azure Container Storage Preview
