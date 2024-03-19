@@ -93,7 +93,7 @@ You can use the following PowerShell comannds to return your Azure policy, look 
 
 ### Command Line Interface
 
-You can you Azure CLI to return the current values for these fields from your Azure policy settings and update the fields to the desired values using [these commands](https://learn.microsoft.com/en-us/cli/azure/network/application-gateway/waf-policy/policy-setting).
+You can you Azure CLI to return the current values for these fields from your Azure policy settings and update the fields to the desired values using [these commands](/cli/azure/network/application-gateway/waf-policy/policy-setting).
 
 ## Next steps
 
