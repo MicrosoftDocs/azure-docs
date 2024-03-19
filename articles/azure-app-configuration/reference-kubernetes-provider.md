@@ -12,7 +12,7 @@ ms.author: junbchen
 
 # Azure App Configuration Kubernetes Provider reference
 
-The following reference outlines the properties supported by the Azure App Configuration Kubernetes Provider.
+The following reference outlines the properties supported by the Azure App Configuration Kubernetes Provider `v1.2.0`. See [release notes](https://github.com/Azure/AppConfiguration/blob/main/releaseNotes/KubernetesProvider.md) for more information on the change.
 
 ## Properties
 
@@ -26,6 +26,7 @@ An `AzureAppConfigurationProvider` resource has the following top-level child pr
 |auth|The authentication method to access Azure App Configuration.|false|object|
 |configuration|The settings for querying and processing key-values in Azure App Configuration.|false|object|
 |secret|The settings for Key Vault references in Azure App Configuration.|conditional|object|
+|featureFlag|The settings for feature flags in Azure App Configuration.|false|object|
 
 The `spec.target` property has the following child property.
 
@@ -34,7 +35,7 @@ The `spec.target` property has the following child property.
 |configMapName|The name of the ConfigMap to be created.|true|string|
 |configMapData|The setting that specifies how the retrieved data should be populated in the generated ConfigMap.|false|object|
 
-If the `spec.target.configMapData` property is not set, the generated ConfigMap will be populated with the list of key-values retrieved from Azure App Configuration, which allows the ConfigMap to be consumed as environment variables. Update this property if you wish to consume the ConfigMap as a mounted file. This property has the following child properties.
+If the `spec.target.configMapData` property is not set, the generated ConfigMap is populated with the list of key-values retrieved from Azure App Configuration, which allows the ConfigMap to be consumed as environment variables. Update this property if you wish to consume the ConfigMap as a mounted file. This property has the following child properties.
 
 |Name|Description|Required|Type|
 |---|---|---|---|
@@ -42,7 +43,7 @@ If the `spec.target.configMapData` property is not set, the generated ConfigMap 
 |key|The key name of the retrieved data when the `type` is set to `json`, `yaml` or `properties`. Set it to the file name if the ConfigMap is set up to be consumed as a mounted file.|conditional|string|
 |separator|The delimiter that is used to output the ConfigMap data in hierarchical format when the type is set to `json` or `yaml`. The separator is empty by default and the generated ConfigMap contains key-values in their original form. Configure this setting only if the configuration file loader used in your application can't load key-values without converting them to the hierarchical format.|optional|string|
 
-The `spec.auth` property isn't required if the connection string of your App Configuration store is provided by setting the `spec.connectionStringReference` property. Otherwise, one of the identities, service principal, workload identity, or managed identity, will be used for authentication. The `spec.auth` has the following child properties. Only one of them should be specified. If none of them are set, the system-assigned managed identity of the virtual machine scale set will be used.
+The `spec.auth` property isn't required if the connection string of your App Configuration store is provided by setting the `spec.connectionStringReference` property. Otherwise, one of the identities, service principal, workload identity, or managed identity, is used for authentication. The `spec.auth` has the following child properties. Only one of them should be specified. If none of them are set, the system-assigned managed identity of the virtual machine scale set is used.
 
 |Name|Description|Required|Type|
 |---|---|---|---|
@@ -70,9 +71,9 @@ The `spec.configuration` has the following child properties.
 |---|---|---|---|
 |selectors|The list of selectors for key-value filtering.|false|object array|
 |trimKeyPrefixes|The list of key prefixes to be trimmed.|false|string array|
-|refresh|The settings for refreshing data from Azure App Configuration. If the property is absent, data from Azure App Configuration will not be refreshed.|false|object|
+|refresh|The settings for refreshing key-values from Azure App Configuration. If the property is absent, key-values from Azure App Configuration are not refreshed.|false|object|
 
-If the `spec.configuration.selectors` property isn't set, all key-values with no label will be downloaded. It contains an array of *selector* objects, which have the following child properties.
+If the `spec.configuration.selectors` property isn't set, all key-values with no label are downloaded. It contains an array of *selector* objects, which have the following child properties.
 
 |Name|Description|Required|Type|
 |---|---|---|---|
@@ -83,9 +84,9 @@ The `spec.configuration.refresh` property has the following child properties.
 
 |Name|Description|Required|Type|
 |---|---|---|---|
-|enabled|The setting that determines whether data from Azure App Configuration is automatically refreshed. If the property is absent, a default value of `false` will be used.|false|bool|
-|monitoring|The key-values monitored for change detection, aka sentinel keys. The data from Azure App Configuration will be refreshed only if at least one of the monitored key-values is changed.|true|object|
-|interval|The interval at which the data will be refreshed from Azure App Configuration. It must be greater than or equal to 1 second. If the property is absent, a default value of 30 seconds will be used.|false|duration string|
+|enabled|The setting that determines whether key-values from Azure App Configuration is automatically refreshed. If the property is absent, a default value of `false` is used.|false|bool|
+|monitoring|The key-values monitored for change detection, aka sentinel keys. The key-values from Azure App Configuration are refreshed only if at least one of the monitored key-values is changed.|true|object|
+|interval|The interval at which the key-values are refreshed from Azure App Configuration. It must be greater than or equal to 1 second. If the property is absent, a default value of 30 seconds is used.|false|duration string|
 
 The `spec.configuration.refresh.monitoring.keyValues` is an array of objects, which have the following child properties.
 
@@ -100,7 +101,7 @@ The `spec.secret` property has the following child properties. It is required if
 |---|---|---|---|
 |target|The destination of the retrieved secrets in Kubernetes.|true|object|
 |auth|The authentication method to access Key Vaults.|false|object|
-|refresh|The settings for refreshing data from Key Vaults. If the property is absent, data from Key Vaults will not be refreshed unless the corresponding Key Vault references are reloaded.|false|object|
+|refresh|The settings for refreshing data from Key Vaults. If the property is absent, data from Key Vaults is not refreshed unless the corresponding Key Vault references are reloaded.|false|object|
 
 The `spec.secret.target` property has the following child property.
 
@@ -126,12 +127,48 @@ The authentication method of each *Key Vault* can be specified with the followin
 |workloadIdentity|The settings of the workload identity used for authentication with a Key Vault. It has the same child properties as `spec.auth.workloadIdentity`.|false|object|
 |managedIdentityClientId|The client ID of a user-assigned managed identity of virtual machine scale set used for authentication with a Key Vault.|false|string|
 
-The `spec.secret.refresh` property has the following child property.
+The `spec.secret.refresh` property has the following child properties.
 
 |Name|Description|Required|Type|
 |---|---|---|---|
-|enabled|The setting that determines whether data from Key Vaults is automatically refreshed. If the property is absent, a default value of `false` will be used.|false|bool|
-|interval|The interval at which the data will be refreshed from Key Vault. It must be greater than or equal to 1 minute. The Key Vault refresh is independent of the App Configuration refresh configured via `spec.configuration.refresh`.|true|duration string|
+|enabled|The setting that determines whether data from Key Vaults is automatically refreshed. If the property is absent, a default value of `false` is used.|false|bool|
+|interval|The interval at which the data is refreshed from Key Vault. It must be greater than or equal to 1 minute. The Key Vault refresh is independent of the App Configuration refresh configured via `spec.configuration.refresh`.|true|duration string|
+
+The `spec.featureFlag` property has the following child properties. It is required if any feature flags are expected to be downloaded.
+
+|Name|Description|Required|Type|
+|---|---|---|---|
+|selectors|The list of selectors for feature flag filtering.|false|object array|
+|refresh|The settings for refreshing feature flags from Azure App Configuration. If the property is absent, feature flags from Azure App Configuration are not refreshed.|false|object|
+
+If the `spec.featureFlag.selectors` property isn't set, feature flags are not downloaded. It contains an array of *selector* objects, which have the following child properties.
+
+|Name|Description|Required|Type|
+|---|---|---|---|
+|keyFilter|The key filter for querying feature flags.|true|string|
+|labelFilter|The label filter for querying feature flags.|false|string|
+
+The `spec.featureFlag.refresh` property has the following child properties.
+
+|Name|Description|Required|Type|
+|---|---|---|---|
+|enabled|The setting that determines whether feature flags from Azure App Configuration are automatically refreshed. If the property is absent, a default value of `false` is used.|false|bool|
+|interval|The interval at which the feature flags are refreshed from Azure App Configuration. It must be greater than or equal to 1 second. If the property is absent, a default value of 30 seconds is used.|false|duration string|
+
+## Installation
+
+Use the following `helm install` command to install the Azure App Configuration Kubernetes Provider. See [helm-values.yaml](https://github.com/Azure/AppConfiguration-KubernetesProvider/blob/main/deploy/parameter/helm-values.yaml) for the complete list of parameters and their default values. You can override the default values by passing the `--set` flag to the command.
+ 
+```bash
+helm install azureappconfiguration.kubernetesprovider \
+    oci://mcr.microsoft.com/azure-app-configuration/helmchart/kubernetes-provider \
+    --namespace azappconfig-system \
+    --create-namespace
+```
+
+### Autoscaling
+
+By default, autoscaling is disabled. However, if you have multiple `AzureAppConfigurationProvider` resources to produce multiple ConfigMaps/Secrets, you can enable horizontal pod autoscaling by setting `autoscaling.enabled` to `true`.
 
 ## Examples
 
@@ -387,6 +424,28 @@ spec:
       interval: 1h
 ```
 
+### Feature Flags
+
+In the following sample, feature flags with keys starting with `app1` and labels equivalent to `common` are downloaded and refreshed every 10 minutes.
+
+``` yaml
+apiVersion: azconfig.io/v1
+kind: AzureAppConfigurationProvider
+metadata:
+  name: appconfigurationprovider-sample
+spec:
+  endpoint: <your-app-configuration-store-endpoint>
+  target:
+    configMapName: configmap-created-by-appconfig-provider
+  featureFlag:
+    selectors:
+      - keyFilter: app1*
+        labelFilter: common
+    refresh:
+      enabled: true
+      interval: 10m
+```
+
 ### ConfigMap Consumption
 
 Applications running in Kubernetes typically consume the ConfigMap either as environment variables or as configuration files. If the `configMapData.type` property is absent or is set to default, the ConfigMap is populated with the itemized list of data retrieved from Azure App Configuration, which can be easily consumed as environment variables. If the `configMapData.type` property is set to json, yaml or properties, data retrieved from Azure App Configuration is grouped into one item with key name specified by the `configMapData.key` property in the generated ConfigMap, which can be consumed as a mounted file.
@@ -403,7 +462,7 @@ Assuming an App Configuration store has these key-values:
 
 #### [default](#tab/default)
 
-and the `configMapData.type` property is absent or set to `default`,
+And the `configMapData.type` property is absent or set to `default`,
 
 ``` yaml
 apiVersion: azconfig.io/v1
@@ -416,7 +475,7 @@ spec:
     configMapName: configmap-created-by-appconfig-provider
 ```
 
-the generated ConfigMap will be populated with the following data:
+The generated ConfigMap is populated with the following data:
 
 ``` yaml
 data:
@@ -427,7 +486,7 @@ data:
 
 #### [json](#tab/json)
 
-and the `configMapData.type` property is set to `json`,
+And the `configMapData.type` property is set to `json`,
 
 ``` yaml
 apiVersion: azconfig.io/v1
@@ -443,7 +502,7 @@ spec:
       key: appSettings.json
 ```
 
-the generated ConfigMap will be populated with the following data:
+The generated ConfigMap is populated with the following data:
 
 ``` yaml
 data:
@@ -453,7 +512,7 @@ data:
 
 #### [yaml](#tab/yaml)
 
-and the `configMapData.type` property is set to `yaml`,
+And the `configMapData.type` property is set to `yaml`,
 
 ``` yaml
 apiVersion: azconfig.io/v1
@@ -469,7 +528,7 @@ spec:
       key: appSettings.yaml
 ```
 
-the generated ConfigMap will be populated with the following data:
+The generated ConfigMap is populated with the following data:
 
 ``` yaml
 data:
@@ -481,7 +540,7 @@ data:
 
 #### [properties](#tab/properties)
 
-and the `configMapData.type` property is set to `properties`,
+And the `configMapData.type` property is set to `properties`,
 
 ``` yaml
 apiVersion: azconfig.io/v1
@@ -497,7 +556,7 @@ spec:
       key: app.properties
 ```
 
-the generated ConfigMap will be populated with the following data:
+The generated ConfigMap is populated with the following data:
 
 ``` yaml
 data:

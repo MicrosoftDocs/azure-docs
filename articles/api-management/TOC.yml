@@ -277,20 +277,24 @@
     href: api-management-gateways-overview.md
   - name: Self-hosted gateway overview
     href: self-hosted-gateway-overview.md
-  - name: Provision a self-hosted gateway
-    href: api-management-howto-provision-self-hosted-gateway.md
-  - name: Deploy an Azure API Management gateway on Azure Arc
-    href: how-to-deploy-self-hosted-gateway-azure-arc.md
-  - name: Deploy a self-hosted gateway to Azure Kubernetes Service
-    href: how-to-deploy-self-hosted-gateway-azure-kubernetes-service.md
-  - name: Deploy a self-hosted gateway to Kubernetes (YAML)
-    href: how-to-deploy-self-hosted-gateway-kubernetes.md
-  - name: Deploy a self-hosted gateway to Kubernetes (Helm)
-    href: how-to-deploy-self-hosted-gateway-kubernetes-helm.md
-  - name: Deploy self-hosted gateway to Kubernetes with OpenTelemetry Collector integration
-    href: how-to-deploy-self-hosted-gateway-kubernetes-opentelemetry.md
-  - name: Deploy a self-hosted gateway to Docker
-    href: how-to-deploy-self-hosted-gateway-docker.md
+  - name: Deploy the gateway
+    items: 
+    - name: Provision a self-hosted gateway
+      href: api-management-howto-provision-self-hosted-gateway.md
+    - name: Deploy a self-hosted gateway to Azure Kubernetes Service
+      href: how-to-deploy-self-hosted-gateway-azure-kubernetes-service.md
+    - name: Deploy a self-hosted gateway to Kubernetes (YAML)
+      href: how-to-deploy-self-hosted-gateway-kubernetes.md
+    - name: Deploy a self-hosted gateway to Kubernetes (Helm)
+      href: how-to-deploy-self-hosted-gateway-kubernetes-helm.md
+    - name: Deploy self-hosted gateway to Kubernetes with OpenTelemetry Collector integration
+      href: how-to-deploy-self-hosted-gateway-kubernetes-opentelemetry.md
+    - name: Deploy a self-hosted gateway to Docker
+      href: how-to-deploy-self-hosted-gateway-docker.md
+    - name: Deploy a self-hosted gateway to Azure Container Apps
+      href: how-to-deploy-self-hosted-gateway-container-apps.md  
+    - name: Deploy an Azure API Management gateway to Arc-enabled Kubernetes cluster
+      href: how-to-deploy-self-hosted-gateway-azure-arc.md
   - name: Configure custom domain for self-hosted gateway
     href: api-management-howto-configure-custom-domain-gateway.md
   - name: Configure cloud metrics and logs for self-hosted gateway
@@ -635,6 +639,8 @@
       href: breaking-changes/self-hosted-gateway-v0-v1-retirement-oct-2023.md
     - name: Deprecated (legacy) developer portal (October 2023)
       href: breaking-changes/legacy-portal-retirement-oct-2023.md
+    - name: Workspaces breaking changes (June 2024)
+      href: breaking-changes/workspaces-breaking-changes-june-2024.md
     - name: stv1 compute platform retirement (August 2024)
       href: breaking-changes/stv1-platform-retirement-august-2024.md
     - name: ADAL-based identity provider retirement (September 2025)

@@ -12,7 +12,7 @@ ms.custom: references_regions
 ---
 # Resource availability & quota limits for ACI
 
-This article details the availability and quota limits of Azure Container Instances compute, memory, and storage resources in Azure regions and by target operating system. For a general list of available regions for Azure Container Instances, see [available regions](https://azure.microsoft.com/regions/services/). For product feature availability in Azure regions, see [Region availability](container-instances-region-availability.md).
+This article details the availability and quota limits of Azure Container Instances compute, memory, and storage resources in Azure regions and by target operating system. For a general list of available regions for Azure Container Instances, see [available regions](https://azure.microsoft.com/regions/services/). 
 
 Values presented are the maximum resources available per deployment of a [container group](container-instances-container-groups.md). Values are current at time of publication. 
 
@@ -113,6 +113,9 @@ The following maximum resources are available to a container group deployed usin
 | 4 | 16 | 4 | 16 | 50 | 
 
 ## GPU Container Resources (Preview) 
+
+> [!IMPORTANT]
+> K80 and P100 GPU SKUs are retiring by August 31st, 2023. This is due to the retirement of the underlying VMs used: [NC Series](../virtual-machines/nc-series-retirement.md) and [NCv2 Series](../virtual-machines/ncv2-series-retirement.md) Although V100 SKUs will be available, it is receommended to use Azure Kubernetes Service instead. GPU resources are not fully supported and should not be used for production workloads. Use the following resources to migrate to AKS today: [How to Migrate to AKS](../aks/aks-migration.md).
 
 > [!NOTE]
 > Not all limit increase requests are guaranteed to be approved.

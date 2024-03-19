@@ -35,7 +35,18 @@ The data produced by the MCC varies according to the functionality. This variati
 
 The following data types are provided for all Quality of Experience - Affirmed MCC Data Products.
 
-- `edr` contains data from the Event Data Records (EDRs) written by the MCC network elements. EDRs record each significant event arising during calls or sessions handled by the MCC. They provide a comprehensive record of what happened, allowing operators to explore both individual problems and more general patterns.
+- `edr` contains data from the Event Data Records (EDRs) written by the MCC network elements. EDRs record each significant event arising during calls or sessions handled by the MCC. They provide a comprehensive record of what happened, allowing operators to explore both individual problems and more general patterns. The Data Product supports the following EDRs.
+  - `Status`
+  - `Session`
+  - `Bearer`
+  - `Flow`
+  - `HTTP`
+  - `RTT`
+  - `MME CRR`
+  - `SGSN CRR`
+  
+  > [!Note]
+  > Both kinds of `CRR` records are stored in the `all_mme_sgsn_events` table.
 - `edr-sanitized` contains data from the `edr` data type but with personal data suppressed. Sanitized data types can be used to support data analysis while also enforcing subscriber privacy.
 - `edr-validation`: This data type contains a subset of performance management statistics and provides you with the ability to optionally ingest a minimum number of PMstats tables for a data quality check.
 - `device`: This optional data type contains device data (for example, device model, make and capabilities) that the Data Product can use to enrich the MCC Event Data Records. To use this data type, you must upload the device reference data in a CSV file. The CSV must conform to the [Device reference schema for the Quality of Experience Affirmed MCC Data Product](device-reference-schema.md).
@@ -58,6 +69,7 @@ To use the Quality of Experience - Affirmed MCC Data Product:
     1. [Install the Azure Operator Insights ingestion agent and configure it to upload data](set-up-ingestion-agent.md).
 
     Alternatively, you can provide your own ingestion agent.
+1. Configure your Affirmed MCCs to send EDRs to the ingestion agent. See [Configuration for Affirmed MCCs](#configuration-for-affirmed-mccs).
 
 ## Requirements for the Azure Operator Insights ingestion agent
 
@@ -107,19 +119,18 @@ The ingestion agent must use MCC EDRs as a data source.
 
 For more information about all the configuration options, see [Configuration reference for Azure Operator Insights ingestion agent](ingestion-agent-configuration-reference.md).
 
-### Configure Affirmed MCCs
+## Configuration for Affirmed MCCs
 
-Once the agents are installed and running, configure the MCCs to send EDRs to them.
+When you have installed and configured your ingestion agents, configure the MCCs to send EDRs to them.
 
-1. Follow the steps under "Generating SESSION, BEARER, FLOW, and HTTP Transaction EDRs" in the [Affirmed Networks Active Intelligent vProbe System Administration Guide](https://manuals.metaswitch.com/vProbe/latest/vProbe_System_Admin/Content/02%20AI-vProbe%20Configuration/Generating_SESSION__BEARER__FLOW__and_HTTP_Transac.htm) (only available to customers with Affirmed support), making the following changes:
+Follow the steps in "Generating SESSION, BEARER, FLOW, and HTTP Transaction EDRs" in the [Affirmed Networks Active Intelligent vProbe System Administration Guide](https://manuals.metaswitch.com/vProbe/latest) (only available to customers with Affirmed support), making the following changes:
 
-    - Replace the IP addresses of the MSFs in MCC configuration with the IP addresses of the VMs running the ingestion agents.
+- Replace the IP addresses of the MSFs in MCC configuration with the IP addresses of the VMs running the ingestion agents.
+- Confirm that the following EDR server parameters are set.
 
-    - Confirm that the following EDR server parameters are set.
-
-        - port: 36001
-        - encoding: protobuf
-        - keep-alive: 2 seconds
+    - `port`: 36001
+    - `encoding`: protobuf
+    - `keep-alive`: 2 seconds
 
 ## Related content
 

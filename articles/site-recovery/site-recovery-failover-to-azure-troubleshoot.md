@@ -6,7 +6,7 @@ manager: abhemraj
 ms.service: site-recovery
 services: site-recovery
 ms.topic: article
-ms.date: 08/01/2023
+ms.date: 03/07/2024
 ms.author: ankitadutta
 ---
 # Troubleshoot errors when failing over VMware VM or physical machine to Azure

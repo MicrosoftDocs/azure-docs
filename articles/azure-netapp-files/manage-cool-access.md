@@ -24,7 +24,7 @@ The standard storage with cool access feature provides options for the “coolne
 * Although cool access is available for the Standard service level, how you're billed for using the feature differs from the Standard service level charges. See the [Billing section](cool-access-introduction.md#billing) for details and examples. 
 * You can convert an existing Standard service-level capacity pool into a cool-access capacity pool to create cool access volumes. However, once the capacity pool is enabled for cool access, you can't convert it back to a non-cool-access capacity pool.  
 * A cool-access capacity pool can contain both volumes with cool access enabled and volumes with cool access disabled.
-* Antivirus and file scanning are not recommended for files that are archived to cool access.
+* To prevent data retrieval from the cool tier to the hot tier during sequential read operations (for example, antivirus or other file scanning operations), set the cool access retrieval policy to "Default" or "Never." For more information, see [Enable cool access on a new volume](#enable-cool-access-on-a-new-volume).
 * After the capacity pool is configured with the option to support cool access volumes, the setting can't be disabled at the _capacity pool_ level. However, you can turn on or turn off the cool access setting at the volume level anytime. Turning off the cool access setting at the _volume_ level stops further tiering of data.  
 * Standard storage with cool access is supported only on capacity pools of the **auto** QoS type.   
     * An auto QoS capacity pool enabled for standard storage with cool access cannot be converted to a capacity pool using manual QoS.
@@ -147,7 +147,7 @@ In a Standard service-level, cool-access enabled capacity pool, you can enable a
     * **Enable Cool Access**  
         This option specifies whether the volume will support cool access. 
     * **Coolness Period**  
-        This option specifies the period (in days) after which infrequently accessed data blocks (cold data blocks) are moved to the Azure storage account. The default value is 31 days. The supported values are between 7 and 183 days. 
+        This option specifies the period (in days) after which infrequently accessed data blocks (cold data blocks) are moved to the Azure storage account. The default value is 31 days. The supported values are between 2 and 183 days. 
     * **Cool Access Retrieval Policy**   
 
         This option specifies under which conditions data will be moved back to the hot tier. You can set this option to `Default`, `On-Read`, or `Never`.   

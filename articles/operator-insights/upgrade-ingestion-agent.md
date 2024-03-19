@@ -20,6 +20,8 @@ In this article, you'll upgrade your ingestion agent and roll back an upgrade.
 
 Obtain the latest version of the ingestion agent RPM from [https://go.microsoft.com/fwlink/?linkid=2260508](https://go.microsoft.com/fwlink/?linkid=2260508).
 
+Links to the current and previous releases of the agents are available below the heading of each [release note](ingestion-agent-release-notes.md). If you're looking for an agent version that's more than 6 months old, check out the [release notes archive](ingestion-agent-release-notes-archive.md).
+
 ## Upgrade the agent software
 
 To upgrade to a new release of the agent, repeat the following steps on each VM that has the old agent.
