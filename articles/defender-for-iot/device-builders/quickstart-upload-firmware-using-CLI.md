@@ -1,9 +1,9 @@
 ---
 title: "Quickstart: Upload firmware images to Defender for IoT Firmware Analysis using Azure CLI"
 description: "Learn how to upload firmware images for analysis using the Azure CLI."
-author: [karengu0]
-ms.author: [karenguo]
-ms.service: [Defender for IoT Firmware Analysis]
+author: karengu0
+ms.author: karenguo
+ms.service: Defender for IoT Firmware Analysis
 ms.topic: quickstart
 ms.date: [01/29/2024]
 
@@ -13,29 +13,29 @@ ms.date: [01/29/2024]
 
 This article explains how to use the Azure CLI to upload firmware images to Defender for IoT Firmware Analysis.
 
-[Defender for IoT Firmware Analysis](https://learn.microsoft.com/en-us/azure/defender-for-iot/device-builders/overview-firmware-analysis) is a tool that analyzes firmware images and provides an understanding of security vulnerabilities in the firmware images.
+[Defender for IoT Firmware Analysis](/azure/defender-for-iot/device-builders/overview-firmware-analysis) is a tool that analyzes firmware images and provides an understanding of security vulnerabilities in the firmware images.
 
 ## Prerequisites
 
-This quickstart assumes a basic understanding of Defender for IoT Firmware Analysis. For more information, see [Firmware analysis for device builders](https://learn.microsoft.com/en-us/azure/defender-for-iot/device-builders/overview-firmware-analysis).
+This quickstart assumes a basic understanding of Defender for IoT Firmware Analysis. For more information, see [Firmware analysis for device builders](/azure/defender-for-iot/device-builders/overview-firmware-analysis).
 
 ### Prepare your environment for the Azure CLI
 
-* [Install](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) the Azure CLI to run CLI commands locally. If you're running on Windows or macOS, consider running Azure CLI in a Docker container. For more information, see [How to run the Azure CLI in a Docker container](https://learn.microsoft.com/en-us/cli/azure/run-azure-cli-docker).
+* [Install](/cli/azure/install-azure-cli) the Azure CLI to run CLI commands locally. If you're running on Windows or macOS, consider running Azure CLI in a Docker container. For more information, see [How to run the Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
 
-* Sign in to the Azure CLI by using the [az login](https://learn.microsoft.com/en-us/cli/azure/reference-index?view=azure-cli-latest#az-login) command. Follow the steps displayed in your terminal to finish the authentication process. For other sign-in options, see [Sign in with the Azure CLI](https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli).
+* Sign in to the Azure CLI by using the [az login](/cli/azure/reference-index?#az-login) command. Follow the steps displayed in your terminal to finish the authentication process. For other sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
 
-* When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use extensions with the Azure CLI](https://learn.microsoft.com/en-us/cli/azure/azure-cli-extensions-overview).
+* When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
     * Install the Defender for IoT Firmware Analysis extension by running the following command:
     ```azurecli
     az extension add --name firmwareanalysis
     ```
 
-* To find the version and dependent libraries that are installed, run the command [az version](https://learn.microsoft.com/en-us/cli/azure/reference-index?view=azure-cli-latest#az-version). To upgrade to the latest version, run the command [az upgrade](https://learn.microsoft.com/en-us/cli/azure/reference-index?view=azure-cli-latest#az-upgrade).
+* To find the version and dependent libraries that are installed, run the command [az version](/cli/azure/reference-index?#az-version). To upgrade to the latest version, run the command [az upgrade](/cli/azure/reference-index?#az-upgrade).
 
 * [Onboard](../../../articles/defender-for-iot/device-builders/tutorial-analyze-firmware.md#onboard-your-subscription-to-use-defender-for-firmware-analysis) your subscription to Defender for IoT Firmware Analysis.
 
-* Select the appropriate subscription ID where you'd like to upload your firmware images by running the command [az account set](https://learn.microsoft.com/en-us/cli/azure/account?view=azure-cli-latest#az-account-set).
+* Select the appropriate subscription ID where you'd like to upload your firmware images by running the command [az account set](/cli/azure/account?#az-account-set).
 
 ## Upload a firmware image to the workspace
 
