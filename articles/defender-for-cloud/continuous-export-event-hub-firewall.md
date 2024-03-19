@@ -59,4 +59,4 @@ To add the relevant role assignment to the destination event hub:
 ## Next step
 
 > [!div class="nextstepaction"]
->
+> [View exported data in Azure Monitor](continuous-export-view-data.md)

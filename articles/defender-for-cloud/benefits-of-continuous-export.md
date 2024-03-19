@@ -8,8 +8,7 @@ ms.topic: concept-article
 #customer intent: As a reader, I want to understand the benefits of continuous export in Microsoft Defender for Cloud so that I can make informed decisions about implementing it in my organization.
 ---
 
-# title: Continuous export concept in Microsoft Defender for Cloud
-
+# Continuous export concept in Microsoft Defender for Cloud
 
 Microsoft Defender for Cloud provides continuous export of security data. This feature allows you to stream security data to Log Analytics in Azure Monitor, to Azure Event Hubs, or to another Security Information and Event Management (SIEM), Security Orchestration Automated Response (SOAR), or IT classic [deployment model solution](export-to-siem.md). You can analyze and visualize the data using Azure Monitor logs and other Azure Monitor features.
 
@@ -75,5 +74,5 @@ To view the event schemas of the exported data types, see [Log Analytics table s
 ## Related content
 
 - [Continuously export Microsoft Defender for Cloud data](continuous-export.md)
-- 
-- 
+- [Setup continuous export with REST API](continuous-export-rest-api.md)
+- [Setup continuous export with Azure Policy](continuous-export-azure-policy.md)

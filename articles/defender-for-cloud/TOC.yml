@@ -436,9 +436,9 @@
               - name: View exported data in Azure Monitor
                 displayName: continuous, view, exported, data, monitor
                 href: continuous-export-view-data.md
-            - name: Download a CSV report of all alerts
+            - name: Download a CSV report
               displayName: CSV report, alerts
-              href: 
+              href: export-alerts-to-csv.md
             - name: Alerts schemas
               displayName: Alerts schemas
               href: alerts-schemas.md

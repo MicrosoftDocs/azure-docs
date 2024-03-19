@@ -2350,7 +2350,7 @@ If you need to export larger amounts of data, use the available filters before s
 
 :::image type="content" source="media/upcoming-changes/filter-subscriptions.png" alt-text="Filtering subscriptions in the Azure portal.":::
 
-Learn more about [performing a CSV export of your security recommendations](continuous-export.md#manual-one-time-export-of-alerts-and-recommendations).
+Learn more about [performing a CSV export of your security recommendations](export-alerts-to-csv.md).
 
 ### Recommendations page now includes multiple views
 
@@ -2706,7 +2706,7 @@ To access this information, you can use any of the methods in the table below.
 | REST API call        | `GET https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/providers/Microsoft.Security/assessments?api-version=2019-01-01-preview&$expand=statusEvaluationDates` |
 | Azure Resource Graph | `securityresources`<br>`where type == "microsoft.security/assessments"`                                                                                                |
 | Continuous export    | The two dedicated fields will be available the Log Analytics workspace data                                                                                            |
-| [CSV export](continuous-export.md#manual-one-time-export-of-alerts-and-recommendations) | The two fields are included in the CSV files                                                        |
+| [CSV export](export-alerts-to-csv.md) | The two fields are included in the CSV files                                                        |
 
 Learn more about the [Assessments REST API](/rest/api/defenderforcloud/assessments).
 

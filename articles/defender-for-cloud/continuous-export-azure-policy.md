@@ -69,4 +69,4 @@ To implement these policies:
 ## Next step
 
 > [!div class="nextstepaction"]
->
+> [Setup continuous export to an event hub behind a firewall](continuous-export-event-hub-firewall.md)

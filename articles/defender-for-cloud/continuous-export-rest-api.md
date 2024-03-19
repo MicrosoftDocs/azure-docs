@@ -53,4 +53,4 @@ Here are some examples of options that you can use only in the API:
 ## Next step
 
 > [!div class="nextstepaction"]
->
+> [Setup continuous export with Azure Policy](continuous-export-azure-policy.md)

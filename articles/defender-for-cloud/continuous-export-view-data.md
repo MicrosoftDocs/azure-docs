@@ -47,4 +47,4 @@ The Defender for Cloud alerts or recommendations appear (depending on your confi
 ## Next step
 
 > [!div class="nextstepaction"]
->
+> [Download a CSV report](export-alerts-to-csv.md)
