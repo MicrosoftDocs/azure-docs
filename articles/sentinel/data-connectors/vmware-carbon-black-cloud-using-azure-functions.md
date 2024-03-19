@@ -120,7 +120,7 @@ Use the following step-by-step instructions to deploy the VMware Carbon Black co
 2. Select **Timer Trigger**.
 3. Enter a unique Function **Name** and modify the cron schedule, if needed. The default value is set to run the Function App every 5 minutes. (Note: the Timer trigger should match the `timeInterval` value below to prevent overlapping data), click **Create**.
 4. Click on **Code + Test** on the left pane. 
-5. Copy the [Function App Code](https://aka.ms/sentinelcarbonblackazurefunctioncode) and paste into the Function App `run.ps1` editor.
+5. Copy the [Function App Code]((https://aka.ms/sentinelcarbonblackazurefunctioncode) and paste into the Function App `run.ps1` editor.
 5. Click **Save**.
 
 

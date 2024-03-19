@@ -138,7 +138,7 @@ The index schema is organized around hotels content. Sample data consists of vec
                 "filterable": true,
                 "retrievable": true,
                 "sortable": false,
-                "facetable": true,
+                "facetable": true
             },
             {
                 "name": "Address", 
