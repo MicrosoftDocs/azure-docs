@@ -29,7 +29,7 @@ export LOCATION=<location>
 
 The add-on requires Azure CLI version 2.57.0 or later installed. You can run `az --version` to verify version. To install or upgrade, see [Install Azure CLI][azure-cli-install].
 
-## Query available Istio add-on revisions
+## Get available Istio add-on revisions
 To find information about which Istio add-on revisions are available in a region and their compatibility with AKS cluster versions, use:
 
 ```azurecli-interactive
@@ -41,9 +41,9 @@ az aks mesh get-revisions --location <location> -o table
 ### Revision selection
 If you enable the add-on without specifying a revision, a default supported revision is installed for you.
 
-If you wish to select a revision instead:
-1. Use the `get-revisions` command in the [previous step](#query-available-istio-add-on-revisions) to check which revisions are available for different AKS cluster versions in a region
-1. Based on the available revisions, you can include a `--revision asm-X-Y` flag in the enable command you use for mesh installation.
+If you wish to specify a revision instead:
+1. Use the `get-revisions` command in the [previous step](#get-available-istio-add-on-revisions) to check which revisions are available for different AKS cluster versions in a region.
+1. Based on the available revisions, you can include the `--revision asm-X-Y` (ex: `--revision asm-1-20`) flag in the enable command you use for mesh installation.
 
 ### Install mesh during cluster creation
 
@@ -115,7 +115,7 @@ kubectl label namespace default istio.io/rev=asm-X-Y
 ```
 
 > [!IMPORTANT]
->  The default `istio-injection=enabled` labeling doesn't work. Explicit versioning (ex: `istio.io/rev=asm-1-18`) is required. 
+>  The default `istio-injection=enabled` labeling doesn't work. Explicit versioning matching the control plane revision (ex: `istio.io/rev=asm-1-18`) is required. 
 
 For manual injection of sidecar using `istioctl kube-inject`, you need to specify extra parameters for `istioNamespace` (`-i`) and `revision` (`-r`). For example:
 
