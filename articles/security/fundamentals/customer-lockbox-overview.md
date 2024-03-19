@@ -95,18 +95,17 @@ The following steps outline a typical workflow for a Customer Lockbox for Micros
 
     
     Example email:
-    :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-email-notification.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-email-notification.png" alt-text="Customer Lockbox for Microsoft Azure - email notification.":::
+    :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-email-notification.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-email-notification.png" alt-text="A screesnhot the the email notification .":::
 
 1. The email notification provides a link to the **Customer Lockbox** blade in the Administration module. The designated approver signs in to the Azure portal to view any pending requests that their organization has for Customer Lockbox for Microsoft Azure:
-    :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-email-notification.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-email-notification.png" alt-text="Customer Lockbox for Microsoft Azure - email notification.":::
-    ![Customer Lockbox for Microsoft Azure - landing page](./media/customer-lockbox-overview/customer-lockbox-landing-page.png)
+    :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-landing-page.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-landing-page.png" alt-text="A screenshot of the Customer Lockbox for Microsoft Azure landing page.":::
    The request remains in the customer queue for four days. After this time, the access request automatically expires and no access is granted to Microsoft engineers.
 1. To get the details of the pending request, the designated approver can select the Customer Lockbox request from **Pending Requests**:
-    :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-pending-requests.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-pending-requests.png" alt-text="Azure Customer Lockbox - view the pending request.":::
+    :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-pending-requests.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-pending-requests.png" alt-text="A screenshot of the pending request.":::
 1. The designated approver can also select the **SERVICE REQUEST ID** to view the support ticket request that was created by the original user. This information provides context for why Microsoft Support is engaged, and the history of the reported problem. For example:
-    :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-support-ticket.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-support-ticket.png" alt-text="Azure Customer Lockbox - view the support ticket request.":::
+    :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-support-ticket.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-support-ticket.png" alt-text="A screenshot of the support ticket request.":::
 1. The designated approver reviews the request and selects **Approve** or **Deny**:
-    :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-approval.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-approval.png" alt-text="Azure Customer Lockbox - select Approve or Deny.":::
+    :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-approval.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-approval.png" alt-text="A screenshot of the Approve or Deny UI.":::
     As a result of the selection:
     - **Approve**:  Access is granted to the Microsoft engineer for the duration specified in the request details, which is shown in the email notification and in the Azure portal
     - **Deny**: The elevated access request by the Microsoft engineer is rejected and no further action is taken.
@@ -123,7 +122,7 @@ Customer Lockbox logs are stored in activity logs. In the Azure portal, select *
 
 As an example:
 
-:::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-activitylogs.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-activitylogs.png" alt-text="Customer Lockbox for Microsoft Azure - activity logs.":::
+:::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-activitylogs.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-activitylogs.png" alt-text="A screenshot of the activity logs.":::
 
 ## Customer Lockbox for Microsoft Azure integration with the Microsoft cloud security benchmark
 

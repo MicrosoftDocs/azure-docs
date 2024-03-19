@@ -1,6 +1,6 @@
 ---
 title: Customer Lockbox for Microsoft Azure alternate email feature
-description: Azre LockboxCustomer Lockbox for Microsoft Azure alternate email feature
+description: Customer Lockbox for Microsoft Azure alternate email feature
 author: msmbaldwin
 ms.service: information-protection
 ms.topic: article
@@ -46,7 +46,7 @@ Here are the steps to set up the Customer Lockbox for Microsoft Azure alternate 
     :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-alternative-email-user-search.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-alternative-email-user-search.png" alt-text="A screenshot of the search for users interface.":::
 1. Select the user and select on edit properties.
     :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-alternative-email-edit-properties.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-alternative-email-edit-properties.png" alt-text="A screenshot of the edit properties interface.":::
-1. Navigate to Contact Information tab
+1. Navigate to Contact Information tab.
     :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-alternative-email-contact-information.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-alternative-email-contact-information.png" alt-text="A screenshot of the Contact Information tab.":::
 1. Select Add email under 'Other emails' category and then select Add.
     :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-alternative-email-add-email.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-alternative-email-add-email.png" alt-text="A screenshot of the Other emails add interface.":::
@@ -63,9 +63,9 @@ Here are the steps to set up the Customer Lockbox for Microsoft Azure alternate 
 
 Here are the known issues with this feature:
 
-1. Duplicate emails are sent if the value for primary and other email is same.
-1. Notifications are sent to only the first email address in 'other emails' despite multiple email IDs configured in other email field.
-1. If the primary email is not set, and the other email is set, two emails are sent to the alternate email address.
+- Duplicate emails are sent if the value for primary and other email is same.
+- Notifications are sent to only the first email address in 'other emails' despite multiple email IDs configured in other email field.
+- If the primary email is not set, and the other email is set, two emails are sent to the alternate email address.
 
 ## Next steps
 
