@@ -20,11 +20,11 @@ You can buy Azure Cosmos DB reserved capacity from the [Azure portal](https://po
 
 The size of the reserved capacity purchase should be based on the total amount of throughput that the existing or soon-to-be-deployed Azure Cosmos DB resources will use on an hourly basis. For example: Purchase 10,000 RU/s reserved capacity if that's your consistent hourly usage pattern. 
 
-In this example, any provisioned throughput above 10,000 RU/s will be billed using your Pay-as-you-go rate. If provisioned throughput is below 10,000 RU/s in an hour, then the extra reserved capacity for that hour will be wasted.
+In this example, any provisioned throughput above 10,000 RU/s will be billed using your Pay-as-you-go rate. If the provisioned throughput is below 10,000 RU/s in an hour, then the extra reserved capacity for that hour will be wasted.
 
 Please note that:
  * There is no limit to the number of reservations.
- * You don't need to purchase all reservations in the same day. You can buy more reservations at any moment
+ * You don't need to purchase all the reservations in the same day. You can buy more reservations at any moment
  * You can combine different reservations in the same purchase.
 
 After you buy a reservation, it's applied immediately to any existing Azure Cosmos DB resources that match the terms of the reservation. If you don’t have any existing Azure Cosmos DB resources, the reservation will apply when you deploy a new Azure Cosmos DB instance that matches the terms of the reservation. In both cases, the period of the reservation starts immediately after a successful purchase.
@@ -69,14 +69,9 @@ Reserved capacity is consumed by standard database operations at a rate of 100 R
 
 ## Discounts
 
-Azure Cosmos DB reserved capacity can significantly reduce your Azure Cosmos DB costs, up to 63% on regular prices, with a one-year or three-year upfront commitment. Reserved capacity provides a billing discount and doesn't affect the runtime state of your Azure Cosmos DB resources, including performance and availability.
+Azure Cosmos DB reserved capacity can significantly reduce your Azure Cosmos DB costs, up to 63% on regular prices, with a one-year or three-year upfront commitment. Reserved capacity provides a billing discount and doesn't affect the state of your Azure Cosmos DB resources, including performance and availability.
 
-Reserved capacity has two different discount modes:
-
- * Fixed discounts when you buy less than one million RU/s, using multiples of the 100 RU/s SKU. You can buy from 1 to 9999 units of this SKU.
- * Progressive discounts when you one million RU/s or more, using multiple units of the 1 to 30 millions SKUs. You can buy from 1 to 9999 units of these SKU.
-
-Please note that you can mix and match any reservations options and sizes in the same purchase.
+We offer both fixed and progressive discounts options. Please note that you can mix and match different reservations options and sizes in the same purchase.
 
 ### Fixed discounts reservations
 
@@ -116,17 +111,17 @@ This option, using multiples of our bigger reservation sizes, allows you to rese
 | 30,000,000 RU/s | 43.4% | 58.3% |
 | 30,000,000 Multi-master RU/s | 48.4% | 63.3% |
 
-You can maximize savings with the biggest reservation for your scenario. Example: You need 2 million RU/s, one year term. If you purchase 2 units of the 1,000,000 RU/s SKU, your discount will be 27.0%. If you purchase 1 unit of the 2,000,000 RU/s SKU, you will have exactly the same reserved capacity, but a 28.5% discount.
+You can maximize savings with the biggest reservation for your scenario. Example: You need 2 million RU/s, one year term. If you purchase 2 units of the 1,000,000 RU/s reservation, your discount will be 27.0%. If you purchase 1 unit of the 2,000,000 RU/s reservation, you will have exactly the same reserved capacity, but a 28.5% discount.
 
 Please [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) to purchase any quantity of the reservations bigger than 1,000,000 RU/s.
 
 ## Sample Scenario 1
 
-Imagine this hypothetical scenario: A company is working ón a new application but isn't sure about the throughput requirements.
+Imagine this hypothetical scenario: A company is working on a new application but isn't sure about the throughput requirements.
 
 * On day 1 they purchased reserved capacity for their DEV/Test environment:
-  * Total of 800 RU/s, or 8 units of the 100 RU/s SKU. 
-  * Scoped to the dev test resoure group.
+  * Total of 800 RU/s, or 8 units of the 100 RU/s reservation. 
+  * Scoped to the dev test resource group.
   * One year term, since the project will be ready in 9 months.
   * Paid upfront, since it's a small value.
 * On day 30 they purchased reserved capacity for their QA environment:
@@ -135,7 +130,7 @@ Imagine this hypothetical scenario: A company is working ón a new application b
   * One year term, since the project will be ready in 9 months.
   * Paid monthly.
 * On day 180 they purchased reserved capacity for the production environment:
-  * 3,500,000 RU/s, as suggested by their load test. That's 1 unit of the 3 million RU/s and 500 units of the 100 RU/s SKU.
+  * 3,500,000 RU/s, as suggested by their load test. That's 1 unit of the 3 million RU/s and 500 units of the 100 RU/s reservation.
   * Scoped to the production subscription.
   * Three-years term, to maximize the discounts.
   * Paid Monthly.
@@ -144,13 +139,13 @@ Imagine this hypothetical scenario: A company is working ón a new application b
 
 Imagine this hypothetical scenario: A company needs a 10,950,000 three-years reservation. In the same purchase they got:
 
- * One unit of the 10,000,000 RU/s SKU, paid monthly.
- * 9000 units of the 100 RU/s SKU, paid monthly.
- * 500 units of the 100 RU/s SKU, paid upfront.
+ * One unit of the 10,000,000 RU/s reservation, paid monthly.
+ * 9000 units of the 100 RU/s reservation, paid monthly.
+ * 500 units of the 100 RU/s reservation, paid upfront.
 
 ## Determine the required throughput before purchase
 
-We calculate purchase recommendations based on your hourly usage pattern. Usage over last 7, 30 and 60 days is analyzed, and reserved capacity purchase that maximizes your savings is recommended. You can view recommended reservation sizes in the Azure portal using the following steps:
+We calculate purchase recommendations based on your hourly usage pattern. Usage over the last 7, 30, and 60 days is analyzed, and reserved capacity purchase that maximizes your savings is recommended. You can view recommended reservation sizes in the Azure portal using the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -162,7 +157,7 @@ We calculate purchase recommendations based on your hourly usage pattern. Usage 
 
 You can filter recommendations by the following attributes:
 
-- **Term** (1 year or 3 years)
+- **Term** (One year or Three years)
 - **Billing frequency** (Monthly or Upfront)
 - **Throughput Type** (RU/s vs multi-region write RU/s)
 
@@ -172,14 +167,14 @@ Here's an example recommendation:
 
 :::image type="content" source="./media/reserved-capacity/reserved-capacity-recommendation.png" alt-text="Reserved Capacity recommendations":::
 
-This recommendation to purchase a 30,000 RU/s reservation indicates that, among 3 year reservations, a 30,000 RU/s reservation size will maximize savings. In this case, the recommendation is calculated based on the past 30 days of Azure Cosmos DB usage. If this customer expects that the past 30 days of Azure Cosmos DB usage is representative of future use, they would maximize savings by purchasing a 30,000 RU/s reservation.
+This recommendation to purchase a 30,000 RU/s reservation indicates that, among three year reservations, a 30,000 RU/s reservation size will maximize savings. In this case, the recommendation is calculated based on the past 30 days of Azure Cosmos DB usage. If this customer expects that the past 30 days of Azure Cosmos DB usage is representative of future use, they will maximize savings by purchasing a 30,000 RU/s reservation.
 
 For a 30,000 RU/s reservation, in standard provisioned throughput, you should buy 300 units of the 100 RU/s option.
 
 
 ## Buy Azure Cosmos DB reserved capacity
 
-1. Devide the reservation size you want by 100 to calculate the number of units of the 100 RU/s SKU you need. The maximum quantity is 9999 units, or 999,900 RU/s. For one million RU/s or more, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) for up to 63% discounts.
+1. Divide the reservation size you want by 100 to calculate the number of units of the 100 RU/s SKU you need. The maximum quantity is 9999 units, or 999,900 RU/s. For one million RU/s or more, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) for up to 63% discounts.
 
 2. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -196,11 +191,11 @@ For a 30,000 RU/s reservation, in standard provisioned throughput, you should bu
    |Subscription  |   Subscription that's used to pay for the Azure Cosmos DB reserved capacity. The payment method on the selected subscription is used in charging the costs. The subscription must be one of the following types: <br/><br/>  Enterprise Agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P): For an Enterprise subscription, the charges are deducted from the enrollment's Azure Prepayment (previously called monetary commitment) balance or charged as overage. <br/><br/> Individual subscription with pay-as-you-go rates (offer numbers: MS-AZR-0003P or MS-AZR-0023P): For an individual subscription with pay-as-you-go rates, the charges are billed to the credit card or invoice payment method on the subscription.    |
    | Resource Group | Resource group to which the reserved capacity discount is applied. |
    |Term  |   One year or three years.   |
-   |Throughput Type   |  Throughput is provisioned as request units. You can buy a reservation for the provisioned throughput for both setups - single region writes as well as multiple region writes. The throughput type has two values to choose from: 100 RU/s per hour and 100 multi-region writes RU/s per hour.|
+   |Throughput Type   |  Throughput is provisioned as request units. You can buy a reservation for the provisioned throughput for both setups - single region writes as well as multi-master writes. The throughput type has two values to choose from: 100 RU/s per hour and 100 multi-region writes RU/s per hour.|
    | Reserved Capacity Units| The amount of throughput that you want to reserve. You can calculate this value by determining the throughput needed for all your Azure Cosmos DB resources (for example, databases or containers) per region. You then multiply it by the number of regions that you'll associate with your Azure Cosmos DB database. For example: If you have five regions with 1 million RU/sec in every region, select 5 million RU/s for the reservation capacity purchase. |
 
 
-6. Click on the **Add to cart** blue button on the lower righ corner, and then on **View Cart** when you are done. The quantities are defined next. Please note that you can add different options to the cart. Example: If you need 1,100,000 RU/s, you should add both the 1,000,000 RU/s and the 100 RU/s SKUs to the cart. 
+6. Click on the **Add to cart** blue button on the lower right corner, and then on **View Cart** when you are done. The quantities are defined next. Please note that you can add different options to the cart. Example: If you need 1,100,000 RU/s, you should add both the 1,000,000 RU/s and the 100 RU/s SKUs to the cart. 
 
 7. In the **Purchase reservations** pane, review the billing frequency, the quantity, the discount, and the price of the reservation. This reservation price applies to Azure Cosmos DB resources with throughput provisioned across all regions. Example: If you need 1,100,000 RU/s for one region, you should set the 1,000,000 RU/s option quantity to 1 and the 100 RU/s option quantity to 1000. But if you need 1,100,000 RU/s in each region, and you have 2 regions, then the total should be 2,200,000 RU/s. And for 2,2 million RU/s, the best option is one unit of the two million RU/s option and 2000 units of the 100 RU/s option.
 
@@ -214,7 +209,7 @@ You can cancel, exchange, or refund reservations with certain limitations. For m
 
 ## Exceeding reserved capacity
 
-When you reserve capacity for your Azure Cosmos DB resources, you are reserving [provisioned throughput](set-throughput.md). If the provisioned throughput is exceeded, requests beyond that provisioning will be billed using pay-as-you go rates. For more information on reservations, see the [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) article. For more information on provisioned throughput, see [provisioned throughput types](how-to-choose-offer.md#overview-of-provisioned-throughput-types).
+When you reserve capacity for your Azure Cosmos DB resources, you are reserving [provisioned throughput](set-throughput.md). If the provisioned throughput is exceeded, requests beyond that provisioning amount will be billed using pay-as-you go rates. For more information on reservations, see the [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) article. For more information on provisioned throughput, see [provisioned throughput types](how-to-choose-offer.md#overview-of-provisioned-throughput-types).
 
 ## Limitations
 
