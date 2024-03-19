@@ -11,14 +11,14 @@ ms.date: 12/21/2023
 
 # Tutorial: Create a chat app with Azure Web PubSub service
 
-In [Publish and subscribe message tutorial](./tutorial-pub-sub-messages.md), you learn the basics of publishing and subscribing messages with Azure Web PubSub. In this tutorial, you learn the event system of Azure Web PubSub so use it to build a complete web application with real-time communication functionality. 
+In [Publish and subscribe message tutorial](./tutorial-pub-sub-messages.md), you learn the basics of publishing and subscribing messages with Azure Web PubSub. In this tutorial, you learn the event system of Azure Web PubSub and use it to build a complete web application with real-time communication functionality.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a Web PubSub service instance
 > * Configure event handler settings for Azure Web PubSub
-> * Build a real-time chat app
+> * Hanlde events in the app server and build a real-time chat app
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -58,6 +58,10 @@ Copy the fetched **ConnectionString** and it's used later in this tutorial as th
 
 * [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or above
 * [Apache Maven](https://maven.apache.org/download.cgi)
+
+# [Python](#tab/python)
+
+* [python 3.8 or above](https://www.python.org/)
 
 ---
 
@@ -476,15 +480,154 @@ In [publish and subscribe message tutorial](./tutorial-pub-sub-messages.md), the
 
     If you're using Chrome, you can test it by opening the home page, input your user name. Press F12 to open the Developer Tools window, switch to **Console** table and you see `connected` being printed in browser console.
 
+# [Python](#tab/python)
+
+We use [Flask](https://flask.palletsprojects.com/), a popular web framework for Python to achieve this job.
+
+First create a project folder `chatproject` with Flask ready.
+
+0. Create and activate the environment
+
+    ```bash
+    mkdir chatproject
+    cd chatproject
+    python3 -m venv .venv
+    . .venv/bin/activate
+    ```
+
+1.  Within the activated environment, install Flask
+
+    ```bash
+    pip install Flask
+    ```
+
+2.  Then create a Flask server and save it as `server.py`
+
+    ```python
+    from flask import (
+        Flask, 
+        send_from_directory,
+    )
+
+    app = Flask(__name__)
+
+    @app.route('/<path:filename>')
+    def index(filename):
+        return send_from_directory('public', filename)
+
+    if __name__ == '__main__':
+        app.run(port=8080)
+    ```
+
+3.  Also create an HTML file and save it as `public/index.html`, we use it for the UI of the chat app later.
+
+    ```html
+    <html>
+
+    <body>
+      <h1>Azure Web PubSub Chat</h1>
+    </body>
+
+    </html>
+    ```
+
+You can test the server by running `python server.py` and access http://127.0.0.1:8080/index.html in browser.
+
+
+In [publish and subscribe message tutorial](./tutorial-pub-sub-messages.md), the subscriber uses an API in Web PubSub SDK to generate an access token from connection string and use it to connect to the service. It isn't safe in a real world application as connection string has high privilege to do any operation to the service so you don't want to share it with any client. Let's change this access token generation process to a REST API at server side, so client can call this API to request an access token every time it needs to connect, without need to hold the connection string.
+
+1.  Install Azure Web PubSub SDK
+
+    ```bash
+    pip install azure-messaging-webpubsubservice
+    ```
+
+2.  Add a `/negotiate` API to the server to generate the token
+
+    ```python
+    import os
+
+    from flask import (
+        Flask, 
+        request, 
+        send_from_directory,
+    )
+
+    from azure.messaging.webpubsubservice import (
+        WebPubSubServiceClient
+    )
+
+    hub_name = 'Sample_ChatApp'
+    connection_string = os.environ.get('WebPubSubConnectionString')
+
+    app = Flask(__name__)
+    service = WebPubSubServiceClient.from_connection_string(connection_string, hub=hub_name)
+
+    @app.route('/<path:filename>')
+    def index(filename):
+        return send_from_directory('public', filename)
+
+
+    @app.route('/negotiate')
+    def negotiate():
+        id = request.args.get('id')
+        if not id:
+            return 'missing user id', 400
+
+        token = service.get_client_access_token(user_id=id)
+        return {
+            'url': token['url']
+        }, 200
+
+    if __name__ == '__main__':
+        app.run(port=8080)
+    ```
+
+    This token generation code is similar to the one we used in the [publish and subscribe message tutorial](./tutorial-pub-sub-messages.md), except we pass one more argument (`user_id`) when generating the token. User ID can be used to identify the identity of client so when you receive a message you know where the message is coming from.
+
+    Run the below command to test this API:
+
+    ```bash
+    export WebPubSubConnectionString="<connection-string>"
+    python server.py
+    ```
+
+    Access `http://localhost:8080/negotiate?id=<user-id>` and it gives you the full url of the Azure Web PubSub with an access token.
+
+3.  Then update `index.html` with the following script to get the token from server and connect to service
+ 
+    ```html
+
+    <html>
+      <body>
+        <h1>Azure Web PubSub Chat</h1>
+      </body>
+  
+      <script>
+        (async function () {
+          let id = prompt('Please input your user name');
+          let res = await fetch(`/negotiate?id=${id}`);
+          let data = await res.json();
+          let ws = new WebSocket(data.url);
+          ws.onopen = () => console.log('connected');
+        })();
+      </script>
+    </html>
+    ```
+
+    If you're using Chrome, you can test it by opening the home page http://localhost:8080/index.html, input your user name. Press F12 to open the Developer Tools window, switch to **Console** table and you see `connected` being printed in browser console.
+
 ---
 
 ## Handle events
 
-In Azure Web PubSub, when there are certain activities happening at client side (for example a client is connected or disconnected), service sends notifications to server so it can react to these events.
+In Azure Web PubSub, when there are certain activities happening at client side (for example a client is connecting, connected, disconnected, or a client is sending messages), service sends notifications to server so it can react to these events.
 
 Events are delivered to server in the form of Webhook. Webhook is served and exposed by the application server and registered at the Azure Web PubSub service side. The service invokes the webhooks whenever an event happens.
 
 Azure Web PubSub follows [CloudEvents](./reference-cloud-events.md) to describe the event data. 
+
+Below we handle `connected` system events when a client is connected and handle `message` user events when a client is sending messages to build the chat app.
 
 # [C#](#tab/csharp)
 
@@ -510,136 +653,7 @@ Here we're using Web PubSub middleware SDK, there's already an implementation to
     });
     ```
 
-2. Go the `Sample_ChatApp` we created in previous step. Add a constructor to work with `WebPubSubServiceClient<Sample_ChatApp>` so we can use to invoke service. And override `OnConnectedAsync()` method to respond when `connected` event is triggered.
-
-    ```csharp
-    sealed class Sample_ChatApp : WebPubSubHub
-    {
-        private readonly WebPubSubServiceClient<Sample_ChatApp> _serviceClient;
-
-        public Sample_ChatApp(WebPubSubServiceClient<Sample_ChatApp> serviceClient)
-        {
-            _serviceClient = serviceClient;
-        }
-
-        public override async Task OnConnectedAsync(ConnectedEventRequest request)
-        {
-            await _serviceClient.SendToAllAsync($"[SYSTEM] {request.ConnectionContext.UserId} joined.");
-        }
-    }
-    ```
-
-In the above code, we use the service client to broadcast a notification message to all of whom is joined.
-
-# [JavaScript](#tab/javascript)
-
-If you use Web PubSub SDK, there's already an implementation to parse and process CloudEvents schema so you don't need to deal with these details.
-
-Add the following code to expose a REST API at `/eventhandler` (which is done by the express middleware provided by Web PubSub SDK) to handle the client connected event:
-
-```bash
-npm install --save @azure/web-pubsub-express
-```
-
-```javascript
-const { WebPubSubEventHandler } = require('@azure/web-pubsub-express');
-
-let handler = new WebPubSubEventHandler(hubName, {
-  path: '/eventhandler',
-  onConnected: async req => {
-    console.log(`${req.context.userId} connected`);
-  }
-});
-
-app.use(handler.getMiddleware());
-```
-
-In the above code, we simply print a message to console when a client is connected. You can see we use `req.context.userId` so we can see the identity of the connected client.
-
-# [Java](#tab/java)
-For now, you need to implement the event handler by your own in Java, the steps are straight forward following [the protocol spec](./reference-cloud-events.md) and illustrated in the below list:
-
-1. Add HTTP handler for the event handler path, let's say `/eventhandler`. 
-
-2. First we'd like to handle the abuse protection OPTIONS requests, we check if the header contains `WebHook-Request-Origin` header, and we return the header `WebHook-Allowed-Origin`. For simplicity for demo purpose, we return `*` to allow all the origins.
-    ```java
-    
-    // validation: https://azure.github.io/azure-webpubsub/references/protocol-cloudevents#validation
-    app.options("/eventhandler", ctx -> {
-        ctx.header("WebHook-Allowed-Origin", "*");
-    });
-    ```
-
-3. Then we'd like to check if the incoming requests are the events we expect. Let's say we now care about the system `connected` event, which should contain the header `ce-type` as `azure.webpubsub.sys.connected`. We add the logic after abuse protection:
-    ```java
-    // validation: https://azure.github.io/azure-webpubsub/references/protocol-cloudevents#validation
-    app.options("/eventhandler", ctx -> {
-        ctx.header("WebHook-Allowed-Origin", "*");
-    });
-
-    // handle events: https://azure.github.io/azure-webpubsub/references/protocol-cloudevents#events
-    app.post("/eventhandler", ctx -> {
-        String event = ctx.header("ce-type");
-        if ("azure.webpubsub.sys.connected".equals(event)) {
-            String id = ctx.header("ce-userId");
-            System.out.println(id + " connected.");
-        }
-        ctx.status(200);
-    });
-
-    ```
-
-In the above code, we simply print a message to console when a client is connected. You can see we use `ctx.header("ce-userId")` so we can see the identity of the connected client.
-
----
-
-## Set up the event handler
-
-### Handle events from your localhost
-
-Then we need to set the Webhook URL in the service so it can know where to call when there's a new event. But there's a problem that our server is running on localhost so doesn't have an internet accessible endpoint. 
-
-There are two ways to route the traffic to your localhost, one is to expose localhost to public, another way, and also the recommended way is to use [awps-tunnel](./howto-web-pubsub-tunnel-tool.md) to tunnel the traffic from Web PubSub service through the tool to your local server.
-
-#### Download and install awps-tunnel
-The tool runs on [Node.js](https://nodejs.org/) version 16 or higher.
-
-```bash
-npm install -g @azure/web-pubsub-tunnel-tool
-```
-
-#### Use the service connection string and run
-```bash
-export WebPubSubConnectionString="<your connection string>"
-awps-tunnel run --hub myHub1 --upstream http://localhost:8080
-```
-
-Now, we need to let your Web PubSub resource know about this Webhook URL. You can set the event handlers either from Azure portal or Azure CLI. 
-
-### Set event handler
-
- When `awps-tunnel` tool is used locally, the URL template set in Web PubSub uses a special format with `tunnel` scheme followed by the path: `tunnel:///eventhandler`. Event handlers can be set from either the portal or the CLI as [described in this article](howto-develop-eventhandler.md#configure-event-handler), here we set it through CLI.
-
-Use the Azure CLI [az webpubsub hub create](/cli/azure/webpubsub/hub#az-webpubsub-hub-update) command to create the event handler settings for the chat hub
-
-  > [!Important]
-  > Replace &lt;your-unique-resource-name&gt; with the name of your Web PubSub resource created from the previous steps.
-
-```azurecli-interactive
-az webpubsub hub create -n "<your-unique-resource-name>" -g "myResourceGroup" --hub-name "Sample_ChatApp" --event-handler url-template="tunnel:///eventHandler" user-event-pattern="*" system-event="connected"
-```
-
-After the update is completed, open the home page http://localhost:8080/index.html, input your user name, you’ll see the connected message printed in the server console.
-
-## Handle Message events
-
-Besides system events like `connected` or `disconnected`, client can also send messages through the WebSocket connection and these messages are delivered to server as a special type of event called `message` event. We can use this event to receive messages from one client and broadcast them to all clients so they can talk to each other.
-
-# [C#](#tab/csharp)
-
-Implement the `OnMessageReceivedAsync()` method in `Sample_ChatApp`.
-
-1. Handle message event.
+2. Go the `Sample_ChatApp` we created in previous step. Add a constructor to work with `WebPubSubServiceClient<Sample_ChatApp>` so we can use to invoke service. And override `OnConnectedAsync()` method to respond when `connected` event is triggered, and override `OnMessageReceivedAsync()` method to handle messages.
 
     ```csharp
     sealed class Sample_ChatApp : WebPubSubHub
@@ -665,137 +679,144 @@ Implement the `OnMessageReceivedAsync()` method in `Sample_ChatApp`.
     }
     ```
 
-    This event handler uses `WebPubSubServiceClient.SendToAllAsync()` to broadcast the received message to all clients. You can see in the end we returned `UserEventResponse`, which contains a message directly to the caller and make the WebHook request success. If you have extra logic to validate and would like to break this call, you can throw an exception here. The middleware delivers the exception message to service and service drops current client connection. Don't forget to include the `using Microsoft.Azure.WebPubSub.Common;` statement at the defining of the `Program.cs` file.
-
-2.  Update `index.html` to add the logic to send message from user to server and display received messages in the page.
-
-    ```html
-    <html>
-
-    <body>
-      <h1>Azure Web PubSub Chat</h1>
-      <input id="message" placeholder="Type to chat...">
-      <div id="messages"></div>
-      <script>
-        (async function () {
-          let id = prompt('Please input your user name');
-          let res = await fetch(`/negotiate?id=${id}`);
-          let url = await res.text();
-          let ws = new WebSocket(url);
-          ws.onopen = () => console.log('connected');
-
-          let messages = document.querySelector('#messages');
-          ws.onmessage = event => {
-            let m = document.createElement('p');
-            m.innerText = event.data;
-            messages.appendChild(m);
-          };
-
-          let message = document.querySelector('#message');
-          message.addEventListener('keypress', e => {
-            if (e.charCode !== 13) return;
-            ws.send(message.value);
-            message.value = '';
-          });
-        })();
-      </script>
-    </body>
-
-    </html>
-    ```
-
-    You can see in the above code we use `WebSocket.send()` to send message and `WebSocket.onmessage` to listen to message from service.
-
-Now run the server using `dotnet run --urls http://localhost:8080` and open multiple browser instances to access http://localhost:8080/index.html, then you can chat with each other.
-
-The complete code sample of this tutorial can be found [here][code-csharp-net6], the ASP.NET Core 3.1 version [here][code-csharp].
+In the above code, we use the service client to broadcast a notification message to all of whom is joined with `SendToAllAsync`.
 
 # [JavaScript](#tab/javascript)
 
-1. Add a new `handleUserEvent` handler
+If you use Web PubSub SDK, there's already an implementation to parse and process CloudEvents schema so you don't need to deal with these details.
 
-    ```javascript
-    let handler = new WebPubSubEventHandler(hubName, {
-      path: '/eventhandler',
-      onConnected: async req => {
-        console.log(`${req.context.userId} connected`);
-      },
-      handleUserEvent: async (req, res) => {
-        if (req.context.eventName === 'message') 
-            await serviceClient.sendToAll(`[${req.context.userId}] ${req.data}`, { contentType: 'text/plain' });
-        res.success();
-      }
-    });
-    ```
+Add the following code to expose a REST API at `/eventhandler` (which is done by the express middleware provided by Web PubSub SDK) to handle the client connected event:
 
-    This event handler uses `WebPubSubServiceClient.sendToAll()` to broadcast the received message to all clients.
+```bash
+npm install --save @azure/web-pubsub-express
+```
 
-    You can see `handleUserEvent` also has a `res` object where you can send message back to the event sender. Here we simply call `res.success()` to make the WebHook return 200 (note this call is required even you don't want to return anything back to client, otherwise the WebHook never returns and client connection closes).
+```javascript
+const { WebPubSubEventHandler } = require('@azure/web-pubsub-express');
 
-2.  Update `index.html` to add the logic to send message from user to server and display received messages in the page.
-
-    ```html
-    <html>
-
-      <body>
-        <h1>Azure Web PubSub Chat</h1>
-        <input id="message" placeholder="Type to chat...">
-        <div id="messages"></div>
-        <script>
-          (async function () {
-            let id = prompt('Please input your user name');
-            let res = await fetch(`/negotiate?id=${id}`);
-            let data = await res.json();
-            let ws = new WebSocket(data.url);
-            ws.onopen = () => console.log('connected');
-  
-            let messages = document.querySelector('#messages');
-            ws.onmessage = event => {
-              let m = document.createElement('p');
-              m.innerText = event.data;
-              messages.appendChild(m);
-            };
-  
-            let message = document.querySelector('#message');
-            message.addEventListener('keypress', e => {
-              if (e.charCode !== 13) return;
-              ws.send(message.value);
-              message.value = '';
-            });
-          })();
-        </script>
-      </body>
-  
-      </html>
-    ```
-
-    You can see in the above code we use `WebSocket.send()` to send message and `WebSocket.onmessage` to listen to message from service.
-
-3. `sendToAll` accepts object as an input and send JSON text to the clients. In real scenarios, we probably need complex object to carry more information about the message. Finally update the handlers to broadcast JSON objects to all clients:
-
-    ```javascript
-    let handler = new WebPubSubEventHandler(hubName, {
-      path: '/eventhandler',
-      onConnected: async req => {
-        console.log(`${req.context.userId} connected`);
+let handler = new WebPubSubEventHandler(hubName, {
+  path: '/eventhandler',
+  onConnected: async req => {
+    console.log(`${req.context.userId} connected`);
+  },
+  handleUserEvent: async (req, res) => {
+    if (req.context.eventName === 'message') 
         await serviceClient.sendToAll({
-          type: "system",
-          message: `${req.context.userId} joined`
-        });
-      },
-      handleUserEvent: async (req, res) => {
-        if (req.context.eventName === 'message') {
-          await serviceClient.sendToAll({
             from: req.context.userId,
             message: req.data
           });
-        }
-        res.success();
-      }
+    res.success();
+  }
+});
+
+app.use(handler.getMiddleware());
+```
+
+In the above code, `onConnected` simply prints a message to console when a client is connected. You can see we use `req.context.userId` so we can see the identity of the connected client. And `handleUserEvent` is invoked when a client sends a message. It uses `WebPubSubServiceClient.sendToAll()` to broadcast the received message to all clients. You can see `handleUserEvent` also has a `res` object where you can send message back to the event sender. Here we simply call `res.success()` to make the WebHook return 200 (note this call is required even you don't want to return anything back to client, otherwise the WebHook never returns and client connection closes).
+
+# [Java](#tab/java)
+For now, you need to implement the event handler by your own in Java, the steps are straight forward following [the protocol spec](./reference-cloud-events.md) and illustrated in the below list:
+
+1. Add HTTP handler for the event handler path, let's say `/eventhandler`. 
+
+2. First we'd like to handle the abuse protection OPTIONS requests, we check if the header contains `WebHook-Request-Origin` header, and we return the header `WebHook-Allowed-Origin`. For simplicity for demo purpose, we return `*` to allow all the origins.
+    ```java
+    
+    // validation: https://azure.github.io/azure-webpubsub/references/protocol-cloudevents#validation
+    app.options("/eventhandler", ctx -> {
+        ctx.header("WebHook-Allowed-Origin", "*");
     });
     ```
 
-4. And update the client to parse JSON data:
+3. Then we'd like to check if the incoming requests are the events we expect. Let's say we now care about the system `connected` event, which should contain the header `ce-type` as `azure.webpubsub.sys.connected`. We add the logic after abuse protection to broadcast the connected event to all clients so they can see who joined the chat room.
+    ```java
+    // validation: https://azure.github.io/azure-webpubsub/references/protocol-cloudevents#validation
+    app.options("/eventhandler", ctx -> {
+        ctx.header("WebHook-Allowed-Origin", "*");
+    });
+
+    // handle events: https://azure.github.io/azure-webpubsub/references/protocol-cloudevents#events
+    app.post("/eventhandler", ctx -> {
+        String event = ctx.header("ce-type");
+        if ("azure.webpubsub.sys.connected".equals(event)) {
+            String id = ctx.header("ce-userId");
+            System.out.println(id + " connected.");
+            service.sendToAll(String.format("[SYSTEM] %s joined", id), WebPubSubContentType.TEXT_PLAIN);
+        }
+        ctx.status(200);
+    });
+
+    ```
+
+  In the above code, we simply print a message to console when a client is connected. You can see we use `ctx.header("ce-userId")` so we can see the identity of the connected client.
+
+4. The `ce-type` of `message` event is always `azure.webpubsub.user.message`, details see [Event message](./reference-cloud-events.md#message). We add the logic to handle messages:
+   
+    ```java
+    // handle events: https://azure.github.io/azure-webpubsub/references/protocol-cloudevents#events
+    app.post("/eventhandler", ctx -> {
+        String event = ctx.header("ce-type");
+        if ("azure.webpubsub.sys.connected".equals(event)) {
+            String id = ctx.header("ce-userId");
+            System.out.println(id + " connected.");
+            service.sendToAll(String.format("[SYSTEM] %s joined", id), WebPubSubContentType.TEXT_PLAIN);
+        } else if ("azure.webpubsub.user.message".equals(event)) {
+            String id = ctx.header("ce-userId");
+            String message = ctx.body();
+            service.sendToAll(String.format("[%s] %s", id, message), WebPubSubContentType.TEXT_PLAIN);
+        }
+        ctx.status(200);
+    });
+    ```
+ 
+
+# [Python](#tab/python)
+
+For now, you need to implement the event handler by your own in Python, the steps are straight forward following [the protocol spec](./reference-cloud-events.md) and are illustrated in the below list:
+
+1. Add HTTP handler for the event handler path, let's say `/eventhandler`. 
+
+2. First we'd like to handle the abuse protection OPTIONS requests, we check if the header contains `WebHook-Request-Origin` header, and we return the header `WebHook-Allowed-Origin`. For simplicity for demo purpose, we return `*` to allow all the origins.
+    ```python
+    # validation: https://azure.github.io/azure-webpubsub/references/protocol-cloudevents#validation
+    @app.route('/eventhandler', methods=['OPTIONS', 'GET'])
+    def handle_event():
+        if request.method == 'OPTIONS' or request.method == 'GET':
+            if request.headers.get('WebHook-Request-Origin'):
+                res = Response()
+                res.headers['WebHook-Allowed-Origin'] = '*'
+                res.status_code = 200
+                return res
+    ```
+
+3. Then we'd like to check if the incoming requests are the events we expect. Let's say we now care about the system `connected` event, which should contain the header `ce-type` as `azure.webpubsub.sys.connected`. We add the logic after abuse protection:
+    ```python
+    # validation: https://azure.github.io/azure-webpubsub/references/protocol-cloudevents#validation
+    # handle events: https://azure.github.io/azure-webpubsub/references/protocol-cloudevents#events
+    @app.route('/eventhandler', methods=['POST', 'OPTIONS', 'GET'])
+    def handle_event():
+        if request.method == 'OPTIONS' or request.method == 'GET':
+            if request.headers.get('WebHook-Request-Origin'):
+                res = Response()
+                res.headers['WebHook-Allowed-Origin'] = '*'
+                res.status_code = 200
+                return res
+        elif request.method == 'POST':
+            user_id = request.headers.get('ce-userid')
+            if request.headers.get('ce-type') == 'azure.webpubsub.sys.connected':
+                return user_id + ' connected', 200
+            else:
+                return 'Not found', 404
+
+
+    ```
+
+In the above code, we simply print a message to console when a client is connected. You can see we use `request.headers.get('ce-userid')` so we can see the identity of the connected client.
+
+---
+
+3. Update `index.html` to add the logic to send message from user to server and display received messages in the page.
+
     ```html
     <html>
 
@@ -833,100 +854,131 @@ The complete code sample of this tutorial can be found [here][code-csharp-net6],
     </html>
     ```
 
-Now run the server and open multiple browser instances, then you can chat with each other.
+    You can see in the above code we use `WebSocket.send()` to send message and `WebSocket.onmessage` to listen to message from service.
+
+
+Now run the server, there is only one step left for the chat to work.
+# [C#](#tab/csharp)
+
+The complete code sample of this tutorial can be found [here][code-csharp-net6].
+
+Now run the server using `dotnet run --urls http://localhost:8080`. There is only one step left for the chat to work.
+
+# [JavaScript](#tab/javascript)
 
 The complete code sample of this tutorial can be found [here][code-js].
 
 # [Java](#tab/java)
-
-The `ce-type` of `message` event is always `azure.webpubsub.user.message`, details see [Event message](./reference-cloud-events.md#message).
-
-1. Handle message event
-
-    ```java
-    // handle events: https://azure.github.io/azure-webpubsub/references/protocol-cloudevents#events
-    app.post("/eventhandler", ctx -> {
-        String event = ctx.header("ce-type");
-        if ("azure.webpubsub.sys.connected".equals(event)) {
-            String id = ctx.header("ce-userId");
-            System.out.println(id + " connected.");
-        } else if ("azure.webpubsub.user.message".equals(event)) {
-            String id = ctx.header("ce-userId");
-            String message = ctx.body();
-            service.sendToAll(String.format("[%s] %s", id, message), WebPubSubContentType.TEXT_PLAIN);
-        }
-        ctx.status(200);
-    });
-    ```
-
-    This event handler uses `client.sendToAll()` to broadcast the received message to all clients.
-
-2.  Update `index.html` to add the logic to send message from user to server and display received messages in the page.
-
-    ```html
-    <html>
-
-    <body>
-      <h1>Azure Web PubSub Chat</h1>
-      <input id="message" placeholder="Type to chat...">
-      <div id="messages"></div>
-      <script>
-        (async function () {
-          let id = prompt('Please input your user name');
-          let res = await fetch(`/negotiate?id=${id}`);
-          let url = await res.text();
-          let ws = new WebSocket(url);
-          ws.onopen = () => console.log('connected');
-
-          let messages = document.querySelector('#messages');
-          ws.onmessage = event => {
-            let m = document.createElement('p');
-            m.innerText = event.data;
-            messages.appendChild(m);
-          };
-
-          let message = document.querySelector('#message');
-          message.addEventListener('keypress', e => {
-            if (e.charCode !== 13) return;
-            ws.send(message.value);
-            message.value = '';
-          });
-        })();
-      </script>
-    </body>
-
-    </html>
-    ```
-
-    You can see in the above code we use `WebSocket.send()` to send message and `WebSocket.onmessage` to listen to message from service.
-
-3.  Finally update the `connected` event handler to broadcast the connected event to all clients so they can see who joined the chat room.
-
-    ```java
-
-    // handle events: https://azure.github.io/azure-webpubsub/references/protocol-cloudevents#events
-    app.post("/eventhandler", ctx -> {
-        String event = ctx.header("ce-type");
-        if ("azure.webpubsub.sys.connected".equals(event)) {
-            String id = ctx.header("ce-userId");
-            service.sendToAll(String.format("[SYSTEM] %s joined", id), WebPubSubContentType.TEXT_PLAIN);
-        } else if ("azure.webpubsub.user.message".equals(event)) {
-            String id = ctx.header("ce-userId");
-            String message = ctx.body();
-            service.sendToAll(String.format("[%s] %s", id, message), WebPubSubContentType.TEXT_PLAIN);
-        }
-        ctx.status(200);
-    });
-
-    ```
-
-Now run the server with the below command and open multiple browser instances, then you can chat with each other.
 
 ```console
 mvn compile & mvn package & mvn exec:java -Dexec.mainClass="com.webpubsub.tutorial.App" -Dexec.cleanupDaemonThreads=false -Dexec.args="'<connection_string>'"
 ```
 
 The complete code sample of this tutorial can be found [here][code-java].
+
+# [Python](#tab/python)
+
+---
+
+
+## Set up the event handler
+
+### Handle events from your localhost
+
+Then we need to set the Webhook URL in the service so it can know where to call when there's a new event. But there's a problem that our server is running on localhost so doesn't have an internet accessible endpoint. 
+
+There are two ways to route the traffic to your localhost, one is to expose localhost to public, another way, and also the recommended way is to use [awps-tunnel](./howto-web-pubsub-tunnel-tool.md) to tunnel the traffic from Web PubSub service through the tool to your local server.
+
+#### Download and install awps-tunnel
+The tool runs on [Node.js](https://nodejs.org/) version 16 or higher.
+
+```bash
+npm install -g @azure/web-pubsub-tunnel-tool
+```
+
+#### Use the service connection string and run
+```bash
+export WebPubSubConnectionString="<your connection string>"
+awps-tunnel run --hub Sample_ChatApp --upstream http://localhost:8080
+```
+
+Now, we need to let your Web PubSub resource know about this Webhook URL. You can set the event handlers either from Azure portal or Azure CLI. 
+
+### Set event handler
+
+ When `awps-tunnel` tool is used locally, the URL template set in Web PubSub uses a special format with `tunnel` scheme followed by the path: `tunnel:///eventhandler`. Event handlers can be set from either the portal or the CLI as [described in this article](howto-develop-eventhandler.md#configure-event-handler), here we set it through CLI.
+
+Use the Azure CLI [az webpubsub hub create](/cli/azure/webpubsub/hub#az-webpubsub-hub-update) command to create the event handler settings for the chat hub
+
+  > [!Important]
+  > Replace &lt;your-unique-resource-name&gt; with the name of your Web PubSub resource created from the previous steps.
+
+```azurecli-interactive
+az webpubsub hub create -n "<your-unique-resource-name>" -g "myResourceGroup" --hub-name "Sample_ChatApp" --event-handler url-template="tunnel:///eventHandler" user-event-pattern="*" system-event="connected"
+```
+
+After the update is completed, open the home page http://localhost:8080/index.html, input your user name, you’ll see the connected message printed in the server console.
+
+### Lazy Auth with `connect` event
+
+In above sections, we show how the clients negotiate with the app server first to get the access token and then connects to the Web PubSub service. In some edge cases, the clients might only have the ability to establish a WebSocket connection directly with the Web PubSub. Web PubSub provides `AllowAnonymous` option and `connect` event to support such lazy authentication/authorization scenarios.
+
+First we configure the hub settings to allow anonymous connections, and configure event handler for `connect` event.
+
+Second: we add event handler for `connect` event in the upstream server:
+
+# [C#](#tab/csharp)
+
+The complete code sample of this tutorial can be found [here][code-csharp-net6].
+
+Now run the server using `dotnet run --urls http://localhost:8080`. There is only one step left for the chat to work.
+
+# [JavaScript](#tab/javascript)
+
+The complete code sample of this tutorial can be found [here][code-js].
+
+# [Java](#tab/java)
+
+```console
+mvn compile & mvn package & mvn exec:java -Dexec.mainClass="com.webpubsub.tutorial.App" -Dexec.cleanupDaemonThreads=false -Dexec.args="'<connection_string>'"
+```
+
+The complete code sample of this tutorial can be found [here][code-java].
+
+# [Python](#tab/python)
+
+---
+
+In `connect` handler, we could reject the client connection, or accept the client connection with below properties:
+* set `subprotocol`
+* set `userId`
+* set the groups the clients to join
+* set the permissions to the clients.
+
+In the above sample code, we reject the connections if their query does not contain `id`, and we set the userId of the client according to the value of query `id`.
+
+
+## Complete code
+
+# [C#](#tab/csharp)
+
+The complete code sample of this tutorial can be found [here][code-csharp-net6].
+
+Now run the server using `dotnet run --urls http://localhost:8080`. There is only one step left for the chat to work.
+
+# [JavaScript](#tab/javascript)
+
+The complete code sample of this tutorial can be found [here][code-js].
+
+# [Java](#tab/java)
+
+```console
+mvn compile & mvn package & mvn exec:java -Dexec.mainClass="com.webpubsub.tutorial.App" -Dexec.cleanupDaemonThreads=false -Dexec.args="'<connection_string>'"
+```
+
+The complete code sample of this tutorial can be found [here][code-java].
+
+# [Python](#tab/python)
 
 ---
 
