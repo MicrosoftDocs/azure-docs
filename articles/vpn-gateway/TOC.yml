@@ -151,7 +151,7 @@
           href: point-to-site-how-to-radius-ps.md
         - name: Integrate point-to-site VPN RADIUS authentication with NPS server
           href: vpn-gateway-radius-mfa-nsp.md
-      - name: Microsoft Entra authentication
+      - name: Microsoft Entra ID authentication
         items:
         - name: Configure a point-to-site VPN and tenant
           href: openvpn-azure-ad-tenant.md
@@ -159,9 +159,9 @@
           href: openvpn-azure-ad-tenant-multi-app.md
         - name: Configure Multi-Factor Authentication (MFA)
           href: openvpn-azure-ad-mfa.md
-      - name: Multiple authentication types
+      - name: Use multiple authentication types
         items:
-        - name: Configure point-to-site for multiple authentication types
+        - name: Configure certificate authentication + Microsoft Entra ID
           href: howto-point-to-site-multi-auth.md          
       - name: OpenVPN tunnel type
         items:
@@ -211,7 +211,7 @@
           href: point-to-site-vpn-client-configuration-radius-password.md
         - name: Other authentication protocols
           href: point-to-site-vpn-client-configuration-radius-other.md
-      - name: Microsoft Entra authentication
+      - name: Microsoft Entra ID authentication
         items:
         - name: Windows
           href: openvpn-azure-ad-client.md
@@ -315,7 +315,7 @@
         href: vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md
       - name: Point-to-site connection problems - macOS X VPN client
         href: vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md
-      - name: Point-to-site - Microsoft Entra authentication
+      - name: Point-to-site - Microsoft Entra ID authentication
         href: troubleshoot-ad-vpn-client.md
     - name: Site-to-site connection issues
       items:

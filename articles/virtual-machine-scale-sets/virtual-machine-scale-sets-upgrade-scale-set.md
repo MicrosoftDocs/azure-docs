@@ -293,7 +293,7 @@ Some properties may be changed, with exceptions depending on the current value. 
 #### Examples
 To update your scale set to use a different OS version, you need to set all the updated properties in a single call. In this example, we are changing from Unbuntu Server 20.04 to 22.04. 
 
-```azure-cli
+```azurecli
 az vmss update \
 --resource-group myResourceGroup \
 --name myScaleSet \
