@@ -1,6 +1,6 @@
 ---
-title: Azure Operator Nexus Route Policy Configuration Operations
-description: Configuration operation details for Route Policies
+title: Azure Operator Nexus route policy configuration operations
+description: In this article, you learn about configuration operation details for route policies for Azure Operator Nexus.
 ms.topic: article
 ms.date: 02/14/2024
 author: joemarshallmsft
@@ -8,112 +8,91 @@ ms.author: joemarshall
 ms.service: azure-operator-nexus
 ---
 
-# Configuration Operations for Azure Operator Nexus Route Policies
+# Configuration operations for Azure Operator Nexus route policies
 
-This article gives an overview of operational procedures to create, modify, and delete Route Policies for Azure Operator Nexus.
+This article gives an overview of operational procedures to create, modify, and delete route policies for Azure Operator Nexus.
 
-## Create a Route Policy and Apply it to a Network Fabric Endpoint
+## Create a route policy and apply it to a network fabric endpoint
 
-To create a Route Policy and apply it to a network fabric endpoint, follow these steps:
+To create a route policy and apply it to a network fabric endpoint:
 
-1.  **Create an IP Prefix resource, IP Community resource, or IP Extended Community resource**. There are three options:
+1. Create an IP prefix resource, IP community resource, or IP extended community resource. There are three options:
 
-    -   Create an IP Prefix resource to specify the match conditions for route policies based on the IP prefix (IPv4 or IPv6) of the routes. You can provide a list of prefixes with sequence numbers and actions (permit or deny).
+    - Create an IP prefix resource to specify the match conditions for route policies based on the IP prefix (IPv4 or IPv6) of the routes. You can provide a list of prefixes with sequence numbers and actions (`Permit` or `Deny`).
+    - Create an IP community resource to specify the match conditions and actions for route policies based on the community values tagged to the routes. You can provide well-known communities or custom community members.
+    - Create an IP extended community resource to specify the match conditions and actions for route policies based on the extended community values tagged to the routes. You can provide a list of extended community values and specific properties.
 
-    -   Create an IP Community resource to specify the match conditions and actions for route policies based on the community values tagged to the routes. You can provide well-known communities or custom community members.
+1. Create a route policy resource to specify the conditions and actions based on the IP prefixes, IP communities, and IP extended communities. Each route policy consists of multiple statements, each with a sequence number, conditions, and actions. The conditions can be combinations of IP prefixes, IP communities, and IP extended communities and are applied in ascending order of sequence numbers. The action that corresponds to the first matched condition is executed. The actions can permit or deny the route or add, remove, or overwrite community values and extended community values.
 
-    -   Create an IP Extended Community resource to specify the match conditions and actions for route policies based on the extended community values tagged to the routes. You can provide a list of extended community values and specific properties.
+1. Apply the route policy to the desired endpoint of the layer 3 isolation domain or network-to-network interconnections (NNIs). You can set the `ipv4exportRoutePolicyId` or `ipv4ImportRoutePolicyId` property of the external network or internal network resource, or the `connectedSubnetRoutePolicy` property of the layer 3 isolation domain resource, to the route policy resource ID created in the previous step based on the `addressFamilyType` of the route.
 
-2.  **Create a Route Policy resource** to specify the conditions and actions based on the IP Prefixes, IP Communities, and IP Extended Communities. Each route policy consists of multiple statements, each with a sequence number, conditions, and actions. The conditions can be combinations of IP Prefixes, IP Communities, and IP Extended Communities, and are applied in ascending order of sequence numbers. The action corresponding to the first matched condition is executed. The actions can permit or deny the route, or add, remove, or overwrite community values and extended community values.
+The following conditions must be satisfied when you create route policy resources:
 
-3.  **Apply the Route Policy resource** to apply the route policy to the desired endpoint of the Layer 3 isolation domain or Network-to-Network Interconnect (NNI). You can set the ipv4exportRoutePolicyId or ipv4ImportRoutePolicyId property of the External network or Internal network resource, or the connectedSubnetRoutePolicy property of the Layer 3 isolation domain resource, to the route policy resource ID created in the previous step based on the addressFamilyType of the route.
+- `NetworkFabricId`: Mandatory and shouldn't be null or empty.
+- `Statements`: Mandatory and shouldn't be null or empty. At least one statement must be provided.
 
-The following conditions must be satisfied when creating Route policy resources:
+- For each statement:
 
--  **NetworkFabricId**: Mandatory and shouldn't be null or empty.
+    - `SequenceNumber`: Mandatory and shouldn't be null.
+    - `condition`: Mandatory and shouldn't be null or empty. At least one of the `IpPrefixId`, `IpCommunityIds`, and `IpExtendedCommunityIds` properties should be provided.
+    - `action`: Mandatory and shouldn't be null or empty. The `ActionType` property shouldn't be null. If the `ActionType` property is `Permit` or `Continue`, then the properties `IpCommunityProperties` and `IpExtendedCommunityProperties` are validated.
 
--  **Statements**: Mandatory and shouldn't be null or empty. At least one statement must be provided.
+- `IpCommunityProperties`: If provided, at least one of the operations `add`, `set`, or `delete` should be specified. Each operation should have at least one `IpCommunityId` property.
+- `IpExtendedCommunityProperties`: If provided, at least one of the operations `add`, `set`, or `delete` should be provided. Each operation should have at least one `IpExtendedCommunityId` property.
+- **Unique sequence numbers**: All the statements provided should have unique sequence numbers.
 
--  For each **Statement**:
+## Update a route policy and modify its attributes
 
-    -   **SequenceNumber**: Mandatory and shouldn't be null.
+You can update route policies in multiple ways:
 
-    -   **Condition**: Mandatory and shouldn't be null or empty. At least one of IpPrefixId, IpCommunityIds, and IpExtendedCommunityIds should be provided.
+- Update the existing IP prefix resources, IP community resources, or IP extended community resources.
+- Update a route policy with more statements of new and/or existing IP prefix resources, IP community resources, or IP extended community resources.
+- Update only the sequence numbers or actions of existing route policies.
 
-    -   **Action**: Mandatory and shouldn't be null or empty. The ActionType shouldn't be null. If the ActionType is Permit or Continue, then IpCommunityProperties and IpExtendedCommunityProperties are validated.
+Whenever a route policy is updated via the Azure CLI, the Azure portal, or the Azure REST API, all the existing statements and resources are replaced with the new statements and resources.
 
--  **IpCommunityProperties**: If provided, at least one of `add`, `set`, or `delete` should be specified. Each operation should have at least one IpCommunityId.
+To update a route policy and modify its attributes:
 
--  **IpExtendedCommunityProperties**: If provided, at least one of the operations `add`, `set`, or `delete` should be provided. Each operation should have at least one IpExtendedCommunityId.
+1. Modify the IP prefix resource, IP community resource, or IP extended community resource:
 
--  **Unique Sequence Numbers**: All the statements provided should have unique sequence numbers.
+    - Modify the IP prefix resource to update the match conditions for route policies based on the IP prefix (IPv4 or IPv6) of the routes. You can modify the list of prefixes, sequence numbers, and actions (`Permit` or `Deny`).
+    - Modify the IP community resource to update the match conditions and actions for route policies based on the community values tagged to the routes. You can modify the well-known communities or custom community members.
+    - Modify the IP extended community resource to update the match conditions and actions for route policies based on the route targets. You can modify the list of extended community values and specific properties.
 
-## Update a Route Policy and Modify its Attributes
+1. Modify the route policy resource to update the conditions and actions based on the IP prefixes, IP communities, and IP extended communities. You can modify the existing statements or add new statements, each with a sequence number, conditions, and actions. The conditions can be combinations of IP prefixes, IP communities, and IP extended communities, and are applied in ascending order of sequence numbers. The action corresponding to the first matched condition is executed. The actions can be `Permit`, `Deny`, `add`, `remove`, or `overwrite` community values and extended community values.
 
-Route Policies can be updated in multiple ways:
+1. After a route policy, IP prefix, IP community, or IP extended community resource is updated, the commit configuration needs to be invoked on the fabric.
 
--   Update existing IP Prefix resources or IP Community resources or IP Extended Community resources.
+The following conditions must be met when you update route policy resources:
 
--   Update a Route Policy with additional statements of new and/or existing IP Prefix resources or IP Community resources or IP Extended Community resources.
+- `NetworkFabricId`: Mandatory and shouldn't be null or empty.
+- `Statements`: Mandatory and shouldn't be null or empty. At least one statement must be provided.
 
--   Update only the sequence numbers or actions of existing route policies.
+- For each statement:
 
-Whenever a route policy is updated via azcli,  the Azure portal, or the Azure REST API, all the existing statements and resources are replaced with the new statements and resources.
+    - `SequenceNumber`: Mandatory and shouldn't be null.
+    - `condition`: Mandatory and shouldn't be null or empty. At least one of the `IpPrefixId`, `IpCommunityIds`, and `IpExtendedCommunityIds` properties should be provided.
+    - `action`: Mandatory and shouldn't be null or empty. The `ActionType` property shouldn't be null. If the`ActionType` property is `Permit` or `Continue`, then the properties `IpCommunityProperties` and `IpExtendedCommunityProperties` are validated.
 
-To update a Route Policy and modify its attributes, follow these steps:
+- `IpCommunityProperties`: If provided, at least one of the operations `add`, `set`, or `delete` should be provided. Each operation should have at least one `IpCommunityId` property.
+- `IpExtendedCommunityProperties`: If provided, at least one of the operations `add`, `set`, or `delete` should be provided. Each operation should have at least one `IpExtendedCommunityId` property.
+- **Unique sequence numbers**: All the statements provided should have unique sequence numbers.
 
+## Delete a route policy and remove it from network fabric endpoints
 
-1.  **Modify the IP Prefix resource, IP Community resource or IP Extended Community resource**:
+To delete a route policy and remove it from network fabric endpoints:
 
-    -   Modify the IP Prefix resource to update the match conditions for route policies based on the IP prefix (IPv4 or IPv6) of the routes. You can modify the list of prefixes, sequence numbers, and actions (permit or deny).
+1. Remove the route policy from the endpoint of the layer 3 isolation domain or NNI where it was previously applied. You can set the `ipv4exportRoutePolicyId` or `ipv4ImportRoutePolicyId` property of the external network or internal network resource, or the `connectedSubnetRoutePolicy` property of the layer 3 isolation domain resource, to null based on the `addressFamilyType` of the route.
 
-    -   Modify the IP Community resource to update the match conditions and actions for route policies based on the community values tagged to the routes. You can modify the well-known communities or custom community members.
+1. Delete the conditions and actions based on the IP prefixes, IP communities, and IP extended communities. You can delete the route policy resource by its ID or name.
 
-    -   Modify the IP Extended Community resource to update the match conditions and actions for route policies based on the route targets. You can modify the list of extended community values and specific properties.
+1. Delete the IP prefix resource or IP community resource or IP extended community resource:
 
-2.  **Modify the Route Policy resource** to update the conditions and actions based on the IP Prefixes, IP Communities, and IP Extended Communities. You can modify the existing statements or add new statements, each with a sequence number, conditions, and actions. The conditions can be combinations of IP Prefixes, IP Communities, and IP Extended Communities, and are applied in ascending order of sequence numbers. The action corresponding to the first matched condition is executed. The actions can be permit, deny, add, remove, or overwrite community values and extended community values.
+    - Delete the IP prefix resource to delete the match conditions for route policies based on the IP prefix (IPv4 or IPv6) of the routes. You can delete the IP prefix resource by its ID or name.
+    - Delete the IP community resource to delete the match conditions and actions for route policies based on the community values tagged to the routes. You can delete the IP community resource by its ID or name.
+    - Delete the IP extended community resource to delete the match conditions and actions for route policies based on the route targets. You can delete the IP extended community resource by its ID or name.
 
-3.  After a route policy, IP prefix, IP community, or IP extended community resource is updated, the commit-configuration needs to be invoked on the fabric.
+The following conditions must be satisfied when you delete route policy resources:
 
-The following conditions must be met when updating Route policy resources:
-
--  **NetworkFabricId**: Mandatory and shouldn't be null or empty. 
-
--  **Statements**: Mandatory and shouldn't be null or empty. At least one statement must be provided. 
-
--  For each **Statement**: 
-
-    -   **SequenceNumber**: Mandatory and shouldn't be null. 
-
-    -   **Condition**: Mandatory and shouldn't be null or empty. At least one of IpPrefixId, IpCommunityIds, and IpExtendedCommunityIds should be provided. 
-
-    -   **Action**: Mandatory and shouldn't be null or empty. The ActionType shouldn't be null. If the ActionType is Permit or Continue, then IpCommunityProperties and IpExtendedCommunityProperties are validated. 
-
--  **IpCommunityProperties**: If provided, at least one of `add`, `set`, or `delete` should be provided. Each operation should have at least one IpCommunityId. 
-
--  **IpExtendedCommunityProperties**: If provided, at least one of `add`, `set`, or `delete` should be provided. Each operation should have at least one IpExtendedCommunityId. 
-
--  **Unique Sequence Numbers**: All the statements provided should have unique sequence numbers. 
-
-
-## Deleting a Route Policy and Removing it from Network Fabric Endpoints
-
-To delete a Route Policy and remove it from network fabric endpoints, follow these steps:
-
-1.  **Remove the Route Policy resource**: Remove the route policy from the endpoint of the Layer 3 isolation domain or NNI where it was previously applied. You can set the ipv4exportRoutePolicyId or ipv4ImportRoutePolicyId property of the External network or Internal network resource, or the connectedSubnetRoutePolicy property of the Layer 3 isolation domain resource, to null based on the addressFamilyType of the route.
-
-2.  **Delete the Route Policy resource**: Delete the conditions and actions based on the IP Prefixes, IP Communities, and IP Extended Communities. You can delete the route policy resource by its ID or name.
-
-3.  **Delete the IP Prefix resource or IP Community resource or IP Extended Community resource**:
-
-    -   Delete the IP Prefix resource to delete the match conditions for route policies based on the IP prefix (IPv4 or IPv6) of the routes. You can delete the IP prefix resource by its ID or name.
-
-    -   Delete the IP Community resource to delete the match conditions and actions for route policies based on the community values tagged to the routes. You can delete the IP community resource by its ID or name.
-
-    -   Delete the IP Extended Community resource to delete the match conditions and actions for route policies based on the route targets. You can delete the IP extended community resource by its ID or name.
-
-The following conditions must be satisfied while deleting Route policy resources:
-
--  **IpCommunityProperties Delete Operation**: If the delete operation is provided, it shouldn't be empty and must have at least one IpCommunityId. Each IpCommunityId shouldn't be null or empty. If both delete and add operations are provided, they shouldn't have the same IPCommunityIDs.
-
--  **IpExtendedCommunityProperties Delete Operation**: If the delete operation is provided, it shouldn't be empty and must have at least one IpExtendedCommunityId. Each IpExtendedCommunityId shouldn't be null or empty. If both delete and add operations are provided, they shouldn't have the same IpExtendedCommunityIDs.
+- `IpCommunityProperties` `delete` operation: If the `delete` operation is provided, it shouldn't be empty and must have at least one `IpCommunityId` property. Each `IpCommunityId` property shouldn't be null or empty. If both `delete` and `add` operations are provided, they shouldn't have the same `IPCommunityIDs` property.
+- `IpExtendedCommunityProperties` `delete` operation: If the `delete` operation is provided, it shouldn't be empty and must have at least one `IpExtendedCommunityId` property. Each `IpExtendedCommunityId` property shouldn't be null or empty. If both `delete` and `add` operations are provided, they shouldn't have the same `IpExtendedCommunityIDs` property.
