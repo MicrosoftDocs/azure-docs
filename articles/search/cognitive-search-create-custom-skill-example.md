@@ -24,6 +24,8 @@ In this example, learn how to create a web API custom skill. This skill will acc
 
 + Install [Visual Studio](https://www.visualstudio.com/vs/) or later.
 
+<!-- Set up your environment. You can start with [this tutorial end-to-end](../azure-functions/create-first-function-vs-code-python.md) to set up serverless Azure Function using Visual Studio Code with the Python extension.
+ -->
 ## Create an Azure Function
 
 Although this example uses an Azure Function to host a web API, it isn't required.  As long as you meet the [interface requirements for a cognitive skill](cognitive-search-custom-skill-interface.md), the approach you take is immaterial. Azure Functions, however, make it easy to create a custom skill.
