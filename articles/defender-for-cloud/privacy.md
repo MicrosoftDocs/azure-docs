@@ -19,7 +19,7 @@ A Defender for Cloud user can view their personal data through the Azure portal.
 
 In the Azure portal, a user can view allowed IP configurations using Defender for Cloud's just-in-time VM access feature. For more information, see [Manage virtual machine access using just-in-time](just-in-time-access-usage.yml).
 
-In the Azure portal, a user can view security alerts provided by Defender for Cloud including IP addresses and attacker details. For more information, see [Managing and responding to security alerts in Microsoft Defender for Cloud](managing-and-responding-alerts.md).
+In the Azure portal, a user can view security alerts provided by Defender for Cloud including IP addresses and attacker details. For more information, see [Managing and responding to security alerts in Microsoft Defender for Cloud](managing-and-responding-alerts.yml).
 
 ## Classifying personal data
 
@@ -27,7 +27,7 @@ You don't need to classify personal data found in Defender for Cloud's security 
 
 You don't need to classify the IP addresses and port numbers saved by Defender for Cloud's [just-in-time](just-in-time-access-usage.yml) feature.
 
-Only a user assigned the role of Administrator can classify personal data by [viewing alerts](managing-and-responding-alerts.md) in Defender for Cloud.
+Only a user assigned the role of Administrator can classify personal data by [viewing alerts](managing-and-responding-alerts.yml) in Defender for Cloud.
 
 ## Securing and controlling access to personal data
 
@@ -35,7 +35,7 @@ A Defender for Cloud user assigned the role of Reader, Owner, Contributor, or Ac
 
 A Defender for Cloud user assigned the role of Reader, Owner, Contributor, or Account Administrator can access their [just-in-time](just-in-time-access-usage.yml) policies.
 
-A Defender for Cloud user assigned the role of Reader, Owner, Contributor, or Account Administrator can view their [alerts](managing-and-responding-alerts.md).
+A Defender for Cloud user assigned the role of Reader, Owner, Contributor, or Account Administrator can view their [alerts](managing-and-responding-alerts.yml).
 
 ## Updating personal data
 
@@ -43,7 +43,7 @@ A Defender for Cloud user assigned the role of Owner, Contributor, or Account Ad
 
 A Defender for Cloud user assigned the role of Owner, Contributor, or Account Administrator can update their [just-in-time policies](just-in-time-access-usage.yml).
 
-An Account Administrator can't edit alert incidents. An [alert incident](managing-and-responding-alerts.md) is considered security data and is read only.
+An Account Administrator can't edit alert incidents. An [alert incident](managing-and-responding-alerts.yml) is considered security data and is read only.
 
 ## Deleting personal data
 
@@ -51,7 +51,7 @@ A Defender for Cloud user assigned the role of Owner, Contributor, or Account Ad
 
 A Defender for Cloud user assigned the role of Owner, Contributor, or Account Administrator can delete the [just-in-time policies](just-in-time-access-usage.yml) via the Azure portal.
 
-A Defender for Cloud user can't delete alert incidents. For security reasons, an [alert incident](managing-and-responding-alerts.md) is considered read-only data.
+A Defender for Cloud user can't delete alert incidents. For security reasons, an [alert incident](managing-and-responding-alerts.yml) is considered read-only data.
 
 ## Exporting personal data
 
@@ -90,7 +90,7 @@ A Defender for Cloud user can choose to opt out by deleting their [security cont
 
 [Just-in-time data](just-in-time-access-usage.yml) is considered non-identifiable data and is retained for 30 days.
 
-[Alert data](managing-and-responding-alerts.md) is considered security data and is retained for two years.
+[Alert data](managing-and-responding-alerts.yml) is considered security data and is retained for two years.
 
 ## Auditing and reporting
 

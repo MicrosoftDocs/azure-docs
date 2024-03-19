@@ -132,7 +132,7 @@ The following metrics are available for data export operation and alerts
 | Metric name	| Description |
 |:---|:---|
 | Bytes Exported | Total number of bytes exported to destination from Log Analytics workspace within the selected time range. The size of data exported is the number of bytes in the exported JSON formatted data. 1 GB = 10^9 bytes. |
-| Export Failures	| Total number of failed export requests in the Log Analytics workspace within the selected time range. This number includes export failures that can result by Azure Monitor, destination resource availability, or throttling. |
+| Export Failures	| Total number of failed export requests to destination from Log Analytics workspace within the selected time range. This number includes export failures due to destination resource throttling, server error or access forbidden error. |
 | Records exported | Total number of records exported from Log Analytics workspace within the selected time range. This number counts records for operations that ended with success. |
 
 

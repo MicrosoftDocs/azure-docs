@@ -150,7 +150,7 @@ items:
       - name: Resource creation & model deployment
         href: ./how-to/create-resource.md
       - name: OpenAI vs Azure OpenAI (Python)
-        href: ./how-to/switching-endpoints.md
+        href: ./how-to/switching-endpoints.yml
       - name: Manage quota
         href: ./how-to/quota.md
       - name: Dynamic quota
@@ -213,11 +213,11 @@ items:
           href: ./references/azure-search.md
         - name: Data source - Azure Cosmos DB for MongoDB vCore
           href: ./references/cosmos-db.md
-        - name: Data source - Azure Machine Learning index
+        - name: Data source - Azure Machine Learning index (preview)
           href: ./references/azure-machine-learning.md
-        - name: Data source - Elasticsearch
+        - name: Data source - Elasticsearch (preview)
           href: ./references/elasticsearch.md
-        - name: Data source - Pinecone
+        - name: Data source - Pinecone (preview)
           href: ./references/pinecone.md
         - name: Ingestion API (preview)
           href: /rest/api/azureopenai/ingestion-jobs
@@ -239,14 +239,14 @@ items:
     - name: REST API (fine-tuning)
       href: /rest/api/azureopenai/fine-tuning?view=rest-azureopenai-2023-10-01-preview&preserve-view=true 
     - name: REST API (resource creation & deployment)
-      href: /rest/api/cognitiveservices/accountmanagement/deployments/create-or-update?tabs=HTTP
+      href: /rest/api/aiservices/accountmanagement/deployments/create-or-update?tabs=HTTP
     - name: Templates
       items: 
         - name: Retrieval Augmented Generation (RAG) enterprise chat
           displayName: RAG, rag
           items:
             - name: C#
-              href: /dotnet/azure/ai/get-started-app-chat-template
+              href: /dotnet/ai/get-started-app-chat-template
               displayName: RAG, rag
             - name: Java
               href: /azure/developer/java/quickstarts/get-started-app-chat-template

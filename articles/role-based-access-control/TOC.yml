@@ -73,7 +73,7 @@
     - name: PowerShell
       href: role-assignments-list-powershell.md
     - name: CLI
-      href: role-assignments-list-cli.md
+      href: role-assignments-list-cli.yml
     - name: REST API
       href: role-assignments-list-rest.md
   - name: Assign roles
@@ -122,7 +122,7 @@
     - name: Conditions and custom security attributes
       href: conditions-custom-security-attributes.md
   - name: Remove role assignments
-    href: role-assignments-remove.md
+    href: role-assignments-remove.yml
   - name: List deny assignments
     href: deny-assignments.md
   - name: Create custom roles
