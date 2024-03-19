@@ -9,11 +9,11 @@ ms.topic: how-to
 author: santiagxf
 ms.author: fasantia
 ms.date: 5/01/2023
-ms.reviewer: larryfr
+ms.reviewer: mopeakande
 ms.custom:
-  - devplatv2
-  - devx-track-azurecli
-  - ignite-2023
+- devplatv2
+- devx-track-azurecli
+- ignite-2023
 ---
 
 # Create jobs and input data for batch endpoints
