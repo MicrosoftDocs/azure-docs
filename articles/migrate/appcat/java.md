@@ -122,11 +122,11 @@ Use the following command to initiate discovery:
 
 The discovery phase is useful when you don't have a specific Azure target in mind. Otherwise, `appcat` runs discovery implicitly for any Azure target.
 
-## Assess a Java application for a specific Azure target
+## Assess a Java application for a specific target
 
-The *assessment* phase is where `appcat` analyzes the application and its components to determine its suitability for replatorming and to identify any potential challenges or limitations. This phase involves analyzing the application code and checking its compliance with the selected Azure target.
+The *assessment* phase is where `appcat` analyzes the application and its components to determine its suitability for replatorming and to identify any potential challenges or limitations. This phase involves analyzing the application code and checking its compliance with the selected Azure target or OpenJDK target.
 
-To check the available Azure targets, run the following command:
+To check the available targets, run the following command:
 
 ```bash
 ./appcat --listTargetTechnologies
@@ -154,6 +154,14 @@ Then, you can run `appcat` using one of the available Azure targets, as shown in
 ./appcat \
     --input ./<my-application-source-path or my-application-jar-war-ear-file> \
     --target azure-appservice
+```
+
+You can run `appcat` using one of the available OpenJDK targets, as shown in the following example:
+
+```bash
+./appcat \
+    --input ./<my-application-source-path or my-application-jar-war-ear-file> \
+    --target openjdk11
 ```
 
 ## Get results from appcat
