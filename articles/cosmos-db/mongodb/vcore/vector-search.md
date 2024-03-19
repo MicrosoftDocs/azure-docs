@@ -61,12 +61,6 @@ You can create (Hierarchical Navigable Small World) indexes on M40 cluster tiers
 |`similarity`     |string     |Similarity metric to use with the index. Possible options are `COS` (cosine distance), `L2` (Euclidean distance), and `IP` (inner product).    |
 |`dimensions`     |integer     |Number of dimensions for vector similarity. The maximum number of supported dimensions is `2000`.     |
 
-
-> [!WARNING]
-> Using the HSNW vector index (preview) with large datasets can result in resource running out of memory, or reducing the performance of other operations running on your database. To reduce the chance of this happening, we recommend to:
-> - Only use HNSW indexes on a cluster tier of M40 or higher.
-> - Scale to a higher cluster tier or reduce the size of the database if your encounter errors.
-
 ### Perform a vector search with HNSW
 To perform a vector search, use the `$search` aggregation pipeline stage the query with the `cosmosSearch` operator.
 ```javascript
@@ -87,6 +81,8 @@ To perform a vector search, use the `$search` aggregation pipeline stage the que
 |---------|---------|---------|
 |`efSearch`     |integer    |The size of the dynamic candidate list for search (`40` by default). A higher value provides better recall at the cost of speed.     |
 |`k`        |integer    |The number of results to return. it should be less than or equal to `efSearch`    |
+
+Note that creating an HSNW index with large datasets can result in your Azure Cosmos DB for MongoDB vCore resource running out of memory, or can limit the performance of other operations running on your database. If you encounter such issues, these can be mitigated by scaling your resource to a higher cluster tier, or reducing the size of the dataset.
 
 ### Create an vector index using IVF
 
