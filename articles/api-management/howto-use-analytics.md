@@ -11,7 +11,7 @@ ms.author: danlep
 
 # Get API analytics in Azure API Management
 
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
+[!INCLUDE [premium-dev-standard-basic-standardv2-basicv2.md](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
 
 Azure API Management provides built-in analytics for your APIs so that you can analyze their usage and performance. Use analytics for high-level monitoring and troubleshooting of your APIs. For other monitoring features, including near real-time metrics and resource logs for diagnostics and auditing, see [Tutorial: Monitor published APIs](api-management-howto-use-azure-monitor.md).
 
@@ -22,10 +22,11 @@ Azure API Management provides built-in analytics for your APIs so that you can a
 
 * API Management provides analytics using an [Azure workbook](../azure-monitor/visualize/workbooks-overview.md) based on data in an Azure Log Analytics workspace. 
 
-* Your API Management instance also includes a legacy *analytics dashboard* in the Azure portal, and analytics data can be accessed using the API Management REST API. Equivalent data is shown in the analytics workbook and dashboard.
+* In the classic service tiers, your API Management instance also includes a legacy *analytics dashboard* in the Azure portal, and analytics data can be accessed using the API Management REST API. Equivalent data is shown in the analytics workbook and dashboard.
 
 > [!IMPORTANT]
-> The Azure workbook is the recommended way to access analytics data. 
+> * The Azure workbook is the recommended way to access analytics data.
+> * The legacy analytics dashboard isn't provided in the v2 tiers. 
 
 With API analytics, analyze the usage and performance of the APIs in your API Management instance across several dimensions, including:
 
