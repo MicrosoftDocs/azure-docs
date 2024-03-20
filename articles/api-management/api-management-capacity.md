@@ -13,7 +13,7 @@ ms.custom: fasttrack-edit
 
 # Capacity of an Azure API Management instance
 
-[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+[!INCLUDE [api-management-availability-premium-dev-standard-basic](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 **Capacity** is the most important [Azure Monitor metric](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) for making informed decisions whether to [scale or upgrade](upgrade-and-scale.md) an API Management instance to accommodate more load. Its construction is complex and imposes certain behavior.
 
