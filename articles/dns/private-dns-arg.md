@@ -106,7 +106,7 @@ dnsresources
 | where subscriptionId == "<your subscription ID>"
 | where isnull(properties.virtualNetworkId) == false
 | extend linkname=(properties.virtualNetworkLinkName)
-| extend ipaddress=tostring(properties.records)
+| extend ipaddress=properties['records'][0]['ipv4Address']
 | project name, ipaddress, type, linkname, properties
 ```
 ![Screenshot of the virtual network links query.](./media/private-dns-arg/autoregistered.png)
