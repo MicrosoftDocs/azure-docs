@@ -261,6 +261,7 @@ For Assistants you need a combination of a supported model, and a supported regi
 | Australia East | ✅ | ✅ | ✅ |✅ | |
 | East US 2 | ✅ | | ✅ |✅ | |
 | Sweden Central | ✅ |✅ |✅ |✅| |
+| East US (Azure OpenAI studio only) |  | | | | ✅ |
 
 For information on Provisioned Throughput Unit (PTU) availability, see [provisioned throughput](./provisioned-throughput.md). 
 
