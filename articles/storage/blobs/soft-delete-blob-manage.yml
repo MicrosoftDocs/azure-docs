@@ -109,20 +109,20 @@ procedureSection:
 
       2. Obtain storage account authorization by using either a storage account key, a connection string, or Microsoft Entra ID. For more information, see [Connect to the account](data-lake-storage-directory-file-acl-powershell.md#connect-to-the-account).
 
-        The following example obtains authorization by using a storage account key.
+         The following example obtains authorization by using a storage account key.
 
-        ```powershell
-        $ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -StorageAccountKey '<storage-account-key>'
-        ```
+         ```powershell
+          $ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -StorageAccountKey '<storage-account-key>'
+          ```
 
       3. To restore soft-deleted item, use the `Restore-AzDataLakeGen2DeletedItem` command.
 
-        ```powershell
-        $filesystemName = "my-file-system"
-        $dirName="my-directory"
-        $deletedItems = Get-AzDataLakeGen2DeletedItem -Context $ctx -FileSystem $filesystemName -Path $dirName
-        $deletedItems | Restore-AzDataLakeGen2DeletedItem
-        ```
+         ```powershell
+         $filesystemName = "my-file-system"
+         $dirName="my-directory"
+         $deletedItems = Get-AzDataLakeGen2DeletedItem -Context $ctx -FileSystem $filesystemName -Path $dirName
+         $deletedItems | Restore-AzDataLakeGen2DeletedItem
+         ```
 
         If you rename the directory that contains the soft-deleted items, those items become disconnected from the directory. If you want to restore those items, you'll have to revert the name of the directory back to its original name or create a separate directory that uses the original directory name. Otherwise, you'll receive an error when you attempt to restore those soft-deleted items.
 
