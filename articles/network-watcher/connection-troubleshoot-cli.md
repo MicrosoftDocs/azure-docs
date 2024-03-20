@@ -22,8 +22,7 @@ In this article, you learn how to use the connection troubleshoot feature of Azu
 
 - Network Watcher enabled in the region of the virtual machine (VM) you want to troubleshoot. By default, Azure enables Network Watcher in a region when you create a virtual network in it. For more information, see [Enable or disable Azure Network Watcher](network-watcher-create.md).
 
-- A virtual machine with Network Watcher agent VM extension installed on it and the following outbound TCP connectivity:
-    - to the storage account over port 443
+- A virtual machine with Network Watcher agent VM extension installed on it and has the following outbound TCP connectivity:
     - to 169.254.169.254 over port 80
     - to 168.63.129.16 over port 8037
 
@@ -722,7 +721,7 @@ az network watcher test-connectivity --resource-group 'myResourceGroup' --source
     - Connection status is **Unreachable** (`10.10.10.10` is unreachable over port 3389).
     - 30 probes were sent and failed to reach `10.10.10.10`.
     - No route in the routing table of the source virtual machine to `10.10.10.10`. The output has `RouteMissing` error on the source virtual machine.
-    - Next hop type is *None* because there is no route to `10.10.10.10`.
+    - Next hop type is *None* because there's no route to `10.10.10.10`.
     - Outbound connectivity from the source virtual machine is denied by the security rule `DefaultRule_DenyAllOutBound` in the network security group `VM1-nsg`.
     
     **Solution**: Associate a route table with a correct route to the subnet of the source virtual machine.
