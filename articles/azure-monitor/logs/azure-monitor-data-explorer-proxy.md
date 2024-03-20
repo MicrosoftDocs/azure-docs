@@ -128,6 +128,9 @@ More use cases:
 
 To create an alert rule based on a cross-service query from your Log Analytics workspace, follow the steps in [Create or edit a log search alert rule](../alerts/alerts-create-log-alert-rule.md), selecting your Log Analytics workspace, on the **Scope** tab.
 
+> [!NOTE]
+> You can also run cross-service queries from Azure Data Explorer and Azure Resource Graph to a Log Analytics workspace, by selecting the relevant resource as the scope of your alert.  
+
 ## Limitations
 
 ### General cross-service query limitations
