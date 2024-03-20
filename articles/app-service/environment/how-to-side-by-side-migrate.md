@@ -212,6 +212,7 @@ Run the following command to check the status of your migration:
 ```azurecli
 az rest --method get --uri "${ASE_ID}?api-version=2022-03-01" --query properties.subStatus
 ```
+
 After you get a status of `MigrationPendingDnsChange`, migration is done, and you have an App Service Environment v3 resource. Your apps are now running in your new environment as well as in your old environment.
 
 Get the details of your new environment by running the following command:
@@ -247,6 +248,14 @@ Once you confirm your apps are working as expected, you can redirect customer tr
 ```azurecli
 az rest --method post --uri "${ASE_ID}/NoDowntimeMigrate?phase=DnsChange&api-version=2022-03-01"
 ```
+
+Run the following command to check the status of this step:
+
+```azurecli
+az rest --method get --uri "${ASE_ID}?api-version=2022-03-01" --query properties.subStatus
+```
+
+During this step, you get a status of `CompletingMigration`. When you get a status of `MigrationCompleted`, the traffic redirection step is done and your migration is complete.
 
 If you find any issues or decide at this point that you no longer want to proceed with the migration, contact support to revert the migration. Don't run the above command if you need to revert the migration. For more information, see [Revert migration](side-by-side-migrate.md#redirect-customer-traffic-and-complete-migration).
 
