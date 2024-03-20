@@ -6,7 +6,8 @@ ms.author: cephalin
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 03/31/2024
-ms.custom: mvc, devx-track-extended-java, AppServiceConnectivity
+ms.custom: mvc, devx-track-extended-java, AppServiceConnectivity, devx-track-extended-azdevcli
+zone_pivot_groups: app-service-portal-azd
 ---
 
 # Tutorial: Build a Tomcat web app with Azure App Service on Linux and MySQL
@@ -84,7 +85,7 @@ For your convenience, the [sample repository](https://github.com/Azure-Samples/m
 
 ## 2. Create App Service and MySQL
 
-First, you create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service and Azure Database for MySQL. For the creation process, you'll specify:
+First, you create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service and Azure Database for MySQL. For the creation process, you specify:
 
 * The **Name** for the web app. It's the name used as part of the DNS name for your webapp in the form of `https://<app-name>.azurewebsites.net`.
 * The **Region** to run the app physically in the world.
@@ -343,7 +344,7 @@ When you're finished, you can delete all of the resources from your Azure subscr
         **Step 2:** In the resource group page, select **Delete resource group**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-clean-up-resources-2.png" alt-text="A screenshot showing the location of the Delete Resource Group button in the Azure portal." lightbox="./media/tutorial-java-tomcat-mysql-app/azure-portal-clean-up-resources-2.png":::
+        :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-clean-up-resources-2.png" alt-text="A screenshot showing the location of the **Delete Resource Group** button in the Azure portal." lightbox="./media/tutorial-java-tomcat-mysql-app/azure-portal-clean-up-resources-2.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -395,7 +396,7 @@ In this step, you create the Azure resources and deploy a sample app to App Serv
     azd auth login
     ```  
 
-1. Run the `azd up` command to provision the necessary Azure resources and deploy the app code. Follow the prompt to select the desired subscription and location for the Azure resources.
+1. Run the `azd up` command to create the necessary Azure resources and deploy the app code. Follow the prompt to select the desired subscription and location for the Azure resources.
 
     ```bash
     azd up
@@ -536,7 +537,7 @@ You can ignore the warnings. The Maven Jetty plugin shows the warnings because t
 ## Frequently asked questions
 
 - [How much does this setup cost?](#how-much-does-this-setup-cost)
-- [How do I connect to the MySQL server behind the virtual network with other tools?](#how-do-i-connect-to-the-mysql-server-thats-secured-behind-the-virtual-network-with-other-tools)
+- [How do I connect to the MySQL server behind the virtual network with other tools?](#how-do-i-connect-to-the-mysql-server-behind-the-virtual-network-with-other-tools)
 - [How does local app development work with GitHub Actions?](#how-does-local-app-development-work-with-github-actions)
 
 #### How much does this setup cost?
@@ -549,7 +550,7 @@ Pricing for the created resources is as follows:
 - The virtual network doesn't incur a charge unless you configure extra functionality, such as peering. See [Azure Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/).
 - The private DNS zone incurs a small charge. See [Azure DNS pricing](https://azure.microsoft.com/pricing/details/dns/). 
 
-#### How do I connect to the MySQL database behind the virtual network with other tools?
+#### How do I connect to the MySQL server behind the virtual network with other tools?
 
 - The Tomcat container currently doesn't have the `mysql-client` terminal too. If you want, you must manually install it. Note that anything you install won't persist across app restart.
 - To connect from a desktop tool like MySQL Workbench, your machine must be within the virtual network. For example, it could be an Azure VM that's connected to one of the subnets, or a machine in an on-premises network that has a [site-to-site VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) connection with the Azure virtual network.
