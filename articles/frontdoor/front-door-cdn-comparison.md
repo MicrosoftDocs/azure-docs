@@ -50,7 +50,7 @@ The following table provides a comparison between Azure Front Door and Azure CDN
 | URL redirect/rewrite | &check; | &check; | &check; | &check; |  | &check; |
 | IPv4/IPv6 dual-stack | &check; | &check; | &check; | &check; | &check; | &check; |
 | HTTP/2 support | &check; | &check; | &check; | &check; | &check; | &check; |
-| Routing preference unmetered | t required as Data transfer from Azure origin to AFD is free and path is directly connected | t required as Data transfer from Azure origin to AFD is free and path is directly connected | t required as Data transfer from Azure origin to AFD is free and path is directly connected | t required as Data transfer from Azure origin to CDN is free and path is directly connected | &check; | &check; |
+| Routing preference unmetered | Not required as Data transfer from Azure origin to AFD is free and path is directly connected | Not required as Data transfer from Azure origin to AFD is free and path is directly connected | Not required as Data transfer from Azure origin to AFD is free and path is directly connected | Not required as Data transfer from Azure origin to CDN is free and path is directly connected | &check; | &check; |
 | Origin Port | All TCP ports | All TCP ports | All TCP ports | All TCP ports | All TCP ports | All TCP ports |
 | Customizable, rules based content delivery engine | &check; | &check; | &check; | &check; using Standard rules engine |  | &check; using Premium rules engine |
 | Mobile device rules | &check; | &check; | &check; | &check; using Standard rules engine |  | &check; using Premium rules engine |
