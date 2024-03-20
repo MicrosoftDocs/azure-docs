@@ -33,8 +33,7 @@ ms.custom: template-how-to
 ### Incoming and outgoing audio issue on Android when browser is in background or device screen is locked with Power Saving mode enabled
 **Browser version:** All.<br>
 **Azure Communication Service calling SDK version:** All.<br>
-**Description:** On Android with Power Saving mode enabled on the device, incoming and outgoing audio disappears immediately when the browser hosting a WebRTC call is put in the background or the device screen is locked. 
-Additionally, the user is disconnected from the call after approximately one minute after the device screen is locked or the browser is backgrounded under Power Saving mode.<br>
+**Description:** On Android mobile phones when Power Saving mode enabled, incoming and outgoing audio stops immediately when the browser hosting the ACS call is put in the background or the device screen is locked. Additionally, because of the action of putting the browser is backgrounded under Power Saving mode the user will be disconnected and removed from the call after approximately one minute after the device screen is locked or the browser goes into the background.<br>
 **Known issue reference:** This is a known issue on [Chromium](https://issues.chromium.org/issues/40282141?pli=1).<br>
 **Recommended workaround:** To avoid this issue, users are advised to either keep the browser active in the foreground during calls or disable Power Saving mode while on WebRTC calls.<br>
 
