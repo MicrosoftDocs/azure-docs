@@ -46,16 +46,16 @@ Sample node list depicting FD/UD formats in a virtual machine scale set spanning
  ![Sample node list depicting FD/UD formats in a virtual machine scale set spanning zones.][sfmc-multi-az-nodes]
 
 **Distribution of Service replicas across zones**:
-When a service is deployed on the node types that are spanning zones, the replicas are placed to ensure they land up in separate zones. This separation is ensured as the fault domain’s on the nodes present in each of these node types are configured with the zone information (i.e FD = fd:/zone1/1 etc.). For example: for five replicas or instances of a service, the distribution is 2-2-1 and runtime tries to ensure equal distribution across AZs.
+When a service is deployed on the node types that are spanning zones, the replicas are placed to ensure they land up in separate zones. This separation is ensured as the fault domain’s on the nodes present in each of these node types are configured with the zone information (i.e. FD = fd:/zone1/1 etc.). For example: for five replicas or instances of a service, the distribution is 2-2-1 and runtime tries to ensure equal distribution across AZs.
 
 **User Service Replica Configuration**:
 Stateful user services deployed on the cross-availability zone node types should be configured with this configuration: replica count with target = 9, min = 5. This configuration helps the service to be working even when one zone goes down since six replicas will be still up in the other two zones. An application upgrade in such a scenario will also go through.
 
 **Zone down scenario**:
-When a zone goes down, all the nodes in that zone appear as down. Service replicas on these nodes will also be down. Since there are replicas in the other zones, the service continues to be responsive with primary replicas failing over to the zones that are functioning. The services will appear in warning state as the target replica count is not met and the virtual machine (VM) count is still more than the defined min target replica size. As a result, Service Fabric load balancer brings up replicas in the working zones to match the configured target replica count. At this point, the services should appear healthy. When the zone that was down comes back up, the load balancer will again spread all the service replicas evenly across all the zones.
+When a zone goes down, all the nodes in that zone appear as down. Service replicas on these nodes will also be down. Since there are replicas in the other zones, the service continues to be responsive with primary replicas failing over to the zones that are functioning. The services will appear in warning state as the target replica count isn't met and the virtual machine (VM) count is still more than the defined min target replica size. As a result, Service Fabric load balancer brings up replicas in the working zones to match the configured target replica count. At this point, the services should appear healthy. When the zone that was down comes back up, the load balancer will again spread all the service replicas evenly across all the zones.
 
 ## Networking Configuration
-For more information, see [Configure network settings for Service Fabric managed clusters](./how-to-managed-cluster-networking.md)
+For more information, see [Configure network settings for Service Fabric managed clusters](./how-to-managed-cluster-networking.md).
 
 ## Enabling a zone resilient Azure Service Fabric managed cluster
 To enable a zone resilient Azure Service Fabric managed cluster, you must include the following **ZonalResiliency** property, which specifies if the cluster is zone resilient or not.
@@ -73,10 +73,10 @@ To enable a zone resilient Azure Service Fabric managed cluster, you must includ
 ```
 
 ## Migrate an existing nonzone resilient cluster to Zone Resilient (Preview) 
-Existing Service Fabric managed clusters that are not spanned across availability zones can now be migrated in-place to span availability zones. Supported scenarios include clusters created in regions that have three availability zones and clusters in regions where three availability zones are made available post-deployment.
+Existing Service Fabric managed clusters that aren't spanned across availability zones can now be migrated in-place to span availability zones. Supported scenarios include clusters created in regions that have three availability zones and clusters in regions where three availability zones are made available post-deployment.
 
 Requirements:
-* Standard SKU cluster
+* Standard SKU cluster.
 * Three [availability zones in the region](../availability-zones/az-overview.md#azure-regions-with-availability-zones).
 
 >[!NOTE]
@@ -116,7 +116,7 @@ Requirements:
     }
     ```
 
-    If the Public IP resource is not zone resilient, migration of the cluster will cause a brief loss of external connectivity. This connection loss is due to the migration setting up new Public IP and updating the cluster  Fully qualified domain name (FQDN) to the new IP. If the Public IP resource is zone resilient, migration will not modify the Public IP resource nor the FQDN, and there will be no external connectivity impact.
+    If the Public IP resource isn't zone resilient, migration of the cluster will cause a brief loss of external connectivity. This connection loss is due to the migration setting up new Public IP and updating the cluster  Fully qualified domain name (FQDN) to the new IP. If the Public IP resource is zone resilient, migration won't modify the Public IP resource nor the FQDN, and there will be no external connectivity impact.
    
 2) Initiate conversion of the underlying storage account created for managed cluster from Locally redundant storage (LRS) to Zone Redundant Storage (ZRS) using [customer-initiated conversion](../storage/common/redundancy-migration.md#customer-initiated-conversion). The resource group of storage account that needs to be migrated would be of the form "SFC_ClusterId"(ex SFC_9240df2f-71ab-4733-a641-53a8464d992d) under the same subscription as the managed cluster resource.
 
@@ -162,13 +162,13 @@ Requirements:
 
 4) Scale Node types to add **Zonal** nodes and remove **Regional** nodes
 
-    At this stage, the VMSS is marked as zone-resilient. So, when scaling up, newly added nodes will be zonal, and when scaling down, regional nodes will be removed. This approach provides the flexibility to scale in any order that aligns with your capacity requirements by adjusting the `vmInstanceCount` property on the node types.
+    At this stage, the Virtual Machine Scale Sets is marked as zone-resilient. So, when scaling up, newly added nodes will be zonal, and when scaling down, regional nodes will be removed. This approach provides the flexibility to scale in any order that aligns with your capacity requirements by adjusting the `vmInstanceCount` property on the node types.
    
-    For example, if the initial vmInstanceCount is set to 6 (indicating 6 regional nodes), you can perform 2 deployments:
+    For example, if the initial vmInstanceCount is set to 6 (indicating six regional nodes), you can perform two deployments:
     - First deployment: Increase the vmInstanceCount to 12 to add 6 **Zonal** nodes.
     - Second deployment: Decrease the vmInstanceCount to 6 to remove all **Regional** nodes.
 
-    Throughout the process, you can check the `getazresiliencystatus` API to retrieve the progress status, as illustrated below. The process is considered complete once each node type has a minimum of 6 zonal nodes and 0 regional nodes.
+    Throughout the process, you can check the `getazresiliencystatus` API to retrieve the progress status, as illustrated below. The process is considered complete once each node type has a minimum of six zonal nodes and 0 regional nodes.
 
     ```json
     {
@@ -204,7 +204,7 @@ Requirements:
 
 5) Mark the cluster resilient to zone failures
 
-   This step helps in future deployments, since it ensures all future deployments of node types span across availability zones and thus cluster remains tolerant to AZ failures. Set `zonalResiliency: true` in the cluster ARM template and do a deployment to mark cluster as zone resilient and ensure all new node type deployments span across availability zones. This update is only allowed if all node types have at least 6 zonal nodes and 0 regional nodes.
+   This step helps in future deployments, since it ensures all future deployments of node types span across availability zones and thus cluster remains tolerant to AZ failures. Set `zonalResiliency: true` in the cluster ARM template and do a deployment to mark cluster as zone resilient and ensure all new node type deployments span across availability zones. This update is only allowed if all node types have at least six zonal nodes and 0 regional nodes.
 
    ```json
    {
@@ -255,9 +255,9 @@ Requirements:
    If you run in to any problems, reach out to support for assistance.
 
 ## Enable FastZonalUpdate on Service Fabric managed clusters (preview)
-Service Fabric managed clusters support faster cluster and application upgrades by reducing the max upgrade domains per availability zone. The default configuration right now can have at most 15 upgrade domains (UDs) in multiple AZ nodetype. This huge number of UDs reduced the upgrade velocity. The new configuration reduces the max UDs, which results in faster updates, keeping the safety of the upgrades intact.   
+Service Fabric managed clusters support faster cluster and application upgrades by reducing the max upgrade domains per availability zone. The default configuration right now can have at most 15 upgrade domains (UDs) in multiple AZ nodetype. This huge number of UDs reduced the upgrade velocity. The new configuration reduces the max UDs, which result in faster updates, keeping the safety of the upgrades intact.   
 
-The update should be done via ARM template by setting the zonalUpdateMode property to “fast” and then modifying a node type attribute, such as adding a node and then removing the node to each nodetype (see required steps 2 and 3).  The Service Fabric managed cluster resource apiVersion should be 2022-10-01-preview or later.
+The update should be done via ARM template by setting the zonalUpdateMode property to "fast" and then modifying a node type attribute, such as adding a node and then removing the node to each nodetype (see required steps 2 and 3).  The Service Fabric managed cluster resource apiVersion should be 2022-10-01-preview or later.
 
 1. Modify the ARM template with the new property zonalUpdateMode.
 ```json
@@ -269,7 +269,7 @@ The update should be done via ARM template by setting the zonalUpdateMode proper
             "properties": {
                 '''
                 "zonalResiliency": true,
-                "zonalUpdateMode": “fast”,
+                "zonalUpdateMode": "fast",
                 ...
             }
         }]
