@@ -5,6 +5,8 @@ author: batamig
 ms.author: bagol
 ms.topic: how-to
 ms.date: 02/21/2024
+appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+ms.collection: usx-security
 ---
 
 # Deploy automatic attack disruption for SAP (Preview)
