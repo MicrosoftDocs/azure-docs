@@ -115,7 +115,7 @@ Solutions can retrieve DTDL models from the device model repository (DMR). The D
 
 After you identify the model ID for a new device connection, follow these steps:
 
-1. Retrieve the model definition using the model ID from the model repository. For more information, see [REsolve models](#resolve-models).
+1. Retrieve the model definition using the model ID from the model repository. For more information, see [Resolve models](#resolve-models).
 
 1. Using the model definition of the connected device, you can enumerate the capabilities of the device.
 
