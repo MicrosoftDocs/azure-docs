@@ -131,19 +131,19 @@ To create a `DefaultAzureCredential` object:
 
 1. To use the [`DefaultAzureCredential`](/dotnet/api/overview/azure/identity-readme#defaultazurecredential) provider, or other credential providers provided with the Azure SDK, install the `azure.identity` python package and then instantiate client.
     
-    ```python
-        # Get a connection string to our Azure Communication Services resource.
-        endpoint_string = os.getenv("COMMUNICATION_SERVICES_ENDPOINT_STRING")
-        
-        def send_template_message(self):
-            from azure.communication.messages import NotificationMessagesClient
-            from azure.identity import DefaultAzureCredential
-
-            # Create NotificationMessagesClient Client
-            messaging_client = NotificationMessagesClient(endpoint=self.endpoint_string,
-                                                        credential=DefaultAzureCredential())
+```python
+    # Get a connection string to our Azure Communication Services resource.
+    endpoint_string = os.getenv("COMMUNICATION_SERVICES_ENDPOINT_STRING")
     
-    ```
+    def send_template_message(self):
+        from azure.communication.messages import NotificationMessagesClient
+        from azure.identity import DefaultAzureCredential
+
+        # Create NotificationMessagesClient Client
+        messaging_client = NotificationMessagesClient(endpoint=self.endpoint_string,
+                                                    credential=DefaultAzureCredential())
+
+```
 
 #### [AzureKeyCredential](#tab/azurekeycredential)
 
@@ -165,20 +165,20 @@ For more information on how to set an environment variable for your system, foll
 
 To instantiate a `NotificationMessagesClient`, add the following code:
 
-    ```python
-            # Get a connection string to our Azure Communication Services resource.
-            endpoint_string = os.getenv("COMMUNICATION_SERVICES_ENDPOINT_STRING")
-            key = os.getenv("COMMUNICATION_SERVICES_KEY")
+```python
+    # Get a connection string to our Azure Communication Services resource.
+    endpoint_string = os.getenv("COMMUNICATION_SERVICES_ENDPOINT_STRING")
+    key = os.getenv("COMMUNICATION_SERVICES_KEY")
 
-            def send_template_message(self):
-f               from azure.core.credentials import AzureKeyCredential
-                from azure.communication.messages import NotificationMessagesClient
+    def send_template_message(self):
+        from azure.core.credentials import AzureKeyCredential
+        from azure.communication.messages import NotificationMessagesClient
+
+        # Create NotificationMessagesClient Client
+        messaging_client = NotificationMessagesClient(endpoint=self.endpoint_string,
+                                                    credential=AzureKeyCredential(self.key))
     
-                # Create NotificationMessagesClient Client
-                messaging_client = NotificationMessagesClient(endpoint=self.endpoint_string,
-                                                            credential=AzureKeyCredential(self.key))
-        
-    ```
+```
 
 ### Set channel registration ID   
 
