@@ -31,7 +31,7 @@ This prompt flow tool supports two different LLM API types:
 1. Choose a model from the Azure Machine Learning Model Catalog and get it deployed.
 2. Connect to the model deployment.
 3. Configure the open model llm tool settings.
-4. [Prepare the prompt](./prompt-tool.md#write-a-prompt).
+4. [Prepare the prompt](https://microsoft.github.io/promptflow/reference/tools-reference/prompt-tool.html#how-to-write-prompt).
 5. Run the flow.
 
 ## Prerequisites: Model deployment
@@ -44,7 +44,7 @@ To learn more, see [Deploy foundation models to endpoints for inferencing](../..
 
 ## Prerequisites: Connect to the model
 
-In order for prompt flow to use your deployed model, you need to connect to it. There are several ways to connect.
+In order for prompt flow to use your deployed model, you need to connect to it. There are two ways to connect.
 
 ### Endpoint connections
 
@@ -58,11 +58,9 @@ Once your flow is associated to an Azure Machine Learning or Azure AI Studio wor
 
 The Open Model LLM tool uses the CustomConnection. Prompt flow supports two types of connections:
 
-- **Workspace connections** - Connections that are stored as secrets on an Azure Machine Learning workspace. While these connections can be used, in many places, the are commonly created and maintained in the Studio UI.
+- **Workspace connections** - Connections that are stored as secrets on an Azure Machine Learning workspace. While these connections can be used, in many places, the are commonly created and maintained in the Studio UI. To learn how to create a custom connection in Studio UI, see [how to create a custom connection](./python-tool.md#create-a-custom-connection).
 
-- **Local connections** - Connections that are stored locally on your machine. These connections aren't available in the Studio UX, but can be used with the VS Code extension.
-
-To learn how to create a workspace or local Custom Connection, see [Create a connection](https://microsoft.github.io/promptflow/how-to-guides/manage-connections.html#create-a-connection).
+- **Local connections** - Connections that are stored locally on your machine. These connections aren't available in the Studio UX, but can be used with the VS Code extension. To learn how to create a local Custom Connection, see [how to create a local connection](https://microsoft.github.io/promptflow/how-to-guides/manage-connections.html#create-a-connection).
 
 The required keys to set are:
 
@@ -82,7 +80,7 @@ The Open Model LLM tool has many parameters, some of which are required. See the
 | Name | Type | Description | Required |
 |------|------|-------------|----------|
 | api | string | The API mode that depends on the model used and the scenario selected. *Supported values: (Completion \| Chat)* | Yes |
-| endpoint_name | string | Name of an Online Inferencing Endpoint with a supported model deployed on it. Takes priority over connection. | No |
+| endpoint_name | string | Name of an Online Inferencing Endpoint with a supported model deployed on it. Takes priority over connection. | Yes |
 | temperature | float | The randomness of the generated text. Default is 1. | No |
 | max_new_tokens | integer | The maximum number of tokens to generate in the completion. Default is 500. | No |
 | top_p | float | The probability of using the top choice from the generated tokens. Default is 1. | No |

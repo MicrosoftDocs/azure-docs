@@ -275,8 +275,12 @@ items:
         href: ./log-analytics-migration.md
     - name: Troubleshoot
       items:
-      - name: Known issues in HDInsight
-        href: ./hdinsight-known-issues.md
+      - name: Known issues 
+        items:
+        - name: Known issues in HDInsight
+          href: ./hdinsight-known-issues.md
+        - name: Conda version regression in a recent HDInsight release
+          href: ./hdinsight-known-issues-conda-version-regression.md
       - name: Request increase for CPU core quota
         href: ./quota-increase-request.md
       - name: Troubleshoot Apache Ambari Metrics Collector

@@ -24,8 +24,9 @@ In order to avoid this, ACI will now allow customers to reuse DNS names while pr
 
 * A **resource group** to manage all the resources you use in this how-to guide. We use the example resource group name **ACIResourceGroup** throughout this article.
 
-   ```azurecli-interactive
-   az group create --name ACIResourceGroup --location westus
+  ```azurecli-interactive
+  az group create --name ACIResourceGroup --location westus
+  ```
 
 ## Understand the DNS name reuse policy
 

@@ -2,7 +2,7 @@
 title: Azure Service Bus topic filters | Microsoft Docs
 description: This article explains how subscribers can define which messages they want to receive from a topic by specifying filters. 
 ms.topic: conceptual
-ms.date: 02/28/2023
+ms.date: 02/23/2024
 ---
 
 # Topic filters and actions
@@ -11,7 +11,7 @@ Subscribers can define which messages they want to receive from a topic. These m
 
 All rules **without actions** are combined using an `OR` condition and result in a **single message** on the subscription even if you have multiple matching rules. 
 
-Each rule **with an action** produces a copy of the message. This message will have a property called `RuleName` where the value is the name of the matching rule. The action may add or update properties, or delete properties from the original message to produce a message on the subscription. 
+Each rule **with an action** produces a copy of the message. This message will have a property called `RuleName` where the value is the name of the matching rule. The action can add or update properties, or delete properties from the original message to produce a message on the subscription. 
 
 Consider the following scenario:
 
@@ -33,7 +33,7 @@ Service Bus supports three types of filters:
 The following sections provide details about these filters.
 
 ### SQL filters
-A **SqlFilter** holds a SQL-like conditional expression that's evaluated in the broker against the arriving messages' user-defined properties and system properties. All system properties must be prefixed with `sys.` in the conditional expression. The [SQL-language subset for filter conditions](service-bus-messaging-sql-filter.md) tests for the existence of properties (`EXISTS`), null-values (`IS NULL`), logical `NOT`/`AND`/`OR`, relational operators, simple numeric arithmetic, and simple text pattern matching with `LIKE`.
+A **SqlFilter** holds a SQL-like conditional expression that will be evaluated in the broker against the arriving messages' user-defined properties and system properties. All system properties must be prefixed with `sys.` in the conditional expression. The [SQL-language subset for filter conditions](service-bus-messaging-sql-filter.md) tests for the existence of properties (`EXISTS`), null-values (`IS NULL`), logical `NOT`/`AND`/`OR`, relational operators, simple numeric arithmetic, and simple text pattern matching with `LIKE`.
 
 Here's a .NET example for defining a SQL filter:
 

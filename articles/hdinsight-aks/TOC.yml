@@ -178,7 +178,9 @@ items:
     - name: Hive dialect in Flink
       href: ./flink/hive-dialect-flink.md
     - name: Table API and SQL
-      href: ./flink/flink-table-api-and-sql.md    
+      href: ./flink/flink-table-api-and-sql.md
+    - name: SQL gateway
+      href: ./flink/start-sql-client-cli-gateway-mode.md  
   - name: How-to guides
     items:
     - name: General

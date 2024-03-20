@@ -45,7 +45,7 @@ setx AZURE_OPENAI_ENDPOINT "REPLACE_WITH_YOUR_ENDPOINT_HERE"
 # [PowerShell](#tab/powershell)
 
 ```powershell-interactive
-$Env:AZURE_OPENAI_KEY = '<YOUR_KEY_VALUE>'
+$Env:AZURE_OPENAI_API_KEY = '<YOUR_KEY_VALUE>'
 $Env:AZURE_OPENAI_ENDPOINT = '<YOUR_ENDPOINT>'
 $Env:AZURE_OPENAI_EMBEDDINGS_DEPLOYMENT = '<YOUR_DEPLOYMENT_NAME>'
 ```
@@ -53,7 +53,7 @@ $Env:AZURE_OPENAI_EMBEDDINGS_DEPLOYMENT = '<YOUR_DEPLOYMENT_NAME>'
 # [Bash](#tab/bash)
 
 ```Bash
-echo export AZURE_OPENAI_KEY="<YOUR_KEY_VALUE>" >> /etc/environment
+echo export AZURE_OPENAI_API_KEY="<YOUR_KEY_VALUE>" >> /etc/environment
 echo export AZURE_OPENAI_ENDPOINT="<YOUR_ENDPOINT>" >> /etc/environment
 echo export AZURE_OPENAI_EMBEDDINGS_DEPLOYMENT="<YOUR_DEPLOYMENT_NAME>" >> /etc/environment
 source /etc/environment
@@ -195,7 +195,7 @@ the token count is more than the prompt limit for the model.
 ```powershell-interactive
 # Azure OpenAI metadata variables
 $openai = @{
-    api_key     = $Env:AZURE_OPENAI_KEY 
+    api_key     = $Env:AZURE_OPENAI_API_KEY 
     api_base    = $Env:AZURE_OPENAI_ENDPOINT # should look like 'https://<YOUR_RESOURCE_NAME>.openai.azure.com/'
     api_version = '2023-05-15' # may change in the future
     name        = $Env:AZURE_OPENAI_EMBEDDINGS_DEPLOYMENT # custom name you chose for your deployment

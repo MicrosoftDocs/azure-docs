@@ -48,7 +48,7 @@ When you first start working with a service, consider the following points:
 At this point, you have setup autoscaling and autostop behaviors. As you move beyond the basics, consider the following points:
 
 - Automate the process of automatically scaling or stopping resources that don't support it or have more complex requirements.
-  - Consider using automation services, like [Azure Automation](../../automation/automation-solution-vm-management.md) or [Azure Functions](../../azure-functions/start-stop-vms/overview.md).
+- Consider using [Azure Functions](../../azure-functions/start-stop-vms/overview.md).
 - [Assign an "Env" or Environment tag](../../azure-resource-manager/management/tag-resources.md) to identify which resources are for development, testing, staging, production, etc.
   - Prefer assigning tags at a subscription or resource group level. Then enable the [tag inheritance policy for Azure Policy](../../governance/policy/samples/built-in-policies.md#tags) and [Cost Management tag inheritance](../costs/enable-tag-inheritance.md) to cover resources that don't emit tags with usage data.
   - Consider setting up automated scripts to stop resources with specific up-time profiles (for example, stop developer VMs during off-peak hours if they haven't been used in 2 hours).

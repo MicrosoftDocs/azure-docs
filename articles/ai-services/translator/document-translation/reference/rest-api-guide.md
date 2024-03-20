@@ -7,17 +7,17 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: reference
-ms.date: 09/07/2023
+ms.date: 02/09/2024
 ms.author: lajanuar
 ---
 
-# Document Translation REST API reference guide
+# Batch Translation REST API reference guide
 
 Reference</br>
 Service: **Azure AI Document Translation**</br>
 API Version: **v1.1**</br>
 
-Document Translation is a cloud-based feature of the Azure AI Translator service and is part of the Azure AI service family of REST APIs. The Document Translation API translates documents across all [supported languages and dialects](../../language-support.md) while preserving document structure and data format. The available methods are listed in the following table:
+Document Translation is a cloud-based feature of the Azure AI Translator service and is part of the Azure AI service family of REST APIs. The Batch Document Translation API translates documents across all [supported languages and dialects](../../language-support.md) while preserving document structure and data format. The available methods are listed in the following table:
 
 | Request| Description|
 |---------|--------------|
@@ -32,4 +32,4 @@ Document Translation is a cloud-based feature of the Azure AI Translator service
 |[**Cancel translation (DELETE)**](cancel-translation.md)| This method cancels a document translation that is currently processing or queued. |
 
 > [!div class="nextstepaction"]
-> [Swagger UI](https://mtbatchppefrontendapp.azurewebsites.net/swagger/index.html) [Explore our client libraries and SDKs for C# and Python.](../quickstarts/document-translation-sdk.md) 
+> [Swagger UI](https://mtbatchppefrontendapp.azurewebsites.net/swagger/index.html) [Explore our client libraries and SDKs for C# and Python.](../quickstarts/asynchronous-sdk.md) 
