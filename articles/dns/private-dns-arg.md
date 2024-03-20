@@ -1,7 +1,7 @@
 ---
 title: Private DNS information in Azure Resource Graph
 titleSuffix: Azure DNS
-description: Learn how to query Azure Private DNS zones using Azure Resource Graph Explorer.
+description: Learn how to query Azure Private DNS zones using Azure Resource Graph.
 services: dns
 author: greg-lindsay
 ms.service: dns
@@ -19,8 +19,11 @@ This article describes some of the ways you can use Azure Resource Graph Exporer
 You can display information about your DNS zones, including:
 
 - The type and number of resource records in one or all zones
+- A list of resource record names and IP addresses
 - Virtual network links
-- Resource record names and IP addresses
+- Autoregistered resource records
+
+This is a brief list. Many other details can be queried. 
 
 ## The dnsresources table
 
@@ -83,7 +86,7 @@ dnsresources
 
 ## Zones with virtual network links
 
-The following query to list all private DNS zones that have virtual network links. This query uses the generic **resources** table, not the **dnsresources** table and specifies a resource type of only **privatednszones**.
+The following query lists all private DNS zones that have virtual network links. This query uses the generic **resources** table, not the **dnsresources** table and specifies a resource type of only **privatednszones**.
 
 ```Kusto
 resources
