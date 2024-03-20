@@ -140,17 +140,17 @@ This URL pattern is looser than the one shown in “Root Cause” section becaus
 
 ### Symptom
 
-If you add a notebook which contains more than 128 code cells to a pipeline, pipeline runs fail with the error code 6002 and error message: "MessageQueueFullException: The message queue is full or is completed and cannot accept more items." 
+If you add a notebook which contains more than 256 code cells to a pipeline, pipeline runs fail with the error code 6002 and error message: "MessageQueueFullException: The message queue is full or is completed and cannot accept more items." 
 
 :::image type="content" source="media/troubleshooting-synapse-studio/pipeline-run-notebook-activity-issue.png" alt-text="Screenshot from the Azure portal showing error code 6002 in a sample notebook step.":::
 
 ### Root cause: 
 
-There is a limitation of 128 of cells when executing a Synapse notebook activity from a pipeline.
+There is a limitation of 256 cells when executing a Synapse notebook activity from a pipeline.
 
 ### Action: 
 
-You could merge cells in order to reduce the number of cells below 128.
+You could merge cells in order to reduce the number of cells below 256.
 
 
 ## Next steps

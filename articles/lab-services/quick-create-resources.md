@@ -1,25 +1,26 @@
 ---
 title: 'Quickstart: Create lab plan resource'
 titleSuffix: Azure Lab Services
-description: In this quickstart, you learn how to create a lab plan resource in the Azure portal to get started with Azure Lab Services. You then grant a user permissions to create labs.
+description: In this quickstart, you learn how to create a lab plan in the Azure portal to get started with Azure Lab Services and grant permission to create labs for users.
 services: lab-services
 ms.service: lab-services
-author: ntrogh
-ms.author: nicktrog
+author: RoseHJM
+ms.author: rosemalcolm
 ms.topic: quickstart
-ms.date: 02/09/2023
+ms.date: 03/13/2024
 ms.custom: mode-portal
+#customer intent: As an  administrator, I want to quickly create a lab plan in Azure Lab Services and assign permissions to create labs to educators so they can create and run classes.
 ---
 
 # Quickstart: Create resources you need to get started with Azure Lab Services
 
-Azure Lab Services enables you to create labs, whose infrastructure is managed by Azure. In this quickstart, you create an Azure Lab Services lab plan in the Azure portal and grant a user permissions to create labs. You can then get started with creating labs by using the Azure Lab Services website, Microsoft Teams, or Canvas.
+In this quickstart, you create an Azure Lab Services lab plan in the Azure portal and grant permissions to a user to create labs. Azure Lab Services enables you to create labs with infrastructure managed by Azure. After you create a lab plan, you can create labs by using the Azure Lab Services website, Microsoft Teams, or Canvas.
 
-A lab plan is an Azure resource and serves as a collection of configurations and settings that apply to all the labs created from it. For example, lab plans specify the networking setup, the list of available VM images and VM sizes.
+:::image type="content" source="./media/quick-create-resources/lab-services-process-lab-plan.png" alt-text="Diagram that shows the steps for creating a lab with Azure Lab Services, highlighting Create a lab plan." lightbox="./media/quick-create-resources/lab-services-process-lab-plan.png":::
 
-:::image type="content" source="./media/quick-create-resources/lab-services-process-lab-plan.png" alt-text="Diagram that shows the steps for creating a lab with Azure Lab Services, highlighting Create a lab plan.":::
+A lab plan is an Azure resource. A lab plan contains configuration and settings that apply to all the labs created from it. For example, lab plans specify the networking setup, the available virtual machine (VM) images, and VM sizes.
 
-After you complete this quickstart, you'll have a lab plan that you can use for other tutorials.
+After you complete this quickstart, you'll have a lab plan that you can use for other quickstarts and tutorials.
 
 ## Prerequisites
 
@@ -28,7 +29,7 @@ After you complete this quickstart, you'll have a lab plan that you can use for 
 
 ## Create a lab plan
 
-In Azure Lab Services, a lab plan serves as a collection of configurations and settings that apply to all the labs created from it.
+In Azure Lab Services, a lab plan contains configuration and settings that apply to all the labs created from it.
 
 Follow these steps to create a lab plan from the Azure portal:
 
@@ -42,11 +43,11 @@ Follow these steps to create a lab plan from the Azure portal:
 
 [!INCLUDE [Clean up resources](./includes/lab-services-cleanup-resources.md)]
 
-## Next steps
+## Next step
 
-You've successfully created an Azure Lab Services lab plan and granted a user permissions to create labs. The lab plan contains the common configuration settings for the labs.
+You created an Azure Lab Services lab plan and granted permissions to create labs. The lab plan contains the common configuration settings for the labs.
 
-You can now use this resource to create a lab or let lab creators do this.
+You can now use this resource to create a lab or let lab creators create labs.
 
 > [!div class="nextstepaction"]
 > [Quickstart: Create a Windows-based lab](./quick-create-connect-lab.md)

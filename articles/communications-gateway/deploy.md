@@ -174,7 +174,7 @@ When your resource has been provisioned, you can connect Azure Communications Ga
         1. In the search bar at the top of the page, search for your Communications Gateway resource.
         1. Go to the **Overview** page for your Azure Communications Gateway resource.
         1. In each **Service Location** section, find the **Hostname** field. You need to validate TLS connections against this hostname to ensure secure connections.
-    * We recommend configuring an SRV lookup for each region, using `_sip._tls.<regional-FQDN-from-portal>`. Replace *`<regional-FQDN-from-portal>`* with the per-region FQDNs that you found in the **Overview** page for your resource.
+    * We recommend configuring an SRV lookup for each region, using `_sip._tls.<regional-FQDN-from-portal>`. Replace *`<regional-FQDN-from-portal>`* with the per-region FQDNs from the **Hostname** fields on the **Overview** page for your resource.
 1. If your Azure Communications Gateway includes integrated MCP, configure the connection to MCP:
     1. Go to the **Overview** page for your Azure Communications Gateway resource.
     1. In each **Service Location** section, find the **MCP hostname** field.
