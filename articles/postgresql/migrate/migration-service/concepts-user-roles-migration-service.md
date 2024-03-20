@@ -25,7 +25,7 @@ The service automatically provides the following built-in capabilities for the A
 ## Permission differences between Azure Database for PostgreSQL Single server and Flexible server
 This section explores the differences in permissions granted to the **azure_pg_admin** role across single server and flexible server environments.
 
-### PG Catalog permissions
+### PG catalog permissions
 Unlike user-created schemas, which organize database objects into logical groups, pg_catalog is a system schema. It houses crucial system-level information, such as details about tables, columns, and other internal bookkeeping data. Essentially, it’s where PostgreSQL stores important metadata.
 
 In a single server environment, a user belonging to the azure_pg_admin role is granted select privileges for all pg_catalog tables and views. However, in a flexible server, we restricted privileges for certain tables and views, allowing only the super user to query them. 
@@ -57,20 +57,20 @@ Allowing unrestricted access to these system tables and views could lead to unau
 
 - If you have granted privileges to any users or roles for the affected pg_catalog tables and views, you encounter an error during the migration process. This error will be identified by the following pattern: **"pg_restore error: could not execute query GRANT/REVOKE PRIVILEGES on TABLENAME to username."**
 To resolve this error, it's necessary to revoke the select privileges granted to various users and roles on the pg_catalog tables and views. You can accomplish this by taking the following steps.
-   - **Step1:** Take a pg_dump of the database containing only the schema by executing the following command from a machine with access to your single server.
+   1. Take a pg_dump of the database containing only the schema by executing the following command from a machine with access to your single server.
     ```bash
         pg_dump -h <singleserverhostname> -U <username@singleserverhostname> -d <databasename> -s > dump_output.sql  
     ```
-   - **Step2:** Search for **GRANT** statements associated with the impacted tables and views in the dump file. These GRANT statements follow this format.
+   2.  Search for **GRANT** statements associated with the impacted tables and views in the dump file. These GRANT statements follow this format.
     ```bash
         GRANT <privileges> to pg_catalog.<impacted tablename/viewname> to <username>; 
     ```
-   - **Step3:** If any such statements exist, ensure to execute the following command on your single server for each GRANT statement. 
+   3. If any such statements exist, ensure to execute the following command on your single server for each GRANT statement. 
     ```bash
         REVOKE <privileges> to pg_catalog.<impacted tablename/viewname> from <username>; 
     ```    
 
-##### Understanding pg_pltemplate Deprecation
+##### Understanding pg_pltemplate deprecation
 Another important consideration is the deprecation of the **pg_pltemplate** system table within the pg_catalog schema by the PostgreSQL community **starting from version 13.** Therefore, if you're migrating to Flexible Server versions 13 and above, and if you have granted permissions to users on the pg_pltemplate table, it is necessary to revoke these permissions before initiating the migration process. You can follow the same steps outlined above and conduct a search for **pg_pltemplate** in Step 2. Failure to do so leads to a failed migration.
 
 After completing these steps, you can proceed to initiate a new migration from the single server to the flexible server using the migration tool. You're expected not to encounter permission-related issues during this process.
