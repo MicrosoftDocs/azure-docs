@@ -39,7 +39,10 @@ Resource providers configure which resource types Azure Resource Graph pulls dat
 
 ### Changes in other tables
 
-While many resource providers allow Azure Resource Graph to pull the state of some resources, they also may disallow Azure Resource Graph from pulling the state of other resources. For these "disallowed" resource types, no data exists in Change Analysis or the `resources` and `resourceChanges` tables of the `Microsoft.ResourceGraph/resources` API. 
+While many resource providers allow Azure Resource Graph to pull the state of some resources, they also may disallow Azure Resource Graph from pulling the state of other resources. For these "disallowed" resource types, no data exists in Change Analysis or the `resourceContainerChanges` and `resourceChanges` tables of the `Microsoft.ResourceGraph/resources` API. 
+
+Currently, some of these changes are stored in the `healthResourceChanges` table.   
+[Need: more on this?]
 
 Each resource provider must update their services to push data to Azure Resource Graph when these resources types are created, updated, or deleted via the Azure Resource Manager control plane. For these resource types, you can expect [certain known limitations for changes saved in the `resourceChanges` table.](#limitations)
 
@@ -71,7 +74,6 @@ Azure Resource Graph Change Analysis currently presents some known limitations.
     - Changes made to a resource's data plane API, such as writing data to a table in a storage account, are not observed by Azure Resource Graph.
     - Resource change data for child resource types are [in a separate table](#changes-in-other-tables). 
   - Changes collected in tables other than `resourceChanges`:
-    - The latest state and change data for these resource types are stored in a separate table from `resources` and `resourceChanges`.
     - Data for these resource types may be delayed.
     - Data for these resource types may be lost and irrecoverable.
 
