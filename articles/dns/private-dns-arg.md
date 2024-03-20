@@ -24,7 +24,7 @@ You can display information about your DNS zones, including:
 
 ## The dnsresources table
 
-To use Resource Graph in the Azure portal, search and select **Resource Graph Explorer**. In the left-hand navigation pane, select the **Table** tab and review the **dnsresources** table. This table is used to query private DNS zone data. Public DNS zones are not queried when you use this table. 
+To use Resource Graph in the Azure portal, search and select **Resource Graph Explorer**. In the left-hand navigation pane, select the **Table** tab and review the **dnsresources** table. This table is used to query private DNS zone data. Public DNS zones aren't queried when you use this table. 
 
 Select **dnsresources** to create a basic query and then click **Run query** to return the results. See the following example:
 
@@ -47,9 +47,9 @@ The query counts all records that the current subscription has permission to vie
 
 ![Screenshot of a resource record count query donut chart.](./media/private-dns-arg/count-donut.png)
 
-## List, filter and sort resource records
+## List, filter, and sort resource records
 
-Query results can be filtered by specifying parameters such as the zone name, subscription ID, resource group, or record type. For example, the following example query returns list of A or CNAME records in the zone **private.contoso.com** for a given subscription and resource group. The output of is query is similar to viewing the private zone, with added ability to filter and sort the results by name and type:
+Query results can be filtered by specifying parameters such as the zone name, subscription ID, resource group, or record type. For example, the following example query returns list of A or CNAME records in the zone **private.contoso.com** for a given subscription and resource group. The output of this query is similar to viewing the private zone, with the added ability to filter and sort results by name and type:
 
 ```Kusto
 dnsresources
@@ -95,7 +95,7 @@ resources
 
 ## Autoregistion
 
-The following query returns a list of virtual network links with autoregistration enabled and the associated private DNS records"
+The following query returns a list of virtual network links that have autoregistration enabled and the associated private DNS records:
 
 ```Kusto
 dnsresources
@@ -104,7 +104,6 @@ dnsresources
 | extend linkname=(properties.virtualNetworkLinkName)
 | project name, type, linkname, properties
 ```
-
 
 ## Next steps
 
