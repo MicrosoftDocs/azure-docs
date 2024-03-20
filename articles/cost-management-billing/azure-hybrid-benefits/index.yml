@@ -1,12 +1,12 @@
 ### YamlMime:Hub 
 
-title: Azure Hybrid Benefits documentation
-summary: Learn about the Azure Hybrid Benefits product and deployment documentation.
+title: Azure Hybrid Benefit documentation
+summary: Learn about the Azure Hybrid Benefit product and deployment documentation.
 brand: azure ## Used for color theming of icons and hero area - example from /networking/security
 
 metadata: 
-  title: Azure Hybrid Benefits documentation
-  description: Learn about the Azure Hybrid Benefits product and deployment documentation.
+  title: Azure Hybrid Benefit documentation
+  description: Learn about the Azure Hybrid Benefit product and deployment documentation.
   ms.service: cost-management-billing
   ms.topic: hub-page
   author: bandersmsft

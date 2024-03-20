@@ -1,7 +1,7 @@
 ---
 title: Common questions about VMware disaster recovery with Azure Site Recovery
 description: Get answers to common questions about disaster recovery of on-premises VMware VMs to Azure by using Azure Site Recovery.
-ms.date: 03/14/2023
+ms.date: 03/07/2024
 ms.topic: conceptual
 ms.service: site-recovery
 ms.author: ankitadutta
@@ -381,6 +381,9 @@ Yes. If you failed over to Azure, you can fail back to a different location if t
 
 When you fail back from Azure, data from Azure is copied back to your on-premises VM, and private access is required.
 
+### Can I use On-demand capacity reservation with VMware(also Physical) to IaaS scenario?
+
+No. Azure Site Recovery cannot use On-demand capacity reservation unless it's Azure to Azure scenario.
 
 ## Automation and scripting
 

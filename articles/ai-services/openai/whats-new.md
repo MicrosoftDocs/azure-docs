@@ -10,13 +10,35 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: whats-new
-ms.date: 03/07/2024
+ms.date: 03/12/2024
 recommendations: false
 ---
 
 # What's new in Azure OpenAI Service
 
 ## March 2024
+
+### 2024-02-01 general availability (GA) API released
+
+This is the latest GA API release and is the replacement for the previous `2023-05-15` GA release. This release adds support for the latest Azure OpenAI GA features like Whisper, DALLE-3, fine-tuning, on your data, etc.
+
+Features that are still in preview such as Assistants, text to speech (TTS), certain on your data datasources, still require a preview API version. For more information check out our [API version lifecycle guide](./api-version-deprecation.md).
+
+### Whisper general availability (GA)
+
+The Whisper speech to text model is now GA for both REST and Python. Client library SDKs are currently still in public preview.
+
+Try out Whisper by following a [quickstart](./whisper-quickstart.md).
+
+### DALL-E 3 general availability (GA)
+
+DALL-E 3 image generation model is now GA for both REST and Python. Client library SDKs are currently still in public preview.
+
+Try out DALL-E 3 by following a [quickstart](./dall-e-quickstart.md).
+
+### New regional support for DALL-E 3
+
+You can now access DALL-E 3 with an Azure OpenAI resource in the `East US` or `AustraliaEast` Azure region, in addition to `SwedenCentral`.
 
 ### Model deprecations and retirements
 

@@ -7,7 +7,7 @@ ms.subservice: confidential-computing
 ms.topic: quickstart
 ms.date: 12/01/2023
 ms.author: RunCai
-ms.custom: mode-arm, devx-track-azurecli, devx-track-arm-template, linux-related-content, has-azure-ad-ps-ref
+ms.custom: mode-arm, devx-track-azurecli, devx-track-arm-template, has-azure-ad-ps-ref
 ms.devlang: azurecli
 ---
 
@@ -166,11 +166,11 @@ Use this example to create a custom parameter file for a Linux-based confidentia
 
 1. Grant confidential VM Service Principal `Confidential VM Orchestrator` to tenant
 
-    For this step you need to be a Global Admin or you need to have the User Access Administrator RBAC role.
+    For this step you need to be a Global Admin or you need to have the User Access Administrator RBAC role. [Install Microsoft Graph SDK](/powershell/microsoftgraph/installation) to execute the commands below.
 
-    ```azurecli-interactive
-    Connect-AzureAD -Tenant "your tenant ID"
-    New-AzureADServicePrincipal -AppId bf7b6499-ff71-4aa2-97a4-f372087be7f0 -DisplayName "Confidential VM Orchestrator"
+    ```Powershell
+    Connect-Graph -Tenant "your tenant ID" Application.ReadWrite.All
+    New-MgServicePrincipal -AppId bf7b6499-ff71-4aa2-97a4-f372087be7f0 -DisplayName "Confidential VM Orchestrator"
     ```
 
 1. Set up your Azure key vault. For how to use an Azure Key Vault Managed HSM instead, see the next step.
