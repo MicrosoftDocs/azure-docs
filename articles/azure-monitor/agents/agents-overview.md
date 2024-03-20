@@ -60,6 +60,7 @@ Azure Monitor Agent uses [data collection rules](../essentials/data-collection-r
 
 > [!NOTE]
 > To send data across tenants, you must first enable [Azure Lighthouse](../../lighthouse/overview.md).
+> Cloning a machine with Azure Monitor Agent installed is not supported. The best practice for these situations is to use [Azure Policy](../../azure-arc/servers/deploy-ama-policy.md) or an Infrastructure as a code tool to deploy AMA at scale.
 
 **To collect data using Azure Monitor Agent:**
 
