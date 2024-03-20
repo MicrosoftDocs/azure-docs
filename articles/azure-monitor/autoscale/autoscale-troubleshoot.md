@@ -4,7 +4,7 @@ description: Tracking down problems with Azure Monitor autoscaling used in Azure
 author: EdB-MSFT
 ms.author: edbaynash
 ms.topic: conceptual
-ms.date: 11/4/2019
+ms.date: 02/21/2024
 ms.subservice: autoscale
 ms.reviewer: akkumari
 ---

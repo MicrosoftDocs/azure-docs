@@ -7,7 +7,7 @@ ms.author: allensu
 ms.subservice: aks-networking
 ms.topic: how-to
 ms.date: 12/07/2023
-ms.custom: devx-track-azurecli, build-2023, linux-related-content
+ms.custom: devx-track-azurecli, build-2023
 ---
 
 # Use dual-stack kubenet networking in Azure Kubernetes Service (AKS)
