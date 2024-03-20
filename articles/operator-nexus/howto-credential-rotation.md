@@ -21,6 +21,9 @@ This article describes the Operator Nexus credential rotation lifecycle includin
   - The Cluster update command allows users to add or change key vault information.
   - For information on configuring the key vault to receive credential rotation updates, see [Setting up Key Vault for Managed Credential Rotation](how-to-credential-manager-key-vault.md).
 
+> [!IMPORTANT]
+> A key vault must be provided on the Cluster, otherwise credentials will not be retrievable. Microsoft Support does not have access to the credentials.
+
 ## Rotating credentials
 
 The Operator Nexus Platform offers a managed credential rotation process that automatically rotates the following credentials:
@@ -29,7 +32,10 @@ The Operator Nexus Platform offers a managed credential rotation process that au
 - Pure Storage Array Administrator
 - Console User for emergency access
 
-The managed credential process automatically rotates these credentials every 60 days. The updated credentials are written to the key vault associated with the Cluster resource. The last rotation timestamps are currently not visible to users, but is a planned enhancement to the Operator Nexus Platform.
+When a new Cluster is created, the credentials are automatically rotated during deployment. The managed credential process then automatically rotates these credentials every 60 days. The updated credentials are written to the key vault associated with the Cluster resource. The last rotation timestamps are currently not visible to users, but is a planned enhancement to the Operator Nexus Platform.
+
+> [!NOTE]
+> The Nexus 2403.1 release enables auto-rotation for existing sites. If the BMC, Storage Administrator or Console User credentials have not been rotated within the last 60 days, they will be rotated at the time of upgrade.
 
 Operator Nexus also provides a service for preemptive rotation of the above Platform credentials. This service is available to customers upon request through a support ticket. Credential rotation for Operator Nexus Fabric devices also requires a support ticket. Instructions for generating a support request are described in the next section.
 
