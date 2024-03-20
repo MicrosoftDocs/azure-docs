@@ -315,6 +315,7 @@ with Grafana Dashboard ID: 7589 from your grafana instance used during managed p
     ]
 }
 ```
+
 2. Edit the following values in the parameter file. Retrieve the resource ID of the resources from the **JSON View** of their **Overview** page.
 
     | Parameter | Value |
@@ -329,6 +330,7 @@ with Grafana Dashboard ID: 7589 from your grafana instance used during managed p
 
 > [!Note] 
 > Learn more about [Prometheus Alerts](../containers/container-insights-metric-alerts.md#prometheus-alert-rules)
+> If you want to use any other OSS prometheus alert rules please use the converter here to create the azure equivalent prometheus alerts [az-prom-rules-converter](https://aka.ms/az-prom-rules-converter)
 
 
 
