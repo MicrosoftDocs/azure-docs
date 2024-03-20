@@ -192,6 +192,71 @@ az network private-dns record-set a add-record \
 
 ---
 
+## (Optional) Configure Your Private DNS Zone with Azure Spring Apps
+
+After creating a private DNS zone, you have the option to directly leverage Azure Spring Apps to manage your private DNS zones. This approach simplifies the process of handling virtual network links and DNS records, particularly beneficial for environments with multiple instances within a single virtual network or those utilizing virtual network peerings. Azure Spring Apps automates the management of virtual network links and the dynamic addition or removal of DNS "A" records as endpoints are assigned or unassigned.
+
+> [!NOTE]
+> Azure Spring Apps will not automatically manage endpoints that were assigned before the addition of the private DNS zone. To enable DNS record management for these endpoints, unassign and then reassign the endpoint.
+
+## Grant permission to the private dns zone
+### [Azure portal](#tab/azure-portal)
+
+Use the following steps to grant permission:
+
+1. Select the private DNS zone resource you created - for example, **private.azuremicroservices.io**.
+
+1. Select **Access control (IAM)**, and then select **Add** > **Add role assignment**.
+
+   :::image type="content" source="media/access-app-virtual-network/access-control.png" alt-text="Screenshot of the Azure portal Access Control (IAM) page showing the Check access tab with the Add role assignment button highlighted." lightbox="media/access-app-virtual-network/access-control.png":::
+
+1. Assign the `Private DNS Zone Contributor` role to the Azure Spring Apps Resource Provider. For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+
+   > [!NOTE]
+   > If you don't find Azure Spring Apps Resource Provider, search for *Azure Spring Cloud Resource Provider*.
+
+   :::image type="content" source="./media/access-app-virtual-network/assign-resource-provider.png" alt-text="Screenshot of the Azure portal showing the Access Control (IAM) page, with the Add Role Assignment pane open and search results displaying the Azure Spring Apps Resource Provider." lightbox="./media/access-app-virtual-network/assign-resource-provider.png":::
+
+### [Azure CLI](#tab/azure-CLI)
+
+Use the following commands to grant permission:
+
+```azurecli
+export PRIVATE_DNS_ZONE_RESOURCE_ID=$(az network private-dns zone show \
+    --resource-group $RESOURCE_GROUP \
+    --name $PRIVATE_DNS_ZONE_NAME \
+    --query "id" \
+    --output tsv)
+
+az role assignment create \
+    --role "Private DNS Zone Contributor" \
+    --scope ${PRIVATE_DNS_ZONE_RESOURCE_ID} \
+    --assignee e8de9221-a19c-4c81-b814-fd37c6caf9d2
+```
+
+The `--assignee` argument represents the service principal Azure Spring Apps uses to interact with the customer's private DNS zone.
+
+## Link the private DNS zone with Azure Spring Apps
+
+To link the private DNS zone with your Azure Spring Apps instance, you can use the Azure CLI. This step involves specifying your resource group, the Azure Spring Apps instance name, and the resource ID of the private DNS zone.
+
+1. Config the private dns zone with Azure Spring Apps using azure cli
+```azurecli
+az spring private-dns-zone add \
+   --resource-group $RESOURCE_GROUP \
+   --service $AZURE_SPRING_APPS_INSTANCE_NAME \
+   --zone_id $PRIVATE_DNS_ZONE_RESOURCE_ID
+```
+
+
+2. Clean the private dns zone configured with Azure Spring Apps using azure cli
+```azurecli
+az spring private-dns-zone update \
+   --resource-group $RESOURCE_GROUP \
+   --service $AZURE_SPRING_APPS_INSTANCE_NAME 
+```
+---
+
 ## Assign a private FQDN for your application
 
 You can assign a private FQDN for your application after you deploy Azure Spring Apps in a virtual network. For more information, see [Deploy Azure Spring Apps in a virtual network](./how-to-deploy-in-azure-virtual-network.md).
@@ -221,7 +286,6 @@ az spring app update \
     --service $AZURE_SPRING_APPS_INSTANCE_NAME \
     --assign-endpoint true
 ```
-
 ---
 
 ## Access the application's private FQDN
