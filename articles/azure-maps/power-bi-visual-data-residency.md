@@ -12,7 +12,7 @@ services: azure-maps
 
 # Azure Maps Power BI visual Data Residency
 
-The Azure Maps Power BI visual can get a users' tenant location and use it to call the correct Azure Maps geographic endpoints. For instance, if a user's tenant is located in Europe, Power BI calls the Azure Maps' `eu` endpoint `eu.atlas.microsoft.com`, ensuring that their data doesn't leave the Europe boundary. Similarly if users' tenant is in the US, `us.atlas.microsoft.com` is called and users' data doesn't leave the US boundary. For the rest of world, the Azure Maps Power BI visual calls `atlas.microsoft.com` redirecting them to the nearest region to fulfill their requests.
+The Azure Maps Power BI visual can get a users' tenant location and use it to call the correct Azure Maps geographic endpoints. For instance, if a user's tenant is located in Europe, Power BI calls the Azure Maps' `eu` endpoint `eu.atlas.microsoft.com`, ensuring that their data doesn't leave the Europe region. Similarly if users' tenant is in the US, `us.atlas.microsoft.com` is called and users' data doesn't leave the US region.
 
 ## Tenent location
 
@@ -29,9 +29,15 @@ To discover your tenant's location in Power BI:
 
 The previous example would use the `eu.atlas.microsoft.com` endpoint.
 
+> [!NOTE]
+> The region used for [Power BI premium capacity] is currently not taken into consideration when determining which Azure Maps geographic endpoints are called.
+
 ## Next steps
 
 Learn more about specifying a geographic scope and why it matters.
 
 > [!div class="nextstepaction"]
-> [Azure Maps service geographic scope](geographic-scope.md)
+> [Azure Maps service geographic scope]
+
+[Azure Maps service geographic scope]: geographic-scope.md
+[Power BI Premium Capacity]: /power-bi/enterprise/service-premium-capacity-manage
