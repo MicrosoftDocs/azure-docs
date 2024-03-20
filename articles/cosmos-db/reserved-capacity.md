@@ -4,7 +4,7 @@ description: Learn how to buy Azure Cosmos DB reserved capacity to save on your 
 author: seesharprun
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/11/2024
+ms.date: 03/20/2024
 ms.author: sidandrews
 ms.reviewer: rosouz
 ---
