@@ -12,6 +12,8 @@ ms.custom: devdivchpfy22
 
 # Tutorial: Debug your APIs using request tracing
 
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-consumption](../../includes/api-management-availability-premium-dev-standard-basic-consumption.md)]
+
 This tutorial describes how to inspect (trace) request processing in Azure API Management. Tracing helps you debug and troubleshoot your API.
 
 In this tutorial, you learn how to:
