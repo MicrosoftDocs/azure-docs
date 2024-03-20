@@ -10,6 +10,8 @@ ms.topic: conceptual
 ms.date: 03/20/2024
 ---
 
+# FAQs for Virtual Machine Scale Set for SAP workload
+
 Get answers to frequently asked questions about Virtual Machine Scale Sets for SAP workload.
 
 ## SAP workload deployment
