@@ -12,6 +12,8 @@ ms.author: danlep
 ---
 # Policies in Azure API Management
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 In Azure API Management, API publishers can change API behavior through configuration using *policies*. Policies are a collection of statements that are run sequentially on the request or response of an API. API Management provides more than 50 policies out of the box that you can configure to address common API scenarios such as authentication, rate limiting, caching, and transformation of requests or responses. For a complete list, see [API Management policy reference](api-management-policies.md).
 
 Popular policies include:
