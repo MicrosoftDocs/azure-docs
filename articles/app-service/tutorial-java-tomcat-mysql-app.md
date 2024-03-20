@@ -154,7 +154,7 @@ App settings are one way to keep connection secrets out of your code repository.
 :::row:::
     :::column span="2":::
         **Step 2:** 
-        1. In the **Application settings** tab of the **Configuration** page, find the app setting `AZURE_MYSQL_CONNECTIONSTRING`. The creation wizard has created it for you.
+        1. In the **Application settings** tab of the **Configuration** page, find the app setting `AZURE_MYSQL_CONNECTIONSTRING`. The creation wizard created it for you.
         1. If you want, you can select the **Edit** button to the right of each setting and see or copy its value, or select Add to add a variable to inject into your Tomcat container. If you add an app setting that contains a valid Oracle, SQL Server, PostgreSQL, or MySQL connection string, App Service adds it as a JNDI data source in the Tomcat server's *context.xml* file. 
     :::column-end:::
     :::column:::
@@ -181,7 +181,7 @@ In this step, you use the SSH connection to the app container to verify the JNDI
 :::row:::
     :::column span="2":::
         **Step 2:** In the SSH terminal:
-        1. Run `cat /usr/local/tomcat/conf/context.xml`. You should see that a JNDI resource called `jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS` has been added. You will use this data source later.
+        1. Run `cat /usr/local/tomcat/conf/context.xml`. You should see that a JNDI resource called `jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS` was added. You will use this data source later.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-check-config-in-ssh-2.png" alt-text="A screenshot showing the commands to run in the SSH shell and their output." lightbox="./media/tutorial-java-tomcat-mysql-app/azure-portal-check-config-in-ssh-2.png":::
@@ -194,7 +194,7 @@ In this step, you use the SSH connection to the app container to verify the JNDI
 
 ## 5. Deploy sample code
 
-In this step, you'll configure GitHub deployment using GitHub Actions. It's just one of many ways to deploy to App Service, but also a great way to have continuous integration in your deployment process. By default, every `git push` to your GitHub repository will kick off the build and deploy action.
+In this step, you configure GitHub deployment using GitHub Actions. It's just one of many ways to deploy to App Service, but also a great way to have continuous integration in your deployment process. By default, every `git push` to your GitHub repository kicks off the build and deploy action.
 
 Like the Tomcat convention, if you want to deploy to the root context of Tomcat, name your built artifact *ROOT.war*.
 
@@ -349,7 +349,7 @@ When you're finished, you can delete all of the resources from your Azure subscr
 :::row:::
     :::column span="2":::
         **Step 3:** 
-        1. Enter the resource group name to confirm your deletion.
+        1. Confirm your deletion by typing the resource group name.
         1. Select **Delete**.
         1. Confirm with **Delete** again.
     :::column-end:::
@@ -369,7 +369,7 @@ In this step, you create the Azure resources and deploy a sample app to App Serv
 1. If you haven't already, clone the sample repository's `starter-no-infra` branch in a local terminal.
 
     ```bash
-    git clone -b starter-no-infra https://github.com/Azure-Samples/msdocs-tomcat-mysql-sample-app
+    git checkout starter-no-infra
     cd msdocs-tomcat-mysql-sample-app
     ```
 
@@ -451,7 +451,7 @@ In this step, you use the SSH connection to the app container to verify the JNDI
 :::row:::
     :::column span="2":::
         **Step 2:** In the SSH terminal:
-        1. Run `cat /usr/local/tomcat/conf/context.xml`. You should see that a JNDI resource called `jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS` has been added. You will use this data source later.
+        1. Run `cat /usr/local/tomcat/conf/context.xml`. You should see that a JNDI resource called `jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS` was added. You will use this data source later.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-check-config-in-ssh-2.png" alt-text="A screenshot showing the commands to run in the SSH shell and their output." lightbox="./media/tutorial-java-tomcat-mysql-app/azure-portal-check-config-in-ssh-2.png":::
@@ -503,7 +503,7 @@ In this step, you use the SSH connection to the app container to verify the JNDI
 
 ## 7. Stream diagnostic logs
 
-Azure App Service can capture console logs to help you diagnose issues with your application. For convenience, the azd template has already [enabled logging to the local file system](troubleshoot-diagnostic-logs.md#enable-application-logging-linuxcontainer) as well as [shipping them to a Log Analytics workspace](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor).
+Azure App Service can capture console logs to help you diagnose issues with your application. For convenience, the azd template already [enabled logging to the local file system](troubleshoot-diagnostic-logs.md#enable-application-logging-linuxcontainer) and is [shipping the logs to a Log Analytics workspace](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor).
 
 The sample application includes standard Log4j logging statements to demonstrate this capability as shown below.
 
@@ -536,7 +536,7 @@ You can ignore the warnings. The Maven Jetty plugin shows the warnings because t
 ## Frequently asked questions
 
 - [How much does this setup cost?](#how-much-does-this-setup-cost)
-- [How do I connect to the MySQL server that's secured behind the virtual network with other tools?](#how-do-i-connect-to-the-mysql-server-thats-secured-behind-the-virtual-network-with-other-tools)
+- [How do I connect to the MySQL server behind the virtual network with other tools?](#how-do-i-connect-to-the-mysql-server-thats-secured-behind-the-virtual-network-with-other-tools)
 - [How does local app development work with GitHub Actions?](#how-does-local-app-development-work-with-github-actions)
 
 #### How much does this setup cost?
@@ -549,7 +549,7 @@ Pricing for the created resources is as follows:
 - The virtual network doesn't incur a charge unless you configure extra functionality, such as peering. See [Azure Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/).
 - The private DNS zone incurs a small charge. See [Azure DNS pricing](https://azure.microsoft.com/pricing/details/dns/). 
 
-#### How do I connect to the MySQL database that's secured behind the virtual network with other tools?
+#### How do I connect to the MySQL database behind the virtual network with other tools?
 
 - The Tomcat container currently doesn't have the `mysql-client` terminal too. If you want, you must manually install it. Note that anything you install won't persist across app restart.
 - To connect from a desktop tool like MySQL Workbench, your machine must be within the virtual network. For example, it could be an Azure VM that's connected to one of the subnets, or a machine in an on-premises network that has a [site-to-site VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) connection with the Azure virtual network.
