@@ -1,6 +1,6 @@
 ---
 title: Send data to the reference data store from a pipeline
-description: Configure a pipeline destination stage to send the pipeline output to the reference data store to use to contextualize messages in other pipelines.
+description: Configure a pipeline destination stage to send the pipeline output to the reference data store to use to contextualize messages in other pipelines using Azure IoT Data Processor.
 author: dominicbetts
 ms.author: dobett
 ms.subservice: data-processor
@@ -12,7 +12,7 @@ ms.date: 10/09/2023
 #CustomerIntent: As an operator, I want to send data from a pipeline to the reference data store so that I can use the reference data to contextualize and enrich messages in other pipelines.
 ---
 
-# Send data to the reference data store
+# Send data to the reference data store using Azure IoT Data Processor Preview
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
@@ -20,7 +20,7 @@ Use the _Reference datasets_ destination to write data to the internal reference
 
 ## Prerequisites
 
-To configure and use an Azure Data Explorer destination pipeline stage, you need a deployed instance of Azure IoT Data Processor (preview).
+To configure and use an Azure Data Explorer destination pipeline stage, you need a deployed instance of Azure IoT Data Processor Preview.
 
 ## Configure the destination stage
 

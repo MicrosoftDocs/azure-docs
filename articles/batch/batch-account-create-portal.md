@@ -3,7 +3,7 @@ title: Create a Batch account in the Azure portal
 description: Learn how to use the Azure portal to create and manage an Azure Batch account for running large-scale parallel workloads in the cloud.
 ms.topic: how-to
 ms.date: 07/18/2023
-ms.custom: subject-rbac-steps, linux-related-content
+ms.custom: subject-rbac-steps
 ---
 
 # Create a Batch account in the Azure portal
@@ -120,13 +120,13 @@ For detailed steps, see [Assign Azure roles by using the Azure portal](../role-b
 
 ### Create a key vault
 
-User subscription mode requires [Azure Key Vault](/azure/key-vault/general/overview). The key vault must be in the same subscription and region as the Batch account.
+User subscription mode requires [Azure Key Vault](/azure/key-vault/general/overview). The key vault must be in the same subscription and region as the Batch account and use a [Vault Access Policy](/azure/key-vault/general/assign-access-policy).
 
 To create a new key vault:
 
 1. Search for and select **key vaults** from the Azure Search box, and then select **Create** on the **Key vaults** page.
 1. On the **Create a key vault** page, enter a name for the key vault, and choose an existing resource group or create a new one in the same region as your Batch account.
-1. On the **Access configuration** tab, select either **Azure role-based access control** or **Vault access policy** under **Permission model**, and under **Resource access**, check all 3 checkboxes for **Azure Virtual Machine for deployment**, **Azure Resource Manager for template deployment** and **Azure Disk Encryption for volume encryption**.
+1. On the **Access configuration** tab, select **Vault access policy** under **Permission model**.
 1. Leave the remaining settings at default values, select **Review + create**, and then select **Create**.
 
 ### Create a Batch account in user subscription mode
@@ -140,18 +140,8 @@ To create a Batch account in user subscription mode:
 
 ### Grant access to the key vault manually
 
-You can also grant access to the key vault manually in [Azure portal](https://portal.azure.com).
+You can also grant access to the key vault manually.
 
-#### If the Key Vault permission model is **Azure role-based access control**:
-1. Select **Access control (IAM)** from the left navigation of the key vault page.
-1. At the top of the **Access control (IAM)** page, select **Add** > **Add role assignment**.
-1. On the **Add role assignment** screen, under **Role** tab, under **Job function roles** sub tab, select either **Key Vault Secrets Officer** or **Key Vault Administrator** role for the Batch account, and then select **Next**.
-1. On the **Members** tab, select **Select members**. On the **Select members** screen, search for and select **Microsoft Azure Batch**, and then select **Select**.
-1. Click the **Review + create** button on the bottom to go to **Review + assign** tab, and click the **Review + create** button on the bottom again.
-
-For detailed steps, see [Assign Azure roles by using the Azure portal](../role-based-access-control/role-assignments-portal.md).
-
-#### If the Key Vault permission model is **Vault access policy**:
 1. Select **Access policies** from the left navigation of the key vault page.
 1. On the **Access policies** page, select **Create**.
 1. On the **Create an access policy** screen, select a minimum of **Get**, **List**, **Set**, and **Delete** permissions under **Secret permissions**. For [key vaults with soft-delete enabled](/azure/key-vault/general/soft-delete-overview), also select **Recover**.
