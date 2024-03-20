@@ -115,6 +115,8 @@ The following table lists some suggested alert rules for Azure Stream Analytics.
 | Platform metrics | Streaming unit (SU) Memory Utilization | Whenever average SU (Memory) % Utilization is greater than 80% |
 | Activity log | Failed operations | Whenever the activity log has an event with Category='Administrative', Signal name='All Administrative operations', Status='Failed' |
 
+For detailed instructions on how to set up an alert for Azure Stream Analytics, see [Set up alerts for Azure Stream Analytics jobs](stream-analytics-set-up-alerts.md).
+
 [!INCLUDE [horz-monitor-advisor-recommendations](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
 
 ## Related content
