@@ -1,5 +1,5 @@
 ---
-title: Azure Operator Nexus Observability Metrics
+title: Azure Operator Nexus observability metrics
 description: Observability metrics in Azure Operator Nexus
 ms.topic: article
 ms.date: 02/27/2024
@@ -8,7 +8,7 @@ ms.author: joemarshall
 ms.service: azure-operator-nexus
 ---
 
-# Azure Operator Nexus Observability Metrics
+# Azure Operator Nexus observability metrics
 
 In Operator Nexus Network Fabric (NNF), Ethernet monitoring is a critical component in maintaining optimal network performance, ensuring availability, and proactively addressing potential issues before they cause disruptions in the fabric. Monitoring includes traffic analysis, device health, security, and details specific to individual Ethernet interfaces. By closely monitoring the fabric infrastructure, we can ensure that NNF operates smoothly and efficiently, and that any potential problems are identified and addressed early on.
 
