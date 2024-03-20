@@ -144,7 +144,9 @@
           - name: Makecert
             href: vpn-gateway-certificates-point-to-site-makecert.md
           - name: Linux
-            href: vpn-gateway-certificates-point-to-site-linux.md
+            items:
+            - name: strongSwan
+              href: vpn-gateway-certificates-point-to-site-linux.md
       - name: RADIUS authentication
         items:
         - name: Configure a point-to-site VPN
