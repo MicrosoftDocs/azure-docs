@@ -32,7 +32,7 @@ This article describes the tested performance capabilities of a single [Azure Ne
 
 * Random I/O: The same single large volume delivers over 700,000 operations per second. 
 
-* Metadata-heavy workloads are advantageous for Azure NetApp File large volumes due to the large volume’s increased parallelism. Performance benefits are noticeable in workloads heavy in file creation, unlink, and file renames as typical with VCS applications, and EDA workloads where there are high file counts present. For more information on performance of high metadata workloads, see [Benefits of using Azure NetApp Files for electronic design automation](electronic-design-automation-benefits.md).
+* Metadata-heavy workloads are advantageous for Azure NetApp File large volumes due to the large volume’s increased parallelism. Performance benefits are noticeable in workloads heavy in file creation, unlink, and file renames as typical with VCS applications, and EDA workloads where there are high file counts present. For more information on performance of high metadata workloads, see [Benefits of using Azure NetApp Files for electronic design automation](solutions-benefits-azure-netapp-files-electronic-design-automation.md).
 
 [FIO](https://fio.readthedocs.io/en/latest/fio_doc.html), a synthetic workload generator designed as a storage stress test, was used to drive these test results.
 
@@ -143,4 +143,4 @@ The following graphs show 8-KiB random writes of ~405,000 write IOPS with `nconn
 
 * [Requirements and considerations for large volumes](large-volumes-requirements-considerations.md)
 * [Linux NFS mount options best practices for Azure NetApp Files](performance-linux-mount-options.md)
-* [Benefits of using Azure NetApp Files for electronic design automation](electronic-design-automation-benefits.md)
+* [Benefits of using Azure NetApp Files for electronic design automation](solutions-benefits-azure-netapp-files-electronic-design-automation.md)
