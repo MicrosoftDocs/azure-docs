@@ -22,7 +22,7 @@ Azure API Management provides built-in analytics for your APIs so that you can a
 
 * API Management provides analytics using an [Azure workbook](../azure-monitor/visualize/workbooks-overview.md) based on data in an Azure Log Analytics workspace. 
 
-* In the classic service tiers, your API Management instance also includes a legacy *analytics dashboard* in the Azure portal, and analytics data can be accessed using the API Management REST API. Equivalent data is shown in the analytics workbook and dashboard.
+* In the classic API Management service tiers, your API Management instance also includes a legacy *analytics dashboard* in the Azure portal, and analytics data can be accessed using the API Management REST API. Equivalent data is shown in the analytics workbook and dashboard.
 
 > [!IMPORTANT]
 > * The Azure workbook is the recommended way to access analytics data.
@@ -71,7 +71,7 @@ After a Log Analytics workspace is configured, access the Azure API Management A
 
 ## Analytics dashboard
 
-A legacy analytics dashboard is also available in the Azure portal, and analytics data can be accessed using the API Management REST API. 
+A legacy analytics dashboard is also available in the Azure portal in certain API Management service tiers, and analytics data can be accessed using the API Management REST API. 
 
 ### Analytics dashboard - portal
 
