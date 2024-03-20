@@ -36,11 +36,11 @@ For information about the supported values for attributes of the `voice` element
 
 #### Single voice example
 
-This example uses the `en-US-AvaNeural` voice. 
+This example uses the `en-US-AvaMultilingualNeural` voice. 
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AvaNeural">
+    <voice name="en-US-AvaMultilingualNeural">
         This is the text that is spoken.
     </voice>
 </speak>
@@ -50,14 +50,14 @@ This example uses the `en-US-AvaNeural` voice.
 
 Within the `speak` element, you can specify multiple voices for text to speech output. These voices can be in different languages. For each voice, the text must be wrapped in a `voice` element.
 
-This example alternates between the `en-US-AvaNeural` and `en-US-ChristopherNeural` voices. 
+This example alternates between the `en-US-AvaMultilingualNeural` and `en-US-AndrewMultilingualNeural` voices. The neural multilingual voices can speak different languages based on the input text.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AvaNeural">
+    <voice name="en-US-AvaMultilingualNeural">
         Good morning!
     </voice>
-    <voice name="en-US-ChristopherNeural">
+    <voice name="en-US-AndrewMultilingualNeural">
         Good morning to you too Ava!
     </voice>
 </speak>
@@ -83,7 +83,7 @@ You use the `effect` attribute to optimize the auditory experience for scenarios
     
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AvaNeural" effect="eq_car">
+    <voice name="en-US-AvaMultilingualNeural" effect="eq_car">
         This is the text that is spoken.
     </voice>
 </speak>
@@ -322,7 +322,7 @@ This SSML snippet illustrates how the `rate` attribute is used to change the spe
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AvaNeural">
+    <voice name="en-US-AvaMultilingualNeural">
         <prosody rate="+30.00%">
             Enjoy using text to speech.
         </prosody>
@@ -336,7 +336,7 @@ This SSML snippet illustrates how the `volume` attribute is used to change the v
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AvaNeural">
+    <voice name="en-US-AvaMultilingualNeural">
         <prosody volume="+20.00%">
             Enjoy using text to speech.
         </prosody>
@@ -350,7 +350,7 @@ This SSML snippet illustrates how the `pitch` attribute is used so that the voic
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AvaNeural">
+    <voice name="en-US-AvaMultilingualNeural">
         Welcome to <prosody pitch="high">Enjoy using text to speech.</prosody>
     </voice>
 </speak>
@@ -362,7 +362,7 @@ This SSML snippet illustrates how the `contour` attribute is used to change the 
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AvaNeural">
+    <voice name="en-US-AvaMultilingualNeural">
         <prosody contour="(60%,-60%) (100%,+80%)" >
             Were you the only person in the room?
         </prosody>
@@ -393,7 +393,7 @@ This SSML snippet demonstrates how you can use the `emphasis` element to add
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
-    <voice name="en-US-AndrewNeural">
+    <voice name="en-US-AndrewMultilingualNeural">
     I can help you join your <emphasis level="moderate">meetings</emphasis> fast.
     </voice>
 </speak>
@@ -425,7 +425,7 @@ This SSML snippet illustrates how to use `src` attribute to insert audio from tw
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AvaNeural">
+    <voice name="en-US-AvaMultilingualNeural">
         <p>
             <audio src="https://contoso.com/opinionprompt.wav"/>
             Thanks for offering your opinion. Please begin speaking after the beep.
@@ -457,7 +457,7 @@ In this example, the original audio is around 15 seconds. The `mstts:audiodurati
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US">
-<voice name="en-US-AvaNeural">
+<voice name="en-US-AvaMultilingualNeural">
 <mstts:audioduration value="20s"/>
 If we're home schooling, the best we can do is roll with what each day brings and try to have fun along the way.
 A good place to start is by trying out the slew of educational apps that are helping children stay happy and smash their schooling at the same time.
@@ -494,7 +494,7 @@ For information about the supported values for attributes of the `mstts:backgrou
 ```xml
 <speak version="1.0" xml:lang="en-US" xmlns:mstts="http://www.w3.org/2001/mstts">
     <mstts:backgroundaudio src="https://contoso.com/sample.wav" volume="0.7" fadein="3000" fadeout="4000"/>
-    <voice name="en-US-AvaNeural">
+    <voice name="en-US-AvaMultilingualNeural">
         The text provided in this document will be spoken over the background audio.
     </voice>
 </speak>

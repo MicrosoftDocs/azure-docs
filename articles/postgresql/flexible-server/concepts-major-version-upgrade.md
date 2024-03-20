@@ -50,6 +50,10 @@ Here are some of the important considerations with in-place major version upgrad
 
 Major Version Upgrade Logs (PG_Upgrade_Logs) provides direct access to detailed logs through the [Server Logs](./how-to-server-logs-portal.md). Here’s how to integrate `PG_Upgrade_Logs` into your upgrade process, ensuring a smoother and more transparent transition to new PostgreSQL versions.
 
+You can configure your Major Version Upgrade Logs in the same way as [Server Logs](./how-to-server-logs-portal.md), above using the Server Parameters
+* `logfiles.download_enable` to ON to enable this feature.
+* `logfiles.retention_days` to define logfile retention in days.
+
 #### Setting Up PostgreSQL Version Upgrade Logs
 - **Access via Azure portal or CLI**: To start utilizing the PG_Upgrade_Logs feature, you can configure and access the logs either through the Azure portal or by using the [Command Line Interface (CLI)](./how-to-server-logs-cli.md). This flexibility allows you to choose the method that best fits your workflow.
 - **Server Logs UI**: Once set up, the upgrade logs will be accessible through the Server Logs UI, where you can monitor the progress and details of your PostgreSQL major version upgrades in real time. This provides a centralized location for viewing logs, making it easier to track and troubleshoot the upgrade process.

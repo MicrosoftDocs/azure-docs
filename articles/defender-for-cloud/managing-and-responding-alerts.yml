@@ -19,7 +19,9 @@ introduction: |
 
   > [!TIP]
   > You can connect Microsoft Defender for Cloud to SIEM solutions including Microsoft Sentinel and consume the alerts from your tool of choice. Learn more how to [stream alerts to a SIEM, SOAR, or IT Service Management solution](export-to-siem.md).
-
+prerequisites:
+  summary: |
+    For prerequisites and requirements, see [Support matrices for Defender for Cloud](support-matrix-defender-for-cloud.md).
 procedureSection:
   - title: |
       Manage your security alerts
