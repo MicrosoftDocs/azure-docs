@@ -38,8 +38,8 @@ The appliance can be deployed using a couple of methods:
 - Download links are available in the tables below.
 
     > [!Note]
-    - Don't install any other components, such as the **Microsoft Monitoring Agent (MMA)** or **Replication appliance**, on the same server hosting the Azure Migrate appliance. If you install the MMA agent, you can face problems like **"Multiple custom attributes of the same type found"**. It's recommended to have a dedicated server to deploy the appliance.
-    - Federal Information Processing Standards (FIPS) mode is not supported for appliance deployment. 
+    > - Don't install any other components, such as the **Microsoft Monitoring Agent (MMA)** or **Replication appliance**, on the same server hosting the Azure Migrate appliance. If you install the MMA agent, you can face problems like **"Multiple custom attributes of the same type found"**. It's recommended to have a dedicated server to deploy the appliance.
+    > - Federal Information Processing Standards (FIPS) mode is not supported for appliance deployment. 
 
 ## Appliance services
 
