@@ -7,7 +7,7 @@ metadata:
   author: normesta
 
   ms.author: normesta
-  ms.date: 12/02/2022
+  ms.date: 3/20/2024
   ms.service: azure-blob-storage
   ms.topic: how-to
   ms.custom: subject-rbac-steps
@@ -44,7 +44,7 @@ procedureSection:
       - |
         Select **SQL script**.
 
-          :::image type="content" source="media/calculate-blob-count-size/synapse-sql-script.png" alt-text="Select SQL script to create a new query":::
+          :::image type="content" source="media/calculate-blob-count-size/synapse-sql-script.png" alt-text="Screenshot of select SQL script to create a new query.":::
   
   - title: |
       Run the SQL query
@@ -73,7 +73,7 @@ procedureSection:
       - |
         Select the **Run** button to execute the SQL query. The blob count and total size per container are reported in the **Results** pane.
 
-          :::image type="content" source="media/calculate-blob-count-size/output.png" alt-text="Output from running the script to calculate blob count and total size.":::
+          :::image type="content" source="media/calculate-blob-count-size/output.png" alt-text="Screenshot of output from running the script to calculate blob count and total size.":::
 
 relatedContent:
   - text: Use Azure Storage blob inventory to manage blob data
