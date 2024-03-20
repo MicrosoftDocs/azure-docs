@@ -24,10 +24,10 @@ Azure IoT Operations installed. For more information, see [Quickstart: Deploy Az
 
 This section shows how to deploy the OPC PLC simulator.
 
-The following step lowers the security level for the OPC PLC so that it accepts connections from AzureIot OPC UA Broker or any client without an explicit peer certificate trust operation.
+The following step lowers the security level for the OPC PLC so that it accepts connections from Azure Iot OPC UA Broker or any client without an explicit peer certificate trust operation.
 
 > [!IMPORTANT]
-> Don't use the following example in production, use it for simulation and test purposes only. The example lowers the security level for the OPC PLC so that it accepts connections from any client without an explicit peer certificate trust operation.
+> Don't use the following example in production, use it for simulation and test purposes only.
 
 Run the following code to update the OPC UA Broker deployment and apply the new settings:
 
@@ -88,9 +88,9 @@ The application instance certificate of the OPC PLC is a self-signed certificate
 
 The projection of the Azure Key Vault secrets and certificates into the cluster takes some time depending on the configured polling interval.
 
-Now, the Azure IoT OPC UA Broker the trust relationship with OPC PLC should be established and you can proceed to create an `Asset Endpoint Profile` to connect to your OPC PLC simulation server.
+Now, the Azure IoT OPC UA Broker the trust relationship with OPC PLC should be established and you can proceed to create an `AssetEndpointProfile` to connect to your OPC PLC simulation server.
 
-## Optionally configure your `Asset Endpoint Profile` without mutual trust established
+## Optionally configure your `AssetEndpointProfile` without mutual trust established
 
 You can optionally configure an asset endpoint profile for the OPC PLC to run without mutual trust established. If you understand the risks, you can turn off authentication for testing purposes.
 
