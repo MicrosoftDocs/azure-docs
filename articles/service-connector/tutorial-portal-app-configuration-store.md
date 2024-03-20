@@ -29,7 +29,7 @@ To create a service connection and store configuration in Azure App Configuratio
 * Another target service instance supported by Service Connector. In this tutorial, you'll use [Azure Blob Storage](../storage/blobs/storage-quickstart-blobs-portal.md)
 * Read and write access to the App Service, App Configuration and the target service.
 
-## Create a App Configuration connection in App Service
+## Create an App Configuration connection in App Service
 
 To store your connection configuration into an App Configuration, start by connecting your App Service to an App Configuration.
 
