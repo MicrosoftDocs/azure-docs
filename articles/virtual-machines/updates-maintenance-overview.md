@@ -50,7 +50,7 @@ Platform maintenance comprises of updates applied for networking components like
 
 ### OS Image upgrade  
      
-   [Automatic OS upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?context=/azure/virtual-machines/context/context) are available for Virtual Machine Scale Sets (VMSS). An upgrade works by replacing the OS disk of a VM with a new disk created using the latest image version. Any configured extensioAns and custom data scripts are run on the OS disk, while data disks are retained. To minimize the application downtime, upgrades take place in batches, with no more than 20% of the scale set upgrading at any time.
+   [Automatic OS upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?context=/azure/virtual-machines/context/context) are available for Virtual Machine Scale Sets. An upgrade works by replacing the OS disk of a VM with a new disk created using the latest image version. Any configured extensioAns and custom data scripts are run on the OS disk, while data disks are retained. To minimize the application downtime, upgrades take place in batches, with no more than 20% of the scale set upgrading at any time.
      Maintenance Control is also available for OS Image upgrades. Customers can opt into this experience by using maintenance configurations to schedule when these image upgrades are applied. To use this experience scale sets, need to have automatic OS upgrades enabled. Customers can schedule recurrence for up to a week (seven days) and a minimum of 5 hours is required for the maintenance window.
 
 ### Guest VM patching
