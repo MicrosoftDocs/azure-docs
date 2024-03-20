@@ -14,6 +14,9 @@ ms.custom: devx-track-azurepowershell, engagement-fy23
 
 # Secure backend services using client certificate authentication in Azure API Management
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
+
 API Management allows you to secure access to the backend service of an API using client certificates and mutual TLS authentication. This guide shows how to manage certificates in an Azure API Management service instance using the Azure portal. It also explains how to configure an API to use a certificate to access a backend service.
 
 You can also manage API Management certificates using the [API Management REST API](/rest/api/apimanagement/current-ga/certificate).
