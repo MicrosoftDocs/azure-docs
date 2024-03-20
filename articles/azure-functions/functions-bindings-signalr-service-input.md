@@ -149,7 +149,7 @@ You can set the `UserId` property of the binding to the value from either header
 ```cs
 [Function("Negotiate")]
 public static string Negotiate([HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequestData req,
-    [SignalRConnectionInfoInput(HubName = "serverless", UserId = "{headers.x-ms-client-principal-id}")] string connectionInfo)
+    [SignalRConnectionInfoInput(HubName = "hubName1", UserId = "{headers.x-ms-client-principal-id}")] string connectionInfo)
 {
     // The serialization of the connection info object is done by the framework. It should be camel case. The SignalR client respects the camel case response only.
     return connectionInfo;
@@ -185,7 +185,7 @@ public SignalRConnectionInfo negotiate(
             methods = { HttpMethod.POST, HttpMethod.GET },
             authLevel = AuthorizationLevel.ANONYMOUS)
             HttpRequestMessage<Optional<String>> req,
-        @SignalRConnectionInfoInput(name = "connectionInfo", hubName = "simplechat", userId = "{headers.x-ms-signalr-userid}") SignalRConnectionInfo connectionInfo) {
+        @SignalRConnectionInfoInput(name = "connectionInfo", hubName = "hubName1", userId = "{headers.x-ms-signalr-userid}") SignalRConnectionInfo connectionInfo) {
     return connectionInfo;
 }
 ```

@@ -2,7 +2,7 @@
 author: Y-Sindo
 ms.service: azure-functions
 ms.topic: include
-ms.date: 07/02/2024
+ms.date: 03/20/2024
 ms.author: zityang
 ---
 
@@ -14,7 +14,7 @@ Here's binding data for the example in the *function.json* file:
 {
     "type": "signalRConnectionInfo",
     "name": "connectionInfo",
-    "hubName": "chat",
+    "hubName": "hubName1",
     "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
     "direction": "in"
 }

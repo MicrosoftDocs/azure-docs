@@ -2,7 +2,7 @@
 author: Y-Sindo
 ms.service: azure-functions
 ms.topic: include
-ms.date: 07/02/2024
+ms.date: 03/20/2024
 ms.author: zityang
 ---
 

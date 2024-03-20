@@ -44,7 +44,7 @@ SignalR Service trigger binding for C# has two programming models. Class based m
 See [Class based model](../azure-signalr/signalr-concept-serverless-development-config.md#class-based-model) for details.
 
 ```cs
-public class SignalRTestHub : ServerlessHub
+public class HubName1 : ServerlessHub
 {
     [FunctionName("SignalRTest")]
     public async Task SendMessage([SignalRTrigger]InvocationContext invocationContext, string message, ILogger logger)
@@ -96,7 +96,7 @@ SignalR trigger isn't currently supported for Java.
 ```javascript
 app.generic("function1",
     {
-        trigger: { "type": "signalRTrigger", "name": "invocation", "direction": "in", "hubName": "SignalRTest", "event": "SendMessage", "category": "messages" },
+        trigger: { "type": "signalRTrigger", "name": "invocation", "direction": "in", "hubName": "hubName1", "event": "SendMessage", "category": "messages" },
         handler: (triggerInput, context) => {
             context.log(`Receive ${context.Arguments[0]} from ${triggerInput.ConnectionId}.`)
         }
