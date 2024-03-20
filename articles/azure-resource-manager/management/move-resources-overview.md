@@ -57,7 +57,16 @@ You can move resources to another region using a couple of different methods:
 - **Start moving resources from a resource group**: With this method, you kick off the region move from within a resource group. After selecting the resources you want to move, the process continues in the Resource Mover hub, to check resource dependencies, and orchestrate the move process. [Learn more](../../resource-mover/move-region-within-resource-group.md).
 - **Start moving resources directly from the Resource Mover hub**: With this method, you kick off the region move process directly in the hub. [Learn more](../../resource-mover/tutorial-move-region-virtual-machines.md).
 
+### Move resources manually through redeployment
+
+To move resources that aren't supported by Azure Resource Mover or to move any service manually, see [Azure services relocation guidance overview](/azure/operational-excellence/overview-relocation).
+
+### Move resources from non availability zone to availability zone support
+
+To move resources from a region that doesn't support availability zones to one that does, see [Availability zone migration guidance overview for Microsoft Azure products and services](/reliability/availability-zones-migration-overview).
+
 ## Next steps
 
 - To check if a resource type supports being moved, see [Move operation support for resources](move-support-resources.md).
 - To learn more about the region move process, see [About the move process](../../resource-mover/about-move-process.md).
+- To learn more deeply about service relocation and planning recommendations, see [Relocated cloud workloads](/azure/cloud-adoption-framework/relocate/).
