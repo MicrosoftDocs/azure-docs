@@ -34,7 +34,7 @@ The following quickstarts in this series build on this one to define sample asse
 
 This series of quickstarts is intended to give you an opportunity to evaluate an end-to-end scenario with Azure IoT Operations. In a true development or production environment, these tasks would be performed by multiple teams working together and some tasks might require elevated permissions.
 
-For the best new user experience, we recommend using a free Azure subscription so that you have owner permissions over the resources in these quickstarts. We also recommend using GitHub Codespaces as a virtual environment in which you can quickly begin deploying resources and running commands without installing new tools on your own machines. For more information about these options, continue to the prerequisites.
+For the best new user experience, we recommend using an [Azure free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) so that you have owner permissions over the resources in these quickstarts. We also recommend using GitHub Codespaces as a virtual environment in which you can quickly begin deploying resources and running commands without installing new tools on your own machines. For more information about these options, continue to the prerequisites.
 
 Once you're ready to learn more about the individual roles and tasks, the how-to guides provide more specific implementation and permissions details.
 
@@ -42,9 +42,9 @@ Once you're ready to learn more about the individual roles and tasks, the how-to
 
 Review the prerequisites based on the environment you use to host the Kubernetes cluster.
 
-For this quickstart, we recommend using a virtual environment as a quick way to get started without installing new tools.
+For this quickstart, we recommend using a virtual environment (GitHub Codespaces) as a quick way to get started without installing new tools.
 
-As part of this quickstart, you create a cluster in either GitHub Codespaces, AKS Edge Essentials, or K3s on Ubuntu Linux. If you want to reuse a cluster that you've deployed Azure IoT Operations to before, refer to the steps in [Clean up resources](#clean-up-resources) to uninstall Azure IoT Operations before continuing.
+As part of this quickstart, you create a cluster in either GitHub Codespaces, AKS Edge Essentials, or K3s on Ubuntu Linux. If you want to rerun this quickstart with a cluster that already has Azure IoT Operations deployed to it, refer to the steps in [Clean up resources](#clean-up-resources) to uninstall Azure IoT Operations before continuing.
 
 # [Virtual](#tab/codespaces)
 
@@ -319,7 +319,15 @@ In this quickstart, you configured your Arc-enabled Kubernetes cluster so that i
 
 If you're continuing on to the next quickstart, keep all of your resources.
 
-If you want to delete the Azure IoT Operations deployment but plan on reinstalling it on your cluster, be sure to keep the secrets provider on your cluster. In your cluster on the Azure portal, select the extensions of the type **microsoft.iotoperations.x** and **microsoft.deviceregistry.assets**, then select **Uninstall**.
+If you want to delete the Azure IoT Operations deployment but plan on reinstalling it on your cluster, be sure to keep the secrets provider on your cluster. 
+
+1. In your resource group in the Azure portal, select your cluster.
+1. On your cluster resource page, select **Extensions**.
+1. Select all of the extensions of type **microsoft.iotoperations.x** and **microsoft.deviceregistry.assets**, then select **Uninstall**. 
+
+   Keep the secrets provider extension on your cluster.
+
+1. Return to your resource group and select the custom location resource, then select **Delete**.
 
 If you want to delete all of the resources you created for this quickstart, delete the Kubernetes cluster that you deployed Azure IoT Operations to and remove the Azure resource group that contained the cluster.
 
