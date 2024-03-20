@@ -56,7 +56,7 @@ This guide assumes you have the following items installed locally on your PC.
 
 For more information, see the guide on [how to prepare your system to deploy online endpoints](how-to-deploy-online-endpoints.md#prepare-your-system).
 
-The examples in this article are based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) GitHub repository. To run the commands locally without having to copy/paste YAML and other files, clone the repo and then change directories to the *azureml-examples/cli* directory in the repo:
+The examples in this article are based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) GitHub repository. To run the commands locally without having to copy/paste YAML and other files, clone the repo and then change directories to the *azureml-examples/cli*:
 
 ```azurecli
 git clone https://github.com/Azure/azureml-examples --depth 1
@@ -70,13 +70,13 @@ If you haven't already set the defaults for the Azure CLI, save your default set
 * Replace `<resource-group>` with the Azure resource group that contains your workspace.
 * Replace `<location>` with the Azure region that contains your workspace.
 
-> [!TIP]
-> You can see what your current defaults are by using the `az configure -l` command.
-
 ```azurecli
 az account set --subscription <subscription>
 az configure --defaults workspace=<workspace> group=<resource-group> location=<location>
 ```
+
+> [!TIP]
+> You can see what your current defaults are by using the `az configure -l` command.
 
 # [Python](#tab/python)
 
@@ -160,7 +160,7 @@ You'll use a few VS Code extensions to debug your deployments in the dev contain
 
 # [Python](#tab/python)
 
-Azure Machine Learning local endpoints use Docker and VS Code development containers (dev container) to build and configure a local debugging environment. With dev containers, you can take advantage of VS Code features from inside a Docker container. For more information on dev containers, see [Create a development container](https://code.visualstudio.com/docs/remote/create-dev-container).
+Azure Machine Learning local endpoints use Docker and VS Code development containers (dev containers) to build and configure a local debugging environment. With dev containers, you can take advantage of VS Code features from inside a Docker container. For more information on dev containers, see [Create a development container](https://code.visualstudio.com/docs/remote/create-dev-container).
 
 Get a handle to the workspace:
 
@@ -184,7 +184,7 @@ To debug online endpoints locally in VS Code, set the `vscode-debug` and `local`
 A Docker image is built locally. Any environment configuration or model file errors are surfaced at this stage of the process.
 
 > [!NOTE]
-> The first time you launch a new or updated dev container it can take several minutes.
+> It can take several minutes to launch a new or updated dev container for the first time.
 
 Once the image successfully builds, your dev container opens in a VS Code window.
 
@@ -375,5 +375,5 @@ Once the updated image is built and your development container launches, use the
 
 ## Related content
 
-- [Deploy and score a machine learning model by using an online endpoint)](how-to-deploy-online-endpoints.md)
-- [Troubleshooting online endpoints deployment and scoring)](how-to-troubleshoot-managed-online-endpoints.md)
+- [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md)
+- [Troubleshooting online endpoints deployment and scoring](how-to-troubleshoot-managed-online-endpoints.md)
