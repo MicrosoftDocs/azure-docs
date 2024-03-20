@@ -21,7 +21,6 @@ This article shows how to query resource configuration changes through Resource 
 
 - To enable Azure PowerShell to query Azure Resource Graph, [add the module](../first-query-powershell.md#add-the-resource-graph-module).
 - To enable Azure CLI to query Azure Resource Graph, [add the extension](../first-query-azurecli.md#add-the-resource-graph-extension).
-- Review the [change resource properties spec](../changes/changes-resource-spec.md).
 
 ## Get change events using Resource Graph
 

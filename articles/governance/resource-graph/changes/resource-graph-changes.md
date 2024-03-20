@@ -80,4 +80,4 @@ Azure Resource Graph Change Analysis currently presents some known limitations.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Change Analysis best practices](./changes-resource-spec.md)
+> [Get resource changes](../how-to/get-resource-changes.md)

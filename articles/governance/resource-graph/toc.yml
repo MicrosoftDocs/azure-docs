@@ -79,9 +79,6 @@
     - name: Why is Change Analysis moving?
       displayName: vms, public ip
       href: ./changes/transitional-overview.md
-    - name: Resource change properties
-      displayName: vms, public ip
-      href: ./changes/changes-resource-spec.md
   - name: Work with large data sets
     displayName: page, first, skip, token
     href: ./concepts/work-with-data.md
