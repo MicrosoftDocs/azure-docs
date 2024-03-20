@@ -2761,7 +2761,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/virtual-machines/windows/attach-disk-portal.md",
+            "source_path_from_root": "/articles/virtual-machines/windows/attach-disk-portal.yml",
             "redirect_url": "/azure/virtual-machines/windows/attach-managed-disk-portal",
             "redirect_document_id": false
         },

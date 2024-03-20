@@ -490,6 +490,9 @@ items:
         - name: Custom configuration
           displayName: Prometheus
           href: containers/prometheus-metrics-scrape-configuration.md
+        - name: Custom Resouce Definition
+          displayName: Prometheus
+          href: containers/prometheus-metrics-scrape-crd.md
         - name: Create and validate custom scrape config
           displayName: Prometheus
           href: containers/prometheus-metrics-scrape-validate.md

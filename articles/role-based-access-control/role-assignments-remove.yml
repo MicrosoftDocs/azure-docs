@@ -173,7 +173,7 @@ relatedContent:
   - text: List Azure role assignments using the Azure portal
     url: role-assignments-list-portal.yml
   - text: List Azure role assignments using Azure PowerShell
-    url: role-assignments-list-powershell.md
+    url: role-assignments-list-powershell.yml
   - text: Troubleshoot Azure RBAC
     url: troubleshooting.md
 

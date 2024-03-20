@@ -4,7 +4,7 @@ description: Learn how to migrate your App Service Environment v2 to App Service
 author: seligj95
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.date: 3/7/2024
+ms.date: 3/19/2024
 ms.author: jordanselig
 # zone_pivot_groups: app-service-cli-portal
 ---
@@ -235,7 +235,7 @@ You have two App Service Environments at this stage in the migration process. Yo
 You can get the new inbound IP address for your new App Service Environment v3 by running the following command. It's your responsibility to make any necessary updates. 
 
 ```azurecli
-az rest --method get --uri "${ASE_ID}?api-version=2022-03-01"
+az rest --method get --uri "${ASE_ID}?api-version=2022-03-01" --query properties.networkingConfiguration
 ```
 
 ## 11. Redirect customer traffic and complete migration
