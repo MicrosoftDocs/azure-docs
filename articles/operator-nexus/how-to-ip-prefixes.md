@@ -9,7 +9,7 @@ ms.date: 02/28/2024
 ms.custom: template-how-to
 ---
 
-# How to Create and Manage IP Prefixes
+# How to create and manage IP prefixes
 
 This article explains the main management operations for IP prefixes and IP prefix rules in Azure Operator Nexus.
 
