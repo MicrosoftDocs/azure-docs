@@ -100,7 +100,7 @@ Following is an example of setting up firewall rules, and testing your outbound 
     
     1. In **Name**, type **AzureFirewallSubnet**.
     
-    1. **Subnet address range**, accept the default or specify a range that's {at least /26 in size}(/azure/firewall/firewall-faq#why-does-azure-firewall-need-a--26-subnet-size).
+    1. **Subnet address range**, accept the default or specify a range that's [at least /26 in size](/azure/firewall/firewall-faq#why-does-azure-firewall-need-a--26-subnet-size).
     
     1. Select **Save**. 
     
