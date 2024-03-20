@@ -240,7 +240,7 @@ az rest --method get --uri "${ASE_ID}?api-version=2022-03-01" --query properties
 
 ## 11. Redirect customer traffic and complete migration
 
-This step is your opportunity to test and validate your new App Service Environment v3. Your App Service Environment v2 front ends are still running, but the backing compute is an App Service Environment v3. If you're able to access your apps without issues, that means you're ready to complete the migration. In order to test the new inbound IP, you need to create DNS records to ensure you go through the App Service Environment v3 front ends.
+This step is your opportunity to test and validate your new App Service Environment v3. Your App Service Environment v2 front ends are still running, but the backing compute is an App Service Environment v3. If you're able to access your apps without issues, that means you're ready to complete the migration.
 
 Once you confirm your apps are working as expected, you can redirect customer traffic to your new App Service Environment v3 front ends by running the following command. This command also deletes your old environment.
 
