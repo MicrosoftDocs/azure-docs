@@ -1,11 +1,11 @@
 ---
 title: "Quickstart: Create an Azure Kubernetes Fleet Manager resource and join member clusters using Azure portal"
 description: In this quickstart, you learn how to create an Azure Kubernetes Fleet Manager resource and join member clusters using Azure portal.
-ms.date: 03/18/2024
+ms.date: 03/20/2024
 author: shashankbarsin
 ms.author: shasb
 ms.service: kubernetes-fleet
-ms.custom: template-quickstart, mode-other, ignite-2023
+ms.custom: template-quickstart, mode-other
 ms.devlang: azurecli
 ms.topic: quickstart
 ---

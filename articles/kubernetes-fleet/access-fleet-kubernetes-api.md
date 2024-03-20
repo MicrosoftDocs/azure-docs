@@ -2,28 +2,36 @@
 title: "Access the Kubernetes API of the Fleet resource"
 description: Learn how to access the Kubernetes API of the Fleet resource.
 ms.topic: how-to
-ms.date: 03/18/2024
+ms.date: 03/20/2024
 author: shashankbarsin
 ms.author: shasb
 ms.service: kubernetes-fleet
-ms.custom:
-  - ignite-2023
 ---
 
 # Access the Kubernetes API of the Fleet resource with Azure Kubernetes Fleet Manager
 
-If your Azure Kubernetes Fleet Manager resource was created with the hub cluster enabled, then it can be used to centrally control scenarios like Kubernetes object propagation. In this article, you learn how to access the Kubernetes API of the Fleet resource.
+If your Azure Kubernetes Fleet Manager resource was created with the hub cluster enabled, then it can be used to centrally control scenarios like Kubernetes resource propagation. In this article, you learn how to access the Kubernetes API of the hub cluster managed by the Fleet resource.
 
 ## Prerequisites
 
 [!INCLUDE [free trial note](../../includes/quickstarts-free-trial-note.md)]
 
-* You must have a Fleet resource with a hub cluster and member clusters with deployed workloads. If you don't have this resource, follow [Quickstart: Create a Fleet resource and join member clusters](quickstart-create-fleet-and-members.md).
-* The identity (user or service principal) you're using needs to have the Microsoft.ContainerService/fleets/listCredentials/action and Microsoft.ContainerService/managedClusters/listClusterUserCredential/action permissions on the Fleet and AKS resource types.
+* You must have a Fleet resource with a hub cluster and member clusters. If you don't have this resource, follow [Quickstart: Create a Fleet resource and join member clusters](quickstart-create-fleet-and-members.md).
+* The identity (user or service principal) you're using needs to have the Microsoft.ContainerService/managedClusters/listClusterUserCredential/action permissions on the Fleet and AKS resource types.
 
 ## Access the Kubernetes API of the Fleet resource cluster
 
-1. Get the kubeconfig file of the hub cluster Fleet resource using the [`az fleet get-credentials`][az-fleet-get-credentials] command.
+1. Set the following environment variables for your subscription ID, resource group, and Fleet resource, and set the default Azure subscription to use using the [`az account set`][az-account-set] command.
+
+    ```azurecli-interactive
+    export SUBSCRIPTION_ID=<subscription-id>
+    az account set --subscription ${SUBSCRIPTION_ID}
+
+    export GROUP=<resource-group-name>
+    export FLEET=<fleet-name>
+    ```
+
+2. Get the kubeconfig file of the hub cluster Fleet resource using the [`az fleet get-credentials`][az-fleet-get-credentials] command.
 
     ```azurecli-interactive
     az fleet get-credentials --resource-group ${GROUP} --name ${FLEET}
@@ -35,13 +43,13 @@ If your Azure Kubernetes Fleet Manager resource was created with the hub cluster
     Merged "hub" as current context in /home/fleet/.kube/config
     ```
 
-2. Set the following environment variable for the `id` of the hub cluster Fleet resource:
+3. Set the following environment variable for the `id` of the hub cluster Fleet resource:
 
     ```azurecli-interactive
     export FLEET_ID=/subscriptions/${SUBSCRIPTION_ID}/resourceGroups/${GROUP}/providers/Microsoft.ContainerService/fleets/${FLEET}
     ```
 
-3. Authorize your identity to the hub cluster Fleet resource's Kubernetes API server using the following commands:
+4. Authorize your identity to the hub cluster Fleet resource's Kubernetes API server using the following commands:
 
     For the `ROLE` environment variable, you can use one of the following four built-in role definitions as the value:
 
@@ -75,7 +83,7 @@ If your Azure Kubernetes Fleet Manager resource was created with the hub cluster
     }
     ```
 
-4. Verify the status of the member clusters using the `kubectl get memberclusters` command.
+5. Verify you can access the API server using the `kubectl get memberclusters` command.
 
     ```bash
     kubectl get memberclusters
