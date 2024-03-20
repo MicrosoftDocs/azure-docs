@@ -20,7 +20,7 @@ Azure periodically updates its infrastructure to improve reliability, performanc
 Azure infrastructure updates can range from upgrading network components, decommissioning hardware on network, patching software components in hosting environment or updating guest OS/ software’s on VMs. Each of these updates are performed using different tools available in Azure.
 
 ## Platform maintenance
-Platform maintenance comprises of updates applied for networking components like Top of the Rack (TOR) Switch or host environments like Dedicated hosts/Isolated VMs/Shared hosts. Host updates are done on the physical host environment where VMs reside and are transparent to the customers most of the time. However, some updates can require the residing VMs to freeze (non-rebootful updates)  or reboot (rebootful updates). When these no-impact updates are performed, Azure chooses the update mechanism that's least impactful to customer VMs.
+Platform maintenance comprises of updates applied for networking components like Top of the Rack (TOR) Switch or host environments like Dedicated hosts/Isolated VMs/Shared hosts. Host updates are done on the physical host environment where VMs are located and are transparent to the customers most of the time. However, some updates can require the residing VMs to freeze (non-rebootful updates)  or reboot (rebootful updates). When these no-impact updates are performed, Azure chooses the update mechanism that's least impactful to customer VMs.
 
 ### Host maintenance that requires a reboot and that doesn't require a reboot  
    
@@ -32,16 +32,14 @@ Platform maintenance comprises of updates applied for networking components like
 
    On Dedicated hosts, customers have host maintenance experience available for impact <1sec or >=1sec. Customers can opt into a maintenance control and schedule maintenance window based on their needs within 35days from last maintenance date. Isolated VMs have maintenance control experience available like Dedicated hosts.  
 
-With [maintenance control](maintenance-configurations.md), you can:
+Customer can use [maintenance control](maintenance-configurations.md) to:
 
-- Apply all updates together.
+- Apply all (<1 sec or >=1 sec) updates together.
 - Wait up to 35 days to apply updates for Host machines.
-- Automate platform updates by configuring a maintenance schedule or by using [Azure Functions](maintenance-auto-scheduler.md).
-- Maintenance configurations work across subscriptions and resource groups.
+- Set up a maintenance schedule or use Azure Functions to automate platform updates.
+- Maintenance configurations are effective across subscriptions and resource groups.
 
 On Shared hosts, customers have host maintenance experience available for updates that require reboot updates. For updates that are <30sec maintenance control experience isn't available today.
-
-
 
 ### Notifications  
    
