@@ -1,5 +1,5 @@
 ---
-title: Benefits of using Azure NetApp Files for electronic design automation 
+title: Benefits of using Azure NetApp Files for Electronic Design Automation (EDA)
 description: Explains the solution Azure NetApp Files provides for meeting the needs of the semiconductor and chip design industry. Presents test scenarios running a standard industry benchmark for electronic design automation (EDA) using Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.topic: conceptual
 ms.date: 03/19/2024
 ms.author: anfdocs
 ---
-# Benefits of using Azure NetApp Files for electronic design automation 
+# Benefits of using Azure NetApp Files for Electronic Design Automation (EDA)
 
 Innovation is an identifying hallmark of the semiconductor industry. Such innovation allowed Gordon Moore's 1965 tenet known as Moore's Law to hold true for more than fifty years, namely that one can expect processing speeds to double approximately every year or two. For instance, innovation in the semiconductor industry has helped evolve Moore’s Law by stacking chips into smaller form factors to scale performance to once-unimaginable levels through parallelism. 
 
@@ -109,3 +109,4 @@ EDA workloads require file storage that can handle high file counts, large capac
 * [Azure NetApp Files large volume performance benchmarks for Linux](performance-large-volumes-linux.md)
 * [Requirements and considerations for large volumes](large-volumes-requirements-considerations.md)
 * [Linux NFS mount options best practices for Azure NetApp Files](performance-linux-mount-options.md)
+* [Azure Modeling and Simulation Workbench (preview) documentation](../modeling-simulation-workbench/index.yml)
