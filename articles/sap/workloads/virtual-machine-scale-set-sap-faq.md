@@ -7,7 +7,7 @@ ms.author: depadia
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: conceptual
-ms.date: 06/01/2023
+ms.date: 03/20/2024
 ---
 
 # FAQs for Virtual Machine Scale Set for SAP workload
@@ -15,10 +15,6 @@ ms.date: 06/01/2023
 Get answers to frequently asked questions about Virtual Machine Scale Sets for SAP workload
 
 ## SAP workload deployment
-
-### How to create flexible virtual machine scale set without a scaling profile from Azure portal?
-
-Currently, it's not possible to create flexible virtual machine scale set without a scaling profile through the Azure portal. However, you can use an alternative client to [create a scale set without a scaling profile](./virtual-machine-scale-set-sap-deployment-guide.md#configuration-of-flexible-virtual-machine-scale-set-without-a-scaling-profile).
 
 ### Can I create flexible scale set with scaling or scaling profile for SAP workload to use autoscaling feature for SAP application servers?
 
@@ -61,3 +57,7 @@ To migrate SAP VMs to a flexible scale set, you need to re-create the VMs and th
 To move an existing SAP HANA deployment that is currently pinned with Azure NetApp Files to zonal deployment with flexible scale set (FD=1), you must redeploy or migrate the SAP HANA VMs with flexible scale set (FD=1). Additionally, you would need to configure Azure NetApp Files with the [availability zones volume placement feature](../../azure-netapp-files/manage-availability-zone-volume-placement.md) and transfer data to new volumes using backup/restore.
 
 Keep in mind that the availability zone volume placement feature is still in preview. Therefore, it's essential to thoroughly review the documentation on [managing availability zone volume placement for Azure NetApp Files](../../azure-netapp-files/use-availability-zones.md) for additional consideration.
+
+### How to configure SAP HANA using Azure NetApp Files (ANF) Application Volume Groups (AVG) in a specific availability zone?
+
+You can create new volumes in your preferred logical availability zone as described in [availability zones volume placement feature](../../azure-netapp-files/manage-availability-zone-volume-placement.md) guide. For configuring AVG for SAP HANA, follow the steps described in the article [Configuring Azure NetApp Files (ANF) Application Volume Group (AVG) for zonal SAP HANA deployment](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/configuring-azure-netapp-files-anf-application-volume-group-avg/ba-p/3943801).

@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.date: 09/25/2023
+ms.date: 03/20/2024
 ---
 
 # Virtual Machine Scale Sets for SAP workload
@@ -58,8 +58,22 @@ For SBD devices, VMs are manually deployed in each availability zone within the 
 
 For SAP workloads, it's recommended to create a flexible virtual machine scale set without a scaling profile. To create a flexible scale set across availability zones, set the fault domain count to 1 and specify the desired zones.
 
+### [Azure portal](#tab/scaleset-portal)
+
+To set up a virtual machine scale set without scaling profile using Azure portal, proceed as follows -
+
+1. Login to [Azure portal](https://portal.azure.com).
+1. Search for "Virtual machine scale set" and select "create" on the corresponding page.
+1. In the basics tab, provide the necessary details:
+    1. Under project details, verify the correct "subscription" and choose "my-resource-group" from the resource group dropdown.
+    1. For scale set details, name your scale set “myVmssFlex”. Choose the appropriate "region" and specify "availability zone" (For example, zone1, zone2, zone3) for your deployment.
+1. Select the "flexible" orchestration mode
+1. Under the scaling section, select "no scaling profile".
+1. For the allocation policy, select "max spreading"
+1. Select "create"
+
 > [!NOTE]
-> It's not possible to create flexible virtual machine scale set without a scaling profile through the Azure Portal. However, you can use an alternative client to [create a scale set without a scaling profile](../../virtual-machine-scale-sets/virtual-machine-scale-sets-scaling-profile.md?tabs=cli#create-a-scale-set-without-a-scaling-profile).
+> For SAP workload only flexible scale set with FD=1 is supported. So, do not configure scale set with "fixed spreading" as the allocation policy.
 
 ### [Azure CLI](#tab/scaleset-cli)
 
