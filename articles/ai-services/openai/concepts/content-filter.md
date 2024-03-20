@@ -428,6 +428,8 @@ print(response.model_dump_json(indent=2))
 
 # [OpenAI Python 0.28.1](#tab/python)
 
+[!INCLUDE [Deprecation](../includes/deprecation.md)]
+
 ```python
 # os.getenv() for the endpoint and key assumes that you are using environment variables.
 
