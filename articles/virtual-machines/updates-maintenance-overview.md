@@ -20,7 +20,7 @@ Azure periodically updates its infrastructure to improve reliability, performanc
 Azure infrastructure updates can range from upgrading network components, decommissioning hardware on network, patching software components in hosting environment or updating guest OS/ software’s on VMs. Each of these updates are performed using different tools available in Azure.
 
 ## Platform maintenance
-Platform maintenance comprises of updates applied for networking components like Top of the Rack (TOR) Switch or host environments like Dedicated hosts/Isolated VMs/Shared . Host updates are done on the physical host environment where VMs reside and are transparent to the customers most of the time. However, some updates can require the residing VMs to freeze (non-rebootful updates)  or reboot (rebootful updates). When these no-impact updates are performed, Azure chooses the update mechanism that's least impactful to customer VMs.
+Platform maintenance comprises of updates applied for networking components like Top of the Rack (TOR) Switch or host environments like Dedicated hosts/Isolated VMs/Shared hosts. Host updates are done on the physical host environment where VMs reside and are transparent to the customers most of the time. However, some updates can require the residing VMs to freeze (non-rebootful updates)  or reboot (rebootful updates). When these no-impact updates are performed, Azure chooses the update mechanism that's least impactful to customer VMs.
 
 ### Host maintenance that requires a reboot and that does not require a reboot  
    
