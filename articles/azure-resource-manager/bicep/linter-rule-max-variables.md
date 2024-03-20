@@ -8,7 +8,7 @@ ms.date: 03/20/2024
 
 # Linter rule - max variables
 
-This rule checks that the number of variables does not exceed the [ARM template limits](../templates/best-practices.md#template-limits).
+This rule checks that the number of variables doesn't exceed the [ARM template limits](../templates/best-practices.md#template-limits).
 
 ## Linter rule code
 

@@ -1,5 +1,5 @@
 ---
-title: Deploy Bicep files with visual Studio Code
+title: Deploy Bicep files with Visual Studio Code
 description: Deploy Bicep files from Visual Studio Code.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
