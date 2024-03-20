@@ -18,6 +18,9 @@ A private endpoint connection is created in a "Pending" state when you create a 
 
 While managed private endpoints are free, there may be charges associated with private link usage on a data source. For more information, see your data source’s pricing details.
 
+> [!NOTE]
+> Managed private endpoints are currently only available in Azure Global.
+
 ## Supported data sources
 
 Managed private endpoints work with Azure services that support private link. Using them, you can connect your Azure Managed Grafana workspace to the following Azure data stores over private connectivity:
