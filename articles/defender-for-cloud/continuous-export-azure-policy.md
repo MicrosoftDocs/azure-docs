@@ -1,5 +1,5 @@
 ---
-title: Setup continuous export with Azure Policy
+title: Set up continuous export with Azure Policy
 description: Learn how to set up continuous export of Microsoft Defender for Cloud security alerts and recommendations with Azure Policy.
 author: dcurwin
 ms.author: dacurwin
@@ -8,7 +8,7 @@ ms.date: 03/20/2024
 #customer intent: As a security analyst, I want to learn how to set up continuous export of alerts and recommendations with Azure Policy so that I can analyze the data in Log Analytics or Azure Event Hubs.
 ---
 
-# Setup continuous export with Azure Policy
+# Set up continuous export with Azure Policy
 
 Continuous export of Microsoft Defender for Cloud security alerts and recommendations can help you analyze the data in Log Analytics or Azure Event Hubs. You can set up continuous export in Defender for Cloud at scale, by using provided Azure Policy templates.
 

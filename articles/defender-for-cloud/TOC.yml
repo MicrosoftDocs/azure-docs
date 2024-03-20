@@ -281,7 +281,7 @@
             - name: Incidents reference list
               displayName: incidents
               href: incidents-reference.md
-        - name: Export alerts and recommendations with continuous export
+        - name: Exporting alerts and recommendations with continuous export
           displayName: continuous, export, exportable, exportable data
           href: benefits-of-continuous-export.md
 
@@ -441,9 +441,9 @@
             - name: Download a CSV report
               displayName: CSV report, alerts
               href: export-alerts-to-csv.md
-            - name: Alerts schemas
-              displayName: Alerts schemas
-              href: alerts-schemas.md
+        - name: Alerts schemas
+          displayName: Alerts schemas
+          href: alerts-schemas.md
         - name: Manage security incidents
           displayName: security incidents
           href: incidents.md
