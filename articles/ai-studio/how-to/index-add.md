@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 01/15/2024
+ms.date: 2/24/2024
 ms.reviewer: eur
 ms.author: eur
 author: eric-urban
@@ -116,8 +116,9 @@ If the Azure AI hub resource the project uses was created through Azure portal:
 
 ## Use an index in prompt flow
 
-1. Open your AI Studio project.
-1. In **Flows**, create a new flow or open an existing flow.
+1. Sign in to [Azure AI Studio](https://ai.azure.com) and select your project from the **Build** page. 
+1. From the collapsible left menu, select **Prompt flow**.
+1. Open an existing prompt flow or select **+ Create** to create a new flow.
 1. On the top menu of the flow designer, select **More tools**, and then select ***Index Lookup***.
 
     :::image type="content" source="../media/index-retrieve/index-lookup-tool.png" alt-text="Screenshot of Vector index Lookup from More Tools." lightbox="../media/index-retrieve/index-lookup-tool.png":::

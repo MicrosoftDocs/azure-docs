@@ -36,7 +36,6 @@ AKS uses the following rules for applying updates to installed add-ons:
 | azure-policy | Use Azure Policy for AKS, which enables at-scale enforcements and safeguards on your clusters in a centralized, consistent manner. | [Understand Azure Policy for Kubernetes clusters][azure-policy-aks] | [GitHub][azure-policy-repo] |
 | azure-keyvault-secrets-provider | Use Azure Keyvault Secrets Provider addon.| [Use the Azure Key Vault Provider for Secrets Store CSI Driver in an AKS cluster][keyvault-secret-provider] | [GitHub][keyvault-secret-provider-repo] |
 | virtual-node | Use virtual nodes with your AKS cluster. | [Use virtual nodes][virtual-nodes] | [GitHub][virtual-nodes-oss-repo] |
-| http_application_routing | Configure ingress with automatic public DNS name creation for your AKS cluster (retired). | [HTTP application routing add-on on Azure Kubernetes Service (AKS) (retired)][http-app-routing] | [GitHub][app-routing-repo] |
 | open-service-mesh | Use Open Service Mesh with your AKS cluster (retired). | [Open Service Mesh AKS add-on (retired)][osm] | [GitHub][osm-repo] |
 
 ## Extensions
@@ -81,7 +80,6 @@ For more information, see [Windows AKS partner solutions][windows-aks-partner-so
 
 <!-- LINKS -->
 [aks-repo]: https://github.com/Azure/AKS
-[http-app-routing]: http-application-routing.md
 [app-routing-repo]: https://github.com/Azure/aks-app-routing-operator
 [container-insights]: ../azure-monitor/containers/container-insights-overview.md
 [virtual-nodes]: virtual-nodes.md

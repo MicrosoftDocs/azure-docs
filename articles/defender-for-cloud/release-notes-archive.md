@@ -4,7 +4,7 @@ description: A description of what's new and changed in Microsoft Defender for C
 author: dcurwin
 ms.author: dacurwin
 ms.topic: reference
-ms.date: 01/03/2024
+ms.date: 01/29/2024
 ---
 
 # Archive for what's new in Defender for Cloud?
@@ -138,9 +138,9 @@ Private Endpoint support is now available as part of the Malware Scanning public
 
 Private endpoints provide secure connectivity to your Azure Storage services, effectively eliminating public internet exposure, and are considered a security best practice.
 
-For storage accounts with private endpoints that have Malware Scanning already enabled, you'll need to disable and [enable the plan with Malware Scanning](/azure/storage/common/azure-defender-storage-configure?toc=%2Fazure%2Fdefender-for-cloud%2Ftoc.json&tabs=enable-subscription) for this to work.
+For storage accounts with private endpoints that have Malware Scanning already enabled, you'll need to disable and [enable the plan with Malware Scanning](../storage/common/azure-defender-storage-configure.md?toc=%2Fazure%2Fdefender-for-cloud%2Ftoc.json&tabs=enable-subscription) for this to work.
 
-Learn more about using [private endpoints](/azure/private-link/private-endpoint-overview) in [Defender for Storage](defender-for-storage-introduction.md) and how to secure your storage services further.
+Learn more about using [private endpoints](../private-link/private-endpoint-overview.md) in [Defender for Storage](defender-for-storage-introduction.md) and how to secure your storage services further.
 
 ### Recommendation released for preview: Running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)
 
@@ -168,7 +168,7 @@ For more information on compliance controls, see [Tutorial: Regulatory complianc
 
 June 11, 2023
 
-Now you can discover potential cost savings in security by applying Defender for Cloud within the context of an [Azure Migrate business case](/azure/migrate/concepts-business-case-calculation).
+Now you can discover potential cost savings in security by applying Defender for Cloud within the context of an [Azure Migrate business case](../migrate/concepts-business-case-calculation.md).
 
 ### Express configuration for vulnerability assessments in Defender for SQL is now Generally Available
 
@@ -324,7 +324,7 @@ We recommend updating your custom scripts, workflows, and governance rules to co
 Legacy PCI DSS v3.2.1 and legacy SOC TSP have been fully deprecated in the Defender for Cloud compliance dashboard, and replaced by [SOC 2  Type 2](/azure/compliance/offerings/offering-soc-2) initiative and [PCI DSS v4](/azure/compliance/offerings/offering-pci-dss) initiative-based compliance standards.
 We have fully deprecated support of [PCI DSS](/azure/compliance/offerings/offering-pci-dss) standard/initiative in Microsoft Azure operated by 21Vianet.
 
-Learn how to [customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
+Learn how to [customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.yml).
 
 ### Two Defender for DevOps recommendations now include Azure DevOps scan findings
 
@@ -513,9 +513,9 @@ If you don't have the Defender for Endpoint integration enabled in Defender for 
 
 All Defender for Servers customers, have full access to the Defender for Endpoint’s integration as a part of the [Defender for Servers plan](plan-defender-for-servers-select-plan.md#plan-features).  
 
-You can learn more about [Microsoft Defender for Endpoint onboarding options](enable-defender-for-endpoint.md#enable-the-microsoft-defender-for-endpoint-integration).
+You can learn more about [Microsoft Defender for Endpoint onboarding options](enable-defender-for-endpoint.md).
 
-You can also view the [full list of alerts](alerts-reference.md#deprecated-defender-for-servers-alerts) that are set to be deprecated.
+You can also view the [full list of alerts](alerts-reference.md) that are set to be deprecated.
 
 Read the [Microsoft Defender for Cloud blog](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/defender-for-servers-security-alerts-improvements/ba-p/3714175).
 
@@ -660,7 +660,7 @@ We're updating these standards for customers in Azure Government and Microsoft A
 - [SOC 2 Type 2](/azure/compliance/offerings/offering-soc-2)
 - [ISO 27001:2013](/azure/compliance/offerings/offering-iso-27001)
 
-Learn how to [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
+Learn how to [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.yml).
 
 ### New preview recommendation for Azure SQL Servers
 
@@ -710,7 +710,7 @@ Learn more about [viewing vulnerabilities for running images](defender-for-conta
 
 ### Announcing support for the AWS CIS 1.5.0 compliance standard
 
-Defender for Cloud now supports the CIS Amazon Web Services Foundations v1.5.0 compliance standard. The standard can be [added to your Regulatory Compliance dashboard](update-regulatory-compliance-packages.md), and builds on MDC's existing offerings for multicloud recommendations and standards.
+Defender for Cloud now supports the CIS Amazon Web Services Foundations v1.5.0 compliance standard. The standard can be [added to your Regulatory Compliance dashboard](update-regulatory-compliance-packages.yml), and builds on MDC's existing offerings for multicloud recommendations and standards.
 
 This new standard includes both existing and new recommendations that extend Defender for Cloud's coverage to new AWS services and resources.
 
@@ -1169,7 +1169,7 @@ The new security agent is a Kubernetes DaemonSet, based on eBPF technology and i
 
 The security agent enablement is available through autoprovisioning, recommendations flow, AKS RP or at scale using Azure Policy.
 
-You can [deploy the Defender agent](./defender-for-containers-enable.md?pivots=defender-for-container-aks&tabs=aks-deploy-portal%2ck8s-deploy-asc%2ck8s-verify-asc%2ck8s-remove-arc%2caks-removeprofile-api#deploy-the-defender-agent) today on your AKS clusters.
+You can [deploy the Defender agent](./defender-for-containers-enable.md?pivots=defender-for-container-aks&tabs=aks-deploy-portal%2ck8s-deploy-asc%2ck8s-verify-asc%2ck8s-remove-arc%2caks-removeprofile-api#deploy-the-defender-sensor) today on your AKS clusters.
 
 With this announcement, the runtime protection - threat detection (workload) is now also generally available.
 
@@ -1191,7 +1191,7 @@ To see all of the included language specific packages that have been added, chec
 
 Operations Management Infrastructure (OMI) is a collection of cloud-based services for managing on-premises and cloud environments from one single place. Rather than deploying and managing on-premises resources, OMI components are entirely hosted in Azure.
 
-Log Analytics integrated with Azure HDInsight running OMI version 13 requires a patch to remediate [CVE-2022-29149](https://nvd.nist.gov/vuln/detail/CVE-2022-29149). Review the report about this vulnerability in the [Microsoft Security Update guide](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2022-29149) for information about how to identify resources that are affected by this vulnerability and remediation steps.
+Log Analytics integrated with Azure HDInsight running OMI version 13 requires a patch to remediate [CVE-2022-29149](https://nvd.nist.gov/vuln/detail/CVE-2022-29149). Review the report about this vulnerability in the [Microsoft Security Update guide](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2022-29149) for information about how to identify resources that are affected by this vulnerability and remediation steps.
 
 If you have Defender for Servers enabled with Vulnerability Assessment, you can use [this workbook](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Workbooks/OMI%20Vulnerability%20Dashboard) to identify affected resources.
 
@@ -1333,7 +1333,7 @@ Updates in May include:
 
 - [Multicloud settings of Servers plan are now available in connector level](#multicloud-settings-of-servers-plan-are-now-available-in-connector-level)
 - [JIT (Just-in-time) access for VMs is now available for AWS EC2 instances (Preview)](#jit-just-in-time-access-for-vms-is-now-available-for-aws-ec2-instances-preview)
-- [Add and remove the Defender agent for AKS clusters using the CLI](#add-and-remove-the-defender-agent-for-aks-clusters-using-the-cli)
+- [Add and remove the Defender sensor for AKS clusters using the CLI](#add-and-remove-the-defender-sensor-for-aks-clusters-using-the-cli)
 
 ### Multicloud settings of Servers plan are now available in connector level
 
@@ -1365,9 +1365,9 @@ When you [connect AWS accounts](quickstart-onboard-aws.md), JIT will automatical
 
 Learn how [JIT protects your AWS EC2 instances](just-in-time-access-overview.md#how-jit-operates-with-network-resources-in-azure-and-aws)
 
-### Add and remove the Defender agent for AKS clusters using the CLI
+### Add and remove the Defender sensor for AKS clusters using the CLI
 
-The [Defender agent](defender-for-cloud-glossary.md#defender-agent) is required for Defender for Containers to provide the runtime protections and collects signals from nodes. You can now use the Azure CLI to [add and remove the Defender agent](defender-for-containers-enable.md?tabs=k8s-deploy-cli%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Ck8s-remove-cli&pivots=defender-for-container-aks#use-azure-cli-to-deploy-the-defender-agent) for an AKS cluster.
+The [Defender agent](defender-for-cloud-glossary.md#defender-sensor) is required for Defender for Containers to provide the runtime protections and collects signals from nodes. You can now use the Azure CLI to [add and remove the Defender agent](defender-for-containers-enable.md?tabs=k8s-deploy-cli%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Ck8s-remove-cli&pivots=defender-for-container-aks#use-azure-cli-to-deploy-the-defender-sensor) for an AKS cluster.
 
 > [!NOTE]
 > This option is included in [Azure CLI 3.7 and above](/cli/azure/update-azure-cli).
@@ -1453,7 +1453,7 @@ All of the alerts for Microsoft Defender for Storage will continue to include th
 
 ### See the activity logs that relate to a security alert
 
-As part of the actions you can take to [evaluate a security alert](managing-and-responding-alerts.md#respond-to-a-security-alert), you can find the related platform logs in **Inspect resource context** to gain context about the affected resource.
+As part of the actions you can take to [evaluate a security alert](managing-and-responding-alerts.yml#respond-to-a-security-alert), you can find the related platform logs in **Inspect resource context** to gain context about the affected resource.
 Microsoft Defender for Cloud identifies platform logs that are within one day of the alert.
 
 The platform logs can help you evaluate the security threat and identify steps that you can take to mitigate the identified risk.
@@ -1708,8 +1708,8 @@ The two recommendations, which both offer automated remediation (the 'Fix' actio
 
 |Recommendation |Description |Severity |
 |---|---|---|
-|[Microsoft Defender for Servers should be enabled on workspaces](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1ce68079-b783-4404-b341-d2851d6f0fa2) | Microsoft Defender for Servers brings threat detection and advanced defenses for your Windows and Linux machines.<br>With this Defender plan enabled on your subscriptions but not on your workspaces, you're paying for the full capability of Microsoft Defender for Servers but missing out on some of the benefits.<br>When you enable Microsoft Defender for Servers on a workspace, all machines reporting to that workspace will be billed for Microsoft Defender for Servers - even if they're in subscriptions without Defender plans enabled. Unless you also enable Microsoft Defender for Servers on the subscription, those machines won't be able to take advantage of just-in-time VM access, adaptive application controls, and network detections for Azure resources.<br>Learn more in [Overview of Microsoft Defender for Servers](/azure/defender-for-cloud/defender-for-servers-introduction?wt.mc_id=defenderforcloud_inproduct_portal_recoremediation).<br />(No related policy) | Medium |
-|[Microsoft Defender for SQL on machines should be enabled on workspaces](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e9c320f1-03a0-4d2b-9a37-84b3bdc2e281) |Microsoft Defender for Servers brings threat detection and advanced defenses for your Windows and Linux machines.<br>With this Defender plan enabled on your subscriptions but not on your workspaces, you're paying for the full capability of Microsoft Defender for Servers but missing out on some of the benefits.<br>When you enable Microsoft Defender for Servers on a workspace, all machines reporting to that workspace will be billed for Microsoft Defender for Servers - even if they're in subscriptions without Defender plans enabled. Unless you also enable Microsoft Defender for Servers on the subscription, those machines won't be able to take advantage of just-in-time VM access, adaptive application controls, and network detections for Azure resources.<br>Learn more in [Overview of Microsoft Defender for Servers](/azure/defender-for-cloud/defender-for-servers-introduction).<br />(No related policy) |Medium |
+|[Microsoft Defender for Servers should be enabled on workspaces](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1ce68079-b783-4404-b341-d2851d6f0fa2) | Microsoft Defender for Servers brings threat detection and advanced defenses for your Windows and Linux machines.<br>With this Defender plan enabled on your subscriptions but not on your workspaces, you're paying for the full capability of Microsoft Defender for Servers but missing out on some of the benefits.<br>When you enable Microsoft Defender for Servers on a workspace, all machines reporting to that workspace will be billed for Microsoft Defender for Servers - even if they're in subscriptions without Defender plans enabled. Unless you also enable Microsoft Defender for Servers on the subscription, those machines won't be able to take advantage of just-in-time VM access, adaptive application controls, and network detections for Azure resources.<br>Learn more in [Overview of Microsoft Defender for Servers](plan-defender-for-servers.md).<br />(No related policy) | Medium |
+|[Microsoft Defender for SQL on machines should be enabled on workspaces](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e9c320f1-03a0-4d2b-9a37-84b3bdc2e281) |Microsoft Defender for Servers brings threat detection and advanced defenses for your Windows and Linux machines.<br>With this Defender plan enabled on your subscriptions but not on your workspaces, you're paying for the full capability of Microsoft Defender for Servers but missing out on some of the benefits.<br>When you enable Microsoft Defender for Servers on a workspace, all machines reporting to that workspace will be billed for Microsoft Defender for Servers - even if they're in subscriptions without Defender plans enabled. Unless you also enable Microsoft Defender for Servers on the subscription, those machines won't be able to take advantage of just-in-time VM access, adaptive application controls, and network detections for Azure resources.<br>Learn more in [Overview of Microsoft Defender for Servers](defender-for-servers-introduction.md).<br />(No related policy) |Medium |
 
 ### Autoprovision Log Analytics agent to Azure Arc-enabled machines (preview)
 
@@ -1963,7 +1963,7 @@ Security recommendations in Defender for Cloud are supported by the Azure Securi
 
 [Azure Security Benchmark](/security/benchmark/azure/introduction) is the Microsoft-authored, Azure-specific set of guidelines for security and compliance best practices based on common compliance frameworks. This widely respected benchmark builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on cloud-centric security.
 
-From Ignite 2021, Azure Security Benchmark **v3** is available in [Defender for Cloud's regulatory compliance dashboard](update-regulatory-compliance-packages.md) and enabled as the new default initiative for all Azure subscriptions protected with Microsoft
+From Ignite 2021, Azure Security Benchmark **v3** is available in [Defender for Cloud's regulatory compliance dashboard](update-regulatory-compliance-packages.yml) and enabled as the new default initiative for all Azure subscriptions protected with Microsoft
 Defender for Cloud.
 
 Enhancements for v3 include:
@@ -2268,8 +2268,8 @@ We've added two **preview** recommendations to deploy and maintain the endpoint 
 
 |Recommendation |Description |Severity |
 |---|---|---|
-|[Endpoint protection should be installed on your machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/4fb67663-9ab9-475d-b026-8c544cced439) |To protect your machines from threats and vulnerabilities, install a supported endpoint protection solution.  [Learn more about how Endpoint Protection for machines is evaluated.](/azure/defender-for-cloud/endpoint-protection-recommendations-technical)<br />(Related policy: [Monitor missing Endpoint Protection in Azure Security Center](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2faf6cd1bd-1635-48cb-bde7-5b15693900b9)) |High |
-|[Endpoint protection health issues should be resolved on your machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/37a3689a-818e-4a0e-82ac-b1392b9bb000) |Resolve endpoint protection health issues on your virtual machines to protect them from latest threats and vulnerabilities. Azure Security Center supported endpoint protection solutions are documented [here](./supported-machines-endpoint-solutions-clouds-servers.md?tabs=features-windows). Endpoint protection assessment is documented [here](/azure/defender-for-cloud/endpoint-protection-recommendations-technical).<br />(Related policy: [Monitor missing Endpoint Protection in Azure Security Center](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2faf6cd1bd-1635-48cb-bde7-5b15693900b9)) |Medium |
+|[Endpoint protection should be installed on your machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/4fb67663-9ab9-475d-b026-8c544cced439) |To protect your machines from threats and vulnerabilities, install a supported endpoint protection solution.  [Learn more about how Endpoint Protection for machines is evaluated.](endpoint-protection-recommendations-technical.md)<br />(Related policy: [Monitor missing Endpoint Protection in Azure Security Center](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2faf6cd1bd-1635-48cb-bde7-5b15693900b9)) |High |
+|[Endpoint protection health issues should be resolved on your machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/37a3689a-818e-4a0e-82ac-b1392b9bb000) |Resolve endpoint protection health issues on your virtual machines to protect them from latest threats and vulnerabilities. Azure Security Center supported endpoint protection solutions are documented [here](./supported-machines-endpoint-solutions-clouds-servers.md?tabs=features-windows). Endpoint protection assessment is documented [here](endpoint-protection-recommendations-technical.md).<br />(Related policy: [Monitor missing Endpoint Protection in Azure Security Center](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2faf6cd1bd-1635-48cb-bde7-5b15693900b9)) |Medium |
 
 > [!NOTE]
 > The recommendations show their freshness interval as 8 hours, but there are some scenarios in which this might take significantly longer. For example, when an on premises machine is deleted, it takes 24 hours for Security Center to identify the deletion. After that, the assessment will take up to 8 hours to return the information. In that specific situation therefore, it may take 32 hours for the machine to be removed from the list of affected resources.
@@ -2798,7 +2798,7 @@ When you enable Azure Defender for Servers running Windows Server, a license for
 Support has now been expanded to include Windows Server 2019 and Windows 10 on [Windows Virtual Desktop](../virtual-desktop/overview.md).
 
 > [!NOTE]
-> If you're enabling Defender for Endpoint on a Windows Server 2019 server, ensure it meets the prerequisites described in [Enable the Microsoft Defender for Endpoint integration](enable-defender-for-endpoint.md#enable-the-microsoft-defender-for-endpoint-integration).
+> If you're enabling Defender for Endpoint on a Windows Server 2019 server, ensure it meets the prerequisites described in [Enable the Microsoft Defender for Endpoint integration](enable-defender-for-endpoint.md).
 
 ### Recommendations to enable Azure Defender for DNS and Resource Manager (in preview)
 
@@ -2820,13 +2820,13 @@ We've added three standards for use with Azure Security Center. Using the regula
 - [CMMC Level 3](../governance/policy/samples/cmmc-l3.md)
 - [New Zealand ISM Restricted](../governance/policy/samples/new-zealand-ism.md)
 
-You can assign these to your subscriptions as described in [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
+You can assign these to your subscriptions as described in [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.yml).
 
 :::image type="content" source="media/release-notes/additional-regulatory-compliance-standards.png" alt-text="Three standards added for use with Azure Security Center's regulatory compliance dashboard." lightbox="media/release-notes/additional-regulatory-compliance-standards.png":::
 
 Learn more in:
 
-- [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md)
+- [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.yml)
 - [Tutorial: Improve your regulatory compliance](regulatory-compliance-dashboard.md)
 - [FAQ - Regulatory compliance dashboard](faq-regulatory-compliance.yml)
 
@@ -2975,7 +2975,7 @@ From the regulatory compliance dashboard's toolbar, you can now download Azure a
 
 You can select the tab for the relevant reports types (PCI, SOC, ISO, and others) and use filters to find the specific reports you need.
 
-Learn more about [Managing the standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
+Learn more about [Managing the standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.yml).
 
 :::image type="content" source="media/release-notes/audit-reports-list-regulatory-compliance-dashboard.png" alt-text="Filtering the list of available Azure Audit reports.":::
 
@@ -3088,7 +3088,7 @@ When you enable Azure Defender for Servers running Windows Server, a license for
 Support has now been expanded to include Windows Server 2019 and Windows 10 on [Windows Virtual Desktop](../virtual-desktop/overview.md).
 
 > [!NOTE]
-> If you're enabling Defender for Endpoint on a Windows Server 2019 server, ensure it meets the prerequisites described in [Enable the Microsoft Defender for Endpoint integration](enable-defender-for-endpoint.md#enable-the-microsoft-defender-for-endpoint-integration).
+> If you're enabling Defender for Endpoint on a Windows Server 2019 server, ensure it meets the prerequisites described in [Enable the Microsoft Defender for Endpoint integration](enable-defender-for-endpoint.md).
 
 ### Direct link to policy from recommendation details page
 
@@ -3171,7 +3171,7 @@ Existing recommendations are unaffected and as the benchmark grows, changes will
 To learn more, see the following pages:
 
 - [Learn more about Azure Security Benchmark](/security/benchmark/azure/introduction)
-- [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md)
+- [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.yml)
 
 ### Vulnerability assessment for on-premises and multicloud machines is released for general availability (GA)
 
@@ -3536,7 +3536,7 @@ Related links:
 
 The NIST SP 800-171 R2 standard is now available as a built-in initiative for use with Azure Security Center's regulatory compliance dashboard. The mappings for the controls are described in [Details of the NIST SP 800-171 R2 Regulatory Compliance built-in initiative](../governance/policy/samples/nist-sp-800-171-r2.md).
 
-To apply the standard to your subscriptions and continuously monitor your compliance status, use the instructions in [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
+To apply the standard to your subscriptions and continuously monitor your compliance status, use the instructions in [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.yml).
 
 :::image type="content" source="media/release-notes/nist-sp-800-171-r2-standard.png" alt-text="The NIST SP 800 171 R2 standard in Security Center's regulatory compliance dashboard":::
 
@@ -3654,7 +3654,7 @@ Security Center's regulatory compliance dashboard provides insights into your co
 
 The dashboard includes a default set of regulatory standards. If any of the supplied standards isn't relevant to your organization, it's now a simple process to remove them from the UI for a subscription. Standards can be removed only at the *subscription* level; not the management group scope.
 
-Learn more in [Remove a standard from your dashboard](update-regulatory-compliance-packages.md).
+Learn more in [Remove a standard from your dashboard](update-regulatory-compliance-packages.yml).
 
 ### Microsoft.Security/securityStatuses table removed from Azure Resource Graph (ARG)
 
@@ -4396,7 +4396,7 @@ Now, you can add standards such as:
 
 In addition, we've recently added the [Azure Security Benchmark](/security/benchmark/azure/introduction), the Microsoft-authored Azure-specific guidelines for security and compliance best practices based on common compliance frameworks. Additional standards will be supported in the dashboard as they become available.
 
-Learn more about [customizing the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
+Learn more about [customizing the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.yml).
 
 ### Identity recommendations now included in Azure Security Center free tier
 
@@ -4569,7 +4569,7 @@ The Regulatory Compliance dashboard provides insights into your compliance postu
 
 The regulatory compliance dashboard has thus far supported four built-in standards:  Azure CIS 1.1.0, PCI-DSS, ISO 27001, and SOC-TSP. We are now announcing the public preview release of additional supported standards: NIST SP 800-53 R4, SWIFT CSP CSCF v2020, Canada Federal PBMM and UK Official together with UK NHS. We are also releasing an updated version of Azure CIS 1.1.0, covering more controls from the standard and enhancing extensibility.
 
-[Learn more about customizing the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
+[Learn more about customizing the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.yml).
 
 ### Threat Protection for Azure Kubernetes Service (preview)
 

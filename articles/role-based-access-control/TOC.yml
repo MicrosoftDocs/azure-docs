@@ -71,9 +71,9 @@
     - name: Portal
       href: role-assignments-list-portal.md
     - name: PowerShell
-      href: role-assignments-list-powershell.md
+      href: role-assignments-list-powershell.yml
     - name: CLI
-      href: role-assignments-list-cli.md
+      href: role-assignments-list-cli.yml
     - name: REST API
       href: role-assignments-list-rest.md
   - name: Assign roles
@@ -85,8 +85,8 @@
       - name: Assign roles
         href: role-assignments-portal.md
       - name: Managed identity
-        href: role-assignments-portal-managed-identity.md
-      - name: External guest users
+        href: role-assignments-portal-managed-identity.yml
+      - name: External users
         href: role-assignments-external-users.md
     - name: PowerShell
       href: role-assignments-powershell.md
@@ -122,17 +122,9 @@
     - name: Conditions and custom security attributes
       href: conditions-custom-security-attributes.md
   - name: Remove role assignments
-    href: role-assignments-remove.md
+    href: role-assignments-remove.yml
   - name: List deny assignments
-    items:
-    - name: Overview
-      href: deny-assignments.md
-    - name: Portal
-      href: deny-assignments-portal.md
-    - name: PowerShell
-      href: deny-assignments-powershell.md
-    - name: REST API
-      href: deny-assignments-rest.md
+    href: deny-assignments.md
   - name: Create custom roles
     items:
     - name: Overview

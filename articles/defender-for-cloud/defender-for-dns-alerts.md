@@ -32,7 +32,7 @@ When you receive a security alert about suspicious and anomalous activities iden
 Now that you know how to respond to DNS alerts, find out more about how to manage alerts.
 
 > [!div class="nextstepaction"]
-> [Manage security alerts](managing-and-responding-alerts.md)
+> [Manage security alerts](managing-and-responding-alerts.yml)
 
 For related material, see the following articles:
 

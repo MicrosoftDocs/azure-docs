@@ -145,15 +145,17 @@ An *ingress controller* is a daemon that runs on an AKS node and watches for inc
 
 Ingress controllers must be scheduled on a Linux node. Indicate that the resource should run on a Linux-based node using a node selector in your YAML manifest or Helm chart deployment. For more information, see [Use node selectors to control where pods are scheduled in AKS][concepts-node-selectors].
 
-> [!NOTE]
-> Windows Server nodes shouldn't run the ingress controller.
+## Ingress with the application routing addon
 
-There are many scenarios for ingress, including the following how-to guides:
+The application routing addon is the recommended way to configure an Ingress controller in AKS. The application routing addon is a fully managed, ingress controller for Azure Kubernetes Service (AKS) that provides the following features:
 
-* [Create a basic ingress controller with external network connectivity][aks-ingress-basic]
-* [Create an ingress controller that uses an internal, private network and IP address][aks-ingress-internal]
-* [Create an ingress controller that uses your own TLS certificates][aks-ingress-own-tls]
-* Create an ingress controller that uses Let's Encrypt to automatically generate TLS certificates [with a dynamic public IP address][aks-ingress-tls] or [with a static public IP address][aks-ingress-static-tls]
+* Easy configuration of managed NGINX Ingress controllers based on Kubernetes NGINX Ingress controller.
+
+* Integration with Azure DNS for public and private zone management.
+
+* SSL termination with certificates stored in Azure Key Vault.
+
+For more information about the application routing add-on, see [Managed NGINX ingress with the application routing add-on](app-routing.md).
 
 ## Secure traffic with a web application firewall (WAF)
 
@@ -240,11 +242,6 @@ This article focused on network connectivity and security. For more information 
 [sp-delegation]: kubernetes-service-principal.md#delegate-access-to-other-azure-resources
 [expressroute]: ../expressroute/expressroute-introduction.md
 [vpn-gateway]: ../vpn-gateway/vpn-gateway-about-vpngateways.md
-[aks-ingress-internal]: ingress-internal-ip.md
-[aks-ingress-static-tls]: ingress-static-ip.md
-[aks-ingress-basic]: ingress-basic.md
-[aks-ingress-tls]: ingress-tls.md
-[aks-ingress-own-tls]: ingress-own-tls.md
 [app-gateway]: ../application-gateway/overview.md
 [use-network-policies]: use-network-policies.md
 [advanced-networking]: configure-azure-cni.md

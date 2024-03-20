@@ -31,7 +31,7 @@ The following table displays roles and allowed actions in Defender for Cloud.
 | Dismiss alerts | - | ✔ | - | ✔ | ✔ |
 | Apply security recommendations for a resource</br> (and use [Fix](implement-security-recommendations.md)) | - | - | ✔ | ✔ | ✔ |
 | View alerts and recommendations | ✔ | ✔ | ✔ | ✔ | ✔ |
-| Exempt security recommendations | - | - | ✔ | ✔ | ✔ |
+| Exempt security recommendations | - |✔|-|-| ✔ |
 
 The specific role required to deploy monitoring components depends on the extension you're deploying. Learn more about [monitoring components](monitoring-components.md).
 
@@ -52,5 +52,5 @@ This article explained how Defender for Cloud uses Azure RBAC to assign permissi
 
 - [Set security policies in Defender for Cloud](tutorial-security-policy.md)
 - [Manage security recommendations in Defender for Cloud](review-security-recommendations.md)
-- [Manage and respond to security alerts in Defender for Cloud](managing-and-responding-alerts.md)
+- [Manage and respond to security alerts in Defender for Cloud](managing-and-responding-alerts.yml)
 - [Monitor partner security solutions](./partner-integration.md)
