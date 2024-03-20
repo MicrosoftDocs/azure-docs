@@ -32,9 +32,18 @@ Platform maintenance comprises of updates applied for networking components like
 
    On Dedicated hosts, customers have host maintenance experience available for impact <1sec or >=1sec. Customers can opt into a maintenance control and schedule maintenance window based on their needs within 35days from last maintenance date. Isolated VMs have maintenance control experience available like Dedicated hosts.  
 
-   On Shared hosts, customers have host maintenance experience available for updates that require reboot updates. For updates that are <30sec maintenance control experience isn't available today. High Risk program is available to get maintenance experience for >30s freeze.
+With [maintenance control](maintenance-configurations.md), you can:
 
-### Notification mechanisms  
+- Apply all updates together.
+- Wait up to 35 days to apply updates for Host machines.
+- Automate platform updates by configuring a maintenance schedule or by using [Azure Functions](maintenance-auto-scheduler.md).
+- Maintenance configurations work across subscriptions and resource groups.
+
+On Shared hosts, customers have host maintenance experience available for updates that require reboot updates. For updates that are <30sec maintenance control experience isn't available today.
+
+
+
+### Notifications  
    
    Azure provides notifications before, during, and after maintenance operations. Scheduled events provide notifications before an event starts and while it is in progress so your application can react automatically. Flash health events enable you to consume and analyze alerts and trends in VMs availability for reporting and root cause analysis.  
    
