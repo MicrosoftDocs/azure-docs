@@ -27,14 +27,6 @@ In this how-to guide, Network Function Publishers and Service Designers learn ho
 > [!NOTE]
 > It is strongly recommended that you have tested that the VM deployment succeeds on your Azure Operator Nexus instance before onboarding the VNF to AOSM.
 
-### Configure permissions
-
-- You require the Contributor role over your subscription in order to create a Resource Group, or an existing Resource Group where you have the Contributor role.
-- You require the `Reader`/`AcrPull` role assignments on the source ACR containing your images.
-- For the fastest image transfers, you require the `Contributor` and `AcrPush` role assignments on the subscription that will contain the AOSM-managed Artifact Store. Alternatively, you can use the `--no-subscription-permissions` parameter when publishing images. This parameter means that you don't require subscription scoped permissions.
-
-**[AK] Same question. I did not understand how --no-subscription-permissions flag works and in which cases one should use it. Can you help?**
-
 ### Azure Operator Nexus virtual machine (VM) images and Azure Resource Manager (ARM) templates
 
 - You have created an [image for the Azure Operator Nexus Virtual Machine](https://learn.microsoft.com/en-us/azure/operator-nexus/howto-virtual-machine-image). This image must be available in an ACR.
@@ -51,32 +43,12 @@ In this how-to guide, Network Function Publishers and Service Designers learn ho
 
 - The VNF ARM template should deploy one VM. Multiple VMs can be deployed by including multiple instances of the NFDV in the NSDV.
 
-### Register necessary resource providers
+### Configure permissions
 
-**[AK] Same question. Can/should we explain why we need this RP? I've never had to explicitly do this with other partners.**
-
-Before you begin using the Azure Operator Service Manager, make sure to register the required resource providers. Execute the following commands. This registration process can take up to 5 minutes.
-
-```azurecli
-# Register Resource Provider
-az provider register --namespace Microsoft.ContainerRegistry
-az provider register --namespace Microsoft.ContainerInstance
-```
-
-> [!NOTE]
-> It may take a few minutes for the resource provider registration to complete.
-
-You can verify that your subscription is registered to use AOSM by running the following commands:
-
-#### Verify the registration status of the resource providers
-
-Execute the following commands:
-
-```azurecli
-# Query the Resource Provider
-az provider show -n Microsoft.ContainerRegistry --query "{RegistrationState: registrationState, ProviderName: namespace}"
-az provider show -n Microsoft.ContainerInstance --query "{RegistrationState: registrationState, ProviderName: namespace}"
-```
+- You require the Contributor role over your subscription in order to create a Resource Group, or an existing Resource Group where you have the Contributor role.
+- You require the `Reader`/`AcrPull` role assignments on the source ACR containing your images.
+- You require the `Contributor` and `AcrPush` role assignments on the subscription that will contain the AOSM managed Artifact Store. These permissions allow the Azure CLI AOSM Extension to do a direct ACR-to-ACR copy. Direct copy is the fastest method of transferring images from one ACR to another.
+  - Your company policy may prevent you from having subscription-scoped permissions. The `--no-subscription-permissions` parameter, available on the `az aosm nfd publish` and `az aosm nsd publish` commands, uses tightly scoped permissions derived from the AOSM service to orchestrate a two-step copy to and from your local machine. This two-step copy is slower, but doesn't require subscription scoped permissions.
 
 ### Download and install Azure CLI
 
@@ -92,9 +64,12 @@ To sign into the Azure CLI use the `az login` command and complete the prompts d
 - [Helm CLI](https://helm.sh/) installed on the host computer.
 - [Docker](https://docs.docker.com/) installed on the host computer.
 
-**[AK] Do we need helm for VNFs on AON or only Docker?**
-
 ### Install AOSM CLI extension
+
+The Az CLI AOSM Extension requires version 2.54.0 or later of the Azure CLI.
+
+1. Run `az version` to see the version and dependent libraries that are installed.
+1. Run `az upgrade` to upgrade to the current version of Azure CLI.
 
 Install the AOSM CLI extension using this command:
 
@@ -102,14 +77,9 @@ Install the AOSM CLI extension using this command:
 az extension add --name aosm
 ```
 
-1. Run `az version` to see the version and dependent libraries that are installed.
-2. Run `az upgrade` to upgrade to the current version of Azure CLI.
-
-**[AK] Is there a minimum Azure CLI version that we support?**
-
 ## Build the Network Function Definition Group and Version
 
-This section creates a folder in the working directory called `vnf-cli-output` with the BICEP templates of the AOSM resources that define your Network Function Definition Group and Version, and the Artifact Store. These resources will ultimately be included in your Network Service Design. **[AK] Didn't get the last sentence, tried rewording.**
+This section creates a folder in the working directory called `vnf-cli-output` with the BICEP templates of the AOSM resources that define your Network Function Definition Group and Version, and the Artifact Store. These resources will ultimately be included in your Network Service Design
 
 1. Generate the Azure CLI AOSM extension input file for a VNF.
 
@@ -117,7 +87,7 @@ This section creates a folder in the working directory called `vnf-cli-output` w
 az aosm nfd generate-config --definition-type vnf-nexus --output-file <filename.jsonc>
 ```
 
-2. Open the input file you generated in the previous step and use the inline comments to enter the required values. This example shows the Az CLI AOSM extension input file for a fictional Contoso VNF, which runs on Azure Operator Nexus.
+1. Open the input file you generated in the previous step and use the inline comments to enter the required values. This example shows the Az CLI AOSM extension input file for a fictional Contoso VNF, which runs on Azure Operator Nexus.
 
 ```json
 {
@@ -154,7 +124,7 @@ az aosm nfd generate-config --definition-type vnf-nexus --output-file <filename.
     "images": ["contoso-vnf.azurecr.io/contosovnf:1.0.0"]
 }```
 
-3. Execute the following command to build the Network Function Definition Group and Version.
+1. Execute the following command to build the Network Function Definition Group and Version.
 
 ```azurecli
 az aosm nfd build --definition-type vnf-nexus --config-file <filename.jsonc>
@@ -169,6 +139,7 @@ This step creates the AOSM resources that define the Network Function Definition
 ```azurecli
 az aosm nfd publish --build-output-folder vnf-cli-output --definition-type vnf
 ```
+
 You can review the folder and files structure and make modifications if required.
 
 ## Build the Network Service Design Group and Version
@@ -181,7 +152,7 @@ This section creates a folder in the working directory called `nsd-cli-output`. 
 az aosm nsd generate-config --output-file <nsd-output-filename.jsonc>
 ```
 
-2. Open the input file you generated in the previous step and use the inline comments to enter the required values. This example shows the Az CLI AOSM extension input file for a fictional Contoso NSD that can be used to deploy a fictional Contoso VNF onto an Azure Operator Nexus instance. The `nfvi_type` parameter must be set to `AzureOperatorNexus`.
+1. Open the input file you generated in the previous step and use the inline comments to enter the required values. This example shows the Az CLI AOSM extension input file for a fictional Contoso NSD that can be used to deploy a fictional Contoso VNF onto an Azure Operator Nexus instance. The `nfvi_type` parameter must be set to `AzureOperatorNexus`.
 
 ```json
 {
@@ -235,11 +206,12 @@ az aosm nsd generate-config --output-file <nsd-output-filename.jsonc>
 >[!NOTE]
 > The resource element template section defines which NFD is included in the NSD. The properties must match those used in the input file passed to the `az aosm nfd build` command. This is because the Azure CLI AOSM Extension validates that the NFD has been correctly onboarded when building the NSD.
 
-3. Execute the following command to build the Network Service Design Group and Version BICEP templates.
+1. Execute the following command to build the Network Service Design Group and Version BICEP templates.
 
 ```azurecli
 az aosm nsd build --config-file <nsd-output-filename.jsonc>
 ```
+
 You can review the folder and files structure and make modifications if required.
 
 ## Publish the Network Service Design (NSD)
@@ -251,6 +223,7 @@ This step creates the AOSM resources that define the Network Service Design Grou
 ```azurecli
 az aosm nsd publish --build-output-folder nsd-cli-output
 ```
+
 You now have a complete set of AOSM publisher resources and are ready to perform the operator flow.
 
 ## Next steps
