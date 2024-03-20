@@ -386,7 +386,6 @@ Follow these steps to configure the cluster witness.
     ![Local web UI "Cluster" page with local witness type selected in "Modify cluster witness" blade on first node](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/add-cluster-witness-local-1m.png)
 
 
-
 ### Add prepared node to cluster
 
 You'll now add the prepared node to the first node and form the cluster. Before you add the prepared node, make sure the networking on the incoming node is configured in the same way as that of this node where you initiated cluster creation.
