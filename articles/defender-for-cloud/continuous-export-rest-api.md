@@ -12,6 +12,9 @@ ms.date: 03/19/2024
 
 Continuous export of Microsoft Defender for Cloud security alerts and recommendations can help you analyze the data in Log Analytics or Azure Event Hubs. You can set up continuous export in Defender for Cloud by using the REST API.
 
+> [!TIP]
+> Defender for Cloud also offers the option to do a onetime, manual export to a comma-separated values (CSV) file. Learn how to [download a CSV file](export-alerts-to-csv.md).
+
 ## Prerequisites
 
 - You need a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
@@ -38,6 +41,9 @@ You can set up and manage continuous export by using the Microsoft Defender for 
 - Azure Logic Apps
 
 You also can send the data to an [event hub or Log Analytics workspace in a different tenant](benefits-of-continuous-export.md#export-data-to-an-event-hub-or-log-analytics-workspace-in-another-tenant).
+
+> [!NOTE]
+> If you’re configuring continuous export by using the REST API, always include the parent with the findings.
 
 Here are some examples of options that you can use only in the API:
 

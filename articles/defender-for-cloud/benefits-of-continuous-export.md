@@ -1,14 +1,14 @@
 ---
-title: Continuous export concept in Microsoft Defender for Cloud
+title: Export alerts and recommendations with continuous export
 description: Learn about the benefits of continuous export in Microsoft Defender for Cloud. Stream security data to Azure Monitor workspace for analysis and visualization.
-ms.date: 03/18/2024
+ms.date: 03/20/2024
 author: dcurwin
 ms.author: dacurwin
 ms.topic: concept-article
 #customer intent: As a reader, I want to understand the benefits of continuous export in Microsoft Defender for Cloud so that I can make informed decisions about implementing it in my organization.
 ---
 
-# Continuous export concept in Microsoft Defender for Cloud
+# Export alerts and recommendations with continuous export
 
 Microsoft Defender for Cloud provides continuous export of security data. This feature allows you to stream security data to Log Analytics in Azure Monitor, to Azure Event Hubs, or to another Security Information and Event Management (SIEM), Security Orchestration Automated Response (SOAR), or IT classic [deployment model solution](export-to-siem.md). You can analyze and visualize the data using Azure Monitor logs and other Azure Monitor features.
 
@@ -24,19 +24,21 @@ When you set up continuous export, you can fully customize what information to e
 You can use continuous export to export the following data types whenever they change:
 
 - Security recommendations.
+    - Recommendation severity.
+    - Security findings.
 - Secure score.
+    - Controls.
 - Security alerts.
 - Regulatory compliance.
-- Security attack paths (preview)
-- Security findings.
+- Security attack paths
 
-Findings can be thought of as "sub" recommendations and belong to a "parent" recommendation. For example:
+Recommendation severity, security findings and controls are *sub* categories that belong to a *parent* category. For example:
 
 - The recommendations [System updates should be installed on your machines (powered by Update Center)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e1145ab1-eb4f-43d8-911b-36ddf771d13f) and [System updates should be installed on your machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/4ab6e3c5-74dd-8b35-9ab9-f61b30875b27) each has one sub recommendation per outstanding system update.
 - The recommendation [Machines should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1195afff-c881-495e-9bc5-1486211ae03f) has a sub recommendation for every vulnerability that the vulnerability scanner identifies.
 
 > [!NOTE]
-> If you’re configuring continuous export by using the REST API, always include the parent with the findings.
+> If you’re configuring [continuous export by using the REST API](continuous-export-rest-api.md), always include the parent with the findings.
 
 ## Export data to an event hub or Log Analytics workspace in another tenant
 
@@ -73,6 +75,6 @@ To view the event schemas of the exported data types, see [Log Analytics table s
 
 ## Related content
 
-- [Continuously export Microsoft Defender for Cloud data](continuous-export.md)
+- [Setup continuous export in the Azure portal](continuous-export.md)
 - [Setup continuous export with REST API](continuous-export-rest-api.md)
 - [Setup continuous export with Azure Policy](continuous-export-azure-policy.md)
