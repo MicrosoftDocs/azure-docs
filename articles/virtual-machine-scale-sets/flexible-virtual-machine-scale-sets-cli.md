@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.date: 11/22/2022
 ms.reviewer: jushiman
-ms.custom: mimckitt, devx-track-azurecli, vmss-flex, linux-related-content
+ms.custom: mimckitt, devx-track-azurecli, vmss-flex
 ---
 
 # Create virtual machines in a scale set using Azure CLI

@@ -9,6 +9,11 @@
             "source_path_from_root": "/articles/ai-studio/how-to/deploy-models.md",
             "redirect_URL": "/azure/ai-studio/concepts/deployments-overview",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/ai-studio/quickstarts/playground-completions.md",
+            "redirect_URL": "/azure/ai-studio/quickstarts/assistants",
+            "redirect_document_id": true
         }
     ]
 }
