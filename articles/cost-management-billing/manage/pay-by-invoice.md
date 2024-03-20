@@ -6,7 +6,7 @@ ms.reviewer: lishepar
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/08/2024
+ms.date: 03/20/2024
 ms.author: banders
 ---
 
@@ -38,7 +38,8 @@ Customers who have a Microsoft Online Services Program (pay-as-you-go) account c
 ## Request to pay by wire transfer
 
 > [!NOTE]
-> Currently only customers in the United States can get automatically approved to change their payment method to wire transfer and use the following procedure. Support for other regions is being evaluated. If you are not in the United States, you must [submit a request to set up pay by wire transfer](#submit-a-request-to-set-up-pay-by-wire-transfer) to change your payment method.
+> - Currently only customers in the United States can get automatically approved to change their payment method to wire transfer and use the following procedure. Support for other regions is being evaluated. If you are not in the United States, you must [submit a request to set up pay by wire transfer](#submit-a-request-to-set-up-pay-by-wire-transfer) to change your payment method.
+> - After you're approved to pay by wire transfer, you can't switch back to credit card except for one-time payments.
 
 1. Sign in to the Azure portal.
     - If you have a pay-as-you-go subscription, navigate to **Subscriptions** and then select the one that you want to set up wire transfer for.
