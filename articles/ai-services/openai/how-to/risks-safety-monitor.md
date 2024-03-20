@@ -12,45 +12,42 @@ manager: nitinme
 
 # Use the Risks & Safety monitor in OpenAI Studio (preview) 
 
-When you use an Azure OpenAI model deployment with a content filter, you may want to check the results of the filtering activity. You can use that informatino to further adjust your filter configuration to serve your specific business needs and meet Responsible AI principles.  
+When you use an Azure OpenAI model deployment with a content filter, you may want to check the results of the filtering activity. You can use that information to further adjust your filter configuration to serve your specific business needs and meet Responsible AI principles.  
 
-[Azure OpenAI Studio](tbd) provides a Risks & Safety monitor dashboard for each of your deployments that have a content filter configuration applied.
+[Azure OpenAI Studio](https://oai.azure.com/) provides a Risks & Safety dashboard for each of your deployments that uses a content filter configuration.
 
+## Access the Risks & Safety monitor
 
-Besides the "harmful content analysis" insights, there's advanced "potentially abusive user analysis" performed at user-level to help get potentially abusive users who are continuously sending abusive requests to the model or perform bad activities. Customers can take further response action if it's confirmed as abusive.
+Go to [Azure OpenAI Studio](https://oai.azure.com/) and sign in with the credentials associated with your Azure OpenAI resource. Select the **Deployments** tab on the left and then select your model deployment from the list. On the deployment's page, select the **Risks & Safety** tab at the top.
 
-## Harmful content analysis   
+## Content detection   
 
-tbd
-
-
+The **Content detection** pane shows information about content filter activity. Your content filter configuration is applied to both the user input and model output of LLM sessions. 
 
 ### Report description
 
-The content filter is configured and applied to both "user input" and "model output". The harmful content analysis insights can be visualized respectively. The available insights are: 
-- **Total blocked request count and block rate**: The report shows a global view of the amount and rate of content that is filtered over time. This helps you understand trends of harmful requests from users and see any unexpected activity.
+Content filtering data is shown in the following ways:
+- **Total blocked request count and block rate**: This view shows a global view of the amount and rate of content that is filtered over time. This helps you understand trends of harmful requests from users and see any unexpected activity.
 - **Blocked requests by category**: This view shows the amount of content blocked for each category. This is an all-up statistic of harmful requests across the time range selected. It currently supports the harm categories hate, sexual, self-harm, and violence.
 - **Block rate over time by category**: This view shows the block rate for each category over time. It currently supports the harm categories hate, sexual, self-harm, and violence.
 - **Severity distribution by category**: This view shows the severity levels detected for each harm category, across the whole selected time range. This is not limited to _blocked_ content but rather includes all content that was detected as harmful.
 - **Severity rate distribution over time by category**: This view shows the rates of detected severity levels over time, for each harm category. Select the tabs to switch between supported categories.
 
-tbd Screenshot
+:::image type="content" source="../media/how-to/content-detection.png" alt-text="Screenshot of the content detection pane in the Risks & Safety monitor." lightbox="../media/how-to/content-detection.png":::
 
-### Recommended actions:
+### Recommended actions
 
 Fine-tune your content filter configuration to further align with business needs and conform to your system's Responsible AI requirements.  
 
-
 ## Potentially abusive user detection   
 
-tbd
+The **Potentially abusive user detection** pane shows information about users whose behavior has resulted in blocked content. The goal is to help you get a view of the sources of harmful content so you can take responsive actions to ensure the model is being used in a responsible way. 
 
-In addition to a content filter configuration applied to your deployment, you need to do the following:
-- Send "UserGUID" information from the Azure OpenAI API calls through "user" field. Check the API reference. TBD
-- Connect an Azure Data Explorer database to store the user analysis results.
-
-> [!CAUTION]
-> Do not include sensitive personal data in the "user" field.
+In addition to a content filter configuration applied to your deployment, you need the following:
+- Send "UserGUID" information from the Azure OpenAI API calls through the "user" field. Check the API reference.
+    > [!CAUTION]
+    > Do not include sensitive personal data in the "user" field.
+- An Azure Data Explorer database set up to store the user analysis results.
 
 ### Set up your Azure Data Explorer database
 
@@ -66,7 +63,7 @@ In order to protect the data privacy of "user" information, as well as manage th
 
 ### Report description 
 
-The potentially abusive user detection relies on the "user" information that customers send from within Azure OpenAI API calls, together with the request content,. The goal is to help you get a view of the sources of harmful content so you can take responsive actions to ensure the model is being used in a responsible way. Several insights are shown:
+The potentially abusive user detection relies on the "user" information that customers send from within Azure OpenAI API calls, together with the request content. Several insights are shown:
 - **Total potentially abusive user count**: This view shows the number of detected potentially abusive users over time. These are users for whom a pattern of abuse was detected and who might introduce high risk.
 - **Potentially abusive users list**: This view is a detailed list of detected potentially abusive users. It gives the following information for each user: 
     - **UserGUID**: This is sent by the customer through "user" field in Azure OpenAI APIs.
@@ -76,8 +73,14 @@ The potentially abusive user detection relies on the "user" information that cus
     - **Total abuse request ratio/count**
     - **Abuse ratio/count by category** 
 
-tbd Screenshot
+:::image type="content" source="../media/how-to/potentially-abusive-user.png" alt-text="Screenshot of the Potentially abusive user detection pane in the Risks & Safety monitor." lightbox="../media/how-to/potentially-abusive-user.png":::
 
-### Recommended actions: 
+### Recommended actions
 
-Combine with enriched signals and validate whether the detected users are truly abusive or not. If yes, then take response action like throttle or suspend the user to ensure the responsible use of the large language models.  
+Combine this data with enriched signals to validate whether the detected users are truly abusive or not. If they are, then take responsive action such as throttling or suspending the user to ensure the responsible use of your models.
+
+## Next steps
+
+Next, create or edit a content filter configuration in Azure OpenAI Studio.
+
+- [Configure content filters with Azure OpenAI Service](/azure/ai-services/openai/how-to/content-filters)
