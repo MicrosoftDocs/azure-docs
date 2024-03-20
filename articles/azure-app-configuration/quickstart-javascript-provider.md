@@ -36,7 +36,7 @@ Add the following key-values to the App Configuration store. For more informatio
 | *app.greeting* | *Hello World*                          | Leave empty        |
 | *app.json*     | *{"myKey":"myValue"}*                  | *application/json* |
 
-## Setting up the Node.js app
+## Set up the Node.js app
 
 In this tutorial, you'll create a Node.js console app and load data from your App Configuration store.
 
