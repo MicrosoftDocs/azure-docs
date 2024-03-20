@@ -14,8 +14,6 @@ ms.reviewer: rosouz
 
 Azure Cosmos DB reserved capacity helps you save money by committing to a reservation for Azure Cosmos DB resources for either one year or three years. With Azure Cosmos DB reserved capacity, you can get a discount on the throughput provisioned for Azure Cosmos DB resources. Examples of resources are databases and containers (tables, collections, and graphs).
 
-You can buy Azure Cosmos DB reserved capacity from the [Azure portal](https://portal.azure.com). Pay for the reservation [upfront or with monthly payments](../cost-management-billing/reservations/prepare-buy-reservation.md). 
-
 ## Overview
 
 The size of the reserved capacity purchase should be based on the total amount of throughput that the existing or soon-to-be-deployed Azure Cosmos DB resources will use on an hourly basis. For example: Purchase 10,000 RU/s reserved capacity if that's your consistent hourly usage pattern. 
@@ -30,6 +28,7 @@ Please note that:
 After you buy a reservation, it's applied immediately to any existing Azure Cosmos DB resources that match the terms of the reservation. If you don’t have any existing Azure Cosmos DB resources, the reservation will apply when you deploy a new Azure Cosmos DB instance that matches the terms of the reservation. In both cases, the period of the reservation starts immediately after a successful purchase.
 
 When your reservation expires, your Azure Cosmos DB instances continue to run and are billed at the regular pay-as-you-go rates.
+You can buy Azure Cosmos DB reserved capacity from the [Azure portal](https://portal.azure.com). Pay for the reservation [upfront or with monthly payments](../cost-management-billing/reservations/prepare-buy-reservation.md). 
 
 ## Required permissions
 
@@ -39,7 +38,7 @@ The required permissions to purchase reserved capacity for Azure Cosmos DB are:
 * For Enterprise subscriptions, **Add Reserved Instances** must be enabled in the [EA portal](https://ea.azure.com). Or, if that setting is disabled, you must be an EA Admin on the subscription.
 * For the Cloud Solution Provider (CSP) program, only admin agents or sales agents can buy Azure Cosmos DB reserved capacity.
 
-## Reservations usage
+## Reservations consumption
 
 As soon as you buy a reservation, the throughput charges that match the reservation attributes are no longer charged at the pay-as-you go rates. For more information on reservations, see the [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) article.
 
@@ -82,6 +81,8 @@ This option, using multiples of the 100 RU/s, allows you to reserve any capacity
 | 100 RU/s |  20% | 30% |
 | 100 Multi-master RU/s |  20% | 30% |
 
+Note that for more than 999,900 RU/s reservations, you can reduce costs with progressive discounts.
+
 ### Progressive discounts reservations
 
 This option, using multiples of our bigger reservation sizes, allows you to reserve any capacity starting on 1,000,000 RU/s, with progressive discounts:
@@ -111,13 +112,13 @@ This option, using multiples of our bigger reservation sizes, allows you to rese
 | 30,000,000 RU/s | 43.4% | 58.3% |
 | 30,000,000 Multi-master RU/s | 48.4% | 63.3% |
 
-You can maximize savings with the biggest reservation for your scenario. Example: You need 2 million RU/s, one year term. If you purchase 2 units of the 1,000,000 RU/s reservation, your discount will be 27.0%. If you purchase 1 unit of the 2,000,000 RU/s reservation, you will have exactly the same reserved capacity, but a 28.5% discount.
+Note that you can maximize savings with the biggest reservation for your scenario. Example: You need 2 million RU/s, one year term. If you purchase 2 units of the 1,000,000 RU/s reservation, your discount will be 27.0%. If you purchase 1 unit of the 2,000,000 RU/s reservation, you will have exactly the same reserved capacity, but a 28.5% discount.
 
 Please [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) to purchase any quantity of the reservations bigger than 1,000,000 RU/s.
 
 ## Sample scenario 1
 
-Imagine this hypothetical scenario: A company is working on a new application but isn't sure about the throughput requirements.
+Imagine this hypothetical scenario: A company is working on a new application but isn't sure about the throughput requirements, they purchased RU/s on 3 different days.
 
 * On day 1 they purchased reserved capacity for their DEV/Test environment:
   * Total of 800 RU/s, or 8 units of the 100 RU/s reservation. 
@@ -197,11 +198,11 @@ For a 30,000 RU/s reservation, in standard provisioned throughput, you should bu
 
 6. Click on the **Add to cart** blue button on the lower right corner, and then on **View Cart** when you are done. The quantities are defined next. Please note that you can add different options to the cart. Example: If you need 1,100,000 RU/s, you should add both the 1,000,000 RU/s and the 100 RU/s SKUs to the cart. 
 
-7. In the **Purchase reservations** pane, review the billing frequency, the quantity, the discount, and the price of the reservation. This reservation price applies to Azure Cosmos DB resources with throughput provisioned across all regions. Example: If you need 1,100,000 RU/s for one region, you should set the 1,000,000 RU/s option quantity to 1 and the 100 RU/s option quantity to 1000. But if you need 1,100,000 RU/s in each region, and you have 2 regions, then the total should be 2,200,000 RU/s. And for 2,2 million RU/s, the best option is one unit of the two million RU/s option and 2000 units of the 100 RU/s option.
+7. In the **Purchase reservations** pane, review the billing frequency, the quantity, the discount, and the price of the reservation. This reservation price applies to Azure Cosmos DB resources with throughput provisioned across all regions. Example: You need 500,000 RU/s with auto-renew for your production environemnt within a specific scope, 82,000 RU/s for your Q&A resource group, and 10,000 RU/s for the development subscprition. You can see in the image below how your reservations shopping cart will look like.
 
    :::image type="content" source="./media/reserved-capacity/reserved-capacity-summary.png" alt-text="Reserved capacity summary":::
 
-8. Select **Review + buy** and then **buy now**.
+10. Select **Review + buy** and then **buy now**.
 
 ## Cancel, exchange, or refund reservations
 
