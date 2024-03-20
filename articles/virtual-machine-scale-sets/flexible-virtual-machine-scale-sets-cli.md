@@ -74,7 +74,7 @@ Results:
 }
 ```
 
-# Create Network Resources 
+## Create Network Resources 
 
 Now you'll create network resources. In this step you're going to create a virtual network, one subnet 1 for Application Gateway, and one subnet for VMs. You also need to have a public IP to attach your Application Gateway to reach your web application from the internet. 
 
@@ -713,7 +713,7 @@ Results:
 }
 ```
 
-# Define an autoscale profile  
+## Define an autoscale profile  
 
 To enable autoscale on a scale set, first define an autoscale profile. This profile defines the default, minimum, and maximum scale set capacity. These limits let you control cost by not continually creating VM instances and balance acceptable performance with a minimum number of instances that remain in a scale-in event.
 The following example sets the default, minimum capacity of two VM instances, and a maximum capacity of 10:
@@ -768,7 +768,7 @@ Results:
 }
 ```
 
-# Create a rule to autoscale out
+## Create a rule to autoscale out
 
 The following command creates a rule that increases the number of VM instances in a scale set when the average CPU load is greater than 70% over a 5-minute period. When the rule triggers, the number of VM instances increases by three.
 
@@ -804,7 +804,7 @@ Results:
 } 
 ```
 
-# Create a rule to autoscale in
+## Create a rule to autoscale in
 
 Create another rule with `az monitor autoscale rule create` that decreases the number of VM instances in a scale set when the average CPU load then drops below 30% over a 5-minute period. The following example defines the rule to scale in the number of VM instances by one.
 
