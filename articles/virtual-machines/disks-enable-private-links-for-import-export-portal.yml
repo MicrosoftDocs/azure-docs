@@ -86,7 +86,7 @@ procedureSection:
   - title: |
       Enable private endpoint on your disk
     summary: |
-      Follow the below steps:
+      Follow these steps:
     steps:   
       - |
         Navigate to the disk you'd like to configure.
