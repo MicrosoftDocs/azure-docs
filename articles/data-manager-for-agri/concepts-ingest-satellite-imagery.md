@@ -105,7 +105,7 @@ Azure Data Manager for Agriculture supports ingesting and retrieving Sentinel_2_
 
 ### Image names and resolutions
 
-The following image names and resolutions are supported by APIs used to ingest and read satellite data (for Sentinel-2) in Azure Data Manager for Agriculture:
+APIs that you use to ingest and read satellite data (for Sentinel-2) in Azure Data Manager for Agriculture support the following image names and resolutions:
 
 | Category | Image name |  Description |  Native resolution |
 |:-----:|:----:|:----:|:----:|
@@ -116,23 +116,23 @@ The following image names and resolutions are supported by APIs used to ingest a
 |Raw bands| B05 |  Vegetation red edge | 20 m |
 |Raw bands| B06 |  Vegetation red edge  | 20 m |
 |Raw bands| B07 |  Vegetation red edge  | 20 m |
-|Raw bands| B08 |  NIR  | 10 m |
+|Raw bands| B08 |  Near infrared (NIR)  | 10 m |
 |Raw bands| B8A |  Narrow NIR | 20 m |
 |Raw bands| B09 |  Water vapor | 60 m |
-|Raw bands| B11 |  SWIR | 20 m |
+|Raw bands| B11 |  Short-wave infrared (SWIR) | 20 m |
 |Raw bands| B12 |  SWIR | 20 m |
 |Sen2Cor processor output| AOT |  Aerosol optical thickness map  | 10 m |
 |Sen2Cor processor output| SCL |  Scene classification data  | 20 m |
 |Sen2Cor processor output| SNW |  Snow probability| 20 m |
 |Sen2Cor processor output| CLD |  Cloud probability| 20 m |
-|Derived Indices| NDVI |  Normalized difference vegetation index | 10 m/20 m/60 m (user defined) |
-|Derived Indices| NDWI |  Normalized difference water index | 10 m/20 m/60 m (user defined) |
-|Derived Indices| EVI | Enhanced vegetation index | 10 m/20 m/60 m (user defined) |
-|Derived Indices| LAI | Leaf Area Index | 10 m/20 m/60 m (user defined) |
-|Derived Indices| LAIMask | Leaf Area Index Mask | 10 m/20 m/60 m (user defined) |
-|CLP|  Cloud probability, based on [s2cloudless](https://github.com/sentinel-hub/sentinel2-cloud-detector). | Values range from 0 (no clouds) to 255 (clouds). | 10 m/20 m/60 m  (user defined)|
-|CLM|  Cloud masks based on [s2cloudless](https://github.com/sentinel-hub/sentinel2-cloud-detector) | Value of 1 represents clouds, 0 represents no clouds and 255 represents no data. | 10 m/20 m/60 m  (user defined)|
-|dataMask  | Binary mask to denote availability of data | 0 represents non availability of data OR pixels lying outside the 'Area of interest' | Not applicable, per pixel value|
+|Derived indices| NDVI |  Normalized difference vegetation index | 10 m/20 m/60 m (user defined) |
+|Derived indices| NDWI |  Normalized difference water index | 10 m/20 m/60 m (user defined) |
+|Derived indices| EVI | Enhanced vegetation index | 10 m/20 m/60 m (user defined) |
+|Derived indices| LAI | Leaf area index | 10 m/20 m/60 m (user defined) |
+|Derived indices| LAIMask | Leaf area index mask | 10 m/20 m/60 m (user defined) |
+|CLP|  Cloud probability based on [s2cloudless](https://github.com/sentinel-hub/sentinel2-cloud-detector) | Values range from `0` (no clouds) to `255` (clouds). | 10 m/20 m/60 m  (user defined)|
+|CLM|  Cloud masks based on [s2cloudless](https://github.com/sentinel-hub/sentinel2-cloud-detector) | Value of `1` represents clouds, `0` represents no clouds, and `255` represents no data. | 10 m/20 m/60 m  (user defined)|
+|dataMask  | Binary mask to denote availability of data | Value of `0` represents unavailability of data or pixels lying outside the area of interest. | Not applicable, per pixel value|
 
 ## Points to note
 
