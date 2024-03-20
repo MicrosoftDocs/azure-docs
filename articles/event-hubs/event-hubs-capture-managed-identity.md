@@ -23,7 +23,7 @@ With [managed identity](../active-directory/managed-identities-azure-resources/o
 
 You can use system-assigned or user-assigned managed identities with Event Hubs Capture destinations.
 
-### Use a system-assigned managed identity to capture events
+## Use a system-assigned managed identity to capture events
 System-assigned Managed Identity is automatically created and associated with an Azure resource, which is an Event Hubs namespace in this case. 
 
 To use system assigned identity, the capture destination must have the required role assignment enabled for the corresponding system assigned identity. 
@@ -296,7 +296,7 @@ Here's an example Azure Resource Manager template to configure capturing of data
 }
 ```
 
-### Use a user-assigned managed identity to capture events
+## Use a user-assigned managed identity to capture events
 You can create a user-assigned managed identity and use it for authenticate and authorize with the capture destination of Event hubs. Once the managed identity is created, you can assign it to the Event Hubs namespace and make sure that the capture destination has the required role assignment enabled for the corresponding user assigned identity. 
 
 Then you can select `User Assigned` managed identity option when enabling the capture feature in an event hub and assign the required user assigned identity when enabling the capture feature. 
