@@ -3,7 +3,7 @@ title: Tutorial - Scale clusters in a private cloud
 description: In this tutorial, you use the Azure portal to scale an Azure VMware Solution private cloud.
 ms.topic: tutorial
 ms.service: azure-vmware
-ms.date: 12/20/2023
+ms.date: 3/20/2024
 ms.custom: engagement-fy23
 
 #Customer intent: As a VMware administrator, I want to learn how to scale an Azure VMware Solution private cloud in the Azure portal.
@@ -27,15 +27,11 @@ You need an existing private cloud to complete this tutorial. If you don't alrea
 
 ## Add a new cluster
 
-1. In your Azure VMware Solution private cloud, under **Manage**, select **Clusters** > **Add a cluster**.
+1. In your Azure VMware Solution private cloud, under **Manage**, select **Clusters** > **Add a cluster**. Then select the required SKU from **Size of host** and specify the **Number of hosts" for the cluster.
 
    :::image type="content" source="media/tutorial-scale-private-cloud/ss2-select-add-cluster.png" alt-text="Screenshot showing how to add a cluster to an Azure VMware Solution private cloud." lightbox="media/tutorial-scale-private-cloud/ss2-select-add-cluster.png" border="true":::
 
-2. Use the slider to select the number of hosts and then select **Save**.
-
-   :::image type="content" source="media/tutorial-scale-private-cloud/ss3-configure-new-cluster.png" alt-text="Screenshot showing how to configure a new cluster." lightbox="media/tutorial-scale-private-cloud/ss3-configure-new-cluster.png" border="true":::
-
-   The deployment of the new cluster begins.
+2. The deployment of the new cluster will begin.
 
 ## Scale a cluster
 
