@@ -13,13 +13,13 @@ ms.author: danlep
 
 # Overview of the developer portal
 
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
+
 Developer portal is an automatically generated, fully customizable website with the documentation of your APIs. It is where API consumers can discover your APIs, learn how to use them, request access, and try them out.
 
 As introduced in this article, you can customize and extend the developer portal for your specific scenarios. 
 
 ![API Management developer portal](media/api-management-howto-developer-portal/cover.png)
-
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## Customize and style the managed portal
 
