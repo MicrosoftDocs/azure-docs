@@ -59,7 +59,7 @@ For more information, see [Upgrade the Microsoft Defender for IoT micro agent](u
     - WolfSSL
     - sqlite3
 
-- **Added support for file systems**: Defender for IoT Firmware Analysis now supports extraction of the following file systems. For more information, see [Firmware Analysis FAQs](defender-iot-firmware-analysis-FAQ.md#what-types-of-firmware-images-are-supported):
+- **Added support for file systems**: Defender for IoT Firmware Analysis now supports extraction of the following file systems. For more information, see [Firmware Analysis FAQs](defender-iot-firmware-analysis-faq.md#what-types-of-firmware-images-does-defender-for-iot-firmware-analysis-support):
     - ISO
     - RomFS
     - Zstandard and non-standard LZMA implementations of SquashFS
