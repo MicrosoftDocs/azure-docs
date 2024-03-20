@@ -502,9 +502,14 @@ items:
         - name: High scale
           displayName: Prometheus
           href: containers/prometheus-metrics-scrape-scale.md
-      - name: KEDA integration
-        displayName: Prometheus
-        href: containers/integrate-keda.md
+      - name: Integrations
+        items:
+        - name: Kafka
+          displayName: Prometheus
+          href: containers/prometheus-kafka-integration.md
+        - name: KEDA integration
+          displayName: Prometheus
+          href: containers/integrate-keda.md
       - name: Send to multiple metric workspaces
         displayName: Prometheus
         href: containers/prometheus-metrics-multiple-workspaces.md
