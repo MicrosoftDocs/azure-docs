@@ -19,6 +19,8 @@
     href: helm-requirements.md
   - name: Publisher Tenants, subscriptions, regions and preview management
     href: publisher-resource-preview-management.md
+  - name: About the Azure Operator Service Manager CLI extension
+    href: concepts-about-aosm-cli-extension.md
 - name: Quickstarts
   expanded: false
   items:
