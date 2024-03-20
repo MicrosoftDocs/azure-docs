@@ -25,18 +25,16 @@ Instead of relocation, you need to:
 
 ## Prerequisites
 
-- Verify that your Azure subscription allows you to create Key Vaults in the target region. To enable the required quota, contact support.
-- Create a dependency map with all the Azure services used by the Key Vault. For the services that are in scope of the relocation, you must elect the appropriate relocation strategy. 
+- Verify that your Azure subscription allows you to create key vaults in the target region.
 
-- Depending on your Key Vault design, the following dependent resources might need to be deployed and configured in the target region:
-  - [Public IP](/azure/virtual-network/move-across-regions-publicip-portal)
-  - [Azure Private Link](./relocation-private-link.md)
-  - [Virtual Network](./relocation-virtual-network.md)
-  - [Service Endpoints](/azure/virtual-network/scripts/virtual-network-powershell-sample-peer-two-virtual-networks)
-- Key Vault configurations to consider:
-  - Access Policies and Network configuration settings need to be re-configured in the new Key Vault.
-  - Soft delete and purge protection need to be re-configured in the new key vault.
-  - Autorotation settings need to be re-configured.
+- Create a dependency map with all the Azure services used by the Key Vault. For the services that are in scope of the relocation, you must choose the appropriate relocation strategy. 
+
+- Depending on your Key Vault design, you may need to deploy and configure the [Virtual Network](./relocation-virtual-network.md) in the target region.
+
+- Document and plan to re-configure in the Key Vault in the target region:
+  - Access Policies and Network configuration settings.
+  - Soft delete and purge protection.
+  - Autorotation settings.
 
 ## Consideration for Service Endpoints
 
@@ -337,21 +335,27 @@ Deploy the template to create a new key vault in the target region.
    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "<name of your local template file>"
    ```
 
+3. Access Policies and Network configuration settings (private endpoints) need to be re-configured in the new Key Vault. Soft delete and purge protection need to be re-configured in the new key vault and as the _Autorotation settings_.
 ---
 
-3. Access Policies and Network configuration settings (private endpoints) need to be re-configured in the new Key Vault. Soft delete and purge protection need to be re-configured in the new key vault and as the _Autorotation settings_.
 
 > [!TIP]
 > If you receive an error which states that the XML specified is not syntactically valid, compare the JSON in your template with the schemas described in the Azure Resource Manager documentation.
 
 ### Redeploy with data migration
 
-> Note: In case of moving an Azure Key Vault across regions but within same geography, a backup and restore option for secrets, keys and certificates is recommended. Ref – Backup and Restore Option. The creation of the Key Vault instance and the mapping to target dependent resources still remains the same as per the previous approach.
+>[!IMPORTANT] 
+>If you plan to move a Key Vault across regions but within the same geography, it's recommended that you do  a [backup and restore for secrets, keys and certificates](/azure/key-vault/general/backup) is recommended. 
 
-1. Follow steps in the described under Redploy.
-2. For [secrets](/azure/key-vault/secrets/about-secrets) read the value in the source key vault and recreate the secret in the target key vault and set the value.
-3. For [certificates](/azure/key-vault/certificates/about-certificates) export the certificate into a PFX file and import the PFX file into the target key vault. In case you cannot export the private key (exportable is not set) you have to generate certificate a new certificate and import it into the target key vault.
-4. [keys](/azure/key-vault/keys/about-keys) should be regenerate with the relocation of the associated Azure service.
+1. Follow steps in the described in the [redeploy approach](#redeploy).
+2. For [secrets](/azure/key-vault/secrets/about-secrets):
+    1. Copy and save the secret value in the source key vault.
+    1. Recreate the secret in the target key vault and set the value to saved secret.
+1. For [certificates](/azure/key-vault/certificates/about-certificates):
+    1. Export the certificate into a PFX file.
+    1. Import the PFX file into the target key vault. If you can't export the private key (`exportable` is not set) you must generate certificate a new certificate and import it into the target key vault.
+1. With the relocation of the associated Azure service the [keys](/azure/key-vault/keys/about-keys) are regenerated. 
+1. Confirm that the keys have been generated for the associated service.
 
 ## Verify
 
