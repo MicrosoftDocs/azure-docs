@@ -71,9 +71,9 @@
     - name: Portal
       href: role-assignments-list-portal.md
     - name: PowerShell
-      href: role-assignments-list-powershell.md
+      href: role-assignments-list-powershell.yml
     - name: CLI
-      href: role-assignments-list-cli.md
+      href: role-assignments-list-cli.yml
     - name: REST API
       href: role-assignments-list-rest.md
   - name: Assign roles
@@ -85,7 +85,7 @@
       - name: Assign roles
         href: role-assignments-portal.yml
       - name: Managed identity
-        href: role-assignments-portal-managed-identity.md
+        href: role-assignments-portal-managed-identity.yml
       - name: External users
         href: role-assignments-external-users.md
     - name: PowerShell

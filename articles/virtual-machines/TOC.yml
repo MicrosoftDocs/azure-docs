@@ -1532,7 +1532,7 @@
         href: ./linux/add-disk.md
       - name: Azure portal
         displayName: add a data disk, data disk
-        href: ./linux/attach-disk-portal.md
+        href: ./linux/attach-disk-portal.yml
     - name: Windows
       items:
       - name: Azure PowerShell
