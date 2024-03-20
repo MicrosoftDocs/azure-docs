@@ -525,6 +525,14 @@ azd down
 
 You can ignore the warnings. The Maven Jetty plugin shows the warnings because the app's *pom.xml* contains the dependency for `jakarta.servlet.jsp.jstl`, which the Jetty already provides out of the box. You need the dependency for Tomcat.
 
+#### The portal deployment view for Azure Database for MySQL Flexible Server shows a Conflict status
+
+Depending on your subscription and the region you select, you may see the deployment status for Azure Database for MySQL Flexible Server to be `Conflict`, with the following message in Operation details:
+
+`InternalServerError: An unexpected error occured while processing the request.`
+
+This is most likely because there's a limit on your subscription for the region you select. Try choosing a different region for your deployment.
+
 ## Frequently asked questions
 
 - [How much does this setup cost?](#how-much-does-this-setup-cost)
