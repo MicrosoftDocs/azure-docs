@@ -56,7 +56,7 @@ Some Microsoft Sentinel capabilities, like the unified incident queue, are integ
 
 The following image shows the **Microsoft Sentinel** menu in the Defender portal:
 
-:::image type="content" source="media/microsoft-sentinel-defender-portal/sentinel-defender-portal.png" alt-text="Screenshot of the Defender portal left navigation with the Microsoft Sentinel section.":::
+:::image type="content" source="media/microsoft-sentinel-defender-portal/navigation-defender-portal.png" alt-text="Screenshot of the Defender portal left navigation with the Microsoft Sentinel section." lightbox="media/microsoft-sentinel-defender-portal/navigation-defender-portal.png":::
 
 The following sections describe where to find Microsoft Sentinel features in the Defender portal. The sections are organized as Microsoft Sentinel is in the Azure portal.
 
