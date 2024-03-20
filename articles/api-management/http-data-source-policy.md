@@ -199,7 +199,7 @@ type User {
 <http-data-source>
     <http-request>
         <set-method>POST</set-method>
-        <set-url> https://data.contoso.com/user/create </set-url>
+        <set-url>https://data.contoso.com/user/create </set-url>
         <set-header name="Content-Type" exists-action="override">
             <value>application/json</value>
         </set-header>
@@ -215,7 +215,7 @@ type User {
 
 ### Resolver for GraphQL union type
 
-The following example resolves a query of order by ID by making an HTTP `GET` call to a backend data source and returns a JSON object that includes the customer ID and type. The customer type is a union of `RegisteredCustomer` and `GuestCustomer` types. 
+The following example resolves the `orderById` query by making an HTTP `GET` call to a backend data source and returns a JSON object that includes the customer ID and type. The customer type is a union of `RegisteredCustomer` and `GuestCustomer` types.
 
 #### Example schema
 
@@ -255,7 +255,7 @@ type GuestCustomer {
 
 #### Example policy
 
-For the sake of this example, we mock the customer results from an external source, and hard code the fetched results in the `set-body` policy.
+For this example, we mock the customer results from an external source, and hard code the fetched results in the `set-body` policy. The `__typename` field is used to determine the type of the customer.
 
 ```xml
 <http-data-source>
