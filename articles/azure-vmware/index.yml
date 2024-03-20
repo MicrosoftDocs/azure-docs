@@ -11,7 +11,7 @@ metadata:
   ms.topic: hub-page 
   author: jjaygbay1
   ms.author: jjaygbay1
-  ms.date: 3/18/2024 
+  ms.date: 3/20/2024 
 
 
 highlightedContent:
@@ -92,7 +92,7 @@ additionalContent:
             url: tutorial-nsx-t-network-segment.md
           - text: 6 - Peer on-premises to private cloud
             url: tutorial-expressroute-global-reach-private-cloud.md
-          - text: 7 - Scale in a private cloud
+          - text: 7 - Scale a private cloud
             url: tutorial-scale-private-cloud.md
           - text: 8 - Delete a private cloud
             url: tutorial-delete-private-cloud.md 

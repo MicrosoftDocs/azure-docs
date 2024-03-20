@@ -421,7 +421,7 @@ In this example, `vectorIndex` is returned with all the `cosmosSearch` parameter
 ```
 
 ## Filtered vector search (preview)
-You can now execute vector searches with any supported query filter such as `$lt, $lte, $eq, $neq, $gte, $gt, $in, $nin, and $regex`. Enable the "filtering vector search" feature in the "Preview Features" tab of your Azure Subscription. Learn more about preview features [here](../../../azure-resource-manager/management/preview-features.md).
+You can now execute vector searches with any supported query filter such as `$lt`, `$lte`, `$eq`, `$neq`, `$gte`, `$gt`, `$in`, `$nin`, and `$regex`. Enable the "filtering vector search" feature in the "Preview Features" tab of your Azure Subscription. Learn more about preview features [here](../../../azure-resource-manager/management/preview-features.md).
 
 First, you'll need to define an index for your filter in addition to a vector index. For example, you can define the filter index on a property  
 

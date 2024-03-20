@@ -5,9 +5,8 @@ author: chasecrum
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: quickstart
-ms.date: 02/28/2024
+ms.date: 03/11/2024
 ms.author: jushiman
-ms.reviewer: jushiman
 ms.custom: mvc, devx-track-azurecli, mode-api, innovation-engine, linux-related-content
 ---
 
@@ -15,7 +14,7 @@ ms.custom: mvc, devx-track-azurecli, mode-api, innovation-engine, linux-related-
 
 **Applies to:** :heavy_check_mark: Linux VMs
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/?Microsoft_Azure_CloudNative_clientoptimizations=false&feature.canmodifyextensions=true#view/Microsoft_Azure_CloudNative/SubscriptionSelectionPage.ReactView/tutorialKey/CreateLinuxVMAndSSH)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://go.microsoft.com/fwlink/?linkid=2263115)
 
 This quickstart shows you how to use the Azure CLI to deploy a Linux virtual machine (VM) in Azure. The Azure CLI is used to create and manage Azure resources via either the command line or scripts.
 
