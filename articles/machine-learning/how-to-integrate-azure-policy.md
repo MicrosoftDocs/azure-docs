@@ -24,9 +24,11 @@ As a platform administrator, you can use policies to lay out guardrails for team
 
 Azure Machine Learning provides a set of policies that you can use for common scenarios with Azure Machine Learning. You can assign these policy definitions to your existing subscription or use them as the basis to create your own custom definitions.
 
-The table below includes a selection of policies you can assign with Azure Machine Learning. For a complete list of the built-in policies for Azure Machine Learning, see [Built-in policies for Azure Machine Learning](../governance/policy/samples/built-in-policies.md#machine-learning).
+The table below lists the built-in policies you can assign with Azure Machine Learning. For a complete list of the built-in policies for Azure services, see [Built-in policies](../governance/policy/samples/built-in-policies.md).
 
-| Policy | Description |
+[!INCLUDE [azure-policy-reference-policies-machine-learning](../../includes/policy/reference/bycat/policies-machine-learning.md)]
+
+<!-- | Policy | Description |
 | ----- | ----- |
 | **Customer-managed key** | Audit or enforce whether workspaces must use a customer-managed key. |
 | **Private link** | Audit or enforce whether workspaces use a private endpoint to communicate with a virtual network. |
@@ -36,7 +38,7 @@ The table below includes a selection of policies you can assign with Azure Machi
 | **Disable public network access** | Audit or enforce whether workspaces disable access from the public internet. |
 | **Disable local authentication** | Audit or enforce whether Azure Machine Learning compute resources should have local authentication methods disabled. |
 | **Modify/disable local authentication** | Configure compute resources to disable local authentication methods. |
-| **Compute cluster and instance is behind virtual network** | Audit whether compute resources are behind a virtual network. |
+| **Compute cluster and instance is behind virtual network** | Audit whether compute resources are behind a virtual network. | -->
 
 Policies can be set at different scopes, such as at the subscription or resource group level. For more information, see the [Azure Policy documentation](../governance/policy/overview.md).
 
@@ -67,6 +69,9 @@ Using the landing zones pattern, machine learning teams can be enabled to self-s
 Azure Machine Learning integrates with [data landing zones](https://github.com/Azure/data-landing-zone) in the [Cloud Adoption Framework data management and analytics scenario](/azure/cloud-adoption-framework/scenarios/data-management/). This reference implementation provides an optimized environment to migrate machine learning workloads onto and includes policies for Azure Machine Learning preconfigured.
 
 ## Configure built-in policies
+
+
+
 
 ### Workspace encryption with customer-managed key
 
@@ -108,11 +113,11 @@ If the policy is set to __deny__, then you cannot create a workspace unless you 
 
 Controls whether a workspace should disable network access from the public internet.
 
-To configure this policy, set thee effect parameter to __audit__, __deny__, or __disabled__. If set to __audit__, you can create a workspace with public access and a warning event is created in the activity log.
+To configure this policy, set the effect parameter to __audit__, __deny__, or __disabled__. If set to __audit__, you can create a workspace with public access and a warning event is created in the activity log.
 
 If the policy is set to __deny__, then you cannot create a workspace that allows network access from the public internet.
 
-### Disable local authentication
+### Computes should have local authentication methods disabled.
 
 Controls whether an Azure Machine Learning compute cluster or instance should disable local authentication (SSH).
 
@@ -120,11 +125,19 @@ To configure this policy, set the effect parameter to __audit__, __deny__, or __
 
 If the policy is set to __deny__, then you cannot create a compute unless SSH is disabled. Attempting to create a compute with SSH enabled results in an error. The error is also logged in the activity log. The policy identifier is returned as part of this error.
 
-### Modify/disable local authentication
+### Configure computes to Modify/disable local authentication
 
 Modifies any Azure Machine Learning compute cluster or instance creation request to disable local authentication (SSH).
 
 To configure this policy, set the effect parameter to __Modify__ or __Disabled__. If set __Modify__, any creation of a compute cluster or instance within the scope where the policy applies will automatically have local authentication disabled.
+
+### Compute instances should have idle shutdown
+
+TBD
+
+### Compute instances should be recreated to get software updates
+
+TBD
 
 ### Compute cluster and instance is behind virtual network
 
