@@ -11,7 +11,7 @@ ms.custom: devx-track-azurecli
 ---
 # Onboard a Containerized Network Function (CNF) to Azure Operator Service Manager (AOSM)
 
-In this how-to guide, Network Function Publishers and Service Designers learn how to use the Azure CLI AOSM extension to onboard a containerized network function to AOSM. The CNF can subsequently be deployed onto an Azure Arc-connected Kubernetes Cluster, including an Azure Operator Nexus cluster.
+In this how-to guide, Network Function Publishers and Service Designers learn how to use the Azure CLI AOSM extension to onboard a containerized network function to AOSM. The CNF can later be deployed onto an Azure Arc-connected Kubernetes Cluster, including an Azure Operator Nexus cluster.
 
 Onboarding is a multi-step process. Once you meet the prerequisites, you'll use the Azure CLI AOSM extension to:
 
@@ -32,8 +32,8 @@ Onboarding is a multi-step process. Once you meet the prerequisites, you'll use 
 
 - You require the Contributor role over your subscription in order to create a Resource Group, or an existing Resource Group where you have the Contributor role.
 - You require the `Reader`/`AcrPull` role assignments on the source ACR containing your images.
-- You require the `Contributor` and `AcrPush` role assignments on the subscription that will contain the AOSM managed Artifact Store. This allows the Azure CLI AOSM Extension to do a direct ACR-to-ACR copy. This is the fastest method of transferring images from one ACR to another.
-  - Your company policy may prevent you from having subscription-scoped permissions. The `--no-subscription-permissions` parameter, available on the `az aosm nfd publish` and `az aosm nsd publish` commands, uses tightly scoped permissions derived from the AOSM service to orchestrate a two-step copy to and from your local machine. This two-step copy is slower, but does not require subscription scoped permissions.
+- You require the `Contributor` and `AcrPush` role assignments on the subscription that will contain the AOSM managed Artifact Store. These permissions allow the Azure CLI AOSM Extension to do a direct ACR-to-ACR copy. Direct copy is the fastest method of transferring images from one ACR to another.
+  - Your company policy may prevent you from having subscription-scoped permissions. The `--no-subscription-permissions` parameter, available on the `az aosm nfd publish` and `az aosm nsd publish` commands, uses tightly scoped permissions derived from the AOSM service to orchestrate a two-step copy to and from your local machine. This two-step copy is slower, but doesn't require subscription scoped permissions.
 
 ### Helm packages
 
@@ -49,14 +49,19 @@ The Helm packages you intend to onboard must be present on the local storage of 
 
 ### Download and install Azure CLI
 
-To install Azure CLI locally refer to [How to install the Azure CLI](/cli/azure/install-azure-cli).
+To install the Azure CLI locally, refer to [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
-To sign into the Azure CLI use the `az login` command and complete the prompts displayed in your terminal to finish authentication. For more sign-in options, refer to [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
+To sign into the Azure CLI, use the `az login` command and complete the prompts displayed in your terminal to finish authentication. For more sign-in options, refer to [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
 > [!NOTE]
 > If you're running on Windows or macOS, consider running Azure CLI in a Docker container. For more information, see [How to run the Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker). You can also use the Bash environment in the Azure cloud shell. For more information, see [Start the Cloud Shell](/azure/cloud-shell/quickstart?tabs=azurecli) to use Bash environment in Azure Cloud Shell.
 
 ### Install AOSM CLI extension
+
+The Az CLI AOSM Extension requires version 2.54.0 or later of the Azure CLI.
+
+1. Run `az version` to see the version and dependent libraries that are installed.
+2. Run `az upgrade` to upgrade to the current version of Azure CLI.
 
 Install the AOSM CLI extension using this command:
 
@@ -64,14 +69,9 @@ Install the AOSM CLI extension using this command:
 az extension add --name aosm
 ```
 
-1. Run `az version` to see the version and dependent libraries that are installed.
-2. Run `az upgrade` to upgrade to the current version of Azure CLI.
-
-**[AK] Is there a minimum Azure CLI version that we support?**
-
 ## Build the Network Function Definition Group and Version
 
-This step creates a folder in the working directory called `cnf-cli-output` with the BICEP templates of the AOSM resources that define your Network Function Definition Group and Version, and the Artifact Store. These resources will ultimately be included in your Network Service Design. **[AK] Didn't get the last sentence, tried rewording.**
+This step creates a folder in the working directory called `cnf-cli-output` with the BICEP templates of the AOSM resources that define your Network Function Definition Group and Version, and the Artifact Store. These resources will ultimately be included in your Network Service Design.
 
 1. Generate the Azure CLI AOSM extension input file for a CNF.
 
@@ -79,7 +79,7 @@ This step creates a folder in the working directory called `cnf-cli-output` with
 az aosm nfd generate-config --definition-type cnf --output-file <filename.jsonc>
 ```
 
-2. Open the input file you generated in the previous step and use the inline comments to enter the required values. This example shows the Az CLI AOSM extension input file for a fictional Contoso CNF.
+1. Open the input file you generated in the previous step and use the inline comments to enter the required values. This example shows the Az CLI AOSM extension input file for a fictional Contoso CNF.
 
 ```json
 {
@@ -129,13 +129,13 @@ az aosm nfd generate-config --definition-type cnf --output-file <filename.jsonc>
 }
 ```
 
-3. Execute the following command to build the Network Function Definition Group and Version BICEP templates.
+1. Execute the following command to build the Network Function Definition Group and Version BICEP templates.
 
 ```azurecli
 az aosm nfd build --definition-type cnf --config-file <filename.jsonc>
 ```
 
-You can review the folder and files structure and make modifications if required.
+You can review the folder and files structure and make modifications if necessary.
 
 ## Publish the Network Function Definition Group and Version
 
@@ -157,7 +157,7 @@ This section creates a folder in the working directory called `nsd-cli-output`. 
 az aosm nsd generate-config --output-file <nsd-output-filename.jsonc>
 ```
 
-2. Open the input file you generated in the previous step and use the inline comments to enter the required values. This example shows the Az CLI AOSM extension input file for a fictional Contoso NSD that can be used to deploy a fictional Contoso CNF onto an Arc-connected Nexus Kubernetes cluster.
+1. Open the input file you generated in the previous step and use the inline comments to enter the required values. This example shows the Az CLI AOSM extension input file for a fictional Contoso NSD that can be used to deploy a fictional Contoso CNF onto an Arc-connected Nexus Kubernetes cluster.
 
 ```json
 {
@@ -211,7 +211,7 @@ az aosm nsd generate-config --output-file <nsd-output-filename.jsonc>
 >[!NOTE]
 > The resource element template section defines which NFD is included in the NSD. The properties must match those used in the input file passed to the `az aosm nfd build` command. This is because the Azure CLI AOSM Extension validates that the NFD has been correctly onboarded when building the NSD.
 
-3. Execute the following command to build the Network Service Design Group and Version BICEP templates.
+1. Execute the following command to build the Network Service Design Group and Version BICEP templates.
 
 ```azurecli
 az aosm nsd build --config-file <nsd-output-filename.jsonc>
@@ -228,6 +228,7 @@ This step creates the AOSM resources that define the Network Service Design Grou
 ```azurecli
 az aosm nsd publish --build-output-folder nsd-cli-output
 ```
+
 You now have a complete set of AOSM publisher resources and are ready to perform the operator flow.
 
 ## Next steps
