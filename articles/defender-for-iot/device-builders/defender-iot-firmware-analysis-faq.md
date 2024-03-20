@@ -10,7 +10,7 @@ This article addresses frequent questions about Defender for IoT Firmware Analys
 
 [Defender for IoT Firmware Analysis](/azure/defender-for-iot/device-builders/overview-firmware-analysis) is a tool that analyzes firmware images and provides an understanding of security vulnerabilities in the firmware images.
 
-## What types of firmware images are supported?
+## What types of firmware images does Defender for IoT Firmware Analysis support?
 Defender for IoT Firmware Analysis supports unencrypted images that contain file systems with embedded Linux operating systems. Defender for IoT Firmware Analysis supports the following file system formats:
 
 * Android sparse image
