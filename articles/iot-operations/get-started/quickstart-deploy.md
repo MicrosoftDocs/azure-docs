@@ -285,6 +285,15 @@ az keyvault create --enable-rbac-authorization false --name "<your unique key va
    >[!TIP]
    >If you get an error that says *Your device is required to be managed to access your resource*, go back to the previous step and make sure that you signed in interactively.
 
+1. These quickstarts use the **OPC PLC simulator** to generate sample data. To configure the simulator for the quickstart scenario, run the following command:
+
+    > [!IMPORTANT]
+    > Don't use the following example in production, use it for simulation and test purposes only. The example lowers the security level for the OPC PLC so that it accepts connections from any client without an explicit peer certificate trust operation.
+
+    ```azurecli
+    az k8s-extension update --version 0.3.0-preview --name opc-ua-broker --release-train preview --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --auto-upgrade-minor-version false --config opcPlcSimulation.deploy=true --config opcPlcSimulation.autoAcceptUntrustedCertificates=true
+    ```
+
 ## View resources in your cluster
 
 While the deployment is in progress, you can watch the resources being applied to your cluster. You can use kubectl commands to observe changes on the cluster or, since the cluster is Arc-enabled, you can use the Azure portal.
