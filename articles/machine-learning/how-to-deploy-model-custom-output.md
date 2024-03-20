@@ -17,17 +17,15 @@ ms.custom: devplatv2, update-code
 
 [!INCLUDE [ml v2](includes/machine-learning-dev-v2.md)]
 
-This guide explains how to create deployments that generate custom outputs and files.
-
-Sometimes you need to execute inference having a higher control of what's being written as output of the batch job. Those cases include:
+This guide explains how to create deployments that generate custom outputs and files. Sometimes you need more control over what's written as output from batch inference jobs. These cases include:
 
 > [!div class="checklist"]
-> * You need to control how the predictions are written in the output. For instance, you want to append the prediction to the original data (if data is tabular).
-> * You need to write your predictions in a different file format from the one supported out-of-the-box by batch deployments.
+> * You need to control how predictions are written in the output. For instance, you want to append the prediction to the original data if the data is tabular.
+> * You need to write your predictions in a different file format than the one supported out-of-the-box by batch deployments.
 > * Your model is a generative model that can't write the output in a tabular format. For instance, models that produce images as outputs.
-> * Your model produces multiple tabular files instead of a single one. This is the case for instance of models that perform forecasting considering multiple scenarios.
+> * Your model produces multiple tabular files instead of a single one. For example, models that perform forecasting by considering multiple scenarios.
 
-In any of those cases, batch deployments allow you to take control of the output of the jobs by letting you write directly to the output of the batch deployment job. In this tutorial, you learn how to deploy a model to perform batch inference and write the outputs in `parquet` format by appending the predictions to the original input data.
+Batch deployments allow you to take control of the output of the jobs by letting you write directly to the output of the batch deployment job. In this tutorial, you learn how to deploy a model to perform batch inference and write the outputs in *parquet* format by appending the predictions to the original input data.
 
 ## About this sample
 
@@ -84,7 +82,7 @@ __code/batch_driver.py__
 
 __Remarks:__
 * Notice how the environment variable `AZUREML_BI_OUTPUT_PATH` is used to get access to the output path of the deployment job. 
-* The `init()` function is populating a global variable called `output_path` that can be used later to know where to write.
+* The `init()` function populates a global variable called `output_path` that can be used later to know where to write.
 * The `run` method returns a list of the processed files. It's required for the `run` function to return a `list` or a `pandas.DataFrame` object.
 
 > [!WARNING]
@@ -153,11 +151,11 @@ Follow the next steps to create a deployment using the previous scoring script:
 2. Create the deployment. Notice that `output_action` is now set to `SUMMARY_ONLY`.
 
    > [!NOTE]
-   > This example assumes you have aa compute cluster with name `batch-cluster`. Change that name accordinly.
+   > This example assumes you have a compute cluster with name `batch-cluster`. Change that name accordingly.
 
    # [Azure CLI](#tab/cli)
    
-   To create a new deployment under the created endpoint, create a `YAML` configuration like the following. You can check the [full batch endpoint YAML schema](reference-yaml-endpoint-batch.md) for extra properties.
+   To create a new deployment under the created endpoint, create a YAML configuration like the following. You can check the [full batch endpoint YAML schema](reference-yaml-endpoint-batch.md) for extra properties.
    
    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deployment.yml":::
    
