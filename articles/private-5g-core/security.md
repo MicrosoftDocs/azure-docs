@@ -39,7 +39,7 @@ If you elect to use a CMK, you will need to create a Key URI in your [Azure Key 
 
 For further information on configuring CMK, see [Configure customer-managed keys](/azure/cosmos-db/how-to-setup-cmk).
 
-You can use Azure Policy to enforce using CMK for SIM groups. See [Azure Policy built-in policy definitions for Azure Private 5G Core](azure-policy-reference.md).
+You can use Azure Policy to enforce using CMK for SIM groups. See [Azure Policy definitions for Azure Private 5G Core](azure-policy-reference.md).
 
 > [!IMPORTANT]
 > Once a SIM group is created, you cannot change the encryption type. However, if the SIM group uses CMK, you can update the key used for encryption.
@@ -78,7 +78,7 @@ If you decide to set up Microsoft Entra ID for local monitoring access, after de
 
 See [Choose the authentication method for local monitoring tools](collect-required-information-for-a-site.md#choose-the-authentication-method-for-local-monitoring-tools) for additional information on configuring local monitoring access authentication.
 
-You can use Azure Policy to enforce using Entra ID to access diagnostics. See [Azure Policy built-in policy definitions for Azure Private 5G Core](azure-policy-reference.md).
+You can use Azure Policy to enforce using Entra ID to access diagnostics. See [Azure Policy definitions for Azure Private 5G Core](azure-policy-reference.md).
 
 ## Next steps
 
