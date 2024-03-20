@@ -384,7 +384,7 @@ items:
       - name: Enable blob soft delete
         href: soft-delete-blob-enable.md
       - name: Manage and restore soft-deleted blobs
-        href: soft-delete-blob-manage.md
+        href: soft-delete-blob-manage.yml
     - name: Versioning
       href: versioning-overview.md
       items:
