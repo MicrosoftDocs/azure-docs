@@ -2,7 +2,7 @@
 title: Overview of security features
 description: Learn about security capabilities in Azure Backup that help you protect your backup data and meet the security needs of your business.
 ms.topic: conceptual
-ms.date: 03/19/2024
+ms.date: 03/20/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -25,11 +25,11 @@ Learn more about [Azure role-based access control to manage Azure Backup](./back
 
 Azure Backup has several security controls built into the service to prevent, detect, and respond to security vulnerabilities. Learn more about [security controls for Azure Backup](./security-baseline.md).
 
-## DaData isolation with Azure Backup
+## Data isolation with Azure Backup
 
 With Azure Backup, the vaulted backup data is stored in Microsoft-managed Azure subscription and tenant. External users or guests have no direct access to this backup storage or its contents, ensuring the isolation of backup data from the production environment where the data source resides.
 
-In Azure, all communications and data in transit is securely transferred with *HTTPS* and *TLS 1.2+* protocols. This data remains on the Azure backbone network ensuring reliable and efficient data transmission. The backup data at rest is encrypted by default using *Microsoft-managed keys*. You can also bring your own keys for encryption if you require greater control over the data. To enhance protection, you can use [immutability](#immutable-vaults), which prevents data from being altered or deleted before its retention period.  Azure Backup gives you diverse options such as [soft delete](#soft-delete), stop backup and delete data or retain data if you need to stop backups at any time. To protect critical operations, you can add [Multi-User Authorization (MUA)](#multi-user-authorization) that adds additional layer of protection by using an Azure resource called Azure Resource Guard (ARG).
+In Azure, all communications and data in transit is securely transferred with *HTTPS* and *TLS 1.2+* protocols. This data remains on the Azure backbone network ensuring reliable and efficient data transmission. The backup data at rest is encrypted by default using *Microsoft-managed keys*. You can also bring your own keys for encryption if you require greater control over the data. To enhance protection, you can use [immutability](backup-azure-immutable-vault-concept.md), which prevents data from being altered or deleted before its retention period.  Azure Backup gives you diverse options such as [soft delete](backup-azure-enhanced-soft-delete-about.md), stop backup and delete data or retain data if you need to stop backups at any time. To protect critical operations, you can add [Multi-User Authorization (MUA)](multi-user-authorization-concept.md) that adds additional layer of protection by using an Azure resource called Azure Resource Guard.
 
 This robust approach ensures that even in a compromised environment, existing backups cannot be tampered with or deleted by unauthorized users.
 
