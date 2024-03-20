@@ -8,6 +8,8 @@ ms.topic: conceptual
 ms.date: 03/19/2024
 ms.subservice: sizes
 ---
+# Migrate your NC6s_v3, NC12s_v3, NC24s_v3 by September 30, 2025
+
 On September 30th, 2025, Microsoft Azure will retire the Standard_NC6s_v3, Standard_NC12s_v3 and Standard_NC24s_v3 virtual machines (VMs) in NCv3-series virtual machines (VMs). To avoid any disruption to your service we recommend that you change the VM sizing for your workloads from the current NCv3-series VMs to the newer VM series in the same NC product line.
 
 Microsoft is recommending, the Azure [NC A100 v4-series](https://learn.microsoft.com/en-us/azure/virtual-machines/nc-a100-v4-series) VMs which offers greater GPU memory bandwidth per GPU, improved [Accelerated Networking](https://learn.microsoft.com/en-us/azure/virtual-network/accelerated-networking-overview?tabs=redhat) capabilities, larger and faster local solid state drives. Overall the NC A100 v4-series delivers [better cost performance](https://techcommunity.microsoft.com/t5/azure-high-performance-computing/a-quick-start-to-benchmarking-in-azure-nvidia-deep-learning/ba-p/3563884) across midrange AI training and inference workloads. 
@@ -35,12 +37,12 @@ Later this year Microsoft will also be releasing the [NC H100 v5-series (current
 # **Steps** **to change VM** **size**
 
 1. Choose a series and size. Please refer to the above tables for Microsoft’s recommendation. You can also file a support request if additional assistance is needed.
-1. [Request quota for the new target VM](https://learn.microsoft.com/en-us/azure/quotas/per-vm-quota-requests).
-1. Follow detailed guidance on resizing the VM. 
+2. [Request quota for the new target VM](https://learn.microsoft.com/en-us/azure/quotas/per-vm-quota-requests).
+3. Follow detailed guidance on resizing the VM. 
 
    
 
-**Help and** **support**
+# **Help and** **support**
 
 If you have a support plan and you need technical help, please create a [support request](https://portal.azure.com/). 
 
