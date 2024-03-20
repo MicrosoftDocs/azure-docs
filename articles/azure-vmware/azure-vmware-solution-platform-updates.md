@@ -4,7 +4,7 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 12/21/2023
+ms.date: 3/19/2024
 ---
 
 # What's new in Azure VMware Solution
@@ -13,11 +13,11 @@ Microsoft regularly applies important updates to the Azure VMware Solution for n
 
 ## March 2024
 
-Pure Cloud Block Store, offered by Pure Storage, is one of the external block storage solutions supported by Azure VMware Solution. It helps bridge the gap by allowing customers to provision external block storage as needed to make full use of an Azure VMware Solution deployment without the need to scale out compute resources, while helping customers migrate their on-premises workloads to Azure. Pure Cloud Block Store is a 100% software-delivered product running entirely on native Azure infrastructure that brings all the relevant Purity features and capabilities to Azure.
+Pure Cloud Block Store for Azure VMware Solution is now generally available. [Learn more](ecosystem-external-storage-solutions.md)
 
 ## February 2024
 
-All new Azure VMware Solution private clouds are being deployed with VMware NSX version 4.1.1. 
+All new Azure VMware Solution private clouds are being deployed with VMware NSX version 4.1.1. [Learn more](concepts-private-clouds-clusters.md#vmware-software-versions)
 
 ## November 2023
 

@@ -31,6 +31,8 @@ pip install openai num2words matplotlib plotly scipy scikit-learn pandas tiktoke
 
 # [OpenAI Python 0.28.1](#tab/python)
 
+[!INCLUDE [Deprecation](../includes/deprecation.md)]
+
 ```cmd
 pip install "openai==0.28.1" num2words matplotlib plotly scipy scikit-learn pandas tiktoken
 ```
