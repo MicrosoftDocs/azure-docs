@@ -21,8 +21,8 @@ ms.custom:
 
 | Item&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Type |  Description |
 |-----------------------------|------|--------------|
-| [**More storage on Basic and Standard tiers**](search-limits-quotas-capacity.md#service-limits) | Feature |  Basic now supports up to three partitions, and Basic and Standard (S1, S2, S3) tiers have more storage per partition, at the same per-partition billing rate. Extra capacity is subject to [regional availability](search-create-service-portal.md#choose-a-region) and applies to new search services created after April 1, 2024. Currently, there's no in-place upgrade, so please create a new search service to get the extra storage. |
-| [**Higher limits for vectors**](vector-search-index-size.md) | Feature | Vector storage limits are also higher on new services created after April 1, 2024 in selected regions. |
+| [**More quota on Basic and Standard tiers**](search-limits-quotas-capacity.md#service-limits) | Feature |  Basic now supports up to three partitions, and Basic and Standard (S1, S2, S3) tiers have more storage per partition, at the same per-partition billing rate. Extra capacity is subject to [regional availability](search-create-service-portal.md#choose-a-region) and applies to new search services created after April 1, 2024. Currently, there's no in-place upgrade, so please create a new search service to get the extra storage. |
+| [**Higher limits for vectors**](vector-search-index-size.md#vector-limits-for-services-created-after-april-1-2024) | Feature | Vector storage limits are also higher on new services created after April 1, 2024 in selected regions. |
 
 ## February 2024
 

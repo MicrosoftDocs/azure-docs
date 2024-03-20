@@ -90,25 +90,27 @@ Azure AI Search is available in most regions, as listed in the [**Products avail
 
 We strongly recommend the following regions because they provide [more storage per partition](search-limits-quotas-capacity.md#service-limits) at the same billing rate (applies to search services created after April 1, 2024):
 
-+ **United States**: East US​, East US 2, East US 2 EUAP​, ​Central US​, North Central US​, South Central US​, West US​, West US 2​, West US 3​, West Central US​
-+ **United Kingdom**: UK South​, UK West​
-+ **United Arab Emerites**: UAE North​
-+ **Switzerland**: Switzerland West​, Switzerland North​
-+ **Sweden**: Sweden Central​
-+ **Qatar**: Qatar Central​
-+ **Poland**: Poland Central​
-+ **Norway**: Norway East​
-+ **Korea**: Korea Central, Korea South​ 
-+ **Japan**: Japan East, Japan West​ 
-+ **Italy**: Italy North​
-+ **India**: Central India, Jio India West​ 
-+ **Germany**: Germany North​
-+ **France**: France Central​
-+ **Europe**: North Europe​
-+ **Canada**: Canada Central​, Canada East​
-+ **Bazil**: Brazil South​
-+ **Asia Pacific**: East Asia, Southeast Asia​ 
-+ **Australia**: Australia East​, Australia Southeast​
+| Country | Regions providing extra capacity per partition |
+|---------|------------------------------------------------|
+| **United States** | East US​, East US 2, East US 2 EUAP​, ​Central US​, North Central US​, South Central US​, West US​, West US 2​, West US 3​, West Central US​ |
+| **United Kingdom** | UK South​, UK West​ ​ |
+| **United Arab Emerites** | UAE North​​ |
+| **Switzerland** | Switzerland West​, Switzerland North​​ |
+| **Sweden** | Sweden Central​​ |
+| **Qatar** | Qatar Central​​ |
+| **Poland** | Poland Central​​ |
+| **Norway** | Norway East​​ |
+| **Korea** | Korea Central, Korea South​ ​ |
+| **Japan** | Japan East, Japan West​ |​ 
+| **Italy** | Italy North​​ |
+| **India** | Central India, Jio India West​ ​ |
+| **Germany** | Germany North​​ |
+| **France** | France Central​​ |
+| **Europe** | North Europe​​ |
+| **Canada** | Canada Central​, Canada East​​ |
+| **Bazil** | Brazil South​​ |
+| **Asia Pacific** | East Asia, Southeast Asia​ ​ |
+| **Australia** | Australia East​, Australia Southeast​​ |
 
 If you use multiple Azure services, putting all of them in the same region minimizes or voids bandwidth charges. There are no charges for data exchanges among same-region services.
 
