@@ -490,7 +490,7 @@ items:
         - name: Custom configuration
           displayName: Prometheus
           href: containers/prometheus-metrics-scrape-configuration.md
-        - name: Custom Resouce Definition
+        - name: Configure collection using Service and Pod Monitor Custom Resources (Preview)
           displayName: Prometheus
           href: containers/prometheus-metrics-scrape-crd.md
         - name: Create and validate custom scrape config
