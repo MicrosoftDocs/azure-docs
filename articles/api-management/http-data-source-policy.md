@@ -215,7 +215,7 @@ type User {
 
 ### Resolver for GraphQL union type
 
-The following example resolves a query of order by ID by making an HTTP `GET` call to a backend data source and returns s a JSON object that represents the customer ID and type. The customer type is a union of `RegisteredCustomer` and `GuestCustomer` types. 
+The following example resolves a query of order by ID by making an HTTP `GET` call to a backend data source and returns a JSON object that includes the customer ID and type. The customer type is a union of `RegisteredCustomer` and `GuestCustomer` types. 
 
 #### Example schema
 
