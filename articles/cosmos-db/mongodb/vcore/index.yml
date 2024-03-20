@@ -90,3 +90,7 @@ landingContent:
         links:
           - text: Solution accelerators
             url: ../../solutions.md?pivots=api-mongodb
+      - linkListType: sample
+        links:
+          - text: AI-Enhanced Advertisement Generation
+            url: ai-advertisement-generation.md
