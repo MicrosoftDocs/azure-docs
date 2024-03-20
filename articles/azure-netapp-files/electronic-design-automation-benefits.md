@@ -43,7 +43,7 @@ The following chart illustrates the test results.
 
 :::image type="content" source="./media/electronic-design-automation-benefits/latency-throughput-graph.png" alt-text="Chart comparing latency and throughput between large and regular volumes." lightbox="./media/electronic-design-automation-benefits/latency-throughput-graph.png":::
 
-The 2020 internal testing also explored single endpoint limits, the limits were reached with six volumes. Large Volume outperforms the scenario with six regular volume by 260%.
+The 2020 internal testing also explored single endpoint limits, the limits were reached with six volumes. Large Volume outperforms the scenario with six regular volumes by 260%.
 
 | Scenario	| I/O Rate at 2ms latency | I/O Rate at performance edge (~7ms) | MiB/s at 2ms latency | MiB/s performance edge (~7ms) |
 | - | - | - | - | - | 
@@ -75,16 +75,7 @@ The EDA workload in this test has been generated using a standard industry bench
 | Mkdir | 1% |
 | Ulink | 1% |
 | Ulink2 | 1% |
-| - Append
-- Custom2 
-- Lock
-- Mmap_read
-- Mmap_write
-- Neg_stat
-- Read_modify_write
-- Rmdir
-- Write	
-| 0% | 
+| <ul><li>Append</li><li>Custom2</li><li>Lock</li><li>Mmap_read</li><li> Mmap_write</li><li> Neg_stat</li><li> Read_modify_write</li> Rmdir </li><li> Write	</li></ul> | 0% | 
 
 :::image type="content" source="./media/electronic-design-automation-benefits/pie-chart-backend.png" alt-text="Pie chart depicting backend OP type distribution." lightbox="./media/electronic-design-automation-benefits/pie-chart-backend.png":::
 
@@ -92,12 +83,7 @@ The EDA workload in this test has been generated using a standard industry bench
 | - | - | 
 | Read | 50% | 
 | Write | 50% | 
-| - Custom2
-- Mmap_read
-- Random_read
-- Read_file
-- Read_modify_write
-| 0% | 
+|  <ul><li>Custom2</li><li>Mmap_read</li><li>Random_read</li><li>Read_file/li><li>Read_modify_file</li><li></ul> | 0% | 
 
 :::image type="content" source="./media/electronic-design-automation-benefits/pie-chart-large-volume.png" alt-text="Pie chart of EDA workloads." lightbox="./media/electronic-design-automation-benefits/pie-chart-large-volume.png":::
 
@@ -111,45 +97,7 @@ The results were produced using the below configuration details:
 | Instance Type	| D16s_v5 |
 | Instance  Count | 10 |
 | Mount Options | nocto,actimeo=600,hard,rsize=262144,wsize=262144,vers=3,tcp,noatime,nconnect=8 |
-| Client tunables 
-|```
-# Network parameters. In unit of bytes
-net.core.wmem_max = 16777216
-net.core.wmem_default = 1048576
-net.core.rmem_max = 16777216
-net.core.rmem_default = 1048576
-net.ipv4.tcp_rmem = 1048576 8388608 16777216
-net.ipv4.tcp_wmem = 1048576 8388608 16777216
-net.core.optmem_max = 2048000
-net.core.somaxconn = 65535
-
-# Settings in 4 KiB size chunks, in bytes they are
-net.ipv4.tcp_mem = 4096 89600 4194304
-
-# Misc network options and flags
-net.ipv4.tcp_window_scaling = 1
-net.ipv4.tcp_timestamps = 0
-net.ipv4.tcp_no_metrics_save = 1
-net.ipv4.route.flush = 1
-net.ipv4.tcp_low_latency = 1
-net.ipv4.ip_local_port_range = 1024 65000
-net.ipv4.tcp_slow_start_after_idle = 0
-net.core.netdev_max_backlog = 300000
-net.ipv4.tcp_sack = 0
-net.ipv4.tcp_dsack = 0
-net.ipv4.tcp_fack = 0 
-
-# Various filesystem / pagecache options
-vm.dirty_expire_centisecs = 100
-vm.dirty_writeback_centisecs = 100
-vm.dirty_ratio = 20
-vm.dirty_background_ratio = 5
-
-# ONTAP network exec tuning for client
-sunrpc.tcp_max_slot_table_entries = 128
-sunrpc.tcp_slot_table_entries = 128
-```
-|
+| Client tunables | <code># Network parameters. In unit of bytes <br> net.core.wmem_max = 16777216 <br> net.core.wmem_default = 1048576 <br> net.core.rmem_max = 16777216 <br> net.core.rmem_default = 1048576 <br> net.ipv4.tcp_rmem = 1048576 8388608 16777216 <br> net.ipv4.tcp_wmem = 1048576 8388608 16777216 <br> net.core.optmem_max = 2048000 <br> net.core.somaxconn = 65535 <br> <br> # Settings in 4 KiB size chunks, in bytes they are <br> net.ipv4.tcp_mem = 4096 89600 4194304 <br><br> # Misc network options and flags <br>net.ipv4.tcp_window_scaling = 1 <br> net.ipv4.tcp_timestamps = 0 <br> net.ipv4. <br> tcp_no_metrics_save = 1 <br> net.ipv4.route.flush = 1 <br> net.ipv4.tcp_low_latency = 1 <br> net.ipv4.ip_local_port_range = 1024 65000 <br> net.ipv4.tcp_slow_start_after_idle = 0 <br> net.core.netdev_max_backlog = 300000 <br> net.ipv4.tcp_sack = 0 <br> net.ipv4.tcp_dsack = 0 <br> net.ipv4.tcp_fack = 0 <br><br># Various filesystem / pagecache options <br> vm.dirty_expire_centisecs = 100 <br> vm.dirty_writeback_centisecs = 100 <br> vm.dirty_ratio = 20 <br> vm.dirty_background_ratio = 5 <br><br> # ONTAP network exec tuning for client <br> sunrpc.tcp_max_slot_table_entries = 128 <br> sunrpc.tcp_slot_table_entries = 128 </code> |
 
 Mount options `nocto`, `noatime`, and `actimeo=600` work together to alleviate the effect of some metadata operations for an EDA workload over the NFSv3 protocol. These mount options both reduce the number of metadata operations taking place as well as cache some metadata attributes on the client allowing EDA workloads to push further than it would otherwise. It's essential to consider individual workload requirements as these mount options aren't universally applicable. For more information, see [Linux NFS mount options best practices for Azure NetApp File](performance-linux-mount-options.md).
 

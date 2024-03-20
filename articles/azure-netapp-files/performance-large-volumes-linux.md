@@ -94,7 +94,7 @@ The graph represents an 8-KiB random workload and a 1 TiB working set. The graph
 
 ## Linux scale-up tests 
 
-Whereas scale-out tests are designed to find the limits of a single large volume, scale-up tests are designed to find the upper limits of a single instance against said large volume. Azure places network egress limits on its VMs; for network attached storage, that means that the write bandwidth is capped per VM. These scale-up tests demonstrate capabilities given the large available bandwidth cap and with sufficient processors to drive said workload. 
+Whereas scale-out tests are designed to find the limits of a single large volume, scale-up tests are designed to find the upper limits of a single instance against said large volume. Azure places network egress limits on its VMs; for network attached storage that means that the write bandwidth is capped per VM. These scale-up tests demonstrate capabilities given the large available bandwidth cap and with sufficient processors to drive said workload. 
 
 The tests in this section were run with the following configuration: 
 

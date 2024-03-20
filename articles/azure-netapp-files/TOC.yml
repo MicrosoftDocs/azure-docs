@@ -111,8 +111,6 @@
       href: performance-azure-vmware-solution-datastore.md
     - name: Large volume performance benchmarks for Linux
       href: performance-large-volumes-linux.md
-    - name: Benefits for electronic design automation 
-      href: electronic-design-automation-benefits.md
     - name: Performance reference for Azure NetApp Files
       items:
       - name: Linux direct I/O best practices
@@ -190,7 +188,7 @@
       - name: Benefits of using Azure NetApp Files with Oracle Database
         href: solutions-benefits-azure-netapp-files-oracle-database.md
       - name: Benefits of using Azure NetApp Files for electronic design automation
-        href: solutions-benefits-azure-netapp-files-electronic-design-automation.md
+        href: electronic-design-automation-benefits.md
       - name: Benefits of using Azure NetApp Files with Azure Virtual Desktop
         href: solutions-windows-virtual-desktop.md
       - name: Benefits of using Azure NetApp Files for SQL Server deployment
