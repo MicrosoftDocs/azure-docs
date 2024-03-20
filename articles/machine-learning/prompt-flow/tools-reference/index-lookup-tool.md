@@ -157,7 +157,7 @@ If you have a flow that contains one of these tools, follow the steps below to u
 
 ### Upgrade your tools
 
-1. [Update your runtime](how-to-create-manage-runtime.md#update-a-runtime-on-the-ui).
+1. [Update your runtime](../how-to-create-manage-runtime.md#update-a-runtime-on-the-ui).
 1. Navigate to your flow. You can do this by selecting the **Prompt flow** tab under *Authoring*, selecting **Flows** pivot tab, and then selecting the name of your flow.
 
 1. Once inside the flow, select the “+ More tools” button near the top of the pane. A dropdown should open and select **Index Lookup [Preview]** to add an instance of the Index Lookup tool.
