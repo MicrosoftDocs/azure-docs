@@ -53,6 +53,7 @@ class MessagesQuickstart(object):
     print("Azure Communication Services - Advanced Messages Quickstart")
 
 ```
+
 ## Object model
 The following classes and interfaces handle some of the major features of the Azure Communication Services Messages SDK for Python.
 
@@ -331,7 +332,7 @@ if __name__ == '__main__':
     messages.send_text_message()
 ```
 
-### Run the code for send text message
+#### Run the code for send text message
 
 To run the code, make sure you are on the directory where your `messages-quickstart.py` file is.
 
@@ -384,7 +385,7 @@ if __name__ == '__main__':
     messages.send_image_message()
 ```
 
-### Run the code for send image based message
+#### Run the code for send image based message
 
 To run the code, make sure you are on the directory where your `messages-quickstart.py` file is.
 
@@ -489,7 +490,7 @@ if __name__ == '__main__':
     messages.send_image_message()
 ```
 
-## Run the code
+#### Run the code
 
 To run the code, make sure you are on the directory where your `messages-quickstart.py` file is.
 
