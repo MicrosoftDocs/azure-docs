@@ -1,5 +1,5 @@
 ---
-title: Azure Communication Services - known issues in native SDK's
+title: Azure Communication Services - known issues in native SDKs
 description: Learn more about Azure Communication Services known issues on Calling SDK.
 author: sloanster
 manager: chpalmer
@@ -19,9 +19,9 @@ When utilizing Android API emulators on Android 5.0 (API level 21) and Android 5
 
 ## Android Trouter module conflicts
 
-When the Android Chat and Calling SDK are together in the same application, Chat SDK's real-time notifications feature doesn't work. You might get a dependency resolving issue.
+When using Azure Communication Services chat and calling Android SDK at the same time, the chat real-time notifications feature doesn't work. You might get a dependency resolving issue.
 
-While we're working on a solution, you can turn off real-time notifications feature by adding the following dependency information in app's build.gradle file and instead poll the GetMessages API to display incoming messages to users.
+So resolve this issue you can turn off real-time notifications feature by adding the following dependency information in app's build.gradle file and instead poll the GetMessages API to display incoming messages to users.
 
 **Java**
 ```java
@@ -32,13 +32,13 @@ While we're working on a solution, you can turn off real-time notifications feat
  ```
  
 > [!NOTE]
-> If your application tries to touch any of the notification APIs like `chatAsyncClient.startRealtimeNotifications()` or `chatAsyncClient.addEventHandler()`, you will see a runtime error.
+> If your application uses the notification APIs like `chatAsyncClient.startRealtimeNotifications()` or `chatAsyncClient.addEventHandler()`, you will see a runtime error.
 
 ## iOS ongoing video Picture in Picture (PiP)
 
 Incoming video stops when app goes to background. If the application is in foreground the video renders correctly.
 
-## UI Library
+## Native SDK UI Library known issues
 
 You can follow the known issues wiki page in the GitHub repositories.
 
