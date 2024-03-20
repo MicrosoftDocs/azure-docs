@@ -87,5 +87,5 @@
     - name: Solution accelerators
       href: ../../solutions.md?pivots=api-mongodb
     - name: AI-Enhanced Advertisement Generation
-      href: AI-advertisement-generation.md
+      href: ai-advertisement-generation.md
       
