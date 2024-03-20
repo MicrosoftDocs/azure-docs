@@ -259,9 +259,10 @@ For Assistants you need a combination of a supported model, and a supported regi
 | Region | `gpt-35-turbo (0613)` | `gpt-35-turbo (1106)` | `gpt-4 (0613)` | `gpt-4 (1106)` | `gpt-4 (0125)` | 
 |-----|---|---|---|---|---|
 | Australia East | ✅ | ✅ | ✅ |✅ | |
+| East US (Azure OpenAI studio only) |  | | | | ✅ |
 | East US 2 | ✅ | | ✅ |✅ | |
 | Sweden Central | ✅ |✅ |✅ |✅| |
-| East US (Azure OpenAI studio only) |  | | | | ✅ |
+
 
 For information on Provisioned Throughput Unit (PTU) availability, see [provisioned throughput](./provisioned-throughput.md). 
 
