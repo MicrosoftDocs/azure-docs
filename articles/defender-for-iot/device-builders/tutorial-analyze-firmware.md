@@ -68,7 +68,7 @@ If this is your first interaction with **Firmware analysis**, then you'll need t
 
     :::image type="content" source="media/tutorial-firmware-analysis/upload.png" alt-text="Screenshot that shows clicking the Upload option within Firmware Analysis." lightbox="media/tutorial-firmware-analysis/upload.png":::
 
-1. Select the **Subscription** and **Resource group** that you would like to upload your firmware image to.
+1. Select a **Subscription** that you have onboarded onto Defender for IoT Firmware Analysis. Then select a **Resource group** that you would like to upload your firmware image to.
 
 1. Enter the following details:
 

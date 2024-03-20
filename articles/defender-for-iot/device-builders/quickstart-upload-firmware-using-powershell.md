@@ -49,7 +49,7 @@ The output of this command includes a `Name` property, which is your firmware ID
 $sasUrl = New-AzFirmwareAnalysisWorkspaceUploadUrl -FirmwareId sampleFirmwareID -ResourceGroupName myResourceGroup -WorkspaceName default
 ```
 
-3. Use the following script to upload your firmware image to Azure Storage. Replace '`pathToFile`' with the path to your firmware image on your local machine.
+3. Use the following script to upload your firmware image to Azure Storage. Replace '`pathToFile`' with the path to your firmware image on your local machine. Wrap the path in quotation marks.
 
 ```powershell
 $uri = [System.Uri] $sasURL.Url
@@ -65,7 +65,7 @@ Set-AzStorageBlobContent -File $filePath -Container $containerName -Context $sto
 Here's an example workflow from end-to-end of how you could use the Azure PowerShell commands to create and upload a firmware image. Replace the values for the variables set at the beginning to reflect your environment.
 
 ```powershell
-$filePath=/path/to/image
+$filePath='/path/to/image'
 $resourceGroup='myResourceGroup'
 $workspace='default'
 

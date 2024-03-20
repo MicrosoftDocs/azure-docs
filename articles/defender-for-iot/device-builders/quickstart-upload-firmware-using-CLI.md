@@ -46,24 +46,22 @@ This quickstart assumes a basic understanding of Defender for IoT Firmware Analy
 
 The output of this command includes a `name` property, which is your firmware ID. **Save this ID for the next command.**
 
-2. Generate a SAS URL, which you'll use in the next step to send your firmware image to Azure Storage. Replace `sampleFirmwareID` with the firmware ID that you saved from the previous step.
+2. Generate a SAS URL, which you'll use in the next step to send your firmware image to Azure Storage. Replace `sampleFirmwareID` with the firmware ID that you saved from the previous step. You can store the SAS URL in a variable for easier access for future commands:
 
     ```azurecli
-    az firmwareanalysis workspace generate-upload-url --resource-group myResourceGroup --subscription 123e4567-e89b-12d3-a456-426614174000 --workspace-name default --firmware-id sampleFirmwareID
+    $sasURL = $(az firmwareanalysis workspace generate-upload-url --resource-group myResourceGroup --subscription 123e4567-e89b-12d3-a456-426614174000 --workspace-name default --firmware-id sampleFirmwareID --query "url")
     ```
 
-The output of this command will be a SAS URL. **Save this URL for the next command.**
-
-3. Use the SAS URL generated from the previous command to upload your firmware image to Azure Storage. Replace `pathToFile` with the path to your firmware image on your local machine, and replace `sasURL` with the URL generated from the previous step.
+3. Upload your firmware image to Azure Storage. Replace `pathToFile` with the path to your firmware image on your local machine.
 
 ```azurecli
-az storage blob upload -f pathToFile --blob-url sasURL
+az storage blob upload -f pathToFile --blob-url $sasURL
 ```
 
 Here's an example workflow of how you could use these commands to create and upload a firmware image. To learn more about using variables in CLI commands, visit [How to use variables in Azure CLI commands](/cli/azure/azure-cli-variables?tabs=bash):
 
 ```azurecli
-$filePath=/path/to/image
+$filePath='/path/to/image'
 $resourceGroup='myResourceGroup'
 $workspace='default'
 
@@ -84,7 +82,7 @@ $OUTPUT=(az storage blob upload -f $filePath --blob-url $URL)
 To retrieve firmware analysis results, you must make sure that the status of the analysis is "Ready":
 
 ```azurecli
-az firmwareanalysis firmware show
+az firmwareanalysis firmware show --firmware-id sampleFirmwareID --resource-group myResourceGroup --workspace-name default
 ```
 
 Look for the "status" field to display "Ready", then run the following commands to retrieve your firmware analysis results.
