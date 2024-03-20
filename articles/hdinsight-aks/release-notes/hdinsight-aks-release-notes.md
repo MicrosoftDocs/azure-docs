@@ -55,7 +55,7 @@ Upgrade your clusters and cluster pools with the latest software updates. This m
 ### Known issues
 
 - **Workload identity limitation:**
-  - there's a known [limitation](/azure/aks/workload-identity-overview#limitations) when transitioning to workload identity. This limitation is due to the permission-sensitive nature of FIC operations. Users can't perform deletion of a cluster by deleting the resource group. Cluster deletion requests must triggered by the application/user/principal with FIC/delete permissions. In case, the FIC deletion fails, the high-level cluster deletion also fails.
+  - there's a known [limitation](/azure/aks/workload-identity-overview#limitations) when transitioning to workload identity. This limitation is due to the permission-sensitive nature of FIC operations. Users can't perform deletion of a cluster by deleting the resource group. Cluster deletion requests must be triggered by the application/user/principal with FIC/delete permissions. In case, the FIC deletion fails, the high-level cluster deletion also fails.
   - **User Assigned Managed Identities (UAMI)** support is limited – there's a limit of 20 FICs per UAMI. You can only create 20 Federated Credentials on an identity. In HDInsight on AKS cluster, FIC (Federated Identity Credential) and SA are one-to-one mapping and only 20SAs can be created against an MSI. If you want to create more clusters, then provide different MSIs to overcome the limitation.
 
  
