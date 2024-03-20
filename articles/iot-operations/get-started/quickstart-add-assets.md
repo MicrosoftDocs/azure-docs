@@ -29,8 +29,6 @@ Complete [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kube
 
 To sign in to the Azure IoT Operations portal, you need a work or school account in the tenant where you deployed Azure IoT Operations. If you're currently using a Microsoft account (MSA), you need to create a Microsoft Entra ID with at least contributor permissions for the resource group that contains your **Kubernetes - Azure Arc** instance. To learn more, see [Known Issues > Create Entra account](../troubleshoot/known-issues.md#azure-iot-operations-preview-portal).
 
-For this quickstart, we use the **OPC PLC simulator** as our OPC UA Server endpoint. Follow [How to configure an OPC PLC simulator to work with Azure IoT OPC UA Broker](../manage-devices-assets/howto-configure-opc-plc-simulator.md) to make sure that OPC PLC is properly installed and configured before you begin.
-
 ## What problem will we solve?
 
 The data that OPC UA servers expose can have a complex structure and can be difficult to understand. Azure IoT Operations provides a way to model OPC UA assets as tags, events, and properties. This modeling makes it easier to understand the data and to use it in downstream processes such as the MQ broker and Azure IoT Data Processor Preview pipelines.
@@ -78,13 +76,36 @@ To add an asset endpoint:
     kubectl get assetendpointprofile -n azure-iot-operations
     ```
 
-    After you define an asset, an OPC UA connector pod discovers it. The pod uses the asset endpoint that you specify in the asset definition to connect to an OPC UA server. You can use `kubectl` to view the discovery pod that was created when you added the asset endpoint. The pod name looks like `aio-opc-opc.tcp-1-8f96f76-kvdbt`:
+1. To enable the quickstart scenario, configure your asset endpoint to connect without mutual trust established. Run the following command:
+
+    ```console
+    kubectl patch AssetEndpointProfile opc-ua-connector-0 -n azure-iot-operations --type=merge -p '{"spec":{"additionalConfiguration":"{\"applicationName\":\"opc-ua-connector-0\",\"security\":{\"autoAcceptUntrustedServerCertificates\":true}}"}}'
+    ```
+
+    > [!CAUTION]
+    > Don't use this configuration in production or pre-production environments. Exposing your cluster to the internet without proper authentication might lead to unauthorized access and even DDOS attacks.
+
+1. To enable the configuration changes to take effect immediately, first find the name of your `aio-opc-supervisor` pod by using the following command:
 
     ```console
     kubectl get pods -n azure-iot-operations
     ```
 
-    When the OPC PLC simulator is running, data flows from the simulator, to the connector, to the OPC UA broker, and finally to the MQ broker.
+    The name of your pod looks like `aio-opc-supervisor-956fbb649-k9ppr`.
+
+1. Restart the `aio-opc-supervisor` pod by using a command that looks like the following example. Use the `aio-opc-supervisor` pod name from the previous step:
+
+    ```console
+    kubectl delete pod aio-opc-supervisor-956fbb649-k9ppr -n azure-iot-operations
+    ```
+
+After you define an asset, an OPC UA connector pod discovers it. The pod uses the asset endpoint that you specify in the asset definition to connect to an OPC UA server. You can use `kubectl` to view the discovery pod that was created when you added the asset endpoint. The pod name looks like `aio-opc-opc.tcp-1-8f96f76-kvdbt`:
+
+```console
+kubectl get pods -n azure-iot-operations
+```
+
+When the OPC PLC simulator is running, data flows from the simulator, to the connector, to the OPC UA broker, and finally to the MQ broker.
 
 ## Manage your assets
 
