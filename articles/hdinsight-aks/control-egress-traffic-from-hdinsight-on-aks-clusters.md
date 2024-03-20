@@ -24,7 +24,7 @@ For example, you may want to:
 
 * Monitor or audit the egress traffic from cluster for troubleshooting or compliance purposes.
 
-## Methods and tools to control egress traffic 
+## Methods and tools to control egress traffic
 
  
 There are several methods and tools for controlling egress traffic from HDInsight on AKS clusters, by configuring the settings at cluster pool and cluster levels.  
@@ -57,7 +57,7 @@ When clusters are created, then certain ingress public IPs also get created.
 
 To allow requests to be sent to the cluster, you need to [allowlist the traffic](./secure-traffic-by-nsg.md#inbound-security-rules-ingress-traffic). You can also configure certain [rules in the NSG ](./secure-traffic-by-nsg.md#inbound-security-rules-ingress-traffic) to do a coarse-grained control. 
 
-### Outbound with user defined routing 
+### Outbound with user defined routing
 
 > [!NOTE]
 >  The `userDefinedRouting` outbound type is an advanced networking scenario and requires proper network configuration, before you begin.  
@@ -77,7 +77,7 @@ For inbound traffic, you're required to choose based on the requirements to choo
 
 In HDInsight on AKS cluster pools, when you set an outbound type of UDR, no standard load balancer created.  
 
-You're required to first set the firewall rules for the Outbound with userDefinedRouting to work.
+You're required to first set the firewall rules for the Outbound with `userDefinedRouting` to work.
 
 > [!IMPORTANT]
 > Outbound type of UDR requires a route for 0.0.0.0/0 and a next hop destination of NVA in the route table. The route table already has a default 0.0.0.0/0 to the Internet. Without a public IP address for Azure to use for Source Network Address Translation (SNAT), simply adding this route won't provide you outbound Internet connectivity. AKS validates that you don't create a 0.0.0.0/0 route pointing to the Internet but instead to a gateway, NVA, etc. When using an outbound type of UDR, a load balancer public IP address for inbound requests isn't created unless you configure a service of type loadbalancer. HDInsight on AKS never creates a public IP address for outbound requests if you set an outbound type of UDR.
@@ -92,28 +92,28 @@ Following is an example of setting up firewall rules, and testing your outbound 
 
 1. Create the required firewall subnet:
 
-    To deploy a firewall into the integrated virtual network, you need a subnet called AzureFirewallSubnet or Name of your choice. 
+    To deploy a firewall into the integrated virtual network, you need a subnet called **AzureFirewallSubnet or Name of your choice**. 
 
     1. In the Azure portal, navigate to the virtual network integrated with your app. 
     
-    1. From the left navigation, select Subnets > + Subnet. 
+    1. From the left navigation, select **Subnets > + Subnet**.
     
-    1. In Name, type AzureFirewallSubnet. 
+    1. In **Name**, type **AzureFirewallSubnet**.
     
-    1. Subnet address range, accept the default or specify a range that's at least /26 in size. 
+    1. **Subnet address range**, accept the default or specify a range that's {at least /26 in size}(/azure/firewall/firewall-faq#why-does-azure-firewall-need-a--26-subnet-size).
     
-    1. Select Save. 
+    1. Select **Save**. 
     
 
 1. Deploy the firewall and get its IP 
 
-    1. On the Azure portal menu or from the Home page, select 'Create a resource.' 
+    1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
     
-    1. Type firewall in the search box and press Enter. 
+    1. Type firewall in the search box and press **Enter**. 
     
-    1. Select Firewall and then select Create. 
+    1. Select **Firewall** and then select **Create**. 
     
-    1. On the Create a Firewall page, configure the firewall as shown in the following table: 
+    1. On the **Create a Firewall** page, configure the firewall as shown in the following table: 
     
 
         |Setting |Value |
@@ -127,25 +127,25 @@ Following is an example of setting up firewall rules, and testing your outbound 
     
         :::image type="content" source="./media/control-egress traffic-from-hdinsight-on-aks-clusters/create-firewall-page.png" alt-text="Screenshot showing create a firewall basic tab." lightbox="./media/control-egress traffic-from-hdinsight-on-aks-clusters/create-firewall-page.png":::
 
-    1. Click Review + create. 
+    1. Click **Review + create**. 
     
-    1. Select Create again. This process takes a few minutes to deploy. 
+    1. Select **Create again**. This process takes a few minutes to deploy. 
     
     1. After deployment completes, go to your resource group, and select the firewall. 
     
-    1. In the firewall's Overview page, copy private IP address. The private IP address will be used as next hop address in the routing rule for the virtual network.
+    1. In the firewall's **Overview** page, copy private IP address. **The private IP address will be used as next hop address in the routing rule for the virtual network**.
     
        :::image type="content" source="./media/control-egress traffic-from-hdinsight-on-aks-clusters/setup-firewall.png" alt-text="Screenshot showing how to set up firewall." lightbox="./media/control-egress traffic-from-hdinsight-on-aks-clusters/setup-firewall.png":::
 
-1. Route all traffic to the firewall 
+1. Route all traffic to the firewall
 
     When you create a virtual network, Azure automatically creates a default route table for each of its subnets and adds system [default routes to the table](/azure/virtual-network/virtual-networks-udr-overview#default). In this step, you create a user-defined route table that routes all traffic to the firewall, and then associate it with the App Service subnet in the integrated virtual network. 
     
-    1. On the [Azure portal](https://portal.azure.com/) menu, select All services or search for and select All services from any page. 
+    1. On the [Azure portal](https://portal.azure.com/) menu, select **All services** or search for and select **All services** from any page. 
     
-    1. Under Networking, select Route tables. 
+    1. Under **Networking**, select **Route tables**. 
     
-    1. Select Add. 
+    1. Select **Add**. 
     
     1. Configure the route table like the following example: 
     
@@ -153,13 +153,13 @@ Following is an example of setting up firewall rules, and testing your outbound 
     
         Make sure you select the same region as the firewall you created. 
 
-    1. Select Review + create. 
+    1. Select **Review + create**. 
     
-    1. Select Create. 
+    1. Select **Create**. 
     
-    1. After deployment completes, select Go to resource. 
+    1. After deployment completes, select **Go to resource**. 
     
-    1. From the left navigation, select Routes > Add. 
+    1. From the left navigation, select **Routes > Add**. 
     
     1. Configure the new route as shown in the following table:
 
@@ -167,13 +167,13 @@ Following is an example of setting up firewall rules, and testing your outbound 
         |-|-
         |Address prefix |0.0.0.0/0 |
         |Next hop type |Virtual appliance |
-        |Next hop address |The private IP address for the firewall that you copied in (section 2 - Deploy the firewall and get its IP) |
+        |Next hop address |The private IP address for the firewall that you copied |
         
         :::image type="content" source="./media/control-egress traffic-from-hdinsight-on-aks-clusters/create-route-table.png" alt-text="Screenshot showing create route table." lightbox="./media/control-egress traffic-from-hdinsight-on-aks-clusters/create-route-table.png":::
 
-    1. Select OK. 
+    1. Select **OK**. 
 
-1. Configure firewall policies 
+1. Configure firewall policies
 
     Outbound traffic from your HDInsight on AKS subnet is now routed through the integrated virtual network to the firewall.  
     
@@ -181,18 +181,18 @@ Following is an example of setting up firewall rules, and testing your outbound 
     
     1. Navigate to the firewall's overview page and select its firewall policy. 
     
-    1. In the firewall policy page, from the left navigation, select Application Rules > Add a rule collection. 
+    1. In the firewall policy page, from the left navigation, select **Application Rules > Add a rule collection**. 
     
-    1. In Rules, add a network rule with the subnet as the source address, and specify an FQDN destination.  
+    1. In **Rules**, add a network rule with the subnet as the source address, and specify an FQDN destination.  
     
-    1. You need to add AKS and  HDInsight on AKS rules for allowing traffic for the cluster to function. (AKS ApiServer need to be added after the clusterPool is created because you only can get the AKS ApiServer after creating the clusterPool).
+    1. You need to add [AKS](/azure/aks/outbound-rules-control-egress#required-outbound-network-rules-and-fqdns-for-aks-clusters) and  [HDInsight on AKS](./secure-traffic-by-firewall-azure-portal#add-network-and-application-rules-to-the-firewall) rules for allowing traffic for the cluster to function. (AKS ApiServer need to be added after the clusterPool is created because you only can get the AKS ApiServer after creating the clusterPool).
     
-    1. You can also add the private endpoints for any dependent resources in the same subnet for cluster to access them (example – storage). 
+    1. You can also add the [private endpoints](/azure/hdinsight-aks/secure-traffic-by-firewall-azure-portal#add-network-and-application-rules-to-the-firewall) for any dependent resources in the same subnet for cluster to access them (example – storage). 
     
-    1. Select Add. 
+    1. Select **Add**.
     
 
-1. Verify if public IP is created 
+1. Verify if public IP is created
 
 With the firewall rules set, you can select the subnet during the cluster pool creation.
 
