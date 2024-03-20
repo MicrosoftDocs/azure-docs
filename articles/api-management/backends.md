@@ -12,6 +12,8 @@ ms.custom:
 
 # Backends in API Management
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 A *backend* (or *API backend*) in API Management is an HTTP service that implements your front-end API and its operations.
 
 When importing certain APIs, API Management configures the API backend automatically. For example, API Management configures the backend web service when importing:
