@@ -9,7 +9,7 @@ ms.date: 03/19/2024
 ms.subservice: sizes
 ---
 
-**Standard_NC24rs_v3 Retirement Guide**  
+**Migrate your Standard_NC24rs_v3 by March 31, 2025**  
 
 On March 31<sup>st</sup>, 2025, Microsoft Azure will retire the Standard_NC24rs_v3 virtual machine (VM) size in NCv3-series virtual machines (VMs). To avoid any disruption to your service we recommend that you change the VM sizing for your workloads from the current Standard_NC24rs_v3 to the newer VM series in the same NC product line.
 
@@ -29,7 +29,7 @@ The Standard_NC96ads_A100_v4 VM size in [NC A100 v4 series](https://learn.micros
 
 Later this year Microsoft will also be releasing the [NC H100 v5-series (currently in Preview)](https://learn.microsoft.com/en-us/azure/virtual-machines/ncads-h100-v5). The NC H100 v5-Series is another SKU in the same product line powered by NVIDIA H100 NVL GPU. These VMs are targeted for GPU accelerated midrange AI training, batch inferencing, and HPC simulation workloads.  
 
-| **Current VM Size** | **Target VM Size** | **Difference in Specification** |
+|Current VM Size| Target VM Size | Difference in Specification |
 |---|---|---|
 | **Standard_NC24rs_v3** | Standard_NC96ads_A100_v4 | vCPU: 96 (+18)GPU Count: 4 (Same)<br>Memory: GiB 880 (+432)<br>Temp storage (SSD) GiB: 3916 (+968)<br>Max data disks: 32 (+0)<br>Accelerated networking: Yes(+)<br>Premium storage: Yes |
 
