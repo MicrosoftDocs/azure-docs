@@ -37,7 +37,7 @@ Instead of using the cloudadmin user to connect services to vCenter Server or NS
 
 To begin using Azure CLI:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 1. In your Azure VMware Solution private cloud, open an Azure Cloud Shell session.
 

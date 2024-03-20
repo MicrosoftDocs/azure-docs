@@ -178,7 +178,7 @@ With the ARM template that you've crafted and the Azure CLI confcom extension, y
 
 1. Select the following **Deploy to Azure** button to sign in to Azure and begin an Azure Container Instances deployment.
 
-   :::image type="content" source="~/articles/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://ms.portal.azure.com/#create/Microsoft.Template":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://ms.portal.azure.com/#create/Microsoft.Template":::
 
 1. Choose **Build your own template in the editor**. You'll see a mostly blank template JSON.
 
