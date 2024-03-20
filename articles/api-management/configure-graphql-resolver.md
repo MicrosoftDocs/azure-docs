@@ -12,6 +12,9 @@ ms.author: danlep
 
 # Configure a GraphQL resolver
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
+
 Configure a resolver to retrieve or set data for a GraphQL field in an object type specified in a GraphQL schema. The schema must be imported to API Management as a GraphQL API. 
 
 Currently, API Management supports resolvers that can access the following data sources:

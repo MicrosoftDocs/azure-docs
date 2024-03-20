@@ -11,6 +11,8 @@ ms.author: danlep
 
 # Configure credential manager - GitHub API
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 In this article, you learn how to create a managed [connection](credentials-overview.md) in API Management and call a GitHub API that requires an OAuth 2.0 token. The authorization code grant type is used in this example.
 
 You learn how to:
