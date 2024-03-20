@@ -93,7 +93,7 @@ This procedure describes how to install the Defender for IoT software you'd down
 
         - DVDs: First burn the software to the DVD as an image
         - USB drive: First make sure that you’ve created a bootable USB drive with software such as [Rufus](https://rufus.ie/en/), and then save the software to the USB drive. USB drives must have USB version 3.0 or later.
-        - Make sure you select the DD image mode setting, for example:
+        - Select the **DD Image mode** setting when creating your image, for example:
 
         :::image type="content" source="media/rufus-4-4-dd-image-mode.png" alt-text="screenshot of the DD image settings":::
 
