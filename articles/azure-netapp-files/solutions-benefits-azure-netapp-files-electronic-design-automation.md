@@ -61,7 +61,6 @@ The EDA workload in this test was generated using a standard industry benchmark 
 
 :::image type="content" source="./media/solutions-benefits-azure-netapp-files-electronic-design-automation/pie-chart-large-volume.png" alt-text="Pie chart depicting frontend OP type." lightbox="./media/solutions-benefits-azure-netapp-files-electronic-design-automation/pie-chart-large-volume.png":::
 
-
 | EDA Frontend OP Type	| Percentage of Total |
 | - | - | 
 | Stat | 39% |
