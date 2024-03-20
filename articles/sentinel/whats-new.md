@@ -23,8 +23,17 @@ The listed features were released in the last three months. For information abou
 
 ## March 2024
 
+- [Codeless Connector builder (preview)](#codeless-connector-builder-preview)
 - [SIEM migration experience (preview)](#siem-migration-experience-preview)
 - [Data connectors for Syslog and CEF based on Azure Monitor Agent now generally available (GA)](#data-connectors-for-syslog-and-cef-based-on-azure-monitor-agent-now-generally-available-ga)
+
+### Codeless connector builder (preview)
+
+We now have a workbook to help navigate the complex JSON involved in deploying an ARM template for codeless connector platform (CCP) data connectors. Use the friendly interface of the **codeless connector builder** to simplify your development. 
+
+See our blog post for more details, [Create Codeless Connectors with the Codeless Connector Builder (Preview)](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/create-codeless-connectors-with-the-codeless-connector-builder/ba-p/4082050).
+
+For more information on the CCP, see [Create a codeless connector for Microsoft Sentinel (Public preview)](create-codeless-connector.md).
 
 ### SIEM migration experience (preview)
 
