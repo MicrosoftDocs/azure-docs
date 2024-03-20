@@ -32,9 +32,8 @@ Onboarding is a multi-step process. Once you meet the prerequisites, you'll use 
 
 - You require the Contributor role over your subscription in order to create a Resource Group, or an existing Resource Group where you have the Contributor role.
 - You require the `Reader`/`AcrPull` role assignments on the source ACR containing your images.
-- For the fastest image transfers, you require the `Contributor` and `AcrPush` role assignments on the subscription that will contain the AOSM managed Artifact Store. Alternatively, you can use the `--no-subscription-permissions` parameter when publishing images. This parameter means you don't require subscription scoped permissions.
-
-**[AK] I did not understand how --no-subscription-permissions flag works and in which cases one should use it. Can you help?**
+- You require the `Contributor` and `AcrPush` role assignments on the subscription that will contain the AOSM managed Artifact Store. This allows the Azure CLI AOSM Extension to do a direct ACR-to-ACR copy. This is the fastest method of transferring images from one ACR to another.
+  - Your company policy may prevent you from having subscription-scoped permissions. The `--no-subscription-permissions` parameter, available on the `az aosm nfd publish` and `az aosm nsd publish` commands, uses tightly scoped permissions derived from the AOSM service to orchestrate a two-step copy to and from your local machine. This two-step copy is slower, but does not require subscription scoped permissions.
 
 ### Helm packages
 
@@ -47,31 +46,6 @@ The Helm packages you intend to onboard must be present on the local storage of 
 
 - [Helm CLI](https://helm.sh/) installed on the host computer.
 - [Docker](https://docs.docker.com/) installed on the host computer.
-
-### Register necessary resource providers
-
-**[AK] Can/should we explain why we need this RP? I've never had to explicitly do this with other partners.**
-
-Before you begin using the Azure Operator Service Manager, make sure to register the required resource providers. Execute the following commands. This registration process can take up to 5 minutes.
-
-```azurecli
-# Register Resource Provider
-az provider register --namespace Microsoft.ContainerRegistry
-```
-
-> [!NOTE]
-> It may take a few minutes for the resource provider registration to complete.
-
-You can verify that your subscription is registered to use AOSM by running the following commands:
-
-#### Verify the registration status of the resource providers
-
-Execute the following commands:
-
-```azurecli
-# Query the Resource Provider
-az provider show -n Microsoft.ContainerRegistry --query "{RegistrationState: registrationState, ProviderName: namespace}"
-```
 
 ### Download and install Azure CLI
 
