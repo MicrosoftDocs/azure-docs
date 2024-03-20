@@ -51,7 +51,7 @@ In addition to a content filter configuration applied to your deployment, you ne
 
 ### Set up your Azure Data Explorer database
 
-In order to protect the data privacy of "user" information, as well as manage the permission of the data, we support the option for customers to bring their own storage to store potentially abusive user detection insights in a compliant way and with full control. Follow these steps to enable it:
+In order to protect the data privacy of "user" information and manage the permission of the data, we support the option for customers to bring their own storage to store potentially abusive user detection insights in a compliant way and with full control. Follow these steps to enable it:
 1. Navigate to the model deployment that you'd like to set up user abuse analysis with, and select **Add a data store**.  
 1. Fill in the required information and select **add**. We recommend you create a new database to store the analysis results.
 1. After you connect the data store, perform following actions to grant permission:
