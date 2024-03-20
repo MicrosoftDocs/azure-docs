@@ -46,7 +46,7 @@ The following table list shows the features of HDInsight on AKS that are current
 
 |	Feature	|	Estimated release timeline	| Status |
 | --- | --- | --- |
-|	Autoscale - Load Based - Trino	|	Q1 2024	| Completed |
+|	[Autoscale - Load Based - Trino](./hdinsight-on-aks-autoscale-clusters.md)	|	Q1 2024	| Completed |
 |	Shuffle aware load based auto scale for Spark	|	Q2 2024	| In Progress |
 |	In Place Upgrade	|	Q2 2024	| In Progress |
 |	Reserved Instance Support 	|	Q2 2024	| In Progress |
@@ -58,7 +58,7 @@ The following table list shows the features of HDInsight on AKS that are current
 |	Flink 1.17 	|	Q1 2024	| Completed |
 |	Spark ACID Support	|	Q1 2024	| In Progress|
 |	Configurable SKUs for Headnode, SSH	|	Q2 2024	| In Progress|
-|	Flink SQL Gateway Support	|	Q1 2024	| Completed |
+|	[Flink SQL Gateway Support](./flink/start-sql-client-cli-gateway-mode.md)	|	Q1 2024	| Completed |
 |	Private Clusters for HDInsight on AKS	|	Q1 2024	| Completed |
 |	Ranger Support for Spark SQL	|	Q4 2024	| In Progress |
 |	Ranger ACLs on Storage Layer	|	Q4 2024	| In Progress |
