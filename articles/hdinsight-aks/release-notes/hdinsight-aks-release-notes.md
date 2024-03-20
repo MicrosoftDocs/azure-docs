@@ -26,7 +26,7 @@ You can refer to [What's new](../whats-new.md) page for all the details of the f
 
 ## Release Information
 
-### Release date: march 20, 2024
+### Release date: March 20, 2024
 
 **This release applies to the following**
 
