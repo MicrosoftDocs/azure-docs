@@ -73,7 +73,7 @@ To manually assign the permissions, follow the below instructions according to y
 
 To assign these permissions at scale, you can also use [this script](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Powershell%20scripts/Agentless%20Scanning%20CMK%20support).
 
-Learn more on [agentless scanning permissions](faq-permissions#which-permissions-are-used-by-agentless-scanning-).
+For more information, see [agentless scanning permissions](faq-permissions.yml#which-permissions-are-used-by-agentless-scanning-).
 
 ### Agentless vulnerability assessment on AWS
 
