@@ -12,12 +12,14 @@ This article describes how to configure Azure Managed Prometheus with AKS to mon
 ## Prerequisites
 
 + Kafka cluster running on AKS
-+ [Enable Azure Managed Prometheus on AKS](kubernetes-monitoring-enable.md#enable-prometheus-and-grafana)
++ Azure Managed prometheus is enabled on the AKS cluster - [Enable Azure Managed Prometheus on AKS](kubernetes-monitoring-enable.md#enable-prometheus-and-grafana)
 
 
 ### Install Kafka Exporter -
 Install the [kafka exporter](https://github.com/danielqsj/kafka_exporter/tree/master) as a deployment and service using the following yaml configuration - 
-> [!NOTE] - The container can be configured with arguments as described in the [Flags](https://github.com/danielqsj/kafka_exporter/tree/master#flags) section.
+
+> [!NOTE] 
+> The container can be configured with arguments as described in the [Flags](https://github.com/danielqsj/kafka_exporter/tree/master#flags) section.
 Please specify the right server address where the kafka server can be reached. For the following configuration, the server address is "my-cluster-kafka-0.my-cluster-kafka-brokers.kafka.svc:9092"
 
 ```yaml
@@ -314,13 +316,20 @@ with Grafana Dashboard ID: 7589  from your grafana instance used during managed 
 }
 ```
 2. Edit the following values in the parameter file. Retrieve the resource ID of the resources from the **JSON View** of their **Overview** page.
+
     | Parameter | Value |
     |:---|:---|
     | `azureMonitorWorkspaceResourceId` | Resource ID for the Azure Monitor workspace. Retrieve from the **JSON view** on the **Overview** page for the Azure Monitor workspace. |
     | `location` | Location of the Azure Monitor workspace. Retrieve from the **JSON view** on the **Overview** page for the Azure Monitor workspace. |
     | `clusterResourceId` | Resource ID for the AKS cluster. Retrieve from the **JSON view** on the **Overview** page for the cluster. |
     | `clusterName` | Name of the AKS cluster. Retrieve from the **JSON view** on the **Overview** page for the cluster. |
-    | `actionGroupResourceId` | Resource ID for the alert action group. Retrieve from the **JSON view** on the **Overview** page for the action group. |
+    | `actionGroupResourceId` | Resource ID for the alert action group. Retrieve from the **JSON view** on the **Overview** page for the action group. Learn more about [action groups](../alerts/action-groups.md) |
+
+3. Deploy the template by using any standard methods for installing ARM templates. For guidance, see [ARM template samples for Azure Monitor](../resource-manager-samples.md).
+
+> [!Note] 
+> Learn more about [Prometheus Alerts](../containers/container-insights-metric-alerts.md#prometheus-alert-rules)
+
 
 
 ### Additional jmx_exporter metrics using strimzi
