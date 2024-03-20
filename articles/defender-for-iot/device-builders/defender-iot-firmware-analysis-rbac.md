@@ -31,7 +31,7 @@ You can use RBAC at each level of the hierarchy, including at the hidden **defau
 
 Here's the resource hierarchy of Defender for IoT Firmware Analysis:
 
-:::image type="content" source="media/defender-for-iot-firmware-analysis-rbac/resource-hierarchy.png" alt-text="The resource hierarchy of firmware images of Defender for IoT Firmware Analysis." lightbox="media/defender-for-iot-firmware-analysis-rbac/resource-hierarchy.png":::
+:::image type="content" source="media/defender-for-iot-firmware-analysis-rbac/resource-hierarchy.png" alt-text="Diagram that shows the resource hierarchy of firmware images of Defender for IoT Firmware Analysis." lightbox="media/defender-for-iot-firmware-analysis-rbac/resource-hierarchy.png":::
 
 ## Apply Azure RBAC
 
@@ -75,7 +75,7 @@ You might want to invite someone to interact solely with your firmware analysis 
 
 To invite a third party, follow the [Assign Azure roles to external guest users using the Azure portal](../../../articles/role-based-access-control/role-assignments-external-users.md#invite-an-external-user-to-your-directory) tutorial.
 
-* In step 3, navigate to the your resource group.
+* In step 3, navigate to your resource group.
 * In step 7, select the **Firmware Analysis Admin** role.
 
 > [!Note]
