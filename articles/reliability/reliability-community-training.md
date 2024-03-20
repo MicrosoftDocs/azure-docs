@@ -5,7 +5,7 @@ author: atulsoni87AI
 ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
-ms.prod: non-product-specific
+ms.service: reliability
 ms.date: 12/06/2023
 ---
 
