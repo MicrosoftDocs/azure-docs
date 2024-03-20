@@ -6,7 +6,7 @@ services: cdn
 author: duongau
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 12/19/2023
+ms.date: 03/20/2024
 ms.author: duau
 ---
 
@@ -44,8 +44,8 @@ Contact support for any issues or assistance with Azure CDN from Edgio.
 
 For Azure Traffic Manager users with Multi-CDN:
 
-* If you registered an Edgio profile for your custom domain, you can delete your Akamai profile as your migration is complete.
-* Else, you need an extra TXT token validation to enable HTTPS with managed certificate. Contact support for further assistance.
+- If you registered an Edgio profile for your custom domain, you can delete your Akamai profile as your migration is complete.
+- Else, you need an extra TXT token validation to enable HTTPS with managed certificate. Contact support for further assistance.
 
 > [!TIP]
 > Items to validate related migration:
@@ -54,5 +54,5 @@ For Azure Traffic Manager users with Multi-CDN:
 
 ## Next steps
 
-* Create an [Azure Front Door](../frontdoor/create-front-door-portal.md) profile.
-* Create an [Azure CDN from Edgio](cdn-create-endpoint-how-to.md) profile.
+- Create an [Azure Front Door](../frontdoor/create-front-door-portal.md) profile.
+- Create an [Azure CDN from Edgio](cdn-create-endpoint-how-to.md) profile.
