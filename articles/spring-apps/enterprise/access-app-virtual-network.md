@@ -286,6 +286,7 @@ az spring app update \
     --service $AZURE_SPRING_APPS_INSTANCE_NAME \
     --assign-endpoint true
 ```
+
 ---
 
 ## Access the application's private FQDN
