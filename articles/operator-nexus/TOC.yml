@@ -47,7 +47,7 @@
         - name: Route Policy Overview
           href: concepts-nexus-route-policies-overview.md
         - name: IP Prefixes Overview
-          href: concepts-nexus-ipprefix.md
+          href: concepts-nexus-ip-prefix.md
     - name: Availability
       href: concepts-nexus-availability.md
     - name: Network Packet Broker

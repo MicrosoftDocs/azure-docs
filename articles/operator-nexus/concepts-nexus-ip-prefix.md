@@ -1,6 +1,6 @@
 ---
-title: "Azure Operator Nexus IP Prefixes"
-description: Overview of the IP Prefix resource in Azure Operator Nexus.
+title: "Azure Operator Nexus IP prefixes"
+description: Overview of the IP prefix resource in Azure Operator Nexus.
 author: joemarshallmsft
 ms.author: joemarshall
 ms.service: azure-operator-nexus
@@ -9,7 +9,7 @@ ms.date: 02/28/2024
 ms.custom: template-concept
 ---
 
-# Azure Operator Nexus IP Prefix Resources
+# Azure Operator Nexus IP prefix resources
 
 An IP prefix resource allows operators to manipulate how the Border Gateway Protocol (BGP) propagates routes based on the IP prefix (IPv4 and IPv6). Operators can use IP prefixes to  block certain prefixes from being propagated up-stream or down-stream, or tag them with specific community or extended community values. IP prefix resources are modeled as Azure Resource Manager (ARM) resources under Microsoft.managednetworkfabric and can be created, read, updated, and deleted by operators. They're used in conditions and actions of RoutePolicy statements.
 
