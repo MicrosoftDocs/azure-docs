@@ -26,9 +26,8 @@ This article describes how to enable Periodic Assessment for your machines at sc
 You can monitor the compliance of resources under **Compliance** and remediation status under **Remediation** on the Azure Policy home page.
 
 > [!NOTE]
-> Currently, Periodic assessment policies don’t support specialized, migrated, and restored images. However, they work for both marketplace and generalized gallery images. If you are facing failures during remediation see, [remediation failures for gallery images](troubleshoot.md#policy-remediation-tasks-are-failing-for-gallery-images-and-for-images-with-encrypted-disks) for more information. 
-
-
+> - Periodic assessment policies work for all supported image types. If you are facing failures during remediation see, [remediation failures for gallery images](troubleshoot.md#policy-remediation-tasks-are-failing-for-gallery-images-and-for-images-with-encrypted-disks) for more information. 
+> - Run a remediation task post create [for issues with auto remediation of specialized, migrated and restored images during create](troubleshoot.md#policy-isnt-auto-remediating-for-specialized-migrated--restored-vms-during-create).
 
 ## Enable Periodic Assessment for your Azure Arc-enabled machines by using Azure Policy
 
