@@ -26,18 +26,17 @@ Use this action to overwrite the time to live (TTL) value of the endpoint for re
 
 #### Required fields
 
-Cache behavior |  Description
-
----------------|----------------
-Bypass cache | When this option is selected and the rule matches, the content isn't cached.
-Override | When this option is selected and the rule matches, the TTL value returned from your origin is overwritten with the value specified in the action. This behavior is only be applied if the response is cacheable. For cache-control response header with values "no-cache", "private", "no-store", the action isn't applicable.
-Set if missing | When this option gets selected and the rule matches, if no TTL value gets returned from your origin, the rule sets the TTL to the value specified in the action. This behavior only gets applied if the response is cacheable. For cache-control response header with values "no-cache", "private", "no-store", the action isn't applicable.
+| Cache behavior | Description |
+|--|--|
+| Bypass cache | When this option is selected and the rule matches, the content isn't cached. |
+| Override | When this option is selected and the rule matches, the TTL value returned from your origin is overwritten with the value specified in the action. This behavior is only be applied if the response is cacheable. For cache-control response header with values "no-cache", "private", "no-store", the action isn't applicable. |
+| Set if missing | When this option gets selected and the rule matches, if no TTL value gets returned from your origin, the rule sets the TTL to the value specified in the action. This behavior only gets applied if the response is cacheable. For cache-control response header with values "no-cache", "private", "no-store", the action isn't applicable. |
 
 #### Extra fields
 
-Days | Hours | Minutes | Seconds
------|-------|---------|--------
-Int | Int | Int | Int
+| Days | Hours | Minutes | Seconds |
+|--|--|--|--|
+| Int | Int | Int | Int |
 
 ### Cache key query string
 

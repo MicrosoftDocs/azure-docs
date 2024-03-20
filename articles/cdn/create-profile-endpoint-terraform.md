@@ -74,7 +74,7 @@ In this article, you learn how to:
 
 <a name='azure-cli'></a>
 
-#### The [Azure CLI](#tab/azure-cli)
+#### [Azure CLI](#tab/azure-cli)
 
 1. Get the Azure resource group name in which the Azure CDN profile and endpoint were created.
 
