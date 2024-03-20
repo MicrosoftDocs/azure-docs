@@ -36,7 +36,7 @@ Here's the resource hierarchy of Defender for IoT Firmware Analysis:
 ## Apply Azure RBAC
 
 > [!Note]
-> To begin using Defender for IoT Firmware Analysis, the user that onboards the subscription onto Defender for IoT Firmware Analysis ***must be*** an Owner, Contributor, Firmware Analysis Admin, or Security Admin at the subscription level. Follow the tutorial at [Analyze a firmware image with Microsoft Defender for IoT](../../../articles/defender-for-iot/device-builders/tutorial-analyze-firmware.md) to onboard your subscription. Once you've onboarded your subscription, a user only needs to be a Firmware Analysis Admin to use Defender for IoT Firmware Analysis.
+> To begin using Defender for IoT Firmware Analysis, the user that onboards the subscription onto Defender for IoT Firmware Analysis ***must be*** an Owner, Contributor, Firmware Analysis Admin, or Security Admin at the subscription level. Follow the tutorial at [Analyze a firmware image with Microsoft Defender for IoT](../../../articles/defender-for-iot/device-builders/tutorial-analyze-firmware.md#onboard-your-subscription-to-use-defender-for-firmware-analysis) to onboard your subscription. Once you've onboarded your subscription, a user only needs to be a Firmware Analysis Admin to use Defender for IoT Firmware Analysis.
 > 
 
 As a user of Defender for IoT Firmware Analysis, you may need to perform certain actions for your organization, such as uploading firmware images or sharing analysis results.
