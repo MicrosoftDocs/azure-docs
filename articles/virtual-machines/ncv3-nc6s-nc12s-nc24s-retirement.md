@@ -1,6 +1,6 @@
 ---
 title: NCv3 and NC6s NC12s NC24s Retirement
-description: Migration guide for sizes
+description: Migration guide for sizes NC6s_v3 NC12s_v3 NC24s_v3
 author: sherrywangms
 ms.author: sherrywang
 ms.service: virtual-machines
@@ -12,21 +12,21 @@ ms.subservice: sizes
 
 On September 30, 2025, Microsoft Azure will retire the Standard_NC6s_v3, Standard_NC12s_v3 and Standard_NC24s_v3 virtual machines (VMs) in NCv3-series virtual machines (VMs). To avoid any disruption to your service, we recommend that you change the VM sizing for your workloads from the current NCv3-series VMs to the newer VM series in the same NC product line.
 
-Microsoft is recommending, the Azure [NC A100 v4-series](https://learn.microsoft.com/en-us/azure/virtual-machines/nc-a100-v4-series) VMs which offers greater GPU memory bandwidth per GPU, improved [Accelerated Networking](https://learn.microsoft.com/en-us/azure/virtual-network/accelerated-networking-overview?tabs=redhat) capabilities, larger and faster local solid state drives. Overall the NC A100 v4-series delivers [better cost performance](https://techcommunity.microsoft.com/t5/azure-high-performance-computing/a-quick-start-to-benchmarking-in-azure-nvidia-deep-learning/ba-p/3563884) across midrange AI training and inference workloads. 
+Microsoft is recommending, the Azure [NC A100 v4-series](./nc-a100-v4-series.md) VMs which offers greater GPU memory bandwidth per GPU, improved [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md) capabilities, larger and faster local solid state drives. Overall the NC A100 v4-series delivers [better cost performance](https://techcommunity.microsoft.com/t5/azure-high-performance-computing/a-quick-start-to-benchmarking-in-azure-nvidia-deep-learning/ba-p/3563884) across midrange AI training and inference workloads. 
 
 ## How does the retirement of the NC6s_v3, NC12s_v3, NC24s_v3 virtual machine sizes in NCv3-series affect me? 
 
 **After** **September 30th, any remaining** **tandard_NC6s_v3, Standard_NC12s_v3 and Standard_NC24s_v3 virtual machines (VMs) subscriptions will be set to a deallocated state. They'll stop working and no longer incur billing charges. The NCv3 will no longer be under SLA or have support included.** 
 
-_Note:_ _This retirement only impacts the virtual machine sizes in the original NCv3-series powered by NVIDIA V100 GPUs._ _Find_ *Standard_NC24rs_v3 retirement guide* [*here*](https://aka.ms/nc24rsv3migrationguide)_._ _This retirement announcement does not apply to NCasT4 v3, and NC A100 v4 and NC H100 v5(Preview) series virtual machines._ 
+_Note:_ _This retirement only impacts the virtual machine sizes in the original NCv3-series powered by NVIDIA V100 GPUs._ [See Standard_NC24rs_v3 retirement guide](https://aka.ms/nc24rsv3migrationguide)_._ _This retirement announcement does not apply to NCasT4 v3, and NC A100 v4 and NCads H100 v5 series virtual machines._ 
 
 ## What action do I need to take before the retirement date? 
 
 You'll need to resize or deallocate your Standard_NC6s_v3, Standard_NC12s_v3 and Standard_NC24s_v3 VMs. We recommend that you change VM sizes for these workloads, from the original Standard_NC6s_v3, Standard_NC12s_v3 and Standard_NC24s_v3 VMs to the NC A100 v4-series (or an alternative).
 
-The [NC A100 v4 series](https://learn.microsoft.com/en-us/azure/virtual-machines/nc-a100-v4-series) is powered by NVIDIA A100 PCIe GPU and 3rd-generation AMD EPYC™ 7V13 (Milan) processors. The VMs feature up to 4 NVIDIA A100 PCIe GPUs with 80GB memory each, up to 96 non-multithreaded AMD EPYC Milan processor cores and 880 GiB of system memory. Check [Azure Regions by Product page](https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/) for region availability. Visit the [Azure Virtual Machine pricing page](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/) for pricing information.
+The [NC A100 v4 series](./nc-a100-v4-series.md) is powered by NVIDIA A100 PCIe GPU and 3rd-generation AMD EPYC™ 7V13 (Milan) processors. The VMs feature up to 4 NVIDIA A100 PCIe GPUs with 80 GB memory each, up to 96 non-multithreaded AMD EPYC Milan processor cores and 880 GiB of system memory. Check [Azure Regions by Product page](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/) for region availability. Visit the [Azure Virtual Machine pricing page](https://azure.microsoft.com/pricing/details/virtual-machines/) for pricing information.
 
-Later this year Microsoft will also be releasing the [NC H100 v5-series (currently in Preview)](https://learn.microsoft.com/en-us/azure/virtual-machines/ncads-h100-v5). The NC H100 v5-Series is another SKU in the same product line powered by NVIDIA H100 NVL GPU. These VMs are targeted for GPU accelerated midrange AI training, batch inferencing, and HPC simulation workloads.  
+The [NCads H100 v5-Series](./ncads-h100-v5.md) is another SKU in the same product line powered by NVIDIA H100 NVL GPU. These VMs are targeted for GPU accelerated midrange AI training, batch inferencing, and high performance computing simulation workloads.  
 
 | Current VM Size| Target VM Size | Difference in Specification |
 |---|---|---|
@@ -36,15 +36,15 @@ Later this year Microsoft will also be releasing the [NC H100 v5-series (current
 
 ## Steps to change VM size 
 
-1. Choose a series and size. Refer to the above tables for Microsoft’s recommendation. You can also file a support request if additional assistance is needed.
-2. [Request quota for the new target VM](https://learn.microsoft.com/en-us/azure/quotas/per-vm-quota-requests).
-3. Follow detailed guidance on resizing the VM. 
+1. Choose a series and size. Refer to the above tables for Microsoft’s recommendation. You can also file a support request if more assistance is needed.
+2. [Request quota for the new target VM](../azure-portal/supportability/per-vm-quota-requests.md)).
+3. You can [resize the virtual machine](resize-vm.md). 
 
    
 
 ## Help and support
 
-If you have a support plan and you need technical help, please create a [support request](https://portal.azure.com/). 
+If you have a support plan and you need technical help, create a [support request](https://portal.azure.com/). 
 
 1. Under _Issue type_, select **Technical**. 
 2. Under _Subscription_, select your subscription. 
