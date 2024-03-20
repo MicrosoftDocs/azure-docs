@@ -25,7 +25,7 @@ For more information, see [Automatic attack disruption in Microsoft Defender XDR
 
 To deploy automatic attack disruption for SAP, you need the following:
 
-- A SAP agent virtual machine with a managed identity or service principal.
+- A [SAP agent virtual machine](deploy-data-connector-agent-container.md), with a managed identity or service principal.
 
 - The *[MSFTSEN_SENTINEL_CONNECTOR_ROLE_V0.0.27.SAP](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Sample%20Authorizations%20Role%20File)* SAP agent role assignment in your SAP system. For more information, see [Deploy SAP Change Requests and configure authorization](preparing-sap.md).
 
