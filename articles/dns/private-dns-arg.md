@@ -102,11 +102,12 @@ The following query returns a list of virtual network links that have autoregist
 
 ```Kusto
 dnsresources
-| where subscriptionId == "186ffd69-c40a-4dec-87ff-1495378be90e"
+| where subscriptionId == "<your subscription ID>"
 | where isnull(properties.virtualNetworkId) == false
 | extend linkname=(properties.virtualNetworkLinkName)
 | project name, type, linkname, properties
 ```
+![Screenshot of a virtual network link query.](./media/private-dns-arg/virtual-network-links.png)
 
 ## Next steps
 
