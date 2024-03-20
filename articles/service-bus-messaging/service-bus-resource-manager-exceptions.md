@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus Resource Manager exceptions
-description: This articles provides a list of Service Bus exceptions surfaced by Azure Resource Manager and suggested actions.
+description: This article provides a list of Service Bus exceptions surfaced by Azure Resource Manager and suggested actions.
 ms.topic: article
 ms.custom: devx-track-arm-template
 ms.date: 03/19/2024
