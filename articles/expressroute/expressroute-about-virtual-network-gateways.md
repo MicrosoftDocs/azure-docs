@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/25/2024
+ms.date: 03/18/2024
 ms.author: duau
 ms.custom: ignite-2023
 ---
@@ -193,15 +193,18 @@ ErGwScale is free of charge during public preview. For information about Express
 
 | Scale unit | Bandwidth (Gbps) | Packets per second | Connections per second | Maximum VM connections | Maximum number of flows |
 |--|--|--|--|--|--|
-| 1 | 1 | 100,000 | 7,000 | 2,000 | 100,000 |
+| 1-10 | 1 | 100,000 | 7,000 | 2,000 | 100,000 |
+| 11-40 | 1 | 100,000 | 7,000 | 1,000 | 100,000 |
 
 #### Sample performance with scale unit
 
-| Scale unit | Bandwidth (Gbps) | Packets per second | Connections per second | Maximum VM connections | Maximum number of flows |
+| Scale unit | Bandwidth (Gbps) | Packets per second | Connections per second | Maximum VM connections <sup>1</sup> | Maximum number of flows |
 |--|--|--|--|--|--|
 | 10 | 10 | 1,000,000 | 70,000 | 20,000 | 1,000,000 |
-| 20 | 20 | 2,000,000 | 140,000 | 40,000 | 2,000,000 |
-| 40 | 40 | 4,000,000 | 280,000 | 80,000 | 4,000,000 |
+| 20 | 20 | 2,000,000 | 140,000 | 30,000 | 2,000,000 |
+| 40 | 40 | 4,000,000 | 280,000 | 50,000 | 4,000,000 |
+
+<sup>1</sup> Maximum VM connections scales differently beyond 10 scale units. The first 10 scale units will provide capacity for 2,000 VMs per scale unit. Scale units 11 and above will provide 1,000 additional VM capacity per scale unit.
 
 ## Next steps
 

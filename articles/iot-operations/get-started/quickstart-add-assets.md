@@ -104,7 +104,17 @@ The following step lowers the security level for the OPC PLC so that it accepts 
     --config opcPlcSimulation.autoAcceptUntrustedCertificates=true
     ```
 
-1. To enable the configuration change to take effect immediately, first find the name of your `aio-opc-supervisor` pod by using the following command:
+1. To enable the asset endpoint to use an untrusted certificate, run the following command on the machine where your cluster is running:
+
+    ```console
+    kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/quickstarts/opc-ua-connector-0.yaml
+    ```
+
+    The following snippet shows the YAML file that you applied:
+
+    :::code language="yaml" source="~/azure-iot-operations-samples/samples/quickstarts/opc-ua-connector-0.yaml":::
+
+1. To enable the configuration changes to take effect immediately, first find the name of your `aio-opc-supervisor` pod by using the following command:
 
     ```console
     kubectl get pods -n azure-iot-operations
