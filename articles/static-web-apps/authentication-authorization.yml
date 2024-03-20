@@ -151,7 +151,7 @@ procedureSection:
       > For information about general restrictions and limitations, see [Quotas](quotas.md).
 
 nextStep:
-  text: nextstepaction
+  text: Use routes to set allowed roles to control page access
   url: configuration.md
 
 #relatedContent:
