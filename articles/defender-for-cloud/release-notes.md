@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 03/18/2024
+ms.date: 03/20/2024
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -24,6 +24,7 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 |Date | Update |
 |--|--|
+| March 21 | [Continuous export now includes attack path data](#continuous-export-now-includes-attack-path-data) |
 | March 18 | [New endpoint detection and response recommendations](#new-endpoint-detection-and-response-recommendations) |
 | March 17 | [Custom recommendations based on KQL for Azure is now public preview](#custom-recommendations-based-on-kql-for-azure-is-now-public-preview) |
 | March 13 | [Inclusion of DevOps recommendations in the Microsoft cloud security benchmark](#inclusion-of-devops-recommendations-in-the-microsoft-cloud-security-benchmark) |
@@ -33,6 +34,12 @@ If you're looking for items older than six months, you can find them in the [Arc
 | March 6 | [(Preview) Compliance standards added to compliance dashboard](#preview-compliance-standards-added-to-compliance-dashboard)  |
 | March 5 | [Deprecation of two recommendations related to PCI](#deprecation-of-two-recommendations-related-to-pci) |
 | March 3 | [Defender for Cloud Containers Vulnerability Assessment powered by Qualys retirement](#defender-for-cloud-containers-vulnerability-assessment-powered-by-qualys-retirement) |
+
+### Continuous export now includes attack path data
+
+We are announcing that continuous export now includes attack path data. This feature allows you to stream security data to Log Analytics in Azure Monitor, to Azure Event Hubs, or to another Security Information and Event Management (SIEM), Security Orchestration Automated Response (SOAR), or IT classic deployment model solution.
+
+Learn more about [continuous export](benefits-of-continuous-export.md).
 
 ### New endpoint detection and response recommendations
 
