@@ -208,7 +208,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Peering Service](../../peering-service/index.yml) | &#x2705; | &#x2705; |
 | [Planned Maintenance for VMs](../../virtual-machines/maintenance-and-updates.md) | &#x2705; | &#x2705; |
 | [Power Apps](/powerapps/) | &#x2705; | &#x2705; |
-| [Power Apps Portal](https://powerapps.microsoft.com/portals/) | &#x2705; | &#x2705; |
+| [Power Pages](https://powerapps.microsoft.com/portals/) | &#x2705; | &#x2705; |
 | **Service** | **FedRAMP High** | **DoD IL2** |
 | [Power Automate](/power-automate/) (formerly Microsoft Flow) | &#x2705; | &#x2705; |
 | [Power BI](/power-bi/fundamentals/) | &#x2705; | &#x2705; |
@@ -406,6 +406,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Planned Maintenance for VMs](../../virtual-machines/maintenance-and-updates.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
 | [Power Apps](/powerapps/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| [Power Pages](https://powerapps.microsoft.com/portals/) | &#x2705; | &#x2705; | &#x2705; | | |
 | [Power Automate](/power-automate/) (formerly Microsoft Flow) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Power BI](/power-bi/fundamentals/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Power BI Embedded](/power-bi/developer/embedded/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
