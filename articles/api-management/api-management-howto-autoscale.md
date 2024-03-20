@@ -13,7 +13,7 @@ ms.custom: engagement-fy23
 
 # Automatically scale an Azure API Management instance
 
-[!INCLUDE [api-management-availability-premium-standard](../../includes/api-management-availability-premium-standard.md)]
+[!INCLUDE [api-management-availability-premium-standard-basic](../../includes/api-management-availability-premium-standard-basic.md)]
 
 An Azure API Management service instance can scale automatically based on a set of rules. This behavior can be enabled and configured through [Azure Monitor autoscale](../azure-monitor/autoscale/autoscale-overview.md#supported-services-for-autoscale).
 
