@@ -11,8 +11,6 @@ ms.author: danlep
 
 # Deploy your Azure API Management instance to a virtual network - internal mode
 
-[!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
-
 Azure API Management can be deployed (injected) inside an Azure virtual network (VNet) to access backend services within the network. For VNet connectivity options, requirements, and considerations, see [Using a virtual network with Azure API Management](virtual-network-concepts.md).
 
 This article explains how to set up VNet connectivity for your API Management instance in the *internal* mode. In this mode, you can only access the following API Management endpoints within a VNet whose access you control.
@@ -36,6 +34,8 @@ Use API Management in internal mode to:
 For configurations specific to the *external* mode, where the API Management endpoints are accessible from the public internet, and backend services are located in the network, see [Deploy your Azure API Management instance to a virtual network - external mode](api-management-using-with-vnet.md). 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+[!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
 [!INCLUDE [api-management-virtual-network-prerequisites](../../includes/api-management-virtual-network-prerequisites.md)]
 
