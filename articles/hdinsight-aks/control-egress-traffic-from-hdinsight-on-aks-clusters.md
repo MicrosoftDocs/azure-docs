@@ -185,7 +185,7 @@ Following is an example of setting up firewall rules, and testing your outbound 
     
     1. In **Rules**, add a network rule with the subnet as the source address, and specify an FQDN destination.  
     
-    1. You need to add [AKS](/azure/aks/outbound-rules-control-egress#required-outbound-network-rules-and-fqdns-for-aks-clusters) and  [HDInsight on AKS](./secure-traffic-by-firewall-azure-portal#add-network-and-application-rules-to-the-firewall) rules for allowing traffic for the cluster to function. (AKS ApiServer need to be added after the clusterPool is created because you only can get the AKS ApiServer after creating the clusterPool).
+    1. You need to add [AKS](/azure/aks/outbound-rules-control-egress#required-outbound-network-rules-and-fqdns-for-aks-clusters) and  [HDInsight on AKS](./secure-traffic-by-firewall-azure-portal.md#add-network-and-application-rules-to-the-firewall) rules for allowing traffic for the cluster to function. (AKS ApiServer need to be added after the clusterPool is created because you only can get the AKS ApiServer after creating the clusterPool).
     
     1. You can also add the [private endpoints](/azure/hdinsight-aks/secure-traffic-by-firewall-azure-portal#add-network-and-application-rules-to-the-firewall) for any dependent resources in the same subnet for cluster to access them (example – storage). 
     
