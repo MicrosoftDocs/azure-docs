@@ -1,3 +1,4 @@
+items:
 - name: Azure AI Studio documentation
   href: index.yml
 - name: Overview
@@ -18,14 +19,14 @@
     href: faq.yml
 - name: Quickstarts
   items:
+  - name: Get started with Assistants and code interpreter in the playground
+    href: quickstarts/assistants.md
   - name: Hear and speak with chat in the playground
     href: quickstarts/hear-speak-playground.md
   - name: Moderate text and images with content safety
     href: quickstarts/content-safety.md
   - name: Analyze images and video with GPT-4 for Vision in the playground
     href: quickstarts/multimodal-vision.md
-  - name: Generate text completions in the playground
-    href: quickstarts/playground-completions.md
 - name: Tutorials
   items:
   - name: Deploy a chat web app
@@ -46,7 +47,7 @@
     - name: Azure AI capabilities
       href: how-to/models-foundation-azure-ai.md
   - name: SDK and CLI
-    items:  
+    items:
     - name: Azure AI Generative SDK
       items:
       - name: Overview
@@ -139,7 +140,7 @@
         href: how-to/prompt-flow-tools/serp-api-tool.md
     - name: Evaluate flows
       items:
-        - name: Submit batch run and evaluate a flow 
+        - name: Submit batch run and evaluate a flow
           href: how-to/flow-bulk-test-evaluation.md
         - name: Develop an evaluation flow in Prompt flow
           href: how-to/flow-develop-evaluation.md
@@ -158,7 +159,7 @@
         href: concepts/evaluation-improvement-strategies.md
     - name: Evaluate with Azure AI Studio and SDK
       href: how-to/evaluate-generative-ai-app.md
-    - name: Manually evaluate prompts in Azure AI Studio playground 
+    - name: Manually evaluate prompts in Azure AI Studio playground
       href: how-to/evaluate-prompts-playground.md
     - name: View evaluation results in Azure AI Studio
       href: how-to/evaluate-flow-results.md
@@ -193,7 +194,7 @@
       href: how-to/quota.md
     - name: Increase rate limit
       href: how-to/autoscale.md
-    - name: Use commitment tier pricing 
+    - name: Use commitment tier pricing
       href: how-to/commitment-tier.md
   - name: Infrastructure & security
     items:

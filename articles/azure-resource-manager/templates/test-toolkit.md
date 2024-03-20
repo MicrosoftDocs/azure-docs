@@ -4,8 +4,6 @@ description: Describes how to run the Azure Resource Manager template (ARM templ
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
 ms.date: 03/21/2023
-ms.author: tomfitz
-author: tfitzmac
 ---
 
 # Use ARM template test toolkit
