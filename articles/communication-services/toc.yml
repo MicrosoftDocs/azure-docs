@@ -1032,7 +1032,7 @@ items:
     - name: Calling (JavaScript)
       href: /javascript/api/azure-communication-services/@azure/communication-calling/
     - name: Calling (Android/Java)
-      href: /java/api/com.azure.android.communication.calling
+      href: https://azure.github.io/azure-sdk-for-android/azure-communication-calling/index.html
     - name: Calling (iOS)
       href: /objectivec/communication-services/calling/
   - name: Call Automation

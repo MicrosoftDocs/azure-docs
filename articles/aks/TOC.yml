@@ -190,8 +190,6 @@
           href: operator-best-practices-cluster-isolation.md
         - name: Basic scheduler features
           href: operator-best-practices-scheduler.md
-        - name: Run AKS clusters at scale
-          href: operator-best-practices-run-at-scale.md
         - name: Advanced scheduler features
           href: operator-best-practices-advanced-scheduler.md
         - name: Networking
@@ -474,6 +472,8 @@
               href: azure-cni-overlay.md
             - name: Use Azure CNI for dynamic IP allocation
               href: configure-azure-cni-dynamic-ip-allocation.md
+            - name: Use Azure CNI VNet - Static Block Allocation (Preview)
+              href: configure-azure-cni-static-block-allocation.md
             - name: Use Azure CNI Powered by Cilium
               href: azure-cni-powered-by-cilium.md
             - name: Use kubenet
@@ -703,8 +703,6 @@
       items:
         - name: Upgrade options
           href: upgrade-cluster.md
-        - name: Stop cluster upgrades automatically on API breaking changes
-          href: stop-cluster-upgrade-api-breaking-changes.md
         - name: Perform manual upgrades
           items:
           - name: Upgrade an AKS cluster
@@ -727,7 +725,8 @@
               href: auto-upgrade-node-os-image.md
             - name: Upgrade node OS images automatically with GitHub Actions
               href: node-upgrade-github-actions.md
-
+            - name: Stop cluster upgrades automatically on API breaking changes
+              href: stop-cluster-upgrade-api-breaking-changes.md
     - name: Azure Linux container host for AKS
       items:
         - name: Use Azure Linux for AKS

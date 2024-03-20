@@ -36,13 +36,23 @@
     - name: Nexus Kubernetes
       href: concepts-nexus-kubernetes-cluster.md
     - name: Observability
-      href: concepts-observability.md
+      expanded: false
+      items:
+        - name: Observabilty
+          href: concepts-observability.md
+        - name: Metrics
+          href: reference-operator-nexus-observability-metrics.md
     - name: Security
       href: concepts-security.md
     - name: Control Plane Resiliency
       href: concepts-rack-resiliency.md
     - name: Route Policy
-      href: concepts-nexus-route-policies-overview.md
+      expanded: false
+      items:
+        - name: Route Policy Overview
+          href: concepts-nexus-route-policies-overview.md
+        - name: IP Prefixes Overview
+          href: concepts-nexus-ip-prefix.md
     - name: Availability
       href: concepts-nexus-availability.md
     - name: Network Packet Broker
@@ -105,6 +115,8 @@
                   href: howto-cluster-runtime-upgrade.md
                 - name: Credential Rotation
                   href: howto-credential-rotation.md
+                - name: Credential Manager Key Vault
+                  href: how-to-credential-manager-key-vault.md
                 - name: Service Principal Rotation
                   href: howto-service-principal-rotation.md
         - name: Network Fabric
@@ -116,6 +128,8 @@
               href: reference-isolation-domain-configuration-examples.md
             - name: Network Fabric Route Policy
               href: how-to-route-policy.md
+            - name: IP Prefixes
+              href: how-to-ip-prefixes.md
             - name: Network Packet Broker
               href: howto-configure-network-packet-broker.md
     - name: Nexus Kubernetes cluster
