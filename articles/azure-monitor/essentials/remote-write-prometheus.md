@@ -67,7 +67,7 @@ To send data to your Azure Monitor Workspace, you will need the following inform
 
 #### For AKS: Give the AKS cluster access to the managed identity
 
-- Identify the virtual machine scale sets in the node resource group for your AKS cluster. The node resource group of the AKS cluster contains resources that you use in other steps in this process. This resource group has the name MC_<AKS-RESOURCE-GROUP>_<AKS-CLUSTER-NAME>_<REGION>. You can find the resource group name by using the Resource groups menu in the Azure portal.
+- Identify the virtual machine scale sets in the node resource group for your AKS cluster. The node resource group of the AKS cluster contains resources that you use in other steps in this process. This resource group has the name "MC_*aks-resource-group_clustername_region*". You can find the resource group name by using the Resource groups menu in the Azure portal.
 
     :::image type="content" source="../containers/media/prometheus-remote-write-managed-identity/resource-group-details-virtual-machine-scale-sets.png" alt-text="Screenshot that shows virtual machine scale sets in the node resource group." lightbox="../containers/media/prometheus-remote-write-managed-identity/resource-group-details-virtual-machine-scale-sets.png":::
 
