@@ -1,5 +1,5 @@
 ---
-title: Trigger events in ML workflows (preview)
+title: Trigger events in ML workflows
 titleSuffix: Azure Machine Learning
 description: Set up event-driven applications, processes, or CI/CD machine learning workflows in Azure Machine Learning.
 services: machine-learning
@@ -10,11 +10,11 @@ ms.custom: devx-track-azurecli
 ms.author: vaidyas
 author: vaidya-s
 ms.reviewer: larryfr
-ms.date: 01/05/2024
+ms.date: 03/20/2024
 monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
 
-# Trigger applications, processes, or CI/CD workflows based on Azure Machine Learning events (preview)
+# Trigger applications, processes, or CI/CD workflows based on Azure Machine Learning events
 
 In this article, you learn how to set up event-driven applications, processes, or CI/CD workflows based on Azure Machine Learning events, such as failure notification emails or ML pipeline runs, when certain conditions are detected by [Azure Event Grid](../event-grid/index.yml).
 
@@ -26,7 +26,7 @@ When to use Event Grid for event driven actions:
 * Streaming events from Azure Machine Learning to various of endpoints
 * Trigger an ML pipeline when drift is detected
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-items-disclaimer.md)]
 
 ## Prerequisites
 
@@ -47,9 +47,9 @@ Azure Machine Learning provides events in the various points of machine learning
 | Event type | Description |
 | ---------- | ----------- |
 | `Microsoft.MachineLearningServices.RunCompleted` | Raised when a machine learning experiment run is completed |
-| `Microsoft.MachineLearningServices.ModelRegistered` | Raised when a machine learning model is registered in the workspace |
-| `Microsoft.MachineLearningServices.ModelDeployed` | Raised when a deployment of inference service with one or more models is completed |
-| `Microsoft.MachineLearningServices.DatasetDriftDetected` | Raised when a data drift detection job for two datasets is completed |
+| `Microsoft.MachineLearningServices.ModelRegistered` (preview) | Raised when a machine learning model is registered in the workspace |
+| `Microsoft.MachineLearningServices.ModelDeployed` (preview) | Raised when a deployment of inference service with one or more models is completed |
+| `Microsoft.MachineLearningServices.DatasetDriftDetected` (preview) | Raised when a data drift detection job for two datasets is completed |
 | `Microsoft.MachineLearningServices.RunStatusChanged` | Raised when a run status is changed |
 
 ### Filter & subscribe to events
@@ -75,9 +75,9 @@ Subscriptions for Azure Machine Learning events are protected by Azure role-base
   | Event type | Subject format | Sample subject |
   | ---------- | ----------- | ----------- |
   | `Microsoft.MachineLearningServices.RunCompleted` | `experiments/{ExperimentId}/runs/{RunId}` | `experiments/b1d7966c-f73a-4c68-b846-992ace89551f/runs/my_exp1_1554835758_38dbaa94` |
-  | `Microsoft.MachineLearningServices.ModelRegistered` | `models/{modelName}:{modelVersion}` | `models/sklearn_regression_model:3` |
-  | `Microsoft.MachineLearningServices.ModelDeployed` | `endpoints/{serviceId}` | `endpoints/my_sklearn_aks` |
-  | `Microsoft.MachineLearningServices.DatasetDriftDetected` | `datadrift/{data.DataDriftId}/run/{data.RunId}` | `datadrift/4e694bf5-712e-4e40-b06a-d2a2755212d4/run/my_driftrun1_1550564444_fbbcdc0f` |
+  | `Microsoft.MachineLearningServices.ModelRegistered` (preview) | `models/{modelName}:{modelVersion}` | `models/sklearn_regression_model:3` |
+  | `Microsoft.MachineLearningServices.ModelDeployed` (preview) | `endpoints/{serviceId}` | `endpoints/my_sklearn_aks` |
+  | `Microsoft.MachineLearningServices.DatasetDriftDetected` (preview) | `datadrift/{data.DataDriftId}/run/{data.RunId}` | `datadrift/4e694bf5-712e-4e40-b06a-d2a2755212d4/run/my_driftrun1_1550564444_fbbcdc0f` |
   | `Microsoft.MachineLearningServices.RunStatusChanged` | `experiments/{ExperimentId}/runs/{RunId}` | `experiments/b1d7966c-f73a-4c68-b846-992ace89551f/runs/my_exp1_1554835758_38dbaa94` | 
 
 + **Advanced filtering**: Azure Event Grid also supports advanced filtering based on published event schema. Azure Machine Learning event schema details can be found in [Azure Event Grid event schema for Azure Machine Learning](../event-grid/event-schema-machine-learning.md).  Some sample advanced filterings you can perform include:
