@@ -214,7 +214,7 @@ For this tutorial, you create three separate storage containers in the same ADLS
 
    ### Obtain the default storage account and key vault for the feature store, and disable public network access to the corresponding resources
 
-   The next code cell returns the feature store object for the next steps.
+   The next code cell returns the feature store object for the following steps.
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=fs-get)]
 
@@ -381,9 +381,9 @@ For this tutorial, you create three separate storage containers in the same ADLS
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=redis-default-settings)]
 
-   You can select the Redis cache tier (basic, standard, or premium). You should choose a SKU family that is available for the selected cache tier. Visit [this documentation resource](https://learn.microsoft.com/azure/azure-cache-for-redis/cache-best-practices-performance) for more information about how selection of different tiers can impact cache performance. Visit [this documentation resource](https://azure.microsoft.com/en-us/pricing/details/cache/) for more information about pricing for different SKU tiers and families of Azure Cache for Redis.
+   You can select the Redis cache tier (basic, standard, or premium). You should choose a SKU family that is available for the selected cache tier. Visit [this documentation resource](../azure-cache-for-redis/cache-best-practices-performance.md) for more information about how selection of different tiers can impact cache performance. Visit [this documentation resource](https://azure.microsoft.com/pricing/details/cache/) for more information about pricing for different SKU tiers and families of Azure Cache for Redis.
 
-    "Execute the following code cell to create an Azure Cache for Redis with premium tier, SKU family `P` and cache capacity 2. It may take approximately 5-10 minutes to provision the Redis instance."
+   Execute the following code cell to create an Azure Cache for Redis with premium tier, SKU family `P` and cache capacity 2. It may take approximately 5-10 minutes to provision the Redis instance.
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=create-new-redis-cache)]
 
@@ -391,7 +391,7 @@ For this tutorial, you create three separate storage containers in the same ADLS
    Attach the Azure Cache for Redis to the feature store, to use it as the online materialization store. The next code cell creates a YAML specification file with online store outbound rules, defined for the feature store.
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=attach-online-store-yaml)]
-   
+
    The next code cell updates the feature store with the generated YAML specification file with the outbound rules for the online store.
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=attach-online-store-cli)]
