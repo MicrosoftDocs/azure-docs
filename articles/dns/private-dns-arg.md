@@ -86,28 +86,30 @@ dnsresources
 
 ## Zones with virtual network links
 
-The following query lists all private DNS zones that have virtual network links. This query uses the generic **resources** table, not the **dnsresources** table and specifies a resource type of only **privatednszones**.
+The following query lists all private DNS zones that have virtual network links and displays the autoregistration status. This query uses the generic **resources** table, not the **dnsresources** table and specifies a resource type of only **privatednszones**.
 
 ```Kusto
 resources
 | where subscriptionId == "<your subscription ID>"
-| where type == "microsoft.network/privatednszones"
-| where properties['numberOfVirtualNetworkLinks'] == "1"
-| project name, properties
+| where ['type'] == "microsoft.network/privatednszones/virtualnetworklinks"
+| extend registrationEnabled=(properties.registrationEnabled)
+| project name, registrationEnabled, resourceGroup, properties
 ```
+![Screenshot of the virtual network links query.](./media/private-dns-arg/virtual-network-links.png)
 
-## Autoregistion
+## Autoregistered DNS records
 
-The following query returns a list of virtual network links that have autoregistration enabled and the associated private DNS records:
+The following query lists autoregistered private DNS records:
 
 ```Kusto
 dnsresources
 | where subscriptionId == "<your subscription ID>"
 | where isnull(properties.virtualNetworkId) == false
 | extend linkname=(properties.virtualNetworkLinkName)
-| project name, type, linkname, properties
+| extend ipaddress=tostring(properties.records)
+| project name, ipaddress, type, linkname, properties
 ```
-![Screenshot of a virtual network link query.](./media/private-dns-arg/virtual-network-links.png)
+![Screenshot of the virtual network links query.](./media/private-dns-arg/autoregistered.png)
 
 ## Next steps
 
