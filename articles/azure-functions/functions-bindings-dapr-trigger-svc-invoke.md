@@ -11,8 +11,6 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 # Dapr Service Invocation trigger for Azure Functions
 
-[!INCLUDE [preview-support](../../includes/functions-dapr-support-limitations.md)]
-
 Azure Functions can be triggered on a Dapr service invocation using the following Dapr events.
 
 For information on setup and configuration details of the Dapr extension, see the [Dapr extension overview](./functions-bindings-dapr.md).
