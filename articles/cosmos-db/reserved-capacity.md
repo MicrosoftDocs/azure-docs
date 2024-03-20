@@ -120,14 +120,14 @@ Create a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Suppo
 
 Imagine this hypothetical scenario: A company is working on a new application but isn't sure about the throughput requirements, they purchased RU/s on 3 different days.
 
-* On day 1 they purchased reserved capacity for their DEV/Test environment:
+* On day 1 they purchased reserved capacity for their development environment:
   * Total of 800 RU/s: eight units of the 100 RU/s option, with a 20% discount. 
-  * Scoped to the dev test resource group.
+  * Scoped to the development resource group.
   * One year term, since the project lasts for nine months.
   * Paid upfront, since it's a small value.
 * On day 30 they purchased reserved capacity for their tests environment:
   * 750,000 RU/s: 7,500 units of the 100 RU/s option, with a 20% discount.
-  * Scoped to the subscription, so that dev/test environment is also beneficiated.
+  * Scoped to the test subscription.
   * One year term.
   * Paid monthly.
 * On day 180 they purchased reserved capacity for the production environment:
@@ -198,7 +198,7 @@ For a 30,000 RU/s reservation, in standard provisioned throughput, you should bu
 
 6. Click on the **Add to cart** blue button on the lower right corner, and then on **View Cart** when you are done. The quantities are defined next. Note that you can add different options to the cart. Example: If you need 1,100,000 RU/s, you should add both the 1,000,000 RU/s and the 100 RU/s options to the cart. 
 
-7. In the **Purchase reservations** pane, review the billing frequency, the quantity, the discount, and the price of the reservation. This reservation price applies to Azure Cosmos DB resources with throughput provisioned across all regions. Example: You need 500,000 RU/s with auto-renew for your production environemnt within a specific scope, 82,000 RU/s for your tests resource group, and 10,000 RU/s for the development subscprition. You can see in the image how a reservations shopping cart looks like for this scenario.
+7. In the **Purchase reservations** pane, review the billing frequency, the quantity, the discount, and the price of the reservation. This reservation price applies to Azure Cosmos DB resources with throughput provisioned across all regions. Example: You need 500,000 RU/s with auto-renew for your production environment within a specific scope, 82,000 RU/s for your tests resource group, and 10,000 RU/s for the development subscription. You can see in the image how a reservations shopping cart looks like for this scenario.
 
    :::image type="content" source="./media/reserved-capacity/reserved-capacity-summary.png" alt-text="Reserved capacity summary":::
 
