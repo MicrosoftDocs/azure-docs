@@ -12,7 +12,7 @@ This article describes how to configure Azure Managed Prometheus with AKS to mon
 ## Prerequisites
 
 + Kafka cluster running on AKS
-+ Azure Managed prometheus is enabled on the AKS cluster - [Enable Azure Managed Prometheus on AKS](kubernetes-monitoring-enable.md#enable-prometheus-and-grafana)
++ Azure Managed prometheus enabled on the AKS cluster - [Enable Azure Managed Prometheus on AKS](kubernetes-monitoring-enable.md#enable-prometheus-and-grafana)
 
 
 ### Install Kafka Exporter -
@@ -20,7 +20,7 @@ Install the [kafka exporter](https://github.com/danielqsj/kafka_exporter/tree/ma
 
 > [!NOTE] 
 > The container can be configured with arguments as described in the [Flags](https://github.com/danielqsj/kafka_exporter/tree/master#flags) section.
-Please specify the right server address where the kafka server can be reached. For the following configuration, the server address is "my-cluster-kafka-0.my-cluster-kafka-brokers.kafka.svc:9092"
+Please specify the right server address where the kafka server can be reached. For the following configuration, the server address is set to "my-cluster-kafka-0.my-cluster-kafka-brokers.kafka.svc:9092" using the argument "kafka.server"
 
 ```yaml
 kind: Namespace
@@ -136,7 +136,7 @@ spec:
 ### Import the Grafana Dashboard
 
 Follow the instructions on [Import a dashboard from Grafana Labs](../../managed-grafana/how-to-create-dashboard.md#import-a-dashboard-from-grafana-labs)
-with Grafana Dashboard ID: 7589  from your grafana instance used during managed prometheus onboarding.
+with Grafana Dashboard ID: 7589 from your grafana instance used during managed prometheus onboarding.
 [kafka_exporter grafana dashboard](https://github.com/danielqsj/kafka_exporter#grafana-dashboard)
 
 ### Deploy alerts for kafka exporter metrics
@@ -386,11 +386,11 @@ spec:
       action: replace
 ```
 > [!NOTE] 
-> If using any other way of exposing the jmx_exporter on your kafka cluster, please follow the instructions [here](prometheus-metrics-scrape-crd.md) on how to configure the pod or service monitors accordingly
+> If using any other way of exposing the jmx_exporter on your kafka cluster, please follow the instructions [here](prometheus-metrics-scrape-crd.md) on how to configure the pod or service monitors accordingly.
 
 ### Grafana dashboard for additional jmx metrics
 Follow the instructions on [Import a dashboard from Grafana Labs](../../managed-grafana/how-to-create-dashboard.md#import-a-dashboard-from-grafana-labs)
-with Grafana Dashboard ID: 11962 from your grafana instance used during managed prometheus onboardin
+to import the Grafana Dashboard with ID 11962([kafka metrics](https://grafana.com/grafana/dashboards/11962-kafka-metrics/) dashboard) from your grafana instance used during managed prometheus onboarding.
 
 
 ### Troubleshooting
