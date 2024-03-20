@@ -209,7 +209,8 @@ Event Grid operations involving Namespaces and its resources, including MQTT and
 
 - [Overview](mqtt-overview.md) 
 - [Publish and subscribe to MQTT messages](mqtt-publish-and-subscribe-portal.md)
-- [Route MQTT messages to Event Hubs](mqtt-routing-to-event-hubs-portal.md)
+- [Tutorial: Route MQTT messages to Azure Event Hubs using namespace topics](mqtt-routing-to-event-hubs-portal-namespace-topics.md)
+- [Tutorial: Route MQTT messages to Azure Functions using custom topics](mqtt-routing-to-azure-functions-portal.md)
 
 ### Data distribution using pull or push  delivery
 

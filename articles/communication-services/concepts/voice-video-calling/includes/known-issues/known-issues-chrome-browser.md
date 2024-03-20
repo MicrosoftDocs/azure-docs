@@ -67,6 +67,13 @@ In case camera is on and an interruption occurs, Azure Communication Services ca
 Occasionally, microphone or camera devices aren't released on time, and that can cause issues with the original call. For example, if the user tries to unmute while watching a YouTube video, or if a PSTN call is active simultaneously.
 <br>
 
+### Automatic microphone selection fails for wired headphones in WebRTC Calls on Android devices
+**Browser version:** All.<br>
+**Azure Communication Service calling SDK version:** All.<br>
+**Description:** When users connect wired headphones to their Android device and join a WebRTC call, the microphone option does not default to the wired headphones. This issue is consistently reproducible across different Android devices and Google Chrome versions. Similar behavior has been noted in other services like Twilio and Google's WebRTC sample.<br>
+**Known issue reference:** This is a known issue on [Chromium](https://issues.chromium.org/issues/40282142). <br>
+**Recommended workaround:** Users should manually select the wired headphones as the microphone option in the call settings after joining the WebRTC call.<br>
+
 ### A mobile Android user has dropped the call but is still showing up on the participant list
 **Browser version:** All.<br>
 **Azure Communication Service calling SDK version:** All.<br>

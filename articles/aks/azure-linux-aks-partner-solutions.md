@@ -5,7 +5,7 @@ description: Discover partner-tested solutions that enable you to build, test, d
 ms.author: schaffererin
 author: schaffererin
 ms.topic: article
-ms.date: 02/16/2024
+ms.date: 03/19/2024
 ---
 
 # Azure Linux AKS Container Host partner solutions
@@ -16,10 +16,10 @@ Our third party partners featured in this article have introduction guides to he
 
 | Solutions          | Partners                                                                                       |
 |--------------------|------------------------------------------------------------------------------------------------|
-| DevOps             | [Advantech](#advantech) <br> [Hashicorp](#hashicorp) <br> [Akuity](#akuity) <br> [Kong](#kong) |
-| Networking         | [Buoyant](#buoyant) <br> [Isovalent](#isovalent) <br> [Tetrate](#tetrate)                      |
-| Observability      | [Buoyant](#buoyant) <br> [Isovalent](#isovalent) <br> [Dynatrace](#dynatrace)                  |
-| Security           | [Buoyant](#buoyant) <br> [Isovalent](#isovalent) <br> [Kong](#kong) <br> [Tetrate](#tetrate)   |
+| DevOps             | [Advantech](#advantech) <br> [Akuity](#akuity) <br> [Anchore](#anchore) <br> [Hashicorp](#hashicorp) <br> [Kong](#kong) <br> [NetApp](#netapp) |
+| Networking         | [Buoyant](#buoyant) <br> [Isovalent](#isovalent) <br> [Solo.io](#soloio) <br> [Tetrate](#tetrate) <br> [Tigera](#tigera-inc) |
+| Observability      | [Anchore](#anchore) <br> [Buoyant](#buoyant) <br> [Isovalent](#isovalent) <br> [Dynatrace](#dynatrace) <br> [Solo.io](#soloio) <br> [Tigera](#tigera-inc) |
+| Security           | [Anchore](#anchore) <br> [Buoyant](#buoyant) <br> [Isovalent](#isovalent) <br> [Kong](#kong) <br> [Solo.io](#soloio) <br> [Tetrate](#tetrate) <br> [Tigera](#tigera-inc) <br> [Wiz](#wiz) |
 | Storage            | [Catalogic](#catalogic) <br> [Veeam](#veeam)                                                   |
 | Config Management  | [Corent](#corent)                                                                              |
 | Migration          | [Catalogic](#catalogic)                                                                        |
@@ -40,24 +40,6 @@ The right EHS management system can strengthen organizations behind the scenes a
 
 For more information, see [Advantech & iFactoryEHS](https://page.advantech.com/en/global/solutions/ifactory/ifactory_ehs).
 
-### Hashicorp
-
-:::image type="icon" source="./media/azure-linux-aks-partner-solutions/hashicorp.png":::
-
-| Solution | Categories |
-|----------|------------|
-| Terraform | DevOps |
-
-At HashiCorp, we believe infrastructure enables innovation, and we're helping organizations to operate that infrastructure in the cloud.
-
-<details> <summary> See more </summary><br>
-
-Our suite of multicloud infrastructure automation products, built on projects with source code freely available at their core, underpin the most important applications for the largest enterprises in the world. As part of the once-in-a-generation shift to the cloud, organizations of all sizes, from well-known brands to ambitious start-ups, rely on our solutions to provision, secure, connect, and run their business-critical applications so they can deliver essential services, communications tools, and entertainment platforms worldwide.
-
-</details>
-
-For more information, see [Hashicorp solutions](https://hashicorp.com/) and [Hasicorp on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/hashicorp-4665790.terraform-azure-saas?tab=overview).
-
 ### Akuity
 
 :::image type="icon" source="./media/azure-linux-aks-partner-solutions/akuity.png":::
@@ -77,6 +59,44 @@ Akuity is rooted in Argo, extending its capabilities and using the same familiar
 </details>
 
 For more information, see [Akuity Solutions](https://akuity.io/).
+
+### Anchore
+
+:::image type="icon" source="./media/azure-linux-aks-partner-solutions/anchore.png":::
+
+| Solution | Categories |
+|----------|------------|
+| Anchore | DevOps <br> Observability <br> Security |
+
+Anchore is a software bill of materials (SBOM) powered software supply chain management solution designed for a cloud-native world.
+
+<details> <summary> See more </summary><br>
+
+It provides continuous visibility into supply chain security risks. Anchore takes a developer-friendly approach that minimizes friction by embedding automation into development toolchains to generate SBOMs and accurately identify vulnerabilities, malware, misconfigurations, and secrets for faster remediation.
+
+We’re passionate about protecting software supply chains by making it easier for developers and security teams to deliver secure cloud-native software. Together, we’ve built a platform and open source tools that help organizations secure the software they build without compromising velocity.
+
+</details>
+
+For more information, see [Anchore solutions](https://anchore.com/).
+
+### Hashicorp
+
+:::image type="icon" source="./media/azure-linux-aks-partner-solutions/hashicorp.png":::
+
+| Solution | Categories |
+|----------|------------|
+| Terraform | DevOps |
+
+At HashiCorp, we believe infrastructure enables innovation, and we're helping organizations to operate that infrastructure in the cloud.
+
+<details> <summary> See more </summary><br>
+
+Our suite of multicloud infrastructure automation products, built on projects with source code freely available at their core, underpin the most important applications for the largest enterprises in the world. As part of the once-in-a-generation shift to the cloud, organizations of all sizes, from well-known brands to ambitious start-ups, rely on our solutions to provision, secure, connect, and run their business-critical applications so they can deliver essential services, communications tools, and entertainment platforms worldwide.
+
+</details>
+
+For more information, see [Hashicorp solutions](https://hashicorp.com/) and [Hasicorp on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/hashicorp-4665790.terraform-azure-saas?tab=overview).
 
 ### Kong
 
@@ -104,6 +124,32 @@ Kong’s extensive ecosystem of community and enterprise plugins delivers critic
 </details>
 
 For more information, see [Kong Solutions](https://konghq.com/) and [Kong on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/konginc1581527938760.kong-enterprise?tab=Overview).
+
+### NetApp
+
+:::image type="icon" source="./media/azure-linux-aks-partner-solutions/spotbynetapp.png":::
+
+| Solution | Categories |
+|----------|------------|
+| Ocean | DevOps |
+
+Spot Ocean allows organizations to effectively manage their containers’ infrastructure at scale, transparently and with minimal effort.
+
+<details> <summary> See more </summary><br>
+
+Ocean ensures cloud-native applications always get continuously optimized infrastructure that's balanced for performance, availability, and cost.
+
+Spot Ocean continuously analyzes how containers use the underling infrastructure, and automatically scales compute resources to maximize utilization and availability with an optimal blend of spot VMs, reserved instances, savings plans, and pay-as-you-go compute resources.
+
+With Spot Ocean, users gain:
+
+* Automation and multicloud management: Reduce heavy lift infrastructure management efforts and increase operational efficiency
+* Cost Optimization: control and significantly reduce infrastructure cost
+* Availability: optimize uptime by predicting and automatically addressing resource needs and instance interruptions
+
+</details>
+
+For more information, see [Spot By NetApp Solutions](https://spot.io/product/ocean/) and [Spot By NetApp on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/netapp.spot?tab=Overview).
 
 ## Networking
 
@@ -143,6 +189,48 @@ Isovalent provides enterprise-grade support from their experienced team of exper
 
 For more information, see [Isovalent Solutions](https://isovalent.com/blog/post/isovalent-azure-linux/) and [Isovalent on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/isovalentinc1662143158090.isovalent-cilium-enterprise?tab=overview).
 
+### Solo.io
+
+:::image type="icon" source="./media/azure-linux-aks-partner-solutions/solo.png":::
+
+| Solution | Categories |
+|----------|------------|
+| Gloo Mesh Core | Networking <br> Security <br> Observability |
+
+Gloo Mesh Core works with community Istio out of the box. You get instant insights into your Istio environment through a custom dashboard.
+
+<details> <summary> See more </summary><br>
+
+Observability pipelines let you analyze many data sources that you already have. You can even automate installing and upgrading Istio with the Gloo lifecycle manager.
+
+</details>
+
+| Solution | Categories |
+|----------|------------|
+| Solo distribution of Istio | Networking <br> Security <br> Observability |
+
+The Solo distribution of Istio is a hardened Istio enterprise image, which maintains n-4 support for CVEs and other security fixes. The image support timeline is longer than the community Istio support timeline, which provides n-1 support with an additional six weeks of extended time to upgrade the n-2 version to n-1.
+
+For more information, see [Solo Gloo Mesh Core Solutions](https://docs.solo.io/gloo-mesh-core/main/about/overview/) and [Solo distribution of Istio Solutions](https://docs.solo.io/gloo-mesh-enterprise/main/reference/version/gloo_mesh_istio/).
+
+### Tigera, Inc
+
+:::image type="icon" source="./media/azure-linux-aks-partner-solutions/tigera.png":::
+
+| Solution | Categories |
+|----------|------------|
+| Calico | Networking <br> Security <br> Observability |
+
+Fully managed, active security platform with full-stack observability for containers and Kubernetes.
+
+<details> <summary> See more </summary><br>
+
+Calico Cloud enables organizations to prevent attacks using zero trust and to detect, troubleshoot, and automatically mitigate exposure risks from security breaches across multicloud and hybrid deployments. Calico Cloud is built on Calico Open Source, the most widely adopted container networking and security solution. It supports multiple data planes, including eBPF, Windows, and Linux.
+
+</details>
+
+For more information, see [Tigera Solutions](https://www.tigera.io/) and [Tigera on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/tigerainc1620235671643.calicocloudsaas?tab=overview).
+
 ## Observability
 
 Observability provides deep insights into your systems, enabling rapid issue detection and resolution to enhance your application’s reliability and performance.
@@ -180,6 +268,18 @@ TID enforces fetching certified versions of Istio and enables only compatible ve
 </details>
 
 For more information, see [Tetrate Solutions](https://istio.tetratelabs.io/download/) and [Tetrate on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/tetrate1598353087553.tetrateistio?tab=Overview).
+
+### Wiz
+
+:::image type="icon" source="./media/azure-linux-aks-partner-solutions/wiz.png":::
+
+| Solution | Categories |
+|----------|------------|
+| WIZ Cloud Infrastructure Security Platform | Security |
+
+Wiz is the unified cloud security platform for cloud security and development teams that includes prevention, active detection, and response. Use Wiz solution to reduce risk and gain unmatched visibility, accurate prioritization, and business agility.
+
+For more information, see [Wiz Solutions](https://wiz.io/) and [Wiz on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/wizinc1627338511749.wiz-azure-marketplace?tab=overview).
 
 ## Storage
 
@@ -241,4 +341,4 @@ For more information, see [CloudCasa by Catalogic Solutions](https://cloudcasa.i
 
 ## Next steps
 
-[Learn more about Azure Linux Container Host on AKS](../azure-linux/intro-azure-linux.md).
+[Learn more about the Azure Linux Container Host on AKS](../azure-linux/intro-azure-linux.md).
