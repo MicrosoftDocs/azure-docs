@@ -15,7 +15,7 @@ items:
       href: quickstart-create-and-configure-devcenter.md
     - name: Create and configure a project
       href: quickstart-create-and-configure-projects.md
-    - name: Create devcenter and project (ARM)
+    - name: Create dev center and project (ARM)
       href: quickstart-create-devcenter-and-project-arm.md
       displayName: Azure Deployment Environments, ADE, environments, quickstart
     - name: Create and access an environment
