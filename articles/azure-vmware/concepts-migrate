@@ -1,8 +1,8 @@
 ---
 title: Concepts – Migration considerations with VMware HCX
+description: Learn about VMware HCX migration considerations for Azure VMware Solution.
 author: rvandenbedem
 ms.author: rvandenbedem
-description: Learn about VMware HCX migration considerations for Azure VMware Solution.
 ms.topic: conceptual
 ms.service: azure-vmware
 ms.date: 3/20/2024
