@@ -40,8 +40,8 @@ To store your connection configuration into an App Configuration, start by conne
     | Setting      | Suggested value  | Description                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Service type** | App Configuration | Target service type. If you don't have an App Configuration, [create one](../azure-app-configuration/quickstart-azure-app-configuration-create.md). |
-    | **Subscription** | One of your subscriptions. | The subscription in which your target service is deployed. The target service is the service you want to connect to. The default value is the subscription listed for the App Service. |
     | **Connection name** | Generated unique name | The connection name that identifies the connection between your App Service and target service  |
+    | **Subscription** | One of your subscriptions. | The subscription in which your target service is deployed. The target service is the service you want to connect to. The default value is the subscription listed for the App Service. |
     | **App Configuration** | Your App Configuration name | The target App Configuration you want to connect to. |
     | **Client type** | The same app stack on this App Service | Your application stack that works with the target service you selected. The default value comes from the App Service runtime stack. |
 
@@ -63,8 +63,8 @@ Now you can create a service connection to another target service and store conf
     | Setting      | Suggested value  | Description                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Service type** | Storage - Blob | Target service type. If you don't have a Storage Blob container, you can [create one](../storage/blobs/storage-quickstart-blobs-portal.md) or use another service type. |
-    | **Subscription** | One of your subscriptions | The subscription in which your target service is deployed. The target service is the service you want to connect to. The default value is the subscription listed for the App Service.
     | **Connection name** | Unique name | The connection name that identifies the connection between your App Service and target service. |
+    | **Subscription** | One of your subscriptions | The subscription in which your target service is deployed. The target service is the service you want to connect to. The default value is the subscription listed for the App Service. |
     | **Storage account** | Your storage account | The target storage account you want to connect to. If you choose a different service type, select the corresponding target service instance. |
     | **Client type** | The same app stack on this App Service | Your application stack that works with the target service you selected. The default value comes from the App Service runtime stack. |
 
