@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 02/21/2024
+ms.date: 04/01/2024
 ms.custom:
   - references_regions
   - ignite-2023
@@ -17,11 +17,18 @@ ms.custom:
 
 **Azure Cognitive Search is now Azure AI Search**. Learn about the latest updates to Azure AI Search functionality, docs, and samples.
 
+## April 2024
+
+| Item&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Type |  Description |
+|-----------------------------|------|--------------|
+| [**More storage on Basic and Standard tiers**](search-limits-quotas-capacity.md#service-limits) | Feature |  Basic now supports up to three partitions, and Basic and Standard (S1, S2, S3) tiers have more storage per partition, at the same per-partition billing rate. Extra capacity is subject to [regional availability](search-create-service-portal.md#choose-a-region) and applies to new search services created after April 1, 2024. Currently, there's no in-place upgrade, so please create a new search service to get the extra storage. |
+| [**Higher limits for vectors**](vector-search-index-size.md) | Feature | Vector storage limits are also higher on new services created after April 1, 2024 in selected regions. |
+
 ## February 2024
 
 | Item&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Type |  Description |
 |-----------------------------|------|--------------|
-| **New dimension limits** | Feature | For vector fields, maximum dimension limits are now `3072`, up from `2048`. Next-generation embedding models support more dimensions. Limits have been increased accordingly. |
+| **New dimension limits** | Feature | For vector fields, maximum dimension limits are now `3072`, up from `2048`. |
 
 ## November 2023
 
@@ -47,7 +54,7 @@ ms.custom:
 | Item&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Type |  Description |
 |-----------------------------|------|--------------|
 | [**"Chat with your data" solution accelerator**](https://github.com/Azure-Samples/chat-with-your-data-solution-accelerator) | Sample  | End-to-end RAG pattern that uses Azure AI Search as a retriever. It provides indexing, data chunking, orchestration and chat based on Azure OpenAI GPT. |
-| [**Exhaustive  K-Nearest Neighbors (KNN)**](vector-search-overview.md#eknn) | Feature | Exhaustive K-Nearest Neighbors (KNN) is a new scoring algorithm for similarity search in vector space. It performs an exhaustive search for the nearest neighbors, useful for situations where high recall is more important than query performance. Available in the 2023-10-01-Preview REST API only. |
+| [**Exhaustive  K-Nearest Neighbors (KNN)**](vector-search-overview.md#eknn) | Feature | Exhaustive K-Nearest Neighbors (KNN) are a new scoring algorithm for similarity search in vector space. It performs an exhaustive search for the nearest neighbors, useful for situations where high recall is more important than query performance. Available in the 2023-10-01-Preview REST API only. |
 | [**Prefilters in vector search**](vector-search-how-to-query.md) | Feature | Evaluates filter criteria before query execution, reducing the amount of content that needs to be searched. Available in the 2023-10-01-Preview REST API only, through a new `vectorFilterMode` property on the query that can be set to `preFilter` (default) or `postFilter`, depending on your requirements. |
 | [**2023-10-01-Preview Search REST API**](/rest/api/searchservice/search-service-api-versions#2023-10-01-Preview) | API | New preview version of the Search REST APIs that changes the definition for [vector fields](vector-search-how-to-create-index.md) and [vector queries](vector-search-how-to-query.md). This API version introduces breaking changes from **2023-07-01-Preview**, otherwise it's inclusive of all previous preview features. We recommend [creating new indexes](vector-search-how-to-create-index.md) for **2023-10-01-Preview**. You might encounter an HTTP 400 on some features on a migrated index, even if you migrated correctly.|
 

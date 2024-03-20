@@ -29,7 +29,7 @@ The following service properties are fixed for the lifetime of the service. Cons
 
 + Service name becomes part of the URL endpoint ([review tips for helpful service names](#name-the-service)).
 + [Tier](search-sku-tier.md) (Free, Basic, Standard, and so forth) determines the underlying physical hardware and billing. Some features are tier-constrained.
-+ [Service region](#choose-a-region) can determine the availability of certain scenarios. If you need high availability or [AI enrichment](cognitive-search-concept-intro.md), create the resource in a region that provides the feature. 
++ [Service region](#choose-a-region) can determine the availability of certain scenarios and higher storage limits. If you need high availability or [AI enrichment](cognitive-search-concept-intro.md) or more storage, create the resource in a region that provides the feature. 
 
 ## Subscribe (free or paid)
 
@@ -87,6 +87,28 @@ Service name requirements:
 > Due to high demand, Azure AI Search is currently unavailable for new instances in West Europe. If you don't immediately need semantic ranker or skillsets, choose Sweden Central because it has the most data center capacity. Otherwise, North Europe is another option.
 
 Azure AI Search is available in most regions, as listed in the [**Products available by region**](https://azure.microsoft.com/global-infrastructure/services/?products=search) page.
+
+We strongly recommend the following regions because they provide [more storage per partition](search-limits-quotas-capacity.md#service-limits) at the same billing rate (applies to search services created after April 1, 2024):
+
++ **United States**: East US​, East US 2, East US 2 EUAP​, ​Central US​, North Central US​, South Central US​, West US​, West US 2​, West US 3​, West Central US​
++ **United Kingdom**: UK South​, UK West​
++ **United Arab Emerites**: UAE North​
++ **Switzerland**: Switzerland West​, Switzerland North​
++ **Sweden**: Sweden Central​
++ **Qatar**: Qatar Central​
++ **Poland**: Poland Central​
++ **Norway**: Norway East​
++ **Korea**: Korea Central, Korea South​ 
++ **Japan**: Japan East, Japan West​ 
++ **Italy**: Italy North​
++ **India**: Central India, Jio India West​ 
++ **Germany**: Germany North​
++ **France**: France Central​
++ **Europe**: North Europe​
++ **Canada**: Canada Central​, Canada East​
++ **Bazil**: Brazil South​
++ **Asia Pacific**: East Asia, Southeast Asia​ 
++ **Australia**: Australia East​, Australia Southeast​
 
 If you use multiple Azure services, putting all of them in the same region minimizes or voids bandwidth charges. There are no charges for data exchanges among same-region services.
 
@@ -146,7 +168,7 @@ An endpoint and key aren't needed for portal-based tasks. The portal is already 
 
 ## Scale your service
 
-After a search service is provisioned, you can [scale it to meet your needs](search-limits-quotas-capacity.md). If you chose the Standard tier, you can scale the service in two dimensions: replicas and partitions. For the Basic tier, you can only add replicas. For the free service, scale isn't available.
+After a search service is provisioned, you can [scale it to meet your needs](search-limits-quotas-capacity.md). On a billable tier, you can scale the service in two dimensions: replicas and partitions. For the free service, scale isn't available.
 
 ***Partitions*** allow your service to store and search through more documents.
 

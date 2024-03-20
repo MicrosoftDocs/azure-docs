@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 02/14/2024
+ms.date: 04/01/2024
 ---
 
 # Vector index size limits
@@ -24,9 +24,11 @@ The service enforces a vector index size quota **based on the number of partitio
 
 Each extra partition that you add to your service increases the available vector index size quota. This quota is a hard limit to ensure your service remains healthy. It also means that if vector size exceeds this limit, any further indexing requests result in failure. You can resume indexing once you free up available quota by either deleting some vector documents or by scaling up in partitions.
 
-The following table shows vector quotas by partition, and by service if all partitions are in use. This table is for newer search services created *after July 1, 2023*. For more information, including limits for older search services and also limits on the approximate number of embeddings per partition, see [Search service limits](search-limits-quotas-capacity.md). 
+## Vector limits for services created after July 1, 2023
 
-| Tier  | Partitions | Storage (GB)  | Vector quota per partition (GB) | Vector quota per service (GB) |
+The following table shows vector quotas by partition, and by service if all partitions are in use. This table is for search services created *after July 1, 2023*. For more information, including limits for older search services and also limits on the approximate number of embeddings per partition, see [Search service limits](search-limits-quotas-capacity.md). 
+
+| Tier  | Partitions | Partition size (GB)  | Vector quota per partition (GB) | Vector quota per service (GB) |
 | ----- | ---------- | --------------|-------------------------- | ----------------------------------- |
 | Basic | 1          | 2             | 1                         | 1                |
 | S1    | 12         | 25            | 3                         | 36               |
@@ -37,13 +39,34 @@ The following table shows vector quotas by partition, and by service if all part
 
 **Key points**:
 
-+ Storage quota is the physical storage available to the search service for all search data. Basic has one partition sized at 2 GB that must accommodate all of the data on the service. S1 can have up to 12 partitions, sized at 25 GB each, for a maximum limit of 300 GB for all search data. 
++ Overall storage is a product of the number of partitions you provision multiplied by partition size. Basic has one partition sized at 2 GB that must accommodate all of the data on the service. S1 can have up to 12 partitions, sized at 25 GB each, for a maximum limit of 300 GB for all search data. 
 
 + Vector quotas for are the vector indexes created for each vector field, and they're enforced at the partition level. On Basic, the sum total of all vector fields can't be more than 1 GB because Basic only has one partition. On S1, which can have up to 12 partitions, the quota for vector data is 3 GB if you allocate just one partition, or up to 36 GB if you allocate all 12 partitions. For more information about partitions and replicas, see [Estimate and manage capacity](search-capacity-planning.md).
 
-## How to determine service creation date
+## Vector limits for services created after April 1, 2024
 
-Services created after July 1, 2023 offer at least twice as much vector storage as older ones at the same tier.
+Higher vector limits exist for new services [in supported regions](search-create-service-portal.md#choose-a-region).
+
+| Tier   | Partitions | Partition size (GB) | Vector quota per partition (GB) | Approx. floats per partition (assuming 15% overhead) |
+| ----- | ------------| -----------------  | ------------------------------------------ | ---------------------------- |
+| Basic | 3           | 15                  | 5                                          | 1,100 million              |
+| S1    | 12          | 160                 | 35                                         | 8,200 million              |
+| S2    | 12          | 350                 | 100                                        | 23,500 million             |
+| S3    | 12          | 700                 | 200                                        | 47,000 million             |
+| L1    | 12          | 1,000               | 12                                         | 2,800 million              |
+| L2    | 12          | 2,000               | 36                                         | 8,400 million              |
+
+L1 and L2 currently have the same quota as services created after July 1, 2023.
+
+## How to check partition size and quantity
+
+If you aren't sure what your search service limits are, here are two ways to get that information:
+
++ In the Azure portal, in the search service **Overview** page, both the **Properties** tab and **Usage** tab show partition size and storage.
+
++ In the Azure portal, in the **Scale** page, you can review the number and size of partitions.
+
+## How to determine service creation date
 
 1. In Azure portal, open the resource group. 
 
@@ -63,6 +86,7 @@ Services created after July 1, 2023 offer at least twice as much vector storage 
 
    + [Before July 1, 2023](search-limits-quotas-capacity.md#services-created-before-july-1-2023)
    + [After July 1, 2023](search-limits-quotas-capacity.md#services-created-after-july-1-2023-in-supported-regions)
+   + [After April 1, 2024](search-limits-quotas-capacity.md#services-created-after-april-1-2024-in-supported-regions)
 
 ## How to get vector index size
 
@@ -72,7 +96,7 @@ A request for vector metrics is a data plane operation. You can use the Azure po
 
 Usage information can be found on the **Overview** page's **Usage** tab. Portal pages refresh every few minutes so if you recently updated an index, wait a bit before checking results.
 
-The following screenshot is for a newer Standard 1 (S1) tier, configured for one partition and one replica. Vector index quota, measured in megabytes, refers to the internal vector indexes created for each vector field. Overall, indexes consume almost 460 megabytes of available storage, but the vector index component takes up just 93 megabytes of the 460 used on this search service.
+The following screenshot is for a Standard 1 (S1) tier, configured for one partition and one replica. Vector index quota, measured in megabytes, refers to the internal vector indexes created for each vector field. Overall, indexes consume almost 460 megabytes of available storage, but the vector index component takes up just 93 megabytes of the 460 used on this search service.
 
 :::image type="content" source="media/vector-search-index-size/portal-vector-index-size.png" lightbox="media/vector-search-index-size/portal-vector-index-size.png" alt-text="Screenshot of the Overview page's usage tab showing vector index consumption against quota.":::
 

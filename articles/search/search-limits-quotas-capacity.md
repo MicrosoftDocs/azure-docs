@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/21/2024
+ms.date: 04/01/2024
 ms.custom:
   - references_regions
   - ignite-2023
@@ -82,7 +82,7 @@ The table describes the vector index size quota per partition across the service
 + Amount of each partition (in GB) available for vector indexes (created when you add vector fields to an index).
 + Approximate number of embeddings (floating point values) per partition.
 
-Use the [Get Service Statistics API (GET /servicestats)](/rest/api/searchservice/get-service-statistics) to retrieve your vector index size quota. See our [documentation on vector index size](vector-search-index-size.md) for more details.
+Use the [GET /servicestats](/rest/api/searchservice/get-service-statistics) to retrieve your vector index size quota. See our [documentation on vector index size](vector-search-index-size.md) for more details.
 
 ### Services created before July 1, 2023
 
@@ -113,6 +113,19 @@ The following regions **do not** support increased limits:
 | S3    | 200                | 36                                         | 8,400 million                |
 | L1    | 1,000              | 12                                         | 2,800 million                |
 | L2    | 2,000              | 36                                         | 8,400 million                |
+
+### Services created after April 1, 2024 in supported regions
+
+| Tier   | Storage quota (GB) | Vector quota per partition (GB) | Approx. floats per partition (assuming 15% overhead) |
+| ----- | ------------------  | ------------------------------------------ | ---------------------------- |
+| Basic | 15                  | 5                                          | 1,100 million              |
+| S1    | 160                 | 35                                         | 8,200 million              |
+| S2    | 350                 | 100                                        | 23,500 million             |
+| S3    | 700                 | 200                                        | 47,000 million             |
+| L1    | 1,000               | 12                                         | 2,800 million              |
+| L2    | 2,000               | 36                                         | 8,400 million              |
+
+L1 and L2 currently have the same quota as services created after July 1, 2023.
 
 ## Indexer limits
 
