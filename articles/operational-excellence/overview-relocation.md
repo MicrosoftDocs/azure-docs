@@ -42,6 +42,7 @@ The following tables provide links to each Azure service relocation document. Th
 
 | Product  | Relocation with data | Relocation without data | Resource Mover | 
 | --- | --- | --- | ---|
+[Azure Key Vault](relocation-key-vault.md)| ✅ | ✅| ❌ |
 [Azure Event Hubs](relocation-event-hub.md)| ❌ | ✅| ❌ |
 [Azure Event Hubs Cluster](relocation-event-hub-cluster.md)| ❌ | ✅| ❌ |
 [Azure Key Vault](./relocation-key-vault.md)| ✅ | ✅| ❌ |
