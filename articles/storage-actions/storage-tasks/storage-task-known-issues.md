@@ -107,7 +107,7 @@ When you apply storage task assignments to storage accounts that have IP or netw
 
 ## Storage Tasks won't be trigger on regional account migrated in GRS / GZRS accounts
 
-If you migrate your storage account from GRS / GZRS primary region to secondary region or vice versa, then Storage Tasks targeted on that storage account will not be triggered and existing Task execution may fail. 
+If you migrate your storage account from a GRS or GZRS primary region to a secondary region or vice versa, then any storage tasks that target the storage account won't be triggered and any existing task executions might fail. 
 
 ## See Also
 
