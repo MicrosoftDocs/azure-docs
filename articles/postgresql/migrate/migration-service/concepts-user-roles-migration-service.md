@@ -28,9 +28,9 @@ This section explores the differences in permissions granted to the **azure_pg_a
 ### PG Catalog permissions
 Unlike user-created schemas, which organize database objects into logical groups, pg_catalog is a system schema. It houses crucial system-level information, such as details about tables, columns, and other internal bookkeeping data. Essentially, it’s where PostgreSQL stores important metadata.
 
-In a single server environment, a user belonging to the azure_pg_admin role is granted select privileges for all pg_catalog tables and views. However, in a flexible server, we have restricted privileges for certain tables and views, allowing only the super user to query them. 
+In a single server environment, a user belonging to the azure_pg_admin role is granted select privileges for all pg_catalog tables and views. However, in a flexible server, we restricted privileges for certain tables and views, allowing only the super user to query them. 
 
-We have removed all privileges for non-superusers on the following pg_catalog tables. 
+We removed all privileges for non-superusers on the following pg_catalog tables. 
 - pg_authid 
 
 - pg_largeobject 
@@ -39,7 +39,7 @@ We have removed all privileges for non-superusers on the following pg_catalog ta
 
 - pg_user_mapping 
 
-We have removed all privileges for non-superusers on the following pg_catalog views.
+We removed all privileges for non-superusers on the following pg_catalog views.
 - pg_config 
 
 - pg_file_settings 
@@ -50,18 +50,18 @@ We have removed all privileges for non-superusers on the following pg_catalog vi
 
 - pg_shadow 
 
-Allowing unrestricted access to these system tables and views could lead to unauthorized modifications, accidental deletions or even security breaches. By restricting access, we are reducing the risk of unintended changes or data exposure. 
+Allowing unrestricted access to these system tables and views could lead to unauthorized modifications, accidental deletions, or even security breaches. By restricting access, we're reducing the risk of unintended changes or data exposure. 
 
 #### What is the impact?
 - If your application is designed to directly query the affected tables and views, it will encounter issues upon migrating to the flexible server. We strongly advise you to refactor your application to avoid direct queries to these system tables. 
 
-- If you have specifically granted privileges to any users or roles for the affected pg_catalog tables and views, you will encounter an error during the migration process from a single server to a flexible server using the migration tool. This error will be identified by the following pattern: **"pg_restore error: could not execute query GRANT/REVOKE PRIVILEGES on TABLENAME to username."**
+- If you have granted privileges to any users or roles for the affected pg_catalog tables and views, you encounter an error during the migration process. This error will be identified by the following pattern: **"pg_restore error: could not execute query GRANT/REVOKE PRIVILEGES on TABLENAME to username."**
 To resolve this error, it's necessary to revoke the select privileges granted to various users and roles on the pg_catalog tables and views. You can accomplish this by taking the following steps.
    - **Step1:** Take a pg_dump of the database containing only the schema by executing the following command from a machine with access to your single server.
     ```bash
         pg_dump -h <singleserverhostname> -U <username@singleserverhostname> -d <databasename> -s > dump_output.sql  
     ```
-   - **Step2:** Search for **GRANT** statements associated with the impacted tables and views in the dump file. These GRANT statements will follow this format.
+   - **Step2:** Search for **GRANT** statements associated with the impacted tables and views in the dump file. These GRANT statements follow this format.
     ```bash
         GRANT <privileges> to pg_catalog.<impacted tablename/viewname> to <username>; 
     ```
@@ -71,9 +71,9 @@ To resolve this error, it's necessary to revoke the select privileges granted to
     ```    
 
 ##### Understanding pg_pltemplate Deprecation
-Another important consideration is the deprecation of the **pg_pltemplate** system table within the pg_catalog schema by the PostgreSQL community **starting from version 13.** Therefore, if you are migrating to Flexible Server versions 13 and above, and if you have granted explicit permissions to users on the pg_pltemplate table, it is necessary to revoke these permissions before initiating the migration process. You can follow the same steps outlined above and conduct a search for **pg_pltemplate** in Step 2. Failure to do so will lead to a failed migration.
+Another important consideration is the deprecation of the **pg_pltemplate** system table within the pg_catalog schema by the PostgreSQL community **starting from version 13.** Therefore, if you're migrating to Flexible Server versions 13 and above, and if you have granted permissions to users on the pg_pltemplate table, it is necessary to revoke these permissions before initiating the migration process. You can follow the same steps outlined above and conduct a search for **pg_pltemplate** in Step 2. Failure to do so leads to a failed migration.
 
-After completing these steps, you can proceed to initiate a new migration from the single server to the flexible server using the migration tool. You are expected not to encounter permission-related issues during this process.
+After completing these steps, you can proceed to initiate a new migration from the single server to the flexible server using the migration tool. You're expected not to encounter permission-related issues during this process.
 
 ## Related content
 - [Migration service](concepts-migration-service-postgresql.md)
