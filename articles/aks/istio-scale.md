@@ -14,7 +14,7 @@ The Istio-based service mesh add-on is logically split into a control plane (`is
 [Istiod’s CPU and memory requirements][control-plane-performance] correlate with the rate of deployment and configuration changes and the number of proxies connected. The scenarios tested were:
 
 - Pod churn: examines the impact of pod churning on `istiod`. To reduce variables, only one service is used for all sidecars. 
-- Maximum sidecars: examines the maximum sidecars Istiod can manage (sidecar capacity) with 1,000 services, where each service has `N` sidecars, totaling the overall maximum.
+- Multiple services: examines the impact of multiple services on the maximum sidecars Istiod can manage (sidecar capacity), where each service has `N` sidecars, totaling the overall maximum.
 
 #### Test Specifications
 - One `istiod` instance with default settings
@@ -44,8 +44,8 @@ The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum
 |          50 | 37.9                        |              25000 |                 42.7 |           16 |
 
 
-### Maximum sidecars
-The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum number of sidecars `istiod` can manage with 1,000 services. Each service had `N` sidecars contributing to the overall maximum sidecar count. The API Server resource usage was observed to determine if there was any significant stress from the add-on.
+### Multiple Services
+The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum number of sidecars `istiod` can manage with 1,000 services. The results can be compared to the 0% churn test (one service) in the pod churn scenario. Each service had `N` sidecars contributing to the overall maximum sidecar count. The API Server resource usage was observed to determine if there was any significant stress from the add-on.
 
 |**Sidecar Capacity**||
 |---------------------|---------------------------------|
