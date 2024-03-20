@@ -35,10 +35,11 @@ This tutorial shows how to build, configure, and deploy a secure Tomcat applicat
 
 ## Skip to the end
 
-With [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) installed, you can deploy a fully configured sample app shown in this tutorial and see it running in Azure. Just running the following commands in an empty working directory and follow the prompt:
+You can quickly deploy the sample app in this tutorial and see it running in Azure. Just run the following commands in the [Azure Cloud Shell](https://shell.azure.com), and follow the prompt:
 
 ```bash
-azd auth login
+mkdir msdocs-tomcat-mysql-sample-app
+cd msdocs-tomcat-mysql-sample-app
 azd init --template msdocs-tomcat-mysql-sample-app
 azd up
 ```
@@ -301,7 +302,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 Azure App Service captures all messages output to the console to help you diagnose issues with your application. The sample application includes standard Log4j logging statements to demonstrate this capability as shown below.
 
-:::code language="java" source="~/msdocs-tomcat-mysql-sample-app/src/main/java/com/microsoft/azure/appservice/examples/tomcatmysql/ViewServlet.java" range="17-26" highlight="19,24":::
+:::code language="java" source="~/msdocs-tomcat-mysql-sample-app/src/main/java/com/microsoft/azure/appservice/examples/tomcatmysql/ViewServlet.java" range="17-26" highlight="3,8":::
 
 :::row:::
     :::column span="2":::
@@ -355,7 +356,7 @@ When you're finished, you can delete all of the resources from your Azure subscr
         1. Confirm with **Delete** again.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-clean-up-resources-3.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/tutorial-java-tomcat-mysql-app/azure-portal-clean-up-resources-3.png"::::
+        :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-clean-up-resources-3.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/tutorial-java-tomcat-mysql-app/azure-portal-clean-up-resources-3.png":::
     :::column-end:::
 :::row-end:::
 
@@ -402,7 +403,7 @@ In this step, you create the Azure resources and deploy a sample app to App Serv
     azd up
     ```  
 
-    The `azd up` command takes about 25 minutes to complete (the database and the cache take the most time). It also compiles and deploys your application code, but you'll modify your code later to work with App Service. While it's running, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure. When it finishes, the command also displays a link to the deploy application.
+    The `azd up` command takes about 15 minutes to complete (the database and the cache take the most time). It also compiles and deploys your application code, but you'll modify your code later to work with App Service. While it's running, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure. When it finishes, the command also displays a link to the deploy application.
 
     This azd template contains files (*azure.yaml* and the *infra* directory) that generate a secure-by-default architecture with the following Azure resources:
 
@@ -439,25 +440,15 @@ The azd template you use generated the connectivity variables for you already as
 
 In this step, you use the SSH connection to the app container to verify the JNDI data source in the Tomcat server. In the process, you learn how to access the SSH shell for the Tomcat container.
 
-:::row:::
-    :::column span="2":::
-        **Step 1:** In the App Service page, 
-        1. In the left menu, select **SSH**.
-        1. Select **Go**. 
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-check-config-in-ssh-1.png" alt-text="A screenshot showing how to open the SSH shell for your app from the Azure portal." lightbox="./media/tutorial-java-tomcat-mysql-app/azure-portal-check-config-in-ssh-1.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 2:** In the SSH terminal:
-        1. Run `cat /usr/local/tomcat/conf/context.xml`. You should see that a JNDI resource called `jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS` was added. You will use this data source later.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-check-config-in-ssh-2.png" alt-text="A screenshot showing the commands to run in the SSH shell and their output." lightbox="./media/tutorial-java-tomcat-mysql-app/azure-portal-check-config-in-ssh-2.png":::
-    :::column-end:::
-:::row-end:::
+1. In the azd output, find the URL for the SSH session and navigate to it in the browser. It looks like this in the output:
+
+    <pre>
+    Open SSH session to App Service container at: https://&lt;app-name>.scm.azurewebsites.net/webssh/host
+    </pre>
+
+1. In the SSH terminal, run `cat /usr/local/tomcat/conf/context.xml`. You should see that a JNDI resource called `jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS` was added. You will use this data source later.
+
+    :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-check-config-in-ssh-2.png" alt-text="A screenshot showing the commands to run in the SSH shell and their output.":::
 
 > [!NOTE]
 > Only changes to files in `/home` can persist beyond app restarts. For example, if you edit `/usr/local/tomcat/conf/server.xml`, the changes won't persist beyond an app restart.
@@ -508,7 +499,7 @@ Azure App Service can capture console logs to help you diagnose issues with your
 
 The sample application includes standard Log4j logging statements to demonstrate this capability as shown below.
 
-:::code language="java" source="~/msdocs-tomcat-mysql-sample-app/src/main/java/com/microsoft/azure/appservice/examples/tomcatmysql/ViewServlet.java" range="17-26" highlight="19,24":::
+:::code language="java" source="~/msdocs-tomcat-mysql-sample-app/src/main/java/com/microsoft/azure/appservice/examples/tomcatmysql/ViewServlet.java" range="17-26" highlight="3,8":::
 
 In the azd output, find the link to stream App Service logs and navigate to it in the browser. The link looks like this in the azd output:
 
@@ -520,7 +511,7 @@ Learn more about logging in Java apps in the series on [Enable Azure Monitor Ope
 
 ## 8. Clean up resources
 
-To delete all Azure resources in the current deployment environment, run `azd down`.
+To delete all Azure resources in the current deployment environment, run `azd down` and follow the prompts.
 
 ```bash
 azd down
