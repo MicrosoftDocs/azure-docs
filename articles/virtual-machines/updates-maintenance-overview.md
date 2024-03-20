@@ -22,25 +22,25 @@ Azure infrastructure updates can range from upgrading network components, decomm
 ## Platform maintenance
 Platform maintenance comprises of updates applied for networking components like Top of the Rack (TOR) Switch or host environments like Dedicated hosts/Isolated VMs/Shared hosts. Host updates are done on the physical host environment where VMs reside and are transparent to the customers most of the time. However, some updates can require the residing VMs to freeze (non-rebootful updates)  or reboot (rebootful updates). When these no-impact updates are performed, Azure chooses the update mechanism that's least impactful to customer VMs.
 
-### Host maintenance that requires a reboot and that does not require a reboot  
+### Host maintenance that requires a reboot and that doesn't require a reboot  
    
-   During Azure host maintenance updates, VMs either freeze, reboot or live migrate to another host. Host maintenance updates which require reboot are called *rebootful updates* while the updates which cause VMs to pause/freeze for >=1 second are called *non-rebootful updates*.
+   During Azure host maintenance updates, VMs either freeze, reboot or live migrate to another host. Host maintenance updates that require reboot are called *rebootful updates* while the updates that cause VMs to pause/freeze for >=1 second are called *non-rebootful updates*.
 
 ### Dedicated hosts/Isolated VMs vs Shared Hosts  
    
-   Host maintenance and experience are available for Dedicated host, Isolated VMs and Shared hosts. Dedicated hosts are hosts in which all VMs are owned by one customer whereas Shared hosts are hosts in which VMs from multiple customers might reside together in one host. Isolated VMs are large machines that are isolated to a specific hardware type and dedicated to a single customer.  
+   Host maintenance and experience are available for Dedicated host, Isolated VMs, and Shared hosts. Dedicated hosts are hosts in which all VMs are owned by one customer. Shared hosts are hosts in which VMs from multiple customers might reside together in one host. Isolated VMs are large machines that are isolated to a specific hardware type and dedicated to a single customer.  
 
-   On Dedicated hosts, customers have host maintenance experience available for impact <1sec or >=1sec. Customers can opt into a maintenance control experience and schedule maintenance window based on their requirements prior to 35days since last maintenance had occurred. Isolated VMs have maintenance control experience available like Dedicated hosts.  
+   On Dedicated hosts, customers have host maintenance experience available for impact <1sec or >=1sec. Customers can opt into a maintenance control and schedule maintenance window based on their needs within 35days from last maintenance date. Isolated VMs have maintenance control experience available like Dedicated hosts.  
 
-   On Shared hosts, customers have host maintenance experience available for updates that require reboot updates. For updates that are <30sec maintenance control experience is not available today. High Risk program is available to get maintenance experience for >30s freeze.
+   On Shared hosts, customers have host maintenance experience available for updates that require reboot updates. For updates that are <30sec maintenance control experience isn't available today. High Risk program is available to get maintenance experience for >30s freeze.
 
 ### Notification mechanisms  
    
-   Azure provides notifications before, during, and after maintenance operations. Scheduled events provide notifications before an event starts and while it is in progress so your application can react automatically. Flash events enable you to consume and analyze alerts and trends in VM availability for reporting and root cause analysis.  
+   Azure provides notifications before, during, and after maintenance operations. Scheduled events provide notifications before an event starts and while it is in progress so your application can react automatically. Flash health events enable you to consume and analyze alerts and trends in VMs availability for reporting and root cause analysis.  
    
    #### Scheduled Events  
       
-   Scheduled events provide advance notification of upcoming availability impacts so you can prepare your application for the impact ahead of time. They are optimized for automated resiliency by being delivered directly to the impacted VM and to all VMs in the same placement group. For information on Scheduled Events, see [Scheduled Events for Windows VMs](./windows/scheduled-events.md) and [Scheduled Events for Linux](./linux/scheduled-events.md)
+   Scheduled events provide advance notification of upcoming availability impacts so you can prepare your application for the impact ahead of time. They are optimized for automated resiliency by being delivered directly to the impacted VM and to all VMs in the same placement group. For information on Scheduled Events, see [Scheduled Events for Windows VMs](./windows/scheduled-events.md) and [Scheduled Events for Linux](./linux/scheduled-events.md).
       
    #### Flash Health Events  
       
@@ -50,15 +50,15 @@ Platform maintenance comprises of updates applied for networking components like
 
 ### OS Image upgrade  
      
-   [Automatic OS upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?context=/azure/virtual-machines/context/context) are available for Virtual Machine scale Sets (VMSS). An upgrade works by replacing the OS disk of a VM with a new disk created using the latest image version. Any configured extensioAns and custom data scripts are run on the OS disk, while data disks are retained. To minimize the application downtime, upgrades take place in batches, with no more than 20% of the scale set upgrading at any time.
-     Maintenance Control is also available for OS Image upgrades. Customers can opt into this experience by using maintenance configurations to schedule when these image upgrades are applied. To use this experience scale sets, need to have automatic OS upgrades enabled. Customers can schedule recurrence for up to a week (7 days) and a minimum of 5 hours is required for the maintenance window.
+   [Automatic OS upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?context=/azure/virtual-machines/context/context) are available for Virtual Machine Scale Sets (VMSS). An upgrade works by replacing the OS disk of a VM with a new disk created using the latest image version. Any configured extensioAns and custom data scripts are run on the OS disk, while data disks are retained. To minimize the application downtime, upgrades take place in batches, with no more than 20% of the scale set upgrading at any time.
+     Maintenance Control is also available for OS Image upgrades. Customers can opt into this experience by using maintenance configurations to schedule when these image upgrades are applied. To use this experience scale sets, need to have automatic OS upgrades enabled. Customers can schedule recurrence for up to a week (seven days) and a minimum of 5 hours is required for the maintenance window.
 
 ### Guest VM patching
    
-   [Automatic VM guest patching](automatic-vm-guest-patching.md) is integrated with update management center which allows you to save recurring deployment schedules to install updates for your Windows Server and Linux machines in Azure, in on-premises environments, and in other cloud environments connected using Azure Arc-enabled servers.
+   [Automatic VM guest patching](automatic-vm-guest-patching.md) is integrated with Azure update manager that allows you to save recurring deployment schedules to install updates for your Windows Server and Linux machines in Azure, in on-premises environments, and in other cloud environments connected using Azure Arc-enabled servers.
 
 ### Guest extension upgrades
-   [Automatic Extension Upgrade](automatic-extension-upgrade.md) is available for Azure VMs and Azure Virtual Machine Scale Sets. When Automatic Extension Upgrade is enabled on a VM or scale set, the extension is upgraded automatically whenever the extension publisher releases a new version for that extension. The extension upgrade process replaces the existing extension version on a VM with a new version of the same extension when published by the extension publisher. The health of the VM is monitored after the new extension is installed. If the VM is not in a healthy state within 5 minutes of the upgrade completion, the extension version is rolled back to the previous version.
+   [Automatic Extension Upgrade](automatic-extension-upgrade.md) is available for Azure VMs and Azure Virtual Machine Scale Sets. When Automatic Extension Upgrade is enabled on a VM or scale set, the extension is upgraded automatically whenever the extension publisher releases a new version for that extension. The extension upgrade process replaces the existing extension version on a VM with a new version of the same extension when published by the extension publisher. The health of the VM is monitored after the new extension is installed. If the VM isn't in a healthy state within 5 minutes of the upgrade completion, the extension version is rolled back to the previous version.
 Maintenance control on extensions is currently only available via CLI and PowerShell. Customers can schedule recurrence for up to a week (7 days) and a minimum of 5 hours is required for the maintenance window.
 
 ### Hotpatch  
@@ -71,7 +71,7 @@ Maintenance control on extensions is currently only available via CLI and PowerS
 
 ### Azure update management  
 
-You can use [Update Management in Azure Automation](../automation/update-management/overview.md?context=/azure/virtual-machines/context/context) to manage operating system updates for your Windows and Linux virtual machines in Azure, in on-premises environments, and in other cloud environments. You can quickly assess the status of available updates on all agent machines and manage the process of installing required updates for servers.
+You can use [Update Management in Azure Automation](../automation/update-management/overview.md?context=/azure/virtual-machines/context/context) to manage to operate system updates for your Windows and Linux virtual machines in Azure, in on-premises environments, and in other cloud environments. You can quickly assess the status of available updates on all agent machines and manage the process of installing required updates for servers.
 
 ### Update manager  
 
