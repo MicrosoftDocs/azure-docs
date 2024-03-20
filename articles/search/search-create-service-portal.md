@@ -101,7 +101,7 @@ We strongly recommend the following regions because they provide [more storage p
 | **Poland** | Poland Central​​ |
 | **Norway** | Norway East​​ |
 | **Korea** | Korea Central, Korea South​ ​ |
-| **Japan** | Japan East, Japan West​ |​ 
+| **Japan** | Japan East, Japan West​ |
 | **Italy** | Italy North​​ |
 | **India** | Central India, Jio India West​ ​ |
 | **Germany** | Germany North​​ |
