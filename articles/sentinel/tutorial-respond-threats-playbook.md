@@ -291,7 +291,7 @@ To create an automation rule:
        >      1. In the **Settings** blade, select the **Settings** tab, then the **Playbook permissions** expander.
        >      1. Click the **Configure permissions** button to open the **Manage permissions** panel mentioned above, and continue as described there.
        >
-       > - If, in an **MSSP** scenario, you want to [run a playbook in a customer tenant](automate-incident-handling-with-automation-rules.md#permissions-in-a-multi-tenant-architecture) from an automation rule created while signed into the service provider tenant, you must grant Microsoft Sentinel permission to run the playbook in ***both tenants***. In the **customer** tenant, follow the instructions for the multi-tenant deployment in the preceding bullet point. In the **service provider** tenant, you must add the **Azure Security Insights** app in your Azure Lighthouse onboarding template:
+       > - If, in an **MSSP** scenario, you want to [run a playbook in a customer tenant](automate-incident-handling-with-automation-rules.md#permissions-in-a-multitenant-architecture) from an automation rule created while signed into the service provider tenant, you must grant Microsoft Sentinel permission to run the playbook in ***both tenants***. In the **customer** tenant, follow the instructions for the multi-tenant deployment in the preceding bullet point. In the **service provider** tenant, you must add the **Azure Security Insights** app in your Azure Lighthouse onboarding template:
        >    1. From the Azure Portal go to **Microsoft Entra ID**.
        >    1. Click on **Enterprise Applications**.
        >    1. Select **Application Type**  and filter on **Microsoft Applications**.
