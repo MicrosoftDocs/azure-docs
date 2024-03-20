@@ -1,7 +1,7 @@
 ---
 title: 'Configure P2S VPN clients - certificate authentication workflow - Windows'
 titleSuffix: Azure VPN Gateway
-description: Learn about the workflow to configure VPN clients for P2S configurations that use certificate authentication. In this artcle, you generate the client configuration package and install client certificates. This article applies to clients running Windows.
+description: Learn about the workflow to configure VPN clients for P2S configurations that use certificate authentication. In this article, you generate the client configuration package and install client certificates. This article applies to clients running Windows.
 author: cherylmc
 ms.service: vpn-gateway
 ms.custom: devx-track-azurepowershell
