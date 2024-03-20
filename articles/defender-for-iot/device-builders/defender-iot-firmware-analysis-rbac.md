@@ -68,7 +68,7 @@ Invite users to the Subscription | Owner at the **Subscription** level (Owner at
 To upload firmware images:
 
 * Confirm that you have sufficient permission in [Defender for IoT Firmware Analysis Roles, Scopes, and Capabilities](#defender-for-iot-firmware-analysis-roles-scopes-and-capabilities).
-* [Upload a firmware image for analysis](../../../articles/defender-for-iot/device-builders/tutorial-analyze-firmware.md#tutorial-analyze-an-iotot-firmware-image).
+* [Upload a firmware image for analysis](../../../articles/defender-for-iot/device-builders/tutorial-analyze-firmware.md#upload-a-firmware-image-for-analysis).
 
 ## Invite third parties to interact with your firmware analysis results
 You might want to invite someone to interact solely with your firmware analysis results, without allowing access to other parts of your organization (like other resource groups within your subscription). To allow this type of access, invite the user as a Firmware Analysis Admin at the Resource Group level.
