@@ -178,6 +178,10 @@ When the chat app first opens in the browser, it requires valid connection crede
 
 # [Model v3](#tab/nodejs-v3)
 
+1. From the root project folder, create the `negotiate` function from a built-in template by using the following command:
+    ```bash
+    func new --template "SignalR negotiate HTTP trigger" --name negotiate
+    ```
 1. Open _negotiate/function.json_ to view the function binding configuration.
 
     The function contains an HTTP trigger binding to receive requests from SignalR clients. The function also contains a SignalR input binding to generate valid credentials for a client to connect to an Azure SignalR Service hub named `default`.
