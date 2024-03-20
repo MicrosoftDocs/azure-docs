@@ -487,7 +487,7 @@ if __name__ == '__main__':
     messages.send_image_message()
 ```
 
-#### Run the code
+## Run the code
 
 To run the code, make sure you are on the directory where your `messages-quickstart.py` file is.
 
