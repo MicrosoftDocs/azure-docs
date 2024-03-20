@@ -12,6 +12,8 @@ ms.author: danlep
 
 # Manage protocols and ciphers in Azure API Management
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 Azure API Management supports multiple versions of Transport Layer Security (TLS) protocol to secure API traffic for:
 * Client side
 * Backend side
