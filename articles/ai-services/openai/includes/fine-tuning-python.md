@@ -181,6 +181,8 @@ print("Validation file ID:", validation_file_id)
 
 # [OpenAI Python 0.28.1](#tab/python)
 
+[!INCLUDE [Deprecation](../includes/deprecation.md)]
+
 ```python
 # Upload fine-tuning files
 
