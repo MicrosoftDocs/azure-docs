@@ -350,7 +350,7 @@ az network watcher test-connectivity --source-resource '/subscriptions/abcdef01-
     - Connection status is **Unreachable** (destination virtual machine is unreachable over port 3389).
     - 30 probes were sent and failed to reach the destination virtual machine.
     - There are two hopes in the path between the two virtual machines (no appliances or other resources in the path between the two VMs).
-    - Port 3389 isn't reachable on the destination virtual machine. The output has `NoListenerOnDestination` and `GuestFirewall` errors on the destination virtual machine. 
+    - Port 3389 isn't reachable on the destination virtual machine (the output has `NoListenerOnDestination` and `GuestFirewall` errors on the destination virtual machine). 
 
     **Solution**: Configure the operating system on the destination virtual machine to accept inbound RDP traffic.
 
@@ -720,7 +720,7 @@ az network watcher test-connectivity --resource-group 'myResourceGroup' --source
 
     - Connection status is **Unreachable** (`10.10.10.10` is unreachable over port 3389).
     - 30 probes were sent and failed to reach `10.10.10.10`.
-    - No route in the routing table of the source virtual machine to `10.10.10.10`. The output has `RouteMissing` error on the source virtual machine.
+    - No route in the routing table of the source virtual machine to `10.10.10.10` (the output has `RouteMissing` error on the source virtual machine).
     - Next hop type is *None* because there's no route to `10.10.10.10`.
     - Outbound connectivity from the source virtual machine is denied by the security rule `DefaultRule_DenyAllOutBound` in the network security group `VM1-nsg`.
     
