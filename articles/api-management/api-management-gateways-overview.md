@@ -114,10 +114,10 @@ Managed and self-hosted gateways support all available [policies](api-management
 
 | Policy | Managed (Dedicated)  | Managed (Consumption) | Self-hosted<sup>1</sup>  |
 | --- | ----- | ----- | ---------- |
-| [Dapr integration](api-management-policies.md#dapr-integration-policies) |  ❌ | ❌ | ✔️ |
-| [GraphQL resolvers](api-management-policies.md#graphql-resolver-policies) and [GraphQL validation](api-management-policies.md#validation-policies)|  ✔️ | ✔️ | ❌ |
+| [Dapr integration](api-management-policies.md#integration-and-external-communication) |  ❌ | ❌ | ✔️ |
+| [GraphQL resolvers](api-management-policies.md#graphql-resolvers) and [GraphQL validation](api-management-policies.md#content-validation)|  ✔️ | ✔️ | ❌ |
 | [Get authorization context](get-authorization-context-policy.md) |  ✔️ |  ✔️ | ❌ |
-| [Quota and rate limit](api-management-policies.md#access-restriction-policies) |  ✔️ |  ✔️<sup>2</sup> | ✔️<sup>3</sup>
+| [Quota and rate limit](api-management-policies.md#rate-limiting-and-quotas) |  ✔️ |  ✔️<sup>2</sup> | ✔️<sup>3</sup>
 
 <sup>1</sup> Configured policies that aren't supported by the self-hosted gateway are skipped during policy execution.<br/>
 <sup>2</sup> The rate limit by key and quota by key policies aren't available in the Consumption tier.<br/>

@@ -76,7 +76,7 @@ Unless the policy specifies otherwise, [policy expressions](api-management-polic
 
 Each expression has access to the implicitly provided `context` variable and an allowed subset of .NET Framework types.
 
-Policy expressions provide a sophisticated means to control traffic and modify API behavior without requiring you to write specialized code or modify backend services. Some policies are based on policy expressions, such as [Control flow][Control flow] and [Set variable][Set variable]. For more information, see [Advanced policies][Advanced policies].
+Policy expressions provide a sophisticated means to control traffic and modify API behavior without requiring you to write specialized code or modify backend services. Some policies are based on policy expressions, such as [Control flow][Control flow] and [Set variable][Set variable]. 
 
 ## Scopes
 
@@ -167,7 +167,7 @@ The following example uses [policy expressions][Policy expressions] and the [`se
 [API]: api-management-howto-add-products.md
 [Operation]: ./mock-api-responses.md
 
-[Advanced policies]: ./api-management-advanced-policies.md
+[Policy control and flow policies]: ./api-management-policies.md#policy-control-and-flow
 [Control flow]: choose-policy.md
 [Set variable]: set-variable-policy.md
 [Policy expressions]: ./api-management-policy-expressions.md

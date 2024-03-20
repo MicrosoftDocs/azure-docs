@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 12/07/2022
+ms.date: 03/18/2024
 ms.author: danlep
 ---
 
@@ -47,6 +47,6 @@ For more information and examples of this policy, see [Custom caching in Azure A
 
 ## Related policies
 
-* [API Management caching policies](api-management-caching-policies.md)
+* [Caching](api-management-policies.md#caching)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

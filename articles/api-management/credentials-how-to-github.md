@@ -150,5 +150,5 @@ The preceding policy definition consists of three parts:
 
 ## Related content
 
-* Learn more about [access restriction policies](api-management-access-restriction-policies.md).
+* Learn more about [authentication and authorization policies](api-management-policies.md#authentication-and-authorization)
 * Learn more about GitHub's [REST API](https://docs.github.com/en/rest?apiVersion=2022-11-28)

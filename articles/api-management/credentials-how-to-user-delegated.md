@@ -181,5 +181,5 @@ In the preceding policy definition, replace:
 
 ## Related content
 
-* Learn more about [access restriction policies](api-management-access-restriction-policies.md)
+* Learn more about [authentication and authorization policies](api-management-policies.md#authentication-and-authorization)
 * Learn more about [scopes and permissions](../active-directory/develop/scopes-oidc.md) in Microsoft Entra ID.
