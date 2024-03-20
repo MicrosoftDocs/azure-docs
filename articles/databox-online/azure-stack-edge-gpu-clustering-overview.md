@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 03/19/2024
+ms.date: 03/20/2024
 ms.author: alkohli
 ---
 
@@ -108,9 +108,8 @@ Usage considerations on your Azure Stack Edge Pro 2 device nodes:
   - **Port 1 and Port 2 in separate subnets** - This is the default option. In this case, Port 1 and Port 2 have separate virtual switches and are connected to separate subnets.
   - **Port 1 and Port 2 in the same subnet** - In this case, Port 1 and Port 2 have a teamed virtual switch and both ports are in the same subnet.
 - **Using external switches for Port 3 and Port 4** - Use this option when you have high speed switches (>=10 GbE bandwidth) available for use with your device nodes and you want to allow a VM network adapter to connect to the virtual network created on Port 3 or Port 4, like a PMEC use case.
-- Additional options for **Switchless** scenarios that use **external switches**:
-  - **Port 1 and Port 2 in separate subnets** - This is the default option. In this case, Port 1 and Port 2 have separate virtual switches and are connected to separate subnets.
-  - **Port 1 and Port 2 in the same subnet** - In this case, Port 1 and Port 2 have a teamed virtual switch and both ports are in the same subnet.
+- **Port 1 and Port 2 in separate subnets** - This is the default option. In this case, Port 1 and Port 2 have separate virtual switches and are connected to separate subnets.
+- **Port 1 and Port 2 in the same subnet** - In this case, Port 1 and Port 2 have a teamed virtual switch and both ports are in the same subnet.
 
 Additional considerations:
 
