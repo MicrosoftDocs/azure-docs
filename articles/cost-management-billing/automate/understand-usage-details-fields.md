@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article describes the fields in the usage data files.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/22/2024
+ms.date: 02/26/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -47,8 +47,8 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | BillingPeriod | EA, pay-as-you-go | The billing period of the charge. |
 | BillingPeriodEndDate | All | The end date of the billing period. |
 | BillingPeriodStartDate | All | The start date of the billing period. |
-| BillingProfileId¹ | All | Unique identifier of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS consolidated account. |
-| BillingProfileName | All | Name of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS consolidated account. |
+| BillingProfileId¹ | All | Unique identifier of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS⁴ consolidated account. |
+| BillingProfileName | All | Name of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS⁴ consolidated account. |
 | ChargeType | All | Indicates whether the charge represents usage (**Usage**), a purchase (**Purchase**), or a refund (**Refund**). |
 | ConsumedService | All | Name of the service the charge is associated with. |
 | CostCenter¹ | EA, MCA | The cost center defined for the subscription for tracking costs (only available in open billing periods for MCA accounts). |
@@ -90,10 +90,10 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | ProductId¹ | MCA | Unique identifier for the product. |
 | ProductOrderId | All | Unique identifier for the product order. |
 | ProductOrderName | All | Unique name for the product order. |
-| Provider | All | Identifier for product category or Line of Business. For example, Azure, Microsoft 365, and AWS. |
+| Provider | All | Identifier for product category or Line of Business. For example, Azure, Microsoft 365, and AWS⁴. |
 | PublisherId | MCA | The ID of the publisher. It's only available after the invoice is generated. |
 | PublisherName | All | Publisher for Marketplace services. |
-| PublisherType | All | Supported values: **Microsoft**, **Azure**, **AWS**, **Marketplace**. Values are `Microsoft` for MCA accounts and `Azure` for EA and pay-as-you-go accounts. |
+| PublisherType | All | Supported values: **Microsoft**, **Azure**, **AWS**⁴, **Marketplace**. Values are `Microsoft` for MCA accounts and `Azure` for EA and pay-as-you-go accounts. |
 | Quantity³ | All | The number of units used by the given product or service for a given day. |
 | ResellerName | MPA | The name of the reseller associated with the subscription. |
 | ResellerMpnId | MPA | ID for the reseller associated with the subscription. |
@@ -122,6 +122,8 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 ² For MCA customers, prices are shown in the pricing currency in the Actual Cost and Amortized Cost reports. In contrast, for EA customers, the billing and pricing currencies are the same.
 
 ³ For more information about pricing terms and definitions, see [Pricing behavior in cost details](automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-details).
+
+⁴ The Connector for AWS in the Cost Management service retires on March 31, 2025. Users should consider alternative solutions for AWS cost management reporting. On March 31, 2024, Azure will disable the ability to add new Connectors for AWS for all customers. For more information, see [Retire your Amazon Web Services (AWS) connector](../costs/retire-aws-connector.md).
 
 The cost details file itself doesn’t uniquely identify individual records with an ID. Instead, you can use fields in the file flagged with ¹ to create a unique ID yourself.
 

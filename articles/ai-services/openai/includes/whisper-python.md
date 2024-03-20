@@ -36,7 +36,34 @@ pip install openai==0.28.1
 
 1. Replace the contents of quickstart.py with the following code. Modify the code to add your deployment name:
 
-    ```python
+# [OpenAI Python 1.x](#tab/python-new)
+
+```python
+    import os
+    from openai import AzureOpenAI
+        
+    client = AzureOpenAI(
+        api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
+        api_version="2024-02-01",
+        azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
+    )
+    
+    deployment_id = "YOUR-DEPLOYMENT-NAME-HERE" #This will correspond to the custom name you chose for your deployment when you deployed a model."
+    audio_test_file = "./wikipediaOcelot.wav"
+    
+    result = client.audio.transcriptions.create(
+        file=open(audio_test_file, "rb"),            
+        model=deployment_id
+    )
+    
+    print(result)
+```
+
+# [OpenAI Python 0.28.1](#tab/python)
+
+
+
+```python
     import openai
     import time
     import os
@@ -59,7 +86,9 @@ pip install openai==0.28.1
             )
     
     print(result)
-    ```
+```
+
+---
 
 Run the application with the python command on your quickstart file:
 
