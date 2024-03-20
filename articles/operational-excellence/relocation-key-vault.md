@@ -349,7 +349,7 @@ Deploy the template to create a new key vault in the target region.
 > Note: In case of moving an Azure Key Vault across regions but within same geography, a backup and restore option for secrets, keys and certificates is recommended. Ref – Backup and Restore Option. The creation of the Key Vault instance and the mapping to target dependent resources still remains the same as per the previous approach.
 
 1. Follow steps in the described under Redploy.
-2. For [secrets](azure/key-vault/secrets/about-secrets) read the value in the source key vault and recreate the secret in the target key vault and set the value.
+2. For [secrets](/azure/key-vault/secrets/about-secrets) read the value in the source key vault and recreate the secret in the target key vault and set the value.
 3. For [certificates](/azure/key-vault/certificates/about-certificates) export the certificate into a PFX file and import the PFX file into the target key vault. In case you cannot export the private key (exportable is not set) you have to generate certificate a new certificate and import it into the target key vault.
 4. [keys](/azure/key-vault/keys/about-keys) should be regenerate with the relocation of the associated Azure service.
 
