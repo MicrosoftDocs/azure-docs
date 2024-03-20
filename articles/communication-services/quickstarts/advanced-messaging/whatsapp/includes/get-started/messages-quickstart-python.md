@@ -15,7 +15,9 @@ ms.author: shamkh
 ## Prerequisites
 
 - [WhatsApp Business Account registered with your Azure Communication Services resource](../../connect-whatsapp-business-account.md).
+
 - Active WhatsApp phone number to receive messages.
+
 - [Python](https://www.python.org/downloads/) 3.7+ for your operating system.
 
 ## Setting up
@@ -67,7 +69,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Code examples
 
-Follow these steps to add the necessary code snippets to the Main function of your *Program.cs* file.
+Follow these steps to add the necessary code snippets to the messages-quickstart.py.
 
 - [Authenticate the client](#authenticate-the-client)
 - [Set channel registration ID](#set-channel-registration-id)
@@ -92,7 +94,7 @@ Set the environment variable `COMMUNICATION_SERVICES_CONNECTION_STRING` to the v
 Open a console window and enter the following command:
 ```console
 setx COMMUNICATION_SERVICES_CONNECTION_STRING "<your connection string>"
-``` 
+```
 After you add the environment variable, you might need to restart any running programs that will need to read the environment variable, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example.
 
 For more information on how to set an environment variable for your system, follow the steps at [Store your connection string in an environment variable](../../../../create-communication-resource.md#store-your-connection-string-in-an-environment-variable).
@@ -106,7 +108,6 @@ For more information on how to set an environment variable for your system, foll
 
         # Create NotificationMessagesClient Client
         messaging_client = NotificationMessagesClient.from_connection_string(self.connection_string)
-
 ```
 
 #### [Microsoft Entra ID](#tab/aad)
@@ -121,14 +122,14 @@ To create a `DefaultAzureCredential` object:
 1. To set up your service principle app, follow the instructions at [Creating a Microsoft Entra registered Application](../../../../identity/service-principal.md?pivots=platform-azcli#creating-a-microsoft-entra-registered-application).
 
 1. Set the environment variables `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`, and `AZURE_TENANT_ID` using the output of your app's creation.    
-    Open a console window and enter the following commands:
-    ```console
-    setx COMMUNICATION_SERVICES_ENDPOINT_STRING "<https://<resource name>.communication.azure.com>"
-    setx AZURE_CLIENT_ID "<your app's appId>"
-    setx AZURE_CLIENT_SECRET "<your app's password>"
-    setx AZURE_TENANT_ID "<your app's tenant>"
-    ```
-    After you add the environment variables, you might need to restart any running programs that will need to read the environment variables, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example.
+Open a console window and enter the following commands:
+```console
+setx COMMUNICATION_SERVICES_ENDPOINT_STRING "<https://<resource name>.communication.azure.com>"
+setx AZURE_CLIENT_ID "<your app's appId>"
+setx AZURE_CLIENT_SECRET "<your app's password>"
+setx AZURE_TENANT_ID "<your app's tenant>"
+```
+After you add the environment variables, you might need to restart any running programs that will need to read the environment variables, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example.
 
 1. To use the [`DefaultAzureCredential`](/dotnet/api/overview/azure/identity-readme#defaultazurecredential) provider, or other credential providers provided with the Azure SDK, install the `azure.identity` python package and then instantiate client.
     
@@ -143,7 +144,6 @@ To create a `DefaultAzureCredential` object:
         # Create NotificationMessagesClient Client
         messaging_client = NotificationMessagesClient(endpoint=self.endpoint_string,
                                                     credential=DefaultAzureCredential())
-
 ```
 
 #### [AzureKeyCredential](#tab/azurekeycredential)
@@ -178,8 +178,8 @@ To instantiate a `NotificationMessagesClient`, add the following code:
         # Create NotificationMessagesClient Client
         messaging_client = NotificationMessagesClient(endpoint=self.endpoint_string,
                                                     credential=AzureKeyCredential(self.key))
-    
 ```
+---
 
 ### Set channel registration ID   
 
