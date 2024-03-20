@@ -17,9 +17,7 @@ This article describes how to deploy automatic attack disruption in the Microsof
 
 For more information, see [Automatic attack disruption in Microsoft Defender XDR](/microsoft-365/security/defender/automatic-attack-disruption).
 
-> [!IMPORTANT]
->
-> Automatic attack disruption for SAP and the Microsoft Sentinel integration with the Microsoft Defender portal are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 ## Prerequisites
 
