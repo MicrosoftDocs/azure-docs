@@ -5,7 +5,7 @@ description: Learn how to query Azure Private DNS zones using Azure Resource Gra
 services: dns
 author: greg-lindsay
 ms.service: dns
-ms.date: 03/05/2024
+ms.date: 03/20/2024
 ms.author: greglin
 ms.topic: how-to
 ---
@@ -32,7 +32,7 @@ To replace IDs with display names and show values as links where possible, toggl
 
 ## Count resource records by type
 
-The following query uses the **dnsresources** table to provide a count of private zone resource records by type:
+The following query uses the **dnsresources** table to provide a count of resource records by type for all private zones:
 
 ```Kusto
 dnsresources
@@ -41,33 +41,63 @@ dnsresources
 
 ![Screenshot of a resource record count query.](./media/private-dns-arg/count-query.png)
 
-The query results display all records that the current subscription has permission to view. You can also specify parameters such as the subscription ID, resource group, or record type. For example, the following example query returns a count of A or CNAME records in a given subscription and resource group:
+The query counts all records that the current subscription has permission to view. You can also view the count visually by selecting the **Charts** tab and then selecting the chart type. The following is an example of a **Donut chart**:
+
+![Screenshot of a resource record count query donut chart.](./media/private-dns-arg/count-donut.png)
+
+## List and sort resource records
+
+The following query lists all resource
+
+Query results can be filtered by specifying parameters such as the zone name, subscription ID, resource group, or record type. For example, the following example query returns list of A or CNAME records in the zone **private.contoso.com** for a given subscription and resource group:
 
 ```Kusto
 dnsresources
+| where managedBy == "private.contoso.com"
 | where subscriptionId == "<your subscription ID>"
 | where resourceGroup == "<your resource group name>"
 | where type in (
     "microsoft.network/privatednszones/a",
     "microsoft.network/privatednszones/cname"
 )
-| summarize count() by recordType = tostring(type)
+| project name, type, id, properties
 ```
-You can also view the total count of resource records visually by selecting the **Charts** tab and then selecting the chart type. The following is an example of a **Donut chart**:
 
-![Screenshot of a resource record count query donut chart.](./media/private-dns-arg/count-donut.png)
-
-## Zones with virtual network links
-
-## Resource record names and IP addresses
+The following query uses a regular expression to match only IPv4 addresses in the given private DNS zone and specified subscription:
 
 ```Kusto
 dnsresources
-| where subscriptionId == "<subscription ID>"
-| where resourceGroup == "<resource group name>"
-        | project id, name, type, properties
-        |  order by name asc
+| where subscriptionId == "<your subscription ID>"
+| where managedBy == "private.contoso.com"
+| where properties matches regex @'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}'
+| extend IP=extract_all(@'(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}(?:\/\d{1,2}){0,1})',tostring(properties))
+| project  name, IP, resourceGroup, subscriptionId, properties
+| mv-expand IP
+| order by name
 ```
+
+## Zones with virtual network links
+
+The following query to list all private DNS zones that have virtual network links. This query uses the generic **resources** table, not the **dnsresources** table and specifies a resource type of only **privatednszones**.
+
+```Kusto
+resources
+| where subscriptionId == "<your subscription ID>"
+| where type == "microsoft.network/privatednszones"
+| where properties['numberOfVirtualNetworkLinks'] == "1"
+| project name, properties
+```
+
+## Autoregistion
+
+The following query returns a list of virtual network links with autoregistration enabled and the associated private DNS records"
+
+dnsresources
+| where subscriptionId == "186ffd69-c40a-4dec-87ff-1495378be90e"
+| where isnull(properties.virtualNetworkId) == false
+| extend linkname=(properties.virtualNetworkLinkName)
+| project name, type, linkname, properties
+
 
 
 ## Next steps
