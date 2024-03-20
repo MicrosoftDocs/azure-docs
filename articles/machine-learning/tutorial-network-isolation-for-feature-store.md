@@ -448,5 +448,5 @@ This concludes the tutorial. Your training data uses features from a feature sto
 
 ## Next steps
 
-* [Part 3: Experiment and train models using features](./tutorial-experiment-train-models-using-features.md)
-* [Part 4: Enable recurrent materialization and run batch inference](./tutorial-enable-recurrent-materialization-run-batch-inference.md)
+* [Part 2: Experiment and train models using features](./tutorial-experiment-train-models-using-features.md)
+* [Part 3: Enable recurrent materialization and run batch inference](./tutorial-enable-recurrent-materialization-run-batch-inference.md)
