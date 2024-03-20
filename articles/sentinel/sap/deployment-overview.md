@@ -61,9 +61,9 @@ Follow your deployment journey through this series of articles, in which you lea
 | **4. Prepare your SAP environment** | [Deploy SAP change requests and configure authorization](preparing-sap.md) |
 | **5. Configure auditing** | [Configure auditing](configure-audit.md) |
 | **6. Deploy the solution content from the content hub** | [Deploy the Microsoft Sentinel solution for SAP applications from the content hub](deploy-sap-security-content.md) |
-| **7. Deploy data connector agent** | [Deploy and configure the container hosting the data connector agent](deploy-data-connector-agent-container.md) |
-| **8. Configure the Microsoft Sentinel solution for SAP** | [Configure Microsoft Sentinel Solution for SAP](deployment-solution-configuration.md) |
-| **9. Optional steps** | - [Configure Microsoft Sentinel for SAP data connector to use SNC](configure-snc.md)<br>- [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)<br>- [Configure audit log monitoring rules](configure-audit-log-rules.md)<br>- [Deploy SAP connector manually](sap-solution-deploy-alternate.md)<br>- [Select SAP ingestion profiles](select-ingestion-profiles.md) <br>- [Deploy automatic attack disruption for SAP (Preview)](deployment-attack-disrupt.md) |
+| **7. Deploy the data connector agent** | [Deploy and configure the container hosting the data connector agent](deploy-data-connector-agent-container.md) |
+| **8. Configure the Microsoft Sentinel solution for SAP** | [Configure the Microsoft Sentinel solution for SAP](deployment-solution-configuration.md) |
+| **9. Optional steps** | - [Configure the Microsoft Sentinel for SAP data connector to use SNC](configure-snc.md)<br>- [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)<br>- [Configure audit log monitoring rules](configure-audit-log-rules.md)<br>- [Deploy SAP connector manually](sap-solution-deploy-alternate.md)<br>- [Select SAP ingestion profiles](select-ingestion-profiles.md) <br>- [Deploy automatic attack disruption for SAP (Preview)](deployment-attack-disrupt.md) |
 
 ## Next step
 
