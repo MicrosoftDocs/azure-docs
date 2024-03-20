@@ -181,10 +181,10 @@ Some common questions and answers.
 **A**. This error occurs when you don't have Contributor access on the subscription selected. Work with your administrator to get access or select a different subscription.  
 
 **Q**. Unable to log in to learn – "Your account is not registered to Microsoft Learn which is required before you can start assessment." error message\
-**A**. In the current release, we only support accounts whose home tenant is same as the tenant in which the subscription lies. As a workaround, ask your administrator to create a new account in the tenant of the subscription and use that account to register on Learn platform. To know more about tenant profiles and home tenant, check [Accounts & tenant profiles (Android)](https://learn.microsoft.com/en-us/entra/identity-platform/accounts-overview).  
+**A**. In the current release, we only support accounts whose home tenant is same as the tenant in which the subscription lies. As a workaround, ask your administrator to create a new account in the tenant of the subscription and use that account to register on Learn platform. To know more about tenant profiles and home tenant, check [Accounts & tenant profiles (Android)](/entra/identity-platform/accounts-overview).  
 
 **Q**. Unable to log in to learn – "Looks like you are using an External/Guest Account which is not supported." error message\  
-**A**. In the current release, we only support accounts whose home tenant is same as the tenant in which the subscription lies. As a workaround, ask your administrator to create a new account in the tenant of the subscription and use that account to register on Learn platform. To know more about tenant profiles and home tenant, check [Accounts & tenant profiles (Android)](https://learn.microsoft.com/en-us/entra/identity-platform/accounts-overview).
+**A**. In the current release, we only support accounts whose home tenant is same as the tenant in which the subscription lies. As a workaround, ask your administrator to create a new account in the tenant of the subscription and use that account to register on Learn platform. To know more about tenant profiles and home tenant, check [Accounts & tenant profiles (Android)](/entra/identity-platform/accounts-overview).
 
 ## Related content
 
