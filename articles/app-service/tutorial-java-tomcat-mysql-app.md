@@ -498,7 +498,7 @@ In this step, you use the SSH connection to the app container to verify the JNDI
 
 2. Add a few tasks to the list.
 
-    :::image type="content" source="./media/tutorial-tomcat-mysql-app/azure-portal-browse-app-2.png" alt-text="A screenshot of the Tomcat web app with MySQL running in Azure showing restaurants and restaurant reviews." lightbox="./media/tutorial-tomcat-mysql-app/azure-portal-browse-app-2.png":::
+    :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-browse-app-2.png" alt-text="A screenshot of the Tomcat web app with MySQL running in Azure showing restaurants and restaurant reviews." lightbox="./media/tutorial-java-tomcat-mysql-app/azure-portal-browse-app-2.png":::
 
     Congratulations, you're running a web app in Azure App Service, with secure connectivity to Azure Database for MySQL.
 
