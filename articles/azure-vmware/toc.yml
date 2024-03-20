@@ -37,7 +37,7 @@ items:
     href: tutorial-nsx-t-network-segment.md
   - name: 6 - Peer on-premises to private cloud
     href: tutorial-expressroute-global-reach-private-cloud.md
-  - name: 7 - Scale in a private cloud
+  - name: 7 - Scale a private cloud
     href: tutorial-scale-private-cloud.md
   - name: 8 - Delete a private cloud
     href: tutorial-delete-private-cloud.md
