@@ -16,7 +16,7 @@ The default authentication method is to use Shared Access Signature(SAS) to acce
 
 With this approach, you can capture data to destinations resources that are in the **same subscription** only. 
 
-## Use Managed Identity 
+## Use managed identity 
 With [managed identity](../active-directory/managed-identities-azure-resources/overview.md), users can seamlessly capture data to a preferred destination by using Microsoft Entra ID based authentication and authorization. 
 
 :::image type="content" source="./media/event-hubs-capture-overview/event-hubs-capture-msi.png" alt-text="Image showing capturing of Event Hubs data into Azure Storage or Azure Data Lake Storage using Managed Identity":::
