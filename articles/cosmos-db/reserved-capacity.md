@@ -124,17 +124,17 @@ Imagine this hypothetical scenario: A company is working on a new application bu
   * Total of 800 RU/s: eight units of the 100 RU/s option, with a 20% discount. 
   * Scoped to the development resource group.
   * One year term, since the project lasts for nine months.
-  * Paid upfront, since it's a small value.
+  * They paid upfront, it's a small value.
 * On day 30 they purchased reserved capacity for their tests environment:
   * 750,000 RU/s: 7,500 units of the 100 RU/s option, with a 20% discount.
   * Scoped to the test subscription.
   * One year term.
-  * Paid monthly.
+  * They choose to pay monthly.
 * On day 180 they purchased reserved capacity for the production environment:
   * 3,500,000 RU/s: One unit of the 3,000,000 RU/s option, with a 43.2% discount. And 5,000 units of the 100 RU/s option, with a 20% discount.
   * Scoped to the production subscription.
   * Three-years term, to maximize the discounts.
-  * Paid Monthly.
+  * They choose to pay monthly too.
 
 ## Sample scenario 2
 
@@ -233,7 +233,7 @@ The reservation discount is applied automatically to the Azure Cosmos DB resourc
    * [Azure reservations in the Partner Center CSP program](/partner-center/azure-reservations)
 
 Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
-* If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+* If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
 * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
 
 ## Need help? Contact us.
