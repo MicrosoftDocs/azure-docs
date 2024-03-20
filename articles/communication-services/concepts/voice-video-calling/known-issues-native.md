@@ -1,5 +1,5 @@
 ---
-title: Azure Communication Services - known issues
+title: Azure Communication Services - known issues in native SDK's
 description: Learn more about Azure Communication Services known issues on Calling SDK.
 author: sloanster
 manager: chpalmer
@@ -11,13 +11,13 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-The following sections provide information about known issues associated with the Azure Communication Services Calling Native and Native UI SDKs.
+# The following sections provide information about known issues associated with the Azure Communication Services Calling Native and Native UI SDKs.
 
-## Android API emulators
+## Issues with Android API emulators
 
 When utilizing Android API emulators on Android 5.0 (API level 21) and Android 5.1 (API level 22), some crashes are expected.  
 
-## Android Trouter module conflict
+## Android Trouter module conflicts
 
 When the Android Chat and Calling SDK are together in the same application, Chat SDK's real-time notifications feature doesn't work. You might get a dependency resolving issue.
 
@@ -31,7 +31,8 @@ While we're working on a solution, you can turn off real-time notifications feat
  implementation 'com.azure.android:azure-communication-calling:1.0.0'
  ```
  
-Note: if the application tries to touch any of the notification APIs like `chatAsyncClient.startRealtimeNotifications()` or `chatAsyncClient.addEventHandler()`, there will be a runtime error.
+> [!NOTE]
+> If your application tries to touch any of the notification APIs like `chatAsyncClient.startRealtimeNotifications()` or `chatAsyncClient.addEventHandler()`, you will see a runtime error.
 
 ## iOS ongoing video Picture in Picture (PiP)
 
