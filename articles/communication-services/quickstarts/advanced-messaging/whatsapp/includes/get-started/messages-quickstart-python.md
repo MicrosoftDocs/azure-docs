@@ -52,7 +52,7 @@ type nul > messages-quickstart.py
 import os
 
 class MessagesQuickstart(object):
-    print("Azure Communication Services - Advanced Messages Quickstart")
+    print("Azure Communication Services - Advanced Messages SDK Quickstart")
 
 ```
 
@@ -69,7 +69,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Code examples
 
-Follow these steps to add the necessary code snippets to the messages-quickstart.py.
+Follow these steps to add the necessary code snippets to the messages-quickstart.py python program.
 
 - [Authenticate the client](#authenticate-the-client)
 - [Set channel registration ID](#set-channel-registration-id)
@@ -82,7 +82,7 @@ Follow these steps to add the necessary code snippets to the messages-quickstart
 
 ### Authenticate the client 
 
-Messages sending is done using NotificationMessagesClient. NotificationMessagesClient is authenticated using your connection string acquired from Azure Communication Services resource in the Azure portal. For more information on connection strings, see [access-your-connection-strings-and-service-endpoints](../../../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints). NotificationMessagesClient is also authenticated using TokenCredentials. For more information see [access-Azure-Communication-Resources-using-TokenCredentials](https://learn.microsoft.com/python/api/overview/azure/identity-readme?view=azure-python&preserve-view=true#environment-variables).
+Messages sending is done using NotificationMessagesClient. NotificationMessagesClient is authenticated using your connection string acquired from Azure Communication Services resource in the Azure portal. For more information on connection strings, see [access-your-connection-strings-and-service-endpoints](../../../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints).
 
 #### [Connection String](#tab/connection-string)
 
@@ -112,11 +112,11 @@ For more information on how to set an environment variable for your system, foll
 
 #### [Microsoft Entra ID](#tab/aad)
 
-You can also authenticate with Microsoft Entra ID using the [Azure Identity library](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity). 
+NotificationMessagesClient is also authenticated using Microsoft Entra ID/TokenCredentials. For more information see [access-Azure-Communication-Resources-using-TokenCredentials](/python/api/overview/azure/identity-readme?view=azure-python&preserve-view=true#environment-variables).
 
-The [`Azure.Identity`](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity) package provides various credential types that your application can use to authenticate. You can choose from the various options to authenticate the identity client detailed at [Azure Identity - Credential providers](/dotnet/api/overview/azure/identity-readme#credentials) and [Azure Identity - Authenticate the client](/dotnet/api/overview/azure/identity-readme#authenticate-the-client). This option walks through one way of using the [`DefaultAzureCredential`](/dotnet/api/overview/azure/identity-readme#defaultazurecredential).
+The [`azure.identity`](https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.15.0/sdk/identity/azure-identity) package provides various credential types that your application can use to authenticate. You can choose from the various options to authenticate the identity client detailed at [Azure Identity - Credential providers](/python/api/overview/azure/identity-readme?view=azure-python#credential-classes) and [Azure Identity - Authenticate the client](/python/api/overview/azure/identity-readme?view=azure-python#authenticate-with-defaultazurecredential). This option walks through one way of using the [`DefaultAzureCredential`](/python/api/overview/azure/identity-readme?view=azure-python#defaultazurecredential).
  
-The `DefaultAzureCredential` attempts to authenticate via [`several mechanisms`](/dotnet/api/overview/azure/identity-readme#defaultazurecredential) and it might be able to find its authentication credentials if you're signed into Visual Studio or Azure CLI. However, this option walks you through setting up with environment variables.   
+The `DefaultAzureCredential` attempts to authenticate via [`several mechanisms`](/python/api/overview/azure/identity-readme?view=azure-python#defaultazurecredential) and it might be able to find its authentication credentials if you're signed into Visual Studio or Azure CLI. However, this option walks you through setting up with environment variables.   
 
 To create a `DefaultAzureCredential` object:
 1. To set up your service principle app, follow the instructions at [Creating a Microsoft Entra registered Application](../../../../identity/service-principal.md?pivots=platform-azcli#creating-a-microsoft-entra-registered-application).
@@ -131,7 +131,7 @@ setx AZURE_TENANT_ID "<your app's tenant>"
 ```
 After you add the environment variables, you might need to restart any running programs that will need to read the environment variables, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example.
 
-1. To use the [`DefaultAzureCredential`](/dotnet/api/overview/azure/identity-readme#defaultazurecredential) provider, or other credential providers provided with the Azure SDK, install the `azure.identity` python package and then instantiate client.
+1. To use the [`DefaultAzureCredential`](/python/api/overview/azure/identity-readme?view=azure-python#defaultazurecredential) provider, or other credential providers provided with the Azure SDK, install the `azure.identity` python package and then instantiate client.
     
 ```python
     # Get a connection string to our Azure Communication Services resource.
@@ -257,7 +257,7 @@ Add below code to send WhatsApp template message.
         response = message_responses.receipts[0]
         
         if (response is not None):
-            print("WhatsApp Templated Message with message id {} was successful sent to {}"
+            print("WhatsApp Templated Message with message id {} was successfully sent to {}."
             .format(response.message_id, response.to))
         else:
             print("Message failed to send")
@@ -280,10 +280,9 @@ To run the code, make sure you are on the directory where your `messages-quickst
 python messages-quickstart.py
 ```
 
-```console
-Output:
+```output
 Azure Communication Services - Advanced Messages Quickstart
-Message with message id <GUID> was successful sent to <TOPhonenumber>
+WhatsApp Templated Message with message id <GUID> was successfully sent to <ToRecipient>.
 ```
 
 #### (Option 2) Initiate conversation from user
@@ -321,7 +320,7 @@ Messages SDK allows Contoso to send text WhatsApp messages, which initiated What
         response = message_responses.receipts[0]
         
         if (response is not None):
-            print("Message with message id {} was successful sent to {}"
+            print("WhatsApp Text Message with message id {} was successfully sent to {}."
             .format(response.message_id, response.to))
         else:
             print("Message failed to send")
@@ -340,10 +339,9 @@ To run the code, make sure you are on the directory where your `messages-quickst
 python messages-quickstart.py
 ```
 
-```console
-Output:
+```output
 Azure Communication Services - Advanced Messages Quickstart
-Message with message id <GUID> was successful sent to <TOPhonenumber>
+WhatsApp Text Message with message id <GUID> was successfully sent to <ToRecipient>.
 ```
 
 ### Send a media message to a WhatsApp user
@@ -393,10 +391,9 @@ To run the code, make sure you are on the directory where your `messages-quickst
 python messages-quickstart.py
 ```
 
-```console
-Output:
+```output
 Azure Communication Services - Advanced Messages Quickstart
-Message with message id <GUID> was successful sent to <TOPhonenumber>
+WhatsApp Image containing Message with message id <GUID> was successfully sent to <ToRecipient>.
 ```
 
 ### Full code
@@ -405,10 +402,10 @@ Message with message id <GUID> was successful sent to <TOPhonenumber>
 import os
 
 class MessagesQuickstart(object):
-    print("Azure Communication Services - Advanced Messages Quickstart")
+    print("Azure Communication Services - Advanced Messages SDK Quickstart using connection string.")
     # Advanced Messages SDK implementations goes in this section.
    
-    connection_string = os.getenv("COMMUNICATION_SAMPLES_CONNECTION_STRING")
+    connection_string = os.getenv("COMMUNICATION_SERVICES_CONNECTION_STRING")
     phone_number = os.getenv("RECIPIENT_PHONE_NUMBER")
     channelRegistrationId = os.getenv("WHATSAPP_CHANNEL_ID")
 
@@ -498,16 +495,12 @@ To run the code, make sure you are on the directory where your `messages-quickst
 python messages-quickstart.py
 ```
 
-```console
-Output:
+```output
 Azure Communication Services - Advanced Messages Quickstart
-WhatsApp Templated Message with message id <<MessageId>> was successfully sent to <<ToRecipient>>
-WhatsApp Text Message with message id <<MessageId>> was successfully sent to <<ToRecipient>>
-WhatsApp Image containing Message with message id <<MessageId>> was successfully sent to <<ToRecipient>>
+WhatsApp Templated Message with message id <<GUID>> was successfully sent to <<ToRecipient>>
+WhatsApp Text Message with message id <<GUID>> was successfully sent to <<ToRecipient>>
+WhatsApp Image containing Message with message id <<GUID>> was successfully sent to <<ToRecipient>>
 ```
-
-> [!NOTE]
-> Sending text WhatsApp messages needs to be User-Intiated. For more information, see [User Initiated WhatsApp Messages](https://developers.facebook.com/docs/whatsapp/pricing/#opening-conversations).
 
 ## Sample code
 
