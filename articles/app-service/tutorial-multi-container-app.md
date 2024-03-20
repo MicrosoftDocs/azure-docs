@@ -7,7 +7,7 @@ author: msangapu-msft
 ms.topic: tutorial
 ms.date: 11/18/2022
 ms.author: msangapu
-ms.custom: cli-validate, devx-track-azurecli, linux-related-content
+ms.custom: cli-validate, devx-track-azurecli
 ---
 # Tutorial: Create a multi-container (preview) app in Web App for Containers
 

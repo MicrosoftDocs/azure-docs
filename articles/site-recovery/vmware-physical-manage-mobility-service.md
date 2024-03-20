@@ -4,7 +4,7 @@ description: Manage Mobility Service agent for disaster recovery of VMware VMs a
 author: ankitaduttaMSFT
 manager: gaggupta
 ms.service: site-recovery
-ms.custom: linux-related-content
+ms.custom:
 ms.topic: conceptual
 ms.author: ankitadutta
 ms.date: 03/07/2024
@@ -13,7 +13,7 @@ ms.date: 03/07/2024
 # Manage the Mobility agent
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 You set up mobility agent on your server when you use Azure Site Recovery for disaster recovery of VMware VMs and physical servers to Azure. Mobility agent coordinates communications between your protected machine, configuration server/scale-out process server and manages data replication. This article summarizes common tasks for managing mobility agent after it's deployed.
 
