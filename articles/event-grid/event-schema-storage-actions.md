@@ -14,8 +14,6 @@ This article provides the properties and schema for Azure Storage Actions events
 > [!IMPORTANT]
 > Azure Storage Actions is currently in PREVIEW and is available these [regions](../storage-actions/overview.md#supported-regions).
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-> To enroll, see \<sign-up form link here\>.
-
 ## Available event types
 
 ## Storage Actions events
