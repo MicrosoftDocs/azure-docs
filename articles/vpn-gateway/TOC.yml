@@ -143,7 +143,7 @@
             href: vpn-gateway-certificates-point-to-site.md
           - name: Makecert
             href: vpn-gateway-certificates-point-to-site-makecert.md
-          - name: Linux
+          - name: Linux - strongSwan
             href: vpn-gateway-certificates-point-to-site-linux.md
       - name: RADIUS authentication
         items:
@@ -205,8 +205,10 @@
               href: point-to-site-vpn-client-certificate-windows-azure-vpn-client.md
           - name: Linux clients
             items:
-            - name: OpenVPN client - Linux
-              href: point-to-site-vpn-client-cert-linux.md
+            - name: OpenVPN client
+              href: point-to-site-vpn-client-cert-linux.md#openvpn
+            - name: IKEv2 -strongSwan
+              href: point-to-site-vpn-client-cert-linux.md#ike
           - name: macOS and iOS clients
             items:
             - name: Native VPN client - macOS

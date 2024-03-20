@@ -197,12 +197,6 @@ Here's the list of regions where the new MQTT broker and namespace topics featur
 - West US 2
 - West US 3
 
-## How much does Event Grid cost?
-
-Azure Event Grid uses a pay-per-event pricing model. You only pay for what you use. For the push-style delivery that is generally available, the first 100,000 operations per month are free. Examples of operations include event publication, event delivery, delivery attempts, event filter evaluations that refer to event data properties (sometimes referred to as Advanced Filters), and events sent to a dead letter location. For details, see the [pricing page](https://azure.microsoft.com/pricing/details/event-grid/).
-
-Event Grid operations involving Namespaces and its resources, including MQTT and pull HTTP delivery operations, are in public preview and are available at no charge today.
-
 ## Next steps
 
 ### MQTT messaging
@@ -218,3 +212,6 @@ Event Grid operations involving Namespaces and its resources, including MQTT and
 - [Push delivery overview](push-delivery-overview.md).
 - [Concepts](concepts.md)
 - Quickstart: [Publish and subscribe to app events using namespace topics](publish-events-using-namespace-topics.md).
+
+### See also
+- [Pricing page](https://azure.microsoft.com/pricing/details/event-grid/)
