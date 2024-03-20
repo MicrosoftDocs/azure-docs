@@ -1,5 +1,5 @@
 ---
-title: Use Azure Resource Graph Explorer to query Azure Private DNS
+title: Private DNS information in Azure Resource Graph
 titleSuffix: Azure DNS
 description: Learn how to query Azure Private DNS zones using Azure Resource Graph Explorer.
 services: dns
@@ -11,6 +11,8 @@ ms.topic: how-to
 ---
 
 # Private DNS information in Azure Resource Graph
+
+This article describes some of the ways you can use Azure Resource Graph Exporer to view and count resource records in your Azure Private DNS zones. A number of example queries are provided.
 
 [Azure Resource Graph](../governance/resource-graph/overview.md) (ARG) is an Azure service that allows you to query your Azure resources with complex filtering, grouping, and sorting. ARG queries provide detailed information about your resources and you can display the results in several ways. 
 
@@ -45,11 +47,9 @@ The query counts all records that the current subscription has permission to vie
 
 ![Screenshot of a resource record count query donut chart.](./media/private-dns-arg/count-donut.png)
 
-## List and sort resource records
+## List, filter and sort resource records
 
-The following query lists all resource
-
-Query results can be filtered by specifying parameters such as the zone name, subscription ID, resource group, or record type. For example, the following example query returns list of A or CNAME records in the zone **private.contoso.com** for a given subscription and resource group:
+Query results can be filtered by specifying parameters such as the zone name, subscription ID, resource group, or record type. For example, the following example query returns list of A or CNAME records in the zone **private.contoso.com** for a given subscription and resource group. The output of is query is similar to viewing the private zone, with added ability to filter and sort the results by name and type:
 
 ```Kusto
 dnsresources
@@ -60,10 +60,14 @@ dnsresources
     "microsoft.network/privatednszones/a",
     "microsoft.network/privatednszones/cname"
 )
-| project name, type, id, properties
+| project name, type, properties
 ```
 
-The following query uses a regular expression to match only IPv4 addresses in the given private DNS zone and specified subscription:
+![Screenshot of a resource record list query.](./media/private-dns-arg/list-query.png)
+
+### Regular expressions
+
+The Kusto query language also supports [regular expressions](/azure/data-explorer/kusto/query/re2). The following query uses a regular expression to match and list all IPv4 addresses in the given private DNS zone and specified subscription:
 
 ```Kusto
 dnsresources
@@ -71,10 +75,11 @@ dnsresources
 | where managedBy == "private.contoso.com"
 | where properties matches regex @'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}'
 | extend IP=extract_all(@'(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}(?:\/\d{1,2}){0,1})',tostring(properties))
-| project  name, IP, resourceGroup, subscriptionId, properties
+| project  name, IP, resourceGroup, properties
 | mv-expand IP
 | order by name
 ```
+![Screenshot of a regular expression query.](./media/private-dns-arg/regular-expression-query.png)
 
 ## Zones with virtual network links
 
@@ -92,12 +97,13 @@ resources
 
 The following query returns a list of virtual network links with autoregistration enabled and the associated private DNS records"
 
+```Kusto
 dnsresources
 | where subscriptionId == "186ffd69-c40a-4dec-87ff-1495378be90e"
 | where isnull(properties.virtualNetworkId) == false
 | extend linkname=(properties.virtualNetworkLinkName)
 | project name, type, linkname, properties
-
+```
 
 
 ## Next steps
