@@ -3,7 +3,7 @@ title: Tutorial - Create and manage budgets
 description: This tutorial helps you plan and account for the costs of Azure services that you consume.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/09/2024
+ms.date: 02/26/2024
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -55,6 +55,9 @@ Budgets are supported for the following types of Azure account types and scopes:
 - AWS scopes
     - External account
     - External subscription
+
+> [!NOTE]
+> The Connector for AWS in the Cost Management service retires on March 31, 2025. Users should consider alternative solutions for AWS cost management reporting. On March 31, 2024, Azure will disable the ability to add new Connectors for AWS for all customers. For more information, see [Retire your Amazon Web Services (AWS) connector](retire-aws-connector.md).
 
 To view budgets, you need at least read access for your Azure account.
 

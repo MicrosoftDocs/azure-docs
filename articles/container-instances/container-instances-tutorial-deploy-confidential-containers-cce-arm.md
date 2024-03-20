@@ -7,7 +7,7 @@ author: tomvcassidy
 ms.service: container-instances
 services: container-instances
 ms.date: 05/23/2023
-ms.custom: mvc, devx-track-arm-template, linux-related-content
+ms.custom: mvc, devx-track-arm-template
 ---
 
 # Tutorial: Prepare a deployment for a confidential container on Azure Container Instances

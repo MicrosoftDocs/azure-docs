@@ -5,7 +5,7 @@ author: timlt
 ms.author: timlt
 ms.subservice: opcua-broker
 ms.topic: how-to
-ms.custom: ignite-2023, devx-track-azurecli
+ms.custom: ignite-2023
 ms.date: 03/01/2024
 
 # CustomerIntent: As a user in IT, operations, or development, I want to configure my OPC UA industrial edge environment
