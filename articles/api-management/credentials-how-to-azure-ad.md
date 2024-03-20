@@ -11,6 +11,8 @@ ms.author: danlep
 
 # Configure credential manager - Microsoft Graph API
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 This article guides you through the steps required to create a managed [connection](credentials-overview.md) to the Microsoft Graph API within Azure API Management. The authorization code grant type is used in this example.
 
 You learn how to:
