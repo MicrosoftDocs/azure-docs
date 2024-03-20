@@ -153,15 +153,15 @@ If you have a flow that contains one of these tools, follow the steps below to u
 
 1. Once inside the flow, click on the “+ More tools” button near the top of the pane. A dropdown should open and click on “Index Lookup [Preview]” to add an instance of the Index Lookup tool.
 
-   :::image type="content" source="../../media/prompt-flow/upgrade-index-tools/index-dropdown.png" alt-text="Screenshot of the More Tools dropdown in promptflow." lightbox="../../media/prompt-flow/upgrade-index-tools/index-dropdown.png":::
+   :::image type="content" source="../../media/prompt-flow/index-lookup-tool/index-dropdown.png" alt-text="Screenshot of the More Tools dropdown in promptflow." lightbox="../../media/prompt-flow/index-lookup-tool/index-dropdown.png":::
 
 1. Name the new node and click  “Add”.
 
-   :::image type="content" source="../../media/prompt-flow/upgrade-index-tools/save-node.png" alt-text="Screenshot of the index lookup node with name." lightbox="../../media/prompt-flow/upgrade-index-tools/save-node.png":::
+   :::image type="content" source="../../media/prompt-flow/index-lookup-tool/save-node.png" alt-text="Screenshot of the index lookup node with name." lightbox="../../media/prompt-flow/index-lookup-tool/save-node.png":::
 
 1. In the new node, click on the “mlindex_content” textbox. This should be the first textbox in the list.
 
-   :::image type="content" source="../../media/prompt-flow/upgrade-index-tools/mlindex-box.png" alt-text="Screenshot of the expanded Index Lookup node with the mlindex_content box outlined in red." lightbox="../../media/prompt-flow/upgrade-index-tools/mlindex-box.png":::
+   :::image type="content" source="../../media/prompt-flow/index-lookup-tool/mlindex-box.png" alt-text="Screenshot of the expanded Index Lookup node with the mlindex_content box outlined in red." lightbox="../../media/prompt-flow/index-lookup-tool/mlindex-box.png":::
 
 1. In the Generate drawer that appears, follow the instructions below to upgrade from the three legacy tools:
 - If using the legacy **Vector Index Lookup** tool, select “Registered Index" in the “index_type” dropdown. Select your vector index asset from the “mlindex_asset_id” dropdown.
@@ -170,11 +170,11 @@ If you have a flow that contains one of these tools, follow the steps below to u
 8. After filling in the necessary information, click save. 
 9. Upon returning to the node, there should be information populated in the “mlindex_content” textbox. Click on the “queries” textbox next, and select the search terms you want to query. You’ll want to select the same value as the input to the “embed_the_question” node, typically either “\${inputs.question}” or “${modify_query_with_history.output}” (the former if you’re in a standard flow and the latter if you’re in a chat flow).
 
-   :::image type="content" source="../../media/prompt-flow/upgrade-index-tools/mlindex-with-content.png" alt-text="Screenshot of the expanded Index Lookup node with index information in the cells." lightbox="../../media/prompt-flow/upgrade-index-tools/mlindex-with-content.png":::
+   :::image type="content" source="../../media/prompt-flow/index-lookup-tool/mlindex-with-content.png" alt-text="Screenshot of the expanded Index Lookup node with index information in the cells." lightbox="../../media/prompt-flow/index-lookup-tool/mlindex-with-content.png":::
 
 10. Select a query type by clicking on the dropdown next to “query_type.” “Vector” will produce identical results as the legacy flow, but depending on your index configuration, other options including "Hybrid" and "Semantic" may be available.
 
-    :::image type="content" source="../../media/prompt-flow/upgrade-index-tools/vector-search.png" alt-text="Screenshot of the expanded Index Lookup node with vector search outlined in red." lightbox="../../media/prompt-flow/upgrade-index-tools/vector-search.png":::
+    :::image type="content" source="../../media/prompt-flow/index-lookup-tool/vector-search.png" alt-text="Screenshot of the expanded Index Lookup node with vector search outlined in red." lightbox="../../media/prompt-flow/index-lookup-tool/vector-search.png":::
 
 11. Edit downstream components to consume the output of your newly added node, instead of the output of the legacy Vector Index Lookup node. 
 12. Delete the Vector Index Lookup node and its parent embedding node. 
