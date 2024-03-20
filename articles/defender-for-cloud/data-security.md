@@ -25,6 +25,12 @@ Defender for Cloud analyzes data from the following sources to provide visibilit
 
 When you enable Defender for Storage Malware Scanning, it might share metadata, including metadata classified as customer data (e.g. SHA-256 hash), with Microsoft Defender for Endpoint.
 
+Microsoft Defender for Cloud running the [Defender for Cloud Security Posture Management (CSPM) plan](/azure/defender-for-cloud/concept-cloud-security-posture-management)
+shares data that is integrated into Microsoft Security Exposure Management recommendations.
+
+> [!NOTE]
+> Microsoft Security Exposure Management is currently in public preview.
+
 ## Data protection
 
 ### Data segregation

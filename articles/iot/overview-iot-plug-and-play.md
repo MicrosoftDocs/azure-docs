@@ -58,10 +58,6 @@ As a device builder, you can develop an IoT hardware product that supports IoT P
 
 1. Ensure the device announces the model ID as part of the MQTT connection. The Azure IoT SDKs include constructs to provide the model ID at connection time.
 
-## Device certification
-
-The [IoT Plug and Play device certification program](../certification/program-requirements-pnp.md) verifies that a device meets the IoT Plug and Play certification requirements. You can add a certified device to the public [Certified for Azure IoT device catalog](https://aka.ms/devicecatalog) where it's discoverable by other solution builders.
-
 ## Next steps
 
 Now that you have an overview of IoT Plug and Play, the suggested next step is to try out one of the quickstarts:

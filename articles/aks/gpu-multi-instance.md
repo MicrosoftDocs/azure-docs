@@ -120,7 +120,7 @@ Before you install the Nvidia plugins, you need to specify which multi-instance 
 
     ```azurecli-interactive
     helm install \
-    --version=0.7.0 \
+    --version=0.14.0 \
     --generate-name \
     --set migStrategy=${MIG_STRATEGY} \
     nvdp/nvidia-device-plugin

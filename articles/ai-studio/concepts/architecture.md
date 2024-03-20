@@ -33,15 +33,22 @@ The top level AI Studio resources (AI hub and AI projects) are based on Azure Ma
  
 An AI hub can have multiple child AI projects. Each AI project can have its own set of project-scoped connections.
 
-:::image type="content" source="../media/concepts/azureai-hub-project-relationship.png" alt-text="Diagram of the relationship between AI Studio resources." lightbox="../media/concepts/azureai-hub-project-relationship.png":::
+:::image type="content" source="../media/concepts/resource-provider-connected-resources.svg" alt-text="Diagram of the relationship between AI Studio resources." :::
 
-### Tenant separation
+### Microsoft-hosted resources
 
-While most of the resources used by Azure AI Studio live in your Azure subscription, some resources exist in the Azure AI Studio tenant. The Azure AI Studio tenant is a separate Microsoft Entra ID tenant that provides some of the services used by Azure AI Studio. The following resources are in the Azure AI Studio tenant:
+While most of the resources used by Azure AI Studio live in your Azure subscription, some resources are in an Azure subscription managed by Microsoft. This subscription provides some of the services used by Azure AI Studio. The following resources are in the Microsoft-managed Azure subscription, and don't appear in your Azure subscription:
 
-- **Managed compute resources**: Provided by Azure Batch resources in the Azure AI Studio tenant.
-- **Managed virtual network**: Provided by Azure Virtual Network resources in the Azure AI Studio tenant. If FQDN rules are enabled, an Azure Firewall (standard) is added and charged to your subscription. For more information, see [Configure a managed virtual network for Azure AI Studio](../how-to/configure-managed-network.md).
-- **Metadata storage**: Provided by Azure Cosmos DB, Azure AI Search, and Azure Storage Account in the Azure AI Studio tenant. If you use customer-managed keys, these resources are created in your subscription. For more information, see [Customer-managed keys](../../ai-services/encryption/cognitive-services-encryption-keys-portal.md?context=/azure/ai-studio/context/context).
+- **Managed compute resources**: Provided by Azure Batch resources in the Microsoft subscription.
+- **Managed virtual network**: Provided by Azure Virtual Network resources in the Microsoft subscription. If FQDN rules are enabled, an Azure Firewall (standard) is added and charged to your subscription. For more information, see [Configure a managed virtual network for Azure AI Studio](../how-to/configure-managed-network.md).
+- **Metadata storage**: Provided by Azure Cosmos DB, Azure AI Search, and Azure Storage Account in the Microsoft subscription. 
+
+    > [!NOTE]
+    > If you use customer-managed keys, the metadata storage resources are created in your subscription. For more information, see [Customer-managed keys](../../ai-services/encryption/cognitive-services-encryption-keys-portal.md?context=/azure/ai-studio/context/context).
+
+Managed compute resources and managed virtual networks exist in the Microsoft subscription, but are managed by you. For example, you control which VM sizes are used for compute resources, and which outbound rules are configured for the managed virtual network.
+
+Managed compute resources also require vulnerability management. This is a shared responsibility between you and Microsoft. For more information, see [vulnerability management](vulnerability-management.md).
  
 ## Azure resource providers
 

@@ -3,7 +3,7 @@ author: AbbyMSFT
 ms.author: abbyweisberg
 ms.service: azure-monitor
 ms.topic: include
-ms.date: 09/04/2023
+ms.date: 03/03/2024
 ---
 
 ### Design checklist
@@ -25,4 +25,3 @@ ms.date: 09/04/2023
 |To control permissions for log search alert rules, use [managed identities](../../active-directory/managed-identities-azure-resources/overview.md) for your log search alert rules.|A common challenge for developers is the management of secrets, credentials, certificates, and keys used to secure communication between services. Managed identities eliminate the need for developers to manage these credentials. Setting a managed identity for your log search alert rules gives you control and visibility into the exact permissions of your alert rule. At any time, you can view your rule’s query permissions and add or remove permissions directly from its managed identity. In addition, using a managed identity is required if your rule’s query is accessing Azure Data Explorer (ADX) or Azure Resource Graph (ARG). See [Managed identities](../alerts/alerts-create-new-alert-rule.md#managed-id).|
 |Assign the monitoring reader role for all users who don’t need configuration privileges.|Enhance security by giving users the least amount of privileges required for their role. See [Roles, permissions, and security in Azure Monitor](../roles-permissions-security.md).|
 |Where possible, use secure webhook actions.| If your alert rule contains an action group that uses webhook actions, prefer using secure webhook actions for additional authentication. See [Configure authentication for Secure webhook](../alerts/action-groups.md#configure-authentication-for-secure-webhook) |
-|When using action groups that use private links, use Event hub actions    |When using private links in Azure, use Event hub actions for alerts. Due to the increased security for private links, event hub actions are the only actions supported by private links. |

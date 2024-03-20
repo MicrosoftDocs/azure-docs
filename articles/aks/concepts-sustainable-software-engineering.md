@@ -195,7 +195,7 @@ A service mesh deploys extra containers for communication, typically in a [sidec
 
 Sending and storing all logs from all possible sources (workloads, services, diagnostics, and platform activity) can increase storage and network traffic, which impacts costs and carbon emissions.
 
-* Make sure you're collecting and retaining only the necessary log data to support your requirements. [Configure data collection rules for your AKS workloads](../azure-monitor/containers/container-insights-data-collection-configmap.md#data-collection-settings) and implement design considerations for [optimizing your Log Analytics costs](/azure/architecture/framework/services/monitoring/log-analytics/cost-optimization).
+* Make sure you're collecting and retaining only the necessary log data to support your requirements. [Configure data collection rules for your AKS workloads](../azure-monitor/containers/container-insights-data-collection-configmap.md#data-collection-settings) and implement design considerations for [optimizing your Log Analytics costs](../azure-monitor/best-practices-cost.md).
 
 ### Cache static data
 

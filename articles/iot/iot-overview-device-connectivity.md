@@ -6,7 +6,7 @@ services: iot
 author: dominicbetts
 ms.author: dobett
 ms.topic: overview
-ms.date: 03/20/2023
+ms.date: 02/28/2024
 ms.custom:
   - template-overview
   - ignite-2023
@@ -44,7 +44,7 @@ An Azure IoT hub exposes a collection of per-device endpoints that let devices e
 - *Retrieve and update device twin properties*. A device uses this endpoint to access its device twin properties.
 - *Receive direct method requests*. A device uses this endpoint to listen for direct method requests.
 
-Every IoT hub has a unique hostname that's used to connect devices to the hub. The hostname is in the format `iothubname.azure-devices.net`. If you use one of the device SDKs, you don't need to know the full names of the individual endpoints because the SDKs provide higher level abstractions. However, the device does need to know the hostname of the IoT hub to which it's connecting.
+Every IoT hub has a unique hostname that you use to connect devices to the hub. The hostname is in the format `iothubname.azure-devices.net`. If you use one of the device SDKs, you don't need to know the full names of the individual endpoints because the SDKs provide higher level abstractions. However, the device does need to know the hostname of the IoT hub to which it's connecting.
 
 A device can establish a secure connection to an IoT hub:
 
@@ -60,10 +60,10 @@ To learn more about implementing automatic reconnections to endpoints, see [Mana
 A device connection string provides a device with the information it needs to connect securely to an IoT hub. The connection string includes the following information:
 
 - The hostname of the IoT hub.
-- The device ID that's registered with the IoT hub.
+- The device ID registered with the IoT hub.
 - The security information the device needs to establish a secure connection to the IoT hub.
 
-## Authentication and authorization
+## Authentication
 
 Azure IoT devices use TLS to verify the authenticity of the IoT hub or DPS endpoint they're connecting to. The device SDKs include the DigiCert Global Root G2 TLS certificate they currently need to establish a secure connection to the IoT hub. To learn more, see [Transport Layer Security (TLS) support in IoT Hub](../iot-hub/iot-hub-tls-support.md) and [TLS support in Azure IoT Hub Device Provisioning Service (DPS)](../iot-dps/tls-support.md).
 
@@ -100,7 +100,7 @@ To learn more about how to choose a protocol for your devices to connect to the 
 - [Communicate with DPS using the HTTPS protocol (symmetric keys)](../iot-dps/iot-dps-https-sym-key-support.md)
 - [Communicate with DPS using the HTTPS protocol (X.509)](../iot-dps/iot-dps-https-x509-support.md)
 
-Industrial IoT scenarios often use the [open platform communications unified architecture (OPC UA)](https://opcfoundation.org/about/opc-technologies/opc-ua/) industry standard open interface. To enable connectivity to IoT Hub, use the OPC Publisher that runs as a module on IoT Edge. To learn more, see [Microsoft OPC Publisher and Azure Industrial IoT Platform](https://github.com/Azure/Industrial-IoT/blob/main/readme.md).
+Industrial IoT scenarios often use the [open platform communications unified architecture (OPC UA)](https://opcfoundation.org/about/opc-technologies/opc-ua/) industry standard open interface. To enable connectivity to the Azure cloud, use Azure IoT Operations. To learn more, see [What is Azure IoT Operations?](../iot-operations/get-started/overview-iot-operations.md).
 
 ## Connection patterns
 
@@ -116,11 +116,11 @@ Ephemeral connections are brief connections for devices to send telemetry to you
 
 ## Field gateways
 
-Field gateways (sometimes referred to as edge gateways) are typically deployed on-premises and close to your IoT devices. Field gateways handle communication with the cloud on behalf of your IoT devices. Field gateways may:
+Field gateways (sometimes referred to as edge gateways) are typically deployed on-premises and close to your IoT devices. Field gateways handle communication with the cloud on behalf of your IoT devices. Field gateways can:
 
 - Do protocol translation. For example, enabling Bluetooth enabled devices to connect to the cloud.
 - Manage offline and disconnected scenarios. For example, buffering telemetry when the cloud endpoint is unreachable.
-- Filter, compress, or aggregate telemetry before it's sent to the cloud.
+- Filter, compress, or aggregate telemetry before sending it to the cloud.
 - Run logic at the edge to remove the latency associated with running logic on behalf of devices in the cloud. For example, detecting a spike in temperature and opening a valve in response.
 
 You can use Azure IoT Edge to deploy a field gateway to your on-premises environment. IoT Edge provides a set of features that enable you to deploy and manage field gateways at scale. IoT Edge also provides a set of modules that you can use to implement common gateway scenarios. To learn more, see [What is Azure IoT Edge?](../iot-edge/about-iot-edge.md)
@@ -129,13 +129,13 @@ An IoT Edge device can maintain a [persistent connection](#persistent-connection
 
 ## Bridges
 
-A device bridge enables devices that are connected to a third-party cloud to connect to your IoT solution. Examples of third-party clouds include [Sigfox](https://www.sigfox.com/), [Particle Device Cloud](https://www.particle.io/), and [The Things Network](https://www.thethingsnetwork.org/).
+A device bridge enables devices that are connected to a non-Microsoft cloud to connect to your IoT solution. Examples of non-Microsoft clouds include [Sigfox](https://www.sigfox.com/), [Particle Device Cloud](https://www.particle.io/), and [The Things Network](https://www.thethingsnetwork.org/).
 
-The open source IoT Central Device Bridge acts as a translator that forwards telemetry to an IoT Central application. To learn more, see [Azure IoT Central Device Bridge](https://github.com/Azure/iotc-device-bridge). There are third-party bridge solutions, such as [Tartabit IoT Bridge](/shows/internet-of-things-show/onboarding-constrained-devices-into-azure-using-tartabits-iot-bridge), for connecting devices to an IoT hub.
+The open source IoT Central Device Bridge acts as a translator that forwards telemetry to an IoT Central application. To learn more, see [Azure IoT Central Device Bridge](https://github.com/Azure/iotc-device-bridge). There are non-Microsoft bridge solutions, such as [Tartabit IoT Bridge](/shows/internet-of-things-show/onboarding-constrained-devices-into-azure-using-tartabits-iot-bridge), for connecting devices to an IoT hub.
 
 ## Next steps
 
-Now that you've seen an overview of device connectivity in Azure IoT solutions, some suggested next steps include
+Now that you've seen an overview of device connectivity in Azure IoT solutions, some suggested next steps include:
 
 - [Device management and control in IoT solutions](iot-overview-device-management.md)
 - [Process and route messages](iot-overview-message-processing.md)
