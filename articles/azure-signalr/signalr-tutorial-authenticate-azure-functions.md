@@ -158,11 +158,10 @@ When the chat app first opens in the browser, it requires valid connection crede
         name: 'connectionInfo',
         hubName: 'default',
         connectionStringSetting: 'AzureSignalRConnectionString',
-        userId: '{query.x-ms-signalr-userid}'
     });
 
     app.post('negotiate', {
-        authLevel: 'function',
+        authLevel: 'anonymous',
         handler: (request, context) => {
             return { body: JSON.stringify(context.extraInputs.get(inputSignalR)) }
         },
