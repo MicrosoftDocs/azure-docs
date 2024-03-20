@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.date: 04/20/2022
 ms.author: allensu
-ms.custom: devx-track-azurecli, linux-related-content
+ms.custom: devx-track-azurecli
 # Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
 ---
 

@@ -8,7 +8,7 @@ ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 08/24/2023
-ms.custom: template-how-to, devx-track-azurecli, linux-related-content
+ms.custom: template-how-to, devx-track-azurecli
 ms.devlang: azurecli
 ---
 

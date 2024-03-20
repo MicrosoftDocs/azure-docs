@@ -16,59 +16,6 @@ keywords: ChatGPT
 
 The following code snippet shows the most basic way to use the GPT-3.5-Turbo and GPT-4 models with the Chat Completion API. If this is your first time using these models programmatically, we recommend starting with our [GPT-3.5-Turbo & GPT-4 Quickstart](../chatgpt-quickstart.md).
 
-# [OpenAI Python 0.28.1](#tab/python)
-
-```python
-import os
-import openai
-openai.api_type = "azure"
-openai.api_version = "2023-05-15" 
-openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT")  # Your Azure OpenAI resource's endpoint value.
-openai.api_key = os.getenv("AZURE_OPENAI_API_KEY")
-
-response = openai.ChatCompletion.create(
-    engine="gpt-35-turbo", # The deployment name you chose when you deployed the GPT-3.5-Turbo or GPT-4 model.
-    messages=[
-        {"role": "system", "content": "Assistant is a large language model trained by OpenAI."},
-        {"role": "user", "content": "Who were the founders of Microsoft?"}
-    ]
-)
-
-print(response)
-
-# To print only the response content text:
-# print(response['choices'][0]['message']['content'])
-```
-
-### Output
-
-JSON formatting added artificially for ease of reading.
-
-```json
-{
-  "choices": [
-    {
-      "finish_reason": "stop",
-      "index": 0,
-      "message": {
-        "content": "The founders of Microsoft are Bill Gates and Paul Allen. They co-founded the company in 1975.",
-        "role": "assistant"
-      }
-    }
-  ],
-  "created": 1679014551,
-  "id": "chatcmpl-6usfn2yyjkbmESe3G4jaQR6bsScO1",
-  "model": "gpt-3.5-turbo-0301",
-  "object": "chat.completion",
-  "usage": {
-    "completion_tokens": 86,
-    "prompt_tokens": 37,
-    "total_tokens": 123
-  }
-}
-
-```
-
 # [OpenAI Python 1.x](#tab/python-new)
 
 ```python
@@ -159,6 +106,61 @@ print(response.choices[0].message.content)
   ]
 }
 Microsoft was founded by Bill Gates and Paul Allen. They established the company on April 4, 1975. Bill Gates served as the CEO of Microsoft until 2000 and later as Chairman and Chief Software Architect until his retirement in 2008, while Paul Allen left the company in 1983 but remained on the board of directors until 2000.
+```
+
+# [OpenAI Python 0.28.1](#tab/python)
+
+[!INCLUDE [Deprecation](../includes/deprecation.md)]
+
+```python
+import os
+import openai
+openai.api_type = "azure"
+openai.api_version = "2023-05-15" 
+openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT")  # Your Azure OpenAI resource's endpoint value.
+openai.api_key = os.getenv("AZURE_OPENAI_API_KEY")
+
+response = openai.ChatCompletion.create(
+    engine="gpt-35-turbo", # The deployment name you chose when you deployed the GPT-3.5-Turbo or GPT-4 model.
+    messages=[
+        {"role": "system", "content": "Assistant is a large language model trained by OpenAI."},
+        {"role": "user", "content": "Who were the founders of Microsoft?"}
+    ]
+)
+
+print(response)
+
+# To print only the response content text:
+# print(response['choices'][0]['message']['content'])
+```
+
+### Output
+
+JSON formatting added artificially for ease of reading.
+
+```json
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "The founders of Microsoft are Bill Gates and Paul Allen. They co-founded the company in 1975.",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1679014551,
+  "id": "chatcmpl-6usfn2yyjkbmESe3G4jaQR6bsScO1",
+  "model": "gpt-3.5-turbo-0301",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 86,
+    "prompt_tokens": 37,
+    "total_tokens": 123
+  }
+}
+
 ```
 
 ---
@@ -304,32 +306,6 @@ The examples so far have shown you the basic mechanics of interacting with the C
 
 This means that every time a new question is asked, a running transcript of the conversation so far is sent along with the latest question. Since the model has no memory, you need to send an updated transcript with each new question or the model will lose context of the previous questions and answers.
 
-
-# [OpenAI Python 0.28.1](#tab/python)
-
-```python
-import os
-import openai
-openai.api_type = "azure"
-openai.api_version = "2023-05-15" 
-openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT")  # Your Azure OpenAI resource's endpoint value.
-openai.api_key = os.getenv("AZURE_OPENAI_API_KEY")
-
-conversation=[{"role": "system", "content": "You are a helpful assistant."}]
-
-while True:
-    user_input = input()      
-    conversation.append({"role": "user", "content": user_input})
-
-    response = openai.ChatCompletion.create(
-        engine="gpt-35-turbo", # The deployment name you chose when you deployed the GPT-35-turbo or GPT-4 model.
-        messages=conversation
-    )
-
-    conversation.append({"role": "assistant", "content": response["choices"][0]["message"]["content"]})
-    print("\n" + response['choices'][0]['message']['content'] + "\n")
-```
-
 # [OpenAI Python 1.x](#tab/python-new)
 
 ```python
@@ -357,6 +333,32 @@ while True:
     print("\n" + response.choices[0].message.content + "\n")
 ```
 
+
+# [OpenAI Python 0.28.1](#tab/python)
+
+```python
+import os
+import openai
+openai.api_type = "azure"
+openai.api_version = "2023-05-15" 
+openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT")  # Your Azure OpenAI resource's endpoint value.
+openai.api_key = os.getenv("AZURE_OPENAI_API_KEY")
+
+conversation=[{"role": "system", "content": "You are a helpful assistant."}]
+
+while True:
+    user_input = input()      
+    conversation.append({"role": "user", "content": user_input})
+
+    response = openai.ChatCompletion.create(
+        engine="gpt-35-turbo", # The deployment name you chose when you deployed the GPT-35-turbo or GPT-4 model.
+        messages=conversation
+    )
+
+    conversation.append({"role": "assistant", "content": response["choices"][0]["message"]["content"]})
+    print("\n" + response['choices'][0]['message']['content'] + "\n")
+```
+
 ---
 
 When you run the code above you will get a blank console window. Enter your first question in the window and then hit enter. Once the response is returned, you can repeat the process and keep asking questions.
@@ -373,84 +375,6 @@ It's your responsibility to ensure the prompt and completion falls within the to
 The following code sample shows a simple chat loop example with a technique for handling a 4096 token count using OpenAI's tiktoken library.
 
 The code uses tiktoken `0.5.1`. If you have an older version run `pip install tiktoken --upgrade`.
-
-# [OpenAI Python 0.28.1](#tab/python)
-
-```python
-import tiktoken
-import openai
-import os
-
-openai.api_type = "azure"
-openai.api_version = "2023-05-15" 
-openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT")  # Your Azure OpenAI resource's endpoint value.
-openai.api_key = os.getenv("AZURE_OPENAI_API_KEY")
-
-system_message = {"role": "system", "content": "You are a helpful assistant."}
-max_response_tokens = 250
-token_limit = 4096
-conversation = []
-conversation.append(system_message)
-
-def num_tokens_from_messages(messages, model="gpt-3.5-turbo-0613"):
-    """Return the number of tokens used by a list of messages."""
-    try:
-        encoding = tiktoken.encoding_for_model(model)
-    except KeyError:
-        print("Warning: model not found. Using cl100k_base encoding.")
-        encoding = tiktoken.get_encoding("cl100k_base")
-    if model in {
-        "gpt-3.5-turbo-0613",
-        "gpt-3.5-turbo-16k-0613",
-        "gpt-4-0314",
-        "gpt-4-32k-0314",
-        "gpt-4-0613",
-        "gpt-4-32k-0613",
-        }:
-        tokens_per_message = 3
-        tokens_per_name = 1
-    elif model == "gpt-3.5-turbo-0301":
-        tokens_per_message = 4  # every message follows <|start|>{role/name}\n{content}<|end|>\n
-        tokens_per_name = -1  # if there's a name, the role is omitted
-    elif "gpt-3.5-turbo" in model:
-        print("Warning: gpt-3.5-turbo may update over time. Returning num tokens assuming gpt-3.5-turbo-0613.")
-        return num_tokens_from_messages(messages, model="gpt-3.5-turbo-0613")
-    elif "gpt-4" in model:
-        print("Warning: gpt-4 may update over time. Returning num tokens assuming gpt-4-0613.")
-        return num_tokens_from_messages(messages, model="gpt-4-0613")
-    else:
-        raise NotImplementedError(
-            f"""num_tokens_from_messages() is not implemented for model {model}. See https://github.com/openai/openai-python/blob/main/chatml.md for information on how messages are converted to tokens."""
-        )
-    num_tokens = 0
-    for message in messages:
-        num_tokens += tokens_per_message
-        for key, value in message.items():
-            num_tokens += len(encoding.encode(value))
-            if key == "name":
-                num_tokens += tokens_per_name
-    num_tokens += 3  # every reply is primed with <|start|>assistant<|message|>
-    return num_tokens
-
-while True:
-    user_input = input("")     
-    conversation.append({"role": "user", "content": user_input})
-    conv_history_tokens = num_tokens_from_messages(conversation)
-
-    while conv_history_tokens + max_response_tokens >= token_limit:
-        del conversation[1] 
-        conv_history_tokens = num_tokens_from_messages(conversation)
-
-    response = openai.ChatCompletion.create(
-        engine="gpt-35-turbo", # The deployment name you chose when you deployed the GPT-35-Turbo or GPT-4 model.
-        messages=conversation,
-        temperature=0.7,
-        max_tokens=max_response_tokens,
-    )
-
-    conversation.append({"role": "assistant", "content": response['choices'][0]['message']['content']})
-    print("\n" + response['choices'][0]['message']['content'] + "\n")
-```
 
 # [OpenAI Python 1.x](#tab/python-new)
 
@@ -529,6 +453,85 @@ while True:
 
     conversation.append({"role": "assistant", "content": response.choices[0].message.content})
     print("\n" + response.choices[0].message.content + "\n")
+```
+
+
+# [OpenAI Python 0.28.1](#tab/python)
+
+```python
+import tiktoken
+import openai
+import os
+
+openai.api_type = "azure"
+openai.api_version = "2023-05-15" 
+openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT")  # Your Azure OpenAI resource's endpoint value.
+openai.api_key = os.getenv("AZURE_OPENAI_API_KEY")
+
+system_message = {"role": "system", "content": "You are a helpful assistant."}
+max_response_tokens = 250
+token_limit = 4096
+conversation = []
+conversation.append(system_message)
+
+def num_tokens_from_messages(messages, model="gpt-3.5-turbo-0613"):
+    """Return the number of tokens used by a list of messages."""
+    try:
+        encoding = tiktoken.encoding_for_model(model)
+    except KeyError:
+        print("Warning: model not found. Using cl100k_base encoding.")
+        encoding = tiktoken.get_encoding("cl100k_base")
+    if model in {
+        "gpt-3.5-turbo-0613",
+        "gpt-3.5-turbo-16k-0613",
+        "gpt-4-0314",
+        "gpt-4-32k-0314",
+        "gpt-4-0613",
+        "gpt-4-32k-0613",
+        }:
+        tokens_per_message = 3
+        tokens_per_name = 1
+    elif model == "gpt-3.5-turbo-0301":
+        tokens_per_message = 4  # every message follows <|start|>{role/name}\n{content}<|end|>\n
+        tokens_per_name = -1  # if there's a name, the role is omitted
+    elif "gpt-3.5-turbo" in model:
+        print("Warning: gpt-3.5-turbo may update over time. Returning num tokens assuming gpt-3.5-turbo-0613.")
+        return num_tokens_from_messages(messages, model="gpt-3.5-turbo-0613")
+    elif "gpt-4" in model:
+        print("Warning: gpt-4 may update over time. Returning num tokens assuming gpt-4-0613.")
+        return num_tokens_from_messages(messages, model="gpt-4-0613")
+    else:
+        raise NotImplementedError(
+            f"""num_tokens_from_messages() is not implemented for model {model}. See https://github.com/openai/openai-python/blob/main/chatml.md for information on how messages are converted to tokens."""
+        )
+    num_tokens = 0
+    for message in messages:
+        num_tokens += tokens_per_message
+        for key, value in message.items():
+            num_tokens += len(encoding.encode(value))
+            if key == "name":
+                num_tokens += tokens_per_name
+    num_tokens += 3  # every reply is primed with <|start|>assistant<|message|>
+    return num_tokens
+
+while True:
+    user_input = input("")     
+    conversation.append({"role": "user", "content": user_input})
+    conv_history_tokens = num_tokens_from_messages(conversation)
+
+    while conv_history_tokens + max_response_tokens >= token_limit:
+        del conversation[1] 
+        conv_history_tokens = num_tokens_from_messages(conversation)
+
+    response = openai.ChatCompletion.create(
+        engine="gpt-35-turbo", # The deployment name you chose when you deployed the GPT-35-Turbo or GPT-4 model.
+        messages=conversation,
+        temperature=0.7,
+        max_tokens=max_response_tokens,
+    )
+
+    conversation.append({"role": "assistant", "content": response['choices'][0]['message']['content']})
+    print("\n" + response['choices'][0]['message']['content'] + "\n")
 ```
 
 ---

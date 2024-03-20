@@ -116,8 +116,8 @@ Use [az aks update](/cli/azure/aks#az-aks-update) to enable Network Observabilit
 
 ```azurecli-interactive
 az aks update \
-    --resource-group myResourceGroup \
-    --name myAKSCluster \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
     --enable-network-observability 
 ```
 

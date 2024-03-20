@@ -4,7 +4,7 @@ description: This article provides information on how to deploy an Application G
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
-ms.custom: linux-related-content
+ms.custom:
 ms.topic: how-to
 ms.date: 07/28/2023
 ms.author: greglin

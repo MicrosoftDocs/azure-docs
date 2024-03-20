@@ -5,7 +5,7 @@ author: nickomang
 ms.author: nickoman
 ms.topic: article
 ms.date: 12/19/2023
-ms.custom: devx-track-azurecli, linux-related-content
+ms.custom: devx-track-azurecli
 ---
 
 # Connect your Azure identity provider to the Azure Key Vault Secrets Store CSI Driver in Azure Kubernetes Service (AKS)

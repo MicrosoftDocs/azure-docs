@@ -12,6 +12,8 @@
       href: quickstart-portal.md
     - name: Create resources - Bicep template
       href: quickstart-bicep.md
+    - name: Create resources - Terraform
+      href: quickstart-terraform.md
 - name: Tutorials
   items:
     - name: Build web applications
