@@ -38,21 +38,21 @@ The supported values for attributes of the `phoneme` element were [described pre
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AvaNeural">
+    <voice name="en-US-AvaMultilingualNeural">
         <phoneme alphabet="ipa" ph="tə.ˈmeɪ.toʊ"> tomato </phoneme>
     </voice>
 </speak>
 ```
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AvaNeural">
+    <voice name="en-US-AvaMultilingualNeural">
         <phoneme alphabet="ipa" ph="təmeɪˈtoʊ"> tomato </phoneme>
     </voice>
 </speak>
 ```
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AvaNeural">
+    <voice name="en-US-AvaMultilingualNeural">
         <phoneme alphabet="sapi" ph="iy eh n y uw eh s"> en-US </phoneme>
     </voice>
 </speak>
@@ -60,7 +60,7 @@ The supported values for attributes of the `phoneme` element were [described pre
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AvaNeural">
+    <voice name="en-US-AvaMultilingualNeural">
         <s>His name is Mike <phoneme alphabet="ups" ph="JH AU"> Zhou </phoneme></s>
     </voice>
 </speak>
@@ -68,7 +68,7 @@ The supported values for attributes of the `phoneme` element were [described pre
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-     <voice name="en-US-AvaNeural">
+     <voice name="en-US-AvaMultilingualNeural">
         <phoneme alphabet='x-sampa' ph='he."lou'>hello</phoneme>
     </voice>
 </speak>
@@ -99,7 +99,7 @@ After you publish your custom lexicon, you can reference it from your SSML. The 
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
           xmlns:mstts="http://www.w3.org/2001/mstts"
           xml:lang="en-US">
-    <voice name="en-US-AvaNeural">
+    <voice name="en-US-AvaMultilingualNeural">
         <lexicon uri="https://www.example.com/customlexicon.xml"/>
         BTW, we will be there probably at 8:00 tomorrow morning.
         Could you help leave a message to Robert Benigni for me?
@@ -253,7 +253,7 @@ The speech synthesis engine speaks the following example as "Your first request 
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AvaNeural">
+    <voice name="en-US-AvaMultilingualNeural">
         <p>
         Your <say-as interpret-as="ordinal"> 1st </say-as> request was for <say-as interpret-as="cardinal"> 1 </say-as> room
         on <say-as interpret-as="date" format="mdy"> 10/19/2010 </say-as>, with early arrival at <say-as interpret-as="time" format="hms12"> 12:35pm </say-as>.
@@ -280,7 +280,7 @@ The speech synthesis engine speaks the following example as "World Wide Web Cons
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AvaNeural">
+    <voice name="en-US-AvaMultilingualNeural">
         <sub alias="World Wide Web Consortium">W3C</sub>
     </voice>
 </speak>
@@ -307,7 +307,7 @@ The XML syntax doesn't support the MathML entities, so you must use the correspo
 The text to speech output for this example is "a squared plus b squared equals c squared".
 
 ```xml
-<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xmlns:mstts='http://www.w3.org/2001/mstts' xml:lang='en-US'><voice name='en-US-AvaNeural'><math xmlns='http://www.w3.org/1998/Math/MathML'><msup><mi>a</mi><mn>2</mn></msup><mo>+</mo><msup><mi>b</mi><mn>2</mn></msup><mo>=</mo><msup><mi>c</mi><mn>2</mn></msup></math></voice></speak>
+<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xmlns:mstts='http://www.w3.org/2001/mstts' xml:lang='en-US'><voice name='en-US-AvaMultilingualNeural'><math xmlns='http://www.w3.org/1998/Math/MathML'><msup><mi>a</mi><mn>2</mn></msup><mo>+</mo><msup><mi>b</mi><mn>2</mn></msup><mo>=</mo><msup><mi>c</mi><mn>2</mn></msup></math></voice></speak>
 ```
 
 ## Next steps
