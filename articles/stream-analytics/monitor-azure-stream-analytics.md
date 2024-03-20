@@ -25,24 +25,24 @@ For more information about the resource types for Azure Stream Analytics, see [S
 For a description of how to monitor metrics in the Azure portal, see [Monitor Stream Analytics job with Azure portal](stream-analytics-monitoring.md).
 
 >[!NOTE]
->Stream Analytics jobs that are created via REST APIs, Azure SDK, or PowerShell don't have monitoring enabled by default. To enable monitoring, go to the job's Monitor page and select **Enable**, or follow the steps in [Programmatically create a Stream Analytics job monitor](stream-analytics-monitor-jobs.md). The monitoring data appears in the **Metrics** area of the Azure portal page for your Stream Analytics job.
-
-For a list and descriptions of available metrics for Stream Analytics, see [Stream Analytics monitoring data reference](monitor-stream-analytics-reference.md#metrics).
+>Stream Analytics jobs that are created via REST APIs, Azure SDK, or PowerShell don't have monitoring enabled by default. To enable monitoring, follow the steps in [Programmatically create a Stream Analytics job monitor](stream-analytics-monitor-jobs.md). The monitoring data then appears in the **Metrics** area of the Azure portal page for your Stream Analytics job.
 
 The following table lists conditions and corrective actions for some commonly monitored Stream Analytics metrics.
 
 [!INCLUDE [metrics-scenarios](./includes/metrics-scenarios.md)]
 
+For a list and descriptions of all available metrics for Stream Analytics, see [Stream Analytics monitoring data reference](monitor-stream-analytics-reference.md#metrics).
+
 [!INCLUDE [horz-monitor-resource-logs](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 
 [!INCLUDE [resource-logs](./includes/resource-logs.md)]
 
-For a detailed walkthrough of how to troubleshoot job failures by using resource logs, see [Troubleshoot Azure Stream Analytics by using resource logs](stream-analytics-job-diagnostic-logs.md).
+For the available resource log categories, their associated Log Analytics tables, and the log schemas for Stream Analytics, see [Stream Analytics monitoring data reference](monitor-stream-analytics-reference.md#resource-logs).
+For a detailed walkthrough of how to troubleshoot Stream Analytics job failures by using resource logs, see [Troubleshoot Azure Stream Analytics by using resource logs](stream-analytics-job-diagnostic-logs.md).
 
-For the available resource log categories, their associated Log Analytics tables, and the logs schemas for Stream Analytics, see [Stream Analytics monitoring data reference](monitor-stream-analytics-reference.md#resource-logs).
 [!INCLUDE [horz-monitor-activity-log](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 
-For a detailed walkthrough of how to troubleshoot job failures by using the activity log, see [Debugging using activity logs](stream-analytics-job-diagnostic-logs.md#debugging-using-activity-logs).
+For a detailed walkthrough of how to troubleshoot Stream Analytics job failures by using the activity log, see [Debugging using activity logs](stream-analytics-job-diagnostic-logs.md#debugging-using-activity-logs).
 
 [!INCLUDE [horz-monitor-analyze-data](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
 
@@ -52,7 +52,7 @@ For a detailed walkthrough of how to troubleshoot job failures by using the acti
 
 ### Sample queries
 
-Following are sample queries that you can use to help you monitor your Azure Stream Analytics resources:
+Following are sample queries that you can use to help monitor your Azure Stream Analytics resources:
 
 - List all input data errors. The following query shows all errors that occurred while processing the data from inputs. 
 
@@ -103,7 +103,7 @@ Following are sample queries that you can use to help you monitor your Azure Str
 
 ### Stream Analytics alert rules
 
-The following table lists some suggested alert rules for Stream Analytics. These alerts are just examples. You can set alerts for any metric, log entry, or activity log entry that's listed in the [Stream Analytics monitoring data reference](monitor-stream-analytics-reference.md).
+The following table lists some suggested alert rules for Stream Analytics. These alerts are just examples. You can set alerts for any metric, log entry, or activity log entry listed in the [Stream Analytics monitoring data reference](monitor-stream-analytics-reference.md).
 
 | Alert type | Condition | Description  |
 |:---|:---|:---|

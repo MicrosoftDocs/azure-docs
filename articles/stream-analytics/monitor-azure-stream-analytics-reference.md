@@ -22,14 +22,13 @@ The following table lists the metrics available for the Microsoft.StreamAnalytic
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 [!INCLUDE [Microsoft.StreamAnalytics/streamingjobs](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-streamanalytics-streamingjobs-metrics-include.md)]
 
-### Detailed metrics descriptions
+### Metrics descriptions
 
 [!INCLUDE [metrics](./includes/metrics.md)]
 
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
-[!INCLUDE [horz-monitor-ref-metrics-dimensions](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
 
-Some Stream Analytics metrics include the following dimensions:
+[!INCLUDE [horz-monitor-ref-metrics-dimensions](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
 
 - **Logical Name**: The input or output name for a Stream Analytics job.
 - **Partition ID**: The ID of the input data partition from an input source.
