@@ -60,14 +60,16 @@ To send data to your Azure Monitor Workspace, you will need the following inform
     1. Select Managed Identity, and then choose Select members. Select the subscription that contains the user-assigned identity, and then select User-assigned managed identity. Select the user-assigned identity that you want to use, and then choose Select.
     1. To complete the role assignment, select **Review + assign**.
 
-1. Give the AKS cluster or the resource access to the managed identity. This step isn't required if you're using an AKS or VM identity. An AKS or VM identity already has access to the cluster/VM.
+1. Give the AKS cluster or the resource access to the managed identity. This step isn't required if you're using an AKS agentpool user assigned managed identity or VM system assigned identity. An AKS agentpool user assigned managed identity or VM identity already has access to the cluster/VM.
 
 > [!IMPORTANT]
-> To complete the steps in this section, you must have owner or user access administrator permissions for the cluster.
+> To complete the steps in this section, you must have owner or user access administrator permissions for the cluster/resource.
 
-- Identify the virtual machine or virtual machine scale sets in the [node resource group](#get-the-name-of-the-aks-node-resource-group) for your AKS cluster.
+#### For AKS: Give the AKS cluster access to the managed identity
 
-    :::image type="content" source="../containers/media/prometheus-remote-write-managed-identity/resource-group-details-virtual-machine-scale-sets.png" alt-text="Screenshot that shows virtual machine scale sets in the node resource group." lightbox="media/prometheus-remote-write-managed-identity/resource-group-details-virtual-machine-scale-sets.png":::
+- Identify the virtual machine scale sets in the node resource group for your AKS cluster. The node resource group of the AKS cluster contains resources that you use in other steps in this process. This resource group has the name MC_<AKS-RESOURCE-GROUP>_<AKS-CLUSTER-NAME>_<REGION>. You can find the resource group name by using the Resource groups menu in the Azure portal.
+
+    :::image type="content" source="../containers/media/prometheus-remote-write-managed-identity/resource-group-details-virtual-machine-scale-sets.png" alt-text="Screenshot that shows virtual machine scale sets in the node resource group." lightbox="../containers/media/prometheus-remote-write-managed-identity/resource-group-details-virtual-machine-scale-sets.png":::
 
 - For each virtual machine scale set, run the following command in the Azure CLI:
 
@@ -75,11 +77,15 @@ To send data to your Azure Monitor Workspace, you will need the following inform
     az vmss identity assign -g <AKS-NODE-RESOURCE-GROUP> -n <AKS-VMSS-NAME> --identities <USER-ASSIGNED-IDENTITY-RESOURCE-ID>
     ```
 
+#### For VM: Give the VM access to the managed identity
+
 - For virtual machine, run the following command in the Azure CLI:
 
     ```azurecli
     az vm identity assign -g <VM-RESOURCE-GROUP> -n <VM-NAME> --identities <USER-ASSIGNED-IDENTITY-RESOURCE-ID>
     ```
+
+If you are using other Azure resource types, please refer public documentation for the Azure resource type to assign managed identity similar to steps mentioned above for VMs/VMSS.
 
 ### Azure Entra application
 
