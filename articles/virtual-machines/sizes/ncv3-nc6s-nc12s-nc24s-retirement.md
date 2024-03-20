@@ -47,10 +47,10 @@ Later this year Microsoft will also be releasing the [NC H100 v5-series (current
 If you have a support plan and you need technical help, please create a [support request](https://portal.azure.com/). 
 
 1. Under _Issue type_, select **Technical**. 
-1. Under _Subscription_, select your subscription. 
-1. Under _Service_, click **My services**.  
-1. Under _Service type_, select **Virtual Machine running Windows/Linux**.
-1. Under _Summary_, enter the summary of your request.
-1. Under _Problem type_, select **Assistance with resizing my VM.**
+2. Under _Subscription_, select your subscription. 
+3. Under _Service_, click **My services**.  
+4. Under _Service type_, select **Virtual Machine running Windows/Linux**.
+5. Under _Summary_, enter the summary of your request.
+6. Under _Problem type_, select **Assistance with resizing my VM.**
 1. Under _Problem subtype_, select the option that applies to you.
 
