@@ -50,7 +50,7 @@ Mopidy-Dirble ~= 1.1        # Compatible release. Same as >= 1.1, == 1.*
 <path_to_local_package>     # reference to local pip wheel package
 ```
 
-See [Requirements File Format](https://pip.pypa.io/en/stable/reference/requirements-file-format/) in the pip documentation for more details on structuring the `requirements.txt` file.
+For more information about structuring the `requirements.txt` file, see [Requirements file format](https://pip.pypa.io/en/stable/reference/requirements-file-format/) in the pip documentation.
 
 #### Define the `Dockerfile`
 
