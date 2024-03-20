@@ -135,7 +135,7 @@ The following sections describe how to create an AKS cluster with the AI toolcha
         -o tsv)
     export PRINCIPAL_ID=$(az identity show --name "ai-toolchain-operator-${CLUSTER_NAME}" \
         --resource-group "${MC_RESOURCE_GROUP}" \
-        --query 'principalId' 
+        --query 'principalId' \
         -o tsv)
     export KAITO_IDENTITY_NAME="ai-toolchain-operator-${CLUSTER_NAME}"
     ```

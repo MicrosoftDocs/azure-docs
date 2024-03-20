@@ -40,7 +40,7 @@ Microsoft Defender for Cloud audits generated Security alerts as events in Azure
 
 You can view the security alerts events in Activity Log by searching for the Activate Alert event as shown:
 
-[![Searching the Activity log for the Activate Alert event.](media/alerts-schemas/sample-activity-log-alert.png)](media/alerts-schemas/sample-activity-log-alert.png#lightbox)
+:::image type="content" source="media/alerts-schemas/sample-activity-log-alert.png" alt-text="Searching the Activity log for the Activate Alert event." lightbox="media/alerts-schemas/sample-activity-log-alert.png":::
 
 ### Sample JSON for alerts sent to Azure Activity Log
 

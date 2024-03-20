@@ -40,7 +40,7 @@ To create your workspace, select one of the following tabs, depending on whether
 
 # [Public endpoint](#tab/public-endpoint)
 
-1.  For Microsoft Sentinel in the [Azure portal](https://portal.microsoft.com), under **Threat management**, select **Notebooks**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Threat management** > **Notebooks**.
+1.  For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Threat management**, select **Notebooks**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Threat management** > **Notebooks**.
 
 1. Select **Configure Azure Machine Learning** > **Create a new AML workspace**.
 
@@ -76,7 +76,7 @@ The steps in this procedure reference specific articles in the Azure Machine Lea
 
 1. Access the jump box, and then go to your Microsoft Sentinel workspace. We recommend using [Azure Bastion](../bastion/bastion-overview.md) to access the VM.
 
-1.  For Microsoft Sentinel in the [Azure portal](https://portal.microsoft.com), under **Threat management**, select **Notebooks**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Threat management** > **Notebooks**.
+1.  For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Threat management**, select **Notebooks**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Threat management** > **Notebooks**.
 
 1. Select **Configure Azure Machine Learning** > **Create a new AML workspace**.
 
@@ -145,7 +145,7 @@ If you have multiple notebooks, make sure to select a default AML workspace to u
 
 After you create an Azure Machine Learning workspace, launch your notebooks in that workspace from Microsoft Sentinel.
 
-1.  For Microsoft Sentinel in the [Azure portal](https://portal.microsoft.com), under **Threat management**, select **Notebooks**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Threat management** > **Notebooks**.
+1.  For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Threat management**, select **Notebooks**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Threat management** > **Notebooks**.
 1. Select the **Templates** tab to see the notebooks that Microsoft Sentinel provides.
 1. Select a notebook to view its description, required data types, and data sources.
 

@@ -129,6 +129,7 @@ More use cases:
 To create a new alert rule based on a cross-service query, follow the steps in [Create a new alert rule](../alerts/alerts-create-new-alert-rule.md), selecting your Log Analytics workspace on the **Scope** tab.
 
 ## Limitations
+
 ### General cross-service query limitations
 * Cross-service queries don’t support parameterized functions and functions whose definition includes other cross-workspace or cross-service expressions, including `adx()`, `arg()`, `resource()`, `workspace()`, and `app()`.
 * Cross-service queries support **only ".show"** functions.

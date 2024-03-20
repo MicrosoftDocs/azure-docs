@@ -56,7 +56,7 @@ When you enable role-based access control in the portal, the failure mode will b
 
 Use the Management REST API [Create or Update Service](/rest/api/searchmanagement/services/create-or-update) to configure your service.
 
-All calls to the Management REST API are authenticated through Microsoft Entra ID, with Contributor or Owner permissions. For help setting up authenticated requests in Postman, see [Manage Azure AI Search using REST](search-manage-rest.md).
+All calls to the Management REST API are authenticated through Microsoft Entra ID, with Contributor or Owner permissions. For help setting up authenticated requests in a REST client, see [Manage Azure AI Search using REST](search-manage-rest.md).
 
 1. Get service settings so that you can review the current configuration.
 
@@ -162,7 +162,7 @@ The following instructions reference an existing C# sample to demonstrate the co
 
    The sample currently uses key-based authentication and the `AzureKeyCredential` to create the `SearchClient` and `SearchIndexClient` but you can make a small change to switch over to role-based authentication. 
 
-1. Update the Azure.Search.Documents Nuget package to version 11.4 or later.
+1. Update the Azure.Search.Documents NuGet package to version 11.4 or later.
 
 1. Import the [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/) library to get access to other authentication techniques.
 

@@ -8,7 +8,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: quickstart
-ms.date: 03/06/2024
+ms.date: 03/14/2024
 ---
 
 # Quickstart: Vector search using REST
@@ -16,8 +16,6 @@ ms.date: 03/06/2024
 Learn how to use the [Search REST APIs](/rest/api/searchservice) to create, load, and query vectors in Azure AI Search. 
 
 In Azure AI Search, a [*vector store*](vector-store.md) has an index schema that defines vector and nonvector fields, a vector configuration for algorithms that create the embedding space, and settings on vector field definitions that are used in query requests. The [Create Index](/rest/api/searchservice/indexes/create-or-update) API creates the vector store.
-
-[Download a REST sample](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/quickstart-vectors) to send the requests in this quickstart, or create requests manually to adapt the instructions for your own data.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -36,7 +34,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 + Optionally, an [Azure OpenAI](https://aka.ms/oai/access) resource with a deployment of **text-embedding-ada-002**. The source `.rest` file includes an optional step for generating new text embeddings, but we provide pre-generated embeddings so that you can omit this dependency.
 
-## Copy a key and URL
+## Download files
+
+[Download a REST sample](https://github.com/Azure-Samples/azure-search-rest-samples/tree/main/Quickstart-vectors) from GitHub to send the requests in this quickstart. [Learn how](https://docs.github.com/get-started/start-your-journey/downloading-files-from-github).
+
+Or, start a new file on your local system and create requests manually using the instructions in this article.
+
+## Copy a search service key and URL
 
 REST calls require the search service endpoint and an API key on every request. You can get these values from the Azure portal.
 
@@ -45,8 +49,6 @@ REST calls require the search service endpoint and an API key on every request. 
 1. Under **Settings** > **Keys**, copy an admin key. Admin keys are used to add, modify, and delete objects. There are two interchangeable admin keys. Copy either one.
 
    :::image type="content" source="media/search-get-started-rest/get-url-key.png" alt-text="Screenshot of the URL and API keys in the Azure portal.":::
-
-A valid API key establishes trust, on a per request basis, between the application sending the request and the search service handling it.
 
 ## Create a vector index
 
@@ -136,7 +138,7 @@ The index schema is organized around hotels content. Sample data consists of vec
                 "filterable": true,
                 "retrievable": true,
                 "sortable": false,
-                "facetable": true,
+                "facetable": true
             },
             {
                 "name": "Address", 
@@ -240,7 +242,7 @@ Creating and loading the index are separate steps. In Azure AI Search, the index
 The URI is extended to include the `docs` collection and `index` operation.
 
 > [!IMPORTANT]
-> The following example isn't runnable code. For readability, we excluded vector values because each one contains 1536 embeddings, which is too long for this article. Copy runnable code from the [sample on GitHub](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/quickstart-vectors) if you want to try this step.
+> The following example isn't runnable code. For readability, we excluded vector values because each one contains 1536 embeddings, which is too long for this article. Copy runnable code from the [sample on GitHub](https://github.com/Azure-Samples/azure-search-rest-samples/tree/main/Quickstart-vectors) if you want to try this step.
 
 ```http
 ### Upload documents
@@ -399,7 +401,7 @@ The vector queries in this section are based on two strings:
 The vector query string is semantically similar to the search string, but includes terms that don't exist in the search index. If you do a keyword search for "classic lodging near running trails, eateries, retail", results are zero. We use this example to show how you can get relevant results even if there are no matching terms.
 
 > [!IMPORTANT]
-> The following examples aren't runnable code. For readability, we excluded vector values because each array contains 1536 embeddings, which is too long for this article. Copy runnable code from the [sample on GitHub](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/quickstart-vectors) if you want to try these queries.
+> The following examples aren't runnable code. For readability, we excluded vector values because each array contains 1536 embeddings, which is too long for this article. Copy runnable code from the [sample on GitHub](https://github.com/Azure-Samples/azure-search-rest-samples/tree/main/Quickstart-vectors) if you want to try these queries.
 
 ### Single vector search
 
@@ -805,7 +807,18 @@ Here's the last query in the collection: a hybrid query, with semantic ranking, 
 
 ## Clean up
 
-Azure AI Search is a billable resource. If it's no longer needed, delete it from your subscription to avoid charges.
+When you're working in your own subscription, it's a good idea at the end of a project to identify whether you still need the resources you created. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
+
+You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
+
+You can also try this DELETE command:
+
+```http
+### Delete an index
+DELETE  {{baseUrl}}/indexes/hotels-vector-quickstart?api-version=2023-11-01 HTTP/1.1
+    Content-Type: application/json
+    api-key: {{apiKey}}
+```
 
 ## Next steps
 

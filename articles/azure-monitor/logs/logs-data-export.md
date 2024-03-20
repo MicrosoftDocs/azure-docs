@@ -127,6 +127,15 @@ If you've configured your Storage Account to allow access from selected networks
 > [!IMPORTANT]
 > Export destinations have limits and should be monitored to minimize throttling, failures, and latency. For more information, see [Storage Account scalability](../../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts) and [Event Hubs namespace quotas](../../event-hubs/event-hubs-quotas.md).
 
+The following metrics are available for data export operation and alerts
+
+| Metric name	| Description |
+|:---|:---|
+| Bytes Exported | Total number of bytes exported to destination from Log Analytics workspace within the selected time range. The size of data exported is the number of bytes in the exported JSON formatted data. 1 GB = 10^9 bytes. |
+| Export Failures	| Total number of failed export requests to destination from Log Analytics workspace within the selected time range. This number includes export failures due to destination resource throttling, server error or access forbidden error. |
+| Records exported | Total number of records exported from Log Analytics workspace within the selected time range. This number counts records for operations that ended with success. |
+
+
 #### Monitor a Storage Account
 
 1. Use a separate Storage Account for export.

@@ -1,17 +1,16 @@
 ---
 title: Configure an OPC PLC simulator
-description: How to configure an OPC PLC simulator
+description: How to configure an OPC PLC simulator to work with Azure IoT OPC UA Broker.
 author: timlt
 ms.author: timlt
 ms.subservice: opcua-broker
 ms.topic: how-to
 ms.date: 03/01/2024
 
-# CustomerIntent: As a developer, I want to configure an OPC PLC simulator in my
-# industrial edge environment to test the process of managing OPC UA assets connected to the simulator.
+# CustomerIntent: As a developer, I want to configure an OPC PLC simulator in my industrial edge environment to test the process of managing OPC UA assets connected to the simulator.
 ---
 
-# Configure an OPC PLC simulator
+# Configure an OPC PLC simulator to work with Azure IoT OPC UA Broker Preview
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
@@ -19,7 +18,7 @@ In this article, you learn how to configure and connect to an OPC UA server simu
 
 ## Prerequisites
 
-Azure IoT Operations installed. For more information, see [Quickstart: Deploy Azure IoT Operations – to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md). If you deploy Azure IoT Operations as described, the process installs an OPC PLC simulator.
+Azure IoT Operations installed. For more information, see [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md). If you deploy Azure IoT Operations as described, the process installs an OPC PLC simulator.
 
 ## Deploy the OPC PLC simulator
 

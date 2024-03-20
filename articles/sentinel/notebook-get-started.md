@@ -53,7 +53,7 @@ Before you begin, make sure you have the required permissions and resources.
 This procedure describes how to launch your notebook and initialize MSTICpy.
 
 
-1.  For Microsoft Sentinel in the [Azure portal](https://portal.microsoft.com), under **Threat management**, select **Notebooks**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Threat management** > **Notebooks**.
+1.  For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Threat management**, select **Notebooks**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Threat management** > **Notebooks**.
 
 1. From the **Templates** tab, select **A Getting Started Guide For Microsoft Sentinel ML Notebooks** .
 1. Select **Create from template**.
