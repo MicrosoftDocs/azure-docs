@@ -49,7 +49,7 @@ You can use Azure Resource Group Deployment task or Azure CLI task to deploy a B
 ### Use Azure Resource Manager Template Deployment task
 
 > [!NOTE]
-As of version 3.235.0 of the [Azure Resource Manager Template Deployment task](/azure/devops/pipelines/tasks/reference/azure-resource-manager-template-deployment-v3) usage of [bicepparam](/azure/azure-resource-manager/bicep/parameter-files) files is supported.
+> As of version 3.235.0 of the [Azure Resource Manager Template Deployment task](/azure/devops/pipelines/tasks/reference/azure-resource-manager-template-deployment-v3), usage of [bicepparam](/azure/azure-resource-manager/bicep/parameter-files) files is supported.
 
 > [!NOTE]
 > The `AzureResourceManagerTemplateDeployment@3` task requires both Bicep and bicepparam files be provided when using bicepparam. The Bicep file can reference all supported locations for module references. The bicepparam file must reference the local Bicep file in the `using` statement.
@@ -102,7 +102,7 @@ As of version 3.235.0 of the [Azure Resource Manager Template Deployment task](/
 > The [az deployment group create](/cli/azure/deployment/group?view=azure-cli-latest#az-deployment-group-create&preserve-view=true) command requires only a bicepparam file. The `using` statement in the bicepparam file can target any supported location to reference the Bicep file. A Bicep file is only required in your repository when `using` from a local disk path with Azure CLI.
 
 > [!NOTE]
-> When using a *[bicepparam](/azure/azure-resource-manager/bicep/parameter-files)* file with the [az deployment group create](/cli/azure/deployment/group?view=azure-cli-latest#az-deployment-group-create&preserve-view=true) command you cannot override parameters.
+> When you use a *[bicepparam](/azure/azure-resource-manager/bicep/parameter-files)* file with the [az deployment group create](/cli/azure/deployment/group?view=azure-cli-latest#az-deployment-group-create&preserve-view=true) command, you can't override parameters.
 
 1. Replace your starter pipeline with the following YAML. It creates a resource group and deploys a [bicepparam](/azure/azure-resource-manager/bicep/parameter-files) file by using an [Azure CLI task](/azure/devops/pipelines/tasks/reference/azure-cli-v2):
 
