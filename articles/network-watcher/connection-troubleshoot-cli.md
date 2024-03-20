@@ -356,7 +356,7 @@ az network watcher test-connectivity --source-resource '/subscriptions/abcdef01-
 
 ## Test connectivity to a website
 
-In this section, you test connectivity between a virtual machine and a website.
+In this section, you test the connectivity between a virtual machine and a website.
 
 Use [az network watcher test-connectivity](/cli/azure/network/watcher#az-network-watcher-test-connectivity) to run connection troubleshoot to test the connectivity to `www.bing.com`:
 
@@ -502,7 +502,7 @@ az network watcher test-connectivity --resource-group 'myResourceGroup' --source
 
 ## Test connectivity to an IP address
 
-In this section, you test connectivity between a virtual machine and an IP address of another virtual machine.
+In this section, you test the connectivity between a virtual machine and an IP address of another virtual machine.
 
 Use [az network watcher test-connectivity](/cli/azure/network/watcher#az-network-watcher-test-connectivity) to run connection troubleshoot to test RDP connectivity to `10.10.10.10`:
 
