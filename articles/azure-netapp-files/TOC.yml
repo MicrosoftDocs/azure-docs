@@ -188,7 +188,7 @@
       - name: Benefits of using Azure NetApp Files with Oracle Database
         href: solutions-benefits-azure-netapp-files-oracle-database.md
       - name: Benefits of using Azure NetApp Files for electronic design automation
-        href: electronic-design-automation-benefits.md
+        href: solutions-benefits-azure-netapp-files-electronic-design-automation.md
       - name: Benefits of using Azure NetApp Files with Azure Virtual Desktop
         href: solutions-windows-virtual-desktop.md
       - name: Benefits of using Azure NetApp Files for SQL Server deployment

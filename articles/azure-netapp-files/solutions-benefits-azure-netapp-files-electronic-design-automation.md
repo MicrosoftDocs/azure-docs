@@ -41,7 +41,7 @@ Tests conducted internally using an EDA benchmark in 2020 found that with a sing
 
 The following chart illustrates the test results. 
 
-:::image type="content" source="./media/electronic-design-automation-benefits/latency-throughput-graph.png" alt-text="Chart comparing latency and throughput between large and regular volumes." lightbox="./media/electronic-design-automation-benefits/latency-throughput-graph.png":::
+:::image type="content" source="./media/solutions-benefits-azure-netapp-files-electronic-design-automation/latency-throughput-graph.png" alt-text="Chart comparing latency and throughput between large and regular volumes." lightbox="./media/solutions-benefits-azure-netapp-files-electronic-design-automation/latency-throughput-graph.png":::
 
 The 2020 internal testing also explored single endpoint limits, the limits were reached with six volumes. Large Volume outperforms the scenario with six regular volumes by 260%.
 
@@ -59,7 +59,7 @@ With a large volume, performance isn't the entire story. Simple performance is t
 
 The EDA workload in this test has been generated using a standard industry benchmark tool. It simulates a mixture of EDA applications used to design semiconductor chips.  The EDA workload distribution is as such:
 
-:::image type="content" source="./media/electronic-design-automation-benefits/pie-chart-large-volume.png" alt-text="Pie chart depicting frontend OP type." lightbox="./media/electronic-design-automation-benefits/pie-chart-large-volume.png":::
+:::image type="content" source="./media/solutions-benefits-azure-netapp-files-electronic-design-automation/pie-chart-large-volume.png" alt-text="Pie chart depicting frontend OP type." lightbox="./media/solutions-benefits-azure-netapp-files-electronic-design-automation/pie-chart-large-volume.png":::
 
 
 | EDA Frontend OP Type	| Percentage of Total |
@@ -77,15 +77,15 @@ The EDA workload in this test has been generated using a standard industry bench
 | Ulink2 | 1% |
 | <ul><li>Append</li><li>Custom2</li><li>Lock</li><li>Mmap_read</li><li> Mmap_write</li><li> Neg_stat</li><li> Read_modify_write</li> Rmdir </li><li> Write	</li></ul> | 0% | 
 
-:::image type="content" source="./media/electronic-design-automation-benefits/pie-chart-backend.png" alt-text="Pie chart depicting backend OP type distribution." lightbox="./media/electronic-design-automation-benefits/pie-chart-backend.png":::
+:::image type="content" source="./media/solutions-benefits-azure-netapp-files-electronic-design-automation/pie-chart-backend.png" alt-text="Pie chart depicting backend OP type distribution." lightbox="./media/solutions-benefits-azure-netapp-files-electronic-design-automation/pie-chart-backend.png":::
 
 | EDA Backend OP Type | Percentage of Total |
 | - | - | 
 | Read | 50% | 
 | Write | 50% | 
-|  <ul><li>Custom2</li><li>Mmap_read</li><li>Random_read</li><li>Read_file/li><li>Read_modify_file</li><li></ul> | 0% | 
+|  <ul><li>Custom2</li><li>Mmap_read</li><li>Random_read</li><li>Read_file/li><li>Read_modify_file</li></ul> | 0% | 
 
-:::image type="content" source="./media/electronic-design-automation-benefits/pie-chart-large-volume.png" alt-text="Pie chart of EDA workloads." lightbox="./media/electronic-design-automation-benefits/pie-chart-large-volume.png":::
+:::image type="content" source="./media/solutions-benefits-azure-netapp-files-electronic-design-automation/pie-chart-large-volume.png" alt-text="Pie chart of EDA workloads." lightbox="./media/solutions-benefits-azure-netapp-files-electronic-design-automation/pie-chart-large-volume.png":::
 
 ## Test Configuration 
 
