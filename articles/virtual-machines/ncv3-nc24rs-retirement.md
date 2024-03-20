@@ -13,11 +13,11 @@ ms.subservice: sizes
 
 On March 31, 2025, Microsoft Azure will retire the Standard_NC24rs_v3 virtual machine (VM) size in NCv3-series virtual machines (VMs). To avoid any disruption to your service, we recommend that you change the VM sizing for your workloads from the current Standard_NC24rs_v3 to the newer VM series in the same NC product line.
 
-Microsoft is recommending, the Azure [NC A100 v4-series](./nc-a100-v4-series.md) VMs, which offers greater GPU memory bandwidth per GPU, improved [Accelerated Networking](https://learn.microsoft.com/azure/virtual-network/accelerated-networking-overview?tabs=redhat) capabilities, larger and faster local solid state drives. Overall the NC A100 v4-series delivers [better cost performance](https://techcommunity.microsoft.com/t5/azure-high-performance-computing/a-quick-start-to-benchmarking-in-azure-nvidia-deep-learning/ba-p/3563884) across midrange AI training and inference workloads. 
+Microsoft is recommending, the Azure [NC A100 v4-series](./nc-a100-v4-series.md) VMs, which offers greater GPU memory bandwidth per GPU, improved [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md) capabilities, larger and faster local solid state drives. Overall the NC A100 v4-series delivers [better cost performance](https://techcommunity.microsoft.com/t5/azure-high-performance-computing/a-quick-start-to-benchmarking-in-azure-nvidia-deep-learning/ba-p/3563884) across midrange AI training and inference workloads. 
 
 ## How does the retirement of the Standard_NC24rs_v3 affect me?
 
-**After March 31st, 2025, any remaining** **Standard_NC24rs_v3 VM subscriptions will be set to a deallocated state. They'll stop working and no longer incur billing charges. The** **Standard_NC24rs_v3** **VM size** **will no longer be under SLA or have support included.**
+After March 31st, 2025, any remaining Standard_NC24rs_v3 VM subscriptions will be set to a deallocated state. They'll stop working and no longer incur billing charges. The Standard_NC24rs_v3 VM size will no longer be under SLA or have support included.
 
 *Note: This retirement only impacts the virtual machine sizes in the Standard_NC24rs_v3 size in* _NCv3-series powered by NVIDIA V100 GPUs. See [retirement guide for Standard_NC6s_v3, Standard_NC12s_v3, and Standard_NC24s_v3](https://aka.ms/ncv3nonrdmasizemigration)_.  This retirement announcement doesn't apply to NCasT4 v3, and NC A100 v4 and NCads H100 v5 series virtual machines._ 
 
