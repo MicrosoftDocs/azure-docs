@@ -41,9 +41,7 @@ For detailed information, see [Dimensions for Azure Stream Analytics metrics](st
 ### Supported resource logs for Microsoft.StreamAnalytics/streamingjobs
 [!INCLUDE [Microsoft.StreamAnalytics/streamingjobs](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-streamanalytics-streamingjobs-logs-include.md)]
 
-### Resource logs schema
-
-[!INCLUDE [resource-logs-schema](./includes/resource-logs-schema.md)]
+For the resource logs schema and properties for data errors and events, see [Resource logs schema](stream-analytics-job-diagnostic-logs.md#resource-logs-schema).
 
 [!INCLUDE [horz-monitor-ref-logs-tables](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 

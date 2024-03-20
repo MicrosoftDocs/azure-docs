@@ -22,6 +22,8 @@ For more information about the resource types for Azure Stream Analytics, see [A
 
 [!INCLUDE [horz-monitor-platform-metrics](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 
+### Azure Stream Analytics metrics
+
 For a description of how to monitor metrics in the Azure portal, see [Monitor Stream Analytics job with Azure portal](stream-analytics-monitoring.md).
 
 >[!NOTE]
@@ -35,9 +37,12 @@ For a list and descriptions of all available metrics for Azure Stream Analytics,
 
 [!INCLUDE [horz-monitor-resource-logs](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 
+### Azure Stream Analytics logs
+
 [!INCLUDE [resource-logs](./includes/resource-logs.md)]
 
 For the available resource log categories, their associated Log Analytics tables, and the log schemas for Azure Stream Analytics, see [Azure Stream Analytics monitoring data reference](monitor-azure-stream-analytics-reference.md#resource-logs).
+
 For a detailed walkthrough of how to troubleshoot Azure Stream Analytics job failures by using resource logs, see [Troubleshoot Azure Stream Analytics by using resource logs](stream-analytics-job-diagnostic-logs.md).
 
 [!INCLUDE [horz-monitor-activity-log](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
