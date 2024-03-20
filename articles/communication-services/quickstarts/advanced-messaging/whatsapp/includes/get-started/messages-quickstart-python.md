@@ -176,7 +176,7 @@ f               from azure.core.credentials import AzureKeyCredential
     
                 # Create NotificationMessagesClient Client
                 messaging_client = NotificationMessagesClient(endpoint=self.endpoint_string,
-                                                            credential=self.key)
+                                                            credential=AzureKeyCredential(self.key))
         
     ```
 
