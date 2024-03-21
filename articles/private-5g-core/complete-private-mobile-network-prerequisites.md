@@ -102,14 +102,6 @@ Depending on your networking requirements (for example, if a limited set of subn
 
 ### Data networks
 
-Allocate the following IP addresses for each data network in the site:
-
-- Network address in CIDR notation.
-- Default gateway.
-- One IP address for the user plane interface.
-  - For 5G, this is the N6 interface
-  - For 4G, this is the SGi interface.
-  - For combined 4G and 5G, this is the N6/SGi interface.
 :::zone pivot="ase-pro-2"
 
 - One IP address for port 4 on the Azure Stack Edge Pro GPU device.
@@ -118,6 +110,15 @@ Allocate the following IP addresses for each data network in the site:
 
 - One IP address for port 6 on the Azure Stack Edge Pro GPU device.
 :::zone-end
+
+Allocate the following IP addresses for each data network in the site:
+
+- Network address in CIDR notation.
+- Default gateway.
+- One IP address for the user plane interface.
+  - For 5G, this is the N6 interface
+  - For 4G, this is the SGi interface.
+  - For combined 4G and 5G, this is the N6/SGi interface.
 
 ### VLANs
 
