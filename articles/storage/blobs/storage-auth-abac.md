@@ -6,7 +6,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 03/05/2024
+ms.date: 04/01/2024
 ms.reviewer: nachakra
 ---
 
@@ -68,8 +68,10 @@ The following table shows the current status of ABAC by storage resource type an
 
 | Resource types | Attribute types    | Attributes                | Availability |
 |---|---|---|---|
-| Blobs<br/>Data Lake Storage Gen2<br/>Queues | request<br/>resource<br/>environment<br/>principal | All attributes except for the snapshot resource attribute for Data Lake Storage Gen2 | GA |
-| Data Lake Storage Gen2                      | resource                  | snapshot       | Preview |
+| Blobs<br/>Data Lake Storage Gen2<br/>Queues | request<br/>resource<br/>environment<br/>principal | All attributes except those explicitly noted in this table | GA |
+| Data Lake Storage Gen2                      | resource        | snapshot           | Preview |
+| Blobs<br/>Data Lake Storage Gen2            | resource        | container metadata | Preview |
+| Blobs<br/>Data Lake Storage Gen2            | request         | blobs:include      | Preview |
 
 See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
