@@ -75,7 +75,7 @@ If you are following the least privilege principle, assign the **Application Dev
 
 ### Set up an Azure network
 
-[Set up an Azure network](../virtual-network/manage-virtual-network.md#create-a-virtual-network). On-premises machines are replicated to Azure managed disks. When you fail over to Azure for migration, Azure VMs are created from these managed disks, and joined to the Azure network you set up.
+[Set up an Azure network](../virtual-network/manage-virtual-network.yml#create-a-virtual-network). On-premises machines are replicated to Azure managed disks. When you fail over to Azure for migration, Azure VMs are created from these managed disks, and joined to the Azure network you set up.
 
 ## Prepare for migration
 

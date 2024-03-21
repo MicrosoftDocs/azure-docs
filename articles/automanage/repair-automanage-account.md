@@ -71,7 +71,7 @@ If you're using an ARM template or the Azure CLI, you'll need the Principal ID (
 
 1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
     | Setting          | Value                              |
     | ---------------- | ---------------------------------- |
