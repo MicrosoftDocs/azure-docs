@@ -1,10 +1,10 @@
 ---
 title: Update Microsoft Sentinel's SAP data connector agent
 description: This article shows you how to update an already existing SAP data connector to its latest version.
-author: yelevin
-ms.author: yelevin
+author: batamig
+ms.author: bagol
 ms.topic: how-to
-ms.date: 12/31/2022
+ms.date: 03/21/2024
 ---
 
 # Update Microsoft Sentinel's SAP data connector agent
@@ -14,6 +14,14 @@ This article shows you how to update an already existing Microsoft Sentinel for 
 To get the latest features, you can [enable automatic updates](#automatically-update-the-sap-data-connector-agent-preview) for the SAP data connector agent, or [manually update the agent](#manually-update-sap-data-connector-agent).
 
 Note that the automatic or manual updates described in this article are relevant to the SAP connector agent only, and not to the Microsoft Sentinel Solution for SAP. To successfully update the solution, your agent needs to be up to date. The solution is updated separately.
+
+## Prerequisites
+
+Before you start, make sure that you have all the prerequisites for deploying Microsoft Sentinel solution for SAP applications.
+
+If you're updating from a version from before April 2024, note that you're now required to use a managed identity or service principal to authenticate to Microsoft Sentinel.
+
+For more information, see [Prerequisites for deploying Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md).
 
 ## Automatically update the SAP data connector agent (Preview)
 

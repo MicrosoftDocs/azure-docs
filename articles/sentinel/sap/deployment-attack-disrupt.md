@@ -25,49 +25,15 @@ For more information, see [Automatic attack disruption in Microsoft Defender XDR
 
 To deploy automatic attack disruption for SAP, make sure that have all the [prerequisites for deploying Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md).
 
-Additionally, configure the unified SOC platform to access attack disruption in the Microsoft Defender portal. For more information, see [Connect Microsoft Sentinel to Microsoft Defender XDR](https://aka.ms/onboard-microsoft-sentinel).
+## Deploy attack disruption for SAP
 
-## Deployed Azure resources
+Attack disruption for SAP requires that you have an agent with the latest version of the SAP data connector.
 
-Deploying automatic attack disruption for SAP deploys the following Azure resources to support Microsoft Sentinel's security orchestration, automation, and response (SOAR) capabilities:
+- **If you don't yet have an agent**, add a new one using the portal option only. For more information, see [Deploy the data connector agent container](deploy-data-connector-agent-container.md#deploy-the-data-connector-agent-container?tabs=managed-identity%2Cazure-portal).
 
-|Resource  | Description |
-|---------|---------|
-|An Azure storage account     |  Used to hold SAP agent queue messages, which are used by the disrupt API and playbooks to orchestrate disrupt operations in the SAP environment.       |
-|The *microsoft-internal-attack-disruption-SAP-lock-access* logic app and playbook    | The *disrupt* playbook, responsible for queueing messages needed to lock SAP users, verify success of the lock command with the agent, and update the Microsoft Sentinel incident with comments on actions taken. <br><br>This playbook is for internal use only and must not be deleted or modified.        |
-|The *microsoft-internal-attack-disruption-SAP-unlock-access* logic app and playbook     | Available for Microsoft Sentinel operators to run after an incident has been resolved. Run this playbook from the Microsoft Sentinel alert originally used to lock the SAP user to unlock the user in the SAP system.|
+- **If you have an existing agent**, update it manually to the latest version. Automatic updates aren't supported for attack disruption. For more information, see [Manually update SAP data connector agent](update-sap-data-connector.md#manually-update-sap-data-connector-agent).
 
-## Deployment steps in Microsoft Sentinel
-
-This section describes the deployment steps for automatic attack disruption for SAP in Microsoft Sentinel.
-
-1. In Microsoft Sentinel, select **Configuration > Data connectors > Microsoft Sentinel for SAP > Open connector page** to open the SAP data connector.
-
-1. Add a new agent, following the instructions on your screen. You'll need to provide the details of your SAP agent managed identity, or the application identity if the agent is on-premises. For more information, see [Create a new agent](deploy-data-connector-agent-container.md#create-a-new-agent).
-
-    To find an application identity object ID, go to the Microsoft Entra portal and select **Enterprise applications**. Search for the name of the App Registration, and copy the object ID value to use with your new agent.
-
-    > [!IMPORTANT]
-    > Don't confuse the App Registration object ID listed on the **App Registrations** page with the object ID listed on the **Enterprise Applications** page. Only the object ID from the **Enterprise Applications** page will work.
- 
-Towards the end of your agent creation, you're provided with a command line to copy to the clipboard. You'll use this command in the next section, as you deploy automatic attack disruption in [in your SAP environment](#deployment-steps-in-your-sap-environment).
-
-If you run into errors, check your Azure resource group's **Deployment** page. You'll also find more details in the ARM deployment logs.
-
-## Deployment steps in your SAP environment
-
-Complete the new agent setup by running the command provided when you [created your agent in Microsoft Sentinel](#deployment-steps-in-microsoft-sentinel) on your agent's virtual machine.
-
-Verify that the deployment successfully granted the following role assignments in the SAP system, required to enable SAP disrupt workflows:
-
-|Azure resource  |Target role assignment  |Target resource  |
-|---------|---------|---------|
-|*microsoft-internal-attack-disruption-SAP-lock-access*     |  [Microsoft Sentinel Responder ](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-responder)       |   Microsoft Sentinel Resource Group       |
-|*microsoft-internal-attack-disruption-SAP-lock-access*     |      [Storage Queue Data Contributor](/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)    |   Disrupt Storage account       |
-|*microsoft-internal-attack-disruption-SAP-unlock-access*     |   [Microsoft Sentinel Reader](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-reader)       |  Microsoft  Sentinel Resource Group      |
-|*microsoft-internal-attack-disruption-SAP-unlock-access*     |    Storage Queue Data Contributor      |  Disrupt Storage account        |
-|*Agent VM / Service Principal*     |    [Storage Queue Data Message Processor](/azure/role-based-access-control/built-in-roles#storage-queue-data-message-processor)      |    Disrupt Storage account      |
-
+Then, also reapply the *MSFTSEN_SENTINEL_CONNECTOR_ROLE_V0.0.27.SAP* role to ensure that it includes permissions required for attack disruption. For more information, see [Reapply the MSFTSEN_SENTINEL_CONNECTOR_ROLE_V0.0.27.SAP role](update-sap-data-connector.md#reapply-the-msftsen_sentinel_connector_role_v0.0.27.sap-role).
 
 ## Related content
 

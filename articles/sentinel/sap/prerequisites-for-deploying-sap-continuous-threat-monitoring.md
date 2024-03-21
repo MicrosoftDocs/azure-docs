@@ -4,7 +4,7 @@ description: This article lists the prerequisites required for deployment of the
 author: batamig
 ms.author: bagol
 ms.topic: how-to
-ms.date: 06/19/2023
+ms.date: 03/21/2024
 ---
 # Prerequisites for deploying Microsoft Sentinel solution for SAP® applications
 
