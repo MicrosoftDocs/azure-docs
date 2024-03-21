@@ -10,6 +10,8 @@ ms.date: 02/24/2022
 
 # Configure API for server-sent events
 
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
+
 This article provides guidelines for configuring an API in API Management that implements server-sent events (SSE). SSE is based on the HTML5 `EventSource` standard for streaming (pushing) data automatically to a client over HTTP after a client has established a connection.
 
 > [!TIP]
@@ -19,8 +21,6 @@ This article provides guidelines for configuring an API in API Management that i
 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).
 - An API that implements SSE. [Import and publish](import-and-publish.md) the API to your API Management instance using one of the supported import methods. 
-
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## Guidelines for SSE
 
