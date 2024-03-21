@@ -12,7 +12,7 @@ ms.topic: how-to
 
 # Private DNS information in Azure Resource Graph
 
-This article describes some of the ways you can use Azure Resource Graph Exporer to view and count resource records in your Azure Private DNS zones. A number of example queries are provided.
+This article describes some of the ways you can use Azure Resource Graph Exporer to view information about your Azure Private DNS zones and records. Some example queries are provided.
 
 [Azure Resource Graph](../governance/resource-graph/overview.md) (ARG) is an Azure service that allows you to query your Azure resources with complex filtering, grouping, and sorting. ARG queries provide detailed information about your resources and you can display the results in several ways. 
 
@@ -50,7 +50,7 @@ The query counts all records that the current subscription has permission to vie
 
 ![Screenshot of a resource record count query donut chart.](./media/private-dns-arg/count-donut.png)
 
-## List, filter, and sort resource records
+## List, filter, search, and sort resource records
 
 Query results can be filtered by specifying parameters such as the zone name, subscription ID, resource group, or record type. For example, the following example query returns list of A or CNAME records in the zone **private.contoso.com** for a given subscription and resource group. The output of this query is similar to viewing the private zone, with the added ability to filter and sort results by name and type:
 
@@ -67,6 +67,14 @@ dnsresources
 ```
 
 ![Screenshot of a resource record list query.](./media/private-dns-arg/list-query.png)
+
+The following query returns private DNS records that match a specific IPv4 address:
+
+```Kusto
+dnsresources
+| where properties['records'][0]['ipv4Address'] == "10.10.2.5"
+| project name, type, resourceGroup, properties
+```
 
 ### Regular expressions
 
