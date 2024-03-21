@@ -1,4 +1,4 @@
-f---
+---
 title: SOC optimization reference (Preview)
 description: Learn about the SOC optimization recommendations available to help you optimize your security operations.
 ms.service: defender-xdr
