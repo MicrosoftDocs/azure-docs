@@ -34,7 +34,6 @@ To deploy automatic attack disruption for SAP, you need the following:
 
 - [Microsoft Sentinel integrated into the Microsoft Defender portal](/microsoft-365/security/defender/microsoft-sentinel-onboard)
 
-Microsoft Sentinel must also have playbook permissions configured. To ensure you have the correct permissions, in Microsoft Sentinel, select **Settings > Settings > Playbook permissions > Configure permissions**. Make sure that your Microsoft Sentinel workspace's resource group is listed under **Current permissions**.
 
 ## Deployed Azure resources
 
