@@ -126,4 +126,5 @@ Blazor Server apps store state on the server, which means that each client must 
 
 > [!div class="nextstepaction"]
 > [Deploying and scaling an ASP.NET Core app on Azure Container Apps](/aspnet/core/host-and-deploy/scaling-aspnet-apps/scaling-aspnet-apps)
+> 
 > [Deploy a .NET Aspire app](/dotnet/aspire/deployment/azure/aca-deployment)
