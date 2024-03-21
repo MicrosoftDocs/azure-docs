@@ -51,7 +51,7 @@ call out those versions (for example: Visual Studio 2019 or later).
 -->
 
 ## Prerequisites
-[!div class="checklist"]
+> [!div class="checklist"]
 > * Azure tenant ID and subscription ID
 > * Azure CLI installed
 > * Install Signtool from Windows SDK (min version: 10.0.19041.0)

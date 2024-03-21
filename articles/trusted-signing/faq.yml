@@ -20,18 +20,18 @@ sections:
       - question: What Windows versions does Trusted Signing support? # Question.
         answer: | 
           Refer to the [Trusted Signing Program Windows Support](https://support.microsoft.com/topic/kb5022661-windows-support-for-the-azure-code-signing-program-4b505a31-fa1e-4ea6-85dd-6630229e8ef4) page for details about Windows support for Trusted Signing.
-          The service is supported on all currently supported versions of:  
-          *Windows 11 (Supported out of the box) 
-          *Windows 10 - RS5 (Windows 10, Version 1809/ October 2018 Update) or newer 
-          *Windows Server 2019, Windows Server 2016  
+          The service is supported on all currently supported versions of:
+          * Windows 11 (Supported out of the box) 
+          * Windows 10 - RS5 (Windows 10, Version 1809/ October 2018 Update) or newer 
+          * Windows Server 2019, Windows Server 2016  
           Files signed by Trusted Signing’s Public Trust certificates are trusted on:  
-          *Windows Server 2012 R2 (Command line only) 
-          *Windows 8.1 
-          *Windows 7 SP1 ESU - Must install May 2021 update rolls up  
-          *Windows 10 1507  
-          Not Supported 
-          *Windows 7 SP1 non-ESU (Not supported by Microsoft) 
-          *Windows OS version that were already end of life
+          * Windows Server 2012 R2 (Command line only) 
+          * Windows 8.1 
+          * Windows 7 SP1 ESU - Must install May 2021 update rolls up  
+          * Windows 10 1507  
+          Not Supported
+          * Windows 7 SP1 non-ESU (Not supported by Microsoft) 
+          * Windows OS version that were already end of life
 
           General User Mode Code Integrity (UMCI) support for Trusted Signing:
           * Signed binaries was added in the July 2021 Certificate Trust List (CTL) update delivered by Windows. In standard scenarios, upon first sight of an end-entity cert from a chain on the machine, the system pulls down the root CA cert into the trust root store on a system.  
@@ -105,7 +105,7 @@ sections:
       - question: How do I fix pop-up credentials in the Azure VM when running the SignTool + Dlib command?
         answer: |
           - [Create a user-assigned managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). 
-          - Then add the user-assigned managed identity to the VM. :::image type="content" source="media\trusted-signing-user-managed-identity.png" alt-text="Screenshot of adding managed identity to the VM.":::
+          - Then add the user-assigned managed identity to the VM by selecting the VM, going to "Identity" in the left navigation bar, clicking "User assigned" and the "Add" button to add the managed identity. 
           - Finally, in the Resource Group (or Subscription) that has the role Trusted Signing Certificate Profile Signer, add the user-assigned managed identity to the role. Go to "Access control (IAM)" and "Role assignments" to assign the correct role.
       - question: How do I fix pop-up credentials when using GCP?
         answer: |
