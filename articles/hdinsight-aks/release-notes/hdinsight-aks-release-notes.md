@@ -45,10 +45,10 @@ You can refer to [What's new](../whats-new.md) page for all the details of the f
 
 With private clusters, and outbound cluster settings you can now control ingress and egress traffic from HDInsight on AKS cluster pools and clusters.
 
-1. Use Azure Firewall or Network Security Groups (NSGs) to control the egress traffic, when you opt to use outbound cluster pool with load balancer.
-1. Use Outbound cluster pool with User defined routing to control egress traffic at the subnet level.
-1. Use Private AKS cluster feature - To ensure AKS control plane, or API server has internal IP addresses. The network traffic between AKS Control plane / API server and HDInsight on AKS node pools (clusters) remains on the private network only.
-1. Avoid creating public IPs for the cluster. Use private ingress feature on your clusters.
+- Use Azure Firewall or Network Security Groups (NSGs) to control the egress traffic, when you opt to use outbound cluster pool with load balancer.
+- Use Outbound cluster pool with User defined routing to control egress traffic at the subnet level.
+- Use Private AKS cluster feature - To ensure AKS control plane, or API server has internal IP addresses. The network traffic between AKS Control plane / API server and HDInsight on AKS node pools (clusters) remains on the private network only.
+- Avoid creating public IPs for the cluster. Use private ingress feature on your clusters.
 
 **In place Upgrade**
 
