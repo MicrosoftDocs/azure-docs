@@ -1,9 +1,9 @@
 ---
-title: Tutorial - Use custom allocation policies with Azure IoT Hub Device Provisioning Service
+title: Tutorial - Assign devices to multiple hubs using DPS
 description: This tutorial shows how to provision devices using a custom allocation policy in your Azure IoT Hub Device Provisioning Service (DPS) instance.
 author: kgremban
 ms.author: kgremban
-ms.date: 09/13/2022
+ms.date: 03/21/2024
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
@@ -12,7 +12,7 @@ ms.custom: devx-track-csharp, devx-track-azurecli
 
 # Tutorial: Use custom allocation policies with Device Provisioning Service (DPS)
 
-Custom allocation policies give you more control over how devices are assigned to your IoT hubs. With custom allocation policies, you can define your own allocation policies when the policies provided by the Azure IoT Hub Device Provisioning Service (DPS) don't meet the requirements of your scenario. A custom allocation policy is implemented in a webhook hosted in [Azure functions](../azure-functions/functions-overview.md) and configured on one or more individual enrollments and/or enrollment groups. When a device registers with DPS using a configured enrollment entry, DPS calls the webhook to find out which IoT hub the device should be registered to and, optionally, its initial state. To learn more, see [Understand custom allocation policies](concepts-custom-allocation.md).
+Custom allocation policies give you more control over how devices are assigned to your IoT hubs. With custom allocation policies, you can define your own allocation policies when the policies provided by the Azure IoT Hub Device Provisioning Service (DPS) don't meet the requirements of your scenario. A custom allocation policy is implemented in a webhook hosted in [Azure Functions](../azure-functions/functions-overview.md) and configured on one or more individual enrollments and/or enrollment groups. When a device registers with DPS using a configured enrollment entry, DPS calls the webhook to find out which IoT hub the device should be registered to and, optionally, its initial state. To learn more, see [Understand custom allocation policies](concepts-custom-allocation.md).
 
 This tutorial demonstrates a custom allocation policy using an Azure Function written in C#. Devices are assigned to one of two IoT hubs representing a *Contoso Toasters Division* and a *Contoso Heat Pumps Division*. Devices requesting provisioning must have a registration ID with one of the following suffixes to be accepted for provisioning:
 
@@ -24,12 +24,12 @@ Devices will be simulated using a provisioning sample included in the [Azure IoT
 In this tutorial, you'll do the following:
 
 > [!div class="checklist"]
-> * Use the Azure CLI to create a DPS instance and to create and link two Contoso division IoT hubs (**Contoso Toasters Division** and **Contoso Heat Pumps Division**) to it
-> * Create an Azure Function that implements the custom allocation policy
-> * Create a new enrollment group uses the Azure Function for the custom allocation policy
-> * Create device symmetric keys for two simulated devices
-> * Set up the development environment for the Azure IoT C SDK
-> * Simulate the devices and verify that they are provisioned according to the example code in the custom allocation policy
+> * Use the Azure CLI to create a DPS instance and to create and link two Contoso division IoT hubs (**Contoso Toasters Division** and **Contoso Heat Pumps Division**) to it.
+> * Create an Azure Function that implements the custom allocation policy.
+> * Create a new enrollment group uses the Azure Function for the custom allocation policy.
+> * Create device symmetric keys for two simulated devices.
+> * Set up the development environment for the Azure IoT C SDK.
+> * Simulate the devices and verify that they are provisioned according to the example code in the custom allocation policy.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -39,80 +39,90 @@ The following prerequisites are for a Windows development environment. For Linux
 
 - [Visual Studio](https://visualstudio.microsoft.com/vs/) 2022 with the ['Desktop development with C++'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) workload enabled. Visual Studio 2015 and Visual Studio 2017 are also supported.
 
-- Latest version of [Git](https://git-scm.com/download/) installed.
+- Git installed. For more information, see [Git downloads](https://git-scm.com/download/).
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+- Azure CLI installed. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli). Or, you can run the commands in this tutorial in the Bash environment in [Azure Cloud Shell](/azure/cloud-shell/overview).
 
-## Create the provisioning service and two divisional IoT hubs
+## Create the provisioning service and two IoT hubs
 
 In this section, you use the Azure Cloud Shell to create a provisioning service and two IoT hubs representing the **Contoso Toasters Division** and the **Contoso Heat Pumps division**.
 
-> [!TIP]
-> The commands used in this tutorial create the provisioning service and other resources in the West US location. We recommend that you create your resources in the region nearest you that supports Device Provisioning Service. You can view a list of available locations by running the command `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` or by going to the [Azure Status](https://azure.microsoft.com/status/) page and searching for "Device Provisioning Service". In commands, locations can be specified either in one word or multi-word format; for example: westus, West US, WEST US, etc. The value is not case sensitive. If you use multi-word format to specify location, enclose the value in quotes; for example, `-- location "West US"`.
->
+1. First, set environment variables in your workspace to simplify the commands in this tutorial.
 
-1. Use the Azure Cloud Shell to create a resource group with the [az group create](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
+   The DPS and IoT Hub names must be globally unique. Replace the `SUFFIX` placeholder with your own value.
 
-    The following example creates a resource group named *contoso-us-resource-group* in the *westus* region. We recommend that you use this group for all resources created in this tutorial. This approach will make clean up easier after you're finished.
+   Also, the Azure Function code you create later in this tutorial looks for IoT hubs that have either `-toasters-` or `-heatpups-` in their names. If you change the suggested values, make sure to use names that contain the required substrings.
+
+   ### [Bash](#tab/bash)
+
+   ```bash
+   export RESOURCE_GROUP="contoso-us-resource-group"
+   export LOCATION="westus"
+   export DPS="contoso-provisioning-service-SUFFIX"
+   export TOASTER_HUB="contoso-toasters-hub-SUFFIX"
+   export HEATPUMP_HUB="contoso-heatpumps-hub-SUFFIX"
+   ```
+
+   ### [PowerShell](#tab/powershell)
+
+   ```powershell
+   $env:RESOURCE_GROUP = "contoso-us-resource-group"
+   $env:LOCATION = "westus"
+   $env:DPS = "contoso-provisioning-service-SUFFIX"
+   $env:TOASTER_HUB = "contoso-toasters-hub-SUFFIX"
+   $env:HEATPUMP_HUB = "contoso-heatpumps-hub-SUFFIX"
+   ```
+
+   ---
+
+   > [!TIP]
+   > The commands used in this tutorial create resources in the West US location by default. We recommend that you create your resources in the region nearest you that supports Device Provisioning Service. You can view a list of available locations by going to the [Azure Status](https://azure.microsoft.com/status/) page and searching for "Device Provisioning Service". In commands, locations can be specified either in one word or multi-word format; for example: westus, West US, WEST US, etc. The value is not case sensitive.
+
+1. Use the [az group create](/cli/azure/group#az-group-create) command to create an Azure resource group. An Azure resource group is a logical container into which Azure resources are deployed and managed.
+
+   The following example creates a resource group. We recommend that you use a single group for all resources created in this tutorial. This approach will make clean up easier after you're finished.
+
+   ```azurecli-interactive
+   az group create --name $RESOURCE_GROUP --location $LOCATION
+   ```
+   
+2. Use the [az iot dps create](/cli/azure/iot/dps#az-iot-dps-create) command to create an instance of the Device Provisioning Service (DPS). The provisioning service is added to *contoso-us-resource-group*.
 
     ```azurecli-interactive
-    az group create --name contoso-us-resource-group --location westus
+    az iot dps create --name $DPS --resource-group $RESOURCE_GROUP --location $LOCATION
     ```
 
-2. Use the Azure Cloud Shell to create a device provisioning service (DPS) with the [az iot dps create](/cli/azure/iot/dps#az-iot-dps-create) command. The provisioning service will be added to *contoso-us-resource-group*.
+    This command might take a few minutes to complete.
 
-    The following example creates a provisioning service named *contoso-provisioning-service-1098* in the *westus* location. You must use a unique service name. Make up your own suffix in the service name in place of **1098**.
+3. Use the [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) command to create the **Contoso Toasters Division** IoT hub. The IoT hub is added to *contoso-us-resource-group*.
 
     ```azurecli-interactive
-    az iot dps create --name contoso-provisioning-service-1098 --resource-group contoso-us-resource-group --location westus
+    az iot hub create --name $TOASTER_HUB --resource-group $RESOURCE_GROUP --location $LOCATION --sku S1
     ```
 
     This command may take a few minutes to complete.
 
-3. Use the Azure Cloud Shell to create the **Contoso Toasters Division** IoT hub with the [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) command. The IoT hub will be added to *contoso-us-resource-group*.
-
-    The following example creates an IoT hub named *contoso-toasters-hub-1098* in the *westus* location. You must use a unique hub name. Make up your own suffix in the hub name in place of **1098**.
-
-    > [!CAUTION]
-    > The example Azure Function code for the custom allocation policy requires the substring `-toasters-` in the hub name. Make sure to use a name containing the required toasters substring.
+4. Use the [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) command to create the **Contoso Heat Pumps Division** IoT hub. This IoT hub also is added to *contoso-us-resource-group*.
 
     ```azurecli-interactive
-    az iot hub create --name contoso-toasters-hub-1098 --resource-group contoso-us-resource-group --location westus --sku S1
+    az iot hub create --name HEATPUMP_HUB --resource-group $RESOURCE_GROUP --location $LOCATION --sku S1
     ```
 
     This command may take a few minutes to complete.
 
-4. Use the Azure Cloud Shell to create the **Contoso Heat Pumps Division** IoT hub with the [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) command. This IoT hub will also be added to *contoso-us-resource-group*.
-
-    The following example creates an IoT hub named *contoso-heatpumps-hub-1098* in the *westus* location. You must use a unique hub name. Make up your own suffix in the hub name in place of **1098**.
-
-    > [!CAUTION]
-    > The example Azure Function code for the custom allocation policy requires the substring `-heatpumps-` in the hub name. Make sure to use a name containing the required heatpumps substring.
-
-    ```azurecli-interactive
-    az iot hub create --name contoso-heatpumps-hub-1098 --resource-group contoso-us-resource-group --location westus --sku S1
-    ```
-
-    This command may take a few minutes to complete.
-
-5. The IoT hubs must be linked to the DPS resource.
-
-    Run the following two commands to get the connection strings for the hubs you created. Replace the hub resource names with the names you chose in each command:
+5. Run the following two commands to get the connection strings for the hubs you created.
 
     ```azurecli-interactive 
-    hubToastersConnectionString=$(az iot hub connection-string show --hub-name contoso-toasters-hub-1098 --key primary --query connectionString -o tsv)
-    hubHeatpumpsConnectionString=$(az iot hub connection-string show --hub-name contoso-heatpumps-hub-1098 --key primary --query connectionString -o tsv)
+    TOASTER_HUB_CONNECTION_STRING=$(az iot hub connection-string show --hub-name $TOASTER_HUB --key primary --query connectionString -o tsv)
+    HEATPUMP_HUB_CONNECTION_STRING=$(az iot hub connection-string show --hub-name HEATPUMP_HUB --key primary --query connectionString -o tsv)
     ```
 
-    Run the following commands to link the hubs to the DPS resource. Replace the DPS resource name with the name you chose in each command:
+6. Run the following commands to link the hubs to the DPS resource. Replace the DPS resource name with the name you chose in each command:
 
     ```azurecli-interactive 
-    az iot dps linked-hub create --dps-name contoso-provisioning-service-1098 --resource-group contoso-us-resource-group --connection-string $hubToastersConnectionString --location westus
-    az iot dps linked-hub create --dps-name contoso-provisioning-service-1098 --resource-group contoso-us-resource-group --connection-string $hubHeatpumpsConnectionString --location westus
+    az iot dps linked-hub create --dps-name $DPS --resource-group $RESOURCE_GROUP --connection-string $TOASTER_HUB_CONNECTION_STRING --location $LOCATION
+    az iot dps linked-hub create --dps-name $DPS --resource-group $RESOURCE_GROUP --connection-string $HEATPUMP_HUB_CONNECTION_STRING --location $LOCATION
     ```
-
-
-
 
 ## Create the custom allocation function
 
