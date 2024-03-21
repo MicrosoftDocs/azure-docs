@@ -293,9 +293,9 @@
   items:
     - name: .NET
       items:
-      - name: Deploy a .NET Aspire app
-        href: /aspnet/core/host-and-deploy/scaling-aspnet-apps/scaling-aspnet-apps
       - name: Deploy and scale an ASP.NET Core app
+        href: /aspnet/core/host-and-deploy/scaling-aspnet-apps/scaling-aspnet-apps
+      - name: Deploy a .NET Aspire app
         href: /dotnet/aspire/deployment/azure/aca-deployment
     - name: Java
       items:

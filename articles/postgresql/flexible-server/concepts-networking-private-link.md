@@ -51,7 +51,7 @@ Clients can connect to the private endpoint from the same VNet, peered VNet in s
 
 :::image type="content" source="./media/concepts-networking/show-private-link-overview.png" alt-text="Diagram that shows how Azure Private Link works with Private Endpoints."  lightbox="./media/concepts-networking/show-private-link-overview.png":::
 
-### Limitations and Supported Features for Private Link  Preview with Azure Database for PostgreSQL flexible server
+### Limitations and Supported Features for Private Link  with Azure Database for PostgreSQL flexible server
 
 
 Cross Feature Availability Matrix for Private Endpoint in Azure Database for PostgreSQL flexible server.
@@ -59,7 +59,8 @@ Cross Feature Availability Matrix for Private Endpoint in Azure Database for Pos
 | **Feature** | **Availability** | **Notes** |
 | --- | --- | --- |
 | High Availability (HA) | Yes |Works as designed |
-| Read Replica | Yes | **Limitation: support replica site swap only with single replica.**|
+| Read Replica | Yes | Works as designed|
+| Read Replica with Virtual Endpoints|Yes|**Important limitation: Supported with single read replica** |
 | Point in Time Restore (PITR) | Yes |Works as designed |
 | Allowing also public/internet access with firewall rules | Yes | Works as designed|
 | Major Version Upgrade (MVU) | Yes | Works as designed |
