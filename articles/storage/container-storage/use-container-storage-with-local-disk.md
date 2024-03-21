@@ -4,7 +4,7 @@ description: Configure Azure Container Storage for use with Ephemeral Disk using
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 03/12/2024
+ms.date: 03/21/2024
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -35,7 +35,7 @@ First, create a storage pool, which is a logical grouping of storage for your Ku
 
 If you enabled Azure Container Storage using `az aks create` or `az aks update` commands, you might already have a storage pool. Use `kubectl get sp -n acstor` to get the list of storage pools. If you have a storage pool already available that you want to use, you can skip this section and proceed to [Display the available storage classes](#display-the-available-storage-classes).
 
-You have three options to create a storage pool that uses Emphemeral Disk:
+You have three options to create a storage pool that uses Ephemeral Disk:
 
 - [Create storage pool with local NVMe](#create-a-storage-pool-with-nvme)
 - [Create storage pool with temp SSD](#create-a-storage-pool-with-temp-ssd)
