@@ -12,6 +12,8 @@ ms.author: danlep
 
 # Upcoming breaking changes
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 The following table lists all the upcoming breaking changes and feature retirements for Azure API Management.
 
 | Change Title | Effective Date |

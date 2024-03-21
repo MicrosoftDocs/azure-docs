@@ -13,6 +13,8 @@ ms.custom:
 
 # Workspaces in Azure API Management
 
+[!INCLUDE [api-management-availability-premium](../../includes/api-management-availability-premium.md)]
+
 In API Management, *workspaces* allow decentralized API development teams to manage and productize their own APIs, while a central API platform team maintains the API Management infrastructure. Each workspace contains APIs, products, subscriptions, and related entities that are accessible only to the workspace collaborators. Access is controlled through Azure role-based access control (RBAC). 
 
 [!INCLUDE [api-management-availability-premium](../../includes/api-management-availability-premium.md)]
