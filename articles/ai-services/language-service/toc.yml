@@ -282,8 +282,6 @@ items:
         items:
         - name: Recognized entity categories
           href: named-entity-recognition/concepts/named-entity-categories.md
-        - name: Entity resolution
-          href: named-entity-recognition/concepts/entity-resolutions.md
         - name: Entity Metadata
           href: named-entity-recognition/concepts/entity-metadata.md
         - name: Preview API overview
