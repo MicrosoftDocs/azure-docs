@@ -9,7 +9,7 @@ ms.date: 02/14/2023
 ms.custom: template-concept
 ---
 
-# Weather data overview
+# Ingest weather forecast data in Azure Data Manager for Agriculture
 
 Weather is a highly democratized service in the agriculture industry. Azure Data Manager for Agriculture offers customers the ability to work with the weather provider of their choice.
 

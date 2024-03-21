@@ -9,7 +9,7 @@ ms.date: 06/19/2023
 ms.custom: template-concept
 ---
 
-# Ingest sensor data
+# Ingest sensor data in Azure Data Manager for Agriculture
 
 Smart agriculture, also known as precision agriculture, allows growers to maximize yields by using minimal resources such as water, fertilizer, and seeds. By deploying sensors, growers and research organizations can begin to understand crops at a micro scale, conserve resources, reduce impact on the environment, and maximize crop yield. Sensors enable important ground-truth data (such as soil moisture, rainfall, and wind speed). This data, in turn, improves the accuracy of recommendations.
 
