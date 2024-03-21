@@ -4,7 +4,7 @@ description: Learn how to import on-premises servers in a VMware environment by 
 author: snehasudhirG
 ms.author: sudhirsneha
 ms.topic: tutorial
-ms.date: 03/20/2024
+ms.date: 03/22/2024
 ms.service: azure-migrate
 #Customer intent: As an VMware admin, I want to import my on-premises servers running in a VMware environment.
 ---
@@ -39,7 +39,7 @@ Before you begin this tutorial, ensure that you have the following prerequisites
 - The XLSX file should contain the vInfo & vDisk sheets and the VM, Powerstate, Disks, CPUs, Memory, Provisioned MiB, In use MiB, OS according to the configuration file, VM UUID columns from the vInfo sheet and the VM, Capacity MiB columns from the vDisk sheet should be present.
 
 > [!NOTE]
-> The number of disks that will be seen in the assessed machines will be one. However, the total configured and used storage capacity is being considered from the RVTools file import.
+> The number of disks that will be seen in the discovered and assessed machines will be one. However, the total configured and used storage capacity is being considered from the RVTools file import.
  
 
 ## Prepare an Azure user account
