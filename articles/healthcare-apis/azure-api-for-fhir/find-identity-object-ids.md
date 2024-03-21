@@ -71,4 +71,4 @@ az ad group show --group "mygroup" --query id --out tsv
 
 [Configure local RBAC settings](configure-local-rbac.md)
 
-[!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-dicom-trademark.md)]
+[!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
