@@ -11,17 +11,18 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-# The following sections provide information about known issues associated with the Azure Communication Services Calling Native and Native UI SDKs.
+# Known issues associated with the Azure Communication Services Calling Native and Native UI SDKs.
+This article provides known issues related to using the Azure Communication Services native calling SDKs.
 
 ## Issues with Android API emulators
 
 When utilizing Android API emulators on Android 5.0 (API level 21) and Android 5.1 (API level 22), some crashes are expected.  
 
-## Android Trouter module conflicts
+## Andriod chat and calling conflicts
 
-When using Azure Communication Services chat and calling Android SDK at the same time, the chat real-time notifications feature doesn't work. You might get a dependency resolving issue.
+You can not use Azure Communication Services chat and calling Android SDK at the same time, the chat real-time notifications feature doesn't work. You might get a dependency resolving issue.
 
-So resolve this issue you can turn off real-time notifications feature by adding the following dependency information in app's build.gradle file and instead poll the GetMessages API to display incoming messages to users.
+To resolve this issue you can turn off real-time notifications by adding the following dependency information in your app's build.gradle file and instead poll the GetMessages API to display incoming messages to end users.
 
 **Java**
 ```java
