@@ -1,6 +1,6 @@
 ---
-title: Azure Automanage machine configuration (guest configuration)
-description: Learn about the machine configuration extension feature of Azure Automanage, and audit and configure settings for Azure virtual machines.
+title: Azure machine configuration (guest configuration)
+description: Learn about the Azure machine configuration extension, and audit and configure settings for Azure virtual machines.
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
@@ -9,9 +9,9 @@ ms.author: migreene
 ms.date: 04/05/2023
 ---
 
-# Azure Automanage machine configuration extension
+# Azure machine configuration extension
 
-The machine configuration extension is a feature of Azure Automanage that performs audit and configuration operations inside virtual machines (VMs).
+The Azure machine configuration extension performs audit and configuration operations inside virtual machines (VMs).
 
 To check policies inside VMs, such as Azure compute security baseline definitions for [Linux](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffc9b3da7-8347-4380-8e70-0a0361d8dedd) and [Windows](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72650e9f-97bc-4b2a-ab5f-9781a9fcecbc), the machine configuration extension must be installed.
 
@@ -36,7 +36,7 @@ and report status to the machine configuration service. The VM can connect by us
 
 To learn more about private networking, see the following articles:
 
-- [Azure Automanage machine configuration, Communicate over Azure Private Link](/azure/governance/machine-configuration/overview#communicate-over-private-link-in-azure)
+- [Azure machine configuration, Communicate over Azure Private Link](/azure/governance/machine-configuration/overview#communicate-over-private-link-in-azure)
 - [Use private endpoints for Azure Storage](/azure/storage/common/storage-private-endpoints)
 
 ## Install the extension
@@ -227,7 +227,7 @@ The following table lists possible error messages related to enabling the Guest 
 
 ## Next steps
 
-- For more information about the machine configuration extension, see [Understand the machine configuration feature of Azure Automanage](/azure/governance/machine-configuration/overview).
+- For more information about the machine configuration extension, see [Understand Azure machine configuration](/azure/governance/machine-configuration/overview).
 - For more information about how the Linux Agent and extensions work, see [Virtual machine extensions and features for Linux](features-linux.md).
 - For more information about how the Windows Guest Agent and extensions work, see [Virtual machine extensions and features for Windows](features-windows.md).
 - To install the Windows Guest Agent, see [Azure Virtual Machine Agent overview](agent-windows.md).
