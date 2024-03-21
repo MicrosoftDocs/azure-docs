@@ -20,7 +20,7 @@ TLS policy includes definition of the TLS protocol version, cipher suites, and o
 
 - A custom TLS policy allows you to configure the minimum protocol version, ciphers, and elliptical curves for your gateway.
 - If no TLS policy is defined, a [default TLS policy](tls-policy.md#default-tls-policy) is used.
-- TLS cipher suites used for the connection are also based on the type of the certificate being used. The cipher suites negotiated between client and Application Gateway for Containers is based on the _Gateway listener_ configuration as defined in YAML. The cipher suites used in establishing connections between Application Gateway for Containers and the backend target are based on the type of server certificates presented by the backend target.
+- TLS cipher suites used for the connection are also based on the type of the certificate being used. The cipher suites negotiated between client and Application Gateway for Containers are based on the _Gateway listener_ configuration as defined in YAML. The cipher suites used in establishing connections between Application Gateway for Containers and the backend target are based on the type of server certificates presented by the backend target.
 
 ## Predefined TLS policy
 
@@ -46,7 +46,7 @@ The following table shows the list of cipher suites and minimum protocol version
 | P-384 | &check; | &check; |
 | P-256 | &check; | &check; |
 
-Protocol versions, ciphers, and elliptical curves not specified in the table above are not supported and won't be negotiated.
+Protocol versions, ciphers, and elliptical curves not specified in the table above aren't supported and won't be negotiated.
 
 ### Default TLS policy
 
