@@ -11,7 +11,7 @@ ms.service: data-factory
 
 # Monitor Azure Data Factory
 
-[!INCLUDE [horz-monitor-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
+[!INCLUDE [horz-monitor-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
 
 ## Monitoring methods
 
@@ -39,10 +39,10 @@ You can monitor Data Factory pipelines programmatically by using .NET, PowerShel
 - [Programmatically monitor Azure Data Factory](monitor-programmatically.md)
 - [Set up diagnostics logs via the Azure Monitor REST API](monitor-logs-rest.md)
 
-[!INCLUDE [horz-monitor-resource-types](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
+[!INCLUDE [horz-monitor-resource-types](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
 For more information about the resource types for Azure Data Factory, see [Data Factory monitoring data reference](monitor-data-factory-reference.md).
 
-[!INCLUDE [horz-monitor-data-storage](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-data-storage.md)]
+[!INCLUDE [horz-monitor-data-storage](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-data-storage.md)]
 
 ### Store Data Factory pipeline run data
 
@@ -52,16 +52,16 @@ Route data to Log Analytics if you want to analyze it with complex queries, crea
 
 You can use a storage account or event hub namespace that isn't in the subscription of the resource that emits logs. The user who configures the setting must have appropriate Azure role-based access control (Azure RBAC) access to both subscriptions.
 
-[!INCLUDE [horz-monitor-platform-metrics](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
+[!INCLUDE [horz-monitor-platform-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 For a list of available metrics for Data Factory, see [Data Factory monitoring data reference](monitor-data-factory-reference.md#metrics).
 
-[!INCLUDE [horz-monitor-resource-logs](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
+[!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 
 - For the available Data Factory resource log categories, their associated Log Analytics tables, and the logs schemas, see [Data Factory monitoring data reference](monitor-data-factory-reference.md#resource-logs).
 
 - To configure diagnostic settings and a Log Analytics workspace to monitor Data Factory, see [Configure diagnostic settings and a workspace](monitor-configure-diagnostics.md).
 
-[!INCLUDE [horz-monitor-activity-log](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
+[!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 
 ## Monitor integration runtimes
 
@@ -81,13 +81,13 @@ Azure Monitor collects metrics and diagnostics logs for all types of integration
 - [Monitor SSIS operations with Azure Monitor](monitor-ssis.md)
 - [Diagnostics logs and metrics for Managed Airflow](how-to-diagnostic-logs-and-metrics-for-managed-airflow.md)
 
-[!INCLUDE [horz-monitor-analyze-data](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
+[!INCLUDE [horz-monitor-analyze-data](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
 
-[!INCLUDE [horz-monitor-external-tools](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-external-tools.md)]
+[!INCLUDE [horz-monitor-external-tools](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-external-tools.md)]
 
 For detailed instructions on configuring diagnostic logs by using the REST API, see [Set up diagnostic logs via the Azure Monitor REST API](monitor-logs-rest.md).
 
-[!INCLUDE [horz-monitor-kusto-queries](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
+[!INCLUDE [horz-monitor-kusto-queries](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
 
 For example queries, select **Logs** under **Monitoring** in the left navigation of your Data Factory page in the Azure portal, and then select the **Queries** tab. Here are some example queries:
 
@@ -123,7 +123,7 @@ ADFPipelineRun
 | summarize argmax(TimeGenerated, * ) by RunId, Status, _ResourceId
 ```
 
-[!INCLUDE [horz-monitor-alerts](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
+[!INCLUDE [horz-monitor-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
 
 ### Data Factory alert rules
 
@@ -142,7 +142,7 @@ Notifications provide proactive alerting during or after execution of a pipeline
 - [Send an email with an Azure Data Factory pipeline](how-to-send-email.md) shows how to configure email notifications from pipeline alerts.
 - [Send notifications to a Microsoft Teams channel from an Azure Data Factory pipeline](how-to-send-notifications-to-teams.md) shows how to configure notifications from pipeline alerts into Microsoft Teams. 
 
-[!INCLUDE [horz-monitor-advisor-recommendations](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
+[!INCLUDE [horz-monitor-advisor-recommendations](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
 
 ## Related content
 
