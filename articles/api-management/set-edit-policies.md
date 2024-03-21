@@ -12,6 +12,8 @@ ms.author: danlep
 
 # How to set or edit Azure API Management policies
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 This article shows you how to configure policies in your API Management instance by editing policy definitions in the Azure portal. Each policy definition is an XML document that describes a sequence of inbound and outbound statements that run sequentially on an API request and response.
 
 The policy editor in the portal provides guided forms for API publishers to add and edit policies in policy definitions. You can also edit the XML directly in the policy code editor.
