@@ -32,7 +32,7 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 **Defender for MySQL Flexible Servers Availability and GA** - Defender for Cloud expanded its support for Azure open-source relational databases by incorporating MySQL Flexible Servers.
 
-This release will includes:
+This release includes:
 
 - Alert compatibility with existing alerts for Defender for MySQL Single Servers.
 - Enablement of individual resources.
