@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure SignalR Service
 description: This article contains important reference material you need when you monitor Azure SignalR Service.
-ms.date: 03/18/2024
+ms.date: 03/21/2024
 ms.custom: horz-monitor
 ms.topic: reference
 author: vicancy
@@ -11,39 +11,34 @@ ms.service: signalr
 
 # Azure SignalR Service monitoring data reference
 
-[!INCLUDE [horz-monitor-ref-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
+[!INCLUDE [horz-monitor-ref-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
 
 See [Monitor Azure SignalR Service](monitor-signalr.md) for details on the data you can collect for Azure SignalR Service and how to use it.
 
-[!INCLUDE [horz-monitor-ref-metrics-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
+[!INCLUDE [horz-monitor-ref-metrics-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
+
+Metrics for Azure SignalR Service are in the **Errors**, **Saturation**, or **Traffic** categories.
 
 ### Supported metrics for Microsoft.SignalRService/SignalR
 The following table lists the metrics available for the Microsoft.SignalRService/SignalR resource type.
-[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 [!INCLUDE [Microsoft.SignalRService/SignalR](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-signalrservice-signalr-metrics-include.md)]
 
 ### Supported metrics for Microsoft.SignalRService/SignalR/replicas
 The following table lists the metrics available for the Microsoft.SignalRService/SignalR/replicas resource type.
-[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 [!INCLUDE [Microsoft.SignalRService/SignalR/replicas](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-signalrservice-signalr-replicas-metrics-include.md)]
-
-### Supported metrics for Microsoft.SignalRService/WebPubSub
-The following table lists the metrics available for the Microsoft.SignalRService/WebPubSub resource type.
-[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-[!INCLUDE [Microsoft.SignalRService/WebPubSub](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-signalrservice-webpubsub-metrics-include.md)]
-
-### Supported metrics for Microsoft.SignalRService/WebPubSub/replicas
-The following table lists the metrics available for the Microsoft.SignalRService/WebPubSub/replicas resource type.
-[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-[!INCLUDE [Microsoft.SignalRService/WebPubSub/replicas](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-signalrservice-webpubsub-replicas-metrics-include.md)]
-
-> [!NOTE]
-> The aggregation type **Count** is the count of sampling data received. Count is defined as a general metrics aggregation type and can't be excluded from the list of available aggregation types. It's not generally useful for SignalR Service but can sometimes be used to check if the sampling data has been sent to metrics.
 
 For more details about the metrics for Azure SignalR Service, see [Azure SignalR Service metrics](monitor-signalr.md#azure-signalr-service-metrics).
 
-[!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
-[!INCLUDE [horz-monitor-ref-metrics-dimensions](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
+> [!NOTE]
+> The metrics aggregation types appear in metrics explorer in the Azure portal as **Count**, **Avg**, **Min**, **Max**, and **Sum**.
+
+> **Count** is the count of sampling data received. Count is defined as a general metrics aggregation type and can't be excluded from the list of available aggregation types. It's not generally useful for SignalR Service but can sometimes be used to check if the sampling data has been sent to metrics.
+
+[!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
+
+[!INCLUDE [horz-monitor-ref-metrics-dimensions](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
 
 ### Endpoint
 
@@ -71,19 +66,13 @@ Gives the reason for closing the connection. Includes the following dimension va
 |**ServiceModeSwitched**|Connection closed after service mode switched, such as from Serverless mode to Default mode.|
 |**Unauthorized**|The connection is unauthorized.|
 
-[!INCLUDE [horz-monitor-ref-resource-logs](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
+[!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
 ### Supported resource logs for Microsoft.SignalRService/SignalR
 [!INCLUDE [Microsoft.SignalRService/SignalR](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-signalrservice-signalr-logs-include.md)]
 
 ### Supported resource logs for Microsoft.SignalRService/SignalR/replicas
 [!INCLUDE [Microsoft.SignalRService/SignalR/replicas](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-signalrservice-signalr-replicas-logs-include.md)]
-
-### Supported resource logs for Microsoft.SignalRService/WebPubSub
-[!INCLUDE [Microsoft.SignalRService/WebPubSub](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-signalrservice-webpubsub-logs-include.md)]
-
-### Supported resource logs for Microsoft.SignalRService/WebPubSub/replicas
-[!INCLUDE [Microsoft.SignalRService/WebPubSub/replicas](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-signalrservice-webpubsub-replicas-logs-include.md)]
 
 ## Resource Log table mapping
 
@@ -136,7 +125,7 @@ ConnectionId | Identity of the connection.
 ConnectionType | Type of the connection. Allowed values are: `Server` or `Client`. `Server` is connection from server side and `Client` is connection from client side.
 TransportType | Transport type of the connection. Allowed values are: `Websockets`, `ServerSentEvents`, or `LongPolling`
 
-[!INCLUDE [horz-monitor-ref-logs-tables](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
+[!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 
 ### SignalR
 Microsoft.SignalRService/SignalR
@@ -153,7 +142,7 @@ Microsoft.SignalRService/WebPubSub
 - [WebPubSubMessaging](/azure/azure-monitor/reference/tables/WebPubSubMessaging#columns)
 - [WebPubSubConnectivity](/azure/azure-monitor/reference/tables/WebPubSubConnectivity#columns)
 
-[!INCLUDE [horz-monitor-ref-activity-log](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
+[!INCLUDE [horz-monitor-ref-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
 - [Microsoft.SignalRService resource provider operations](/azure/role-based-access-control/permissions/web-and-mobile#microsoftsignalrservice)
 
 ## Related content

@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure SignalR Service
 description: Start here to learn how to monitor Azure SignalR Service.
-ms.date: 03/18/2024
+ms.date: 03/21/2024
 ms.custom: horz-monitor
 ms.topic: conceptual
 author: vicancy
@@ -11,12 +11,12 @@ ms.service: signalr
 
 # Monitor Azure SignalR Service
 
-[!INCLUDE [horz-monitor-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
+[!INCLUDE [horz-monitor-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
 
-[!INCLUDE [horz-monitor-resource-types](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
+[!INCLUDE [horz-monitor-resource-types](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
 For more information about the resource types for Azure SignalR Service, see [Azure SignalR Service monitoring data reference](monitor-signalr-reference.md).
 
-[!INCLUDE [horz-monitor-data-storage](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-data-storage.md)]
+[!INCLUDE [horz-monitor-data-storage](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-data-storage.md)]
 
 Azure SignalR Service logs are stored in the storage account configured in diagnostic settings. A container named `insights-logs-alllogs` is created automatically to store resource logs. Inside the container, logs are stored in the file *resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/XXXX/PROVIDERS/MICROSOFT.SIGNALRSERVICE/SIGNALR/XXX/y=YYYY/m=MM/d=DD/h=HH/m=00/PT1H.json*. Basically, the path is a combination of `resource ID` and `Date Time`. The log files are split by `hour`. Therefore, the minutes are always `m=00`.
 
@@ -45,7 +45,7 @@ All logs are stored in JavaScript Object Notation (JSON) format. The following c
 
 Field names for Storage destinations differ slightly from field names for Log Analytics. For details about the field name mapping between Storage and Log Analytics tables, see [Resource Log table mapping](monitor-signalr-reference.md#resource-log-table-mapping).
 
-[!INCLUDE [horz-monitor-platform-metrics](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
+[!INCLUDE [horz-monitor-platform-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 
 ### Azure SignalR Service metrics
 
@@ -53,7 +53,7 @@ For the list of all available metrics for Azure SignalR Service, see [Azure Sign
 
 #### Message Count granularity
 
-The minimum **Message Count** granularity is 2 KB of outbound data traffic for one unit. If a client sends small or infrequent messages totaling less than one unit in a sampling time period, the message count is zero (0) even though messages were sent. The way to check for a small number or size of messages is by using the metric **Outbound Traffic**, which is a count of bytes sent.
+The minimum **Message Count** granularity is 2 KB of outbound data traffic. If a client sends small or infrequent messages totaling less than 2 KB in a sampling time period, the message count is zero (0) even though messages were sent. The way to check for a small number or size of messages is by using the metric **Outbound Traffic**, which is a count of bytes sent.
 
 #### System Errors and User Errors
 
@@ -69,7 +69,7 @@ The **User Errors** and **System Errors** metrics are the percentage of attempte
 >[!NOTE]
 > Autoscaling is a Premium Tier feature only.
 
-[!INCLUDE [horz-monitor-resource-logs](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
+[!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 
 - For detailed instructions on how to enable, query, and troubleshoot with Azure SignalR Service resource logs, see [Monitor and troubleshoot Azure SignalR Service logs](signalr-howto-diagnostic-logs.md).
 - For the available resource log categories, their associated Log Analytics tables, and the log schemas for Azure SignalR Service, see [Azure SignalR Service monitoring data reference](monitor-signalr-reference.md).
@@ -114,17 +114,13 @@ Therefore, SignalR service provides two kinds of collecting behaviors:
 
 For more details about resource log collecting behaviors and how to configure them, see [Resource logs collecting behaviors](signalr-howto-diagnostic-logs.md#resource-logs-collecting-behaviors).
 
-### Live Trace tool
+[!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 
-The Azure Web PubSub service live trace tool can collect resource logs in real time, which is helpful for troubleshooting problems in your development environment. The live trace tool can capture connectivity logs, messaging logs, and HTTP request logs. For more information, see [Capture resource logs by using the live trace tool](/azure/azure-web-pubsub/howto-troubleshoot-resource-logs#capture-resource-logs-by-using-the-live-trace-tool).
+[!INCLUDE [horz-monitor-analyze-data](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
 
-[!INCLUDE [horz-monitor-activity-log](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
+[!INCLUDE [horz-monitor-external-tools](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-external-tools.md)]
 
-[!INCLUDE [horz-monitor-analyze-data](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
-
-[!INCLUDE [horz-monitor-external-tools](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-external-tools.md)]
-
-[!INCLUDE [horz-monitor-kusto-queries](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
+[!INCLUDE [horz-monitor-kusto-queries](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
 
 For example Kusto queries for Azure SignalR Service, see [Queries for the SignalRServiceDiagnosticLogs table](/azure/azure-monitor/reference/queries/signalrservicediagnosticlogs).
 
@@ -132,7 +128,7 @@ For example Kusto queries for Azure SignalR Service, see [Queries for the Signal
 > Query field names for Storage destinations differ slightly from field names for Log Analytics. For details about the field name mappings between Storage and Log Analytics tables, see [Resource Log table mapping](monitor-signalr-reference.md#resource-log-table-mapping).
 
 <!-- ## Alerts. Required section. -->
-[!INCLUDE [horz-monitor-alerts](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
+[!INCLUDE [horz-monitor-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
 
 ### Azure SignalR Service alert rules
 
@@ -143,7 +139,7 @@ The following table lists some suggested alert rules for Azure SignalR Service. 
 | Platform metrics | Connection Quota Utilization | Whenever the maximum Connection Quota Utilization is greater than dynamic threshold |
 | Platform metrics | Delete SignalR | Whenever the Activity Log has an event with Category='Administrative', Signal name='Delete SignalR (SignalR)' |
 
-[!INCLUDE [horz-monitor-advisor-recommendations](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
+[!INCLUDE [horz-monitor-advisor-recommendations](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
 
 ## Related content
 
