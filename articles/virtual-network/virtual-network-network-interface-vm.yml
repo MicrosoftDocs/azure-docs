@@ -110,7 +110,7 @@ procedureSection:
   - title: |
       Remove a network interface from a VM
     summary: |
-      Follow the below steps:
+      Use the following steps:
     steps: 
       - |
         Go to the [Azure portal](https://portal.azure.com) to find an existing virtual machine. Search for and select **Virtual machines**.
@@ -137,7 +137,7 @@ procedureSection:
   - title: |
       Constraints
     summary: |
-      Follow the below items:
+      Check the following items:
     steps: 
       - |
         A VM must have at least one network interface attached to it.
