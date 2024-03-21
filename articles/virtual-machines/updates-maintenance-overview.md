@@ -21,7 +21,7 @@ Azure infrastructure updates can range from upgrading network components, decomm
 
 Maintenance platform aims to provide customers with *unified maintenance experience* for all Azure resources that are impacted during maintenance. Maintenance experience is available for a variety of Azure resources, including host ([Azure Dedicated Host]((dedicated-hosts.md) and [Isolated](isolation.md) VMs), guest (VMs and Arc VMs), AKS, SFMC, Network Gateways (VPN Gateway, ExpressRoute, Virtual Network Gateway) resources either via Azure Portal, PowerShell or CLI. [Maintenance control](maintenance-configurations.md) provides customers with an option to skip or defer certain updates and schedule them only during their preferred maintenance window.
 
-## Host Maintenance
+## Host maintenance
 
 Host maintenance is performed on the physical hosts where VMs are located and are usually transparent to the customers. But some updates can require the VMs that are allocated on the hosts to freeze (*non-rebootful updates*), reboot (*rebootful updates*) or live migrate to another updated hosts. When these no-impact updates are performed, Azure chooses the update mechanism that's least impactful to customer VMs. 
 
