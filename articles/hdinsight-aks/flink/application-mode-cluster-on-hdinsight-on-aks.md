@@ -10,9 +10,10 @@ ms.date: 03/13/2024
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
-Application Mode Cluster
 
-HDInsight on AKS offers a Flink Application mode cluster. This cluster lets you manage cluster Flink application mode lifecycle using the Azure portal with easy-to-use interface and Azure Resource Management Rest APIs. Application mode clusters are designed to support large and long-running jobs with dedicated resources, and handle resource-intensive or extensive data processing tasks. This deployment mode enables you to assign dedicated resources for specific Flink applications, ensuring that they have enough computing power and memory to handle large workloads efficiently.  
+HDInsight on AKS now offers a Flink Application mode clusters. This cluster lets you manage cluster Flink application mode lifecycle using the Azure portal with easy-to-use interface and Azure Resource Management Rest APIs. Application mode clusters are designed to support large and long-running jobs with dedicated resources, and handle resource-intensive or extensive data processing tasks. 
+
+This deployment mode enables you to assign dedicated resources for specific Flink applications, ensuring that they have enough computing power and memory to handle large workloads efficiently.  
 
 :::image type="content" source="./media/application-mode-cluster-on-hdinsight-on-aks/job-manager.png" alt-text="Screenshot showing job manager." lightbox="./media/application-mode-cluster-on-hdinsight-on-aks/job-manager.png":::
 
@@ -28,19 +29,19 @@ HDInsight on AKS offers a Flink Application mode cluster. This cluster lets you 
 
 ## Key Features
 
-1. Stop and Start Jobs with Savepoints: Users can gracefully stop and start their Flink AppMode jobs from their previous state (Savepoint). Savepoints ensure that job progress is preserved, enabling seamless resumptions.
+1. **Stop and Start Jobs with Savepoints**: Users can gracefully stop and start their Flink AppMode jobs from their previous state (Savepoint). Savepoints ensure that job progress is preserved, enabling seamless resumptions.
 
-1. Job Updates: User can update the running AppMode job after updating the jar on storage account. This update automatically takes the savepoint and starts the AppMode job with a new jar.
+1. **Job Updates**: User can update the running AppMode job after updating the jar on storage account. This update automatically takes the savepoint and starts the AppMode job with a new jar.
 
-1. Stateless Updates: Performing a fresh restart for a AppMode job is simplified through stateless updates. This feature allows users to initiate a clean restart using updated job jar.
+1. **Stateless Updates**: Performing a fresh restart for a AppMode job is simplified through stateless updates. This feature allows users to initiate a clean restart using updated job jar.
 
-1. Savepoint Management: At any given moment, users can create savepoints for their running jobs. These savepoints can be listed and used to restart the job from a specific checkpoint as needed.
+1. **Savepoint Management**: At any given moment, users can create savepoints for their running jobs. These savepoints can be listed and used to restart the job from a specific checkpoint as needed.
 
-1. Cancel: Cancels the job permanently.
+1. **Cancel**: Cancels the job permanently.
 
-1. Delete: Delete AppMode cluster.
+1. **Delete**: Delete AppMode cluster.
 
-## Create your first Flink Application Cluster
+## How to create Flink Application Cluster
 
 ### Prerequisites
 
