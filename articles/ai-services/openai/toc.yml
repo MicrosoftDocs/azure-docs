@@ -150,7 +150,7 @@ items:
       - name: Resource creation & model deployment
         href: ./how-to/create-resource.md
       - name: OpenAI vs Azure OpenAI (Python)
-        href: ./how-to/switching-endpoints.md
+        href: ./how-to/switching-endpoints.yml
       - name: Manage quota
         href: ./how-to/quota.md
       - name: Dynamic quota
@@ -213,11 +213,11 @@ items:
           href: ./references/azure-search.md
         - name: Data source - Azure Cosmos DB for MongoDB vCore
           href: ./references/cosmos-db.md
-        - name: Data source - Azure Machine Learning index
+        - name: Data source - Azure Machine Learning index (preview)
           href: ./references/azure-machine-learning.md
-        - name: Data source - Elasticsearch
+        - name: Data source - Elasticsearch (preview)
           href: ./references/elasticsearch.md
-        - name: Data source - Pinecone
+        - name: Data source - Pinecone (preview)
           href: ./references/pinecone.md
         - name: Ingestion API (preview)
           href: /rest/api/azureopenai/ingestion-jobs

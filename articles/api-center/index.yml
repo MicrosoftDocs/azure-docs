@@ -59,8 +59,6 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Enable your API Center portal
-            url: enable-api-center-portal.md
           - text: Use VS Code extension
             url: use-vscode-extension.md
           - text: Discover APIs with GitHub Copilot Chat

@@ -9,7 +9,7 @@ ms.reviewer: cogoodson
 
 # Resources, roles, and access control in Application Insights
 
-You can control who has read and update access to your data in [Application Insights][start] by using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).
+You can control who has read and update access to your data in [Application Insights][start] by using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.yml).
 
 > [!IMPORTANT]
 > Assign access to users in the resource group or subscription to which your application resource belongs, not in the resource itself. Assign the Application Insights Component Contributor role. This role ensures uniform control of access to web tests and alerts along with your application resource. [Learn more](#access).
@@ -46,7 +46,7 @@ The user must have a [Microsoft account][account] or access to their [organizati
 
 Assign the Contributor role to Azure RBAC.
 
-For detailed steps, see [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+For detailed steps, see [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
 #### Select a role
 
@@ -85,7 +85,7 @@ If the user you want isn't in the directory, you can invite anyone with a Micros
 
 ## Related content
 
-See the article [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).
+See the article [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.yml).
 
 ## PowerShell query to determine role membership
 

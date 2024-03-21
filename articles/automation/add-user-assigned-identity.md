@@ -294,7 +294,7 @@ Before you can use your user-assigned managed identity for authentication, set u
 
 Follow the principal of least privilege and carefully assign permissions only required to execute your runbook. For example, if the Automation account is only required to start or stop an Azure VM, then the permissions assigned to the Run As account or managed identity needs to be only for starting or stopping the VM. Similarly, if a runbook is reading from blob storage, then assign read only permissions.
 
-This example uses Azure PowerShell to show how to assign the Contributor role in the subscription to the target Azure resource. The Contributor role is used as an example and may or may not be required in your case. Alternatively, you can also assign the role to the target Azure resource in the [Azure portal](../role-based-access-control/role-assignments-portal.md).
+This example uses Azure PowerShell to show how to assign the Contributor role in the subscription to the target Azure resource. The Contributor role is used as an example and may or may not be required in your case. Alternatively, you can also assign the role to the target Azure resource in the [Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
 ```powershell
 New-AzRoleAssignment `

@@ -190,7 +190,7 @@ Before you can delete a custom role, you must remove any role assignments that u
 
 Here are steps to help find the role assignments before deleting a custom role:
 
-- List the [custom role definition](role-definitions-list.md).
+- List the [custom role definition](role-definitions-list.yml).
 - In the [AssignableScopes](role-definitions.md#assignablescopes) section, get the management groups, subscriptions, and resource groups.
 - Iterate over the `AssignableScopes` and [list the role assignments](role-assignments-list-portal.md).
 - [Remove the role assignments](role-assignments-remove.yml) that use the custom role.

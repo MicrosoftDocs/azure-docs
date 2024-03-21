@@ -17,7 +17,7 @@ To set Microsoft Defender for Cloud to map IaC templates to cloud resources, you
 - An Azure account with Defender for Cloud configured. If you don't already have an Azure account, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An [Azure DevOps](quickstart-onboard-devops.md) environment set up in Defender for Cloud.
 - [Defender Cloud Security Posture Management (CSPM)](tutorial-enable-cspm-plan.md) enabled.
-- Azure Pipelines set up to run the [Microsoft Security DevOps Azure DevOps extension](azure-devops-extension.md).
+- Azure Pipelines set up to run the [Microsoft Security DevOps Azure DevOps extension](azure-devops-extension.yml).
 - IaC templates and cloud resources set up with tag support. You can use open-source tools like [Yor_trace](https://github.com/bridgecrewio/yor) to automatically tag IaC templates.
   - Supported cloud platforms: Microsoft Azure, Amazon Web Services, Google Cloud Platform
   - Supported source code management systems: Azure DevOps

@@ -158,7 +158,7 @@ To reference specific template versions in the API, be sure to use the exact ima
 
 7. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
-For more information about assigning roles in the Azure portal, see [Azure built-in roles](../../role-based-access-control/role-assignments-portal.md).
+For more information about assigning roles in the Azure portal, see [Azure built-in roles](../../role-based-access-control/role-assignments-portal.yml).
 
 ### Step 5: Register the Azure Container Registry server in the FHIR service
 
