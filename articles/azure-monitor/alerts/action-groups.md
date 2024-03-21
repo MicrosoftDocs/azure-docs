@@ -95,7 +95,9 @@ The following table describes the role membership requirements that are needed f
 | Resource group contributor | Supported | Supported | Not applicable |
 | Action group resource contributor | Supported | Not applicable | Not applicable |
 | Azure Monitor contributor | Supported | Supported | Not applicable |
-| Custom role | Supported | Supported | Not applicable |
+| Custom role<sup>1</sup> | Supported | Supported | Not applicable |
+
+<sup>1</sup> The custom role must have the **Microsoft.Insights/createNotifications/*** permission.
 
  > [!NOTE]
   > - If a user is not a member of the above Role Memberships with the correct permissions to generate this notification, the minimum permission required to test an action group is "**Microsoft.Insights/createNotifications/***"

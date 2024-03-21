@@ -24,6 +24,7 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 |Date | Update |
 |--|--|
+| March 21 | [Agentless scanning supports CMK encrypted VMs in Azure (preview)](#agentless-scanning-supports-cmk-encrypted-vms-in-azure) |
 | March 18 | [New endpoint detection and response recommendations](#new-endpoint-detection-and-response-recommendations) |
 | March 17 | [Custom recommendations based on KQL for Azure is now public preview](#custom-recommendations-based-on-kql-for-azure-is-now-public-preview) |
 | March 13 | [Inclusion of DevOps recommendations in the Microsoft cloud security benchmark](#inclusion-of-devops-recommendations-in-the-microsoft-cloud-security-benchmark) |
@@ -33,6 +34,21 @@ If you're looking for items older than six months, you can find them in the [Arc
 | March 6 | [(Preview) Compliance standards added to compliance dashboard](#preview-compliance-standards-added-to-compliance-dashboard)  |
 | March 5 | [Deprecation of two recommendations related to PCI](#deprecation-of-two-recommendations-related-to-pci) |
 | March 3 | [Defender for Cloud Containers Vulnerability Assessment powered by Qualys retirement](#defender-for-cloud-containers-vulnerability-assessment-powered-by-qualys-retirement) |
+
+### Agentless scanning supports CMK encrypted VMs in Azure
+
+March 21 2024
+
+Until now agentless scanning covered CMK encrypted VMs in AWS and GCP. With this release we are completing support for Azure as well. The capability employs a unique scanning approach for CMK in Azure:
+- Defender for Cloud does not handle the key or decryption process. Key handling and decryption is seamlessly handled by Azure Compute and is transparent to Defender for Cloud's agentless scanning service.
+- The unencrypted VM disk data is never copied or re-encrypted with another key.
+- The original key is not replicated during the process. Purging it eradicates the data on both your production VM and Defender for Cloud’s temporary snapshot.
+
+During public preview this capability is not automatically enabled. If you are using Defender for Servers P2 or Defender CSPM and your environment has VMs with CMK encrypted disks, you can now have them scanned for vulnerabilities, secrets and malware following these [enablement steps](enable-agentless-scanning-vms.md#agentless-vulnerability-assessment-on-azure).
+
+- [Learn more on agentless scanning for VMs](concept-agentless-data-collection.md)
+- [Learn more on agentless scanning permissions](faq-permissions.yml#which-permissions-are-used-by-agentless-scanning-)
+
 
 ### New endpoint detection and response recommendations
 
