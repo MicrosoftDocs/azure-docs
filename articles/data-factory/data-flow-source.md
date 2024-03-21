@@ -121,7 +121,7 @@ To validate your source is configured correctly, turn on debug mode and fetch a 
 
 ## Source options
 
-The **Source options** tab contains settings specific to the connector and format chosen. For more information and examples, see the relevant [connector documentation](#supported-sources).
+The **Source options** tab contains settings specific to the connector and format chosen. For more information and examples, see the relevant [connector documentation](#supported-sources). This includes details like isolation level for those data sources that support it (like on-premises SQL Servers, Azure SQL Databases, and Azure SQL Managed instances), and other data source specific settings as well.
 
 ## Projection
 
