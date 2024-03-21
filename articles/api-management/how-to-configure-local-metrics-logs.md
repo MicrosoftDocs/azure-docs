@@ -12,9 +12,9 @@ ms.author: danlep
 
 # Configure local metrics and logs for Azure API Management self-hosted gateway
 
-This article provides details for configuring local metrics and logs for the [self-hosted gateway](./self-hosted-gateway-overview.md) deployed on a Kubernetes cluster. For configuring cloud metrics and logs, see [this article](how-to-configure-cloud-metrics-logs.md).
-
 [!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
+
+This article provides details for configuring local metrics and logs for the [self-hosted gateway](./self-hosted-gateway-overview.md) deployed on a Kubernetes cluster. For configuring cloud metrics and logs, see [this article](how-to-configure-cloud-metrics-logs.md).
 
 ## Metrics
 
