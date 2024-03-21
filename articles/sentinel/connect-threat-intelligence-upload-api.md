@@ -6,7 +6,7 @@ author: austinmccollum
 ms.topic: how-to
 ms.date: 3/14/2024
 ms.author: austinmc
-appliesTo: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
 ms.collection: usx-security
 #customer intent: As a SOC admin, I want to connect my Threat Intelligence Platform with the upload indicators API to ingest threat intelligence, so I can utilize the benefits of this updated API.
 ---
@@ -82,15 +82,15 @@ For more information on assigning roles to applications, see [Assign a role to t
 
 Enable the **Threat Intelligence Upload Indicators API** data connector to allow Microsoft Sentinel to receive threat indicators sent from your TIP or custom solution. These indicators are available to the Microsoft Sentinel workspace you configure.
 
-1. From the [Azure portal](https://portal.azure.com/), navigate to the **Microsoft Sentinel** service.
-1. Choose the **workspace** where you want to import the threat indicators.
-1. Select **Content hub** from the menu.
-1. Find and select the **Threat Intelligence** solution using the list view.
-1. Select the :::image type="icon" source="media/connect-threat-intelligence-tip/install-update-button.png"::: **Install/Update** button.
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Content management**, select **Content hub**. <br>For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Content management** > **Content hub**.
 
-    For more information about how to manage the solution components, see [Discover and deploy out-of-the-box content](sentinel-solutions-deploy.md).
+1. Find and select the **Threat Intelligence** solution.
 
-1. The data connector is now visible in **Data Connectors** page. Open the data connector page to find more information on configuring your application to this API.
+1. Select the :::image type="icon" source="media/connect-mdti-data-connector/install-update-button.png"::: **Install/Update** button.
+
+For more information about how to manage the solution components, see [Discover and deploy out-of-the-box content](sentinel-solutions-deploy.md).
+
+1. The data connector is now visible in **Configuration** > **Data Connectors**. Open the data connector page to find more information on configuring your application with this API.
 
     :::image type="content" source="media/connect-threat-intelligence-upload-api/upload-api-data-connector.png" alt-text="Screenshot displaying the data connectors page with the upload API data connector listed." lightbox="media/connect-threat-intelligence-upload-api/upload-api-data-connector.png":::
 

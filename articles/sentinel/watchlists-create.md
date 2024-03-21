@@ -6,7 +6,7 @@ author: cwatson-cat
 ms.author: cwatson
 ms.topic: how-to
 ms.date: 3/14/2024
-appliesTo: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
 ms.collection: usx-security
 #Customer intent: As a SOC analyst, I want to correlate data from meaningful data sources I provide with events so I can watch for more relationships with better visibility.
 ---
