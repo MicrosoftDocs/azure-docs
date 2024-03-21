@@ -68,7 +68,9 @@ dnsresources
 
 ![Screenshot of a resource record list query.](./media/private-dns-arg/list-query.png)
 
-The following query returns private DNS records that match a specific IPv4 address:
+Record types that can be specified are: a, aaaa, cname, mx, ptr, soa, srv, and txt. 
+
+You can also query for specific IP addresses or address ranges. The following query returns private DNS records that match a specific IPv4 address:
 
 ```Kusto
 dnsresources
