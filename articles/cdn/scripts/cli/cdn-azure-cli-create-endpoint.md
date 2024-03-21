@@ -22,7 +22,7 @@ As an alternative to the Azure portal, you can use these sample the Azure CLI sc
 - Create a content delivery network origin.
 - Create a custom domain and enable HTTPS.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Sample scripts
 
