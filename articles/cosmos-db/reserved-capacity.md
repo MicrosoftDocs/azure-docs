@@ -44,8 +44,8 @@ As soon as you buy a reservation, the throughput charges that match the reservat
 
 Azure Cosmos DB consumes reservations in two different ways:
 
- * Autoscale database operations consume reserved capacity at a rate of 100 RU/s x 1.5 x N regions. So, if you need 10,000 RU/s for all your regions, your should purchase 15,000 RU/s.
- * Standard database operations consume reserved capacity at a rate of 100 RU/s x N regions. So, if you need 10,000 RU/s for all your regions, you should purchase 10,0000 RU/s.
+ * Autoscale database operations consume reserved capacity at a rate of 100 RU/s x 1.5 x N regions. So, if you need 10,000 RU/s for all your regions, purchase 15,000 RU/s.
+ * Standard database operations consume reserved capacity at a rate of 100 RU/s x N regions. So, if you need 10,000 RU/s for all your regions, purchase 10,0000 RU/s.
 
 
 ## Discounts
