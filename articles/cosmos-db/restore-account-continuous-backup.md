@@ -734,16 +734,13 @@ az cosmosdb gremlin restorable-resource list \
    --restore-location "West US" \ 
    --restore-timestamp "2021-01-10T01:00:00+0000" 
 ```
+This command output shows the graphs which are restorable: 
+
 ```
-[   { 
-```
+[
+ { 
 "databaseName": "db1", 
-"graphNames": [ 
-  "graph1", 
-  "graph3", 
-  "graph2" 
-] 
-```
+"graphNames": [ "graph1",   "graph3",   "graph2"  ] 
   } 
 ] 
 ```
@@ -772,9 +769,9 @@ az cosmosdb table restorable-table list \
   "rid": "9pvDGwAAAA==" 
 }, 
 "type": "Microsoft.DocumentDB/locations/restorableDatabaseAccounts/restorableTables" 
-```
+
   }, 
-```
+
 {"id": "/subscriptions/23587e98-b6ac-4328-a753-03bcd3c8e744/providers/Microsoft.DocumentDB/locations/eastus2euap/restorableDatabaseAccounts/7e4d666a-c6ba-4e1f-a4b9-e92017c5e8df/restorableTables/2c9f35eb-a14c-4ab5-a7e0-6326c4f6b785", 
 "name": "2c9f35eb-a14c-4ab5-a7e0-6326c4f6b785", 
 "resource": { 
@@ -785,7 +782,7 @@ az cosmosdb table restorable-table list \
   "rid": "01DtkgAAAA==" 
 }, 
 "type": "Microsoft.DocumentDB/locations/restorableDatabaseAccounts/restorableTables" 
-```
+
   }, 
 ] 
 ```
@@ -799,10 +796,12 @@ az cosmosdb table restorable-resource list \
    --restore-location "West US" \ 
    --restore-timestamp "2020-07-20T16:09:53+0000" 
 ```
+
+Following is the result of the command. 
+
 ```
 {   
   "tableNames": [ 
-```
 "table1", 
 "table3", 
 "table2" 
