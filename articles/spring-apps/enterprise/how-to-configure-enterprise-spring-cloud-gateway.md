@@ -620,7 +620,7 @@ For other supported environment variables, see the following sources:
 - [Application Insights overview](../../azure-monitor/app/app-insights-overview.md?tabs=net)
 - [Dynatrace environment variables](https://www.dynatrace.com/support/help/setup-and-configuration/setup-on-cloud-platforms/microsoft-azure-services/azure-integrations/azure-spring#envvar)
 - [New Relic environment variables](https://docs.newrelic.com/docs/apm/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables)
-- [AppDynamics environment variables](https://docs.appdynamics.com/21.11/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent#MonitorAzureSpringCloudwithJavaAgent-ConfigureUsingtheEnvironmentVariablesorSystemProperties)
+- [AppDynamics environment variables](https://docs.appdynamics.com/appd/23.x/23.11/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent#id-.MonitorAzureSpringCloudwithJavaAgentv23.1-ConfigureUsingtheEnvironmentVariablesorSystemProperties)
 - [Elastic environment variables](https://www.elastic.co/guide/en/apm/agent/java/master/configuration.html)
 
 #### Configure APM integration on the service instance level (recommended)
