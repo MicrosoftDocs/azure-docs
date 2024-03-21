@@ -13,6 +13,8 @@ ms.date: 12/12/2023
 
 # Quickstart: Create a new Azure API Management service instance using Bicep
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 This quickstart describes how to use a Bicep file to create an Azure API Management instance. You can also use Bicep for common management tasks such as importing APIs in your API Management instance.
 
 [!INCLUDE [api-management-quickstart-intro](../../includes/api-management-quickstart-intro.md)]
