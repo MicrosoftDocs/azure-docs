@@ -76,10 +76,21 @@ The workspace is the top-level resource for Azure Machine Learning, providing a 
 1. Import the required libraries:
 
     ```python
-    from azure.ai.ml import MLClient, Input
-    from azure.ai.ml.entities import ManagedOnlineEndpoint, ManagedOnlineDeployment, Model
-    from azure.ai.ml.constants import AssetTypes
     from azure.identity import DefaultAzureCredential
+    from azure.ai.ml import MLClient
+    from azure.ai.ml.entities import (
+        AzureMLOnlineInferencingServer,
+        ModelPackage,
+        CodeConfiguration,
+        BaseEnvironment,
+        ModelConfiguration,
+    )
+    from azure.ai.ml.entities import (
+        ManagedOnlineEndpoint,
+        ManagedOnlineDeployment,
+        Environment,
+        Model,
+    )
     ```
 
 2. If you're running in a compute instance in Azure Machine Learning, create an `MLClient` as follows:
@@ -260,7 +271,7 @@ If you're using an MLflow model, model dependencies are indicated inside the mod
 
 ## Package a model that is hosted in a registry
 
-Model packages provide a convenient way to collect dependencies before deployment. However, when models are hosted in registries, the deployment target is usually another workspace. When creating packages in this setup, use the `target_environment_name` property to specify the full location where you want the model package to be created, instead of just its name.
+Model packages provide a convenient way to collect dependencies before deployment. However, when models are hosted in registries, the deployment target is usually another workspace. When creating packages in this setup, use the `target_environment` property to specify the full location where you want the model package to be created, instead of just its name.
 
 The following code creates a package of the `t5-base` model from a registry:
 

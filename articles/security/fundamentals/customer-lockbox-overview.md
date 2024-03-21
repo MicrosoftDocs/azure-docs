@@ -43,7 +43,7 @@ The following services are currently supported for Customer Lockbox for Microsof
 - Azure Kubernetes Service
 - Azure Load Testing (CloudNative Testing)
 - Azure Logic Apps
-- Azure Monitor
+- Azure Monitor (Log Analytics)
 - Azure Red Hat OpenShift
 - Azure Spring Apps
 - Azure SQL Database
