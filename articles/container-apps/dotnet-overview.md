@@ -93,7 +93,7 @@ Azure Container Apps supports managed identity, which allows your app to access 
 
 In a cloud-native environment, logging is crucial for monitoring and troubleshooting your applications. By default, Azure Container Apps uses Azure Log Analytics to collect logs from your containers. You also can configure other logging providers. To learn more, see [Log storage and monitoring options in Azure Container Apps](log-options.md).
 
-In your .NET application, configure a logging provider that writes logs to the console, and then Azure Container Apps will collect and store them.
+In your .NET application, configure a [logging provider](/aspnet/core/fundamentals/logging/) that writes logs to the console, and then Azure Container Apps will collect and store them.
 
 ### Health probes
 
@@ -115,16 +115,16 @@ ASP.NET Core uses data protection to protect and unprotect data, such as session
 
 #### Configure ASP.NET Core SignalR
 
-ASP.NET Core SignalR requires a backplane to distribute messages to multiple server replicas. When deploying your ASP.NET Core app to Azure Container Apps, you must configure one of the supported backplanes, such as Azure SignalR Service or Redis. To learn more, see [ASP.NET Core SignalR hosting and scaling](/aspnet/core/signalr/scale).
+ASP.NET Core SignalR requires a backplane to distribute messages to multiple server replicas. When deploying your ASP.NET Core app with SignalR to Azure Container Apps, you must configure one of the supported backplanes, such as Azure SignalR Service or Redis. To learn more, see [ASP.NET Core SignalR hosting and scaling](/aspnet/core/signalr/scale).
 
 #### Configure Blazor Server
 
-Blazor Server apps store state on the server, which means that each client must be connected to the same server replica for the duration of their session. When deploying your Blazor Server app to Azure Container Apps, you must enable sticky sessions to ensure that clients are routed to the same replica. To learn more, see [Session Affinity in Azure Container Apps](sticky-sessions.md).
+ASP.NET Core Blazor Server apps store state on the server, which means that each client must be connected to the same server replica for the duration of their session. When deploying your Blazor Server app to Azure Container Apps, you must enable sticky sessions to ensure that clients are routed to the same replica. To learn more, see [Session Affinity in Azure Container Apps](sticky-sessions.md).
 
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Deploying and scaling an ASP.NET Core app on Azure Container Apps](/aspnet/core/host-and-deploy/scaling-aspnet-apps/scaling-aspnet-apps)
-> 
 > [Deploy a .NET Aspire app](/dotnet/aspire/deployment/azure/aca-deployment)
+> 
+> [Deploying and scaling an ASP.NET Core app on Azure Container Apps](/aspnet/core/host-and-deploy/scaling-aspnet-apps/scaling-aspnet-apps)
