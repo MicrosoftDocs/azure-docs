@@ -6,7 +6,7 @@ ms.author: lle
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
-ms.date: 08/10/2023
+ms.date: 03/21/2024
 ---
 
 # Tutorial: How to access on-premises SQL Server from Data Factory Managed VNet using Private Endpoint
