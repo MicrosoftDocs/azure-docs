@@ -1257,7 +1257,7 @@
       - name: Enable customer-managed keys
         items:
         - name: Portal
-          href: disks-enable-customer-managed-keys-portal.md
+          href: disks-enable-customer-managed-keys-portal.yml
           displayname: Server side encryption, encryption, ADE
         - name: PowerShell
           href: windows/disks-enable-customer-managed-keys-powershell.md
