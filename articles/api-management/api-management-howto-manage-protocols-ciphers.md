@@ -26,7 +26,7 @@ By default, API Management enables TLS 1.2 for client and backend connectivity a
 
 > [!NOTE]
 > * If you're using the self-hosted gateway, see [self-hosted gateway security](self-hosted-gateway-overview.md#security) to manage TLS protocols and cipher suites.
-> * The Consumption tier doesn't support changes to the default cipher configuration. 
+> * The following tiers don't support changes to the default cipher configuration: **Consumption**, **Basic v2**, **Standard v2**. 
 
 ## Prerequisites
 
