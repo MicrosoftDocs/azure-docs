@@ -206,7 +206,7 @@ This section shows you how to use Azure CLI to create, start, and monitor a sche
 
 ### Prerequisites
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ### Sample Code
 
