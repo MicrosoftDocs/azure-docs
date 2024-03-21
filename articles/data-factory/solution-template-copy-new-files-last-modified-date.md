@@ -27,8 +27,8 @@ The template defines six parameters:
 -  *Directory_Source* is the subfolder path where you can read the files from the source store. You need to replace the default value with your own subfolder path.
 -  *FolderPath_Destination* is the folder path where you want to copy files to the destination store. You need to replace the default value with your own folder path.
 -  *Directory_Destination* is the subfolder path where you want to copy files to the destination store. You need to replace the default value with your own subfolder path.
--  *LastModified_From* is used to select the files whose LastModifiedDate attribute is after or equal to this datetime value.  In order to select the new files only, which has not been copied last time, this datetime value can be the time when the pipeline was triggered last time. You can replace the default value '2019-02-01T00:00:00Z' to your expected LastModifiedDate in UTC timezone. 
--  *LastModified_To* is used to select the files whose LastModifiedDate attribute is before this datetime value. In order to select the new files only, which has not been copied last time, this datetime value can be the present time.  You can replace the default value '2019-02-01T00:00:00Z' to your expected LastModifiedDate in UTC timezone. 
+-  *LastModified_From* is used to select the files whose LastModifiedDate attribute is after or equal to this datetime value.  In order to select the new files only, which hasn't been copied last time, this datetime value can be the time when the pipeline was triggered last time. You can replace the default value '2019-02-01T00:00:00Z' to your expected LastModifiedDate in UTC timezone. 
+-  *LastModified_To* is used to select the files whose LastModifiedDate attribute is before this datetime value. In order to select the new files only, which weren't copied in prior runs, this datetime value can be the present time.  You can replace the default value '2019-02-01T00:00:00Z' to your expected LastModifiedDate in UTC timezone.
 
 ## How to use this solution template
 
@@ -52,11 +52,11 @@ The template defines six parameters:
 
     :::image type="content" source="media/solution-template-copy-new-files-last-modified-date/copy-new-files-last-modified-date-4.png" alt-text="Use this template":::
 	
-1. You will see the pipeline available in the panel, as shown in the following example:
+1. You see the pipeline available in the panel, as shown in the following example:
 
     :::image type="content" source="media/solution-template-copy-new-files-last-modified-date/copy-new-files-last-modified-date-5.png" alt-text="Show the pipeline":::
 
-1. Select **Debug**, write the value for the **Parameters** and select **Finish**.  In the picture below, we set the parameters as following.
+1. Select **Debug**, write the value for the **Parameters**, and select **Finish**.  In the picture that follows, we set the parameters as following.
    - **FolderPath_Source** = sourcefolder
    - **Directory_Source** = subfolder
    - **FolderPath_Destination** = destinationfolder
@@ -64,11 +64,11 @@ The template defines six parameters:
    - **LastModified_From** =  2019-02-01T00:00:00Z
    - **LastModified_To** = 2019-03-01T00:00:00Z
 	
-    The example is indicating that the files, which have been last modified within the timespan (**2019-02-01T00:00:00Z** to **2019-03-01T00:00:00Z**) will be copied from the source path **sourcefolder/subfolder** to the destination path **destinationfolder/subfolder**.  You can replace these with your own parameters.
+    The example is indicating that the files, which were last modified within the timespan (**2019-02-01T00:00:00Z** to **2019-03-01T00:00:00Z**) will be copied from the source path **sourcefolder/subfolder** to the destination path **destinationfolder/subfolder**.  You can replace these times or folders with your own parameters.
 
     :::image type="content" source="media/solution-template-copy-new-files-last-modified-date/copy-new-files-last-modified-date-6.png" alt-text="Run the pipeline":::
 
-1. Review the result. You will see only the files last modified within the configured timespan has been copied to the destination store.
+1. Review the result. You see only the files last modified within the configured timespan are copied to the destination store.
 
     :::image type="content" source="media/solution-template-copy-new-files-last-modified-date/copy-new-files-last-modified-date-7.png" alt-text="Review the result":::
 	
@@ -87,8 +87,8 @@ The template defines six parameters:
     - **Directory_Source** = **subfolder**.  You can replace with your subfolder in source data store.
     - **FolderPath_Destination** = **destinationfolder**.  You can replace with your folder in destination data store.
     - **Directory_Destination** = **subfolder**.  You can replace with your subfolder in destination data store.
-    - **LastModified_From** =  **\@trigger().outputs.windowStartTime**.  It is a system variable from the trigger determining the time when the pipeline was triggered last time.
-    - **LastModified_To** = **\@trigger().outputs.windowEndTime**.  It is a system variable from the trigger determining the time when the pipeline is triggered this time.
+    - **LastModified_From** =  **\@trigger().outputs.windowStartTime**.  It's a system variable from the trigger determining the time when the pipeline was triggered last time.
+    - **LastModified_To** = **\@trigger().outputs.windowEndTime**.  It's a system variable from the trigger determining the time when the pipeline is triggered this time.
 	
     :::image type="content" source="media/solution-template-copy-new-files-last-modified-date/copy-new-files-last-modified-date-11.png" alt-text="Input parameters":::
 	
@@ -96,11 +96,11 @@ The template defines six parameters:
 	
     :::image type="content" source="media/solution-template-copy-new-files-last-modified-date/copy-new-files-last-modified-date-12.png" alt-text="Publish All":::
 
-1. Create new files in your source folder of data source store.  You are now waiting for the pipeline to be triggered automatically and only the new files will be copied to the destination store.
+1. Create new files in your source folder of data source store.  You're now waiting for the pipeline to be triggered automatically and only the new files are copied to the destination store.
 
-1. Select **Monitor** tab in the left navigation panel, and wait for about 15 minutes if the recurrence of trigger has been set to every 15 minutes. 
+1. Select **Monitor** tab in the left navigation panel, and wait for about 15 minutes if the recurrence of trigger was set to every 15 minutes.
 
-1. Review the result. You will see your pipeline will be triggered automatically every 15 minutes, and only the new or changed files from source store will be copied to the destination store in each pipeline run.
+1. Review the result. You see your pipeline is triggered automatically every 15 minutes, and only the new or changed files from source store are copied to the destination store in each pipeline run.
 
     :::image type="content" source="media/solution-template-copy-new-files-last-modified-date/copy-new-files-last-modified-date-15.png" alt-text="Screenshot that shows the results that return when the pipeline is triggered.":::
 	
