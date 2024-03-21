@@ -51,8 +51,6 @@ First, log into your Azure account and authenticate using one of the methods des
 
 [!INCLUDE [authenticate-to-azure.md](~/azure-dev-docs-pr/articles/terraform/includes/authenticate-to-azure.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
-
 ## Implement the Terraform code
 
 > [!NOTE]
