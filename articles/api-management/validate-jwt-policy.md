@@ -12,6 +12,8 @@ ms.author: danlep
 
 # Validate JWT
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 The `validate-jwt` policy enforces existence and validity of a supported JSON web token (JWT) extracted from a specified HTTP header, extracted from a specified query parameter, or matching a specific value.
 
 > [!NOTE]

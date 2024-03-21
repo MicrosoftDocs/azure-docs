@@ -10,6 +10,8 @@ ms.service: api-management
 
 # Troubleshooting client response timeouts and errors with API Management
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 This article helps you troubleshoot intermittent connection errors and related latency issues in [Azure API Management](./api-management-key-concepts.md). Specifically, this article will provide information and troubleshooting for the exhaustion of source address network translation (SNAT) ports. If you require more help, contact the Azure experts at [Azure Community Support](https://azure.microsoft.com/support/community/) or file a support request with [Azure Support](https://azure.microsoft.com/support/options/).
 
 ## Symptoms

@@ -10,9 +10,10 @@ ms.author: danlep
 ---
 # Use a virtual network to secure inbound and outbound traffic for Azure API Management
 
-API Management provides several options to secure access to your API Management instance and APIs using an Azure virtual network. API Management supports the following options. Available options depend on the [service tier](api-management-features.md) of your API Management instance.
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-[!INCLUDE [api-management-v2-tier-preview](../../includes/api-management-v2-tier-preview.md)]
+
+By default your API Management is accessed from the internet at a public endpoint. API Management provides several options to secure access to your API Management instance and APIs using an Azure virtual network. API Management supports the following options. Available options depend on the [service tier](api-management-features.md) of your API Management instance.
 
 * **Injection** of the API Management instance into a subnet in the virtual network, enabling the gateway to access resources in the network. 
 
