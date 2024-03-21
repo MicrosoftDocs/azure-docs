@@ -296,9 +296,9 @@
       - name: Overview
         href: dotnet-overview.md
       - name: Deploy a .NET Aspire app
-        href: /aspnet/core/host-and-deploy/scaling-aspnet-apps/scaling-aspnet-apps
-      - name: Deploy and scale an ASP.NET Core app
         href: /dotnet/aspire/deployment/azure/aca-deployment
+      - name: Deploy and scale an ASP.NET Core app
+        href: /aspnet/core/host-and-deploy/scaling-aspnet-apps/scaling-aspnet-apps
     - name: Java
       items:
       - name: Overview
