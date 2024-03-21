@@ -621,7 +621,7 @@ items:
         href: essentials/data-collection-rule-best-practices.md
       - name: Create and edit
         items:
-        - name: Create and edit
+        - name: Create
           displayName: Data collection rules
           href: essentials/data-collection-rule-create-edit.md
         - name: Edit tutorial
