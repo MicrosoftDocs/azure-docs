@@ -8,7 +8,7 @@ ms.author: shalierxia
 ---
 
 # **Istio service mesh add-on performance**
-The Istio-based service mesh add-on is logically split into a control plane (`istiod`) and a data plane. The data plane is composed of Envoy sidecar proxies inside workload pods. Istiod manages and configures these Envoy proxies.This article presents the performance of the add-on's control and data plane, including resource consumption, sidecar capacity, and latency overhead. 
+The Istio-based service mesh add-on is logically split into a control plane (`istiod`) and a data plane. The data plane is composed of Envoy sidecar proxies inside workload pods. Istiod manages and configures these Envoy proxies.This article presents the performance of both the control and data plane, including resource consumption, sidecar capacity, and latency overhead. Additionally, it provides suggestions for addressing potential strain on resources during periods of heavy load. 
 
 ## Control Plane Performance
 [Istiod’s CPU and memory requirements][control-plane-performance] correlate with the rate of deployment and configuration changes and the number of proxies connected. The scenarios tested were:
@@ -19,10 +19,10 @@ The Istio-based service mesh add-on is logically split into a control plane (`is
 #### Test Specifications
 - One `istiod` instance with default settings
 - Horizontal pod autoscaling disabled
-- Two network plugins tested - Azure CNI Overlay or Azure CNI Overlay with Cilium [ (recommended network plugins for large scale clusters) ](/azure/aks/azure-cni-overlay?tabs=kubectl#choosing-a-network-model-to-use)
-- Node SKU - Standard D16 v3 (16 vCPU, 64-GB memory)
+- Tested with two network plugins: Azure CNI Overlay and Azure CNI Overlay with Cilium [ (recommended network plugins for large scale clusters) ](/azure/aks/azure-cni-overlay?tabs=kubectl#choosing-a-network-model-to-use)
+- Node SKU: Standard D16 v3 (16 vCPU, 64-GB memory)
 - 500 nodes
-- Kubernetes version - 1.28.5
+- Kubernetes version: 1.28.5
 
 ### Pod churn
 The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum number of sidecars Istiod can manage when there's sidecar churning. The churn percent is defined as the percent of sidecars churned down/up during the test. For example, 50% churn for 10,000 sidecars would mean that 5,000 sidecars were churned down, then 5,000 sidecars were churned up. The churn percents tested were determined from the typical churn percentage during deployment rollouts (`maxUnavailable`). The churn rate was calculated by determining the total number of sidecars churned (up and down) over the actual time taken to complete the churning process.
@@ -67,18 +67,18 @@ Various factors impact [sidecar performance][data-plane-performance] such as req
 [Fortio][fortio] was used to create the load. The test was conducted with the [Istio benchmark repository][istio-benchmark] that was modified for use with the add-on.
 
 #### Test Specifications
-- Two network plugins tested - Azure CNI Overlay or Azure CNI Overlay with Cilium [ (recommended network plugins for large scale clusters) ](/azure/aks/azure-cni-overlay?tabs=kubectl#choosing-a-network-model-to-use)
-- Kubernetes version - 1.28.5
-- Node SKU - Standard D16 v5 (16 vCPU, 64-GB memory)
+- Tested with two network plugins: Azure CNI Overlay and Azure CNI Overlay with Cilium [ (recommended network plugins for large scale clusters) ](/azure/aks/azure-cni-overlay?tabs=kubectl#choosing-a-network-model-to-use)
+- Node SKU: Standard D16 v5 (16 vCPU, 64-GB memory)
 - 25 nodes
+- Kubernetes version: 1.28.5
 - Two proxy workers
 - 1-KB payload
-- 1000 QPS at 2/4/8/16/32/64 client connections
+- 1000 QPS at varying client connections
 - `http/1.1` protocol and mutual TLS enabled
 - 26 data points collected
 
 #### CPU and Memory
-The memory and CPU usage for both the client and server proxy for 16 client connections and 1000 QPS across all network plugin scenarios is roughly 0.4 v CPU and 72 MB. 
+The memory and CPU usage for both the client and server proxy for 16 client connections and 1000 QPS across all network plugin scenarios is roughly 0.4 vCPU and 72 MB. 
 
 #### Latency
 The sidecar Envoy proxy collects raw telemetry data after responding to a client, which doesn't directly affect the request's total processing time. However, this process delays the start of handling the next request, contributing to queue wait times and influencing average and tail latencies. Depending on the traffic pattern, the actual tail latency varies. 
@@ -91,7 +91,7 @@ The following evaluates the impact of adding sidecar proxies to the data path, s
 [ ![Diagram that compares P90 latency for Azure CNI Overlay.](./media/aks-istio-addon/latency-box-plot/overlay-azure_p90.png) ](./media/aks-istio-addon/latency-box-plot/overlay-azure_p90.png#lightbox)  |  [ ![Diagram that compares P90 latency for Azure CNI Overlay with Cilium.](./media/aks-istio-addon/latency-box-plot/overlay-cilium_p90.png) ](./media/aks-istio-addon/latency-box-plot/overlay-cilium_p90.png#lightbox)
 
 ## Service Entry
-Istio features a custom resource definition known as a ServiceEntry that enables adding other services into the Istio’s internal service registry. A [ServiceEntry][serviceentry] allows services already in the mesh to route or access the services specified. However, the configuration of multiple ServiceEntries with the `resolution` field set to DNS can cause a [heavy load on DNS servers][understanding-dns]. The following suggestions can help reduce the load:
+Istio's ServiceEntry custom resource definition enables adding other services into the Istio’s internal service registry. A [ServiceEntry][serviceentry] allows services already in the mesh to route or access the services specified. However, the configuration of multiple ServiceEntries with the `resolution` field set to DNS can cause a [heavy load on DNS servers][understanding-dns]. The following suggestions can help reduce the load:
 
 - Switch to `resolution: NONE` to avoid proxy DNS lookups entirely. Suitable for most use cases.
 - Increase TTL (Time To Live) if you control the domains being resolved.
