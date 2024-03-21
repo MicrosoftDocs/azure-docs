@@ -32,7 +32,7 @@ The benefits of HTTP/2 include:
 
 ## HTTP/2 Browser Support
 
-All major browsers implement HTTP/2 support in their current versions. Browsers that do not support it automatically fall back to HTTP/1.1.
+All major browsers implement HTTP/2 support in their current versions. Browsers that don't support it automatically falls back to HTTP/1.1.
 
 |Browser|Minimum Version|
 |-------------|------------|
