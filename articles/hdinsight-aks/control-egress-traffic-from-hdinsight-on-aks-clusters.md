@@ -3,7 +3,7 @@ title: Control network traffic from HDInsight on AKS Clusters
 description: A guide to configure and manage inbound and outbound network connections from HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 03/19/2024
+ms.date: 03/21/2024
 ---
 
 # Control network traffic from HDInsight on AKS Clusters
@@ -30,14 +30,13 @@ For example, you may want to:
 There are several methods and tools for controlling egress traffic from HDInsight on AKS clusters, by configuring the settings at cluster pool and cluster levels.  
 
 Some of the most common ones are: 
+* Use Azure Firewall or Network Security Groups (NSGs) to control egress traffic, when you opt to use outbound cluster pool with load balancer 
 
-1. Use Azure Firewall or Network Security Groups (NSGs) to control egress traffic, when you opt to use outbound cluster pool with load balancer 
+* Use Outbound cluster pool with User defined routing to control egress traffic at the subnet level.
 
-1. Use Outbound cluster pool with User defined routing to control egress traffic at the subnet level.
+* Use Private AKS cluster feature - To ensure AKS control plane, or API server has internal IP addresses. The network traffic between AKS Control plane / API server and HDInsight on AKS node pools (clusters) remains on the private network only.
 
-1. Use Private AKS cluster feature - To ensure AKS control plane, or API server has internal IP addresses. The network traffic between AKS Control plane / API server and HDInsight on AKS node pools (clusters) remains on the private network only.
-
-1. Avoid creating public IPs for the cluster, use private ingress feature on your clusters.
+* Avoid creating public IPs for the cluster, use private ingress feature on your clusters.
 
 In the following sections, we describe each method in detail.
 
