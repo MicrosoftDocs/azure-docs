@@ -186,33 +186,37 @@ You can use the `nodeSelector` field in your pod specification to specify the no
 The following example pod definition file shows how to use pod anti-affinity to ensure that pods are spread across nodes:
 
 ```yaml
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: with-node-affinity
+  name: multi-zone-deployment
+  labels:
+    app: myapp
 spec:
-  affinity:
-    nodeAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-        nodeSelectorTerms:
-        - matchExpressions:
-          - key: topology.kubernetes.io/zone
-            operator: In
-            values:
-            - 0 # Azure Availability Zone 0
-            - 1 # Azure Availability Zone 1
-            - 2 # Azure Availability Zone 2
-      preferredDuringSchedulingIgnoredDuringExecution:
-      - weight: 1
-        preference:
-          matchExpressions:
-          - key: another-node-label-key
-            operator: In
-            values:
-            - another-node-label-value
-  containers:
-  - name: with-node-affinity
-    image: registry.k8s.io/pause:2.0
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+      - name: myapp-container
+        image: nginx
+        ports:
+        - containerPort: 80
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - myapp
+            topologyKey: topology.kubernetes.io/zone
 ```
 
 For more information, see [Affinity and anti-affinity in Kubernetes](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity).

@@ -19,11 +19,11 @@ Azure periodically updates its infrastructure to improve reliability, performanc
 
 Azure infrastructure updates can range from upgrading network components, decommissioning hardware on network, patching software components in hosting environment or updating guest OS/ software’s on VMs. Each of these updates are performed using different tools available in Azure.
 
-Maintenance platform aims to provide customers with *unified maintenance experience* for all Azure resources that are impacted during maintenance. Maintenance experience is available for a variety of Azure resources, including host ([Azure Dedicated Host]((dedicated-hosts.md) and [Isolated](isolation.md) VMs), guest (VMs and Arc VMs), AKS, SFMC, Network Gateways (VPN Gateway, ExpressRoute, Virtual Network Gateway) resources either via Azure Portal, PowerShell or CLI. [Maintenance control](maintenance-configurations.md) provides customers with an option to skip or defer certain updates and schedule them only during their preferred maintenance window.
+Maintenance platform aims to provide customers with *unified maintenance experience* for all Azure resources that are impacted during maintenance. Maintenance experience is available for a variety of Azure resources, including host ([Azure Dedicated Host](dedicated-hosts.md) and [Isolated](isolation.md) VMs), guest (VMs and Arc VMs), AKS, SFMC, Network Gateways (VPN Gateway, ExpressRoute, Virtual Network Gateway) resources either via Azure Portal, PowerShell or CLI. [Maintenance control](maintenance-configurations.md) provides customers with an option to skip or defer certain updates and schedule them only during their preferred maintenance window.
 
-## Host Maintenance
+## Host maintenance
 
-Host maintenance is performed on the physical hosts where VMs are located and are usually transparent to the customers. But some updates can require the VMs that are allocated on the hosts to freeze (*non-rebootful updates*), reboot (*rebootful updates*) or live migrate to another updated hosts. When these no-impact updates are performed, Azure chooses the update mechanism that's least impactful to customer VMs. 
+Host maintenance is performed on the physical hosts where VMs are located and are usually transparent to the customers. But some updates can have an impact that is tolerated by most customers. During these updates the VMs that are allocated on the hosts might freeze (*non-rebootful updates*), reboot (*rebootful updates*) or be live migrated to another updated hosts. Azure chooses the update mechanism that's least impactful to customer VMs. 
 
 ### Dedicated hosts/Isolated VMs vs Shared Hosts  
    
@@ -33,7 +33,7 @@ Host maintenance is performed on the physical hosts where VMs are located and ar
 
 Customer can use [maintenance control](maintenance-configurations.md) to:
 
-- Apply all (<1 sec or >=1 sec) updates together.
+- Apply all updates together.
 - Wait up to 35 days to apply updates for Host machines.
 - Set up a maintenance schedule or use Azure Functions to automate platform updates.
 - Maintenance configurations are effective across subscriptions and resource groups.
@@ -52,11 +52,11 @@ On Shared hosts, customers have maintenance experience available for rebootful u
       
    [Flash Health Events](flash-overview.md) provide near real-time information about past availability impacts so customers can react to events and easily mitigate incidents. Flash information is available in Azure Monitor, AzureResource Graph, or Event Grid to integrate with your systems and processes.
 
-## Guest patches and update flows 
+## Guest updates 
 
 ### OS Image upgrade  
      
-   [Automatic OS upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?context=/azure/virtual-machines/context/context) are available for Virtual Machine Scale Sets. An upgrade works by replacing the OS disk of a VM with a new disk created using the latest image version. Any configured extensioAns and custom data scripts are run on the OS disk, while data disks are retained. To minimize the application downtime, upgrades take place in batches, with no more than 20% of the scale set upgrading at any time.
+   [Automatic OS upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?context=/azure/virtual-machines/context/context) are available for Virtual Machine Scale Sets. An upgrade works by replacing the OS disk of a VM with a new disk created using the latest image version. Any configured extensions and custom data scripts are run on the OS disk, while data disks are retained. To minimize the application downtime, upgrades take place in batches, with no more than 20% of the scale set upgrading at any time.
      Maintenance Control is also available for OS Image upgrades. Customers can opt into this experience by using maintenance configurations to schedule when these image upgrades are applied. To use this experience scale sets, need to have automatic OS upgrades enabled. Customers can schedule recurrence for up to a week (seven days) and a minimum of 5 hours is required for the maintenance window.
 
 ### Guest VM patching
