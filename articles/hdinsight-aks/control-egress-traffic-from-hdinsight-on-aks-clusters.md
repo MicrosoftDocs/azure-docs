@@ -1,12 +1,12 @@
 ---
-title: Control egress traffic from HDInsight on AKS Clusters
+title: Control network traffic from HDInsight on AKS Clusters
 description: A guide to configure and manage outbound network connections from HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: how-to
 ms.date: 03/19/2024
 ---
 
-# Control egress traffic from HDInsight on AKS Clusters
+# Control network traffic from HDInsight on AKS Clusters
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
