@@ -200,5 +200,5 @@ Follow these steps to download role assignments at a scope.
 
 ## Next steps
 
-- [Assign Azure roles using the Azure portal](role-assignments-portal.md)
+- [Assign Azure roles using the Azure portal](role-assignments-portal.yml)
 - [Troubleshoot Azure RBAC](troubleshooting.md)

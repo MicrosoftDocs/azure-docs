@@ -1540,7 +1540,7 @@
         href: ./windows/attach-disk-ps.md
       - name: Azure portal
         displayName: add a data disk, data disk
-        href: ./windows/attach-managed-disk-portal.md
+        href: ./windows/attach-managed-disk-portal.yml
       - name: Change temp disk drive letter
         href: ./windows/change-drive-letter.md
   - name: Detach a disk
@@ -1590,7 +1590,7 @@
         href: ./windows/find-unattached-disks.md
       - name: Portal
         displayName: Find unattached disks
-        href: disks-find-unattached-portal.md
+        href: disks-find-unattached-portal.yml
     - name: Disks FAQs
       href: faq-for-disks.yml
 - name: Networking

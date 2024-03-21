@@ -3,7 +3,7 @@ title: Create a Batch account in the Azure portal
 description: Learn how to use the Azure portal to create and manage an Azure Batch account for running large-scale parallel workloads in the cloud.
 ms.topic: how-to
 ms.date: 07/18/2023
-ms.custom: subject-rbac-steps, linux-related-content
+ms.custom: subject-rbac-steps
 ---
 
 # Create a Batch account in the Azure portal
@@ -116,7 +116,7 @@ When you create the first user subscription mode Batch account in an Azure subsc
 1. On the **Role** tab, select either the **Contributor** or **Owner** role for the Batch account, and then select **Next**.
 1. On the **Members** tab, select **Select members**. On the **Select members** screen, search for and select **Microsoft Azure Batch**, and then select **Select**.
 
-For detailed steps, see [Assign Azure roles by using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+For detailed steps, see [Assign Azure roles by using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
 ### Create a key vault
 
