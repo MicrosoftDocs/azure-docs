@@ -31,7 +31,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-[!INCLUDE [azure-cli-prepare-your-environment-h3](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-h3](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 ### Development machine prerequisites
 

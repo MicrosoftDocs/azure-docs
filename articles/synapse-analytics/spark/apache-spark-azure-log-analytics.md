@@ -14,6 +14,9 @@ ms.custom: references_regions
 
 In this tutorial, you learn how to enable the Synapse Studio connector that's built in to Log Analytics. You can then collect and send Apache Spark application metrics and logs to your [Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md). Finally, you can use an Azure Monitor workbook to visualize the metrics and logs.
 
+> [!NOTE]
+> This feature is currently unavailable in the Spark 3.4 runtime but will be supported post-GA.
+
 ## Configure workspace information
 
 Follow these steps to configure the necessary information in Synapse Studio.
