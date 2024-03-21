@@ -37,7 +37,7 @@ procedureSection:
       Follow these steps: 
     steps: 
       - |
-        Sign in to the [Azure portal] and navigate to your app.
+        Sign in to the [Azure portal](https://portal.azure.com/) and navigate to your app.
       - |  
         Select **Authentication** in the menu on the left. Select **Add identity provider**.
       - |  
@@ -65,8 +65,8 @@ procedureSection:
       - |
         [Access user claims in application code](authentication.md#access-user-claims-in-application-code)
 
-nextStep:
-  text: Authentication and authorization overview
-  url: authentication.md
+relatedContent:
+  - text: Authentication and authorization overview
+    url: authentication.md
 #<!-- URLs. -->
 # [Azure portal]: https://portal.azure.com/
