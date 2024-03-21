@@ -9,7 +9,7 @@ ms.date: 02/28/2023
 ms.reviewer: cynthn
 ---
 
-# Guest Updates and Host Maintenance Overview
+# Guest updates and host maintenance overview
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
