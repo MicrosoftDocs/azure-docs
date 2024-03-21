@@ -245,7 +245,7 @@ sections:
         answer: Each ESXi host has two vSAN disk groups with a capacity tier of 15.2 TB and a 3.2-TB NVMe cache tier (1.6 TB in each disk group).      
 
       - question: Is data stored on the vSAN datastores encrypted at rest?
-        answer: Yes, vSAN datastores use data-at-rest encryption by default using keys stored in Azure Key Vault. The encryption solution is KMS-based and supports vCenter Server operations for key management.  When a host is removed from a vSphere cluster, data on SSDs is invalidated immediately.
+        answer: Yes, vSAN datastores use data-at-rest encryption by default using keys stored in Azure Key Vault. The encryption solution is KMS-based and supports vCenter Server operations for key management.  When a host is removed from a vSphere cluster, data on disk is invalidated immediately.
 
       - question: Can I rename a datastore or cluster during creation?
         answer: No, you can't change the name of datastores or clusters.
