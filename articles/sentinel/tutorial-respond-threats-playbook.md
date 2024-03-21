@@ -291,7 +291,7 @@ To create an automation rule:
        >      1. In the **Settings** blade, select the **Settings** tab, then the **Playbook permissions** expander.
        >      1. Click the **Configure permissions** button to open the **Manage permissions** panel mentioned above, and continue as described there.
        >
-       > - If, in an **MSSP** scenario, you want to [run a playbook in a customer tenant](automate-incident-handling-with-automation-rules.md#permissions-in-a-multi-tenant-architecture) from an automation rule created while signed into the service provider tenant, you must grant Microsoft Sentinel permission to run the playbook in ***both tenants***. In the **customer** tenant, follow the instructions for the multi-tenant deployment in the preceding bullet point. In the **service provider** tenant, you must add the **Azure Security Insights** app in your Azure Lighthouse onboarding template:
+       > - If, in an **MSSP** scenario, you want to [run a playbook in a customer tenant](automate-incident-handling-with-automation-rules.md#permissions-in-a-multitenant-architecture) from an automation rule created while signed into the service provider tenant, you must grant Microsoft Sentinel permission to run the playbook in ***both tenants***. In the **customer** tenant, follow the instructions for the multi-tenant deployment in the preceding bullet point. In the **service provider** tenant, you must add the **Azure Security Insights** app in your Azure Lighthouse onboarding template:
        >    1. From the Azure Portal go to **Microsoft Entra ID**.
        >    1. Click on **Enterprise Applications**.
        >    1. Select **Application Type**  and filter on **Microsoft Applications**.
@@ -332,6 +332,10 @@ You can also manually run a playbook on demand, whether in response to alerts, i
 
 ### Run a playbook manually on an alert
 
+This procedure is not supported in the unified SOC platform.
+
+In the Azure portal, select one of the following tabs as needed for your environment:
+
 # [NEW Incident details page](#tab/incidents)
 
 1. In the **Incidents** page, select an incident.
@@ -364,7 +368,8 @@ You can see the run history for playbooks on an alert by selecting the **Runs** 
 
 ### Run a playbook manually on an incident (Preview)
 
-This procedure differs slightly, depending on if you're working in Microsoft Sentinel or in the Defender portal. Select the relevant tab for your environment.
+This procedure differs, depending on if you're working in Microsoft Sentinel or in the unified SOC platform. Select the relevant tab for your environment:
+
 
 # [Microsoft Sentinel](#tab/-sentinel)
 
@@ -393,8 +398,8 @@ The **Actions** column might also show one of the following statuses:
 
 |Status  |Description and action required |
 |---------|---------|
-|<a name="missing-perms"></a>**Missing permissions**     | You're missing the required permissions to run playbooks. For more information, see [Required Azure roles to run playbooks](#required-azure-roles-to-run-playbooks). We recommend that you contact an admin user to grant you the relevant permissions.      |
-|<a name="grant-perms"></a>**Grant permission**     | Microsoft Sentinel is missing the required permissions to run playbooks on incidents ([see the note above](#explicit-permissions)). In such cases, select **Grant permission** to open the **Manage permissions** pane. The **Manage permissions** pane is filtered by default to the selected playbook's resource group. Select the resource group and then select **Apply** to grant the required permissions. <br><br>If you don't have required permissions to complete this action, we recommend you contact an admin user to grant you the relevant permissions.        |
+|<a name="missing-perms"></a>**Missing permissions**      | You must have the *Logic App Contributor* role on any resource group containing playbooks you want to run. If you're missing permissions, we recommend you contact an admin to grant you with the relevant permissions. <br><br>For more information, see [Permissions required to work with playbooks](automate-responses-with-playbooks.md#permissions-required).|
+|<a name="grant-perms"></a>**Grant permission**     | Microsoft Sentinel is missing the *Microsoft Sentinel Automation Contributor* role, which is required to run playbooks on incidents. In such cases, select **Grant permission** to open the **Manage permissions** pane. The **Manage permissions** pane is filtered by default to the selected playbook's resource group. Select the resource group and then select **Apply** to grant the required permissions. <br><br>You must be an *Owner* or a *User access administrator* on the resource group to which you want to grant Microsoft Sentinel permissions. If you're missing permissions, the resource group is greyed out and you won't be able to select it. In such cases, we recommend you contact an admin to grant you with the relevant permissions. <br><br>For more information, see the note above](#explicit-permissions).  |
 
 ---
 
@@ -402,9 +407,11 @@ View the run history for playbooks on an incident by selecting the **Runs** tab 
 
 ### Run a playbook manually on an entity (Preview)
 
+This procedure is not supported in the unified SOC platform.
+
 1. Select an entity in one of the following ways, depending on your originating context:
 
-    **If you're in an incident's details page (new version in the Azure or Defender portals):** <!--is this correct?-->
+    **If you're in an incident's details page (new version):**
     1. In the **Entities** widget in the **Overview** tab, find an entity from the list (don't select it).
     1. Select the three dots to the right of the entity.
     1. Select **Run playbook (Preview)** from the pop-up menu and continue with step 2 below.  
@@ -440,5 +447,4 @@ You can see the run history for playbooks on a given entity by selecting the **R
 In this tutorial, you learned how to use playbooks and automation rules in Microsoft Sentinel to respond to threats. 
 - Learn more about [authenticating playbooks to Microsoft Sentinel](authenticate-playbooks-to-sentinel.md)
 - Learn more about [using triggers and actions in Microsoft Sentinel playbooks](playbook-triggers-actions.md)
-- Learn more about 
 - Learn how to [proactively hunt for threats](hunting.md) using Microsoft Sentinel.
