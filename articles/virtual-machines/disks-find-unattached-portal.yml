@@ -64,7 +64,7 @@ procedureSection:
 relatedContent:
   - text: Use the Azure CLI to find unattached disks
     url: linux/find-unattached-disks.md
-  - text: PowerShell
+  - text: Use the Azure PowerShell module to find unattached disks
     url: windows/find-unattached-disks.md  
   - text: Identify Orphaned Disks Using PowerShell
     url: /archive/blogs/ukplatforms/azure-cost-optimisation-series-identify-orphaned-disks-using-powershell
