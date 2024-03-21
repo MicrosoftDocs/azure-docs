@@ -8,16 +8,16 @@
       href: overview.md
   - name: How-To
     items:
-    - name: How-To sign with Trusted Signing
-      href: how-to.md
+    - name: Signing Integrations with Trusted Signing
+      href: how-to-signing-integrations.md
   - name: Quickstart
     items:
     - name: Quickstart onboarding
       href: quickstart.md
   - name: Tutorial
     items:
-    - name: Trusted Signing tutorial
-      href: tutorial.md
+    - name: Assigning Roles in Trusted Signing
+      href: tutorial-assign-roles.md
   - name: FAQ
     items:
     - name: FAQ about Trusted Signing

@@ -9,6 +9,8 @@ ms.date: 03/21/2024 #Required; mm/dd/yyyy format.
 ms.custom: template-how-to-pattern #Required; leave this attribute/value as-is.
 ---
 
+# Implement Signing Integrations with Trusted Signing
+
 Trusted Signing currently supports the following signing integrations: 
 •	SignTool
 •	GitHub Action 
@@ -21,21 +23,21 @@ This article explains how to set up each of the above Trusted Signing signing in
 
 
 ## Set up SignTool with Trusted Signing
-This section explains how to set up SignTool to use with Trusted Signing. For more detailed signing with SignTool, check out [Tutorial Public Trust](tutorial.md).
+This section explains how to set up SignTool to use with Trusted Signing.
 
 Prerequisites: 
-•	A Trusted Signing account, Identity Validation, and Certificate Profile.
-•	Ensure there are proper individual or group role assignments for signing (“Trusted Signing Certificate Profile Signer” role).
+* A Trusted Signing account, Identity Validation, and Certificate Profile.
+* Ensure there are proper individual or group role assignments for signing (“Trusted Signing Certificate Profile Signer” role).
 
 Overview of steps:  
 1.	[Download and install SignTool.](#download-and-install-signtool)
-2.	[Download and install the .NET 6 Runtime.](#download-and-install-.net-6.0-runtime)
-3.	[Download and install the Trusted Signing Dlib Package.](download-and-install-trusted-signing-dlib-package)
+2.	[Download and install the .NET 6 Runtime.](#download-and-install-net-60-runtime)
+3.	[Download and install the Trusted Signing Dlib Package.](#download-and-install-trusted-signing-dlib-package)
 4.	[Create JSON file to provide your Trusted Signing account and Certificate Profile.](#create-json-file)
-5.	[Invoke SignTool.exe to sign a file.](invoke-signtool-to-sign-a-file)
+5.	[Invoke SignTool.exe to sign a file.](#invoke-signtool-to-sign-a-file)
 
 ### Download and install SignTool
-Trusted Signing requires the use of SignTool.exe to sign files on Windows, specifically the version of SignTool.exe from the Windows 10 SDK 10.0.19041 or higher. You can install the full Windows 10 SDK via the Visual Studio Installer or [download and install it separately](https://developer.microsoft.com/en-US/windows/downloads/windows-10-sdk/).
+Trusted Signing requires the use of SignTool.exe to sign files on Windows, specifically the version of SignTool.exe from the Windows 10 SDK 10.0.19041 or higher. You can install the full Windows 10 SDK via the Visual Studio Installer or [download and install it separately](https://developer.microsoft.com/en-us/windows/downloads/windows-sdk/).
 
 
 To download and install SignTool:
@@ -85,12 +87,12 @@ To sign using Trusted Signing, you need to provide the details of your Trusted S
 
 | Region       | Region Class Fields  | Endpoint URI value  |
 |--------------|-----------|------------|
-| East US  | EastUS  | https://eus.codesigning.azure.net |
-| West US   | WestUS  | https://wus.codesigning.azure.net |
-| West Central US  | WestCentralUS  | https://wcus.codesigning.azure.net/ |
-| West US 2   | WestUS2   | https://wus2.codesigning.azure.net/ |
-| North Europe   | NorthEurope   | https://neu.codesigning.azure.net   |
-| West Europe   | WestEurope   | https://weu.codesigning.azure.net  |
+| East US  | EastUS  | `https://eus.codesigning.azure.net` |
+| West US   | WestUS  | `https://wus.codesigning.azure.net` |
+| West Central US  | WestCentralUS  | `https://wcus.codesigning.azure.net/` |
+| West US 2   | WestUS2   | `https://wus2.codesigning.azure.net/` |
+| North Europe   | NorthEurope   | `https://neu.codesigning.azure.net`   |
+| West Europe   | WestEurope   | `https://weu.codesigning.azure.net`  |
 
 * The optional `"CorrelationId"` field is an opaque string value that you can provide to correlate sign requests with your own workflows such as build identifiers or machine names.
 
@@ -106,10 +108,10 @@ Complete the following steps to invoke SignTool to sign a file for you:
 * Both x86 and x64 versions of SignTool.exe are provided as part of the Windows SDK - ensure you reference the corresponding version of Azure.CodeSigning.Dlib.dll. The above example is for the x64 version of SignTool.exe.
 * You must make sure you use the recommended Windows SDK version in the dependencies listed at the beginning of this article. Otherwise our dlib won’t work. 
 
-Trusted Signing certificates have a 3-day validity, so timestamping is critical for continued successful validation of a signature beyond that 3-day validity period. Trusted Signing recommends the use of Trusted Signing’s Microsoft Public RSA Time Stamping Authority: http://timestamp.acs.microsoft.com/.
+Trusted Signing certificates have a 3-day validity, so timestamping is critical for continued successful validation of a signature beyond that 3-day validity period. Trusted Signing recommends the use of Trusted Signing’s Microsoft Public RSA Time Stamping Authority: `http://timestamp.acs.microsoft.com/`.
 
 ## Use other signing integrations with Trusted Signing 
-This section explains how to set up other not [SignTool](#setup-signtool-with-trusted-signing) signing integrations with Trusting Signing.
+This section explains how to set up other not [SignTool](#set-up-signtool-with-trusted-signing) signing integrations with Trusting Signing.
 
 * GitHub Action – To use the GitHub action for Trusted Signing, visit [Azure Code Signing · Actions · GitHub Marketplace](https://github.com/marketplace/actions/azure-code-signing) and follow the instructions to set up and use GitHub action.
 
