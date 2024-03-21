@@ -331,6 +331,9 @@ https://<domain-name>/11111111-1111-1111-1111-111111111111/v2.0/
 ```
 ::: zone pivot="b2c-custom-policy"
 
+::: zone-end
+
+
 ## (Optional) Azure Front Door advanced configuration
 
 You can use Azure Front Door advanced configuration, such as [Azure Web Application Firewall (WAF)](partner-web-application-firewall.md). Azure WAF provides centralized protection of your web applications from common exploits and vulnerabilities.
