@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 04/11/2023
 ms.author: raiye
 ms.subservice: disks
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, linux-related-content
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Enable Write Accelerator

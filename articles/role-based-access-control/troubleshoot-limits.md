@@ -104,7 +104,7 @@ To reduce the number of role assignments in the subscription, add principals (us
 
     For information about how to add principals in bulk, see [Bulk add group members in Microsoft Entra ID](../active-directory/enterprise-users/groups-bulk-import-members.md).
 
-1. Assign the role to the group you created at the same scope. For more information, see [Assign Azure roles using the Azure portal](role-assignments-portal.md).
+1. Assign the role to the group you created at the same scope. For more information, see [Assign Azure roles using the Azure portal](role-assignments-portal.yml).
 
     Now you can find and remove the principal-based role assignments.
 
@@ -259,7 +259,7 @@ To reduce the number of role assignments in the subscription, replace multiple b
 
 1. Open the **Access control (IAM)** page at the same scope as the role assignments.
 
-1. Assign the new custom role to the principal. For more information, see [Assign Azure roles using the Azure portal](role-assignments-portal.md).
+1. Assign the new custom role to the principal. For more information, see [Assign Azure roles using the Azure portal](role-assignments-portal.yml).
 
     Now you can remove the built-in role assignments.
 

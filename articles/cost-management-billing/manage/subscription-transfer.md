@@ -148,11 +148,11 @@ If you have a Visual Studio or Microsoft Cloud Partner Program product, you get 
 
 ### Users keep access to transferred resources
 
-Keep in mind that users with access to resources in a product keep their access when billing ownership is transferred. However, [administrator roles](add-change-subscription-administrator.md) and [Azure role assignments](../../role-based-access-control/role-assignments-portal.md) might get removed. Losing access occurs when your account is in a Microsoft Entra tenant other than the product's tenant and the user who sent the transfer request moves the product to your account's tenant.
+Keep in mind that users with access to resources in a product keep their access when billing ownership is transferred. However, [administrator roles](add-change-subscription-administrator.md) and [Azure role assignments](../../role-based-access-control/role-assignments-portal.yml) might get removed. Losing access occurs when your account is in a Microsoft Entra tenant other than the product's tenant and the user who sent the transfer request moves the product to your account's tenant.
 
 You can view the users who have Azure role assignments to access resources in the product in the Azure portal. Visit the [Subscription page in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Then select the product you want to check, and then select **Access control (IAM)** from the left-hand pane. Next, select  **Role assignments**  from the top of the page. The role assignments page lists all users who have access on the product.
 
-Even if the [Azure role assignments](../../role-based-access-control/role-assignments-portal.md) are removed during transfer, users in the original owner account might continue to have access to the product through other security mechanisms, including:
+Even if the [Azure role assignments](../../role-based-access-control/role-assignments-portal.yml) are removed during transfer, users in the original owner account might continue to have access to the product through other security mechanisms, including:
 
 - Management certificates that grant the user admin rights to subscription resources. For more information, see [Create and Upload a Management Certificate for Azure](../../cloud-services/cloud-services-certs-create.md).
 - Access keys for services like Storage. For more information, see [About Azure storage accounts](../../storage/common/storage-account-create.md).
