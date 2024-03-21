@@ -29,7 +29,10 @@ This page is updated regularly with the latest developments in Azure Private 5G 
 
 **Date available:** March 21, 2024
 
-You can now use [Azure Policy](../governance/policy/overview.md) to enforce security-related settings in your Azure Private 5G Core deployment. Azure Policy allows you to ensure compliance with organizational standards across all Azure services you use. AP5GC has built-in policy definitions for using Microsoft Entra ID to access local monitoring tools and for using customer-managed keys to encrypt SIM groups.
+You can now use [Azure Policy](../governance/policy/overview.md) to enforce security-related settings in your AP5GC deployment. Azure Policy allows you to ensure compliance with organizational standards across supported Azure services. AP5GC has built-in policy definitions for:
+
+- using Microsoft Entra ID to access local monitoring tools
+- using customer-managed keys to encrypt SIM groups.
 
 See [Azure Policy policy definitions for Azure Private 5G Core](azure-policy-reference.md) for details.
 
