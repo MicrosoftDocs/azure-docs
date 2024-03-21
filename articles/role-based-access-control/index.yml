@@ -54,7 +54,7 @@ landingContent:
           - text: Portal
             url: role-assignments-portal.yml
           - text: Portal - Subscription admin
-            url: role-assignments-portal-subscription-admin.md
+            url: role-assignments-portal-subscription-admin.yml
           - text: PowerShell
             url: role-assignments-powershell.md
           - text: Azure CLI

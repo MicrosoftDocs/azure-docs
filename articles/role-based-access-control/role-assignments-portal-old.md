@@ -174,6 +174,6 @@ If you selected one of the following storage roles, follow the steps in this sec
 
 ## Next steps
 
-- [Assign a user as an administrator of an Azure subscription](role-assignments-portal-subscription-admin.md)
+- [Assign a user as an administrator of an Azure subscription](role-assignments-portal-subscription-admin.yml)
 - [Remove Azure role assignments](role-assignments-remove.yml)
 - [Troubleshoot Azure RBAC](troubleshooting.md)
