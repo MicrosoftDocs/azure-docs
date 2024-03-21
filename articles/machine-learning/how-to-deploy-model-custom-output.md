@@ -17,7 +17,7 @@ ms.custom: devplatv2, update-code
 
 [!INCLUDE [ml v2](includes/machine-learning-dev-v2.md)]
 
-This guide explains how to create deployments that generate custom outputs and files. Sometimes you need more control over what's written as output from batch inference jobs. These cases include:
+This guide explains how to create deployments that generate custom outputs and files. Sometimes you need more control over what's written as output from batch inference jobs. These cases include the following situations:
 
 > [!div class="checklist"]
 > * You need to control how predictions are written in the output. For instance, you want to append the prediction to the original data if the data is tabular.
