@@ -11,8 +11,7 @@ ms.author: danlep
 
 # API version retirements (September 2023)
 
-[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
-
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-consumption](../../../includes/api-management-availability-premium-dev-standard-basic-consumption.md)]
 
 Azure API Management uses Azure Resource Manager (ARM) to configure your API Management instances. The API version is embedded in your use of templates that describe your infrastructure, tools that are used to configure the service, and programs that you write to manage your Azure API Management services. 
 
