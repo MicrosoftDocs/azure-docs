@@ -42,39 +42,99 @@ procedureSection:
 
       You can reset your device in the local web UI or in PowerShell. For PowerShell instructions, see [Reset your device](./azure-stack-edge-connect-powershell-interface.md#reset-your-device).
 
-      [!INCLUDE [Reset data from the device](../../includes/azure-stack-edge-device-reset.md)]
+      The reset erases the data off the device data disks. Depending on the amount of data on your device, this process takes about 30-40 minutes.
 
-      ## Reactivate device
-
-      After you reset the device, you must reactivate the device as a new management resource. After placing a new order, you must reconfigure and then reactivate the new resource.
-
-      Use the following steps to create a new management resource for your existing device:
+      To reset your device using the local web UI, take the following steps.
     
-      1. On the **Azure services** page of Azure portal, select **Azure Stack Edge**.
+    steps:
+      - |
+        In the local web UI, go to **Maintenance > Device reset**.
+
+      - |
+        Select **Reset device**.
+
+        ![Reset device](media/azure-stack-edge-device-reset/device-reset-1.png)
+
+      - |
+        When prompted for confirmation, review the warning. Type **Yes** and then select **Yes** to continue.
+
+        ![Confirm reset](media/azure-stack-edge-device-reset/device-reset-2.png)  
+
+  - title: |  
+      Remove Azure resources from your Azure Stack Edge device
+ 
+    summary: |
+      In addition to resetting your device, complete the following steps to remove Azure resources associated with the device.
+
+      >[!Note]
+      >While performing the device reset, only the data that resides locally on the device will be deleted. The data that's in the cloud won't be deleted and, if not removed, will continue to collect [charges](https://azure.microsoft.com/pricing/details/storage/). This data must be deleted separately using a cloud storage management tool like [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
       
-          [![Screenshot of Azure services page on Azure portal. The Azure Stack Edge option is highlighted.](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-select-azure-stack-edge-00.png)](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-select-azure-stack-edge-00.png#lightbox)
+      Delete the Azure Stack Edge resource (name of the service) associated with the Azure Stack Edge device. You can also use this step to remove the associated key vault. This step also removes the managed identity associated with the Azure Stack Edge resource. Gather key vault details before you delete the Azure Stack Edge resource.
 
-      1. On the **Azure Stack Edge** page, select **+ Create**.
+      Use the following steps to delete the Azure Stack Edge resource, its managed identity, the associated key vault, and the Azure storage account:
 
-          [![Screenshot of Azure Stack Edge page on Azure portal. The Create resource option is highlighted.](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-create-new-resource-01.png)](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-create-new-resource-01.png#lightbox)
+    steps:
+      - |
+        In Azure portal, go to your key vault, navigate to **Diagnostic settings**, and make note of the storage account name and the key vault name.
+      
+      - |
+        Go to your Azure Stack Edge resource and then to **Overview**. From the command bar, select **Delete**.
 
-      1. On the **Manage Azure Stack Edge** page, select **Manage a device**.
+      - |
+        In the Delete device blade, specify the name of the device you want to delete and then select **Delete**.
 
-          [![Screenshot of Manage Azure Stack Edge page on Azure portal. The Manage a device button is highlighted.](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-manage-device-02.png)](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-manage-device-02.png#lightbox)
+      - |
+        To continue, confirm the delete operation.
 
-      1. On the **Basics** tab, specify project details for your resource, and then select **Next: Tags**. 
+      - |
+        When deleting the Azure Stack Edge resource, you'll also be prompted to remove the associated key vault. To get the key vault name, select **Security** in left navigation, and then select the key vault name to get to the key vault resource. The key vault name starts with the service name and is appended with a GUID. Select **Diagnostic settings** and also note the storage account name.
 
-          [![Screenshot of Create management resource page Basics tab on Azure portal. The Project details fields are highlighted.](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-create-management-resource-03.png)](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-create-management-resource-03.png#lightbox)
+      - |
+        Delete the Azure storage account used by the key vault. Look for a Zone redundant storage account in the same scope as the Azure Stack Edge resource; manually delete the storage account.
 
-      1. On the **Tags** tab, specify **Name** and **Value** tags for your management resource, and then select **Review + create**.   
+  - title: |
+        Reactivate device
+    summary: |
+        After you reset the device, you must reactivate the device as a new management resource. After placing a new order, you must reconfigure and then reactivate the new resource.
 
-          [![Screenshot of Create management resource page Tags tab on Azure portal. The Name and Value fields are highlighted.](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-create-tags-04.png)](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-create-tags-04.png#lightbox)
+        Use the following steps to create a new management resource for your existing device:
 
-      1. On the **Review + create** tab, review **Terms and conditions** and **Basics** for your management resource, and then review and accept the **Privacy terms**. To complete the operation, select **Create**.
+    steps:
+      - |
+        On the **Azure services** page of Azure portal, select **Azure Stack Edge**.
+      
+        [![Screenshot of Azure services page on Azure portal. The Azure Stack Edge option is highlighted.](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-select-azure-stack-edge-00.png)](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-select-azure-stack-edge-00.png#lightbox)
 
-          [![Screenshot of Create management resource page Review and create tab on Azure portal. The Privacy terms checkbox is highlighted.](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-create-resource-05.png)](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-create-resource-05.png#lightbox)
+      - |
+        On the **Azure Stack Edge** page, select **+ Create**.
 
-      After you create the management resource for your device, use the following steps to complete device configuration.
+        [![Screenshot of Azure Stack Edge page on Azure portal. The Create resource option is highlighted.](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-create-new-resource-01.png)](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-create-new-resource-01.png#lightbox)
+
+      - |
+        On the **Manage Azure Stack Edge** page, select **Manage a device**.
+
+        [![Screenshot of Manage Azure Stack Edge page on Azure portal. The Manage a device button is highlighted.](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-manage-device-02.png)](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-manage-device-02.png#lightbox)
+
+      - |
+        On the **Basics** tab, specify project details for your resource, and then select **Next: Tags**. 
+
+        [![Screenshot of Create management resource page Basics tab on Azure portal. The Project details fields are highlighted.](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-create-management-resource-03.png)](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-create-management-resource-03.png#lightbox)
+
+      - |
+        On the **Tags** tab, specify **Name** and **Value** tags for your management resource, and then select **Review + create**.   
+
+        [![Screenshot of Create management resource page Tags tab on Azure portal. The Name and Value fields are highlighted.](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-create-tags-04.png)](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-create-tags-04.png#lightbox)
+
+      - |
+        On the **Review + create** tab, review **Terms and conditions** and **Basics** for your management resource, and then review and accept the **Privacy terms**. To complete the operation, select **Create**.
+
+        [![Screenshot of Create management resource page Review and create tab on Azure portal. The Privacy terms checkbox is highlighted.](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-create-resource-05.png)](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-create-resource-05.png#lightbox)
+
+  - title: |
+      Complete device configuration
+    summary: |
+        After you create the management resource for your device, use the following steps to complete device configuration.
+
     steps:
       - |
         [Get the activation key](azure-stack-edge-gpu-deploy-prep.md?tabs=azure-portal#get-the-activation-key).
@@ -90,6 +150,5 @@ procedureSection:
         [Activate the device](azure-stack-edge-gpu-deploy-activate.md).
 
 nextStep:
-  text: Learn how to Connect to an Azure Stack Edge device
+  text: Connect to an Azure Stack Edge device
   url: azure-stack-edge-gpu-deploy-connect.md
-
