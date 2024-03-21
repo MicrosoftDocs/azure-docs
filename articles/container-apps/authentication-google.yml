@@ -18,7 +18,7 @@ introduction: |
   To complete the following procedure, you must have a Google account that has a verified email address. To create a new Google account, go to [accounts.google.com](https://go.microsoft.com/fwlink/p/?LinkId=268302).
 procedureSection:
   - title: |
-      <a name="google-register"> </a>Register your application with Google
+      Register your application with Google
     summary: |
       Follow these steps: 
     steps: 
@@ -32,7 +32,7 @@ procedureSection:
           > [!IMPORTANT]
           > The App secret is an important security credential. Do not share this secret with anyone or distribute it within a client application.
   - title: |
-      <a name="google-secrets"> </a>Add Google information to your application
+      Add Google information to your application
     summary: |
       Follow these steps: 
     steps: 
