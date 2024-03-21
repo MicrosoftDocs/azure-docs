@@ -5,7 +5,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: how-to
-ms.date: 02/16/2024
+ms.date: 03/29/2024
 ---
 
 # Integrate with Azure Communications Gateway's Provisioning API (preview)
@@ -16,18 +16,18 @@ The Provisioning API allows you to configure Azure Communications Gateway with t
 
  The Provisioning API is a REST API.
 
-Whether you need to integrate with the REST API depends on your chosen communications service.
+Whether you integrate with the Provisioning API depends on your chosen communications service.
 
 |Communications service  |Provisioning API integration  |Purpose  |
 |---------|---------|---------|
-|Microsoft Teams Direct Routing |Required |- Configuring the subdomain associated with each Direct Routing customer.<br>- Generating DNS records specific to each customer (as required by the Microsoft 365 environment).<br>- Indicating that numbers are enabled for Direct Routing.<br>- (Optional) Configuring a custom header for messages to your network.|
+|Microsoft Teams Direct Routing |Supported (as alternative to the Number Management Portal) |- Configuring the subdomain associated with each Direct Routing customer.<br>- Generating DNS records specific to each customer (as required by the Microsoft 365 environment).<br>- Indicating that numbers are enabled for Direct Routing.<br>- (Optional) Configuring a custom header for messages to your network.|
 |Operator Connect|Recommended|- (Recommended) Flow-through provisioning of Operator Connect customers through interoperation with Operator Connect APIs  (using backend service sync). <br>- (Optional) Configuring a custom header for messages to your network. |
 |Teams Phone Mobile|Recommended|- (Recommended) Flow-through provisioning of Teams Phone Mobile customers through interoperation with Operator Connect APIs (using backend service sync). <br>- (Optional) Configuring a custom header for messages to your network. |
-|Zoom Phone Cloud Peering |Required |- Indicating that numbers are enabled for Zoom. <br>- (Optional) Configuring a custom header for messages to your network.|
+|Zoom Phone Cloud Peering |Supported (as alternative to the Number Management Portal) |- Indicating that numbers are enabled for Zoom. <br>- (Optional) Configuring a custom header for messages to your network.|
 | Azure Operator Call Protection Preview |Supported (as alternative to the Number Management Portal) |-  Indicating that numbers are enabled for Azure Operator Call Protection.<br> - Automatic provisioning of Azure Operator Call Protection. |
 
 > [!TIP]
-> You can also use the Number Management Portal (preview) for Operator Connect and Teams Phone Mobile until you launch your service.
+> Azure Communications Gateway's Number Management Portal provides equivalent function for manual provisioning. However, you can't use the Number Management Portal for flow-thorough provisioning of Operator Connect and Teams Phone Mobile after you launch your service.
 
 ## Prerequisites
 
