@@ -756,9 +756,10 @@ az cosmosdb table restorable-table list \
    --instance-id "abcd1234-d1c0-4645-a699-abcd1234"  
    --location "West US" 
 ```
+
 ```
 [   { 
-```
+
 "id": "/subscriptions/23587e98-b6ac-4328-a753-03bcd3c8e744/providers/Microsoft.DocumentDB/locations/WestUS/restorableDatabaseAccounts/7e4d666a-c6ba-4e1f-a4b9-e92017c5e8df/restorableTables/59781d91-682b-4cc2-93a3-c25d03fab159", 
 "name": "59781d91-682b-4cc2-93a3-c25d03fab159", 
 "resource": { 
@@ -767,10 +768,9 @@ az cosmosdb table restorable-table list \
   "ownerId": "table1", 
   "ownerResourceId": "tOdDAKYiBhQ=", 
   "rid": "9pvDGwAAAA==" 
-}, 
-"type": "Microsoft.DocumentDB/locations/restorableDatabaseAccounts/restorableTables" 
-
   }, 
+"type": "Microsoft.DocumentDB/locations/restorableDatabaseAccounts/restorableTables" 
+   }, 
 
 {"id": "/subscriptions/23587e98-b6ac-4328-a753-03bcd3c8e744/providers/Microsoft.DocumentDB/locations/eastus2euap/restorableDatabaseAccounts/7e4d666a-c6ba-4e1f-a4b9-e92017c5e8df/restorableTables/2c9f35eb-a14c-4ab5-a7e0-6326c4f6b785", 
 "name": "2c9f35eb-a14c-4ab5-a7e0-6326c4f6b785", 
