@@ -168,7 +168,7 @@ Grant Azure CDN permission to access the certificates (secrets) in your Azure Ke
 
 5. Select **Secret permissions**. Select the checkbox for **Get** to allow CDN permissions to get the secrets:
 
-    :::image type="content" source="./media/cdn-custom-ssl/cdn-vault-permissions.png" alt-text="Screneshot of select permissions for Azure Contnent Delivery Network to Key Vault." border="true":::
+    :::image type="content" source="./media/cdn-custom-ssl/cdn-vault-permissions.png" alt-text="Screenshot of select permissions for Azure Content Delivery Network to Key Vault." border="true":::
 
 6. Select **Add**.
 
