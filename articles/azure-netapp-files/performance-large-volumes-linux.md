@@ -89,13 +89,13 @@ The following graphs show 256-KiB sequential reads of ~10,000MiB/s with `nconn
 
 Note that 10,000 MiB/s bandwidth is offered by a large volume in the Ultra service level. 
 
-:::image type="content" source="./media/performance-large-volumes-linux/throughput-comparison-nconnect.png" alt-text="Comparison of read throughput with and without nconnect." lightbox="./media/performance-large-volumes-linux/throughput-comparison-nconnect.png":::
+:::image type="content" source="./media/performance-large-volumes-linux/throughput-comparison-nconnect.png" alt-text="Bar chart comparison of read throughput with and without nconnect." lightbox="./media/performance-large-volumes-linux/throughput-comparison-nconnect.png":::
 
 ### Linux write throughput
 
 The following graphs show sequential writes. Using `nconnect` provides observable benefits for sequential writes at 6,600 MiB/s, roughly four times that of mounts without `nconnect`. 
 
-:::image type="content" source="./media/performance-large-volumes-linux/write-throughput-comparison.png" alt-text="Comparison of write throughput with and without nconnect." lightbox="./media/performance-large-volumes-linux/write-throughput-comparison.png":::
+:::image type="content" source="./media/performance-large-volumes-linux/write-throughput-comparison.png" alt-text="Bar chart comparison of write throughput with and without nconnect." lightbox="./media/performance-large-volumes-linux/write-throughput-comparison.png":::
 
 ### Linux read IOPS
 

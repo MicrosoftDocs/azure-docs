@@ -55,7 +55,7 @@ The 2020 internal testing also explored single endpoint limits, the limits were 
 
 With a large volume, performance isn't the entire story. Simple performance is the end goal. Customers prefer a single namespace/mount point as opposed to managing multiple volumes for ease of use and application management. 
 
-## Testing Tool
+## Testing tool
 
 The EDA workload in this test was generated using a standard industry benchmark tool. It simulates a mixture of EDA applications used to design semiconductor chips.  The EDA workload distribution is as such:
 
@@ -82,11 +82,9 @@ The EDA workload in this test was generated using a standard industry benchmark 
 | - | - | 
 | Read | 50% | 
 | Write | 50% | 
-|  <ul><li>Custom2</li><li>Mmap_read</li><li>Random_read</li><li>Read_file/li><li>Read_modify_file</li></ul> | 0% | 
+|  <ul><li>Custom2</li><li>Mmap_read</li><li>Random_read</li><li>Read_file</li><li>Read_modify_file</li></ul> | 0% | 
 
-:::image type="content" source="./media/solutions-benefits-azure-netapp-files-electronic-design-automation/pie-chart-large-volume.png" alt-text="Pie chart of EDA workloads." lightbox="./media/solutions-benefits-azure-netapp-files-electronic-design-automation/pie-chart-large-volume.png":::
-
-## Test Configuration 
+## Test configuration 
 
 The results were produced using the below configuration details:
 
