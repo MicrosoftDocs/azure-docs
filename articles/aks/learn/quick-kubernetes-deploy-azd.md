@@ -39,7 +39,7 @@ You can review the application code in the [Azure-Samples/aks-store-demo GitHub 
 
 The quickstart application includes the following Kubernetes deployments and services:
 
-:::image type="content" source="media/quick-kubernetes-deploy-portal/aks-store-architecture.png" alt-text="Screenshot of Azure Store sample architecture." lightbox="media/quick-kubernetes-deploy-portal/aks-store-architecture.png":::
+:::image type="content" source="media/quick-kubernetes-deploy-portal/aks-store-architecture.png" alt-text="Diagram that shows the Azure Store sample architecture." lightbox="media/quick-kubernetes-deploy-portal/aks-store-architecture.png":::
 
 - **Store front**: Web application for customers to view products and place orders.
 - **Product service**: Shows product information.
@@ -47,7 +47,7 @@ The quickstart application includes the following Kubernetes deployments and ser
 - **Rabbit MQ**: Message queue for an order queue.
 
 > [!NOTE]
-> We don't recommend running stateful containers, such as Rabbit MQ, without persistent storage for production use. These are used here for simplicity, but we recommend using managed services instead, such as Azure CosmosDB or Azure Service Bus.
+> We don't recommend running stateful containers, such as Rabbit MQ, without persistent storage for production use. These are used here for simplicity, but we recommend using managed services instead, such as Azure Cosmos DB or Azure Service Bus.
 
 ## Clone the Azure Developer CLI template
 
