@@ -271,7 +271,7 @@ If you're using an MLflow model, model dependencies are indicated inside the mod
 
 ## Package a model that is hosted in a registry
 
-Model packages provide a convenient way to collect dependencies before deployment. However, when models are hosted in registries, the deployment target is usually another workspace. When creating packages in this setup, use the `target_environment_name` property to specify the full location where you want the model package to be created, instead of just its name.
+Model packages provide a convenient way to collect dependencies before deployment. However, when models are hosted in registries, the deployment target is usually another workspace. When creating packages in this setup, use the `target_environment` property to specify the full location where you want the model package to be created, instead of just its name.
 
 The following code creates a package of the `t5-base` model from a registry:
 
