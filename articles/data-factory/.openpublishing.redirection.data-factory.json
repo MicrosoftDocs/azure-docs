@@ -1072,6 +1072,21 @@
             "redirect_document_id": false
           },
           {
+            "source_path_from_root": "/articles/data-factory/monitor-using-azure-monitor.md",
+            "redirect_url": "/azure/data-factory/monitor-data-factory",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/monitor-metrics-alerts.md",
+            "redirect_url": "/azure/data-factory/monitor-data-factory",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/monitor-schema-logs-events.md",
+            "redirect_url": "/azure/data-factory/monitor-data-factory-reference",
+            "redirect_document_id": false
+          },
+          {
             "source_path_from_root": "/articles/data-factory/connector-troubleshoot-google-adwords.md",
             "redirect_url": "/azure/data-factory/connector-troubleshoot-google-ads",
             "redirect_document_id": false

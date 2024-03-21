@@ -257,6 +257,7 @@
       "searchScope": [
         "Azure"
       ],
+      "permissioned-type": "public",
       "recommendations": true,
       "recommendation_types": ["Training", "Certification"],
       "uhfHeaderId": "azure",
