@@ -1,5 +1,5 @@
 ---
-title: Apache Flink® Application Mode Cluster on HDInsight on AKS
+title: Apache Flink® Application Mode cluster on HDInsight on AKS
 description: Learn about  Flink® Application Mode cluster on HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: how-to
@@ -15,7 +15,7 @@ HDInsight on AKS now offers a Flink Application mode cluster. This cluster lets 
 
 This deployment mode enables you to assign dedicated resources for specific Flink applications, ensuring that they have enough computing power and memory to handle large workloads efficiently.  
 
-:::image type="content" source="./media/application-mode-cluster-on-hdinsight-on-aks/job-manager.png" alt-text="Screenshot showing the job manager window." lightbox="./media/application-mode-cluster-on-hdinsight-on-aks/job-manager.png":::
+:::image type="content" source="./media/application-mode-cluster-on-hdinsight-on-aks/job-manager.png" alt-text="Diagram showing the relationship between the Flink application window and the job manager window." lightbox="./media/application-mode-cluster-on-hdinsight-on-aks/job-manager.png":::
 
 ## Advantages
 
@@ -27,7 +27,7 @@ This deployment mode enables you to assign dedicated resources for specific Flin
 
 * Automate Flink Job(s) using Azure Pipelines or other CI/CD tools: Using HDInsight on AKS, Flink users have access to user-friendly ARM Rest API, you can seamlessly integrate Flink job operations into your Azure Pipeline or other CI/CD tools.
 
-## Key Features
+## Key features
 
 * **Stop and Start Jobs with Savepoints**: Users can gracefully stop and start their Flink AppMode jobs from their previous state (Savepoint). Savepoints ensure that job progress is preserved, enabling seamless resumptions.
 
@@ -41,7 +41,7 @@ This deployment mode enables you to assign dedicated resources for specific Flin
 
 * **Delete**: Delete AppMode cluster.
 
-## How to create Flink Application Cluster
+## How to create Flink Application cluster
 
 ### Prerequisites
 
@@ -51,7 +51,7 @@ This deployment mode enables you to assign dedicated resources for specific Flin
 
 * [Resource prerequisites.](../prerequisites-resources.md)
 
-* [Create a cluster pool](../prerequisites-resources.md)
+* [Create a cluster pool.](../prerequisites-resources.md)
 
 * Add job jar in Storage Account.
 
@@ -67,7 +67,7 @@ This deployment mode enables you to assign dedicated resources for specific Flin
         
 * Example directory structure:
        
-  :::image type="content" source="./media/application-mode-cluster-on-hdinsight-on-aks/save-points-directory-structure.png" alt-text="Screenshot showing the save points directory structure." lightbox="./media/application-mode-cluster-on-hdinsight-on-aks/save-points-directory-structure.png":::
+  :::image type="content" source="./media/application-mode-cluster-on-hdinsight-on-aks/save-points-directory-structure.png" alt-text="Diagram showing the save points directory structure." lightbox="./media/application-mode-cluster-on-hdinsight-on-aks/save-points-directory-structure.png":::
     
        
 ### Create Flink App Mode Cluster
