@@ -55,6 +55,8 @@ pip install openai requests tiktoken
 
 # [OpenAI Python 0.28.1](#tab/python)
 
+[!INCLUDE [Deprecation](../includes/deprecation.md)]
+
 If you haven't already, you need to install the following libraries:
 
 ```cmd

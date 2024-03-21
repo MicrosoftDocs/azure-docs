@@ -15,6 +15,24 @@ ms.custom: references_regions
 
 This article describes features, enhancements, and bug fixes released in 2024 for the FHIR&reg; service, DICOM&reg; service, and MedTech service in Azure Health Data Services.
 
+## March 2024
+
+### DICOM service
+
+#### Integration with Azure Data Lake Storage is generally available
+
+Azure Data Lake Storage integration for the DICOM service in Azure Health Data Services is generally available. The DICOM service provides cloud-scale storage for medical imaging data using the DICOMweb standard. With the integration of Azure Data Lake Storage, organizations can enjoy full control over their imaging data and increased flexibility for accessing and working with that data through the Azure storage ecosystem and APIs.
+
+By using Azure Data Lake Storage with the DICOM service, organizations are able to:
+-	Enable direct access to medical imaging data stored by the DICOM service using Azure storage APIs and DICOMweb APIs, providing more flexibility to access and work with the data.
+-	Open medical imaging data up to the entire ecosystem of tools for working with Azure storage, including AzCopy, Azure Storage Explorer, and the Data Movement library.
+-	Unlock new analytics and AI/ML scenarios by using services that natively integrate with Azure Data Lake Storage, including Azure Synapse, Azure Databricks, Azure Machine Learning, and Microsoft Fabric.
+-	Grant controls to manage storage permissions, access controls, tiers, and rules.
+
+Learn more:
+- [Manage medical imaging data with the DICOM service and Azure Data Lake Storage](https://learn.microsoft.com/azure/healthcare-apis/dicom/dicom-data-lake)
+- [Deploy the DICOM service with Azure Data Lake Storage](https://learn.microsoft.com/azure/healthcare-apis/dicom/deploy-dicom-services-in-azure-data-lake)
+
 ## February 2024
 
 ### FHIR service
