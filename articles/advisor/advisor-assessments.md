@@ -177,13 +177,13 @@ Some common questions and answers.
 **Q**. An error occurred while trying to retrieve the list.\
 **A**. This error occurs when you don't have Contributor or Reader access to any subscription. Work with your administrator to get access.  
 
-**Q**. Assessment type drop down is disabled for a subscription.\  
+**Q**. Assessment type drop down is disabled for a subscription.\
 **A**. This error occurs when you don't have Contributor access on the subscription selected. Work with your administrator to get access or select a different subscription.  
 
-**Q**. Unable to log in to learn – "Your account is not registered to Microsoft Learn which is required before you can start assessment." error message\
+**Q**. Unable to log in to learn – "Your account is not registered to Microsoft Learn which is required before you can start assessment."\
 **A**. In the current release, we only support accounts whose home tenant is same as the tenant in which the subscription lies. As a workaround, ask your administrator to create a new account in the tenant of the subscription and use that account to register on Learn platform. To know more about tenant profiles and home tenant, check [Accounts & tenant profiles (Android)](/entra/identity-platform/accounts-overview).  
 
-**Q**. Unable to log in to learn – "Looks like you are using an External/Guest Account which is not supported." error message\  
+**Q**. Unable to log in to learn – "Looks like you are using an External/Guest Account which is not supported."\
 **A**. In the current release, we only support accounts whose home tenant is same as the tenant in which the subscription lies. As a workaround, ask your administrator to create a new account in the tenant of the subscription and use that account to register on Learn platform. To know more about tenant profiles and home tenant, check [Accounts & tenant profiles (Android)](/entra/identity-platform/accounts-overview).
 
 ## Related content
