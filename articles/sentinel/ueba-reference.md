@@ -221,7 +221,7 @@ While the initial synchronization may take a few days, once the data is fully sy
 >
 > - There are actually two versions of the *IdentityInfo* table: one serving Microsoft Sentinel, the other serving Microsoft Defender for Identity. Both versions of this table are fed by Microsoft Entra ID, but the Sentinel version added a few fields.
 > 
->    [Microsoft Sentinel in the Defender portal](microsoft-sentinel-defender-portal.md) uses the Defender for Identity version of this table, so to equalize the versions of the table, the unique fields in the Sentinel version have been added to the Defender for Identity version as well. Regardless of in which portal you're using Microsoft Sentinel, you'll have access to all the same information, though there may be a small time lag in synchronization between the versions.
+>    [Microsoft Sentinel in the Defender portal](https://go.microsoft.com/fwlink/p/?linkid=2263690) uses the Defender for Identity version of this table, so to equalize the versions of the table, the unique fields in the Sentinel version have been added to the Defender for Identity version as well. Regardless of in which portal you're using Microsoft Sentinel, you'll have access to all the same information, though there may be a small time lag in synchronization between the versions.
 
 The following table describes the user identity data included in the **IdentityInfo** table in Log Analytics.
 
