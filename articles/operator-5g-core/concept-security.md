@@ -10,9 +10,11 @@ ms.date: 03/07/2024
 
 # Security in Azure Operator 5G Core Preview
 
-Microsoft is built on Zero Trust security, including Azure Operator 5G Core Preview. Rather than assuming that everything behind the corporate firewall is safe, Zero Trust assumes an open environment where trust must always be validated. Zero Trust is equally applied to all workload environments, both on Nexus and on Azure.
+Microsoft is built on Zero Trust security, including Azure Operator 5G Core Preview. Rather than assuming that everything behind the operator firewall is safe, Zero Trust assumes an open environment where trust must always be validated. Zero Trust is equally applied to all workload environments, both on Nexus and on Azure.
 
- Zero Trust follows Azure Operator 5G Core from development through deployment and monitoring.  
+ Zero Trust follows Azure Operator 5G Core from development through deployment and runtime protection.  
+
+The Azure Operator 5G Core security posture is designed and built to prevent, detect, and defend against the latest security threats. 
 
 ## Development
 
@@ -33,12 +35,9 @@ Azure Operator 5G Core is deployed based on a security blueprint that ensures th
 - Encryption of traffic within the NFs and between NFs (3GPP).
 - Secure storage of data at rest.
 
-## Monitoring
+## Runtime protection
 
-Security monitoring of the application occurs through a combination of native alerting from the NF and Azure security applications. It includes:
-
-- Security Logging - Visibility for actions internal to the application.
-- Microsoft Defender – Optional protection from cyber threats and vulnerabilities.
+Security monitoring of the application occurs through a combination of native alerting from the NF and Azure security applications, including security logging, which allows for the visibility of actions internal to the application.
 
 ## Related content
 
