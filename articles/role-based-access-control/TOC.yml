@@ -65,7 +65,7 @@
 - name: How-to guides
   items:
   - name: List role definitions
-    href: role-definitions-list.md
+    href: role-definitions-list.yml
   - name: List role assignments
     items:
     - name: Portal
