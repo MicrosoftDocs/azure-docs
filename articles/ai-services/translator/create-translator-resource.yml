@@ -121,17 +121,12 @@ procedureSection:
           - Select **Delete resource group** from the top menu bar.
           - Confirm the deletion request by entering the resource group name and selecting **Delete**.
   
-        ## How to get started with Azure AI Translator REST APIs
-  
-        In our quickstart, you learn how to use the Translator service with REST APIs.
-
-        > [!div class="nextstepaction"]
-        > [Get Started with Translator](quickstart-text-rest-api.md)
-
 relatedContent:
+  - text: Get Started with Translator
+    url: quickstart-text-rest-api.md
   - text: Microsoft Translator code samples
     url: https://github.com/MicrosoftTranslator
   - text: Microsoft Translator Support Forum
     url: https://www.aka.ms/TranslatorForum
-  - text: Get Started with Azure (3-minute video)
-    url: https://azure.microsoft.com/get-started/?b=16.24
+#- text: Get Started with Azure (3-minute video)
+#  url: https://azure.microsoft.com/get-started/?b=16.24
