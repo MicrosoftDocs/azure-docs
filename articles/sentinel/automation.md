@@ -40,7 +40,7 @@ Playbooks in Microsoft Sentinel are based on workflows built in [Azure Logic App
 
 Learn more with this [complete explanation of playbooks](automate-responses-with-playbooks.md).
 
-## After onboarding to the unified security operations platform
+## After onboarding to the unified SOC platform
 
 After onboarding your Microsoft Sentinel workspace to the unified SOC platform, note the following differences in the way automation functions in your workspace.
 
@@ -74,6 +74,9 @@ If multiple changes are made to the same incident in a 5-10 minute period, a sin
 
 For more information, see [Incident update trigger](automate-incident-handling-with-automation-rules.md#incident-update-trigger).
 
+### Active playbooks tab
+
+After onboarding to the unified SOC platform, the **Active playbooks** tab shows a pre-defined filter with onboarded workspace's subscription. In the Azure portal, add data for other subscriptions using the Azure subscription filter.
 
 ### Running playbooks manually on demand
 
