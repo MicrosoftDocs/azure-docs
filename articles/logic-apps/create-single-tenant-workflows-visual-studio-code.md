@@ -25,7 +25,7 @@ This how-to guide shows how to create an example integration workflow that runs 
   When you're ready, you can deploy your logic app to Azure where your workflow can run in the single-tenant Azure Logic Apps environment or in an App Service Environment v3 (Windows-based App Service plans only). You can also deploy and run your workflow anywhere that Kubernetes can run, including Azure, Azure Kubernetes Service, on premises, or even other cloud providers, due to the Azure Logic Apps containerized runtime. 
 
    > [!NOTE]
-   > Deploying your Logic App to a Kubernetes cluster is currently in public preview. 
+   > Deploying your logic app to a Kubernetes cluster is currently in public preview. 
    
     For more information about single-tenant Azure Logic Apps, review [Single-tenant versus multitenant and integration service environment](single-tenant-overview-compare.md#resource-environment-differences).
 
