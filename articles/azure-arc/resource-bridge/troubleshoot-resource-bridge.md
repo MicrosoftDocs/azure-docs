@@ -13,7 +13,7 @@ This article provides information on troubleshooting and resolving issues that c
 
 ### Logs collection
 
-For issues encountered with Arc resource bridge, collect logs for further investigation using the Azure CLI [`az arcappliance logs`](/cli/azure/arcappliance/logs) command. This command needs to be run from the same management machine that was used to run commands to deploy the Arc resource bridge. If there's a problem collecting logs, most likely the management machine is unable to reach the Appliance VM, and the network administrator needs to allow communication between the management machine to the Appliance VM. You can collect the Arc resource bridge logs by passing either the appliance VM IP or the kubeconfig in the [az arcappliance logs command](/cli/azure/arcappliance/logs?view=azure-cli-latest#commands).
+For issues encountered with Arc resource bridge, collect logs for further investigation using the Azure CLI [`az arcappliance logs`](/cli/azure/arcappliance/logs) command. This command needs to be run from the same management machine that was used to run commands to deploy the Arc resource bridge. If there's a problem collecting logs, most likely the management machine is unable to reach the Appliance VM, and the network administrator needs to allow communication between the management machine to the Appliance VM. You can collect the Arc resource bridge logs by passing either the appliance VM IP or the kubeconfig in the logs command.
 
 An example to collect Arc resource bridge logs on VMware using the appliance VM IP address: 
 
@@ -33,6 +33,7 @@ If you are unsure of your appliance VM IP, there is also the option to use the k
    az arcappliance get-credentials --resource-group my-rg-01 --name arb-name --credentials-dir C:\ProgramData\arbcreds
    az arcappliance logs vmware --kubeconfig C:\ProgramData\arbcreds --username vsphereuseraccount --password vsphereaccountpswd
    ```
+
 ### Arc resource bridge is offline
 
 If the resource bridge is offline, this is typically due to a change in networking in the infrastructure, environment or cluster that stops the appliance VM from being able to function or communicate with its counterpart Azure resource. If you are unable to determine what has changed in the infrastructure, environment or cluster, you can attempt to reboot the appliance VM, collect logs and submit a support ticket for further investigation. 
