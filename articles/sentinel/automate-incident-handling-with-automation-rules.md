@@ -141,7 +141,8 @@ Also, if an incident is updated by an automation rule that ran on the incident's
 
 If an incident triggers both create-trigger and update-trigger automation rules, the create-trigger rules will run first, according to their **[Order](#order)** numbers, and then the update-trigger rules will run, according to *their* **Order** numbers.
 
-After onboarding to the unified SOC platform, if multiple changes are made to the same incident in a five to ten minute period, a single update is sent to Microsoft Sentinel, with only the most recent change.
+> [!NOTE]
+> After onboarding to the unified SOC platform, if multiple changes are made to the same incident in a five to ten minute period, a single update is sent to Microsoft Sentinel, with only the most recent change.
 
 #### Alert create trigger
 
