@@ -3,7 +3,7 @@ title: Featurization with automated machine learning
 titleSuffix: Azure Machine Learning
 description: Learn the data featurization settings in Azure Machine Learning and how to customize those features for your automated ML experiments.
 author: manashgoswami
-ms.author: magoswam
+ms.author: manashg
 ms.reviewer: ssalgado
 services: machine-learning
 ms.service: machine-learning
