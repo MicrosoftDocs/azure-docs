@@ -167,8 +167,13 @@ Following is an example of setting up firewall rules, and testing your outbound 
         |Address prefix |0.0.0.0/0 |
         |Next hop type |Virtual appliance |
         |Next hop address |The private IP address for the firewall that you copied |
+  
+    1. From the left navigation, select **Subnets > Associate**.
+    1. In **Virtual network**, select your integrated virtual network.
+    1. In **Subnet**, select the HDInsight on AKS subnet you wish to use.
+   
         
-        :::image type="content" source="./media/control-egress traffic-from-hdinsight-on-aks-clusters/create-route-table.png" alt-text="Screenshot showing create route table." lightbox="./media/control-egress traffic-from-hdinsight-on-aks-clusters/create-route-table.png":::
+        :::image type="content" source="./media/control-egress traffic-from-hdinsight-on-aks-clusters/associate-subnet.png" alt-text="Screenshot showing how to associate subnet." lightbox="./media/control-egress traffic-from-hdinsight-on-aks-clusters/associate-subnet.png":::
 
     1. Select **OK**. 
 
