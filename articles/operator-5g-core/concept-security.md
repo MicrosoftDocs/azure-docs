@@ -1,6 +1,6 @@
 ---
 title: Security in Azure Operator 5G Core Preview
-description: Review the security features embedded in Azure Operator 5G Core Preview
+description: Review the security features embedded in Azure Operator 5G Core Preview.
 author: SarahBoris
 ms.author: sboris
 ms.service: azure-operator-5g-core
@@ -32,7 +32,7 @@ Azure Operator 5G Core is deployed based on a security blueprint that ensures th
 - Least access privilege based on Role-based Access Control (RBAC) methodology.
 - Centralized Identity / Privilege Management using Microsoft Entra ID.
 - Secure transport to Azure through Express Route.  
-- Encryption of traffic within the NFs and between NFs (3GPP).
+- Encryption of traffic both within network functions (NFs) and between NFs (3GPP).
 - Secure storage of data at rest.
 
 ## Runtime protection

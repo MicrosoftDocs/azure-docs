@@ -17,7 +17,7 @@ Mobile Packet Core resources have minimal ordering constraints. To bring up netw
 
 ## Mobile Packet Core resource deployment order
 
-Deploy resources in the following order. Note that the Microsoft.MobilePacketCore/clusterServices resource must be deployed first. All other resources may be deployed in any order or in parallel.
+Deploy resources in the following order. Note that the Microsoft.MobilePacketCore/clusterServices resource must be deployed first. All other resources can be deployed in any order or in parallel.
   
 Microsoft.MobilePacketCore/clusterServices 
 Microsoft.MobilePacketCore/amfDeployments 
