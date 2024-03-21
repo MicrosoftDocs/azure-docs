@@ -18,11 +18,11 @@ This article provides known issues related to using the Azure Communication Serv
 
 When utilizing Android API emulators on Android 5.0 (API level 21) and Android 5.1 (API level 22), some crashes are expected.  
 
-## Andriod chat and calling conflicts
+## Android chat and calling conflicts
 
-You can not use Azure Communication Services chat and calling Android SDK at the same time, the chat real-time notifications feature doesn't work. You might get a dependency resolving issue.
+You can't use Azure Communication Services chat and calling Android SDK at the same time, the chat real-time notifications feature doesn't work. You might get a dependency resolving issue.
 
-To resolve this issue you can turn off real-time notifications by adding the following dependency information in your app's build.gradle file and instead poll the GetMessages API to display incoming messages to end users.
+To resolve this issue, you can turn off real-time notifications by adding the following dependency information in your app's build.gradle file and instead poll the GetMessages API to display incoming messages to end users.
 
 **Java**
 ```java
