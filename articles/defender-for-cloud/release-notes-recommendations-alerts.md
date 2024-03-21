@@ -25,7 +25,7 @@ Microsoft Defender for Cloud is in active development and receives improvements 
 New and updated recommendations and alerts are added to the table in date order.
 
 - Get afull list of recommendations here: 
-- Review [deprecated security recommendations](recommendations-reference.md#deprecated-recommendations).
+- Review [deprecated security recommendations](recommendations-reference-deprecated.md).
 
 <!-- 1. Add new recommendations and alerts to the table.-->
 <!-- 2. Include the date of the change or release of new item.-->
@@ -36,20 +36,20 @@ New and updated recommendations and alerts are added to the table in date order.
 
 **Date** | **Type** | **Name** | **Details**
 --- | --- | --- | --- 
-March 18 | New recommendation |  [EDR solution should be installed on Virtual Machines](recommendations-reference.md#edr-solution-should-be-installed-on-virtual-machines) | [Learn more](endpoint-detection-response.md) about agentless endpoint protection recommendations.
-March 18 | [EDR configuration issues should be resolved on virtual machines](recommendations-reference.md#edr-configuration-issues-should-be-resolved-on-virtual-machines-1) | To protect virtual machines from the latest threats and vulnerabilities, resolve all identified configuration issues with the installed Endpoint Detection and Response (EDR) solution. <br> Note: Currently, this recommendation only applies to resources with Microsoft Defender for Endpoint (MDE) enabled. |
-March 18 | New recommendation | [EDR configuration issues should be resolved on EC2s](recommendations-reference-aws.md#edr-configuration-issues-should-be-resolved-on-ec2s) |
-March 18 | New recommendation | [EDR solution should be installed on EC2s](recommendations-reference-aws.md#edr-solution-should-be-installed-on-ec2s) |
-March 18 | New recommendation | ### [EDR configuration issues should be resolved on GCP virtual machines](recommendations-reference-gcp.md#edr-configuration-issues-should-be-resolved-on-gcp-virtual-machines) |
-March 18 | New recommendation | [EDR solution should be installed on GCP Virtual Machines](recommendations-reference-gcp.md#edr-solution-should-be-installed-on-gcp-virtual-machines)
-End March | Deprecated recommendation  | [Endpoint protection should be installed on your machines](recommendations-reference.md#endpoint-protection-should-be-installed-on-machines)<br/> MMA/AMA (preview)
+March 18 | New recommendation |  [EDR solution should be installed on Virtual Machines](recommendations-reference-compute.md#edr-solution-should-be-installed-on-virtual-machines) | [Learn more](endpoint-detection-response.md) about agentless endpoint protection recommendations.
+March 18 | [EDR configuration issues should be resolved on virtual machines](recommendations-reference-compute.md#edr-configuration-issues-should-be-resolved-on-virtual-machines-1) | To protect virtual machines from the latest threats and vulnerabilities, resolve all identified configuration issues with the installed Endpoint Detection and Response (EDR) solution. <br> Note: Currently, this recommendation only applies to resources with Microsoft Defender for Endpoint (MDE) enabled. |
+March 18 | New recommendation | [EDR configuration issues should be resolved on EC2s](recommendations-reference-compute.md#edr-configuration-issues-should-be-resolved-on-ec2s) |
+March 18 | New recommendation | [EDR solution should be installed on EC2s](recommendations-reference-compute.md#edr-solution-should-be-installed-on-ec2s) |
+March 18 | New recommendation | ### [EDR configuration issues should be resolved on GCP virtual machines](recommendations-reference-compute.md#edr-configuration-issues-should-be-resolved-on-gcp-virtual-machines) |
+March 18 | New recommendation | [EDR solution should be installed on GCP Virtual Machines](recommendations-reference-compute.md#edr-solution-should-be-installed-on-gcp-virtual-machines)
+End March | Deprecated recommendation  | [Endpoint protection should be installed on your machines](recommendations-reference-compute.md#endpoint-protection-should-be-installed-on-machines)<br/> MMA/AMA (preview)
 End March | Deprecation | [Endpoint protection health issues should be resolved on your machines] |(https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/37a3689a-818e-4a0e-82ac-b1392b9bb000)<br/> MMA/AMA (preview) |
-March 5 | Deprecated recommendation | [Over-provisioned identities in accounts should be investigated to reduce the Permission Creep Index (PCI)](recommendations-reference.md#over-provisioned-identities-in-accounts-should-be-investigated-to-reduce-the-permission-creep-index-pci) | 
-March 5 | Deprecated recommendation | [Over-provisioned identities in subscriptions should be investigated to reduce the Permission Creep Index (PCI)](recommendations-reference.md#over-provisioned-identities-in-subscriptions-should-be-investigated-to-reduce-the-permission-creep-index-pci) | 
+March 5 | Deprecated recommendation | [Over-provisioned identities in accounts should be investigated to reduce the Permission Creep Index (PCI)](recommendations-reference-identity-access.md#over-provisioned-identities-in-accounts-should-be-investigated-to-reduce-the-permission-creep-index-pci) | 
+March 5 | Deprecated recommendation | [Over-provisioned identities in subscriptions should be investigated to reduce the Permission Creep Index (PCI)](recommendations-reference-identity-access.md#over-provisioned-identities-in-subscriptions-should-be-investigated-to-reduce-the-permission-creep-index-pci) | 
 February 8 | New recommendation | [(Preview) Azure Stack HCI servers should meet Secured-core requirements](recommendations-reference. | md#preview-azure-stack-hci-servers-should-meet-secured-core-requirements)
-February 8 | New recommendation | [(Preview) Azure Stack HCI servers should have consistently enforced application control policies](recommendations-reference. | md#preview-azure-stack-hci-servers-should-have-consistently-enforced-application-control-policies)
+February 8 | New recommendation | [(Preview) Azure Stack HCI servers should have consistently enforced application control policies](recommendations-reference.| md#preview-azure-stack-hci-servers-should-have-consistently-enforced-application-control-policies)
 February 8 | New recommendation | [(Preview) Azure Stack HCI systems should have encrypted volumes](recommendations-reference. | md#preview-azure-stack-hci-servers-should-have-consistently-enforced-application-control-policies)
-February 8 | New recommendation | [(Preview) Host and VM networking should be protected on Azure Stack HCI systems](recommendations-reference.md#preview-host-and-vm-networking-should-be-protected-on-azure-stack-hci-systems) | 
+February 8 | New recommendation | [(Preview) Host and VM networking should be protected on Azure Stack HCI systems](recommendations-reference-networkingmd#preview-host-and-vm-networking-should-be-protected-on-azure-stack-hci-systems) | 
 January 25 | Deprecated alert | `Anomalous pod deployment (Preview) (K8S_AnomalousPodDeployment)` | Container alert
 January 25 | Deprecated alert | `Excessive role permissions assigned in Kubernetes cluster (Preview) (K8S_ServiceAcountPermissionAnomaly)` | Containers alert
 January 25 | Deprecated alert | `Anomalous access to Kubernetes secret (Preview) (K8S_AnomalousSecretAccess)` | Containers alert
@@ -80,15 +80,15 @@ January 25 | Updated to Informational  |`Suspicious User Agent detected (AppServ
 January 25 | Updated to Informational  |`Possible incoming SMTP brute force attempts detected (Generic_Incoming_BF_OneToOne)` | Azure network layer
 January 25 | Updated to Informational |`Traffic detected from IP addresses recommended for blocking (Network_TrafficFromUnrecommendedIP)` | Azure network layer
 January 25 | Updated to Informational  |`Privileged custom role created for your subscription in a suspicious way (Preview)(ARM_PrivilegedRoleDefinitionCreation)` | Azure Resource Manager
-January 4 | New recommendation | [Cognitive Services accounts should have local authentication methods disabled](recommendations-reference. | Microsoft Cloud Security Benchmarkmd#cognitive-services-accounts-should-have-local-authentication-methods-disabled) | 
-January 4 | New recommendation| [Cognitive Services should use private link](recommendations-reference.md#cognitive-services-should-use-private-link) | Microsoft Cloud Security Benchmark
-January 4 | New recommendation  | [Virtual machines and virtual machine scale sets should have encryption at host enabled](recommendations-reference. | Microsoft Cloud Security Benchmarkmd#virtual-machines-and-virtual-machine-scale-sets-should-have-encryption-at-host-enabled) | 
+January 4 | New recommendation | [Cognitive Services accounts should have local authentication methods disabled](recommendations-reference-data.md) | Microsoft Cloud Security Benchmarkmd#cognitive-services-accounts-should-have-local-authentication-methods-disabled) | 
+January 4 | New recommendation| [Cognitive Services should use private link](recommendations-reference-data.md#cognitive-services-should-use-private-link) | Microsoft Cloud Security Benchmark
+January 4 | New recommendation  | [Virtual machines and virtual machine scale sets should have encryption at host enabled](recommendations-reference-compute.md#virtual-machines-and-virtual-machine-scale-sets-should-have-encryption-at-host-enabled) | Microsoft Cloud Security Benchmark 
 January 4 | New recommendation | [Azure Cosmos DB should disable public network access] | Microsoft Cloud Security Benchmark(recommendations-reference.md#azure-cosmos-db-should-disable-public-network-accesss) | 
-January 4 | New recommendation | [Cosmos DB accounts should use private link](recommendations-reference.md#cosmos-db-accounts-should-use-private-link) | Microsoft Cloud Security Benchmark
-January 4 | New recommendation | [VPN gateways should use only Azure Active Directory (Azure AD) authentication for point-to-site users](recommendations-reference.md#vpn-gateways-should-use-only-azure-active-directory-(azure-ad)-authentication-for-point-to-site-users) | Microsoft Cloud Security Benchmark
-January 4 | New recommendation | [Azure SQL Database should be running TLS version 1.2 or newer](recommendations-reference.md#azure-sql-database-should-be-running-tls-version-12-or-newer) | Microsoft Cloud Security Benchmark
-January 4 | New recommendation | [Azure SQL Managed Instances should disable public network access](recommendations-reference.md#azure-sql-managed-instances-should-disable-public-network-access) | Microsoft Cloud Security Benchmark
-January 4 | New recommendation | [Storage accounts should prevent shared key access](recommendations-reference.md#storage-accounts-should-prevent-shared-key-access) | Microsoft Cloud Security Benchmark
+January 4 | New recommendation | [Cosmos DB accounts should use private link](recommendations-reference-data.md#cosmos-db-accounts-should-use-private-link) | Microsoft Cloud Security Benchmark
+January 4 | New recommendation | [VPN gateways should use only Azure Active Directory (Azure AD) authentication for point-to-site users](recommendations-reference-identity-access.md#vpn-gateways-should-use-only-azure-active-directory-(azure-ad)-authentication-for-point-to-site-users) | Microsoft Cloud Security Benchmark
+January 4 | New recommendation | [Azure SQL Database should be running TLS version 1.2 or newer](recommendations-reference-data.md#azure-sql-database-should-be-running-tls-version-12-or-newer) | Microsoft Cloud Security Benchmark
+January 4 | New recommendation | [Azure SQL Managed Instances should disable public network access](recommendations-reference-data.md#azure-sql-managed-instances-should-disable-public-network-access) | Microsoft Cloud Security Benchmark
+January 4 | New recommendation | [Storage accounts should prevent shared key access](recommendations-reference-data.md#storage-accounts-should-prevent-shared-key-access) | Microsoft Cloud Security Benchmark
 December 14 | New recommendation  | Azure registry container images should have vulnerabilities resolved (powered by Microsoft Defender Vulnerability Management) | Vulnerability assessment for Linux container images with Microsoft Defender Vulnerability Management.
 December 14 | New recommendation  | Running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management) | Vulnerability assessment for Linux container images with Microsoft Defender Vulnerability Management.
 December 14 | Renamed recommendation  | **Old**: Container registry images should have vulnerability findings resolved (powered by Qualys)<br/>**New**: Azure registry container images should have vulnerabilities resolved (powered by Qualys. | Vulnerability assessment for container images using Qualys.

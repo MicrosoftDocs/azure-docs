@@ -12,7 +12,7 @@ ms.date: 09/04/2023
 This page describes how to use Microsoft Defender for Cloud's set of security recommendations dedicated to Kubernetes data plane hardening.
 
 > [!TIP]
-> For a list of the security recommendations that might appear for Kubernetes clusters and nodes, see the [Container recommendations](recommendations-reference.md#container-recommendations) section of the recommendations reference table.
+> For a list of the security recommendations that might appear for Kubernetes clusters and nodes, review[container recommendations](recommendations-reference-container.md).
 
 ## Set up your workload protection
 
