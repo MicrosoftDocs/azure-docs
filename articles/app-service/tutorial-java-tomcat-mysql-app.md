@@ -529,16 +529,13 @@ azd down
 ## Troubleshooting
 
 - [I see many \<Class> scanned from multiple locations warnings with mvn jetty:run](#i-see-many-class-scanned-from-multiple-locations-warnings-with-mvn-jettyrun)
-- [The deployed sample app doesn't show the tasks list app](#the-deployed-sample-app-doesnt-show-the-tasks-list-app)
 - [The portal deployment view for Azure Database for MySQL Flexible Server shows a Conflict status](#the-portal-deployment-view-for-azure-database-for-mysql-flexible-server-shows-a-conflict-status)
+- [The deployed sample app doesn't show the tasks list app](#the-deployed-sample-app-doesnt-show-the-tasks-list-app)
+- [I see a 404 Page Not Found error in the deployed sample app](#i-see-a-404-page-not-found-error-in-the-deployed-sample-app)
 
 #### I see many \<Class> scanned from multiple locations warnings with mvn jetty:run
 
 You can ignore the warnings. The Maven Jetty plugin shows the warnings because the app's *pom.xml* contains the dependency for `jakarta.servlet.jsp.jstl`, which the Jetty already provides out of the box. You need the dependency for Tomcat.
-
-#### The deployed sample app doesn't show the tasks list app
-
-If you see a `Hey, Java developers!` page instead of the tasks list app, it's most likely still loading the updated container from your most recent code deployment. Wait a few minutes and try again.
 
 #### The portal deployment view for Azure Database for MySQL Flexible Server shows a Conflict status
 
@@ -547,6 +544,14 @@ Depending on your subscription and the region you select, you may see the deploy
 `InternalServerError: An unexpected error occured while processing the request.`
 
 This is most likely because there's a limit on your subscription for the region you select. Try choosing a different region for your deployment.
+
+#### The deployed sample app doesn't show the tasks list app
+
+If you see a `Hey, Java developers!` page instead of the tasks list app, App Service is most likely still loading the updated container from your most recent code deployment. Wait a few minutes and refresh the page.
+
+#### I see a 404 Page Not Found error in the deployed sample app
+
+Make sure that you made the code changes to use the `java:comp/env/jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS` data source. If you have made the changes and have redeployed your code, App Service is most likely still loading the updated container. Wait a few minutes and refresh the page.
 
 ## Frequently asked questions
 
