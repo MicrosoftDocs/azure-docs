@@ -11,6 +11,8 @@ ms.topic: how-to
 
 # Self-host the API Management developer portal
 
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
+
 This tutorial describes how to self-host the [API Management developer portal](api-management-howto-developer-portal.md). Self-hosting is one of several options to [extend the functionality](developer-portal-extend-custom-functionality.md) of the developer portal. For example, you can self-host multiple portals for your API Management instance, with different features. When you self-host a portal, you become its maintainer and you're responsible for its upgrades. 
 
 > [!IMPORTANT]
