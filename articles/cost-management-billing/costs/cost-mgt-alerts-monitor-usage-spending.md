@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article describes how cost alerts help you monitor usage and spending in Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/05/2023
+ms.date: 03/21/2024
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -59,7 +59,7 @@ Support for alert types depends on the type of Azure account that you have (Micr
 
 To view cost alerts, open the desired scope in the Azure portal and select **Budgets** in the menu. Use the **Scope** pill to switch to a different scope. Select **Cost alerts** in the menu. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
 
-![Example image of alerts shown in Cost Management](./media/cost-mgt-alerts-monitor-usage-spending/budget-alerts-fullscreen.png)
+:::image type="content" border="true" source="./media/cost-mgt-alerts-monitor-usage-spending/budget-alerts-fullscreen.png" alt-text="Screenshot showing the Cost alerts page and example alerts in Cost Management.":::
 
 The total number of active and dismissed alerts appears on the cost alerts page.
 
@@ -69,11 +69,11 @@ Possible status includes **active** and **dismissed**. Active status indicates t
 
 Select an alert from the list to view its details. Alert details show more information about the alert. Budget alerts include a link to the budget. If a recommendation is available for a budget alert, then a link to the recommendation is also shown. Budget, credit, and department spending quota alerts have a link to analyze in cost analysis where you can explore costs for the alert's scope. The following example shows spending for a department with alert details.
 
-![Example image showing spending for a department with alert details](./media/cost-mgt-alerts-monitor-usage-spending/dept-spending-selected-with-credits.png)
+:::image type="content" border="true" source="./media/cost-mgt-alerts-monitor-usage-spending/dept-spending-selected-with-credits.png" alt-text="Screenshot showing spending for a department with alert details.":::
 
 When you view the details of a dismissed alert, you can reactivate it if manual action is needed. The following image shows an example.
 
-![Example image showing dismiss and reactivate options](./media/cost-mgt-alerts-monitor-usage-spending/Dismiss-reactivate-options.png)
+:::image type="content" border="true" source="./media/cost-mgt-alerts-monitor-usage-spending/Dismiss-reactivate-options.png" alt-text="Screenshot showing dismiss and reactivate alert options.":::
 
 ## See also
 

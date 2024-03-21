@@ -3,7 +3,7 @@ title: Deploy resources to resource groups
 description: Describes how to deploy resources in an Azure Resource Manager template. It shows how to target more than one resource group.
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 08/05/2022
+ms.date: 03/20/2024
 ---
 
 # Resource group deployments with ARM templates

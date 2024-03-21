@@ -1567,7 +1567,12 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/service/monitor-resource-reference.md",
-        "redirect_url": "/azure/machine-learning/monitor-resource-reference",
+        "redirect_url": "/azure/machine-learning/monitor-azure-machine-learning-reference",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/monitor-resource-reference.md",
+        "redirect_url": "/azure/machine-learning/monitor-azure-machine-learning-reference",
         "redirect_document_id": true
     },
     {

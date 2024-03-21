@@ -75,8 +75,8 @@
     href: uwp-react.md
 - name: Concepts
   items:
-  - name: High availability
-    href: notification-hubs-high-availability.md
+  - name: Availability zones and disaster recovery
+    href: ../reliability/reliability-notification-hubs.md?toc=/azure/reliability/toc.json
   - name: EU Data Boundary
     href: eu-data-boundary.md
   - name: Data encryption at rest

@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 02/01/2024
+ms.date: 03/07/2024
 ---
 
 # Copy and transform data in Microsoft Fabric Lakehouse using Azure Data Factory or Azure Synapse Analytics
@@ -24,13 +24,13 @@ This article outlines how to use Copy activity to copy data from and to Microsof
 
 This Microsoft Fabric Lakehouse connector is supported for the following capabilities:
 
-| Supported capabilities|IR | Managed private endpoint|
-|---------| --------| --------|
-|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|✓ |
-|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |- |
-|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|✓ |
-|[GetMetadata activity](control-flow-get-metadata-activity.md)|&#9312; &#9313;|✓ |
-|[Delete activity](delete-activity.md)|&#9312; &#9313;|✓ |
+| Supported capabilities|IR | 
+|---------| --------| 
+|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|
+|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
+|[GetMetadata activity](control-flow-get-metadata-activity.md)|&#9312; &#9313;|
+|[Delete activity](delete-activity.md)|&#9312; &#9313;|
 
 *&#9312; Azure integration runtime  &#9313; Self-hosted integration runtime*
 
@@ -585,6 +585,18 @@ sink(allowSchemaDrift: true,
 
 ```
 For Fabric Lakehouse table-based connector in inline dataset type, you only need to use Delta as dataset type. This will allow you to read and write data from Fabric Lakehouse tables.
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+
+## GetMetadata activity properties
+
+To learn details about the properties, check [GetMetadata activity](control-flow-get-metadata-activity.md) 
+
+## Delete activity properties
+
+To learn details about the properties, check [Delete activity](delete-activity.md)
 
 ## Related content
 

@@ -82,9 +82,9 @@ Only the first sampling override that matches is used.
 
 If no sampling overrides match:
 
-* If this is the first span in the trace, then the
+* If it's the first span in the trace, then the
   [top-level sampling configuration](./java-standalone-config.md#sampling) is used.
-* If this isn't the first span in the trace, then the parent sampling decision is used.
+* If it isn't the first span in the trace, then the parent sampling decision is used.
 
 ## Example: Suppress collecting telemetry for health checks
 
@@ -150,7 +150,7 @@ This example collects 100% of telemetry for `/login`.
 
 Since downstream spans (dependencies) respect the parent's sampling decision
 (absent any sampling override for that downstream span),
-those are also collected for all '/login' requests.
+they're also collected for all '/login' requests.
 
 ```json
 {
@@ -196,6 +196,6 @@ so attributes such as `http.status_code` which are captured later on can't be us
 If you use `regexp` and the sampling override doesn't work, try with the `.*` regex. If the sampling now works, it means
 you have an issue with the first regex and read [this regex documentation](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html).
 
-If it doesn't work with `.*`, you may have a syntax issue in your `application-insights.json file`. Look at the Application Insights logs and see if you notice
+If it doesn't work with `.*`, you might have a syntax issue in your `application-insights.json file`. Look at the Application Insights logs and see if you notice
 warning messages.
 
