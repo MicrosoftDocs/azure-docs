@@ -22,11 +22,11 @@ For more information, see [Upgrade the Microsoft Defender for IoT micro agent](u
 - **Azure CLI and PowerShell commands**: Automate your workflow of analyzing firmware images by using the [Firmware Analysis Azure CLI](/cli/azure/service-page/firmware%20analysis) or the [Firmware Analysis PowerShell commands](/powershell/module/az.firmwareanalysis).
 - **User choice in resource group**: Pick your own resource group or create a new resource group to use Defender for IoT Firmware Analysis during the onboarding process.
 
-:::image type="content" source="media/whats-new-firmware-analysis/pick-resource-group.png" alt-text="Screenshot that shows resource group picker while onboarding." lightbox="media/whats-new-firmware-analysis/pick-resource-group.png":::
+    :::image type="content" source="media/whats-new-firmware-analysis/pick-resource-group.png" alt-text="Screenshot that shows resource group picker while onboarding." lightbox="media/whats-new-firmware-analysis/pick-resource-group.png":::
 
 - **New UI format with Firmware inventory**: Subtabs to organize Getting started, Subscription management, and Firmware inventory.
 
-:::image type="content" source="media/whats-new-firmware-analysis/firmware-inventory-tab.png" alt-text="Screenshot that shows the firmware inventory in the new UI." lightbox="media/whats-new-firmware-analysis/firmware-inventory-tab.png":::
+    :::image type="content" source="media/whats-new-firmware-analysis/firmware-inventory-tab.png" alt-text="Screenshot that shows the firmware inventory in the new UI." lightbox="media/whats-new-firmware-analysis/firmware-inventory-tab.png":::
 
 - **Enhanced documentation**: Updates to [Tutorial: Analyze an IoT/OT firmware image](../../../articles/defender-for-iot/device-builders/tutorial-analyze-firmware.md) documentation addressing the new onboarding experience.
 
@@ -36,7 +36,7 @@ For more information, see [Upgrade the Microsoft Defender for IoT micro agent](u
 
 - **PDF report generator**: Addition of a **Download as PDF** capability on the **Overview page** that generates and downloads a PDF report of the firmware analysis results.
 
-:::image type="content" source="media/whats-new-firmware-analysis/overview-PDF-download.png" alt-text="Screenshot that shows the new Download as PDF button." lightbox="media/whats-new-firmware-analysis/overview-PDF-download.png":::
+    :::image type="content" source="media/whats-new-firmware-analysis/overview-PDF-download.png" alt-text="Screenshot that shows the new Download as PDF button." lightbox="media/whats-new-firmware-analysis/overview-PDF-download.png":::
 
 - **Reduced analysis time**: Analysis time has been shortened by 30-80%, depending on image size.
 
@@ -50,7 +50,7 @@ For more information, see [Upgrade the Microsoft Defender for IoT micro agent](u
 
 - **Firmware metadata**: Addition of a collapsible tab with firmware metadata that is available on each page.
 
-:::image type="content" source="media/whats-new-firmware-analysis/overview-firmware-metadata.png" alt-text="Screenshot that shows the new metadata tab in the Overview page." lightbox="media/whats-new-firmware-analysis/overview-firmware-metadata.png":::
+    :::image type="content" source="media/whats-new-firmware-analysis/overview-firmware-metadata.png" alt-text="Screenshot that shows the new metadata tab in the Overview page." lightbox="media/whats-new-firmware-analysis/overview-firmware-metadata.png":::
 
 - **Improved version detection**: Improved version detection of the following libraries:
     - pcre
