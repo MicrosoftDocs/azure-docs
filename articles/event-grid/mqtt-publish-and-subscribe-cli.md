@@ -165,5 +165,6 @@ You can replicate and modify the same code for multiple clients to publish and s
 
 ## Next steps
 
-- [Route MQTT messages to Event Hubs](mqtt-routing-to-event-hubs-cli.md).
+- [Tutorial: Route MQTT messages to Azure Event Hubs using namespace topics](mqtt-routing-to-event-hubs-portal-namespace-topics.md)
+- [Tutorial: Route MQTT messages to Azure Functions using custom topics](mqtt-routing-to-azure-functions-portal.md)
 - For code samples, go to [this GitHub repository](https://github.com/Azure-Samples/MqttApplicationSamples/tree/main).

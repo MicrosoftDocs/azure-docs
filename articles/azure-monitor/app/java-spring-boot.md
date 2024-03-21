@@ -12,7 +12,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 > [!NOTE]
 > With _Spring Boot native image applications_, you can use [this project](https://aka.ms/AzMonSpringNative).
 
-There are two options for enabling Application Insights Java with Spring Boot: JVM argument and programmatically.
+There are two options for enabling Application Insights Java with Spring Boot: Java Virtual Machine (JVM) argument and programmatically.
 
 ## Enabling with JVM argument 
 
@@ -42,8 +42,7 @@ To enable Application Insights Java programmatically, you must add the following
 </dependency>
 ```
 
-And invoke the `attach()` method of the `com.microsoft.applicationinsights.attach.ApplicationInsights` class
-in the first line of your `main()` method.
+And invoke the `attach()` method of the `com.microsoft.applicationinsights.attach.ApplicationInsights` class that's in the beginning line of your `main()` method.
 
 > [!WARNING]
 >
@@ -73,15 +72,15 @@ public class SpringBootApp {
 ### Configuration
 
 Programmatic enablement supports all the same [configuration options](./java-standalone-config.md)
-as the JVM argument enablement, with the following differences below.
+as the JVM argument enablement, with the differences that are described in the next sections.
 
 #### Configuration file location
 
 By default, when enabling Application Insights Java programmatically, the configuration file `applicationinsights.json`
-will be read from the classpath (`src/main/resources`, `src/test/resources`).
+is read from the classpath (`src/main/resources`, `src/test/resources`).
 
 From 3.4.3, you can configure the name of a JSON file in the classpath with the `applicationinsights.runtime-attach.configuration.classpath.file` system property.
-For example, with `-Dapplicationinsights.runtime-attach.configuration.classpath.file=applicationinsights-dev.json`, Application Insights will use `applicationinsights-dev.json` file for configuration. To programmatically configure another file in the classpath:
+For example, with `-Dapplicationinsights.runtime-attach.configuration.classpath.file=applicationinsights-dev.json`, Application Insights uses the `applicationinsights-dev.json` file for configuration. To programmatically configure another file in the classpath:
 
 ```java
 public static void main(String[] args) {
@@ -141,6 +140,6 @@ Enable connection string configured at runtime:
 #### Self-diagnostic log file location
 
 By default, when enabling Application Insights Java programmatically, the `applicationinsights.log` file containing
-the agent logs will be located in the directory from where the JVM is launched (user directory).
+the agent logs are located in the directory from where the JVM is launched (user directory).
 
-See [self-diagnostic configuration options](./java-standalone-config.md#self-diagnostics) to change this location.
+To learn how to change this location, see your [self-diagnostic configuration options](./java-standalone-config.md#self-diagnostics).

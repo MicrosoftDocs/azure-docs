@@ -316,7 +316,119 @@ When displaying code in your application, we strongly recommend that the applica
 
 Annotations are currently available in the GA API version `2024-02-01` and in all preview versions starting from `2023-06-01-preview` for Completions and Chat Completions (GPT models). The following code snippet shows how to use annotations:
 
+# [OpenAI Python 1.x](#tab/python-new)
+
+```python
+# os.getenv() for the endpoint and key assumes that you are using environment variables.
+
+import os
+from openai import AzureOpenAI
+client = AzureOpenAI(
+    api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
+    api_version="2024-03-01-preview",
+    azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT") 
+    )
+
+response = client.completions.create(
+    model="gpt-35-turbo-instruct", # model = "deployment_name".
+    prompt="{Example prompt where a severity level of low is detected}" 
+    # Content that is detected at severity level medium or high is filtered, 
+    # while content detected at severity level low isn't filtered by the content filters.
+)
+
+print(response.model_dump_json(indent=2))
+```
+
+### Output
+
+```json
+{ 
+  "choices": [ 
+    { 
+      "content_filter_results": { 
+        "hate": { 
+          "filtered": false, 
+          "severity": "safe" 
+        }, 
+        "protected_material_code": { 
+          "citation": { 
+            "URL": " https://github.com/username/repository-name/path/to/file-example.txt", 
+            "license": "EXAMPLE-LICENSE" 
+          }, 
+          "detected": true,
+          "filtered": false 
+        }, 
+        "protected_material_text": { 
+          "detected": false, 
+          "filtered": false 
+        }, 
+        "self_harm": { 
+          "filtered": false, 
+          "severity": "safe" 
+        }, 
+        "sexual": { 
+          "filtered": false, 
+          "severity": "safe" 
+        }, 
+        "violence": { 
+          "filtered": false, 
+          "severity": "safe" 
+        } 
+      }, 
+      "finish_reason": "stop", 
+      "index": 0, 
+      "message": { 
+        "content": "Example model response will be returned ", 
+        "role": "assistant" 
+      } 
+    } 
+  ], 
+  "created": 1699386280, 
+  "id": "chatcmpl-8IMI4HzcmcK6I77vpOJCPt0Vcf8zJ", 
+  "model": "gpt-35-turbo-instruct", 
+  "object": "text.completion",
+  "usage": { 
+    "completion_tokens": 40, 
+    "prompt_tokens": 11, 
+    "total_tokens": 417 
+  },  
+  "prompt_filter_results": [ 
+    { 
+      "content_filter_results": { 
+        "hate": { 
+          "filtered": false, 
+          "severity": "safe" 
+        }, 
+        "jailbreak": { 
+          "detected": false, 
+          "filtered": false 
+        }, 
+        "profanity": { 
+          "detected": false, 
+          "filtered": false 
+        }, 
+        "self_harm": { 
+          "filtered": false, 
+          "severity": "safe" 
+        }, 
+        "sexual": { 
+          "filtered": false, 
+          "severity": "safe" 
+        }, 
+        "violence": { 
+          "filtered": false, 
+          "severity": "safe" 
+        } 
+      }, 
+      "prompt_index": 0 
+    } 
+  ]
+} 
+```
+
 # [OpenAI Python 0.28.1](#tab/python)
+
+[!INCLUDE [Deprecation](../includes/deprecation.md)]
 
 ```python
 # os.getenv() for the endpoint and key assumes that you are using environment variables.
@@ -325,11 +437,11 @@ import os
 import openai
 openai.api_type = "azure"
 openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT") 
-openai.api_version = "2023-06-01-preview" # API version required to use Annotations
+openai.api_version = "2024-03-01-preview" # API version required to use Annotations
 openai.api_key = os.getenv("AZURE_OPENAI_API_KEY")
 
 response = openai.Completion.create(
-    engine="gpt-35-turbo", # engine = "deployment_name".
+    engine="gpt-35-turbo-instruct", # engine = "deployment_name".
     messages=[{"role": "system", "content": "You are a helpful assistant."}, {"role": "user", "content": "Example prompt that leads to a protected code completion that was detected, but not filtered"}]     # Content that is detected at severity level medium or high is filtered, 
     # while content detected at severity level low isn't filtered by the content filters.
 )
@@ -384,8 +496,13 @@ print(response)
   ], 
   "created": 1699386280, 
   "id": "chatcmpl-8IMI4HzcmcK6I77vpOJCPt0Vcf8zJ", 
-  "model": "gpt-35-turbo", 
-  "object": "chat.completion", 
+  "model": "gpt-35-turbo-instruct", 
+  "object": "text.completion",
+  "usage": { 
+    "completion_tokens": 40, 
+    "prompt_tokens": 11, 
+    "total_tokens": 417 
+  },  
   "prompt_filter_results": [ 
     { 
       "content_filter_results": { 
@@ -416,12 +533,7 @@ print(response)
       }, 
       "prompt_index": 0 
     } 
-  ], 
-  "usage": { 
-    "completion_tokens": 40, 
-    "prompt_tokens": 11, 
-    "total_tokens": 417 
-  } 
+  ]
 } 
 ```
 
@@ -434,7 +546,7 @@ import os
 import openai
 openai.api_type = "azure"
 openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT") 
-openai.api_version = "2023-06-01-preview" # API version required to use  Annotations
+openai.api_version = "2024-03-01-preview" # API version required to use  Annotations
 openai.api_key = os.getenv("AZURE_OPENAI_API_KEY")
 
 try:
@@ -454,29 +566,6 @@ except openai.error.InvalidRequestError as e:
         for category, details in content_filter_result.items():
             print(f"{category}:\n filtered={details['filtered']}\n severity={details['severity']}")
 
-```
-
-# [OpenAI Python 1.x](#tab/python-new)
-
-```python
-# os.getenv() for the endpoint and key assumes that you are using environment variables.
-
-import os
-from openai import AzureOpenAI
-client = AzureOpenAI(
-    api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-    api_version="2023-10-01-preview",
-    azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT") 
-    )
-
-response = client.completions.create(
-    model="gpt-35-turbo-instruct", # model = "deployment_name".
-    prompt="{Example prompt where a severity level of low is detected}" 
-    # Content that is detected at severity level medium or high is filtered, 
-    # while content detected at severity level low isn't filtered by the content filters.
-)
-
-print(response.model_dump_json(indent=2))
 ```
 
 # [JavaScript](#tab/javascrit)

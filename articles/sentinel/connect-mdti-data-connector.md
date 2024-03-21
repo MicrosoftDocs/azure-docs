@@ -1,13 +1,14 @@
 ---
 title: Enable data connector for Microsoft's threat intelligence
 titleSuffix: Microsoft Defender Threat Intelligence 
-description: Learn how to ingest Microsoft's threat intelligence into your Sentinel workspace.
+description: Learn how to ingest Microsoft's threat intelligence into your Sentinel workspace to generate high fidelity alerts and incidents.
 author: austinmccollum
 ms.topic: how-to
-ms.date: 3/06/2024
+ms.date: 3/14/2024
 ms.author: austinmc
 appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
 ms.collection: usx-security
+#customer intent: As a SOC admin, I want to utilize the best threat intelligence from Microsoft, so I can generate high fidelity alerts and incidents.
 ---
 
 # Enable data connector for Microsoft Defender Threat Intelligence
@@ -51,7 +52,7 @@ At this point, the ingested indicators are now available for use in the *TI map.
 
 You can find the new indicators in the **Threat intelligence** blade or directly in **Logs** by querying the **ThreatIntelligenceIndicator** table. For more information, see [Work with threat indicators](work-with-threat-indicators.md).
 
-## Next steps
+## Related content
 
 In this document, you learned how to connect Microsoft Sentinel to Microsoft's threat intelligence feed with the MDTI data connector. To learn more about Microsoft Defender for Threat Intelligence see the following articles.
 

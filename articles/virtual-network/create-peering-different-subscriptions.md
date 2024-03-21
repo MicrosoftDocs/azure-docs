@@ -7,7 +7,7 @@ ms.author: allensu
 ms.service: virtual-network
 ms.topic: how-to
 ms.date: 08/23/2023
-ms.custom: template-how-to, FY23 content-maintenance, devx-track-azurepowershell, devx-track-azurecli, linux-related-content
+ms.custom: template-how-to, FY23 content-maintenance, devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Create a virtual network peering - Resource Manager, different subscriptions and Microsoft Entra tenants
