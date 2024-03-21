@@ -68,6 +68,6 @@ procedureSection:
 
 relatedContent:
   - text: attach it to another VM
-    url: attach-managed-disk-portal.md
+    url: attach-managed-disk-portal.yml
   - text: Find and delete unattached Azure managed and unmanaged disks - Azure portal
-    url: ../disks-find-unattached-portal.md
+    url: ../disks-find-unattached-portal.yml
