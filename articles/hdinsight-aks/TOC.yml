@@ -171,6 +171,8 @@ items:
     href: ./flink/flink-create-cluster-portal.md
   - name: Tutorials
     items:
+    - name: Application Mode clusters
+      href: ./flink/application-mode-cluster-on-hdinsight-on-aks.md
     - name: Configuration management
       href: ./flink/flink-configuration-management.md
     - name: Job management
