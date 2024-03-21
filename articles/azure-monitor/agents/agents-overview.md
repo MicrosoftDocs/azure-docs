@@ -60,6 +60,7 @@ Azure Monitor Agent uses [data collection rules](../essentials/data-collection-r
 
 > [!NOTE]
 > To send data across tenants, you must first enable [Azure Lighthouse](../../lighthouse/overview.md).
+> Cloning a machine with Azure Monitor Agent installed is not supported. The best practice for these situations is to use [Azure Policy](../../azure-arc/servers/deploy-ama-policy.md) or an Infrastructure as a code tool to deploy AMA at scale.
 
 **To collect data using Azure Monitor Agent:**
 
@@ -210,16 +211,16 @@ View [supported operating systems for Azure Arc Connected Machine agent](../../a
 | CentOS Linux 8                                              | ✓ | ✓ |   |
 | CentOS Linux 7                                              | ✓<sup>3</sup> | ✓ | ✓ |
 | CBL-Mariner 2.0                                             | ✓<sup>3,4</sup> |   |   |
-| Debian 11                                                   | ✓<sup>3</sup> |   |   |
+| Debian 11                                                   | ✓<sup>3</sup> | ✓ |   |
 | Debian 10                                                   | ✓ | ✓ |   |
 | Debian 9                                                    | ✓ | ✓ | ✓ |
 | Debian 8                                                    |   | ✓ |   |
-| OpenSUSE 15                                                 | ✓ |   |   |
+| OpenSUSE 15                                                 | ✓ | ✓ |   |
 | Oracle Linux 9                                              | ✓ |  |   |
 | Oracle Linux 8                                              | ✓ | ✓ |   |
 | Oracle Linux 7                                              | ✓ | ✓ | ✓ |
 | Oracle Linux 6.4+                                           |   |  | ✓ |
-| Red Hat Enterprise Linux Server 9+                          | ✓ |  |   |
+| Red Hat Enterprise Linux Server 9+                          | ✓ | ✓ |   |
 | Red Hat Enterprise Linux Server 8.6+                        | ✓<sup>3</sup> | ✓ | ✓<sup>2</sup> |
 | Red Hat Enterprise Linux Server 8.0-8.5                     | ✓ | ✓ | ✓<sup>2</sup> |
 | Red Hat Enterprise Linux Server 7                           | ✓ | ✓ | ✓ |
