@@ -24,10 +24,10 @@ Install the [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017, 
 
 The Speech SDK for Python supports the following distributions on the x64 and ARM64 architectures:
 
-- Ubuntu 18.04/20.04/22.04
+- Ubuntu 18.04/20.04
 - Debian 10/11
 - Red Hat Enterprise Linux (RHEL) 8
-- CentOS 8
+- CentOS 7
 
 [!INCLUDE [Linux distributions](linux-distributions.md)]
 
