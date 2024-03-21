@@ -158,8 +158,8 @@ After the user returns to the client via the redirect URL, the application will 
 | ---- | ---- | ---- | ---- | 
 | **ClientId** | True	| String | The client id |
 | **ClientSecret**	| True | String | The client secret |
-| **AuthorizationCode** | True when grantType = `authorization_code` |	String | If grant type is `authorization_code` this field value will be the authorization code returned from the auth serve. |
-| **Scope** | True for `authorization_code` grant type<br> optional for `client_credentials` grant type| String | A space-separated list of scopes for user consent. For more information, see [OAuth2 scopes and permissions](/entra/identity-platform/scopes-oidc). |
+| **AuthorizationCode** | True when grantType = `authorization_code` |	String | If grant type is `authorization_code` this field value will be the authorization code returned from the auth server |
+| **Scope** | True for `authorization_code` grant type<br> optional for `client_credentials` grant type| String | A space-separated list of scopes for user consent. For more information, see [OAuth2 scopes and permissions](/entra/identity-platform/scopes-oidc) |
 | **RedirectUri** | True when grantType = `authorization_code` | String | URL for redirect, must be `https://portal.azure.com/TokenAuthorize` |
 | **GrantType** | True | String | `authorization_code` or `client_credentials` |
 | **TokenEndpoint** | True | String | URL to exchange code with valid token in `authorization_code` grant or client id and secret with valid token in `client_credentials` grant. |
