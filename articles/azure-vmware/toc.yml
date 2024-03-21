@@ -299,6 +299,14 @@ items:
         href: https://www.youtube.com/watch?v=vbujjWxN268
   - name: Videos
     items:
+    - name: Playlist
+      href: https://www.youtube.com/playlist?list=PL1NLwHeM6ewbZu0dC0guj-OSpIoZnnJin
+    - name: Integration with Azure Service
+      href: https://youtu.be/m26iLu6DHbU
+    - name: Integration with Azure Application Gateway
+      href: https://youtu.be/BoQYvqzb6Y8
+    - name: Migration and capacity planning
+      href: https://youtu.be/NoNG-hkksrA
     - name: Extend to the Cloud with Azure VMware Solution
       href: https://info.microsoft.com/www-extend-to-the-cloud-with-azure-vmware-solution-on-demand-registration.html
     - name: Run your VMware workloads natively on Azure with Azure VMware Solution | Azure Friday
@@ -327,16 +335,6 @@ items:
       href: https://kb.vmware.com/s/article/2129927
   - name: FAQ
     href: ./faq.yml
-  - name: Videos
-    items:
-    - name: Playlist
-      href: https://www.youtube.com/playlist?list=PL1NLwHeM6ewbZu0dC0guj-OSpIoZnnJin
-    - name: Integration with Azure Service
-      href: https://youtu.be/m26iLu6DHbU
-    - name: Integration with Azure Application Gateway
-      href: https://youtu.be/BoQYvqzb6Y8
-    - name: Migration and capacity planning
-      href: https://youtu.be/NoNG-hkksrA
 - name: Reference
   items:
   - name: REST API
