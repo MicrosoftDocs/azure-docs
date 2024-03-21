@@ -914,18 +914,14 @@ items:
       displayName: user properties
     - name: Monitor with Azure Monitor
       items:
-      - name: Overview
-        href: monitor-using-azure-monitor.md
-      - name: Azure Data Factory metrics and alerts
-        href: monitor-metrics-alerts.md
+      - name: Monitor
+        href: monitor-data-factory.md
       - name: Configure diagnostics settings and workspace
         href: monitor-configure-diagnostics.md
-      - name: Setup diagnostics logs via the Azure Monitor REST API
+      - name: Set up diagnostics logs via the Azure Monitor REST API
         href: monitor-logs-rest.md
       - name: Monitor SSIS operations with Azure Monitor
         href: monitor-ssis.md
-      - name: Schema of logs and events
-        href: monitor-schema-logs-events.md
     - name: Monitor with SDKs
       href: monitor-programmatically.md
     - name: Pipeline failure and error handling
@@ -971,9 +967,9 @@ items:
         - name: Diagnostic tool for self-hosted integration runtime
           href: self-hosted-integration-runtime-diagnostic-tool.md
           displayName: self hosted
-        - name: Monitoring self-hosted integration runtime in Azure
+        - name: Monitor self-hosted integration runtime in Azure
           href: monitor-shir-in-azure.md
-        - name: Configuring self-hosted integration runtime for log analytics collection
+        - name: Configure self-hosted integration runtime for log analytics collection
           href: how-to-configure-shir-for-log-analytics-collection.md
       displayName: self hosted, runtime
     - name: Azure-SSIS integration runtime
@@ -1396,6 +1392,8 @@ items:
     href: /cli/azure/datafactory
   - name: Compute optimized data flows retired
     href: compute-optimized-data-flow-retire.md
+  - name: Monitoring data reference
+    href: monitor-data-factory-reference.md
 - name: Resources
   items:
   - name: Whitepapers

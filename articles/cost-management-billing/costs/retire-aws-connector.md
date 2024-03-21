@@ -3,7 +3,7 @@ title: Retire your Amazon Web Services (AWS) connector
 description: This article helps you transition away from the Connector for AWS and it helps you remove it from Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/12/2024 
+ms.date: 03/20/2024 
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -58,8 +58,8 @@ To delete the connector, use the following information.
 
 ## Frequently asked questions
 
-Question: How do I get assistance with transitioning away from the Connector for AWS?<br>
-Answer: If you have questions about the AWS connector retirement, create a support request in the Azure portal related to Billing for the Cost Management AWS connector.
+Question: Who can I reach out to with questions about the Connector for AWS retirement?<br>
+Answer: If you have questions about the connector retirement, create a support request in the Azure portal. Select the **Billing** area and then under the **Cost Management** subject, submit a ticket using any of the topics listed with **Connector to AWS** in the content.
 
 ## Next steps
 

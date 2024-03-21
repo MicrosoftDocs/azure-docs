@@ -200,7 +200,7 @@ If you deployed an Azure Marketplace image with PAYG licensing model and desire 
 
 #### [SUSE (SLES)](#tab/slesAzcliByosConv)
 
-1. Install the Azure Hybrid Benefit extension on a running virtual machine. You can use the Azure portal or use the following command via the Azure CLI:
+1. Install the Azure Hybrid Benefit extension on a running virtual machine. You can use the following command via the Azure CLI:
     ```azurecli
     az vm extension set -n AHBForSLES --publisher SUSE.AzureHybridBenefit --vm-name myVMName --resource-group myResourceGroup
     ```
@@ -227,7 +227,7 @@ Converting to PAYG model is supported for Azure Marketplace images labeled BYOS,
 
 #### [Red Hat (RHEL)](#tab/rhelazclipaygconv)
 
-1. Install the Azure Hybrid Benefit extension on a running virtual machine. You can use the Azure portal or use the following command via the Azure CLI:
+1. Install the Azure Hybrid Benefit extension on a running virtual machine. You can use the following command via the Azure CLI:
     ```azurecli
     az vm extension set -n AHBForRHEL --publisher Microsoft.Azure.AzureHybridBenefit --vm-name myVMName --resource-group myResourceGroup
     ```

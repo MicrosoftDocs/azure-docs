@@ -44,7 +44,7 @@ For the whole workflow, you need to:
 * Activate the AppDynamics Java in-process agent in Azure Spring Apps to generate application metrics data.
 * Connect the AppDynamics Agent to the AppDynamics Controller to collect and visualize the data in the controller.
 
-:::image type="content" source="media/how-to-appdynamics-java-agent-monitor/appdynamics-activation.jpg" alt-text="Diagram showing a Spring Boot application in 'Azure Spring Apps' box with a two-directional arrow connecting it to an 'AppDynamics Agent' box, which also has an arrow pointing to an 'AppDynamics Controller' box" lightbox="media/how-to-appdynamics-java-agent-monitor/appdynamics-activation.jpg":::
+:::image type="content" source="media/how-to-appdynamics-java-agent-monitor/appdynamics-activation.jpg" alt-text="Diagram that shows AppDynamics Agent with two-way arrow to Spring Boot Apps in Azure Spring Apps and arrow pointing to AppDynamics Agent." border="false":::
 
 ### Activate an application with the AppDynamics Agent using the Azure CLI
 
