@@ -94,9 +94,9 @@ To check the available updates using the Azure portal, follow these steps:
 
 1.	Based on the upgrade available, you have an option to select and perform upgrade.
 
-       :::image type="content" source="./media/in-place-upgrade/node-os-upgrade.png" alt-text="Screenshot showing node upgrade button." border="true" lightbox="./media/in-place-upgrade/node-upgrade.png":::
+       :::image type="content" source="./media/in-place-upgrade/node-os-upgrade.png" alt-text="Screenshot showing node upgrade option." border="true" lightbox="./media/in-place-upgrade/node-os-upgrade.png":::
 
-1. Once you trigger the upgrade, you'll get the service notification on portal.
+1. Once you trigger the upgrade, you get the service notification on portal.
 
     :::image type="content" source="./media/in-place-upgrade/notification.png" alt-text="Screenshot showing cluster pool upgrade in progress." border="true" lightbox="./media/in-place-upgrade/notification.png":::
     
@@ -157,7 +157,7 @@ Before you start the upgrade, make sure that your cluster is healthy and stable,
 
 1. Once you trigger the upgrade, you get the service notification on portal.
  
-   :::image type="content" source="./media/in-place-upgrade/upgrade-in-progress.png" alt-text="Screenshot showing ." border="true" lightbox="./media/in-place-upgrade/upgrade-in-progress.png":::
+   :::image type="content" source="./media/in-place-upgrade/upgrade-in-progress.png" alt-text="Screenshot showing upgrade in progress." border="true" lightbox="./media/in-place-upgrade/upgrade-in-progress.png":::
 
 1. The cluster update status moves from pending to upgrading, and cluster pool status moves to `NodeOSUpgrading`.
  
@@ -177,7 +177,7 @@ upgraded with cluster pool), and the notification updates reflect the success of
 
    :::image type="content" source="./media/in-place-upgrade/final-status.png" alt-text="Screenshot showing final status." border="true" lightbox="./media/in-place-upgrade/final-status.png":::
 
-   :::image type="content" source="./media/in-place-upgrade/upgrade-successful.png" alt-text="Screenshot showing upgrade successful status." border="true" lightbox="./media/in-place-upgrade/upgrade-successful.png":::
+   :::image type="content" source="./media/in-place-upgrade/upgrade-successful.png" alt-text="Screenshot showing upgrade success status." border="true" lightbox="./media/in-place-upgrade/upgrade-successful.png":::
 
 
 ### AKS Patch upgrades
