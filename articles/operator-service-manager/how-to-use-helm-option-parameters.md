@@ -1,6 +1,6 @@
 ---
 title: How to use Helm option parameters to prevent deletion on install failure
-description: Learn how to use Helm option parameters to prevent deletion on install failure
+description: Learn how to use Helm option parameters to prevent deletion on install failure.
 author: peterwhiting
 ms.author: peterwhiting
 ms.date: 03/21/2024
@@ -11,17 +11,17 @@ ms.custom: devx-track-azurecli
 ---
 # Use Helm option parameters to prevent deletion on install failure
 
-Site Network Service (SNS) deployments may fail because an underlying Network Function (NF) deployment fails to helm install correctly. Azure Operator Service Manager (AOSM) removes failed deployments from the targeted Kubernetes cluster by default to preserve resources. Helm install failures often require the resources to persist on the cluster to allow the failure to be debugged. This How-To article covers how to edit the NF ARM template to override this behaviour by setting the `helm install --atomic` parameter to false.
+Site Network Service (SNS) deployments might fail because an underlying Network Function (NF) deployment fails to helm install correctly. Azure Operator Service Manager (AOSM) removes failed deployments from the targeted Kubernetes cluster by default to preserve resources. `Helm install` failures often require the resources to persist on the cluster to allow the failure to be debugged. This How-To article covers how to edit the NF ARM template to override this behavior by setting the `helm install --atomic` parameter to false.
 
 ## Prerequisites
 
-- You must have onboarded your NF to AOSM using the Az CLI AOSM extension. This article references the folder structure and files output by the CLI and gives CLI-based examples.
-- Helm install failures can be complex. Debugging requires technical knowledge of several technologies in additional to domain knowledge of your NF
+- You must have onboarded your NF to AOSM using the Az CLI AOSM extension. This article references the folder structure and files output by the CLI and gives CLI-based examples
+- Helm install failures can be complex. Debugging requires technical knowledge of several technologies in addition to domain knowledge of your NF
   - Working knowledge of [Helm](https://helm.sh/docs/)
   - Working knowledge of [Kubernetes](https://kubernetes.io/docs/home/) and [kubectl](https://kubernetes.io/docs/reference/kubectl/) commands
   - Working knowledge of pulling and pushing artifacts to [Azure Container Registry](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli)
-- You require the `Contributor` role assignments on the resource group that contains the AOSM managed Artifact Store.
-- A suitable IDE, such as [VSCode](https://code.visualstudio.com/)
+- You require the `Contributor` role assignments on the resource group that contains the AOSM managed Artifact Store
+- A suitable IDE, such as [Visual Studio Code](https://code.visualstudio.com/)
 - The [ORAS CLI](https://oras.land/docs/installation/)
 
 > [!IMPORTANT]
@@ -33,7 +33,7 @@ This section explains how to override `--atomic` for an NF that consists of a si
 
 ### Locate and edit the NF BICEP template
 
-1. Navigate to the `nsd-cli-output` directory, open the `artifacts` directory, and open the `<nf-arm-template>.bicep` file. `<nf-arm-template>` is configured in the Az AOSM CLI extension nsd input file. You can confirm you have the right file by comparing against the following example template for a fictional Contoso CNF.
+1. Navigate to the `nsd-cli-output` directory, open the `artifacts` directory, and open the `<nf-arm-template>.bicep` file. `<nf-arm-template>` is configured in the Az AOSM CLI extension NSD input file. You can confirm you have the right file by comparing against the following example template for a fictional Contoso containerized network function (CNF).
 
 ```bicep
 @secure()
@@ -75,7 +75,7 @@ resource nfResource 'Microsoft.HybridNetwork/networkFunctions@2023-09-01' = [for
 }]
 ```
 
-1. Find the NFApplication name by navigating to the `cnf-cli-output` directory, opening the `nfDefinition` directory, and copying the value from the only entry in the networkFunctionApplications array in the `nfdv` resource. Compare against the fictional Contoso example below to confirm you have the correct value. In this case the NFApplication name is `Contoso`.
+1. Find the network function application name by navigating to the `cnf-cli-output` directory, opening the `nfDefinition` directory, and copying the value from the only entry in the networkFunctionApplications array in the `nfdv` resource. Confirm you have the correct value by comparing against the following fictional Contoso example BICEP snippet. In this case, the network function application name is `Contoso`.
 
 ```bicep
 resource nfdv 'Microsoft.Hybridnetwork/publishers/networkfunctiondefinitiongroups/networkfunctiondefinitionversions@2023-09-01' = {
@@ -99,7 +99,7 @@ resource nfdv 'Microsoft.Hybridnetwork/publishers/networkfunctiondefinitiongroup
 roleOverrideValues: ["{\"name\": \"Contoso-one\", \"deployParametersMappingRuleProfile\": {\"applicationEnablement\": \"Enabled\", \"helmMappingRuleProfile\": {\"options\": {\"installOptions\": {\"atomic\": \"false\"}},{\"upgradeOptions\": {\"atomic\": \"false\"}}}}}"]
 ```
 
-1. Compare against the following snippet from the Contoso example NF to confirm that you have made this edit correctly
+1. Confirm that you have made this edit correctly by comparing against the following snippet from the Contoso example NF
 
 ```bicep
 resource nfResource 'Microsoft.HybridNetwork/networkFunctions@2023-09-01' = [for (values, i) in configObject.deploymentParameters: {
@@ -116,10 +116,10 @@ resource nfResource 'Microsoft.HybridNetwork/networkFunctions@2023-09-01' = [for
     allowSoftwareUpdate: true
     configurationType: 'Secret'
     secretDeploymentValues: string(values)
-    roleOverrideValues: ['{\"name\": \"Contoso-one\", \"deployParametersMappingRuleProfile\": {\"applicationEnablement\": \"Enabled\", \"helmMappingRuleProfile\": {\"options\": {\"installOptions\": {\"atomic\": \"false\"}},{\"upgradeOptions\": {\"atomic\": \"false\"}}}}}']
+    roleOverrideValues: ['{\"name\": \"Contoso-one\", \"deployParametersMappingRuleProfile\": {\"applicationEnablement\": \"Enabled\", \"helmMappingRuleProfile\": {\"options\": {\"installOptions\": {\"atomic\": \"false\"}},{\"upgradeOptions\": {\"atomic\": \"false\"}}}}}']}}]
 ```
 
-### Build and upload the edited ARM Template to the Artifact Store
+### Build the edited ARM Template and upload it to the Artifact Store
 
 1. Navigate to the `nsd-cli-output/artifacts` directory created by the `az aosm nsd build` command and build the Network Function ARM Template from the BICEP file generated by the CLI.
 
@@ -136,7 +136,7 @@ bicep build <nf-name>.bicep
 az rest --method POST --url 'https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.HybridNetwork/publishers/<publisher>/artifactStores/<artifact-store>/artifactManifests/<artifactManifest>/listCredential?api-version=2023-09-01'
 ```
 
-1. Log in to the AOSM managed ACR. The AOSM managed ACR name can be found in Azure Portal blade for the Artifact Store resource. The username and password can be found in the output of the previous step.
+1. Sign in to the AOSM managed ACR. The AOSM managed ACR name can be found in Azure portal Artifact Store resource overview. The username and password can be found in the output of the previous step.
 
 ```bash
 oras login <aosm-managed-acr-name>.azurecr.io --username <username> --password <scope map token>
@@ -146,11 +146,11 @@ oras login <aosm-managed-acr-name>.azurecr.io --username <username> --password <
 
 ## Override `--atomic` for a multi-helm chart NF
 
-Many complex NFs are built from multiple helm charts. These NFs are represented in the NFDV with multiple NFApplications and are installed with multiple `helm install` commands - one per helm chart.
+Many complex NFs are built from multiple helm charts. These NFs are expressed in the network function definition version (NFDV) with multiple network function applications and are installed with multiple `helm install` commands - one per helm chart.
 
 The process for overriding `--atomic` for a multi-helm NF is the same as for a single helm NF, apart from the edit made to the ARM template.
 
-The fictional multi-helm NF, Contoso-multi-helm, consists of three helm charts. Its NFDV has three NFApplications. One NFApplication maps to one helm chart. These NFApplications have a name property set to `Contoso-one`, `Contoso-two`, and `Contoso-three` respectively. Here's an example snippet of the NFDV defining this network function.
+The fictional multi-helm NF, Contoso-multi-helm, consists of three helm charts. Its NFDV has three network function applications. One network function application maps to one helm chart. These network function applications have a name property set to `Contoso-one`, `Contoso-two`, and `Contoso-three` respectively. Here's an example snippet of the NFDV defining this network function.
 
 ```bicep
 resource nfdv 'Microsoft.Hybridnetwork/publishers/networkfunctiondefinitiongroups/networkfunctiondefinitionversions@2023-09-01' = {
@@ -183,7 +183,7 @@ resource nfdv 'Microsoft.Hybridnetwork/publishers/networkfunctiondefinitiongroup
   }
 ```
 
-The `--atomic` parameter can be overridden for each of these NFApplications independently. Here's an example NF BICEP template which overrides `--atomic` to `false` for `Contoso-one` and `Contoso-two`, but sets `atomic` to true for `Contoso-three`.
+The `--atomic` parameter can be overridden for each of these network function applications independently. Here's an example NF BICEP template that overrides `--atomic` to `false` for `Contoso-one` and `Contoso-two`, but sets `atomic` to true for `Contoso-three`.
 
 ```bicep
 resource nfResource 'Microsoft.HybridNetwork/networkFunctions@2023-09-01' = [for (values, i) in configObject.deploymentParameters: {
@@ -200,8 +200,9 @@ resource nfResource 'Microsoft.HybridNetwork/networkFunctions@2023-09-01' = [for
     allowSoftwareUpdate: true
     configurationType: 'Secret'
     secretDeploymentValues: string(values)
-    roleOverrideValues: ['{\"name\": \"Contoso-one\", \"deployParametersMappingRuleProfile\": {\"applicationEnablement\": \"Enabled\", \"helmMappingRuleProfile\": {\"options\": {\"installOptions\": {\"atomic\": \"false\"}},{\"upgradeOptions\": {\"atomic\": \"false\"}}}}},{\"name\": \"Contoso-two\", \"deployParametersMappingRuleProfile\": {\"applicationEnablement\": \"Enabled\", \"helmMappingRuleProfile\": {\"options\": {\"installOptions\": {\"atomic\": \"false\"}},{\"upgradeOptions\": {\"atomic\": \"false\"}}}}},{\"name\": \"Contoso-three\", \"deployParametersMappingRuleProfile\": {\"applicationEnablement\": \"Enabled\", \"helmMappingRuleProfile\": {\"options\": {\"installOptions\": {\"atomic\": \"true\"}},{\"upgradeOptions\": {\"atomic\": \"true\"}}}}}']
+    roleOverrideValues: ['{\"name\": \"Contoso-one\", \"deployParametersMappingRuleProfile\": {\"applicationEnablement\": \"Enabled\", \"helmMappingRuleProfile\": {\"options\": {\"installOptions\": {\"atomic\": \"false\"}},{\"upgradeOptions\": {\"atomic\": \"false\"}}}}},{\"name\": \"Contoso-two\", \"deployParametersMappingRuleProfile\": {\"applicationEnablement\": \"Enabled\", \"helmMappingRuleProfile\": {\"options\": {\"installOptions\": {\"atomic\": \"false\"}},{\"upgradeOptions\": {\"atomic\": \"false\"}}}}},{\"name\": \"Contoso-three\", \"deployParametersMappingRuleProfile\": {\"applicationEnablement\": \"Enabled\", \"helmMappingRuleProfile\": {\"options\": {\"installOptions\": {\"atomic\": \"true\"}},{\"upgradeOptions\": {\"atomic\": \"true\"}}}}}']}}]
 ```
 
 ## Next steps
 
+You can now retry the SNS deployment. You can submit the deployment again through ARM, BICEP, or the AOSM REST API. You can also delete the failed SNS through the Azure portal SNS overview and redeploy following [the operator quickstart](/quickstart-containerized-network-function-operator.md), replacing the quickstart NF parameters with the parameters for your network function. The helm releases deployed to the Kubernetes cluster won't be removed on failure. [How to debug SNS deployment failures](/how-to-debug-sns-deployment-failures.md) describes a toolkit for debugging common SNS deployment failures.
