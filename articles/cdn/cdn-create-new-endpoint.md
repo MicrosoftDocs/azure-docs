@@ -35,7 +35,7 @@ After you've created a content delivery network profile, you use it to create an
 
 1. On the content delivery network profile page, select **+ Endpoint**.
 
-    :::image type="content" source="./media/cdn-create-new-endpoint/cdn-select-endpoint.png" alt-text="Create content delivery network endpoint.":::
+    :::image type="content" source="./media/cdn-create-new-endpoint/cdn-select-endpoint.png" alt-text="Screenshot of create Content Delivery Network endpoint.":::
 
     The **Add an endpoint** pane appears.
 

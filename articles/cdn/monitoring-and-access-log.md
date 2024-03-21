@@ -282,7 +282,7 @@ You can enable more metrics using Azure Log Analytics and raw logs for an extra 
 
 3. Select **Logs** under **General** in the Log Analytics workspace. Then select **Get Started**:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-10.png" alt-text="Screenshot of the Log Analytics resource workspace.." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-10.png" alt-text="Screenshot of the Log Analytics resource workspace." border="true":::
 
 4. Select **CDN Profiles**. Select an example query to RUN or close the example screen to enter a custom query:
 

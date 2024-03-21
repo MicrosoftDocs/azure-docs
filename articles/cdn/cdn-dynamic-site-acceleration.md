@@ -107,7 +107,7 @@ To access caching rules:
 
 1. From the **CDN profile** page, under settings, select **Caching rules**.
 
-    ![Screneshot of content delivery network caching rules button.](./media/cdn-dynamic-site-acceleration/cdn-caching-rules-btn.png)
+    ![Screenshot of content delivery network caching rules button.](./media/cdn-dynamic-site-acceleration/cdn-caching-rules-btn.png)
 
     The **Caching rules** page opens.
 

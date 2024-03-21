@@ -174,7 +174,7 @@ When you browse to the content delivery network endpoint URL for *index.html*, y
 
 `http://<endpointname>.azureedge.net/index.html`
 
-:::image type="content" source="media/cdn-add-to-web-app/v2-in-cdn-title.png" alt-text="Screenshot of V2 in title V2 in title in content delivery network.":::
+:::image type="content" source="media/cdn-add-to-web-app/v2-in-cdn-title.png" alt-text="Screenshot of V2 in title in content delivery network.":::
 
 For more information, see [Purge an Azure Content Delivery Network endpoint](../cdn/cdn-purge-endpoint.md).
 

@@ -76,7 +76,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
     After the endpoint is created, it appears in the list of endpoints for the profile.
 
-    ![Content delivery network endpoint](./media/cdn-create-new-endpoint/cdn-endpoint-success.png)
+    ![Screenshot of Content Delivery Network endpoint.](./media/cdn-create-new-endpoint/cdn-endpoint-success.png)
 
     Because it takes time for the registration to propagate, the endpoint isn't immediately available for use:
     - For **Azure CDN Standard from Microsoft** profiles, propagation usually completes in 10 minutes.
