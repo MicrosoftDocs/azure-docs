@@ -23,7 +23,7 @@ If you see the status of your VM in the lab as **Corrupted**, the underlying VM 
 :::image type="content" source="media/troubleshoot-vm-environment-creation-failures/vm-corrupted-state.png" alt-text="Screenshot showing a VM in a corrupted state." lightbox="media/troubleshoot-vm-environment-creation-failures/vm-corrupted-state.png":::
 
 ## Activity logs
-Look at activity logs if you're investigating a failure sometime after attempting the creation of your VM or environment. There are three types of activity logs available from the Lab page; logs for activities affecting lab configuration and policies, logs for VMs and logs for environments. The error you're troubleshooting might be in any one of these logs, depending on it's source. This section shows you how to find these logs. 
+Look at activity logs if you're investigating a failure sometime after attempting the creation of your VM or environment. There are three types of activity logs available from the Lab page; logs for activities affecting lab configuration and policies, logs for VMs and logs for environments. The error you're troubleshooting might be in any one of these logs, depending on its source. This section shows you how to find these logs. 
 
 ## Activity log for lab configuration and policies
 
