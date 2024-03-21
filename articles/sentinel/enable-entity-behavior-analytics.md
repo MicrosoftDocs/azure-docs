@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 03/18/2024
 ---
 
-# Enable User and Entity Behavior Analytics (UEBA)
+# Enable User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel
 
 In the previous deployment step, you enabled the Microsoft Sentinel security content you need to protect your systems. In this article, you learn how to enable and use the UEBA feature to streamline the analysis process. This article is part of the [Deployment guide for Microsoft Sentinel](deploy-overview.md).
 
@@ -35,7 +35,7 @@ To enable or disable this feature (these prerequisites are not required to use t
 ## How to enable User and Entity Behavior Analytics
 
 - Users of Microsoft Sentinel in the Azure portal, follow the instructions in the **Azure portal** tab.
-- Users of the unified security operations platform in the Microsoft Defender portal, follow the instructions in the **Defender portal** tab.
+- Users of Microsoft Sentinel as part of the unified security operations platform in the Microsoft Defender portal, follow the instructions in the **Defender portal** tab.
 
 1. Go to the **Entity behavior configuration** page.
 

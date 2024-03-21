@@ -53,7 +53,7 @@ The user entity information that Microsoft Sentinel uses to build its user profi
 
 Now in preview, you can also sync your on-premises Active Directory user entity information as well, using Microsoft Defender for Identity.
 
-See [Enable User and Entity Behavior Analytics (UEBA)](enable-entity-behavior-analytics.md) to learn how to enable UEBA and synchronize user identities.
+See [Enable User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel](enable-entity-behavior-analytics.md) to learn how to enable UEBA and synchronize user identities.
 
 ### Scoring
 
