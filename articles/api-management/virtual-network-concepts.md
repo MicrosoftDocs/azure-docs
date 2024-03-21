@@ -13,7 +13,7 @@ ms.author: danlep
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 
-By default your API Management is accessed from the internet at a public endpoint. API Management provides several options to secure access to your API Management instance and APIs using an Azure virtual network. API Management supports the following options. Available options depend on the [service tier](api-management-features.md) of your API Management instance.
+By default your API Management is accessed from the internet at a public endpoint, and acts as a gateway to public backends. API Management provides several options to secure access to your API Management instance and APIs using an Azure virtual network. API Management supports the following options. Available options depend on the [service tier](api-management-features.md) of your API Management instance.
 
 * **Injection** of the API Management instance into a subnet in the virtual network, enabling the gateway to access resources in the network. 
 
