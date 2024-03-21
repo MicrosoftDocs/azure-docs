@@ -5,7 +5,7 @@ author: kgremban
 ms.author: kgremban
 ms.subservice: orchestrator
 ms.topic: how-to
-ms.date: 03/12/2024
+ms.date: 03/21/2024
 ms.custom: ignite-2023, devx-track-azurecli
 
 #CustomerIntent: As an IT professional, I want prepare an Azure-Arc enabled Kubernetes cluster with Key Vault secrets so that I can deploy Azure IoT Operations to it.
@@ -57,7 +57,7 @@ First, register an application with Microsoft Entra ID:
 
 1. Copy the **Application (client) ID** from the app registration overview page. You'll use this value as an argument when running Azure IoT Operations deployment with the `az iot ops init` command.
 
-Next, give your application permissions for key vault:
+Next, give your application permissions for Key Vault:
 
 1. On the resource page for your app, select **API permissions** from the **Manage** section of the app menu.
 
@@ -105,14 +105,14 @@ az keyvault show --name "<your unique key vault name>" --resource-group "<the na
 
 ### Set service principal access policy in Key Vault
 
-The newly created service principal needs **Secret** `list` and `get` access policy for the Azure IoT Operations to work with the secret store. 
+The newly created service principal needs **secret** `list` and `get` access policy for the Azure IoT Operations to work with the secret store. 
 
-To manage key vault access policies, the principal logged in to the CLI needs sufficient Azure permissions. In the Role Based Access Control (RBAC) model, this permission is included in key vault contributor or higher roles.
+To manage Key Vault access policies, the principal logged in to the CLI needs sufficient Azure permissions. In the Role Based Access Control (RBAC) model, this permission is included in Key Vault contributor or higher roles.
 
 >[!TIP]
->If you used the logged-in CLI principal to create the Key Vault, then you probably already have the right permissions. However, if you're pointing to a different or existing Key Vault then you should check that you have sufficient permissions to set access policies.
+>If you used the logged-in CLI principal to create the key vault, then you probably already have the right permissions. However, if you're pointing to a different or existing key vault then you should check that you have sufficient permissions to set access policies.
 
-Run the following to assign **secret** `get` and `list` permissions to the service principal.
+Run the following to assign **secret** `list` and `get` permissions to the service principal.
 
 ```bash
 az keyvault set-policy --name "<your unique key vault name>" --resource-group "<the name of the resource group>" --object-id <Object ID copied from Enterprise Application SP in Microsoft Entra ID> --secret-permissions get list
