@@ -20,7 +20,7 @@ The size of the reserved capacity purchase should be based on the total amount o
 
 In this example, any provisioned throughput above 10,000 RU/s is billed with your pay-as-you-go rate. If the provisioned throughput is below 10,000 RU/s in an hour, then the extra reserved capacity for that hour is wasted.
 
-Please note that:
+Note that:
  * There is no limit to the number of reservations.
  * It's possible to buy more reservations at any moment.
  * It's possible to buy different reservations in the same purchase.
@@ -42,7 +42,7 @@ The required permissions to purchase reserved capacity for Azure Cosmos DB are:
 
 As soon as you buy a reservation, the throughput charges that match the reservation attributes are no longer charged at the pay-as-you go rates. For more information on reservations, see the [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) article.
 
-Note that:
+Azure Cosmos DB consumes reservations in two different ways:
 
  * Autoscale database operations consume reserved capacity at a rate of 100 RU/s x 1.5 x N regions. So, if you need 10,000 RU/s for all your regions, your should purchase 15,000 RU/s.
  * Standard database operations consume reserved capacity at a rate of 100 RU/s x N regions. So, if you need 10,000 RU/s for all your regions, you should purchase 10,0000 RU/s.
