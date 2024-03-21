@@ -297,7 +297,7 @@ This problem happens for one of the following reasons:
   
 - You're not the subscription owner, so you don't have permission to purchase a domain.
 
-  **Solution**: [Assign the Owner role](../role-based-access-control/role-assignments-portal.md) to your account. Or, contact the subscription administrator to get permission to purchase a domain.
+  **Solution**: [Assign the Owner role](../role-based-access-control/role-assignments-portal.yml) to your account. Or, contact the subscription administrator to get permission to purchase a domain.
 
 ### You can't add a host name to an app 
 

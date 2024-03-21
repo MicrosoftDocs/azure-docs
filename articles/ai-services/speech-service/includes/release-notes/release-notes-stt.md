@@ -2,9 +2,17 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 09/29/2023
+ms.date: 3/13/2024
 ms.author: eur
 ---
+
+### March 2024 release
+
+#### Whisper general availability (GA)
+
+The Whisper speech to text model with Azure AI Speech is now generally available.
+
+Check out [What is the Whisper model?](../../whisper-overview.md) to learn more about when to use Azure AI Speech vs. Azure OpenAI Service. 
 
 ### February 2024 release
 
