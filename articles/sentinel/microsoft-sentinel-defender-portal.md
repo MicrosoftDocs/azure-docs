@@ -110,7 +110,6 @@ The following table lists the changes in navigation between the Azure and Defend
 |Automation   |   Microsoft Sentinel > Configuration > Automation       |
 |Settings   | System > Settings > Microsoft Sentinel       |
 
-## Known issues after onboarding to the unified security operations platform
 
 
 
