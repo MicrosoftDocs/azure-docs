@@ -131,7 +131,7 @@ The formula is: (TCP_ HIT/(TCP_ HIT+TCP_MISS))*100
 
 This report shows the traffic usage distribution in IPv4 vs IPv6.
 
-![IPv4/IPv6 Data transferred](./media/cdn-reports/cdn-ipv4-ipv6.png)
+:::image type="content" source="./media/cdn-reports/cdn-ipv4-ipv6.png" alt-text="Screenshot of IPv4/IPv6 Data transferred.":::
 
 ## Considerations
 

@@ -58,7 +58,7 @@ One Azure resource is defined in the Bicep file:
     ---
 
     > [!NOTE]
-    > Replace **\<profile-name\>** with the name of the content delivery network profile. Replace **\<endpoint-name\>** with a unique content delivery network Endpoint name. Replace **\<origin-url\>** with the URL of the origin.
+    > Replace **\<profile-name\>** with the name of the content delivery network profile. Replace **\<endpoint-name\>** with a unique content delivery network endpoint name. Replace **\<origin-url\>** with the URL of the origin.
 
     When the deployment finishes, you should see a message indicating the deployment succeeded.
 

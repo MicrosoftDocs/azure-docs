@@ -21,7 +21,7 @@ There are two ways to enable file compression:
 - Enable compression directly on the CDN POP servers (*compression on the fly*). In this case, the CDN compresses the files and serves them to the end users, even if they don't get compressed by the origin server.
 
 > [!IMPORTANT]
-> Azure CDN configuration changes can take some time to propagate through the network:
+> Azure Content Delivery Network configuration changes can take some time to propagate through the network:
 > - For **Azure CDN Standard from Microsoft** profiles, propagation usually completes in 10 minutes.
 > - For **Azure CDN Standard from Edgio** and **Azure CDN Premium from Edgio** profiles, propagation usually completes in 10 minutes.
 >

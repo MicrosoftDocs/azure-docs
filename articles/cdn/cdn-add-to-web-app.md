@@ -94,7 +94,8 @@ Navigate a browser to the following URL:
 
 `http://<endpointname>.azureedge.net/index.html`
 
-![Sample app home page served from content delivery network](media/cdn-add-to-web-app/sample-app-home-page-cdn.png)
+:::image type="content" source="media/cdn-add-to-web-app/sample-app-home-page-cdn.png" alt-text="Screenshot of sample app home page served from content delivery network.":::
+
 
 You see the same page that you ran earlier in an Azure web app. Azure Content Delivery Network has retrieved the origin web app's assets and is serving them from the content delivery network endpoint
 
@@ -135,7 +136,7 @@ If you browse to the content delivery network endpoint URL for the home page, yo
 
 `http://<endpointname>.azureedge.net/index.html`
 
-![No V2 in title in content delivery network](media/cdn-add-to-web-app/no-v2-in-cdn-title.png)
+:::image type="content" source="media/cdn-add-to-web-app/no-v2-in-cdn-title.png" alt-text="Screenshot of No V2 in title in content delivery network.":::
 
 <a name='purge-the-cdn-in-the-portal'></a>
 
@@ -173,7 +174,7 @@ When you browse to the content delivery network endpoint URL for *index.html*, y
 
 `http://<endpointname>.azureedge.net/index.html`
 
-![V2 in title in content delivery network](media/cdn-add-to-web-app/v2-in-cdn-title.png)
+:::image type="content" source="media/cdn-add-to-web-app/v2-in-cdn-title.png" alt-text="Screenshot of V2 in title V2 in title in content delivery network.":::
 
 For more information, see [Purge an Azure Content Delivery Network endpoint](../cdn/cdn-purge-endpoint.md).
 
@@ -220,11 +221,11 @@ In a browser, go to the content delivery network endpoint URL with a new query s
 
 `http://<endpointname>.azureedge.net/index.html?q=2`
 
-![V3 in title in content delivery network, query string 2](media/cdn-add-to-web-app/v3-in-cdn-title-qs2.png)
+:::image type="content" source="media/cdn-add-to-web-app/v3-in-cdn-title-qs2.png" alt-text="Screenshot of V3 in title in content delivery network, query string 2.":::
 
 `http://<endpointname>.azureedge.net/index.html?q=1`
 
-![V2 in title in content delivery network, query string 1](media/cdn-add-to-web-app/v2-in-cdn-title-qs1.png)
+:::image type="content" source="media/cdn-add-to-web-app/v2-in-cdn-title-qs1.png" alt-text="Screenshot of V2 in title in content delivery network, query string 1.":::
 
 This output shows that each query string is treated differently:
 

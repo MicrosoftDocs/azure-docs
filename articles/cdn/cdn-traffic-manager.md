@@ -49,7 +49,7 @@ Create two or more Azure Content Delivery Network profiles and endpoints with di
 
     Create the profiles by following the steps in [Create a new content delivery network profile](cdn-create-new-endpoint.md#create-a-new-cdn-profile).
 
-   ![Content delivery network multiple profiles](./media/cdn-traffic-manager/cdn-multiple-profiles.png)
+   ![Screenshot of the content delivery network multiple profiles.](./media/cdn-traffic-manager/cdn-multiple-profiles.png)
 
 2. In each of the new profiles, create at least one endpoint by following the steps in [Create a new content delivery network endpoint](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint).
 
@@ -68,7 +68,7 @@ Create an Azure Traffic Manager profile and configure load balancing across your
 
     For example, create **cdndemo101microsoft.azureedge.net** with a priority of **1** and **cdndemo101verizon.azureedge.net** with a priority of **2**.
 
-   ![Content delivery network Traffic Manager endpoints](./media/cdn-traffic-manager/cdn-traffic-manager-endpoints.png)
+   ![Screenshot of the content delivery network Traffic Manager endpoints.](./media/cdn-traffic-manager/cdn-traffic-manager-endpoints.png)
 
 <a name='configure-custom-domain-on-azure-cdn-and-azure-traffic-manager'></a>
 
@@ -80,15 +80,15 @@ After you configure your content delivery network and Traffic Manager profiles, 
 
     1. For the first CNAME entry, map your custom domain, with the cdnverify subdomain, to your content delivery network endpoint. This entry is a required step to register the custom domain to the content delivery network endpoint that you added to Traffic Manager in step 2.
 
-      For example:
-
-      `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101microsoft.azureedge.net`
+        For example:
+        
+        `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101microsoft.azureedge.net`
 
     1. For the second CNAME entry, map your custom domain, without the cdnverify subdomain, to your content delivery network endpoint. This entry maps the custom domain to Traffic Manager.
 
-      For example:
-
-      `cdndemo101.dustydogpetcare.online  CNAME  cdndemo101.trafficmanager.net`
+        For example:
+    
+        `cdndemo101.dustydogpetcare.online  CNAME  cdndemo101.trafficmanager.net`
 
     > [!NOTE]
     > If your domain is currently live and cannot be interrupted, do this step last. Verify that the content delivery network endpoints and Traffic Manager domains are live before you update your custom domain DNS to Traffic Manager.
@@ -103,7 +103,7 @@ After you configure your content delivery network and Traffic Manager profiles, 
     Azure Content Delivery Network uses the **cdnverify** subdomain to validate the DNS mapping to complete this registration process. For more information, see [Create a CNAME DNS record](cdn-map-content-to-custom-domain.md#create-a-cname-dns-record). This step enables Azure Content Delivery Network to recognize the custom domain so that it can respond to its requests.
 
     > [!NOTE]
-    > To enable TLS on an **Azure CDN from Microsoft** profiles, you must directly CNAME the custom domain to your endpoint. cdnverify for enabling TLS is not yet supported.
+    > To enable TLS on **Azure CDN from Microsoft** profiles, you must directly CNAME the custom domain to your endpoint. cdnverify for enabling TLS is not supported.
     >
 
 3. Return to the web site for the domain provider of your custom domain. Update the first DNS mapping you created. Map the custom domain to your second content delivery network endpoint.

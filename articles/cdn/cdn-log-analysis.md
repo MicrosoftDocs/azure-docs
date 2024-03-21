@@ -28,7 +28,7 @@ For more information, see [Azure CDN HTTP raw logs](monitoring-and-access-log.md
 
 ## Core analytics via Azure diagnostic logs
 
-Core analytics is available for CDN endpoints for all pricing tiers. Azure Diagnostics logs allow core analytics to be exported to Azure Storage, Event Hubs, or Azure Monitor logs. Azure Monitor logs offers a solution with graphs that are user-configurable and customizable. For more information about Azure diagnostic logs, see [Azure diagnostic logs](cdn-azure-diagnostic-logs.md).
+Core analytics is available for content delivery network endpoints for all pricing tiers. Azure Diagnostics logs allow core analytics to be exported to Azure Storage, Event Hubs, or Azure Monitor logs. Azure Monitor logs offers a solution with graphs that are user-configurable and customizable. For more information about Azure diagnostic logs, see [Azure diagnostic logs](cdn-azure-diagnostic-logs.md).
 
 <a name='verizon-core-reports'></a>
 
@@ -59,5 +59,5 @@ In this article, you learned about the different options for analysis reports fo
 
 For more information on Azure CDN and the other Azure services mentioned in this article, see:
 
-- [What is Azure CDN?](cdn-overview.md)
-- [Azure CDN HTTP raw logs](monitoring-and-access-log.md)
+- [What is Azure Content Delivery Network?](cdn-overview.md)
+- [Azure Content Delivery Network HTTP raw logs](monitoring-and-access-log.md)

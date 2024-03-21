@@ -87,7 +87,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 4. Verify the following resources were created in the resource group:
 
-    :::image type="content" source="media/create-profile-endpoint-template/cdn-profile-template-rg.png" alt-text="Azure Content Delivery Network resource group" border="true":::
+    :::image type="content" source="media/create-profile-endpoint-template/cdn-profile-template-rg.png" alt-text="Screenshot of Azure Content Delivery Network resource group." border="true":::
 
 ## Clean up resources
 

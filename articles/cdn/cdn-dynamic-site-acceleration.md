@@ -31,13 +31,13 @@ To configure a content delivery network endpoint to optimize delivery of dynamic
 
 1. In the **CDN profile** page, select **Endpoint**.
 
-   ![Add a new content delivery network endpoint](./media/cdn-dynamic-site-acceleration/cdn-endpoint-profile.png)
+   ![Screenshot of add a new content delivery network endpoint.](./media/cdn-dynamic-site-acceleration/cdn-endpoint-profile.png)
 
    The **Add an endpoint** pane appears.
 
 2. Under **Optimized for**, select **Dynamic site acceleration**.
 
-    ![Create a new content delivery network endpoint with DSA](./media/cdn-dynamic-site-acceleration/cdn-endpoint-dsa.png)
+    ![Screenshot of create a new content delivery network endpoint with DSA.](./media/cdn-dynamic-site-acceleration/cdn-endpoint-dsa.png)
 
 3. For **Probe path**, enter a valid path to a file.
 
@@ -68,7 +68,7 @@ As a result, fully dynamic and transactional content is delivered more quickly a
 
 ### TCP Optimizations
 
-Transmission Control Protocol (TCP) is the standard of the Internet Protocol suite used to deliver information between applications on an IP network. By default, several back-and-forth requests are required to set up a TCP connection, and limits to avoid network congestions, which result in inefficiencies at scale. **Azure CDN from Edgio** handles this problem by optimizing in three areas:
+Transmission Control Protocol (TCP) is the standard of the Internet Protocol suite used to deliver information between applications on an IP network. By default, the establishment of a TCP connection requires multiple bidirectional requests. Additionally, there are limits in place to prevent network congestion, which can lead to inefficiencies when operating at scale. **Azure CDN from Edgio** handles this problem by optimizing in three areas:
 
 - [Eliminating TCP slow start](#eliminating-tcp-slow-start)
 - [Using persistent connections](#leveraging-persistent-connections)
@@ -107,7 +107,7 @@ To access caching rules:
 
 1. From the **CDN profile** page, under settings, select **Caching rules**.
 
-    ![Content delivery network Caching rules button](./media/cdn-dynamic-site-acceleration/cdn-caching-rules-btn.png)
+    ![Screneshot of content delivery network caching rules button.](./media/cdn-dynamic-site-acceleration/cdn-caching-rules-btn.png)
 
     The **Caching rules** page opens.
 
@@ -119,7 +119,7 @@ To access the rules engine:
 
 1. From the **CDN profile** page, select **Manage**.
 
-    ![Content delivery network profile manage button](./media/cdn-dynamic-site-acceleration/cdn-manage-btn.png)
+    ![Screenshot of content delivery network profile manage button.](./media/cdn-dynamic-site-acceleration/cdn-manage-btn.png)
 
     The content delivery network management portal opens.
 

@@ -30,7 +30,7 @@ You can use the Standard rules engine for Azure Content Delivery Network to cust
 
     The **Rules Engine** pane opens and displays the list of available global rules.
 
-    [![Azure Content Delivery Network new rules page](./media/cdn-standard-rules-engine/cdn-new-rule.png)](./media/cdn-standard-rules-engine/cdn-new-rule.png#lightbox)
+    [![Screenshot of Azure Content Delivery Network new rules page.](./media/cdn-standard-rules-engine/cdn-new-rule.png)](./media/cdn-standard-rules-engine/cdn-new-rule.png#lightbox)
 
    > [!IMPORTANT]
    > The order in which multiple rules are listed affects how rules are handled. The actions that are specified in a rule might be overwritten by a subsequent rule.
@@ -43,7 +43,7 @@ You can use the Standard rules engine for Azure Content Delivery Network to cust
     1. For **Operator**, select **Equals**.
     1. For **Value**, select **HTTP**.
 
-   [![Azure Content Delivery Network rule match condition](./media/cdn-standard-rules-engine/cdn-match-condition.png)](./media/cdn-standard-rules-engine/cdn-match-condition.png#lightbox)
+   [![Screenshot of Azure Content Delivery Network rule match condition.](./media/cdn-standard-rules-engine/cdn-match-condition.png)](./media/cdn-standard-rules-engine/cdn-match-condition.png#lightbox)
 
    > [!NOTE]
    > You can select from multiple match conditions in the **Add condition** dropdown list. For a detailed list of match conditions, see [Match conditions in the Standard rules engine](cdn-standard-rules-engine-match-conditions.md).
@@ -54,7 +54,7 @@ You can use the Standard rules engine for Azure Content Delivery Network to cust
    1. For **Protocol**, select **HTTPS**.
    1. Leave all other fields blank to use incoming values.
 
-   [![Azure Content Delivery Network rule action](./media/cdn-standard-rules-engine/cdn-action.png)](./media/cdn-standard-rules-engine/cdn-action.png#lightbox)
+   [![Screenshot of Azure Content Delivery Network rule action.](./media/cdn-standard-rules-engine/cdn-action.png)](./media/cdn-standard-rules-engine/cdn-action.png#lightbox)
 
    > [!NOTE]
    > You can select from multiple actions in the **Add action** dropdown list. For a detailed list of actions, see [Actions in the Standard rules engine](cdn-standard-rules-engine-actions.md).

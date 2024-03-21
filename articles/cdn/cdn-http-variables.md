@@ -155,15 +155,15 @@ Key information:
 
 The following example relies on the following sample request URL:
 
-HTTPS:\//cdn.mydomain.com/folder/marketing/myconsultant/proposal.html
+`HTTPS:\//cdn.mydomain.com/folder/marketing/myconsultant/proposal.html`
 
 The following string demonstrates various methods for manipulating variables:
 
-HTTPS:\//www%{http_host:3}/mobile/%{request_uri:7:10}/%{request_uri:-5:-8}.htm
+`HTTPS:\//www%{http_host:3}/mobile/%{request_uri:7:10}/%{request_uri:-5:-8}.htm`
 
 Based on the sample request URL, the above variable manipulation produces the following value:
 
-HTTPS:\//www.mydomain.com/mobile/marketing/proposal.htm
+`HTTPS:\//www.mydomain.com/mobile/marketing/proposal.htm`
 
 ### Pattern removal
 

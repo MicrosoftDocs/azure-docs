@@ -182,7 +182,7 @@ The left-hand side of the graph (y-axis) indicates the file name for each of the
 Directly below the bar chart, the following information is listed for the top 250 requested assets: relative path (including file name), the number of times that it gets downloaded to completion, the number of times that it gets requested, and the percentage of requests that resulted in a complete download.
 
 > [!TIP]
-> Our CDN is not informed by an HTTP client (that is, browser) when an asset has been completely downloaded. As a result, we have to calculate whether an asset has been completely downloaded according to status codes and byte-range requests. The first thing we look for when making this calculation is whether a request results in a 200 OK status code. If so, then we look at byte-range requests to ensure that they cover the entire asset. Finally, we compare the amount of data transferred to the size of the requested asset. If the data transferred is equal to or greater than the file size and the byte-range requests are appropriate for that asset, then the hit will be counted as a complete download.
+> Our content delivery network is not informed by an HTTP client (that is, browser) when an asset has been completely downloaded. As a result, we have to calculate whether an asset has been completely downloaded according to status codes and byte-range requests. The first thing we look for when making this calculation is whether a request results in a 200 OK status code. If so, then we look at byte-range requests to ensure that they cover the entire asset. Finally, we compare the amount of data transferred to the size of the requested asset. If the data transferred is equal to or greater than the file size and the byte-range requests are appropriate for that asset, then the hit will be counted as a complete download.
 >
 > Due to the interpretive nature of this report, you should keep in mind the following points that may alter the consistency and accuracy of this report.
 >
@@ -199,7 +199,7 @@ The By 404 Errors report allows you to identify the type of content that generat
 > For the purposes of this report, note the following:
 >
 > - A hit represents any request for an asset regardless of status code.
-> - Edge CNAME URLs are converted to their equivalent CDN URLs. This allows an accurate tally for all statistics associated with an asset regardless of the CDN or edge CNAME URL used to request it.
+> - Edge CNAME URLs are converted to their equivalent content delivery network URLs. This allows an accurate tally for all statistics associated with an asset regardless of the content delivery network or edge CNAME URL used to request it.
 >
 >
 
@@ -209,7 +209,7 @@ Directly below the bar chart, the following information is listed for the top 25
 
 ## See also
 
-- [Azure CDN Overview](cdn-overview.md)
-- [Real-time stats in Microsoft Azure CDN](cdn-real-time-stats.md)
+- [Azure Content Delivery Network Overview](cdn-overview.md)
+- [Real-time stats in Microsoft Azure Content Delivery Network](cdn-real-time-stats.md)
 - [Overriding default HTTP behavior using the rules engine](./cdn-verizon-premium-rules-engine.md)
 - [Analyze Edge Performance](cdn-edge-performance.md)

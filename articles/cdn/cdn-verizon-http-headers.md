@@ -69,6 +69,6 @@ If the customer origin's HTTP Host Header option is set to blank, then the `Host
 
 ## X-Gateway-List request header
 
-A POP server add/overwrite the `X-Gateway-List request header when either of the following conditions are met:
+A POP server add/overwrite the `X-Gateway-List` request header when either of the following conditions are met:
 - The request points to the ADN platform.
 - The request is forwarded to a customer origin server that is protected by the Origin Shield feature.

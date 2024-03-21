@@ -40,7 +40,7 @@ Follow these steps enable logging for your Azure Content Delivery Network endpoi
 
 2. Select the content delivery network endpoint for which you want to enable diagnostics logs:
 
-    :::image type="content" source="./media/cdn-diagnostics-log/02_browse-to-diagnostics-logs.png" alt-text="Select content delivery network endpoint." border="true":::
+    :::image type="content" source="./media/cdn-diagnostics-log/02_browse-to-diagnostics-logs.png" alt-text="Screenshot of select content delivery network endpoint." border="true":::
 
 3. Select **Diagnostics logs** in the **Monitoring** section:
 

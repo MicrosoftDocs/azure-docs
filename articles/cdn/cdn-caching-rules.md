@@ -37,11 +37,11 @@ For information about default caching behavior and caching directive headers, se
 
 2. In the left pane under Settings, select **Caching rules**.
 
-   ![Content delivery network Caching rules button](./media/cdn-caching-rules/cdn-caching-rules-btn.png)
+    :::image type="content" source="./media/cdn-caching-rules/cdn-caching-rules-btn.png" alt-text="Screenshot of content delivery networking caching rules.":::
 
    The **Caching rules** page appears.
 
-   ![Content delivery network Caching rules page](./media/cdn-caching-rules/cdn-caching-rules-page.png)
+    :::image type="content" source="./media/cdn-caching-rules/cdn-caching-rules-page.png" alt-text="Screenshot of content delivery network caching rules page.":::
 
 ## Caching behavior settings
 

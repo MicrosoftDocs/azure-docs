@@ -83,7 +83,7 @@ Once you've completed your proof of concept testing, you can begin the migration
 > 1. Verify configuration settings such as cache objects, TTLs and other potential custom settings at the content delivery network profile level are being accommodated.
 > 2. Origin application customizations are adjusted:
 >    - Update Access Control List (ACL) if one is being used to allow content delivery network egress ranges.
->    - Traffic management tools such as a load balancer has the correct policies and rules for the content delivery network.
+>    - Traffic management tools such as a load balancer have the correct policies and rules for the content delivery network.
 > 3. Validate origin workloads and content delivery network caching performance.
 >     - Changing between content delivery networks can increase traffic to origin for a period of time until the new provider caches the content.
 

@@ -38,7 +38,8 @@ npm init
 
 You will then be presented a series of questions to initialize your project. For **entry point**, this tutorial uses *app.js*. You can see my other choices in the following example.
 
-![Npm init output](./media/cdn-app-dev-node/cdn-npm-init.png)
+:::image type="content" source="./media/cdn-app-dev-node/cdn-npm-init.png" alt-text="Screenshot of NPM init output.":::
+
 
 Our project is now initialized with a *packages.json* file. Our project is going to use some Azure libraries contained in npm packages. We'll use the library for Microsoft Entra authentication in Node.js (@Azure/identity) and the Azure CDN Client Library for JavaScript (@Azure/Azure Resource Manager-cdn). Let's add those to the project as dependencies.
 

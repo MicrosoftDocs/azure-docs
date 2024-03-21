@@ -63,7 +63,7 @@ You can map a custom domain with different subdomains to the same content delive
 > [!NOTE]
 > - This tutorial uses the CNAME record type for multiple purposes:
 >   - *Traffic routing* can be accomplished with a CNAME record as well as A or AAAA record types in Azure DNS. To apply, use the following steps to replace the CNAME record with the record type of your choice.
->   - A CNAME record is **required** for custom domain *ownership validation* and must be available when adding the custom domain to a content delivery network Endpoint. More details in the following section.
+>   - A CNAME record is **required** for custom domain *ownership validation* and must be available when adding the custom domain to a content delivery network endpoint. More details in the following section.
 ---
 
 # [**Azure DNS**](#tab/azure-dns)
@@ -162,7 +162,6 @@ To create a CNAME record for your custom domain:
 ## Add a custom domain to your content delivery network endpoint
 
 After you've registered your custom domain, you can then add it to your content delivery network endpoint.
----
 
 # [**Azure portal**](#tab/azure-portal)
 
@@ -170,11 +169,11 @@ After you've registered your custom domain, you can then add it to your content 
 
 2. On the **CDN profile** page, select the content delivery network endpoint to add the custom domain.
 
-    :::image type="content" source="media/cdn-map-content-to-custom-domain/cdn-endpoint-selection.png" alt-text="content delivery network endpoint selection" border="true":::
+    :::image type="content" source="media/cdn-map-content-to-custom-domain/cdn-endpoint-selection.png" alt-text="Screenshot of content delivery network endpoint selection." border="true":::
 
 3. Select **+ Custom domain**.
 
-   :::image type="content" source="media/cdn-map-content-to-custom-domain/cdn-custom-domain-button.png" alt-text="Add custom domain button" border="true":::
+   :::image type="content" source="media/cdn-map-content-to-custom-domain/cdn-custom-domain-button.png" alt-text="Screenshot of the add custom domain button." border="true":::
 
 4. In **Add a custom domain**, **Endpoint hostname**, gets generated and pre-filled from your content delivery network endpoint URL: **\<endpoint-hostname>**.azureedge.net. You can't change this value.
 
@@ -246,7 +245,7 @@ If you no longer want to associate your endpoint with a custom domain, remove th
 1. Go to your DNS provider, delete the CNAME record for the custom domain, or update the CNAME record for the custom domain to a non-Azure Content Delivery Network endpoint.
 
     > [!IMPORTANT]
-    > To prevent dangling DNS entries and the security risks they create, starting from ninth 2021 9, 2021 ninth 2021, Azure Content Delivery Network requires removal of the CNAME records to Azure Content Delivery Network endpoints before the resources can be deleted. Resources include Azure Content Delivery Network custom domains, Azure Content Delivery Network profiles/endpoints or Azure resource groups that has Azure Content Delivery Network custom domains enabled.
+    > To prevent dangling DNS entries and the security risks they create, starting from April 9, 2021, Azure Content Delivery Network requires removal of the CNAME records to Azure Content Delivery Network endpoints before the resources can be deleted. Resources include Azure Content Delivery Network custom domains, Azure Content Delivery Network profiles/endpoints or Azure resource groups that have Azure Content Delivery Network custom domains enabled.
 
 2. In your content delivery network profile, select the endpoint with the custom domain that you want to remove.
 
@@ -261,7 +260,7 @@ If you no longer want your endpoint to have a custom domain, remove the custom d
 1. Go to your DNS provider, delete the CNAME record for the custom domain, or update the CNAME record for the custom domain to a non-Azure Content Delivery Network endpoint.
 
     > [!IMPORTANT]
-    > To prevent dangling DNS entries and the security risks they create, starting from ninth 2021 9, 2021 ninth 2021, Azure Content Delivery Network requires removal of the CNAME records to Azure Content Delivery Network endpoints before the resources can be deleted. Resources include Azure Content Delivery Network custom domains, Azure Content Delivery Network profiles/endpoints or Azure resource groups that has Azure Content Delivery Network custom domains enabled.
+    > To prevent dangling DNS entries and the security risks they create, starting from ninth 2021 9, 2021 ninth 2021, Azure Content Delivery Network requires removal of the CNAME records to Azure Content Delivery Network endpoints before the resources can be deleted. Resources include Azure Content Delivery Network custom domains, Azure Content Delivery Network profiles/endpoints or Azure resource groups that have Azure Content Delivery Network custom domains enabled.
 
 2. Use [Remove-AzCdnCustomDomain](/powershell/module/az.cdn/remove-azcdncustomdomain) to remove the custom domain from the endpoint:
 

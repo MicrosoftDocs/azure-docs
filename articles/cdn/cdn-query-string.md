@@ -42,15 +42,15 @@ Three query string modes are available:
 
 1. Open a content delivery network profile, then select the content delivery network endpoint you want to manage.
 
-   ![Content delivery network profile endpoints](./media/cdn-query-string/cdn-endpoints.png)
+   ![Screenshot of the content delivery network profile endpoints.](./media/cdn-query-string/cdn-endpoints.png)
 
 2. In the left pane under Settings, select **Caching rules**.
 
-    ![Content delivery network Caching rules button](./media/cdn-query-string/cdn-caching-rules-btn.png)
+    ![Screenshot of the content delivery network caching rules button.](./media/cdn-query-string/cdn-caching-rules-btn.png)
 
 3. In the **Query string caching behavior** list, select a query string mode, then select **Save**.
 
-   ![Content delivery network query string caching options](./media/cdn-query-string/cdn-query-string.png)
+   ![Screenshot content delivery network query string caching options.](./media/cdn-query-string/cdn-query-string.png)
 
 > [!IMPORTANT]
 > Because it takes time for the registration to propagate through Azure Content Delivery Network, cache string settings changes might not be immediately visible:

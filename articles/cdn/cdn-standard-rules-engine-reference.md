@@ -25,7 +25,7 @@ The rules engine is designed to be the final authority on how specific types of 
 
 To define a rule in the rules engine, set [match conditions](cdn-standard-rules-engine-match-conditions.md) and [actions](cdn-standard-rules-engine-actions.md):
 
- ![Azure Content Delivery Network rules structure](./media/cdn-standard-rules-engine-reference/cdn-rules-structure.png)
+ ![Screenshot of Azure Content Delivery Network rules structure.](./media/cdn-standard-rules-engine-reference/cdn-rules-structure.png)
 
 Each rule can have up to 10 match conditions and 5 actions. Each Azure Content Delivery Network endpoint can have up to 25 rules.
 

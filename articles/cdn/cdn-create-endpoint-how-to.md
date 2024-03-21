@@ -33,11 +33,11 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 2. Select **Endpoint**.
 
-    ![Content delivery network select endpoint](./media/cdn-create-endpoint-how-to/cdn-select-endpoint.png)
+    ![Screenshot of content delivery network select endpoint.](./media/cdn-create-endpoint-how-to/cdn-select-endpoint.png)
 
     The **Add an endpoint** page appears.
 
-    ![Add endpoint page](./media/cdn-create-endpoint-how-to/cdn-add-endpoint-page.png)
+    ![Screenshot of the add an endpoint page.](./media/cdn-create-endpoint-how-to/cdn-add-endpoint-page.png)
 
 3. For **Name**, enter a unique name for the new content delivery network endpoint. This name is used to access your cached resources at the domain *\<endpointname>*.azureedge.net.
 

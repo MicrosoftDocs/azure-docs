@@ -27,7 +27,7 @@ You can also control cache settings from the Azure portal by setting [content de
 > [!TIP]
 > You can choose to set no TTL on a file. In this case, Azure Content Delivery Network automatically applies a default TTL of seven days, unless you've set up caching rules in the Azure portal. This default TTL applies only to general web delivery optimizations. For large file optimizations, the default TTL is one day, and for media streaming optimizations, the default TTL is one year.
 >
-> For more information about how Azure Content Delivery Network works to speed up access to files and other resources, see [Overview of the Azure content delivery network](cdn-overview.md).
+> For more information about how Azure Content Delivery Network works to speed up access to files and other resources, see [Overview of the Azure Content Delivery Network](cdn-overview.md).
 >
 
 <a name='setting-cache-control-headers-by-using-cdn-caching-rules'></a>
@@ -45,11 +45,11 @@ The preferred method for setting a web server's `Cache-Control` header is to use
 
 1. In the left pane under Settings, select **Caching rules**.
 
-   ![Content delivery network caching rules button](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-rules-btn.png)
+   ![Screenshot of the content delivery network caching rules button.](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-rules-btn.png)
 
    The **Caching rules** page appears.
 
-   ![Content delivery network caching page](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-page.png)
+   ![Screenshot of the content delivery network caching page.](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-page.png)
 
 **To set a web server's Cache-Control headers by using global caching rules:**
 
@@ -57,7 +57,7 @@ The preferred method for setting a web server's `Cache-Control` header is to use
 
 1. For **Cache expiration duration**, enter 3600 in the **Seconds** box or 1 in the **Hours** box.
 
-   ![Content delivery network global caching rules example](./media/cdn-manage-expiration-of-cloud-service-content/cdn-global-caching-rules-example.png)
+   ![Screenshot of the content delivery network global caching rules example.](./media/cdn-manage-expiration-of-cloud-service-content/cdn-global-caching-rules-example.png)
 
    This global caching rule sets a cache duration of one hour and affects all requests to the endpoint. It overrides any `Cache-Control` or `Expires` HTTP headers that get sent by the origin server specified by the endpoint.
 
@@ -71,7 +71,7 @@ The preferred method for setting a web server's `Cache-Control` header is to use
 
      1. For the second match condition, set **Match condition** to **Path** and enter `/webfolder1/file1.txt` for **Match value**. Set **Caching behavior** to **Override** and enter 2 in the **Days** box.
 
-    ![Content delivery network custom caching rules example](./media/cdn-manage-expiration-of-cloud-service-content/cdn-custom-caching-rules-example.png)
+    ![Screenshot of the content delivery network custom caching rules example.](./media/cdn-manage-expiration-of-cloud-service-content/cdn-custom-caching-rules-example.png)
 
     The first custom caching rule sets a cache duration of four days for any files in the `/webfolder1` folder on the origin server specified by your endpoint. The second rule overrides the first rule for the `file1.txt` file only and sets a cache duration of two days for it.
 

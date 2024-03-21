@@ -1,6 +1,6 @@
 ---
-title: Real-time stats in Azure CDN
-description: Real-time statistics provides real-time data about the performance of Azure CDN when delivering content to your clients.
+title: Real-time status in Azure Content Delivery Network
+description: Real-time statistics provides real-time data about the performance of Azure Content Delivery Network when delivering content to your clients.
 services: cdn
 author: zhangmanling
 manager: erikre
@@ -11,13 +11,13 @@ ms.date: 03/20/2024
 ms.author: erikre
 ---
 
-# Real-time stats in Microsoft Azure CDN
+# Real-time status in Microsoft Azure Content Delivery Network
 
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
 ## Overview
 
-This document explains real-time stats in Microsoft Azure CDN. This functionality provides real-time data, such as bandwidth, cache statuses, and concurrent connections to your CDN profile when delivering content to your clients. This enables continuous monitoring of the health of your service at any time, including go-live events.
+This document explains real-time status in Microsoft Azure CDN. This functionality provides real-time data, such as bandwidth, cache statuses, and concurrent connections to your CDN profile when delivering content to your clients. This enables continuous monitoring of the health of your service at any time, including go-live events.
 
 The following graphs are available:
 
@@ -26,7 +26,7 @@ The following graphs are available:
 - [Cache Statuses](#cache-statuses)
 - [Connections](#connections)
 
-## Accessing real-time stats
+## Accessing real-time status
 
 1. In the [Azure Portal](https://portal.azure.com), browse to your CDN profile.
 

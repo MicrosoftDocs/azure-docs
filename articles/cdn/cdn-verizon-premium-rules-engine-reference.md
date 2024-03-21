@@ -22,7 +22,6 @@ The rules engine is designed to be the final authority on how specific types of 
 - Secure or deny requests for sensitive content.
 - Redirect requests.
 - Store custom log data.
--
 
 ## Key concepts
 

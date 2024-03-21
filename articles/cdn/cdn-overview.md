@@ -28,7 +28,7 @@ For a list of current content delivery network node locations, see [Azure Conten
 
 ## How it works
 
-![Content delivery network Overview](./media/cdn-overview/cdn-overview.png)
+![Screenshot of the content delivery network overview page](./media/cdn-overview/cdn-overview.png)
 
 1. A user (Alice) requests a file (also called an asset) by using a URL with a special domain name, such as *&lt;endpoint name&gt;*.azureedge.net. This name can be an endpoint hostname or a custom domain. The DNS routes the request to the best performing POP location, which is usually the POP that is geographically closest to the user.
 

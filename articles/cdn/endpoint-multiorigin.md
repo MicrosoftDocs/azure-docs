@@ -21,7 +21,7 @@ Setup one or more origin groups and choose a default origin group. Each origin g
 The first origin group is set as the default origin group. Multi-origin feature is enabled when a default origin group for the CDN endpoint is selected. Once the multi-origin feature is enabled, it can't be disabled, and the default origin group can't be deleted. The default origin group is used for routing requests to the origin. You're allowed to update the origin group configuration and switch to a single origin configuration. You're also allowed to change the default origin group designation to another origin group.
 
 > [!NOTE]
-> Currently this feature is only available from Azure CDN from Microsoft.
+> Currently this feature is only available from Azure Content Delivery Network from Microsoft.
 
 ## Create the origin group
 
@@ -73,7 +73,7 @@ The first origin group is set as the default origin group. Multi-origin feature 
    | Weight      | Enter a number between 1 and 1000.   |
 
     > [!NOTE]
-    > When an origin is created within an origin group, it must be accorded a priority and weight. If an origin group has only one origin, then the default priority and weight is set as 1. Traffic is routed to the highest priority origins if the origin is healthy. If an origin is determined to be unhealthy then the connections are diverted to another origin in the order of priority. If two origins have the same priority, then traffic is distributed as per weight specified for the origin
+    > When an origin is created within an origin group, it must be accorded a priority and weight. If an origin group has only one origin, then the default priority and weight is set as 1. Traffic is routed to the highest priority origins if the origin is healthy. If an origin is determined to be unhealthy then the connections are diverted to another origin in the order of priority. If two origins have the same priority, then traffic is distributed as per weight specified for the origin.
 
     :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-6.png" alt-text="Add additional origin" border="true":::
 

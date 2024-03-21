@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting file compression in Azure CDN
+title: Troubleshooting file compression in Azure Content Delivery Network
 description: Learn how to troubleshoot issues with file compression in Azure Content Delivery Network. This article covers several possible causes.
 services: cdn
 author: duongau
@@ -11,7 +11,7 @@ ms.date: 03/20/2024
 ms.author: duau
 ---
 
-# Troubleshooting CDN file compression
+# Troubleshooting Azure Content Delivery Network file compression
 
 This article helps you troubleshoot issues with [CDN file compression](cdn-improve-performance.md).
 
@@ -22,7 +22,7 @@ If you need more help at any point in this article, you can contact the Azure ex
 Compression for your endpoint is enabled, but files are being returned uncompressed.
 
 > [!TIP]
-> To check whether your files are being returned compressed, you need to use a tool like [Fiddler](https://www.telerik.com/fiddler) or your browser's developer tools. Check the HTTP response headers returned with your cached CDN content. If there is a header named `Content-Encoding` with a value of **gzip**, **bzip2**, **brotli**, or **deflate**, your content is compressed.
+> To check whether your files are being returned compressed, you need to use a tool like [Fiddler](https://www.telerik.com/fiddler) or your browser's developer tools. Check the HTTP response headers returned with your cached content delivery network content. If there is a header named `Content-Encoding` with a value of **gzip**, **bzip2**, **brotli**, or **deflate**, your content is compressed.
 >
 > ![Content-Encoding header](./media/cdn-troubleshoot-compression/cdn-content-header.png)
 >
@@ -40,7 +40,7 @@ There are several possible causes, including:
 ## Troubleshooting steps
 
 > [!TIP]
-> As with deploying new endpoints, CDN configuration changes take some time to propagate through the network. Usually, changes are applied within 90 minutes. If this is the first time you've set up compression for your CDN endpoint, you should consider waiting 1-2 hours to be sure the compression settings have propagated to the POPs.
+> As with deploying new endpoints, content delivery network configuration changes take some time to propagate through the network. Usually, changes are applied within 90 minutes. If this is the first time you've set up compression for your content delivery network endpoint, you should consider waiting 1-2 hours to be sure the compression settings have propagated to the POPs.
 >
 
 ### Verify the request

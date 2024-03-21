@@ -40,7 +40,7 @@ For more information, see the detailed configuration examples for each parameter
 
 The following workflow diagram describes how the content delivery network uses token authentication to work with your web app.
 
-![Content delivery network token authentication workflow](./media/cdn-token-auth/cdn-token-auth-workflow2.png)
+![Screenshot of the Content delivery network token authentication workflow.](./media/cdn-token-auth/cdn-token-auth-workflow2.png)
 
 <a name='token-validation-logic-on-cdn-endpoint'></a>
 
@@ -48,13 +48,13 @@ The following workflow diagram describes how the content delivery network uses t
 
 The following flowchart describes how Azure Content Delivery Network validates a client request when token authentication is configured on content delivery network endpoint.
 
-![Content delivery network token validation logic](./media/cdn-token-auth/cdn-token-auth-validation-logic.png)
+![Screenshot of the content delivery network token validation logic.](./media/cdn-token-auth/cdn-token-auth-validation-logic.png)
 
 ## Setting up token authentication
 
 1. From the [Azure portal](https://portal.azure.com), browse to your content delivery network profile, then select **Manage** to launch the supplemental portal.
 
-    ![Content delivery network profile Manage button](./media/cdn-token-auth/cdn-manage-btn.png)
+    ![Screenshot of the content delivery network profile manage button.](./media/cdn-token-auth/cdn-manage-btn.png)
 
 2. Hover over **HTTP Large**, then select **Token Auth** in the flyout. You can then set up the encryption key and encryption parameters as follows:
 
@@ -76,11 +76,11 @@ The following flowchart describes how Azure Content Delivery Network validates a
       - **V2:** Indicates that the key can be used to generate version 2.0 and 3.0 tokens. Use this option only if you're transitioning from a legacy version 2.0 encryption key to a version 3.0 key.
       - **V3:** (Recommended) Indicates that the key can only be used to generate version 3.0 tokens.
 
-      ![Content delivery network token auth setup key](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
+      ![Screenshot of the content delivery network token auth setup key.](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
 
    4. Use the encrypt tool to set up encryption parameters and generate a token. With the encrypt tool, you can allow or deny requests based on expiration time, country/region, referrer, protocol, and client IP (in any combination). Although there's no limit to the number and combination of parameters that can be combined to form a token, the total length of a token is limited to 512 characters.
 
-      ![Content delivery network encrypt tool](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
+      ![Screenshot of the content delivery network encrypt tool.](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
 
       Enter values for one or more of the following encryption parameters in the **Encrypt Tool** section:
 
@@ -172,7 +172,7 @@ The following flowchart describes how Azure Content Delivery Network validates a
    1. Select an existing rule or create a new rule to define the asset or path for which you want to apply token authentication.
    2. To enable token authentication on a rule, select **[Token Auth](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth.htm)** from the **Features** list, then select **Enabled**. Select **Update** if you're updating a rule or **Add** if you're creating a rule.
 
-      ![Content delivery network rules engine token authentication enable example](./media/cdn-token-auth/cdn-rules-engine-enable2.png)
+      ![Screenshot of the content delivery network rules engine token authentication enable example.](./media/cdn-token-auth/cdn-rules-engine-enable2.png)
 
 4. In the rules engine, you can also enable more token authentication-related features. To enable any of the following features, select it from the **Features** list, then select **Enabled**.
 
@@ -182,7 +182,7 @@ The following flowchart describes how Azure Content Delivery Network validates a
 
    - **[Token Auth Parameter](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Parameter.htm):** Renames the token auth query string parameter that appears in the requested URL.
 
-     ![Content delivery network rules engine token authentication settings example](./media/cdn-token-auth/cdn-rules-engine2.png)
+     ![Screenshot of the content delivery network rules engine token authentication settings example.](./media/cdn-token-auth/cdn-rules-engine2.png)
 
 5. You can customize your token by accessing source code in [GitHub](https://github.com/VerizonDigital/ectoken).
    Available languages include:

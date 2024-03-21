@@ -135,7 +135,7 @@ To access the rules engine, you must first select **Manage** from the top of the
     - Check the test asset for the custom domain in the browser and proceed without using HTTPS.
 
     > [!NOTE]
-    > Once a policy is deployed in the staging environment, it will take 15 mins to propagate.
+    > Once a policy is deployed in the staging environment, it will take 15 minutes to propagate.
     >
 
 ## See also

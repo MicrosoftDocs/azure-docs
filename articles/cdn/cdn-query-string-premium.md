@@ -46,14 +46,14 @@ Three query string modes are available:
 
 1. Open a content delivery network profile, and then select **Manage**.
 
-    ![Content delivery network profile Manage button](./media/cdn-query-string-premium/cdn-manage-btn.png)
+    ![Screenshot of the content delivery network profile manage button.](./media/cdn-query-string-premium/cdn-manage-btn.png)
 
     The content delivery network management portal opens.
 2. Hover over the **HTTP Large** tab, then hover over the **Cache Settings** flyout menu. Click **Query-String Caching**.
 
     Query string caching options are displayed.
 
-    ![Content delivery network query string caching options](./media/cdn-query-string-premium/cdn-query-string.png)
+    ![Screenshot of the content delivery network query string caching options.](./media/cdn-query-string-premium/cdn-query-string.png)
 3. Select a query string mode, and then select **Update**.
 
 > [!IMPORTANT]

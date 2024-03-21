@@ -24,7 +24,7 @@ With a SAS, you can define various parameters of access to a blob, such as start
 
 The following two options are recommended for using SAS with Azure Content Delivery Network. All options assume that you've already created a working SAS (see prerequisites).
 
-### Prerequisites
+## Prerequisites
 
 To start, create a storage account and then generate a SAS for your asset. You can generate two types of stored access signatures: a service SAS or an account SAS. For more information, see [Types of shared access signatures](../storage/common/storage-sas-overview.md#types-of-shared-access-signatures).
 
@@ -38,7 +38,7 @@ For example:
 
 For more information about setting parameters, see [SAS parameter considerations](#sas-parameter-considerations) and [Shared Access Signature parameters](../storage/common/storage-sas-overview.md#how-a-shared-access-signature-works).
 
-![Content delivery network SAS settings](./media/cdn-sas-storage-support/cdn-sas-settings.png)
+![Screenshot of the content delivery network SAS settings.](./media/cdn-sas-storage-support/cdn-sas-settings.png)
 
 <a name='option-1-using-sas-with-pass-through-to-blob-storage-from-azure-cdn'></a>
 
@@ -48,7 +48,7 @@ This option is the simplest and uses a single SAS token, which is passed from Az
 
 1. Select an endpoint, select **Caching rules**, then select **Cache every unique URL** from the **Query string caching** list.
 
-    ![Content delivery network caching rules](./media/cdn-sas-storage-support/cdn-caching-rules.png)
+    ![Screenshot of the content delivery network caching rules.](./media/cdn-sas-storage-support/cdn-caching-rules.png)
 
 2. After you set up SAS on your storage account, you must use the SAS token with the content delivery network endpoint and origin server URLs to access the file.
 

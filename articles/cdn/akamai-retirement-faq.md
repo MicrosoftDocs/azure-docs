@@ -49,7 +49,7 @@ For Azure Traffic Manager users with Multi-CDN:
 
 > [!TIP]
 > Items to validate related migration:
-> - HTTPS with Managed Certificate. To provision a managed certificate, you must CNAME your custom domain to an `azureedge.net`` endpoint. If you have changed the CNAME of your custom domain, check your HTTPS status and wait for the provisioning to complete.
+> - HTTPS with Managed Certificate. To provision a managed certificate, you must CNAME your custom domain to an `azureedge.net` endpoint. If you have changed the CNAME of your custom domain, check your HTTPS status and wait for the provisioning to complete.
 > - Azure CDN Standard from Edgio offers enhanced reporting and origin configuration options. You can access them by selecting the **Managed** button.
 
 ## Next steps

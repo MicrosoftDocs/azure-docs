@@ -107,7 +107,7 @@ You can use your own certificate to enable the HTTPS feature. This process is do
 2. Azure Key Vault certificates: If you have a certificate, upload it directly to your Azure Key Vault account. If you don't have a certificate, create a new certificate directly through Azure Key Vault.
 
 > [!NOTE]
-> - Azure CDN only supports PFX certificates.
+> - Azure Content Delivery Network only supports PFX certificates.
 > - The certificate must have a complete certificate chain with leaf and intermediate certificates, and root CA must be part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT).
 
 ### Register Azure CDN
@@ -156,7 +156,7 @@ Grant Azure CDN permission to access the certificates (secrets) in your Azure Ke
 
 1. In your key vault in the **Settings** section, select **Access policies**. In the right pane, select **+ Add Access Policy**:
 
-    :::image type="content" source="./media/cdn-custom-ssl/cdn-new-access-policy.png" alt-text="Create Key Vault access policy for CDN" border="true":::
+    :::image type="content" source="./media/cdn-custom-ssl/cdn-new-access-policy.png" alt-text="Screenshot of create a Key Vault access policy for Azure Content Delivery Network." border="true":::
 
 2. In the **Add access policy** page, select **None selected** next to **Select principal**. In the **Principal** page, enter **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8**. Select **Microsoft.AzureFrontdoor-Cdn**. Choose **Select**:
 
@@ -168,7 +168,7 @@ Grant Azure CDN permission to access the certificates (secrets) in your Azure Ke
 
 5. Select **Secret permissions**. Select the checkbox for **Get** to allow CDN permissions to get the secrets:
 
-    :::image type="content" source="./media/cdn-custom-ssl/cdn-vault-permissions.png" alt-text="Select permissions for CDN to Key Vault" border="true":::
+    :::image type="content" source="./media/cdn-custom-ssl/cdn-vault-permissions.png" alt-text="Screneshot of select permissions for Azure Contnent Delivery Network to Key Vault." border="true":::
 
 6. Select **Add**.
 
@@ -195,7 +195,7 @@ Grant Azure CDN permission to access the certificates (secrets) in your Azure Ke
     - The available certificate/secret versions.
 
     > [!NOTE]
-    > - Azure CDN only supports PFX certificates.
+    > - Azure Content Delivery Network only supports PFX certificates.
     > - In order for the certificate to be automatically rotated to the latest version when a newer version of the certificate is available in your key vault, please set the certificate/secret version to 'Latest'. If a specific version is selected, you have to reselect the new version manually for certificate rotation. It takes up to 72 hours for the new version of the certificate/secret to be deployed. Only Standard Microsoft SKU supports certificate auto rotation.
 
 5. Select **On** to enable HTTPS.
@@ -206,7 +206,7 @@ Grant Azure CDN permission to access the certificates (secrets) in your Azure Ke
 
 ## Validate the domain
 
-If you have a custom domain in use mapped to your custom endpoint with a CNAME record or you're using your own certificate, continue to [Custom domain mapped to your CDN endpoint](#custom-domain-is-mapped-to-your-cdn-endpoint-by-a-cname-record).
+If you have a custom domain in use mapped to your custom endpoint with a CNAME record or you're using your own certificate, continue to [Custom domain mapped to your Content Delivery Network endpoint](#custom-domain-is-mapped-to-your-cdn-endpoint-by-a-cname-record).
 
 Otherwise, if the CNAME record entry for your endpoint no longer exists or it contains the cdnverify subdomain, continue to [Custom domain not mapped to your CDN endpoint](#custom-domain-isnt-mapped-to-your-cdn-endpoint).
 
@@ -221,7 +221,7 @@ If you're using your own certificate, domain validation isn't required.
 Your CNAME record should be in the following format:
 
 - *Name* is your custom domain name.
-- *Value* is your CDN endpoint hostname.
+- *Value* is your content delivery network endpoint hostname.
 
 | Name            | Type  | Value                 |
 |-----------------|-------|-----------------------|
@@ -338,8 +338,8 @@ The following table shows the operation progress that occurs when you disable HT
 
     A dedicated certificate provided by Digicert is used for your custom domain for:
 
-    - **Azure CDN from Edgio**
-    - **Azure CDN from Microsoft**
+    - **Azure Content Delivery Network from Edgio**
+    - **Azure Content Delivery Network from Microsoft**
 
 2. *Do you use IP-based or Server Name Indication (SNI) TLS/SSL?*
 
@@ -353,7 +353,7 @@ The following table shows the operation progress that occurs when you disable HT
 
 4. *Is using a SAN certificate less secure than a dedicated certificate?*
 
-A SAN certificate follows the same encryption and security standards as a dedicated certificate. All issued TLS/SSL certificates use SHA-256 for enhanced server security.
+    A SAN certificate follows the same encryption and security standards as a dedicated certificate. All issued TLS/SSL certificates use SHA-256 for enhanced server security.
 
 5. *Do I need a Certificate Authority Authorization record with my DNS provider?*
 
@@ -367,7 +367,7 @@ A SAN certificate follows the same encryption and security standards as a dedica
 
 7. *How do cert renewals work with Bring Your Own Certificate?*
 
-    To ensure a newer certificate is deployed to PoP infrastructure, upload your new certificate to Azure Key Vault. In your TLS settings on Azure CDN, choose the newest certificate version and select save. Azure CDN will then propagate your new updated cert.
+    To ensure a newer certificate is deployed to POP infrastructure, upload your new certificate to Azure Key Vault. In your TLS settings on Azure Content Delivery Network, choose the newest certificate version and select save. Azure Content Delivery Network will then propagate your new updated cert.
 
     For **Azure CDN from Edgio** profiles, if you use the same Azure Key Vault certificate on several custom domains (such as a wildcard certificate), ensure you update all of your custom domains that use that same certificate to the newer certificate version.
 

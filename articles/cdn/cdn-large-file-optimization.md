@@ -42,7 +42,7 @@ There are no limits on maximum file size.
 
 ### Chunked Transfer Encoding Support
 
-Microsoft content delivery network supports transfer encoding response but only up to a maximum of 8-MB content size. For chunked transfer encoded response that greater than 8 MB, Microsoft content delivery network only cache and serve the first 8 MB of content.
+Microsoft content delivery network supports transfer encoding responses, but only up to a maximum content size limit of 8 MB. In the case of chunked transfer encoded responses exceeding 8 MB, the Microsoft content delivery network will only cache and serve the initial 8 MB of content.
 
 <a name='optimize-for-delivery-of-large-files-with-azure-cdn-from-verizon'></a>
 
@@ -54,7 +54,7 @@ Microsoft content delivery network supports transfer encoding response but only 
 
 ### Complete cache fill
 
-The default complete cache fill feature enables the content delivery network to pull a file into the cache when an initial request is abandoned or lost.
+The defaults complete cache fill feature enables the content delivery network to pull a file into the cache when an initial request is abandoned or lost.
 
 Complete cache fill is most useful for large assets. Typically, users don't download them from start to finish. They use progressive download. The default behavior forces the edge server to initiate a background fetch of the asset from the origin server. Afterward, the asset is in the edge server's local cache. After the full object is in the cache, the edge server fulfills byte-range requests to the content delivery network for the cached object.
 
