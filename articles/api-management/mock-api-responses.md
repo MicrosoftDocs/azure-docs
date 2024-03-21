@@ -12,6 +12,8 @@ ms.author: danlep
 ---
 # Tutorial: Mock API responses
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 Backend APIs are imported into an API Management (APIM) API or created and managed manually. The steps in this tutorial, show you how to:
 
 + Use API Management to create a blank HTTP API
