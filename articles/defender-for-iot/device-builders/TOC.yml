@@ -18,7 +18,7 @@
     href: quickstart-onboard-iot-hub.md
   - name: Upload Firmware using Azure CLI
     displayName: Azure CLI, upload, firmware
-    href: quickstart-upload-firmware-using-cli.md
+    href: quickstart-upload-firmware-using-azure-command-line-interface.md
   - name: Upload Firmware using Azure PowerShell
     displayName: Azure PowerShell, upload, firmware
     href: quickstart-upload-firmware-using-powershell.md
