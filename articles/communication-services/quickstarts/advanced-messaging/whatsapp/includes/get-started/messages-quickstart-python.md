@@ -47,7 +47,7 @@ Create a new file called `messages-quickstart.py` and add the basic program stru
 ```console
 type nul > messages-quickstart.py   
 ```
-
+#### Basic program structure
 ```python
 import os
 
@@ -263,10 +263,10 @@ To send WhatsApp template message add below code in the send_template_message(se
             .format(response.message_id, response.to))
         else:
             print("Message failed to send")
+```
 
-# Update the main function to call send_template_message()
-if __name__ == '__main__':
-    messages = MessagesQuickstart()
+Add send_template_message() call to the [main method](#basic-program-structure).
+```python
     # Calling send_template_message()
     messages.send_template_message()
 ```
@@ -328,10 +328,10 @@ Messages SDK allows Contoso to send text WhatsApp messages, which initiated What
             .format(response.message_id, response.to))
         else:
             print("Message failed to send")
+```
 
-# Update the main function to run send_text_send_message()
-if __name__ == '__main__':
-    messages = MessagesQuickstart()
+Update the [main method](#basic-program-structure) to run send_text_send_message()
+```python
     #Calling send_text_message()
     messages.send_text_message()
 ```
@@ -382,10 +382,10 @@ Messages SDK allows Contoso to send Image WhatsApp messages to WhatsApp users. T
             .format(response.message_id, response.to))
         else:
             print("Message failed to send")
+```
 
-# Update the main function to run send_image_message()
-if __name__ == '__main__':
-    messages = MessagesQuickstart()
+Update the [main method](#basic-program-structure) to run send_image_message()
+```python
     # Calling send_image_message()
     messages.send_image_message()
 ```
