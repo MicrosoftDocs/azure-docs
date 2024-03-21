@@ -111,9 +111,9 @@
       href: how-to-reuse-dns-names.md
     - name: Use Logic Apps connector
       href: ../connectors/connectors-create-api-container-instances.md?toc=/azure/container-instances/toc.json&bc=/azure/container-instances/breadcrumb/toc.json
-    - name: Deploy confidential containers using the Azure portal (preview)
+    - name: Deploy confidential containers using the Azure portal
       href: container-instances-tutorial-deploy-confidential-container-default-portal.md
-    - name: Deploy confidential containers using ARM (preview)
+    - name: Deploy confidential containers using ARM
       href: container-instances-tutorial-deploy-confidential-containers-cce-arm.md
   - name: Container scenarios
     items:
@@ -165,7 +165,7 @@
       href: container-instances-update.md
   - name: Monitor and log
     items:
-    - name: Monitor Azure Container Instances
+    - name: Monitor
       href: monitor-azure-container-instances.md
     - name: Monitor CPU and memory usage
       href: container-instances-monitor.md
@@ -179,6 +179,8 @@
     items:
     - name: Troubleshoot common issues
       href: container-instances-troubleshooting.md
+    - name: Troubleshoot more issues
+      href: /troubleshoot/azure/azure-container-instances/welcome-container-instances
 - name: Reference
   items:
   - name: Azure CLI
@@ -203,7 +205,7 @@
     href: container-instances-reference-yaml.md
   - name: Connector
     href: /connectors/aci
-  - name: Monitoring data
+  - name: Monitoring data reference
     href: monitor-azure-container-instances-reference.md
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions

@@ -11,12 +11,9 @@ ms.author: jodowns
 
 # What is rate limiting for Azure Front Door?
 
-Rate limiting enables you to detect and block abnormally high levels of traffic from any socket IP address.
-By using Azure Web Application Firewall in Azure Front Door, you can mitigate some types of denial-of-service attacks. Rate limiting also protects you against clients that were accidentally misconfigured to send large volumes of requests in a short time period.
+Rate limiting enables you to detect and block abnormally high levels of traffic from any socket IP address.  By using Azure Web Application Firewall in Azure Front Door, you can mitigate some types of denial-of-service attacks. Rate limiting also protects you against clients that were accidentally misconfigured to send large volumes of requests in a short time period.
 
-The socket IP address is the address of the client that initiated the TCP connection to Azure Front Door. Typically, the socket IP address is the IP address of the user, but it might also be the IP address of a proxy server or another device that sits between the user and Azure Front Door.
-
-You can define rate limits at the socket IP address level or the remote address level. If you have multiple clients that access Azure Front Door from different socket IP addresses, they each have their own rate limits applied. The socket IP address is the source IP address the web application firewall (WAF) sees. If your user is behind a proxy, the socket IP address is often the proxy server address. The remote address is the original client IP that's usually sent via the `X-Forwarded-For` request header.
+The socket IP address is the address of the client that initiated the TCP connection to Azure Front Door. Typically, the socket IP address is the IP address of the user, but it might also be the IP address of a proxy server or another device that sits between the user and Azure Front Door.  If you have multiple clients that access Azure Front Door from different socket IP addresses, they each have their own rate limits applied. 
 
 ## Configure a rate limit policy
 

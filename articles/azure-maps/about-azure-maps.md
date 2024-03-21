@@ -227,7 +227,7 @@ Stay up to date on Azure Maps:
 [How to use the Get Map Attribution API]: how-to-show-attribution.md
 [Quickstart: Create a web app]: quick-demo-map-app.md
 [What is Azure Maps Creator?]: about-creator.md
-[v1]: /rest/api/maps/data?view=rest-maps-1.0
+[v1]: /rest/api/maps/data?view=rest-maps-1.0&preserve-view=true
 [v2]: /rest/api/maps/data
 [How to create data registry]: how-to-create-data-registries.md
 <!---------   REST API Links     --------------->
@@ -236,9 +236,11 @@ Stay up to date on Azure Maps:
 [Get Map Tile]: /rest/api/maps/render/get-map-tile
 [Get Weather along route API]: /rest/api/maps/weather/getweatheralongroute
 [Render]: /rest/api/maps/render
+[Render v1]: /rest/api/maps/render?view=rest-maps-1.0
+[Render v2]: /rest/api/maps/render
 [REST APIs]: /rest/api/maps/
 [Route]: /rest/api/maps/route
-[Search]: /rest/api/maps/search?view=rest-maps-1.0
+[Search]: /rest/api/maps/search?view=rest-maps-1.0&preserve-view=true
 [Spatial]: /rest/api/maps/spatial
 [TilesetID]: /rest/api/maps/render/get-map-tile#tilesetid
 [Timezone]: /rest/api/maps/timezone

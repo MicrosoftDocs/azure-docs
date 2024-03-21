@@ -12,21 +12,23 @@ keywords: azure high availability disaster recovery cassandra resiliency
 
 # Best practices for high availability and disaster recovery
 
-Azure Managed Instance for Apache Cassandra provides automated deployment and scaling operations for managed open-source Apache Cassandra datacenters. Apache Cassandra is a great choice for building highly resilient applications due to it's distributed nature and masterless architecture – any node in the database can provide the exact same functionality as any other node – contributing to Cassandra’s robustness and resilience. This article provides tips on how to optimize high availability and how to approach disaster recover.
+Azure Managed Instance for Apache Cassandra is a fully managed service for pure open-source Apache Cassandra clusters. The service also allows configurations to be overridden, depending on the specific needs of each workload, allowing maximum flexibility and control where needed. 
+
+Apache Cassandra is a great choice for building highly resilient applications due to it's distributed nature and masterless architecture – any node in the database can provide the exact same functionality as any other node – contributing to Cassandra’s robustness and resilience. This article provides tips on how to optimize high availability and how to approach disaster recover.
 
 
 ## RPO and RTO
 
-RPO (recovery point objective) and RTO (recovery time objective), will both typically be very low (close to zero) for Apache Cassandra as long as you have:
+RPO (recovery point objective) and RTO (recovery time objective), will both typically be low (close to zero) for Apache Cassandra as long as you have:
 
 - A [multi-region deployment](create-multi-region-cluster.md) with cross region replication, and a [replication factor](https://cassandra.apache.org/doc/latest/cassandra/architecture/dynamo.html#replication-strategy) of 3.
 - Enabled availability zones (select option when creating a cluster in the [portal](create-cluster-portal.md) or via [Azure CLI](create-cluster-cli.md)).
 - Configured application-level failover using load balancing policy in the [client driver](https://cassandra.apache.org/doc/latest/cassandra/getting_started/drivers.html) and/or load balancing-level failover using traffic manager/Azure front door.
 
-RTO ("how long you are down in an outage") will be low because the cluster will be resilient across both zones and regions, and because Apache Cassandra itself is a highly fault tolerant, masterless system (all nodes can write) by default. RPO ("how much data can you lose in an outage") will be low because data will be sychronised between all nodes and data centers, so data loss in an outage would be minimal. 
+RTO ("how long you're down in an outage") will be low because the cluster will be resilient across both zones and regions, and because Apache Cassandra itself is a highly fault tolerant, masterless system (all nodes can write) by default. RPO ("how much data can you lose in an outage") will be low because data will be synchronised between all nodes and data centers, so data loss in an outage would be minimal. 
 
    > [!NOTE]
-   > It is not theoretically possible to achieve both RTO=0 *and* RPO=0 per [Cap Theorem](https://en.wikipedia.org/wiki/CAP_theorem). You will need to evaluate the trade off between consistency and availability/optimal performance - this will look different for each application. For example, if your application is read heavy, it might be better to cope with increased latency of cross-region writes to avoid data loss (favoring consistency). If the appplication is write heavy, and on a tight latency budget, the risk of losing some of the most recent writes in a major regional outage might be acceptable (favoring availability). 
+   > It's not theoretically possible to achieve both RTO=0 *and* RPO=0 per [Cap Theorem](https://en.wikipedia.org/wiki/CAP_theorem). You will need to evaluate the trade off between consistency and availability/optimal performance - this will look different for each application. For example, if your application is read heavy, it might be better to cope with increased latency of cross-region writes to avoid data loss (favoring consistency). If the appplication is write heavy, and on a tight latency budget, the risk of losing some of the most recent writes in a major regional outage might be acceptable (favoring availability). 
 
 
 ## Availability zones
@@ -36,15 +38,18 @@ Cassandra's masterless architecture brings fault tolerance from the ground up, a
 
 ## Multi-region redundancy 
 
-Cassandra's architecture, coupled with Azure availability zones support, gives you some level of fault tolerance and resiliency. However, it's important to consider the impact of regional outages for your applications. We highly recommend deploying [multi region clusters](create-multi-region-cluster.md) to safeguard against region level outages. Although they are rare, the potential impact is severe. 
+Cassandra's architecture, coupled with Azure availability zones support, gives you some level of fault tolerance and resiliency. However, it's important to consider the impact of regional outages for your applications. We highly recommend deploying [multi region clusters](create-multi-region-cluster.md) to safeguard against region level outages. Although they're rare, the potential impact is severe. 
 
-For business continuity, it is not sufficient to only make the database multi-region. Other parts of your application also need to be deployed in the same manner either by being distributed, or with adequate mechanisms to fail over. If your users are spread across many geo locations, a multi-region data center deployment for your database has the added benefit of reducing latency, since all nodes in all data centers across the cluster can then serve both reads and writes from the region that is closest to them. However, if the application is configured to be "active-active", it's important to consider how [CAP theorem](https://cassandra.apache.org/doc/latest/cassandra/architecture/guarantees.html#what-is-cap) applies to the consistency of your data between replicas (nodes), and the trade-offs required to delivery high availability. 
+For business continuity, it isn't sufficient to only make the database multi-region. Other parts of your application also need to be deployed in the same manner either by being distributed, or with adequate mechanisms to fail over. If your users are spread across many geo locations, a multi-region data center deployment for your database has the added benefit of reducing latency, since all nodes in all data centers across the cluster can then serve both reads and writes from the region that is closest to them. However, if the application is configured to be "active-active", it's important to consider how [CAP theorem](https://cassandra.apache.org/doc/latest/cassandra/architecture/guarantees.html#what-is-cap) applies to the consistency of your data between replicas (nodes), and the trade-offs required to delivery high availability. 
 
 In CAP theorem terms, Cassandra is by default an AP (Available Partition-tolerant) database system, with highly [tunable consistency](https://cassandra.apache.org/doc/4.1/cassandra/architecture/dynamo.html#tunable-consistency). For most use cases, we recommend using local_quorum for reads. 
 
 - In active-passive for writes there's a trade-off between reliability and performance: for reliability we recommend QUORUM_EACH but for most users LOCAL_QUORUM or QUORUM is a good compromise. Note however that in the case of a regional outage, some writes might be lost in LOCAL_QUORUM. 
 - In the case of an application being run in parallel QUORUM_EACH writes are preferred for most cases to ensure consistency between the two data centers.
-- If your goal is to favor consistency (lower RPO) rather than latency or availability (lower RTO), this should be reflected in your consistency settings and replication factor. As a rule of thumb, the number of quorum nodes required for a read plus the number of quorum nodes required for a write should be greater than the replication factor. For example, if you have a replication factor of 3, and quorum_one on reads (1 node), you should do quorum_all on writes (3 nodes), so that the total of 4 is greater than the replication factor of 3.
+- If your goal is to favor consistency (lower RPO) rather than latency or availability (lower RTO), this should be reflected in your consistency settings and replication factor. As a rule of thumb, the number of quorum nodes required for a read plus the number of quorum nodes required for a write should be greater than the replication factor. For example, if you have a replication factor of 3, and quorum_one on reads (one node), you should do quorum_all on writes (three nodes), so that the total of 4 is greater than the replication factor of 3.
+
+> [!NOTE]
+> The control plane operator for Azure Managed Instance for Apache Cassandra will only be deployed in a single region (the region selected when initially deploying the first data center). In the unlikely event of a total region outage, we commit to a 3 hour recovery time for failing over the control plane to another region. This does not affect the [availability SLA](https://azure.microsoft.com/support/legal/sla/managed-instance-apache-cassandra/v1_0/) for the service, as data centers should still continue to function. However, during this period, it may not be possible to make changes to the database configuration from the portal or resource provider tools.
 
 
 ## Replication

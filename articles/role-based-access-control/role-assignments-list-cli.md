@@ -1,7 +1,6 @@
 ---
 title: List Azure role assignments using Azure CLI - Azure RBAC
 description: Learn how to determine what resources users, groups, service principals, or managed identities have access to using Azure CLI and Azure role-based access control (Azure RBAC).
-services: active-directory
 author: rolyon
 manager: amycolannino
 ms.assetid: 3483ee01-8177-49e7-b337-4d5cb14f5e32

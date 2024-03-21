@@ -4,7 +4,6 @@ description: Learn how to deploy the new VM Extension for SAP.
 services: virtual-machines-linux,virtual-machines-windows
 author: OliverDoll
 manager: juergent
-tags: azure-resource-manager
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.assetid: 1c4f1951-3613-4a5a-a0af-36b85750c84e
 ms.service: sap-on-azure

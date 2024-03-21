@@ -6,7 +6,7 @@ services: virtual-network
 author: asudbring
 ms.service: virtual-network
 ms.topic: how-to
-ms.custom: linux-related-content
+ms.custom:
 ms.date: 04/24/2023
 ms.author: allensu
 ---

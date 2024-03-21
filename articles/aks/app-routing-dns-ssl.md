@@ -1,13 +1,13 @@
 ---
-title: Set up advanced Ingress configurations on Azure Kubernetes Service 
-description: Understand the advanced configuration options that are supported with the application routing add-on for Azure Kubernetes Service. 
+title: Set up a custom domain name and SSL certificate with the application routing add-on for Azure Kubernetes Service (AKS)
+description: Understand the advanced configuration options that are supported with the application routing add-on for Azure Kubernetes Service (AKS). 
 ms.subservice: aks-networking
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 12/04/2023
 ---
 
-#  Set up a custom domain name and SSL certificate with the application routing add-on
+# Set up a custom domain name and SSL certificate with the application routing add-on
 
 An Ingress is an API object that defines rules, which allow external access to services in an Azure Kubernetes Service (AKS) cluster. When you create an Ingress object that uses the application routing add-on nginx Ingress classes, the add-on creates, configures, and manages one or more Ingress controllers in your AKS cluster.
 

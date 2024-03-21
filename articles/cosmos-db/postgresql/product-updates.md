@@ -23,6 +23,8 @@ Updates that don’t directly affect the internals of a cluster are rolled out g
 Updates that change cluster internals, such as installing a [new minor PostgreSQL version](https://www.postgresql.org/developer/roadmap/), are delivered to existing clusters as part of the next [scheduled maintenance](concepts-maintenance.md) event. Such updates are available immediately to newly created clusters.
 
 ### February 2024
+* General availability: [The latest minor PostgreSQL version updates](reference-versions.md#postgresql-versions) (12.18, 13.14, 14.11, 15.6, and 16.2) are now available.
+    * [The last update for PostgreSQL 11](./reference-versions.md#postgresql-version-11-and-older) was released by community in November 2023.
 * General availability: [Microsoft Entra authentication](./concepts-authentication.md#microsoft-entra-id-authentication-preview) is now supported in addition to Postgres roles in [all supported regions](./resources-regions.md).
 
 ### January 2024

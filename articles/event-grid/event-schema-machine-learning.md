@@ -26,6 +26,152 @@ Azure Machine Learning emits the following event types:
 
 When an event is triggered, the Event Grid service sends data about that event to subscribing endpoint. This section contains an example of what that data would look like for each event.
 
+
+# [Cloud event schema](#tab/cloud-event-schema)
+
+### Microsoft.MachineLearningServices.ModelRegistered event
+
+```json
+[{
+  "source": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearningServices/workspaces/{workspace-name}",
+  "subject": "models/sklearn_regression_model:20",
+  "type": "Microsoft.MachineLearningServices.ModelRegistered",
+  "time": "2017-06-26T18:41:00.9584103Z",
+  "id": "831e1650-001e-001b-66ab-eeb76e069631",
+  "data": {
+    "ModelName": "sklearn_regression_model",
+    "ModelVersion": 20,
+    "ModelTags": {
+        "area": "diabetes",
+        "type": "regression"
+    },
+    "ModelProperties": {
+        "type": "test"
+    }
+  },
+  "specversion": "1.0"
+}]
+```
+
+### Microsoft.MachineLearningServices.ModelDeployed event
+
+```json
+[{
+  "source": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearningServices/workspaces/{workspace-name}",
+  "subject": "endpoints/my-sklearn-service",
+  "type": "Microsoft.MachineLearningServices.ModelDeployed",
+  "time": "2017-06-26T18:41:00.9584103Z",
+  "id": "831e1650-001e-001b-66ab-eeb76e069631",
+  "data": {
+    "ServiceName": "my-sklearn-service",
+    "ServiceComputeType": "ACI",
+    "ModelIds": "sklearn_regression_model:1,sklearn_regression_model:2",
+    "ServiceTags": {
+        "area": "diabetes",
+        "type": "regression"
+    },
+    "ServiceProperties": {
+        "type": "test"
+    }
+  },
+  "specversion": "1.0"
+}]
+```
+
+### Microsoft.MachineLearningServices.RunCompleted event
+
+```json
+[{
+  "source": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearningServices/workspaces/{workspace-name}",
+  "subject": "experiments/0fa9dfaa-cba3-4fa7-b590-23e48548f5c1/runs/AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5",
+  "type": "Microsoft.MachineLearningServices.RunCompleted",
+  "time": "2017-06-26T18:41:00.9584103Z",
+  "id": "831e1650-001e-001b-66ab-eeb76e069631",
+  "data": {
+    "experimentId": "0fa9dfaa-cba3-4fa7-b590-23e48548f5c1",
+    "experimentName": "automl-local-regression",
+    "runId": "AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5",
+    "runType": null,
+    "runTags": {},
+    "runProperties": {
+        "runTemplate": "automl_child",
+        "pipeline_id": "5adc0a4fe02504a586f09a4fcbb241f9a4012062",
+        "pipeline_spec": "{\"objects\": [{\"class_name\": \"StandardScaler\", \"module\": \"sklearn.preprocessing\", \"param_args\": [], \"param_kwargs\": {\"with_mean\": true, \"with_std\": false}, \"prepared_kwargs\": {}, \"spec_class\": \"preproc\"}, {\"class_name\": \"LassoLars\", \"module\": \"sklearn.linear_model\", \"param_args\": [], \"param_kwargs\": {\"alpha\": 0.001, \"normalize\": true}, \"prepared_kwargs\": {}, \"spec_class\": \"sklearn\"}], \"pipeline_id\": \"5adc0a4fe02504a586f09a4fcbb241f9a4012062\"}",
+        "training_percent": "100",
+        "predicted_cost": "0.062226144097381045",
+        "iteration": "5",
+        "run_template": "automl_child",
+        "run_preprocessor": "StandardScalerWrapper",
+        "run_algorithm": "LassoLars",
+        "conda_env_data_location": "aml://artifact/ExperimentRun/dcid.AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5/outputs/conda_env_v_1_0_0.yml",
+        "model_name": "AutoMLad912b2d65",
+        "scoring_data_location": "aml://artifact/ExperimentRun/dcid.AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5/outputs/scoring_file_v_1_0_0.py",
+        "model_data_location": "aml://artifact/ExperimentRun/dcid.AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5/outputs/model.pkl"
+    }
+  },
+  "specversion": "1.0"
+}]
+```
+
+### Microsoft.MachineLearningServices.DatasetDriftDetected event
+
+```json
+[{
+  "source": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearningServices/workspaces/{workspace-name}",
+  "subject": "datadrifts/{}/runs/{}",
+  "type": "Microsoft.MachineLearningServices.DatasetDriftDetected",
+  "time": "2017-06-26T18:41:00.9584103Z",
+  "id": "831e1650-001e-001b-66ab-eeb76e069631",
+  "data": {
+    "DataDriftId": "01d29aa4-e6a4-470a-9ef3-66660d21f8ef",
+    "DataDriftName": "myDriftMonitor",
+    "RunId": "01d29aa4-e6a4-470a-9ef3-66660d21f8ef_1571590300380",
+    "BaseDatasetId": "3c56d136-0f64-4657-a0e8-5162089a88a3",
+    "TargetDatasetId": "d7e74d2e-c972-4266-b5fb-6c9c182d2a74",
+    "DriftCoefficient": 0.83503490684792081,
+    "StartTime": "2019-07-04T00:00:00+00:00",
+    "EndTime": "2019-07-05T00:00:00+00:00"
+  },
+  "specversion": "1.0"
+}]
+```
+
+### Microsoft.MachineLearningServices.RunStatusChanged event
+
+```json
+[{
+  "source": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearningServices/workspaces/{workspace-name}",
+  "subject": "experiments/0fa9dfaa-cba3-4fa7-b590-23e48548f5c1/runs/AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5",
+  "type": "Microsoft.MachineLearningServices.RunStatusChanged",
+  "time": "2017-06-26T18:41:00.9584103Z",
+  "id": "831e1650-001e-001b-66ab-eeb76e069631",
+  "data": {
+    "experimentId": "0fa9dfaa-cba3-4fa7-b590-23e48548f5c1",
+    "experimentName": "automl-local-regression",
+    "runId": "AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5",
+    "runType": null,
+    "runTags": {},
+    "runProperties": {
+        "runTemplate": "automl_child",
+        "pipeline_id": "5adc0a4fe02504a586f09a4fcbb241f9a4012062",
+        "pipeline_spec": "{\"objects\": [{\"class_name\": \"StandardScaler\", \"module\": \"sklearn.preprocessing\", \"param_args\": [], \"param_kwargs\": {\"with_mean\": true, \"with_std\": false}, \"prepared_kwargs\": {}, \"spec_class\": \"preproc\"}, {\"class_name\": \"LassoLars\", \"module\": \"sklearn.linear_model\", \"param_args\": [], \"param_kwargs\": {\"alpha\": 0.001, \"normalize\": true}, \"prepared_kwargs\": {}, \"spec_class\": \"sklearn\"}], \"pipeline_id\": \"5adc0a4fe02504a586f09a4fcbb241f9a4012062\"}",
+        "training_percent": "100",
+        "predicted_cost": "0.062226144097381045",
+        "iteration": "5",
+        "run_template": "automl_child",
+        "run_preprocessor": "StandardScalerWrapper",
+        "run_algorithm": "LassoLars",
+        "conda_env_data_location": "aml://artifact/ExperimentRun/dcid.AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5/outputs/conda_env_v_1_0_0.yml",
+        "model_name": "AutoMLad912b2d65",
+        "scoring_data_location": "aml://artifact/ExperimentRun/dcid.AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5/outputs/scoring_file_v_1_0_0.py",
+        "model_data_location": "aml://artifact/ExperimentRun/dcid.AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5/outputs/model.pkl"
+    },
+   "runStatus": "failed"
+   },
+  "specversion": "1.0"
+}]
+```
+
 # [Event Grid event schema](#tab/event-grid-event-schema)
 
 ### Microsoft.MachineLearningServices.ModelRegistered event
@@ -176,154 +322,23 @@ When an event is triggered, the Event Grid service sends data about that event t
 }]
 ```
 
-# [Cloud event schema](#tab/cloud-event-schema)
-
-### Microsoft.MachineLearningServices.ModelRegistered event
-
-```json
-[{
-  "source": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearningServices/workspaces/{workspace-name}",
-  "subject": "models/sklearn_regression_model:20",
-  "type": "Microsoft.MachineLearningServices.ModelRegistered",
-  "time": "2017-06-26T18:41:00.9584103Z",
-  "id": "831e1650-001e-001b-66ab-eeb76e069631",
-  "data": {
-    "ModelName": "sklearn_regression_model",
-    "ModelVersion": 20,
-    "ModelTags": {
-        "area": "diabetes",
-        "type": "regression"
-    },
-    "ModelProperties": {
-        "type": "test"
-    }
-  },
-  "specversion": "1.0"
-}]
-```
-
-### Microsoft.MachineLearningServices.ModelDeployed event
-
-```json
-[{
-  "source": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearningServices/workspaces/{workspace-name}",
-  "subject": "endpoints/my-sklearn-service",
-  "type": "Microsoft.MachineLearningServices.ModelDeployed",
-  "time": "2017-06-26T18:41:00.9584103Z",
-  "id": "831e1650-001e-001b-66ab-eeb76e069631",
-  "data": {
-    "ServiceName": "my-sklearn-service",
-    "ServiceComputeType": "ACI",
-    "ModelIds": "sklearn_regression_model:1,sklearn_regression_model:2",
-    "ServiceTags": {
-        "area": "diabetes",
-        "type": "regression"
-    },
-    "ServiceProperties": {
-        "type": "test"
-    }
-  },
-  "specversion": "1.0"
-}]
-```
-
-### Microsoft.MachineLearningServices.RunCompleted event
-
-```json
-[{
-  "source": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearningServices/workspaces/{workspace-name}",
-  "subject": "experiments/0fa9dfaa-cba3-4fa7-b590-23e48548f5c1/runs/AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5",
-  "type": "Microsoft.MachineLearningServices.RunCompleted",
-  "time": "2017-06-26T18:41:00.9584103Z",
-  "id": "831e1650-001e-001b-66ab-eeb76e069631",
-  "data": {
-    "experimentId": "0fa9dfaa-cba3-4fa7-b590-23e48548f5c1",
-    "experimentName": "automl-local-regression",
-    "runId": "AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5",
-    "runType": null,
-    "runTags": {},
-    "runProperties": {
-        "runTemplate": "automl_child",
-        "pipeline_id": "5adc0a4fe02504a586f09a4fcbb241f9a4012062",
-        "pipeline_spec": "{\"objects\": [{\"class_name\": \"StandardScaler\", \"module\": \"sklearn.preprocessing\", \"param_args\": [], \"param_kwargs\": {\"with_mean\": true, \"with_std\": false}, \"prepared_kwargs\": {}, \"spec_class\": \"preproc\"}, {\"class_name\": \"LassoLars\", \"module\": \"sklearn.linear_model\", \"param_args\": [], \"param_kwargs\": {\"alpha\": 0.001, \"normalize\": true}, \"prepared_kwargs\": {}, \"spec_class\": \"sklearn\"}], \"pipeline_id\": \"5adc0a4fe02504a586f09a4fcbb241f9a4012062\"}",
-        "training_percent": "100",
-        "predicted_cost": "0.062226144097381045",
-        "iteration": "5",
-        "run_template": "automl_child",
-        "run_preprocessor": "StandardScalerWrapper",
-        "run_algorithm": "LassoLars",
-        "conda_env_data_location": "aml://artifact/ExperimentRun/dcid.AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5/outputs/conda_env_v_1_0_0.yml",
-        "model_name": "AutoMLad912b2d65",
-        "scoring_data_location": "aml://artifact/ExperimentRun/dcid.AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5/outputs/scoring_file_v_1_0_0.py",
-        "model_data_location": "aml://artifact/ExperimentRun/dcid.AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5/outputs/model.pkl"
-    }
-  },
-  "specversion": "1.0"
-}]
-```
-
-### Microsoft.MachineLearningServices.DatasetDriftDetected event
-
-```json
-[{
-  "source": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearningServices/workspaces/{workspace-name}",
-  "subject": "datadrifts/{}/runs/{}",
-  "type": "Microsoft.MachineLearningServices.DatasetDriftDetected",
-  "time": "2017-06-26T18:41:00.9584103Z",
-  "id": "831e1650-001e-001b-66ab-eeb76e069631",
-  "data": {
-    "DataDriftId": "01d29aa4-e6a4-470a-9ef3-66660d21f8ef",
-    "DataDriftName": "myDriftMonitor",
-    "RunId": "01d29aa4-e6a4-470a-9ef3-66660d21f8ef_1571590300380",
-    "BaseDatasetId": "3c56d136-0f64-4657-a0e8-5162089a88a3",
-    "TargetDatasetId": "d7e74d2e-c972-4266-b5fb-6c9c182d2a74",
-    "DriftCoefficient": 0.83503490684792081,
-    "StartTime": "2019-07-04T00:00:00+00:00",
-    "EndTime": "2019-07-05T00:00:00+00:00"
-  },
-  "specversion": "1.0"
-}]
-```
-
-### Microsoft.MachineLearningServices.RunStatusChanged event
-
-```json
-[{
-  "source": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearningServices/workspaces/{workspace-name}",
-  "subject": "experiments/0fa9dfaa-cba3-4fa7-b590-23e48548f5c1/runs/AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5",
-  "type": "Microsoft.MachineLearningServices.RunStatusChanged",
-  "time": "2017-06-26T18:41:00.9584103Z",
-  "id": "831e1650-001e-001b-66ab-eeb76e069631",
-  "data": {
-    "experimentId": "0fa9dfaa-cba3-4fa7-b590-23e48548f5c1",
-    "experimentName": "automl-local-regression",
-    "runId": "AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5",
-    "runType": null,
-    "runTags": {},
-    "runProperties": {
-        "runTemplate": "automl_child",
-        "pipeline_id": "5adc0a4fe02504a586f09a4fcbb241f9a4012062",
-        "pipeline_spec": "{\"objects\": [{\"class_name\": \"StandardScaler\", \"module\": \"sklearn.preprocessing\", \"param_args\": [], \"param_kwargs\": {\"with_mean\": true, \"with_std\": false}, \"prepared_kwargs\": {}, \"spec_class\": \"preproc\"}, {\"class_name\": \"LassoLars\", \"module\": \"sklearn.linear_model\", \"param_args\": [], \"param_kwargs\": {\"alpha\": 0.001, \"normalize\": true}, \"prepared_kwargs\": {}, \"spec_class\": \"sklearn\"}], \"pipeline_id\": \"5adc0a4fe02504a586f09a4fcbb241f9a4012062\"}",
-        "training_percent": "100",
-        "predicted_cost": "0.062226144097381045",
-        "iteration": "5",
-        "run_template": "automl_child",
-        "run_preprocessor": "StandardScalerWrapper",
-        "run_algorithm": "LassoLars",
-        "conda_env_data_location": "aml://artifact/ExperimentRun/dcid.AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5/outputs/conda_env_v_1_0_0.yml",
-        "model_name": "AutoMLad912b2d65",
-        "scoring_data_location": "aml://artifact/ExperimentRun/dcid.AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5/outputs/scoring_file_v_1_0_0.py",
-        "model_data_location": "aml://artifact/ExperimentRun/dcid.AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5/outputs/model.pkl"
-    },
-   "runStatus": "failed"
-   },
-  "specversion": "1.0"
-}]
-```
-
 ---
 
 ### Event properties
+
+# [Cloud event schema](#tab/cloud-event-schema)
+
+An event has the following top-level data:
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| `source` | string | Full resource path to the event source. This field isn't writeable. Event Grid provides this value. |
+| `subject` | string | Publisher-defined path to the event subject. |
+| `type` | string | One of the registered event types for this event source. |
+| `time` | string | The time the event is generated based on the provider's UTC time. |
+| `id` | string | Unique identifier for the event. |
+| `data` | object | Blob storage event data. |
+| `specversion` | string | CloudEvents schema specification version. |
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
 
@@ -340,19 +355,6 @@ An event has the following top-level data:
 | `dataVersion` | string | The schema version of the data object. The publisher defines the schema version. |
 | `metadataVersion` | string | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
 
-# [Cloud event schema](#tab/cloud-event-schema)
-
-An event has the following top-level data:
-
-| Property | Type | Description |
-| -------- | ---- | ----------- |
-| `source` | string | Full resource path to the event source. This field isn't writeable. Event Grid provides this value. |
-| `subject` | string | Publisher-defined path to the event subject. |
-| `type` | string | One of the registered event types for this event source. |
-| `time` | string | The time the event is generated based on the provider's UTC time. |
-| `id` | string | Unique identifier for the event. |
-| `data` | object | Blob storage event data. |
-| `specversion` | string | CloudEvents schema specification version. |
 
 ---
 

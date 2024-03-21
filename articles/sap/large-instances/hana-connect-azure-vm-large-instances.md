@@ -4,7 +4,6 @@ description: Connectivity setup from virtual machines for using SAP HANA on Azur
 services: virtual-machines-linux
 author: ju-shim
 manager: patfilot
-tags: azure-resource-manager
 ms.service: sap-on-azure
 ms.subservice: sap-large-instances
 ms.topic: article

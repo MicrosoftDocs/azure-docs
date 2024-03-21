@@ -48,9 +48,11 @@ Skip this procedure if you have one of the following types of licensing plans:
 
 **To turn on enterprise IoT monitoring**:
 
-1. In [Microsoft Defender XDR](https://security.microsoft.com/), select **Settings** \> **Device discovery** \> **Enterprise IoT**.
+1. In [Microsoft Defender XDR](https://security.microsoft.com/), select **Settings** \> **[Device Discovery](/microsoft-365/security/defender-endpoint/device-discovery)** \> **Enterprise IoT**.
+> [!NOTE]
+> Ensure you have turned on Device Discovery in **Settings** \> **Endpoints** \> **Advanced Features**.
 
-1. Toggle the Enterprise IoT security option to **On**. For example:
+2. Toggle the Enterprise IoT security option to **On**. For example:
 
     :::image type="content" source="media/enterprise-iot/eiot-toggle-on.png" alt-text="Screenshot of Enterprise IoT toggled on in Microsoft Defender XDR.":::
 
@@ -89,9 +91,9 @@ This section lists sample advanced hunting queries that you can use in Microsoft
 Use the following query to identify devices that exist in your corporate network by type of device, such as routers:  
 
 ```kusto
-| DeviceInfo  
-| summarize arg_max(Timestamp, *) by DeviceId  
-| where DeviceType == "NetworkDevice" and DeviceSubtype  == "Router"  
+DeviceInfo
+| summarize arg_max(Timestamp, *) by DeviceId
+| where DeviceType == "NetworkDevice" and DeviceSubtype == "Router"  
 ```
 
 ### Find and export vulnerabilities for your IoT devices
@@ -99,8 +101,9 @@ Use the following query to identify devices that exist in your corporate network
 Use the following query to list all vulnerabilities on your IoT devices:
 
 ```kusto
+DeviceInfo
 | where DeviceCategory =~ "iot"
-| join kind=inner DeviceTvmSoftwareVulnerabilities on DeviceId 
+| join kind=inner DeviceTvmSoftwareVulnerabilities on DeviceId
 ```
 
 For more information, see [Advanced hunting](/microsoft-365/security/defender/advanced-hunting-overview) and [Understand the advanced hunting schema](/microsoft-365/security/defender/advanced-hunting-schema-tables).

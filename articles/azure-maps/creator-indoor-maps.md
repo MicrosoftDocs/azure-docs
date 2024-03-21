@@ -314,14 +314,14 @@ The following example shows how to update a dataset, create a new tileset, and d
 [Upload a drawing package]: #upload-a-drawing-package
 
 <!-----	REST API Links	------->
-[Creator - map configuration Rest API]: /rest/api/maps-creator/map-configuration?view=rest-maps-creator-2023-03-01-preview
-[routeset]: /rest/api/maps-creator/routeset?view=rest-maps-creator-2023-03-01-preview
-[Style - Create]: /rest/api/maps-creator/style/create?view=rest-maps-creator-2023-03-01-preview
-[style]: /rest/api/maps-creator/style?view=rest-maps-creator-2023-03-01-preview
-[tileset]: /rest/api/maps-creator/tileset?view=rest-maps-creator-2023-03-01-preview
-[wayfinding path]: /rest/api/maps-creator/wayfinding/get-path?view=rest-maps-creator-2023-03-01-preview
-[wayfinding service]: /rest/api/maps-creator/wayfinding?view=rest-maps-creator-2023-03-01-preview
-[wayfinding]: /rest/api/maps-creator/wayfinding?view=rest-maps-creator-2023-03-01-preview
+[Creator - map configuration Rest API]: /rest/api/maps-creator/map-configuration?view=rest-maps-creator-2023-03-01-preview&preserve-view=true
+[routeset]: /rest/api/maps-creator/routeset?view=rest-maps-creator-2023-03-01-preview&preserve-view=true
+[Style - Create]: /rest/api/maps-creator/style/create?view=rest-maps-creator-2023-03-01-preview&preserve-view=true
+[style]: /rest/api/maps-creator/style?view=rest-maps-creator-2023-03-01-preview&preserve-view=true
+[tileset]: /rest/api/maps-creator/tileset?view=rest-maps-creator-2023-03-01-preview&preserve-view=true
+[wayfinding path]: /rest/api/maps-creator/wayfinding/get-path?view=rest-maps-creator-2023-03-01-preview&preserve-view=true
+[wayfinding service]: /rest/api/maps-creator/wayfinding?view=rest-maps-creator-2023-03-01-preview&preserve-view=true
+[wayfinding]: /rest/api/maps-creator/wayfinding?view=rest-maps-creator-2023-03-01-preview&preserve-view=true
 [Alias API]: /rest/api/maps-creator/alias
 [Conversion service]: /rest/api/maps-creator/conversion
 [Dataset Create]: /rest/api/maps-creator/dataset/create

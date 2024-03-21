@@ -22,7 +22,7 @@ In this quickstart, you deploy a WordPress application on Azure Kubernetes Servi
 
 [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires the latest version of Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -320,8 +320,7 @@ Open a web browser to the external IP address of your service to see your WordPr
 
 > [!NOTE]
 >
-> - Currently the WordPress site is not using HTTPS. It is recommended to [ENABLE TLS with your own certificates](../../aks/ingress-own-tls.md).
-> - You can enable [HTTP routing](../../aks/http-application-routing.md) for your cluster.
+> - WordPress site isn't configured to use HTTPS. For more information about HTTPS and how to configure application routing for AKS, see [Managed NGINX ingress with the application routing add-on](../../aks/app-routing.md).
 
 ## Clean up the resources
 

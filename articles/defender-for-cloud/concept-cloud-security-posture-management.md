@@ -3,7 +3,7 @@ title: Cloud Security Posture Management (CSPM)
 description: Learn more about CSPM in Microsoft Defender for Cloud.
 ms.topic: conceptual
 ms.custom: build-2023
-ms.date: 01/02/2024
+ms.date: 02/28/2024
 ---
 
 # Cloud security posture management (CSPM)
@@ -64,8 +64,6 @@ You can choose which ticketing system to integrate. For preview, only ServiceNow
 
 - Review the [Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) to learn about Defender CSPM pricing.
 
-- Defender CSPM for GCP is free until January 31, 2024.
-
 - From March 7, 2024, advanced DevOps security posture capabilities will only be available through the paid Defender CSPM plan. Free foundational security posture management in Defender for Cloud will continue providing a number of Azure DevOps recommendations. Learn more about [DevOps security features](devops-support.md#azure-devops).
 
 - For subscriptions that use both Defender CSPM and Defender for Containers plans, free vulnerability assessment is calculated based on free image scans provided via the Defender for Containers plan, as summarized [in the Microsoft Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
@@ -93,6 +91,10 @@ You can choose which ticketing system to integrate. For preview, only ServiceNow
 ## Azure cloud support
 
 For commercial and national cloud coverage, review the [features supported in Azure cloud environments](support-matrix-cloud-environment.md).
+
+## Support for Resource type in AWS and GCP
+
+For multicloud support of resource types (or services) in our foundational multicloud CSPM tier, see the [table of multicloud resource and service types for AWS and GCP](multicloud-resource-types-support-foundational-cspm.md).
 
 ## Next steps
 
