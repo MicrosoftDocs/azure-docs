@@ -60,6 +60,8 @@ If this is your first interaction with **Firmware analysis**, then you'll need t
 
 ## Upload a firmware image for analysis
 
+If you've just onboarded your subscription, are signed into the Azure portal, and already in the Defender for IoT portal, skip to step two.
+
 1. Sign into the Azure portal and go to Defender for IoT.
 
 1. Select **Firmware analysis** > **Firmware inventory** > **Upload**.
