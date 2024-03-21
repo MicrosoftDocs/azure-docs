@@ -11029,6 +11029,18 @@
             "redirect_document_id": false
         },
         {
+
+            "source_path_from_root": "/articles/cosmos-db/mongodb/vcore/high-availability.md",
+            "redirect_url": "/azure/reliability/reliability-cosmos-mongodb",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cosmos-db/mongodb/vcore/failover-disaster-recovery.md",
+            "redirect_url": "/azure/reliability/reliability-cosmos-mongodb",
+            "redirect_document_id": false 
+        },
+        {  
+
             "source_path_from_root": "/articles/notification-hubs/notification-hubs-high-availability.md",
             "redirect_url": "/azure/reliability/reliability-notification-hubs",
             "redirect_document_id": false
@@ -11064,7 +11076,6 @@
             "redirect_url": "/azure/operational-excellence/relocation-storage-account",
             "redirect_document_id": false 
         }
-        
-        
+
     ]
 }

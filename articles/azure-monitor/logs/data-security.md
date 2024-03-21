@@ -102,7 +102,7 @@ The Azure Monitor software development and service team's information security a
 
 Each development team member receives formal application security training. Internally, we use a version control system for software development. Each software project is protected by the version control system.
 
-Microsoft has a security and compliance team that oversees and assesses all services at Microsoft. Information security officers make up the team and they are not associated with the engineering teams that develop Log Analytics. The security officers have their own management chain and conduct independent assessments of products and services to ensure security and compliance.
+Microsoft has a security and compliance team that oversees and assesses all services at Microsoft. Information security officers make up the team and they aren't associated with the engineering teams that develop Log Analytics. The security officers have their own management chain and conduct independent assessments of products and services to ensure security and compliance.
 
 Microsoft's board of directors is notified by an annual report about all information security programs at Microsoft.
 
@@ -154,7 +154,7 @@ For Windows or Linux agents running on Azure virtual machines, a read-only stora
 
 With any agent reporting to an Operations Manager management group that is integrated with Azure Monitor, if the management server is unable to communicate with the service for any reason, the collected data is stored locally in a temporary cache on the management server.   They try to resend the data every eight minutes for two hours.  For data that bypasses the management server and is sent directly to Azure Monitor, the behavior is consistent with the Windows agent.  
 
-The Windows or management server agent cached data is protected by the operating system's credential store. If the service cannot process the data after two hours, the agents will queue the data. If the queue becomes full, the agent starts dropping data types, starting with performance data. The agent queue limit is a registry key so you can modify it, if necessary. Collected data is compressed and sent to the service, bypassing the Operations Manager management group databases, so it does not add any load to them. After the collected data is sent, it is removed from the cache.
+The Windows or management server agent cached data is protected by the operating system's credential store. If the service can't process the data after two hours, the agents will queue the data. If the queue becomes full, the agent starts dropping data types, starting with performance data. The agent queue limit is a registry key so you can modify it, if necessary. Collected data is compressed and sent to the service, bypassing the Operations Manager management group databases, so it doesn't add any load to them. After the collected data is sent, it's removed from the cache.
 
 As described above, data from the management server or direct-connected agents is sent over TLS to Microsoft Azure datacenters. Optionally, you can use ExpressRoute to provide extra security for the data. ExpressRoute is a way to directly connect to Azure from your existing WAN network, such as a multi-protocol label switching (MPLS) VPN, provided by a network service provider. For more information, see [ExpressRoute](https://azure.microsoft.com/services/expressroute/) and [Does my agent traffic use my Azure ExpressRoute connection?](#does-my-agent-traffic-use-my-azure-expressroute-connection).
 
@@ -163,18 +163,28 @@ The Azure Monitor service ensures that incoming data is from a trusted source by
 
 The retention period of collected data stored in the database depends on the selected pricing plan. For the *Free* tier, collected data is available for seven days. For the *Paid* tier, collected data is available for 31 days by default, but can be extended to 730 days. Data is stored encrypted at rest in Azure storage, to ensure data confidentiality, and the data is replicated within the local region using locally redundant storage (LRS), or zone-redundant storage (ZRS) in [supported regions](../logs/availability-zones.md). The last two weeks of data are also stored in SSD-based cache and this cache is encrypted.
 
-Data in database storage cannot be altered once ingested but can be deleted via [*purge* API path](personal-data-mgmt.md#delete). Although data cannot be altered, some certifications require that data is kept immutable and cannot be changed or deleted in storage. Data immutability can be achieved using [data export](logs-data-export.md) to a storage account that is configured as [immutable storage](../../storage/blobs/immutable-policy-configure-version-scope.md).
+Data in database storage can't be altered once ingested but can be deleted via [*purge* API path](personal-data-mgmt.md#delete). Although data can't be altered, some certifications require that data is kept immutable and can't be changed or deleted in storage. Data immutability can be achieved using [data export](logs-data-export.md) to a storage account that is configured as [immutable storage](../../storage/blobs/immutable-policy-configure-version-scope.md).
 
 ### 4. Use Azure Monitor to access the data
-To access your Log Analytics workspace, you sign in to the Azure portal using the organizational account or Microsoft account that you set up previously. All traffic between the portal and Azure Monitor service is sent over a secure HTTPS channel. When using the portal, a session ID is generated on the user client (web browser) and data is stored in a local cache until the session is terminated. When terminated, the cache is deleted. Client-side cookies, which do not contain personally identifiable information, are not automatically removed. Session cookies are marked HTTPOnly and are secured. After a pre-determined idle period, the Azure portal session is terminated.
+To access your Log Analytics workspace, you sign in to the Azure portal using the organizational account or Microsoft account that you set up previously. All traffic between the portal and Azure Monitor service is sent over a secure HTTPS channel. When using the portal, a session ID is generated on the user client (web browser) and data is stored in a local cache until the session is terminated. When terminated, the cache is deleted. Client-side cookies, which don't contain personally identifiable information, aren't automatically removed. Session cookies are marked HTTPOnly and are secured. After a predetermined idle period, the Azure portal session is terminated.
 
 
-## Additional security features
-You can use these additional security features to further secure your Azure Monitor environment. These features require more administrator management. 
-- [Customer-managed (security) keys](../logs/customer-managed-keys.md) - You can use customer-managed keys to encrypt data sent to your Log Analytics workspaces. It requires use of Azure Key Vault. 
-- [Private/customer-managed storage](./private-storage.md) - Manage your personally encrypted storage account and tell Azure Monitor to use it to store monitoring data 
-- [Private Link networking](./private-link-security.md) - Azure Private Link allows you to securely link Azure PaaS services (including Azure Monitor) to your virtual network using private endpoints. 
-- [Azure Customer Lockbox](../../security/fundamentals/customer-lockbox-overview.md) - Customer Lockbox for Microsoft Azure provides an interface for customers to review and approve or reject customer data access requests. It is used in cases where a Microsoft engineer needs to access customer data during a support request.
+## Customer-managed security keys
+
+Data in Azure Monitor is encrypted with Microsoft-managed keys. You can use [customer-managed encryption keys](../logs/customer-managed-keys.md) to protect the data and saved queries in your workspaces. Customer-managed keys in Azure Monitor give you greater flexibility to manage access controls to your logs.
+
+Once configure, new data ingested to linked workspaces gets encrypted with your key stored in [Azure Key Vault](../../key-vault/general/overview.md), or [Azure Key Vault Managed "HSM"](../../key-vault/managed-hsm/overview.md). 
+
+## Private storage
+
+Azure Monitor Logs relies on Azure Storage in specific scenarios. Use [private/customer-managed storage](./private-storage.md) to manage your personally encrypted storage account. 
+
+## Private Link networking
+[Azure Private Link networking](./private-link-security.md) lets you securely link Azure platform as a service (PaaS) services, including Azure Monitor, to your virtual network using private endpoints. 
+
+## Customer Lockbox for Microsoft Azure
+
+[Customer Lockbox for Microsoft Azure](../../security/fundamentals/customer-lockbox-overview.md) provides an interface for customers to review and approve or reject customer data access requests. It's used in cases where a Microsoft engineer needs to access customer data during a support request.
 
 ## Tamper-proofing and immutability 
 
