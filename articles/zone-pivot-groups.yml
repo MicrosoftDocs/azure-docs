@@ -3048,7 +3048,7 @@ groups:
     title: Start with a template
 # Owner: sloanster
 - id: acs-web-safari-chrome-firefox-known-issues
-  title: Knowns issues
+  title: Known issues
   prompt: Choose a platform
   pivots:
   - id: all-browsers
