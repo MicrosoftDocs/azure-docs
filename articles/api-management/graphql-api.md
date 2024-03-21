@@ -11,6 +11,8 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 # Import a GraphQL API
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 [!INCLUDE [api-management-graphql-intro.md](../../includes/api-management-graphql-intro.md)]
 
 In this article, you'll:
