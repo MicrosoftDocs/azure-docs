@@ -5,7 +5,7 @@ author: SarahBoris
 ms.author: sboris
 ms.service: azure-operator-5g-core
 ms.topic: concept-article #required; leave this attribute/value as-is.
-ms.date: 03/07/2024
+ms.date: 03/21/2024
 ---
 
 # Security in Azure Operator 5G Core Preview
