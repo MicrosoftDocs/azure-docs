@@ -26,9 +26,9 @@ This quickstart assumes a basic understanding of Defender for IoT Firmware Analy
 
 * When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
     * Install the Defender for IoT Firmware Analysis extension by running the following command:
-    ```azurecli
-    az extension add --name firmwareanalysis
-    ```
+        ```azurecli
+        az extension add --name firmwareanalysis
+        ```
 
 * To find the version and dependent libraries that are installed, run the command [az version](/cli/azure/reference-index?#az-version). To upgrade to the latest version, run the command [az upgrade](/cli/azure/reference-index?#az-upgrade).
 
@@ -54,9 +54,9 @@ The output of this command includes a `name` property, which is your firmware ID
 
 3. Upload your firmware image to Azure Storage. Replace `pathToFile` with the path to your firmware image on your local machine.
 
-```azurecli
-az storage blob upload -f pathToFile --blob-url $sasURL
-```
+    ```azurecli
+    az storage blob upload -f pathToFile --blob-url $sasURL
+    ```
 
 Here's an example workflow of how you could use these commands to create and upload a firmware image. To learn more about using variables in CLI commands, visit [How to use variables in Azure CLI commands](/cli/azure/azure-cli-variables?tabs=bash):
 
