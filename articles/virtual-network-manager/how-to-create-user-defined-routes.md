@@ -96,9 +96,9 @@ In this step, you create two virtual networks to become members of a network gro
 
 1. Select **Save** then **Review + create > Create**.
 
-## Create a network group with dynamic membership
+## Create a network group with Azure Policy
 
-In this step, you create a network group to contain your virtual networks.
+In this step, you create a network group containing your virtual networks using Azure policy.
 
 1. From the **Home** page, select **Resource groups** and browse to the **rg-vnm** resource group, and select the **vnm-1** Virtual Network Manager instance.
 1. Under **Settings**, select **Network groups**. Then select **Create**.
@@ -109,8 +109,69 @@ In this step, you create a network group to contain your virtual networks.
     | **Name** | Enter **ng-spoke**. |
     | **Description** | *(Optional)* Provide a description about this network group. |
     | **Member type** | Select **Virtual network**. |
-1. Select **Create**.
 
+1. Select **Create**.
+1. Select **ng-spoke** and choose **Create Azue Policy**.
+   
+   :::image type="content" source="media/how-to-deploy-user-defined-routes/network-group-page.png" alt-text="Screenshot of network group page with options for group creation and membership view.":::
+
+1. In the **Create Azure Policy** window, enter or select the following information:
+   
+   | Setting | Value |
+    | ------- | ----- |
+    | **Policy name** | Enter **ng-azure-policy**. |
+    | **Scope** | Select **Select Scope** and choose your subscription, if not already selected. |
+
+1. Under **Criteria**, enter a conditional statement to define the network group membership. Enter or select the following information:
+    
+    | Setting | Value |
+    | ------- | ----- |
+    | **Parameter** | Select **Name** from the dropdown menu. |
+    | **Operator** | Select **Contains** from the dropdown menu. |
+    | **Condition** | Enter **-spoke-**. |
+
+    :::image type="content" source="media/how-to-deploy-user-defined-routes/create-azure-policy.png" alt-text="Screenshot of create azure policy window defining a conditional statement for network group membership.":::
+        ```
+1. Select **Preview Resources** to see the resources that will be included in the network group, and select **Close**.
+   
+   :::image type="content" source="media/how-to-deploy-user-defined-routes/azure-policy-preview-resources.png" alt-text="Screenshot of preview screen for Azure Policy resources based on conditional statement.":::
+1. Select **Save** to create the policy.
+   
 ## Create a routing configuration 
 
+In this step, you create a routing configuration to define the UDRs for the network group.
 
+1. Return the **vnm-1** Virtual Network Manager instance and **Configurations** under **Settings**.
+2. Select **+ Create** or **Create routing configuration**.
+3. In the **Create a routing configuration** windows, enter or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Name** | Enter **rc-spoke**. |
+    | **Description** | *(Optional)* Provide a description about this routing configuration. |
+
+4. Select **Rule collections** tab or **Next: Rule collections >**.
+5. On the **Rule collections** tab, select **+ Add**.
+6. In the **Add a rule collection** window, enter or select the following information:
+   
+   | Setting | Value |
+    | ------- | ----- |
+    | **Name** | Enter **rc-spoke-001**. |
+    | **Description** | *(Optional)* Provide a description about this rule collection. |
+    | **Local route setting** | Select **Not specified**. |
+    | **Target network groups** | select **ng-spoke**. |
+
+    :::image type="content" source="media/how-to-deploy-user-defined-routes/add-rule-collection.png" alt-text="Screenshot of Add a rule collection window with target network group selected.":::
+
+1. Under **Routing rules**, select **+ add**.
+2. In the **Add a routing rule** window, enter or select the following information:
+   
+   | Setting | Value |
+    | ------- | ----- |
+    | **Name** | Enter **rr-spoke**. |
+    | **Description** | *(Optional)* Provide a description about this routing rule. |
+    | **Route type** | Select **User defined**. |
+    | **Destination** | Enter **
+
+12345678-9012-345a-b89c-12d4e6ff901g
+6a5f35e9-6951-499d-a36b-83c6c6eed44a

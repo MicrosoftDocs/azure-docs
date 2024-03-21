@@ -13,15 +13,15 @@ ms.service: virtual-network-manager
 
 ## What is UDR management and what we are solving? 
 
-User-defined Route(UDR) management allows customers to describe their designed routing behavior. Azure Virtual Network Manager (AVNM) allows customers to describe their desired routing behavior, and AVNM orchestrates UDRs to create and maintain that behavior.
+User-defined Route(UDR) management allows you to describe their designed routing behavior. Azure Virtual Network Manager (AVNM) allows you to describe their desired routing behavior, and AVNM orchestrates UDRs to create and maintain that behavior.
 
 ## Why UDR management is important
 
-We're addressing the need for automation and simplification in managing routing behaviors. Customers often desire to achieve various routing behaviors, and currently, they resort to manually creating User-Defined Routes (UDRs) or utilizing custom scripts. However, these methods are prone to errors and overly complicated. Some customers also utilize the Azure-managed hub in Virtual WAN, but this option has certain limitations (such as the inability to customize the hub or lack of IPV6 support) not be relevant to all customers.
+User-defined routes addresses the need for automation and simplification in managing routing behaviors. you often desire to achieve various routing behaviors, and currently, they resort to manually creating User-Defined Routes (UDRs) or utilizing custom scripts. However, these methods are prone to errors and overly complicated. Also, you can utilize the Azure-managed hub in Virtual WAN, but this option has certain limitations (such as the inability to customize the hub or lack of IPV6 support) not be relevant to your organization.
 
 ## How does UDR management works
 
-UDR management works by allowing customers to describe their desired routing behavior, and Azure Virtual Network Manager (AVNM) orchestrates UDRs to create and maintain that behavior through routing configurations. This addresses the need for automation and simplification in managing routing behaviors. 
+UDR management works by allowing you to describe their desired routing behavior, and Azure Virtual Network Manager (AVNM) orchestrates UDRs to create and maintain that behavior through routing configurations. This addresses the need for automation and simplification in managing routing behaviors. 
 
 In virtual network manager, you create rule collections to describe the UDRs needed for a network group (target network group). In the rule collection, route rules are used to describe the desired routing behavior for the subnets in the target network group. Each route rule consists of the following attributes: 
 
@@ -29,7 +29,7 @@ In virtual network manager, you create rule collections to describe the UDRs nee
 - Next hop
 - Route destination 
 
-Routing configurations create UDRs for customers based on what the route rules specify. For example, you can specify that the spoke network group, consisting of two virtual networks, *VNet1* and *VNet2*, accesses the DNS service's address through a Firewall. Your network manager will then create UDRs to make this routing behavior happen.
+Routing configurations create UDRs for you based on what the route rules specify. For example, you can specify that the spoke network group, consisting of two virtual networks, *VNet1* and *VNet2*, accesses the DNS service's address through a Firewall. Your network manager will then create UDRs to make this routing behavior happen.
 
 :::image type="content" source="media/concept-udr-management/udr-management-example.png" alt-text="Diagram of user-defined rules being applied to virtual networks to route DNS traffic through firewall.":::
 
