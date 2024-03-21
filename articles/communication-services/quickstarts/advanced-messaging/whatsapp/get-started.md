@@ -12,7 +12,7 @@ ms.service: azure-communication-services
 zone_pivot_groups: acs-js-csharp-java-python
 ---
 
-# Quickstart: Send Messages using Advanced Messages SDK
+# Quickstart: Send WhatsApp Messages using Advanced Messages
 
 Azure Communication Services enables you to send and receive WhatsApp messages. In this quickstart, get started integrating your app with Azure Communication Advanced Messages SDK and start sending/receiving WhatsApp messages. Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
