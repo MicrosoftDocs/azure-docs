@@ -112,7 +112,6 @@ The following table lists the changes in navigation between the Azure and Defend
 
 
 
-
 ## Related content
 
 - [Connect Microsoft Sentinel to Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-sentinel-onboard)
