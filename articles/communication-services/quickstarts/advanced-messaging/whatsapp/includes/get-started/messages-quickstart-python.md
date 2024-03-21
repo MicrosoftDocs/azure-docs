@@ -54,6 +54,8 @@ import os
 class MessagesQuickstart(object):
     print("Azure Communication Services - Advanced Messages SDK Quickstart")
 
+if __name__ == '__main__':
+    messages = MessagesQuickstart()
 ```
 
 ## Object model
@@ -122,14 +124,14 @@ To create a `DefaultAzureCredential` object:
 1. To set up your service principle app, follow the instructions at [Creating a Microsoft Entra registered Application](../../../../identity/service-principal.md?pivots=platform-azcli#creating-a-microsoft-entra-registered-application).
 
 1. Set the environment variables `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`, and `AZURE_TENANT_ID` using the output of your app's creation.    
-Open a console window and enter the following commands:
-```console
-setx COMMUNICATION_SERVICES_ENDPOINT_STRING "<https://<resource name>.communication.azure.com>"
-setx AZURE_CLIENT_ID "<your app's appId>"
-setx AZURE_CLIENT_SECRET "<your app's password>"
-setx AZURE_TENANT_ID "<your app's tenant>"
-```
-After you add the environment variables, you might need to restart any running programs that will need to read the environment variables, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example.
+    Open a console window and enter the following commands:
+    ```console
+    setx COMMUNICATION_SERVICES_ENDPOINT_STRING "<https://<resource name>.communication.azure.com>"
+    setx AZURE_CLIENT_ID "<your app's appId>"
+    setx AZURE_CLIENT_SECRET "<your app's password>"
+    setx AZURE_TENANT_ID "<your app's tenant>"
+    ```
+    After you add the environment variables, you might need to restart any running programs that will need to read the environment variables, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example.
 
 1. To use the [`DefaultAzureCredential`](/python/api/overview/azure/identity-readme?view=azure-python#defaultazurecredential) provider, or other credential providers provided with the Azure SDK, install the `azure.identity` python package and then instantiate client.
     
@@ -211,7 +213,7 @@ Set the recipient list like this:
 
 Usage Example:
 ```python
-// Example only
+# Example only
     to=[self.phone_number],
 ```
 
@@ -238,14 +240,14 @@ Messages SDK allows Contoso to send templated WhatsApp messages to WhatsApp user
 - WhatsApp Channel ID
 - Recipient Phone Number in E16 format
 - Template details
-    - Name
-    - Language
+    - Name like 'sample_template'
+    - Language like 'en_us'
     - Parameters if any
-Add below code to send WhatsApp template message.
+To send WhatsApp template message add below code in the send_template_message(self) function.
 ```python
         input_template: MessageTemplate = MessageTemplate(
-            name="<<TemplateName>>",
-            language="<<TemplateLanguage>>")
+            name="<<template_name>>",
+            language="<<template_language>>")
         template_options = TemplateNotificationContent(
             channel_registration_id=self.channelRegistrationId,
             to=[self.phone_number],
@@ -262,8 +264,10 @@ Add below code to send WhatsApp template message.
         else:
             print("Message failed to send")
 
+# Update the main function to call send_template_message()
 if __name__ == '__main__':
     messages = MessagesQuickstart()
+    # Calling send_template_message()
     messages.send_template_message()
 ```
 
@@ -328,6 +332,7 @@ Messages SDK allows Contoso to send text WhatsApp messages, which initiated What
 # Update the main function to run send_text_send_message()
 if __name__ == '__main__':
     messages = MessagesQuickstart()
+    #Calling send_text_message()
     messages.send_text_message()
 ```
 
@@ -378,8 +383,10 @@ Messages SDK allows Contoso to send Image WhatsApp messages to WhatsApp users. T
         else:
             print("Message failed to send")
 
+# Update the main function to run send_image_message()
 if __name__ == '__main__':
     messages = MessagesQuickstart()
+    # Calling send_image_message()
     messages.send_image_message()
 ```
 
