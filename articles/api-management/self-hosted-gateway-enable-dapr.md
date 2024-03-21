@@ -12,6 +12,8 @@ ms.author: danlep
 
 # Enable Dapr support in the self-hosted gateway
 
+[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
+
 Dapr integration in API Management enables operations teams to directly expose Dapr microservices deployed on Kubernetes clusters as APIs, and make those APIs discoverable and easily consumable by developers with proper controls across multiple Dapr deployments—whether in the cloud, on-premises, or on the edge.
 
 ## About Dapr
