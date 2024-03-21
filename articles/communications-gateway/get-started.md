@@ -30,7 +30,7 @@ Read the following articles to learn about Azure Communications Gateway.
 - [Lab Azure Communications Gateway overview](lab.md), to learn about when and how you could use a lab deployment.
 - [Connectivity for Azure Communications Gateway](connectivity.md) and [Reliability in Azure Communications Gateway](reliability-communications-gateway.md), to create a network design that includes Azure Communications Gateway.
 - [Overview of security for Azure Communications Gateway](security.md), to learn about how Azure Communications Gateway keeps customer data and your network secure.
-- [Provisioning API (preview) for Azure Communications Gateway](provisioning-platform.md), to learn about when you might need or want to integrate with the Provisioning API.
+- [Provisioning Azure Communications Gateway](provisioning-platform.md), to learn about when you might need or want to integrate with the Provisioning API or use the Number Management Portal.
 - [Plan and manage costs for Azure Communications Gateway](plan-and-manage-costs.md), to learn about costs for Azure Communications Gateway.
 - [Azure Communications Gateway limits, quotas and restrictions](limits.md), to learn about the limits and quotas associated with the Azure Communications Gateway.
 
