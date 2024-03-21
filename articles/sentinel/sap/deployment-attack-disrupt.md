@@ -23,18 +23,9 @@ For more information, see [Automatic attack disruption in Microsoft Defender XDR
 
 ## Prerequisites
 
-To deploy automatic attack disruption for SAP, you need the following:
+To deploy automatic attack disruption for SAP, make sure that have all the [prerequisites for deploying Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md).
 
-- A [SAP agent virtual machine](deploy-data-connector-agent-container.md), with a managed identity or service principal.
-
-- The *[MSFTSEN_SENTINEL_CONNECTOR_ROLE_V0.0.27.SAP](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Sample%20Authorizations%20Role%20File)* SAP agent role assignment in your SAP system. For more information, see [Deploy SAP Change Requests and configure authorization](preparing-sap.md).
-
-
-- The Microsoft Sentinel solution for SAP applications [deployed in your Microsoft Sentinel workspace](deployment-overview.md)
-
-- [Microsoft Sentinel integrated into the Microsoft Defender portal](/microsoft-365/security/defender/microsoft-sentinel-onboard)
-
-Microsoft Sentinel must also have playbook permissions configured. To ensure you have the correct permissions, in Microsoft Sentinel, select **Settings > Settings > Playbook permissions > Configure permissions**. Make sure that your Microsoft Sentinel workspace's resource group is listed under **Current permissions**.
+Additionally, configure the unified SOC platform to access attack disruption in the Microsoft Defender portal. For more information, see [Connect Microsoft Sentinel to Microsoft Defender XDR](https://aka.ms/onboard-microsoft-sentinel).
 
 ## Deployed Azure resources
 
