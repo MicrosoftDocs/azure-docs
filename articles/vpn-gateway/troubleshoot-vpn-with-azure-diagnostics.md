@@ -212,9 +212,16 @@ The output will show all of the Point to Site settings that the gateway has appl
 
 :::image type="content" source="./media/troubleshoot-vpn-with-azure-diagnostics/image-28-p2s-log-event.png" alt-text="Example of Point to Site connection seen in P2SDiagnosticLog.":::
 
-Also, whenever a client will connect via IKEv2 or OpenVPN Point to Site, the table will log packet activity, EAP/RADIUS conversations and successful/failure results by user.
+Additionally, when a client establishes a connection using OpenVPN and Microsoft Entra ID authentication for point-to-site, the table will record packet activity as follows:
 
-:::image type="content" source="./media/troubleshoot-vpn-with-azure-diagnostics/image-29-eap.png" alt-text="Example of EAP authentication seen in P2SDiagnosticLog.":::
+```
+[MSG] [default] [OVPN_XXXXXXXXXXXXXXXXXXXXXXXXXXX] Connect request received. IP=0.X.X.X:XXX
+[MSG] [default] [OVPN_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx] AAD authentication succeeded. Username=***tosouser@contoso.com
+[MSG] [default] [OVPN_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx] Connection successful. Username=***tosouser@contoso.com IP=10.0.0.1
+```
+
+> [!NOTE]
+> The username is partially obfuscated in the point-to-site log. The first octect for the client user IP will be replace with a `0`.
 
 ## Next Steps
 
