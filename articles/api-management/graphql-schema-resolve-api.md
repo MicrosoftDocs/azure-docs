@@ -10,6 +10,7 @@ ms.date: 05/31/2023
 
 # Add a synthetic GraphQL API and set up field resolvers
  
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 [!INCLUDE [api-management-graphql-intro.md](../../includes/api-management-graphql-intro.md)]
 
