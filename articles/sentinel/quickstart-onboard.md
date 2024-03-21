@@ -55,7 +55,7 @@ To get started, add Microsoft Sentinel to an existing workspace or create a new 
 
 1. Select **Add**.
 
-As an alternative to using the portal, you can onboard to Microsoft Sentinel using an API request, by calling the [OnboardingStates ARM api](https://learn.microsoft.com/en-us/rest/api/securityinsights/sentinel-onboarding-states/create?view=rest-securityinsights-2024-03-01&tabs=HTTP).
+As an alternative to using the portal, you can onboard to Microsoft Sentinel using an API request, by calling the [OnboardingStates ARM api](/rest/api/securityinsights/sentinel-onboarding-states/create?view=rest-securityinsights-2024-03-01&tabs=HTTP).
 
 ## Install a solution from the content hub
 
