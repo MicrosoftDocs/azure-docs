@@ -117,6 +117,8 @@ additionalContent:
             url: concepts-run-command.md
           - text: Storage
             url: concepts-storage.md
+          - text: Migrate
+            url: concepts-migrate.md
 
     - title: Advanced configuration and integration
       items:
