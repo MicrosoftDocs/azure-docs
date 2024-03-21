@@ -8,7 +8,7 @@ ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.reviewer: nachakra
 ms.custom: devx-track-azurepowershell
-ms.date: 03/14/2024
+ms.date: 04/01/2024
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
 ---
 
@@ -43,8 +43,8 @@ Use the following table to quickly locate an example that fits your ABAC scenari
 | [Read current blob versions and a specific blob version](#example-read-current-blob-versions-and-a-specific-blob-version) | | | versionId | isCurrentVersion |
 | [Delete old blob versions](#example-delete-old-blob-versions) | | | versionId | |
 | [Read current blob versions and any blob snapshots](#example-read-current-blob-versions-and-any-blob-snapshots) | | | snapshot | isCurrentVersion |
-| [Allow list blob operation to include blob metadata, snapshots, or versions](#example-allow-list-blob-operation-to-include-blob-metadata-snapshots-or-versions) | | | include | |
-| [Restrict list blob operation to not include blob metadata](#example-restrict-list-blob-operation-to-not-include-blob-metadata) | | | include | |
+| [Allow list blob operation to include blob metadata, snapshots, or versions](#example-allow-list-blob-operation-to-include-blob-metadata-snapshots-or-versions) | | | blobs:include | |
+| [Restrict list blob operation to not include blob metadata](#example-restrict-list-blob-operation-to-not-include-blob-metadata) | | | blobs:include | |
 | [Read only storage accounts with hierarchical namespace enabled](#example-read-only-storage-accounts-with-hierarchical-namespace-enabled) | | | | isHnsEnabled |
 | [Read blobs with specific encryption scopes](#example-read-blobs-with-specific-encryption-scopes) | | | | Encryption scope name |
 | [Read or write blobs in named storage account with specific encryption scope](#example-read-or-write-blobs-in-named-storage-account-with-specific-encryption-scope) | | | | Storage account name</br> Encryption scope name |

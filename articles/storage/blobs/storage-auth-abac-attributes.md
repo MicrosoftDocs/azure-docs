@@ -6,7 +6,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 03/11/2024
+ms.date: 04/01/2024
 ms.reviewer: nachakra
 ---
 
@@ -444,7 +444,7 @@ Restricts information that can be included when listing blobs.
 > | Property | Value |
 > | --- | --- |
 > | **Display name** | Container metadata |
-> | **Description** | Metadata key/value pair associated with a container.<br/>Use when you want to check specific metadata for a container.|
+> | **Description** | Metadata key/value pair associated with a container.<br/>Use when you want to check specific metadata for a container. *Currently in preview.* |
 > | **Attribute** | `Microsoft.Storage/storageAccounts/blobServices/containers/metadata` |
 > | **Attribute source** | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
@@ -509,7 +509,7 @@ Restricts information that can be included when listing blobs.
 > | Property | Value |
 > | --- | --- |
 > | **Display name** | List blob include |
-> | **Description** | Information that can be included with a [List Blobs](/rest/api/storageservices/list-blobs) operation, such as metadata, snapshots, or versions.<br/>Use when you want to allow or restrict values for the `include` parameter when calling the [List Blobs](/rest/api/storageservices/list-blobs) operation.<br/>*Available only for storage accounts where hierarchical namespace is not enabled.* |
+> | **Description** | Information that can be included with a [List Blobs](/rest/api/storageservices/list-blobs) operation, such as metadata, snapshots, or versions.<br/>Use when you want to allow or restrict values for the `include` parameter when calling the [List Blobs](/rest/api/storageservices/list-blobs) operation.<br/>*Currently in preview. Available only for storage accounts where hierarchical namespace is not enabled.* |
 > | **Attribute** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs:include` |
 > | **Attribute source** | [Request](../../role-based-access-control/conditions-format.md#request-attributes) |
 > | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
