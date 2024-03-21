@@ -62,7 +62,7 @@ procedureSection:
         :::image type="content" source="media/disks-find-unattached-portal/delete-unmanaged-disk-unattached.png" alt-text="Screenshot of an individual unmanaged disk blade, highlighting delete.":::
 
 relatedContent:
-  - text: CLI
+  - text: Use the Azure CLI to find unattached disks
     url: linux/find-unattached-disks.md
   - text: PowerShell
     url: windows/find-unattached-disks.md  
