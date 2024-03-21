@@ -70,7 +70,7 @@ If you're not familiar with the REST client for Visual Studio Code, this section
 
    :::image type="content" source="media/search-get-started-rest/rest-client-request-setup.png" lightbox="media/search-get-started-rest/rest-client-request-setup.png" alt-text="Screenshot that shows a REST client configured for a search service request.":::
 
-    **Key points:**
+    Key points:
   
     - Parameters are specified by using an `@` prefix.
     - `###` designates a REST call. The next line contains the request, which must include `HTTP/1.1`.
