@@ -18,7 +18,7 @@ For issues encountered with Arc resource bridge, collect logs for further invest
 An example to collect Arc resource bridge logs on VMware using the appliance VM IP address: 
 
    ```azurecli
-   az arcappliance logs vmware --ip 192.168.0.2 --username vsphereuseraccount --password vsphereaccountpswd
+   az arcappliance logs vmware --ip 192.168.0.2 --username usrnm1 --password vsexample
    ```
 
 An example to collect Arc resource bridge logs for Azure Stack HCI using the appliance VM IP address: 
@@ -30,8 +30,8 @@ An example to collect Arc resource bridge logs for Azure Stack HCI using the app
 If you are unsure of your appliance VM IP, there is also the option to use the kubeconfig. You can retrieve the kubeconfig by running the [get-credentials command](/cli/azure/arcappliance?view=azure-cli-latest) then run the logs command. 
 
    ```azurecli
-   az arcappliance get-credentials --resource-group my-rg-01 --name arb-name --credentials-dir C:\ProgramData\arbcreds
-   az arcappliance logs vmware --kubeconfig C:\ProgramData\arbcreds --username vsphereuseraccount --password vsphereaccountpswd
+   az arcappliance get-credentials --resource-group my-rg-01 --name arb-name --credentials-dir c:\user\arbcreds
+   az arcappliance logs vmware --kubeconfig c:\user\arbcreds\kubeconfig --username usrnm1 --password vsexample
    ```
 
 ### Arc resource bridge is offline
