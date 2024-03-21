@@ -381,6 +381,11 @@
         "redirect_document_id": false
     },
     {
+        "source_path_from_root": "/articles/machine-learning/how-to-use-openai-models-in-azure-ml.md",
+        "redirect_url": "/azure/ai-services/openai/how-to/fine-tuning",
+        "redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/how-to-use-managed-identities.md",
         "redirect_url": "/azure/machine-learning/how-to-identity-based-service-authentication",
         "redirect_document_id": true

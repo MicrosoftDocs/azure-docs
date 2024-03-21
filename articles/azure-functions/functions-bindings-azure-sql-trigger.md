@@ -15,7 +15,7 @@ ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
-# Azure SQL trigger for Functions (Preview)
+# Azure SQL trigger for Functions
 
 > [!NOTE]
 > In consumption plan functions, automatic scaling is not supported for SQL trigger. If the automatic scaling process stops the function, all processing of events will stop and it will need to be manually restarted.
@@ -219,9 +219,9 @@ public class SqlChangeToDoItem {
     public SqlChangeToDoItem() {
     }
 
-    public SqlChangeToDoItem(ToDoItem item, SqlChangeOperation operation) {
-        this.item = item;
-        this.operation = operation;
+    public SqlChangeToDoItem(ToDoItem Item, SqlChangeOperation Operation) {
+        this.Item = Item;
+        this.Operation = Operation;
     }
 }
 ```
