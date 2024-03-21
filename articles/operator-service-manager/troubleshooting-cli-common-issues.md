@@ -55,7 +55,7 @@ oras login <aosm-managed-acr-name>.azurecr.io --username <username> --password <
 - Use ORAS to upload the Network Function ARM template to the AOSM managed Azure Container Registry (ACR). The `<arm-template-version>` artifact tag must be in `1.0.0` format.
 
 ```bash
-oras push <aosm-managed-acr-name>.azurecr.io/webpage-nsd:<arm-template-version> ./nsd-cli-output/artifacts/<nf-name>.json
+oras push <aosm-managed-acr-name>.azurecr.io/Contoso-nsd:<arm-template-version> ./nsd-cli-output/artifacts/<nf-name>.json
 ```
 
 ### Cross-tenant copy failures
