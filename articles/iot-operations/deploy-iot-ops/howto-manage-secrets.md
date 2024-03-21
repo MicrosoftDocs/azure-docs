@@ -23,7 +23,7 @@ Secrets management in Azure IoT Operations Preview uses Azure Key Vault as the m
 
 ## Configure a secret store on your cluster
 
-Azure IoT Operations supports Key Vault for storing secrets and certificates. The `az iot ops init` Azure CLI command automates the steps to create a key vault, set up a service principal to give access to the key vault, and configure the secrets that you need for running Azure IoT Operations.
+Azure IoT Operations supports Key Vault for storing secrets and certificates. The `az iot ops init` Azure CLI command automates the steps to set up a service principal to give access to the key vault and configure the secrets that you need for running Azure IoT Operations.
 
 For more information, see [Deploy Azure IoT Operations Preview extensions to a Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md?tabs=cli).
 
@@ -133,7 +133,7 @@ az iot ops init --name "<your unique key vault name>" --resource-group "<the nam
     --no-deploy
 ```
 
-One step that the `init` command takes is to create a Key Vault secret to use for the Azure IoT Operations service account. This step requires that the principal logged in to the CLI has secret `set` permissions. If you want to use an existing secret, you can specify it with the `--kv-sat-secret-name` parameter, in which case the logged in principal only needs secret `get` permissions.
+One step that the `init` command takes is to ensure all Secret Provider Classes (SPCs) required by Azure IoT Operations have a default secret configured in key vault. If a value for the default secret does not exist `init` will create one. This step requires that the principal logged in to the CLI has secret `set` permissions. If you want to use an existing secret as the default SPC secret, you can specify it with the `--kv-sat-secret-name` parameter, in which case the logged in principal only needs secret `get` permissions.
 
 ## Add a secret to an Azure IoT Operations component
 
