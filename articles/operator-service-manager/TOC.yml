@@ -60,13 +60,6 @@
 - name: How-to guides
   expanded: false
   items:
-  - name: Prepare to use Azure Operator Service Manager (AOSM)
-    expanded: false
-    items:
-      - name: Prepare to use Azure Operator Service Manager (AOSM) to deploy on Azure Operator Nexus
-        href: prepare-to-deploy-with-aosm-on-nexus.md
-      - name: Prepare to use Azure Operator Service Manager (AOSM) to deploy on Azure Core
-        href: prepare-to-deploy-with-aosm-on-azure-core.md
   - name: Onboard Network Functions to Azure Operator Service Manager (AOSM)
     expanded: false
     items:
