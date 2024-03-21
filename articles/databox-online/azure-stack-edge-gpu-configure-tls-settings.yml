@@ -9,7 +9,7 @@ metadata:
   ms.service: databox
   ms.subservice: edge
   ms.topic: how-to
-  ms.date: 05/24/2023
+  ms.date: 03/21/2024
   ms.author: alkohli
 title: |
   Configure TLS 1.2 on Windows clients accessing Azure Stack Edge Pro device
@@ -36,24 +36,24 @@ procedureSection:
   - title: |
       Configure TLS 1.2 on client
     summary: |
-      If you want to set system-wide TLS 1.2 for your environment, follow the guidelines in these documents:
+      To set system-wide TLS 1.2 for your environment, follow these steps:
     steps:
       - |
-        [General- how to enable TLS 1.2](/windows-server/security/tls/tls-registry-settings#tls-12)
-      - |  
-        [How to enable TLS 1.2 on clients](/configmgr/core/plan-design/security/enable-tls-1-2-client)
-      - |  
-        [How to enable TLS 1.2 on the site servers and remote site systems](/configmgr/core/plan-design/security/enable-tls-1-2-server)
-      - |  
-        [Protocols in TLS/SSL (Schannel SSP)](/windows-server/security/tls/manage-tls#configuring-tls-ecc-curve-order)
-      - |  
-        [Cipher Suites](/windows-server/security/tls/tls-registry-settings#tls-12): Specifically [Configuring TLS Cipher Suite Order](/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order)
-          Make sure that you list your current cipher suites and prepend any missing from the following list:
+        To enable TLS 1.2 on the clients, use the guidelines in these documents:
 
-          - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
-          - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-          - TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
-          - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+          - [General- how to enable TLS 1.2](/windows-server/security/tls/tls-registry-settings#tls-12) 
+          - [How to enable TLS 1.2 on clients](/configmgr/core/plan-design/security/enable-tls-1-2-client)
+          - [How to enable TLS 1.2 on the site servers and remote site systems](/configmgr/core/plan-design/security/enable-tls-1-2-server)  
+          - [Protocols in TLS/SSL (Schannel SSP)](/windows-server/security/tls/manage-tls#configuring-tls-ecc-curve-order)
+      - |  
+        Configure [Cipher Suites](/windows-server/security/tls/tls-registry-settings#tls-12).
+          - Specifically [Configuring TLS Cipher Suite Order](/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order)
+          - Make sure that you list your current cipher suites and prepend any missing from the following list:
+
+            * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+            * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+            * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+            * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
           You can also add these cipher suites by directly editing the registry settings.
           The variable $HklmSoftwarePath should be defined
@@ -63,10 +63,8 @@ procedureSection:
           New-ItemProperty -Path "$HklmSoftwarePath\Policies\Microsoft\Cryptography\Configuration\SSL\00010002" -Name "Functions"  -PropertyType String -Value ("TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384")
           ```
       - |
-        How to set elliptical curves
-
-          Make sure that you list your current elliptical curves and prepend any missing from the following list:
-
+        Set elliptical curves. Make sure that you list your current elliptical curves and prepend any missing from the following list:
+    
           - P-256 
           - P-384
 
@@ -75,8 +73,9 @@ procedureSection:
           ```azurepowershell
           New-ItemProperty -Path "$HklmSoftwarePath\Policies\Microsoft\Cryptography\Configuration\SSL\00010002" -Name "EccCurves" -PropertyType MultiString -Value @("NistP256", "NistP384")
           ```
-          
-          - [Set min RSA key exchange size to 2048](/windows-server/security/tls/tls-registry-settings#keyexchangealgorithm---client-rsa-key-sizes).
+      - |    
+        [Set min RSA key exchange size to 2048](/windows-server/security/tls/tls-registry-settings#keyexchangealgorithm---client-rsa-key-sizes).
+
 nextStep:
   text: Connect to Azure Resource Manager
   url: ./azure-stack-edge-gpu-connect-resource-manager.md
