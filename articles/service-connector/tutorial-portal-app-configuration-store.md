@@ -49,6 +49,9 @@ To store your connection configuration into an App Configuration, start by conne
 
 1. Select **Next: Network** to select the network configuration. Then select **Configure firewall rules** when your App Configuration open to public network by default.
 
+    > [!TIP]
+    > Service Connector will write configuration to App Configuration directly, so you need to enable the App Configuration public access when using this feature.
+
 1. Then select **Next: Review + Create**  to review the provided information. Select **Create** to create the service connection. It can take one minute to complete the operation.
 
 ## Create a Blob Storage connection in App Service and store configuration into App Configuration
