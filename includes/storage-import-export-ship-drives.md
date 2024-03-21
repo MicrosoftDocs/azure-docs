@@ -19,4 +19,7 @@ FedEx, UPS, or DHL can be used to ship the package to Azure datacenter. If you w
     * A DHL account number is preferred for shipping drives back from Asia and Australia locations.
     * If you do not have an account number, create a [FedEx](https://www.fedex.com/us/oadr/) or [DHL](http://www.dhl.com/) carrier account.
 * When shipping your packages, you must follow the [Microsoft Azure Service Terms](https://azure.microsoft.com/support/legal/services-terms/).
-* Properly package your disks to avoid potential damage and delays in processing.
+* Securely package your disks to avoid potential damage and delays in processing. Here is how you can do that. 
+    * Wrap the Disk Drives: Wrap each disk drive securely with bubble wrap. Make sure that the entire drive is covered and cushioned. The bubble wrap acts as a shock absorber and protects the drive from any impact during transit.
+    * Place in Foam Shipper: Place the wrapped disk drive into a foam shipper. The foam shipper provides additional protection and keeps the drive-in place during transit.
+
