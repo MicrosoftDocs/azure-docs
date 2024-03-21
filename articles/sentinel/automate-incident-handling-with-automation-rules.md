@@ -103,15 +103,28 @@ The **current state** in this context refers to the moment the condition is eval
 
 The conditions evaluated in rules defined using the trigger **When an incident is updated** include all of those listed for the incident creation trigger. But the update trigger includes more properties that can be evaluated.
 
-One of these properties is **Updated by**. This property lets you track the type of source that made the change in the incident. You can create a condition evaluating whether the incident was updated by one of the following:
+One of these properties is **Updated by**. This property lets you track the type of source that made the change in the incident. You can create a condition evaluating whether the incident was updated by one of the following values, depending on whether you've onboarded your workspace to the unified SOC platform:
 
-- an application
-- a user
-- an alert grouping (that added alerts to the incident)
-- a playbook
-- an automation rule
+##### [Onboarded to the unified SOC platform](tab/onboarded)
+
+- An application, including applications in both the Azure and Defender portals. <!--or is this Defender XDR?-->
+- A user, including changes made by users in both the Azure and Defender portals.
+- AIR <!--what does this mean?-->
+- An alert grouping (that added alerts to the incident).
+- A playbook
+- An automation rule
+- Other
+
+##### [Not onboarded to the unified SOC platform](tab/not-onboarded)
+
+- An application
+- A user
+- An alert grouping (that added alerts to the incident). 
+- A playbook
+- An automation rule
 - Microsoft Defender XDR
 
+---
 Using this condition, for example, you can instruct this automation rule to run on any change made to an incident, except if it was made by another automation rule.
 
 More to the point, the update trigger also uses other operators that check **state changes** in the values of incident properties as well as their current state. A **state change** condition would be satisfied if:
@@ -122,12 +135,13 @@ An incident property's value was
 - **changed to** the value defined in the condition.
 - **added** to (this applies to properties with a list of values).
 
-> [!NOTE]
-> - An automation rule, based on the update trigger, can run on an incident that was updated by another automation rule, based on the incident creation trigger, that ran on the incident.
->
-> - Also, if an incident is updated by an automation rule that ran on the incident's creation, the incident can be evaluated by *both* a subsequent *incident-creation* automation rule *and* an *incident-update* automation rule, both of which will run if the incident satisfies the rules' conditions.
->
-> - If an incident triggers both create-trigger and update-trigger automation rules, the create-trigger rules will run first, according to their **[Order](#order)** numbers, and then the update-trigger rules will run, according to *their* **Order** numbers.
+An automation rule, based on the update trigger, can run on an incident that was updated by another automation rule, based on the incident creation trigger, that ran on the incident.
+
+Also, if an incident is updated by an automation rule that ran on the incident's creation, the incident can be evaluated by *both* a subsequent *incident-creation* automation rule *and* an *incident-update* automation rule, both of which will run if the incident satisfies the rules' conditions.
+
+If an incident triggers both create-trigger and update-trigger automation rules, the create-trigger rules will run first, according to their **[Order](#order)** numbers, and then the update-trigger rules will run, according to *their* **Order** numbers.
+
+After onboarding to the unified SOC platform, if multiple changes are made to the same incident in a five to ten minute period, a single update is sent to Microsoft Sentinel, with only the most recent change.
 
 #### Alert create trigger
 

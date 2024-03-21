@@ -14,6 +14,8 @@ ms.collection: usx-security
 
 This article describes the Security Orchestration, Automation, and Response (SOAR) capabilities of Microsoft Sentinel, and shows how the use of automation rules and playbooks in response to security threats increases your SOC's effectiveness and saves you time and resources.
 
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
+
 ## Microsoft Sentinel as a SOAR solution
 
 ### The problem
@@ -37,6 +39,48 @@ A playbook is a collection of response and remediation actions and logic that ca
 Playbooks in Microsoft Sentinel are based on workflows built in [Azure Logic Apps](../logic-apps/logic-apps-overview.md), a cloud service that helps you schedule, automate, and orchestrate tasks and workflows across systems throughout the enterprise. This means that playbooks can take advantage of all the power and customizability of Logic Apps' integration and orchestration capabilities and easy-to-use design tools, and the scalability, reliability, and service level of a Tier 1 Azure service.
 
 Learn more with this [complete explanation of playbooks](automate-responses-with-playbooks.md).
+
+## After onboarding to the unified security operations platform
+
+After onboarding your Microsoft Sentinel workspace to the unified SOC platform, note the following differences in the way automation functions in your workspace.
+
+### Automation rules with alert triggers
+
+In the unified SOC platform, automation rules with alert triggers act only on Microsoft Sentinel alerts. For more information, see [Alert create trigger](automate-incident-handling-with-automation-rules.md#alert-create-trigger).
+
+### Automation rules with incident triggers
+
+In both the Azure portal and the unified SOC platform, the **Incident provider** condition property is removed, as all incidents have *Microsoft Defender XDR* as the incident provider.
+
+For existing automation rules, if the automation rule had conditions set to either of the following, the automation rule runs on all incidents:
+
+- Incident provider = Microsoft 365 Defender
+
+OR
+
+- Incident provider = Microsoft Sentinel and Analytic rule name = All rules
+
+Existing automation rules with conditions set to the following run only on incidents that were created by the specified analytics rule:
+
+- Incident provider = Microsoft Sentinel and Analytic rule name = One or more specific rules
+ 
+For more information, see [Incident trigger conditions](automate-incident-handling-with-automation-rules.md#conditions).
+
+### *Updated by* field
+
+Existing automation rules that the *Updated by* property defined as *Microsoft Defender XDR* are updated to define the *Updated by* property as *Other*.
+
+If multiple changes are made to the same incident in a 5-10 minute period, a single update is sent to Microsoft Sentinel, with only the most recent change.
+
+For more information, see [Incident update trigger](automate-incident-handling-with-automation-rules.md#incident-update-trigger).
+
+
+### Running playbooks manually on demand
+
+The following procedures are not supported in the unified SOC platform:
+- [Run a playbook manually on an alert](tutorial-respond-threats-playbook.md?tabs=LAC%2Cincidents#run-a-playbook-manually-on-an-alert) 
+- [Run a playbook manually on an entity](tutorial-respond-threats-playbook.md?tabs=LAC%2Cincidents#run-a-playbook-manually-on-an-entity-preview)       |
+
 
 ## Next steps
 

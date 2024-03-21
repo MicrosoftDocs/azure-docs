@@ -14,6 +14,8 @@ ms.collection: usx-security
 
 This article explains what Microsoft Sentinel playbooks are, and how to use them to implement your Security Orchestration, Automation and Response (SOAR) operations, achieving better results while saving time and resources.
 
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
+
 ## What is a playbook?
 
 SOC analysts are typically inundated with security alerts and incidents on a regular basis, at volumes so large that available personnel are overwhelmed. This results all too often in situations where many alerts are ignored and many incidents aren't investigated, leaving the organization vulnerable to attacks that go unnoticed.
@@ -28,7 +30,7 @@ For example, if an account and machine are compromised, a playbook can isolate t
 
 While the **Active playbooks** tab on the **Automation** page displays all the active playbooks available across any selected subscriptions, by default a playbook can be used only within the subscription to which it belongs, unless you specifically grant Microsoft Sentinel permissions to the playbook's resource group.
 
-[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
+After onboarding to the unified SOC platform, the **Active playbooks** tab shows a pre-defined filter with onboarded workspace's subscription. In the Azure portal, add data for other subscriptions using the Azure subscription filter.
 
 ### Playbook templates
 
