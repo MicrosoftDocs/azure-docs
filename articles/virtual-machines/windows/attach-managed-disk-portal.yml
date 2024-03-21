@@ -79,5 +79,5 @@ procedureSection:
 relatedContent:
   - text: Attach a data disk by using PowerShell
     url: attach-disk-ps.md
-  - text: Change the drive letter of the Windows temporary disk
+  - text: If your applications must use the D drive to store data, change the drive letter of the Windows temporary disk
     url: change-drive-letter.md  
