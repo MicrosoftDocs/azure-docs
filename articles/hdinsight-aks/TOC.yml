@@ -28,6 +28,8 @@ items:
       href: concept-security.md
     - name: Network Security
       items:
+      - name: Ingress and Egress controls
+        href: ./control-egress-traffic-from-hdinsight-on-aks-clusters.md
       - name: Required outbound traffic
         href: ./required-outbound-traffic.md
   - name: Resource management
