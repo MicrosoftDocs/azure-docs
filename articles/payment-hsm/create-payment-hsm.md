@@ -203,10 +203,10 @@ In the output, host 1 and host 2 are listed, as well as a management interface:
 ...  myPaymentHSM_HSMMgmtNic   Standard   True       Succeeded            myResourceGroup  ...
 ```
 
-To see the newly created network interfaces, use the [az network nic show](/cli/azure/network/nic#az-network-nic-show) command, providing the resource group and name of the network interface:
+To see the details of a newly created network interface, use the [az network nic show](/cli/azure/network/nic#az-network-nic-show) command, providing the resource group and name of the network interface:
 
 ```azurecli-interactive
- az network nic show -g myresourcegroup -n myPaymentHSM_HSMHost1Nic
+az network nic show -g myresourcegroup -n myPaymentHSM_HSMHost1Nic
 ```
 
 The output contains this line:

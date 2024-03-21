@@ -212,7 +212,7 @@ A job input, query, and output are specified. You're ready to start the Stream A
 3. On the **Start job** page, for **Job output start time**, select **Now** and then select **Start**.
 
 ## Get support
-For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
+For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](/answers/tags/179/azure-stream-analytics).
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)

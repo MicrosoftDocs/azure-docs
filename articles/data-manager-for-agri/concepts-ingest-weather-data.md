@@ -37,7 +37,7 @@ Run the install command through Azure Resource Manager ARM Client tool. The comm
 armclient PUT /subscriptions/<subscriptionid>/resourceGroups/<resource-group-name>/providers/Microsoft.AgFoodPlatform/farmBeats/<farmbeats-resource-name>/extensions/<extensionid>?api-version=2020-05-12-preview '{}'
 ```
 > [!NOTE]
-> All values within < > is to be replaced with your respective environment values.
+> All values within < > is to be replaced with your respective environment values. The extension ID supported today is 'IBM.TWC'
 >
 
 ### Sample output

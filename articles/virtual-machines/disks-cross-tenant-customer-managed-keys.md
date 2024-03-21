@@ -23,9 +23,9 @@ If you have questions about cross-tenant customer-managed keys with managed disk
 - This feature doesn't support Ultra Disks or Azure Premium SSD v2 managed disks.
 - This feature isn't available in Microsoft Azure operated by 21Vianet or Government clouds.
 
-[!INCLUDE [active-directory-msi-cross-tenant-cmk-overview](../../includes/active-directory-msi-cross-tenant-cmk-overview.md)]
+[!INCLUDE [entra-msi-cross-tenant-cmk-overview](../../includes/entra-msi-cross-tenant-cmk-overview.md)]
 
-[!INCLUDE [active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault](../../includes/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault.md)]
+[!INCLUDE [entra-msi-cross-tenant-cmk-create-identities-authorize-key-vault](../../includes/entra-msi-cross-tenant-cmk-create-identities-authorize-key-vault.md)]
 
 ## Create a disk encryption set
 
@@ -177,4 +177,4 @@ Content-Type: application/json
 See also:
 
 - [Encrypt disks using customer-managed keys in Azure DevTest Labs](../devtest-labs/encrypt-disks-customer-managed-keys.md)
-- [Use the Azure portal to enable server-side encryption with customer-managed keys for managed disks](disks-enable-customer-managed-keys-portal.md)
+- [Use the Azure portal to enable server-side encryption with customer-managed keys for managed disks](disks-enable-customer-managed-keys-portal.yml)

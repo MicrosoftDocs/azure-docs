@@ -7,7 +7,7 @@ author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision
 ms.topic: quickstart
-ms.date: 12/27/2022
+ms.date: 02/27/2024
 ms.author: pafarley
 ms.devlang: csharp
 # ms.devlang: csharp, golang, java, javascript, python
@@ -50,8 +50,4 @@ Get started with the Image Analysis REST API or client libraries to set up a bas
 
 ::: zone-end
 
-::: zone pivot="vision-studio"
 
-[!INCLUDE [Vision Studio quickstart](../includes/image-analysis-studio-quickstart.md)]
-
-::: zone-end

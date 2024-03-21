@@ -55,7 +55,7 @@ Then you can create a [prompt flow runtime](./how-to-create-manage-runtime.md) b
 
 ### Convert credentials to prompt flow connection
 
-When developing your LangChain code, you might have [defined environment variables to store your credentials, such as the AzureOpenAI API KEY](https://python.langchain.com/docs/integrations/llms/azure_openai_example), which is necessary for invoking the AzureOpenAI model.
+When developing your LangChain code, you might have [defined environment variables to store your credentials, such as the AzureOpenAI API KEY](https://python.langchain.com/docs/integrations/llms/azure_openai), which is necessary for invoking the AzureOpenAI model.
 
 :::image type="content" source="./media/how-to-integrate-with-langchain/langchain-env-variables.png" alt-text="Screenshot of Azure OpenAI example in LangChain. " lightbox = "./media/how-to-integrate-with-langchain/langchain-env-variables.png":::
 

@@ -100,6 +100,6 @@ In this article, you learned how to create a VM with a static public IP.
 
 - Learn how to [Configure IP addresses for an Azure network interface](./virtual-network-network-interface-addresses.md).
 
-- Learn how to [Assign multiple IP addresses to virtual machines](./virtual-network-multiple-ip-addresses-portal.md) using the Azure portal.
+- Learn how to [Assign multiple IP addresses to virtual machines](./virtual-network-multiple-ip-addresses-portal.yml) using the Azure portal.
 
 - Learn more about [public IP addresses](./public-ip-addresses.md#public-ip-addresses) in Azure.

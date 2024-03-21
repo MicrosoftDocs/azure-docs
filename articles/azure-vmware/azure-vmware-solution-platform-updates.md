@@ -4,18 +4,26 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 12/21/2023
+ms.date: 3/19/2024
 ---
 
 # What's new in Azure VMware Solution
 
 Microsoft regularly applies important updates to the Azure VMware Solution for new features and software lifecycle management. You should receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](concepts-private-clouds-clusters.md#host-maintenance-and-lifecycle-management).
 
+## March 2024
+
+Pure Cloud Block Store for Azure VMware Solution is now generally available. [Learn more](ecosystem-external-storage-solutions.md)
+
+## February 2024
+
+All new Azure VMware Solution private clouds are being deployed with VMware NSX version 4.1.1. [Learn more](concepts-private-clouds-clusters.md#vmware-software-versions)
+
 ## November 2023
 
 **VMware vSphere 8.0**
 
-VMware vSphere 8.0 is targeted for rollout to Azure VMware Solution starting at the end of January 2024.
+VMware vSphere 8.0 is targeted for rollout to Azure VMware Solution by Q2 2024.
 
 **AV64 SKU**
 
