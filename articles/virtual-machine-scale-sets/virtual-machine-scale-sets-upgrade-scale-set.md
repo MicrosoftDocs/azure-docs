@@ -279,20 +279,29 @@ Once the scale set model is updated, the new configuration applies to any new VM
 ## Properties with restrictions on modification
 
 ### Create-time properties
-Some properties can only be set when you create the scale set. These properties include:
-
-- Availability zones
-- Image reference publisher
-- Image reference offer
-- Managed OS disk storage account type
-- Fault domains
+Some properties can only be set when you create the scale set. Some examples include Managed OS disk storage account type and fault domains.
 
 ### Properties that can only be changed based on the current value
 Some properties may be changed, with exceptions depending on the current value. These properties include:
 
-- **singlePlacementGroup** - If singlePlacementGroup is true, it may be modified to false. However, if singlePlacementGroup is false, it **may not** be modified to true.
-- **subnet** - The subnet of a scale set may be modified as long as the original subnet and the new subnet are in the same virtual network.
-- **imageReferenceSku** - Image reference SKU can be updated for endorsed [Linux distros](../virtual-machines/linux/endorsed-distros.md), Windows server/client images, and images without [plan information](../virtual-machines/linux/cli-ps-findimage.md#check-the-purchase-plan-information). 
+- singlePlacementGroup
+- subnet
+- imageReferenceSku
+- imageReferenceOffer
+- Availability Zones (Preview)
+
+#### Examples
+To update your scale set to use a different OS version, you need to set all the updated properties in a single call. In this example, we are changing from Unbuntu Server 20.04 to 22.04. 
+
+```azurecli
+az vmss update \
+--resource-group myResourceGroup \
+--name myScaleSet \
+--set virtualMachineProfile.storageProfile.imageReference.offer=0001-com-ubuntu-server-jammy \
+--set virtualMachineProfile.storageProfile.imageReference.publisher=Canonical \
+--set virtualMachineProfile.storageProfile.imageReference.sku=22_04-lts-gen2 \
+--set virtualMachineProfile.storageProfile.imageReference.version=latest
+```
 
 ### Properties that require deallocation to change
 Some properties may only be changed to certain values if the VMs in the scale set are deallocated. These properties include:

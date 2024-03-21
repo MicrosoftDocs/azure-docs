@@ -238,7 +238,7 @@ Use Search explorer to formulate a vector query. Search explorer has a **Query v
 
 + See the [JavaScript SDK samples for vector search](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/search/search-documents/samples/v12/javascript)
 
-+ See the [azure-search-vector-samples](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-javascript/JavaScriptVectorDemo) GitHub repository for JavaScript code samples.
++ See the [azure-search-vector-samples](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-javascript) GitHub repository for JavaScript code samples.
 
 ---
 
@@ -610,4 +610,4 @@ During query execution, a vector query can only target one internal vector index
 
 ## Next steps
 
-As a next step, review vector query code examples in [Python](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-python), [C#](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-dotnet) or [JavaScript](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-javascript/JavaScriptVectorDemo).
+As a next step, review vector query code examples in [Python](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-python), [C#](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-dotnet) or [JavaScript](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-javascript).

@@ -30,8 +30,8 @@ To fix this issue:
 
 * Make sure that the correct Azure directory is selected by selecting your account at the top right.
 
-  ![Select the directory at the top right of the Azure portal](./media/no-subscriptions-found/directory-switch.png)
-* If the right Azure directory is selected but you still receive the error message, [assign the Owner role to your account](../../role-based-access-control/role-assignments-portal.md).
+  :::image type="content" border="true" source="./media/no-subscriptions-found/directory-switch.png" alt-text="Screenshot showing select the directory at the top right of the Azure portal.":::
+* If the right Azure directory is selected but you still receive the error message, [assign the Owner role to your account](../../role-based-access-control/role-assignments-portal.yml).
 
 ## Need help? Contact us.
 

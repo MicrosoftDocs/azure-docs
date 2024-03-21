@@ -64,7 +64,7 @@ The ingestion agent only supports certificate-based authentication for service p
 2. Add the certificate or certificates as credentials to your service principal, following [Create a Microsoft Entra app and service principal in the portal](/entra/identity-platform/howto-create-service-principal-portal).
 3. We **strongly recommend** additionally storing the certificates in a secure location such as Azure Key Vault. Doing so allows you to configure expiry alerting and gives you time to regenerate new certificates and apply them to your ingestion agents before they expire. Once a certificate expires, the agent is unable to authenticate to Azure and no longer uploads data. For details of this approach see [Renew your Azure Key Vault certificates](../key-vault/certificates/overview-renew-certificate.md). If you choose to use Azure Key Vault then:
     - This Azure Key Vault must be a different instance, either one you already control, or a new one. You can't use the Data Product's Azure Key Vault.
-    - You need the 'Key Vault Certificates Officer' role on this Azure Key Vault in order to add the certificate to the Key Vault. See [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md) for details of how to assign roles in Azure.
+    - You need the 'Key Vault Certificates Officer' role on this Azure Key Vault in order to add the certificate to the Key Vault. See [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml) for details of how to assign roles in Azure.
 
 4. Ensure the certificates are available in pkcs12 format, with no passphrase protecting them. On Linux, you can convert a certificate and key from PEM format using openssl.
     ```
@@ -87,7 +87,7 @@ The ingestion agent only supports certificate-based authentication for service p
 ### Grant permissions for the Data Product Key Vault
 
 1. Find the Azure Key Vault that holds the storage credentials for the input storage account. This Key Vault is in a resource group named *`<data-product-name>-HostedResources-<unique-id>`*.
-1. Grant your service principal the 'Key Vault Secrets User' role on this Key Vault. You need Owner level permissions on your Azure subscription. See [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md) for details of how to assign roles in Azure.
+1. Grant your service principal the 'Key Vault Secrets User' role on this Key Vault. You need Owner level permissions on your Azure subscription. See [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml) for details of how to assign roles in Azure.
 1. Note the name of the Key Vault.
 
 ## Prepare the SFTP server
@@ -142,6 +142,14 @@ Repeat these steps for each VM onto which you want to install the agent.
     Verify that the VM has the following ports open. These ports must be open both in cloud network security groups and in any firewall running on the VM itself (such as firewalld or iptables).
     - Port 36001/TCP inbound from the MCCs
     - Port 443/TCP outbound to Azure
+
+    You can configure the inbound rule with:
+    ```
+    sudo firewall-cmd --permanent --new-service=mcc-connection 
+    sudo firewall-cmd --permanent --service=mcc-connection --add-port=36001/tcp 
+    sudo firewall-cmd --add-service=mcc-connection --permanent 
+    sudo firewall-cmd --reload
+    ```
 
     ---
 

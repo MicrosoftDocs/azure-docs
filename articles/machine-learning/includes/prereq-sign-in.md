@@ -10,4 +10,4 @@ ms.author: sgilley
 ms.custom: include file
 ---
 
-Sign in to [studio](https://ml.azure.com) and select your workspace if it's not already open.
+Sign in to the [studio](https://ml.azure.com) and select your workspace if it's not already open.
