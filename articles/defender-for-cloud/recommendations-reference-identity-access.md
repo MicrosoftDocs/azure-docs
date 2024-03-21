@@ -255,7 +255,7 @@ Learn more in [Introduction to Microsoft Defender for Key Vault](defender-for-ke
 **Severity**: Medium
 
 
-## AWS IdentityAndAccess recommendations
+## AWS identity and access recommendations
 
 ### [Amazon Elasticsearch Service domains should be in a VPC](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/df952171-786d-44b5-b309-9c982bddeb7c)
 
@@ -684,7 +684,7 @@ Secrets Manager can rotate secrets. You can use rotation to replace long-term se
 **Severity**: Medium
 
 
-## GCP IdentityAndAccess recommendations
+## GCP identity and access recommendations
 
 ### [Cryptographic keys should not have more than three users](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/24eb0365-d63d-43c0-b11f-8b0a1a0842f7)
 

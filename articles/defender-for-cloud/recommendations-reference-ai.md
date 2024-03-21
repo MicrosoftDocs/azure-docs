@@ -17,12 +17,6 @@ This article lists all the AI security recommendations you might see in Microsof
 To learn about actions that you can take in response to these recommendations, see [Remediate recommendations in Defender for Cloud](implement-security-recommendations.md).
 
 
-> [!TIP]
-> If a recommendation's description says *No related policy*, usually it's because that recommendation is dependent on a different recommendation and *its* policy.
->
-> For example, the recommendation *Endpoint protection health failures should be remediated* relies on the recommendation that checks whether an endpoint protection solution is even installed (*Endpoint protection solution should be installed*). The underlying recommendation *does* have a policy. Limiting the policies to only the foundational recommendation simplifies policy management.
-
-
 ## AI recommendations
 
 ### Resource logs in Azure Machine Learning Workspaces should be enabled (Preview)

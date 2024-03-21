@@ -122,7 +122,7 @@ Note that the following subnet types will be listed as not applicable: GatewaySu
 
 **Severity**: Low
 
-## AWS Networking recommendations
+## AWS networking recommendations
 
 ### [Amazon EC2 should be configured to use VPC endpoints](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e700ddd4-bb55-4602-b93a-d75895fbf7c6)
 
@@ -424,7 +424,7 @@ If other relationships are listed, then the control passes.
 **Severity**: Low
 
 
-## GCP Networking recommendations
+## GCP networking recommendations
 
 ### [Cluster hosts should be configured to use only private, internal IP addresses to access Google APIs](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/fae39f34-d931-4026-b09c-b0a785bb1ff9)
 

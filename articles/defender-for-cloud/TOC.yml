@@ -248,18 +248,43 @@
           href: concept-agentless-containers.md
     - name: Security recommendations
       items:
-        - name: Reference list of Azure recommendations
+        - name: Reference list of recommendations
           displayName: Azure, recommendations
+          items: 
           href: recommendations-reference.md
-        - name: Reference list of AWS recommendations
-          displayName: AWS, recommendations
-          href: recommendations-reference-aws.md
-        - name: Reference list of GCP recommendations
-          displayName: gcp, recommendations
-          href: recommendations-reference-gcp.md
-        - name: Reference list of DevOps recommendations
+        - name: AI recommendations
+          displayName: AI, recommendations
+          href: recommendations-reference-ai.md
+        - name: API, API Management recommendations
+          displayName: API, recommendations
+          href: recommendations-reference-api.md
+        - name: Azure App Service recommendations
+          displayName: Azure App Service, recommendations
+          href: recommendations-reference-app-services.md
+        - name: Compute recommendations
+          displayName: compute, recommendations
+          href: recommendations-reference-compute.md
+        - name: Container recommendations
+          displayName: containers, recommendations
+          href: recommendations-reference-container.md
+        - name: Data recommendations
+          displayName: data, recommendations
+          href: recommendations-reference-data.md
+        - name:  DevOps recommendations
           displayName: devops, recommendations
           href: recommendations-reference-devops.md
+        - name: Identity and access recommendations
+          displayName: identity, access, recommendations
+          href: recommendations-reference-identity-access.md
+        - name: IoT recommendations
+          displayName: IoT, recommendations
+          href: recommendations-reference-iot.md
+        - name: Networking recommendations
+          displayName: networking, recommendations
+          href: recommendations-reference-networking.md
+        - name: Deprecated recommendations
+          displayName: deprecated, recommendations
+          href: recommendations-reference-deprecated.md
         - name: Assessment checks for endpoint detection and response solutions
           href: endpoint-protection-recommendations-technical.md
     - name: Security alerts and incidents

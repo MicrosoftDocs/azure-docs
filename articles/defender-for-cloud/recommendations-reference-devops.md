@@ -1,5 +1,5 @@
 ---
-title: Reference table for all security recommendations for DevOps
+title: Reference table for all security recommendations for DevOps in Microsoft Defender for Cloud
 description: This article lists all Microsoft Defender for Cloud security recommendations that help you harden and protect your DevOps resources.
 author: dcurwin
 ms.service: defender-for-cloud
@@ -10,7 +10,7 @@ ms.custom: generated
 ai-usage: ai-assisted
 ---
 
-# Security recommendations for DevOps resources
+# DevOps security recommendations
 
 This article lists the recommendations you might see in Microsoft Defender for Cloud if you connect an [Azure DevOps](quickstart-onboard-devops.md), [GitHub](quickstart-onboard-github.md), or [GitLab](quickstart-onboard-gitlab.md) environment by using the **Environment settings** page. The recommendations that appear in your environment are based on the resources that you're protecting and on your customized configuration.
 
