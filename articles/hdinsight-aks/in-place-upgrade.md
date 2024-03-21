@@ -1,12 +1,12 @@
 ---
-title: Upgrade your HDInsight on AKS Clusters & Cluster Pools 
-description: Upgrade your HDInsight on AKS Clusters & Cluster Pools.
+title: Upgrade your HDInsight on AKS Clusters and Cluster Pools 
+description: Upgrade your HDInsight on AKS Clusters and Cluster Pools.
 ms.service: hdinsight-aks
 ms.topic: how-to
 ms.date: 03/21/2024
 ---
 
-# Upgrade your HDInsight on AKS Clusters & Cluster Pools
+# Upgrade your HDInsight on AKS Clusters and Cluster Pools
 
 Learn how to update your HDInsight on AKS clusters and cluster pools to the latest AKS patches, security updates, cluster patches, and cluster hotfixes with in-place upgrade.
 
@@ -14,11 +14,11 @@ Learn how to update your HDInsight on AKS clusters and cluster pools to the late
  
 HDInsight on AKS is a service that lets you run Apache Flink, Apache Spark, Trino  on Azure Kubernetes Service (AKS). HDInsight on AKS gives you the benefits of cloud scalability, reliability, and flexibility, while also enabling you to use your existing tools and applications.  
 
-One of the important features of HDInsight on AKS is that you can upgrade your clusters and cluster pools with the latest software updates. This means that you can enjoy the latest hotfixes, security updates and AKS patches, without recreating clusters.  
+One of the important features of HDInsight on AKS is that you can upgrade your clusters and cluster pools with the latest software updates. This means that you can enjoy the latest hotfixes, security updates, and AKS patches, without recreating clusters.  
 
-As HDInsight on AKS relies on the underlying Azure Kubernetes Service (AKS) infrastructure, it needs to be periodically updated to ensure security and compatibility with the latest features. It’s important that you upgrade to apply the latest security releases and to get access to the latest Kubernetes features, and to stay within the AKS support window corresponding to your HDInsight on AKS cluster pool. Microsoft provides patches and new images for image nodes on AKS frequently ( weekly), but your running nodes don't get the new images unless you do a node OS upgrade.  
+As HDInsight on AKS relies on the underlying Azure Kubernetes Service (AKS) infrastructure, it needs to be periodically updated to ensure security and compatibility with the latest features. It’s important that you upgrade to apply the latest security releases and to get access to the latest Kubernetes features, and to stay within the AKS support window corresponding to your HDInsight on AKS cluster pool. Microsoft provides patches and new images for image nodes on AKS frequently (weekly), but your running nodes don't get the new images unless you do a node OS upgrade.  
 
-For example, you can upgrade your Spark cluster to get the latest hotfixes enhancements, security fixes for your node OS, and AKS patch updates to keep your cluster & cluster pools software up-to-date.
+For example, you can upgrade your Spark cluster to get the latest hotfixes enhancements, security fixes for your node OS, and AKS patch updates to keep your cluster and cluster pools software up-to-date.
 
 In this article, we show you how to upgrade your HDInsight on AKS clusters and cluster pools, using the Azure portal.  
 
@@ -37,7 +37,7 @@ The following table summarizes the details of types of upgrades and what frequen
 |Node OS upgrades |Cluster pool, Cluster  | Weekly |✅ |
 |Security patches and hot fixes for node images  |Cluster pool, Cluster  | As necessary |✅ |
 
-Learn more about [HDInsight on AKS versioning](./versions.md)
+Learn more about [HDInsight on AKS versioning](./versions.md).
 
  
 
@@ -45,13 +45,13 @@ As HDInsight on AKS uses Azure Kubernetes Service (AKS) as the underlying infras
 
 There are two components of an AKS cluster that are necessary to maintain:
 
-1. **AKS Patch & Minor version Upgrades**: Part of the AKS cluster lifecycle involves performing upgrades to the latest Kubernetes version. It’s important that you upgrade to apply the latest security releases and to get access to the latest Kubernetes features, and to stay within the [AKS support window](/azure/aks/supported-kubernetes-versions#kubernetes-version-support-policy). The HDInsight on AKS cluster pool version maps to the AKS Minor versions.  
+1. **AKS Patch and Minor version Upgrades**: Part of the AKS cluster lifecycle involves performing upgrades to the latest Kubernetes version. It’s important that you upgrade to apply the latest security releases and to get access to the latest Kubernetes features, and to stay within the [AKS support window](/azure/aks/supported-kubernetes-versions#kubernetes-version-support-policy). The HDInsight on AKS cluster pool version maps to the AKS Minor versions.  
 
     1. AKS patches are accomplished using AKS patch upgrades, which can be applied to cluster pool and clusters in HDInsight on AKS, starting Cluster pool version 1.1. 
     
-    1. AKS minor versions are accomplished using AKS minor version upgrade, which upgrades the cluster pool, and clusters to latest AKS minor version supported on HDInsight on AKS starting Cluster pool version 1.2.  HDInsight on AKS aims to stay on top of the Kubernetes N-2 [support policy](/azure/aks/support-policies) along with the [AKS release calendar](/azure/aks/supported-kubernetes-versions?tabs=azure-cli#aks-kubernetes-release-calendar), to continue to provide you the ability to perform in-place minor upgrades, and we encourage to plan for upgrade to latest minor versions as early as they're available. 
+    1. AKS minor versions are accomplished using AKS minor version upgrade, which upgrades the cluster pool, and clusters to latest AKS minor version supported on HDInsight on AKS starting Cluster pool version 1.2.  HDInsight on AKS aims to stay on top of the Kubernetes N-2 [support policy](/azure/aks/support-policies) along with the [AKS release calendar](/azure/aks/supported-kubernetes-versions?tabs=azure-cli#aks-kubernetes-release-calendar), to continue to provide you with the ability to perform in-place minor upgrades, and we encourage you to plan for upgrade to latest minor versions as early as they're available. 
     
-1. Node OS upgrades: AKS regularly provides new node images with the latest OS and runtime updates. It's beneficial to upgrade your nodes' images regularly to ensure support for the latest AKS features and to apply essential security patches and hot fixes on the AKS layer. Image upgrade announcements are included in the [AKS release notes](https://github.com/Azure/AKS/releases), and it can take up to a week for these updates to be rolled out across all regions. With thisupgrade , we only update the node pool images without upgrading the Kubernetes version. In HDInsight on AKS, this upgrade is accomplished using Node OS upgrades, which can be applied to cluster pool and clusters, starting Cluster pool version 1.1.
+1. Node OS upgrades: AKS regularly provides new node images with the latest OS and runtime updates. It's beneficial to upgrade your nodes' images regularly to ensure support for the latest AKS features and to apply essential security patches and hot fixes on the AKS layer. Image upgrade announcements are included in the [AKS release notes](https://github.com/Azure/AKS/releases), and it can take up to a week for these updates to be rolled out across all regions. With this upgrade, we only update the node pool images without upgrading the Kubernetes version. In HDInsight on AKS, this upgrade is accomplished using Node OS upgrades, which can be applied to cluster pool and clusters, starting Cluster pool version 1.1.
 
 To take advantage of the latest HDInsight on AKS features, we recommend regularly updating your HDInsight on AKS clusters with [hotfixes and patches](./versions.md#keep-your-clusters-up-to-date). HDInsight on AKS supports in-place upgrades where existing clusters can be upgraded newer hotfixes and patches. You no need to drop and recreate a new cluster, when your cluster is eligible for an upgrade, the software update status reflects the upgrade pending, and you can perform upgrade with a few clicks, and maintenance windows.  
 
@@ -66,7 +66,7 @@ HDInsight on AKS patch releases occur every 30 to 60 days. It's always good to m
 
 Before you start the upgrade, you need to check the available upgrades for your HDInsight on AKS cluster.  
 
-The updates depend on the cluster version or cluster pool version i.e., current HDInsight on AKS version, and also the AKS version.  
+The updates depend on the cluster version or cluster pool version, that's current HDInsight on AKS version, and also the AKS version.  
 
 You can check the overview blade for **software update** section to verify if you have software updates – **up to date** or **pending**.  
 
@@ -96,21 +96,20 @@ To check the available updates using the Azure portal, follow these steps:
 
        :::image type="content" source="./media/in-place-upgrade/node-os-upgrade.png" alt-text="Screenshot showing node upgrade button." border="true" lightbox="./media/in-place-upgrade/node-upgrade.png":::
 
-1. Once you trigger the upgrade you will get the service notification on portal.
+1. Once you trigger the upgrade, you'll get the service notification on portal.
 
     :::image type="content" source="./media/in-place-upgrade/notification.png" alt-text="Screenshot showing cluster pool upgrade in progress." border="true" lightbox="./media/in-place-upgrade/notification.png":::
- 
-   
+    
 1. The cluster update status moves from pending to upgrading, and cluster pool status moves to NodeOSUpgrading.
 
-    :::image type="content" source="./media/in-place-upgrade/node-os-update-in-progress.png" alt-text="Screenshot showing node OS update in progress ." border="true" lightbox="./media/in-place-upgrade/node-os-update-in-progress.png":::
+    :::image type="content" source="./media/in-place-upgrade/node-os-update-in-progress.png" alt-text="Screenshot showing node OS update in progress." border="true" lightbox="./media/in-place-upgrade/node-os-update-in-progress.png":::
 
 1. As you opted to update both cluster pools and clusters together, the clusters also move to similar states. 
 
     :::image type="content" source="./media/in-place-upgrade/status-update.png" alt-text="Screenshot showing status update." border="true" lightbox="./media/in-place-upgrade/status-update.png":::
 
 
-1. Once your upgrade is complete, you have an update on the banner & status on software update is reflected across cluster pool and clusters (in case cluster’s also upgraded with cluster pool), and the notification updates reflect the success of the upgrade.
+1. Once your upgrade is complete, you have an update on the banner and status on software update is reflected across cluster pool and clusters (if your cluster’s also upgraded with cluster pool), and the notification updates reflect the success of the upgrade.
 
    :::image type="content" source="./media/in-place-upgrade/os-update-success.png" alt-text="Screenshot showing OS update status as success." border="true" lightbox="./media/in-place-upgrade/os-update-success.png":::
    
@@ -118,19 +117,19 @@ To check the available updates using the Azure portal, follow these steps:
    
     :::image type="content" source="./media/in-place-upgrade/final-status.png" alt-text="Screenshot showing final status." border="true" lightbox="./media/in-place-upgrade/final-status.png":::
 
-   :::image type="content" source="./media/in-place-upgrade/sucess-status.png" alt-text="Screenshot showing ." border="true" lightbox="./media/in-place-upgrade/sucess-status.png":::
+   :::image type="content" source="./media/in-place-upgrade/sucess-status.png" alt-text="Screenshot showing." border="true" lightbox="./media/in-place-upgrade/sucess-status.png":::
 
-## Planning an upgrade for your HDInsight on AKS Clusters & Cluster pools
+## Planning an upgrade for your HDInsight on AKS Clusters and Cluster pools
 
 After you checked the available upgrade versions and chosen the one that suits your needs, you can upgrade your HDInsight clusters on AKS using the Azure portal. The upgrade process may take some time, depending on the size and configuration of your clusters and number of clusters within a cluster pool.  
 
-During the upgrade, your cluster remain operational and accessible, but you may experience some performance degradation or temporary interruptions. Therefore, it's recommended to upgrade your clusters during off-peak hours or when the cluster is not under heavy load.
+During the upgrade, your cluster remains operational and accessible, but you may experience some performance degradation or temporary interruptions. Therefore, we  recommend you to upgrade your clusters during off-peak hours or when the cluster isn't under heavy load.
 
-## Best practices for In-place Upgrade of your HDInsight on AKS Clusters & Cluster pools? 
+## Best practices for In-place Upgrade of your HDInsight on AKS Clusters and Cluster pools? 
 
 To ensure a smooth and successful upgrade of your HDInsight on AKS clusters and cluster pools, follow these best practices: 
 
-Before you start the upgrade, make sure that your cluster is healthy and stable, and the cluster status is not in error.   
+Before you start the upgrade, make sure that your cluster is healthy and stable, and the cluster status isn't in error.   
 
 1. Before the upgrade, review the release notes of the new HDInsight on AKS version and prepare for any necessary changes to your applications or scripts to adapt to the new features or changes. Test them in a lower environment, before moving to production.  
 
@@ -150,9 +149,9 @@ Before you start the upgrade, make sure that your cluster is healthy and stable,
 ### Node OS upgrades 
  
 
-1. Once you click upgrade on the overview blade and select Node OS upgrade on the upgrade pane on the left. 
+1. Once you click upgrade on the overview blade, and select Node OS upgrade on the upgrade pane on the left. 
 
-1. If there is a Node OS upgrade, both cluster pool and clusters go through the upgrade simultaneously.
+1. If there's a Node OS upgrade, both cluster pool and clusters go through the upgrade simultaneously.
  
     :::image type="content" source="./media/in-place-upgrade/type-of-upgrde.png" alt-text="Screenshot showing type-of-upgrde." border="true" lightbox="./media/in-place-upgrade/type-of-upgrde.png":::
 
@@ -169,22 +168,22 @@ Before you start the upgrade, make sure that your cluster is healthy and stable,
 
    :::image type="content" source="./media/in-place-upgrade/update-status.png" alt-text="Screenshot showing update status." border="true" lightbox="./media/in-place-upgrade/update-status.png":::    
 
-1. Once your upgrade is complete, you have an update on the banner & status on software update is reflected across cluster pool and clusters (if cluster’s were also
-1. upgraded with cluster pool), and the notification updates reflect the success of the upgrade. 
+1. Once your upgrade is complete, you have an update on the banner and status on software update is reflected across cluster pool and clusters (if cluster’s were also
+upgraded with cluster pool), and the notification updates reflect the success of the upgrade. 
 
    :::image type="content" source="./media/in-place-upgrade/os-update-success.png" alt-text="Screenshot showing OS update as success." border="true" lightbox="./media/in-place-upgrade/os-update-success.png":::
 
-   :::image type="content" source="./media/in-place-upgrade/status-up-to-date.png" alt-text="Screenshot showing status uptudate." border="true" lightbox="./media/in-place-upgrade/status-up-to-date.png":::
+   :::image type="content" source="./media/in-place-upgrade/status-up-to-date.png" alt-text="Screenshot showing status up to date." border="true" lightbox="./media/in-place-upgrade/status-up-to-date.png":::
 
    :::image type="content" source="./media/in-place-upgrade/final-status.png" alt-text="Screenshot showing final status." border="true" lightbox="./media/in-place-upgrade/final-status.png":::
 
-   :::image type="content" source="./media/in-place-upgrade/upgrade-sucessful.png" alt-text="Screenshot showing upgrade sucessful status." border="true" lightbox="./media/in-place-upgrade/upgrade-sucessful.png":::
+   :::image type="content" source="./media/in-place-upgrade/upgrade-successful.png" alt-text="Screenshot showing upgrade successful status." border="true" lightbox="./media/in-place-upgrade/upgrade-successful.png":::
 
 
 ### AKS Patch upgrades
 
-Once you click upgrade on the overview blade and select AKS patch upgrade on the upgrade pane on the left.
+Once you click upgrade on the overview blade, and select AKS patch upgrade on the upgrade pane on the left.
 
-In case of AKS patch upgrade, both cluster pool and clusters do not go through the upgrade simultaneously. Individual clusters need to apply the AKS patch upgrades based on the planned maintenance windows for your clusters.
+In AKS patch upgrade, both cluster pool and clusters don't go through the upgrade simultaneously. Individual clusters need to apply the AKS patch upgrades based on the planned maintenance windows for your clusters.
 
    :::image type="content" source="./media/in-place-upgrade/aks-version.png" alt-text="Screenshot showing AKS version." border="true" lightbox="./media/in-place-upgrade/aks-version.png":::
