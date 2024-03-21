@@ -35,7 +35,7 @@ az provider register -n "Microsoft.AlertsManagement"
 ## Install observability components
 The steps in this section install shared monitoring resources and configure your Arc enabled cluster to emit observability signals to these resources. The shared monitoring resources include Azure Managed Grafana, Azure Monitor Workspace, Azure Managed Prometheus, Azure Log Analytics, and Container Insights. 
 
-1. In your git console, navigate to a local folder where you want to clone the Azure IoT Operations repo: 
+1. In your console, navigate to a local folder where you want to clone the Azure IoT Operations repo: 
     > [!NOTE]
     > The repo contains the deployment definition of Azure IoT Operations, and samples that include the sample dashboards used in this article.
 
