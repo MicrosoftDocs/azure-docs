@@ -213,7 +213,7 @@ Set the recipient list like this:
 
 Usage Example:
 ```python
-# Example only
+    # Example only
     to=[self.phone_number],
 ```
 
@@ -243,6 +243,7 @@ Messages SDK allows Contoso to send templated WhatsApp messages to WhatsApp user
     - Name like 'sample_template'
     - Language like 'en_us'
     - Parameters if any
+
 To send WhatsApp template message add below code in the send_template_message(self) function.
 ```python
         input_template: MessageTemplate = MessageTemplate(
@@ -330,7 +331,7 @@ Messages SDK allows Contoso to send text WhatsApp messages, which initiated What
             print("Message failed to send")
 ```
 
-Update the [main method](#basic-program-structure) to run send_text_send_message()
+Update the [main method](#basic-program-structure) to run send_text_message()
 ```python
     #Calling send_text_message()
     messages.send_text_message()
