@@ -23,7 +23,7 @@ There are several advantages to using the Azure Monitor OpenTelemetry Distro:
    - [Offline Storage and Automatic Retries](opentelemetry-configuration.md#offline-storage-and-automatic-retries)
    - [Statsbeat](statsbeat.md)
    - [Application Insights Standard Metrics](standard-metrics.md)
-   - Detect resource metadata to autopopulate [Cloud Role Name](java-standalone-config#cloud-role-name) and [Cloud Role Instance](app/java-standalone-config#cloud-role-instance) on various Azure environments
+   - Detect resource metadata to autopopulate [Cloud Role Name](java-standalone-config.md#cloud-role-name) and [Cloud Role Instance](java-standalone-config.md#cloud-role-instance) on various Azure environments
    - [Live Metrics](live-stream.md) (future)
 
 In the spirit of OpenTelemetry, we designed the distro to be open and extensible. For example, you can add:
