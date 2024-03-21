@@ -32,7 +32,7 @@ When you enable Container insights or update a cluster to support collecting met
 
 During the onboarding or update process, granting the **Monitoring Metrics Publisher** role assignment is attempted on the cluster resource. The user initiating the process to enable Container insights or the update to support the collection of metrics must have access to the **Microsoft.Authorization/roleAssignments/write** permission on the AKS cluster resource scope. Only members of the Owner and User Access Administrator built-in roles are granted access to this permission. If your security policies require you to assign granular-level permissions, see [Azure custom roles](../../role-based-access-control/custom-roles.md) and assign permission to the users who require it.
 
-You can also manually grant this role from the Azure portal: Assign the **Publisher** role to the **Monitoring Metrics** scope. For detailed steps, see [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+You can also manually grant this role from the Azure portal: Assign the **Publisher** role to the **Monitoring Metrics** scope. For detailed steps, see [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
 ## Container insights is enabled but not reporting any information
 To diagnose the problem if you can't view status information or no results are returned from a log query:
