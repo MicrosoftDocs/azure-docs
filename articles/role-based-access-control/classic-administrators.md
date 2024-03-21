@@ -70,7 +70,7 @@ Most users don't need the same permissions as a Co-Administrator. Consider a job
 
 1. Determine the [scope](scope-overview.md) user needs.
 
-1. Follow steps to [assign a job function role to user](role-assignments-portal.md).
+1. Follow steps to [assign a job function role to user](role-assignments-portal.yml).
 
 1. [Remove Co-Administrator](#remove-a-co-administrator).
 
@@ -106,11 +106,11 @@ The user that is assigned the Service Administrator role might also be the same 
 
 Your Service Administrator might be a Microsoft account or a Microsoft Entra account. A Microsoft account is a personal account such as Outlook, OneDrive, Xbox LIVE, or Microsoft 365. A Microsoft Entra account is an identity created through Microsoft Entra ID.
 
-1. If Service Administrator user is a Microsoft account and you want this user to keep the same permissions, [assign the Owner role](role-assignments-portal.md) to this user at subscription scope without conditions.
+1. If Service Administrator user is a Microsoft account and you want this user to keep the same permissions, [assign the Owner role](role-assignments-portal.yml) to this user at subscription scope without conditions.
 
-1. If Service Administrator user is a Microsoft Entra account and you want this user to keep the same permissions, [assign the Owner role](role-assignments-portal.md) to this user at subscription scope without conditions.
+1. If Service Administrator user is a Microsoft Entra account and you want this user to keep the same permissions, [assign the Owner role](role-assignments-portal.yml) to this user at subscription scope without conditions.
 
-1. If you want to change the Service Administrator user to a different user, [assign the Owner role](role-assignments-portal.md) to this new user at subscription scope without conditions.
+1. If you want to change the Service Administrator user to a different user, [assign the Owner role](role-assignments-portal.yml) to this new user at subscription scope without conditions.
 
 1. [Remove the Service Administrator](#remove-the-service-administrator).
 
@@ -252,5 +252,5 @@ To remove the Service Administrator, you must have a user who is assigned the [O
 ## Next steps
 
 - [Understand the different roles](../role-based-access-control/rbac-and-directory-admin-roles.md)
-- [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md)
+- [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml)
 - [Understand Microsoft Customer Agreement administrative roles in Azure](../cost-management-billing/manage/understand-mca-roles.md)

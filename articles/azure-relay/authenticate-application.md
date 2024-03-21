@@ -38,7 +38,7 @@ The application needs a client secret to prove its identity when requesting a to
 > Make note of the **Client Secret**. You will need it to run the sample application.
 
 ## Assign Azure roles using the Azure portal
-Assign one of the Azure Relay roles to the application's service principal at the desired scope (Relay entity, namespace, resource group, subscription). For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+Assign one of the Azure Relay roles to the application's service principal at the desired scope (Relay entity, namespace, resource group, subscription). For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
 ## Run the sample
 
