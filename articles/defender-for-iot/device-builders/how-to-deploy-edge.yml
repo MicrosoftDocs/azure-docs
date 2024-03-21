@@ -27,11 +27,11 @@ procedureSection:
 
         - Install the framework by running the following command on your IoT Edge device:
 
-        `sudo apt-get install auditd audispd-plugins`
+          `sudo apt-get install auditd audispd-plugins`
 
         - Verify AuditD is active by running the following command:
 
-        `sudo systemctl status auditd`<br>
+          `sudo systemctl status auditd`<br>
         - Expected response is: `active (running)`
 
       ### Deployment using Azure portal
