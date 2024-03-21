@@ -3,17 +3,15 @@ title: Upgrade your HDInsight on AKS Clusters & Cluster Pools
 description: Upgrade your HDInsight on AKS Clusters & Cluster Pools.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 03/20/2024
+ms.date: 03/21/2024
 ---
-
 
 # Upgrade your HDInsight on AKS Clusters & Cluster Pools
 
 Learn how to update your HDInsight on AKS clusters and cluster pools to the latest AKS patches, security updates, cluster patches, and cluster hotfixes with in-place upgrade.
 
-Why to upgrade?
+## Why to upgrade?
  
-
 HDInsight on AKS is a service that lets you run Apache Flink, Apache Spark, Trino  on Azure Kubernetes Service (AKS). HDInsight on AKS gives you the benefits of cloud scalability, reliability, and flexibility, while also enabling you to use your existing tools and applications.  
 
 One of the important features of HDInsight on AKS is that you can upgrade your clusters and cluster pools with the latest software updates. This means that you can enjoy the latest hotfixes, security updates and AKS patches, without recreating clusters.  
@@ -30,13 +28,13 @@ We share some best practices to help you with the upgrade process.
 
 The following table summarizes the details of types of upgrades and what frequency you can anticipate the updates to occur for cluster pools and clusters.
 
-| Upgrade Type | Applicability |Frequency of upgrade | In-Place Upgrade |
+| Upgrade Type | Applicability | Frequency of upgrade | In-Place Upgrade |
 |-|-|-|-|
 |AKS version (minor) upgrade / HDInsight on AKS Minor version upgrade   | Cluster pool, Cluster | Roughly every six months |✅ |
-|HDInsight on AKS – Cluster Patch version |Cluster | Approximately monthly |✅ |
+|HDInsight on AKS – Cluster Patch version | Cluster | Approximately monthly |✅ |
 |HDInsight on AKS – Cluster Hotfixes  | Cluster | As necessary|✅ |
-|AKS patch version upgrade | Cluster pool, Cluster |Approximately weekly (dependent on upstream AKS patching).  |✅ |
-| Node OS upgrades |Cluster pool, Cluster  | Weekly |✅ |
+|AKS patch version upgrade | Cluster pool, Cluster | Approximately weekly (dependent on upstream AKS patching)  |✅ |
+|Node OS upgrades |Cluster pool, Cluster  | Weekly |✅ |
 |Security patches and hot fixes for node images  |Cluster pool, Cluster  | As necessary |✅ |
 
 Learn more about [HDInsight on AKS versioning](./versions.md)
@@ -76,7 +74,7 @@ In case you have a software update available – you observe that your cluster i
 
 To check the available updates using the Azure portal, follow these steps: 
 
-1. Sign in to the [Azure portal](https://portal.azure.com/). 
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. In the search box, type HDInsight on AKS. 
 
@@ -84,32 +82,45 @@ To check the available updates using the Azure portal, follow these steps:
 
 1. In the cluster overview page, check for software update status. 
 
-image
+    :::image type="content" source="./media/in-place-upgrade/software-update.png" alt-text="Screenshot showing software update." border="true" lightbox="./media/in-place-upgrade/software-update.png":::
 
 1. Click upgrade 
 
-image
+   :::image type="content" source="./media/in-place-upgrade/software-update.png" alt-text="Screenshot showing upgrade button." border="true" lightbox="./media/in-place-upgrade/software-update.png":::
 
-In the upgrade blade, you see the available upgrades.  
+1. In the upgrade blade, you see the available upgrades.  
 
-image
+   :::image type="content" source="./media/in-place-upgrade/upgrade-cluster-pool.png" alt-text="Screenshot showing how to upgrade cluster pool." border="true" lightbox="./media/in-place-upgrade/upgrade-cluster-pool.png":::
 
-1. The cluster update status moves from pending to upgrading, and cluster pool status moves to NodeOSUpgrading. 
+1.	Based on the upgrade available, you have an option to select and perform upgrade.
 
-image
+       :::image type="content" source="./media/in-place-upgrade/node-os-upgrade.png" alt-text="Screenshot showing node upgrade button." border="true" lightbox="./media/in-place-upgrade/node-upgrade.png":::
+
+1. Once you trigger the upgrade you will get the service notification on portal.
+
+    :::image type="content" source="./media/in-place-upgrade/notification.png" alt-text="Screenshot showing cluster pool upgrade in progress." border="true" lightbox="./media/in-place-upgrade/notification.png":::
+ 
+   
+1. The cluster update status moves from pending to upgrading, and cluster pool status moves to NodeOSUpgrading.
+
+    :::image type="content" source="./media/in-place-upgrade/node-os-update-in-progress.png" alt-text="Screenshot showing node OS update in progress ." border="true" lightbox="./media/in-place-upgrade/node-os-update-in-progress.png":::
 
 1. As you opted to update both cluster pools and clusters together, the clusters also move to similar states. 
 
-image
+    :::image type="content" source="./media/in-place-upgrade/status-update.png" alt-text="Screenshot showing status update." border="true" lightbox="./media/in-place-upgrade/status-update.png":::
 
 
-1.  Once your upgrade is complete, you have an update on the banner & status on software update is reflected across cluster pool and clusters (in case cluster’s also upgraded with cluster pool), and the notification updates reflect the success of the upgrade.
+1. Once your upgrade is complete, you have an update on the banner & status on software update is reflected across cluster pool and clusters (in case cluster’s also upgraded with cluster pool), and the notification updates reflect the success of the upgrade.
 
-image
-image
-image
+   :::image type="content" source="./media/in-place-upgrade/os-update-success.png" alt-text="Screenshot showing OS update status as success." border="true" lightbox="./media/in-place-upgrade/os-update-success.png":::
+   
+   :::image type="content" source="./media/in-place-upgrade/status-up-to-date.png" alt-text="Screenshot showing status is up to date." border="true" lightbox="./media/in-place-upgrade/status-up-to-date.png":::
+   
+    :::image type="content" source="./media/in-place-upgrade/final-status.png" alt-text="Screenshot showing final status." border="true" lightbox="./media/in-place-upgrade/final-status.png":::
 
-## Planning an upgrade for your HDInsight on AKS Clusters & Cluster pools 
+   :::image type="content" source="./media/in-place-upgrade/sucess-status.png" alt-text="Screenshot showing ." border="true" lightbox="./media/in-place-upgrade/sucess-status.png":::
+
+## Planning an upgrade for your HDInsight on AKS Clusters & Cluster pools
 
 After you checked the available upgrade versions and chosen the one that suits your needs, you can upgrade your HDInsight clusters on AKS using the Azure portal. The upgrade process may take some time, depending on the size and configuration of your clusters and number of clusters within a cluster pool.  
 
@@ -134,40 +145,46 @@ Before you start the upgrade, make sure that your cluster is healthy and stable,
 1. After the upgrade, verify that the cluster is working as expected. You can check the cluster version, health, and configurations by using the Azure portal, Azure CLI, Azure PowerShell, or Service health. You can also run some test jobs or queries to verify the cluster functionality. 
 
  
-## Steps for Upgrades 
+## Steps for upgrades 
 
 ### Node OS upgrades 
  
 
 1. Once you click upgrade on the overview blade and select Node OS upgrade on the upgrade pane on the left. 
 
-1. If there is a Node OS upgrade, both cluster pool and clusters go through the upgrade simultaneously. 
+1. If there is a Node OS upgrade, both cluster pool and clusters go through the upgrade simultaneously.
  
-image
+    :::image type="content" source="./media/in-place-upgrade/type-of-upgrde.png" alt-text="Screenshot showing type-of-upgrde." border="true" lightbox="./media/in-place-upgrade/type-of-upgrde.png":::
 
-1. Once you trigger the upgrade, you get the service notification on portal 
+1. Once you trigger the upgrade, you get the service notification on portal.
+ 
+   :::image type="content" source="./media/in-place-upgrade/upgrade-in-progress.png" alt-text="Screenshot showing ." border="true" lightbox="./media/in-place-upgrade/upgrade-in-progress.png":::
 
-image
+1. The cluster update status moves from pending to upgrading, and cluster pool status moves to `NodeOSUpgrading`.
+ 
+    :::image type="content" source="./media/in-place-upgrade/node-os-update-in-progress.png" alt-text="Screenshot showing node OS update in progress." border="true" lightbox="./media/in-place-upgrade/node-os-update-in-progress.png":::
 
-1. The cluster update status moves from pending to upgrading, and cluster pool status moves to NodeOSUpgrading. 
-
-image
 
 1. As you opted to update both cluster pools and clusters together, the clusters also move to similar states. 
 
-image
+   :::image type="content" source="./media/in-place-upgrade/update-status.png" alt-text="Screenshot showing update status." border="true" lightbox="./media/in-place-upgrade/update-status.png":::    
 
-1. Once your upgrade is complete, you have an update on the banner & status on software update is reflected across cluster pool and clusters (if cluster’s were also upgraded with cluster pool), and the notification updates reflect the success of the upgrade. 
+1. Once your upgrade is complete, you have an update on the banner & status on software update is reflected across cluster pool and clusters (if cluster’s were also
+1. upgraded with cluster pool), and the notification updates reflect the success of the upgrade. 
 
-image
-image
-image
-image
+   :::image type="content" source="./media/in-place-upgrade/os-update-success.png" alt-text="Screenshot showing OS update as success." border="true" lightbox="./media/in-place-upgrade/os-update-success.png":::
 
-### AKS Patch upgrades 
+   :::image type="content" source="./media/in-place-upgrade/status-up-to-date.png" alt-text="Screenshot showing status uptudate." border="true" lightbox="./media/in-place-upgrade/status-up-to-date.png":::
 
-Once you click upgrade on the overview blade and select AKS patch upgrade on the upgrade pane on the left. 
+   :::image type="content" source="./media/in-place-upgrade/final-status.png" alt-text="Screenshot showing final status." border="true" lightbox="./media/in-place-upgrade/final-status.png":::
+
+   :::image type="content" source="./media/in-place-upgrade/upgrade-sucessful.png" alt-text="Screenshot showing upgrade sucessful status." border="true" lightbox="./media/in-place-upgrade/upgrade-sucessful.png":::
+
+
+### AKS Patch upgrades
+
+Once you click upgrade on the overview blade and select AKS patch upgrade on the upgrade pane on the left.
 
 In case of AKS patch upgrade, both cluster pool and clusters do not go through the upgrade simultaneously. Individual clusters need to apply the AKS patch upgrades based on the planned maintenance windows for your clusters.
 
-image
+   :::image type="content" source="./media/in-place-upgrade/aks-version.png" alt-text="Screenshot showing AKS version." border="true" lightbox="./media/in-place-upgrade/aks-version.png":::
