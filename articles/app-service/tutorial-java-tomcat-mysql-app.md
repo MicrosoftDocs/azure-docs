@@ -82,6 +82,8 @@ For your convenience, the [sample repository](https://github.com/Azure-Samples/m
     :::column-end:::
 :::row-end:::
 
+Having issues? Check the [Troubleshooting section](#troubleshooting).
+
 ::: zone pivot="azure-portal"  
 
 ## 2. Create App Service and MySQL
@@ -114,7 +116,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         1. *Region*: Any Azure region near you.
         1. *Name*: **msdocs-tomcat-mysql-XYZ** where *XYZ* is any three random characters. This name must be unique across Azure.
         1. *Runtime stack*: **Java 17**.
-        1. *Java web server stack*: **Apache Tomcat 10.0**.
+        1. *Java web server stack*: **Apache Tomcat 10.1**.
         1. **MySQL - Flexible Server** is selected for you by default as the database engine. If not, select it. Azure Database for MySQL is a fully managed MySQL database as a service on Azure, compatible with the latest community editions.
         1. *Hosting plan*: **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier later.
         1. Select **Review + create**.
@@ -138,6 +140,8 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-create-app-mysql-3.png" alt-text="A screenshot showing the deployment process completed." lightbox="./media/tutorial-java-tomcat-mysql-app/azure-portal-create-app-mysql-3.png":::
     :::column-end:::
 :::row-end:::
+
+Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ## 3. Verify connection settings
 
@@ -368,14 +372,14 @@ When you're finished, you can delete all of the resources from your Azure subscr
 
 In this step, you create the Azure resources and deploy a sample app to App Service on Linux. The steps used in this tutorial create a set of secure-by-default resources that include App Service and Azure Database for MySQL.
 
-1. If you haven't already, clone the sample repository's `starter-no-infra` branch in a local terminal.
+1. In the GitHub codspace of your sample fork, get the remote `starter-no-infra` branch by running the following code in the terminal.
 
     ```bash
-    git checkout starter-no-infra
-    cd msdocs-tomcat-mysql-sample-app
+    git fetch upstream
+    git checkout -b starter-no-infra upstream/starter-no-infra
     ```
 
-    This cloned branch is your starting point. It contains a simple data-drive Tomcat application.
+    This branch is your starting point. It contains a simple data-drive Tomcat application.
 
 1. From the repository root, run `azd init`.
 
@@ -403,7 +407,7 @@ In this step, you create the Azure resources and deploy a sample app to App Serv
     azd up
     ```  
 
-    The `azd up` command takes about 15 minutes to complete (the database and the cache take the most time). It also compiles and deploys your application code, but you'll modify your code later to work with App Service. While it's running, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure. When it finishes, the command also displays a link to the deploy application.
+    The `azd up` command takes about 15 minutes to complete (the Redis cache take the most time). It also compiles and deploys your application code, but you'll modify your code later to work with App Service. While it's running, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure. When it finishes, the command also displays a link to the deploy application.
 
     This azd template contains files (*azure.yaml* and the *infra* directory) that generate a secure-by-default architecture with the following Azure resources:
 
@@ -456,7 +460,7 @@ In this step, you use the SSH connection to the app container to verify the JNDI
 
 ## 5. Modify sample code and redeploy
 
-1. Back in the GitHub codespace of your sample fork, open *src/main/java/com/microsoft/azure/appservice/examples/tomcatmysql/ContextListener.java* in the explorer. When the application starts, this class loads the database settings in *src/main/resources/META-INF/persistence.xml*.
+1. Back in the GitHub codespace of your sample fork, from the explorer, open *src/main/java/com/microsoft/azure/appservice/examples/tomcatmysql/ContextListener.java*. When the application starts, this class loads the database settings in *src/main/resources/META-INF/persistence.xml*.
 
 1. In the `contextIntialized()` method, find the commented code (lines 29-33) and uncomment it. 
 
@@ -470,11 +474,14 @@ In this step, you use the SSH connection to the app container to verify the JNDI
     
     This code checks to see if the `AZURE_MYSQL_CONNECTIONSTRING` app setting exists, and changes the data source to `java:comp/env/jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS`, which is the data source you found earlier in *context.xml* in the SSH shell.
 
-1. In the terminal, run `azd deploy`.
+1. Back in the codespace terminal, run `azd deploy`.
  
     ```bash
     azd deploy
     ```
+
+    > [!TIP]
+    > You can also just use `azd up` always, which does both `azd provision` and `azd deploy`.
 
 ## 6. Browse to the app
 
@@ -521,9 +528,17 @@ azd down
 
 ## Troubleshooting
 
+- [I see many \<Class> scanned from multiple locations warnings with mvn jetty:run](#i-see-many-class-scanned-from-multiple-locations-warnings-with-mvn-jettyrun)
+- [The deployed sample app doesn't show the tasks list app](#the-deployed-sample-app-doesnt-show-the-tasks-list-app)
+- [The portal deployment view for Azure Database for MySQL Flexible Server shows a Conflict status](#the-portal-deployment-view-for-azure-database-for-mysql-flexible-server-shows-a-conflict-status)
+
 #### I see many \<Class> scanned from multiple locations warnings with mvn jetty:run
 
 You can ignore the warnings. The Maven Jetty plugin shows the warnings because the app's *pom.xml* contains the dependency for `jakarta.servlet.jsp.jstl`, which the Jetty already provides out of the box. You need the dependency for Tomcat.
+
+#### The deployed sample app doesn't show the tasks list app
+
+If you see a `Hey, Java developers!` page instead of the tasks list app, it's most likely still loading the updated container from your most recent code deployment. Wait a few minutes and try again.
 
 #### The portal deployment view for Azure Database for MySQL Flexible Server shows a Conflict status
 
