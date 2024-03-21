@@ -51,7 +51,7 @@ Here are some of the important considerations with in-place major version upgrad
 Major Version Upgrade Logs (PG_Upgrade_Logs) provides direct access to detailed logs through the [Server Logs](./how-to-server-logs-portal.md). Here’s how to integrate `PG_Upgrade_Logs` into your upgrade process, ensuring a smoother and more transparent transition to new PostgreSQL versions.
 
 You can configure your Major Version Upgrade Logs in the same way as [Server Logs](./how-to-server-logs-portal.md), above using the Server Parameters
-* `logfiles.download_enable` to ON to enable this feature.
+* `logfiles.download_enable` ON to enable this feature.
 * `logfiles.retention_days` to define logfile retention in days.
 
 #### Setting Up PostgreSQL Version Upgrade Logs
