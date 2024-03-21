@@ -122,7 +122,7 @@ procedureSection:
           - Confirm the deletion request by entering the resource group name and selecting **Delete**.
   
 relatedContent:
-  - text: Get Started with Translator
+  - text: Get started with Translator
     url: quickstart-text-rest-api.md
   - text: Microsoft Translator code samples
     url: https://github.com/MicrosoftTranslator
