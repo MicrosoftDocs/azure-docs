@@ -21,6 +21,7 @@ The size of the reserved capacity purchase should be based on the total amount o
 In this example, any provisioned throughput above 10,000 RU/s is billed with your pay-as-you-go rate. If the provisioned throughput is below 10,000 RU/s in an hour, then the extra reserved capacity for that hour is wasted.
 
 Note that:
+
  * There is no limit to the number of reservations.
  * It's possible to buy more reservations at any moment.
  * It's possible to buy different reservations in the same purchase.
