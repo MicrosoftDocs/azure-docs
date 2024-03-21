@@ -12,6 +12,8 @@ ms.custom: engagement-fy23, devx-track-azurepowershell, devx-track-azurecli
 ---
 # Import an OpenAPI specification
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 This article shows how to import an "OpenAPI specification" backend API residing at `https://conferenceapi.azurewebsites.net?format=json`. This backend API is provided by Microsoft and hosted on Azure. The article also shows how to test the APIM API. 
 
 In this article, you learn how to:
