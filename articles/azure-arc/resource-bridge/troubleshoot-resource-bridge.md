@@ -46,11 +46,7 @@ Using `az arcappliance` commands from remote PowerShell isn't currently supporte
 
 ### Resource bridge configurations can't be updated
 
-In this release, all the parameters are specified at time of creation. To update the Azure Arc resource bridge, you must delete it and redeploy it again.
-
-For example, if you specified the wrong location, or subscription during deployment, later the resource creation fails. If you only try to recreate the resource without redeploying the resource bridge VM, you'll see the status stuck at `WaitForHeartBeat`.
-
-To resolve this issue, delete the appliance and update the appliance YAML file. Then redeploy and create the resource bridge.
+In this release, all the parameters are specified at time of creation. To update the Azure Arc resource bridge, you must delete it and redeploy it again. For example, if you specified the wrong location, or subscription during deployment, later the resource creation fails. If you only try to recreate the resource without redeploying the resource bridge VM, you'll see the status stuck at `WaitForHeartBeat`. To resolve this issue, delete the appliance and update the appliance YAML file. Then redeploy and create the resource bridge.
 
 ### Appliance Network Unavailable 
 
