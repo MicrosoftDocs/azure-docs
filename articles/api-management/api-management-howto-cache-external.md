@@ -13,6 +13,8 @@ ms.author: danlep
 
 # Use an external Redis-compatible cache in Azure API Management
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 In addition to utilizing the built-in cache, Azure API Management allows for caching responses in an external Redis-compatible cache, such as Azure Cache for Redis.
 
 Using an external cache allows you to overcome a few limitations of the built-in cache:

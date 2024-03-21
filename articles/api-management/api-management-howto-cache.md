@@ -6,11 +6,13 @@ manager: erikre
 ms.assetid: 740f6a27-8323-474d-ade2-828ae0c75e7a
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 11/13/2020
+ms.date: 03/20/2024
 ms.author: danlep
 ---
 
 # Add caching to improve performance in Azure API Management
+
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
 
 APIs and operations in API Management can be configured with response caching. Response caching can significantly reduce latency for API callers and backend load for API providers.
 
@@ -26,12 +28,11 @@ What you'll learn:
 > * Add response caching for your API
 > * Verify caching in action
 
-## Availability
 
 > [!NOTE]
-> Internal cache is not available in the **Consumption** tier of Azure API Management. You can [use an external Azure Cache for Redis](api-management-howto-cache-external.md) instead.
+> Internal cache is not available in the **Consumption** tier of Azure API Management. You can [use an external Azure Cache for Redis](api-management-howto-cache-external.md) instead. You can also configure an external cache in other API Management service tiers.
 > 
-> For feature availability in the v2 tiers (preview), see the [v2 tiers overview](v2-service-tiers-overview.md).
+
 
 
 ## Prerequisites
