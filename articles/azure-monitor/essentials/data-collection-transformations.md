@@ -11,6 +11,14 @@ ms.reviwer: nikeist
 # Data collection transformations in Azure Monitor
 With transformations in Azure Monitor, you can filter or modify incoming data before it's sent to a Log Analytics workspace. This article provides a basic description of transformations and how they're implemented. It provides links to other content for creating a transformation.
 
+Transformations are performed in Azure Monitor in the [data ingestion pipeline](../essentials/data-collection.md) after the data source delivers the data and before it's sent to the destination. The data source might perform its own filtering before sending data but then rely on the transformation for further manipulation before it's sent to the destination.
+
+Transformations are defined in a [data collection rule (DCR)](data-collection-rule-overview.md) and use a [Kusto Query Language (KQL) statement](data-collection-transformations-structure.md) that's applied individually to each entry in the incoming data. It must understand the format of the incoming data and create output in the structure expected by the destination.
+
+The following diagram illustrates the transformation process for incoming data and shows a sample query that might be used. See [Structure of transformation in Azure Monitor](./data-collection-transformations-structure.md) for details on building transformation queries.
+
+:::image type="content" source="media/data-collection-transformations/transformation-overview.png" lightbox="media/data-collection-transformations/transformation-overview.png" alt-text="Diagram that shows ingestion-time transformation for incoming data." border="false":::
+
 ## Why to use transformations
 The following table describes the different goals that you can achieve by using transformations.
 
@@ -24,26 +32,20 @@ The following table describes the different goals that you can achieve by using 
 ## Supported tables
 You can apply transformations to the following tables in a Log Analytics workspace:
 
-- Any Azure table listed in [Tables that support transformations in Azure Monitor Logs](../logs/tables-feature-support.md)
+- Any Azure table listed in [Tables that support transformations in Azure Monitor Logs](../logs/tables-feature-support.md). You can also use the [Azure Monitor data reference](/azure/azure-monitor/reference/) which lists the attributes for each table, including whether it supports transformations.
 - Any custom table created for the Azure Monitor Agent. (MMA custom table can't use transformations)
 
-## How transformations work
-Transformations are performed in Azure Monitor in the [data ingestion pipeline](../essentials/data-collection.md) after the data source delivers the data and before it's sent to the destination. The data source might perform its own filtering before sending data but then rely on the transformation for further manipulation before it's sent to the destination.
-
-Transformations are defined in a [data collection rule (DCR)](data-collection-rule-overview.md) and use a [Kusto Query Language (KQL) statement](data-collection-transformations-structure.md) that's applied individually to each entry in the incoming data. It must understand the format of the incoming data and create output in the structure expected by the destination.
-
-The following diagram illustrates the transformation process for incoming data and shows a sample query that might be used. See [Structure of transformation in Azure Monitor](./data-collection-transformations-structure.md) for details on building transformation queries.
-
-:::image type="content" source="media/data-collection-transformations/transformation-overview.png" lightbox="media/data-collection-transformations/transformation-overview.png" alt-text="Diagram that shows ingestion-time transformation for incoming data." border="false":::
 
 ## Create a transformation
 There are multiple methods to create transformations depending on the data collection method. The following table lists guidance for different methods for creating transformations.
 
-| Type | Reference |
+| Data collection | Reference |
 |:---|:---|
-| Logs ingestion API with transformation | [Send data to Azure Monitor Logs by using REST API (Azure portal)](../logs/tutorial-logs-ingestion-portal.md)<br>[Send data to Azure Monitor Logs by using REST API (Azure Resource Manager templates)](../logs/tutorial-logs-ingestion-api.md) |
-| Transformation in workspace DCR | [Add workspace transformation to Azure Monitor Logs by using the Azure portal](../logs/tutorial-workspace-transformations-portal.md)<br>[Add workspace transformation to Azure Monitor Logs by using Resource Manager templates](../logs/tutorial-workspace-transformations-api.md)
-| Agent Transformations in a DCR | [Add transformation to Azure Monitor Log](../agents/azure-monitor-agent-transformation.md)
+| Logs ingestion API | [Send data to Azure Monitor Logs by using REST API (Azure portal)](../logs/tutorial-logs-ingestion-portal.md)<br>[Send data to Azure Monitor Logs by using REST API (Azure Resource Manager templates)](../logs/tutorial-logs-ingestion-api.md) |
+| Virtual machine with Azure Monitor agent | [Add transformation to Azure Monitor Log](../agents/azure-monitor-agent-transformation.md) |
+| Kubernetes cluster with Container insights | [Data transformations in Container insights](../containers/container-insights-transformations.md) |
+| Azure Event Hubs | [Tutorial: Ingest events from Azure Event Hubs into Azure Monitor Logs (Public Preview)](../logs/ingest-logs-event-hub.md) |
+| Transformation in workspace DCR | [Add workspace transformation to Azure Monitor Logs by using the Azure portal](../logs/tutorial-workspace-transformations-portal.md)<br>[Add workspace transformation to Azure Monitor Logs by using Resource Manager templates](../logs/tutorial-workspace-transformations-api.md) |
 
 ## Multiple destinations
 
@@ -66,7 +68,7 @@ The workspace transformation DCR includes default transformations for one or mor
 
 A common use of the workspace transformation DCR is collection of [resource logs](./resource-logs.md) that are configured with a [diagnostic setting](./diagnostic-settings.md). You might want to apply a transformation to this data to filter out records that you don't require. Since diagnostic settings don't have transformations, you can use the workspace transformation DCR to apply a transformation to this data.
 
-:::image type="content" source="media/data-collection-transformations/transformation-workspace.png" lightbox="media/data-collection-transformations/transformation-workspaces.png" alt-text="Diagram that shows operation of the workspace transformation DCR." border="false":::
+:::image type="content" source="media/data-collection-transformations/transformation-workspace.png" lightbox="media/data-collection-transformations/transformation-workspace.png" alt-text="Diagram that shows operation of the workspace transformation DCR." border="false":::
 
 
 ## Monitor transformations
