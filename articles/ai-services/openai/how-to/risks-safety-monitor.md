@@ -43,27 +43,28 @@ Fine-tune your content filter configuration to further align with business needs
 
 The **Potentially abusive user detection** pane shows information about users whose behavior has resulted in blocked content. The goal is to help you get a view of the sources of harmful content so you can take responsive actions to ensure the model is being used in a responsible way. 
 
-In addition to a content filter configuration applied to your deployment, you need the following:
-- Send "UserGUID" information from the Azure OpenAI API calls through the "user" field. Check the API reference.
+To use Potentially abusive user detection, you need:
+- A content filter configuration applied to your deployment.
+- You must be sending user ID information in your Chat Completion requests (see the _user_ parameter of the [Completions API](/azure/ai-services/openai/reference#completions), for example).
     > [!CAUTION]
-    > Do not include sensitive personal data in the "user" field.
-- An Azure Data Explorer database set up to store the user analysis results.
+    > Use GUID strings to identify individual users. Do not include sensitive personal information in the "user" field.
+- An Azure Data Explorer database set up to store the user analysis results (instructions below).
 
 ### Set up your Azure Data Explorer database
 
-In order to protect the data privacy of "user" information and manage the permission of the data, we support the option for customers to bring their own storage to store potentially abusive user detection insights in a compliant way and with full control. Follow these steps to enable it:
-1. Navigate to the model deployment that you'd like to set up user abuse analysis with, and select **Add a data store**.  
+In order to protect the data privacy of user information and manage the permission of the data, we support the option for our customers to bring their own storage to store potentially abusive user detection insights in a compliant way and with full control. Follow these steps to enable it:
+1. In OpenAI Studio, navigate to the model deployment that you'd like to set up user abuse analysis with, and select **Add a data store**. 
 1. Fill in the required information and select **add**. We recommend you create a new database to store the analysis results.
-1. After you connect the data store, perform following actions to grant permission:
-    1. Go to your Azure OpenAI resource page in the Azure portal, and choose the **Identity** tab.  
+1. After you connect the data store, take the following steps to grant permission:
+    1. Go to your Azure OpenAI resource's page in the Azure portal, and choose the **Identity** tab.
     1. Turn the status to **On** for system assigned identity, and copy the ID that's generated. 
-    1. Go to your Azure Data Explorer resource in the Azure portal, choose **databases** and then choose the specific database you crated to store user analysis results.
-    1. Choose **permissions**, and add an **admin** role to the database.  
-    1. Paste the Azure OpenAI identity generated in a previous step, and select the one searched (TBD). Now your Azure OpenAI resource's identity is authorized to read/write to the storage account.
+    1. Go to your Azure Data Explorer resource in the Azure portal, choose **databases**, and then choose the specific database you created to store user analysis results.
+    1. Select **permissions**, and add an **admin** role to the database.  
+    1. Paste the Azure OpenAI identity generated in the earlier step, and select the one searched. Now your Azure OpenAI resource's identity is authorized to read/write to the storage account.
 
 ### Report description 
 
-The potentially abusive user detection relies on the "user" information that customers send from within Azure OpenAI API calls, together with the request content. Several insights are shown:
+The potentially abusive user detection relies on the user information that customers send with their Azure OpenAI API calls, together with the request content. Several insights are shown:
 - **Total potentially abusive user count**: This view shows the number of detected potentially abusive users over time. These are users for whom a pattern of abuse was detected and who might introduce high risk.
 - **Potentially abusive users list**: This view is a detailed list of detected potentially abusive users. It gives the following information for each user: 
     - **UserGUID**: This is sent by the customer through "user" field in Azure OpenAI APIs.
