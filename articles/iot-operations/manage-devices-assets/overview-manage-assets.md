@@ -4,7 +4,7 @@ description: Understand concepts and options needed to manage the assets that ar
 author: timlt
 ms.author: timlt
 ms.topic: overview
-ms.date: 03/01/2024
+ms.date: 03/20/2024
 ai-usage: ai-assisted
 
 # CustomerIntent: As an industrial edge IT or operations user, I want to understand the key components in the Azure IoT Operations for managing assets, so that I can effectively 
@@ -20,7 +20,7 @@ In Azure IoT Operations Preview, a key task is to manage the assets that are par
 ## Understand assets
 Assets are a core component of Azure IoT Operations. It's important to understand how assets relate to IoT devices.
 
-An *IoT device* is a physical entity connected to the internet, and can gather, generate, and communicate data autonomously. IoT devices typically contain embedded components to perform specific functions. They can interact with their environment or other devices. Examples of IoT devices include crop sensors, connected security cameras, wearable devices, and monitoring devices for manufacturing environments or vehicles. 
+An *IoT device* is a physical object connected to the internet to collect, generate, and communicate data. IoT devices typically contain embedded components to perform specific functions. They can manage or monitor other things in their environment. Examples of IoT devices include crop sensors, smart thermostats, connected security cameras, wearable devices, and monitoring devices for manufacturing machinery or vehicles. 
 
 An *asset* in an industrial edge environment is any item of value that an IoT device can manage or monitor. While all IoT devices are assets, not all assets are devices. An asset can also be a machine, a process, software, an entire system, or a physical object of value such as crops, or a building. These assets are common examples that exist in manufacturing, retail, energy, healthcare, and other sectors. 
 

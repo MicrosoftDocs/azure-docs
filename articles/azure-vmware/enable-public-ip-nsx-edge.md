@@ -90,7 +90,7 @@ A Source Network Address Translation (SNAT) service with Port Address Translatio
 
 #### Create a SNAT rule
 
-1. In your Azure VMware Solution private cloud, select **vCenter Server Credentials**.
+1. In your Azure VMware Solution private cloud, select **VMware credentials**.
 1. Locate your NSX Manager URL and credentials.
 1. Sign in to VMware NSX Manager.
 1. Go to **NAT Rules**.
@@ -116,7 +116,8 @@ For more information on NSX-T Data Center NAT configuration and options, see the
 
 You can create a No-NAT or No-SNAT rule in NSX Manager to exclude certain matches from performing NAT. This policy can be used to allow private IP address traffic to bypass existing network translation rules.
 
-1. In your Azure VMware Solution private cloud, select **vCenter Server Credentials**.
+1. In your Azure VMware Solution private cloud, select **VMware credentials**.
+1. Locate your NSX Manager URL and credentials.
 1. Sign in to NSX Manager, and then select **NAT Rules**.
 1. Select the T1 router, and then select **Add NAT Rule**.
 1. Select **No SNAT** rule as the type of NAT rule.
@@ -129,7 +130,8 @@ A Destination Network Translation (DNAT) service is used to expose a VM on a spe
 
 #### Create a DNAT rule
 
-1. In your Azure VMware Solution private cloud, select **vCenter Server Credentials**.
+1. In your Azure VMware Solution private cloud, select **VMware credentials**.
+1. Locate your NSX Manager URL and credentials.
 1. Sign in to NSX Manager, and then select **NAT Rules**.
 1. Select the T1 router, and then select **Add DNAT Rule**.
 1. Enter a name for the rule.
@@ -147,6 +149,7 @@ The VM is now exposed to the internet on the specific public IP address or on sp
 You can provide security protection for your network traffic in and out of the public internet through your gateway firewall.
 
 1. In your Azure VMware Solution private cloud, select **VMware credentials**.
+1. Locate your NSX Manager URL and credentials.
 1. Sign in to NSX Manager.
 1. On the NSX-T overview page, select **Gateway Policies**.
 1. Select **Gateway Specific Rules**, choose the T1 gateway, and then select **Add Policy**.

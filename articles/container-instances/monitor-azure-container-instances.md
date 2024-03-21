@@ -12,19 +12,19 @@ ms.service: container-instances
 # Monitor Azure Container Instances
 
 <!-- Intro. Required. -->
-[!INCLUDE [horz-monitor-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
+[!INCLUDE [horz-monitor-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
 
 <!-- ## Resource types. Required section. -->
-[!INCLUDE [horz-monitor-resource-types](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
+[!INCLUDE [horz-monitor-resource-types](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
 For more information about the resource types for Azure Container Instances, see [Container Instances monitoring data reference](monitor-azure-container-instances-reference.md).
 
 <!-- ## Data storage. Required section. Optionally, add service-specific information about storing your monitoring data after the include. -->
-[!INCLUDE [horz-monitor-data-storage](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-data-storage.md)]
+[!INCLUDE [horz-monitor-data-storage](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-data-storage.md)]
 
 <!-- METRICS SECTION START ------------------------------------->
 
 <!-- ## Platform metrics. Required section. -->
-[!INCLUDE [horz-monitor-platform-metrics](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
+[!INCLUDE [horz-monitor-platform-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 
 For a list of available metrics for Container Instances, see [Container Instances monitoring data reference](monitor-azure-container-instances-reference.md#metrics).
 
@@ -37,23 +37,23 @@ Containers generate similar data as other Azure resources, but they require a co
 <!-- LOGS SECTION START -------------------------------------->
 
 <!-- ## Resource logs. Required section.-->
-[!INCLUDE [horz-monitor-resource-logs](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
+[!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 
 - For more information about how to get log data for Container Instances, see [Retrieve container logs and events in Azure Container Instances](container-instances-get-logs.md).
 - For the available resource log categories, associated Log Analytics tables, and the logs schemas for Container Instances, see [Container Instances monitoring data reference](monitor-azure-container-instances-reference.md#resource-logs).
 
 <!-- ## Activity log. Required section. Optionally, add service-specific information about your activity log after the include. -->
-[!INCLUDE [horz-monitor-activity-log](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
+[!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 
 <!-- LOGS SECTION END ------------------------------------->
 
 <!-- ANALYSIS SECTION START -------------------------------------->
 
 <!-- ## Analyze data. Required section. -->
-[!INCLUDE [horz-monitor-analyze-data](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
+[!INCLUDE [horz-monitor-analyze-data](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
 
 <!-- ### External tools. Required section. -->
-[!INCLUDE [horz-monitor-external-tools](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-external-tools.md)]
+[!INCLUDE [horz-monitor-external-tools](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-external-tools.md)]
 
 ### Analyze Container Instances logs
 
@@ -64,7 +64,7 @@ For detailed information and instructions for querying logs, see [Container grou
 For the Azure Monitor logs table schemas for Container Instances, see [Container Instances monitoring data reference](monitor-azure-container-instances-reference.md#azure-monitor-logs-tables).
 
 <!-- ### Sample Kusto queries. Required section. If you have sample Kusto queries for your service, add them after the include. -->
-[!INCLUDE [horz-monitor-kusto-queries](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
+[!INCLUDE [horz-monitor-kusto-queries](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
 
 The following query examples use the legacy Log Analytics log tables. The basic structure of a query is the source table, `ContainerInstanceLog_CL` or `ContainerEvent_CL`, followed by a series of operators separated by the pipe character (`|`). You can chain several operators to refine the results and perform advanced functions.
 
@@ -90,9 +90,9 @@ ContainerInstanceLog_CL
 <!-- ALERTS SECTION START -------------------------------------->
 
 <!-- ## Alerts. Required section. -->
-[!INCLUDE [horz-monitor-alerts](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
+[!INCLUDE [horz-monitor-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
 
-[!INCLUDE [horz-monitor-insights-alerts](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights-alerts.md)]
+[!INCLUDE [horz-monitor-insights-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights-alerts.md)]
 
 <!-- ### Container Instances alert rules. Required section.-->
 
@@ -106,7 +106,7 @@ The following table lists common and recommended alert rules for Container Insta
 | Log alerts | `stdout` and `stderr` outputs in the logs | Use custom log search to set alerts for specific outputs that appear in logs. |
 
 <!-- ### Advisor recommendations. Required section. -->
-[!INCLUDE [horz-monitor-advisor-recommendations](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
+[!INCLUDE [horz-monitor-advisor-recommendations](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
 
 <!-- ALERTS SECTION END -------------------------------------->
 
