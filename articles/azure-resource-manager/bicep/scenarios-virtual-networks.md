@@ -5,8 +5,9 @@ author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 07/20/2022
+ms.date: 03/20/2024
 ---
+
 # Create virtual network resources by using Bicep
 
 Many Azure deployments require networking resources to be deployed and configured. You can use Bicep to define your Azure networking resources.

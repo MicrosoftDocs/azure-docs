@@ -1,22 +1,28 @@
 ---
 title: Manage assets overview
-description: Understand the options to manage the assets that are part of your Azure IoT Operations solution.
+description: Understand concepts and options needed to manage the assets that are part of your Azure IoT Operations solution.
 author: timlt
 ms.author: timlt
-ms.topic: conceptual
-ms.date: 03/01/2024
+ms.topic: overview
+ms.date: 03/20/2024
+ai-usage: ai-assisted
+
+# CustomerIntent: As an industrial edge IT or operations user, I want to understand the key components in the Azure IoT Operations for managing assets, so that I can effectively 
+# manage the assets in my solution. 
 ---
 
-# Manage assets in Azure IoT Operations Preview
+# What is asset management in Azure IoT Operations Preview
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
 In Azure IoT Operations Preview, a key task is to manage the assets that are part of your solution. This article defines what assets are, overviews the services you use to manage them, and explains the most common use cases for the services.
 
 ## Understand assets
-Assets are a core component of Azure IoT Operations.
+Assets are a core component of Azure IoT Operations. It's important to understand how assets relate to IoT devices.
 
-An *asset* in an industrial edge environment is a device, a machine, a process, or an entire system. These assets are the real assets that exist in manufacturing, retail, energy, healthcare, and other sectors.
+An *IoT device* is a physical object connected to the internet to collect, generate, and communicate data. IoT devices typically contain embedded components to perform specific functions. They can manage or monitor other things in their environment. Examples of IoT devices include crop sensors, smart thermostats, connected security cameras, wearable devices, and monitoring devices for manufacturing machinery or vehicles. 
+
+An *asset* in an industrial edge environment is any item of value that an IoT device can manage or monitor. While all IoT devices are assets, not all assets are devices. An asset can also be a machine, a process, software, an entire system, or a physical object of value such as crops, or a building. These assets are common examples that exist in manufacturing, retail, energy, healthcare, and other sectors. 
 
 An *asset* in Azure IoT Operations is a logical entity (an asset instance) that you create to represent a real asset. An Azure IoT Operations asset can emit telemetry, and can have properties (writable data points), and commands (executable data points) that describe its behavior and characteristics. You use these asset instances in the software to manage the real assets in your industrial edge environment.
 

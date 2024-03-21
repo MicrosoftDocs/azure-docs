@@ -199,7 +199,7 @@ Setting up Microsoft Entra ID and using it can be challenging, so here are some 
 > [!NOTE] 
 > With migration of Identities platforms (ADAL to MSAL), deprecation of AzureRM in favor of Azure AZ, and supporting multiple versions of PowerShell, dependencies may not always be correct or up to date causing errors in script execution. Running PowerShell commands and scripts from Azure Cloud Shell reduces the potential for errors with session auto authentication and managed identity.
 
-[![Button to launch the Azure Cloud Shell.](~/articles/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png)](https://shell.azure.com/powershell)
+[![Button to launch the Azure Cloud Shell.](~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png)](https://shell.azure.com/powershell)
 
 
 ### **Request_BadRequest**

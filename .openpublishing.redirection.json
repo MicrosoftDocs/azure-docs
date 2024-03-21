@@ -41,6 +41,11 @@
       "redirect_document_id": false
     },
     {
+        "source_path": "articles/internet-analyzer/index.yml",
+        "redirect_url": "/previous-versions/azure/internet-analyzer/internet-analyzer-overview",
+        "redirect_document_id": false
+    },
+    {
       "source_path": "articles/batch/batch-pool-no-public-ip-address.md",
       "redirect_url": "/previous-versions/azure/batch/articles/batch/batch-pool-no-public-ip-address",
       "redirect_document_id": false
@@ -11024,6 +11029,18 @@
             "redirect_document_id": false
         },
         {
+
+            "source_path_from_root": "/articles/cosmos-db/mongodb/vcore/high-availability.md",
+            "redirect_url": "/azure/reliability/reliability-cosmos-mongodb",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cosmos-db/mongodb/vcore/failover-disaster-recovery.md",
+            "redirect_url": "/azure/reliability/reliability-cosmos-mongodb",
+            "redirect_document_id": false 
+        },
+        {  
+
             "source_path_from_root": "/articles/notification-hubs/notification-hubs-high-availability.md",
             "redirect_url": "/azure/reliability/reliability-notification-hubs",
             "redirect_document_id": false
@@ -11059,7 +11076,6 @@
             "redirect_url": "/azure/operational-excellence/relocation-storage-account",
             "redirect_document_id": false 
         }
-        
-        
+
     ]
 }
