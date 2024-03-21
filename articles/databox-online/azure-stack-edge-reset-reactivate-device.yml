@@ -53,12 +53,12 @@ procedureSection:
       - |
         Select **Reset device**.
 
-        ![Reset device](includes/media/azure-stack-edge-device-reset/device-reset-1.png)
+        ![Reset device](/includes/media/azure-stack-edge-device-reset/device-reset-1.png)
 
       - |
         When prompted for confirmation, review the warning. Type **Yes** and then select **Yes** to continue.
 
-        ![Confirm reset](includes/media/azure-stack-edge-device-reset/device-reset-2.png)  
+        ![Confirm reset](/includes/media/azure-stack-edge-device-reset/device-reset-2.png)  
 
   - title: |  
       Remove Azure resources from your Azure Stack Edge device
