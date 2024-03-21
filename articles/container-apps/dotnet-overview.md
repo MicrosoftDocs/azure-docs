@@ -59,7 +59,7 @@ When you configure the ingress, set the target port to the number corresponding 
 
 ### X-forwarded headers
 
-Because the original HTTP request is handled by the ingress, your app will see the ingress as the client. There are some situations where your app needs to know the original client's IP address or the original protocol (HTTP or HTTPS). The HTTP ingress adds [`X-Forwarded-*` headers](ingress-overview#http-headers) to the request that contain this information.
+Because the original HTTP request is handled by the ingress, your app will see the ingress as the client. There are some situations where your app needs to know the original client's IP address or the original protocol (HTTP or HTTPS). The HTTP ingress adds [`X-Forwarded-*` headers](ingress-overview.md#http-headers) to the request that contain this information.
 
 You can configure your ASP.NET Core app to use these headers by adding the following code:
 
