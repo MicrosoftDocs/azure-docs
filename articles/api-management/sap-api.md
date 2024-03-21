@@ -11,6 +11,8 @@ ms.date: 07/21/2023
 
 # Import SAP OData metadata as an API
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 This article shows how to import an OData service using its metadata description. In this article, [SAP Gateway Foundation](https://help.sap.com/viewer/product/SAP_GATEWAY) serves as an example. 
 
 In this article, you'll: 
