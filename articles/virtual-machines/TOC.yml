@@ -1353,7 +1353,7 @@
         - name: Disk encryption scenarios for Windows
           href: ./windows/disk-encryption-windows.md
         - name: Key vault for Azure Disk Encryption
-          href: ./windows/disk-encryption-key-vault.md
+          href: ./windows/disk-encryption-key-vault.yml
         - name: Disk encryption sample scripts
           href: ./windows/disk-encryption-sample-scripts.md
         - name: Disk encryption troubleshooting

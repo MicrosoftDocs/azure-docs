@@ -57,7 +57,7 @@ If the user permissions aren't in place, select **Add Access Policy**, and speci
 
 Azure VMs that use Azure Disk Encryption can have the following variations, and you'll require to set the permissions according to their relevant components. The VMs might have:
 - A default option where the disk is encrypted with secrets only.
-- Added security that uses a [Key Encryption Key (KEK)](../virtual-machines/windows/disk-encryption-key-vault.md#set-up-a-key-encryption-key-kek).
+- Added security that uses a [Key Encryption Key (KEK)](../virtual-machines/windows/disk-encryption-key-vault.yml#set-up-a-key-encryption-key-kek).
 
 ### Source region key vault
 
