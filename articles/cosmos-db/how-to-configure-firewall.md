@@ -55,9 +55,9 @@ You can enable requests to access the Azure portal by selecting the **Allow acce
 
 #### New Azure portal IP Addresses
 
-Cosmos DB portal services are transitioning to new infrastructure in 2024. As part of this transition, new IP addresses will be required to allow some portal functionality, such as Data Explorer, to continue working for accounts with firewalls enabled. This move will also introduce dedicated IP addresses for Mongo DB and Apache Cassandra API accounts. The new IP addresses are listed below for each Azure environment.
+Cosmos DB portal services are transitioning to new infrastructure in 2024. As part of this transition, accounts with firewall enabled will require new IP addresses to be allowed to continue access to some portal functionality, such as Data Explorer. This move also introduces dedicated IP addresses for Mongo DB and Apache Cassandra API accounts.
 
-During this transition, the **Allow access from Azure portal** option will add both current and new IP addresses to account firewall settings. When the transition is complete a portal option will be made available to remove the old IP addresses.
+During this transition, the **Allow access from Azure portal** option adds both current and new IP addresses to account firewall settings (including MongoDB and Cassandra specific addresses for those accounts) When the transition is complete, a portal option will be made available to remove the old IP addresses.
 
 ##### Azure Public
 
