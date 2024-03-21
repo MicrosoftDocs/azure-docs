@@ -109,7 +109,7 @@ dnsresources
 | extend ipaddress=properties['records'][0]['ipv4Address']
 | project name, ipaddress, type, linkname, properties
 ```
-![Screenshot of the virtual network links query.](./media/private-dns-arg/autoregistered.png)
+![Screenshot of the autoregistration query.](./media/private-dns-arg/autoregistered.png)
 
 ## Next steps
 
