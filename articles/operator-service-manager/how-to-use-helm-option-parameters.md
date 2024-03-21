@@ -1,6 +1,6 @@
 ---
-title: How to use Helm option parameters to debug helm install failures
-description: Learn how to use Helm option parameters to debug helm install failures
+title: How to use Helm option parameters to prevent deletion on install failure
+description: Learn how to use Helm option parameters to prevent deletion on install failure
 author: peterwhiting
 ms.author: peterwhiting
 ms.date: 03/21/2024
@@ -9,7 +9,7 @@ ms.service: azure-operator-service-manager
 ms.custom: devx-track-azurecli
 
 ---
-# Use Helm option parameters to debug helm install failures
+# Use Helm option parameters to prevent deletion on install failure
 
 Site Network Service (SNS) deployments may fail because an underlying Network Function (NF) deployment fails to helm install correctly. Azure Operator Service Manager (AOSM) removes failed deployments from the targeted Kubernetes cluster by default to preserve resources. Helm install failures often require the resources to persist on the cluster to allow the failure to be debugged. This How-To article covers how to edit the NF ARM template to override this behaviour by setting the `helm install --atomic` parameter to false.
 
@@ -96,7 +96,7 @@ resource nfdv 'Microsoft.Hybridnetwork/publishers/networkfunctiondefinitiongroup
 1. Edit the template to override the default helm install `--atomic` option by adding the following configuration to the `nfResource` properties in the NF ARM Template:
 
 ```json
-roleOverrideValues: ["{\"name\": \"<NF APPLICATION NAME FROM NFDV>\", \"deployParametersMappingRuleProfile\": {\"applicationEnablement\": \"Enabled\", \"helmMappingRuleProfile\": {\"options\": {\"installOptions\": {\"atomic\": \"false\"}}}}}"]
+roleOverrideValues: ["{\"name\": \"Contoso-one\", \"deployParametersMappingRuleProfile\": {\"applicationEnablement\": \"Enabled\", \"helmMappingRuleProfile\": {\"options\": {\"installOptions\": {\"atomic\": \"false\"}},{\"upgradeOptions\": {\"atomic\": \"false\"}}}}}"]
 ```
 
 1. Compare against the following snippet from the Contoso example NF to confirm that you have made this edit correctly
@@ -116,7 +116,7 @@ resource nfResource 'Microsoft.HybridNetwork/networkFunctions@2023-09-01' = [for
     allowSoftwareUpdate: true
     configurationType: 'Secret'
     secretDeploymentValues: string(values)
-    roleOverrideValues: ['{\"name\": \"Contoso\", \"deployParametersMappingRuleProfile\": {\"applicationEnablement\": \"Enabled\", \"helmMappingRuleProfile\": {\"options\": {\"installOptions\": {\"atomic\": \"false\"}}}}}']
+    roleOverrideValues: ['{\"name\": \"Contoso-one\", \"deployParametersMappingRuleProfile\": {\"applicationEnablement\": \"Enabled\", \"helmMappingRuleProfile\": {\"options\": {\"installOptions\": {\"atomic\": \"false\"}},{\"upgradeOptions\": {\"atomic\": \"false\"}}}}}']
 ```
 
 ### Build and upload the edited ARM Template to the Artifact Store
@@ -200,5 +200,8 @@ resource nfResource 'Microsoft.HybridNetwork/networkFunctions@2023-09-01' = [for
     allowSoftwareUpdate: true
     configurationType: 'Secret'
     secretDeploymentValues: string(values)
-    roleOverrideValues: ['{\"name\": \"Contoso-one\", \"deployParametersMappingRuleProfile\": {\"applicationEnablement\": \"Enabled\", \"helmMappingRuleProfile\": {\"options\": {\"installOptions\": {\"atomic\": \"false\"}}}}},{\"name\": \"Contoso-two\", \"deployParametersMappingRuleProfile\": {\"applicationEnablement\": \"Enabled\", \"helmMappingRuleProfile\": {\"options\": {\"installOptions\": {\"atomic\": \"false\"}}}}},{\"name\": \"Contoso-three\", \"deployParametersMappingRuleProfile\": {\"applicationEnablement\": \"Enabled\", \"helmMappingRuleProfile\": {\"options\": {\"installOptions\": {\"atomic\": \"true\"}}}}}']
+    roleOverrideValues: ['{\"name\": \"Contoso-one\", \"deployParametersMappingRuleProfile\": {\"applicationEnablement\": \"Enabled\", \"helmMappingRuleProfile\": {\"options\": {\"installOptions\": {\"atomic\": \"false\"}},{\"upgradeOptions\": {\"atomic\": \"false\"}}}}},{\"name\": \"Contoso-two\", \"deployParametersMappingRuleProfile\": {\"applicationEnablement\": \"Enabled\", \"helmMappingRuleProfile\": {\"options\": {\"installOptions\": {\"atomic\": \"false\"}},{\"upgradeOptions\": {\"atomic\": \"false\"}}}}},{\"name\": \"Contoso-three\", \"deployParametersMappingRuleProfile\": {\"applicationEnablement\": \"Enabled\", \"helmMappingRuleProfile\": {\"options\": {\"installOptions\": {\"atomic\": \"true\"}},{\"upgradeOptions\": {\"atomic\": \"true\"}}}}}']
 ```
+
+## Next steps
+
