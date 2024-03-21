@@ -52,10 +52,10 @@ To review the logs related to all actions performed by the extension, on Windows
 
 ---
 
-## Policy isn't auto remediating for specialized, migrated & restored VMs during create
+## Periodic assessment policy isn't setting periodic assessment correctly for specialized, migrated and restored VMs during create
 
 ### Cause
-You cannot apply policy during create for specialized, migrated, and restored VM because of the way the current modify policy is designed. Post-creation, the policy will show these resources as noncompliant on the compliance dashboard.
+Periodic assessment isn't getting set correctly during create for specialized, migrated, and restored VM because of the way the current modify policy is designed. Post-creation, the policy will show these resources as noncompliant on the compliance dashboard.
 
 ### Resolution
 
