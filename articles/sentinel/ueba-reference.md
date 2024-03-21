@@ -221,23 +221,23 @@ While the initial synchronization may take a few days, once the data is fully sy
 >
 > - There are actually two versions of the *IdentityInfo* table: one serving Microsoft Sentinel, the other serving Microsoft Defender for Identity. Both versions of this table are fed by Microsoft Entra ID, but the Sentinel version added a few fields.
 > 
->    The unified security operations platform uses the Defender for Identity version of this table, so to equalize the versions of the table, the unique fields in the Sentinel version have been added to the Defender for Identity version as well. Regardless of in which portal you're using Microsoft Sentinel, you'll have access to all the same information, though there may be a small time lag in synchronization between the versions.
+>    [Microsoft Sentinel in the Defender portal](microsoft-sentinel-defender-portal.md) uses the Defender for Identity version of this table, so to equalize the versions of the table, the unique fields in the Sentinel version have been added to the Defender for Identity version as well. Regardless of in which portal you're using Microsoft Sentinel, you'll have access to all the same information, though there may be a small time lag in synchronization between the versions.
 
 The following table describes the user identity data included in the **IdentityInfo** table in Log Analytics.
 
 | Field                           | Type     | Description                                                |
 | ------------------------------- | -------- | ---------------------------------------------------------- |
-| **AccountCloudSID**             | string   | The Microsoft Entra security identifier of the account.           |
+| **AccountCloudSID**             | string   | The Microsoft Entra security identifier of the account.    |
 | **AccountCreationTime**         | datetime | The date the user account was created (UTC).               |
 | **AccountDisplayName**          | string   | The display name of the user account.                      |
 | **AccountDomain**               | string   | The domain name of the user account.                       |
 | **AccountName**                 | string   | The user name of the user account.                         |
-| **AccountObjectId**             | string   | The Microsoft Entra object ID for the user account. |
+| **AccountObjectId**             | string   | The Microsoft Entra object ID for the user account.        |
 | **AccountSID**                  | string   | The on-premises security identifier of the user account.   |
-| **AccountTenantId**             | string   | The Microsoft Entra tenant ID of the user account.  |
+| **AccountTenantId**             | string   | The Microsoft Entra tenant ID of the user account.         |
 | **AccountUPN**                  | string   | The user principal name of the user account.               |
 | **AdditionalMailAddresses**     | dynamic  | The additional email addresses of the user.                |
-| **AssignedRoles**               | dynamic  | The Microsoft Entra roles the user account is assigned to.        |
+| **AssignedRoles**               | dynamic  | The Microsoft Entra roles the user account is assigned to. |
 | **BlastRadius**                 | string   | A calculation based on the position of the user in the org tree and the user's Microsoft Entra roles and permissions. <br>Possible values: *Low, Medium, High* |
 | **ChangeSource**                | string   | The source of the latest change to the entity. <br>Possible values:<br>- *AzureActiveDirectory*<br>- *ActiveDirectory*<br>- *UEBA*<br>- *Watchlist*<br>- *FullSync* |
 | **City**                        | string   | The city of the user account.                              |
@@ -245,7 +245,7 @@ The following table describes the user identity data included in the **IdentityI
 | **DeletedDateTime**             | datetime | The date and time the user was deleted.                    |
 | **Department**                  | string   | The department of the user account.                        |
 | **GivenName**                   | string   | The given name of the user account.                        |
-| **GroupMembership**             | dynamic  | Microsoft Entra groups where the user account is a member.        |
+| **GroupMembership**             | dynamic  | Microsoft Entra groups where the user account is a member. |
 | **IsAccountEnabled**            | bool     | An indication as to whether the user account is enabled in Microsoft Entra ID or not. |
 | **JobTitle**                    | string   | The job title of the user account.                         |
 | **MailAddress**                 | string   | The primary email address of the user account.             |
