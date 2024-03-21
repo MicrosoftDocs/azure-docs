@@ -12,6 +12,8 @@ ms.date: 06/11/2021
 
 # Plan and manage costs for API Management
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 This article describes how you plan for and manage costs for Azure API Management. First, you use the Azure pricing calculator to help plan for API Management costs before you add any resources for the service to estimate costs. After you've started using API Management resources, use Cost Management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act. 
 
 Costs for API Management are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan for and manage costs for API Management, you're billed for all Azure services and resources used in your Azure subscription, including the third-party services.
