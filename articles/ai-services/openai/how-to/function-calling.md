@@ -149,6 +149,9 @@ When functions are provided, by default the `function_call` is set to `"auto"` a
 
 # [OpenAI Python 0.28.1](#tab/python)
 
+[!INCLUDE [Deprecation](../includes/deprecation.md)]
+
+
 ```python
 
 import os

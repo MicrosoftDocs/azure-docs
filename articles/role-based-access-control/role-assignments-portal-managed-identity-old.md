@@ -11,7 +11,7 @@ ms.author: rolyon
 
 # Assign Azure roles to a managed identity (Preview)
 
-You can assign a role to a managed identity by using the **Access control (IAM)** page as described in [Assign Azure roles using the Azure portal](role-assignments-portal.md). When you use the Access control (IAM) page, you start with the scope and then select the managed identity and role. This article describes an alternate way to assign roles for a managed identity. Using these steps, you start with the managed identity and then select the scope and role.
+You can assign a role to a managed identity by using the **Access control (IAM)** page as described in [Assign Azure roles using the Azure portal](role-assignments-portal.yml). When you use the Access control (IAM) page, you start with the scope and then select the managed identity and role. This article describes an alternate way to assign roles for a managed identity. Using these steps, you start with the managed identity and then select the scope and role.
 
 > [!IMPORTANT]
 > Assign a role to a managed identity using these alternate steps is currently in preview.
@@ -85,5 +85,5 @@ Follow these steps to assign a role to a user-assigned managed identity by start
 ## Next steps
 
 - [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
-- [Assign Azure roles using the Azure portal](role-assignments-portal.md)
+- [Assign Azure roles using the Azure portal](role-assignments-portal.yml)
 - [List Azure role assignments using the Azure portal](role-assignments-list-portal.yml)

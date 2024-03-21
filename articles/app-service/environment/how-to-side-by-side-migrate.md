@@ -212,6 +212,7 @@ Run the following command to check the status of your migration:
 ```azurecli
 az rest --method get --uri "${ASE_ID}?api-version=2022-03-01" --query properties.subStatus
 ```
+
 After you get a status of `MigrationPendingDnsChange`, migration is done, and you have an App Service Environment v3 resource. Your apps are now running in your new environment as well as in your old environment.
 
 Get the details of your new environment by running the following command:
@@ -240,13 +241,21 @@ az rest --method get --uri "${ASE_ID}?api-version=2022-03-01" --query properties
 
 ## 11. Redirect customer traffic and complete migration
 
-This step is your opportunity to test and validate your new App Service Environment v3. Your App Service Environment v2 front ends are still running, but the backing compute is an App Service Environment v3. If you're able to access your apps without issues, that means you're ready to complete the migration. In order to test the new inbound IP, you need to create DNS records to ensure you go through the App Service Environment v3 front ends.
+This step is your opportunity to test and validate your new App Service Environment v3. Your App Service Environment v2 front ends are still running, but the backing compute is an App Service Environment v3. If you're able to access your apps without issues, that means you're ready to complete the migration.
 
 Once you confirm your apps are working as expected, you can redirect customer traffic to your new App Service Environment v3 front ends by running the following command. This command also deletes your old environment.
 
 ```azurecli
 az rest --method post --uri "${ASE_ID}/NoDowntimeMigrate?phase=DnsChange&api-version=2022-03-01"
 ```
+
+Run the following command to check the status of this step:
+
+```azurecli
+az rest --method get --uri "${ASE_ID}?api-version=2022-03-01" --query properties.subStatus
+```
+
+During this step, you get a status of `CompletingMigration`. When you get a status of `MigrationCompleted`, the traffic redirection step is done and your migration is complete.
 
 If you find any issues or decide at this point that you no longer want to proceed with the migration, contact support to revert the migration. Don't run the above command if you need to revert the migration. For more information, see [Revert migration](side-by-side-migrate.md#redirect-customer-traffic-and-complete-migration).
 

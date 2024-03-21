@@ -83,7 +83,7 @@
     - name: Portal
       items:
       - name: Assign roles
-        href: role-assignments-portal.md
+        href: role-assignments-portal.yml
       - name: Managed identity
         href: role-assignments-portal-managed-identity.yml
       - name: External users

@@ -17,12 +17,6 @@ ms.custom: references_regions, ignite-2023
 
 This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc-enabled data services.
 
-### Streamlined network endpoints
-
-Prior to this release, Azure Arc data processing endpoint was at `san-af-<region>-prod.azurewebsites.net`.
-
-Beginning with this release both Azure Arc data processing, and Azure Arc data telemetry use `*.<region>.arcdataservices.com`. 
-
 ## March 12, 2024
 
 **Image tag**:`v1.28.0_2024-03-12`|
@@ -32,6 +26,12 @@ For complete release version information, review [Version log](version-log.md#ma
 ### SQL Managed Instance enabled by Azure Arc 
 
 Database version for this release (964) has been upgraded beyond the database version for SQL Server 2022 (957). As a result, you can't restore databases from SQL Managed Instance enabled by Azure Arc to SQL Server 2022.
+
+### Streamlined network endpoints
+
+Prior to this release, Azure Arc data processing endpoint was at `san-af-<region>-prod.azurewebsites.net`.
+
+Beginning with this release both Azure Arc data processing, and Azure Arc data telemetry use `*.<region>.arcdataservices.com`. 
 
 ## February 13, 2024
 

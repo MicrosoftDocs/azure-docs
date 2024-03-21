@@ -3,8 +3,9 @@ title: Manage resource groups - Azure portal
 description: Use Azure portal to manage your resource groups through Azure Resource Manager. Shows how to create, list, and delete resource groups.
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 08/16/2023
+ms.date: 03/19/2024
 ---
+
 # Manage Azure resource groups by using the Azure portal
 
 Learn how to use the [Azure portal](https://portal.azure.com) with [Azure Resource Manager](overview.md) to manage your Azure resource groups. For managing Azure resources, see [Manage Azure resources by using the Azure portal](manage-resources-portal.md).
@@ -93,7 +94,7 @@ For information about exporting templates, see [Single and multi-resource export
 
 ## Manage access to resource groups
 
-[Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) is the way that you manage access to resources in Azure. For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+[Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) is the way that you manage access to resources in Azure. For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
 ## Next steps
 

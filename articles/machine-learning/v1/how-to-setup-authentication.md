@@ -138,7 +138,7 @@ The easiest way to create an SP and grant access to your workspace is by using t
 
 1. From the [Azure portal](https://portal.azure.com), select your workspace and then select __Access Control (IAM)__.
 1. Select __Add__, __Add Role Assignment__ to open the __Add role assignment page__.
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
     | Setting | Value |
     | ----- | ----- |

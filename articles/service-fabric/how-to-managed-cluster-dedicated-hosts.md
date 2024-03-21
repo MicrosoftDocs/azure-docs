@@ -25,7 +25,7 @@ Before you begin:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
 * Retrieve a managed cluster ARM template. Sample Resource Manager templates are available in the [Azure samples on GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). These templates can be used as a starting point for your cluster template. This guide shows how to deploy a Standard SKU cluster with two node types and 12 nodes.
-* The user needs to have Microsoft.Authorization/roleAssignments/write permissions to the host group such as [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../role-based-access-control/built-in-roles.md#owner) to do role assignments in a host group. For more information, see [Assign Azure roles using the Azure portal - Azure RBAC](../role-based-access-control/role-assignments-portal.md?tabs=current#prerequisites).
+* The user needs to have Microsoft.Authorization/roleAssignments/write permissions to the host group such as [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../role-based-access-control/built-in-roles.md#owner) to do role assignments in a host group. For more information, see [Assign Azure roles using the Azure portal - Azure RBAC](../role-based-access-control/role-assignments-portal.yml?tabs=current#prerequisites).
 
 
 ## Review the template
