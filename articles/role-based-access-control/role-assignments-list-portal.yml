@@ -218,7 +218,7 @@ procedureSection:
 
 relatedContent:
   - text: Assign Azure roles using the Azure portal
-    url: role-assignments-portal.md
+    url: role-assignments-portal.yml
   - text: Troubleshoot Azure RBAC
     url: troubleshooting.md
 
