@@ -19,7 +19,7 @@ ms.date: 09/19/2023
 
 The NC A100 v4 series virtual machine (VM) is a new addition to the Azure GPU family. You can use this series for real-world Azure Applied AI training and batch inference workloads. 
 
-The NC A100 v4 series is powered by NVIDIA A100 PCIe GPU and 3rd-generation AMD EPYC™ 7V13 (Milan) processors.  The VMs feature up to 4 NVIDIA A100 PCIe GPUs with 80GB memory each, up to 96 non-multithreaded AMD EPYC Milan processor cores and 880 GiB of system memory. 
+The NC A100 v4 series is powered by NVIDIA A100 PCIe GPU and third generation AMD EPYC™ 7V13 (Milan) processors.  The VMs feature up to 4 NVIDIA A100 PCIe GPUs with 80 GB memory each, up to 96 non-multithreaded AMD EPYC Milan processor cores and 880 GiB of system memory. 
 These VMs are ideal for real-world Applied AI workloads, such as: 
 
 - GPU-accelerated analytics and databases
@@ -36,10 +36,7 @@ These VMs are ideal for real-world Applied AI workloads, such as:
 
 To get started with NC A100 v4 VMs, refer to [HPC Workload Configuration and Optimization](configure.md) for steps including driver and network configuration.
 
-Due to increased GPU memory I/O footprint, the NC A100 v4 requires the use of [Generation 2 VMs](generation-2.md) and marketplace images. While the [Azure HPC images](configure.md) are strongly recommended, Azure HPC Ubuntu 20.04 and Azure HPC CentOS 7.9, RHEL 8.8, RHEL 9.2, Windows Server 2019, and Windows Server 2022 images are supported.
-
-Note: The Ubuntu-HPC 18.04-ncv4 image is only valid during preview and deprecated on 7/29/2022.  All changes have been merged into standard Ubuntu-HPC 18.04 image. Please follow instruction [Azure HPC images](configure.md) for configuration.
- 
+Due to increased GPU memory I/O footprint, the NC A100 v4 requires the use of [Generation 2 VMs](generation-2.md) and marketplace images. While the [Azure HPC images](configure.md) are  recommended, Azure HPC Ubuntu 20.04 and Azure HPC CentOS 7.9, RHEL 8.8, RHEL 9.2, Windows Server 2019, and Windows Server 2022 images are supported.
 
 - [Premium Storage](premium-storage-performance.md): Supported
 - [Premium Storage caching](premium-storage-performance.md): Supported
