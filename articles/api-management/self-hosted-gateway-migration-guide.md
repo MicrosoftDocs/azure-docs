@@ -12,6 +12,8 @@ ms.author: tomkerkhove
 
 # Self-hosted gateway migration guide
 
+[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
+
 This article explains how to migrate existing self-hosted gateway deployments to self-hosted gateway v2.
 
 > [!IMPORTANT]

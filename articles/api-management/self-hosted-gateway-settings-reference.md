@@ -12,6 +12,8 @@ ms.author: danlep
 
 # Reference: Self-hosted gateway container configuration settings
 
+[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
+
 This article provides a reference for required and optional settings that are used to configure the API Management [self-hosted gateway container](self-hosted-gateway-overview.md).
 
 To learn more about our (Kubernetes) production guidance, we recommend reading [this article](how-to-self-hosted-gateway-on-kubernetes-in-production.md).
