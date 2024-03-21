@@ -21,7 +21,7 @@ This deployment mode enables you to assign dedicated resources for specific Flin
 
 1. Simplified cluster deployment with Job jar.
 
-1. User friendly REST API: HDInsight on AKS provides user friendly ARM Rest APIs to manager app mode job operation like Update, Savepoint, Cancel, Delete.  
+1. User friendly REST API: HDInsight on AKS provides user friendly ARM Rest APIs to manage app mode job operation like Update, Savepoint, Cancel, Delete.  
 
 1. Easy to manage Job Updates and State Management: The native Azure portal integration provides a hassle-free experience for updating jobs and restoring them to their last saved state (savepoint). This functionality ensures continuity and data integrity throughout the job lifecycle.
 
