@@ -1590,7 +1590,7 @@
         href: ./windows/find-unattached-disks.md
       - name: Portal
         displayName: Find unattached disks
-        href: disks-find-unattached-portal.md
+        href: disks-find-unattached-portal.yml
     - name: Disks FAQs
       href: faq-for-disks.yml
 - name: Networking
