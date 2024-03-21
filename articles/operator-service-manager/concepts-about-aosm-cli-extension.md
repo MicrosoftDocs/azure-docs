@@ -9,31 +9,27 @@ ms.date: 03/20/2024
 ---
 # About the Azure Operator Service Manager CLI extension
 
-Azure Operator Service Manager (AOSM) enables publishers of containerized network functions (CNF) and virtualized network functions (VNF) to provide operators with network function definitions (NFDVs) that can be repeatably and reliably deployed on Azure Arc-connected platforms, including Azure Operator Nexus. NFDVs can be composed into network service designs (NSDVs) that abstract and simplify the configuration surface an operator needs to understand when deploying the workload.
+Azure Operator Service Manager (AOSM) enables publishers of containerized network functions (CNF) and virtualized network functions (VNF) to provide operators with network function definitions (NFDVs) that can be reliably deployed on Azure Arc-connected platforms, including Azure Operator Nexus. NFDVs can be composed into network service designs (NSDVs) that abstract and simplify the configuration surface an operator needs to understand when deploying the workload.
 
 AOSM enables these workflows through a flexible and powerful hierarchy of Azure Resource Manager (ARM) resources. A CNF or VNF publisher must onboard their network functions onto AOSM as NFDVs and NSDVs, and test that the resources they have defined can be deployed.
 
-The Azure CLI AOSM Extension provides a convenient, simplified interface for publishers to perform initial onboarding and testing of their CNFs and/or VNFs. It reduces the set of commands a publisher needs to understand and perform into three steps:
+The Azure CLI AOSM Extension provides a convenient, simplified interface for publishers to perform initial onboarding and testing of their CNFs and/or VNFs.
 
-1. Generate an input file for the NF onboarding attempt and fill in a small number of simple configuration parameters.
-1. Build the AOSM ARM resources required to onboard the CNF or VNF from the Helm charts or VM ARM Template.
-1. Publish the built resources. This step both creates Azure resources and uploads the container or VM images to an AOSM managed Azure Container Registry (ACR).
+## Key features
 
-Once one or more NFDs have been published, the publisher can use the CLI to compose the NFDV(s) into an NSDV in an identical manner:
+- **CNF and VNF support** - Onboard both single and multi-helm CNFs, as well as single-VM VNFs.
 
-1. Generate an input file for the NSDV onboarding attempt and fill in a small number of simple configuration parameters.
-1. Build the AOSM ARM resources required to compose the NFDs into an NSD.
-1. Publish the built resources. This step both creates Azure resources and uploads the artifacts needed to deploy the NSDV to an AOSM managed ACR.
+- **Automated BICEP generation** - Fill in a minimal configuration file and generate the BICEP definitions for the AOSM resources needed to onboard an NF to AOSM. The CLI automatically handles the network of resource references and reduces both the time to write the BICEP resources and the chance of error. The BICEP files are generated in a clear and well-commented folder structure.
 
-The CLI builds the AOSM ARM resources as BICEP files in a clear and well-commented folder structure. These BICEP resources encode AOSM best practice and are designed to minimise the time it takes to deploy the CNF or VNF with AOSM for the first time. Publishers with bespoke requirements can edit the BICEP files before publishing them.
+- **Streamlined publishing** - Deploy the AOSM resources, upload your network function images, and build upload your Azure Resource Manager (ARM) templates with a single command.
 
-## Supported Network Functions
+- **Simplified commands** - The Az CLI AOSM extension collapses the API calls needed to onboard a network function (NF) to AOSM into three commands for NFDV onboarding, and three similar commands for NSDV onboarding.
 
+- **Optimized for initial testing** - The CLI builds AOSM resources which are optimised for simplicity and for accelerating the publish, deploy, test feedback loop.
 
+- **Complex parameter exposure** - Control which helm values or virtual machine (VM) parameters are exposed through AOSM to the operator by editing the helm `values.yaml` file for CNFs and the ARM template parameters for VNFs.
 
-## Limitations
-
-## Next steps
+## Next Steps
 
 - Learn how to use the Azure CLI AOSM extension to do advanced configuration handling.
 - Use the Azure CLI AOSM Extension to onboard an example [CNF](/quickstart-containerized-network-function-prerequisites.md) or [VNF](/quickstart-virtualized-network-function-prerequisites.md).
