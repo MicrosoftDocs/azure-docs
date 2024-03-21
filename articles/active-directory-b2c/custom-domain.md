@@ -331,13 +331,6 @@ https://<domain-name>/11111111-1111-1111-1111-111111111111/v2.0/
 ```
 ::: zone pivot="b2c-custom-policy"
 
-## (Optional) Block access to the default domain name
-
-After you configure custom domains, users will still be able to access the Azure AD B2C default domain name *&lt;tenant-name&gt;.b2clogin.com*. You need to block access to the default domain so that attackers can't use it to access your apps or run distributed denial-of-service (DDoS) attacks. [Submit a support ticket](find-help-open-support-ticket.md) to request for the  blocking of access to the default domain.
-
-> [!WARNING]
-> Don't request blocking of the default domain until your custom domain works properly.
-
 ## (Optional) Azure Front Door advanced configuration
 
 You can use Azure Front Door advanced configuration, such as [Azure Web Application Firewall (WAF)](partner-web-application-firewall.md). Azure WAF provides centralized protection of your web applications from common exploits and vulnerabilities.
