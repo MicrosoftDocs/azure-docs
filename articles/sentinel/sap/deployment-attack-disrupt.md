@@ -5,6 +5,8 @@ author: batamig
 ms.author: bagol
 ms.topic: how-to
 ms.date: 02/21/2024
+appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+ms.collection: usx-security
 ---
 
 # Deploy automatic attack disruption for SAP (Preview)
@@ -13,13 +15,11 @@ Microsoft Defender XDR correlates millions of individual signals to identify act
 
 Automatic attack disruption limits lateral movement early on and reduces the overall impact of an attack, from associated costs to loss of productivity. At the same time, it leaves security operations teams in complete control of investigating, remediating, and bringing assets back online.
 
-This article describes how to deploy automatic attack disruption in the Microsoft Defender portal for SAP, together with Microsoft Sentinel integrated into the Microsoft Defender portal and the Microsoft Sentinel solution for SAP applications. Deployment includes steps in both Microsoft Sentinel in the Azure portal, and in your SAP environment.
+This article describes how to deploy automatic attack disruption in the Microsoft Defender portal with the unified SOC platform and the Microsoft Sentinel solution for SAP applications. Deployment includes steps in both Microsoft Sentinel in the Azure portal, and in your SAP environment.
 
 For more information, see [Automatic attack disruption in Microsoft Defender XDR](/microsoft-365/security/defender/automatic-attack-disruption).
 
-> [!IMPORTANT]
->
-> Automatic attack disruption for SAP and the Microsoft Sentinel integration with the Microsoft Defender portal are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 ## Prerequisites
 
@@ -29,7 +29,6 @@ To deploy automatic attack disruption for SAP, you need the following:
 
 - The *[MSFTSEN_SENTINEL_CONNECTOR_ROLE_V0.0.27.SAP](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Sample%20Authorizations%20Role%20File)* SAP agent role assignment in your SAP system. For more information, see [Deploy SAP Change Requests and configure authorization](preparing-sap.md).
 
-- *Owner* rights on your Microsoft Sentinel workspace's Azure resource group.
 
 - The Microsoft Sentinel solution for SAP applications [deployed in your Microsoft Sentinel workspace](deployment-overview.md)
 
