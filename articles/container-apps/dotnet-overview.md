@@ -9,7 +9,7 @@ ms.date: 03/21/2024
 ms.author: cshoe
 ---
 
-# Guide to running .NET applications in Azure Container Apps
+# .NET on Azure Container Apps overview
 
 To deploy a .NET application to a cloud native environment like Azure Container Apps, there are a few things you need to consider to ensure your application runs smoothly and securely. This guide covers some key concepts and considerations for deploying a .NET application to Azure Container Apps.
 
