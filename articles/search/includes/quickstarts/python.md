@@ -256,10 +256,10 @@ for result in results:
 
 #### Add field scoping
 
-Add `search_fields` (an array) to scope query matching to a single field.
+Add `search_fields` to scope query execution to specific fields.
 
 ```python
-# Add search_fields (an array)  to scope query matching to a single field
+# Add search_fields to scope query matching to the HotelName field
 results = search_client.search(
     search_text="sublime", 
     search_fields=['HotelName'], 
