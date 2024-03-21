@@ -63,7 +63,7 @@ During this transition, the **Allow access from Azure portal** option will add b
 
 |Database Account API|IP addresses|
 |--------------------|------------|
-|All|XX.XX.XX.XX|
+|All|13.91.105.215, 4.210.172.107, 13.88.56.148, 40.91.218.243|
 |MongoDB only|20.245.81.54, 40.118.23.126, 40.80.152.199, 13.95.130.121|
 |Apache Cassandra only|40.113.96.14, 104.42.11.145, 137.117.230.240, 168.61.72.237|
 
@@ -71,7 +71,7 @@ During this transition, the **Allow access from Azure portal** option will add b
 
 |Database Account API|IP addresses|
 |--------------------|------------|
-|All|XX.XX.XX.XX|
+|All|163.228.137.6, 143.64.170.142|
 |MongoDB only|52.131.240.99, 143.64.61.130|
 |Apache Cassandra only|40.73.99.146, 143.64.62.47|
 
@@ -79,7 +79,7 @@ During this transition, the **Allow access from Azure portal** option will add b
 
 |Database Account API|IP addresses|
 |--------------------|------------|
-|All|XX.XX.XX.XX|
+|All|52.247.163.6, 52.244.134.181|
 |MongoDB only|52.244.176.112, 52.247.148.42|
 |Apache Cassandra only|52.244.50.101, 52.227.165.24|
 
