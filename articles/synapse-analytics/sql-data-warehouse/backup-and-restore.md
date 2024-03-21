@@ -5,7 +5,7 @@ author: realAngryAnalytics
 ms.author: stevehow
 manager: joannapea
 ms.reviewer: joanpo, wiassaf
-ms.date: 01/31/2024
+ms.date: 03/21/2024
 ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
