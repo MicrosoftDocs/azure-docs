@@ -121,7 +121,7 @@ The following command retrieves CVEs found in your firmware image. Replace each 
 az firmwareanalysis firmware cve --resource-group myResourceGroup --subscription 123e4567-e89b-12d3-a456-426614174000 --workspace-name default --firmware-id sampleFirmwareID
 ```
 
-### Binary Hardening
+### Binary hardening
 
 The following command retrieves analysis results on binary hardening in your firmware image. Replace each argument with the appropriate value for your resource group, subscription, workspace name, and firmware ID.
 
@@ -129,7 +129,7 @@ The following command retrieves analysis results on binary hardening in your fir
 az firmwareanalysis firmware binary-hardening --resource-group myResourceGroup --subscription 123e4567-e89b-12d3-a456-426614174000 --workspace-name default --firmware-id sampleFirmwareID
 ```
 
-### Password Hashes
+### Password hashes
 
 The following command retrieves password hashes in your firmware image. Replace each argument with the appropriate value for your resource group, subscription, workspace name, and firmware ID.
 
