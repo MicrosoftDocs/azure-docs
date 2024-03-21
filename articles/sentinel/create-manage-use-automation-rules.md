@@ -23,6 +23,8 @@ In this article you'll learn how to define the triggers and conditions that will
 
 ## Design your automation rule
 
+Before you create your automation rule, we recommend that you determine its scope and design, including the trigger, conditions, and actions that will make up your rule.
+
 ### Determine the scope
 
 The first step in designing and defining your automation rule is figuring out which incidents or alerts you want it to apply to. This determination will directly impact how you create the rule.
@@ -30,7 +32,7 @@ The first step in designing and defining your automation rule is figuring out wh
 You also want to determine your use case. What are you trying to accomplish with this automation? Consider the following options:
 
 - Create tasks for your analysts to follow in triaging, investigating, and remediating incidents.
-- Suppress noisy incidents (see [this article on handling false positives](false-positives.md#add-exceptions-by-using-automation-rules) instead)
+- Suppress noisy incidents. (Alternately use other methods to [handle false positives in Microsoft Sentinel](false-positives.md).)
 - Triage new incidents by changing their status from New to Active and assigning an owner.
 - Tag incidents to classify them.
 - Escalate an incident by assigning a new owner.
@@ -56,8 +58,11 @@ The following table shows the different possible scenarios that will cause an au
 
 Most of the following instructions apply to any and all use cases for which you'll create automation rules.
 
-- For the use case of suppressing noisy incidents, see [this article on handling false positives](false-positives.md#add-exceptions-by-using-automation-rules).
-- For creating an automation rule that will apply to a single specific analytics rule, see [this article on configuring automated response in analytics rules](detect-threats-custom.md#set-automated-responses-and-create-the-rule).
+If you're looking to suppress noisy incidents, try [handling false positives](false-positives.md#add-exceptions-by-using-automation-rules).
+
+If you want to create an automation rule to apply to a specific analytics rule, see [Set automated responses and create the rule](detect-threats-custom.md#set-automated-responses-and-create-the-rule).
+
+**To create your automation rule**:
 
 1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), select the **Configuration** > **Automation** page. For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Configuration** > **Automation**.
 
@@ -71,10 +76,7 @@ Most of the following instructions apply to any and all use cases for which you'
 
     ---
 
-
-1. The **Create new automation rule** panel opens. Enter a name for your rule.
-
-    :::image type="content" source="media/create-manage-use-automation-rules/create-automation-rule.png" alt-text="Screenshot of Create new automation rule wizard.":::
+1. The **Create new automation rule** panel opens. In the **Automation rule name** field, enter a name for your rule.
 
 ### Choose your trigger
 
@@ -88,17 +90,47 @@ Use the options in the **Conditions** area to define conditions for your automat
 
 - Rules you create for when an alert is created support only the **If Analytic rule name** property in your condition. Select whether you want the rule to be inclusive (*Contains*) or exclusive (*Does not contain*), and then select the analytic rule name from the drop-down list.
 
-- Rules you create for when an incident is created or updated support a large variety of conditions.
+- Rules you create for when an incident is created or updated support a large variety of conditions, depending on your environment. These options start with whether your workspace is onboarded to the unified SOC platform:
 
-If you selected **When incident is created** as the trigger, start by selecting one of the following operators:
+    #### [Onboarded to the unified SOC platform](#tab/onboarded)
 
-- **AND**: individual conditions that are evaluated as a group. The rule executes if *all* the conditions of this type are met.
+    If your workspace is onboarded to the unified SOC platform, start by selecting one of the following operators, in either the Azure or the Defender portal:
 
-    To work with the **AND** operator, select the **+ Add** expander and choose **Condition (And)** from the drop-down list. The list of conditions is populated by incident property and [entity property](entities-reference.md) fields.
+    - **AND**: individual conditions that are evaluated as a group. The rule executes if *all* the conditions of this type are met.
 
-- **OR** (also known as *condition groups*): groups of conditions, each of which are evaluated independently. The rule executes if one or more groups of conditions are true. To learn how to work with these complex types of conditions, see [Add advanced conditions to automation rules](add-advanced-conditions-to-automation-rules.md).
+        To work with the **AND** operator, select the **+ Add** expander and choose **Condition (And)** from the drop-down list. The list of conditions is populated by incident property and [entity property](entities-reference.md) fields.
 
-If you selected **When an incident is updated** as the trigger, start by defining your conditions, and then adding extra operators and values as needed.
+    - **OR** (also known as *condition groups*): groups of conditions, each of which are evaluated independently. The rule executes if one or more groups of conditions are true. To learn how to work with these complex types of conditions, see [Add advanced conditions to automation rules](add-advanced-conditions-to-automation-rules.md).
+
+    For example:
+
+    :::image type="content" source="media/create-manage-use-automation-rules/conditions-onboarded.png" alt-text="Screenshot of automation rule conditions when your workspace is onboarded to the unified SOC platform.":::
+
+    #### [Not onboarded to the unified SOC platform](#tab/not-onboarded)
+
+    If your workspace isn't onboarded to the unified SOC platform, start by defining the following condition properties:
+    
+    - **Incident provider**: Incidents can have two possible sources: they can be created inside Microsoft Sentinel, and they can also be [imported from&mdash;and synchronized with&mdash;Microsoft Defender XDR](microsoft-365-defender-sentinel-integration.md).
+
+        If you selected one of the incident triggers and you want the automation rule to take effect only on incidents created in Microsoft Sentinel, or alternatively, only on those imported from Microsoft Defender XDR, specify the source in the **If Incident provider equals** condition. (This condition will be displayed only if an incident trigger is selected.)
+
+    - **Analytic rule name**: For all trigger types, if you want the automation rule to take effect only on certain analytics rules, specify which ones by modifying the **If Analytics rule name contains** condition. (This condition will *not* be displayed if Microsoft Defender XDR is selected as the incident provider.)
+
+    Then, continue by selecting one of the following operators:
+
+    - **AND**: individual conditions that are evaluated as a group. The rule executes if *all* the conditions of this type are met.
+
+        To work with the **AND** operator, select the **+ Add** expander and choose **Condition (And)** from the drop-down list. The list of conditions is populated by incident property and [entity property](entities-reference.md) fields.
+
+    - **OR** (also known as *condition groups*): groups of conditions, each of which are evaluated independently. The rule executes if one or more groups of conditions are true. To learn how to work with these complex types of conditions, see [Add advanced conditions to automation rules](add-advanced-conditions-to-automation-rules.md).
+
+    For example:
+
+    :::image type="content" source="media/create-manage-use-automation-rules/conditions-not-onboarded.png" alt-text="Screenshot of automation rule conditions when the workspace isn't onboarded to the unified SOC platform.":::
+
+    ---
+
+    If you selected **When an incident is updated** as the trigger, start by defining your conditions, and then adding extra operators and values as needed.
 
 **To define your conditions**:
 
