@@ -105,7 +105,7 @@ The conditions evaluated in rules defined using the trigger **When an incident i
 
 One of these properties is **Updated by**. This property lets you track the type of source that made the change in the incident. You can create a condition evaluating whether the incident was updated by one of the following values, depending on whether you've onboarded your workspace to the unified SOC platform:
 
-##### [Onboarded to the unified SOC platform](tab/onboarded)
+##### [Onboarded to the unified SOC platform](#tab/onboarded)
 
 - An application, including applications in both the Azure and Defender portals. <!--or is this Defender XDR?-->
 - A user, including changes made by users in both the Azure and Defender portals.
@@ -115,7 +115,7 @@ One of these properties is **Updated by**. This property lets you track the type
 - An automation rule
 - Other
 
-##### [Not onboarded to the unified SOC platform](tab/not-onboarded)
+##### [Not onboarded to the unified SOC platform](#tab/not-onboarded)
 
 - An application
 - A user
