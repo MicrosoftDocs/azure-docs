@@ -4,7 +4,7 @@ description: Learn how to quickly deploy a Kubernetes cluster and deploy an appl
 ms.author: schaffererin
 author: schaffererin
 ms.topic: quickstart
-ms.date: 03/15/2024
+ms.date: 03/21/2024
 ms.custom: H1Hack27Feb2017, mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019, seo-python-october2019, devx-track-azurecli, contperf-fy21q1, mode-api, linux-related-content, devx-track-extended-azdevcli
 #Customer intent: As a developer or cluster operator, I want to deploy an AKS cluster and deploy an application so I can see how to run applications using the managed Kubernetes service in Azure.
 ---
@@ -67,7 +67,7 @@ The quickstart application includes the following Kubernetes deployments and ser
 
 The `azd` template contains all the code needed to create the services, but you need to sign in to your Azure account in order to host the application on AKS.
 
-1. Sign in to your account using the [`azd auth login`][az-auth-login] command.
+1. Sign in to your account using the [`azd auth login`][azd-auth-login] command.
 
     ```azdeveloper
     azd auth login
@@ -229,7 +229,7 @@ To learn more about AKS and walk through a complete code-to-deployment example, 
 [azd-init]: /azure/developer/azure-developer-cli/reference#azd-init
 [azd-up]: /azure/developer/azure-developer-cli/reference#azd-up
 [azd-down]: /azure/developer/azure-developer-cli/reference#azd-down
-[az-auth-login]: /azure/developer/azure-developer-cli/reference#azd-auth-login
+[azd-auth-login]: /azure/developer/azure-developer-cli/reference#azd-auth-login
 [azd-install]: /azure/developer/azure-developer-cli/install-azd
 [kubernetes-concepts]: ../concepts-clusters-workloads.md
 [aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
