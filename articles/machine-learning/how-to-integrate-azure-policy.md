@@ -24,7 +24,7 @@ As a platform administrator, you can use policies to lay out guardrails for team
 
 Azure Machine Learning provides a set of policies that you can use for common scenarios with Azure Machine Learning. You can assign these policy definitions to your existing subscription or use them as the basis to create your own custom definitions.
 
-The table below lists the built-in policies you can assign with Azure Machine Learning. For a complete list of the built-in policies for Azure services, see [Built-in policies](../governance/policy/samples/built-in-policies.md).
+The table below lists the built-in policies you can assign with Azure Machine Learning. For a list of all Azure built-in policies, see [Built-in policies](../governance/policy/samples/built-in-policies.md).
 
 [!INCLUDE [azure-policy-reference-policies-machine-learning](../../includes/policy/reference/bycat/policies-machine-learning.md)]
 
@@ -70,52 +70,19 @@ Azure Machine Learning integrates with [data landing zones](https://github.com/A
 
 ## Configure built-in policies
 
+### Compute instances should have idle shutdown
 
+TBD
 
+### Compute instances should be recreated to get software updates
 
-### Workspace encryption with customer-managed key
+TBD
 
-Controls whether a workspace should be encrypted with a customer-managed key, or using a Microsoft-managed key to encrypt metrics and metadata. For more information on using customer-managed key, see the [Azure Cosmos DB](concept-data-encryption.md#azure-cosmos-db) section of the data encryption article.
+### Compute cluster and instance should be in a virtual network
 
-To configure this policy, set the effect parameter to __audit__ or __deny__. If set to __audit__, you can create a workspace without a customer-managed key and a warning event is created in the activity log.
+Controls auditing of compute cluster and instance resources behind a virtual network.
 
-If the policy is set to __deny__, then you cannot create a workspace unless it specifies a customer-managed key. Attempting to create a workspace without a customer-managed key results in an error similar to `Resource 'clustername' was disallowed by policy` and creates an error in the activity log. The policy identifier is also returned as part of this error.
-
-### Workspace should use private link
-
-Controls whether a workspace should use Azure Private Link to communicate with Azure Virtual Network. For more information on using private link, see [Configure private link for a workspace](how-to-configure-private-link.md).
-
-To configure this policy, set the effect parameter to __audit__ or __deny__. If set to __audit__, you can create a workspace without using private link and a warning event is created in the activity log.
-
-If the policy is set to __deny__, then you cannot create a workspace unless it uses a private link. Attempting to create a workspace without a private link results in an error. The error is also logged in the activity log. The policy identifier is returned as part of this error.
-
-### Workspace should use private endpoint
-
-Configures a workspace to create a private endpoint within the specified subnet of an Azure Virtual Network.
-
-To configure this policy, set the effect parameter to __DeployIfNotExists__. Set the __privateEndpointSubnetID__ to the Azure Resource Manager ID of the subnet.
-
-### Workspace should use private DNS zones
-
-Configures a workspace to use a private DNS zone, overriding the default DNS resolution for a private endpoint.
-
-To configure this policy, set the effect parameter to __DeployIfNotExists__. Set the __privateDnsZoneId__ to the Azure Resource Manager ID of the private DNS zone to use. 
-
-### Workspace should use user-assigned managed identity
-
-Controls whether a workspace is created using a system-assigned managed identity (default) or a user-assigned managed identity. The managed identity for the workspace is used to access associated resources such as Azure Storage, Azure Container Registry, Azure Key Vault, and Azure Application Insights. For more information, see [Use managed identities with Azure Machine Learning](how-to-identity-based-service-authentication.md).
-
-To configure this policy, set the effect parameter to __audit__, __deny__, or __disabled__. If set to __audit__, you can create a workspace without specifying a user-assigned managed identity. A system-assigned identity is used and a warning event is created in the activity log.
-
-If the policy is set to __deny__, then you cannot create a workspace unless you provide a user-assigned identity during the creation process. Attempting to create a workspace without providing a user-assigned identity results in an error. The error is also logged to the activity log. The policy identifier is returned as part of this error.
-
-### Workspace should disable public network access
-
-Controls whether a workspace should disable network access from the public internet.
-
-To configure this policy, set the effect parameter to __audit__, __deny__, or __disabled__. If set to __audit__, you can create a workspace with public access and a warning event is created in the activity log.
-
-If the policy is set to __deny__, then you cannot create a workspace that allows network access from the public internet.
+To configure this policy, set the effect parameter to __audit__ or __disabled__. If set to __audit__, you can create a compute that is not configured behind a virtual network and a warning event is created in the activity log.
 
 ### Computes should have local authentication methods disabled.
 
@@ -125,25 +92,71 @@ To configure this policy, set the effect parameter to __audit__, __deny__, or __
 
 If the policy is set to __deny__, then you cannot create a compute unless SSH is disabled. Attempting to create a compute with SSH enabled results in an error. The error is also logged in the activity log. The policy identifier is returned as part of this error.
 
+### Workspaces should be encrypted with customer-managed key
+
+Controls whether a workspace should be encrypted with a customer-managed key, or using a Microsoft-managed key to encrypt metrics and metadata. For more information on using customer-managed key, see the [Azure Cosmos DB](concept-data-encryption.md#azure-cosmos-db) section of the data encryption article.
+
+To configure this policy, set the effect parameter to __audit__ or __deny__. If set to __audit__, you can create a workspace without a customer-managed key and a warning event is created in the activity log.
+
+If the policy is set to __deny__, then you cannot create a workspace unless it specifies a customer-managed key. Attempting to create a workspace without a customer-managed key results in an error similar to `Resource 'clustername' was disallowed by policy` and creates an error in the activity log. The policy identifier is also returned as part of this error.
+
+### Workspaces should disable public network access
+
+Controls whether a workspace should disable network access from the public internet.
+
+To configure this policy, set the effect parameter to __audit__, __deny__, or __disabled__. If set to __audit__, you can create a workspace with public access and a warning event is created in the activity log.
+
+If the policy is set to __deny__, then you cannot create a workspace that allows network access from the public internet.
+
+### Workspaces should enable V1LegacyMode to support network isolation backward compatibility
+
+TBD
+
+### Workspace should use private link
+
+Controls whether a workspace should use Azure Private Link to communicate with Azure Virtual Network. For more information on using private link, see [Configure private link for a workspace](how-to-configure-private-link.md).
+
+To configure this policy, set the effect parameter to __audit__ or __deny__. If set to __audit__, you can create a workspace without using private link and a warning event is created in the activity log.
+
+If the policy is set to __deny__, then you cannot create a workspace unless it uses a private link. Attempting to create a workspace without a private link results in an error. The error is also logged in the activity log. The policy identifier is returned as part of this error.
+
+### Workspace should use user-assigned managed identity
+
+Controls whether a workspace is created using a system-assigned managed identity (default) or a user-assigned managed identity. The managed identity for the workspace is used to access associated resources such as Azure Storage, Azure Container Registry, Azure Key Vault, and Azure Application Insights. For more information, see [Use managed identities with Azure Machine Learning](how-to-identity-based-service-authentication.md).
+
+To configure this policy, set the effect parameter to __audit__, __deny__, or __disabled__. If set to __audit__, you can create a workspace without specifying a user-assigned managed identity. A system-assigned identity is used and a warning event is created in the activity log.
+
+If the policy is set to __deny__, then you cannot create a workspace unless you provide a user-assigned identity during the creation process. Attempting to create a workspace without providing a user-assigned identity results in an error. The error is also logged to the activity log. The policy identifier is returned as part of this error.
+
 ### Configure computes to Modify/disable local authentication
 
 Modifies any Azure Machine Learning compute cluster or instance creation request to disable local authentication (SSH).
 
 To configure this policy, set the effect parameter to __Modify__ or __Disabled__. If set __Modify__, any creation of a compute cluster or instance within the scope where the policy applies will automatically have local authentication disabled.
 
-### Compute instances should have idle shutdown
+### Configure workspaces to use private DNS zones
+
+Configures a workspace to use a private DNS zone, overriding the default DNS resolution for a private endpoint.
+
+To configure this policy, set the effect parameter to __DeployIfNotExists__. Set the __privateDnsZoneId__ to the Azure Resource Manager ID of the private DNS zone to use. 
+
+### Configure workspaces to disable public network access
 
 TBD
 
-### Compute instances should be recreated to get software updates
+### Configure workspaces with private endpoints
+
+Configures a workspace to create a private endpoint within the specified subnet of an Azure Virtual Network.
+
+To configure this policy, set the effect parameter to __DeployIfNotExists__. Set the __privateEndpointSubnetID__ to the Azure Resource Manager ID of the subnet.
+
+### Configure diagnostic workspaces to send logs to log analytics workspaces
 
 TBD
 
-### Compute cluster and instance is behind virtual network
+### Resource logs in workspaces should be enabled
 
-Controls auditing of compute cluster and instance resources behind a virtual network.
-
-To configure this policy, set the effect parameter to __audit__ or __disabled__. If set to __audit__, you can create a compute that is not configured behind a virtual network and a warning event is created in the activity log.
+TBD
 
 ## Next steps
 
