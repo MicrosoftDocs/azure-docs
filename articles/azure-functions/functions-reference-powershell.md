@@ -383,6 +383,38 @@ and contains:
 * Automatic MSI authentication to Azure.
 * The ability to turn on the Azure PowerShell `AzureRM` PowerShell aliases if you would like.
 
+### Managed Identity 
+
+* **System Assigned Identity** :The below exists by default in `profile.ps1` 
+```powershell	if ($env:MSI_SECRET) {
+    Disable-AzContextAutosave -Scope Process | Out-Null
+    Connect-AzAccount -Identity
+}
+```
+
+
+* **System Assigned Identity** :Using a user-assigned identity requires a bit more work. The easiest thing to do is to find the “Client ID” property of the user-managed identity and pass it to the Connect-AzAccount cmdlet as an AccountId value, for example:
+	
+```powershell
+Connect-AzAccount -Identity -AccountId <Client ID>
+```
+
+If you don't want to hardcode the ID, here is another option:
+
+1. Enable the system assigned identity as well.
+2. Make the system assigned identity a Reader on the user assigned identity.
+3. In the profile.ps1 file, replace:
+
+```powershell
+Connect-AzAccount -Identity 
+```
+   with:
+```powershell
+    Connect-AzAccount -Identity
+    $identity = Get-AzUserAssignedIdentity -ResourceGroupName … -Name … # retrieve the specific user assigned identity
+    Connect-AzAccount -Identity -AccountId $identity.Id
+```
+
 ## PowerShell versions
 
 The following table shows the PowerShell versions available to each major version of the Functions runtime, and the .NET version required:
