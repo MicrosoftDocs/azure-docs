@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: rwallerms
   ms.author: rwaller
-  ms.date: 11/15/2021
+  ms.date: 02/07/2024
 
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -26,7 +26,7 @@ landingContent:
             url: ../../ai-services/what-are-ai-services.md
       - linkListType: video
         links:
-          - text: Getting started - short engineering videos
+          - text: Short videos to get started
             url: https://aka.ms/ImmersiveReaderSDKVideos
 
   - title: Get started
@@ -43,11 +43,11 @@ landingContent:
           url: ./quickstarts/client-libraries.md?pivots=programming-language-kotlin
         - text: Use Swift (iOS)
           url: ./quickstarts/client-libraries.md?pivots=programming-language-swift
-  - title: Explore Immersive Reader
+  - title: Explore
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Create an Immersive Reader Resource
+          - text: Create an Immersive Reader resource
             url: how-to-create-immersive-reader.md
           - text: Launch the Immersive Reader
             url: how-to-launch-immersive-reader.md
@@ -71,7 +71,7 @@ landingContent:
         links:
           - text: JavaScript SDK
             url: reference.md
-          - text: Security Advisory - Update Role Assignment for Microsoft Entra authentication
+          - text: Security Advisory - Update Microsoft Entra role assignment
             url: security-how-to-update-role-assignment.md            
           - text: Release notes
             url: release-notes.md

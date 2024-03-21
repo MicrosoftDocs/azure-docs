@@ -164,7 +164,6 @@ ms.author: wchi
     ```python
     from gremlin_python.driver import client, serializer
     import requests
-    from azure.core.pipeline.policies import BearerTokenCredentialPolicy
     from azure.identity import ManagedIdentityCredential, ClientSecretCredential
 
     username = os.getenv('AZURE_COSMOS_USERNAME')
@@ -189,8 +188,8 @@ ms.author: wchi
     
     # Get the password 
     session = requests.Session()
-    session = BearerTokenCredentialPolicy(cred, scope).on_request(session)
-    response = session.post(listKeyUrl)
+    token = cred.get_token(scope)
+    response = session.post(listKeyUrl, headers={"Authorization": "Bearer {}".format(token.token)})
     keys_dict = response.json()
     password = keys_dict['primaryMasterKey']
     

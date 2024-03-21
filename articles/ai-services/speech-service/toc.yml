@@ -227,6 +227,9 @@ items:
     - name: Audio Content Creation
       href: how-to-audio-content-creation.md
       displayName: acc
+    - name: OpenAI text to speech voices
+      href: openai-voices.md
+      displayName: tts
     - name: Text to speech FAQ
       displayName: FAQ,TTS,frequently asked questions
       href: faq-tts.yml
@@ -285,6 +288,8 @@ items:
         href: ingestion-client.md
       - name: Telephony Integration
         href: call-center-telephony-integration.md
+      - name: Connect Azure Communication Services with Azure AI services
+        href: ../../communication-services/concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md?context=/azure/ai-services/speech-service/context/context
     - name: Gaming integration
       href: gaming-concepts.md
     - name: Language learning

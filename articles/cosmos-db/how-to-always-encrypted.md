@@ -2,7 +2,6 @@
 title: Use client-side encryption with Always Encrypted for Azure Cosmos DB
 description: Learn how to use client-side encryption with Always Encrypted for Azure Cosmos DB
 ms.service: cosmos-db
-ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 04/04/2022
 ms.author: sidandrews

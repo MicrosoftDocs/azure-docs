@@ -9,7 +9,6 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 01/04/2022
 ms.author: shaas
-ms.custom: contperf-fy22q1
 #Customer intent: As an IT admin, I need to be able to order Data Box Heavy to upload on-premises data from my server onto Azure.
 ---
 

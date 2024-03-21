@@ -7,7 +7,7 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/06/2023
 ms.author: duau
-ms.custom: references_regions, ignite-2022
+ms.custom: references_regions
 ---
 
 # ExpressRoute routing requirements

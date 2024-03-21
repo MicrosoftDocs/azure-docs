@@ -12,8 +12,6 @@ ms.reviewer: lagayhar
 ms.date: 10/20/2023
 ms.custom:
   - sdkv2
-  - event-tier1-build-2022
-  - ignite-2022
   - build-2023
   - devx-track-python
   - ignite-2023

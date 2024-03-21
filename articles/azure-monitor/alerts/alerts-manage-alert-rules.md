@@ -3,11 +3,12 @@ title: Manage your alert rules
 description: Manage your alert rules in the Azure portal, or using the CLI or PowerShell.
 author: AbbyMSFT
 ms.author: abbyweisberg
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 01/14/2024
 ms.reviewer: harelbr
 ---
+
 # Manage your alert rules
 
 Manage your alert rules in the Azure portal, or using the CLI or PowerShell.
@@ -42,16 +43,16 @@ Manage your alert rules in the Azure portal, or using the CLI or PowerShell.
 
 1. To edit an alert rule, select **Edit**, and then edit any of the fields in the following sections. You can't edit the **Alert Rule Name**, or the **Signal type** of an existing alert rule.
     - **Scope**. You can edit the scope for all alert rules **other than**:
-        - Log alert rules
+        - Log search alert rules
         - Metric alert rules that monitor a custom metric
         - Smart detection alert rules
-    - **Condition**. Learn more about conditions for [metric alert rules](./alerts-create-new-alert-rule.md?tabs=metric#tabpanel_1_metric), [log alert rules](./alerts-create-new-alert-rule.md?tabs=log#tabpanel_1_log), and [activity log alert rules](./alerts-create-new-alert-rule.md?tabs=activity-log#tabpanel_1_activity-log)
+    - **Condition**. Learn more about conditions for [metric alert rules](./alerts-create-new-alert-rule.md?tabs=metric#tabpanel_1_metric), [log search alert rules](./alerts-create-new-alert-rule.md?tabs=log#tabpanel_1_log), and [activity log alert rules](./alerts-create-new-alert-rule.md?tabs=activity-log#tabpanel_1_activity-log)
     - **Actions**
     - **Alert rule details**
 1. Select **Save** on the top command bar.
 
 > [!NOTE]
-> This section describes how to manage alert rules created in the latest UI or using an API version later than `2018-04-16`. See [View and manage log alert rules created in previous versions](alerts-manage-alerts-previous-version.md) for information about how to view and manage log alert rules created in the previous UI.
+> This section describes how to manage alert rules created in the latest UI or using an API version later than `2018-04-16`. See [View and manage log search alert rules created in previous versions](alerts-manage-alerts-previous-version.md) for information about how to view and manage log search alert rules created in the previous UI.
 
 ## Enable recommended alert rules in the Azure portal
 
@@ -119,17 +120,42 @@ Metric alert rules have these dedicated PowerShell cmdlets:
 - [Update](/rest/api/monitor/metricalerts/update): Update a metric alert rule.
 - [Delete](/rest/api/monitor/metricalerts/delete): Delete a metric alert rule.
 
-## Manage log alert rules using the CLI
+## Delete metric alert rules defined on a deleted resource
 
-This section describes how to manage log alerts using the cross-platform [Azure CLI](/cli/azure/get-started-with-azure-cli). The following examples use [Azure Cloud Shell](../../cloud-shell/overview.md). 
+When you delete an Azure resource, associated metric alert rules aren't deleted automatically. To delete alert rules associated with a resource that's been deleted:
+
+1. Open the resource group in which the deleted resource was defined.
+1. In the list that displays the resources, select the **Show hidden types** checkbox.
+1. Filter the list by Type == **microsoft.insights/metricalerts**.
+1. Select the relevant alert rules and select **Delete**.
+
+## Check the number of metric alert rules in use
+
+To check the current number of metric alert rules in use, follow the next steps.
+### From the Azure portal
+
+   1. Open the **Alerts** screen and select **Manage alert rules**.
+   1. Filter to the relevant subscription by using the **Subscription** dropdown box.
+   1. Make sure *not* to filter to a specific resource group, resource type, or resource.
+   1. In the **Signal type** dropdown box, select **Metrics**.
+   1. Verify that the **Status** dropdown box is set to **Enabled**.
+   1. The total number of metric alert rules are displayed above the alert rules list.
+    
+### Using the API
+
+   - **PowerShell**: [Get-AzMetricAlertRuleV2](/powershell/module/az.monitor/get-azmetricalertrulev2)
+   - **REST API**: [List by subscription](/rest/api/monitor/metricalerts/listbysubscription)
+   - **Azure CLI**: [az monitor metrics alert list](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-list)
+
+## Manage log search alert rules using the CLI
+
+This section describes how to manage log search alerts using the cross-platform [Azure CLI](/cli/azure/get-started-with-azure-cli). The following examples use [Azure Cloud Shell](../../cloud-shell/overview.md). 
 
 > [!NOTE]
 > Azure CLI support is only available for the scheduledQueryRules API version `2021-08-01` and later. Previous API versions can use the Azure Resource Manager CLI with templates as described below. If you use the legacy [Log Analytics Alert API](./api-alerts.md), you will need to switch to use CLI. [Learn more about switching](./alerts-log-api-switch.md).
 
-
 1. In the [portal](https://portal.azure.com/), select **Cloud Shell**.
 1. Use these options of the `az monitor scheduled-query alert` CLI command in this table:
-
     
     |What you want to do|CLI command  |
     |---------|---------|
@@ -140,7 +166,7 @@ This section describes how to manage log alerts using the cross-platform [Azure 
     |Delete a log alert rule|`az monitor scheduled-query delete -g {ResourceGroup} -n {AlertRuleName}`|
     |Learn more about the command|`az monitor scheduled-query --help`|
 
-### Manage log alert rules using the Azure Resource Manager CLI with [templates](./alerts-log-create-templates.md)
+### Manage log search alert rules using the Azure Resource Manager CLI with [templates](./alerts-log-create-templates.md)
 
 ```azurecli
 az login
@@ -153,10 +179,27 @@ az deployment group create \
 
 A 201 response is returned on successful creation. 200 is returned on successful updates.
 
-## Manage log alert rules with PowerShell
+## Manage log search alert rules with PowerShell
 
-Log alert rules have this dedicated PowerShell cmdlet:
-- [New-AzScheduledQueryRule](/powershell/module/az.monitor/new-azscheduledqueryrule): Creates a new log alert rule or updates an existing log alert rule.
+Log search alert rules have this dedicated PowerShell cmdlet:
+- [New-AzScheduledQueryRule](/powershell/module/az.monitor/new-azscheduledqueryrule): Creates a new log search alert rule or updates an existing log search alert rule.
+
+## Check the number of log alert rules in use
+
+### In the Azure portal
+1. On the Alerts screen in Azure Monitor, select **Alert rules**.
+1. In the **Subscription** dropdown control, filter to the subscription you want. (Make sure you don't filter to a specific resource group, resource type, or resource.)
+1. In the **Signal type** dropdown control, select **Log Search**.
+1. Verify that the **Status** dropdown control is set to **Enabled**.
+
+The total number of log search alert rules is displayed above the rules list.
+
+### Using the API
+
+- PowerShell - [Get-AzScheduledQueryRule](/powershell/module/az.monitor/get-azscheduledqueryrule)
+- CLI: [az monitor scheduled-query list](/cli/azure/monitor/scheduled-query#az-monitor-scheduled-query-list)
+- REST API - [List by subscription](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules/list-by-subscription)
+
 ## Manage activity log alert rules using PowerShell
 
 Activity log alerts have these dedicated PowerShell cmdlets:
@@ -166,6 +209,7 @@ Activity log alerts have these dedicated PowerShell cmdlets:
 - [Enable-AzActivityLogAlert](/powershell/module/az.monitor/enable-azactivitylogalert): Enables an existing activity log alert and sets its tags.
 - [Disable-AzActivityLogAlert](/powershell/module/az.monitor/disable-azactivitylogalert): Disables an existing activity log alert and sets its tags.
 - [Remove-AzActivityLogAlert](/powershell/module/az.monitor/remove-azactivitylogalert): Removes an activity log alert.
+
 
 ## Next steps
 

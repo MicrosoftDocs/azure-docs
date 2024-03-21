@@ -7,7 +7,7 @@ ms.service: dev-box
 ms.topic: concept-article
 ms.date: 11/17/2023
 
-#customer intent: As a developer, I want to know which parameters I can assign for parameters in environment.yaml.
+# Customer intent: As a developer, I want to know which parameters I can assign for parameters in environment.yaml.
 
 ---
 

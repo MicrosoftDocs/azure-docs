@@ -6,8 +6,7 @@ ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
 ms.date: 11/20/2023
 ms.author: madsd
-ms.custom: seodec18, references_regions
-
+ms.custom: references_regions
 ---
 
 # Locking down an App Service Environment

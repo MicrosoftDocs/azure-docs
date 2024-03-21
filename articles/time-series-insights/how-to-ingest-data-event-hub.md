@@ -8,7 +8,6 @@ manager: cnovak
 ms.reviewer: orspodek
 ms.topic: conceptual
 ms.date: 01/21/2021
-ms.custom: seodec18
 ---
 
 # Add an event hub event source to your Azure Time Series Insights environment

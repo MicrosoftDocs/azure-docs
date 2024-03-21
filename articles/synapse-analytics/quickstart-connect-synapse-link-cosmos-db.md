@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.date: 04/21/2020
 ms.author: rosouz
 ms.reviewer: sngun
-ms.custom: cosmos-db, mode-other, ignite-2022
+ms.custom: cosmos-db, mode-other
 ---
 
 # Quickstart: Connect to Azure Synapse Link for Azure Cosmos DB

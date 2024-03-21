@@ -6,7 +6,7 @@ ms.date: 11/29/2022
 ms.author: msangapu
 author: msangapu-msft
 keywords: azure app service, web app, linux, windows, docker, container
-ms.custom: devx-track-csharp, mvc, seodec18, devx-track-azurecli, devdivchpfy22
+ms.custom: devx-track-csharp, mvc, devx-track-azurecli, devdivchpfy22
 zone_pivot_groups: app-service-containers-windows-linux
 ---
 
@@ -87,7 +87,7 @@ At the end of the file, add the following line and save the file:
 RUN ${source:-obj/Docker/publish/InstallFont.ps1}
 ```
 
-You can find *InstallFont.ps1* in the **CustomFontSample** project. It's a simple script that installs the font. You can find a more complex version of the script in the [Script Center](https://gallery.technet.microsoft.com/scriptcenter/fb742f92-e594-4d0c-8b79-27564c575133).
+You can find *InstallFont.ps1* in the **CustomFontSample** project. It's a simple script that installs the font. You can find a more complex version of the script in the [PowerShell Gallery](/powershell/scripting/gallery/overview).
 
 > [!NOTE]
 > To test the Windows container locally, ensure that Docker is started on your local machine.
@@ -216,6 +216,10 @@ The streamed logs look like this:
 
 
 Azure App Service uses the Docker container technology to host both built-in images and custom images. To see a list of built-in images, run the Azure CLI command, ['az webapp list-runtimes --os linux'](/cli/azure/webapp#az-webapp-list-runtimes). If those images don't satisfy your needs, you can build and deploy a custom image.
+
+> [!NOTE]
+> Container should target x86-x64 architecture, ARM64 is not supported.
+>
 
 In this tutorial, you learn how to:
 

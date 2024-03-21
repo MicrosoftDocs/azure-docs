@@ -4,7 +4,7 @@ description: Use Visual Studio Code to debug an Azure IoT Edge custom module wri
 services: iot-edge
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/02/2023
+ms.date: 02/14/2024
 ms.topic: conceptual
 ms.service: iot-edge
 zone_pivot_groups: iotedge-dev
@@ -61,7 +61,7 @@ Install [Visual Studio Code](https://code.visualstudio.com/)
 
 Add the following extensions:
 
-- [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) extension.
+- [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) extension. The *Azure IoT Edge tools for Visual Studio Code* extension is in [maintenance mode](https://github.com/microsoft/vscode-azure-iot-edge/issues/639).
 - [Azure IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) extension.
 
 ::: zone-end
@@ -154,7 +154,7 @@ On your development machine, you can start an IoT Edge simulator instead of inst
 
 1. In the **Explorer** tab on the left side, expand the **Azure IoT Hub** section. Right-click on your IoT Edge device ID, and then select **Setup IoT Edge Simulator** to start the simulator with the device connection string.
 
-1. You can see the successful set up of the IoT Edge Simulator by reading the progress detail in the integrated terminal.
+1. You can see the successful setup of the IoT Edge Simulator by reading the progress detail in the integrated terminal.
 
 ### Build and run container for debugging and debug in attach mode
 

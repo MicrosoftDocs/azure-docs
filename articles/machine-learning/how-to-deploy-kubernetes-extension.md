@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 01/19/2024
 ms.topic: how-to
-ms.custom: build-spring-2022, cliv2, sdkv2, event-tier1-build-2022, devx-track-azurecli
+ms.custom: build-spring-2022, cliv2, sdkv2, devx-track-azurecli
 ---
 
 # Deploy Azure Machine Learning extension on AKS or Arc Kubernetes cluster

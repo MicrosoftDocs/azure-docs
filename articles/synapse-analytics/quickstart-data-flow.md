@@ -7,7 +7,6 @@ ms.reviewer: makromer
 ms.service: synapse-analytics
 ms.subservice: pipeline
 ms.topic: conceptual
-ms.custom: seo-lt-2019
 ms.date: 02/15/2022
 ---
 

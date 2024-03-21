@@ -6,7 +6,6 @@ ms.service: network-function-manager
 ms.topic: overview
 ms.date: 11/02/2021
 ms.author: tobiaw
-ms.custom: ignite-fall-2021
 ---
 # What is Azure Network Function Manager?
 

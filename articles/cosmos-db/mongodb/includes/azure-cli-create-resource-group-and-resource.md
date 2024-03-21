@@ -2,7 +2,7 @@
 author: diberry
 ms.service: cosmos-db
 ms.subservice: mongodb
-ms.custom: ignite-2022, devx-track-azurecli
+ms.custom: devx-track-azurecli
 ms.topic: include
 ms.date: 06/13/2019
 ms.author: diberry

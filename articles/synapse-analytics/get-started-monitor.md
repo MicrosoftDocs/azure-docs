@@ -8,7 +8,6 @@ ms.service: synapse-analytics
 ms.subservice: monitoring
 ms.topic: tutorial
 ms.date: 08/25/2021
-ms.custom: ignite-fall-2021
 ---
 
 # Monitor your Synapse Workspace

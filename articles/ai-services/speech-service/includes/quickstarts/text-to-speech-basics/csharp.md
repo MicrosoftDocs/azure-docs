@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 08/25/2023
+ms.date: 2/1/2024
 ms.author: eur
 ---
 
@@ -24,13 +24,15 @@ The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/
 
 ## Synthesize to speaker output
 
-Follow these steps to create a new console application and install the Speech SDK.
+Follow these steps to create a console application and install the Speech SDK.
 
-1. Open a command prompt where you want the new project. Run this command to create a console application with the .NET CLI. The command creates a *Program.cs* file in the project directory.
+1. Open a command prompt window in the folder where you want the new project. Run this command to create a console application with the .NET CLI.
 
    ```dotnetcli
    dotnet new console
    ```
+
+   The command creates a *Program.cs* file in the project directory.
 
 1. Install the Speech SDK in your new project with the .NET CLI.
 
@@ -80,8 +82,8 @@ Follow these steps to create a new console application and install the Speech SD
         {
             var speechConfig = SpeechConfig.FromSubscription(speechKey, speechRegion);      
     
-            // The language of the voice that speaks.
-            speechConfig.SpeechSynthesisVoiceName = "en-US-JennyNeural"; 
+            // The neural multilingual voice can speak different languages based on the input text.
+            speechConfig.SpeechSynthesisVoiceName = "en-US-AvaMultilingualNeural"; 
     
             using (var speechSynthesizer = new SpeechSynthesizer(speechConfig))
             {
@@ -99,7 +101,7 @@ Follow these steps to create a new console application and install the Speech SD
     }
     ```
 
-1. To change the speech synthesis language, replace `en-US-JennyNeural` with another [supported voice](~/articles/ai-services/speech-service/language-support.md#prebuilt-neural-voices).
+1. To change the speech synthesis language, replace `en-US-AvaMultilingualNeural` with another [supported voice](~/articles/ai-services/speech-service/language-support.md#prebuilt-neural-voices).
 
    All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice doesn't speak the language of the input text, the Speech service doesn't output synthesized audio.
 
@@ -110,7 +112,7 @@ Follow these steps to create a new console application and install the Speech SD
    ```
 
    > [!IMPORTANT]
-   > Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` environment variables as described in [Set environment variables](#set-environment-variables). If you don't set these variables, the sample fails with an error message.
+   > Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` [environment variables](#set-environment-variables). If you don't set these variables, the sample fails with an error message.
 
 1. Enter some text that you want to speak. For example, type *I'm excited to try text to speech*. Select the **Enter** key to hear the synthesized speech.
 
@@ -121,10 +123,16 @@ Follow these steps to create a new console application and install the Speech SD
 
 ## Remarks
 
-This quickstart uses the `SpeakTextAsync` operation to synthesize a short block of text that you enter. You can also get text from files as described in these guides:
+### More speech synthesis options
 
-- For information about speech synthesis from a file and finer control over voice styles, prosody, and other settings, see [How to synthesize speech](~/articles/ai-services/speech-service/how-to-speech-synthesis.md) and [Speech Synthesis Markup Language (SSML) overview](~/articles/ai-services/speech-service/speech-synthesis-markup.md).
-- For information about synthesizing long-form text to speech, see [Batch synthesis API for text to speech](~/articles/ai-services/speech-service/batch-synthesis.md).
+This quickstart uses the `SpeakTextAsync` operation to synthesize a short block of text that you enter. You can also use long-form text from a file and get finer control over voice styles, prosody, and other settings.
+
+- See [how to synthesize speech](~/articles/ai-services/speech-service/how-to-speech-synthesis.md) and [Speech Synthesis Markup Language (SSML) overview](~/articles/ai-services/speech-service/speech-synthesis-markup.md) for information about speech synthesis from a file and finer control over voice styles, prosody, and other settings.
+- See [batch synthesis API for text to speech](~/articles/ai-services/speech-service/batch-synthesis.md) for information about synthesizing long-form text to speech.
+
+### OpenAI text to speech voices in Azure AI Speech
+
+OpenAI text to speech voices are also supported. See [OpenAI text to speech voices in Azure AI Speech](../../../openai-voices.md) and [multilingual voices](../../../language-support.md?tabs=tts#multilingual-voices). You can replace `en-US-AvaMultilingualNeural` with a supported OpenAI voice name such as `en-US-FableMultilingualNeural`.
 
 ## Clean up resources
 

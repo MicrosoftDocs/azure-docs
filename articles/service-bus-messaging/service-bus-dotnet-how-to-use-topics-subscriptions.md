@@ -5,7 +5,7 @@ ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 12/07/2023
 ms.devlang: csharp
-ms.custom: contperf-fy22q2, mode-api, passwordless-dotnet, devx-track-dotnet
+ms.custom: mode-api, passwordless-dotnet, devx-track-dotnet
 ---
 
 # Get started with Azure Service Bus topics and subscriptions (.NET)

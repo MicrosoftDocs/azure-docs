@@ -7,7 +7,7 @@ ms.topic: how-to
 author: code-sidd
 ms.author: sisawant
 ms.devlang: azurecli
-ms.custom: devx-track-azurecli, event-tier1-build-2022
+ms.custom: devx-track-azurecli
 ms.date: 11/10/2020
 ---
 # Configure server parameters in Azure Database for MySQL - Flexible Server using the Azure CLI

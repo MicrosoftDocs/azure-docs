@@ -6,7 +6,7 @@ ms.author: nigreenf
 ms.service: azure-kubernetes-service
 ms.topic: article
 ms.date: 03/06/2023
-ms.custom: devx-track-azurecli, ignite-fall-2021, event-tier1-build-2022, references_regions
+ms.custom: devx-track-azurecli, references_regions
 ---
 
 # Dapr extension for Azure Kubernetes Service (AKS) and Arc-enabled Kubernetes

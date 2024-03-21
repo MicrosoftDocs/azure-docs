@@ -4,8 +4,8 @@ description: Explains how to back up the controller database for Azure Arc-enabl
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: dnethi
-ms.author: dinethi
+author: AbdullahMSFT
+ms.author: amamun
 ms.reviewer: mikeray
 ms.date: 04/26/2023
 ms.topic: how-to
@@ -163,7 +163,7 @@ Follow these steps to restore the controller database from a backup with new sto
 
    ```console
    kubectl scale --replicas=0 rs/control -n arcdataservices
-   ``
+   ```
 3. Scale the `controldb` StatefulSet down to 0 replicas, as follows: 
 
    ```console
@@ -179,15 +179,15 @@ Follow these steps to restore the controller database from a backup with new sto
 4. Create a kubernetes secret named `controller-sa-secret` with the following YAML: 
 
    ```yml
-    apiVersion: v1
-    kind: Secret
-    metadata:
-      name: controller-sa-secret
-      namespace: <namespace>
-    type: Opaque
-    data:
-      password: <base64 encoded password>
-    ```
+   apiVersion: v1
+   kind: Secret
+   metadata:
+     name: controller-sa-secret
+     namespace: <namespace>
+   type: Opaque
+   data:
+     password: <base64 encoded password>
+   ```
 
 5. Edit the `controldb` StatefulSet to include a `controller-sa-secret` volume and corresponding volume mount (`/var/run/secrets/mounts/credentials/mssql-sa-password`) in the `mssql-server` container, by using `kubectl edit sts controldb -n <namespace>` command. 
 

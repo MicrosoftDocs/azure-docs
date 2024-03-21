@@ -22,7 +22,7 @@ Storage accounts have a public endpoint that's accessible through the internet. 
 
 The Azure Storage firewall provides access control for the public endpoint of your storage account. You can also use the firewall to block all access through the public endpoint when you're using private endpoints. Your firewall configuration also enables trusted Azure platform services to access the storage account.
 
-An application that accesses a storage account when network rules are in effect still requires proper authorization for the request. Authorization is supported with Microsoft Entra credentials for blobs and queues, with a valid account access key, or with a shared access signature (SAS) token. When you configure a blob container for anonymous access, requests to read data in that container don't need to be authorized. The firewall rules remain in effect and will block anonymous traffic.
+An application that accesses a storage account when network rules are in effect still requires proper authorization for the request. Authorization is supported with Microsoft Entra credentials for blobs, tables, file shares and queues, with a valid account access key, or with a shared access signature (SAS) token. When you configure a blob container for anonymous access, requests to read data in that container don't need to be authorized. The firewall rules remain in effect and will block anonymous traffic.
 
 Turning on firewall rules for your storage account blocks incoming requests for data by default, unless the requests originate from a service that operates within an Azure virtual network or from allowed public IP addresses. Requests that are blocked include those from other Azure services, from the Azure portal, and from logging and metrics services.
 
@@ -194,7 +194,7 @@ You can configure storage accounts to allow access only from specific subnets. T
 
 You can enable a [service endpoint](../../virtual-network/virtual-network-service-endpoints-overview.md) for Azure Storage within the virtual network. The service endpoint routes traffic from the virtual network through an optimal path to the Azure Storage service. The identities of the subnet and the virtual network are also transmitted with each request. Administrators can then configure network rules for the storage account that allow requests to be received from specific subnets in a virtual network. Clients granted access via these network rules must continue to meet the authorization requirements of the storage account to access the data.
 
-Each storage account supports up to 200 virtual network rules. You can combine these rules with [IP network rules](#grant-access-from-an-internet-ip-range).
+Each storage account supports up to 400 virtual network rules. You can combine these rules with [IP network rules](#grant-access-from-an-internet-ip-range).
 
 > [!IMPORTANT]
 > When referencing a service endpoint in a client application, it's recommended that you avoid taking a dependency on a cached IP address. The storage account IP address is subject to change, and relying on a cached IP address may result in unexpected behavior.
@@ -316,7 +316,7 @@ If you want to enable access to your storage account from a virtual network or s
 
 ## Grant access from an internet IP range
 
-You can use IP network rules to allow access from specific public internet IP address ranges by creating IP network rules. Each storage account supports up to 200 rules. These rules grant access to specific internet-based services and on-premises networks and block general internet traffic.
+You can use IP network rules to allow access from specific public internet IP address ranges by creating IP network rules. Each storage account supports up to 400 rules. These rules grant access to specific internet-based services and on-premises networks and block general internet traffic.
 
 ### Restrictions for IP network rules
 
@@ -624,6 +624,7 @@ The following table lists services that can access your storage account data if 
 | Azure Event Grid                | `Microsoft.EventGrid/partnerTopics`     | Enables access to storage accounts. |
 | Azure Event Grid                | `Microsoft.EventGrid/systemTopics`      | Enables access to storage accounts. |
 | Azure Event Grid                | `Microsoft.EventGrid/topics`            | Enables access to storage accounts. |
+| Microsoft Fabric                | `Microsoft.Fabric`                      | Enables access to storage accounts. |
 | Azure Healthcare APIs           | `Microsoft.HealthcareApis/services`     | Enables access to storage accounts. |
 | Azure Healthcare APIs           | `Microsoft.HealthcareApis/workspaces`   | Enables access to storage accounts. |
 | Azure IoT Central               | `Microsoft.IoTCentral/IoTApps`          | Enables access to storage accounts. |

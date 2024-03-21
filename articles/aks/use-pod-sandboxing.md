@@ -2,7 +2,7 @@
 title: Pod Sandboxing (preview) with Azure Kubernetes Service (AKS)
 description: Learn about and deploy Pod Sandboxing (preview), also referred to as Kernel Isolation, on an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
-ms.custom: devx-track-azurecli, build-2023, linux-related-content
+ms.custom: devx-track-azurecli, build-2023
 ms.date: 06/07/2023
 ---
 
@@ -20,7 +20,7 @@ This article helps you understand this new feature, and how to implement it.
 
 - Register the `KataVMIsolationPreview` feature in your Azure subscription.
 
-- AKS supports Pod Sandboxing (preview) on version 1.24.0 and higher.
+- AKS supports Pod Sandboxing (preview) on version 1.24.0 and higher with all AKS network plugins.
 
 - To manage a Kubernetes cluster, use the Kubernetes command-line client [kubectl][kubectl]. Azure Cloud Shell comes with `kubectl`. You can install kubectl locally using the [az aks install-cli][az-aks-install-cmd] command.
 

@@ -123,7 +123,7 @@ Now that you enabled Artifact Streaming on a premium ACR and connected that to a
 * Check if your node pool has Artifact Streaming enabled using the [`az aks nodepool show`][az-aks-nodepool-show] command.
 
     ```azurecli-interactive
-    az aks nodepool show --resource-group myResourceGroup --cluster-name myAKSCluster --name myNodePool grep ArtifactStreamingConfig
+    az aks nodepool show --resource-group myResourceGroup --cluster-name myAKSCluster --name myNodePool --query artifactStreamingProfile
     ```
 
     In the output, check that the `Enabled` field is set to `true`.

@@ -3,12 +3,11 @@ title: Common parameters and headers
 description: The parameters and headers common to all operations that you might perform on Key Vault resources.
 services: key-vault
 author: msmbaldwin
-tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 01/11/2023
+ms.date: 01/30/2024
 ms.author: mbaldwin
 
 ---

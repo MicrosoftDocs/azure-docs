@@ -8,7 +8,6 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 10/18/2021
 ms.author: alkohli
-ms.custom: ignite-fall-2021
 ---
 
 # Run existing IoT Edge modules from Azure Stack Edge Pro FPGA devices on Azure Stack Edge Pro GPU device

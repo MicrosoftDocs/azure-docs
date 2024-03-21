@@ -5,12 +5,12 @@ description: Learn the region-based design consideration for Azure AD B2C to pro
 author: gargi-sinha
 manager: martinco
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: B2C
 
-#customer intent: I'm a developer implementing a global identity solution. I need to understand the different scenarios and workflows for region-based design approach in Azure AD B2C. My goal is to design and implement the authentication and sign-up processes effectively for users from different regions.
+# Customer intent: I'm a developer implementing a global identity solution. I need to understand the different scenarios and workflows for region-based design approach in Azure AD B2C. My goal is to design and implement the authentication and sign-up processes effectively for users from different regions.
 ---
 
 # Build a global identity solution with region-based approach

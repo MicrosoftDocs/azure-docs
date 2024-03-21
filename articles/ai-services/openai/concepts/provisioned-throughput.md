@@ -36,11 +36,15 @@ An Azure OpenAI Deployment is a unit of management for a specific OpenAI Model. 
 | Utilization | Provisioned-managed Utilization measure provided in Azure Monitor. |
 | Estimating size | Provided calculator in the studio & benchmarking script. |
 
+## How do I get access to Provisioned?
+
+You need to speak with your Microsoft sales/account team to acquire provisioned throughput. If you don't have a sales/account team, unfortunately at this time, you cannot purchase provisioned throughput.
+
 ## Key concepts
 
 ### Provisioned throughput units
 
-Provisioned throughput units (PTU) are units of model processing capacity that customers you can reserve and deploy for processing prompts and generating completions. The minimum PTU deployment, increments, and processing capacity associated with each unit varies by model type & version.
+Provisioned throughput units (PTU) are units of model processing capacity that you can reserve and deploy for processing prompts and generating completions. The minimum PTU deployment, increments, and processing capacity associated with each unit varies by model type & version.
 
 ### Deployment types
 
@@ -94,7 +98,7 @@ We use a variation of the leaky bucket algorithm to maintain utilization below 1
 
     a.	When the current utilization is above 100%, the service returns a 429 code with the `retry-after-ms` header set to the time until utilization is below 100%
      
-    b.	Otherwise, the service estimates the incremental change to utilization required to serve the request by combining prompt tokens and the specified max_tokens in the call.
+    b.	Otherwise, the service estimates the incremental change to utilization required to serve the request by combining prompt tokens and the specified `max_tokens` in the call. If the `max_tokens` parameter is not specified, the service will estimate a value. This estimation can lead to lower concurrency than expected when the number of actual generated tokens is small.  For highest concurrency, ensure that the `max_tokens` value is as close as possible to the true generation size. 
 
 3.	When a request finishes, we now know the actual compute cost for the call. To ensure an accurate accounting, we correct the utilization using the following logic:
 
@@ -109,7 +113,9 @@ We use a variation of the leaky bucket algorithm to maintain utilization below 1
 
 :::image type="content" source="../media/provisioned/utilization.jpg" alt-text="Diagram showing how subsequent calls are added to the utilization." lightbox="../media/provisioned/utilization.jpg":::
 
+#### How many concurrent calls can I have on my deployment?
 
+The number of concurrent calls you can achieve depends on each call's shape (prompt size, max_token parameter, etc). The service will continue to accept calls until the utilization reach 100%. To determine the approximate number of concurrent calls you can model out the maximum requests per minute for a particular call shape in the [capacity calculator](https://oai.azure.com/portal/calculator). If the system generates less than the number of samplings tokens like max_token, it will accept more requests.
 
 ## Next steps
 

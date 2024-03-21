@@ -1,10 +1,9 @@
 ---
 title: Troubleshoot issues when you sign up for a new account in the Azure portal
-description: Resolving an issue when trying to sign up for a new account in the Microsoft Azure portal.
+description: Resolving an issue when trying to sign up for a new account in the Azure portal.
 services: cost-management-billing
 author: bandersmsft
 ms.reviewer: amberb
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
@@ -14,7 +13,7 @@ ms.author: banders
 
 # Troubleshoot issues when you sign up for a new account in the Azure portal
 
-You might experience an issue when you try to sign up for a new account in the Microsoft Azure portal. This short guide walks you through the sign-up process and discusses some common issues at each step.
+You might experience an issue when you try to sign up for a new account in the Azure portal. This short guide walks you through the sign-up process and discusses some common issues at each step.
 
 > [!NOTE]
 > If you already have an existing account and are looking for guidance to troubleshoot sign-in issues, see [Troubleshoot Azure subscription sign-in issues](troubleshoot-sign-in-issue.md).
@@ -84,7 +83,7 @@ The issue can also occur if the account was created using the Microsoft 365 Deve
 
 ## Identity verification by phone
 
-![Identity verification by phone](./media/troubleshoot-azure-sign-up/2.png)
+:::image type="content" border="true" source="./media/troubleshoot-azure-sign-up/2.png" alt-text="Screenshot showing identity verification by phone.":::
  
 When you get the text message or telephone call, enter the code that you receive in the text box.
 
@@ -104,7 +103,7 @@ Here are some other tips:
 
 ## Identity verification by card
 
-![Identity verification by card](./media/troubleshoot-azure-sign-up/3.png)
+:::image type="content" border="true" source="./media/troubleshoot-azure-sign-up/3.png" alt-text="Screenshot showing identity verification by card.":::
  
 ### Common issues and solutions
 

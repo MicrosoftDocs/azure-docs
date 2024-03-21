@@ -6,12 +6,10 @@ author: duongau
 manager: kumud
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: azure-cdn
-ms.workload: media
 ms.topic: article
 ms.date: 05/30/2023
 ms.author: duau
 ms.custom: references_regions
-
 ---
 # Azure CDN Coverage by Metro 
 > [!div class="op_single_selector"]

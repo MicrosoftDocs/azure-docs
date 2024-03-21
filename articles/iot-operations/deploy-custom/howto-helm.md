@@ -1,9 +1,9 @@
 ---
-title: Deploy Helm chart workloads - Azure IoT Orchestrator
+title: Deploy Helm chart workloads with IoT Orchestrator
 description: Use Helm charts to deploy custom workloads to Azure IoT Operations clusters with the Azure IoT Orchestrator
 author: kgremban
 ms.author: kgremban
-# ms.subservice: orchestrator
+ms.subservice: orchestrator
 ms.topic: how-to
 ms.custom:
   - ignite-2023
@@ -12,13 +12,15 @@ ms.date: 11/01/2023
 #CustomerIntent: As an OT professional, I want to deploy custom workloads to a Kubernetes cluster.
 ---
 
-# Deploy a Helm chart to a Kubernetes cluster
+# Deploy a Helm chart to a Kubernetes cluster with Azure IoT Orchestrator Preview
 
-Once you have Azure IoT Operations deployed to a connected cluster, you can use Azure IoT Orchestrator to deploy custom workloads including Helm charts.
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+
+Once you have Azure IoT Operations Preview deployed to a connected cluster, you can use Azure IoT Orchestrator Preview to deploy custom workloads including Helm charts.
 
 ## Prerequisites
 
-* An Arc-enabled Kubernetes cluster with Azure IoT Orchestrator deployed to it. For more information, see [Deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
+* An Arc-enabled Kubernetes cluster with Azure IoT Orchestrator deployed to it. For more information, see [Deploy Azure IoT Operations Preview extensions to a Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md).
 
 ## Deploy a helm chart with override values
 

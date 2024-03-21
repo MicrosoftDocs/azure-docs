@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 03/31/2023
 ms.author: govindk
 ms.reviewer: mjbrown
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2022, devx-track-arm-template
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ---
 
 # Restore an Azure Cosmos DB account that uses continuous backup mode
@@ -118,6 +118,7 @@ Before restoring the account, install the [latest version of Azure PowerShell](/
 
    ```azurepowershell
    Select-AzSubscription -Subscription <SubscriptionName>
+   ```
 
 ### <a id="trigger-restore-ps"></a>Trigger a restore operation for API for NoSQL account
 
@@ -936,4 +937,3 @@ az deployment group create -g <ResourceGroup> --template-file <RestoreTemplateFi
 * [How to migrate to an account from periodic backup to continuous backup](migrate-continuous-backup.md).
 * [Continuous backup mode resource model.](continuous-backup-restore-resource-model.md)
 * [Manage permissions](continuous-backup-restore-permissions.md) required to restore data with continuous backup mode.
-

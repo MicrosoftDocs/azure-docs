@@ -6,7 +6,6 @@ description: Fix intents and entities with your trained app's dashboard. The das
 ms.author: aahi
 author: aahill
 manager: nitinme
-ms.custom: seodec18
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.topic: how-to

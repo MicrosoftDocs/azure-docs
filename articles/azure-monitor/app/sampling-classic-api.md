@@ -16,6 +16,8 @@ When metric counts are presented in the portal, they're renormalized to take int
 > [!NOTE]
 > - If you've adopted our OpenTelemetry Distro and are looking for configuration options, see [Enable Sampling](opentelemetry-configuration.md#enable-sampling).
 
+[!INCLUDE [azure-monitor-app-insights-otel-available-notification](../includes/azure-monitor-app-insights-otel-available-notification.md)]
+
 :::image type="content" source="./media/sampling/data-sampling.png" lightbox="./media/sampling/data-sampling.png" alt-text="A screenshot of sampling configuration options.":::
 
 ## Brief summary
@@ -101,7 +103,7 @@ In [`ApplicationInsights.config`](./configuration-with-applicationinsights-confi
 
 * `<MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>`
   
-    The target rate of [logical operations](distributed-tracing-telemetry-correlation.md#data-model-for-telemetry-correlation) that the adaptive algorithm aims to collect **on each server host**. If your web app runs on many hosts, reduce this value so as to remain within your target rate of traffic at the Application Insights portal.
+    The target rate of [logical operations](distributed-trace-data.md#data-model-for-telemetry-correlation) that the adaptive algorithm aims to collect **on each server host**. If your web app runs on many hosts, reduce this value so as to remain within your target rate of traffic at the Application Insights portal.
 
 * `<EvaluationInterval>00:00:15</EvaluationInterval>` 
   

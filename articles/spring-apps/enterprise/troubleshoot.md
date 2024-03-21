@@ -6,7 +6,7 @@ ms.service: spring-apps
 ms.topic: troubleshooting
 ms.date: 09/08/2020
 ms.author: karler
-ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Troubleshoot common Azure Spring Apps issues
@@ -272,7 +272,7 @@ Creating an Azure Spring Apps Enterprise plan instance fails with error code "11
 
 When you visit the SaaS offer [Azure Spring Apps Enterprise](https://aka.ms/ascmpoffer) in the Azure Marketplace, it may say "No plans are available for market '\<Location>'" as in the following image.
 
-![No plans available error image](./media/troubleshoot/no-enterprise-plans-available.png)
+:::image type="content" source="./media/troubleshoot/no-enterprise-plans-available.png" alt-text="Screenshot of the Azure portal that shows the No plans are available for market error message." lightbox="./media/troubleshoot/no-enterprise-plans-available.png":::
 
 The Azure Spring Apps Enterprise plan needs customers to pay for a license to Tanzu components through an Azure Marketplace offer. To purchase in the Azure Marketplace, the billing account's country or region for your Azure subscription should be in the SaaS offer's supported geographic locations.
 

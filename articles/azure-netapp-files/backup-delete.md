@@ -4,7 +4,6 @@ description: Describes how to delete individual backups that you no longer need 
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: how-to
 ms.date: 10/27/2022
 ms.author: anfdocs
@@ -31,7 +30,7 @@ If you need to delete backups to free up space, select an older backup from the 
 2. Navigate to **Backups**.
 3. From the backup list, select the backup to delete. Click the three dots (`…`) to the right of the backup, then click **Delete** from the Action menu.
 
-    ![Screenshot that shows the Delete menu for backups.](../media/azure-netapp-files/backup-action-menu-delete.png)
+    ![Screenshot that shows the Delete menu for backups.](./media/backup-delete/backup-action-menu-delete.png)
 
 ## Next steps  
 

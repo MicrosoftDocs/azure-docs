@@ -89,7 +89,7 @@ DocumentCollection createdCollection = client.createCollection(databaseUri, coll
 
 # [Sync Java V2 SDK](#tab/sync)
 
-[Sync Java V2 SDK](sdk-java-v2.md) (Maven [com.microsoft.azure::azure-documentdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb))
+(Maven [com.microsoft.azure::azure-documentdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb))
 
 ```java
 DocumentCollection lwwCollection = new DocumentCollection();
@@ -274,7 +274,7 @@ DocumentCollection createdCollection = client.createCollection(databaseUri, coll
 
 # [Sync Java V2 SDK](#tab/sync)
 
-[Sync Java V2 SDK](sdk-java-v2.md) (Maven [com.microsoft.azure::azure-documentdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb))
+(Maven [com.microsoft.azure::azure-documentdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb))
 
 ```java
 DocumentCollection udpCollection = new DocumentCollection();
@@ -384,7 +384,7 @@ DocumentCollection createdCollection = client.createCollection(databaseUri, coll
 
 # [Sync Java V2 SDK](#tab/sync)
 
-[Sync Java V2 SDK](sdk-java-v2.md) (Maven [com.microsoft.azure::azure-documentdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb))
+(Maven [com.microsoft.azure::azure-documentdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb))
 
 ```java
 DocumentCollection manualCollection = new DocumentCollection();
@@ -478,7 +478,7 @@ for (Conflict conflict : response.getResults()) {
 ```
 # [Sync Java V2 SDK](#tab/v2sync)
 
-[Sync Java V2 SDK](sdk-java-v2.md) (Maven [com.microsoft.azure::azure-documentdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb))
+(Maven [com.microsoft.azure::azure-documentdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb))
 
 ```java
 Iterator<Conflict> conflictsIterator = client.readConflicts(this.collectionLink, null).getQueryIterator();

@@ -12,7 +12,7 @@ ms.author: gasinh
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 
-#customer intent: I'm a developer integrating Azure Active Directory B2C with Transmit Security BindID. I need instructions to configure integration, so I can enable passwordless authentication using FIDO2 biometrics for my application.
+# Customer intent: I'm a developer integrating Azure Active Directory B2C with Transmit Security BindID. I need instructions to configure integration, so I can enable passwordless authentication using FIDO2 biometrics for my application.
 ---
 
 # Configure Transmit Security with Azure Active Directory B2C for passwordless authentication
