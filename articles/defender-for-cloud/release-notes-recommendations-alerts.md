@@ -92,7 +92,21 @@ January 4 | New (Microsoft Cloud Security Benchmark) | [VPN gateways should use 
 January 4 | New (Microsoft Cloud Security Benchmark) | [Azure SQL Database should be running TLS version 1.2 or newer](recommendations-reference.md#azure-sql-database-should-be-running-tls-version-12-or-newer) 
 January 4 | New (Microsoft Cloud Security Benchmark) | [Azure SQL Managed Instances should disable public network access](recommendations-reference.md#azure-sql-managed-instances-should-disable-public-network-access)
 January 4 | New (Microsoft Cloud Security Benchmark) | [Storage accounts should prevent shared key access](recommendations-reference.md#storage-accounts-should-prevent-shared-key-access)
-December 14 |
+December 14 | New recommendation (vulnerability assessment for Linux container images with Microsoft Defender Vulnerability Management) | Azure registry container images should have vulnerabilities resolved (powered by Microsoft Defender Vulnerability Management)
+December 14 | New recommendation (vulnerability assessment for Linux container images with Microsoft Defender Vulnerability Management) | Running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)
+December 14 | Renamed recommendation (vulnerability assessment for container images with Qualys) | **Old**: Container registry images should have vulnerability findings resolved (powered by Qualys)<br/>**New**: Azure registry container images should have vulnerabilities resolved (powered by Qualys.
+December 14 | Renamed recommendation (vulnerability assessment for container images with Qualys) | Old: Running container images should have vulnerability findings resolved (powered by Qualys)<br/>****New**: Azure running container images should have vulnerabilities resolved - (powered by Qualys).
+December 4 | New preview alert | `Malicious blob was downloaded from a storage account (Preview)`
+November 30 | Deprecated alert | `Possible data exfiltration detected (K8S.NODE_DataEgressArtifacts)`
+November 30 | Deprecated alert | `Executable found running from a suspicious location (K8S.NODE_SuspectExecutablePath)`
+November 30 | Deprecated alert | `Suspicious process termination burst (VM_TaskkillBurst)`
+November 30 | Deprecated alert | `PsExec execution detected (VM_RunByPsExec)`
+November 15 | New recommendation (renamed from preview) | **Old**: Container registry images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)<br/>**New**:Azure registry container images should have vulnerabilities resolved (powered by Microsoft Defender Vulnerability Management)
+November 15 | New recommendation (renamed from preview) | **Old**: Running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)<br/>**New**:Azure running container images should have vulnerabilities resolved (powered by Microsoft Defender Vulnerability Management.
+November 15 | Renamed recommendation | **Old**: Container registry images should have vulnerability findings resolved (powered by Qualys)<br/>**New**: Azure registry container images should have vulnerabilities resolved (powered by Qualys).
+November 15 | Renamed recommendation | **Old**: Running container images should have vulnerability findings resolved (powered by Qualys)<br/>**New**: Azure running container images should have vulnerabilities resolved - (powered by Qualys).
+November 15 | Renamed recommendation | **Old**: Elastic container registry images should have vulnerability findings resolved<br/>**New**: AWS registry container images should have vulnerabilities resolved - (powered by Trivy)
+October 30 | Alert changed to Informational | `Adaptive application control policy violation was audited.[VM_AdaptiveApplicationControlWindowsViolationAudited, VM_AdaptiveApplicationControlWindowsViolationAudited]`
 
 
 
