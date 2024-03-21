@@ -25,11 +25,11 @@ Azure HDInsight on AKS is one of the most popular services among enterprise cust
 
 - [Workload Identity](/azure/aks/workload-identity-overview) is supported by default for cluster pools on 1.1
 - Trino clusters support Trino 426 from 1.1.0 release
-  - HDInsight on AKS now includes all changes up to Trino 426 with several notable improvements provided by the community, learn more about Trino [here](https://trino.io/docs/current/release/release-426.html).
+  - HDInsight on AKS now includes all changes up to Trino 426 with several notable improvements provided by the community. Learn more about Trino [here](https://trino.io/docs/current/release/release-426.html).
 - Trino cluster shape now supports load-based autoscale from 1.1.0 release
   - Trino on HDInsight on AKS now supports load-based autoscale making cluster more cost efficient. Learn more about it [here](/azure/hdinsight-aks/hdinsight-on-aks-autoscale-clusters).
 - Trino cluster shape adds simplified hive metastore and catalogs configuration
-  - HDInsight on AKS has simplified external Hive metastore configuration for Trino cluster, you can now specify external metastore in config.properties and enable it for each catalog with single parameter, learn more about enhancements [here](/azure/hdinsight-aks/trino/trino-connect-to-metastore).
+  - HDInsight on AKS has simplified external Hive metastore configuration for Trino cluster. you can now specify external metastore in config.properties and enable it for each catalog with single parameter. Learn more about enhancements [here](/azure/hdinsight-aks/trino/trino-connect-to-metastore).
 - Trino cluster shape adds sharded sql connector
 - Flink clusters now support Flink 1.17.0 from HDInsight on AKS 1.1.0 release
   -   HDInsight on AKS now supports Flink 1.17.0 release, with significant improvements on checkpoints, subtask level flame graph, watermark alignments. Learn more about the Flink 1.17 release [here](https://nightlies.apache.org/flink/flink-docs-release-1.17/release-notes/flink-1.17/)
@@ -44,7 +44,7 @@ Azure HDInsight on AKS is one of the most popular services among enterprise cust
 ### Known issues
 
 - **Workload identity limitation:**
-  - There is a known [limitation](/azure/aks/workload-identity-overview#limitations) when transitioning to workload identity. This is due to the permission-sensitive nature of FIC operations. Users cannot perform deletion of a cluster by deleting the resource group. Cluster deletion requests must be triggered by the application/user/principal with FIC/delete permissions. In case, the FIC deletion fails, the high-level cluster deletion will also fail.
+  - There's a known [limitation](/azure/aks/workload-identity-overview#limitations) when transitioning to workload identity. This is due to the permission-sensitive nature of FIC operations. Users can't perform deletion of a cluster by deleting the resource group. Cluster deletion requests must be triggered by the application/user/principal with FIC/delete permissions. In case, the FIC deletion fails, the high-level cluster deletion will also fail.
 
 
 ### New regions
@@ -92,7 +92,7 @@ If you have any more questions, contact [Azure Support](https://ms.portal.azure.
 #### Known Issues
 
 - **Secure Tenants User Interface Support**
-  -   This release addresses an issue where the open source component web URLs for HDInsight on AKS Clusters were inaccessible. For applying this fix, please reach out to Azure support to enable this on your subscription/tenant.
+  -   This release addresses an issue where the open source component web URLs for HDInsight on AKS Clusters were inaccessible. For applying this fix, reach out to Azure support to enable this on your subscription/tenant.
  
   **How to apply the Hotfix**
   -  Recreate Your Cluster
