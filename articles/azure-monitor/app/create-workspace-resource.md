@@ -154,50 +154,101 @@ For the full PowerShell documentation for this cmdlet, and to learn how to retri
 
 ### Azure Resource Manager templates
 
- To create a workspace-based resource, use the following Azure Resource Manager templates and deploy them with PowerShell.
+# [Bicep](#tab/bicep)
 
-#### Template file
+```bicep
+@description('Name of Application Insights resource.')
+param name string
+
+@description('Type of app you are deploying. This field is for legacy reasons and will not impact the type of App Insights resource you deploy.')
+param type string
+
+@description('Which Azure Region to deploy the resource to. This must be a valid Azure regionId.')
+param regionId string
+
+@description('See documentation on tags: https://learn.microsoft.com/azure/azure-resource-manager/management/tag-resources.')
+param tagsArray object
+
+@description('Source of Azure Resource Manager deployment')
+param requestSource string
+
+@description('Log Analytics workspace ID to associate with your Application Insights resource.')
+param workspaceResourceId string
+
+resource component 'Microsoft.Insights/components@2020-02-02' = {
+  name: name
+  location: regionId
+  tags: tagsArray
+  kind: 'other'
+  properties: {
+    Application_Type: type
+    Flow_Type: 'Bluefield'
+    Request_Source: requestSource
+    WorkspaceResourceId: workspaceResourceId
+  }
+}
+```
+
+# [JSON](#tab/json)
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "name": {
-            "type": "string"
-        },
-        "type": {
-            "type": "string"
-        },
-        "regionId": {
-            "type": "string"
-        },
-        "tagsArray": {
-            "type": "object"
-        },
-        "requestSource": {
-            "type": "string"
-        },
-        "workspaceResourceId": {
-            "type": "string"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "name": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of Application Insights resource."
+      }
     },
-    "resources": [
-        {
-            "name": "[parameters('name')]",
-            "type": "microsoft.insights/components",
-            "location": "[parameters('regionId')]",
-            "tags": "[parameters('tagsArray')]",
-            "apiVersion": "2020-02-02-preview",
-            "properties": {
-                "ApplicationId": "[parameters('name')]",
-                "Application_Type": "[parameters('type')]",
-                "Flow_Type": "Bluefield",
-                "Request_Source": "[parameters('requestSource')]",
-                "WorkspaceResourceId": "[parameters('workspaceResourceId')]"
-            }
-        }
-    ]
+    "type": {
+      "type": "string",
+      "metadata": {
+        "description": "Type of app you are deploying. This field is for legacy reasons and will not impact the type of App Insights resource you deploy."
+      }
+    },
+    "regionId": {
+      "type": "string",
+      "metadata": {
+        "description": "Which Azure Region to deploy the resource to. This must be a valid Azure regionId."
+      }
+    },
+    "tagsArray": {
+      "type": "object",
+      "metadata": {
+        "description": "See documentation on tags: https://learn.microsoft.com/azure/azure-resource-manager/management/tag-resources."
+      }
+    },
+    "requestSource": {
+      "type": "string",
+      "metadata": {
+        "description": "Source of Azure Resource Manager deployment"
+      }
+    },
+    "workspaceResourceId": {
+      "type": "string",
+      "metadata": {
+        "description": "Log Analytics workspace ID to associate with your Application Insights resource."
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Insights/components",
+      "apiVersion": "2020-02-02",
+      "name": "[parameters('name')]",
+      "location": "[parameters('regionId')]",
+      "tags": "[parameters('tagsArray')]",
+      "kind": "other",
+      "properties": {
+        "Application_Type": "[parameters('type')]",
+        "Flow_Type": "Bluefield",
+        "Request_Source": "[parameters('requestSource')]",
+        "WorkspaceResourceId": "[parameters('workspaceResourceId')]"
+      }
+    }
+  ]
 }
 ```
 
@@ -205,34 +256,35 @@ For the full PowerShell documentation for this cmdlet, and to learn how to retri
 > For more information on resource properties, see [Property values](/azure/templates/microsoft.insights/components?tabs=bicep#property-values).
 > `Flow_Type` and `Request_Source` aren't used but are included in this sample for completeness.
 
-#### Parameters file
+---
+
+### Parameter file
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "type": {
-            "value": "web"
-        },
-        "name": {
-            "value": "customresourcename"
-        },
-        "regionId": {
-            "value": "eastus"
-        },
-        "tagsArray": {
-            "value": {}
-        },
-        "requestSource": {
-            "value": "Custom"
-        },
-        "workspaceResourceId": {
-            "value": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my_resource_group/providers/microsoft.operationalinsights/workspaces/myworkspacename"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "name": {
+      "value": "my_workspace_based_resource"
+    },
+    "type": {
+      "value": "web"
+    },
+    "regionId": {
+      "value": "westus2"
+    },
+    "tagsArray": {
+      "value": {}
+    },
+    "requestSource": {
+      "value": "CustomDeployment"
+    },
+    "workspaceResourceId": {
+      "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/testxxxx/providers/microsoft.operationalinsights/workspaces/testworkspace"
     }
+  }
 }
-
 ```
 
 ## Modify the associated workspace
@@ -384,6 +436,10 @@ Unique customizations that commonly need to be manually re-created or updated fo
           
 > [!NOTE]
 > If the resource you're creating in a new region is replacing a classic resource, we recommend that you explore the benefits of [creating a new workspace-based resource](#workspace-based-application-insights-resources). Alternatively, [migrate your existing resource to workspace based](./convert-classic-resource.md).
+
+### Can I use providers('Microsoft.Insights', 'components').apiVersions[0] in my Azure Resource Manager deployments?
+
+We don't recommend using this method of populating the API version. The newest version can represent preview releases, which might contain breaking changes. Even with newer nonpreview releases, the API versions aren't always backward compatible with existing templates. In some cases, the API version might not be available to all subscriptions.
 
 ## Next steps
 

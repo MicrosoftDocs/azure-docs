@@ -6515,6 +6515,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/app/resource-manager-app-resource.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/create-workspace-resource",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/app/tutorial-asp-net-core.md",
             "redirect_url": "/previous-versions/azure/azure-monitor/app/tutorial-asp-net-core",
             "redirect_document_id": false
