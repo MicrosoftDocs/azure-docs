@@ -71,6 +71,6 @@ procedureSection:
         As with any ARM template, it's possible to factor out the parameters into a separate `azuredeploy.parameters.json` file and use that as an argument when deploying.
 
 nextStep:
-  text: Learn more about Automanage for Azure Arc
+  text: Automanage for Azure Arc
   url: ./automanage-arc.md
 
