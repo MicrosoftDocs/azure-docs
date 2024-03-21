@@ -2,15 +2,10 @@
 title: Control Azure CDN caching behavior with query strings - premium tier
 description: Azure CDN query string caching controls how files are cached when a web request contains a query string. This article describes query string caching in the Azure CDN Premium from Edgio product.
 services: cdn
-documentationcenter: ''
 author: duongau
 manager: danielgi
-editor: ''
-
 ms.assetid: 99db4a85-4f5f-431f-ac3a-69e05518c997
 ms.service: azure-cdn
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 06/11/2018
 ms.author: duau

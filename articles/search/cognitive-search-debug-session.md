@@ -1,23 +1,25 @@
 ---
 title: Debug Sessions concepts
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Debug Sessions, accessed through the Azure portal, provides an IDE-like environment where you can identify and fix errors, validate changes, and push changes to skillsets in an enrichment pipeline.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 09/29/2023
 ---
 
-# Debug Sessions in Azure Cognitive Search
+# Debug Sessions in Azure AI Search
 
-Debug Sessions is a visual editor that works with an existing skillset in the Azure portal, exposing the structure and content of a single enriched document, as it's produced by an indexer and skillset for the duration of the session. Because you are working with a live document, the session is interactive - you can identify errors, modify and invoke skill execution, and validate the results in real time. If your changes resolve the problem, you can commit them to a published skillset to apply the fixes globally.
+Debug Sessions is a visual editor that works with an existing skillset in the Azure portal, exposing the structure and content of a single enriched document, as it's produced by an indexer and skillset for the duration of the session. Because you're working with a live document, the session is interactive - you can identify errors, modify and invoke skill execution, and validate the results in real time. If your changes resolve the problem, you can commit them to a published skillset to apply the fixes globally.
 
 ## How a debug session works
 
-When you start a session, the search service creates a copy of the skillset, indexer, and a data source containing a single document that will be used to test the skillset. All session state will be saved to a new blob container created by the Azure Cognitive Search service in an Azure Storage account that you provide. The name of the generated container has a prefix of "ms-az-cognitive-search-debugsession". The Azure Storage flow to choose the target storage account where the debug session data is exported always requests a container to be chosen by the user. This is omitted by default to avoid debug session data to be exported by mistake to a customer created container that may have data not related to the debug session.
+When you start a session, the search service creates a copy of the skillset, indexer, and a data source containing a single document used to test the skillset. All session state is saved to a new blob container created by the Azure AI Search service in an Azure Storage account that you provide. The name of the generated container has a prefix of "ms-az-cognitive-search-debugsession". The prefix is required because it mitigates the chance of accidentally exporting session data to another container in your account. 
 
 A cached copy of the enriched document and skillset is loaded into the visual editor so that you can inspect the content and metadata of the enriched document, with the ability to check each document node and edit any aspect of the skillset definition. Any changes made within the session are cached. Those changes will not affect the published skillset unless you commit them. Committing changes will overwrite the production skillset.
 
@@ -25,7 +27,7 @@ If the enrichment pipeline does not have any errors, a debug session can be used
 
 ## Managing the Debug Session state
 
-The debug session can be run again after its creation and its first run using the **Start** button. It may also be canceled while it is still executing using the **Cancel** button. Finally, it may be deleted using the **Delete** button.
+You can rerun a debug session using the **Start** button, or cancel an in-progress session using the **Cancel** button.
 
 :::image type="content" source="media/cognitive-search-debug/debug-session-commands.png" alt-text="Screenshot of the Debug Session control buttons." border="true":::
 
@@ -58,7 +60,7 @@ Nested input controls in Skill Settings can be used to build complex shapes for 
 
 A skill can execute multiple times in a skillset for a single document. For example, the OCR skill will execute once for each image extracted from a single document. The Executions pane displays the skill's execution history providing a deeper look into each invocation of the skill. 
 
-The execution history enables tracking a specific enrichment back to the skill that generated it. Clicking on a skill input navigates to the skill that generated that input, providing a stack-trace like feature. This allows identification of the root cause of a problem that may manifest in a downstream skill. 
+The execution history enables tracking a specific enrichment back to the skill that generated it. Clicking on a skill input navigates to the skill that generated that input, providing a stack-trace like feature. This allows identification of the root cause of a problem that might manifest in a downstream skill. 
 
 When you debug an error with a custom skill, there is the option to generate a request for a skill invocation in the execution history.
 

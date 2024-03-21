@@ -1,17 +1,19 @@
 ---
-title: Create and configure NAT gateway after moving resources to another region
-description: Learn how to configure a new NAT gateway for resources moved to another region.
+title: Deploy a NAT gateway after moving resources between regions
+titleSuffix: Azure NAT gateway
+description: Get started learning how to deploy and configure a new Azure NAT Gateway for resources moved to another region.
 author: asudbring
 ms.author: allensu
 ms.service: nat-gateway
 ms.topic: how-to
-ms.date: 01/04/2022
+ms.date: 01/22/2024
 ms.custom: template-how-to
+# Customer intent: As a network administrator, I want to create and configure a Azure NAT Gateway after moving resources to another region.
 ---
 
 # Create and configure NAT gateway after moving resources to another region
 
-In this article, learn how to configure a NAT gateway after moving resources to a different region. You might want to move resources to take advantage of a new Azure region that is better suited to your customers' geographical presence, other needs, or to meet internal policy and governance requirements, or to take advantage of your organization’s infrastructure.  
+In this article, you'll learn how to set up a NAT gateway after moving resources to a different region. You might want to move resources to a new Azure region that better suits your customers' location or meets your organization's needs and policies. 
 
 > [!NOTE]
 > NAT gateway instances can't directly be moved from one region to another. A workaround is to use Azure Resource Mover to move all the resources associated with the existing NAT gateway to the new region. You then create a new instance of NAT gateway in the new region and then associate the moved resources with the new instance. After the new NAT gateway is functional in the new region, you delete the old instance in the previous region.  
@@ -26,7 +28,7 @@ In this article, learn how to configure a NAT gateway after moving resources to 
 
 ## Create a new NAT gateway
 
-After you have moved all the resources associated with the original instance of NAT gateway to the new region and verified them, the following steps will enable you to create a new instance of NAT gateway. This new NAT gateway can then be associated with the moved resources. 
+After you move all the resources associated with the original NAT gateway instance to the new region and verify them, you can create a new NAT gateway instance. Then, you can associate the moved resources with the new NAT gateway.
 
 1. In the search box at the top of the portal, enter **NAT gateway**. Select **NAT gateways**.
 
@@ -38,9 +40,9 @@ After you have moved all the resources associated with the original instance of 
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your subscription. |
-    | Resource group | Select **Create new**. </br> Enter **myResourceGroup** in **Name**. </br> Select **OK**. </br> Instead, you can select the existing resource group associated with the moved resources in the subscription. |
+    | Resource group | Select **Create new**. </br> Enter **test-rg** in **Name**. </br> Select **OK**. </br> Instead, you can select the existing resource group associated with the moved resources in the subscription. |
     | **Instance details** |   |
-    | Name | Enter **myNATgateway**. |
+    | Name | Enter **nat-gateway**. |
     | Region | Select the name of the new region. |
     | Availability Zone | Select **None**. Instead, you can select the zone of the moved resources if applicable. |
     | Idle timeout (minutes) | Enter **10**. |
@@ -51,7 +53,7 @@ After you have moved all the resources associated with the original instance of 
 
     | Setting | Value |
     | ------- | ----- |
-    | Public IP addresses | Select **Create a new public IP address**. </br> Enter **myNATPublicIP** in **Name**. </br> Select **OK**. </br> Instead, you can select an existing public IP in your subscription if applicable. |
+    | Public IP addresses | Select **Create a new public IP address**. </br> Enter **public-ip-nat** in **Name**. </br> Select **OK**. </br> Instead, you can select an existing public IP in your subscription if applicable. |
 
 6. Select the **Subnet** tab, or select **Next: Subnet** at the bottom of the page.
 
@@ -69,7 +71,7 @@ For steps on how to test the NAT gateway, see [Quickstart: Create a NAT gateway 
 
 ## Delete old instance of NAT gateway 
 
-After you have created new NAT gateway and have tested it, you can delete the source resources from the old region. This step will automatically delete the original NAT gateway. 
+After you create the new NAT gateway and test the deployment, you can delete the source resources from the old region including the old NAT gateway instance.
 
 ## Next steps
 

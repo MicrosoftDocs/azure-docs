@@ -2,7 +2,7 @@
 title: Install Arc agent at scale for your VMware VMs
 description: Learn how to enable guest management at scale for Arc enabled VMware vSphere VMs. 
 ms.topic: how-to
-ms.date: 08/21/2023
+ms.date: 11/06/2023
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
 author: Farha-Bano

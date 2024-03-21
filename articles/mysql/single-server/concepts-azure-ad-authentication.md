@@ -80,7 +80,7 @@ Please note that management operations, such as adding new users, are only suppo
 ## Additional considerations
 
 - Microsoft Entra authentication is only available for MySQL 5.7 and newer.
-- Only one Microsoft Entra administrator can be configured for a Azure Database for MySQL server at any time.
+- Only one Microsoft Entra administrator can be configured for an Azure Database for MySQL server at any time.
 - Only a Microsoft Entra administrator for MySQL can initially connect to the Azure Database for MySQL using a Microsoft Entra account. The Active Directory administrator can configure subsequent Microsoft Entra database users.
 - If a user is deleted from Microsoft Entra ID, that user will no longer be able to authenticate with Microsoft Entra ID, and therefore it will no longer be possible to acquire an access token for that user. In this case, although the matching user will still be in the database, it will not be possible to connect to the server with that user.
 > [!NOTE]

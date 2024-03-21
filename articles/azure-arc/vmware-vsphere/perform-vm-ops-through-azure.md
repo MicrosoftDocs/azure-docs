@@ -2,14 +2,17 @@
 title: Perform VM operations on VMware VMs through Azure
 description: Learn how to view the operations that you can do on VMware virtual machines and install the Log Analytics agent.
 ms.topic: how-to 
-ms.date: 08/18/2023
+ms.date: 03/12/2024
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
+author: Farha-Bano
+ms.author: v-farhabano
+manager: jsuri
 ---
 
 # Manage VMware VMs in Azure through Arc-enabled VMware vSphere
 
-In this article, you learn how to perform various operations on the Azure Arc-enabled VMware vSphere (preview) VMs such as:
+In this article, you learn how to perform various operations on the Azure Arc-enabled VMware vSphere VMs such as:
 
 - Start, stop, and restart a VM
 
@@ -23,7 +26,7 @@ In this article, you learn how to perform various operations on the Azure Arc-en
 
 - Install extensions (enabling guest management is required). All the [extensions](../servers/manage-vm-extensions.md#extensions) that are available with Arc-enabled Servers are supported.
 
-:::image type="content" source="media/browse-virtual-machines.png" alt-text="Screenshot showing the VMware virtual machine operations." lightbox="media/manage-virtual-machines.png":::
+:::image type="content" source="media/perform-vm-ops-through-azure/manage-virtual-machines.png" alt-text="Screenshot showing the VMware virtual machine operations." lightbox="media/perform-vm-ops-through-azure/manage-virtual-machines.png":::
 
 To perform guest OS operations on Arc-enabled VMs, you must enable guest management on the VMs. When you enable guest management, the Arc Connected Machine Agent is installed on the VM.
 
@@ -48,7 +51,7 @@ Before you can install an extension, you must enable guest management on the VMw
 
 1. From your browser, go to the [Azure portal](https://portal.azure.com).
 
-2. Search for and select the VMware VM and select **Configuration**.
+2. Search for and select the VMware VM for which you want to enable guest management and select **Configuration**.
 
 3. Select **Enable guest management** and provide the administrator username and password to enable guest management.  Then select **Apply**.
 
@@ -62,7 +65,7 @@ If you no longer need the VM, you can delete it.
 
 2. Search for and select the VM you want to delete.
 
-3. In the single VM view, select on **Delete**.
+3. In the selected VM's Overview page, select **Delete**.
 
 4. When prompted, confirm that you want to delete it.
 

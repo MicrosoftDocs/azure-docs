@@ -5,8 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/23/2023
-tags: connectors
+ms.date: 01/10/2024
 ---
 
 # Connect to Office 365 Outlook from Azure Logic Apps

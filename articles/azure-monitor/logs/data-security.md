@@ -95,7 +95,7 @@ Azure Monitor has an incident management process that all Microsoft services adh
 
 While rare, Microsoft notifies each customer within one day if significant loss of any customer data occurs. 
 
-For more information about how Microsoft responds to security incidents, see [Microsoft Azure Security Response in the Cloud](https://gallery.technet.microsoft.com/Azure-Security-Response-in-dd18c678/file/150826/4/Microsoft%20Azure%20Security%20Response%20in%20the%20cloud.pdf).
+For more information about how Microsoft responds to security incidents, see [Microsoft Azure Security Response in the Cloud](/compliance/assurance/assurance-incident-management).
 
 ## Compliance
 The Azure Monitor software development and service team's information security and governance program supports its business requirements and adheres to laws and regulations as described at [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/) and [Microsoft Trust Center Compliance](https://www.microsoft.com/en-us/trustcenter/compliance/default.aspx). How Azure Monitor Logs establishes security requirements, identifies security controls, manages, and monitors risks are also described there. Annually, we review policies, standards, procedures, and guidelines.
@@ -128,8 +128,8 @@ Azure Log Analytics meets the following requirements:
 
 ## Cloud computing security data flow
 The following diagram shows a cloud security architecture as the flow of information from your company and how it's secured as is moves to Azure Monitor, ultimately seen by you in the Azure portal. More information about each step follows the diagram.
-
-![Image of Azure Monitor Logs data collection and security](./media/data-security/log-analytics-data-security-diagram.png)
+<!-- convertborder later -->
+:::image type="content" source="./media/data-security/log-analytics-data-security-diagram.png" lightbox="./media/data-security/log-analytics-data-security-diagram.png" alt-text="Image of Azure Monitor Logs data collection and security" border="false":::
 
 ### 1. Sign up for Azure Monitor and collect data
 For your organization to send data to Azure Monitor Logs, you configure a Windows or Linux agent running on Azure virtual machines, or on virtual or physical computers in your environment or other cloud provider.  If you use Operations Manager, from the management group you configure the Operations Manager agent. Users (which might be you, other individual users, or a group of people) create one or more Log Analytics workspaces, and register agents by using one of the following accounts:
@@ -189,6 +189,3 @@ This section provides answers to common questions.
 ### Does my agent traffic use my Azure ExpressRoute connection?
 
 Traffic to Azure Monitor uses the Microsoft peering ExpressRoute circuit. See [ExpressRoute documentation](../../expressroute/expressroute-faqs.md#supported-services) for a description of the different types of ExpressRoute traffic.
-
-## Next steps
-* [See the different kinds of data that you can collect in Azure Monitor](../monitor-reference.md).

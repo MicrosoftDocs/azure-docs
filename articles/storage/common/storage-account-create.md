@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 09/12/2023
 ms.author: akashdubey
 ms.subservice: storage-common-concepts
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, engagement-fy23
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, engagement-fy23, devx-track-extended-azdevcli
 ---
 
 # Create a storage account
@@ -311,7 +311,7 @@ To create an account with Azure DNS zone endpoints (preview), follow these steps
 1. Make sure you have the latest version of PowerShellGet installed.
 
     ```azurepowershell
-    Install-Module PowerShellGet –Repository PSGallery –Force
+    Install-Module PowerShellGet -Repository PSGallery -Force
     ```
 
 1. Close and reopen the PowerShell console.
@@ -463,7 +463,7 @@ To learn how to modify this template or create new ones, see:
 
 # [Azure Developer CLI](#tab/azure-developer-cli)
 
-The Azure Developer CLI (`azd`) is designed around [`azd` templates](/azure/developer/azure-developer-cli/make-azd-compatible?pivots=azd-convert). These templates leverage Bicep files, basic configurations and automation tasks to provision and deploy resources to Azure. You can also view the source code for the template in the [create a storage account quickstart]() repository.
+The Azure Developer CLI (`azd`) is designed around [`azd` templates](/azure/developer/azure-developer-cli/make-azd-compatible?pivots=azd-convert). These templates leverage Bicep files, basic configurations and automation tasks to provision and deploy resources to Azure. You can also view the source code for the template in the [create a storage account quickstart](https://github.com/Azure-Samples/azd-create-storage-account/tree/main) repository.
 
 Initialize and run the template for this quickstart using the following steps:
 

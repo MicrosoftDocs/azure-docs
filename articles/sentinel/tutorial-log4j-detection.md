@@ -47,7 +47,7 @@ To complete this tutorial, make sure you have:
     | **Azure Monitor (IIS)** | W3CIISLog |
     | **Azure Activity** | AzureActivity |
     | **Amazon Web Services** | AWSCloudTrail |
-    | **Microsoft 365 Defender** | DeviceNetworkEvents |
+    | **Microsoft Defender XDR** | DeviceNetworkEvents |
     | **Azure Firewall** | AzureDiagnostics (Azure Firewall) |
 
 ## Sign in to the Azure portal and Microsoft Sentinel

@@ -6,7 +6,6 @@ ms.author: thvankra
 ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: apache-cassandra
-ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 10/18/2022
 ---

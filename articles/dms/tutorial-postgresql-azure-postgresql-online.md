@@ -9,9 +9,7 @@ ms.date: 04/11/2020
 ms.service: dms
 ms.topic: tutorial
 ms.custom:
-  - seo-lt-2019
   - devx-track-azurecli
-  - ignite-2022
   - sql-migration-content
 ---
 

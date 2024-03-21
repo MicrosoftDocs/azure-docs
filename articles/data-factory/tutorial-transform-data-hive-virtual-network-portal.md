@@ -224,7 +224,7 @@ Note the following points:
 
     :::image type="content" source="./media/tutorial-transform-data-using-hive-in-vnet-portal/output-file.png" alt-text="Output file":::
 
-## Next steps
+## Related content
 You performed the following steps in this tutorial: 
 
 > [!div class="checklist"]

@@ -5,7 +5,7 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.service: azure-ai-metrics-advisor
 ms.topic: tutorial
-ms.date: 05/20/2021	
+ms.date: 01/19/2024	
 ---
 
 <!--

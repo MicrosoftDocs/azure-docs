@@ -2,8 +2,8 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 02/14/2022
-author: eur
+ms.date: 1/21/2024
+ms.author: eur
 ---
 
 [!INCLUDE [Header](../../common/rest.md)]

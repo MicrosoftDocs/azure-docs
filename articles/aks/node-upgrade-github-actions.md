@@ -209,6 +209,8 @@ For more information about AKS upgrades, see the following articles and resource
 * [AKS release notes](https://github.com/Azure/AKS/releases)
 * [Upgrade an AKS cluster][cluster-upgrades-article]
 
+For a detailed discussion of upgrade best practices and other considerations, see [AKS patch and upgrade guidance][upgrade-operators-guide].
+
 <!-- LINKS - external -->
 [github]: https://github.com
 [profile-repository]: https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-github-profile/about-your-profile
@@ -224,3 +226,4 @@ For more information about AKS upgrades, see the following articles and resource
 [azure-built-in-roles]: ../role-based-access-control/built-in-roles.md
 [azure-rbac-scope-levels]: ../role-based-access-control/scope-overview.md#scope-format
 [az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
+[upgrade-operators-guide]: /azure/architecture/operator-guides/aks/aks-upgrade-practices

@@ -24,6 +24,7 @@ Use the below tables to find all the relevant information on number availability
 | Toll-Free   | -                    | -                    | General Availability | General Availability\* |
 | Local       | -                    | -                    | General Availability | General Availability\* |
 |Alphanumeric Sender ID\**|General Availability  |-|-|-|
+| Short code       |General Availability                    |General Availability                    | - | - |
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
@@ -46,14 +47,20 @@ More details on eligible subscription types are as follows:
 ## Azure subscription billing locations where United Kingdom phone numbers are available
 | Country/Region |
 | :---------- |
+|Australia|
 |Canada|
 |Denmark|
+|France|
 |Ireland|
 |Italy|
+|Netherlands|
 |Puerto Rico|
+|Spain|
 |Sweden|
 |United Kingdom|
 |United States|
+
+[!INCLUDE [Azure Prepayment](../../includes/azure-prepayment.md)]
 
 ## Azure subscription billing locations where United Kingdom alphanumeric sender IDs are available
 | Country/Region |

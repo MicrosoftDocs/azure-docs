@@ -44,7 +44,7 @@ SQL Server to SQL Server on an Azure virtual machine|[Online](./tutorial-sql-ser
 SQL Server to Azure SQL Database | [Offline](./tutorial-sql-server-azure-sql-database-offline.md)
 
 > [!IMPORTANT]
-> If your target is Azure SQL Database, make sure you deploy the database schema before you begin the migration. You can use tools like the [SQL Server dacpac extension](/azure-data-studio/extensions/sql-server-dacpac-extension) or the [SQL Database Projects extension](/azure-data-studio/extensions/sql-database-project-extension) for Azure Data Studio.
+> If your target is Azure SQL Database, you can migrate database Schema and data both using Database Migration Service via Azure Portal. Also, you can use tools like the [SQL Server dacpac extension](/azure-data-studio/extensions/sql-server-dacpac-extension) or the [SQL Database Projects extension](/azure-data-studio/extensions/sql-database-project-extension) for Azure Data Studio to deploy the database schema before you begin the data migration.
 
 The following video explains recent updates and features added to the Azure SQL Migration extension for Azure Data Studio:
 

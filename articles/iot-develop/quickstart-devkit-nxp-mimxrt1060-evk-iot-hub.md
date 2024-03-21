@@ -5,8 +5,8 @@ author: timlt
 ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
-ms.topic: quickstart
-ms.date: 06/27/2023
+ms.topic: quickstart 
+ms.date: 1/23/2024
 ---
 
 # Quickstart: Connect an NXP MIMXRT1060-EVK Evaluation kit to IoT Hub

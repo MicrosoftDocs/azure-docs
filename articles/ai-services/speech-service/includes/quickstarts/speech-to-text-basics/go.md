@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 08/24/2023
+ms.date: 01/30/2024
 ms.author: eur
 ---
 
@@ -26,7 +26,8 @@ Install the Speech SDK for Go. For requirements and instructions, see [Install t
 
 Follow these steps to create a GO module.
 
-1. Open a command prompt where you want the new module, and create a new file named *speech-recognition.go*.
+1. Open a command prompt window in the folder where you want the new project. Create a new file named  *speech-recognition.go*.
+
 1. Copy the following code into *speech-recognition.go*:
 
    ```go
@@ -109,7 +110,7 @@ Follow these steps to create a GO module.
    ```
 
    > [!IMPORTANT]
-   > Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` environment variables as described in [Set environment variables](#set-environment-variables). If you don't set these variables, the sample fails with an error message.
+   > Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` [environment variables](#set-environment-variables). If you don't set these variables, the sample fails with an error message.
 
 1. Build and run the code:
 

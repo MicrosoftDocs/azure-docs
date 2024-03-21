@@ -7,7 +7,7 @@ ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: concept-article
 ms.reviewer: harshacs
-ms.date: 10/06/2023
+ms.date: 11/27/2023
 
 #CustomerIntent: As an Azure administrator, I want to use Traffic analytics to analyze Network Watcher flow logs so that I can view network activity, secure my networks, and optimize performance.
 ---
@@ -63,7 +63,7 @@ To use traffic analytics, you need the following components:
 
 - **Log Analytics workspace**: The environment that stores Azure Monitor log data that pertains to an Azure account. For more information about Log Analytics workspaces, see [Overview of Log Analytics workspace](../azure-monitor/logs/log-analytics-workspace-overview.md?toc=/azure/network-watcher/toc.json).
 
-- Additionally, you need a network security group enabled for flow logging if you're using traffic analytics to analyze [NSG flow logs](network-watcher-nsg-flow-logging-overview.md) or a virtual network enabled for flow logging if you're using traffic analytics to analyze [VNet flow logs (preview)](vnet-flow-logs-overview.md):
+- Additionally, you need a network security group enabled for flow logging if you're using traffic analytics to analyze [NSG flow logs](nsg-flow-logs-overview.md) or a virtual network enabled for flow logging if you're using traffic analytics to analyze [VNet flow logs (preview)](vnet-flow-logs-overview.md):
 
     - **Network security group (NSG)**: A resource that contains a list of security rules that allow or deny network traffic to or from resources that are connected to an Azure virtual network. Network security groups can be associated with subnets, network interfaces (NICs) that are attached to VMs (Resource Manager), or individual VMs (classic). For more information, see [Network security group overview](../virtual-network/network-security-groups-overview.md?toc=/azure/network-watcher/toc.json).
     
@@ -74,7 +74,7 @@ To use traffic analytics, you need the following components:
       - Information about the flow, such as the source and destination IP addresses, the source and destination ports, and the protocol.
       - The status of the traffic, such as allowed or denied.
     
-      For more information about NSG flow logs, see [NSG flow logs overview](network-watcher-nsg-flow-logging-overview.md).
+      For more information about NSG flow logs, see [NSG flow logs overview](nsg-flow-logs-overview.md).
     
     - **Virtual network (VNet)**: A resource that enables many types of Azure resources to securely communicate with each other, the internet, and on-premises networks. For more information, see [Virtual network overview](../virtual-network/virtual-networks-overview.md?toc=/azure/network-watcher/toc.json).
     
@@ -84,7 +84,10 @@ To use traffic analytics, you need the following components:
       - Information about the flow, such as the source and destination IP addresses, the source and destination ports, and the protocol.
       - The status of the traffic, such as allowed or denied.
     
-      For more information about NSG flow logs, see [VNet flow logs overview](vnet-flow-logs-overview.md).
+      For more information about VNet flow logs, see [VNet flow logs overview](vnet-flow-logs-overview.md).
+
+      > [!NOTE]
+      > For information about the differences between NSG flow logs and VNet flow logs, see [VNet flow logs compared to NSG flow logs](vnet-flow-logs-overview.md#vnet-flow-logs-compared-to-nsg-flow-logs) 
 
 ## How traffic analytics works
 
@@ -94,14 +97,14 @@ An example might involve Host 1 at IP address 10.10.10.10 and Host 2 at IP addre
 
 Reduced logs are enhanced with geography, security, and topology information and then stored in a Log Analytics workspace. The following diagram shows the data flow:
 
-:::image type="content" source="./media/traffic-analytics/data-flow-for-nsg-flow-log-processing.png" alt-text="Diagram that shows how network traffic data flows from an N S G log to an analytics dashboard. Middle steps include aggregation and enhancement.":::
+:::image type="content" source="./media/traffic-analytics/data-flow-for-nsg-flow-log-processing.png" alt-text="Diagram that shows how network traffic data flows from an NSG log to an analytics dashboard. Middle steps include aggregation and enhancement.":::
 
 ## Prerequisites
 
 Traffic analytics requires the following prerequisites:
 
 - A Network Watcher enabled subscription. For more information, see [Enable or disable Azure Network Watcher](network-watcher-create.md).
-- NSG flow logs enabled for the network security groups you want to monitor or VNet flow logs enabled for the virtual network you want to monitor. For more information, see [Create a flow log](nsg-flow-logging.md#create-a-flow-log) or [Enable VNet flow logs](vnet-flow-logs-powershell.md#enable-vnet-flow-logs).
+- NSG flow logs enabled for the network security groups you want to monitor or VNet flow logs enabled for the virtual network you want to monitor. For more information, see [Create a flow log](nsg-flow-logs-portal.md#create-a-flow-log) or [Enable VNet flow logs](vnet-flow-logs-powershell.md#enable-vnet-flow-logs).
 - An Azure Log Analytics workspace with read and write access. For more information, see [Create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md?toc=/azure/network-watcher/toc.json).
 
 - One of the following [Azure built-in roles](../role-based-access-control/built-in-roles.md) needs to be assigned to your account:
@@ -125,7 +128,8 @@ Traffic analytics requires the following prerequisites:
     - `Microsoft.Network/virtualNetworkGateways/read`
     - `Microsoft.Network/virtualNetworks/read`
     - `Microsoft.Network/expressRouteCircuits/read`
-    - `Microsoft.OperationalInsights/workspaces/*` <sup>1</sup>
+    - `Microsoft.OperationalInsights/workspaces/read` <sup>1</sup>
+    - `Microsoft.OperationalInsights/workspaces/sharedkeys/action` <sup>1</sup>
     - `Microsoft.Insights/dataCollectionRules/read` <sup>2</sup>
     - `Microsoft.Insights/dataCollectionRules/write` <sup>2</sup>
     - `Microsoft.Insights/dataCollectionRules/delete` <sup>2</sup>

@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to create and manage your first p
 services: dns
 author: greg-lindsay
 ms.author: greglin
-ms.date: 07/19/2023
+ms.date: 02/28/2024
 ms.topic: quickstart
 ms.service: dns
 ms.custom: devx-track-azurepowershell, mode-api, ignite-2022
@@ -18,6 +18,10 @@ This article walks you through the steps to create your first private DNS zone a
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Azure DNS Private Resolver is a new service that enables you to query Azure DNS private zones from an on-premises environment and vice versa without deploying VM based DNS servers. For more information, including benefits, capabilities, and regional availability, see [What is Azure DNS Private Resolver](dns-private-resolver-overview.md).
+
+The following figure summarizes the setup used in this article:
+
+![Conceptual figure displaying components of the private resolver.](./media/dns-resolver-getstarted-portal/resolver-components.png)
 
 ## Prerequisites
 

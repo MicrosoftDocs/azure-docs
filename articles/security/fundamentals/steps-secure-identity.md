@@ -2,19 +2,14 @@
 title: Secure your Microsoft Entra identity infrastructure
 titleSuffix: Microsoft Entra ID
 description: This document outlines a list of important actions administrators should implement to help them secure their organization using Microsoft Entra capabilities
-
 ms.service: information-protection
 ms.subservice: aiplabels
-ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/17/2022
-
 ms.author: martinco
 author: martincoetzer
 manager: manmeetb
 ms.reviewer: lvandenende
-
-tags: azuread
 ---
 # Five steps to securing your identity infrastructure
 
@@ -132,7 +127,7 @@ Microsoft Entra built-in and custom roles operate on concepts similar to roles f
 
 Both systems contain similarly used role definitions and role assignments. However, Microsoft Entra role permissions can't be used in Azure custom roles and vice versa. As part of deploying your privileged account process, follow the best practice to create at least two emergency accounts to make sure you still have access to Microsoft Entra ID if you lock yourself out.
 
-For more information, see the article [Plan a Privileged Identity Management deployment](../../active-directory/privileged-identity-management/pim-deployment-plan.md) and [securing privileged access](/security/compass/overview).
+For more information, see the article [Plan a Privileged Identity Management deployment](../../active-directory/privileged-identity-management/pim-deployment-plan.md) and securing privileged access.
 
 ### Restrict user consent operations
 
@@ -166,9 +161,9 @@ Included in the user risk detection is a check whether the user's credentials ma
 
 <a name='integrate-microsoft-365-defender-with-azure-ad-identity-protection'></a>
 
-### Integrate Microsoft 365 Defender with Microsoft Entra ID Protection
+### Integrate Microsoft Defender XDR with Microsoft Entra ID Protection
 
-For Identity Protection to be able to perform the best risk detection possible, it needs to get as many signals as possible. It’s therefore important to integrate the complete suite of Microsoft 365 Defender services:
+For Identity Protection to be able to perform the best risk detection possible, it needs to get as many signals as possible. It’s therefore important to integrate the complete suite of Microsoft Defender XDR services:
 
 - Microsoft Defender for Endpoint
 - Microsoft Defender for Office 365

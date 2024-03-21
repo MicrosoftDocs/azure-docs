@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 04/15/2023
 ms.author: govindk
 ms.reviewer: mjbrown
-ms.custom: references_regions, cosmos-db-video, ignite-2022, build-2023
+ms.custom: references_regions, cosmos-db-video, build-2023
 ---
 
 # Continuous backup with point-in-time restore in Azure Cosmos DB
@@ -54,6 +54,7 @@ You can choose to restore any combination of provisioned throughput containers, 
 
 The following configurations aren't restored after the point-in-time recovery:
 
+* A subset of containers under a shared throughput database cannot be restored. The entire database can be restored as a whole.
 * Firewall, VNET, Data plane RBAC or private endpoint settings. 
 * All the Regions from the source account.
 * Stored procedures, triggers, UDFs.
@@ -132,7 +133,7 @@ Currently the point in time restore functionality has the following limitations:
 
 * Multi-regions write accounts aren't supported.
 
-* Currently Azure Synapse Link can be enabled, in preview, in continuous backup database accounts. The opposite situation isn't supported yet, it is not possible to turn on continuous backup in Synapse Link enabled database accounts. And analytical store isn't included in backups. For more information about backup and analytical store, see [analytical store backup](analytical-store-introduction.md#backup).
+* Currently Azure Synapse Link can be enabled in continuous backup database accounts. But the opposite situation isn't supported yet, it is not possible to turn on continuous backup in Synapse Link enabled database accounts. And analytical store isn't included in backups. For more information about backup and analytical store, see [analytical store backup](analytical-store-introduction.md#backup).
 
 * The restored account is created in the same region where your source account exists. You can't restore an account into a region where the source account didn't exist.
 
@@ -162,5 +163,3 @@ Currently the point in time restore functionality has the following limitations:
 * [Migrate to an account from periodic backup to continuous backup](migrate-continuous-backup.md).
 * [Manage permissions](continuous-backup-restore-permissions.md) required to restore data with continuous backup mode.
 * [Resource model of continuous backup mode](continuous-backup-restore-resource-model.md)
-
-

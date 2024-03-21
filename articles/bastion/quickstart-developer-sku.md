@@ -4,27 +4,34 @@ description: Learn how to deploy Bastion using the Developer SKU.
 author: cherylmc
 ms.service: bastion
 ms.topic: quickstart
-ms.date: 10/26/2023
+ms.date: 01/31/2024
 ms.author: cherylmc
 ms.custom: references_regions
 ---
 
-# Quickstart: Deploy Bastion using the Developer SKU (Preview)
+# Quickstart: Deploy Azure Bastion - Developer SKU (Preview)
 
 In this quickstart, you'll learn how to deploy Azure Bastion using the Developer SKU. After Bastion is deployed, you can connect to virtual machines (VM) in the virtual network via Bastion using the private IP address of the VM. The VMs you connect to don't need a public IP address, client software, agent, or a special configuration. For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md)
 
+The following diagram shows the architecture for Azure Bastion and the Developer SKU.
+
+:::image type="content" source="./media/quickstart-developer-sku/bastion-shared-pool.png" alt-text="Diagram that shows the Azure Bastion developer SKU architecture." lightbox="./media/quickstart-developer-sku/bastion-shared-pool.png":::
+
 > [!IMPORTANT]
-> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+> During Preview, Bastion Developer SKU is free of charge. Pricing details will be released at GA for a usage-based pricing model.
 
 [!INCLUDE [regions](../../includes/bastion-developer-sku-regions.md)]
+
+> [!NOTE]
+> VNet peering isn't currently supported for the Developer SKU.
 
 ## About the Developer SKU
 
 The Bastion Developer SKU is a new [lower-cost](https://azure.microsoft.com/pricing/details/azure-bastion/), lightweight SKU. This SKU is ideal for Dev/Test users who want to securely connect to their VMs if they don't need additional features or scaling. With the Developer SKU, you can connect to one Azure VM at a time directly through the virtual machine connect page.
 
-When you deploy Bastion using the Developer SKU, the deployment requirements are different than when you deploy using other SKUs. Typically when you create a bastion host, a host is deployed to the AzureBastionSubnet in your virtual network. The Bastion host is dedicated for your use. When using the Developer SKU, a bastion host isn't deployed to your virtual network and you don't need a AzureBastionSubnet. However, the Developer SKU bastion host isn't a dedicated resource and is, instead, part of a shared pool.
+When you deploy Bastion using the Developer SKU, the deployment requirements are different than when you deploy using other SKUs. Typically when you create a bastion host, a host is deployed to the AzureBastionSubnet in your virtual network. The Bastion host is dedicated for your use. When using the Developer SKU, a bastion host isn't deployed to your virtual network and you don't need an AzureBastionSubnet. However, the Developer SKU bastion host isn't a dedicated resource and is, instead, part of a shared pool.
 
-Because the Developer SKU bastion resource isn't dedicated, the features for the Developer SKU are limited. See the Bastion configuration settings [SKU](configuration-settings.md) section for features by SKU. For more information about pricing, see the [Pricing](https://azure.microsoft.com/pricing/details/azure-bastion/) page. You can always upgrade the Developer SKU to a higher SKU if you need more features. See [Upgrade a SKU](upgrade-sku.md).
+Because the Developer SKU bastion resource isn't dedicated, the features for the Developer SKU are limited. See the Bastion configuration settings [SKU](configuration-settings.md) section for features by SKU. You can always upgrade the Developer SKU to a higher SKU if you need more features. See [Upgrade a SKU](upgrade-sku.md).
 
 ## <a name="prereq"></a>Prerequisites
 
@@ -38,6 +45,7 @@ Because the Developer SKU bastion resource isn't dedicated, the features for the
   * If you need example values, see the [Example values](#values) section.
   * If you already have a virtual network, make sure it's selected on the Networking tab when you create your VM.
   * If you don't have a virtual network, you can create one at the same time you create your VM.
+  * If you have a virtual network, make sure you have the rights to write to it.
 
 * **Required VM roles:**
 
@@ -123,7 +131,7 @@ When you're done using the virtual network and the virtual machines, delete the 
 
 ## Next steps
 
-In this quickstart, you deployed Bastion using the Developer SKKU, and then connected to a virtual machine securely via Bastion. Next, you can configure more features and work with VM connections.
+In this quickstart, you deployed Bastion using the Developer SKU, and then connected to a virtual machine securely via Bastion. Next, you can configure more features and work with VM connections.
 
 > [!div class="nextstepaction"]
 > [Upgrade SKUs](upgrade-sku.md)

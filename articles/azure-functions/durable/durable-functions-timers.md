@@ -4,7 +4,8 @@ description: Learn how to implement durable timers in the Durable Functions exte
 ms.topic: conceptual
 ms.date: 12/07/2022
 ms.author: azfuncdf
-ms.devlang: csharp, javascript, powershell, python, java
+ms.devlang: csharp
+# ms.devlang: csharp, javascript, powershell, python, java
 ---
 
 # Timers in Durable Functions (Azure Functions)
@@ -42,7 +43,7 @@ durable_timeout_task = context.create_timer(due_time)
 
 ```powershell
 # Put the orchestrator to sleep for 72 hours
-@duration = New-TimeSpan -Hours 72
+$duration = New-TimeSpan -Hours 72
 Start-DurableTimer -Duration $duration
 ```
 
@@ -66,7 +67,7 @@ When you create a timer that expires at 4:30 pm UTC, the underlying Durable Task
 
 > [!NOTE]
 > * For JavaScript, Python, and PowerShell apps, Durable timers are limited to six days. To work around this limitation, you can use the timer APIs in a `while` loop to simulate a longer delay. Up-to-date .NET and Java apps support arbitrarily long timers.
-> * Depending on the version of the SDK and [storage provider](durable-functions-storage-providers.md) being used, long timers of 6 days or more may be internally implemented using a series of shorter timers (e.g., of 3 day durations) until the desired expiration time is reached. This can be observed in the underlying data store but won't impact the the orchestration behavior.
+> * Depending on the version of the SDK and [storage provider](durable-functions-storage-providers.md) being used, long timers of 6 days or more may be internally implemented using a series of shorter timers (e.g., of 3 day durations) until the desired expiration time is reached. This can be observed in the underlying data store but won't impact the orchestration behavior.
 > * Don't use built-in date/time APIs for getting the current time. When calculating a future date for a timer to expire, always use the orchestrator function's current time API. For more information, see the [orchestrator function code constraints](durable-functions-code-constraints.md#dates-and-times) article.
 
 ## Usage for delay

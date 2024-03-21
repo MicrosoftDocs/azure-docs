@@ -4,7 +4,6 @@ description: Describes when you might have an Azure subscription disabled and ho
 keywords: azure subscription disabled
 author: bandersmsft
 ms.reviewer: amberb
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to

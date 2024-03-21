@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 04/06/2023
+ms.date: 01/05/2024
 ---
 
 # Copy and transform data in Azure SQL Database by using Azure Data Factory or Azure Synapse Analytics
@@ -30,7 +30,7 @@ This Azure SQL Database connector is supported for the following capabilities:
 |[Script activity](transform-data-using-script.md)|&#9312; &#9313;|✓ |
 |[Stored procedure activity](transform-data-using-stored-procedure.md)|&#9312; &#9313;|✓ |
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 For Copy activity, this Azure SQL Database connector supports these functions:
 
@@ -490,7 +490,7 @@ To copy data to Azure SQL Database, the following properties are supported in th
 | sqlWriterTableType |The table type name to be used in the stored procedure. The copy activity makes the data being moved available in a temp table with this table type. Stored procedure code can then merge the data that's being copied with existing data. |No |
 | storedProcedureParameters |Parameters for the stored procedure.<br/>Allowed values are name and value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. | No |
 | writeBatchSize | Number of rows to insert into the SQL table *per batch*.<br/> The allowed value is **integer** (number of rows). By default, the service dynamically determines the appropriate batch size based on the row size. | No |
-| writeBatchTimeout | The wait time for the batch insert operation to finish before it times out.<br/> The allowed value is **timespan**. An example is "00:30:00" (30 minutes). | No |
+| writeBatchTimeout | The wait time for the insert, upsert and stored procedure operation to complete before it times out. <br/>Allowed values are for the timespan. An example is "00:30:00" for 30 minutes. If no value is specified, the timeout defaults to "00:30:00". | No |
 | disableMetricsCollection | The service collects metrics such as Azure SQL Database DTUs for copy performance optimization and recommendations, which introduces additional master DB access. If you are concerned with this behavior, specify `true` to turn it off. | No (default is `false`) |
 | maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
 | WriteBehavior | Specify the write behavior for copy activity to load data into Azure SQL Database. <br/> The allowed value is **Insert** and **Upsert**. By default, the service uses insert to load data. | No |
@@ -998,6 +998,6 @@ derivedColumn1 sink(allowSchemaDrift: true,
 *    Only **net changes** from SQL CDC will be loaded by ADF via [cdc.fn_cdc_get_net_changes_](/sql/relational-databases/system-functions/cdc-fn-cdc-get-net-changes-capture-instance-transact-sql?source=recommendations).
 
 
-## Next steps
+## Related content
 
 For a list of data stores supported as sources and sinks by the copy activity, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).

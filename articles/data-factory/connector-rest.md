@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/10/2023
+ms.date: 02/26/2024
 ms.author: makromer
 ---
 
@@ -31,7 +31,7 @@ This REST connector is supported for the following capabilities:
 |[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|
 |[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 For a list of data stores that are supported as sources/sinks, see [Supported data stores](connector-overview.md#supported-data-stores).
 
@@ -352,7 +352,8 @@ The following properties are supported in the copy activity **source** section:
 | requestInterval | The time to wait before sending the request for next page. The default value is **00:00:01** |  No |
 
 >[!NOTE]
->REST connector ignores any "Accept" header specified in `additionalHeaders`. As REST connector only support response in JSON, it will auto generate a header of `Accept: application/json`.
+>REST connector ignores any "Accept" header specified in `additionalHeaders`. As REST connector only support response in JSON, it will auto generate a header of `Accept: application/json`. <br>
+>The array of object as the response body is not supported in pagination.
 
 **Example 1: Using the Get method with pagination**
 
@@ -568,7 +569,7 @@ This generic REST connector supports the following pagination patterns:
 | Value | Description |
 |:--- |:--- |
 | Headers.*response_header* OR Headers['response_header'] | "response_header" is user-defined, which references one header name in the current HTTP response, the value of which will be used to issue next request. |
-| A JSONPath expression starting with "$" (representing the root of the response body) | The response body should contain only one JSON object. The JSONPath expression should return a single primitive value, which will be used to issue next request. |
+| A JSONPath expression starting with "$" (representing the root of the response body) | The response body should contain only one JSON object and the array of object as the response body is not supported. The JSONPath expression should return a single primitive value, which will be used to issue next request. |
 
 >[!NOTE]
 > The pagination rules in mapping data flows is different from it in copy activity in the following aspects:
@@ -916,6 +917,6 @@ You can use this REST connector to export REST API JSON response as-is to variou
 
 To copy data from REST endpoint to tabular sink, refer to [schema mapping](copy-activity-schema-and-type-mapping.md#schema-mapping).
 
-## Next steps
+## Related content
 
 For a list of data stores that Copy Activity supports as sources and sinks in Azure Data Factory, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).

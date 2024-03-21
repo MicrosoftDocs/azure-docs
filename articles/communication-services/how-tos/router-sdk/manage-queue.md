@@ -14,8 +14,6 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 # Manage a queue
 
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
-
 This guide outlines the steps to create and manage a Job Router queue.
 
 ## Prerequisites
@@ -54,20 +52,27 @@ var queue = await administrationClient.CreateQueueAsync(
 ::: zone pivot="programming-language-javascript"
 
 ```typescript
-const distributionPolicy = await administrationClient.createDistributionPolicy("Longest_Idle_45s_Min1Max10", {
-    offerExpiresAfterSeconds: 45,
-    mode: {
-        kind: "longest-idle",
-        minConcurrentOffers: 1,
-        maxConcurrentOffers: 10
+const distributionPolicy = await client.path("/routing/distributionPolicies/{distributionPolicyId}", "Longest_Idle_45s_Min1Max10").patch({
+    body: {
+        offerExpiresAfterSeconds: 45,
+        mode: {
+            kind: "longestIdle",
+            minConcurrentOffers: 1,
+            maxConcurrentOffers: 10
+        },
+        name: "Longest Idle matching with a 45s offer expiration; min 1, max 10 offers"
     },
-    name: "Longest Idle matching with a 45s offer expiration; min 1, max 10 offers"
+    contentType: "application/merge-patch+json"
 });
 
-const queue = await administrationClient.createQueue("XBOX_DEFAULT_QUEUE", {
-    name: "XBOX Default Queue",
-    distributionPolicyId: distributionPolicy.id
-});
+const queue = await client.path("/routing/queues/{queueId}", "XBOX_DEFAULT_QUEUE").patch({
+    body: {
+        distributionPolicyId: distributionPolicy.body.id,
+        name: "XBOX Default Queue"
+    },
+    contentType: "application/merge-patch+json"
+  });
+
 ```
 
 ::: zone-end
@@ -75,20 +80,18 @@ const queue = await administrationClient.createQueue("XBOX_DEFAULT_QUEUE", {
 ::: zone pivot="programming-language-python"
 
 ```python
-distribution_policy = administration_client.create_distribution_policy(
+distribution_policy = administration_client.upsert_distribution_policy(
     distribution_policy_id = "Longest_Idle_45s_Min1Max10",
-    distribution_policy = DistributionPolicy(
-        offer_expires_after = timedelta(seconds = 45),
-        mode = LongestIdleMode(min_concurrent_offers = 1, max_concurrent_offers = 10),
-        name = "Longest Idle matching with a 45s offer expiration; min 1, max 10 offers"
-    ))
+    offer_expires_after = timedelta(seconds = 45),
+    mode = LongestIdleMode(min_concurrent_offers = 1, max_concurrent_offers = 10),
+    name = "Longest Idle matching with a 45s offer expiration; min 1, max 10 offers"
+)
 
-queue = administration_client.create_queue(
+queue = administration_client.upsert_queue(
     queue_id = "XBOX_DEFAULT_QUEUE",
-    queue = RouterQueue(
-        name = "XBOX Default Queue",
-        distribution_policy_id = distribution_policy.id
-    ))
+    name = "XBOX Default Queue",
+    distribution_policy_id = distribution_policy.id
+)
 ```
 
 ::: zone-end
@@ -101,6 +104,11 @@ DistributionPolicy distributionPolicy = administrationClient.createDistributionP
     Duration.ofSeconds(45),
     new LongestIdleMode().setMinConcurrentOffers(1).setMaxConcurrentOffers(10))
     .setName("Longest Idle matching with a 45s offer expiration; min 1, max 10 offers"));
+
+RouterQueue queue = administrationClient.createQueue(new CreateQueueOptions(
+    "XBOX_DEFAULT_QUEUE",
+    distributionPolicy.getId())
+    .setName("XBOX Default Queue"));
 ```
 
 ::: zone-end
@@ -112,11 +120,9 @@ The Job Router SDK will update an existing queue when the `UpdateQueueAsync` met
 ::: zone pivot="programming-language-csharp"
 
 ```csharp
-await administrationClient.UpdateQueueAsync(new UpdateQueueOptions(queue.Value.Id)
-{
-    Name = "XBOX Updated Queue",
-    Labels = { ["Additional-Queue-Label"] = new LabelValue("ChatQueue") }
-});
+queue.Name = "XBOX Updated Queue";
+queue.Labels.Add("Additional-Queue-Label", new RouterValue("ChatQueue"));
+await administrationClient.UpdateQueueAsync(queue);
 ```
 
 ::: zone-end
@@ -124,9 +130,12 @@ await administrationClient.UpdateQueueAsync(new UpdateQueueOptions(queue.Value.I
 ::: zone pivot="programming-language-javascript"
 
 ```typescript
-await administrationClient.updateQueue(queue.id, {
-    name: "XBOX Updated Queue",
-    labels: { "Additional-Queue-Label": "ChatQueue" }
+await administrationClient.path("/routing/queues/{queueId}", queue.body.id).patch({
+    body: {
+        name: "XBOX Updated Queue",
+        labels: { "Additional-Queue-Label": "ChatQueue" }
+    },
+    contentType: "application/merge-patch+json"
 });
 ```
 
@@ -135,12 +144,9 @@ await administrationClient.updateQueue(queue.id, {
 ::: zone pivot="programming-language-python"
 
 ```python
-administration_client.update_queue(
-    queue_id = queue.id,
-    queue = RouterQueue(
-        name = "XBOX Updated Queue",
-        labels = { "Additional-Queue-Label": "ChatQueue" }
-    ))
+queue.name = "XBOX Updated Queue"
+queue.labels["Additional-Queue-Label"] = "ChatQueue"
+administration_client.upsert_queue(queue.id, queue)
 ```
 
 ::: zone-end
@@ -148,9 +154,9 @@ administration_client.update_queue(
 ::: zone pivot="programming-language-java"
 
 ```java
-administrationClient.updateQueue(new UpdateQueueOptions(queue.getId())
-    .setName("XBOX Updated Queue")
-    .setLabels(Map.of("Additional-Queue-Label", new LabelValue("ChatQueue"))));
+queue.setName("XBOX Updated Queue");
+queue.setLabels(Map.of("Additional-Queue-Label", new RouterValue("ChatQueue")));
+administrationClient.updateQueue(queue.getId(), BinaryData.fromObject(queue));
 ```
 
 ::: zone-end
@@ -170,7 +176,7 @@ await administrationClient.DeleteQueueAsync(queue.Value.Id);
 ::: zone pivot="programming-language-javascript"
 
 ```typescript
-await administrationClient.deleteQueue(queue.id);
+await client.path("/routing/queues/{queueId}", queue.body.id).delete();
 ```
 
 ::: zone-end

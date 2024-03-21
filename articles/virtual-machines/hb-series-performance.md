@@ -1,13 +1,13 @@
 ---
 title: HB-series VM size performance
-description: Learn about performance testing results for HB-series VM sizes in Azure. 
+description: Learn about performance testing results for HB-series VM sizes in Azure.
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
 ms.date: 03/04/2023
 ms.reviewer: cynthn
-ms.author: mamccrea
-author: mamccrea
+ms.author: jushiman
+author: ju-shim
 ---
 
 # HB-series virtual machine sizes

@@ -1,102 +1,66 @@
 ---
 title: Integrate Palo Alto with Microsoft Defender for IoT
 description: Defender for IoT has integrated its continuous ICS threat monitoring platform with Palo Alto’s next-generation firewalls to enable blocking of critical threats, faster and more efficiently.
-ms.date: 01/01/2023
+ms.date: 09/06/2023
 ms.topic: tutorial
 ---
 
-# Integrate Palo-Alto with Microsoft Defender for IoT
+# Integrate Palo Alto with Microsoft Defender for IoT
 
-This article helps you learn how to integrate and use Palo Alto with Microsoft Defender for IoT.
+This article describes how to integrate Palo Alto with Microsoft Defender for IoT, in order to view both Palo Alto and Defender for IoT information in a single place, or use Defender for IoT data to configure blocking actions in Palo Alto.
 
-Defender for IoT has integrated its continuous ICS threat monitoring platform with Palo Alto’s next-generation firewalls to enable blocking of critical threats, faster and more efficiently.
+Viewing both Defender for IoT and Palo Alto information together provides SOC analysts with multidimensional visibility so that they can block critical threats faster.
 
-The following integration types are available:
+## Cloud-based integrations
 
-- Automatic blocking option: Direct Defender for IoT to Palo Alto integration.
-
-- Send recommendations for blocking to the central management system: Defender for IoT to Panorama integration.
-
-In this article, you learn how to:
-
-> [!div class="checklist"]
+> [!TIP]
+> Cloud-based security integrations provide several benefits over on-premises solutions, such as centralized, simpler sensor management and centralized security monitoring.
 >
-> - Configure immediate blocking by a specified Palo Alto firewall
-> - Create Panorama blocking policies in Defender for IoT
+> Other benefits include real-time monitoring, efficient resource use, increased scalability and robustness, improved protection against security threats, simplified maintenance and updates, and seamless integration with third-party solutions.
+>
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you're integrating a cloud-connected OT sensor with Palo Alto we recommend that you connect Defender for IoT to [Microsoft Sentinel](concept-sentinel-integration.md).
 
-## Prerequisites
+Install one or more of the following solutions to view both Palo Alto and Defender for IoT data in Microsoft Sentinel.
 
-Before you begin, make sure that you have the following prerequisites:
+|Microsoft Sentinel solution  |Learn more  |
+|---------|---------|
+|[Palo Alto PAN-OS Solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-paloaltopanos?tab=Overview)     |   [Palo Alto Networks (Firewall) connector for Microsoft Sentinel](/azure/sentinel/data-connectors/palo-alto-networks-firewall)      |
+|[Palo Alto Networks Cortex Data Lake Solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-paloaltocdl?tab=Overview)     |  [Palo Alto Networks Cortex Data Lake (CDL) connector for Microsoft Sentinel](/azure/sentinel/data-connectors/palo-alto-networks-cortex-data-lake-cdl)       |
+|[Palo Alto Prisma Cloud CSPM solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-paloaltoprisma?tab=Overview)      |   [Palo Alto Prisma Cloud CSPM (using Azure Function) connector for Microsoft Sentinel](/azure/sentinel/data-connectors/palo-alto-prisma-cloud-cspm-using-azure-function)      |
 
-- Confirmation by the Panorama Administrator to allow automatic blocking.
-- Access to a Defender for IoT OT sensor as an Admin user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
+Microsoft Sentinel is a scalable cloud service for security information event management (SIEM) security orchestration automated response (SOAR).  SOC teams can use the integration between Microsoft Defender for IoT and Microsoft Sentinel to collect data across networks, detect and investigate threats, and respond to incidents.
 
-## Configure immediate blocking by a specified Palo Alto firewall
+In Microsoft Sentinel, the Defender for IoT data connector and solution brings out-of-the-box security content to SOC teams, helping them to view, analyze and respond to OT security alerts, and understand the generated incidents in the broader organizational threat contents.
 
-In cases, such as malware-related alerts, you can enable automatic blocking. Defender for IoT forwarding rules are utilized to send a blocking command directly to a specific Palo Alto firewall.
+For more information, see:
 
-Forwarding alert rules run only on alerts triggered after the forwarding rule is created. Alerts already in the system from before the forwarding rule was created aren't affected by the rule.
+- [Tutorial: Connect Microsoft Defender for IoT with Microsoft Sentinel](iot-solution.md)
+- [Tutorial: Investigate and detect threats for IoT devices](iot-advanced-threat-monitoring.md)
 
-When Defender for IoT identifies a critical threat, it sends an alert that includes an option of blocking the infected source. Selecting **Block Source** in the alert’s details activates the forwarding rule, which sends the blocking command to the specified Palo Alto firewall.
+## On-premises integrations
 
-**To configure immediate blocking**:
+If you're working with an air-gapped, locally managed OT sensor, you'll need an on-premises solution to view Defender for IoT and Palo Alto information in the same place.
 
-1. Sign in to the sensor, and select **Forwarding**.
+In such cases, we recommend that you configure your OT sensor to send syslog files directly to Palo Alto, or use Defender for IoT's built-in API.
 
-1. Select **Create new rule**.
+For more information, see:
 
-1. In the **Add forwarding rule** pane, define the rule parameters:
+- [Forward on-premises OT alert information](how-to-forward-alert-information-to-partners.md)
+- [Defender for IoT API reference](references-work-with-defender-for-iot-apis.md)
 
-    :::image type="content" source="media/tutorial-palo-alto/forwarding-rule.png" alt-text="Screenshot of creating the rules for your forwarding rule." lightbox="media/tutorial-palo-alto/forwarding-rule.png":::
+## On-premises integration (legacy)
 
-    | Parameter | Description |
-    |--|--|
-    | **Rule name** | The forwarding rule name. |
-    | **Minimal alert level** | The minimal security level incident to forward. For example, if Minor is selected, minor alerts and any alert above this severity level will be forwarded. |
-    | **Any protocol detected**     |  Toggle off to select the protocols you want to include in the rule.       |
-    | **Traffic detected by any engine**     | Toggle off to select the traffic you want to include in the rule.       |
+This section describes how to integrate and use Palo Alto with Microsoft Defender for IoT using the legacy, on-premises integration, which automatically creates new policies in the Palo Alto Network's NMS and Panorama.
 
-1. In the **Actions** area, set the following parameters:
+> [!IMPORTANT]
+> The legacy Palo Alto Panorama integration is supported through October 2024 using sensor version 23.1.3, and won't be supported in upcoming major software versions. For customers using the legacy integration, we recommend moving to one of the following methods:
+> 
+> - If you're integrating your security solution with cloud-based systems, we recommend that you use data connectors through [Microsoft Sentinel](#cloud-based-integrations). 
+> - For on-premises integrations, we recommend that you either configure your OT sensor to [forward syslog events, or use Defender for IoT APIs](#on-premises-integrations).
+>
 
-    | Parameter | Description |
-    |--|--|
-    | **Server** | Select Palo Alto NGFW. |
-    | **Host** | Enter the NGFW server IP address. |
-    | **Port** | Enter the NGFW server port. |
-    | **Username** | Enter the NGFW server username. |
-    | **Password** | Enter the NGFW server password. |
-
-1. Configure the following options to allow blocking of the suspicious sources by the Palo Alto firewall:
-
-    | Parameter | Description |
-    |--|--|
-    | **Block illegal function codes** | Protocol violations - Illegal field value violating ICS protocol specification (potential exploit). |
-    | **Block unauthorized PLC programming / firmware updates** | Unauthorized PLC changes. |
-    | **Block unauthorized PLC stop** | PLC stop (downtime). |
-    | **Block malware related alerts** | Blocking of industrial malware attempts (TRITON, NotPetya, etc.). <br><br> You can select the option of **Automatic blocking**. <br> In that case, the blocking is executed automatically and immediately. |
-    | **Block unauthorized scanning** | Unauthorized scanning (potential reconnaissance). |
-
-1. Select **Save**.
-
-You'll then need to block any suspicious source.
-
-**To block a suspicious source**:
-
-1. Navigate to the **Alerts** page, and select the alert related to the Palo Alto integration.
-
-1. To automatically block the suspicious source, select **Block Source**.
-
-1. In the **Please Confirm** dialog box, select **OK**.
-
-The suspicious source is now blocked by the Palo Alto firewall.
-
-## Create Panorama blocking policies in Defender for IoT
-
-Defender for IoT and Palo Alto Network's integration automatically creates new policies in the Palo Alto Network's NMS and Panorama.
-
-This table shows which incidents this integration is intended for:
+The following table shows which incidents this integration is intended for:
 
 | Incident type | Description |
 |--|--|
@@ -104,17 +68,26 @@ This table shows which incidents this integration is intended for:
 |**Protocol Violation** | A packet structure, or field value that violates the protocol specification. This alert can represent a misconfigured application, or a malicious attempt to compromise the device. For example, causing a buffer overflow condition in the target device. |
 |**PLC Stop** | A command that causes the device to stop functioning, thereby risking the physical process that is being controlled by the PLC. |
 |**Industrial malware found in the ICS network** | Malware that manipulates ICS devices using their native protocols, such as TRITON and Industroyer. Defender for IoT also detects IT malware that has moved laterally into the ICS, and SCADA environment. For example, Conficker, WannaCry, and NotPetya. |
-|**Scanning malware** | Reconnaissance tools that collect data about system configuration in a pre-attack phase. For example, the Havex Trojan scans industrial networks for devices using OPC, which is a standard protocol used by Windows-based SCADA systems to communicate with ICS devices. |
+|**Scanning malware** | Reconnaissance tools that collect data about system configuration in a preattack phase. For example, the Havex Trojan scans industrial networks for devices using OPC, which is a standard protocol used by Windows-based SCADA systems to communicate with ICS devices. |
 
-When Defender for IoT detects a pre-configured use case, the **Block Source** button is added to the alert. Then, when the Defender for IoT user selects the **Block Source** button, Defender for IoT creates policies on Panorama by sending the predefined forwarding rule.
+When Defender for IoT detects a preconfigured use case, the **Block Source** button is added to the alert. Then, when the Defender for IoT user selects the **Block Source** button, Defender for IoT creates policies on Panorama by sending the predefined forwarding rule.
 
 The policy is applied only when the Panorama administrator pushes it to the relevant NGFW in the network.
 
-In IT networks, there may be dynamic IP addresses. Therefore, for those subnets, the policy must be based on FQDN (DNS name) and not the IP address. Defender for IoT performs reverse lookup and matches devices with dynamic IP address to their FQDN (DNS name) every configured number of hours.
+In IT networks, there might be dynamic IP addresses. Therefore, for those subnets, the policy must be based on FQDN (DNS name) and not the IP address. Defender for IoT performs reverse lookup and matches devices with dynamic IP address to their FQDN (DNS name) every configured number of hours.
 
-In addition, Defender for IoT sends an email to the relevant Panorama user to notify that a new policy created by Defender for IoT is waiting for the approval. The figure below presents the Defender for IoT and Panorama integration architecture.
+In addition, Defender for IoT sends an email to the relevant Panorama user to notify that a new policy created by Defender for IoT is waiting for the approval. The figure below presents the Defender for IoT and Panorama integration architecture:
 
-:::image type="content" source="media/tutorial-palo-alto/structure.png" alt-text="Screenshot of the Defender for IoT-Panorama Integration Architecture." lightbox="media/tutorial-palo-alto/structure.png":::
+:::image type="content" source="media/tutorial-palo-alto/structure.png" alt-text="Diagram of the Defender for IoT-Panorama Integration Architecture." lightbox="media/tutorial-palo-alto/structure.png" border="false":::
+
+### Prerequisites
+
+Before you begin, make sure that you have the following prerequisites:
+
+- Confirmation by the Panorama Administrator to allow automatic blocking.
+- Access to a Defender for IoT OT sensor as an [Admin user](roles-on-premises.md).
+
+### Configure DNS lookup
 
 The first step in creating Panorama blocking policies in Defender for IoT is to configure DNS lookup.
 
@@ -141,38 +114,47 @@ The first step in creating Panorama blocking policies in Defender for IoT is to 
 
 1. Select **Save**.
 
-## Block suspicious traffic with the Palo Alto firewall
+When you're done, continue by creating forwarding rules as needed:
 
-Suspicious traffic needs to be blocked with the Palo Alto firewall. You can block suspicious traffic through the use forwarding rules in Defender for IoT.
+- [Configure immediate blocking by a specified Palo Alto firewall](#configure-immediate-blocking-by-a-specified-palo-alto-firewall)
+- [Block suspicious traffic with the Palo Alto firewall](#block-suspicious-traffic-with-the-palo-alto-firewall)
 
-Forwarding alert rules run only on alerts triggered after the forwarding rule is created. Alerts already in the system from before the forwarding rule was created aren't affected by the rule.
+### Configure immediate blocking by a specified Palo Alto firewall
 
-1. Sign in to the sensor, and select **Forwarding**.
+Configure automatic blocking in cases such as malware-related alerts, by configuring a Defender for IoT forwarding rule to send a blocking command directly to a specific Palo Alto firewall.
 
-1. Select **Create new rule**.
+When Defender for IoT identifies a critical threat, it sends an alert that includes an option of blocking the infected source. Selecting **Block Source** in the alert’s details activates the forwarding rule, which sends the blocking command to the specified Palo Alto firewall.
 
-1. In the **Add forwarding rule** pane, define the rule parameters:
+When creating your forwarding rule:
 
-    :::image type="content" source="media/tutorial-palo-alto/edit.png" alt-text="Screenshot of creating the rules for your Palo Alto Panorama forwarding rule." lightbox="media/tutorial-palo-alto/forwarding-rule.png":::
+1. In the **Actions** area, define the server, host, port, and credentials for the Palo Alto NGFW.
 
-    | Parameter | Description |
-    |--|--|
-    | **Rule name** | The forwarding rule name. |
-    | **Minimal alert level** | The minimal security level incident to forward. For example, if Minor is selected, minor alerts and any alert above this severity level will be forwarded. |
-    | **Any protocol detected**     |  Toggle off to select the protocols you want to include in the rule.       |
-    | **Traffic detected by any engine**     | Toggle off to select the traffic you want to include in the rule.       |
-
-1. In the **Actions** area, set the following parameters:
+1. Configure the following options to allow blocking of the suspicious sources by the Palo Alto firewall:
 
     | Parameter | Description |
     |--|--|
-    | **Server** | Select Palo Alto NGFW. |
-    | **Host** | Enter the NGFW server IP address. |
-    | **Port** | Enter the NGFW server port. |
-    | **Username** | Enter the NGFW server username. |
-    | **Password** | Enter the NGFW server password. |
-    | **Report Addresses** | Define how the blocking is executed, as follows: <br><br> - **By IP Address**: Always creates blocking policies on Panorama based on the IP address. <br> - **By FQDN or IP Address**: Creates blocking policies on Panorama based on FQDN if it exists, otherwise by the IP Address. |
-    | **Email** | Set the email address for the policy notification email. |
+    | **Block illegal function codes** | Protocol violations - Illegal field value violating ICS protocol specification (potential exploit). |
+    | **Block unauthorized PLC programming / firmware updates** | Unauthorized PLC changes. |
+    | **Block unauthorized PLC stop** | PLC stop (downtime). |
+    | **Block malware related alerts** | Blocking of industrial malware attempts (TRITON, NotPetya, etc.). <br><br> You can select the option of **Automatic blocking**. <br> In that case, the blocking is executed automatically and immediately. |
+    | **Block unauthorized scanning** | Unauthorized scanning (potential reconnaissance). |
+
+For more information, see [Forward on-premises OT alert information](how-to-forward-alert-information-to-partners.md).
+
+### Block suspicious traffic with the Palo Alto firewall
+
+Configure a Defender for IoT forwarding rule to block suspicious traffic with the Palo Alto firewall.
+
+When creating your forwarding rule:
+
+1. In the **Actions** area, define the server, host, port, and credentials for the Palo Alto NGFW.
+
+1. Define how the blocking is executed, as follows: 
+
+    - **By IP Address**: Always creates blocking policies on Panorama based on the IP address.
+    - **By FQDN or IP Address**: Creates blocking policies on Panorama based on FQDN if it exists, otherwise by the IP Address.
+
+1. In the **Email** field, enter the email address for the policy notification email.
 
     > [!NOTE]
     > Make sure you have configured a Mail Server in the Defender for IoT. If no email address is entered, Defender for IoT does not send a notification email.
@@ -187,17 +169,19 @@ Forwarding alert rules run only on alerts triggered after the forwarding rule is
     | **Block malware related alerts** | Blocking of industrial malware attempts (TRITON, NotPetya, etc.). <br><br> You can select the option of **Automatic blocking**. <br> In that case, the blocking is executed automatically and immediately. |
     | **Block unauthorized scanning** | Unauthorized scanning (potential reconnaissance). |
 
-1. Select **Save**.
+For more information, see [Forward on-premises OT alert information](how-to-forward-alert-information-to-partners.md).
 
-You'll then need to block any suspicious source.
+### Block specific suspicious sources
 
-**To block a suspicious source**:
+After you've created your forwarding rule, use the following steps to block specific, suspicious sources:
 
-1. Navigate to the **Alerts** page, and select the alert related to the Palo Alto integration.
+1. In the OT sensor's **Alerts** page, locate and select the alert related to the Palo Alto integration.
 
 1. To automatically block the suspicious source, select **Block Source**.
 
-1. Select **OK**.
+1. In the **Please Confirm** dialog box, select **OK**.
+
+The suspicious source is now blocked by the Palo Alto firewall.
 
 ## Next step
 

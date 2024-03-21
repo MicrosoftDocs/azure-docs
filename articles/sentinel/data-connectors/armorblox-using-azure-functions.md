@@ -3,7 +3,7 @@ title: "Armorblox (using Azure Functions) connector for Microsoft Sentinel"
 description: "Learn how to install the connector Armorblox (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 07/26/2023
+ms.date: 01/06/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -20,7 +20,7 @@ The [Armorblox](https://www.armorblox.com/) data connector provides the capabili
 | **Azure function app code** | https://aka.ms/sentinel-armorblox-functionapp |
 | **Log Analytics table(s)** | Armorblox_CL<br/> |
 | **Data collection rules support** | Not currently supported |
-| **Supported by** | [armorblox](https://www.armorblox.com/contact/) |
+| **Supported by** | [Armorblox](https://www.armorblox.com/contact/) |
 
 ## Query samples
 

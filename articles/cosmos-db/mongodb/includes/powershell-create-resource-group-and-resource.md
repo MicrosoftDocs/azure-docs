@@ -2,7 +2,6 @@
 author: diberry
 ms.service: cosmos-db
 ms.subservice: mongodb
-ms.custom: ignite-2022
 ms.topic: include
 ms.date: 10/31/2022
 ms.author: diberry

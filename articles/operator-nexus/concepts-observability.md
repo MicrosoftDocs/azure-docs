@@ -101,7 +101,7 @@ The 'InsightMetrics' table in the Logs section contains the metrics collected fr
 
 Figure: Azure Monitor Metrics Selection
 
-See **[Getting Started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md)** for details on using this tool.
+See **[Analyze metrics with Azure Monitor metrics explorer](../azure-monitor/essentials/analyze-metrics.md)** for details on using this tool.
 
 #### Workbooks
 

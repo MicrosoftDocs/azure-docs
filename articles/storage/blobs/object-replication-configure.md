@@ -40,9 +40,9 @@ To create a replication policy in the Azure portal, follow these steps:
 
 1. Navigate to the source storage account in the Azure portal.
 1. Under **Data management**, select **Object replication**.
-1. Select **Set up replication rules**.
+1. Select **Create replication rules**.
 1. Select the destination subscription and storage account.
-1. In the **Container pairs** section, select a source container from the source account, and a destination container from the destination account. You can create up to 10 container pairs per replication policy from the Azure portal. To configure more than 10 container pairs (up to 1000), see [Configure object replication using a JSON file](#configure-object-replication-using-a-json-file).
+1. In the **Container pair details** section, select a source container from the source account, and a destination container from the destination account. You can create up to 10 container pairs per replication policy from the Azure portal. To configure more than 10 container pairs (up to 1000), see [Configure object replication using a JSON file](#configure-object-replication-using-a-json-file).
 
     The following image shows a set of replication rules.
 

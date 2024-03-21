@@ -1,7 +1,7 @@
 ---
  title: include file
  description: include file
- services: cognitive-services
+ #services: cognitive-services
  author: eur
  ms.author: eric-urban
  ms.service: azure-ai-services

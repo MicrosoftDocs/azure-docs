@@ -4,7 +4,7 @@ description: Configure Azure Container Storage Preview for use with Azure manage
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 09/15/2023
+ms.date: 11/06/2023
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -27,7 +27,14 @@ ms.custom: references_regions
 
 ## Create a storage pool
 
-First, create a storage pool, which is a logical grouping of storage for your Kubernetes cluster, by defining it in a YAML manifest file. Follow these steps to create a storage pool for Azure Disks.
+First, create a storage pool, which is a logical grouping of storage for your Kubernetes cluster, by defining it in a YAML manifest file.
+
+If you enabled Azure Container Storage using `az aks create` or `az aks update` commands, you might already have a storage pool. Use `kubectl get sp -n acstor` to get the list of storage pools. If you have a storage pool already available that you want to use, you can skip this section and proceed to [Display the available storage classes](#display-the-available-storage-classes).
+
+> [!IMPORTANT]
+> If you want to use your own keys to encrypt your volumes instead of using Microsoft-managed keys, don't create your storage pool using the steps in this section. Instead, go to [Enable server-side encryption with customer-managed keys](#enable-server-side-encryption-with-customer-managed-keys) and follow the steps there.
+
+Follow these steps to create a storage pool for Azure Disks.
 
 1. Use your favorite text editor to create a YAML manifest file such as `code acstor-storagepool.yaml`.
 
@@ -52,6 +59,68 @@ First, create a storage pool, which is a logical grouping of storage for your Ku
    
    ```azurecli-interactive
    kubectl apply -f acstor-storagepool.yaml 
+   ```
+   
+   When storage pool creation is complete, you'll see a message like:
+   
+   ```output
+   storagepool.containerstorage.azure.com/azuredisk created
+   ```
+   
+   You can also run this command to check the status of the storage pool. Replace `<storage-pool-name>` with your storage pool **name** value. For this example, the value would be **azuredisk**.
+   
+   ```azurecli-interactive
+   kubectl describe sp <storage-pool-name> -n acstor
+   ```
+
+When the storage pool is created, Azure Container Storage will create a storage class on your behalf, using the naming convention `acstor-<storage-pool-name>`.
+
+## Enable server-side encryption with customer-managed keys
+
+If you already created a storage pool or you prefer to use the default Microsoft-managed encryption keys, skip this section and proceed to [Display the available storage classes](#display-the-available-storage-classes).
+
+All data in an Azure storage account is encrypted at rest. By default, data is encrypted with Microsoft-managed keys. For more control over encryption keys, you can supply customer-managed keys (CMK) to encrypt the persistent volumes that you'll create from an Azure Disk storage pool.
+
+To use your own key, you must have an [Azure Key Vault](../../key-vault/general/overview.md) with a key. The Key Vault should have purge protection enabled, and it must use the Azure RBAC permission model. Learn more about [customer-managed keys on Linux](../../virtual-machines/disk-encryption.md#customer-managed-keys).
+
+When creating your storage pool, you must define the CMK parameters. The required CMK encryption parameters are:
+
+- **keyVersion** specifies the version of the key to use
+- **keyName** is the name of your key
+- **keyVaultUri** is the uniform resource identifier of the Azure Key Vault, for example `https://user.vault.azure.net`
+- **Identity** specifies a managed identity with access to the vault, for example `/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourcegroups/MC_user-acstor-westus2-rg_user-acstor-westus2_westus2/providers/Microsoft.ManagedIdentity/userAssignedIdentities/user-acstor-westus2-agentpool`
+
+Follow these steps to create a storage pool using your own encryption key. All persistent volumes created from this storage pool will be encrypted using the same key.
+
+1. Use your favorite text editor to create a YAML manifest file such as `code acstor-storagepool-cmk.yaml`.
+
+1. Paste in the following code, supply the required parameters, and save the file. The storage pool **name** value can be whatever you want. For **skuName**, specify the level of performance and redundancy. Acceptable values are Premium_LRS, Standard_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, PremiumV2_LRS, and StandardSSD_ZRS. For **storage**, specify the amount of storage capacity for the pool in Gi or Ti. Be sure to supply the CMK encryption parameters.
+
+   ```yml
+   apiVersion: containerstorage.azure.com/v1beta1
+   kind: StoragePool
+   metadata:
+     name: azuredisk
+     namespace: acstor
+   spec:
+     poolType:
+       azureDisk:
+         skuName: Premium_LRS
+         encryption: {
+           keyVersion: "<key-version>",
+           keyName: "<key-name>",
+           keyVaultUri: "<key-vault-uri>",
+           identity: "<identity>"
+         }
+     resources:
+       requests:
+         storage: 1Ti
+   ```
+
+1. Apply the YAML manifest file to create the storage pool.
+   
+   ```azurecli-interactive
+   kubectl apply -f acstor-storagepool-cmk.yaml 
    ```
    
    When storage pool creation is complete, you'll see a message like:

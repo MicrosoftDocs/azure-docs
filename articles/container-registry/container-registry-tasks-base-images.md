@@ -4,7 +4,8 @@ description: Learn about base images for application container images, and about
 ms.topic: article
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
+ms.date: 10/31/2023
+ms.service: container-registry
 ---
 
 # About base image updates for ACR Tasks
@@ -27,7 +28,7 @@ For any content in your registries that depends on base content maintained in a 
 
 ACR Tasks includes the ability to automatically build images for you when a container's base image is updated. You can use this ability to maintain and update copies of public base images in your Azure container registries, and then to rebuild application images that depend on base images.
 
-ACR Tasks dynamically discovers base image dependencies when it builds a container image. As a result, it can detect when an application image's base image is updated. With one preconfigured build task, ACR Tasks can automatically rebuild every application image that references the base image. With this automatic detection and rebuilding, ACR Tasks saves you the time and effort normally required to manually track and update each and every application image referencing your updated base image.
+ACR Tasks dynamically discovers base image dependencies when it builds a container image. As a result, it can detect when an application image's base image is updated. With one pre-configured build task, ACR Tasks can automatically rebuild every application image that references the base image. With this automatic detection and rebuilding, ACR Tasks saves you the time and effort normally required to manually track and update each and every application image referencing your updated base image.
 
 ## Base image locations
 
@@ -74,7 +75,7 @@ See the following tutorials for scenarios to automate application image builds a
 
 <!-- LINKS - External -->
 [base-alpine]: https://hub.docker.com/_/alpine/
-[base-dotnet]: https://hub.docker.com/r/microsoft/dotnet/
+[base-dotnet]: https://hub.docker.com/_/microsoft-dotnet
 [base-node]: https://hub.docker.com/_/node/
 [base-windows]: https://hub.docker.com/r/microsoft/nanoserver/
 [sample-archive]: https://github.com/Azure-Samples/acr-build-helloworld-node/archive/master.zip

@@ -2,15 +2,8 @@
 title: Manage Azure NetApp Files billing by using tags | Microsoft Docs
 description: Describes how to manage Azure NetApp Files billing by using tags.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 05/06/2021
 ms.author: anfdocs
@@ -32,19 +25,19 @@ Billing tags are assigned at the capacity pool level, not volume level.
     > [!IMPORTANT] 
     > Tag data is replicated globally. As such, do not use tag names or values that could compromise the security of your resources. For example, do not use tag names that contain personal or sensitive information. 
 
-      ![Snapshot that shows the Tags window of a capacity pool.](../media/azure-netapp-files/billing-tags-capacity-pool.png)
+      ![Snapshot that shows the Tags window of a capacity pool.](./media/manage-billing-tags/billing-tags-capacity-pool.png)
 
 3. You can display and download information about tagged resources by using the [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) portal: 
     1. Click **Cost Analysis** and select the **Cost by resource** view.    
-      [ ![Screenshot that shows Cost Analysis of Azure Cost Management](../media/azure-netapp-files/cost-analysis.png) ](../media/azure-netapp-files/cost-analysis.png#lightbox)  
+      [ ![Screenshot that shows Cost Analysis of Azure Cost Management](./media/manage-billing-tags/cost-analysis.png) ](./media/manage-billing-tags/cost-analysis.png#lightbox)  
 
     2. To download an invoice, selecting **Invoices** and then the **Download** button.   
-      [ ![Screenshot that shows Invoices of Azure Cost Management](../media/azure-netapp-files/azure-cost-invoices.png) ](../media/azure-netapp-files/azure-cost-invoices.png#lightbox)  
+      [ ![Screenshot that shows Invoices of Azure Cost Management](./media/manage-billing-tags/azure-cost-invoices.png) ](./media/manage-billing-tags/azure-cost-invoices.png#lightbox)  
 
     1. In the Download window that appears, download usage details. The downloaded `csv` file will include capacity pool billing tags for the corresponding resources.   
-       ![Snapshot that shows the Download window of Azure Cost Management.](../media/azure-netapp-files/invoice-download.png)   
+       ![Snapshot that shows the Download window of Azure Cost Management.](./media/manage-billing-tags/invoice-download.png)   
 
-       [ ![Screenshot that shows the downloaded spreadsheet.](../media/azure-netapp-files/spreadsheet-download.png) ](../media/azure-netapp-files/spreadsheet-download.png#lightbox)
+       [ ![Screenshot that shows the downloaded spreadsheet.](./media/manage-billing-tags/spreadsheet-download.png) ](./media/manage-billing-tags/spreadsheet-download.png#lightbox)
 
 ## Next steps
 

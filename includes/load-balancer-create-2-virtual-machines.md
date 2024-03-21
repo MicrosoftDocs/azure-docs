@@ -1,11 +1,11 @@
 ---
  title: include file
  description: include file
- services: virtual-network
+ services: load-balancer
  author: mbender-ms
- ms.service: virtual-network
+ ms.service: load-balancer
  ms.topic: include
- ms.date: 10/19/2023
+ ms.date: 12/04/2023
  ms.author: mbender
  ms.custom: include file
 ---

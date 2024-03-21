@@ -6,7 +6,7 @@ ms.author: allensu
 ms.subservice: aks-networking
 ms.topic: article
 ms.custom: references_regions, devx-track-azurecli, build-2023
-ms.date: 05/24/2023
+ms.date: 02/12/2024
 ---
 
 # Configure Azure CNI Powered by Cilium in Azure Kubernetes Service (AKS)
@@ -17,7 +17,7 @@ By making use of eBPF programs loaded into the Linux kernel and a more efficient
 
 - Functionality equivalent to existing Azure CNI and Azure CNI Overlay plugins
 
-- Faster service routing
+- Improved Service routing
 
 - More efficient network policy enforcement
 
@@ -49,7 +49,7 @@ Azure CNI powered by Cilium currently has the following limitations:
 
 * Hubble is disabled.
 
-* Network policies cannot use `ipBlock` to allow access to node or pod IPs ([Cilium issue #9209](https://github.com/cilium/cilium/issues/9209) and [#12277](https://github.com/cilium/cilium/issues/12277)).
+* Network policies cannot use `ipBlock` to allow access to node or pod IPs. See [frequently asked questions](#frequently-asked-questions) for details and recommended workaround.
 
 * Kubernetes services with `internalTrafficPolicy=Local` aren't supported ([Cilium issue #17796](https://github.com/cilium/cilium/issues/17796)).
 
@@ -116,10 +116,13 @@ az aks create -n <clusterName> -g <resourceGroupName> -l <location> \
 > You can update an existing cluster to Azure CNI Powered by Cilium if the cluster meets the following criteria:
 >
 > - The cluster uses either [Azure CNI Overlay](./azure-cni-overlay.md) or [Azure CNI with dynamic IP allocation](./configure-azure-cni-dynamic-ip-allocation.md). This does **not** include [Azure CNI](./configure-azure-cni.md).
-> - The cluster does not have Azure NPM or Calico enabled.
-> - The cluster does not have any Windows node pools.
+> - The cluster does not have any Windows node pools.  
 
-The upgrade process triggers each node pool to be re-imaged simultaneously. Upgrading each node pool separately isn't supported. Any disruptions to cluster networking are similar to a node image upgrade or [Kubernetes version upgrade](./upgrade-cluster.md) where each node in a node pool is re-imaged.
+> [!NOTE]
+> When enabling Cilium in a cluster with a different network policy engine (Azure NPM or Calico), the network policy engine will be uninstalled and replaced with Cilium. See [Uninstall Azure Network Policy Manager or Calico](./use-network-policies.md#uninstall-azure-network-policy-manager-or-calico-preview) for more details.
+
+> [!WARNING]
+> The upgrade process triggers each node pool to be re-imaged simultaneously. Upgrading each node pool separately isn't supported. Any disruptions to cluster networking are similar to a node image upgrade or [Kubernetes version upgrade](./upgrade-cluster.md) where each node in a node pool is re-imaged.
 
 Cilium will begin enforcing network policies only after all nodes have been re-imaged.
 
@@ -132,6 +135,7 @@ az aks update -n <clusterName> -g <resourceGroupName> \
   --network-dataplane cilium
 ```
 
+
 ## Frequently asked questions
 
 - **Can I customize Cilium configuration?**
@@ -141,6 +145,49 @@ az aks update -n <clusterName> -g <resourceGroupName> \
 - **Can I use `CiliumNetworkPolicy` custom resources instead of Kubernetes `NetworkPolicy` resources?**
 
     `CiliumNetworkPolicy` custom resources aren't officially supported. We recommend that customers use Kubernetes `NetworkPolicy` resources to configure network policies.
+
+- **Why is traffic being blocked when the `NetworkPolicy` has an `ipBlock` that allows the IP address?**
+
+    A limitation of Azure CNI Powered by Cilium is that a `NetworkPolicy`'s `ipBlock` cannot select pod or node IPs.
+
+    For example, this `NetworkPolicy` has an `ipBlock` that allows all egress to `0.0.0.0/0`:
+    ```yaml
+    apiVersion: networking.k8s.io/v1
+    kind: NetworkPolicy
+    metadata:
+      name: example-ipblock
+    spec:
+      podSelector: {}
+      policyTypes:
+        - Egress
+      egress:
+        - to:
+          - ipBlock:
+              cidr: 0.0.0.0/0 # This will still block pod and node IPs.
+    ```
+
+    However, when this `NetworkPolicy` is applied, Cilium will block egress to pod and node IPs even though the IPs are within the `ipBlock` CIDR.
+
+    As a workaround, you can add `namespaceSelector` and `podSelector` to select pods. The example below selects all pods in all namespaces:
+    ```yaml
+    apiVersion: networking.k8s.io/v1
+    kind: NetworkPolicy
+    metadata:
+      name: example-ipblock
+    spec:
+      podSelector: {}
+      policyTypes:
+        - Egress
+      egress:
+        - to:
+          - ipBlock:
+              cidr: 0.0.0.0/0
+          - namespaceSelector: {}
+          - podSelector: {}
+    ```
+
+    > [!NOTE]
+    > It is not currently possible to specify a `NetworkPolicy` with an `ipBlock` to allow traffic to node IPs.
 
 - **Does AKS configure CPU or memory limits on the Cilium `daemonset`?**
 

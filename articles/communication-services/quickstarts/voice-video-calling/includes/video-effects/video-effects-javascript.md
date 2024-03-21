@@ -65,8 +65,8 @@ videoEffectsFeatureApi.on(‘effectsError’, (error) => {
 // Create the effect instance 
 const backgroundBlurEffect = new BackgroundBlurEffect(); 
 
-// Recommended: Check support 
-const backgroundBlurSupported = await backgroundBlurEffect.isSupported(); 
+// Recommended: Check support by using the isSupported method on the feature API
+const backgroundBlurSupported = await videoEffectsFeatureApi.isSupported(backgroundBlurEffect);
 
 if (backgroundBlurSupported) { 
     // Use the video effects feature api we created to start effects
@@ -93,8 +93,8 @@ const backgroundReplacementEffect = new BackgroundReplacementEffect({
     backgroundImageUrl: backgroundImage
 }); 
 
-// Recommended: Check support
-const backgroundReplacementSupported = await backgroundReplacementEffect.isSupported(); 
+// Recommended: Check support by using the isSupported method on the feature API
+const backgroundReplacementSupported = await videoEffectsFeatureApi.isSupported(backgroundReplacementEffect);
 
 if (backgroundReplacementSupported) { 
     // Use the video effects feature api as before to start/stop effects 

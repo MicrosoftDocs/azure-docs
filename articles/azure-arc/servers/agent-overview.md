@@ -1,7 +1,7 @@
 ---
 title:  Overview of the Azure Connected Machine agent
 description: This article provides a detailed overview of the Azure Connected Machine agent, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 09/11/2023
+ms.date: 12/06/2023
 ms.topic: conceptual
 ---
 
@@ -54,9 +54,9 @@ Installing the Connected Machine agent for Window applies the following system-w
 
     | Service name | Display name | Process name | Description |
     |--------------|--------------|--------------|-------------|
-    | himds | Azure Hybrid Instance Metadata Service | himds | Synchronizes metadata with Azure and hosts a local REST API for extensions and applications to access the metadata and request Microsoft Entra managed identity tokens |
-    | GCArcService | Guest configuration Arc Service | gc_service | Audits and enforces Azure guest configuration policies on the machine. |
-    | ExtensionService | Guest configuration Extension Service | gc_service | Installs, updates, and manages extensions on the machine. |
+    | himds | Azure Hybrid Instance Metadata Service | `himds.exe` | Synchronizes metadata with Azure and hosts a local REST API for extensions and applications to access the metadata and request Microsoft Entra managed identity tokens |
+    | GCArcService | Guest configuration Arc Service | `gc_arc_service.exe` (gc_service.exe prior to version 1.36) | Audits and enforces Azure guest configuration policies on the machine. |
+    | ExtensionService | Guest configuration Extension Service | `gc_extension_service.exe` (gc_service.exe prior to version 1.36) | Installs, updates, and manages extensions on the machine. |
 
 * Agent installation creates the following virtual service account.
 
@@ -151,19 +151,18 @@ Installing the Connected Machine agent for Linux applies the following system-wi
 
 The Azure Connected Machine agent is designed to manage agent and system resource consumption. The agent approaches resource governance under the following conditions:
 
-* The Guest Configuration agent can use up to 5% of the CPU to evaluate policies.
-* The Extension Service agent can use up to 5% of the CPU to install, upgrade, run, and delete extensions. Some extensions might apply more restrictive CPU limits once installed. The following exceptions apply:
+* The Machine Configuration (formerly Guest Configuration) service can use up to 5% of the CPU to evaluate policies.
+* The Extension service can use up to 5% of the CPU on Windows machines and 30% of the CPU on Linux machines to install, upgrade, run, and delete extensions. Some extensions might apply more restrictive CPU limits once installed. The following exceptions apply:
 
   | Extension type | Operating system | CPU limit |
   | -------------- | ---------------- | --------- |
   | AzureMonitorLinuxAgent | Linux | 60% |
   | AzureMonitorWindowsAgent | Windows | 100% |
-  | AzureSecurityLinuxAgent | Linux | 30% |
   | LinuxOsUpdateExtension | Linux | 60% |
   | MDE.Linux | Linux | 60% |
   | MicrosoftDnsAgent | Windows | 100% |
   | MicrosoftMonitoringAgent | Windows | 60% |
-  | OmsAgentForLinux | Windows | 60%|
+  | OmsAgentForLinux | Linux | 60%|
 
 During normal operations, defined as the Azure Connected Machine agent being connected to Azure and not actively modifying an extension or evaluating a policy, you can expect the agent to consume the following system resources:
 
@@ -173,6 +172,24 @@ During normal operations, defined as the Azure Connected Machine agent being con
 | **Memory usage** | 57 MB | 42 MB |
 
 The performance data above was gathered in April 2023 on virtual machines running Windows Server 2022 and Ubuntu 20.04. Actual agent performance and resource consumption will vary based on the hardware and software configuration of your servers.
+
+### Custom resource limits
+
+The default resource governance limits are the best choice for most servers. However, small virtual machines and servers with limited CPU resources might encounter timeouts when managing extensions or evaluating policies because there aren't enough CPU resources to complete the tasks. Starting with agent version 1.39, you can customize the CPU limits applied to the extension manager and Machine Configuration services to help the agent complete these tasks faster.
+
+To see the current resource limits for the extension manager and Machine Configuration services, run the following command.
+
+```bash
+azcmagent config list
+```
+
+In the output, you'll see two fields, `guestconfiguration.agent.cpulimit` and `extensions.agent.cpulimit` with the current resource limit specified as a percentage. On a fresh install of the agent, both will show `5` because the default limit is 5% of the CPU.
+
+To change the resource limit for the extension manager to 80%, run the following command:
+
+```bash
+azcmagent config set extensions.agent.cpulimit 80
+```
 
 ## Instance metadata
 
@@ -210,6 +227,8 @@ Metadata information about a connected machine is collected after the Connected 
   * Project number
   * Service accounts
   * Zone
+* Oracle Cloud Infrastructure metadata, when running in OCI:
+  * Display name
 
 The agent requests the following metadata information from Azure:
 
@@ -225,7 +244,7 @@ The agent requests the following metadata information from Azure:
 
 ## Deployment options and requirements
 
-Agent deployment and machine connection requires certain [prerequisites](prerequisites.md). There are also [networking requirements](network-requirements.md) to be aware of.
+Agent deployment and machine connection require certain [prerequisites](prerequisites.md). There are also [networking requirements](network-requirements.md) to be aware of.
 
 We provide several options for deploying the agent. For more information, see [Plan for deployment](plan-at-scale-deployment.md) and [Deployment options](deployment-options.md).
 

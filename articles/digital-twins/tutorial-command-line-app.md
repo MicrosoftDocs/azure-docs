@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Tutorial to build an Azure Digital Twins scenario using a sample command-line application
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 06/21/2022
+ms.date: 1/3/2024
 ms.topic: tutorial
 ms.service: digital-twins
 
@@ -59,7 +59,7 @@ Now that the Azure Digital Twins instance and sample app are set up, you can beg
 
 The first step in creating an Azure Digital Twins solution is defining twin [models](concepts-models.md) for your environment. 
 
-Models are similar to classes in object-oriented programming languages; they're user-defined templates that you can instantiate to create [digital twins](concepts-twins-graph.md). Models are written in a JSON-like language called *Digital Twins Definition Language (DTDL)*, and they define a type of twin in terms of its properties, telemetry, relationships, and components.
+Models are similar to classes in object-oriented programming languages; they're user-defined templates that you can instantiate to create [digital twins](concepts-twins-graph.md). Models for Azure Digital Twins are written in a JSON-like language called *Digital Twins Definition Language (DTDL)*, and they define a type of twin in terms of its properties, relationships, and components.
 
 > [!NOTE]
 > DTDL also allows for the definition of commands on digital twins. However, commands are not currently supported in the Azure Digital Twins service.

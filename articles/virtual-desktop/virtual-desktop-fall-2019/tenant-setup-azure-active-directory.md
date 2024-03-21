@@ -21,7 +21,7 @@ In this tutorial, learn how to:
 > [!div class="checklist"]
 > * Grant Microsoft Entra permissions to the Azure Virtual Desktop service.
 > * Assign the TenantCreator application role to a user in your Microsoft Entra tenant.
-> * Create a Azure Virtual Desktop tenant.
+> * Create an Azure Virtual Desktop tenant.
 
 ## What you need to set up a tenant
 
@@ -29,7 +29,7 @@ Before you start setting up your Azure Virtual Desktop tenant, make sure you hav
 
 * The [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory/) tenant ID for Azure Virtual Desktop users.
 * A global administrator account within the Microsoft Entra tenant.
-   * This also applies to Cloud Solution Provider (CSP) organizations that are creating a Azure Virtual Desktop tenant for their customers. If you're in a CSP organization, you must be able to sign in as global administrator of the customer's Microsoft Entra instance.
+   * This also applies to Cloud Solution Provider (CSP) organizations that are creating an Azure Virtual Desktop tenant for their customers. If you're in a CSP organization, you must be able to sign in as global administrator of the customer's Microsoft Entra instance.
    * The administrator account must be sourced from the Microsoft Entra tenant in which you're trying to create the Azure Virtual Desktop tenant. This process doesn't support Microsoft Entra B2B (guest) accounts.
    * The administrator account must be a work or school account.
 * An Azure subscription.
@@ -66,7 +66,7 @@ To grant the service permissions:
 
 ## Assign the TenantCreator application role
 
-Assigning a Microsoft Entra user the TenantCreator application role allows that user to create a Azure Virtual Desktop tenant associated with the Microsoft Entra instance. You'll need to use your global administrator account to assign the TenantCreator role.
+Assigning a Microsoft Entra user the TenantCreator application role allows that user to create an Azure Virtual Desktop tenant associated with the Microsoft Entra instance. You'll need to use your global administrator account to assign the TenantCreator role.
 
 To assign the TenantCreator application role:
 
@@ -77,7 +77,7 @@ To assign the TenantCreator application role:
 
 2. Within **Enterprise applications**, search for **Azure Virtual Desktop**. You'll see the two applications that you provided consent for in the previous section. Of these two apps, select **Azure Virtual Desktop**.
 
-3. Select **Users and groups**. You might see that the administrator who granted consent to the application is already listed with the **Default Access** role assigned. This is not enough to create a Azure Virtual Desktop tenant. Continue following these instructions to add the **TenantCreator** role to a user.
+3. Select **Users and groups**. You might see that the administrator who granted consent to the application is already listed with the **Default Access** role assigned. This is not enough to create an Azure Virtual Desktop tenant. Continue following these instructions to add the **TenantCreator** role to a user.
 
 4. Select **Add user**, and then select **Users and groups** in the **Add Assignment** tab.
 5. Search for a user account that will create your Azure Virtual Desktop tenant. For simplicity, this can be the global administrator account.
@@ -121,9 +121,9 @@ To find your Azure subscription ID:
    > [!div class="mx-imgBorder"]
    > ![A screenshot of the Azure subscription properties. The mouse is hovering over the clipboard icon for "Subscription ID" to copy and paste.](../media/tenant-subscription-id.png)
 
-## Create a Azure Virtual Desktop tenant
+## Create an Azure Virtual Desktop tenant
 
-Now that you've granted the Azure Virtual Desktop service permissions to query Microsoft Entra ID and assigned the TenantCreator role to a user account, you can create a Azure Virtual Desktop tenant.
+Now that you've granted the Azure Virtual Desktop service permissions to query Microsoft Entra ID and assigned the TenantCreator role to a user account, you can create an Azure Virtual Desktop tenant.
 
 First, [download and import the Azure Virtual Desktop module](/powershell/windows-virtual-desktop/overview/) to use in your PowerShell session if you haven't already.
 

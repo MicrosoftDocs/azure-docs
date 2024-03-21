@@ -3,7 +3,7 @@ title: Create cluster pool and cluster
 description: Creating a cluster pool and cluster in HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: quickstart
-ms.date: 08/29/2023
+ms.date: 12/11/2023
 ---
 
 # Create cluster pool and cluster
@@ -99,9 +99,22 @@ Ensure that you have completed the [subscription prerequisites](prerequisites-su
      > [!TIP]
      > For troubleshooting any deployment errors, you can refer this [page](./create-cluster-error-dictionary.md).
 
-## Create a cluster
+Once the cluster pool deployment completes, continue to use the Azure portal to create a [Trino](./trino/trino-create-cluster.md#create-a-trino-cluster), [Flink](./flink/flink-create-cluster-portal.md#create-an-apache-flink-cluster), and [Spark](./spark/hdinsight-on-aks-spark-overview.md) cluster.
 
-Once the cluster pool deployment completes, continue to use the Azure portal to create a [Trino](./trino/trino-create-cluster.md#create-a-trino-cluster), [Flink](./flink/flink-create-cluster-portal.md#create-an-apache-flink-cluster), and [Spark](./spark/hdinsight-on-aks-spark-overview.md) cluster. 
+## Create a cluster
+There are three ways to create an Azure HDInsight on AKS cluster from the Azure portal:
+- Search and create “Azure HDInsight on AKS cluster” from the marketplace.
+- Search and select “Azure HDInsight on AKS clusters” in the Azure portal to create cluster from the page listing all HDInsight on AKS clusters.
+- Create cluster by selecting New in the Overview page of an existing cluster pool. In this option you have two ways of creating clusters.
+    -	Create cluster by providing minimum number of inputs by not using advanced configuration. This option prefills the prerequisite configuration fields with smart defaults and autocreates mandatory resources.
+
+        Virtual Machine SKU size is prefilled with the least costing recommended SKU. In the absence of any recommended SKU, it is prefilled with the SKU with the least vCores and maximum quota available at the time of cluster creation. The cluster would be created with a default constant number of five nodes. Flink and Trino clusters would have two head nodes while Spark clusters would have three head nodes. 
+        
+        The user assigned managed identity and storage account will be autocreated in the managed resource group. You can review the configurations of the cluster, which would be created on the Review+create tab. Once you click Create, “The Deployment is in progress” page is displayed while the cluster is being created. A message that "Your deployment is complete" would be displayed once the cluster is fully deployed and ready for use.
+    
+        :::image type="content" source="./media/quickstart-create-cluster/basic-mode.png" alt-text="Diagram showing basic mode of cluster creation." border="true" lightbox="./media/quickstart-create-cluster/basic-mode.png":::
+
+    -	If you wish to have more flexibility to customize the cluster configurations, toggle “Use advanced configuration” to On.
 
 > [!IMPORTANT]
 > For creating a cluster in a new cluster pool, assign AKS agentpool MSI "Managed Identity Operator" role on the user-assigned managed identity created as part of resource prerequisites.

@@ -6,12 +6,9 @@ services: security
 author: terrylanfear
 manager: rkarlin
 
-ms.assetid: 
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/19/2023
 ms.author: terrylan
 

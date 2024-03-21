@@ -1,7 +1,6 @@
 ---
 title: Managing shared cost
 description: This article helps you understand the managing shared cost capability within the FinOps Framework and how to implement that in the Microsoft Cloud.
-keywords:
 author: bandersmsft
 ms.author: banders
 ms.date: 06/22/2023

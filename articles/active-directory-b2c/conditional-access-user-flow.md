@@ -1,16 +1,19 @@
 ---
 title: Add Conditional Access to a user flow in Azure AD B2C
 description: Learn how to add Conditional Access to your Azure AD B2C user flows. Configure multifactor authentication (MFA) settings and Conditional Access policies in your user flows to enforce policies and remediate risky sign-ins.
-services: active-directory
+
 ms.service: active-directory
-ms.subservice: conditional-access
+ms.subservice: B2C
 ms.topic: overview
-ms.date: 04/10/2022
-ms.custom: project-no-code
+ms.date: 01/11/2024
 ms.author: kengaderdus
 author: kengaderdus
 manager: CelesteDG
 zone_pivot_groups: b2c-policy-type
+
+
+#Customer intent: As an Azure AD B2C administrator, I want to add Conditional Access to user flows, so that I can manage risky sign-ins to my applications and enforce organizational policies based on risk assessment.
+
 ---
 
 # Add Conditional Access to user flows in Azure Active Directory B2C
@@ -37,13 +40,13 @@ The following example shows a Conditional Access technical profile that is used 
 </TechnicalProfile>
 ```
 
-To ensure that Identity Protection signals are evaluated properly, you'll want to call the `ConditionalAccessEvaluation` technical profile for all users, including both [local and social accounts](technical-overview.md#consumer-accounts). Otherwise, Identity Protection will indicate an incorrect degree of risk associated with users.
+To ensure that Identity Protection signals are evaluated properly, you'll want to call the `ConditionalAccessEvaluation` technical profile for all users, including both [local and social accounts](technical-overview.md#consumer-accounts). Otherwise, Identity Protection indicates an incorrect degree of risk associated with users.
 ::: zone-end
 In the *Remediation* phase that follows, the user is challenged with MFA. Once complete, Azure AD B2C informs Identity Protection that the identified sign-in threat has been remediated and by which method. In this example, Azure AD B2C signals that the user has successfully completed the multifactor authentication challenge.
 The remediation may also happen through other channels. For example, when the account's password is reset, either by the administrator or by the user. You can check the user *Risk state* in the [risky users report](identity-protection-investigate-risk.md#navigating-the-risky-users-report).
 ::: zone pivot="b2c-custom-policy"
 > [!IMPORTANT]
-> To remediate the risk successfully within the journey, make sure the *Remediation* technical profile is called after the *Evaluation* technical profile is executed. If  *Evaluation* is invoked without *Remediation*, the risk state will be *At risk*.
+> To remediate the risk successfully within the journey, make sure the *Remediation* technical profile is called after the *Evaluation* technical profile is executed. If  *Evaluation* is invoked without *Remediation*, the risk state indicates as *At risk*.
 When the *Evaluation* technical profile recommendation returns `Block`, the call to the *Evaluation* technical profile is not required. The risk state is set to *At risk*.
 The following example shows a Conditional Access technical profile used to remediate the identified threat:
 
@@ -89,8 +92,7 @@ Azure AD B2C **Premium P2** is required to create risky sign-in policies. **Prem
 To add a Conditional Access policy, disable security defaults:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Under **Azure services**, select **Microsoft Entra ID**. Or use the search box to find and select **Microsoft Entra ID**.
 1. Select **Properties**, and then select **Manage Security defaults**.
 
@@ -120,7 +122,7 @@ To add a Conditional Access policy:
 
     | Include  |License   |   Notes|
     |---|---|---|
-    |**All users**    | P1, P2  | This policy will affect all of your users. To be sure not to lock yourself out, exclude your administrative account by choosing **Exclude**, selecting **Directory roles**, and then selecting **Global Administrator** in the list. You can also select **Users and Groups** and then select your account in the **Select excluded users** list.  |
+    |**All users**    | P1, P2  | This policy affects all of your users. To be sure not to lock yourself out, exclude your administrative account by choosing **Exclude**, selecting **Directory roles**, and then selecting **Global Administrator** in the list. You can also select **Users and Groups** and then select your account in the **Select excluded users** list.  |
 
 1. Select **Cloud apps or actions**, and then **Select apps**. Browse for your [relying party application](tutorial-register-applications.md).
 1. Select **Conditions**, and then select from the following conditions. For example, select **Sign-in risk** and **High**, **Medium**, and **Low** risk levels.
@@ -226,7 +228,7 @@ To configure your user based conditional access:
 7. Under **Conditions** > **User risk**, set **Configure** to **Yes**. Under **Configure user risk levels needed for policy to be enforced** 
    1. Select **High** and **Medium**.
    2. Select **Done**.
-8. Under **Access controls** > **Grant**, select **Grant access**, **Require password change**, and select **Select**. **Require multi-factor authentication** will also be required by default.
+8. Under **Access controls** > **Grant**, select **Grant access**, **Require password change**, and select **Select**. **Require multi-factor authentication** is also be required by default.
 9. Confirm your settings and set **Enable policy** to **On**.
 10. Select **Create** to create to enable your policy.
 
@@ -343,7 +345,7 @@ The following template can be used to create a Conditional Access policy with di
 ## Add Conditional Access to a user flow
 
 After you've added the Microsoft Entra Conditional Access policy, enable Conditional Access in your user flow or custom policy. When you enable Conditional Access, you don't need to specify a policy name.
-Multiple Conditional Access policies may apply to an individual user at any time. In this case, the most strict access control policy takes precedence. For example, if one policy requires MFA while the other blocks access, the user will be blocked.
+Multiple Conditional Access policies may apply to an individual user at any time. In this case, the most strict access control policy takes precedence. For example, if one policy requires MFA while the other blocks access, the user is blocked.
 
 ## Enable multifactor authentication (optional)
 
@@ -362,8 +364,7 @@ When adding Conditional Access to a user flow, consider using **Multi-factor aut
 To enable Conditional Access for a user flow, make sure the version supports Conditional Access. These user flow versions are labeled **Recommended**.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Under **Azure services**, select **Azure AD B2C**. Or use the search box to find and select **Azure AD B2C**.
 1. Under **Policies**, select **User flows**. Then select the user flow.
 1. Select **Properties** and make sure the user flow supports Conditional Access by looking for the setting labeled **Conditional Access**.
@@ -385,7 +386,7 @@ To enable Conditional Access for a user flow, make sure the version supports Con
 ### Configure claim other than phone number to be used for MFA
 
 In the Conditional Access policy above, the `DoesClaimExist` claim transformation method checks if a claim contains a value, for example if the `strongAuthenticationPhoneNumber` claim contains a phone number. 
-The claims transformation isn't limited to the `strongAuthenticationPhoneNumber` claim. Depending on the scenario, you can use any other claim. In the following XML snippet, the `strongAuthenticationEmailAddress` claim is checked instead. The claim you choose must have a valid value, otherwise the `IsMfaRegistered` claim will be set to `False`. When set to `False`, the Conditional Access policy evaluation returns a `Block` grant type, preventing the user from completing user flow.
+The claims transformation isn't limited to the `strongAuthenticationPhoneNumber` claim. Depending on the scenario, you can use any other claim. In the following XML snippet, the `strongAuthenticationEmailAddress` claim is checked instead. The claim you choose must have a valid value, otherwise the `IsMfaRegistered` claim is set to `False`. When set to `False`, the Conditional Access policy evaluation returns a `Block` grant type, preventing the user from completing user flow.
 
 ```xml
  <ClaimsTransformation Id="IsMfaRegisteredCT" TransformationMethod="DoesClaimExist">
@@ -422,8 +423,7 @@ The claims transformation isn't limited to the `strongAuthenticationPhoneNumber`
 To review the result of a Conditional Access event:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Under **Azure services**, select **Azure AD B2C**. Or use the search box to find and select **Azure AD B2C**.
 1. Under **Activities**, select **Audit logs**.
 1. Filter the audit log by setting **Category** to **B2C** and setting **Activity Resource Type** to **IdentityProtection**. Then select **Apply**.

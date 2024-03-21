@@ -4,7 +4,7 @@ description: Learn how to configure the required Azure resources in the Azure po
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
-ms.date: 04/04/2022
+ms.date: 01/14/2024
 ---
 
 # Prepare Azure resources for exporting to Splunk and QRadar
@@ -132,4 +132,4 @@ To configure the Azure resources for QRadar and Splunk in the Azure portal:
 1. Search for the Microsoft Entra application you created before and select it.
 1. Select **Close**.
 
-To continue setting up export of alerts, [install the built-in connectors](export-to-siem.md#step-2-connect-the-event-hub-to-your-preferred-solution-using-the-built-in-connectors) for the SIEM you're using.
+To continue setting up export of alerts, [install the built-in connectors](export-to-siem.md#connect-the-event-hub-to-your-preferred-solution-using-the-built-in-connectors) for the SIEM you're using.

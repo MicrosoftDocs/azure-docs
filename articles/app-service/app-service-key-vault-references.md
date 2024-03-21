@@ -6,8 +6,7 @@ author: cephalin
 ms.topic: article
 ms.date: 07/31/2023
 ms.author: cephalin
-ms.custom: seodec18, AppServiceConnectivity
-
+ms.custom: AppServiceConnectivity
 ---
 
 # Use Key Vault references as app settings in Azure App Service and Azure Functions

@@ -5,8 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, rarayudu, azla
 ms.topic: how-to
-ms.date: 10/16/2023
-ms.custom: ignite-fall-2021
+ms.date: 01/30/2024
 ---
 
 # Secure access and data in Azure Logic Apps
@@ -35,17 +34,32 @@ For more information about security in Azure, review these topics:
 
 ## Access to logic app operations
 
-For Consumption logic apps only, before you can create or manage logic apps and their connections, you need specific permissions, which are provided through roles using [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md). You can also set up permissions so that only specific users or groups can run specific tasks, such as managing, editing, and viewing logic apps. To control their permissions, you can assign built-in or customized roles to members who have access to your Azure subscription. Azure Logic Apps has the following specific roles:
+For Consumption logic apps only, before you can create or manage logic apps and their connections, you need specific permissions, which are provided through roles using [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md). You can also set up permissions so that only specific users or groups can run specific tasks, such as managing, editing, and viewing logic apps. To control their permissions, you can assign built-in or customized roles to members who have access to your Azure subscription. Azure Logic Apps has the following specific roles, based on whether you have a Consumption or Standard logic app workflow:
 
-* [Logic App Contributor](../role-based-access-control/built-in-roles.md#logic-app-contributor): Lets you manage logic apps, but you can't change access to them.
+##### Consumption workflows
 
-* [Logic App Operator](../role-based-access-control/built-in-roles.md#logic-app-operator): Lets you read, enable, and disable logic apps, but you can't edit or update them.
+| Role | Description |
+|------|-------------|
+| [**Logic App Contributor**](../role-based-access-control/built-in-roles.md#logic-app-contributor) | You can manage logic app workflows, but you can't change access to them. |
+| [**Logic App Operator**](../role-based-access-control/built-in-roles.md#logic-app-operator) | You can read, enable, and disable logic app workflows, but you can't edit or update them. |
+| [**Contributor**](../role-based-access-control/built-in-roles.md#contributor) | You have full access to manage all resources, but you can't assign roles in Azure RBAC, manage assignments in Azure Blueprints, or share image galleries. |
 
-* [Contributor](../role-based-access-control/built-in-roles.md#contributor): Grants full access to manage all resources, but doesn't allow you to assign roles in Azure RBAC, manage assignments in Azure Blueprints, or share image galleries.
+For example, suppose you have to work with a logic app workflow that you didn't create and authenticate connections used by that logic app workflow. Your Azure subscription requires **Contributor** permissions for the resource group that contains that logic app resource. If you create a logic app resource, you automatically have Contributor access.
 
-  For example, suppose you have to work with a logic app that you didn't create and authenticate connections used by that logic app's workflow. Your Azure subscription requires Contributor permissions for the resource group that contains that logic app resource. If you create a logic app resource, you automatically have Contributor access.
+To prevent others from changing or deleting your logic app workflow, you can use [Azure Resource Lock](../azure-resource-manager/management/lock-resources.md). This capability prevents others from changing or deleting production resources. For more information about connection security, review [Connection configuration in Azure Logic Apps](../connectors/introduction.md#connection-configuration) and [Connection security and encryption](../connectors/introduction.md#connection-security-encryption).
 
-To prevent others from changing or deleting your logic app, you can use [Azure Resource Lock](../azure-resource-manager/management/lock-resources.md). This capability prevents others from changing or deleting production resources. For more information about connection security, review [Connection configuration in Azure Logic Apps](../connectors/introduction.md#connection-configuration) and [Connection security and encryption](../connectors/introduction.md#connection-security-encryption).
+##### Standard workflows
+
+> [!NOTE]
+>
+> This capability is in preview and is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+| Role | Description |
+|------|-------------|
+| [**Logic Apps Standard Reader (Preview)**](../role-based-access-control/built-in-roles.md#logic-apps-standard-reader-preview) | You have read-only access to all resources in a Standard logic app and workflows, including the workflow runs and their history. |
+| [**Logic Apps Standard Operator (Preview)**](../role-based-access-control/built-in-roles.md#logic-apps-standard-operator-preview) | You have access to enable, resubmit, and disable workflows and to create connections to services, systems, and networks for a Standard logic app. The Operator role can perform administration and support tasks on the Azure Logic Apps platform, but doesn't have permissions to edit workflows or settings. |
+| [**Logic Apps Standard Developer (Preview)**](../role-based-access-control/built-in-roles.md#logic-apps-standard-developer-preview) | You have access to create and edit workflows, connections, and settings for a Standard logic app. The Developer role doesn't have permissions to make changes outside the scope of workflows, for example, application-wide changes such as configure virtual network integration. App Service Plans aren't supported. |
+| [**Logic Apps Standard Contributor (Preview)**](../role-based-access-control/built-in-roles.md#logic-apps-standard-contributor-preview) | You have access to manage all aspects of a Standard logic app, but you can't change access or ownership. |
 
 <a name="secure-run-history"></a>
 
@@ -811,7 +825,7 @@ The Microsoft Authentication Library (MSAL) libraries provide PoP tokens for you
 
 * [A .NET Core daemon console application calling a protected Web API with its own identity](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/2-Call-OwnApi)
 
-* [SignedHttpRequest aka PoP (Proof of Possession)](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki/SignedHttpRequest-aka-PoP-(Proof-of-Possession))
+* [SignedHttpRequest, also known as PoP (Proof of Possession)](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki/SignedHttpRequest-aka-PoP-(Proof-of-Possession))
 
 To use the PoP token with your Consumption logic app, follow the next section to [set up OAuth with Microsoft Entra ID](#enable-azure-ad-inbound).
 
@@ -1224,7 +1238,7 @@ Based on the target endpoint's capability, outbound calls sent by the [HTTP trig
 
 This list includes information about TLS/SSL self-signed certificates:
 
-* For Consumption logic app workflows in the multi-tenant Azure Logic Apps environment, HTTP operations don't permit self-signed TLS/SSL certificates. If your logic app makes an HTTP call to a server and presents a TLS/SSL self-signed certificate, the HTTP call fails with a `TrustFailure` error.
+* For Consumption logic app workflows in the multitenant Azure Logic Apps environment, HTTP operations don't permit self-signed TLS/SSL certificates. If your logic app makes an HTTP call to a server and presents a TLS/SSL self-signed certificate, the HTTP call fails with a `TrustFailure` error.
 
 * For Standard logic app workflows in the single-tenant Azure Logic Apps environment, HTTP operations support self-signed TLS/SSL certificates. However, you have to complete a few extra steps for this authentication type. Otherwise, the call fails. For more information, review [TLS/SSL certificate authentication for single-tenant Azure Logic Apps](../connectors/connectors-native-http.md#tlsssl-certificate-authentication).
 
@@ -1350,10 +1364,22 @@ If the [Client Certificate](../active-directory/authentication/active-directory-
 
 | Property (designer) | Property (JSON) | Required | Value | Description |
 |---------------------|-----------------|----------|-------|-------------|
-| **Authentication** | `type` | Yes | **Client Certificate** <br>or <br>`ClientCertificate` | The authentication type to use. You can manage certificates with [Azure API Management](../api-management/api-management-howto-mutual-certificates.md). <p></p>**Note**: Custom connectors don't support certificate-based authentication for both inbound and outbound calls. |
-| **Pfx** | `pfx` | Yes | <*encoded-pfx-file-content*> | The base64-encoded content from a Personal Information Exchange (PFX) file <p><p>To convert the PFX file into base64-encoded format, you can use PowerShell 7 by following these steps: <p>1. Save the certificate content into a variable: <p>   `$pfx_cert = [System.IO.File]::ReadAllBytes('c:\certificate.pfx')` <p>2. Convert the certificate content by using the `ToBase64String()` function and save that content to a text file: <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` <p><p>**Troubleshooting**: If you use the `cert mmc/PowerShell` command, you might get this error: <p><p>`Could not load the certificate private key. Please check the authentication certificate password is correct and try again.` <p><p>To resolve this error, try converting the PFX file to a PEM file and back again by using the `openssl` command: <p><p>`openssl pkcs12 -in certificate.pfx -out certificate.pem` <br>`openssl pkcs12 -in certificate.pem -export -out certificate2.pfx` <p><p>Afterwards, when you get the base64-encoded string for the certificate's newly converted PFX file, the string now works in Azure Logic Apps. |
+| **Authentication** | `type` | Yes | **Client Certificate** <br>or <br>`ClientCertificate` | The authentication type to use. You can manage certificates with [Azure API Management](../api-management/api-management-howto-mutual-certificates.md). <br><br></p>**Note**: Custom connectors don't support certificate-based authentication for both inbound and outbound calls. |
+| **Pfx** | `pfx` | Yes | <*encoded-pfx-file-content*> | The base64-encoded content from a Personal Information Exchange (PFX) file <br><br>To convert the PFX file into base64-encoded format, you can use PowerShell 7 by following these steps: <br><br>1. Save the certificate content into a variable: <br><br>   `$pfx_cert = [System.IO.File]::ReadAllBytes('c:\certificate.pfx')` <br><br>2. Convert the certificate content by using the `ToBase64String()` function and save that content to a text file: <br><br>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` <br><br>**Troubleshooting**: If you use the `cert mmc/PowerShell` command, you might get this error: <br><br>`Could not load the certificate private key. Please check the authentication certificate password is correct and try again.` <br><br>To resolve this error, try converting the PFX file to a PEM file and back again by using the `openssl` command: <br><br>`openssl pkcs12 -in certificate.pfx -out certificate.pem` <br>`openssl pkcs12 -in certificate.pem -export -out certificate2.pfx` <br><br>Afterwards, when you get the base64-encoded string for the certificate's newly converted PFX file, the string now works in Azure Logic Apps. |
 | **Password** | `password`| No | <*password-for-pfx-file*> | The password for accessing the PFX file |
-|||||
+
+> [!NOTE]
+>
+> If you try to authenticate with a client certificate using OpenSSL, you might get the following error:
+>
+> `BadRequest: Could not load private key`
+>
+> To resolve this error, follow these steps:
+>
+> 1. Uninstall all OpenSSL instances.
+> 2. Install OpenSSL version 1.1.1t.
+> 3. Resign your certificate using the new update.
+> 4. Add the new certificate to the HTTP operation when using client certificate authentication.
 
 When you use [secured parameters](#secure-action-parameters) to handle and secure sensitive information, for example, in an [Azure Resource Manager template for automating deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), you can use expressions to access these parameter values at runtime. This example HTTP action definition specifies the authentication `type` as `ClientCertificate` and uses the [parameters() function](../logic-apps/workflow-definition-language-functions-reference.md#parameters) to get the parameter values:
 
@@ -1374,11 +1400,11 @@ When you use [secured parameters](#secure-action-parameters) to handle and secur
 ```
 
 > [!IMPORTANT]
-> If you have a **Logic App (Standard)** resource in single-tenant Azure Logic Apps, 
-> and you want to use an HTTP operation with a TSL/SSL certificate, client certificate, 
-> or Microsoft Entra ID Open Authentication (Microsoft Entra ID OAuth) with the `Certificate` 
-> credential type, make sure to complete the extra setup steps for this authentication type. 
-> Otherwise, the call fails. For more information, review 
+>
+> If you have a Standard logic app resource in single-tenant Azure Logic Apps, and you want to use an HTTP
+> operation with a TSL/SSL certificate, client certificate, or Microsoft Entra ID Open Authentication
+> (Microsoft Entra ID OAuth) with the `Certificate` credential type, make sure to complete the extra setup
+> steps for this authentication type. Otherwise, the call fails. For more information, review 
 > [Authentication in single-tenant environment](../connectors/connectors-native-http.md#single-tenant-authentication).
 
 For more information about securing services by using client certificate authentication, review these topics:
@@ -1431,11 +1457,11 @@ When you use [secured parameters](#secure-action-parameters) to handle and secur
 ```
 
 > [!IMPORTANT]
-> If you have a **Logic App (Standard)** resource in single-tenant Azure Logic Apps, 
-> and you want to use an HTTP operation with a TSL/SSL certificate, client certificate, 
-> or OAuth with Microsoft Entra ID with the `Certificate` 
-> credential type, make sure to complete the extra setup steps for this authentication type. 
-> Otherwise, the call fails. For more information, review 
+>
+> If you have a Standard logic app resource in single-tenant Azure Logic Apps, and you want to use an HTTP
+> operation with a TSL/SSL certificate, client certificate, or Microsoft Entra ID Open Authentication
+> (Microsoft Entra ID OAuth) with the `Certificate` credential type, make sure to complete the extra setup
+> steps for this authentication type. Otherwise, the call fails. For more information, review 
 > [Authentication in single-tenant environment](../connectors/connectors-native-http.md#single-tenant-authentication).
 
 <a name="raw-authentication"></a>
@@ -1486,9 +1512,9 @@ When you use [secured parameters](#secure-action-parameters) to handle and secur
 
 When the [managed identity](../active-directory/managed-identities-azure-resources/overview.md) option is available on the [trigger or action that supports managed identity authentication](#authentication-types-supported-triggers-actions), your logic app can use this identity for authenticating access to Azure resources that are protected by Microsoft Entra ID, rather than credentials, secrets, or Microsoft Entra tokens. Azure manages this identity for you and helps you secure your credentials because you don't have to manage secrets or directly use Microsoft Entra tokens. Learn more about [Azure services that support managed identities for Microsoft Entra authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
-* The **Logic App (Consumption)** resource type can use the system-assigned identity or a *single* manually created user-assigned identity.
+* A Consumption logic app resource can use the system-assigned identity or a *single* manually created user-assigned identity.
 
-* The **Logic App (Standard)** resource type supports having the [system-assigned managed identity *and* multiple user-assigned managed identities](create-managed-service-identity.md) enabled at the same time, though you still can only select one identity to use at any time.
+* A Standard logic app resource supports having the [system-assigned managed identity *and* multiple user-assigned managed identities](create-managed-service-identity.md) enabled at the same time, though you still can only select one identity to use at any time.
 
   > [!NOTE]
   > By default, the system-assigned identity is already enabled to authenticate connections at run time. 
@@ -1508,7 +1534,7 @@ When the [managed identity](../active-directory/managed-identities-azure-resourc
    |---------------------|-----------------|----------|-------|-------------|
    | **Authentication** | `type` | Yes | **Managed Identity** <br>or <br>`ManagedServiceIdentity` | The authentication type to use |
    | **Managed Identity** | `identity` | No | <*user-assigned-identity-ID*> | The user-assigned managed identity to use. **Note**: Don't include this property when using the system-assigned managed identity. |
-   | **Audience** | `audience` | Yes | <*target-resource-ID*> | The resource ID for the target resource that you want to access. <p>For example, `https://storage.azure.com/` makes the [access tokens](../active-directory/develop/access-tokens.md) for authentication valid for all storage accounts. However, you can also specify a root service URL, such as `https://fabrikamstorageaccount.blob.core.windows.net` for a specific storage account. <p>**Note**: The **Audience** property might be hidden in some triggers or actions. To make this property visible, in the trigger or action, open the **Add new parameter** list, and select **Audience**. <p><p>**Important**: Make sure that this target resource ID *exactly matches* the value that Microsoft Entra ID expects, including any required trailing slashes. So, the `https://storage.azure.com/` resource ID for all Azure Blob Storage accounts requires a trailing slash. However, the resource ID for a specific storage account doesn't require a trailing slash. To find these resource IDs, review [Azure services that support Microsoft Entra ID](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
+   | **Audience** | `audience` | Yes | <*target-resource-ID*> | The resource ID for the target resource that you want to access. <br><br>For example, `https://storage.azure.com/` makes the [access tokens](../active-directory/develop/access-tokens.md) for authentication valid for all storage accounts. However, you can also specify a root service URL, such as `https://fabrikamstorageaccount.blob.core.windows.net` for a specific storage account. <br><br>**Note**: The **Audience** property might be hidden in some triggers or actions. To make this property visible, in the trigger or action, open the **Add new parameter** list, and select **Audience**. <br><br>**Important**: Make sure that this target resource ID *exactly matches* the value that Microsoft Entra ID expects, including any required trailing slashes. So, the `https://storage.azure.com/` resource ID for all Azure Blob Storage accounts requires a trailing slash. However, the resource ID for a specific storage account doesn't require a trailing slash. To find these resource IDs, review [Azure services that support Microsoft Entra ID](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
 
    When you use [secured parameters](#secure-action-parameters) to handle and secure sensitive information, for example, in an [Azure Resource Manager template for automating deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), you can use expressions to access these parameter values at runtime. For example, this HTTP action definition specifies the authentication `type` as `ManagedServiceIdentity` and uses the [parameters() function](../logic-apps/workflow-definition-language-functions-reference.md#parameters) to get the parameter values:
 

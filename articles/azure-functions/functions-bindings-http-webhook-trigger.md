@@ -3,7 +3,8 @@ title: Azure Functions HTTP trigger
 description: Learn how to call an Azure Function via HTTP.
 ms.topic: reference
 ms.date: 03/06/2023
-ms.devlang: csharp, java, javascript, powershell, python
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js
 zone_pivot_groups: programming-languages-set-functions
 ---
@@ -52,10 +53,6 @@ The code in this article defaults to .NET Core syntax, used in Functions version
 
 # [Isolated worker model](#tab/isolated-process)
 
-The following example shows an HTTP trigger that returns a "hello world" response as an [HttpResponseData](/dotnet/api/microsoft.azure.functions.worker.http.httpresponsedata) object:
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Http/HttpFunction.cs" id="docsnippet_http_trigger":::
-
 The following example shows an HTTP trigger that returns a "hello, world" response as an [IActionResult], using [ASP.NET Core integration in .NET Isolated]:
 
 ```csharp
@@ -68,6 +65,10 @@ public IActionResult Run(
 ```
 
 [IActionResult]: /dotnet/api/microsoft.aspnetcore.mvc.iactionresult
+
+The following example shows an HTTP trigger that returns a "hello world" response as an [HttpResponseData](/dotnet/api/microsoft.azure.functions.worker.http.httpresponsedata) object:
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Http/HttpFunction.cs" id="docsnippet_http_trigger":::
 
 # [In-process model](#tab/in-process)    
 
@@ -188,7 +189,7 @@ This example reads the body of a POST request, as a `String`, and uses it to bui
 
 #### Read parameter from a route
 
-This example reads a mandatory parameter, named `id`, and an optional parameter `name` from the route path, and uses them to build a JSON document returned to the client, with content type `application/json`. T
+This example reads a mandatory parameter, named `id`, and an optional parameter `name` from the route path, and uses them to build a JSON document returned to the client, with content type `application/json`.
 
 ```java
 @FunctionName("TriggerStringRoute")
@@ -535,9 +536,9 @@ For Python v2 functions defined using a decorator, the following properties for 
 
 | Property    | Description |
 |-------------|-----------------------------|
-| `route` | Route for the http endpoint, if None, it will be set to function name if present or user defined python function name. |
-| `trigger_arg_name` | Argument name for HttpRequest, defaults to 'req'. |
-| `binding_arg_name` | Argument name for HttpResponse, defaults to '$return'. |
+| `route` | Route for the http endpoint. If None, it will be set to function name if present or user defined python function name. |
+| `trigger_arg_name` | Argument name for HttpRequest. The default value is 'req'. |
+| `binding_arg_name` | Argument name for HttpResponse. The default value is '$return'. |
 | `methods` | A tuple of the HTTP methods to which the function responds. |
 | `auth_level` | Determines what keys, if any, need to be present on the request in order to invoke the function. |
 
@@ -651,11 +652,11 @@ The trigger input type is declared as one of the following types:
 
 | Type              | Description | 
 |-|-|
-| [HttpRequestData] | A projection of the full request object. |
 | [HttpRequest]     | _Use of this type requires that the app is configured with [ASP.NET Core integration in .NET Isolated]._<br/>This gives you full access to the request object and overall HttpContext. |
+| [HttpRequestData] | A projection of the request object. |
 | A custom type     | When the body of the request is JSON, the runtime will try to parse it to set the object properties. |
 
-When using `HttpRequestData` or `HttpRequest`, custom types can also be bound to additional parameters using `Microsoft.Azure.Functions.Worker.Http.FromBodyAttribute`. Use of this attribute requires [`Microsoft.Azure.Functions.Worker.Extensions.Http` version 3.1.0 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http). Note that this is a different type than the similar attribute in `Microsoft.AspNetCore.Mvc`, and when using ASP.NET Core integration, you will need a fully qualified reference or `using` statement. The following example shows how to use the attribute to get just the body contents while still having access to the full `HttpRequest`, using the ASP.NET Core integration:
+When the trigger parameter is an `HttpRequestData`  an `HttpRequest`, custom types can also be bound to additional parameters using `Microsoft.Azure.Functions.Worker.Http.FromBodyAttribute`. Use of this attribute requires [`Microsoft.Azure.Functions.Worker.Extensions.Http` version 3.1.0 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http). Note that this is a different type than the similar attribute in `Microsoft.AspNetCore.Mvc`, and when using ASP.NET Core integration, you will need a fully qualified reference or `using` statement. The following example shows how to use the attribute to get just the body contents while still having access to the full `HttpRequest`, using the ASP.NET Core integration:
 
 ```csharp
 using Microsoft.AspNetCore.Http;
@@ -1003,6 +1004,12 @@ When you use route parameters, an `invoke_URL_template` is automatically created
 
 You can programmatically access the `invoke_URL_template` by using the Azure Resource Manager APIs for [List Functions](/rest/api/appservice/webapps/listfunctions) or [Get Function](/rest/api/appservice/webapps/getfunction).
 
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
+### HTTP streams (preview)
+
+You can now stream requests to and responses from your HTTP endpoint in Node.js v4 function apps. For more information, see [HTTP streams](functions-reference-node.md?pivots=nodejs-model-v4#http-streams-preview).   
+::: zone-end  
+
 ### Working with client identities
 
 If your function app is using [App Service Authentication / Authorization](../app-service/overview-authentication-authorization.md), you can view information about authenticated clients from your code. This information is available as [request headers injected by the platform](../app-service/configure-authentication-user-identities.md#access-user-claims-in-app-code).
@@ -1058,11 +1065,36 @@ The authenticated user is available via [HTTP Headers](../app-service/configure-
 
 The authorization level is a string value that indicates the kind of [authorization key](#authorization-keys) that's required to access the function endpoint. For an HTTP triggered function, the authorization level can be one of the following values:
 
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+
+# [Model v4](#tab/nodejs-v4)
+
+| Level value | Description |
+| --- | --- |
+|**anonymous**| No API key is required. This is the default value when a level isn't specifically set.|
+|**function**| A function-specific API key is required.|
+|**admin**| The master key is required.|
+
+# [Model v3](#tab/nodejs-v3)
+
 | Level value | Description |
 | --- | --- |
 |**anonymous**| No API key is required.|
 |**function**| A function-specific API key is required. This is the default value when a level isn't specifically set.|
 |**admin**| The master key is required.|
+
+---
+
+::: zone-end
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-powershell,programming-language-python"
+
+| Level value | Description |
+| --- | --- |
+|**anonymous**| No API key is required.|
+|**function**| A function-specific API key is required. This is the default value when a level isn't specifically set.|
+|**admin**| The master key is required.|
+
+::: zone-end
 
 ### <a name="authorization-keys"></a>Function access keys
 
@@ -1121,9 +1153,9 @@ The `webHookType` binding property indicates the type if webhook supported by th
 
 | Type value | Description |
 | --- | --- |
-| **genericJson**| A general-purpose webhook endpoint without logic for a specific provider. This setting restricts requests to only those using HTTP POST and with the `application/json` content type.|
-| **[github](#github-webhooks)** | The function responds to [GitHub webhooks](https://developer.github.com/webhooks/). Don't use the  `authLevel` property with GitHub webhooks. | 
-| **[slack](#slack-webhooks)** | The function responds to [Slack webhooks](https://api.slack.com/outgoing-webhooks). Don't use the `authLevel` property with Slack webhooks. |
+| **`genericJson`**| A general-purpose webhook endpoint without logic for a specific provider. This setting restricts requests to only those using HTTP POST and with the `application/json` content type.|
+| **[`github`](#github-webhooks)** | The function responds to [GitHub webhooks](https://developer.github.com/webhooks/). Don't use the  `authLevel` property with GitHub webhooks. | 
+| **[`slack`](#slack-webhooks)** | The function responds to [Slack webhooks](https://api.slack.com/outgoing-webhooks). Don't use the `authLevel` property with Slack webhooks. |
 
 When setting the `webHookType` property, don't also set the `methods` property on the binding. 
 

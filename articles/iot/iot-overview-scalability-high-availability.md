@@ -8,8 +8,7 @@ ms.author: dobett
 ms.topic: overview
 ms.date: 05/18/2023
 ms.custom: template-overview
-
-# As a solution builder, I want a high-level overview of the options for scalability, high availability, and disaster recovery in an IoT solution so that I can easily find relevant content for my scenario.
+# Customer intent: As a solution builder, I want a high-level overview of the options for scalability, high availability, and disaster recovery in an IoT solution so that I can easily find relevant content for my scenario.
 ---
 
 # IoT solution scalability, high availability, and disaster recovery

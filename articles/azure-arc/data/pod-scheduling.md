@@ -4,8 +4,8 @@ description: Describes how pods are scheduled for Azure Arc-enabled data service
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-sqlmi
-author: dnethi
-ms.author: dinethi
+author: AbdullahMSFT
+ms.author: amamun
 ms.reviewer: mikeray
 ms.date: 07/07/2023
 ms.topic: how-to
@@ -122,3 +122,7 @@ spec:
         matchLabels:
           name: sql1
 ```
+
+> [!NOTE]  
+> These label selectors and constraints should be added or edited as part of the `SqlManagedInstance` custom resource definition spec, either during deployment or post deployment edit.
+> It is not recommended to modify/edit statefulset or pod spec for SqlManagedInstance. These dodifications could be lost after next update/upgrade. 

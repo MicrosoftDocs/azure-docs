@@ -5,7 +5,7 @@ ms.service: data-lake-analytics
 ms.custom: devx-track-python
 ms.reviewer: whhender
 ms.topic: how-to
-ms.date: 10/17/2022
+ms.date: 12/20/2023
 ---
 
 # Use Azure Data Lake Tools for Visual Studio Code

@@ -7,7 +7,7 @@ author: kromerm
 ms.author: makromer
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 02/17/2023
+ms.date: 01/05/2024
 ---
 
 # Applying DataOps to Azure Data Factory
@@ -176,8 +176,6 @@ When developing data flows, you'll be able to gain insights into each individual
 
 The service provides live and interactive feedback of your pipeline activities in the UI when debugging and unit testing in Azure Data Factory.
 
-For more advanced unit testing within your repository, refer to the blog [How to build unit tests for Azure Data Factory](https://towardsdatascience.com/how-to-build-unit-tests-for-azure-data-factory-3aa11b36c7af).
-
 ### Automated testing
 
 There are several tools available for automated testing that you can use with Azure Data Factory. Since the service stores objects in the service as JSON entities, it can be convenient to use the open-source .NET unit testing framework NUnit with Visual Studio. Refer to this post [Setup automated testing for Azure Data Factory](https://richardswinbank.net/adf/set_up_automated_testing_for_azure_data_factory) that provides an in-depth explanation of how to set up an automated unit testing environment for your factory. (Special thanks to Richard Swinbank for permission to use this blog.)
@@ -212,7 +210,7 @@ You can use the main search bar from the Azure Data Factory Studio to find data 
 
 :::image type="content" lightbox="media/apply-dataops/purview-search.png" source="media/apply-dataops/purview-search.png" alt-text="Screenshot showing Purview results from a search in the Azure Data Factory Studio search bar.":::
 
-## Next steps
+## Related content
 
 - [Automated publishing for CI/CD in Azure Data Factory](continuous-integration-delivery-improvements.md)
 - [Source control in Azure Data Factory](source-control.md)

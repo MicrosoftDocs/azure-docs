@@ -179,7 +179,7 @@ Both of these scripts may take a while to complete.
 # This script uses parallel processing, modify the $parallelThrottleLimit parameter to either increase or decrease the number of parallel processes
 # PS> .\UpdateMMA.ps1 GetInventory
 # The above command will generate a csv file with the details of VM's and VMSS that require MMA upgrade. 
-# The customer can modify the the csv by adding/removing rows if needed
+# The customer can modify the csv by adding/removing rows if needed
 # Update the MMA by running the script again and passing the csv file as parameter as shown below:
 # PS> .\UpdateMMA.ps1 Upgrade
 # If you don't want to check the inventory, then run the script wiht an additional -no-inventory-check

@@ -2,15 +2,16 @@
 title: Trino cluster configuration
 description: How to perform service configuration for Trino clusters for HDInsight on AKS.
 ms.service: hdinsight-aks
+ms.custom: devx-track-arm-template
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 10/19/2023
 ---
 
 # Trino configuration management
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
-HDInsight on AKS Trino cluster comes with most of the default configurations of open-source Trino. This article describes how to update config files, and adds your own supplemental config files to the cluster.
+Trino cluster with HDInsight on AKS comes with most of the default configurations of open-source Trino. This article describes how to update config files, and adds your own supplemental config files to the cluster.
 
 You can add/update the configurations in two ways:
 
@@ -18,7 +19,7 @@ You can add/update the configurations in two ways:
 * [Using ARM template](#using-arm-template)
 
 > [!NOTE]
-> HDInsight on AKS Trino enforces certain configurations and prohibits modification of some files and/or properties. This is done to ensure proper security/connectivity via configuration. Example of prohibited files/properties includes, but is not limited to: 
+> Trino with HDInsight on AKS enforces certain configurations and prohibits modification of some files and/or properties. This is done to ensure proper security/connectivity via configuration. Example of prohibited files/properties includes, but is not limited to: 
 > * jvm.config file with the exception of Heap size settings.
 > * Node.properties: node.id, node.data-dir, log.path etc.
 > * `Config.properties: http-server.authentication.*, http-server.https.* etc.`
@@ -59,14 +60,14 @@ Follow the steps to modify the configurations:
 
 ### Prerequisites
 
-* An operational HDInsight on AKS Trino cluster.
+* An operational Trino cluster with HDInsight on AKS.
 * Create [ARM template](../create-cluster-using-arm-template-script.md) for your cluster.
 * Review complete cluster [ARM template](https://hdionaksresources.blob.core.windows.net/trino/samples/arm/arm-trino-config-sample.json) sample.
 * Familiarity with [ARM template authoring and deployment](/azure/azure-resource-manager/templates/overview).
 
 ### Cluster management
 
-All HDInsight on AKS Trino configurations can be specified in `serviceConfigsProfiles.serviceName[“trino”]` under `properties.clusterProfile`.
+All Trino configurations can be specified in `serviceConfigsProfiles.serviceName[“trino”]` under `properties.clusterProfile`.
 
 The following example focuses on `coordinator/worker/miscfiles`. For catalogs, see [Add catalogs to an existing cluster](trino-add-catalogs.md):
 

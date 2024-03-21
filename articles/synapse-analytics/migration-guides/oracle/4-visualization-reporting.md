@@ -3,8 +3,6 @@ title: "Visualization and reporting for Oracle migrations"
 description: Learn about Microsoft and third-party BI tools for reports and visualizations in Azure Synapse Analytics compared to Oracle.
 ms.service: synapse-analytics
 ms.subservice: sql-dw
-ms.custom:
-ms.devlang:
 ms.topic: conceptual
 author: ajagadish-24
 ms.author: ajagadish

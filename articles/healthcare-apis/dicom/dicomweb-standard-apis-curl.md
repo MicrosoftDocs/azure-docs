@@ -3,7 +3,7 @@ title:  Use cURL and DICOMweb Standard APIs in Azure Health Data Services
 description: Use cURL and DICOMweb Standard APIs to store, retrieve, search, and delete DICOM files in the DICOM service.  
 author: mmitrik
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: dicom
 ms.topic: tutorial
 ms.date: 10/18/2023
 ms.author: mmitrik
@@ -33,14 +33,14 @@ The filename, studyUID, seriesUID, and instanceUID of the sample DICOM files are
 
 ## Prerequisites
 
-To use the DICOM Standard APIs, you must have an instance of the DICOM service deployed. If you haven't already deployed an instance of the DICOM service, see [Deploy DICOM service using the Azure portal](deploy-dicom-services-in-azure.md).
+To use the DICOM Standard APIs, you must have an instance of the DICOM service deployed. For more information, see [Deploy the DICOM service using the Azure portal](deploy-dicom-services-in-azure.md).
 
-Once you've deployed an instance of the DICOM service, retrieve the URL for your App service:
+After you deploy an instance of the DICOM service, retrieve the URL for your App service.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Search **Recent resources** and select your DICOM service instance.
 3. Copy the **Service URL** of your DICOM service. 
-4. If you haven't already obtained a token, see [Get access token for the DICOM service using Azure CLI](dicom-get-access-token-azure-cli.md). 
+4. If you need an access token, see [Get access token for the DICOM service](dicom-get-access-token-azure-cli.md). 
 
 For this code, we access a Public Preview Azure service. It's important that you don't upload any private health information (PHI).
 
@@ -76,7 +76,7 @@ _Details:_
 * Body:
     * Content-Type: application/dicom for each file uploaded, separated by a boundary value
 
-Some programming languages and tools behave differently. For instance, some require you to define your own boundary. For those tools, you might need to use a slightly modified Content-Type header. The following have been used successfully.
+Some programming languages and tools behave differently. For instance, some require you to define your own boundary. For those tools, you might need to use a slightly modified Content-Type header. These tools can be used successfully.
 * Content-Type: multipart/related; type="application/dicom"; boundary=ABCD1234
 * Content-Type: multipart/related; boundary=ABCD1234
 * Content-Type: multipart/related
@@ -104,7 +104,7 @@ _Details:_
 * Body:
     * Content-Type: application/dicom for each file uploaded, separated by a boundary value
 
-Some programming languages and tools behave differently. For instance, some require you to define your own boundary. For those languages and tools, you might need to use a slightly modified Content-Type header. The following have been used successfully.
+Some programming languages and tools behave differently. For instance, some require you to define your own boundary. For those languages and tools, you might need to use a slightly modified Content-Type header. These tools can be used successfully.
 
  * Content-Type: multipart/related; type="application/dicom"; boundary=ABCD1234
  * Content-Type: multipart/related; boundary=ABCD1234
@@ -401,7 +401,7 @@ curl --request GET "{Service URL}/v{version}/studies/1.2.826.0.1.3680043.8.498.1
 
 This request deletes a single instance within a single study and single series.
 
-Delete isn't part of the DICOM standard, but it's been added for convenience.
+Delete isn't part of the DICOM standard, but is added for convenience.
 
 _Details:_
 * Path: ../studies/{study}/series/{series}/instances/{instance}
@@ -418,7 +418,7 @@ curl --request DELETE "{Service URL}/v{version}/studies/1.2.826.0.1.3680043.8.49
 
 This request deletes a single series (and all child instances) within a single study.
 
-Delete isn't part of the DICOM standard, but it's been added for convenience.
+Delete isn't part of the DICOM standard, but is added for convenience.
 
 _Details:_
 * Path: ../studies/{study}/series/{series}
@@ -435,7 +435,7 @@ curl --request DELETE "{Service URL}/v{version}/studies/1.2.826.0.1.3680043.8.49
 
 This request deletes a single study (and all child series and instances).
 
-Delete isn't part of the DICOM standard, but it has been added for convenience.
+Delete isn't part of the DICOM standard, but is added for convenience.
 
 _Details:_
 * Path: ../studies/{study}

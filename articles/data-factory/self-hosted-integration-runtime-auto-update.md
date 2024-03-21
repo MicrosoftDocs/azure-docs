@@ -6,7 +6,6 @@ ms.subservice: integration-runtime
 ms.topic: conceptual
 author: lrtoyou1223
 ms.author: lle
-ms.custom: seo-lt-2019
 ms.date: 10/20/2023
 ---
 
@@ -49,7 +48,7 @@ If you have multiple nodes, and for some reasons that some of them aren't auto-u
 ## Self-hosted Integration Runtime Expire Notification
 If you want to manually control which version of self-hosted integration runtime, you can disable the setting of auto-update and install it manually. Each version of self-hosted integration runtime expires in one year. The expiring message is shown in ADF portal and self-hosted integration runtime client **90 days** before expiration.
 
-## Next steps
+## Related content
 
 - Review [integration runtime concepts in Azure Data Factory](./concepts-integration-runtime.md).
 - Learn how to [create a self-hosted integration runtime in the Azure portal](./create-self-hosted-integration-runtime.md).

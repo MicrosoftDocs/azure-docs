@@ -392,7 +392,7 @@ You can now create a job that uses to use the container image. In this section, 
     az containerapp job create -n "$JOB_NAME" -g "$RESOURCE_GROUP" --environment "$ENVIRONMENT" \
         --trigger-type Event \
         --replica-timeout 1800 \
-        --replica-retry-limit 1 \
+        --replica-retry-limit 0 \
         --replica-completion-count 1 \
         --parallelism 1 \
         --image "$CONTAINER_REGISTRY_NAME.azurecr.io/$CONTAINER_IMAGE_NAME" \
@@ -401,7 +401,7 @@ You can now create a job that uses to use the container image. In this section, 
         --polling-interval 30 \
         --scale-rule-name "github-runner" \
         --scale-rule-type "github-runner" \
-        --scale-rule-metadata "github-runner=https://api.github.com" "owner=$REPO_OWNER" "runnerScope=repo" "repos=$REPO_NAME" "targetWorkflowQueueLength=1" \
+        --scale-rule-metadata "githubAPIURL=https://api.github.com" "owner=$REPO_OWNER" "runnerScope=repo" "repos=$REPO_NAME" "targetWorkflowQueueLength=1" \
         --scale-rule-auth "personalAccessToken=personal-access-token" \
         --cpu "2.0" \
         --memory "4Gi" \
@@ -415,7 +415,7 @@ You can now create a job that uses to use the container image. In this section, 
     az containerapp job create -n "$JOB_NAME" -g "$RESOURCE_GROUP" --environment "$ENVIRONMENT" `
         --trigger-type Event `
         --replica-timeout 1800 `
-        --replica-retry-limit 1 `
+        --replica-retry-limit 0 `
         --replica-completion-count 1 `
         --parallelism 1 `
         --image "$CONTAINER_REGISTRY_NAME.azurecr.io/$CONTAINER_IMAGE_NAME" `
@@ -424,7 +424,7 @@ You can now create a job that uses to use the container image. In this section, 
         --polling-interval 30 `
         --scale-rule-name "github-runner" `
         --scale-rule-type "github-runner" `
-        --scale-rule-metadata "github-runner=https://api.github.com" "owner=$REPO_OWNER" "runnerScope=repo" "repos=$REPO_NAME" "targetWorkflowQueueLength=1" `
+        --scale-rule-metadata "githubAPIURL=https://api.github.com" "owner=$REPO_OWNER" "runnerScope=repo" "repos=$REPO_NAME" "targetWorkflowQueueLength=1" `
         --scale-rule-auth "personalAccessToken=personal-access-token" `
         --cpu "2.0" `
         --memory "4Gi" `
@@ -448,7 +448,7 @@ You can now create a job that uses to use the container image. In this section, 
     | `--polling-interval` | The polling interval at which to evaluate the scale rule. |
     | `--scale-rule-name` | The name of the scale rule. |
     | `--scale-rule-type` | The type of scale rule to use. To learn more about the GitHub runner scaler, see the KEDA [documentation](https://keda.sh/docs/latest/scalers/github-runner/). |
-    | `--scale-rule-metadata` | The metadata for the scale rule. |
+    | `--scale-rule-metadata` | The metadata for the scale rule. If you're using GitHub Enterprise, update `githubAPIURL` with its API URL. |
     | `--scale-rule-auth` | The authentication for the scale rule. |
     | `--secrets` | The secrets to use for the job. |
     | `--env-vars` | The environment variables to use for the job. |
@@ -605,7 +605,7 @@ To run a self-hosted runner, you need to create a personal access token (PAT) in
     | Placeholder | Value | Comments |
     |---|---|---|
     | `<AZP_TOKEN>` | The Azure DevOps PAT you generated. | |
-    | `<ORGANIZATION_URL>` | The URL of your Azure DevOps organization. | For example, `https://dev.azure.com/myorg` or `https://myorg.visualstudio.com`. |
+    | `<ORGANIZATION_URL>` | The URL of your Azure DevOps organization. Make sure no trailing `/` is present at the end of the URL. | For example, `https://dev.azure.com/myorg` or `https://myorg.visualstudio.com`. |
 
 ## Build the Azure Pipelines agent container image
 
@@ -695,7 +695,7 @@ You can run a manual job to register an offline placeholder agent. The job runs 
     az containerapp job create -n "$PLACEHOLDER_JOB_NAME" -g "$RESOURCE_GROUP" --environment "$ENVIRONMENT" \
         --trigger-type Manual \
         --replica-timeout 300 \
-        --replica-retry-limit 1 \
+        --replica-retry-limit 0 \
         --replica-completion-count 1 \
         --parallelism 1 \
         --image "$CONTAINER_REGISTRY_NAME.azurecr.io/$CONTAINER_IMAGE_NAME" \
@@ -711,7 +711,7 @@ You can run a manual job to register an offline placeholder agent. The job runs 
         az containerapp job create -n "$PLACEHOLDER_JOB_NAME" -g "$RESOURCE_GROUP" --environment "$ENVIRONMENT" `
         --trigger-type Manual `
         --replica-timeout 300 `
-        --replica-retry-limit 1 `
+        --replica-retry-limit 0 `
         --replica-completion-count 1 `
         --parallelism 1 `
         --image "$CONTAINER_REGISTRY_NAME.azurecr.io/$CONTAINER_IMAGE_NAME" `
@@ -803,7 +803,7 @@ Now that you have a placeholder agent, you can create a self-hosted agent. In th
 az containerapp job create -n "$JOB_NAME" -g "$RESOURCE_GROUP" --environment "$ENVIRONMENT" \
     --trigger-type Event \
     --replica-timeout 1800 \
-    --replica-retry-limit 1 \
+    --replica-retry-limit 0 \
     --replica-completion-count 1 \
     --parallelism 1 \
     --image "$CONTAINER_REGISTRY_NAME.azurecr.io/$CONTAINER_IMAGE_NAME" \
@@ -812,7 +812,7 @@ az containerapp job create -n "$JOB_NAME" -g "$RESOURCE_GROUP" --environment "$E
     --polling-interval 30 \
     --scale-rule-name "azure-pipelines" \
     --scale-rule-type "azure-pipelines" \
-    --scale-rule-metadata "poolName=container-apps" "targetPipelinesQueueLength=1" \
+    --scale-rule-metadata "poolName=$AZP_POOL" "targetPipelinesQueueLength=1" \
     --scale-rule-auth "personalAccessToken=personal-access-token" "organizationURL=organization-url" \
     --cpu "2.0" \
     --memory "4Gi" \
@@ -826,7 +826,7 @@ az containerapp job create -n "$JOB_NAME" -g "$RESOURCE_GROUP" --environment "$E
 az containerapp job create -n "$JOB_NAME" -g "$RESOURCE_GROUP" --environment "$ENVIRONMENT" `
     --trigger-type Event `
     --replica-timeout 1800 `
-    --replica-retry-limit 1 `
+    --replica-retry-limit 0 `
     --replica-completion-count 1 `
     --parallelism 1 `
     --image "$CONTAINER_REGISTRY_NAME.azurecr.io/$CONTAINER_IMAGE_NAME" `
@@ -835,7 +835,7 @@ az containerapp job create -n "$JOB_NAME" -g "$RESOURCE_GROUP" --environment "$E
     --polling-interval 30 `
     --scale-rule-name "azure-pipelines" `
     --scale-rule-type "azure-pipelines" `
-    --scale-rule-metadata "poolName=container-apps" "targetPipelinesQueueLength=1" `
+    --scale-rule-metadata "poolName=$AZP_POOL" "targetPipelinesQueueLength=1" `
     --scale-rule-auth "personalAccessToken=personal-access-token" "organizationURL=organization-url" `
     --cpu "2.0" `
     --memory "4Gi" `

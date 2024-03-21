@@ -42,7 +42,7 @@ You can use the [azcopy make](storage-ref-azcopy-make.md) command to create a co
 azcopy make 'https://mystorageaccount.blob.core.windows.net/mycontainer'
 ```
 
-**Example (hierarchical namespace)**
+**Example (Data Lake Storage endpoint)**
 
 ```azcopy
 azcopy make 'https://mystorageaccount.dfs.core.windows.net/mycontainer'
@@ -67,7 +67,7 @@ Upload a file by using the [azcopy copy](storage-ref-azcopy-copy.md) command.
 azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt'
 ```
 
-**Example (hierarchical namespace)**
+**Example (Data Lake Storage endpoint)**
 
 ```azcopy
 azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFile.txt'
@@ -94,7 +94,7 @@ This example copies a directory (and all of the files in that directory) to a bl
 azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive
 ```
 
-**Example (hierarchical namespace)**
+**Example (Data Lake Storage endpoint)**
 
 ```azcopy
 azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/mycontainer' --recursive
@@ -108,7 +108,7 @@ To copy to a directory within the container, just specify the name of that direc
 azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory' --recursive
 ```
 
-**Example (hierarchical namespace)**
+**Example (Data Lake Storage endpoint)**
 
 ```azcopy
 azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobDirectory' --recursive
@@ -133,7 +133,7 @@ Upload the contents of a directory by using the [azcopy copy](storage-ref-azcopy
 azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory'
 ```
 
-**Example (hierarchical namespace)**
+**Example (Data Lake Storage endpoint)**
 
 ```azcopy
 azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobDirectory'
@@ -162,7 +162,7 @@ Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-pa
 azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --include-path 'photos;documents\myFile.txt' --recursive'
 ```
 
-**Example (hierarchical namespace)**
+**Example (Data Lake Storage endpoint)**
 
 ```azcopy
 azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/mycontainer' --include-path 'photos;documents\myFile.txt' --recursive'
@@ -186,7 +186,7 @@ Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-pa
 azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --include-pattern 'myFile*.txt;*.pdf*'
 ```
 
-**Example (hierarchical namespace)**
+**Example (Data Lake Storage endpoint)**
 
 ```azcopy
 azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/mycontainer' --include-pattern 'myFile*.txt;*.pdf*'
@@ -194,7 +194,7 @@ azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/myco
 
 You can also exclude files by using the `--exclude-pattern` option. To learn more, see [azcopy copy](storage-ref-azcopy-copy.md) reference docs.
 
-The `--include-pattern` and `--exclude-pattern` options apply only to filenames and not to the path.  If you want to copy all of the text files that exist in a directory tree, use the `–recursive` option to get the entire directory tree, and then use the `–include-pattern` and specify `*.txt` to get all of the text files.
+The `--include-pattern` and `--exclude-pattern` options apply only to filenames and not to the path.  If you want to copy all of the text files that exist in a directory tree, use the `-recursive` option to get the entire directory tree, and then use the `-include-pattern` and specify `*.txt` to get all of the text files.
 
 ### Upload files that were modified before or after a date and time
 
@@ -212,7 +212,7 @@ The following examples upload files that were modified on or after the specified
 azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory'  --include-after '2020-08-19T15:04:00Z'
 ```
 
-**Example (hierarchical namespace)**
+**Example (Data Lake Storage endpoint)**
 
 ```azcopy
 azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory'   --include-after '2020-08-19T15:04:00Z'

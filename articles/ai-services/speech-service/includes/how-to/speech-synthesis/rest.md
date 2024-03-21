@@ -3,7 +3,7 @@ author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 08/30/2023
-author: eur
+ms.author: eur
 ---
 
 [!INCLUDE [Header](../../common/rest.md)]
@@ -34,7 +34,7 @@ curl --location --request POST 'https://YOUR_RESOURCE_REGION.tts.speech.microsof
 --header 'X-Microsoft-OutputFormat: audio-16khz-128kbitrate-mono-mp3' \
 --header 'User-Agent: curl' \
 --data-raw '<speak version='\''1.0'\'' xml:lang='\''en-US'\''>
-    <voice name='\''en-US-JennyNeural'\''>
+    <voice name='\''en-US-AvaMultilingualNeural'\''>
         I am excited to try text to speech
     </voice>
 </speak>' > output.mp3

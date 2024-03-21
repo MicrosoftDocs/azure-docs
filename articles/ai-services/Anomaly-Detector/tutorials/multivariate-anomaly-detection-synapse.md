@@ -2,12 +2,12 @@
 title: "Tutorial: Use Multivariate Anomaly Detector in Azure Synapse Analytics"
 titleSuffix: Azure AI services
 description: Learn how to use the Multivariate Anomaly Detector with Azure Synapse Analytics.
-services: cognitive-services
+#services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
 ms.service: azure-ai-anomaly-detector
 ms.topic: tutorial
-ms.date: 08/03/2022
+ms.date: 01/18/2024
 ms.author: mbullwin
 ---
 

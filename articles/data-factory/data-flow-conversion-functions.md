@@ -58,7 +58,7 @@ Conversion functions are used to convert data and test for data types
 | [toUTC](data-flow-expressions-usage.md#toUTC) | Converts the timestamp to UTC. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. It's defaulted to the current timezone. Refer to Java's `SimpleDateFormat` class for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html.  |
 |||
 
-## Next steps
+## Related content
 
 - List of all [aggregate functions](data-flow-aggregate-functions.md).
 - List of all [array functions](data-flow-array-functions.md).

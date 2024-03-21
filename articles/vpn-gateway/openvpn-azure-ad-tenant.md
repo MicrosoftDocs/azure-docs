@@ -5,7 +5,7 @@ description: Learn how to set up a Microsoft Entra tenant for P2S Microsoft Entr
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/17/2023
+ms.date: 12/13/2023
 ms.author: cherylmc
 
 ---
@@ -61,7 +61,7 @@ The steps in this article require a Microsoft Entra tenant. If you don't have a 
 
    For **Microsoft Entra ID** values, use the following guidelines for **Tenant**, **Audience**, and **Issuer** values. Replace {AzureAD TenantID} with your tenant ID, taking care to remove **{}** from the examples when you replace this value.
 
-   * **Tenant:** TenantID for the Microsoft Entra tenant. Enter the tenant ID that corresponds to your configuration. Make sure the Tenant URL doesn't have a `\` at the end. 
+   * **Tenant:** TenantID for the Microsoft Entra tenant. Enter the tenant ID that corresponds to your configuration. Make sure the Tenant URL doesn't have a `\` (backslash) at the end. Forward slash is permissible.
 
      * Azure Public AD: `https://login.microsoftonline.com/{AzureAD TenantID}`
      * Azure Government AD: `https://login.microsoftonline.us/{AzureAD TenantID}`
@@ -75,7 +75,7 @@ The steps in this article require a Microsoft Entra tenant. If you don't have a 
      * Azure Germany: `538ee9e6-310a-468d-afef-ea97365856a9`
      * Microsoft Azure operated by 21Vianet: `49f817b6-84ae-4cc0-928c-73f27289b3aa`
 
-   * **Issuer**: URL of the Secure Token Service. Include a trailing slash at the end of the **Issuer** value. Otherwise, the connection might fail.
+   * **Issuer**: URL of the Secure Token Service. Include a trailing slash at the end of the **Issuer** value. Otherwise, the connection might fail. Example:
 
      * `https://sts.windows.net/{AzureAD TenantID}/`
 

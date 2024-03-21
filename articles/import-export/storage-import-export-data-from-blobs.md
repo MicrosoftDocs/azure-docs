@@ -7,7 +7,7 @@ ms.service: azure-import-export
 ms.topic: tutorial
 ms.date: 02/13/2023
 ms.author: alkohli
-ms.custom: "tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
+ms.custom: tutorial, devx-track-azurepowershell, devx-track-azurecli
 ---
 # Tutorial: Export data from Azure Blob storage with Azure Import/Export
 

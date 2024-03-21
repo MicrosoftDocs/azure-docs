@@ -55,6 +55,6 @@ The template defines the following two parameters:
     :::image type="content" source="media/solution-template-bulk-copy-from-files-to-database/run-succeeded.png" alt-text="Review the result":::
 
        
-## Next steps
+## Related content
 
 - [Introduction to Azure Data Factory](introduction.md)

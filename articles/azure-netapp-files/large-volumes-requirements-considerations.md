@@ -1,19 +1,12 @@
 ---
 title: Requirements and considerations for large volumes | Microsoft Docs
-description: Describes the requirements and considerations you need to be aware of before using large volumes.  
+description: Describes the requirements and considerations you need to be aware of before using large volumes.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-ahibbard
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.custom: references_regions
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/31/2023
+ms.date: 11/02/2023
 ms.author: anfdocs
 ---
 # Requirements and considerations for large volumes (preview)
@@ -49,6 +42,7 @@ The following requirements and considerations apply to large volumes. For perfor
     | Ultra | 100 to 500 | 10,240 | 
     
 * Large volumes aren't currently supported with standard storage with cool access.
+
 ## Supported regions
 
 Support for Azure NetApp Files large volumes is available in the following regions:
@@ -61,16 +55,19 @@ Support for Azure NetApp Files large volumes is available in the following regio
 * Central US
 * East US
 * East US 2
+* France Central
 * Germany West Central
 * Japan East
 * North Europe
 * Qatar Central
 * South Africa North 
 * South Central US
+* Southeast Asia
 * Switzerland North
 * UAE North
 * UK West
 * UK South
+* US Gov Virginia 
 * West Europe
 * West US
 * West US 2

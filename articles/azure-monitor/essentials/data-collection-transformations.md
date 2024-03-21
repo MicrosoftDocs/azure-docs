@@ -24,7 +24,7 @@ The following table describes the different goals that you can achieve by using 
 You can apply transformations to the following tables in a Log Analytics workspace:
 
 - Any Azure table listed in [Tables that support transformations in Azure Monitor Logs](../logs/tables-feature-support.md)
-- Any custom table
+- Any custom table created for the Azure Monitor Agent. (MMA custom table can't use transformations)
 
 ## How transformations work
 Transformations are performed in Azure Monitor in the [data ingestion pipeline](../essentials/data-collection.md) after the data source delivers the data and before it's sent to the destination. The data source might perform its own filtering before sending data but then rely on the transformation for further manipulation before it's sent to the destination.
@@ -69,6 +69,9 @@ There are multiple methods to create transformations depending on the data colle
 | Logs ingestion API with transformation | [Send data to Azure Monitor Logs by using REST API (Azure portal)](../logs/tutorial-logs-ingestion-portal.md)<br>[Send data to Azure Monitor Logs by using REST API (Azure Resource Manager templates)](../logs/tutorial-logs-ingestion-api.md) |
 | Transformation in workspace DCR | [Add workspace transformation to Azure Monitor Logs by using the Azure portal](../logs/tutorial-workspace-transformations-portal.md)<br>[Add workspace transformation to Azure Monitor Logs by using Resource Manager templates](../logs/tutorial-workspace-transformations-api.md)
 | Agent Transformations in a DCR | [Add transformation to Azure Monitor Log](../agents/azure-monitor-agent-transformation.md)
+
+## Monitor transformations
+See [Monitor and troubleshoot DCR data collection in Azure Monitor](data-collection-monitor.md) for details on logs and metrics that monitor the health and performance of transformations. This includes identifying any errors that occur in the KQL and metrics to track their running duration.
 
 ## Cost for transformations
 While transformations themselves don't incur direct costs, the following scenarios can result in additional charges:

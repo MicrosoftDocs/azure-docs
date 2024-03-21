@@ -4,7 +4,7 @@ description: Determine the level of support for each storage account feature giv
 author: normesta
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 07/28/2023
+ms.date: 01/11/2024
 ms.author: normesta
 ---
 
@@ -41,7 +41,7 @@ The following table describes whether a feature is supported in a standard gener
 
 | Storage feature | Default | HNS   | NFS  | SFTP |
 |---------------|-------------------|---|---|--|
-| [Access tiers (hot, cool, cold, and archive)](access-tiers-overview.md) | &#x2705; | &#x2705;<sup>3</sup> | &#x2705;<sup>3</sup> | &#x2705;<sup>3</sup> |
+| [Access tiers (hot, cool, cold, and archive)](access-tiers-overview.md) | &#x2705; | &#x2705; | &#x2705;| &#x2705; |
 | [Microsoft Entra security](authorize-access-azure-active-directory.md) | &#x2705; | &#x2705; | &#x2705;<sup>1</sup>  | &#x2705;<sup>1</sup>  |
 | [Azure DNS Zone endpoints (preview)](../common/storage-account-overview.md?toc=/azure/storage/blobs/toc.json#storage-account-endpoints) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Blob inventory](blob-inventory.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
@@ -74,13 +74,13 @@ The following table describes whether a feature is supported in a standard gener
 | [Soft delete for containers](soft-delete-container-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Static websites](storage-blob-static-website.md) | &#x2705; | &#x2705; | &#x1F7E6; | &#x2705; |
 | [Storage Analytics logs (classic)](../common/storage-analytics-logging.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x2705;   | &nbsp;&#x2B24; | &#x2705; |
-| [Storage Analytics metrics (classic)](../common/storage-analytics-metrics.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Storage Analytics metrics (classic)](../common/storage-analytics-metrics.md?toc=/azure/storage/blobs/toc.json)<sup>3</sup> | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 
 <sup>1</sup>    Requests that clients make by using NFS 3.0 or SFTP can't be authorized by using Microsoft Entra security.
 
 <sup>2</sup>    Only locally redundant storage (LRS) and zone-redundant storage (ZRS) are supported.
 
-<sup>3</sup>    Setting the tier of a blob by using the [Blob Batch](/rest/api/storageservices/blob-batch) operation is not yet supported in accounts that have a hierarchical namespace.
+<sup>3</sup>    Storage Analytics metrics is retired. See [Transition to metrics in Azure Monitor](../common/storage-analytics-metrics.md?toc=/azure/storage/blobs/toc.json).
 
 ## Premium block blob accounts
 
@@ -124,11 +124,13 @@ The following table describes whether a feature is supported in a premium block 
 | [Soft delete for containers](soft-delete-container-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Static websites](storage-blob-static-website.md) | &#x2705; | &#x2705; | &#x1F7E6; | &#x2705; |
 | [Storage Analytics logs (classic)](../common/storage-analytics-logging.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x1F7E6;   | &nbsp;&#x2B24;| &#x2705; |
-| [Storage Analytics metrics (classic)](../common/storage-analytics-metrics.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Storage Analytics metrics (classic)](../common/storage-analytics-metrics.md?toc=/azure/storage/blobs/toc.json)<sup>3</sup> | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 
 <sup>1</sup>    Requests that clients make by using NFS 3.0 or SFTP can't be authorized by using Microsoft Entra security.
 
 <sup>2</sup>    Only locally redundant storage (LRS) and zone-redundant storage (ZRS) are supported.
+
+<sup>3</sup>    Storage Analytics metrics is retired. See [Transition to metrics in Azure Monitor](../common/storage-analytics-metrics.md?toc=/azure/storage/blobs/toc.json).
 
 ## See also
 

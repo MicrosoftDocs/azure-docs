@@ -3,8 +3,8 @@ title: Azure Schema Registry Concepts
 description: This article explains concepts for Azure Schema Registry in Azure Event Hubs. 
 ms.topic: conceptual
 ms.date: 04/26/2023
-author: kasun04
-ms.author: kindrasiri
+author: spelluru
+ms.author: spelluru
 ---
 
 #  Schema Registry in Azure Event Hubs

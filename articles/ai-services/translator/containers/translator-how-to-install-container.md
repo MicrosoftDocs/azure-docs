@@ -2,7 +2,7 @@
 title: Install and run Docker containers for Translator API
 titleSuffix: Azure AI services
 description: Use the Docker container for Translator API to translate text.
-services: cognitive-services
+#services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
@@ -66,11 +66,9 @@ The following table describes the minimum and recommended CPU cores and memory t
 
 | Container | Minimum |Recommended | Language Pair |
 |-----------|---------|---------------|----------------------|
-| Translator |`2` cores, 2-GB memory |`4` cores, 8-GB memory | 4 |
+| Translator |`2` cores, `4 GB` memory |`4` cores, `8 GB` memory | 2 |
 
 * Each core must be at least 2.6 gigahertz (GHz) or faster. 
-
-* For every language pair, it's recommended to have 2 GB of memory. By default, the Translator offline container has four language pairs. 
 
 * The core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 

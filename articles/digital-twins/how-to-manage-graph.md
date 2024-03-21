@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to manage a graph of digital twins by connecting them with relationships.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 05/15/2023
+ms.date: 10/3/2023
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: engagement-fy23
@@ -76,20 +76,20 @@ You can even create multiple instances of the same type of relationship between 
 > [!NOTE]
 > The DTDL attributes of `minMultiplicity` and `maxMultiplicity` for relationships aren't currently supported in Azure Digital Twins—even if they're defined as part of a model, they won't be enforced by the service. For more information, see [Service-specific DTDL notes](concepts-models.md#service-specific-dtdl-notes).
 
-### Create relationships in bulk with the Jobs API
+### Create relationships in bulk with the Import Jobs API
 
-You can use the [Jobs API](concepts-apis-sdks.md#bulk-import-with-the-jobs-api) to create many relationships at once in a single API call. This method requires the use of [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), as well as [write permissions](concepts-apis-sdks.md#check-permissions) in your Azure Digital Twins instance for relationships and bulk jobs.
+You can use the [Import Jobs API](concepts-apis-sdks.md#bulk-import-with-the-import-jobs-api) to create many relationships at once in a single API call. This method requires the use of [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), as well as [write permissions](concepts-apis-sdks.md#check-permissions) in your Azure Digital Twins instance for relationships and bulk jobs.
 
 >[!TIP]
->The Jobs API also allows models and twins to be imported in the same call, to create all parts of a graph at once. For more about this process, see [Upload models, twins, and relationships in bulk with the Jobs API](#upload-models-twins-and-relationships-in-bulk-with-the-jobs-api).
+>The Import Jobs API also allows models and twins to be imported in the same call, to create all parts of a graph at once. For more about this process, see [Upload models, twins, and relationships in bulk with the Import Jobs API](#upload-models-twins-and-relationships-in-bulk-with-the-import-jobs-api).
 
 To import relationships in bulk, you'll need to structure your relationships (and any other resources included in the bulk import job) as an *NDJSON* file. The `Relationships` section comes after the `Twins` section, making it the last graph data section in the file. Relationships defined in the file can reference twins that are either defined in this file or already present in the instance, and they can optionally include initialization of any properties that the relationships have.
 
-You can view an example import file and a sample project for creating these files in the [Jobs API introduction](concepts-apis-sdks.md#bulk-import-with-the-jobs-api).
+You can view an example import file and a sample project for creating these files in the [Import Jobs API introduction](concepts-apis-sdks.md#bulk-import-with-the-import-jobs-api).
 
 [!INCLUDE [digital-twins-bulk-blob.md](../../includes/digital-twins-bulk-blob.md)]
 
-Then, the file can be used in an [Jobs API](/rest/api/digital-twins/dataplane/jobs) call. You'll provide the blob storage URL of the input file, as well as a new blob storage URL to indicate where you'd like the output log to be stored when it's created by the service.
+Then, the file can be used in an [Import Jobs API](/rest/api/digital-twins/dataplane/jobs) call. You'll provide the blob storage URL of the input file, as well as a new blob storage URL to indicate where you'd like the output log to be stored when it's created by the service.
 
 ## List relationships
 
@@ -174,21 +174,23 @@ You can now call this custom method to delete a relationship like this:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseDeleteRelationship":::
 
+[!INCLUDE [digital-twins-bulk-delete-note.md](../../includes/digital-twins-bulk-delete-note.md)]
+
 ## Create multiple graph elements at once
 
 This section describes strategies for creating a graph with multiple elements at the same time, rather than using individual API calls to upload models, twins, and relationships to upload them one by one.
 
-### Upload models, twins, and relationships in bulk with the Jobs API
+### Upload models, twins, and relationships in bulk with the Import Jobs API
 
-You can use the [Jobs API](concepts-apis-sdks.md#bulk-import-with-the-jobs-api) to upload multiple models, twins, and relationships to your instance in a single API call, effectively creating the graph all at once. This method requires the use of [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), as well as [write permissions](concepts-apis-sdks.md#check-permissions) in your Azure Digital Twins instance for graph elements (models, twins, and relationships) and bulk jobs.
+You can use the [Import Jobs API](concepts-apis-sdks.md#bulk-import-with-the-import-jobs-api) to upload multiple models, twins, and relationships to your instance in a single API call, effectively creating the graph all at once. This method requires the use of [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), as well as [write permissions](concepts-apis-sdks.md#check-permissions) in your Azure Digital Twins instance for graph elements (models, twins, and relationships) and bulk jobs.
 
 To import resources in bulk, start by creating an *NDJSON* file containing the details of your resources. The file starts with a `Header` section, followed by the optional sections `Models`, `Twins`, and `Relationships`. You don't have to include all three types of graph data in the file, but any sections that are present must follow that order. Twins defined in the file can reference models that are either defined in this file or already present in the instance, and they can optionally include initialization of the twin's properties. Relationships defined in the file can reference twins that are either defined in this file or already present in the instance, and they can optionally include initialization of relationship properties.
 
-You can view an example import file and a sample project for creating these files in the [Jobs API introduction](concepts-apis-sdks.md#bulk-import-with-the-jobs-api).
+You can view an example import file and a sample project for creating these files in the [Import Jobs API introduction](concepts-apis-sdks.md#bulk-import-with-the-import-jobs-api).
 
 [!INCLUDE [digital-twins-bulk-blob.md](../../includes/digital-twins-bulk-blob.md)]
 
-Then, the file can be used in an [Jobs API](/rest/api/digital-twins/dataplane/jobs) call. You'll provide the blob storage URL of the input file, as well as a new blob storage URL to indicate where you'd like the output log to be stored when it's created by the service.
+Then, the file can be used in an [Import Jobs API](/rest/api/digital-twins/dataplane/jobs) call. You'll provide the blob storage URL of the input file, as well as a new blob storage URL to indicate where you'd like the output log to be stored when it's created by the service.
 
 ### Import graph with Azure Digital Twins Explorer
 

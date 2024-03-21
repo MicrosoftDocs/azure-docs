@@ -3,7 +3,7 @@ title: NoClassDefFoundError - Apache Spark with Apache Kafka data in Azure HDIns
 description: Apache Spark streaming job that reads data from an Apache Kafka cluster fails with a NoClassDefFoundError in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 10/07/2022
+ms.date: 11/23/2023
 ---
 
 # Apache Spark streaming job that reads Apache Kafka data fails with NoClassDefFoundError in HDInsight
@@ -24,9 +24,9 @@ Stack trace: ExitCodeException exitCode=50:
 
 ## Cause
 
-This error can be caused by specifying a version of the `spark-streaming-kafka` jar file that is different than the version of the Kafka cluster you are running.
+This error can be caused by specifying a version of the `spark-streaming-kafka` jar file that is different than the version of the Kafka cluster you're running.
 
-For example, if you are running a Kafka cluster version 0.10.1, the following command will result in an error:
+For example, if you're running a Kafka cluster version 0.10.1, the following command results in an error:
 
 ```
 spark-submit \
@@ -38,7 +38,7 @@ spark-submit \
 
 ## Resolution
 
-Use the Spark-submit command with the `–packages` option, and ensure that the version of the spark-streaming-kafka jar file is the same as the version of the Kafka cluster that you are running.
+Use the `Spark-submit` command with the `–packages` option, and ensure that the version of the spark-streaming-kafka jar file is the same as the version of the Kafka cluster that you are running.
 
 ## Next steps
 

@@ -26,8 +26,8 @@ This table describes the components of a data collection endpoint, related regio
 
 | Component | Description | Regionality considerations |Data collection rule configuration |
 |:---|:---|:---|
-| Configuration access endpoint | The endpoint from which Azure Monitor Agent retrieves data collection rules (DCRs).<br>Example: `<unique-dce-identifier>.<regionname>-1.handler.control`. | Same region as the monitored resources. | Set on the **Basics** tab when you create a data collection rule using the portal. | 
-| Logs ingestion endpoint | The endpoint that ingests logs into the data ingestion pipeline. Azure Monitor transforms the data and sends it to the defined destination Log Analytics workspace and table based on a DCR ID sent with the collected data.<br>Example: `<unique-dce-identifier>.<regionname>-1.ingest`. |Same region as the destination Log Analytics workspace. |Set on the **Resources** tab when you create a data collection rule using the portal.|
+| Logs ingestion endpoint | The endpoint that ingests logs into the data ingestion pipeline. Azure Monitor transforms the data and sends it to the defined destination Log Analytics workspace and table based on a DCR ID sent with the collected data.<br>Example: `<unique-dce-identifier>.<regionname>-1.ingest`. |Same region as the destination Log Analytics workspace. |Set on the **Basics** tab when you create a data collection rule using the portal. |
+| Configuration access endpoint | The endpoint from which Azure Monitor Agent retrieves data collection rules (DCRs).<br>Example: `<unique-dce-identifier>.<regionname>-1.handler.control`. | Same region as the monitored resources. | Set on the **Resources** tab when you create a data collection rule using the portal.| 
 
 
 ## How to set up data collection endpoints based on your deployment
@@ -56,17 +56,20 @@ This table describes the components of a data collection endpoint, related regio
       
      :::image type="content" source="media/data-collection-endpoint-overview/data-collection-endpoint-regionality-multiple-workspaces.png" alt-text="A diagram that shows monitored resources in multiple regions sending data to multiple Log Analytics workspaces in different regions using data collection endpoints." lightbox="media/data-collection-endpoint-overview/data-collection-endpoint-regionality-multiple-workspaces.png":::
 
+> [!NOTE]
+> By default, the Microsoft.Insights resource provider isnt registered in a Subscription. Ensure to register it successfully before trying to create a Data Collection Endpoint.
+
 ## Create a data collection endpoint
 
 # [Azure portal](#tab/portal)
 
-1. On the **Azure Monitor** menu in the Azure portal, select **Data Collection Endpoints** under the **Settings** section. Select **Create** to create a new DCR and assignment.
-
-   [![Screenshot that shows data collection endpoints.](media/data-collection-endpoint-overview/data-collection-endpoint-overview.png)](media/data-collection-endpoint-overview/data-collection-endpoint-overview.png#lightbox)
+1. On the **Azure Monitor** menu in the Azure portal, select **Data Collection Endpoints** under the **Settings** section. Select **Create** to create a new Data Collection Endpoint.
+   <!-- convertborder later -->
+   :::image type="content" source="media/data-collection-endpoint-overview/data-collection-endpoint-overview.png" lightbox="media/data-collection-endpoint-overview/data-collection-endpoint-overview.png" alt-text="Screenshot that shows data collection endpoints." border="false":::
 
 1. Select **Create** to create a new endpoint. Provide a **Rule name** and specify a **Subscription**, **Resource Group**, and **Region**. This information specifies where the DCE will be created.
-
-   [![Screenshot that shows data collection rule basics.](media/data-collection-endpoint-overview/data-collection-endpoint-basics.png)](media/data-collection-endpoint-overview/data-collection-endpoint-basics.png#lightbox)
+   <!-- convertborder later -->
+   :::image type="content" source="media/data-collection-endpoint-overview/data-collection-endpoint-basics.png" lightbox="media/data-collection-endpoint-overview/data-collection-endpoint-basics.png" alt-text="Screenshot that shows data collection rule basics." border="false":::
 
 1. Select **Review + create** to review the details of the DCE. Select **Create** to create it.
 
@@ -81,9 +84,9 @@ Create associations between endpoints to your target machines or resources by us
 ## Sample data collection endpoint
 For a sample DCE, see [Sample data collection endpoint](data-collection-endpoint-sample.md).
 
-
 ## Limitations
-- Data collection endpoints only support Log Analytics workspaces as a destination for collected data. [Custom metrics (preview)](../essentials/metrics-custom-overview.md) collected and uploaded via Azure Monitor Agent aren't currently controlled by DCEs. Data collection endpoints also can't be configured over private links.
+
+- Data collection endpoints only support Log Analytics workspaces as a destination for collected data. [Custom metrics (preview)](../essentials/metrics-custom-overview.md) collected and uploaded via Azure Monitor Agent aren't currently controlled by DCEs.
 
 - Data collection endpoints are where [Logs ingestion API ingestion limits](../service-limits.md#logs-ingestion-api) are applied.
 

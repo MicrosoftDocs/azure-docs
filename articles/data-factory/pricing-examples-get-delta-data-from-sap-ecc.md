@@ -46,7 +46,7 @@ Assuming every time it requires 15 minutes to complete the job, the cost estimat
 
 :::image type="content" source="media/pricing-concepts/scenario-6-pricing-calculator.png" alt-text="Screenshot of the pricing calculator configured for getting delta data from SAP ECC via SAP CDC in mapping data flows." lightbox="media/pricing-concepts/scenario-6-pricing-calculator.png":::
 
-## Next steps
+## Related content
 
 - [Pricing example: Copy data from AWS S3 to Azure Blob storage hourly for 30 days](pricing-examples-s3-to-blob.md)
 - [Pricing example: Copy data and transform with Azure Databricks hourly for 30 days](pricing-examples-copy-transform-azure-databricks.md)

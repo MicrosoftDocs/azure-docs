@@ -11,7 +11,7 @@ ms.author: jacadd
 > [!NOTE]
 > This API is provided as a preview for developers and may change based on feedback that we receive. To use this api please use 'beta' release of Azure Communication Services Calling Web SDK version 1.18.1 or higher
 
-Within ACS you can send and receive reactions when on a group call:
+Within Azure Communication Services you can send and receive reactions when on a group call:
 - Like :::image type="icon" source="media/reaction-like.png":::
 - Love :::image type="icon" source="media/reaction-love.png":::
 - Applause :::image type="icon" source="media/reaction-applause.png":::
@@ -62,5 +62,3 @@ reaction.on('reaction', event => {
 - For Microsoft Teams interoperability scenarios, the functionality of the feature depends on the meeting policy for the reaction capability.
 - Reactions are supported in the Web Calling SDK.
 - Reactions are not currently supported in the Native SDKs.
-- Reactions are supported for Microsoft Teams Meeting interoperability, Azure Communication Services Rooms, and Group Calls.
-- Reactions are not supported for 1:1 calls.

@@ -1,5 +1,5 @@
 ---
-author: xiaofanzhou
+author: xfz11
 ms.service: service-connector
 ms.topic: include
 ms.date: 10/20/2023
@@ -86,11 +86,11 @@ For more information, see the following resources:
 * [Quickstart: Use Java and JDBC with Azure Database for PostgreSQL Flexible Server](../../postgresql/flexible-server/connect-java.md?tabs=passwordless#connect-to-the-database)
 * [Migrate an application to use passwordless connections with Azure Database for PostgreSQL](/azure/developer/java/spring-framework/migrate-postgresql-to-passwordless-connection?tabs=sign-in-azure-cli%2Cjava%2Cservice-connector%2Cassign-role-service-connector)
 
-#### [SpringBoot](#tab/spring)
+#### [SpringBoot](#tab/springBoot)
 
 For a Spring application, if you create a connection with option `--client-type springboot`, Service Connector sets the properties `spring.datasource.azure.passwordless-enabled`, `spring.datasource.url`, and `spring.datasource.username` to Azure Spring Apps.
 
-Update your application following the tutorial [Bind an Azure Database for PostgreSQL to your application in Azure Spring Apps](../../spring-apps/how-to-bind-postgres.md#prepare-your-project). Remember to remove the `spring.datasource.password` configuration property if it was set before and add the correct dependencies to your Spring application.
+Update your application following the tutorial [Bind an Azure Database for PostgreSQL to your application in Azure Spring Apps](../../spring-apps/enterprise/how-to-bind-postgres.md#prepare-your-project). Remember to remove the `spring.datasource.password` configuration property if it was set before and add the correct dependencies to your Spring application.
 
 For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL](/azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-postgresql?tabs=passwordless%2Cservice-connector&pivots=postgresql-passwordless-flexible-server#store-data-from-azure-database-for-postgresql) and [Tutorial: Deploy a Spring application to Azure Spring Apps with a passwordless connection to an Azure database](/azure/developer/java/spring-framework/deploy-passwordless-spring-database-app?tabs=postgresq).
 
@@ -109,7 +109,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
      
     # Uncomment the following lines according to the authentication type.
     # For system-assigned identity.
-    # credential = DefaultAzureCredential()
+    # cred = DefaultAzureCredential()
 
     # For user-assigned identity.
     # managed_identity_client_id = os.getenv('AZURE_POSTGRESQL_CLIENTID')
@@ -358,20 +358,9 @@ For Ruby, there's not a plugin or library for passwordless connections. You can 
     
     Refer to [the Azure AD service-to-service access token request](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow#get-a-token) to see more details of how to acquire access token for service principal.
 
+### [Other](#tab/none)
+For other languages, use the connection properties that Service Connector sets to the environment variables to connect the database. For environment variable details, see [Integrate Azure Database for PostgreSQL with Service Connector](../how-to-integrate-postgres.md).
+
 ---
 
-Next, if you have created tables and sequences in PostgreSQL flexible server, you need to connect as database owner and grant permission to `aad username` created by Service Connector. The user name from connection string or configuration set by Service Connector should look like `aad_<connection name>`. If you use Portal, click the expand button next to `Service Type` column and get the value. If you use Azure CLI, check `configurations` in output of CLI command.
-
-Then, execute the query to grant permission
-
-```azure-cli
-az extension add --name rdbms-connect
-
-az postgres flexible-server execute -n <postgres server name> -u <owner username> -p "<owner password>" -d <database> --querytext "GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO \"<aad username>\";GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO \"<aad username>\";"
-```
-The `<owner username>` and `<owner password>` is the owner of existing table that can grant permission to others. `<aad username>` is the user created by Service Connector. Replace them with the actual value.
-
-You can validate the result with the command:
-```azure-cli
-az postgres flexible-server execute -n <postgres server name> -u <owner username> -p "<owner password>" -d <database> --querytext "SELECT distinct(table_name) FROM information_schema.table_privileges WHERE grantee='<aad username>' AND table_schema='public';" --output table
-```
+[!INCLUDE [Postgresql grant permission](./postgres-grant-permission.md)]

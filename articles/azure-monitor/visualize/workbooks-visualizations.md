@@ -70,4 +70,4 @@ Workbooks support these kinds of visual components:
 
 ## Next steps
 
-[Get started with Azure Workbooks](workbooks-getting-started.md)
+[Get started with Azure Workbooks](workbooks-overview.md)

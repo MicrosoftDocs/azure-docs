@@ -8,7 +8,7 @@
  ms.date: 04/13/2018
  ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: include file, ignite-2022
+ms.custom: include file
 ---
 
 You can now use the Data Explorer tool in the Azure portal to create a graph database. 

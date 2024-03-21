@@ -78,7 +78,7 @@ map.controls.add([
 
 The following image shows a map with the zoom, compass, pitch, and style picker controls in the top-right corner of the map. Notice how they automatically stack. The order of the control objects in the script dictates the order in which they appear on the map. To change the order of the controls on the map, you can change their order in the array.
 
-:::image type="content" source="./media/map-add-controls/map-with-all-controls.png" alt-text="Screenshot showing a map displaying zoom, compass, pitch and style controls.":::
+:::image type="content" source="./media/map-add-controls/map-with-all-controls.png" lightbox="./media/map-add-controls/map-with-all-controls.png" alt-text="Screenshot showing a map displaying zoom, compass, pitch and style controls.":::
 
 <!----------------------------------------------------------
 <br/>
@@ -91,7 +91,7 @@ The style picker control is defined by the [StyleControl] class. For more inform
 
 The [Navigation Control Options] sample is a tool to test out the various options for customizing the controls. For the source code for this sample, see [Navigation Control Options source code].
 
-:::image type="content" source="./media/map-add-controls/map-navigation-control-options.png" alt-text="Screenshot showing the Map Navigation Control Options sample, which contains a map displaying zoom, compass, pitch and style controls and options on the left side of the screen that enable you to change the Control Position, Control Style, Zoom Delta, Pitch Delta, Compass Rotation Delta, Picker Styles, and Style Picker Layout properties.":::
+:::image type="content" source="./media/map-add-controls/map-navigation-control-options.png" lightbox="./media/map-add-controls/map-navigation-control-options.png" alt-text="Screenshot showing the Map Navigation Control Options sample, which contains a map displaying zoom, compass, pitch and style controls and options on the left side of the screen that enable you to change the Control Position, Control Style, Zoom Delta, Pitch Delta, Compass Rotation Delta, Picker Styles, and Style Picker Layout properties.":::
 
 <!----------------------------------------------------------
 <br/>

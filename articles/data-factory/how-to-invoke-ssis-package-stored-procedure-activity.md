@@ -326,5 +326,5 @@ In the previous step, you invoked the pipeline on-demand. You can also create a 
     ```
 
 
-## Next steps
+## Related content
 You can also monitor the pipeline using the Azure portal. For step-by-step instructions, see [Monitor the pipeline](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).

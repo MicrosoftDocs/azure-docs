@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 08/24/2023
+ms.date: 01/30/2024
 ms.author: eur
 ---
 
@@ -130,9 +130,9 @@ Follow these steps to recognize speech in a macOS application.
 1. Build and run the example code by selecting **Product** > **Run** from the menu or selecting the **Play** button.
 
    > [!IMPORTANT]
-   > Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` environment variables as described in [Set environment variables](#set-environment-variables). If you don't set these variables, the sample fails with an error message.
+   > Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` [environment variables](#set-environment-variables). If you don't set these variables, the sample fails with an error message.
 
-After you select the button in the app and say a few words, you should see the text you have spoken on the lower part of the screen. When you run the app for the first time, you should be prompted to give the app access to your computer's microphone.
+After you select the button in the app and say a few words, you should see the text that you spoke on the lower part of the screen. When you run the app for the first time, it prompts you to give the app access to your computer's microphone.
 
 ## Remarks
 

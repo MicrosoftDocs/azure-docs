@@ -180,7 +180,7 @@ There's a function named *GetRoles* in the app's API. This function uses the use
     | `rolesSource` | The URL where the login process gets a list of available roles. For the sample application the URL is `/api/GetRoles`. |
     | `userDetailsClaim` | The URL of the schema used to validate the login request. |
     | `openIdIssuer` | The Microsoft Entra login route, appended with your tenant ID. |
-    | `clientIdSettingName` | Your Microsoft Entra tenant ID. |
+    | `clientIdSettingName` | Your Microsoft Entra client ID. |
     | `clientSecretSettingName` | Your Microsoft Entra client secret value. |
     | `loginParameters` | To obtain an access token for Microsoft Graph, the `loginParameters` field must be configured with `resource=https://graph.microsoft.com`. |
 

@@ -38,7 +38,7 @@ Follow these steps to enable data-aware security posture. Don't forget to review
 
 - Don't forget to: [review the requirements](concept-data-security-posture-prepare.md#discovery) for AWS discovery, and [required permissions](concept-data-security-posture-prepare.md#whats-supported).
 - Check that there's no policy that blocks the connection to your Amazon S3 buckets.
-- For RDS instances: cross-account KMS encryption is supported, but additional policies on KMS access may prevent access.
+- For RDS instances: cross-account KMS encryption is supported, but additional policies on KMS access might prevent access.
 
 ### Enable for AWS resources
 

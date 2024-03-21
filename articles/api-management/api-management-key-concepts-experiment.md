@@ -2,9 +2,7 @@
 title: Azure API Management - Overview and key concepts | Microsoft Docs
 description: Introduction to key scenarios, capabilities, and concepts of the Azure API Management service. API Management supports the full API lifecycle.
 services: api-management
-documentationcenter: ''
 author: dlepow
-editor: ''
  
 ms.service: api-management
 ms.topic: overview

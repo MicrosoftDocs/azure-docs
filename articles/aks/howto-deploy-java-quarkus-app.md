@@ -6,7 +6,7 @@ ms.author: edburns
 ms.service: azure-kubernetes-service
 ms.topic: how-to
 ms.date: 07/26/2023
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-quarkus-aks, devx-track-extended-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-quarkus, devx-track-javaee-quarkus-aks, devx-track-extended-java, devx-track-azurecli
 # external contributor: danieloh30
 ---
 

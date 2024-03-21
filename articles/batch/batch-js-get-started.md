@@ -4,7 +4,7 @@ description: Learn the basic concepts of Azure Batch and build a simple solution
 ms.topic: how-to
 ms.date: 05/16/2023
 ms.devlang: javascript
-ms.custom: devx-track-js, devx-track-linux
+ms.custom: devx-track-js, linux-related-content
 ---
 
 # Get started with Batch SDK for JavaScript
@@ -82,7 +82,7 @@ Following code snippet first imports the azure-batch JavaScript module and then 
 
 import { BatchServiceClient, BatchSharedKeyCredentials } from "@azure/batch";
 
-// Replace values below with Batch Account details 
+// Replace values below with Batch Account details
 const batchAccountName = '<batch-account-name>';
 const batchAccountKey = '<batch-account-key>';
 const batchEndpoint = '<batch-account-url>';
@@ -262,8 +262,8 @@ var jobPrepTaskConfig = {id:"installprereq",commandLine:"sudo sh startup_prereq.
 
 If there are no prerequisites to be installed for your tasks to run, you can skip the preparation tasks. Following code creates a job with display name "process csv files."
 
- ```javascript
- // Setting Batch Pool ID
+```javascript
+// Setting Batch Pool ID
 const poolInfo = { poolId: poolId };
 // Batch job configuration object
 const jobId = "processcsvjob";
@@ -273,13 +273,14 @@ const jobConfig = {
     jobPreparationTask: jobPrepTaskConfig,
     poolInfo: poolInfo
 };
- // Adding Azure batch job to the pool
- const job = batchClient.job.add(jobConfig, function (error, result) {
+// Adding Azure batch job to the pool
+const job = batchClient.job.add(jobConfig, function (error, result) {
         if (error !== null) {
             console.log("An error occurred while creating the job...");
             console.log(error.response);
         }
-    });
+    }
+);
 ```
 
 ### Step 5: Submit Azure Batch tasks for a job

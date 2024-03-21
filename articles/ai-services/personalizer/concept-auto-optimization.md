@@ -6,7 +6,7 @@ ms.author: jacodel
 ms.manager: nitinme
 ms.service: azure-ai-personalizer
 ms.topic: conceptual
-ms.date: 03/08/2021
+ms.date: 01/19/2024
 ---
 
 # Personalizer Auto-Optimize (Preview)

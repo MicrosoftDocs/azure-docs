@@ -76,15 +76,24 @@ Functions 1.x apps automatically have a reference the [Microsoft.Azure.WebJobs](
 
 This version allows you to bind to types from [Azure.Storage.Blobs](/dotnet/api/azure.storage.blobs). Learn more about how these new types are different from `WindowsAzure.Storage` and `Microsoft.Azure.Storage` and how to migrate to them from the [Azure.Storage.Blobs Migration Guide](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Blobs/AzureStorageNetMigrationV12.md).
 
-Add the extension to your project by installing the [Microsoft.Azure.Functions.Worker.Extensions.Storage.Blobs NuGet package], version 5.x.
+Add the extension to your project by installing the [Microsoft.Azure.Functions.Worker.Extensions.Storage.Blobs NuGet package], version 5.x or later.
 
 Using the .NET CLI:
 
 ```dotnetcli
-dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Storage.Blobs --version 5.0.0
+dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Storage.Blobs
 ``` 
 
 [!INCLUDE [functions-bindings-storage-extension-v5-isolated-worker-tables-note](../../includes/functions-bindings-storage-extension-v5-isolated-worker-tables-note.md)]
+
+If you're writing your application using F#, you must also configure this extension as part of the app's [startup configuration](./dotnet-isolated-process-guide.md#start-up-and-configuration). In the call to `ConfigureFunctionsWorkerDefaults()` or `ConfigureFunctionsWebApplication()`, add a delegate that takes an `IFunctionsWorkerApplication` parameter. Then within the body of that delegate, call `ConfigureBlobStorageExtension()` on the object:
+
+```fsharp
+let hostBuilder = new HostBuilder()
+hostBuilder.ConfigureFunctionsWorkerDefaults(fun (context: HostBuilderContext) (appBuilder: IFunctionsWorkerApplicationBuilder) ->
+    appBuilder.ConfigureBlobStorageExtension() |> ignore
+) |> ignore
+```
 
 # [Functions 2.x and higher](#tab/functionsv2/isolated-process)
 

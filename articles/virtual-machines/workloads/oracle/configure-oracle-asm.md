@@ -4,7 +4,7 @@ description: Quickly get Oracle ASM up and running in your Azure environment.
 author: jjaygbay1
 ms.service: virtual-machines
 ms.subservice: oracle
-ms.custom: devx-track-azurecli, devx-track-linux
+ms.custom: devx-track-azurecli, linux-related-content
 ms.collection: linux
 ms.topic: article
 ms.date: 07/13/2022
@@ -13,7 +13,7 @@ ms.author: jacobjaygbay
 
 # Set up Oracle ASM on an Azure Linux virtual machine
 
-**Applies to:** :heavy_check_mark: Linux VMs 
+**Applies to:** :heavy_check_mark: Linux VMs
 
 Azure virtual machines provide a fully configurable and flexible computing environment. This tutorial covers basic Azure virtual machine deployment combined with the installation and configuration of Oracle Automatic Storage Management (ASM).  You learn how to:
 
@@ -90,7 +90,7 @@ The .ssh directory and key files are created. For more information, refer to [Cr
 
 ### Create a resource group
 
-To create a resource group, use the [az group create](/cli/azure/group) command. An Azure resource group is a logical container in which Azure resources are deployed and managed. 
+To create a resource group, use the [az group create](/cli/azure/group) command. An Azure resource group is a logical container in which Azure resources are deployed and managed.
 
 ```azurecli
 $ az group create --name ASMOnAzureLab --location westus
@@ -158,7 +158,7 @@ $ az network vnet create \
         --resource-group ASMOnAzureLab \
         --name AzureBastionSubnet \
         --vnet-name asmVnet \
-        --address-prefixes 10.0.1.0/24 
+        --address-prefixes 10.0.1.0/24
     ```
 
 2. Create public IP for Bastion
@@ -167,7 +167,7 @@ $ az network vnet create \
     $ az network public-ip create \
         --resource-group ASMOnAzureLab \
         --name asmBastionIP \
-        --sku Standard 
+        --sku Standard
     ```
 
 3. Create Azure Bastion resource. It takes about 10 minutes for the resource to deploy.
@@ -260,7 +260,7 @@ az vm create --resource-group ASMOnAzureLab \
    --vnet-name asmVnet \
    --subnet asmSubnet1 \
    --public-ip-sku Basic \
-   --nsg "" 
+   --nsg ""
 ```
 
 ### Connect to asmVM
@@ -290,12 +290,12 @@ This lab requires a swap file on the lab virtual machine. Complete following ste
     NAME    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
     sdd       8:48   0   40G  0 disk             ====> Data disk 2 (40GB)
     sdb       8:16   0   20G  0 disk             ====> Swap file disk (20GB)
-    sr0      11:0    1  628K  0 rom  
-    fd0       2:0    1    4K  0 disk 
+    sr0      11:0    1  628K  0 rom
+    fd0       2:0    1    4K  0 disk
     sdc       8:32   0   40G  0 disk             ====> Data disk 1 (40GB)
-    sda       8:0    0   30G  0 disk 
+    sda       8:0    0   30G  0 disk
     ├─sda2    8:2    0   29G  0 part /
-    ├─sda14   8:14   0    4M  0 part 
+    ├─sda14   8:14   0    4M  0 part
     ├─sda15   8:15   0  495M  0 part /boot/efi
     └─sda1    8:1    0  500M  0 part /boot
     ```
@@ -314,15 +314,15 @@ This lab requires a swap file on the lab virtual machine. Complete following ste
 
     ```output
     NAME    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
-    sdd       8:48   0   40G  0 disk 
-    sdb       8:16   0   20G  0 disk 
+    sdd       8:48   0   40G  0 disk
+    sdb       8:16   0   20G  0 disk
     └─sdb1    8:17   0   20G  0 part             ====> Newly created partition
-    sr0      11:0    1  628K  0 rom  
-    fd0       2:0    1    4K  0 disk 
-    sdc       8:32   0   40G  0 disk 
-    sda       8:0    0   30G  0 disk 
+    sr0      11:0    1  628K  0 rom
+    fd0       2:0    1    4K  0 disk
+    sdc       8:32   0   40G  0 disk
+    sda       8:0    0   30G  0 disk
     ├─sda2    8:2    0   29G  0 part /
-    ├─sda14   8:14   0    4M  0 part 
+    ├─sda14   8:14   0    4M  0 part
     ├─sda15   8:15   0  495M  0 part /boot/efi
     └─sda1    8:1    0  500M  0 part /boot
     ```
@@ -345,7 +345,7 @@ This lab requires a swap file on the lab virtual machine. Complete following ste
     In the output, you see a line for swap disk partition **/dev/sdb1**, note down the **UUID**.
 
     ```output
-    /dev/sdb1: UUID="00000000-0000-0000-0000-000000000000" TYPE="xfs" PARTLABEL="xfspart" PARTUUID="...." 
+    /dev/sdb1: UUID="00000000-0000-0000-0000-000000000000" TYPE="xfs" PARTLABEL="xfspart" PARTUUID="...."
     ```
 
 6. Paste UUID from previous step into the following command and run it. This command ensures proper mounting of drive every time system reboots.
@@ -391,7 +391,7 @@ This lab requires a swap file on the lab virtual machine. Complete following ste
 
 To install Oracle ASM, complete the following steps.
 
-For more information about installing Oracle ASM, see [Oracle ASMLib Downloads for Oracle Linux 7](https://www.oracle.com/linux/downloads/linux-asmlib-v7-downloads.html).  
+For more information about installing Oracle ASM, see [Oracle ASMLib Downloads for Oracle Linux 7](https://www.oracle.com/linux/downloads/linux-asmlib-v7-downloads.html).
 
 1. You need to login as root in order to continue with ASM installation, if you have not already done so
 
@@ -402,23 +402,23 @@ For more information about installing Oracle ASM, see [Oracle ASMLib Downloads f
 2. Run these additional commands to install Oracle ASM components:
 
    ```bash
-   $ yum list | grep oracleasm 
+   $ yum list | grep oracleasm
    ```
 
    Output of the command looks like
 
    ```output
-   kmod-oracleasm.x86_64                    2.0.8-28.0.1.el7            ol7_latest 
-   oracleasm-support.x86_64                 2.1.11-2.el7                ol7_latest 
+   kmod-oracleasm.x86_64                    2.0.8-28.0.1.el7            ol7_latest
+   oracleasm-support.x86_64                 2.1.11-2.el7                ol7_latest
    ```
 
    Continue installation by running following commands
 
    ```bash
-   $ yum -y install kmod-oracleasm.x86_64 
-   $ yum -y install oracleasm-support.x86_64 
+   $ yum -y install kmod-oracleasm.x86_64
+   $ yum -y install oracleasm-support.x86_64
    $ wget https://download.oracle.com/otn_software/asmlib/oracleasmlib-2.0.15-1.el7.x86_64.rpm
-   $ yum -y install oracleasmlib-2.0.15-1.el7.x86_64.rpm 
+   $ yum -y install oracleasmlib-2.0.15-1.el7.x86_64.rpm
    $ rm -f oracleasmlib-2.0.15-1.el7.x86_64.rpm
    ```
 
@@ -439,9 +439,9 @@ For more information about installing Oracle ASM, see [Oracle ASMLib Downloads f
 4. ASM requires specific users and roles in order to function correctly. The following commands create the pre-requisite user accounts and groups.
 
    ```bash
-   $ groupadd -g 54345 asmadmin 
-   $ groupadd -g 54346 asmdba 
-   $ groupadd -g 54347 asmoper 
+   $ groupadd -g 54345 asmadmin
+   $ groupadd -g 54346 asmdba
+   $ groupadd -g 54347 asmoper
    $ usermod -a -g oinstall -G oinstall,dba,asmdba,asmadmin,asmoper oracle
    ```
 
@@ -469,7 +469,7 @@ For more information about installing Oracle ASM, see [Oracle ASMLib Downloads f
 6. Create the app folder change the owner.
 
    ```bash
-   $ mkdir /u01/app/grid 
+   $ mkdir /u01/app/grid
    $ chown oracle:oinstall /u01/app/grid
    ```
 
@@ -549,7 +549,7 @@ To set up Oracle ASM, complete the following steps:
    3. **1** to select the first partition
    4. press **enter** for the default first sector
    5. press **enter** for the default last sector
-   6. press **w** to write the changes to the partition table  
+   6. press **w** to write the changes to the partition table
 
    ```bash
    $ fdisk /dev/sdc
@@ -559,32 +559,32 @@ To set up Oracle ASM, complete the following steps:
 
    ```output
     Welcome to fdisk (util-linux 2.23.2).
-    
+
     Changes will remain in memory only, until you decide to write them.
     Be careful before using the write command.
-    
+
     Device does not contain a recognized partition table
     Building a new DOS disklabel with disk identifier 0x947f0a91.
-    
+
     The device presents a logical sector size that is smaller than
     the physical sector size. Aligning to a physical sector (or optimal
     I/O) size boundary is recommended, or performance may be impacted.
-    
+
     Command (m for help): n
     Partition type:
        p   primary (0 primary, 0 extended, 4 free)
        e   extended
     Select (default p): p
     Partition number (1-4, default 1): 1
-    First sector (2048-104857599, default 2048): 
+    First sector (2048-104857599, default 2048):
     Using default value 2048
-    Last sector, +sectors or +size{K,M,G} (2048-104857599, default 104857599): 
+    Last sector, +sectors or +size{K,M,G} (2048-104857599, default 104857599):
     Using default value 104857599
     Partition 1 of type Linux and of size 50 GiB is set
-    
+
     Command (m for help): w
     The partition table has been altered!
-    
+
     Calling ioctl() to re-read partition table.
     Syncing disks.
    ```
@@ -626,7 +626,7 @@ To set up Oracle ASM, complete the following steps:
 6. Check the Oracle ASM service status and start the Oracle ASM service:
 
    ```bash
-   $ oracleasm status 
+   $ oracleasm status
    ```
 
    ```output
@@ -650,7 +650,7 @@ To set up Oracle ASM, complete the following steps:
    1. Create first disk
 
        ```bash
-       $ oracleasm createdisk VOL1 /dev/sdc1 
+       $ oracleasm createdisk VOL1 /dev/sdc1
        ```
 
    2. The output of command should look like
@@ -663,7 +663,7 @@ To set up Oracle ASM, complete the following steps:
    3. Create remaining disks
 
        ```bash
-       $ oracleasm createdisk VOL2  /dev/sdd1 
+       $ oracleasm createdisk VOL2  /dev/sdd1
        ```
 
    >[!NOTE]
@@ -689,7 +689,7 @@ To set up Oracle ASM, complete the following steps:
 9. Change passwords for the root and oracle users. **Make note of these new passwords** as you are using them later during the installation.
 
    ```bash
-   $ passwd oracle 
+   $ passwd oracle
    $ passwd root
    ```
 
@@ -720,7 +720,7 @@ To download and prepare the Oracle Grid Infrastructure software, complete the fo
 
        ```PowerShell
        $asmVMid=$(az vm show --resource-group ASMOnAzureLab --name asmVM --query 'id' --output tsv)
-       
+
        az network bastion tunnel --name asmBastion --resource-group ASMOnAzureLab --target-resource-id $asmVMid --resource-port 22 --port 57500
        ```
 
@@ -776,8 +776,8 @@ To install Oracle Grid Infrastructure, complete the following steps:
    ```bash
    $ sudo su - oracle
    $ export DISPLAY=10.0.0.4:0.0
-   $ cd /opt/grid 
-   $ ./gridSetup.sh 
+   $ cd /opt/grid
+   $ ./gridSetup.sh
    ```
 
    Oracle Grid Infrastructure 19c Installer opens on **asmXServer** VM. (It might take a few minutes for the  installer to start.)
@@ -844,14 +844,14 @@ Complete following steps to setup Oracle ASM.
    Run following to set context. If you still have the shell open from previous command, you may skip this step.
 
    ```bash
-   $ sudo su - oracle   
+   $ sudo su - oracle
    $ export DISPLAY=10.0.0.4:0.0
    ```
 
    Launch the Oracle Automatic Storage Management Configuration Assistant
 
    ```bash
-   $ cd /opt/grid/bin 
+   $ cd /opt/grid/bin
    $ ./asmca
    ```
 
@@ -885,7 +885,7 @@ The Oracle database software is already installed on the Azure Marketplace image
    * Run following to set context. If you still have the shell open from previous command, this may not be necessary.
 
    ```bash
-   $ sudo su - oracle   
+   $ sudo su - oracle
    $ export DISPLAY=10.0.0.4:0.0
    ```
 
@@ -928,7 +928,7 @@ The Oracle database software is already installed on the Azure Marketplace image
 ```azurecli
 $ az vm delete --resource-group ASMOnAzureLab --name asmXServer --force-deletion yes
 
-$ az network public-ip delete --resource-group ASMOnAzureLab --name asmXServerPublicIP 
+$ az network public-ip delete --resource-group ASMOnAzureLab --name asmXServerPublicIP
 ```
 
 ## Delete ASM On Azure Lab Setup

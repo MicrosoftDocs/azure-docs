@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 02/08/2023
+ms.date: 01/05/2024
 ms.author: yexu
 ---
 #  Data consistency verification in copy activity
@@ -136,7 +136,7 @@ From the log file above, you can see sample1.csv has been skipped because it fai
 
 
 
-## Next steps
+## Related content
 See the other Copy Activity articles:
 
 - [Copy activity overview](copy-activity-overview.md)

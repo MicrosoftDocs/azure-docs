@@ -11,7 +11,7 @@ ms.date: 02/18/2022
 # Standard columns in Azure Monitor Logs
 Data in Azure Monitor Logs is [stored as a set of records in either a Log Analytics workspace or Application Insights application](../logs/data-platform-logs.md), each with a particular data type that has a unique set of columns. Many data types will have standard columns that are common across multiple types. This article describes these columns and provides examples of how you can use them in queries.
 
-Workspace-based applications in Application Insights store their data in a Log Analytics workspace and use the same standard columns as other other tables in the workspace. Classic applications store their data separately and have different standard columns as specified in this article.
+Workspace-based applications in Application Insights store their data in a Log Analytics workspace and use the same standard columns as other tables in the workspace. Classic applications store their data separately and have different standard columns as specified in this article.
 
 > [!NOTE]
 > Some of the standard columns will not show in the schema view or intellisense in Log Analytics, and they won't show in query results unless you explicitly specify the column in the output.
@@ -26,7 +26,7 @@ The **TimeGenerated**  column contains the date and time that the record was cre
 **TimeGenerated** provides a common column to use for filtering or summarizing by time. When you select a time range for a view or dashboard in the Azure portal, it uses **TimeGenerated** to filter the results. 
 
 > [!NOTE]
-> Tables supporting classic Application Insights resources use the **timestamp** column instead of the **TimeGenerated** column.
+> Tables supporting classic Application Insights resources use the **Timestamp** column instead of the **TimeGenerated** column.
 
 > [!NOTE]
 > The **TimeGenerated** value cannot be older than 2 days before received time or more than a day in the future. If in some situation, the value is older than 2 days or more than a day in the future, it would be replaced with the actual recieved time.
@@ -156,7 +156,7 @@ Use these `union withsource = tt *` queries sparingly as scans across data types
 
 
 ## \_IsBillable
-The **\_IsBillable** column specifies whether ingested data is billable. Data with **\_IsBillable** equal to `false` are collected for free and not billed to your Azure account.
+The **\_IsBillable** column specifies whether ingested data is considered billable. Data with **\_IsBillable** equal to `false` does not incur data ingestion, retention or archive charges. 
 
 ### Examples
 To get a list of computers sending billed data types, use the following query:

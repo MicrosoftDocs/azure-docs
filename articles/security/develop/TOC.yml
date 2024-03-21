@@ -54,6 +54,12 @@
         href: threat-modeling-tool-releases-73211082.md
       - name: Threat Modeling Tool update release 7.3.30630.5 - June 30 2023
         href: threat-modeling-tool-releases-73306305.md
+      - name: Threat Modeling Tool update release 7.3.30829.1 - August 30 2023
+        href: threat-modeling-tool-releases-73308291.md
+      - name: Threat Modeling Tool update release 7.3.30925.1 - September 25 2023
+        href: threat-modeling-tool-releases-73309251.md
+      - name: Threat Modeling Tool update release 7.3.31026.3 - October 26 2023
+        href: threat-modeling-tool-releases-73310263.md
     - name: Mitigations
       href: threat-modeling-tool-mitigations.md
       items:

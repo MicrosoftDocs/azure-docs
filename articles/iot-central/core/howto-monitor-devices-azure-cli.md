@@ -7,7 +7,7 @@ ms.date: 06/13/2023
 ms.topic: how-to
 ms.service: iot-central
 ms.tool: azure-cli
-ms.custom: device-developer, contperf-fy23q1, devx-track-azurecli
+ms.custom: device-developer, devx-track-azurecli, engagement-fy23
 services: iot-central
 # This topic applies to device developers and solution builders.
 ---
@@ -85,4 +85,4 @@ az iot central device twin show --app-id <app-id> --device-id <device-id>
 
 ## Next steps
 
-A suggested next step is to learn [how to connect Azure IoT Edge for Linux on Windows (EFLOW)](./howto-connect-eflow.md).
+A suggested next step is to learn [Troubleshoot why data from your devices isn't showing up in Azure IoT Central](troubleshooting.md).

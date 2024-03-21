@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: load-balancer
 ms.topic: how-to 
-ms.date: 12/13/2022
+ms.date: 02/12/2024
 ms.custom: template-how-to, engagement-fy23
 ---
 
@@ -218,7 +218,7 @@ In this example, you'll remove an outbound rule.
 
 ## Next steps
 
-In this article, you learned how to managed load-balancing rules for an Azure Load Balancer.
+In this article, you learned how to manage load-balancing rules for an Azure Load Balancer.
 
 For more information about Azure Load Balancer, see:
 - [What is Azure Load Balancer?](load-balancer-overview.md)

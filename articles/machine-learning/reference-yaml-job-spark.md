@@ -34,19 +34,18 @@ ms.reviewer: franksolomon
 | `tags` | object | Dictionary of tags for the job. | | |
 | `code` | string | Local path to the source code directory to be uploaded and used for the job. | | |
 | `code` | string | **Required.** The location of the folder that contains source code and scripts for this job. | | |
-| `entry` | object | **Required.** The entry point for the job. It could define a `file` or a `class_name`. | | |
+| `entry` | object | **Required.** The entry point for the job. It could define a `file`. | | |
 | `entry.file` | string | The location of the folder that contains source code and scripts for this job. | | |
-| `entry.class_name` | string | The name of the class that serves as an entry point for the job. | | |
 | `py_files` | object | A list of `.zip`, `.egg`, or `.py` files, to be placed in the `PYTHONPATH`, for successful execution of the job. | | |
 | `jars` | object | A list of `.jar` files to include on the Spark driver, and the executor `CLASSPATH`, for successful execution of the job. | | |
 | `files` | object | A list of files that should be copied to the working directory of each executor, for successful job execution. | | |
 | `archives` | object | A list of archives that should be extracted into the working directory of each executor, for successful job execution. | | |
 | `conf` | object | The Spark driver and executor properties. See [Attributes of the `conf` key](#attributes-of-the-conf-key) | | |
 | `environment` | string or object | The environment to use for the job. The environment can be either a reference to an existing versioned environment in the workspace or an inline environment specification. <br><br> To reference an existing environment, use the `azureml:<environment_name>:<environment_version>` syntax or `azureml:<environment_name>@latest` (to reference the latest version of an environment). <br><br> To define an environment inline, follow the [Environment schema](./reference-yaml-environment.md#yaml-syntax). Exclude the `name` and `version` properties, because inline environments don't support them. | | |
-| `args` | string | The command line arguments that should be passed to the job entry point Python script or class. These arguments may contain the input data paths, the location to write the output, for example `"--input_data ${{inputs.<input_name>}} --output_path ${{outputs.<output_name>}}"`  | | |
+| `args` | string | The command line arguments that should be passed to the job entry point Python script. These arguments may contain the input data paths, the location to write the output, for example `"--input_data ${{inputs.<input_name>}} --output_path ${{outputs.<output_name>}}"`  | | |
 | `resources` | object | The resources to be used by an Azure Machine Learning serverless Spark compute. One of the `compute` or `resources` should be defined. | | |
 | `resources.instance_type` | string | The compute instance type to be used for Spark pool. | `standard_e4s_v3`, `standard_e8s_v3`, `standard_e16s_v3`, `standard_e32s_v3`, `standard_e64s_v3`. | |
-| `resources.runtime_version` | string | The Spark runtime version. | `3.1`, `3.2` | |
+| `resources.runtime_version` | string | The Spark runtime version. | `3.2`, `3.3` | |
 | `compute` | string | Name of the attached Synapse Spark pool to execute the job on. One of the `compute` or `resources` should be defined. | | |
 | `inputs` | object | Dictionary of inputs to the job. The key is a name for the input within the context of the job and the value is the input value. <br><br> Inputs can be referenced in the `args` using the `${{ inputs.<input_name> }}` expression. | | |
 | `inputs.<input_name>` | number, integer, boolean, string or object | One of a literal value (of type number, integer, boolean, or string) or an object containing a [job input data specification](#job-inputs). | | |

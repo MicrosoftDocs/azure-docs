@@ -5,7 +5,7 @@ author: ankitaduttaMSFT
 manager: rochakm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 08/29/2023
+ms.date: 02/19/2024
 ms.author: ankitadutta
 ms.custom: MVC, engagement-fy23
 ---
@@ -97,8 +97,7 @@ If you encounter any connectivity problems after failover, follow the [troublesh
 
 After failover, reprotect the Azure VMs to the Azure VMware Solution private cloud. Then, after the VMs are reprotected and replicating to the Azure VMware Solution private cloud, fail back from Azure when you're ready.
 
-> [!div class="nextstepaction"]
-> [Reprotect Azure VMs](avs-tutorial-reprotect.md)
 
-> [!div class="nextstepaction"]
-> [Fail back from Azure](avs-tutorial-failback.md)
+- Learn how to [reprotect Azure VMs](avs-tutorial-reprotect.md).
+- Learn how to [fail back from Azure](avs-tutorial-failback.md).
+

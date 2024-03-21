@@ -5,8 +5,6 @@ services: cdn
 author: duongau
 manager: kumudd
 ms.service: azure-cdn
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/27/2023
 ms.author: duau
@@ -25,10 +23,6 @@ Azure CDN from Microsoft is protected by [Azure Basic DDoS](../ddos-protection/d
 ## Azure CDN from Edgio
 
 Azure CDN from Edgio is protected by Edgio's proprietary DDoS mitigation platform. It's integrated into Azure CDN from Edgio by default and at no extra cost. It provides basic protection against the most common, frequently occurring Layer 7 DNS Query Floods and Layer 3 and 4 volumetric attacks that target CDN endpoints.
-
-## Azure CDN from Akamai
-
-Azure CDN from Akamai is protected by Akamai's proprietary DDoS mitigation platform. It's integrated into Azure CDN from Akamai by default and at no extra cost. It provides basic protection against the most common, frequently occurring Layer 7 DNS Query Floods and Layer 3 and 4 volumetric attacks that target CDN endpoints.
 
 ## Next steps
 

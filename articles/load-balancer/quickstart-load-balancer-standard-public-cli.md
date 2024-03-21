@@ -101,6 +101,19 @@ Create a public load balancer with [az network lb create](/cli/azure/network/lb#
     --backend-pool-name myBackEndPool
 ```
 
+If the public IP created is zonal, the specified zone needs to be defined when creating the public load balancer.
+
+```azurecli
+  az network lb create \
+    --resource-group CreatePubLBQS-rg \
+    --name myLoadBalancer \
+    --sku Standard \
+    --public-ip-address myPublicIP \
+    --frontend-ip-name myFrontEnd \
+    --public-ip-zone 1 \
+    --backend-pool-name myBackEndPool
+```
+
 ### Create the health probe
 
 A health probe checks all virtual machine instances to ensure they can send network traffic. 

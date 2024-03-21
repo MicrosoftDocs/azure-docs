@@ -6,12 +6,11 @@ summary: Build automated scalable workflows, business processes, and enterprise 
 metadata:
   title: Azure Logic Apps documentation
   description: Build automated scalable workflows, business processes, and enterprise orchestrations to integrate your apps and data across cloud services and on-premises systems.
-  services: logic-apps # service
   ms.service: logic-apps
   ms.topic: landing-page
   author: ecfan
   ms.author: estfan; azla
-  ms.date: 02/28/2023
+  ms.date: 01/10/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 

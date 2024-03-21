@@ -4,8 +4,9 @@ description: Use Azure PowerShell to create an Azure Data Lake Analytics account
 ms.service: data-lake-analytics
 ms.reviewer: whhender
 ms.topic: conceptual
-ms.date: 01/20/2023
+ms.date: 12/20/2023
 ms.custom: devx-track-azurepowershell
+ROBOTS: NOINDEX
 ---
 # Get started with Azure Data Lake Analytics using Azure PowerShell
 

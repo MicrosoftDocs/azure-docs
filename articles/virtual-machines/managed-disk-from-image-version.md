@@ -1,17 +1,15 @@
 ---
 title: Export an image version to a managed disk
 description: Export an image version from an Azure Compute Gallery to a managed disk.
-author: cynthn
+author: ju-shim
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
-ms.workload: infrastructure
 ms.date: 12/12/2022
 ms.author: mattmcinnes
-ms.reviewer: olayemio 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.reviewer: olayemio
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.devlang: azurecli
-
 ---
 
 # Export an image version to a managed disk
@@ -118,5 +116,3 @@ New-AzDisk -Disk $diskConfig `
 ## Next steps
 
 You can also create an [image version](image-version.md) from a managed disk.
-
-

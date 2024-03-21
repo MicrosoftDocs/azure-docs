@@ -3,7 +3,7 @@ title: How to annotate data sources in Azure Data Catalog
 description: How-to article highlighting how to annotate data assets in Azure Data Catalog, including friendly names, tags, descriptions, and experts.
 ms.service: data-catalog
 ms.topic: how-to
-ms.date: 12/14/2022
+ms.date: 12/13/2023
 ---
 # How to annotate data sources in Azure Data Catalog
 
@@ -56,7 +56,3 @@ Just as the metadata extracted from the data source during registration is added
 ## Summary
 
 Registering a data source with Data Catalog makes that data discoverable by copying structural and descriptive metadata from the data source into the Catalog service. Once a data source has been registered, users can provide annotations to make easier to discover and understand from within the Data Catalog portal.
-
-## See also
-
-* [Get Started with Azure Data Catalog](data-catalog-get-started.md) tutorial for step-by-step details about how to annotate data sources.

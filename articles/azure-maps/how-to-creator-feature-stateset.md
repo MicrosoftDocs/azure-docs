@@ -128,9 +128,9 @@ Learn how to implement dynamic styling for indoor maps.
 [Postman]: https://www.postman.com/
 
 <!---------   REST API Links     --------------->
-[Feature State - Delete Stateset]: /rest/api/maps/v2/feature-state/delete-stateset
-[Feature State - List States]: /rest/api/maps/v2/feature-state/list-states
-[Feature State service]: /rest/api/maps/v2/feature-state
-[Feature Statesets API]: /rest/api/maps/v2/feature-state/create-stateset
-[Feature statesets]: /rest/api/maps/v2/feature-state
-[Stateset API]: /rest/api/maps/v2/feature-state/create-stateset
+[Feature State - Delete Stateset]: /rest/api/maps-creator/feature-state/delete-stateset
+[Feature State - List States]: /rest/api/maps-creator/feature-state/list-states
+[Feature State service]: /rest/api/maps-creator/feature-state
+[Feature Statesets API]: /rest/api/maps-creator/feature-state/create-stateset
+[Feature statesets]: /rest/api/maps-creator/feature-state
+[Stateset API]: /rest/api/maps-creator/feature-state/create-stateset

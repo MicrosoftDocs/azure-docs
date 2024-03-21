@@ -6,6 +6,7 @@ ms.date: 04/24/2023
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template, devx-track-python
 content_well_notification: 
   - AI-contribution
+ai-usage: ai-assisted
 ---
 
 # Move Azure resources to a new resource group or subscription
@@ -179,8 +180,11 @@ $destinationResourceGroup = Get-AzResourceGroup -Name $destinationName
 $resources = Get-AzResource -ResourceGroupName $sourceName | Where-Object { $_.Name -in $resourcesToMove }
 
 Invoke-AzResourceAction -Action validateMoveResources `
--ResourceId $sourceResourceGroup.ResourceId `
--Parameters @{ resources= $resources.ResourceId;targetResourceGroup = $destinationResourceGroup.ResourceId }  
+   -ResourceId $sourceResourceGroup.ResourceId `
+   -Parameters @{
+      resources = $resources.ResourceId;  # Wrap in an @() array if providing a single resource ID string.
+      targetResourceGroup = $destinationResourceGroup.ResourceId
+   }
 ```
 
 If validation passes, you see no output.

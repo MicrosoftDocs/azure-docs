@@ -10,18 +10,18 @@ items:
 - name: Quickstarts
   expanded: true
   items: 
-    - name: Create & run a load test
+    - name: Create a URL-based load test
       href: quickstart-create-and-run-load-test.md
-    - name: Automate load tests with CI/CD
+    - name: Create a load test with a JMeter script
+      href: how-to-create-and-run-load-test-with-JMeter-script.md 
+    - name: Automate load tests with Azure Pipelines
       displayName: Azure Pipelines, CI/CD, continuous integration, Azure DevOps, GitHub Actions, automation, automated testing, regression testing
       href: quickstart-add-load-test-cicd.md
 - name: Tutorials
   items: 
     - name: Identify performance bottlenecks
+      displayName: Azure Pipelines, CI/CD, continuous integration, performance, bottleneck, issues, analyze
       href: tutorial-identify-bottlenecks-azure-portal.md
-    - name: Automate regression tests with CI/CD
-      displayName: Azure Pipelines, CI/CD, continuous integration, Azure DevOps, GitHub Actions, automation, automated testing, regression testing
-      href: tutorial-identify-performance-regression-with-cicd.md
 - name: Concepts
   items: 
     - name: Key concepts
@@ -35,7 +35,17 @@ items:
 
 - name: How-to guides
   items:
-    - name: Configure tests
+    - name: Configure test plan
+      items:
+        - name: Add HTTP requests to URL-based tests
+          href: how-to-add-requests-to-url-based-test.md
+        - name: Read data from a CSV file
+          href: how-to-read-csv-data.md
+        - name: Customize tests with JMeter plugins
+          href: how-to-use-jmeter-plugins.md
+        - name: Use JMeter user properties
+          href: how-to-configure-user-properties.md
+    - name: Configure test settings
       items:
         - name: Configure for high scale loads
           href: how-to-high-scale-load.md
@@ -43,23 +53,17 @@ items:
           href: how-to-define-test-criteria.md
         - name: Parameterize load tests
           href: how-to-parameterize-load-tests.md
-        - name: Use JMeter user properties
-          href: how-to-configure-user-properties.md
-        - name: Customize tests with JMeter plugins
-          href: how-to-use-jmeter-plugins.md
-        - name: Configure CI/CD for load testing
-          displayName: Azure Pipelines, CI/CD, continuous integration, Azure DevOps, GitHub Actions, automation, automated testing, regression testing
-          href: how-to-configure-load-test-cicd.md
-    - name: Run tests
-      items:
-        - name: Create a load test with a JMeter script
-          href: how-to-create-and-run-load-test-with-JMeter-script.md 
-        - name: Read data from a CSV file
-          href: how-to-read-csv-data.md
-        - name: Test applications with authentication
-          href: how-to-test-secured-endpoints.md
-        - name: Test a private endpoint
+        - name: Test private endpoints
+          displayName: virtual network, vnet, hybrid, on-premises, onprem, private link, subnet
           href: how-to-test-private-endpoint.md
+        - name: Test secure endpoints
+          displayName: secured, certificate, client certificate, password, oauth, security, secure endpoint
+          href: how-to-test-secured-endpoints.md
+    - name: Automation
+      items:
+        - name: Run load tests in CI/CD
+          displayName: Azure Pipelines, CI/CD, continuous integration, Azure DevOps, GitHub Actions, automation, automated testing, regression testing, Jenkins, CircleCI, Travis CI
+          href: how-to-configure-load-test-cicd.md
     - name: Analyze test results
       items:
         - name: Compare test runs
@@ -67,8 +71,8 @@ items:
           href: how-to-compare-multiple-test-runs.md
         - name: Configure server-side monitoring
           href: how-to-monitor-server-side-metrics.md
-        - name: Troubleshoot failing load tests
-          href: how-to-troubleshoot-failing-test.md
+        - name: Diagnose failing load tests
+          href: how-to-diagnose-failing-load-test.md
         - name: Export test results
           href: how-to-export-test-results.md
     - name: Security

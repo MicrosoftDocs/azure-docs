@@ -1,12 +1,9 @@
 ---
 title: Preview features for the Azure Application Consistent Snapshot tool for Azure NetApp Files
-description: Learn about the preview features of the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files. 
+description: Learn about the preview features of the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files.
 services: azure-netapp-files
 author: Phil-Jensen
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.custom:
 ms.topic: reference
 ms.date: 08/21/2023
 ms.author: phjensen

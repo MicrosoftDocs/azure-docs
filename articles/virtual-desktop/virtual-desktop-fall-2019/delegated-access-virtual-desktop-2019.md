@@ -1,6 +1,6 @@
 ---
 title: Delegated access in Azure Virtual Desktop (classic) - Azure
-description: How to delegate administrative capabilities on a Azure Virtual Desktop (classic) deployment, including examples.
+description: How to delegate administrative capabilities on an Azure Virtual Desktop (classic) deployment, including examples.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 03/30/2020
@@ -62,4 +62,4 @@ You can modify the basic three cmdlets with the following parameters:
 
 For a more complete list of PowerShell cmdlets each role can use, see the [PowerShell reference](/powershell/windows-virtual-desktop/overview).
 
-For guidelines for how to set up a Azure Virtual Desktop environment, see [Azure Virtual Desktop environment](environment-setup-2019.md).
+For guidelines for how to set up an Azure Virtual Desktop environment, see [Azure Virtual Desktop environment](environment-setup-2019.md).

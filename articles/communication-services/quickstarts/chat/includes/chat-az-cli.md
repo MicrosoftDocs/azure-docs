@@ -129,7 +129,7 @@ az communication chat thread create --topic "<chatTopic>"
 ```
 
 - Use `<chatTopic>` to give the thread a topic. You can update the topic after the chat thread is created by using the `thread update-topic` command.
-- Replace `<endpoint>` with your ACS endpoint.
+- Replace `<endpoint>` with your Azure Communication Services endpoint.
 - Replace `<token>` with your access token obtained earlier with running `identity token issue` command. 
 
 
@@ -141,7 +141,7 @@ az communication chat thread update-topic --thread "<chatThreadId>" --topic "<ch
 
 - Replace `<chatThreadId>` with your chat thread ID.
 - Replace `<chatTopic>` with the new chat topic you want to set.
-- Replace `<endpoint>` with your ACS endpoint.
+- Replace `<endpoint>` with your Azure Communication Services endpoint.
 - Replace `<token>` with your access token obtained earlier with running `identity token issue` command. 
 
 
@@ -154,7 +154,7 @@ az communication chat thread list --start-time "<startTime>" --endpoint "<endpoi
 ```
 
 - Use `<startTime>` optionally to specify the earliest point in time to get chat messages.
-- Replace `<endpoint>` with your ACS endpoint.
+- Replace `<endpoint>` with your Azure Communication Services endpoint.
 - Replace `<token>` with your access token obtained earlier with running `identity token issue` command. 
 
 
@@ -170,7 +170,7 @@ az communication chat message send --thread "<chatThreadId>" --display-name "<di
 - Use `<content>` to provide the chat message content.
 - Use `<messageType>` to specify the message content type. Possible values are `text` and `html`. If you don't specify a value, the default is `text`.
 - Use `<displayName>` optionally to specify the display name of the sender.
-- Replace `<endpoint>` with your ACS endpoint.
+- Replace `<endpoint>` with your Azure Communication Services endpoint.
 - Replace `<token>` with your access token obtained earlier with running `identity token issue` command. 
 
 
@@ -184,7 +184,7 @@ az communication chat message list --thread "<chatThreadId>" --start-time "<star
 
 - Replace `<chatThreadId>` with your chat thread ID.
 - Use `<startTime>` optionally to specify the earliest point in time to get chat messages.
-- Replace `<endpoint>` with your ACS endpoint.
+- Replace `<endpoint>` with your Azure Communication Services endpoint.
 - Replace `<token>` with your access token obtained earlier with running `identity token issue` command. 
 
 
@@ -198,7 +198,7 @@ az communication chat message get --thread "<chatThreadId>" --message-id "<messa
 
 - Replace `<chatThreadId>` with your chat thread ID.
 - Replace `<messageId>` with the ID of the message you want to retrieve.
-- Replace `<endpoint>` with your ACS endpoint.
+- Replace `<endpoint>` with your Azure Communication Services endpoint.
 - Replace `<token>` with your access token obtained earlier with running `identity token issue` command. 
 
 
@@ -212,7 +212,7 @@ az communication chat message receipt send --thread "<chatThreadId>" --message-i
 
 - Replace `<chatThreadId>` with your chat thread ID.
 - Replace `<messageId>` to specify the ID of the latest message read by current user.
-- Replace `<endpoint>` with your ACS endpoint.
+- Replace `<endpoint>` with your Azure Communication Services endpoint.
 - Replace `<token>` with your access token obtained earlier with running `identity token issue` command. 
 
 
@@ -228,7 +228,7 @@ az communication chat participant add --thread "<chatThreadId>" --user "<userId>
 - Replace `<userId>` with your userId.
 - Use `<displayName>` optionally to specify the display name of the sender.
 - Use `<startTime>` optionally to specify the earliest point in time to get chat messages.
-- Replace `<endpoint>` with your ACS endpoint.
+- Replace `<endpoint>` with your Azure Communication Services endpoint.
 - Replace `<token>` with your access token obtained earlier with running `identity token issue` command. 
 
 
@@ -244,7 +244,7 @@ az communication chat participant list --thread "<chatThreadId>" --skip "<skip>"
 
 - Replace `<chatThreadId>` with your chat thread ID.
 - Use `<skip>` optionally to skip participants up to a specified position in the response.
-- Replace `<endpoint>` with your ACS endpoint.
+- Replace `<endpoint>` with your Azure Communication Services endpoint.
 - Replace `<token>` with your access token obtained earlier with running `identity token issue` command. 
 
 
@@ -258,5 +258,5 @@ az communication chat participant remove --thread "<chatThreadId>" --user "<user
 
 - Replace `<chatThreadId>` with your chat thread ID.
 - Replace `<userId>` with the userId you want to remove from the chat thread.
-- Replace `<endpoint>` with your ACS endpoint.
+- Replace `<endpoint>` with your Azure Communication Services endpoint.
 - Replace `<token>` with your access token obtained earlier with running `identity token issue` command. 

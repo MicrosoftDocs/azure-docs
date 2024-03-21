@@ -19,25 +19,261 @@ Get started quickly with [SAP Deployment Automation Framework](deployment-framew
 To get started with SAP Deployment Automation Framework, you need:
 
 - An Azure subscription. If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- The ability to [download the SAP software](software.md) in your Azure environment.
-- An [Azure CLI](/cli/azure/install-azure-cli) installation on your local computer.
-- An [Azure PowerShell](/powershell/azure/install-az-ps#update-the-azure-powershell-module) installation on your local computer.
-- A service principal to use for the control plane deployment.
+- An SAP User account with permissions to [download the SAP software](software.md) in your Azure environment. For more information on S-User, see [SAP S-User](https://support.sap.com/en/my-support/users/welcome.html).
+- An [Azure CLI](/cli/azure/install-azure-cli) installation.
+- A user Assigned Identity (MS) or a service principal to use for the control plane deployment.
+- A user Assigned Identity (MS) or a A service principal to use for the workload zone deployment.
 - An ability to create an Azure DevOps project if you want to use Azure DevOps for deployment.
 
-Some of the prerequisites might already be installed in your deployment environment. Both Azure Cloud Shell and the deployer have Terraform and the Azure CLI installed.
+Some of the prerequisites might already be installed in your deployment environment. Both Azure Cloud Shell and the deployer come with Terraform and the Azure CLI installed.
+
+### Create a service principal
+
+The SAP automation deployment framework uses service principals for deployment.
+
+When you choose a name for your service principal, make sure that the name is unique within your Azure tenant. Make sure to use an account with service principals creation permissions when running the script.
+
+1. Create the service principal with Contributor permissions.
+
+    ```cloudshell-interactive
+    export    ARM_SUBSCRIPTION_ID="<subscriptionId>"
+    export control_plane_env_code="LAB"
+
+    az ad sp create-for-rbac --role="Contributor"  --scopes="/subscriptions/$ARM_SUBSCRIPTION_ID"   --name="$control_plane_env_code-Deployment-Account"
+    ```
+
+    Review the output. For example:
+
+    ```json
+    {
+        "appId": "<AppId>",
+        "displayName": "<environment>-Deployment-Account ",
+        "name": "<AppId>",
+        "password": "<AppSecret>",
+        "tenant": "<TenantId>"
+    }
+    ```
+
+1. Copy the output details. Make sure to save the values for `appId`, `password`, and `Tenant`.
+
+    The output maps to the following parameters. You use these parameters in later steps, with automation commands.
+
+    | Parameter input name | Output name |
+    |--------------------------|-----------------|
+    | `spn_id`                 | `appId`         |
+    | `spn_secret`             | `password`      |
+    | `tenant_id`              | `tenant`        |
+
+1. Optionally, assign the User Access Administrator role to the service principal.
+
+    ```cloudshell-interactive
+    export appId="<appId>"
+
+    az role assignment create --assignee $appId --role "User Access Administrator"  --scope /subscriptions/$ARM_SUBSCRIPTION_ID
+    ```
+
+
+> [!IMPORTANT]
+> If you don't assign the User Access Administrator role to the service principal, you can't assign permissions using the automation framework.
+
+### Create a user assigned Identity
+
+
+The SAP automation deployment framework can also use a user assigned identity (MSI) for the deployment. Make sure to use an account with permissions to create managed identities when running the script that creates the identity.
+
+
+1. Create the managed identity.
+
+    ```cloudshell-interactive
+    export    ARM_SUBSCRIPTION_ID="<subscriptionId>"
+    export control_plane_env_code="LAB"
+
+    az identity create --name ${control_plane_env_code}-Deployment-Identity --resource-group <ExistingResourceGroup>
+    ```
+
+    Review the output. For example:
+
+    ```json
+       {
+         "clientId": "<appId>",
+         "id": "<armId>",
+         "location": "<location>",
+         "name": "${control_plane_env_code}-Deployment-Identity",
+         "principalId": "<objectId>",
+         "resourceGroup": "<ExistingResourceGroup>",
+         "systemData": null,
+         "tags": {},
+         "tenantId": "<TenantId>",
+         "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
+       }
+    ```
+
+1. Copy the output details.
+
+    The output maps to the following parameters. You use these parameters in later steps, with automation commands.
+
+    | Parameter input name     | Output name     |
+    |--------------------------|-----------------|
+    | `app_id`                 | `appId`         |
+    | `msi_id`                 | `armId`         |
+
+
+1. Assign the Contributor role to the identity.
+
+    ```cloudshell-interactive
+    export appId="<appId>"
+
+    az role assignment create --assignee $appId  --role "Contributor"  --scope /subscriptions/$ARM_SUBSCRIPTION_ID
+    ```
+
+1. Optionally, assign the User Access Administrator role to the identity.
+
+    ```cloudshell-interactive
+    export appId="<appId>"
+
+    az role assignment create --assignee $appId  --role "User Access Administrator"  --scope /subscriptions/$ARM_SUBSCRIPTION_ID
+    ```
+
+
+> [!IMPORTANT]
+> If you don't assign the User Access Administrator role to the managed identity, you can't assign permissions using the automation framework.
+
+
+## Pre-flight checks
+
+You can use the following script to perform pre-flight checks. The script performs the following checks and tests:
+
+- Checks if the service principal has the correct permissions to create resources in the subscription.
+- Checks if the service principal has user Access Administrator permissions.
+- Create a Azure Virtual Network.   
+- Create a Azure Virtual Key Vault with private end point.   
+- Create a Azure Files NSF share.   
+- Create a Azure Virtual Virtual Machine with data disk using Premium Storage v2.   
+- Check access to the required URLs using the deployed virtual machine.
+
+```powershell
+
+$sdaf_path = Get-Location
+if ( $PSVersionTable.Platform -eq "Unix") {
+    if ( -Not (Test-Path "SDAF") ) {
+      $sdaf_path = New-Item -Path "SDAF" -Type Directory
+    }
+}
+else {
+    $sdaf_path = Join-Path -Path $Env:HOMEDRIVE -ChildPath "SDAF"
+    if ( -not (Test-Path $sdaf_path)) {
+        New-Item -Path $sdaf_path -Type Directory
+    }
+}
+
+Set-Location -Path $sdaf_path
+
+git clone https://github.com/Azure/sap-automation.git 
+
+cd sap-automation
+cd deploy
+cd scripts
+
+if ( $PSVersionTable.Platform -eq "Unix") {
+./Test-SDAFReadiness.ps1
+}
+else {
+.\Test-SDAFReadiness.ps1
+}
+
+```
+
+
 
 ## Use SAP Deployment Automation Framework from Azure DevOps Services
 
 Using Azure DevOps streamlines the deployment process. Azure DevOps provides pipelines that you can run to perform the infrastructure deployment and the configuration and SAP installation activities.
 
-You can use Azure Repos to store your configuration files. Use Azure Pipelines to deploy and configure the infrastructure and the SAP application.
+You can use Azure Repos to store your configuration files. Azure Pipelines provides pipelines, which can be used to deploy and configure the infrastructure and the SAP application.
 
 ### Sign up for Azure DevOps Services
 
 To use Azure DevOps Services, you need an Azure DevOps organization. An organization is used to connect groups of related projects. Use your work or school account to automatically connect your organization to your Microsoft Entra ID. To create an account, open [Azure DevOps](https://azure.microsoft.com/services/devops/) and either sign in or create a new account.
 
-To configure Azure DevOps for SAP Deployment Automation Framework, see [Configure Azure DevOps for SAP Deployment Automation Framework](configure-devops.md).
+## Create the SAP Deployment Automation Framework environment with Azure DevOps
+
+You can use the following script to do a basic installation of Azure DevOps Services for SAP Deployment Automation Framework.
+
+Open PowerShell ISE and copy the following script and update the parameters to match your environment.
+
+```powershell
+    $Env:SDAF_ADO_ORGANIZATION = "https://dev.azure.com/ORGANIZATIONNAME"
+    $Env:SDAF_ADO_PROJECT = "SAP Deployment Automation Framework"
+    $Env:SDAF_CONTROL_PLANE_CODE = "MGMT"
+    $Env:SDAF_WORKLOAD_ZONE_CODE = "DEV"
+    $Env:SDAF_ControlPlaneSubscriptionID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    $Env:SDAF_WorkloadZoneSubscriptionID = "yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy"
+    $Env:ARM_TENANT_ID="zzzzzzzz-zzzz-zzzz-zzzz-zzzzzzzzzzzz"
+
+    $UniqueIdentifier = Read-Host "Please provide an identifier that makes the service principal names unique, for instance a project code"
+
+    $confirmation = Read-Host "Do you want to create a new Application registration (needed for the Web Application) y/n?"
+    if ($confirmation -eq 'y') {
+        $Env:SDAF_APP_NAME = $UniqueIdentifier + " SDAF Control Plane"
+    }
+
+    else {
+      $Env:SDAF_APP_NAME = Read-Host "Please provide the Application registration name"
+    }
+
+    $confirmation = Read-Host "Do you want to create a new Service Principal for the Control plane y/n?"
+    if ($confirmation -eq 'y') {
+        $Env:SDAF_MGMT_SPN_NAME = $UniqueIdentifier + " SDAF " + $Env:SDAF_CONTROL_PLANE_CODE + " SPN"
+    }
+        else {
+      $Env:SDAF_MGMT_SPN_NAME = Read-Host "Please provide the Control Plane Service Principal Name"
+    }
+
+    $confirmation = Read-Host "Do you want to create a new Service Principal for the Workload zone y/n?"
+    if ($confirmation -eq 'y') {
+        $Env:SDAF_WorkloadZone_SPN_NAME = $UniqueIdentifier + " SDAF " + $Env:SDAF_WORKLOAD_ZONE_CODE + " SPN"
+    }
+        else {
+      $Env:SDAF_WorkloadZone_SPN_NAME = Read-Host "Please provide the Workload Zone Service Principal Name"
+    }
+
+    if ( $PSVersionTable.Platform -eq "Unix") {
+        if ( Test-Path "SDAF") {
+        }
+        else {
+            $sdaf_path = New-Item -Path "SDAF" -Type Directory
+        }
+    }
+    else {
+        $sdaf_path = Join-Path -Path $Env:HOMEDRIVE -ChildPath "SDAF"
+        if ( Test-Path $sdaf_path) {
+        }
+        else {
+            New-Item -Path $sdaf_path -Type Directory
+        }
+    }
+
+    Set-Location -Path $sdaf_path
+
+    if ( Test-Path "New-SDAFDevopsProject.ps1") {
+        remove-item .\New-SDAFDevopsProject.ps1
+    }
+
+    Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure/sap-automation/main/deploy/scripts/New-SDAFDevopsProject.ps1 -OutFile .\New-SDAFDevopsProject.ps1 ; .\New-SDAFDevopsProject.ps1
+
+```
+
+Run the script and follow the instructions. The script opens browser windows for authentication and for performing tasks in the Azure DevOps project.
+
+You can choose to either run the code directly from GitHub or you can import a copy of the code into your Azure DevOps project.
+
+To confirm that the project was created, go to the Azure DevOps portal and select the project. Ensure that the repo was populated and that the pipelines were created.
+
+> [!IMPORTANT]
+> Run the following steps on your local workstation. Also ensure that you have the latest Azure CLI installed by running the `az upgrade` command.
+
+
+For more information on how to configure Azure DevOps for SAP Deployment Automation Framework, see [Configure Azure DevOps for SAP Deployment Automation Framework](configure-devops.md).
 
 ## Create the SAP Deployment Automation Framework environment without Azure DevOps
 
@@ -64,7 +300,7 @@ You can then install the deployer components by using the following commands:
 
 ```bash
 
-wget https://raw.githubusercontent.com/Azure/sap-automation/main/deploy/scripts/configure_deployer.sh -O configure_deployer.sh	
+wget https://raw.githubusercontent.com/Azure/sap-automation/main/deploy/scripts/configure_deployer.sh -O configure_deployer.sh
 chmod +x ./configure_deployer.sh
 ./configure_deployer.sh
 

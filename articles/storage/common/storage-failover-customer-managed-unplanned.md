@@ -10,7 +10,6 @@ ms.topic: conceptual
 ms.date: 09/22/2023
 ms.author: shaas
 ms.subservice: storage-common-concepts
-ms.custom: 
 ---
 
 # How customer-managed storage account failover works

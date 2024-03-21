@@ -69,7 +69,7 @@ The example below shows how to create two recurring profiles. One profile for we
 
 Use the following command to deploy the template:
 `az deployment group create --name VMSS1-Autoscale-607 --resource-group rg-vmss1 --template-file VMSS1-autoscale.json`
-where *VMSS1-autoscale.json* is the the file containing the JSON object below.
+where *VMSS1-autoscale.json* is the file containing the JSON object below.
 
 ``` JSON
 {

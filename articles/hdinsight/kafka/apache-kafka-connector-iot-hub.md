@@ -5,7 +5,7 @@ description: Learn how to use Apache Kafka on HDInsight with Azure IoT Hub. The 
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 11/17/2022
+ms.date: 12/05/2023
 ---
 
 # Use Apache Kafka on HDInsight with Azure IoT Hub
@@ -18,7 +18,7 @@ When pulling from the IoT Hub, you use a __source__ connector. When pushing to I
 
 The following diagram shows the data flow between Azure IoT Hub and Kafka on HDInsight when using the connector.
 
-:::image type="content" source="./media/apache-kafka-connector-iot-hub/iot-hub-kafka-connector-hdinsight.png" alt-text="Image showing data flowing from IoT Hub to Kafka through the connector" border="false":::
+:::image type="content" source="./media/apache-kafka-connector-iot-hub/iot-hub-kafka-connector-hdinsight.png" alt-text="Image showing data flowing from IoT Hub to Kafka through the connector." border="false":::
 
 For more information on the Connect API, see [https://kafka.apache.org/documentation/#connect](https://kafka.apache.org/documentation/#connect).
 
@@ -44,11 +44,11 @@ For more information on the Connect API, see [https://kafka.apache.org/documenta
     sbt assembly
     ```
 
-    The build will take a few minutes to complete. The command creates a file named `kafka-connect-iothub-assembly_2.11-0.7.0.jar` in the `toketi-kafka-connect-iothub-master\target\scala-2.11` directory for the project.
+    The build takes a few minutes to complete. The command creates a file named `kafka-connect-iothub-assembly_2.11-0.7.0.jar` in the `toketi-kafka-connect-iothub-master\target\scala-2.11` directory for the project.
 
 ## Install the connector
 
-1. Upload the .jar file to the edge node of your Kafka on HDInsight cluster. Edit the command below by replacing `CLUSTERNAME` with the actual name of your cluster. The default values for the SSH user account and name of [edge node](../hdinsight-apps-use-edge-node.md#access-an-edge-node) are used below, modify as needed.
+1. Upload the .jar file to the edge node of your Kafka on HDInsight cluster. Edit the following command by replacing `CLUSTERNAME` with the actual name of your cluster. The default values for the SSH user account and name of [edge node](../hdinsight-apps-use-edge-node.md#access-an-edge-node) are used and modify as needed.
 
     ```cmd
     scp kafka-connect-iothub-assembly*.jar sshuser@new-edgenode.CLUSTERNAME-ssh.azurehdinsight.net:
@@ -115,7 +115,7 @@ From your SSH connection to the edge node, use the following steps to configure 
     |---|---|---|
     |`bootstrap.servers=localhost:9092`|Replace the `localhost:9092` value with the broker hosts from the previous step|Configures the standalone configuration for the edge node to find the Kafka brokers.|
     |`key.converter=org.apache.kafka.connect.json.JsonConverter`|`key.converter=org.apache.kafka.connect.storage.StringConverter`|This change allows you to test using the console producer included with Kafka. You may need different converters for other producers and consumers. For information on using other converter values, see [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).|
-    |`value.converter=org.apache.kafka.connect.json.JsonConverter`|`value.converter=org.apache.kafka.connect.storage.StringConverter`|Same as above.|
+    |`value.converter=org.apache.kafka.connect.json.JsonConverter`|`value.converter=org.apache.kafka.connect.storage.StringConverter`|Same as given.|
     |N/A|`consumer.max.poll.records=10`|Add to end of file. This change is to prevent timeouts in the sink connector by limiting it to 10 records at a time. For more information, see [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).|
 
 1. To save the file, use __Ctrl + X__, __Y__, and then __Enter__.
@@ -277,7 +277,7 @@ For more information on configuring the connector sink, see [https://github.com/
     > [!NOTE]  
     > You may see several warnings as the connector starts. These warnings do not cause problems with receiving messages from IoT hub.
 
-1. Stop the connector after a few minutes using **Ctrl + C** twice. It will take a few minutes for the connector to stop.
+1. Stop the connector after a few minutes using **Ctrl + C** twice. It takes a few minutes for the connector to stop.
 
 ## Start the sink connector
 
@@ -337,14 +337,15 @@ To send messages through the connector, use the following steps:
 
     The schema for this JSON document is described in more detail at [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).
 
-    If you're using the simulated Raspberry Pi device, and it's running, the following message is logged by the device:
+   
+If you're using the simulated Raspberry Pi device, and it's running, the device logs the following message.:
 
-    ```output
-    Receive message: Turn On
-    ```
+```output
+Receive message: Turn On
 
-    Resend the JSON document, but change the value of the `"message"` entry. The new value is logged by the device.
 
+Resend the JSON document, but change the value of the `"message"` entry. The new value is logged by the device.
+ ```
 For more information on using the sink connector, see [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).
 
 ## Next steps

@@ -4,7 +4,7 @@ description: Configure Azure Container Storage Preview for use with Ephemeral Di
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 09/07/2023
+ms.date: 11/16/2023
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -30,7 +30,11 @@ ms.custom: references_regions
 
 ## Create a storage pool
 
-First, create a storage pool, which is a logical grouping of storage for your Kubernetes cluster, by defining it in a YAML manifest file. Follow these steps to create a storage pool using local disk.
+First, create a storage pool, which is a logical grouping of storage for your Kubernetes cluster, by defining it in a YAML manifest file. 
+
+If you enabled Azure Container Storage using `az aks create` or `az aks update` commands, you might already have a storage pool. Use `kubectl get sp -n acstor` to get the list of storage pools. If you have a storage pool already available that you want to use, you can skip this section and proceed to [Display the available storage classes](#display-the-available-storage-classes).
+
+Follow these steps to create a storage pool using local disk.
 
 1. Use your favorite text editor to create a YAML manifest file such as `code acstor-storagepool.yaml`.
 
@@ -195,6 +199,10 @@ If you want to delete a storage pool, run the following command. Replace `<stora
 ```azurecli-interactive
 kubectl delete sp -n acstor <storage-pool-name>
 ```
+
+## Use volume replication for storage pools (optional)
+
+Applications that require the extremely low latency or high performance of local NVMe can leverage storage replication for improved resiliency. [Sign up here](https://aka.ms/NVMeReplication).
 
 ## See also
 

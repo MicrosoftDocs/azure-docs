@@ -2,14 +2,13 @@
 title: 'Quickstart: Use Azure OpenAI Service with the C# SDK to generate images'
 titleSuffix: Azure OpenAI
 description: Walkthrough on how to get started with Azure OpenAI and make your first image generation call with the C# SDK. 
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: include
 author: PatrickFarley
 ms.author: pafarley
 ms.date: 08/16/2023
-keywords: 
 ---
 
 Use this guide to get started generating images with the Azure OpenAI SDK for C#.
@@ -84,7 +83,7 @@ namespace Azure.AI.OpenAI.Tests.Samples
         public static async Task Main(string[] args)
         {
             string endpoint = GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT");
-            string key = GetEnvironmentVariable("AZURE_OPENAI_KEY");
+            string key = GetEnvironmentVariable("AZURE_OPENAI_API_KEY");
 
             OpenAIClient client = new(new Uri(endpoint), new AzureKeyCredential(key));
 

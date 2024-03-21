@@ -7,7 +7,7 @@ ms.author: rvadthyavath
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
-ms.custom: UpdateFrequency5, template-how-to, sdkv1, event-tier1-build-2022, ignite-2022
+ms.custom: UpdateFrequency5, template-how-to, sdkv1
 ms.date: 10/13/2021
 ---
 
@@ -16,7 +16,7 @@ ms.date: 10/13/2021
 [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
   
-[!INCLUDE [cli-version-info](../includes/machine-learning-cli-version-1-only.md)]
+[!INCLUDE [cli-version-info](../includes/machine-learning-cli-v1-deprecation.md)]
 
 > [!IMPORTANT]
 > Support for training computer vision models with automated ML in Azure Machine Learning is an experimental public preview feature. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -43,7 +43,7 @@ It helps to create, manage, and monitor data labeling tasks for
 + Object detection (bounding box)
 + Instance segmentation (polygon)
 
-If you already have a data labeling project and you want to use that data, you can [export your labeled data as an Azure Machine Learning TabularDataset](../how-to-create-image-labeling-projects.md#export-the-labels), which can then be used directly with automated ML for training computer vision models.
+If you already have a data labeling project and you want to use that data, you can [export your labeled data as an Azure Machine Learning TabularDataset](../how-to-manage-labeling-projects.md#export-the-labels), which can then be used directly with automated ML for training computer vision models.
 
 ## Use conversion scripts
 

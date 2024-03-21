@@ -4,10 +4,11 @@ description: Use this quickstart to manage repositories, images, and artifacts u
 ms.topic: quickstart
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
+ms.date: 10/31/2023
 zone_pivot_groups: programming-languages-set-fivedevlangs
 ms.custom: mode-api, devx-track-azurecli, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-go
 ms.devlang: azurecli
+ms.service: container-registry
 ---
 
 # Quickstart: Use the Azure Container Registry client libraries

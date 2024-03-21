@@ -1,9 +1,14 @@
 {
     "redirections": [
       {
-          "source_path_from_root": "/articles/healthcare-apis/configure-cosmos-db.md",
-          "redirect_url": "/azure/healthcare-apis/configure-database",
+          "source_path_from_root": "/articles/healthcare-apis/release-notes.md",
+          "redirect_url": "/azure/healthcare-apis/release-notes-2024",
           "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/healthcare-apis/configure-cosmos-db.md",
+        "redirect_url": "/azure/healthcare-apis/configure-database",
+        "redirect_document_id": false
       },
       {
           "source_path_from_root": "/articles/healthcare-apis/bring-your-own-key.md",
@@ -486,7 +491,22 @@
     {   "source_path_from_root": "/articles/healthcare-apis/dicom/dicom-configure-azure-rbac-old.md",
         "redirect_url": "/azure/healthcare-apis/dicom/dicom-configure-azure-rbac",
         "redirect_document_id": true     
-      },
+    },
+    {  
+       "source_path_from_root": "/articles/healthcare-apis/dicom/export-dicom-files.md",
+       "redirect_url": "/azure/healthcare-apis/dicom/export-files",
+       "redirect_document_id": true     
+    },
+    {  
+       "source_path_from_root": "/articles/healthcare-apis/dicom/dicom-change-feed-overview.md",
+       "redirect_url": "/azure/healthcare-apis/dicom/change-feed-overview",
+       "redirect_document_id": true   
+    },
+    {  
+       "source_path_from_root": "/articles/healthcare-apis/dicom/get-started-with-dicom.md",
+       "redirect_url": "/azure/healthcare-apis/dicom/dicom-data-lake",
+       "redirect_document_id": true   
+    },     
       {
           "source_path_from_root": "/articles/healthcare-apis/fhir/configure-azure-rbac-for-fhir.md",
           "redirect_url": "/azure/healthcare-apis/configure-azure-rbac",
@@ -554,7 +574,7 @@
       },
       {
           "source_path_from_root": "/articles/healthcare-apis/iot/how-to-display-metrics.md",
-          "redirect_url": "/azure/healthcare-apis/iot/how-to-configure-metrics",
+          "redirect_url": "/azure/healthcare-apis/iot/configure-metrics",
           "redirect_document_id": false
       },
       {
@@ -761,6 +781,14 @@
       {   "source_path_from_root": "/articles/healthcare-apis/iot/how-to-use-monitoring-tab.md",
           "redirect_url": "/azure/healthcare-apis/iot/how-to-use-monitoring-and-health-checks-tabs",
           "redirect_document_id": false
+      },
+      {   "source_path_from_root": "/articles/healthcare-apis/iot/how-to-configure-metrics.md",
+            "redirect_url": "/azure/healthcare-apis/iot/configure-metrics",
+            "redirect_document_id": false 
+      },
+      {   "source_path_from_root": "/articles/healthcare-apis/iot/iot-metrics-display.md",
+          "redirect_url": "/azure/healthcare-apis/iot/configure-metrics",
+          "redirect_document_id": false           
       },
       {   "source_path_from_root": "/articles/healthcare-apis/events/events-display-metrics.md",
           "redirect_url": "/azure/healthcare-apis/events/events-use-metrics",

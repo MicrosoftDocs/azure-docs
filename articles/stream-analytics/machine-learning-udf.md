@@ -6,7 +6,6 @@ ms.author: anboisve
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/31/2022
-ms.custom: event-tier1-build-2022
 ---
 # Integrate Azure Stream Analytics with Azure Machine Learning
 
@@ -183,6 +182,10 @@ You can achieve low latency by ensuring that your Azure Kubernetes Service (AKS)
 * Conflict (409)
 * Not Found (404)
 * Unauthorized (401)
+
+## Limitations
+
+If you're using an Azure ML Managed Endpoint service, Stream Analytics can currently only access endpoints that have public network access enabled. Read more about it on the page about [Azure ML private endpoints](/azure/machine-learning/concept-secure-online-endpoint#secure-inbound-scoring-requests).
 
 ## Next steps
 

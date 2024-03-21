@@ -8,7 +8,7 @@ ms.author: shsagir
 ms.reviewer: shsagir
 ms.service: synapse-analytics
 ms.subservice: data-explorer
-ms.custom: ignite-fall-2021, mode-ui
+ms.custom: mode-ui
 ---
 
 # Quickstart: Use Synapse Studio to monitor your Data Explorer pools (Preview)
@@ -20,8 +20,6 @@ This article explains how to monitor your Data Explorer pools, allowing you to k
 ## Access Data Explorer pools list
 
 To see the list of Data Explorer pools in your workspace, first [open the Synapse Studio](https://web.azuresynapse.net/) and select your workspace.
-
-![Log in to workspace](../monitoring/media/common/login-workspace.png)
 
 Once you've opened your workspace, select the **Monitor** section on the left.
 

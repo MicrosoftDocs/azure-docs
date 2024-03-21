@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 06/01/2022
 ms.author: helohr
-manager: femila
 ---
 # Add language packs to a Windows 10 multi-session image
 

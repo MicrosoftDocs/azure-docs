@@ -5,9 +5,9 @@ description: Learn how to train a model, convert it to ONNX, deploy it to Azure 
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: hudequei, randolphwest
-ms.date: 09/14/2023
-ms.prod: sql
-ms.technology: machine-learning
+ms.date: 01/10/2024
+ms.service: sql
+ms.subservice: machine-learning
 ms.topic: quickstart
 ms.custom: mode-other
 keywords: deploy SQL Edge
@@ -29,7 +29,7 @@ This quickstart is based on **scikit-learn** and uses the [Boston Housing datase
 
 - Install Python packages needed for this quickstart:
 
-  1. Open [New Notebook](/azure-data-studio/notebooks/sql-kernel) connected to the Python 3 Kernel.
+  1. Open [New Notebook](/azure-data-studio/notebooks/notebooks-python-kernel) connected to the Python 3 Kernel.
   1. Select **Manage Packages**
   1. In the **Installed** tab, look for the following Python packages in the list of installed packages. If any of these packages aren't installed, select the **Add New** tab, search for the package, and select **Install**.
      - **scikit-learn**

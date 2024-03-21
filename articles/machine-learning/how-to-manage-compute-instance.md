@@ -5,7 +5,7 @@ description: Learn how to manage an Azure Machine Learning compute instance. Use
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: compute
-ms.custom: event-tier1-build-2022, devx-track-azurecli
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 author: jesscioffi
 ms.author: jcioffi
@@ -181,6 +181,9 @@ For more information on the classes, methods, and parameters used in this exampl
 
 ```azurecli
 az ml compute show --name "myci"
+
+# query outdated compute instances:
+az ml compute list --resource-group <azure_ml_rg> --workspace-name <your_azure_ml_workspace> --query "[?os_image_metadata.is_latest_os_image_version == ``false``].name"
 ```
 
 ---

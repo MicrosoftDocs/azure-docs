@@ -3,11 +3,9 @@ title: SAP MaxDB, liveCache, and Content Server deployment on Azure VMs | Micros
 description: SAP MaxDB, liveCache, and Content Server deployment on Azure
 author: msjuergent
 manager: patfilot
-tags: azure-resource-manager
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.workload: infrastructure
 ms.date: 08/24/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
@@ -341,6 +339,9 @@ In short you have to:
 When deploying SAP MaxDB into Azure, you must review your backup methodology. Even if the system is not a productive system, the SAP database hosted by SAP MaxDB must be backed up periodically. Since Azure Storage keeps three images, a backup is now less important in terms of protecting your system against storage failure and more important operational or administrative failures. The primary reason for maintaining a proper backup and restore plan is so that you can compensate for logical or manual errors by providing point-in-time recovery capabilities. So the goal is to either use backups to restore the database to a certain point in time or to use the backups in Azure to seed another system by copying the existing database. 
 
 Backing up and restoring a database in Azure works the same way as it does for on-premises systems, so you can use standard SAP MaxDB backup/restore tools, which are described in one of the SAP MaxDB documentation documents listed in SAP Note [767598]. 
+
+#### <a name="01885ad6-88cf-4d5a-bdb5-6d43a6eed53e"></a>Backup and Restore with Azure Backup
+You can also integrate MaxDB backup with **Azure Backup** using the third-party backup tool **Maxback** (https://maxback.io). MaxBack allows you to backup and restore MaxDB on Windows with VSS integration, which is also used by Azure Backup. The advantage of using Azure Backup is that backup and restore is done at the storage level. MaxBack ensures that the database is in the right state for backup and restore, and automatically handles log volume backups. 
 
 #### <a name="77cd2fbb-307e-4cbf-a65f-745553f72d2c"></a>Performance Considerations for Backup and Restore
 As in bare-metal deployments, backup and restore performance are dependent on how many volumes can be read in parallel and the throughput of those volumes. Therefore, one can assume:

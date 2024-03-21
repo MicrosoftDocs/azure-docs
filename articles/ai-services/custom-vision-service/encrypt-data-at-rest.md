@@ -7,7 +7,7 @@ manager: venkyv
 
 ms.service: azure-ai-custom-vision
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 03/07/2024
 ms.author: egeaney
 ms.custom: cogserv-non-critical-vision
 #Customer intent: As a user of the Face service, I want to learn how encryption at rest works.
@@ -15,7 +15,7 @@ ms.custom: cogserv-non-critical-vision
 
 # Custom Vision encryption of data at rest
 
-Azure AI Custom Vision automatically encrypts your data when persisted it to the cloud. Custom Vision encryption protects your data and to help you to meet your organizational security and compliance commitments.
+Azure AI Custom Vision automatically encrypts your data when persisting it to the cloud. That encryption helps you to meet your organizational security and compliance commitments.
 
 [!INCLUDE [cognitive-services-about-encryption](../includes/cognitive-services-about-encryption.md)]
 
@@ -28,4 +28,4 @@ Azure AI Custom Vision automatically encrypts your data when persisted it to the
 
 * For a full list of services that support CMK, see [Customer-Managed Keys for Azure AI services](../encryption/cognitive-services-encryption-keys-portal.md)
 * [What is Azure Key Vault](../../key-vault/general/overview.md)?
-* [Azure AI services Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk)
+

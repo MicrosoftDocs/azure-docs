@@ -4,13 +4,11 @@ titleSuffix: Azure OpenAI
 description: Learn about model versions in Azure OpenAI. 
 ms.service: azure-ai-openai
 ms.topic: conceptual 
-ms.date: 10/13/2023
-ms.custom:
+ms.date: 10/30/2023
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
 ms.author: mbullwin #chrhoder
 recommendations: false
-keywords: 
 ---
 
 # Azure OpenAI Service model versions
@@ -18,16 +16,17 @@ keywords:
 Azure OpenAI Service is committed to providing the best generative AI models for customers. As part of this commitment, Azure OpenAI Service regularly releases new model versions to incorporate the latest features and improvements from OpenAI.
 
 In particular, the GPT-3.5 Turbo and GPT-4 models see regular updates with new features.  For example, versions 0613 of GPT-3.5 Turbo and GPT-4 introduced function calling.  Function calling is a popular feature that allows the model to create structured outputs that can be used to call external tools.
+
 ## How model versions work
 
 We want to make it easy for customers to stay up to date as models improve.  Customers can choose to start with a particular version and to automatically update as new versions are released.
 
 When a customer deploys GPT-3.5-Turbo and GPT-4 on Azure OpenAI Service, the standard behavior is to deploy the current default version – for example, GPT-4 version 0314.  When the default version changes to say GPT-4 version 0613, the deployment is automatically updated to version 0613 so that customer deployments feature the latest capabilities of the model.
 
-Customers can also deploy a specific version like GPT-4 0314 or GPT-4 0613 and choose an update policy, which can include the following options:
+Customers can also deploy a specific version like GPT-4 0613 and choose an update policy, which can include the following options:
 
-* Deployments set to **Auto-update to default** automatically update to use the new default version. 
-* Deployments set to **Upgrade when expired** automatically update when its current version is retired. 
+* Deployments set to **Auto-update to default** automatically update to use the new default version.
+* Deployments set to **Upgrade when expired** automatically update when its current version is retired.
 * Deployments that are set to **No Auto Upgrade** stop working when the model is retired.
 
 ## How Azure updates OpenAI models

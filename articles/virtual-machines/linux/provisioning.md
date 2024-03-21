@@ -6,11 +6,9 @@ ms.service: virtual-machines
 ms.subservice: imaging
 ms.collection: linux
 ms.topic: overview
-ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-
 ---
 
 

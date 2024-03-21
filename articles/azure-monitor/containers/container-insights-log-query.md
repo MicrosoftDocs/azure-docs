@@ -2,8 +2,7 @@
 title: Query logs from Container insights
 description: Container insights collects metrics and log data, and this article describes the records and includes sample queries.
 ms.topic: conceptual
-ms.custom: ignite-2022
-ms.date: 06/06/2023
+ms.date: 2/28/2024
 ms.reviewer: viviandiec
 ---
 
@@ -44,6 +43,10 @@ ContainerInventory
 ```
 
 ### Kubernetes events
+
+> [!NOTE]
+> By default, Normal event types aren't collected, so you won't see them when you query the KubeEvents table unless the *collect_all_kube_events* ConfigMap setting is enabled. If you need to collect Normal events, enable *collect_all_kube_events setting* in the *container-azm-ms-agentconfig* ConfigMap. See [Configure agent data collection for Container insights](./container-insights-data-collection-configmap.md) for information on how to configure the ConfigMap.
+
 
 ``` kusto
 KubeEvents
@@ -243,7 +246,7 @@ KubePodInventory
 
 ## Container logs
 
-Container logs for AKS are stored in [the ContainerLogV2 table](./container-insights-logging-v2.md). You can run the following sample queries to look for the stderr/stdout log output from target pods, deployments, or namespaces.
+Container logs for AKS are stored in [the ContainerLogV2 table](./container-insights-logs-schema.md). You can run the following sample queries to look for the stderr/stdout log output from target pods, deployments, or namespaces.
 
 ### Container logs for a specific pod, namespace, and container
 
@@ -654,8 +657,8 @@ InsightsMetrics
 ```
 
 The output will show results similar to the following example.
-
-![Screenshot that shows the log query results of data ingestion volume.](media/container-insights-log-query/log-query-example-usage-03.png)
+<!-- convertborder later -->
+:::image type="content" source="media/container-insights-log-query/log-query-example-usage-03.png" lightbox="media/container-insights-log-query/log-query-example-usage-03.png" alt-text="Screenshot that shows the log query results of data ingestion volume." border="false":::
 
 To estimate what each metrics size in GB is for a month to understand if the volume of data ingested received in the workspace is high, the following query is provided.
 
@@ -669,8 +672,8 @@ InsightsMetrics
 ```
 
 The output will show results similar to the following example.
-
-![Screenshot that shows log query results of data ingestion volume.](./media/container-insights-log-query/log-query-example-usage-02.png)
+<!-- convertborder later -->
+:::image type="content" source="./media/container-insights-log-query/log-query-example-usage-02.png" lightbox="./media/container-insights-log-query/log-query-example-usage-02.png" alt-text="Screenshot that shows log query results of data ingestion volume." border="false":::
 
 
 
@@ -686,7 +689,19 @@ The output shows results similar to the following example:
 
 :::image type="content" source="./media/container-insights-log-query/log-query-example-kubeagent-events.png" alt-text="Screenshot that shows log query results of informational events from an agent." lightbox="media/container-insights-log-query/log-query-example-kubeagent-events.png":::
 
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### Can I view metrics collected in Grafana?
+
+Container insights support viewing metrics stored in your Log Analytics workspace in Grafana dashboards. We've provided a template that you can download from the Grafana [dashboard repository](https://grafana.com/grafana/dashboards?dataSource=grafana-azure-monitor-datasource&category=docker). Use it to get started and as a reference to help you learn how to query data from your monitored clusters to visualize in custom Grafana dashboards.
+
+### Why are log lines larger than 16 KB split into multiple records in Log Analytics?
+
+The agent uses the [Docker JSON file logging driver](https://docs.docker.com/config/containers/logging/json-file/) to capture the stdout and stderr of containers. This logging driver splits log lines [larger than 16 KB](https://github.com/moby/moby/pull/22982) into multiple lines when they're copied from stdout or stderr to a file.
+          
+
 ## Next steps
 
 Container insights doesn't include a predefined set of alerts. To learn how to create recommended alerts for high CPU and memory utilization to support your DevOps or operational processes and procedures, see [Create performance alerts with Container insights](./container-insights-log-alerts.md).
-

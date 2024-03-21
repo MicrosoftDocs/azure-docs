@@ -14,9 +14,6 @@ This article describes how to use the Azure Monitor Agent (AMA) connector to str
 
 The AMA and its DNS extension are installed on your Windows Server to upload data from your DNS analytical logs to your Microsoft Sentinel workspace. [Learn about the connector](#windows-dns-events-via-ama-connector).
 
-> [!IMPORTANT]
-> The Windows DNS Events via AMA connector is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.   
-
 ## Overview 
 
 ### Why it's important to monitor DNS activity
@@ -80,7 +77,7 @@ Before you begin, verify that you have:
 - The Microsoft Sentinel solution enabled. 
 - A defined Microsoft Sentinel workspace.
 - Windows Server 2012 R2 with auditing hotfix and later.
-- A Windows DNS Server with analytical logs enabled. 
+- A Windows DNS Server. 
 - To collect events from any system that isn't an Azure virtual machine, ensure that [Azure Arc](../azure-monitor/agents/azure-monitor-agent-manage.md) is installed. Install and enable Azure Arc before you enable the Azure Monitor Agent-based connector. This requirement includes:
     - Windows servers installed on physical machines
     - Windows servers installed on on-premises virtual machines
@@ -92,7 +89,7 @@ Before you begin, verify that you have:
 
 1. Open the [Azure portal](https://portal.azure.com/) and navigate to the **Microsoft Sentinel** service.
 1. In the **Data connectors** blade, in the search bar, type *DNS*.
-1. Select the **Windows DNS Events via AMA (Preview)** connector.
+1. Select the **Windows DNS Events via AMA** connector.
 1. Below the connector description, select **Open connector page**.
 1. In the **Configuration** area, select **Create data collection rule**. You can create a single DCR per workspace. If you need to create multiple DCRs, [use the API](#set-up-the-connector-with-the-api).
 
@@ -120,13 +117,19 @@ To create filters:
 
     :::image type="content" source="media/connect-dns-ama/windows-dns-ama-connector-create-filter.png" alt-text="Screenshot of creating a filter for the Windows D N S over A M A connector.":::
 
-1. To add complex filters, select **Add field to filter** and add the relevant field.
+1. Choose the values for which you want to filter the field from among the values listed in the drop-down.
 
     :::image type="content" source="media/connect-dns-ama/windows-dns-ama-connector-filter-fields.png" alt-text="Screenshot of adding fields to a filter for the Windows D N S over A M A connector.":::
 
-1. To add new filters, select **Add new filters**.  
-1. To edit, or delete existing filters or fields, select the edit or delete icons in the table under the **Configuration** area. To add fields or filters, select **Add data collection filters** again.
-1. To save and deploy the filters to your connectors, select **Apply changes**.
+1. To add complex filters, select **Add exclude field to filter** and add the relevant field. See examples in the [Use advanced filters](#use-advanced-filters) section below.
+
+1. To add more new filters, select **Add new exclude filter**.  
+
+1. When finished adding filters, select **Add**.
+
+1. Back on the main connector page, select **Apply changes** to save and deploy the filters to your connectors. To edit or delete existing filters or fields, select the edit or delete icons in the table under the **Configuration** area.
+
+1. To add fields or filters after your initial deployment, select **Add data collection filters** again.
 
 ### Set up the connector with the API
 

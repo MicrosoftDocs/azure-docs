@@ -2,15 +2,9 @@
 title: Custom Reports from Edgio | Microsoft Docs
 description: 'You can view usage patterns for your CDN by using the following reports: Bandwidth, Data Transferred, Hits, Cache Statuses, Cache Hit Ratio, IPV4/IPV6 Data Transferred.'
 services: cdn
-documentationcenter: ''
 author: duongau
 manager: danielgi
-editor: ''
-
-ms.assetid: 
 ms.service: azure-cdn
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 10/11/2017
 ms.author: duau

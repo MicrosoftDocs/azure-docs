@@ -5,20 +5,17 @@ description: Learn how to resize a gateway SKU.
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/25/2023
+ms.date: 11/29/2023
 ms.author: cherylmc
 
 ---
 # Resize a gateway SKU
 
-This article helps you resize a VPN Gateway virtual network gateway SKU. Resizing a gateway SKU is a relatively fast process. You don't need to delete and recreate your existing VPN gateway to resize. However, there are certain limitations and restrictions for resizing and not all SKUs are available when resizing.
+This article helps you resize a VPN Gateway virtual network gateway SKU. Resizing a gateway SKU is a relatively fast process. You don't need to delete and recreate your existing VPN gateway to resize. However, there are certain limitations and restrictions for resizing and not all SKUs are available to resize.
 
 [!INCLUDE [changing vs. resizing](../../includes/vpn-gateway-sku-about-change-resize.md)]
 
 When using the portal to resize your SKU, notice that the dropdown list of available SKUs is based on the SKU you currently have. If you don't see the SKU you want to resize to, instead of resizing, you have to change to a new SKU. For more information, see [About VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md).
-
-> [!NOTE]
-> The steps in this article apply to current Resource Manager deployments and not to legacy classic (service management) deployments.
 
 ## Considerations
 
@@ -32,7 +29,7 @@ The following table helps you understand the required method to move from one SK
 
 ## Resize a SKU
 
-Resizing a SKU takes about 45 minutes to complete.
+The following steps apply to current Resource Manager deployments and not to legacy classic (service management) deployments. Resizing a SKU takes about 45 minutes to complete.
 
 1. Go to the **Configuration** page for your virtual network gateway.
 1. On the right side of the page, click the dropdown arrow to show a list of available SKUs. The options listed are based on the starting SKU and SKU Generation.

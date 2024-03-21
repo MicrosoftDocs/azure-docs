@@ -1,18 +1,18 @@
 ---
-title: Use Apache Superset with HDInsight on AKS Trino
-description: Deploying Superset and connecting to HDInsight on AKS Trino
+title: Use Apache Superset with Trino on HDInsight on AKS
+description: Deploying Superset and connecting to Trino with HDInsight on AKS
 ms.service: hdinsight-aks
 ms.topic: how-to 
-ms.date: 08/29/2023
+ms.date: 10/19/2023
 ---
 
-# Deploy Apache Superset
+# Deploy Apache Superset™
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
 Visualization is essential to effectively explore, present, and share data. [Apache Superset](https://superset.apache.org/) allows you to run queries, visualize, and build dashboards over your data in a flexible Web UI. 
 
-This article describes how to deploy an Apache Superset UI instance in Azure and connect it to HDInsight on AKS Trino cluster to query data and create dashboards.
+This article describes how to deploy an Apache Superset UI instance in Azure and connect it to Trino cluster with HDInsight on AKS to query data and create dashboards.
 
 Summary of the steps covered in this article:
 1. [Prerequisites](#prerequisites).
@@ -24,9 +24,9 @@ Summary of the steps covered in this article:
 
 *If using Windows, use [Ubuntu on WSL2](https://ubuntu.com/tutorials/install-ubuntu-on-wsl2-on-windows-11-with-gui-support#1-overview) to run these instructions in a bash shell Linux environment within Windows. Otherwise, you need to modify commands to work in Windows.*
 
-### Create a HDInsight on AKS Trino cluster and assign a Managed Identity
+### Create a Trino cluster and assign a Managed Identity
 
-1. If you haven't already, create an [HDInsight on AKS Trino cluster](trino-create-cluster.md).
+1. If you haven't already, create a [Trino cluster with HDInsight on AKS](trino-create-cluster.md).
 
 2. For Apache Superset to call Trino, it needs to have a managed identity (MSI). Create or pick an existing [user assigned managed identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity).
 
@@ -54,7 +54,6 @@ Summary of the steps covered in this article:
 4. Install [Kubernetes](https://kubernetes.io/docs/tasks/tools/).
 
 5. Install [Helm](https://helm.sh/docs/intro/install/).
-
 
 ## Create kubernetes cluster for Apache Superset
 
@@ -167,7 +166,7 @@ This step creates the Azure Kubernetes Service (AKS) cluster where you can insta
 
    5. Select **Trino**.
 
-   6. Enter the SQL Alchemy URI of your HDInsight on AKS Trino cluster.
+   6. Enter the SQL Alchemy URI of your Trino cluster.
 
        You need to modify three parts of this connection string:
 
@@ -177,7 +176,7 @@ This step creates the Azure Kubernetes Service (AKS) cluster where you can insta
        |hostname|mytrinocluster.00000000000000000000000000<br>.eastus.hdinsightaks.net|The hostname of your Trino cluster. <br> You can get this information from "Overview" page of your cluster in the Azure portal.|
        |catalog|/tpch|After the slash, is the default catalog name. <br> You need to change this catalog to the catalog that has the data you want to visualize.|
 
-       trino://<mark>$USER</mark>@<mark>$TRINO_CLUSTER_HOST_NAME</mark>.hdinsightaks.net:443/<mark>$DEFAULT_CATALOG</mark>
+       `trino://$USER@$TRINO_CLUSTER_HOST_NAME.hdinsightaks.net:443/$DEFAULT_CATALOG`
     
        Example: `trino://trino@mytrinocluster.00000000000000000000000000.westus3.hdinsightaks.net:443/tpch`
 
@@ -202,7 +201,7 @@ This step creates the Azure Kubernetes Service (AKS) cluster where you can insta
 
 Now, you're ready to create datasets and charts.
 
-### Troubleshooting
+## Troubleshooting
 
 * Verify your Trino cluster has been configured to allow the Superset cluster's user assigned managed identity to connect. You can verify this value by looking at the resource JSON of your Trino cluster (authorizationProfile/userIds). Make sure that you're using the identity's object ID, not the client ID.
   

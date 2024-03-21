@@ -69,7 +69,7 @@ For more information, see [Connect your threat intelligence platform using uploa
 
 Much like the existing upload indicators API data connector, the **Threat Intelligence Platform data connector** uses an API allowing your TIP or custom solution to send indicators into Microsoft Sentinel. However, this data connector is now on a path for deprecation. We recommend new solutions to take advantage of the optimizations the upload indicators API has to offer.
 
-The TIP data connector works with the [Microsoft Graph Security tiIndicators API](/graph/api/resources/tiindicator). It can also be used by any custom threat intelligence platform that communicates with the tiIndicators API to send indicators to Microsoft Sentinel (and to other Microsoft security solutions like Microsoft 365 Defender).
+The TIP data connector works with the [Microsoft Graph Security tiIndicators API](/graph/api/resources/tiindicator). It can also be used by any custom threat intelligence platform that communicates with the tiIndicators API to send indicators to Microsoft Sentinel (and to other Microsoft security solutions like Microsoft Defender XDR).
 
 :::image type="content" source="media/understand-threat-intelligence/threat-intel-import-path.png" alt-text="Screenshot showing threat intelligence import path":::
 

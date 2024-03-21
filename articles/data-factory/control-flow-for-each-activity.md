@@ -513,7 +513,7 @@ Here are some limitations of the ForEach activity and suggested workarounds.
 | SetVariable can't be used inside a ForEach activity that runs in parallel as the variables are global to the whole pipeline, they are not scoped to a ForEach or any other activity. | Consider using sequential ForEach or use Execute Pipeline inside ForEach (Variable/Parameter handled in child Pipeline).|
 | | |
 
-## Next steps
+## Related content
 See other supported control flow activities: 
 
 - [Execute Pipeline Activity](control-flow-execute-pipeline-activity.md)

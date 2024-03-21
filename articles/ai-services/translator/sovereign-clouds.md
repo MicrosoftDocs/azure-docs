@@ -2,12 +2,12 @@
 title: "Translator: sovereign clouds"
 titleSuffix: Azure AI services
 description: Using Translator in sovereign clouds
-services: cognitive-services
+#services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: reference
-ms.date: 07/18/2023
+ms.date: 01/31/2024
 ms.author: lajanuar
 ---
 
@@ -35,7 +35,7 @@ The following table lists the base URLs for Azure sovereign cloud endpoints:
 
 ### [Azure US Government](#tab/us)
 
- The Azure Government cloud is available to US government customers and their partners. US federal, state, local, tribal governments and their partners have access to the Azure Government cloud dedicated instance. Cloud operations are controlled by screened US citizens.
+ The Azure Government cloud is available to US government customers and their partners. US federal, state, local, tribal governments and their partners have access to the Azure Government cloud dedicated instance. Screened US citizens control cloud operations.
 
 | Azure US Government | Availability and support |
 |--|--|
@@ -111,7 +111,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.us/translate?api-version
 ```
 
 > [!div class="nextstepaction"]
-> [Azure Government: Translator text reference](../../azure-government/documentation-government-cognitiveservices.md#translator)
+> [Azure Government: Translator text reference](../../azure-government/documentation-government-cognitiveservices.md)
 
 ### [Azure operated by 21Vianet](#tab/china)
 
