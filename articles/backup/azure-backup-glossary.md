@@ -259,15 +259,15 @@ A user-defined rule that specifies how long backups should be retained.
 
 ## Recovery Point Objective (RPO)
 
-PO indicates the maximum acceptable amount of data-loss measured in time. For example, if a disaster occurs at *12:00 PM* and the last backup was at *10:00 AM*, the RPO is *two hours*. This means that the organization is willing to accept losing two hours’ worth of data.
+RPO indicates the maximum acceptable amount of data loss measured in time. For example, if a disaster occurs at *12:00 PM* and the last backup was at *10:00 AM*, the RPO is *two hours*. This means that the organization is willing to accept losing two hours’ worth of data.
 
 ## Recovery Time Objective (RTO)
 
-RTO is the target time within which a business process must be restored after a disaster occurs to avoid unacceptable consequences. For instance, if a critical application goes down due to a server failure, and the business can only tolerate a *maximum of four hours of downtime*, then the RTO is *four hours*.
+RTO is the target time within which a business process must be restored after a disaster occurs to avoid unacceptable consequences. For instance, if a critical application goes down due to a server failure and the business can only tolerate a *maximum of four hours of downtime*, then the RTO is *four hours*.
 
-The following example scenario describes both RPO and RTO concepts:
+The following example scenario describes both the RPO and RTO concepts:
 
-Your company has an RPO of *1 hour* for your customer database, which means you perform backups every hour. If a data loss incident occurs, you'll lose not more than *one hour of data*. When you set RTO to *3 hours*, then in the event of a system failure, you aim to restore access to the database within 3 hours to minimize impact on operations.
+Your organization has an RPO of *one hour* for your customer database, which means you perform backups every hour. If a data loss incident occurs, you'll lose not more than *one hour of data*. When you set RTO to *three hours*, then in the event of a system failure, you aim to restore access to the database within three hours to minimize the impact on operations.
 
 ## Scheduled backup
 
