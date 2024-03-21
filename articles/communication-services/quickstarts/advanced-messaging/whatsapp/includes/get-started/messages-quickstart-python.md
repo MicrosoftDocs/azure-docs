@@ -208,7 +208,7 @@ The phone number should include the country code. For more information on phone 
 
 Set the recipient list like this:
 ```python
-    phone_number = os.getenv("RECIPIENT_PHONE_NUMBER")
+    phone_number = os.getenv("RECIPIENT_WHATSAPP_PHONE_NUMBER")
 ```
 
 Usage Example:
