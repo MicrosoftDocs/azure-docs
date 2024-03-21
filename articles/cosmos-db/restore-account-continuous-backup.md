@@ -4,7 +4,7 @@ description: Learn how to identify the restore time and restore a live or delete
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 03/31/2023
+ms.date: 03/21/2024
 ms.author: govindk
 ms.reviewer: mjbrown
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
@@ -122,7 +122,7 @@ Before restoring the account, install the [latest version of Azure PowerShell](/
 
 ### <a id="trigger-restore-ps"></a>Trigger a restore operation for API for NoSQL account
 
-The following cmdlet is an example to trigger a restore operation with the restore command by using the target account, source account, location, resource group, PublicNetworkAccess and timestamp:
+The following cmdlet is an example to trigger a restore operation with the restore command by using the target account, source account, location, resource group, PublicNetworkAccess, DisableTtl, and timestamp:
 
 
 
@@ -134,7 +134,8 @@ Restore-AzCosmosDBAccount `
   -SourceDatabaseAccountName "SourceDatabaseAccountName" `
   -RestoreTimestampInUtc "UTCTime" `
   -Location "AzureRegionName" ` 
-  -PublicNetworkAccess Disabled
+  -PublicNetworkAccess Disabled `
+  -DisableTtl 1
 
 ```
 
@@ -149,9 +150,11 @@ Restore-AzCosmosDBAccount `
   -RestoreTimestampInUtc "2021-01-05T22:06:00" `
   -Location "West US" `
   -PublicNetworkAccess Disabled
+  -DisableTtl 0
+
 
 ```
-If `PublicNetworkAccess` is not set, restored account is accessible from public network, please ensure to pass `Disabled` to the `PublicNetworkAccess` option to disable public network access for restored account.
+If `PublicNetworkAccess` is not set, restored account is accessible from public network, please ensure to pass `Disabled` to the `PublicNetworkAccess` option to disable public network access for restored account. Setting DisableTtl to 1 ensures TTL is disabled on the restored account, and not providing any value to it would restore the account with TTL enabled. 
 
 > [!NOTE]
 > For restoring with public network access disabled, the minimum stable version of Az.CosmosDB required is 1.12.0.
@@ -422,11 +425,12 @@ az cosmosdb restore \
  --restore-timestamp 2020-07-13T16:03:41+0000 \
  --resource-group <MyResourceGroup> \
  --location "West US" \
- --public-network-access Disabled
+ --public-network-access Disabled \
+ --disable-ttl True 
 
 ```
 
-If `--public-network-access` is not set, restored account is accessible from public network. Please ensure to pass `Disabled` to the `--public-network-access` option to prevent public network access for restored account.
+If `--public-network-access` is not set, restored account is accessible from public network. Please ensure to pass `Disabled` to the `--public-network-access` option to prevent public network access for restored account. Setting disable-ttl to True ensures TTL is disabled on the restored account, and not providing any value to it would restore the account with TTL enabled.
 
  > [!NOTE]
  > For restoring with public network access disabled, the minimum stable version of azure-cli is 2.52.0.
@@ -840,7 +844,8 @@ Use the following ARM template to restore an account for the Azure Cosmos DB API
         "restoreParameters": {
             "restoreSource": "/subscriptions/2296c272-5d55-40d9-bc05-4d56dc2d7588/providers/Microsoft.DocumentDB/locations/West US/restorableDatabaseAccounts/6a18ecb8-88c2-4005-8dce-07b44b9741df",
             "restoreMode": "PointInTime",
-            "restoreTimestampInUtc": "6/24/2020 4:01:48 AM"
+            "restoreTimestampInUtc": "6/24/2020 4:01:48 AM",
+            "restoreWithTtlDisabled": "true"
         }
       }
     }
