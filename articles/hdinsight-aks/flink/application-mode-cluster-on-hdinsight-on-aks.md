@@ -1,12 +1,12 @@
 ---
 title: Apache Flink® Application Mode Cluster on HDInsight on AKS
-description: Learn about  Flink® Application Mode Cluster on HDInsight on AKS.
+description: Learn about  Flink® Application Mode cluster on HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: how-to
 ms.date: 03/21/2024
 ---
 
-# Apache Flink Application Mode Cluster on HDInsight on AKS
+# Apache Flink Application Mode cluster on HDInsight on AKS
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
@@ -15,59 +15,59 @@ HDInsight on AKS now offers a Flink Application mode cluster. This cluster lets 
 
 This deployment mode enables you to assign dedicated resources for specific Flink applications, ensuring that they have enough computing power and memory to handle large workloads efficiently.  
 
-:::image type="content" source="./media/application-mode-cluster-on-hdinsight-on-aks/job-manager.png" alt-text="Screenshot showing job manager." lightbox="./media/application-mode-cluster-on-hdinsight-on-aks/job-manager.png":::
+:::image type="content" source="./media/application-mode-cluster-on-hdinsight-on-aks/job-manager.png" alt-text="Screenshot showing the job manager window." lightbox="./media/application-mode-cluster-on-hdinsight-on-aks/job-manager.png":::
 
 ## Advantages
 
-1. Simplified cluster deployment with Job jar.
+* Simplified cluster deployment with Job jar.
 
-1. User friendly REST API: HDInsight on AKS provides user friendly ARM Rest APIs to manage app mode job operation like Update, Savepoint, Cancel, Delete.  
+* User friendly REST API: HDInsight on AKS provides user friendly ARM Rest APIs to manage app mode job operation like Update, Savepoint, Cancel, Delete.  
 
-1. Easy to manage Job Updates and State Management: The native Azure portal integration provides a hassle-free experience for updating jobs and restoring them to their last saved state (savepoint). This functionality ensures continuity and data integrity throughout the job lifecycle.
+* Easy to manage Job Updates and State Management: The native Azure portal integration provides a hassle-free experience for updating jobs and restoring them to their last saved state (savepoint). This functionality ensures continuity and data integrity throughout the job lifecycle.
 
-1. Automate Flink Job(s) using Azure Pipelines or other CI/CD tools: Using HDInsight on AKS, Flink users have access to user-friendly ARM Rest API, you can seamlessly integrate Flink job operations into your Azure Pipeline or other CI/CD tools.
+* Automate Flink Job(s) using Azure Pipelines or other CI/CD tools: Using HDInsight on AKS, Flink users have access to user-friendly ARM Rest API, you can seamlessly integrate Flink job operations into your Azure Pipeline or other CI/CD tools.
 
 ## Key Features
 
-1. **Stop and Start Jobs with Savepoints**: Users can gracefully stop and start their Flink AppMode jobs from their previous state (Savepoint). Savepoints ensure that job progress is preserved, enabling seamless resumptions.
+* **Stop and Start Jobs with Savepoints**: Users can gracefully stop and start their Flink AppMode jobs from their previous state (Savepoint). Savepoints ensure that job progress is preserved, enabling seamless resumptions.
 
-1. **Job Updates**: User can update the running AppMode job after updating the jar on storage account. This update automatically takes the savepoint and starts the AppMode job with a new jar.
+* **Job Updates**: User can update the running AppMode job after updating the jar on storage account. This update automatically takes the savepoint and starts the AppMode job with a new jar.
 
-1. **Stateless Updates**: Performing a fresh restart for a AppMode job is simplified through stateless updates. This feature allows users to initiate a clean restart using updated job jar.
+* **Stateless Updates**: Performing a fresh restart for a AppMode job is simplified through stateless updates. This feature allows users to initiate a clean restart using updated job jar.
 
-1. **Savepoint Management**: At any given moment, users can create savepoints for their running jobs. These savepoints can be listed and used to restart the job from a specific checkpoint as needed.
+* **Savepoint Management**: At any given moment, users can create savepoints for their running jobs. These savepoints can be listed and used to restart the job from a specific checkpoint as needed.
 
-1. **Cancel**: Cancels the job permanently.
+* **Cancel**: Cancels the job permanently.
 
-1. **Delete**: Delete AppMode cluster.
+* **Delete**: Delete AppMode cluster.
 
 ## How to create Flink Application Cluster
 
 ### Prerequisites
 
-**Complete the prerequisites in the following sections:
+**Complete the prerequisites in the following sections:**
 
-1. [Subscription prerequisites.](../prerequisites-subscription.md)
+* [Subscription prerequisites.](../prerequisites-subscription.md)
 
-1. [Resource prerequisites.](../prerequisites-resources.md)
+* [Resource prerequisites.](../prerequisites-resources.md)
 
-1. [Create a cluster pool].(../prerequisites-resources.md)
+* [Create a cluster pool](../prerequisites-resources.md)
 
-1. Add job jar in Storage Account.
+* Add job jar in Storage Account.
 
-    Before setting up a Flink App Mode Cluster, several preparatory steps required. One of these steps involves placing the App Mode job JAR in the cluster's storage account. 
+   Before setting up a Flink App Mode Cluster, several preparatory steps required. One of these steps involves placing the App Mode job JAR in the cluster's storage account. 
 
-    1. Create a Directory for App Mode Job JAR:
+  * Create a Directory for App Mode Job JAR:
         
         Inside the dedicated containers, create a directory where you upload the App Mode job JAR file. This directory serves as the location for storing JAR files that you want to include in the classpath of the Flink cluster or job.
         
-    1. Savepoints Directory (Optional):
+    * Savepoints Directory (Optional):
         
         If users intend to take savepoints during job execution, create a separate directory within the storage account for storing these savepoints. This directory used to store checkpoint data and metadata for savepoints.
         
-    1. Example directory structure:
+    * Example directory structure:
        
-       :::image type="content" source="./media/application-mode-cluster-on-hdinsight-on-aks/save-points-directory-structure.png" alt-text="Screenshot showing save points directory structure." lightbox="./media/application-mode-cluster-on-hdinsight-on-aks/save-points-directory-structure.png":::
+       :::image type="content" source="./media/application-mode-cluster-on-hdinsight-on-aks/save-points-directory-structure.png" alt-text="Screenshot showing the save points directory structure." lightbox="./media/application-mode-cluster-on-hdinsight-on-aks/save-points-directory-structure.png":::
      
         
 ### Create Flink App Mode Cluster
@@ -183,14 +183,14 @@ Portal > HDInsight on AKS Cluster Pool > Flink Cluster > Settings > Flink Jobs.
 
 :::image type="content" source="./media/application-mode-cluster-on-hdinsight-on-aks/flink-job.png" alt-text="Screenshot showing Apache Flink jobs that are running." lightbox="./media/application-mode-cluster-on-hdinsight-on-aks/flink-job.png":::
 
-1. Stop: Stop job didn't require any parameters. User can stop the job by selecting the action. Once the job is stopped, the job status on the portal to be STOPPED. 
-1. Start: Starts the job from savepoint. To start the job, select the stopped job and start it.
-1. Update: Update helps to restart jobs with updated job code. Users need to update the latest job jar in storage location and update the job from portal. This action stops the job with savepoint and start again with latest jar.
-1. Stateless Update: Stateless is like an update, but it involves a fresh restart of the job with the latest code. Once the job is updated, the job status on the portal a shows as **Running.**
-1. Savepoint: Take the savepoint for the Flink Job.
-1. Cancel: Terminate the job.
-1. Delete: Delete AppMode cluster.
-1. View Job Details: To view the job detail user can click on job name, it gives the details about the job and last action result.
+* Stop: Stop job didn't require any parameters. User can stop the job by selecting the action. Once the job is stopped, the job status on the portal to be STOPPED. 
+* Start: Starts the job from savepoint. To start the job, select the stopped job and start it.
+* Update: Update helps to restart jobs with updated job code. Users need to update the latest job jar in storage location and update the job from portal. This action stops the job with savepoint and start again with latest jar.
+* Stateless Update: Stateless is like an update, but it involves a fresh restart of the job with the latest code. Once the job is updated, the job status on the portal a shows as **Running.**
+* Savepoint: Take the savepoint for the Flink Job.
+* Cancel: Terminate the job.
+* Delete: Delete AppMode cluster.
+* View Job Details: To view the job detail user can click on job name, it gives the details about the job and last action result.
 
     :::image type="content" source="./media/application-mode-cluster-on-hdinsight-on-aks/json-view.png" alt-text="Screenshot showing JSON view." lightbox="./media/application-mode-cluster-on-hdinsight-on-aks/json-view.png":::
 
