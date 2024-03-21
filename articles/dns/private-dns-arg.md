@@ -99,7 +99,7 @@ resources
 
 ## Autoregistered DNS records
 
-The following query lists autoregistered private DNS records:
+The following query lists autoregistered IPv4 private DNS records:
 
 ```Kusto
 dnsresources
