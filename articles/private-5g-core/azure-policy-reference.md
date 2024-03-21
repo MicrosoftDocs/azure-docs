@@ -14,12 +14,13 @@ This page lists the [Azure Policy](../governance/policy/overview.md) policy defi
 
 The name of each policy definition links to the policy definition in the Azure portal. Use the link in the **Version** column to view the source on the [Azure Policy GitHub repo](https://github.com/Azure/azure-policy).
 
+To assign a policy, see [Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md).
+
 ## Azure API Management
 
 [!INCLUDE [](../../includes/policy/reference/bycat/policies-mobile-network.md)]
 
 ## Next steps
 
-- [Azure Policy definition structure](../governance/policy/concepts/definition-structure.md).
-- [Understanding policy effects](../governance/policy/concepts/effects.md).
-- [Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md).
+- [Azure Policy definition structure](../governance/policy/concepts/definition-structure.md)
+- [Understanding policy effects](../governance/policy/concepts/effects.md)

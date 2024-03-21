@@ -78,7 +78,7 @@ If you decide to set up Microsoft Entra ID for local monitoring access, after de
 
 See [Choose the authentication method for local monitoring tools](collect-required-information-for-a-site.md#choose-the-authentication-method-for-local-monitoring-tools) for additional information on configuring local monitoring access authentication.
 
-You can use Azure Policy to enforce using Entra ID to access diagnostics. See [Azure Policy definitions for Azure Private 5G Core](azure-policy-reference.md).
+You can use Azure Policy to enforce using Entra ID for local monitoring access. See [Azure Policy definitions for Azure Private 5G Core](azure-policy-reference.md).
 
 ## Next steps
 
