@@ -76,10 +76,21 @@ The workspace is the top-level resource for Azure Machine Learning, providing a 
 1. Import the required libraries:
 
     ```python
-    from azure.ai.ml import MLClient, Input
-    from azure.ai.ml.entities import ManagedOnlineEndpoint, ManagedOnlineDeployment, Model
-    from azure.ai.ml.constants import AssetTypes
     from azure.identity import DefaultAzureCredential
+    from azure.ai.ml import MLClient
+    from azure.ai.ml.entities import (
+        AzureMLOnlineInferencingServer,
+        ModelPackage,
+        CodeConfiguration,
+        BaseEnvironment,
+        ModelConfiguration,
+    )
+    from azure.ai.ml.entities import (
+        ManagedOnlineEndpoint,
+        ManagedOnlineDeployment,
+        Environment,
+        Model,
+    )
     ```
 
 2. If you're running in a compute instance in Azure Machine Learning, create an `MLClient` as follows:
