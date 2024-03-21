@@ -69,6 +69,8 @@ items:
       href: concepts-vulnerability-management.md
   - name: Storage
     href: concepts-storage.md
+  - name: Migrate
+    href: concepts-migrate.md
 - name: How-to guides
   items:
   - name: Azure native integration
@@ -247,24 +249,24 @@ items:
       href: configure-hcx-network-extension.md
     - name: Configure VMware HCX network extension high availability
       href: configure-hcx-network-extension-high-availability.md
+    - name: Enable VMware HCX access over the internet
+      href: enable-hcx-access-over-internet.md
+    - name: Upgrade VMware HCX on Azure VMware Solution
+      href: upgrade-hcx-azure-vmware-solutions.md
+    - name: Use VMware HCX Run Commands
+      href: use-hcx-run-commands.md
     - name: Configure VMware Aria Operations
       href: vrealize-operations-for-azure-vmware-solution.md
     - name: Deploy VMware Horizon
       href: azure-vmware-solution-horizon.md
     - name: Deploy VMs from the content library
       href: deploy-vm-content-library.md
-    - name: Enable VMware HCX access over the internet
-      href: enable-hcx-access-over-internet.md
     - name: Configure VMware Cloud Director Service in Azure VMware Solution
       href: configure-vmware-cloud-director-service-azure-vmware-solution.md
     - name: Enable VMware Cloud Director Service with Azure VMware solution
       href: enable-vmware-cds-with-azure.md
     - name: Deploy VMware Cloud Director Availability in Azure VMware Solution
       href: deploy-vmware-cloud-director-availability-in-azure-vmware-solution.md
-    - name: Upgrade VMware HCX on Azure VMware Solution
-      href: upgrade-hcx-azure-vmware-solutions.md
-    - name: Use VMware HCX Run Commands
-      href: use-hcx-run-commands.md
 - name: Resources
   items:
   - name: Learning paths
