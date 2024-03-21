@@ -393,8 +393,8 @@ The **Actions** column might also show one of the following statuses:
 
 |Status  |Description and action required |
 |---------|---------|
-|**Missing permissions**     | You're missing the required permissions to run playbooks. For more information, see [Required Azure roles to run playbooks](#required-azure-roles-to-run-playbooks). We recommend that you contact an admin user to grant you the relevant permissions.      |
-|**Grant permission**     | Microsoft Sentinel is missing the required permissions to run playbooks on incidents ([see the note above](#explicit-permissions)). In such cases, select **Grant permission** to open the **Manage permissions** pane. The **Manage permissions** pane is filtered by default to the selected playbook's resource group. Select the resource group and then select **Apply** to grant the required permissions. <br><br>If you don't have required permissions to complete this action, we recommend you contact an admin user to grant you the relevant permissions.        |
+|<a name="missing-perms"></a>**Missing permissions**     | You're missing the required permissions to run playbooks. For more information, see [Required Azure roles to run playbooks](#required-azure-roles-to-run-playbooks). We recommend that you contact an admin user to grant you the relevant permissions.      |
+|<a name="grant-perms"></a>**Grant permission**     | Microsoft Sentinel is missing the required permissions to run playbooks on incidents ([see the note above](#explicit-permissions)). In such cases, select **Grant permission** to open the **Manage permissions** pane. The **Manage permissions** pane is filtered by default to the selected playbook's resource group. Select the resource group and then select **Apply** to grant the required permissions. <br><br>If you don't have required permissions to complete this action, we recommend you contact an admin user to grant you the relevant permissions.        |
 
 ---
 
