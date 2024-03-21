@@ -6,7 +6,7 @@ metadata:
   author: greg-lindsay
   ms.service: application-gateway
   ms.topic: faq
-  ms.date: 02/28/2024
+  ms.date: 03/15/2024
   ms.author: greglin
   ms.custom: references_regions, devx-track-azurepowershell
 title: Frequently asked questions about Application Gateway
@@ -84,7 +84,7 @@ sections:
         answer: No. There's no way to rename an Application Gateway resource. You must create a new resource with a different name. 
         
       - question: Is there a way to restore an Application Gateway resource and its public IP if it was deleted?
-        answer: No. There's no way to restore an Application Gateway resource or its public IP after it's deleted. You must create a new resource.
+        answer: No. There's no way to restore an Application Gateway resource or its public IP after deletion. You must create a new resource.
         
       - question: Does the IP or DNS name change over the lifetime of the application gateway?
         answer: In Application Gateway v1 SKU, the VIP can change if you stop and start the application gateway. But the DNS name associated with the application gateway doesn't change over the lifetime of the gateway. Because the DNS name doesn't change, you should use a CNAME alias and point it to the DNS address of the application gateway. In Application Gateway v2 SKU, IP addresses are static, so the IP address and DNS name won't change over the lifetime of the application gateway. 
@@ -93,8 +93,8 @@ sections:
         answer: Yes. The Application Gateway v2 SKU supports static public IP addresses and static internal IPs. The v1 SKU supports static internal IPs.
 
       - question: Does Application Gateway support multiple public IPs on the gateway?
-        answer: An application gateway supports only one public IP address.
-
+        answer: An application gateway supports only one public IP address per IP protocol. If the application gateway is configured as DualStack, it can support two Public IPs, one for IPv4 and one for IPv6.
+        
       - question: How large should I make my subnet for Application Gateway?
         answer: |
           See [Application Gateway subnet size considerations](./configuration-infrastructure.md#size-of-the-subnet).
@@ -277,7 +277,7 @@ sections:
           Yes, you can use public-facing and private-facing listeners with the same port number to simultaneously support public and private clients. If a network security group (NSG) is associated with your application gateway's subnet, a specific Inbound rule might be needed depending on its configuration. [Know more](./configuration-listeners.md#frontend-port).
 
       - question: Does Application Gateway support IPv6?
-        answer: Application Gateway v2 supports IPv4 and IPv6 frontends (public preview). Currently, IPv6 support is available for new application gateways only. To support IPv6, the virtual network should be dual stack. Application Gateway v1 doesn't support dual-stack virtual networks. 
+        answer: Application Gateway v2 supports IPv4 and IPv6 frontends. Currently, IPv6 support is available for new application gateways only. To support IPv6, the virtual network should be dual stack. Application Gateway v1 doesn't support dual-stack virtual networks. 
 
       - question: Does Application Gateway support FIPS?
         answer: Application Gateway v1 SKUs can run in a FIPS 140-2 approved mode of operation, which is commonly referred to as "FIPS mode." FIPS mode calls a FIPS 140-2 validated cryptographic module that ensures FIPS-compliant algorithms for encryption, hashing, and signing when enabled. To ensure FIPS mode is enabled, the `FIPSMode` setting must be configured via PowerShell, Azure Resource Manager template, or REST API after the subscription has been enrolled to enable configuration of `FIPSmode`.
@@ -419,12 +419,12 @@ sections:
 
       - question: My EV certificate is issued by DigiCert and my intermediate certificate has been revoked. How do I renew my certificate on Application Gateway?
         answer: |
-          CA/Browser members recently published reports detailing multiple certificates issued by CA vendors that are used by our customers, Microsoft, and the greater technology community that were out of compliance with industry standards for publicly trusted CAs. The reports regarding the noncompliant CAs can be found here:  
+          CA/Browser members recently published reports detailing multiple certificates issued by CA vendors that are used by our customers, Microsoft, and the greater technology community that were out of compliance with industry standards for publicly trusted CAs. The reports regarding the noncompliant CAs can be found here:  
           
           * [Bug 1649951](https://bugzilla.mozilla.org/show_bug.cgi?id=1649951)
           * [Bug 1650910](https://bugzilla.mozilla.org/show_bug.cgi?id=1650910)
           
-          According to the industry's compliance requirements, CA vendors began revoking noncompliant CAs and issuing compliant CAs, which requires customers to have their certificates reissued. Microsoft is partnering closely with these vendors to minimize the potential impact to Azure services. *However, your self-issued certificates or certificates used in Bring Your Own Certificate (BYOC) scenarios are still at risk of being unexpectedly revoked*.
+          According to the industry's compliance requirements, CA vendors began revoking noncompliant CAs and issuing compliant CAs, which requires customers to have their certificates reissued. Microsoft is partnering closely with these vendors to minimize the potential impact to Azure services. *However, your self-issued certificates or certificates used in Bring Your Own Certificate (BYOC) scenarios are still at risk of being unexpectedly revoked*.
           
           To check if certificates utilized by your application were revoked, see [DigiCert's announcement](https://knowledge.digicert.com/alerts/digicert-ica-replacement) and the [Certificate Revocation Tracker](https://social.technet.microsoft.com/wiki/contents/articles/34071.pki-certificate-revocation-process-explained.aspx). If your certificates were revoked, or will be revoked, you need to request new certificates from the CA vendor utilized in your applications. To avoid your application's availability being interrupted because of certificates being unexpectedly revoked, or to update a certificate that has been revoked, see [Revocation of noncompliant Certificate Authorities potentially impacting customer's Azure services](https://azure.microsoft.com/updates/certificateauthorityrevocation/).
           

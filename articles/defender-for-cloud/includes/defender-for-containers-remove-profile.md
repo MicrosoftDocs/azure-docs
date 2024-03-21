@@ -5,7 +5,7 @@ ms.date: 06/01/2023
 ms.author: dacurwin
 author: dcurwin
 ---
-## Remove the Defender agent
+## Remove the Defender sensor
 
 To remove this - or any - Defender for Cloud extension, it's not enough to turn off auto provisioning:
 
@@ -21,7 +21,7 @@ You can remove the extension using the REST API or a Resource Manager template a
 
 ### [**REST API**](#tab/aks-removeprofile-api)
 
-### Use REST API to remove the Defender agent from AKS
+### Use REST API to remove the Defender sensor from AKS
 
 To remove the extension using the REST API, run the following PUT command:
 
@@ -62,7 +62,7 @@ Request body parameters:
 
 ### [**Azure CLI**](#tab/k8s-remove-cli)
 
-### Use Azure CLI to remove the Defender agent
+### Use Azure CLI to remove the Defender sensor
 
 1. Remove the Microsoft Defender for  with the following commands:
 
@@ -84,14 +84,14 @@ Request body parameters:
 
 ### [**Resource Manager**](#tab/aks-removeprofile-resource-manager)
 
-### Use Azure Resource Manager to remove the Defender agent from AKS
+### Use Azure Resource Manager to remove the Defender sensor from AKS
 
-To use Azure Resource Manager to remove the Defender agent, you'll need a Log Analytics workspace on your subscription. Learn more in [Log Analytics workspaces](../../azure-monitor/logs/log-analytics-workspace-overview.md).
+To use Azure Resource Manager to remove the Defender sensor, you'll need a Log Analytics workspace on your subscription. Learn more in [Log Analytics workspaces](../../azure-monitor/logs/log-analytics-workspace-overview.md).
 
 > [!TIP]
 > If you're new to Resource Manager templates, start here: [What are Azure Resource Manager templates?](../../azure-resource-manager/templates/overview.md)
 
-The relevant template and parameters to remove the Defender agent from AKS are:
+The relevant template and parameters to remove the Defender sensor from AKS are:
 
 ```json
 { 

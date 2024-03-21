@@ -16,6 +16,7 @@ items:
       displayName: Resource Manager
       href: quickstart-configure-dev-box-arm-template.md  
     - name: Spin up a new dev box
+      displayName: connect, access dev box
       href: quickstart-create-dev-box.md
 - name: Concepts
   expanded: true
@@ -61,7 +62,8 @@ items:
   items:
   - name: Manage a dev box through developer portal
     href: how-to-create-dev-boxes-developer-portal.md
-  - name: Connect with Remote Desktop App 
+  - name: Connect with Remote Desktop App
+    displayName: connect, access dev box, RDP, iPad 
     href: tutorial-connect-to-dev-box-with-remote-desktop-app.md
   - name: Use multiple monitors
     href: tutorial-configure-multiple-monitors.md
