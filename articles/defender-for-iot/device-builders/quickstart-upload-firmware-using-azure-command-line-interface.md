@@ -16,7 +16,7 @@ This article explains how to use the Azure CLI to upload firmware images to Defe
 
 ## Prerequisites
 
-This quickstart assumes a basic understanding of Defender for IoT Firmware Analysis. For more information, see [Firmware analysis for device builders](/azure/defender-for-iot/device-builders/overview-firmware-analysis). For a list of the file systems that are supported, see [Frequently asked Questions about Defender for IoT Firmware Analysis](/azure/defender-for-iot/device-builders/defender-iot-firmware-analysis-faq.md#what-types-of-firmware-images-does-defender-for-iot-firmware-analysis-support).
+This quickstart assumes a basic understanding of Defender for IoT Firmware Analysis. For more information, see [Firmware analysis for device builders](/azure/defender-for-iot/device-builders/overview-firmware-analysis). For a list of the file systems that are supported, see [Frequently asked Questions about Defender for IoT Firmware Analysis](../../../articles/defender-for-iot/device-builders/defender-iot-firmware-analysis-faq.md#what-types-of-firmware-images-does-defender-for-iot-firmware-analysis-support).
 
 ### Prepare your environment for the Azure CLI
 
