@@ -57,19 +57,19 @@ This deployment mode enables you to assign dedicated resources for specific Flin
 
    Before setting up a Flink App Mode Cluster, several preparatory steps required. One of these steps involves placing the App Mode job JAR in the cluster's storage account. 
 
-  * Create a Directory for App Mode Job JAR:
+* Create a Directory for App Mode Job JAR:
         
-        Inside the dedicated containers, create a directory where you upload the App Mode job JAR file. This directory serves as the location for storing JAR files that you want to include in the classpath of the Flink cluster or job.
+  Inside the dedicated containers, create a directory where you upload the App Mode job JAR file. This directory serves as the location for storing JAR files that you want to include in the classpath of the Flink cluster or job.
         
-    * Savepoints Directory (Optional):
+* Savepoints Directory (Optional):
         
-        If users intend to take savepoints during job execution, create a separate directory within the storage account for storing these savepoints. This directory used to store checkpoint data and metadata for savepoints.
+  If users intend to take savepoints during job execution, create a separate directory within the storage account for storing these savepoints. This directory used to store checkpoint data and metadata for savepoints.
         
-    * Example directory structure:
+* Example directory structure:
        
-       :::image type="content" source="./media/application-mode-cluster-on-hdinsight-on-aks/save-points-directory-structure.png" alt-text="Screenshot showing the save points directory structure." lightbox="./media/application-mode-cluster-on-hdinsight-on-aks/save-points-directory-structure.png":::
-     
-        
+  :::image type="content" source="./media/application-mode-cluster-on-hdinsight-on-aks/save-points-directory-structure.png" alt-text="Screenshot showing the save points directory structure." lightbox="./media/application-mode-cluster-on-hdinsight-on-aks/save-points-directory-structure.png":::
+    
+       
 ### Create Flink App Mode Cluster
 
 Flink AppMode clusters can be created once cluster pool deployment completed, let us go over the steps in case you're getting started with an existing cluster pool.
