@@ -7,7 +7,7 @@ ms.subservice: confidential-computing
 ms.topic: quickstart
 ms.date: 12/01/2023
 ms.author: RunCai
-ms.custom: mode-arm, devx-track-azurecli, devx-track-arm-template, linux-related-content, has-azure-ad-ps-ref
+ms.custom: mode-arm, devx-track-azurecli, devx-track-arm-template, has-azure-ad-ps-ref
 ms.devlang: azurecli
 ---
 
