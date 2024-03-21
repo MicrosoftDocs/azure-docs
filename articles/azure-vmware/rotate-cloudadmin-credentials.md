@@ -22,7 +22,7 @@ Consider and determine which services connect to vCenter Server as *cloudadmin@v
 
 One way to determine which services authenticate to vCenter Server with the cloudadmin user is to inspect vSphere events using the vSphere Client for your private cloud. After you identify such services, and before rotating the password, you must stop these services. Otherwise, the services won't work after you rotate the password. You can also experience temporary locks on your vCenter Server CloudAdmin account, as these services continuously attempt to authenticate using a cached version of the old credentials. 
 
-Instead of using the cloudadmin user to connect services to vCenter Server or NSX-T Data Center, we recommend individual accounts for each service. For more information about setting up separate accounts for connected services, see [Access and Identity Concepts](./concepts-identity.md).
+Instead of using the cloudadmin user to connect services to vCenter Server or NSX-T, we recommend individual accounts for each service. For more information about setting up separate accounts for connected services, see [Access and Identity Concepts](./concepts-identity.md).
 
 ## Reset your vCenter Server credentials
 
@@ -37,7 +37,7 @@ Instead of using the cloudadmin user to connect services to vCenter Server or NS
 
 To begin using Azure CLI:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 1. In your Azure VMware Solution private cloud, open an Azure Cloud Shell session.
 
