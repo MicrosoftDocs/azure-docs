@@ -8,7 +8,7 @@ ms.topic: how-to
 # Azure Batch pool and node errors
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 Some Azure Batch pool creation and management operations happen immediately. Detecting failures for these operations is straightforward, because errors usually return immediately from the API, command line, or user interface. However, some operations are asynchronous, run in the background, and take several minutes to complete. This article describes ways to detect and avoid failures that can occur in the background operations for pools and nodes.
 

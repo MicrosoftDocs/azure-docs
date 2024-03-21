@@ -288,6 +288,32 @@ Application Insights is now enabled for your application. All the following step
 
 As part of using Application Insights instrumentation, we collect and send diagnostic data to Microsoft. This data helps us run and improve Application Insights. To learn more, see [Statsbeat in Azure Application Insights](./statsbeat.md).
 
+## Samples
+
+Azure Monitor OpenTelemetry sample applications are available for all supported languages.
+
+#### [ASP.NET Core](#tab/aspnetcore)
+
+- [ASP.NET Core sample app](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore/tests/Azure.Monitor.OpenTelemetry.AspNetCore.Demo)
+
+##### [.NET](#tab/net)
+
+- [NET sample app](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/tests/Azure.Monitor.OpenTelemetry.Exporter.Demo)
+
+##### [Java](#tab/java)
+
+- [Java sample apps](https://github.com/Azure-Samples/ApplicationInsights-Java-Samples)
+
+##### [Node.js](#tab/nodejs)
+
+- [Node.js sample app](https://github.com/Azure-Samples/azure-monitor-opentelemetry-node.js)
+
+##### [Python](#tab/python)
+
+- [Python sample apps](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor/azure-monitor-opentelemetry/samples)
+
+---
+
 ## Next steps
 
 ### [ASP.NET Core](#tab/aspnetcore)
