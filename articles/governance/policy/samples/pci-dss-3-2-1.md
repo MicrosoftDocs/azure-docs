@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for PCI DSS 3.2.1
 description: Details of the PCI DSS 3.2.1 Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 03/14/2024
+ms.date: 03/18/2024
 ms.topic: sample
 ms.custom: generated
 ---
@@ -11,7 +11,7 @@ The following article details how the Azure Policy Regulatory Compliance built-i
 definition maps to **compliance domains** and **controls** in PCI DSS 3.2.1.
 For more information about this compliance standard, see
 [PCI DSS 3.2.1](https://www.pcisecuritystandards.org/documents/PCI_DSS-QRG-v3_2_1.pdf). To understand
-_Ownership_, see [Azure Policy policy definition](../concepts/definition-structure.md#type) and
+_Ownership_, see [Azure Policy policy definition](../concepts/definition-structure.md) and
 [Shared responsibility in the cloud](../../../security/fundamentals/shared-responsibility.md).
 
 The following mappings are to the **PCI DSS 3.2.1** controls. Many of the controls
