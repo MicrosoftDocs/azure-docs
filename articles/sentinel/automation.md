@@ -82,7 +82,7 @@ After onboarding to the unified SOC platform, the **Active playbooks** tab shows
 
 The following procedures are not supported in the unified SOC platform:
 - [Run a playbook manually on an alert](tutorial-respond-threats-playbook.md?tabs=LAC%2Cincidents#run-a-playbook-manually-on-an-alert) 
-- [Run a playbook manually on an entity](tutorial-respond-threats-playbook.md?tabs=LAC%2Cincidents#run-a-playbook-manually-on-an-entity-preview)       |
+- [Run a playbook manually on an entity](tutorial-respond-threats-playbook.md?tabs=LAC%2Cincidents#run-a-playbook-manually-on-an-entity-preview)       
 
 
 ## Next steps
