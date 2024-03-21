@@ -44,6 +44,9 @@ Specific billing notifications have been sent via email for affected subscriptio
 
 Learn more about [Microsoft Defender for open-source relational databases](defender-for-databases-introduction.md).
 
+> [!NOTE]
+> Server updates are being rolled out over the next few weeks. If you see the error message `The server <servername> is not compatible with Advanced Threat Protection`, your MySQL Flexible Servers has not yet been updated and is waiting for the next internal update to occur. You can either wait for the next internal update to occur or you can contact Microsoft support to open a support ticket to update the server to a supported version.
+
 ## March 2024
 
 |Date | Update |
