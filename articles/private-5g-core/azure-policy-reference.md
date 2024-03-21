@@ -14,7 +14,7 @@ This page lists the [Azure Policy](../governance/policy/overview.md) policy defi
 
 The name of each policy definition links to the policy definition in the Azure portal. Use the link in the **Version** column to view the source on the [Azure Policy GitHub repo](https://github.com/Azure/azure-policy).
 
-To assign a policy, see [Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md).
+To assign a policy to your Azure Private 5G Core deployment, see [Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md).
 
 ## Azure API Management
 
