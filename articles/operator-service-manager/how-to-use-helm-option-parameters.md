@@ -1,0 +1,204 @@
+---
+title: How to use Helm option parameters to debug helm install failures
+description: Learn how to use Helm option parameters to debug helm install failures
+author: peterwhiting
+ms.author: peterwhiting
+ms.date: 03/21/2024
+ms.topic: how-to
+ms.service: azure-operator-service-manager
+ms.custom: devx-track-azurecli
+
+---
+# Use Helm option parameters to debug helm install failures
+
+Site Network Service (SNS) deployments may fail because an underlying Network Function (NF) deployment fails to helm install correctly. Azure Operator Service Manager (AOSM) removes failed deployments from the targeted Kubernetes cluster by default to preserve resources. Helm install failures often require the resources to persist on the cluster to allow the failure to be debugged. This How-To article covers how to edit the NF ARM template to override this behaviour by setting the `helm install --atomic` parameter to false.
+
+## Prerequisites
+
+- You must have onboarded your NF to AOSM using the Az CLI AOSM extension. This article references the folder structure and files output by the CLI and gives CLI-based examples.
+- Helm install failures can be complex. Debugging requires technical knowledge of several technologies in additional to domain knowledge of your NF
+  - Working knowledge of [Helm](https://helm.sh/docs/)
+  - Working knowledge of [Kubernetes](https://kubernetes.io/docs/home/) and [kubectl](https://kubernetes.io/docs/reference/kubectl/) commands
+  - Working knowledge of pulling and pushing artifacts to [Azure Container Registry](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli)
+- You require the `Contributor` role assignments on the resource group that contains the AOSM managed Artifact Store.
+- A suitable IDE, such as [VSCode](https://code.visualstudio.com/)
+- The [ORAS CLI](https://oras.land/docs/installation/)
+
+> [!IMPORTANT]
+> It is strongly recommended that you have tested that a `helm install` of your Helm package succeeds on your target Arc-connected Kubernetes environment before attempting a deployment using AOSM.
+
+## Override `--atomic` for a single helm chart NF
+
+This section explains how to override `--atomic` for an NF that consists of a single helm chart.
+
+### Locate and edit the NF BICEP template
+
+1. Navigate to the `nsd-cli-output` directory, open the `artifacts` directory, and open the `<nf-arm-template>.bicep` file. `<nf-arm-template>` is configured in the Az AOSM CLI extension nsd input file. You can confirm you have the right file by comparing against the following example template for a fictional Contoso CNF.
+
+```bicep
+@secure()
+param configObject object
+
+var resourceGroupId = resourceGroup().id
+
+var identityObject = (configObject.managedIdentityId == '')  ? {
+  type: 'SystemAssigned'
+} : {
+  type: 'UserAssigned'
+  userAssignedIdentities: {
+    '${configObject.managedIdentityId}': {}
+  }
+}
+
+var nfdvSymbolicName = '${configObject.publisherName}/${configObject.nfdgName}/${configObject.nfdvName}'
+
+resource nfdv 'Microsoft.Hybridnetwork/publishers/networkfunctiondefinitiongroups/networkfunctiondefinitionversions@2023-09-01' existing = {
+  name: nfdvSymbolicName
+  scope: resourceGroup(configObject.publisherResourceGroup)
+}
+
+resource nfResource 'Microsoft.HybridNetwork/networkFunctions@2023-09-01' = [for (values, i) in configObject.deploymentParameters: {
+  name: '${configObject.nfdgName}${i}'
+  location: configObject.location
+  identity: identityObject
+  properties: {
+    networkFunctionDefinitionVersionResourceReference: {
+      id: nfdv.id
+      idType: 'Open'
+    }
+    nfviType: 'AzureArcKubernetes'
+    nfviId: (configObject.customLocationId == '') ? resourceGroupId : configObject.customLocationId
+    allowSoftwareUpdate: true
+    configurationType: 'Secret'
+    secretDeploymentValues: string(values)
+  }
+}]
+```
+
+1. Find the NFApplication name by navigating to the `cnf-cli-output` directory, opening the `nfDefinition` directory, and copying the value from the only entry in the networkFunctionApplications array in the `nfdv` resource. Compare against the fictional Contoso example below to confirm you have the correct value. In this case the NFApplication name is `Contoso`.
+
+```bicep
+resource nfdv 'Microsoft.Hybridnetwork/publishers/networkfunctiondefinitiongroups/networkfunctiondefinitionversions@2023-09-01' = {
+  parent: nfdg
+  name: nfDefinitionVersion
+  location: location
+  properties: {
+    deployParameters: string(loadJsonContent('deploymentParameters.json'))
+    networkFunctionType: 'ContainerizedNetworkFunction'
+    networkFunctionTemplate: {
+      nfviType: 'AzureArcKubernetes'
+      networkFunctionApplications: [
+        {
+          artifactType: 'HelmPackage'
+          name: 'Contoso'
+```
+
+1. Edit the template to override the default helm install `--atomic` option by adding the following configuration to the `nfResource` properties in the NF ARM Template:
+
+```json
+roleOverrideValues: ["{\"name\": \"<NF APPLICATION NAME FROM NFDV>\", \"deployParametersMappingRuleProfile\": {\"applicationEnablement\": \"Enabled\", \"helmMappingRuleProfile\": {\"options\": {\"installOptions\": {\"atomic\": \"false\"}}}}}"]
+```
+
+1. Compare against the following snippet from the Contoso example NF to confirm that you have made this edit correctly
+
+```bicep
+resource nfResource 'Microsoft.HybridNetwork/networkFunctions@2023-09-01' = [for (values, i) in configObject.deploymentParameters: {
+  name: '${configObject.nfdgName}${i}'
+  location: configObject.location
+  identity: identityObject
+  properties: {
+    networkFunctionDefinitionVersionResourceReference: {
+      id: nfdv.id
+      idType: 'Open'
+    }
+    nfviType: 'AzureArcKubernetes'
+    nfviId: (configObject.customLocationId == '') ? resourceGroupId : configObject.customLocationId
+    allowSoftwareUpdate: true
+    configurationType: 'Secret'
+    secretDeploymentValues: string(values)
+    roleOverrideValues: ['{\"name\": \"Contoso\", \"deployParametersMappingRuleProfile\": {\"applicationEnablement\": \"Enabled\", \"helmMappingRuleProfile\": {\"options\": {\"installOptions\": {\"atomic\": \"false\"}}}}}']
+```
+
+### Build and upload the edited ARM Template to the Artifact Store
+
+1. Navigate to the `nsd-cli-output/artifacts` directory created by the `az aosm nsd build` command and build the Network Function ARM Template from the BICEP file generated by the CLI.
+
+```azurecli
+bicep build <nf-name>.bicep
+```
+
+1. Generate scope map token credentials from the Artifact Manifest created in the `az aosm nsd publish` command.
+
+> [!IMPORTANT]
+> You are required to use the Artifact Manifest created in the `az aosm nsd publish` command. The NF ARM template is only declared in that manifest hence only the scope map token generated by this manifest will allow you to push (or pull) the NF ARM template to the Artifact Store.
+
+```azurecli
+az rest --method POST --url 'https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.HybridNetwork/publishers/<publisher>/artifactStores/<artifact-store>/artifactManifests/<artifactManifest>/listCredential?api-version=2023-09-01'
+```
+
+1. Log in to the AOSM managed ACR. The AOSM managed ACR name can be found in Azure Portal blade for the Artifact Store resource. The username and password can be found in the output of the previous step.
+
+```bash
+oras login <aosm-managed-acr-name>.azurecr.io --username <username> --password <scope map token>
+```
+
+1. Use ORAS to upload the Network Function ARM template to the AOSM managed Azure Container Registry (ACR). The `<arm-template-version>` artifact tag must be in `1.0.0` format. The `<arm-template-name>` and `<arm-template-version>` must match the values in the Artifact Manifest created in the `az aosm nsd publish` command.
+
+## Override `--atomic` for a multi-helm chart NF
+
+Many complex NFs are built from multiple helm charts. These NFs are represented in the NFDV with multiple NFApplications and are installed with multiple `helm install` commands - one per helm chart.
+
+The process for overriding `--atomic` for a multi-helm NF is the same as for a single helm NF, apart from the edit made to the ARM template.
+
+The fictional multi-helm NF, Contoso-multi-helm, consists of three helm charts. Its NFDV has three NFApplications. One NFApplication maps to one helm chart. These NFApplications have a name property set to `Contoso-one`, `Contoso-two`, and `Contoso-three` respectively. Here's an example snippet of the NFDV defining this network function.
+
+```bicep
+resource nfdv 'Microsoft.Hybridnetwork/publishers/networkfunctiondefinitiongroups/networkfunctiondefinitionversions@2023-09-01' = {
+  parent: nfdg
+  name: nfDefinitionVersion
+  location: location
+  properties: {
+    deployParameters: string(loadJsonContent('deploymentParameters.json'))
+    networkFunctionType: 'ContainerizedNetworkFunction'
+    networkFunctionTemplate: {
+      nfviType: 'AzureArcKubernetes'
+      networkFunctionApplications: [
+        {
+          artifactType: 'HelmPackage'
+          name: 'Contoso-one'
+          ...
+        },
+        {
+          artifactType: 'HelmPackage'
+          name: 'Contoso-two'
+          ...
+        },
+        {
+          artifactType: 'HelmPackage'
+          name: 'Contoso-three'
+          ...
+        }]
+      }
+    }
+  }
+```
+
+The `--atomic` parameter can be overridden for each of these NFApplications independently. Here's an example NF BICEP template which overrides `--atomic` to `false` for `Contoso-one` and `Contoso-two`, but sets `atomic` to true for `Contoso-three`.
+
+```bicep
+resource nfResource 'Microsoft.HybridNetwork/networkFunctions@2023-09-01' = [for (values, i) in configObject.deploymentParameters: {
+  name: '${configObject.nfdgName}${i}'
+  location: configObject.location
+  identity: identityObject
+  properties: {
+    networkFunctionDefinitionVersionResourceReference: {
+      id: nfdv.id
+      idType: 'Open'
+    }
+    nfviType: 'AzureArcKubernetes'
+    nfviId: (configObject.customLocationId == '') ? resourceGroupId : configObject.customLocationId
+    allowSoftwareUpdate: true
+    configurationType: 'Secret'
+    secretDeploymentValues: string(values)
+    roleOverrideValues: ['{\"name\": \"Contoso-one\", \"deployParametersMappingRuleProfile\": {\"applicationEnablement\": \"Enabled\", \"helmMappingRuleProfile\": {\"options\": {\"installOptions\": {\"atomic\": \"false\"}}}}},{\"name\": \"Contoso-two\", \"deployParametersMappingRuleProfile\": {\"applicationEnablement\": \"Enabled\", \"helmMappingRuleProfile\": {\"options\": {\"installOptions\": {\"atomic\": \"false\"}}}}},{\"name\": \"Contoso-three\", \"deployParametersMappingRuleProfile\": {\"applicationEnablement\": \"Enabled\", \"helmMappingRuleProfile\": {\"options\": {\"installOptions\": {\"atomic\": \"true\"}}}}}']
+```
