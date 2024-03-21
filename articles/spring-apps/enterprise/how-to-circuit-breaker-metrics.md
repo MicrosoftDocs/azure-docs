@@ -234,7 +234,7 @@ Use the following steps to build and deploy the sample applications.
 
 1. Select **Metrics** in the navigation pane. The **Metrics** page provides dropdown menus and options to define the charts in this procedure. For all charts, set **Metric Namespace** to **azure.applicationinsights**.
 
-   :::image type="content" source="media/how-to-circuit-breaker-metrics/chart-menus.png" alt-text="Screenshot of the Azure portal Application Insights Metrics page, with Metrics and azure-applicationinsights highlighted." lightbox="media/how-to-circuit-breaker-metrics/chart-menus.png":::
+   :::image type="content" source="media/how-to-circuit-breaker-metrics/chart-menus.png" alt-text="Screenshot of the Azure portal Application Insights Metrics page that shows the Metrics and azure-applicationinsights highlighted." lightbox="media/how-to-circuit-breaker-metrics/chart-menus.png":::
 
 1. Set **Metric** to **resilience4j_circuitbreaker_buffered_calls**, and then set **Aggregation** to **Avg**.
 
@@ -242,7 +242,7 @@ Use the following steps to build and deploy the sample applications.
 
 1. Set **Metric** to **resilience4j_circuitbreaker_calls**, and then set **Aggregation** to **Avg**.
 
-   :::image type="content" source="media/how-to-circuit-breaker-metrics/calls.png" alt-text="Screenshot of the Azure portal Application Insights Metrics page that shows a chart with Metric and Aggregation options." lightbox="media/how-to-circuit-breaker-metrics/calls.png":::
+   :::image type="content" source="media/how-to-circuit-breaker-metrics/calls.png" alt-text="Screenshot of the Azure portal Application Insights Metrics page that shows the Metric and Aggregation options." lightbox="media/how-to-circuit-breaker-metrics/calls.png":::
 
 1. Set **Metric** to **resilience4j_circuitbreaker_calls**, and then set **Aggregation** to **Avg**. Select **Add filter** and set **Name** to **Delay**.
 
