@@ -75,7 +75,7 @@
     - name: Configure auto-shutdown of lab VMs
       href: devtest-lab-auto-shutdown.md
     - name: Set auto startup for lab VMs
-      href: devtest-lab-auto-startup-vm.md
+      href: devtest-lab-auto-startup-vm.yml
     - name: Manage lab storage account
       href: encrypt-storage.md
     - name: Scale your lab

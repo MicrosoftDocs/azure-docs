@@ -280,7 +280,7 @@ Within a highlighted field, formatting is applied to whole terms. For example, o
 
 ### Phrase search highlighting
 
-Whole-term formatting applies even on a phrase search, where multiple terms are enclosed in double quotation marks. The following example is the same query, except that "divine search" is submitted as a quotation-enclosed  phrase (some REST clients require that you escape the interior quotation marks with a backslash `\"`):
+Whole-term formatting applies even on a phrase search, where multiple terms are enclosed in double quotation marks. The following example is the same query, except that "divine secrets" is submitted as a quotation-enclosed  phrase (some REST clients require that you escape the interior quotation marks with a backslash `\"`):
 
 ```http
 POST /indexes/good-books/docs/search?api-version=2020-06-30 

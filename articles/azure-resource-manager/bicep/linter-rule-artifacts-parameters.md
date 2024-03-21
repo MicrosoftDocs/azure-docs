@@ -3,7 +3,7 @@ title: Linter rule - artifacts parameters
 description: Linter rule - artifacts parameters
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 08/05/2022
+ms.date: 03/20/2024
 ---
 
 # Linter rule - artifacts parameters
@@ -34,7 +34,7 @@ param _artifactsLocation string = deployment().properties.templateLink.uri
 ...
 ```
 
-The next example fails this test because `_artifactsLocation` must be either `deployment().properties.templateLink.uri` or a raw URL when the default value is provided, and the default value of `_artifactsLocationSasToken` is not an empty string.
+The next example fails this test because `_artifactsLocation` must be either `deployment().properties.templateLink.uri` or a raw URL when the default value is provided, and the default value of `_artifactsLocationSasToken` isn't an empty string.
 
 ```bicep
 @description('The base URI where artifacts required by this template are located including a trailing \'/\'')
