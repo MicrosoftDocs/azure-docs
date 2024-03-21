@@ -1,11 +1,11 @@
 ---
-title: Updates and maintenance overview
+title: Guest updates and host maintenance overview
 description: Learn about the updates and maintenance options available with virtual machines in Azure
 author: mimckitt
 ms.author: mimckitt
 ms.service: virtual-machines
 ms.topic: overview
-ms.date: 02/28/2023
+ms.date: 03/20/2024
 ms.reviewer: cynthn
 ---
 
@@ -19,32 +19,38 @@ Azure periodically updates its infrastructure to improve reliability, performanc
 
 Azure infrastructure updates can range from upgrading network components, decommissioning hardware on network, patching software components in hosting environment or updating guest OS/ software’s on VMs. Each of these updates are performed using different tools available in Azure.
 
-## Platform maintenance
-Platform maintenance comprises of updates applied for networking components like Top of the Rack (TOR) Switch or host environments like Dedicated hosts/Isolated VMs/Shared hosts. Host updates are done on the physical host environment where VMs reside and are transparent to the customers most of the time. However, some updates can require the residing VMs to freeze (non-rebootful updates)  or reboot (rebootful updates). When these no-impact updates are performed, Azure chooses the update mechanism that's least impactful to customer VMs.
+Maintenance platform aims to provide customers with *unified maintenance experience* for all Azure resources that are impacted during maintenance. Maintenance experience is available for a variety of Azure resources, including host ([Azure Dedicated Host]((dedicated-hosts.md) and [Isolated](isolation.md) VMs), guest (VMs and Arc VMs), AKS, SFMC, Network Gateways (VPN Gateway, ExpressRoute, Virtual Network Gateway) resources either via Azure Portal, PowerShell or CLI. [Maintenance control](maintenance-configurations.md) provides customers with an option to skip or defer certain updates and schedule them only during their preferred maintenance window.
 
-### Host maintenance that requires a reboot and that doesn't require a reboot  
-   
-   During Azure host maintenance updates, VMs either freeze, reboot or live migrate to another host. Host maintenance updates that require reboot are called *rebootful updates* while the updates that cause VMs to pause/freeze for >=1 second are called *non-rebootful updates*.
+## Host Maintenance
+
+Host maintenance is performed on the physical hosts where VMs are located and are usually transparent to the customers. But some updates can require the VMs that are allocated on the hosts to freeze (*non-rebootful updates*), reboot (*rebootful updates*) or live migrate to another updated hosts. When these no-impact updates are performed, Azure chooses the update mechanism that's least impactful to customer VMs. 
 
 ### Dedicated hosts/Isolated VMs vs Shared Hosts  
    
-   Host maintenance and experience are available for Dedicated host, Isolated VMs, and Shared hosts. Dedicated hosts are hosts in which all VMs are owned by one customer. Shared hosts are hosts in which VMs from multiple customers might reside together in one host. Isolated VMs are large machines that are isolated to a specific hardware type and dedicated to a single customer.  
+   Host maintenance experience is available for [Dedicated](dedicated-hosts.md) hosts, [Isolated](isolation.md) VMs, and Shared hosts. Dedicated hosts are hosts in which all VMs are owned by one customer. Shared hosts are hosts in which VMs from multiple end-customers reside together. Isolated VMs are large machines that are isolated to a specific hardware type and dedicated to a single customer.  
 
-   On Dedicated hosts, customers have host maintenance experience available for impact <1sec or >=1sec. Customers can opt into a maintenance control and schedule maintenance window based on their needs within 35days from last maintenance date. Isolated VMs have maintenance control experience available like Dedicated hosts.  
+   On [Dedicated](dedicated-hosts.md) hosts, customers have host maintenance experience available for impact <1sec or >=1sec. Customers can opt into a maintenance control and schedule maintenance window based on their needs within 35days from last maintenance date. [Isolated](isolation.md) VMs have maintenance control experience available like Dedicated hosts.  
 
-   On Shared hosts, customers have host maintenance experience available for updates that require reboot updates. For updates that are <30sec maintenance control experience isn't available today. High Risk program is available to get maintenance experience for >30s freeze.
+Customer can use [maintenance control](maintenance-configurations.md) to:
 
-### Notification mechanisms  
+- Apply all (<1 sec or >=1 sec) updates together.
+- Wait up to 35 days to apply updates for Host machines.
+- Set up a maintenance schedule or use Azure Functions to automate platform updates.
+- Maintenance configurations are effective across subscriptions and resource groups.
+
+On Shared hosts, customers have maintenance experience available for rebootful updates or for high impact update. For updates that are <30sec maintenance control experience isn't available today.
+
+### Maintenance notifications  
    
    Azure provides notifications before, during, and after maintenance operations. Scheduled events provide notifications before an event starts and while it is in progress so your application can react automatically. Flash health events enable you to consume and analyze alerts and trends in VMs availability for reporting and root cause analysis.  
    
    #### Scheduled Events  
       
-   Scheduled events provide advance notification of upcoming availability impacts so you can prepare your application for the impact ahead of time. They are optimized for automated resiliency by being delivered directly to the impacted VM and to all VMs in the same placement group. For information on Scheduled Events, see [Scheduled Events for Windows VMs](./windows/scheduled-events.md) and [Scheduled Events for Linux](./linux/scheduled-events.md).
+   [Scheduled events](./windows/scheduled-events.md) provide advance notification of upcoming availability impacts so you can prepare your application for the impact ahead of time. They are optimized for automated resiliency by being delivered directly to the impacted VM and to all VMs in the same placement group. For information on Scheduled Events, see [Scheduled Events for Windows VMs](./windows/scheduled-events.md) and [Scheduled Events for Linux](./linux/scheduled-events.md).
       
    #### Flash Health Events  
       
-   Flash Health Events provide near real-time information about past availability impacts so customers can react to events and easily mitigate incidents. Flash information is available in Azure Monitor, AzureResource Graph, or Event Grid to integrate with your systems and processes.
+   [Flash Health Events](flash-overview.md) provide near real-time information about past availability impacts so customers can react to events and easily mitigate incidents. Flash information is available in Azure Monitor, AzureResource Graph, or Event Grid to integrate with your systems and processes.
 
 ## Guest patches and update flows 
 
