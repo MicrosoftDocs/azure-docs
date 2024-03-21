@@ -262,7 +262,7 @@ select cron.alter_job(job_id:=MyJobID,database:='NewDBName');
 The PG Failover Slots extension enhances Azure Database for PostgreSQL flexible server when operating with both logical replication and high availability enabled servers. It effectively addresses the challenge within the standard PostgreSQL engine that doesn't preserve logical replication slots after a failover. Maintaining these slots is critical to prevent replication pauses or data mismatches during primary server role changes, ensuring operational continuity and data integrity.
 
 The extension streamlines the failover process by managing the necessary transfer, cleanup, and synchronization of replication slots, thus providing a seamless transition during server role changes.
-The extension is supported for PostgreSQL versions 11 to 15.
+The extension is supported for PostgreSQL versions 16 to 11.
 
 You can find more information and how to use the PG Failover Slots extension on its [GitHub page](https://github.com/EnterpriseDB/pg_failover_slots).
 
