@@ -17,7 +17,7 @@ ms.date: 03/21/2024
 # Vector Index Lookup
 
 > [!IMPORTANT]
-> Vector, Vector DB and Faiss Index Lookup tools are deprecated and will be retired soon. [Migrated to the new Index Lookup tool (preview).](index-lookup-tool.md##how-to-migrate-from-legacy-tools-to-the-index-lookup-tool)
+> Vector, Vector DB and Faiss Index Lookup tools are deprecated and will be retired soon. [Migrated to the new Index Lookup tool (preview).](index-lookup-tool.md#how-to-migrate-from-legacy-tools-to-the-index-lookup-tool)
 
 Vector Index Lookup is a tool tailored for querying within an Azure Machine Learning vector index. It empowers users to extract contextually relevant information from a domain knowledge base.
 
