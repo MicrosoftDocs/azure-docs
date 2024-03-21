@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: conceptual
-ms.date: 02/27/2024
+ms.date: 03/21/2024
 ms.author: greglin
 ---
 
@@ -72,8 +72,7 @@ spec:
     kind: Gateway
     name: target-01
     namespace: test-infra
-    gateway: gateway-01
-    listeners:
+    sectionNames:
     - https-listener
     group : gateway.networking.k8s.io
   default:
