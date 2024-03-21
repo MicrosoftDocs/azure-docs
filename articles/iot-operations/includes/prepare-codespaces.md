@@ -26,7 +26,13 @@ To get started with your codespace:
 
    [![Create an explore-iot-operations codespace](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/explore-iot-operations?quickstart=1)
 
-   You don't have to provide the recommended secrets at this step. If you do, make sure that you use the same values here and in the CLI commands in the next section.
+   You don't have to provide the recommended secrets at this step. If you do, they get saved on your GitHub account to be used in this and future codespaces. They're also added as environment variables in the codespace terminal, and you don't have to run the CLI commands in the next section that configure the subscription, resource group, or location variables.
+
+   | Parameter | Value |
+   | --------- | ----- |
+   | SUBSCRIPTION_ID | Your Azure subscription ID. |
+   | RESOURCE_GROUP | A name for a new Azure resource group where your cluster will be created. |
+   | LOCATION | An Azure region close to you. The following regions are supported in public preview: eastus, eastus2, westus, westus2, westus3, westeurope, or northeurope. |
 
 1. Select **Create new codespace**.
 
