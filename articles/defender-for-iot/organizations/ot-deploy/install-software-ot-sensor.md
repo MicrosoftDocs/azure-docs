@@ -91,7 +91,7 @@ This procedure describes how to install the Defender for IoT software you'd down
 
     - **Physical media** – burn the ISO file to your external storage, and then boot from the media.
 
-        - DVDs: First burn the software to the DVD as an image
+        - DVDs: First burn the software to the DVD as an image.
         - USB drive: First make sure that you’ve created a bootable USB drive with software such as [Rufus](https://rufus.ie/en/), and then save the software to the USB drive. USB drives must have USB version 3.0 or later.
         - Select the **DD Image mode** setting when creating your image, for example:
 
