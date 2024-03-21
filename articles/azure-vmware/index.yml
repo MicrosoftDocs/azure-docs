@@ -11,7 +11,7 @@ metadata:
   ms.topic: hub-page 
   author: jjaygbay1
   ms.author: jjaygbay1
-  ms.date: 01/03/2024 
+  ms.date: 3/20/2024 
 
 
 highlightedContent:
@@ -88,11 +88,11 @@ additionalContent:
             url: tutorial-configure-networking.md
           - text: 4 - Access a private cloud
             url: tutorial-access-private-cloud.md
-          - text: 5 - Create an NSX-T Data Center network segment
+          - text: 5 - Create an NSX network segment
             url: tutorial-nsx-t-network-segment.md
           - text: 6 - Peer on-premises to private cloud
             url: tutorial-expressroute-global-reach-private-cloud.md
-          - text: 7 - Scale in a private cloud
+          - text: 7 - Scale a private cloud
             url: tutorial-scale-private-cloud.md
           - text: 8 - Delete a private cloud
             url: tutorial-delete-private-cloud.md 
@@ -117,6 +117,8 @@ additionalContent:
             url: concepts-run-command.md
           - text: Storage
             url: concepts-storage.md
+          - text: Migrate
+            url: concepts-migrate.md
 
     - title: Advanced configuration and integration
       items:
@@ -131,7 +133,7 @@ additionalContent:
              url: configure-dns-azure-vmware-solution.md
            - text: Configure port mirroring 
              url: configure-port-mirroring-azure-vmware-solution.md
-           - text: Enable Public IP to the NSX-T Data Center Microsoft Edge for Azure VMware Solution
+           - text: Enable Public IP to the NSX Edge for Azure VMware Solution
              url: enable-public-ip-nsx-edge.md
            - text: Configure a site-to-site VPN in vWAN
              url: configure-site-to-site-vpn-gateway.md
@@ -209,7 +211,7 @@ additionalContent:
             url: configure-hcx-network-extension.md
           - text: Configure HCX network extension high availability
             url: configure-hcx-network-extension-high-availability.md
-          - text: Configure VMware vRealize Operations
+          - text: Configure VMware Aria Operations
             url: vrealize-operations-for-azure-vmware-solution.md
           - text: Deploy VMware Horizon
             url: azure-vmware-solution-horizon.md

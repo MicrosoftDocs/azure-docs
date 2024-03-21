@@ -44,8 +44,8 @@ The following procedure creates a virtual network with a resource subnet, an Azu
 
     | Setting | Value |
     |---|---|
-    | Bastion host name | Enter **bastion**. |
-    | Bastion public IP address | Select **Create a public IP address**. </br> Enter **public-ip** for the name. </br> Select **OK**. |
+    | Azure Bastion host name | Enter **bastion**. |
+    | Azure Bastion public IP address | Select **Create a public IP address**. </br> Enter **public-ip-bastion** in Name. </br> Select **OK**. |
 
     :::image type="content" source="./media/virtual-network-create-with-bastion/enable-bastion.png" alt-text="Screenshot of options for enabling an Azure Bastion host as part of creating a virtual network in the Azure portal.":::
 

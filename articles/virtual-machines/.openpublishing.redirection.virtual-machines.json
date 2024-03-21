@@ -1821,11 +1821,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/virtual-machines/linux/tutorial-lemp-stack.md",
-            "redirect_url": "/azure/virtual-machines/linux/tutorial-lamp-stack",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/virtual-machines/linux/tutorial-mean-stack.md",
             "redirect_url": "/azure/virtual-machines/linux/tutorial-lamp-stack",
             "redirect_document_id": false

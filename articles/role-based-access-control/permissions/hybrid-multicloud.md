@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 02/07/2024
+ms.date: 03/01/2024
 ms.custom: generated
 ---
 
@@ -136,6 +136,28 @@ Azure service: [Azure Stack HCI](/azure-stack/hci/)
 > | Microsoft.AzureStackHCI/VirtualMachineInstances/WACloginAsAdmin/Action | Manage ARC enabled VM resources on HCI via Windows Admin Center as an administrator |
 > | Microsoft.AzureStackHCI/virtualMachines/WACloginAsAdmin/Action | Manage ARC enabled VM resources on HCI via Windows Admin Center as an administrator |
 
+## Microsoft.ExtendedLocation
+
+Azure service: [Custom locations](/azure/azure-arc/platform/conceptual-custom-locations)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.ExtendedLocation/register/action | Registers the subscription for Custom Location resource provider and enables the creation of Custom Location. |
+> | Microsoft.ExtendedLocation/unregister/action | UnRegisters the subscription for Custom Location resource provider and disables the creation of Custom Location. |
+> | Microsoft.ExtendedLocation/customLocations/read | Gets an Custom Location resource |
+> | Microsoft.ExtendedLocation/customLocations/write | Creates or Updates Custom Location resource |
+> | Microsoft.ExtendedLocation/customLocations/deploy/action | Deploy permissions to a Custom Location resource |
+> | Microsoft.ExtendedLocation/customLocations/delete | Deletes Custom Location resource |
+> | Microsoft.ExtendedLocation/customLocations/findTargetResourceGroup/action | Evaluate Labels Against Resource Sync Rules to Get Resource Group for Resource Sync |
+> | Microsoft.ExtendedLocation/customLocations/enabledresourcetypes/read | Gets EnabledResourceTypes for a Custom Location resource |
+> | Microsoft.ExtendedLocation/customLocations/resourceSyncRules/read | Gets a Resource Sync Rule resource |
+> | Microsoft.ExtendedLocation/customLocations/resourceSyncRules/write | Creates or Updates a Resource Sync Rule resource |
+> | Microsoft.ExtendedLocation/customLocations/resourceSyncRules/delete | Deletes Resource Sync Rule resource |
+> | Microsoft.ExtendedLocation/locations/operationresults/read | Get result of Custom Location operation |
+> | Microsoft.ExtendedLocation/locations/operationsstatus/read | Get result of Custom Location operation |
+> | Microsoft.ExtendedLocation/operations/read | Gets list of Available Operations for Custom Locations |
+
 ## Microsoft.HybridCompute
 
 Azure service: [Azure Arc](/azure/azure-arc/)
@@ -151,7 +173,7 @@ Azure service: [Azure Arc](/azure/azure-arc/)
 > | Microsoft.HybridCompute/licenses/write | Installs or Updates an Azure Arc licenses |
 > | Microsoft.HybridCompute/licenses/delete | Deletes an Azure Arc licenses |
 > | Microsoft.HybridCompute/locations/notifyNetworkSecurityPerimeterUpdatesAvailable/action | Updates Network Security Perimeter Profiles |
-> | Microsoft.HybridCompute/locations/machines/extensions/notifyExtension/action | Notifies Microsoft.HybridCompute about extensions updates |
+> | Microsoft.HybridCompute/locations/notifyExtension/action | Notifies Microsoft.HybridCompute about extensions updates |
 > | Microsoft.HybridCompute/locations/operationresults/read | Reads the status of an operation on Microsoft.HybridCompute Resource Provider |
 > | Microsoft.HybridCompute/locations/operationstatus/read | Reads the status of an operation on Microsoft.HybridCompute Resource Provider |
 > | Microsoft.HybridCompute/locations/privateLinkScopes/read | Reads the full details of any Azure Arc privateLinkScopes |
@@ -244,6 +266,74 @@ Azure service: Microsoft.HybridConnectivity
 > | Microsoft.HybridConnectivity/solutionConfigurations/inventory/read | Retrieve a list of inventory by solution name. |
 > | Microsoft.HybridConnectivity/solutionTypes/read | Retrieve the list of available solution types. |
 > | Microsoft.HybridConnectivity/solutionTypes/read | Retrieve the solution type by provided solution type. |
+
+## Microsoft.HybridContainerService
+
+Azure service: Microsoft.HybridContainerService
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.HybridContainerService/register/action | Register the subscription for Microsoft.HybridContainerService |
+> | Microsoft.HybridContainerService/unregister/action | Unregister the subscription for Microsoft.HybridContainerService |
+> | Microsoft.HybridContainerService/kubernetesVersions/read | Gets the supported kubernetes versions from the underlying custom location |
+> | Microsoft.HybridContainerService/kubernetesVersions/write | Puts the kubernetes version resource type |
+> | Microsoft.HybridContainerService/kubernetesVersions/delete | Delete the kubernetes versions resource type |
+> | Microsoft.HybridContainerService/kubernetesVersions/read | Lists the supported kubernetes versions from the underlying custom location |
+> | Microsoft.HybridContainerService/Locations/operationStatuses/read | read operationStatuses |
+> | Microsoft.HybridContainerService/Locations/operationStatuses/write | write operationStatuses |
+> | Microsoft.HybridContainerService/Operations/read | read Operations |
+> | Microsoft.HybridContainerService/provisionedClusterInstances/read | Gets the Hybrid AKS provisioned cluster instance |
+> | Microsoft.HybridContainerService/provisionedClusterInstances/write | Creates the Hybrid AKS provisioned cluster instance |
+> | Microsoft.HybridContainerService/provisionedClusterInstances/delete | Deletes the Hybrid AKS provisioned cluster instance |
+> | Microsoft.HybridContainerService/provisionedClusterInstances/read | Gets the Hybrid AKS provisioned cluster instances associated with the connected cluster |
+> | Microsoft.HybridContainerService/provisionedClusterInstances/listUserKubeconfig/action | Lists the AAD user credentials of a provisioned cluster instance used only in direct mode. |
+> | Microsoft.HybridContainerService/provisionedClusterInstances/listAdminKubeconfig/action | Lists the admin credentials of a provisioned cluster instance used only in direct mode. |
+> | Microsoft.HybridContainerService/provisionedClusterInstances/agentPools/read | Gets the agent pool in the Hybrid AKS provisioned cluster instance |
+> | Microsoft.HybridContainerService/provisionedClusterInstances/agentPools/write | Creates the agent pool in the Hybrid AKS provisioned cluster instance |
+> | Microsoft.HybridContainerService/provisionedClusterInstances/agentPools/delete | Deletes the agent pool in the Hybrid AKS provisioned cluster instance |
+> | Microsoft.HybridContainerService/provisionedClusterInstances/agentPools/write | Updates the agent pool in the Hybrid AKS provisioned cluster instance |
+> | Microsoft.HybridContainerService/provisionedClusterInstances/agentPools/read | Gets the agent pools in the Hybrid AKS provisioned cluster instance |
+> | Microsoft.HybridContainerService/provisionedClusterInstances/hybridIdentityMetadata/read | Get the hybrid identity metadata proxy resource. |
+> | Microsoft.HybridContainerService/provisionedClusterInstances/hybridIdentityMetadata/write | Creates the hybrid identity metadata proxy resource that facilitates the managed identity provisioning. |
+> | Microsoft.HybridContainerService/provisionedClusterInstances/hybridIdentityMetadata/delete | Deletes the hybrid identity metadata proxy resource. |
+> | Microsoft.HybridContainerService/provisionedClusterInstances/hybridIdentityMetadata/read | Lists the hybrid identity metadata proxy resource in a provisioned cluster instance. |
+> | Microsoft.HybridContainerService/provisionedClusterInstances/upgradeProfiles/read | read upgradeProfiles |
+> | Microsoft.HybridContainerService/provisionedClusters/read | Gets the Hybrid AKS provisioned cluster |
+> | Microsoft.HybridContainerService/provisionedClusters/write | Creates the Hybrid AKS provisioned cluster |
+> | Microsoft.HybridContainerService/provisionedClusters/delete | Deletes the Hybrid AKS provisioned cluster |
+> | Microsoft.HybridContainerService/provisionedClusters/write | Updates the Hybrid AKS provisioned cluster |
+> | Microsoft.HybridContainerService/provisionedClusters/read | Gets the Hybrid AKS provisioned cluster in a resource group |
+> | Microsoft.HybridContainerService/provisionedClusters/read | Gets the Hybrid AKS provisioned cluster in a subscription |
+> | Microsoft.HybridContainerService/provisionedClusters/upgradeNodeImageVersionForEntireCluster/action | Upgrading the node image version of a cluster applies the newest OS and runtime updates to the nodes. |
+> | Microsoft.HybridContainerService/provisionedClusters/listClusterUserCredential/action | Lists the AAD user credentials of a provisioned cluster used only in direct mode. |
+> | Microsoft.HybridContainerService/provisionedClusters/listClusterAdminCredential/action | Lists the admin credentials of a provisioned cluster used only in direct mode. |
+> | Microsoft.HybridContainerService/provisionedClusters/agentPools/read | Gets the agent pool in the Hybrid AKS provisioned cluster |
+> | Microsoft.HybridContainerService/provisionedClusters/agentPools/write | Creates the agent pool in the Hybrid AKS provisioned cluster |
+> | Microsoft.HybridContainerService/provisionedClusters/agentPools/delete | Deletes the agent pool in the Hybrid AKS provisioned cluster |
+> | Microsoft.HybridContainerService/provisionedClusters/agentPools/write | Updates the agent pool in the Hybrid AKS provisioned cluster |
+> | Microsoft.HybridContainerService/provisionedClusters/agentPools/read | Gets the agent pools in the Hybrid AKS provisioned cluster |
+> | Microsoft.HybridContainerService/provisionedClusters/hybridIdentityMetadata/read | Get the hybrid identity metadata proxy resource. |
+> | Microsoft.HybridContainerService/provisionedClusters/hybridIdentityMetadata/write | Creates the hybrid identity metadata proxy resource that facilitates the managed identity provisioning. |
+> | Microsoft.HybridContainerService/provisionedClusters/hybridIdentityMetadata/delete | Deletes the hybrid identity metadata proxy resource. |
+> | Microsoft.HybridContainerService/provisionedClusters/hybridIdentityMetadata/read | Lists the hybrid identity metadata proxy resource in a cluster. |
+> | Microsoft.HybridContainerService/provisionedClusters/upgradeProfiles/read | read upgradeProfiles |
+> | Microsoft.HybridContainerService/skus/read | Gets the supported VM skus from the underlying custom location |
+> | Microsoft.HybridContainerService/skus/write | Puts the VM SKUs resource type |
+> | Microsoft.HybridContainerService/skus/delete | Deletes the Vm Sku resource type |
+> | Microsoft.HybridContainerService/skus/read | Lists the supported VM SKUs from the underlying custom location |
+> | Microsoft.HybridContainerService/storageSpaces/read | Gets the Hybrid AKS storage space object |
+> | Microsoft.HybridContainerService/storageSpaces/write | Puts the Hybrid AKS storage object |
+> | Microsoft.HybridContainerService/storageSpaces/delete | Deletes the Hybrid AKS storage object |
+> | Microsoft.HybridContainerService/storageSpaces/write | Patches the Hybrid AKS storage object |
+> | Microsoft.HybridContainerService/storageSpaces/read | List the Hybrid AKS storage object by resource group |
+> | Microsoft.HybridContainerService/storageSpaces/read | List the Hybrid AKS storage object by subscription |
+> | Microsoft.HybridContainerService/virtualNetworks/read | Gets the Hybrid AKS virtual network |
+> | Microsoft.HybridContainerService/virtualNetworks/write | Puts the Hybrid AKS virtual network |
+> | Microsoft.HybridContainerService/virtualNetworks/delete | Deletes the Hybrid AKS virtual network |
+> | Microsoft.HybridContainerService/virtualNetworks/write | Patches the Hybrid AKS virtual network |
+> | Microsoft.HybridContainerService/virtualNetworks/read | Lists the Hybrid AKS virtual networks by resource group |
+> | Microsoft.HybridContainerService/virtualNetworks/read | Lists the Hybrid AKS virtual networks by subscription |
 
 ## Microsoft.Kubernetes
 
@@ -611,6 +701,26 @@ Azure service: [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overvi
 > | Microsoft.KubernetesConfiguration/sourceControlConfigurations/write | Creates or updates source control configuration. |
 > | Microsoft.KubernetesConfiguration/sourceControlConfigurations/read | Gets source control configuration. |
 > | Microsoft.KubernetesConfiguration/sourceControlConfigurations/delete | Deletes source control configuration. |
+
+## Microsoft.ResourceConnector
+
+Azure service: Microsoft ResourceConnector
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.ResourceConnector/register/action | Registers the subscription for Appliances resource provider and enables the creation of Appliance. |
+> | Microsoft.ResourceConnector/unregister/action | Unregisters the subscription for Appliances resource provider and disables the creation of Appliance. |
+> | Microsoft.ResourceConnector/appliances/read | Gets an Appliance resource |
+> | Microsoft.ResourceConnector/appliances/write | Creates or Updates Appliance resource |
+> | Microsoft.ResourceConnector/appliances/delete | Deletes Appliance resource |
+> | Microsoft.ResourceConnector/appliances/listClusterUserCredential/action | Get an appliance cluster user credential |
+> | Microsoft.ResourceConnector/appliances/listKeys/action | Get an appliance cluster customer user keys |
+> | Microsoft.ResourceConnector/appliances/upgradeGraphs/read | Gets the upgrade graph of Appliance cluster |
+> | Microsoft.ResourceConnector/locations/operationresults/read | Get result of Appliance operation |
+> | Microsoft.ResourceConnector/locations/operationsstatus/read | Get result of Appliance operation |
+> | Microsoft.ResourceConnector/operations/read | Gets list of Available Operations for Appliances |
+> | Microsoft.ResourceConnector/telemetryconfig/read | Get Appliances telemetry config utilized by Appliances CLI |
 
 ## Next steps
 
