@@ -1,8 +1,9 @@
 ---
 title: Azure Service Bus - Browse or peek messages
 description: Browse and peek Service Bus messages enables an Azure Service Bus client to enumerate all messages in a queue or subscription.
-ms.topic: article
+ms.topic: concept-article
 ms.date: 06/08/2023
+#customer intent: As a developer, I want to know how to browse or peek messages in a queue or a subscription, for diagnostic and debugging purposes. 
 ---
 
 # Browse or peek messages
@@ -138,7 +139,7 @@ print("Receive is done.")
 
 ---
 
-## Next steps
+## Related content
 Try the samples in the language of your choice to explore Azure Service Bus features. 
 
 - [Azure Service Bus client library samples for .NET (latest)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/) - - **Sending and receiving messages** sample.
