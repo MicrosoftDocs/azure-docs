@@ -7,6 +7,13 @@ ms.author: eur
 ms.custom: references_regions
 ---
 
+### March 2024 release
+
+#### Text to speech avatar
+
+- Removed dependency on [Azure Communication Services (ACS) TURN](/azure/communication-services/quickstarts/relay-token) for real-time avatar. The [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/js/browser/avatar) has been updated accordingly to reflect this change.
+- Published text to speech avatar pricing. For more details, see the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). Note that avatar pricing will only be visible for service regions where the feature is available, including West US 2, West Europe, and Southeast Asia.
+
 ### February 2024 release
 
 #### OpenAI voices
