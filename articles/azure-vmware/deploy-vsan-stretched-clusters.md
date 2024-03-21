@@ -147,4 +147,4 @@ Customers are charged based on the number of nodes deployed within the private c
 
 ### Am I charged for the witness node and for inter-AZ traffic?
 
-No. Customers don't see a charge for the witness node and the inter-AZ traffic. The witness node is entirely service managed, and Azure VMware Solution provides the required lifecycle management of the witness node. As the entire solution is service managed, the customer only needs to identify the appropriate SPBM policy to set for the workload virtual machines. The rest is managed through Microsoft.
+No. Customers don't see a charge for the witness node and the inter-AZ traffic. The witness node is entirely service managed, and Azure VMware Solution manages the required lifecycle management of the witness node. As the entire solution is service managed, the customer only needs to identify the appropriate SPBM policy to set for the workload virtual machines. The rest is managed through Microsoft.
