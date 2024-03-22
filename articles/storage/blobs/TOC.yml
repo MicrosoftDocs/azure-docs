@@ -495,12 +495,11 @@ items:
           href: lifecycle-management-policy-configure.md
       - name: Archive and rehydrate
         items:
-        - name: Rehydrate blobs
+        - name: Blob rehydration overview
           href: archive-rehydrate-overview.md
         - name: Archive blobs
           href: archive-blob.md
-        - name: Blob rehydration from archive tier
-        - name: Rehydrate an archived blob
+        - name: Rehydrate blobs
           href: archive-rehydrate-to-online-tier.md
         - name: Handle an event on blob rehydration
           href: archive-rehydrate-handle-event.md

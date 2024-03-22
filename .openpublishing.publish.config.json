@@ -1113,7 +1113,7 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "articles/reusable-content",
+      "path_to_root": "reusable-content",
       "url": "https://github.com/MicrosoftDocs/reusable-content",
       "branch": "main",
       "branch_mapping": {}
@@ -1218,6 +1218,7 @@
   ".openpublishing.redirection.defender-for-iot.json",
   ".openpublishing.redirection.devops-project.json",
   ".openpublishing.redirection.guidance.json",
+  ".openpublishing.redirection.industry.json",
   ".openpublishing.redirection.iot-hub-device-update.json",
   ".openpublishing.redirection.key-vault.json",
   ".openpublishing.redirection.machine-configuration.json",

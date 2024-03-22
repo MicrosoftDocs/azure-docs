@@ -87,7 +87,7 @@ The **SELECT** statement only returns one row.
 
 Here is the output of the **SELECT** statement:
 
-:::image type="content" source="./media/using-json-in-hive/hdinsight-flatten-json.png" alt-text="HDInsight flattening the JSON document" border="true":::
+:::image type="content" source="./media/using-json-in-hive/hdinsight-flatten-json.png" alt-text="HDInsight flattening the JSON document." border="true":::
 
 ## Analyze JSON documents in Hive
 
@@ -113,7 +113,7 @@ FROM StudentsOneLine;
 
 Here is the output when you run this query in the console window:
 
-:::image type="content" source="./media/using-json-in-hive/hdinsight-get-json-object.png" alt-text="Apache Hive gets json object UDF" border="true":::
+:::image type="content" source="./media/using-json-in-hive/hdinsight-get-json-object.png" alt-text="Apache Hive gets json object UDF." border="true":::
 
 There are limitations of the get_json_object UDF:
 
@@ -135,7 +135,7 @@ LATERAL VIEW JSON_TUPLE(jt.json_body, 'StudentId', 'Grade') q1
 
 The output of this script in the Hive console:
 
-:::image type="content" source="./media/using-json-in-hive/hdinsight-json-tuple.png" alt-text="Apache Hive json query results" border="true":::
+:::image type="content" source="./media/using-json-in-hive/hdinsight-json-tuple.png" alt-text="Apache Hive json query results." border="true":::
 
 The `json_tuple` UDF uses the [lateral view](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) syntax in Hive, which enables json\_tuple to create a virtual table by applying the UDT function to each row of the original table. Complex JSONs become too unwieldy because of the repeated use of **LATERAL VIEW**. Furthermore, **JSON_TUPLE** can't handle nested JSONs.
 
