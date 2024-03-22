@@ -22,6 +22,20 @@ Obtain the latest version of the ingestion agent RPM from [https://go.microsoft.
 
 Links to the current and previous releases of the agents are available below the heading of each [release note](ingestion-agent-release-notes.md). If you're looking for an agent version that's more than 6 months old, check out the [release notes archive](ingestion-agent-release-notes-archive.md).
 
+### Verify the authenticity of the RPM (optional)
+
+Before you install the RPM, you can verify that it's the correct version and hasn't been tampered with.
+
+This can be done using the public key file provided by Microsoft, which is available at [https://packages.microsoft.com/keys/microsoft.asc](https://packages.microsoft.com/keys/microsoft.asc).
+
+To verify, perform the following steps once the agent has been downloaded:
+
+1. Download the provided public key (microsoft.asc)
+1. Import the public key to the GPG keyring
+    - `gpg --import microsoft.asc`
+1. Verify the RPM signature matches the public key
+    - `rpm --checksig <path-to-rpm>`
+
 ## Upgrade the agent software
 
 To upgrade to a new release of the agent, repeat the following steps on each VM that has the old agent.
