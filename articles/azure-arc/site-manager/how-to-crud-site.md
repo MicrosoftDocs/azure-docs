@@ -1,6 +1,6 @@
 ---
 title: "How to CRUD a site"
-description: "[Article description]."
+description: "Describes how to CRUD a site."
 author: kgremban
 ms.author: kgremban
 ms.service: azure-arc

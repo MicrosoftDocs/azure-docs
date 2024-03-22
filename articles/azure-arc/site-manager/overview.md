@@ -15,7 +15,7 @@ ms.custom: references_regions
 
 # What is Azure Arc site manager (preview)?
 
-Azure Arc site manager (preview) is a unified plane that simplifies the tasks monitoring, governing, and providing extended functionality for all resources grouped to represent a "site" within a resource group.
+Azure Arc site manager (preview) is a unified plane that simplifies the tasks of monitoring, governing, and providing extended functionality for all resources grouped to represent a "site" within a resource group.
 
 ## Sites
 
@@ -25,15 +25,15 @@ Arc sites have a 1:1 relationship with resource groups and subscriptions. Any gi
 
 ## Mapping
 
-Resource Group <- 1:1 -> Site
+Resource Group <- 1:1 -> Arc site
 
-Subscription <- 1:1 -> Site
+Subscription <- 1:1 -> Arc site
 
 Subscription <- 1:M -> Resource Group
 
 ## Supported resource types
 
-Site manager provides alerts and status details for resources in a site. Currently, site manager supports the following Azure resources:
+Site manager provides alerts and status details for resources in a Arc site. Currently, site manager supports the following Azure resources:
 
 * Azure Stack HCI
 * Azure Kubernetes Service (hybrid)

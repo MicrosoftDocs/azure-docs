@@ -8,14 +8,27 @@
   items:
   - name: Quickstart
     href: quickstart.md
-- name: How to Create, Use, Delete, and Modify a Arc site
+- name: How to 
   items:
   - name: How to Create, Use, Delete, and Modify a Arc site
     href: how-to-crud-site.md
-
+  - name: How to View Connectivity Status
+    href: how-to-view-connectivity-status.md
+  - name: How to View Update Status
+    href: how-to-view-update-status.md
+  - name: How to Configure Monitoring for Azure Arc site
+    href: how-to-configure-monitoring-site.md
+  - name: How to Configure and View Alerts for Azure Arc site
+    href: how-to-configure-view-create-alerts.md
+- name: FAQ
+  items:
+  - name: FAQ
+    href: faq.md
 - name: Reference
   items:
   - name: Azure Arc
     href: https://learn.microsoft.com/en-us/azure/azure-arc/
   - name: Azure CLI
     href: https://learn.microsoft.com/en-us/cli/azure/connectedmachine
+  - name: Azure Resource Monitor
+    href: https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/monitor-azure-resource
