@@ -143,9 +143,9 @@ This sandbox setup is to help developers start building the application. Once yo
 > ** Read receipts and typing indicators are not supported on chat threads with more than 20 participants. 
 
 ### Chat storage
-Azure Communication Services stores chat messages indefinitely till they are deleted by the customer. 
+Azure Communication Services stores chat messages according to your data retention policy. **How and where do they set this?** 
 
-Beginning in CY24 Q1, customers must choose between indefinite message retention or automatic deletion after 90 days. Existing messages remain unaffected, but customers can opt for a 90-day retention period if desired.
+You can choose between indefinite message retention, automatic deletion after 90 days, **or immediate?**. Existing messages remain unaffected.
 
 > [!NOTE] 
 > Accidentally deleted messages are not recoverable by the system.

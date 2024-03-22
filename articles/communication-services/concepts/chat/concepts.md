@@ -39,9 +39,11 @@ Chat conversations happen within **chat threads**. Chat threads have the followi
 Azure Communication Services supports three levels of user access control, using the chat tokens. See [Identity and Tokens](../identity-model.md) for details. Participants don't have write-access to messages sent by other participants, which means only the message sender can update or delete their sent messages. If another participant tries to do that, they get an error. 
 
 ### Chat Data 
-Azure Communication Services stores chat messages indefinitely until they are deleted by the customer. Chat thread participants can use `ListMessages` to view  message history for a particular thread. Users that are removed from a chat thread are able to view previous message history but can't send or receive new messages. Accidentally deleted messages aren't recoverable by the system. To learn more about data being stored in Azure Communication Services chat service, refer to the [data residency and privacy page](../privacy.md).  
+Azure Communication Services stores chat messages according to your data retention policy. **How and where do they set this?** 
 
-In 2024, new functionality will be introduced where customers must choose between indefinite message retention or automatic deletion after 90 days. Existing messages remain unaffected.
+You can choose between indefinite message retention, automatic deletion after 90 days, **or immediate?**. Existing messages remain unaffected.
+
+Chat thread participants can use `ListMessages` to view  message history for a particular thread. Users that are removed from a chat thread are able to view previous message history but can't send or receive new messages. Accidentally deleted messages aren't recoverable by the system. To learn more about data being stored in Azure Communication Services chat service, refer to the [data residency and privacy page](../privacy.md). 
 
 For customers that use Virtual appointments, refer to our Teams Interoperability [user privacy](../interop/guest/privacy.md#chat-storage) for storage of chat messages in Teams meetings.
 
