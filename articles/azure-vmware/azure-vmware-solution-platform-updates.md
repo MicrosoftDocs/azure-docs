@@ -65,7 +65,7 @@ Azure Arc-enabled VMware vSphere has a new refresh for the public preview. Now c
 
 **VMware Cloud Director Service**
 
-VMware Cloud Director service for Azure VMware Solution is now available for enterprise. VMware Cloud Director service provides a multicloud control plane for managing multi-tenancy on infrastructure ranging from on-premises customer data centers, managed service provider facilities, and in the cloud. [Learn more](https://blogs.vmware.com/cloud/2023/08/15/cloud-director-service-ga-for-avs/)
+VMware Cloud Director service for Azure VMware Solution is now available for enterprise. VMware Cloud Director service provides a multicloud control plane for managing multi-tenancy on infrastructure ranging from on-premises customer data centers, managed service provider facilities, and in the cloud.
 
 **Well-Architected Assessment Tool**
 
@@ -73,7 +73,7 @@ Azure VMware Solution Well-Architected Assessment Tool is now available. Based u
 
 **VMware Cloud Universal**
 
-VMware Cloud Universal now includes Azure VMware Solution. [Learn more](https://blogs.vmware.com/cloud/2023/07/06/avs-with-vmcu-announcement/)
+VMware Cloud Universal now includes Azure VMware Solution.
 
 **Updated cloudadmin Permissions**
 
