@@ -69,7 +69,6 @@ az group create \
 ```
 
 Results:
-
 <!-- expected_similarity=0.3 -->
 ```json
 {
@@ -103,7 +102,6 @@ az network vnet create \
 ```
 
 Results:
-
 <!-- expected_similarity=0.3 -->
 ```json
 {
@@ -169,7 +167,6 @@ az mysql flexible-server create \
 ```
 
 Results:
-
 <!-- expected_similarity=0.3 -->
 ```json
 {
@@ -193,7 +190,7 @@ The server created has the following attributes:
 - The default connectivity method is Private access (virtual network integration) with a linked virtual network and an auto generated subnet.
 
 > [!NOTE]
-> The connectivity method cannot be changed after creating the server. For example, if you selected `Private access (VNet Integration)` during creation, then you cannot change to `Public access (allowed IP addresses)` after creation. We highly recommend creating a server with Private access to securely access your server using VNet Integration. Learn more about Private access in the [concepts article](./concepts-networking-vnet).
+> The connectivity method cannot be changed after creating the server. For example, if you selected `Private access (VNet Integration)` during creation, then you cannot change to `Public access (allowed IP addresses)` after creation. We highly recommend creating a server with Private access to securely access your server using VNet Integration. Learn more about Private access in the [concepts article](./concepts-networking-vnet.md).
 
 If you'd like to change any defaults, refer to the Azure CLI [reference documentation](/cli/azure//mysql/flexible-server) for the complete list of configurable CLI parameters.
 
@@ -223,7 +220,6 @@ az mysql flexible-server parameter set \
 ```
 
 Results:
-
 <!-- expected_similarity=0.3 -->
 ```json
 {
@@ -278,6 +274,7 @@ az aks create \
 ## Connect to the cluster
 
 To manage a Kubernetes cluster, use [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/), the Kubernetes command-line client. If you use Azure Cloud Shell, `kubectl` is already installed. The following example installs `kubectl` locally using the [az aks install-cli](/cli/azure/aks#az-aks-install-cli) command. 
+
  ```bash
     if ! [ -x "$(command -v kubectl)" ]; then az aks install-cli; fi
 ```
@@ -425,7 +422,6 @@ For this tutorial, we're using an existing Helm chart for WordPress built by Bit
     ```
 
 Results:
-
 <!-- expected_similarity=0.3 -->
 ```text
 Release "wordpress" does not exist. Installing it now.
@@ -497,7 +493,6 @@ fi;
 ```
 
 Results:
-
 <!-- expected_similarity=0.3 -->
 ```HTML
 {
