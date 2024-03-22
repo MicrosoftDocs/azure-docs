@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Cache for Redis
 description: This article contains important reference material you need when you monitor Azure Cache for Redis.
-ms.date: 01/31/2024
+ms.date: 03/21/2024
 ms.custom: horz-monitor
 ms.topic: reference
 author: robb
@@ -11,24 +11,24 @@ ms.service: cache
 
 # Azure Cache for Redis monitoring data reference
 
-[!INCLUDE [horz-monitor-ref-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
+[!INCLUDE [horz-monitor-ref-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
 
 See [Monitor Azure Cache for Redis](monitor-cache.md) for details on the data you can collect for Azure Cache for Redis and how to use it.
 
-[!INCLUDE [horz-monitor-ref-metrics-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
+[!INCLUDE [horz-monitor-ref-metrics-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
 
 For more details and information about the supported metrics for Microsoft.Cache/redis and Microsoft.Cache/redisEnterprise, see [List of metrics](monitor-cache-reference.md#azure-cache-for-redis-metrics).
 
 ### Supported metrics for Microsoft.Cache/redis
 The following table lists the metrics available for the Microsoft.Cache/redis resource type.
 
-[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 [!INCLUDE [Microsoft.Cache/redis](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-cache-redis-metrics-include.md)]
 
 ### Supported metrics for Microsoft.Cache/redisEnterprise
 The following table lists the metrics available for the Microsoft.Cache/redisEnterprise resource type.
 
-[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 [!INCLUDE [Microsoft.Cache/redisEnterprise](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-cache-redisenterprise-metrics-include.md)]
 
 <a name="available-metrics-and-reporting-intervals"></a>
@@ -142,7 +142,7 @@ The following list provides details and more information about the supported Azu
 - Used Memory RSS
   - The amount of cache memory used in MB during the specified reporting interval, including fragmentation. This value maps to `used_memory_rss` from the Redis INFO command. This metric isn't available in Enterprise or Enterprise Flash tier caches.
 
-[!INCLUDE [horz-monitor-ref-resource-logs](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
+[!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
 ### Supported resource logs for Microsoft.Cache/redis
 [!INCLUDE [Microsoft.Cache/redis](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-cache-redis-logs-include.md)]
@@ -150,7 +150,7 @@ The following list provides details and more information about the supported Azu
 ### Supported resource logs for Microsoft.Cache/redisEnterprise/databases
 [!INCLUDE [Microsoft.Cache/redis](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-cache-redisenterprise-databases-logs-include.md)]
 
-[!INCLUDE [horz-monitor-ref-logs-tables](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
+[!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 
 ### Azure Cache for Redis
 microsoft.cache/redis
@@ -162,7 +162,7 @@ microsoft.cache/redis
 Microsoft.Cache/redisEnterprise
 - [REDConnectionEvents](/azure/azure-monitor/reference/tables/redconnectionevents)
 
-[!INCLUDE [horz-monitor-ref-activity-log](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
+[!INCLUDE [horz-monitor-ref-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
 - [Microsoft.Cache resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftcache)
 
 ## Related content
