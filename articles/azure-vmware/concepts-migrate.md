@@ -27,7 +27,7 @@ Each of these options has different advantages and disadvantages when used. You 
 
 | **Migration Method** | **Migration Downtime** | **Scale** |
 | :-- | :-- | :-- |
-| Cold Migration | Long downtime | VM copy with NFC protocol, small scale |
+| Cold Migration | Long downtime | VM copy with Network File Copy (NFC) protocol, small scale |
 | HCX vMotion | None | Serial migrations, small scale |
 | Bulk Migration | Minimal downtime | VM shutdown (source site)/VM power-on (destination site), Parallel migrations, largest scale |
 | Replication Assisted vMotion (RAV) | None | Parallel migrations, larger scale |
@@ -48,7 +48,7 @@ After learning about the VMware HCX migration considerations of the Azure VMware
 - [Enable HCX access over the internet](enable-hcx-access-over-internet.md)
 - [Upgrade HCX on Azure VMware Solution](upgrade-hcx-azure-vmware-solutions.md)
 - [Use VMware HCX Run Commands](use-hcx-run-commands.md)
-- [Enable SQL Azure hybrid benefit for Azure VMware Solution](enable-sql-azure-hybrid-benefit.md) 
+
 - [Migrate a SQL Server standalone instance to Azure VMware Solution](migrate-sql-server-standalone-cluster.md)
 - [Migrate a SQL Server Always On Failover Cluster Instance to Azure VMware Solution](migrate-sql-server-failover-cluster.md)
 - [Migrate a SQL Server Always On Availability Group to Azure VMware Solution](migrate-sql-server-always-on-availability-group.md)

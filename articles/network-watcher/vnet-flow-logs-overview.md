@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: concept-article
-ms.date: 03/11/2024
+ms.date: 03/22/2024
 ms.custom: references_regions
 
 #CustomerIntent: As an Azure administrator, I want to learn about VNet flow logs so that I can log my network traffic to analyze and optimize network performance.
@@ -224,13 +224,18 @@ Currently, VNet flow logs aren't billed. However, the following costs apply:
 
 VNet flow logs can be enabled during the preview in the following regions: 
 
-- Central US EUAP
+- Central India
 - East US
 - East US 2
-- East US 2 EUAP
+- France Central
+- Japan East
+- Japan West
+- North Europe
 - Switzerland North
+- UAE North
 - UK South
 - West Central US
+- West Europe
 - West US
 - West US 2
 
