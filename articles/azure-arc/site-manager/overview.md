@@ -1,6 +1,6 @@
 ---
 title: "What is Azure Arc site manager (preview)?"
-description: "Describes how you can use Azure Arc sites and site manager to monitor and manage physical and logical resources, forcused on edge scenarios."
+description: "Describes how you can use Azure Arc sites and site manager to monitor and manage physical and logical resources, focused on edge scenarios."
 author: kgremban
 ms.author: kgremban
 ms.service: azure-arc
@@ -33,7 +33,7 @@ Subscription <- 1:M -> Resource Group.
 
 ## Supported resource types
 
-Site manager provides alerts and status details for resources in a Arc site. Currently, site manager supports the following Azure resources:
+Site manager provides alerts and status details for resources in an Arc site. Currently, site manager supports the following Azure resources:
 
 * Azure Stack HCI
 * Azure Kubernetes Service (hybrid)
@@ -45,11 +45,11 @@ The following table describes which details are available through site manager f
 
 | Resource | Inventory | Connectivity status | Updates | Alerts |
 | -------- | --------- | ------------------- | ------- | ------ |
-| Azure Stack HCI | ![Checkmark icon - Inventory status supported for Azure Stack HCI.](./media/yes-icon.svg) | ![Checkmark icon - Connectivity status supported for Azure Stack HCI.](./media/yes-icon.svg) | ![Checkmark icon - Updates supported for Azure Stack HCI.](./media/yes-icon.svg) (Minimum OS required: HCI 23H2) | ![Checkmark icon - Alerts supported for Azure Stack HCI.](./media/yes-icon.svg) |
-| Assets | ![Checkmark icon - Inventory status supported for Assets.](./media/yes-icon.svg) |  |  |  |
-| AKS (provisioned clusters) | ![Checkmark icon - Inventory status supported for AKS.](./media/yes-icon.svg) |  |  | ![Checkmark icon - Alerts supported for AKS.](./media/yes-icon.svg) |
-| Arc VMs | ![Checkmark icon - Inventory status supported for Arc VMs.](./media/yes-icon.svg) |  |  | ![Checkmark icon - Alerts supported for Arc VMs.](./media/yes-icon.svg) |
-| Arc for Servers | ![Checkmark icon - Inventory status supported for Arc for Servers.](./media/yes-icon.svg) | ![Checkmark icon - Connectivity status supported for Arc for Servers.](./media/yes-icon.svg) | ![Checkmark icon - Updates supported for Arc for Servers.](./media/yes-icon.svg) | ![Checkmark icon - Alerts supported for Arc for Servers.](./media/yes-icon.svg) |
+| Azure Stack HCI | ![Checkmark icon - Inventory status supported for Azure Stack HCI.](./media/overview/yes-icon.svg) | ![Checkmark icon - Connectivity status supported for Azure Stack HCI.](./media/overview/yes-icon.svg) | ![Checkmark icon - Updates supported for Azure Stack HCI.](./media/overview/yes-icon.svg) (Minimum OS required: HCI 23H2) | ![Checkmark icon - Alerts supported for Azure Stack HCI.](./media/overview/yes-icon.svg) |
+| Assets | ![Checkmark icon - Inventory status supported for Assets.](./media/overview/yes-icon.svg) |  |  |  |
+| AKS (provisioned clusters) | ![Checkmark icon - Inventory status supported for AKS.](./media/overview/yes-icon.svg) |  |  | ![Checkmark icon - Alerts supported for AKS.](./media/overview/yes-icon.svg) |
+| Arc VMs | ![Checkmark icon - Inventory status supported for Arc VMs.](./media/overview/yes-icon.svg) |  |  | ![Checkmark icon - Alerts supported for Arc VMs.](./media/overview/yes-icon.svg) |
+| Arc for Servers | ![Checkmark icon - Inventory status supported for Arc for Servers.](./media/overview/yes-icon.svg) | ![Checkmark icon - Connectivity status supported for Arc for Servers.](./media/overview/yes-icon.svg) | ![Checkmark icon - Updates supported for Arc for Servers.](./media/overview/yes-icon.svg) | ![Checkmark icon - Alerts supported for Arc for Servers.](./media/overview/yes-icon.svg) |
 
 Site manager only provides health status aggregation for the supported resource types. Resources of other types that exist in the resource group or subscription aren't managed by site manager, but will continue to function normally otherwise.
 

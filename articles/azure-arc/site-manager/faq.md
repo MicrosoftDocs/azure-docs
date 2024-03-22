@@ -15,21 +15,21 @@ ms.date: 02/16/2024
 
 # Frequently Asked Questions
 
-Below are frequently asked questions and answers for Azure Arc site manager
+The following are frequently asked questions and answers for Azure Arc site manager:
 
-*Question:* I have resources in the resource group which are not yet supported by site manager. Do I need to move them?
+*Question:* I have resources in the resource group, which aren't yet supported by site manager. Do I need to move them?
 
-*Answer:* Site manager will only provide health status aggregation for the supported resource types. Resources of other types will simply not be managed by site manager. They will continue to function normally as they would without otherwise.
+*Answer:* Site manager provides health status aggregation for only the supported resource types. Resources of other types won't be managed via site manager. They'll continue to function normally as they would without otherwise.
 
 *Question:* Can I update a site after it has been created?
 
-*Answer:* Site properties and details cannot be updated. This may be available in future versions of the feature.
+*Answer:* Site properties and details can't be updated. The ability to update such details might be available in future versions of the feature.
 
 *Question:* Does site manager have a subscription or fee for usage?
 
-*Answer:* Site manager does not have any fee. However, the Azure services that it integrates with may have a fee.
+*Answer:* Site manager doesn't have any fee. However, the Azure services that it integrates with might have a fee.
 
-*Question:* What regions are currently supported by site manager?
+*Question:* What regions are currently supported via site manager?
 
 *Answer:* Site manager currently supports resources in Azure Global.
 

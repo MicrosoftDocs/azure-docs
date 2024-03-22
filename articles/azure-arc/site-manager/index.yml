@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure Arc site manager # < 60 chars
-summary: Manage logical groups of Arc-enabled resources # < 160 chars
+summary: Manage logical groups of Arc-enabled resources. # < 160 chars
  
 metadata:
   title: Azure Arc site manager
@@ -25,8 +25,8 @@ landingContent:
           - text: What is Azure Arc site manager?
             url: overview.md
   - title: Getting started
-      linkLists:
-        - linkListType: quickstart
-          links:
-            - text: How do I get started with Azure Arc site manager?
-              url: quickstart.md
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: How do I get started with Azure Arc site manager?
+            url: quickstart.md
