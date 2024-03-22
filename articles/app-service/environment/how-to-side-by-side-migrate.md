@@ -238,13 +238,13 @@ You can get the new inbound IP address for your new App Service Environment v3 b
 For ILB App Service Environments, get the private inbound IP address by running the following command:
 
 ```azurecli
-az rest --method get --uri "${ASE_ID}?api-version=2022-03-01" --query properties.internalInboundIpAddresses
+az rest --method get --uri "${ASE_ID}/configurations/networking?api-version=2022-03-01" --query properties.internalInboundIpAddresses
 ```
 
 For ELB App Service Environments, get the public inbound IP address by running the following command:
 
 ```azurecli
-az rest --method get --uri "${ASE_ID}?api-version=2022-03-01" --query properties.externalInboundIpAddresses
+az rest --method get --uri "${ASE_ID}/configurations/networking?api-version=2022-03-01" --query properties.externalInboundIpAddresses
 ```
 
 ## 11. Redirect customer traffic and complete migration
