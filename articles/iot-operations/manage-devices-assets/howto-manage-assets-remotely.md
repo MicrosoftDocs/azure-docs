@@ -37,7 +37,7 @@ To configure an assets endpoint, you need a running instance of Azure IoT Operat
 
 # [Azure IoT Operations portal](#tab/portal)
 
-To sign in to the Azure IoT Operations portal, navigate to the [Azure IoT Operations (preview)](https://iotoperations.azure.com) portal in your browser and sign in by using your Microsoft Entra ID credentials.
+To sign in to the Azure IoT Operations (preview) portal, navigate to the [Azure IoT Operations (preview)](https://iotoperations.azure.com) portal in your browser and sign in by using your Microsoft Entra ID credentials.
 
 ## Select your cluster
 
@@ -46,7 +46,7 @@ When you sign in, the portal displays a list of the Azure Arc-enabled Kubernetes
 > [!TIP]
 > If you don't see any clusters, you might not be in the right Azure Active Directory tenant. You can change the tenant from the top right menu in the portal. If you still don't see any clusters, that means you are not added to any yet. Reach out to your IT administrator to give you access to the Azure resource group the Kubernetes cluster belongs to from Azure portal. You must be in the _contributor_ role.
 
-:::image type="content" source="media/howto-manage-assets-remotely/cluster-list.png" alt-text="Screenshot that shows the list of clusters in the Azure IoT Operations portal.":::
+:::image type="content" source="media/howto-manage-assets-remotely/cluster-list.png" alt-text="Screenshot that shows the list of clusters in the Azure IoT Operations (preview) portal.":::
 
 > [!TIP]
 > You can use the filter box to search for clusters.
@@ -69,7 +69,7 @@ By default, an Azure IoT Operations deployment includes a built-in OPC PLC simul
 
 1. Select **Asset endpoints** and then **Create asset endpoint**:
 
-    :::image type="content" source="media/howto-manage-assets-remotely/asset-endpoints.png" alt-text="Screenshot that shows the asset endpoints page in the Azure IoT Operations portal.":::
+    :::image type="content" source="media/howto-manage-assets-remotely/asset-endpoints.png" alt-text="Screenshot that shows the asset endpoints page in the Azure IoT Operations (preview) portal.":::
 
     > [!TIP]
     > You can use the filter box to search for asset endpoints.
@@ -113,7 +113,7 @@ The previous example uses the `Anonymous` authentication mode. This mode doesn't
 To use the `UsernamePassword` authentication mode, complete the following steps:
 
 1. Follow the steps in [Configure OPC UA user authentication with username and password](howto-configure-opcua-authentication-options.md#configure-opc-ua-user-authentication-with-username-and-password) to add secrets for username and password in Azure Key Vault, and project them into Kubernetes cluster.
-2. In Azure IoT Operations portal, select **Username & password** for the **User authentication** field to configure the asset endpoint to use these secrets. Then enter the following values for the **Username reference** and **Password reference** fields:
+2. In the Azure IoT Operations (preview) portal, select **Username & password** for the **User authentication** field to configure the asset endpoint to use these secrets. Then enter the following values for the **Username reference** and **Password reference** fields:
 
 | Field | Value |
 | --- | --- |
@@ -141,7 +141,7 @@ To configure the asset endpoint to use a transport authentication certificate, c
 # [Azure IoT Operations portal](#tab/portal)
 
 1. Follow the steps in [configure mutual trust](howto-configure-opcua-certificates-infrastructure.md#how-to-handle-the-opc-ua-trusted-certificates-list) to add a transport certificate and private key to Azure Key Vault, and project them into Kubernetes cluster.
-2. In Azure IoT Operations Experience portal, select **Use transport authentication certificate** for the **Transport authentication** field and enter the certificate thumbprint.
+2. In the Azure IoT Operations (preview) portal, select **Use transport authentication certificate** for the **Transport authentication** field and enter the certificate thumbprint.
 
 # [Azure CLI](#tab/cli)
 
@@ -161,11 +161,11 @@ To learn more, see [az iot ops asset](/cli/azure/iot/ops/asset).
 
 # [Azure IoT Operations portal](#tab/portal)
 
-To add an asset in the Azure IoT Operations portal:
+To add an asset in the Azure IoT Operations (preview) portal:
 
 1. Select the **Assets** tab. Before you create any assets, you see the following screen:
 
-    :::image type="content" source="media/howto-manage-assets-remotely/create-asset-empty.png" alt-text="Screenshot that shows an empty Assets tab in the Azure IoT Operations portal.":::
+    :::image type="content" source="media/howto-manage-assets-remotely/create-asset-empty.png" alt-text="Screenshot that shows an empty Assets tab in the Azure IoT Operations (preview) portal.":::
 
     > [!TIP]
     > You can use the filter box to search for assets.
@@ -178,7 +178,7 @@ To add an asset in the Azure IoT Operations portal:
     - Asset endpoint. Select your asset endpoint from the list.
     - Description
 
-    :::image type="content" source="media/howto-manage-assets-remotely/create-asset-details.png" alt-text="Screenshot that shows how to add asset details in the Azure IoT Operations portal.":::
+    :::image type="content" source="media/howto-manage-assets-remotely/create-asset-details.png" alt-text="Screenshot that shows how to add asset details in the Azure IoT Operations (preview) portal.":::
 
 1. Configure the set of properties that you want to associate with the asset. You can accept the default list of properties or add your own. The following properties are available by default:
 
@@ -212,7 +212,7 @@ Now you can define the tags associated with the asset. To add OPC UA tags:
       - Sampling Interval (milliseconds). You can override the default value for this tag.
       - Queue size. You can override the default value for this tag.
 
-    :::image type="content" source="media/howto-manage-assets-remotely/add-tag.png" alt-text="Screenshot that shows adding tags in the Azure IoT Operations portal.":::
+    :::image type="content" source="media/howto-manage-assets-remotely/add-tag.png" alt-text="Screenshot that shows adding tags in the Azure IoT Operations (preview) portal.":::
 
     The following table shows some example tag values that you can use with the built-in OPC PLC simulator:
 
@@ -241,17 +241,17 @@ You can import up to 1000 OPC UA tags at a time from a CSV file:
 
 1. Select **Add tag or CSV > Import CSV (.csv) file**. Select the CSV file you created and select **Open**. The tags defined in the CSV file are imported:
 
-    :::image type="content" source="media/howto-manage-assets-remotely/import-complete.png" alt-text="A screenshot that shows the completed import from the Excel file in the Azure IoT Operations portal.":::
+    :::image type="content" source="media/howto-manage-assets-remotely/import-complete.png" alt-text="A screenshot that shows the completed import from the Excel file in the Azure IoT Operations (preview) portal.":::
 
-    If you import a CSV file that contains tags that are duplicates of existing tags, the Azure IoT Operations portal displays the following message:
+    If you import a CSV file that contains tags that are duplicates of existing tags, the Azure IoT Operations (preview) portal displays the following message:
 
-    :::image type="content" source="media/howto-manage-assets-remotely/import-duplicates.png" alt-text="A screenshot that shows the error message when you import duplicate tag definitions in the Azure IoT Operations portal.":::
+    :::image type="content" source="media/howto-manage-assets-remotely/import-duplicates.png" alt-text="A screenshot that shows the error message when you import duplicate tag definitions in the Azure IoT Operations (preview) portal.":::
 
     You can either replace the duplicate tags and add new tags from the import file, or you can cancel the import.
 
 1. To export all the tags from an asset to a CSV file, select **Export all** and choose a location for the file:
 
-    :::image type="content" source="media/howto-manage-assets-remotely/export-tags.png" alt-text="A screenshot that shows how to export tag definitions from an asset in the Azure IoT Operations portal.":::
+    :::image type="content" source="media/howto-manage-assets-remotely/export-tags.png" alt-text="A screenshot that shows how to export tag definitions from an asset in the Azure IoT Operations (preview) portal.":::
 
 1. On the **Tags** page, select **Next** to go to the **Add events** page.
 
@@ -306,7 +306,7 @@ Now you can define the events associated with the asset. To add OPC UA events:
         - Log
       - Queue size. You can override the default value for this tag.
 
-    :::image type="content" source="media/howto-manage-assets-remotely/add-event.png" alt-text="Screenshot that shows adding events in the Azure IoT Operations portal.":::
+    :::image type="content" source="media/howto-manage-assets-remotely/add-event.png" alt-text="Screenshot that shows adding events in the Azure IoT Operations (preview) portal.":::
 
 1. Select **Manage default settings** to configure default event settings for the asset. These settings apply to all the OPC UA events that belong to the asset. You can override these settings for each event that you add. Default event settings include:
 
@@ -328,7 +328,7 @@ On the **Events** page, select **Next** to go to the **Review** page.
 
 Review your asset and OPC UA tag and event details and make any adjustments you need:
 
-:::image type="content" source="media/howto-manage-assets-remotely/review-asset.png" alt-text="A screenshot that shows how to review your asset, tags, and events in the Azure IoT Operations portal.":::
+:::image type="content" source="media/howto-manage-assets-remotely/review-asset.png" alt-text="A screenshot that shows how to review your asset, tags, and events in the Azure IoT Operations (preview) portal.":::
 
 # [Azure CLI](#tab/cli)
 
@@ -353,17 +353,17 @@ For each event that you define, you can specify the:
 
 Find and select the asset you created previously. Use the **Asset details**, **Tags**, and **Events** tabs to make any changes:
 
-:::image type="content" source="media/howto-manage-assets-remotely/asset-update-property-save.png" alt-text="A screenshot that shows how to update an existing asset in the Azure IoT Operations portal.":::
+:::image type="content" source="media/howto-manage-assets-remotely/asset-update-property-save.png" alt-text="A screenshot that shows how to update an existing asset in the Azure IoT Operations (preview) portal.":::
 
 On the **Tags** tab, you can add tags, update existing tags, or remove tags.
 
 To update a tag, select an existing tag and update the tag information. Then select **Update**:
 
-:::image type="content" source="media/howto-manage-assets-remotely/asset-update-tag.png" alt-text="A screenshot that shows how to update an existing tag in the Azure IoT Operations portal.":::
+:::image type="content" source="media/howto-manage-assets-remotely/asset-update-tag.png" alt-text="A screenshot that shows how to update an existing tag in the Azure IoT Operations (preview) portal.":::
 
 To remove tags, select one or more tags and then select **Remove tags**:
 
-:::image type="content" source="media/howto-manage-assets-remotely/asset-remove-tags.png" alt-text="A screenshot that shows how to delete a tag in the Azure IoT Operations portal.":::
+:::image type="content" source="media/howto-manage-assets-remotely/asset-remove-tags.png" alt-text="A screenshot that shows how to delete a tag in the Azure IoT Operations (preview) portal.":::
 
 You can also add, update, and delete events and properties in the same way.
 
@@ -422,7 +422,7 @@ You can manage an asset's events by using the `az iot ops asset event` commands.
 
 To delete an asset, select the asset you want to delete. On the **Asset**  details page, select **Delete**. Confirm your changes to delete the asset:
 
-:::image type="content" source="media/howto-manage-assets-remotely/asset-delete.png" alt-text="A screenshot that shows how to delete an asset from the Azure IoT Operations portal.":::
+:::image type="content" source="media/howto-manage-assets-remotely/asset-delete.png" alt-text="A screenshot that shows how to delete an asset from the Azure IoT Operations (preview) portal.":::
 
 # [Azure CLI](#tab/cli)
 
@@ -436,9 +436,9 @@ az iot ops asset delete --name thermostat -g {your resource group name}
 
 ## Notifications
 
-Whenever you make a change to asset in the Azure IoT Operations portal, you see a notification that reports the status of the operation:
+Whenever you make a change to asset in the Azure IoT Operations (preview) portal, you see a notification that reports the status of the operation:
 
-:::image type="content" source="media/howto-manage-assets-remotely/portal-notifications.png" alt-text="A screenshot that shows the notifications in the Azure IoT Operations portal.":::
+:::image type="content" source="media/howto-manage-assets-remotely/portal-notifications.png" alt-text="A screenshot that shows the notifications in the Azure IoT Operations (preview) portal.":::
 
 ## Related content
 

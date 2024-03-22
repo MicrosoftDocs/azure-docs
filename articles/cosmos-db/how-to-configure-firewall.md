@@ -53,6 +53,36 @@ You can enable requests to access the Azure portal by selecting the **Allow acce
 
 :::image type="content" source="./media/how-to-configure-firewall/enable-azure-portal.png" alt-text="Screenshot showing how to enable Azure portal access" border="true":::
 
+#### New Azure portal IP Addresses
+
+Cosmos DB portal services are transitioning to new infrastructure in 2024. As part of this transition, accounts with firewall enabled will require new IP addresses to be allowed to continue access to some portal functionality, such as Data Explorer. This move also introduces dedicated IP addresses for Mongo DB and Apache Cassandra API accounts.
+
+During this transition, the **Allow access from Azure portal** option adds both current and new IP addresses to account firewall settings (including MongoDB and Cassandra specific addresses for those accounts) When the transition is complete, a portal option will be made available to remove the old IP addresses.
+
+##### Azure Public
+
+|Database Account API|IP addresses|
+|--------------------|------------|
+|All|13.91.105.215, 4.210.172.107, 13.88.56.148, 40.91.218.243|
+|MongoDB only|20.245.81.54, 40.118.23.126, 40.80.152.199, 13.95.130.121|
+|Apache Cassandra only|40.113.96.14, 104.42.11.145, 137.117.230.240, 168.61.72.237|
+
+##### Azure China
+
+|Database Account API|IP addresses|
+|--------------------|------------|
+|All|163.228.137.6, 143.64.170.142|
+|MongoDB only|52.131.240.99, 143.64.61.130|
+|Apache Cassandra only|40.73.99.146, 143.64.62.47|
+
+##### Azure US Government
+
+|Database Account API|IP addresses|
+|--------------------|------------|
+|All|52.247.163.6, 52.244.134.181|
+|MongoDB only|52.244.176.112, 52.247.148.42|
+|Apache Cassandra only|52.244.50.101, 52.227.165.24|
+
 > [!NOTE]
 > If you are experiencing challenges connecting to your Azure Cosmos DB account from the Data Explorer, review the [Data Explorer troubleshooting guide](/troubleshoot/azure/cosmos-db/data-explorer).
 
