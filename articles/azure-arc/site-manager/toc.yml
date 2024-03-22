@@ -27,8 +27,8 @@
 - name: Reference
   items:
   - name: Azure Arc
-    href: ./articles/azure-arc/overview.md
+    href: ../overview.md
   - name: Azure CLI
-    href: ./cli/azure/connectedmachine.md
+    href: ../../../cli/overview.md
   - name: Azure monitor
-    href: ./azure-monitor/essentials/monitor-azure-resource.md
+    href: ../../azure-monitor/overview.md

@@ -36,19 +36,19 @@ This article details how to view alert status for an Arc Site, which reflects th
 To view alert status for an Arc site as a whole, the below steps can be followed from the main page of Azure Arc site manager. For this example, two sites have already been created, a **London** site and a **California** site. 
 
 1. From Azure Arc site manager, navigate to the **Overview** page. 
-![Site_Manager_Overview](./media/how-to-view-alerts/overview_sites_page.png)
+![site manager get started page directing to overview page](./media/how-to-view-alerts/overview_sites_page.png)
 2. In the **Overview** page, the alert statuses of the sites are shown below. This is the alert status of resources aggregated by sites. In the example below, this indicates that one site is **up to date** and one site **needs attention**
-![Site_Manager_Overview_alerts](./media/how-to-view-alerts/site_manager_overview_alerts.png)
+![overview page showing the alerts area](./media/how-to-view-alerts/site_manager_overview_alerts.png)
 3. To understand which site is **up to date** and which site **needs attention**, select either the **sites** tab or the blue colored status text to be directed to the **sites** page.
-![Site_Manager_Overview_alerts_details](./media/how-to-view-alerts/site_manager_overview_alerts_details.png)
+![site manager overview page directing to the sites page to view more details](./media/how-to-view-alerts/site_manager_overview_alerts_details.png)
 4. The **sites** page will appear and show the top-level status for each site, this reflects the most important status for the site. 
-![Site_Manager_Overview_alerts_details_status_site_page](./media/how-to-view-alerts/site_manager_overview_alerts_details_status_site_page.png)
+![site manager sites page showing the top level status for each site](./media/how-to-view-alerts/site_manager_overview_alerts_details_status_site_page.png)
 
 ## View alert status: resource
 
 1. Navigate to the main **site manager** page in **Azure Arc** and then to the **Sites** tab at the top of Azure Arc site manager. 
-![Site_Manager_Overview_button_Page_again](./media/how-to-view-alerts/sites_button_from_site_manager.png)
+![site manager main page highlighting the site button tab](./media/how-to-view-alerts/sites_button_from_site_manager.png)
 2. From the **Sites** tab, view the top-level status for each site, this reflects the most important status for the site. To see resource status, select this. For this example, **London's** alert status is clicked.
-![Site_Manager_Overview_alerts_details_status_site_page_again](./media/how-to-view-alerts/site_manager_overview_alerts_details_status_site_page.png)
+![site tab inside site manager showing the alert status](./media/how-to-view-alerts/site_manager_overview_alerts_details_status_site_page.png)
 3. The alert status for each resource within **London** is visible, including the resource that had resulted in the top-level most important status. Which for **London** is **needs attention**
-![Site_Manager_Overview_alerts_details_status_london](./media/how-to-view-alerts/site_manager_overview_alerts_details_status_london.png)
+![alert status for each resource inside the london site](./media/how-to-view-alerts/site_manager_overview_alerts_details_status_london.png)
