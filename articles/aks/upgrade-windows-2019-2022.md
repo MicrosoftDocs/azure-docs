@@ -1,17 +1,22 @@
 ---
-title: Upgrade Azure Kubernetes Service (AKS) workloads from Windows Server 2019 to 2022
+title: Upgrade the OS version for your Azure Kubernetes Service (AKS) Windows workloads
 description: Learn how to upgrade the OS version for Windows workloads on Azure Kubernetes Service (AKS).
 ms.topic: article
-ms.custom: linux-related-content
+ms.custom:
 ms.date: 09/12/2023
 ---
 
-# Upgrade Azure Kubernetes Service (AKS) workloads from Windows Server 2019 to 2022
+# Upgrade the OS version for your Azure Kubernetes Service (AKS) Windows workloads
 
-When upgrading the OS version of a running Windows workload on Azure Kubernetes Service (AKS), you need to deploy a new node pool to ensure the Windows versions match on each node pool. This article describes the steps to upgrade the OS version for Windows workloads on AKS.
+When upgrading the OS version of a running Windows workload on Azure Kubernetes Service (AKS), you need to deploy a new node pool to ensure the Windows versions match on each node pool. This article describes the steps to upgrade the OS version for Windows workloads on AKS. While this example focuses on the upgrade from Windows Server 2019 to Windows Server 2022, the same process can be followed to upgrade from any Windows Server version to another.
+
+## Windows Server OS version support
+
+When a new version of the Windows Server operating system is released, AKS is committed to supporting it and recommending you upgrade to the latest version to take advantage of the fixes, improvements, and new functionality. AKS provides a five-year support lifecycle for every Windows Server version, starting with Windows Server 2022. During this period, AKS will release a new version that supports a newer version of Windows Server OS for you to upgrade to.
 
 > [!NOTE]
-> Windows Server 2019 is being retired after Kubernetes version 1.32 reaches end of life (EOL) and won't be supported in future releases. For more information about this retirement, see the [AKS release notes][aks-release-notes].
+>- Windows Server 2019 is being retired after Kubernetes version 1.32 reaches end of life (EOL). For more information, see [AKS release notes][aks-release-notes].
+>- Windows Server 2022 is being retired after Kubernetes version 1.34 reaches its end of life (EOL). For more information, see [AKS release notes][aks-release-notes].
 
 ## Limitations
 

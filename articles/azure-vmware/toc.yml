@@ -33,11 +33,11 @@ items:
     href: tutorial-configure-networking.md
   - name: 4 - Access a private cloud
     href: tutorial-access-private-cloud.md
-  - name: 5 - Create an NSX-T Data Center network segment
+  - name: 5 - Create an NSX network segment
     href: tutorial-nsx-t-network-segment.md
   - name: 6 - Peer on-premises to private cloud
     href: tutorial-expressroute-global-reach-private-cloud.md
-  - name: 7 - Scale in a private cloud
+  - name: 7 - Scale a private cloud
     href: tutorial-scale-private-cloud.md
   - name: 8 - Delete a private cloud
     href: tutorial-delete-private-cloud.md
@@ -69,6 +69,8 @@ items:
       href: concepts-vulnerability-management.md
   - name: Storage
     href: concepts-storage.md
+  - name: Migrate
+    href: concepts-migrate.md
 - name: How-to guides
   items:
   - name: Azure native integration
@@ -129,13 +131,13 @@ items:
     items:
     - name: Set an external identity source for vCenter Server
       href: configure-identity-source-vcenter.md
-    - name: Set an external identity source for NSX-T Data Center
+    - name: Set an external identity source for NSX
       href: configure-external-identity-source-nsx-t.md
   - name: Configure internet connectivity
     items:
     - name: Enable Managed SNAT for Azure VMware Solution workloads
       href: enable-managed-snat-for-workloads.md
-    - name: Enable public IP on the NSX-T Data Center Edge for Azure VMware Solution
+    - name: Enable public IP on the NSX Edge for Azure VMware Solution
       href: enable-public-ip-nsx-edge.md
     - name: Disable internet access or enable a default route
       href: disable-internet-access.md
@@ -151,7 +153,7 @@ items:
       href: configure-hcx-network-extension.md
     - name: VMware HCX Mobility Optimized Networking (MON) guidance
       href: vmware-hcx-mon-guidance.md
-    - name: Configure NSX-T Data Center network components
+    - name: Configure NSX network components
       href: configure-nsx-network-components-azure-portal.md
     - name: Configure port mirroring
       href: configure-port-mirroring-azure-vmware-solution.md
@@ -247,24 +249,24 @@ items:
       href: configure-hcx-network-extension.md
     - name: Configure VMware HCX network extension high availability
       href: configure-hcx-network-extension-high-availability.md
-    - name: Configure VMware vRealize Operations
+    - name: Enable VMware HCX access over the internet
+      href: enable-hcx-access-over-internet.md
+    - name: Upgrade VMware HCX on Azure VMware Solution
+      href: upgrade-hcx-azure-vmware-solutions.md
+    - name: Use VMware HCX Run Commands
+      href: use-hcx-run-commands.md
+    - name: Configure VMware Aria Operations
       href: vrealize-operations-for-azure-vmware-solution.md
     - name: Deploy VMware Horizon
       href: azure-vmware-solution-horizon.md
     - name: Deploy VMs from the content library
       href: deploy-vm-content-library.md
-    - name: Enable VMware HCX access over the internet
-      href: enable-hcx-access-over-internet.md
     - name: Configure VMware Cloud Director Service in Azure VMware Solution
       href: configure-vmware-cloud-director-service-azure-vmware-solution.md
-    - name: Enable VMware Cloud director service with Azure VMware solution (Preview)
+    - name: Enable VMware Cloud Director Service with Azure VMware solution
       href: enable-vmware-cds-with-azure.md
     - name: Deploy VMware Cloud Director Availability in Azure VMware Solution
       href: deploy-vmware-cloud-director-availability-in-azure-vmware-solution.md
-    - name: Upgrade VMware HCX on Azure VMware Solution
-      href: upgrade-hcx-azure-vmware-solutions.md
-    - name: Use VMware HCX Run Commands
-      href: use-hcx-run-commands.md
 - name: Resources
   items:
   - name: Learning paths
@@ -297,6 +299,14 @@ items:
         href: https://www.youtube.com/watch?v=vbujjWxN268
   - name: Videos
     items:
+    - name: Playlist
+      href: https://www.youtube.com/playlist?list=PL1NLwHeM6ewbZu0dC0guj-OSpIoZnnJin
+    - name: Integration with Azure Service
+      href: https://youtu.be/m26iLu6DHbU
+    - name: Integration with Azure Application Gateway
+      href: https://youtu.be/BoQYvqzb6Y8
+    - name: Migration and capacity planning
+      href: https://youtu.be/NoNG-hkksrA
     - name: Extend to the Cloud with Azure VMware Solution
       href: https://info.microsoft.com/www-extend-to-the-cloud-with-azure-vmware-solution-on-demand-registration.html
     - name: Run your VMware workloads natively on Azure with Azure VMware Solution | Azure Friday
@@ -325,16 +335,6 @@ items:
       href: https://kb.vmware.com/s/article/2129927
   - name: FAQ
     href: ./faq.yml
-  - name: Videos
-    items:
-    - name: Playlist
-      href: https://www.youtube.com/playlist?list=PL1NLwHeM6ewbZu0dC0guj-OSpIoZnnJin
-    - name: Integration with Azure Service
-      href: https://youtu.be/m26iLu6DHbU
-    - name: Integration with Azure Application Gateway
-      href: https://youtu.be/BoQYvqzb6Y8
-    - name: Migration and capacity planning
-      href: https://youtu.be/NoNG-hkksrA
 - name: Reference
   items:
   - name: REST API

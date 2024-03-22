@@ -96,7 +96,7 @@ To get a list of some of the Azure resources that are impacted when you transfer
 To complete these steps, you will need:
 
 - [Bash in Azure Cloud Shell](../cloud-shell/overview.md) or [Azure CLI](/cli/azure)
-- Account Administrator of the subscription you want to transfer in the source directory
+- Billing account owner of the subscription you want to transfer in the source directory
 - A user account in both the source and target directory for the user making the directory change
 
 ## Step 1: Prepare for the transfer
