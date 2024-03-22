@@ -157,7 +157,7 @@ Valid values for `weekIndex` include `First`, `Second`, `Third`, `Fourth`, and `
 2. In the **Settings** section, select **Cluster configuration**.
 3. Under **Upgrade** > **Automatic upgrade scheduler**, select **Add schedule**.
 
-    :::image type="content" source="./media/planned-maintenance/add-schedule-portal.png" alt-text="This screenshot shows the Add schedule option in the Azure portal.":::
+    :::image type="content" source="./media/planned-maintenance/add-schedule-portal.png" alt-text="Screenshot shows the Add schedule option in the Azure portal.":::
 
 4. On the **Add maintenance schedule** page, configure the following maintenance window settings:
 
@@ -167,7 +167,7 @@ Valid values for `weekIndex` include `First`, `Second`, `Third`, `Fourth`, and `
     * **Maintenance start time**: Select the desired start time for the maintenance window.
     * **UTC offset**: Select the desired UTC offset for the maintenance window. If not set, the default is **+00:00**.
 
-    :::image type="content" source="./media/planned-maintenance/add-maintenance-schedule-portal.png" alt-text="This screenshot shows the Add maintenance schedule page in the Azure portal.":::
+    :::image type="content" source="./media/planned-maintenance/add-maintenance-schedule-portal.png" alt-text="Screenshot shows the Add maintenance schedule page in the Azure portal.":::
 
 5. Select **Save** > **Apply**.
 
@@ -264,7 +264,7 @@ You can also use a JSON file create a maintenance configuration instead of using
 2. In the **Settings** section, select **Cluster configuration**.
 3. Under **Upgrade** > **Automatic upgrade scheduler**, select **Edit schedule**.
 
-    :::image type="content" source="./media/planned-maintenance/edit-schedule-portal.png" alt-text="This screenshot shows the Edit schedule option in the Azure portal.":::
+    :::image type="content" source="./media/planned-maintenance/edit-schedule-portal.png" alt-text="Screenshot shows the Edit schedule option in the Azure portal.":::
 
 4. On the **Edit maintenance schedule** page, update the maintenance window settings as needed.
 5. Select **Save** > **Apply**.
@@ -372,11 +372,11 @@ The following example output shows the maintenance window for *aksManagedAutoUpg
 2. In the **Settings** section, select **Cluster configuration**.
 3. Under **Upgrade** > **Automatic upgrade scheduler**, select **Edit schedule**.
 
-    :::image type="content" source="./media/planned-maintenance/edit-schedule-portal.png" alt-text="This screenshot shows the Edit schedule option in the Azure portal.":::
+    :::image type="content" source="./media/planned-maintenance/edit-schedule-portal.png" alt-text="Screenshot shows the Edit schedule option in the Azure portal.":::
 
 4. On the **Edit maintenance schedule** page, select **Remove schedule**.
 
-    :::image type="content" source="./media/planned-maintenance/remove-schedule-portal.png" alt-text="This screenshot shows the Edit maintenance window page with the Remove schedule option in the Azure portal.":::
+    :::image type="content" source="./media/planned-maintenance/remove-schedule-portal.png" alt-text="Screenshot shows the Edit maintenance window page with the Remove schedule option in the Azure portal.":::
 
 ### [JSON file](#tab/json-file)
 
