@@ -156,7 +156,7 @@ When your primary workspace becomes unavailable, you can switch over the seconda
 
 Azure Machine Learning cannot sync or recover artifacts or metadata between workspace instances. Dependent on your application deployment strategy, you might have to move artifacts or recreate experimentation inputs, such as data assets, in the failover workspace in order to continue job submission. In case you have configured your primary workspace and secondary workspace resources to share associated resources with geo-replication enabled, some objects might be directly available to the failover workspace. For example, if both workspaces share the same docker images, configured datastores, and Azure Key Vault resources. The following diagram shows a configuration where two workspaces share the same images (1), datastores (2), and Key Vault (3).
 
-![Reference resource configuration](./media/how-to-high-availability-machine-learning/ncdr-resource-configuration.png)
+![Reference resource configuration](./media/how-to-high-availability-machine-learning/bcdr-resource-configuration.png)
 
 > [!NOTE]
 > Any jobs that are running when a service outage occurs will not automatically transition to the secondary workspace. It is also unlikely that the jobs will resume and finish successfully in the primary workspace once the outage is resolved. Instead, these jobs must be resubmitted, either in the secondary workspace or in the primary (once the outage is resolved).
