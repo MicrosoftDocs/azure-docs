@@ -13,7 +13,7 @@ ms.date: 03/22/2024
 
 # Deploy a network function using Azure CLI
 
-This article shows you how to deploy various network functions, including Sesion Management Functions (SMF), User Plane Functions (UPF), Network Repository Functions (NRF), Network Slice Selection Functions (NSSF), and Access and Mobility Functions (AMF) in Azure Operator 5G Core Preview. 
+This article shows you how to deploy various network functions, including Session Management Functions (SMF), User Plane Functions (UPF), Network Repository Functions (NRF), Network Slice Selection Functions (NSSF), and Access and Mobility Functions (AMF) in Azure Operator 5G Core Preview. 
 
 ## Prerequisites
 
