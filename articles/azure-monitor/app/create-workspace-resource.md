@@ -18,16 +18,13 @@ With workspace-based resources, [Application Insights](app-insights-overview.md#
 
 ## New capabilities
 
-With workspace-based Application Insights, you can take advantage of the latest capabilities of Azure Monitor and Log Analytics. For example:
+Workspace-based Application Insights integrates with Azure Monitor and Log Analytics to enhance capabilities:
 
-* [Customer-managed key](../logs/customer-managed-keys.md) provides encryption at rest for your data with encryption keys to which only you have access.
-* [Azure Private Link](../logs/private-link-security.md) allows you to securely link Azure platform as a service (PaaS) services to your virtual network by using private endpoints.
-* [Bring your own storage (BYOS) for Profiler and Snapshot Debugger](./profiler-bring-your-own-storage.md) allows you to control this data associated with Application Insights [Profiler](../profiler/profiler-overview.md) and [Snapshot Debugger](../snapshot-debugger/snapshot-debugger.md).
-    * Encryption-at-rest policy
-    * Lifetime management policy
-    * Network access
-* [Commitment tiers](../logs/cost-logs.md#commitment-tiers) enable you to save as much as 30% compared to the pay-as-you-go price.
-* Log Analytics streaming ingests data faster.
+- [Customer-managed key](../logs/customer-managed-keys.md) encrypts your data at rest with keys only you access.
+- [Azure Private Link](../logs/private-link-security.md) securely connects Azure PaaS services to your virtual network using private endpoints.
+- [Bring your own storage (BYOS) for Profiler and Snapshot Debugger](./profiler-bring-your-own-storage.md) lets you manage data from Application Insights [Profiler](../profiler/profiler-overview.md) and [Snapshot Debugger](../snapshot-debugger/snapshot-debugger.md) with policies on encryption, lifetime, and network access.
+- [Commitment tiers](../logs/cost-logs.md#commitment-tiers) offer up to a 30% saving over pay-as-you-go pricing.
+- Log Analytics streaming processes data more quickly.
 
 ## Create a workspace-based resource
 
@@ -55,7 +52,7 @@ The [connection string](./sdk-connection-string.md?tabs=net) identifies the reso
 
 ## Configure monitoring
 
-After you've created a workspace-based Application Insights resource, you configure monitoring.
+After creating a workspace-based Application Insights resource, you configure monitoring.
 
 ### Code-based application monitoring
 
@@ -289,7 +286,7 @@ resource component 'Microsoft.Insights/components@2020-02-02' = {
 
 ## Modify the associated workspace
 
-After you've created a workspace-based Application Insights resource, you can modify the associated Log Analytics workspace.
+After creating a workspace-based Application Insights resource, you can modify the associated Log Analytics workspace.
 
 In the Application Insights resource pane, select **Properties** > **Change Workspace** > **Log Analytics Workspaces**.
 
@@ -311,33 +308,31 @@ If your system is an instance of Azure Cloud Services, there's [another method o
 
 ### About resources and connection strings
 
-When you set up Application Insights monitoring for your web app, you create an Application Insights resource in Azure. You open this resource in the Azure portal to see and analyze the telemetry collected from your app. The resource is identified by a connection string. When you install the Application Insights package to monitor your app, you configure it with the connection string so that it knows where to send the telemetry.
+When you set up Application Insights monitoring for your web app, you create an Application Insights resource in Azure. You open the resource in the Azure portal to see and analyze the telemetry collected from your app. A connection string identifies the resource. When you install the Application Insights package to monitor your app, you configure it with the connection string so that it knows where to send the telemetry.
 
 Each Application Insights resource comes with metrics that are available out of the box. If separate components report to the same Application Insights resource, it might not make sense to alert on these metrics.
 
 #### When to use a single Application Insights resource
 
-Use a single Application Insights resource:
+Use a single Application Insights resource for:
 
-- For application components that are deployed together. These applications are usually developed by a single team and managed by the same set of DevOps/ITOps users.
-- If it makes sense to aggregate key performance indicators, such as response durations or failure rates in a dashboard, across all of them by default. You can choose to segment by role name in the metrics explorer.
-- If there's no need to manage Azure role-based access control differently between the application components.
-- If you don't need metrics alert criteria that are different between the components.
-- If you don't need to manage continuous exports differently between the components.
-- If you don't need to manage billing/quotas differently between the components.
-- If it's okay to have an API key have the same access to data from all components. And 10 API keys are sufficient for the needs across all of them.
-- If it's okay to have the same smart detection and work item integration settings across all roles.
+- Streamlining DevOps/ITOps management for applications deployed together, typically developed and managed by the same team.
+- Centralizing key performance indicators, such as response times and failure rates, in a dashboard by default. Segment by role name in the metrics explorer if necessary.
+- When there's no need for different Azure role-based access control management between application components.
+- When identical metrics alert criteria, continuous exports, and billing/quotas management across components suffice.
+- When it's acceptable for an API key to access data from all components equally, and 10 API keys meet the needs across all components.
+- When the same smart detection and work item integration settings are suitable across all roles.
 
 > [!NOTE]
 > If you want to consolidate multiple Application Insights resources, you can point your existing application components to a new, consolidated Application Insights resource. The telemetry stored in your old resource won't be transferred to the new resource. Only delete the old resource when you have enough telemetry in the new resource for business continuity.
 
 #### Other considerations
 
-Be aware that:
+To activate portal experiences, add custom code to assign meaningful values to the [Cloud_RoleName](./app-map.md?tabs=net#set-or-override-cloud-role-name) attribute. Without these values, portal features don't function.
 
-- You might need to add custom code to ensure that meaningful values are set into the [Cloud_RoleName](./app-map.md?tabs=net#set-or-override-cloud-role-name) attribute. Without meaningful values set for this attribute, none of the portal experiences will work.
-- For Azure Service Fabric applications and classic cloud services, the SDK automatically reads from the Azure Role Environment and sets these services. For all other types of apps, you'll likely need to set this explicitly.
-- Live Metrics doesn't support splitting by role name.
+For Azure Service Fabric applications and classic cloud services, the SDK automatically configures services by reading from the Azure Role Environment. For other app types, you typically need to set it explicitly.
+
+Live Metrics can't split data by role name.
 
 ### Create more Application Insights resources
 
@@ -349,10 +344,10 @@ To create an Applications Insights resource, see [Create an Application Insights
 #### Get the connection string
 The connection string identifies the resource that you created.
 
-You need the connection strings of all the resources to which your app will send data.
+You need the connection strings of all the resources to which your app sends data.
 
 ### Filter on the build number
-When you publish a new version of your app, you'll want to be able to separate the telemetry from different builds.
+When you publish a new version of your app, you want to be able to separate the telemetry from different builds.
 
 You can set the **Application Version** property so that you can filter [search](../../azure-monitor/app/transaction-search-and-diagnostics.md?tabs=transaction-search) and [metric explorer](../../azure-monitor/essentials/metrics-charts.md) results.
 
@@ -387,7 +382,7 @@ There are several different methods of setting the **Application Version** prope
 
     This step generates a file called *yourProjectName*`.BuildInfo.config`. The Publish process renames it to `BuildInfo.config`.
 
-    The build label contains a placeholder (*AutoGen_...*) when you build with Visual Studio. But when built with the Microsoft Build Engine, it's populated with the correct version number.
+    The build label contains a placeholder `(*AutoGen_...*)` when you build with Visual Studio. But when built with the Microsoft Build Engine, it's populated with the correct version number.
 
     To allow the Microsoft Build Engine to generate version numbers, set the version like `1.0.*` in `AssemblyReference.cs`.
 
@@ -403,7 +398,7 @@ To track the application version, make sure your Microsoft Build Engine process 
 
 When the Application Insights web module has the build information, it automatically adds **Application Version** as a property to every item of telemetry. For this reason, you can filter by version when you perform [diagnostic searches](../../azure-monitor/app/transaction-search-and-diagnostics.md?tabs=transaction-search) or when you [explore metrics](../../azure-monitor/essentials/metrics-charts.md).
 
-The build version number is generated only by the Microsoft Build Engine, not by the developer build from Visual Studio.
+The Microsoft Build Engine exclusively generates the build version number, not the developer build from Visual Studio.
 
 #### Release annotations
 
@@ -415,13 +410,14 @@ This section provides answers to common questions.
 
 ### How do I move an Application Insights resource to a new region?
 
-Moving existing Application Insights resources from one region to another is *currently not supported*. Historical data that you've collected *can't be migrated* to a new region. The only partial workaround is to:
-          
-1. Create a new workspace-based Application Insights resource in the new region.
-1. Re-create all unique customizations specific to the original resource in the new resource.
-1. Modify your application to use the new region resource's [connection string](./sdk-connection-string.md).
-1. Test to confirm that everything is continuing to work as expected with your new Application Insights resource.
-1. At this point, you can either keep or delete the original Application Insights resource. If you delete a classic Application Insights resource, *all historical data is lost*. If the original resource was workspace based, its data remains in Log Analytics. Keeping the original Application Insights resource allows you to access its historical data until its data retention settings run out.
+Transferring existing Application Insights resources between regions isn't supported, and you can't migrate historical data to a new region. The workaround involves:
+
+- Creating a new workspace-based Application Insights resource in the desired region.
+- Re-creating any unique customizations from the original resource in the new one.
+- Updating your application with the new region resource's [connection string](./sdk-connection-string.md).
+- Testing to ensure everything works as expected with the new Application Insights resource.
+- Decide to either keep or delete the original Application Insights resource. Deleting a classic resource means losing all historical data. If the resource is workspace-based, the data remains in Log Analytics, enabling access to historical data until the retention period expires.
+
           
 Unique customizations that commonly need to be manually re-created or updated for the resource in the new region include but aren't limited to:
           
