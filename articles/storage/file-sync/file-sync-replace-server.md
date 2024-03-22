@@ -4,7 +4,7 @@ description: How to replace an Azure File Sync server due to hardware decommissi
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 02/28/2024
+ms.date: 03/22/2024
 ms.author: kendownie
 ---
 
