@@ -217,7 +217,7 @@ public class RedisTriggers
       ```
 
 > [!IMPORTANT]
-> This example is simplified for the tutorial. For production use, we recommend that you use [Azure Key Vault](../service-connector/tutorial-portal-key-vault.md) to store connection string information.
+> This example is simplified for the tutorial. For production use, we recommend that you use [Azure Key Vault](../service-connector/tutorial-portal-key-vault.md) to store connection string information or [authenticate to the Redis instance using EntraID](../azure-functions/functions-bindings-cache.md#redis-connection-string).
 
 ## Build and run the code locally
 
