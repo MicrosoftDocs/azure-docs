@@ -50,10 +50,14 @@ Standard storage with cool access is supported for the following regions:
 * Japan West 
 * North Central US 
 * North Europe  
+* Norway East
+* Norway West
+* Qatar Central
 * Southeast Asia
 * Switzerland North 
 * Switzerland West 
 * Sweden Central
+* UAE Central
 * UAE North 
 * UK South
 * UK West

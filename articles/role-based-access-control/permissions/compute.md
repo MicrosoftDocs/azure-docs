@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 02/07/2024
+ms.date: 03/01/2024
 ms.custom: generated
 ---
 
@@ -37,20 +37,6 @@ Azure service: [Azure Container Apps](/azure/container-apps/)
 > | microsoft.app/builds/delete | Delete a Managed Environment's Build |
 > | microsoft.app/builds/listauthtoken/action | Gets the token used to connect to the build endpoints, such as source code upload or build log streaming. |
 > | microsoft.app/connectedenvironments/join/action | Allows to create a Container App or Container Apps Job in a Connected Environment |
-> | microsoft.app/connectedenvironments/checknameavailability/action | Check reource name availability for a Connected Environment |
-> | microsoft.app/connectedenvironments/write | Create or update a Connected Environment |
-> | microsoft.app/connectedenvironments/delete | Delete a Connected Environment |
-> | microsoft.app/connectedenvironments/read | Get a Connected Environment |
-> | microsoft.app/connectedenvironments/certificates/write | Create or update a Connected Environment Certificate |
-> | microsoft.app/connectedenvironments/certificates/read | Get a Connected Environment's Certificate |
-> | microsoft.app/connectedenvironments/certificates/delete | Delete a Connected Environment's Certificate |
-> | microsoft.app/connectedenvironments/daprcomponents/write | Create or Update Connected Environment Dapr Component |
-> | microsoft.app/connectedenvironments/daprcomponents/read | Read Connected Environment Dapr Component |
-> | microsoft.app/connectedenvironments/daprcomponents/delete | Delete Connected Environment Dapr Component |
-> | microsoft.app/connectedenvironments/daprcomponents/listsecrets/action | List Secrets of a Dapr Component |
-> | microsoft.app/connectedenvironments/storages/read | Get storage for a Connected Environment. |
-> | microsoft.app/connectedenvironments/storages/write | Create or Update a storage of Connected Environment. |
-> | microsoft.app/connectedenvironments/storages/delete | Delete a storage of Connected Environment. |
 > | microsoft.app/containerapp/resiliencypolicies/read | Get App Resiliency Policy |
 > | microsoft.app/containerapps/write | Create or update a Container App |
 > | microsoft.app/containerapps/delete | Delete a Container App |
@@ -88,8 +74,6 @@ Azure service: [Azure Container Apps](/azure/container-apps/)
 > | microsoft.app/jobs/stop/execution/backport/action | Stop a Container Apps Job's specific execution |
 > | microsoft.app/locations/availablemanagedenvironmentsworkloadprofiletypes/read | Get Available Workload Profile Types in a Region |
 > | microsoft.app/locations/billingmeters/read | Get Billing Meters in a Region |
-> | microsoft.app/locations/connectedenvironmentoperationresults/read | Get a Connected Environment Long Running Operation Result |
-> | microsoft.app/locations/connectedenvironmentoperationstatuses/read | Get a Connected Environment Long Running Operation Status |
 > | microsoft.app/locations/containerappoperationresults/read | Get a Container App Long Running Operation Result |
 > | microsoft.app/locations/containerappoperationstatuses/read | Get a Container App Long Running Operation Status |
 > | microsoft.app/locations/containerappsjoboperationresults/read | Get a Container Apps Job Long Running Operation Result |
@@ -145,7 +129,6 @@ Azure service: [Azure Container Apps](/azure/container-apps/)
 > | microsoft.app/sessionpools/sessions/read | Get a Session |
 > | **DataAction** | **Description** |
 > | microsoft.app/sessionpools/interpreters/execute/action | Execute Code |
-> | microsoft.app/sessionpools/interpreters/read | Read interpreter resources |
 
 ## Microsoft.AppPlatform
 

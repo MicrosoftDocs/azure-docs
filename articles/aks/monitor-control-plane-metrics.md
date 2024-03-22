@@ -6,7 +6,7 @@ ms.author: aritraghosh
 ms.service: azure-kubernetes-service
 ms.topic: how-to
 ms.date: 01/31/2024
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 
 #CustomerIntent: As a platform engineer, I want to collect metrics from the control plane and monitor them for any potential issues
 ---

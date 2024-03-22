@@ -4,7 +4,7 @@ description: This article shows you how to create a new metric alert rule.
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: how-to
-ms.date: 11/27/2023
+ms.date: 03/07/2024
 ms.reviewer: harelbr
 ---
 
@@ -16,7 +16,24 @@ You create an alert rule by combining the resources to be monitored, the monitor
 
 Alerts triggered by these alert rules contain a payload that uses the [common alert schema](alerts-common-schema.md).
 
+## Permissions to create metric alert rules
+
+To create a metric alert rule, you must have the following permissions:
+
+  - Read permission on the target resource of the alert rule.
+  - Write permission on the resource group in which the alert rule is created. If you're creating the alert rule from the Azure portal, the alert rule is created by default in the same resource group in which the target resource resides.
+  - Read permission on any action group associated to the alert rule, if applicable.
+
 [!INCLUDE [alerts-wizard-access](../includes/alerts-wizard-access.md)]
+
+### Edit an existing alert rule
+
+1. In the [portal](https://portal.azure.com/), either from the home page or from a specific resource, select **Alerts** from the left pane.
+1. Select **Alert rules**.
+1. Select the alert rule you want to edit, and then select **Edit**.
+
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-edit-alert-rule.png" alt-text="Screenshot that shows steps to edit an existing metric alert rule.":::
+1. Select any of the tabs for the alert rule to edit the settings.
 
 [!INCLUDE [alerts-wizard-scope](../includes/alerts-wizard-scope.md)]
 
@@ -124,6 +141,42 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 1. [!INCLUDE [alerts-wizard-custom=properties](../includes/alerts-wizard-custom-properties.md)]
 
 [!INCLUDE [alerts-wizard-finish](../includes/alerts-wizard-finish.md)]
+
+
+## Naming restrictions for metric alert rules
+
+Consider the following restrictions for metric alert rule names:
+
+- Metric alert rule names can't be changed (renamed) after they're created.
+- Metric alert rule names must be unique within a resource group.
+- Metric alert rule names can't contain the following characters: * # & + : < > ? @ % { } \ /
+- Metric alert rule names can't end with a space or a period.
+- The combined resource group name and alert rule name can't exceed 252 characters.
+
+> [!NOTE]
+> If the alert rule name contains characters that aren't alphabetic or numeric, for example, spaces, punctuation marks, or symbols, these characters might be URL-encoded when retrieved by certain clients.
+
+## Restrictions when you use dimensions in a metric alert rule with multiple conditions
+
+Metric alerts support alerting on multi-dimensional metrics and support defining multiple conditions, up to five conditions per alert rule.
+
+Consider the following constraints when you use dimensions in an alert rule that contains multiple conditions:
+
+- You can only select one value per dimension within each condition.
+- You can't use the option to **Select all current and future values**. Select the asterisk (\*).
+- When metrics that are configured in different conditions support the same dimension, a configured dimension value must be explicitly set in the same way for all those metrics in the relevant conditions.
+For example:
+    - Consider a metric alert rule that's defined on a storage account and monitors two conditions:
+        * Total **Transactions** > 5
+        * Average **SuccessE2ELatency** > 250 ms
+    - You want to update the first condition and only monitor transactions where the **ApiName** dimension equals `"GetBlob"`.
+    - Because both the **Transactions** and **SuccessE2ELatency** metrics support an **ApiName** dimension, you'll need to update both conditions, and have them specify the **ApiName** dimension with a `"GetBlob"` value.
+
+
+## Considerations when creating an alert rule that contains multiple criteria
+   - You can only select one value per dimension within each criterion.
+   - You can't use an asterisk (\*) as a dimension value.
+   - When metrics that are configured in different criteria support the same dimension, a configured dimension value must be explicitly set in the same way for all those metrics. For a Resource Manager template example, see [Create a metric alert with a Resource Manager template](./alerts-metric-create-templates.md#template-for-a-static-threshold-metric-alert-that-monitors-multiple-criteria).
 
 
 ## Next steps

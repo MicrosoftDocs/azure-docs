@@ -1,6 +1,6 @@
 ---
-title: Limits and boundaries - question answering
-description: Question answering has meta-limits for parts of the knowledge base and service. It is important to keep your knowledge base within those limits in order to test and publish.
+title: Limits and boundaries - custom question answering
+description: Custom question answering has meta-limits for parts of the knowledge base and service. It is important to keep your knowledge base within those limits in order to test and publish.
 ms.service: azure-ai-language
 author: jboback
 ms.author: jboback
@@ -10,7 +10,7 @@ ms.date: 12/19/2023
 
 # Project limits and boundaries
 
-Question answering limits provided below are a combination of the [Azure AI Search pricing tier limits](../../../../search/search-limits-quotas-capacity.md) and question answering limits. Both sets of limits affect how many projects you can create per resource and how large each project can grow.
+Custom question answering limits provided below are a combination of the [Azure AI Search pricing tier limits](../../../../search/search-limits-quotas-capacity.md) and custom question answering limits. Both sets of limits affect how many projects you can create per resource and how large each project can grow.
 
 ## Projects
 
@@ -50,7 +50,7 @@ File names may not include the following characters:
 ### Maximum number of files
 
 > [!NOTE]
-> Question answering currently has no limits on the number of sources that can be added. Throughput is currently capped at 10 text records per second for both management APIs and prediction APIs.
+> Custom question answering currently has no limits on the number of sources that can be added. Throughput is currently capped at 10 text records per second for both management APIs and prediction APIs.
 > When using the F0 tier, upload is limited to 3 files.
 
 ### Maximum number of deep-links from URL
@@ -124,7 +124,7 @@ These represent the limits when unstructured files are used to *Create new proje
 * Length of file: We will extract first 32000 characters
 * Maximum three responses per file.
 
-## Prebuilt question answering limits
+## Prebuilt custom question answering limits
 
 > [!NOTE]
 > * If you need to use larger documents than the limit allows, you can break the text into smaller chunks of text before sending them to the API. 
