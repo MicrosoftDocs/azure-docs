@@ -1,17 +1,19 @@
 ---
-title: Azure API Management - v2 tiers (preview)
-description: Introduction to key scenarios, capabilities, and concepts of the v2 tiers (SKUs) of the Azure API Management service. The v2 tiers are in preview.
+title: Azure API Management - v2 tiers
+description: Introduction to key scenarios, capabilities, and concepts of the v2 tiers (SKUs) of the Azure API Management service. 
 services: api-management
 author: dlepow
  
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 01/31/2024
+ms.date: 03/21/2024
 ms.author: danlep
 ms.custom: references_regions
 ---
 
-# New Azure API Management tiers (preview)
+# New Azure API Management tiers
+
+[!INCLUDE [api-management-availability-standard-v2](../../includes/api-management-availability-basicv2-standardv2.md)]
 
 We're introducing a new set of pricing tiers (SKUs) for Azure API Management: the *v2 tiers*. The new tiers are built on a new, more reliable and scalable platform and are designed to make API Management accessible to a broader set of customers and offer flexible options for a wider variety of scenarios.
 
