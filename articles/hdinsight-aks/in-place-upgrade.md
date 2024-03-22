@@ -3,7 +3,7 @@ title: Upgrade your HDInsight on AKS Clusters and Cluster Pools
 description: Upgrade your HDInsight on AKS Clusters and Cluster Pools.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 03/21/2024
+ms.date: 03/22/2024
 ---
 
 # Upgrade your HDInsight on AKS Clusters and Cluster Pools
@@ -188,63 +188,63 @@ upgraded with cluster pool), and the notification updates reflect the success of
 
    :::image type="content" source="./media/in-place-upgrade/aks-version.png" alt-text="Screenshot showing AKS version." border="true" lightbox="./media/in-place-upgrade/aks-version.png":::
    
-1. Once you trigger the upgrade you will get the service notification on portal.
+1. Once you trigger the upgrade you get the service notification on portal.
 
-   :::image type="content" source="./media/in-place-upgrade/notofication-upgrade-in-progress.png" alt-text="Diagram showing notofication tray with upgrade in progress." border="true" lightbox="./media/quickstart-create-cluster/notofication-upgrade-in-progress.png"
+   :::image type="content" source="./media/in-place-upgrade/notofication-upgrade-in-progress.png" alt-text="Diagram showing notification tray with upgrade in progress." border="true" lightbox="./media/in-place-upgrade/notofication-upgrade-in-progress.png"
  
 1. The cluster update status moves from pending to upgrading, and cluster pool status moves to AksPatchUpgrading.
 
-   :::image type="content" source="./media/in-place-upgrade/patch-upgrade-status.png" alt-text="Diagram showing the patch upgrade status." border="true" lightbox="./media/quickstart-create-cluster/patch-upgrade-status.png"
+   :::image type="content" source="./media/in-place-upgrade/patch-upgrade-status.png" alt-text="Diagram showing the patch upgrade status." border="true" lightbox="./media/in-place-upgrade/patch-upgrade-status.png"
  
-1. Once your upgrade is complete, you will have an update on the banner & status on software update is reflected across cluster pool and clusters (in case clusters were also upgraded with cluster pool), and the notification updates reflect the success of the upgrade.
+1. Once your upgrade is complete, you get an update on the banner and status on software update is reflected across cluster pool and clusters (in case clusters were also upgraded with cluster pool), and the notification updates reflect the success of the upgrade.
 
-   :::image type="content" source="./media/in-place-upgrade/notification-upgrade-success.png" alt-text="Diagram showing notification with states upgrade as success." border="true" lightbox="./media/quickstart-create-cluster/notification-upgrade-success.png"
+   :::image type="content" source="./media/in-place-upgrade/notification-upgrade-success.png" alt-text="Diagram showing notification with states upgrade as success." border="true" lightbox="./media/in-place-upgrade/notification-upgrade-success.png"
    
-1. Once you apply the patch for the cluster pool, you can apply the AKS patches to the clusters in the cluster pool all at once or go to individual cluster and apply the patch based on the maintenance schedules.
+1. Once you apply the patch for the cluster pool, you can apply the AKS patches to the clusters in the cluster pool all at once or go to individual cluster and apply the patch, based on the maintenance schedules.
 
-   :::image type="content" source="./media/in-place-upgrade/status-as-run.png" alt-text="Diagram showing the status as running." border="true" lightbox="./media/quickstart-create-cluster/status-as-run.png"
+   :::image type="content" source="./media/in-place-upgrade/status-as-run.png" alt-text="Diagram showing the status as running." border="true" lightbox="./media/in-place-upgrade/status-as-run.png"
 
 1. When you use upgrade all clusters, on the cluster pool page to complete upgrading all the clusters in the cluster pool at once.
 
-   :::image type="content" source="./media/in-place-upgrade/upgrade-all-clusters.png" alt-text="Diagram showing how to upgrade all clusters." border="true" lightbox="./media/quickstart-create-cluster/upgrade-all-clusters.png"
+   :::image type="content" source="./media/in-place-upgrade/upgrade-all-clusters.png" alt-text="Diagram showing how to upgrade all clusters." border="true" lightbox="./media/in-place-upgrade/upgrade-all-clusters.png"
  
-1. The upgrade pane on the right shows the details of the upgrade on AKS patch versions (current and upgrade path).
+1. The upgrade pane on the right side shows the details of the upgrade on AKS patch versions (current and upgrade path).
 
-   :::image type="content" source="./media/in-place-upgrade/type-of-upgrade.png" alt-text="Diagram showing the type of the upgrade." border="true" lightbox="./media/quickstart-create-cluster/type-of-upgrade.png"
+   :::image type="content" source="./media/in-place-upgrade/type-of-upgrade.png" alt-text="Diagram showing the type of the upgrade." border="true" lightbox="./media/in-place-upgrade/type-of-upgrade.png"
  
 1. Once the upgrade commences, the notification icon shows the cluster upgrade is in progress
 
-   :::image type="content" source="./media/in-place-upgrade/notification-cluster-pool-upgrade-success.png" alt-text="Diagram showing notification tray with cluster pool upgrade is successful." border="true" lightbox="./media/quickstart-create-cluster/notification-cluster-pool-upgrade-success.png"
+   :::image type="content" source="./media/in-place-upgrade/notification-cluster-pool-upgrade-success.png" alt-text="Diagram showing notification tray with cluster pool upgrade is successful." border="true" lightbox="./media/in-place-upgrade/notification-cluster-pool-upgrade-success.png"
 
-1. The cluster overview pane on the cluster pool will also reflect the status of the upgrades.
+1. The cluster overview pane on the cluster pool also reflects the status of the upgrades.
 
-   :::image type="content" source="./media/in-place-upgrade/overview-status.png" alt-text="Diagram showing ." border="true" lightbox="./media/quickstart-create-cluster/overview-status.png" 
+   :::image type="content" source="./media/in-place-upgrade/overview-status.png" alt-text="Diagram showing status overview page." border="true" lightbox="./media/in-place-upgrade/overview-status.png" 
 
-1.  Once the upgrade is complete, the overview banner and the notification will be updated.
+1.  Once the upgrade is complete, the overview banner and the notification updated.
  
-    :::image type="content" source="./media/in-place-upgrade/success-status-message.png" alt-text="Diagram showing  success status message." border="true" lightbox="./media/quickstart-create-cluster/success-status-message.png" 
+    :::image type="content" source="./media/in-place-upgrade/success-status-message.png" alt-text="Diagram showing  success status message." border="true" lightbox="./media/in-place-upgrade/success-status-message.png" 
 
-    :::image type="content" source="./media/in-place-upgrade/notification-all-upgrades-success.png" alt-text="Diagram showing notification all upgrades success." border="true" lightbox="./media/quickstart-create-cluster/notification-all-upgrades-success.png" 
+    :::image type="content" source="./media/in-place-upgrade/notification-all-upgrades-success.png" alt-text="Diagram showing notification all upgrades success." border="true" lightbox="./media/in-place-upgrade/notification-all-upgrades-success.png" 
 
  ### Hotfix upgrades
 
 1. On the cluster overview page, you can observe that you have a hotfix upgrade pending for your cluster. 
 
-   :::image type="content" source="./media/in-place-upgrade/hotfix-upgrade.png" alt-text="Diagram showing ." border="true" lightbox="./media/quickstart-create-cluster/hotfix-upgrade.png"
+   :::image type="content" source="./media/in-place-upgrade/hotfix-upgrade.png" alt-text="Diagram showing hotfix upgrade message." border="true" lightbox="./media/in-place-upgrade/hotfix-upgrade.png"
 
-1. Once you click upgrade, you will go to the cluster upgrades section with the details of the upgrade pending.
+1. Once you click upgrade, go to the cluster upgrades section with the details of the upgrade pending.
 
-   :::image type="content" source="./media/in-place-upgrade/cluster-upgrade.png" alt-text="Diagram showing cluster upgrade progress." border="true" lightbox="./media/quickstart-create-cluster/cluster-upgrade.png"
+   :::image type="content" source="./media/in-place-upgrade/cluster-upgrade.png" alt-text="Diagram showing cluster upgrade in progress." border="true" lightbox="./media/in-place-upgrade/cluster-upgrade.png"
  
-1.	Once you commence the upgrade, the notification will show the progress of the upgrade, and the cluster overview page will reflect the status as hotfixupgrading and software update status changes to upgrading. 
+1.	Once you commence the upgrade, the notification shows the progress of the upgrade, and the cluster overview page reflects the status as hotfix upgrading and software update status changes to upgrading. 
  
-    :::image type="content" source="./media/in-place-upgrade/notification-cluster-upgrade-in-progress.png" alt-text="Diagram showing notification of cluster upgrade in progress." border="true" lightbox="./media/quickstart-create-cluster/notification-cluster-upgrade-in-progress.png"
+    :::image type="content" source="./media/in-place-upgrade/notification-cluster-upgrade-in-progress.png" alt-text="Diagram showing notification tray of cluster upgrade in progress." border="true" lightbox="./media/in-place-upgrade/notification-cluster-upgrade-in-progress.png"
 
-    :::image type="content" source="./media/in-place-upgrade/hotfix-upgrade-status.png" alt-text="Diagram showing hotfix upgrade status." border="true" lightbox="./media/quickstart-create-cluster/hotfix-upgrade-status.png"
+    :::image type="content" source="./media/in-place-upgrade/hotfix-upgrade-status.png" alt-text="Diagram showing hotfix upgrade status." border="true" lightbox="./media/in-place-upgrade/hotfix-upgrade-status.png"
  
 1.	Once the upgrade is complete, the overview banner for cluster status changes to running, software update status changes to up to date, and the notification banner on the overview section is updated.
  
-    :::image type="content" source="./media/in-place-upgrade/hotfix-upgrade-success-message.png" alt-text="Diagram showing hotfix upgrade success message." border="true" lightbox="./media/quickstart-create-cluster/hotfix-upgrade-success-message.png"
+    :::image type="content" source="./media/in-place-upgrade/hotfix-upgrade-success-message.png" alt-text="Diagram showing hotfix upgrade successful message." border="true" lightbox="./media/in-place-upgrade/hotfix-upgrade-success-message.png"
   
-    :::image type="content" source="./media/in-place-upgrade/software-update-status.png" alt-text="Diagram showing software update status." border="true" lightbox="./media/quickstart-create-cluster/software-update-status.png"
+    :::image type="content" source="./media/in-place-upgrade/software-update-status.png" alt-text="Diagram showing software update status." border="true" lightbox="./media/in-place-upgrade/software-update-status.png"
      
