@@ -14,11 +14,6 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-
- * [Cross-region-replication supported on large volumes](cross-region-replication-requirements-considerations.md#large-volume-configuration) (Preview)
-
-    Cross-region replication is now supported on [large volumes](large-volumes-requirements-considerations.md). You must first 
-
 ## March 2024
 
 * [Capacity pool enhancement](azure-netapp-files-set-up-capacity-pool.md): The 1 TiB capacity pool feature is now generally available (GA). 

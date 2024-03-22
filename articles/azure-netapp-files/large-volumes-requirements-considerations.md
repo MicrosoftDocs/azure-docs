@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 11/02/2023
 ms.author: anfdocs
 ---
-# Requirements and considerations for large volumes
+# Requirements and considerations for large volumes (preview)
 
 This article describes the requirements and considerations you need to be aware of before using [large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes) on Azure NetApp Files.
 
