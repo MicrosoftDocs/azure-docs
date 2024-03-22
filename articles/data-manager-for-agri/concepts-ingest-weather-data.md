@@ -17,7 +17,7 @@ Azure Data Manager for Agriculture provides current and forecast weather data th
 
 ## Design overview
 
-Azure Data Manager for Agriculture provides weather data through a provider-agnostic approach. You don't have to be familiar with a provider's APIs. Instead, you can use the same Azure Data Manager for Agriculture APIs irrespective of the provider.
+Because Azure Data Manager for Agriculture provides weather data through a provider-agnostic approach, you don't have to be familiar with a provider's APIs. Instead, you can use the same Azure Data Manager for Agriculture APIs irrespective of the provider.
 
 Here are some notes about the behavior of provider-agnostic APIs:
 

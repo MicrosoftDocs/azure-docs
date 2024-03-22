@@ -12,7 +12,7 @@ show_latex: true
 
 # Ingest satellite imagery in Azure Data Manager for Agriculture
 
-Satellite imagery is a foundational pillar of agriculture data. To support scalable ingestion of geometry-clipped imagery, we partnered with Sentinel Hub by Sinergise to provide a seamless bring your own license (BYOL) experience for Azure Data Manager for Agriculture. You can use this BYOL experience to manage your own costs. This capability helps you with storing your field-clipped historical and up-to-date imagery in the linked context of the relevant fields.
+Satellite imagery is a foundational pillar of agriculture data. To support scalable ingestion of geometry-clipped imagery, Microsoft partnered with Sentinel Hub by Sinergise to provide a seamless bring your own license (BYOL) experience for Azure Data Manager for Agriculture. You can use this BYOL experience to manage your own costs. This capability helps you with storing your field-clipped historical and up-to-date imagery in the linked context of the relevant fields.
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ Because all ingested data is under a BYOL model, the cost of a job is transparen
 
 ## STAC search for available imagery
 
-Azure Data Manager for Agriculture supports the industry-standard [SpatioTemporal Asset Catalogs (STAC)](https://stacspec.org/en) search interface to find metadata on imagery in the Sentinel Hub collection before committing to downloading pixels. To do so, the search endpoint accepts a location in the form of a point, polygon, or multipolygon, plus a start and end date/time. Alternatively, if you already have the unique item ID, you can provide it as an array of up to 5 to retrieve those specific items directly.
+Azure Data Manager for Agriculture supports the industry-standard [SpatioTemporal Asset Catalogs (STAC)](https://stacspec.org/en) search interface to find metadata on imagery in the Sentinel Hub collection before committing to downloading pixels. To do so, the search endpoint accepts a location in the form of a point, polygon, or multipolygon, plus a start and end date/time. Alternatively, if you already have the unique item ID, you can provide it as an array of up to five to retrieve those specific items directly.
 
 > [!IMPORTANT]
 > To be consistent with STAC syntax, *feature ID* is renamed to *item ID* from the 2023-11-01-preview API version.
@@ -55,7 +55,7 @@ In some cases, using more than one tile isn't desirable and traceability to a si
 ## Reprojection
 
 > [!IMPORTANT]
-> Reprojection functionality has changed from the 2023-11-01-preview API version, but it's immediately applicable to all versions. Older versions used a static conversion of 10m*10m set at the equator. Imagery ingested before this release might have a difference in size from imagery ingested after this release.
+> Reprojection functionality has changed from the 2023-11-01-preview API version, but it's immediately applicable to all versions. Older versions used a static conversion of 10 m * 10 m set at the equator. Imagery ingested before this release might have a difference in size from imagery ingested after this release.
 
 Azure Data Manager for Agriculture uses WGS84 (EPSG: 4326), a flat coordinate system. Sentinel-2 imagery is presented in UTM, a ground projection system that approximates the round earth.
 
@@ -80,9 +80,9 @@ $$
 > [!IMPORTANT]
 > Caching functionality is available only from the 2023-11-01-preview API version. Item caching is applicable only for retrieval that's based on item ID. For a typical geometry and time search, the returned items aren't cached.
 
-Azure Data Manager for Agriculture optimizes performance and costing of highly repeated calls to the same item. It caches recent STAC items when retrieved by item ID for five days in the customer's instance and enables local retrieval.
+Azure Data Manager for Agriculture optimizes performance and costing of highly repeated calls to the same item. It caches recent STAC items retrieved by item ID for five days in the customer's instance and enables local retrieval.
 
-For the first call to the search endpoint, Azure Data Manager for Agriculture brokers the request and triggers a request to the upstream provider to retrieve the matching or intersecting data items. It incurs any provider fees.
+For the first call to the search endpoint, Azure Data Manager for Agriculture brokers the request and triggers a request to the upstream provider to retrieve the matching or intersecting data items. The request incurs any provider fees.
 
 Any subsequent search first directs to the cache for a match. If there's a match, data is served from the cache directly. This process doesn't result in a call to the upstream provider, so it doesn't incur more provider fees. If there's no match, or if the five-day retention period elapses, a subsequent call for the data is passed to the upstream provider. That call is treated as another first call, so the results are cached.
 
@@ -90,7 +90,7 @@ If an ingestion job is for an identical geometry, referenced by the same resourc
 
 ## Satellite sources that Azure Data Manager for Agriculture supports
 
-While Azure Data Manager for Agriculture is in public preview, it supports ingesting data from the Sentinel-2 constellation.
+While Azure Data Manager for Agriculture is in preview, it supports ingesting data from the Sentinel-2 constellation.
 
 ### Sentinel-2
 
@@ -99,7 +99,7 @@ While Azure Data Manager for Agriculture is in public preview, it supports inges
 Sentinel-2 has two products:
 
 * Level 1 data for the top of the atmosphere.
-* Level 2 data for the bottom of the atmosphere. This is an atmospherically corrected variant.
+* Level 2 data for the bottom of the atmosphere. This variant is atmospherically corrected.
 
 Azure Data Manager for Agriculture supports ingesting and retrieving Sentinel_2_L2A and Sentinel_2_L1C data from Sentinel 2.
 

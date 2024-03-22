@@ -97,10 +97,10 @@ Similarly, for the Basic version, you can perform 5,000,000 (units reset after e
 
 ### How many sensor events can a customer ingest as the maximum number?
 
-The system allows a maximum limit of 100,000 event ingestions per hour. Although new events are continually accepted, there might be a delay in processing. The delay might mean that these events aren't immediately available for real-time egress scenarios alongside the ingestion.
+The system allows a maximum of 100,000 event ingestions per hour. Although new events are continually accepted, there might be a delay in processing. The delay might mean that these events aren't immediately available for real-time egress scenarios alongside the ingestion.
 
 ## Next steps
 
-- [Learn about hierarchy model and how to create and organize your agriculture data](./concepts-hierarchy-model.md)
+- [Learn about the hierarchy model and how to create and organize your agriculture data](./concepts-hierarchy-model.md)
 - [Test the Azure Data Manager for Agriculture REST APIs](/rest/api/data-manager-for-agri)
 - [Learn about common API response headers](/rest/api/data-manager-for-agri/common-rest-response-headers)
