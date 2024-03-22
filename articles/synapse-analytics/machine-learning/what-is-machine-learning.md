@@ -58,6 +58,13 @@ In addition to MLlib, popular libraries such as [Scikit Learn](https://scikit-le
 
 Another way to train machine learning models, that does not require much prior familiarity with machine learning, is to use automated ML. [Automated ML](../../machine-learning/concept-automated-ml.md) is a feature that automatically trains a set of machine learning models and allows the user to select the best model based on specific metrics. Thanks to a seamless integration with Azure Machine Learning from Azure Synapse Notebooks, users can easily leverage automated ML in Synapse with passthrough Microsoft Entra authentication.  This means that you only need to point to your Azure Machine Learning workspace and do not need to enter any credentials. The tutorial, [Train a model in Python with automated machine learning](../spark/apache-spark-azure-machine-learning-tutorial.md), describes how to train models using Azure Machine Learning automated ML on Synapse Spark Pools.
 
+> [!WARNING]
+> - Effective September 29, 2023, Azure Synapse will discontinue official support for [Spark 2.4 Runtimes](../spark/apache-spark-24-runtime.md). Post September 29, 2023, we will not be addressing any support tickets related to Spark 2.4. There will be no release pipeline in place for bug or security fixes for Spark 2.4. Utilizing Spark 2.4 post the support cutoff date is undertaken at one's own risk. We strongly discourage its continued use due to potential security and functionality concerns.
+> - As part of the deprecation process for Apache Spark 2.4, we would like to notify you that AutoML in Azure Synapse Analytics will also be deprecated. This includes both the low code interface and the APIs used to create AutoML trials through code.
+> - Please note that AutoML functionality was exclusively available through the Spark 2.4 runtime.
+> - For customers who wish to continue leveraging AutoML capabilities, we recommend saving your data into your Azure Data Lake Storage Gen2 (ADLSg2) account. From there, you can seamlessly access the AutoML experience through Azure Machine Learning (AzureML). Further information regarding this workaround is available [here](../machine-learning/access-data-from-aml.md).
+>
+
 ## Model deployment and scoring
 
 Models that have been trained either in Azure Synapse or outside Azure Synapse can easily be used for batch scoring. Currently in Synapse, there are two ways in which you can run batch scoring.

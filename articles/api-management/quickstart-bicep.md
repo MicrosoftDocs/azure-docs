@@ -25,7 +25,7 @@ This quickstart describes how to use a Bicep file to create an Azure API Managem
 
 - For Azure CLI:
 
-    [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+    [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 - For Azure PowerShell:
 

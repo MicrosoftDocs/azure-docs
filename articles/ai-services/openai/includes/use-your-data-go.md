@@ -5,7 +5,7 @@ author: travisw
 ms.author: travisw
 ms.service: azure-ai-openai
 ms.topic: include
-ms.date: 08/29/2023
+ms.date: 03/07/2024
 ---
 
 [!INCLUDE [Set up required variables](./use-your-data-common-variables.md)]
@@ -48,7 +48,7 @@ ms.date: 08/29/2023
    
    func main() {
    	azureOpenAIKey := os.Getenv("AZURE_OPENAI_API_KEY")
-   	modelDeploymentID := os.Getenv("AZURE_OPEN_AI_DEPLOYMENT_ID")
+   	modelDeploymentID := os.Getenv("AZURE_OPENAI_DEPLOYMENT_ID")
    
    	// Ex: "https://<your-azure-openai-host>.openai.azure.com"
    	azureOpenAIEndpoint := os.Getenv("AZURE_OPENAI_ENDPOINT")
@@ -76,7 +76,7 @@ ms.date: 08/29/2023
    
    	resp, err := client.GetChatCompletions(context.TODO(), azopenai.ChatCompletionsOptions{
    		Messages: []azopenai.ChatRequestMessageClassification{
-   			&azopenai.ChatRequestUserMessage{Content: azopenai.NewChatRequestUserMessageContent("What are the differences between Azure Machine Learning and Azure AI services?")},
+   			&azopenai.ChatRequestUserMessage{Content: azopenai.NewChatRequestUserMessageContent("What are my available health plans?")},
    		},
    		MaxTokens: to.Ptr[int32](512),
    		AzureExtensionsOptions: []azopenai.AzureChatExtensionConfigurationClassification{
