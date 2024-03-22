@@ -28,11 +28,11 @@ To view general status of an application type, select **Apps** in the left navig
 
 * **Provisioning state**: Shows the deployment’s provisioning state.
 * **Running instance**: Shows how many app instances are running and how many app instances you desire. If you stop the app, this column shows **stopped**.
-* **Registered status**: Shows how many app instances are registered to Eureka and how many app instances you desire. If you stop the app, this column shows **stopped**. Eureka isn't applicable to the Enterprise plan. For more information if you're using the Enterprise plan, see [Use Service Registry](how-to-enterprise-service-registry.md).
+* **Registration status**: Shows how many app instances are registered in service discovery and how many app instances you desire. If you stop the app, this column shows **stopped**.
 
 :::image type="content" source="media/concept-app-status/apps-ui-status.png" alt-text="Screenshot of the Azure portal showing the Apps Settings page with the Provisioning state, Running instance, and Registration status columns highlighted." lightbox="media/concept-app-status/apps-ui-status.png":::
 
-## Deployment status
+### Deployment status
 
 The deployment status shows the running state of the deployment. The status is reported as one of the following values:
 
@@ -41,9 +41,9 @@ The deployment status shows the running state of the deployment. The status is r
 | Running | The deployment SHOULD be running. |
 | Stopped | The deployment SHOULD be stopped. |
 
-## Provisioning status
+### Provisioning status
 
-The *deployment provisioning* status describes the state of operations of the deployment resource. This status shows the comparison between the functionality and the deployment definition.
+The deployment provisioning status describes the state of operations of the deployment resource. This status shows the comparison between the functionality and the deployment definition.
 
 The provisioning state is accessible only from the CLI.  It's reported as one of the following values:
 
@@ -55,12 +55,16 @@ The provisioning state is accessible only from the CLI.  It's reported as one of
 | Failed    | Failed to achieve the *Succeeded* goal.                 |
 | Deleting  | The resource is being deleted which prevents operation, and the resource isn't available in this status. |
 
+### Registration status
+
+The app registration status shows the state in service discovery. Azure Spring Apps in Standard pricing plan uses Eureka for service discovery. For more information on how the Eureka client calculates the state, see [Eureka's health checks](https://cloud.spring.io/spring-cloud-static/Greenwich.RELEASE/multi/multi__service_discovery_eureka_clients.html#_eureka_s_health_checks). [Service Registry](how-to-enterprise-service-registry.md) is used in Enterprise pricing plan.
+
 ## App instances status
 
 The *app instance* status represents every instance of the app. To view the status of a specific instance of a deployed app, select the **App instance** pane and then select the **App Instance Name** value for the app. The following status values will appear:
 
 * **Status**: Whether the instance is running or its current state
-* **Discovery Status**: The registered status of the app instance in the Eureka server
+* **Discovery Status**: The registered status of the app instance in the Eureka server or Service Registry.
 
 :::image type="content" source="media/concept-app-status/apps-ui-instance-status.png" alt-text="Screenshot of the Azure portal showing the App instance Settings page with the Status and Discovery status columns highlighted." lightbox="media/concept-app-status/apps-ui-instance-status.png":::
 
@@ -87,9 +91,6 @@ The discovery status of the instance is reported as one of the following values:
 | UNREGISTERED   | The app instance isn't registered to Eureka. |
 | N/A            | The app instance is running with custom container or service discovery is not enabled. |
 
-## App registration status
-
-The app registration status shows the state in service discovery. Azure Spring Apps uses Eureka for service discovery. For more information on how the Eureka client calculates the state, see [Eureka's health checks](https://cloud.spring.io/spring-cloud-static/Greenwich.RELEASE/multi/multi__service_discovery_eureka_clients.html#_eureka_s_health_checks).
 ## Next steps
 
 * [Prepare a Spring or Steeltoe application for deployment in Azure Spring Apps](how-to-prepare-app-deployment.md)

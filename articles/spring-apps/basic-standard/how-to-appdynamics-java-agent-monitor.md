@@ -182,7 +182,7 @@ The following screenshot shows an overview of your apps in the AppDynamics dashb
 
 :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-birds-eye-view-of-apps.jpg" alt-text="AppDynamics screenshot showing the Applications page." lightbox="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-birds-eye-view-of-apps.jpg":::
 
-The **Application Dashboard** shows the overall information for each of your apps, as shown in the following screenshots using example applications:
+The **Applications Tab** shows the overall information for each of your apps, as shown in the following screenshots using example applications:
 
 - `api-gateway`
 
