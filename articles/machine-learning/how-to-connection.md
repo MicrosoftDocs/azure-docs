@@ -35,12 +35,6 @@ In this article, you'll learn how to connect to data sources located outside of 
 
 > [!IMPORTANT]
 > An Azure Machine Learning connection securely stores the credentials passed during connection creation in the Workspace Azure Key Vault. A connection references the credentials from the key vault storage location for further use. You won't need to directly deal with the credentials after they are stored in the key vault. You have the option to store the credentials in the YAML file. A CLI command or SDK can override them. We recommend that you **avoid** credential storage in a YAML file, because a security breach could lead to a credential leak.
->
-> For credentials stored in Azure Key Vault, there are two ways to access them:
-> - Directly from key vault. This method is protected by Azure role-based access control and Azure Key Vault access policies on the key vault.
-> - Indirectly, from the Azure Machine Learning workspace. This method is protected by Azure role-based access control on the workspace
->
-> By default, the Azure Machine Learning Data Scientist built-in role has access to indirectly access credentials through the workspace. This includes the ability to view the secrets stored in the key vault. If you want to prevent viewing of secrets, instead create a custom role where `Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action` is in the `NoAction` of the custom role. For more information, see [Manage roles in your workspace](how-to-assign-roles.md#data-scientist-restricted).
 
 > [!NOTE]
 > For a successful data import, please verify that you have installed the latest azure-ai-ml package (version 1.5.0 or later) for SDK, and the ml extension (version 2.15.1 or later).
