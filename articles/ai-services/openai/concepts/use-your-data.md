@@ -233,7 +233,7 @@ Once you have added the URL/web address for data ingestion, the web pages from y
 
 # [Elasticsearch (preview)](#tab/elasticsearch)
 
-You can connect to your [Elasticsearch vector database](https://www.elastic.co/guide/elasticsearch/reference/current/elasticsearch-intro.html) and chat with your data.
+You can connect to your [Elasticsearch vector database](https://www.elastic.co/guide/en/elasticsearch/reference/current/elasticsearch-intro.html) and chat with your data.
 
 ### Prerequisite 
 
@@ -245,9 +245,9 @@ You can connect to your [Elasticsearch vector database](https://www.elastic.co/g
 
 ### Connect Elasticsearch to Azure OpenAI On Your Data
 
-1. Set up [Elasticsearch](https://www.elastic.co/guide/elasticsearch/reference/current/setup.html) and get your connection information. 
+1. Set up [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/setup.html) and get your connection information. 
 
-    You need to enter your [Elasticsearch endpoint](https://www.elastic.co/guide/cloud-on-k8s/current/k8s-request-elasticsearch-endpoint.html) and encoded API key to connect with your Elasticsearch database. Then, click **verify connection**. 
+    You need to enter your [Elasticsearch endpoint](https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-request-elasticsearch-endpoint.html) and encoded API key to connect with your Elasticsearch database. Then, click **verify connection**. 
 
 
     :::image type="content" source="../media/use-your-data/connect-elasticsearch.png" alt-text="A screenshot showing the connection screen for Elasticsearch." lightbox="../media/use-your-data/connect-elasticsearch.png":::
@@ -291,7 +291,7 @@ If you're using your own index, you can customize the [field mapping](#index-fie
 
 ### Use Elasticsearch as a data source via API  
 
-Along with using Elasticsearch databases in Azure OpenAI Studio, you can also use your Elasticsearch database using the [API](../references/elasticsearch.md) 
+Along with using Elasticsearch databases in Azure OpenAI Studio, you can also use your Elasticsearch database using the [API](../references/elasticsearch.md). 
 
 ---
 
