@@ -26,7 +26,7 @@ sections:
         answer: All Azure services are available to Azure VMware Solution customers. Performance and availability limitations for specific services should be addressed on a case-by-case basis.
 
       - question: What guest operating systems are compatible with Azure VMware Solution?
-        answer: You can find information about guest operating system compatibility with vSphere by using the [VMware Compatibility Guide](https://www.vmware.com/resources/compatibility/search.php?deviceCategory=software&details=1&releases=485&page=1&display_interval=10&sortColumn=Partner&sortOrder=Asc&testConfig=16). To identify the version of vSphere running in Azure VMware Solution, see [VMware software versions](concepts-private-clouds-clusters.md#vmware-software-versions).
+        answer: You can find information about guest operating system compatibility with vSphere by using the [VMware Compatibility Guide](https://www.vmware.com/resources/compatibility/search.php?deviceCategory=software&details=1&releases=485&page=1&display_interval=10&sortColumn=Partner&sortOrder=Asc&testConfig=16). To identify the version of vSphere running in Azure VMware Solution, see [VMware software versions](architecture-private-clouds.md#vmware-software-versions).
           
       - question: What does the change control process look like?
         answer: Updates made follow Microsoft Azure's standard change management process. Customers are responsible for any workload administration tasks and the associated change management processes.
