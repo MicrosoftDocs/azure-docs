@@ -40,12 +40,6 @@ procedureSection:
       >[!IMPORTANT]
       > Resetting your device will erase all local data and workloads from your device, and that can't be reversed. Reset your device only if you want to start afresh with the device.
 
-      >[!IMPORTANT]
-      > If running AP5GC/SAP Kubernetes workload profiles and you updated your Azure Stack Edge to 2309, and reset your Azure Stack Edge device, you see the following behavior: 
-      >   - In the local web UI, if you go to Software updates page, you see that the Kubernetes version is unavailable.
-      >   - In Azure portal, you are prompted to apply a Kubernetes update. Go ahead and apply the Kubernetes update.
-      >   - After device reset, you must select a Kubernetes workload profile again. Otherwise, the default "Other workloads" profile will be applied. For more information, see [Configure compute IPs](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md?pivots=two-node#configure-compute-ips-1).  
-
       You can reset your device in the local web UI or in PowerShell. For PowerShell instructions, see [Reset your device](./azure-stack-edge-connect-powershell-interface.md#reset-your-device).
 
       The reset erases the data off the device data disks. Depending on the amount of data on your device, this process takes about 30-40 minutes.
@@ -65,6 +59,12 @@ procedureSection:
         When prompted for confirmation, review the warning. Type **Yes** and then select **Yes** to continue.
 
         ![Confirm reset](../../includes/media/azure-stack-edge-device-reset/device-reset-2.png)  
+
+        >[!IMPORTANT]
+        > If running AP5GC/SAP Kubernetes workload profiles and you updated your Azure Stack Edge to 2309, and reset your Azure Stack Edge device, you see the following behavior: 
+        >   - In the local web UI, if you go to Software updates page, you see that the Kubernetes version is unavailable.
+        >   - In Azure portal, you are prompted to apply a Kubernetes update. Go ahead and apply the Kubernetes update.
+        >   - After device reset, you must select a Kubernetes workload profile again. Otherwise, the default "Other workloads" profile will be applied. For more information, see [Configure compute IPs](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md?pivots=two-node#configure-compute-ips-1).  
 
   - title: |  
       Remove Azure resources from your Azure Stack Edge device
