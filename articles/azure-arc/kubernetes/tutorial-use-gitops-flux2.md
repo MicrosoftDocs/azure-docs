@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Deploy applications using GitOps with Flux v2"
 description: "This tutorial shows how to use GitOps with Flux v2 to manage configuration and application deployment in Azure Arc and AKS clusters."
-ms.date: 02/08/2024
+ms.date: 03/22/2024
 ms.topic: tutorial
 ms.custom: template-tutorial, devx-track-azurecli, references_regions
 ---
@@ -565,6 +565,28 @@ az k8s-extension update --resource-group <resource-group> --cluster-name <cluste
 ```
 
 If you don't specify values for `memoryThreshold` and `outOfMemoryWatch`, the default memory threshold is set to 95%, with the interval at which to check the memory utilization set to 500 ms.
+
+## Configurable log-level parameters
+
+Description:
+By default, the `log-level` for Flux controllers is set to ‘info’. Starting with [`microsoft.flux` v1.8.3](extensions-release.md#flux-gitops), you can modify these default settings using the `k8s-extension` command as follows:
+
+```azurecli
+--config helm-controller.log-level=<log/error/debug>
+--config source-controller.log-level=<log/error/debug>
+--config kustomize-controller.log-level=<log/error/debug>
+--config notification-controller.log-level=<log/error/debug>
+--config image-automation-controller.log-level=<log/error/debug>
+--config image-reflector-controller.log-level=<log/error/debug>
+```
+
+Valid values are `debug`, `info`, or `error`. These values are only configurable for the controllers listed above; they don't apply to the `fluxconfig-agent` and `fluxconfig-controller`.
+
+For instance, to change the `log-level` for the `source-controller` and `kustomize-controller`, use the following command:
+
+```azurecli
+az k8s-extension update --resource-group <resource-group> --cluster-name <cluster-name> --cluster-type managedClusters --name flux --config source-controller.log-level=error kustomize-controller.log-level=error
+```
 
 ### Workload identity in AKS clusters
 
