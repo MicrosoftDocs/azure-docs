@@ -118,7 +118,7 @@ In this step, you create a network group containing your virtual networks using 
 
 1. In the **Create Azure Policy** window, enter or select the following information:
    
-   | Setting | Value |
+    | Setting | Value |
     | ------- | ----- |
     | **Policy name** | Enter **ng-azure-policy**. |
     | **Scope** | Select **Select Scope** and choose your subscription, if not already selected. |
@@ -155,7 +155,7 @@ In this step, you create a routing configuration to define the UDRs for the netw
 5. On the **Rule collections** tab, select **+ Add**.
 6. In the **Add a rule collection** window, enter or select the following information:
    
-   | Setting | Value |
+    | Setting | Value |
     | ------- | ----- |
     | **Name** | Enter **rule-collection-1**. |
     | **Description** | *(Optional)* Provide a description about this rule collection. |
@@ -165,15 +165,7 @@ In this step, you create a routing configuration to define the UDRs for the netw
     :::image type="content" source="media/how-to-deploy-user-defined-routes/add-rule-collection.png" alt-text="Screenshot of Add a rule collection window with target network group selected.":::
 
     > [!NOTE]
-    > With the **Local route setting** option, you can choose how to route traffic within the same virtual network or subnet:
-    >
-    > | Setting | Description |
-    > | ------- | ----------- |
-    > | **Direct routing within virtual network** | Route traffic directly within the same virtual network. |
-    > | **Direct routing within subnet** | Route traffic directly within the same subnet. |
-    > | **Not specified** | No specific routing behavior. |
-    >
-    > When you select **Direct routing within virtual network** or **Direct routing within subnet**, a UDR is created with a virtual network next-hop for local traffic routing within the same VNet or subnet. However, if the destination CIDR is fully contained within the source CIDR and direct routing is selected, a UDR specifying a network appliance as the next hop won't be set up.
+    > With the **Local route setting** option, you can choose how to route traffic within the same virtual network or subnet. For more information, see [Local route settings](concept-user-defined-route-management.md#local-routing-settings).
 
 7. Under **Routing rules**, select **+ add**.
 8. In the **Add a routing rule** window, enter or select the following information:
@@ -189,8 +181,8 @@ In this step, you create a routing configuration to define the UDRs for the netw
 
     :::image type="content" source="media/how-to-deploy-user-defined-routes/add-routing-rule-virtual-network.png" alt-text="Screenshot of Add a routing rule window with selections for virtual network next hop.":::
 
-1. Select **Add** and **Add to save the routing rule collection.
-1. Select **Review + create** and then **Create** to create the routing configuration.
+9. Select **Add** and **Add to save the routing rule collection.
+10. Select **Review + create** and then **Create** to create the routing configuration.
 
 ## Deploy the routing configuration
 

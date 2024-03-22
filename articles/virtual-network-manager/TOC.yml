@@ -66,7 +66,7 @@
     - name: Query Azure Virtual Network Manager using Azure Resource Graph (ARG)
       href: query-azure-resource-graph.md
   - name: User-defined routes (UDRs) management 
-    href: concept-user-defined-route-managment.md
+    href: concept-user-defined-route-management.md
 - name: Samples
   items:
     - name: Resource Manager Templates

@@ -119,5 +119,5 @@ When you select **Direct routing within virtual network** or **Direct routing wi
 ## Next step
 
 > [!div class="nextstepaction"]
-> Learn too how to [create user-defined routes in Azure Virtual Network Manager](how-to-create-user-defined-routes.md).
+> [Learn to how to create user-defined routes in Azure Virtual Network Manager](how-to-create-user-defined-routes.md).
 
