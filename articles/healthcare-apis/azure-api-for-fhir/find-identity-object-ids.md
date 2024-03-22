@@ -32,6 +32,7 @@ $(Get-MgUser -Filter "UserPrincipalName eq 'myuser@contoso.com'").Id
 ```azurecli-interactive
 az ad user show --id myuser@contoso.com --query id --out tsv
 ```
+
 ---
 
 ## Find service principal object ID
@@ -55,6 +56,7 @@ $(Get-MgServicePrincipal -Filter "DisplayName eq 'testapp'").Id
 ```azurecli-interactive
 az ad sp show --id XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX --query id --out tsv
 ```
+
 ---
 
 ## Find a security group object ID
@@ -74,6 +76,7 @@ Where `mygroup` is the name of the group you're interested in.
 ```azurecli-interactive
 az ad group show --group "mygroup" --query id --out tsv
 ```
+
 ---
 
 ## Next steps
