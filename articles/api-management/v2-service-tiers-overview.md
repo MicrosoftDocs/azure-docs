@@ -47,7 +47,6 @@ The v2 tiers are supported in API Management API version **2023-03-01-preview** 
 
 The v2 tiers are available in the following regions:
 
-* East US
 * South Central US
 * West US
 * France Central
@@ -92,6 +91,19 @@ Currently, the following API Management capabilities are unavailable in the v2 t
 * Cipher configuration
 * Client certificate renegotiation
 * Requests to the gateway over localhost
+
+## Resource limits
+
+The following resource limits apply to the v2 tiers:
+
+[!INCLUDE [api-management-service-limits-v2](../../includes/api-management-service-limits-v2.md)]
+
+
+## Developer portal limits
+
+The following limits apply to the developer portal in the v2 tiers:
+
+[!INCLUDE [api-management-developer-portal-limits-v2](../../includes/api-management-developer-portal-limits-v2.md)]
 
 ## Deployment
 
