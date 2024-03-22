@@ -30,7 +30,6 @@ To open the Cloud Shell, select **Open Cloud Shell** from the upper right corner
 Define environment variables as follows.
 
 ```bash
-
 export RANDOM_ID="$(openssl rand -hex 3)"
 export MY_RESOURCE_GROUP_NAME="myVMSSResourceGroup$RANDOM_ID"
 export REGION=EastUS
@@ -46,7 +45,6 @@ export MY_APPGW_SN_NAME="myAPPGWSN$RANDOM_ID"
 export MY_APPGW_SN_PREFIX="10.$NETWORK_PREFIX.1.0/24"
 export MY_APPGW_NAME="myAPPGW$RANDOM_ID"
 export MY_APPGW_PUBLIC_IP_NAME="myAPPGWPublicIP$RANDOM_ID"
-
 ```
 
 ## Create a resource group
@@ -58,7 +56,6 @@ az group create --name $MY_RESOURCE_GROUP_NAME --location $REGION -o JSON
 ```
 
 Results:
-
 <!-- expected_similarity=0.3 -->
 ```json   
 {
@@ -85,7 +82,6 @@ az network vnet create  --name $MY_VNET_NAME  --resource-group $MY_RESOURCE_GROU
 ```
 
 Results:
-
 <!-- expected_similarity=0.3 -->
 ```json   
 {
@@ -132,7 +128,6 @@ az network vnet subnet create  --name $MY_APPGW_SN_NAME  --resource-group $MY_RE
 ```
 
 Results:
-
 <!-- expected_similarity=0.3 -->
 ```json  
 {
@@ -152,10 +147,9 @@ The following command creates a standard, zone redundant, static, public IPv4 in
 
 ```bash
 az network public-ip create  --resource-group $MY_RESOURCE_GROUP_NAME --name $MY_APPGW_PUBLIC_IP_NAME --sku Standard   --location $REGION  --allocation-method static --version IPv4 --zone 1 2 3 -o JSON
- ```
+```
 
 Results:
-
 <!-- expected_similarity=0.3 -->
 ```json  
 {
@@ -193,7 +187,7 @@ In this step, you create an Application Gateway that you're going to integrate w
 
 ```bash
 az network application-gateway create   --name $MY_APPGW_NAME --location $REGION --resource-group $MY_RESOURCE_GROUP_NAME --vnet-name $MY_VNET_NAME --subnet $MY_APPGW_SN_NAME --capacity 2  --zones 1 2 3 --sku Standard_v2   --http-settings-cookie-based-affinity Disabled   --frontend-port 80 --http-settings-port 80   --http-settings-protocol Http --public-ip-address $MY_APPGW_PUBLIC_IP_NAME --priority 1001 -o JSON
- ```
+```
 
 <!-- expected_similarity=0.3 -->
 ```json 
@@ -383,7 +377,7 @@ az network application-gateway create   --name $MY_APPGW_NAME --location $REGION
     "urlPathMaps": []
   }
 }
- ```
+```
 
 ## Create a Virtual Machine Scale Set
 
@@ -398,7 +392,6 @@ az vmss create --name $MY_VMSS_NAME --resource-group $MY_RESOURCE_GROUP_NAME --i
  ```
 
 Results:
-
 <!-- expected_similarity=0.3 -->
 ```json  
 {
@@ -519,7 +512,6 @@ az vmss extension set --publisher Microsoft.Azure.Extensions --version 2.0  --na
 ```
 
 Results:
-
 <!-- expected_similarity=0.3 -->
 ```json  
 {
@@ -723,7 +715,6 @@ az monitor autoscale create --resource-group $MY_RESOURCE_GROUP_NAME --resource 
 ```
 
 Results:
-
 <!-- expected_similarity=0.3 -->
 ```json  
 {
@@ -777,7 +768,6 @@ az monitor autoscale rule create --resource-group $MY_RESOURCE_GROUP_NAME --auto
 ```
 
 Results:
-
 <!-- expected_similarity=0.3 -->
 ```json 
 {
@@ -813,7 +803,6 @@ az monitor autoscale rule create --resource-group  $MY_RESOURCE_GROUP_NAME --aut
 ```
 
 Results:
-
 <!-- expected_similarity=0.3 -->
 ```json 
 {
@@ -850,12 +839,9 @@ az network public-ip show --resource-group $MY_RESOURCE_GROUP_NAME --name $MY_AP
 
 ## Clean up resources
 
-To remove your scale set and other resources, delete the resource group and all its resources with [az group delete](/cli/azure/group). The `--no-wait` parameter returns control to the prompt without waiting for the operation to complete. The `--yes` parameter confirms that you wish to delete the resources without another prompt to do so.
-
-```azurecli-interactive
-az group delete --name myResourceGroup --yes --no-wait
-```
+To avoid Azure charges, you should clean up unneeded resources. When you no longer need your scale set and other resources, delete the resource group and all its resources with [az group delete](/cli/azure/group). The `--no-wait` parameter returns control to the prompt without waiting for the operation to complete. The `--yes` parameter confirms that you wish to delete the resources without another prompt to do so. This tutorial cleans up resources for you.
 
 ## Next steps
-> [!div class="nextstepaction"]
-> [Learn how to create a scale set in the Azure Portal.](flexible-virtual-machine-scale-sets-portal.md)
+- [Learn how to create a scale set in the Azure Portal.](flexible-virtual-machine-scale-sets-portal.md)
+- [Learn about Virtual Machine Scale Sets.](overview.md)
+- [Automatically scale a Virtual Machine Scale Set with the Azure CLI](tutorial-autoscale-cli.md)
