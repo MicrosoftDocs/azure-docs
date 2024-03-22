@@ -31,13 +31,13 @@ You can toggle the time window you are interested in this metric for by simply s
 
 Once you are ready to save, click **Save to Dashboard** and select one of the options presented for where this metric will live. 
 
-#### Sending metrics to a third-party tool 
+#### Sending metrics to other monitoring solutions using the new metrics
 
-Additionally, you can hover over each metric in the **Metric** dropdown to see the Metric ID. You can use this Metric ID in your third-party telemetry tools to monitor your Azure VMware Solution private cloud.
+Additionally, you can hover over each metric in the **Metric** dropdown to see the Metric ID. You can use this Metric ID in your third-party monitoring tools to monitor your Azure VMware Solution private cloud.
  >[!IMPORTANT]
    >For **first time users** of these metrics, please use the metrics suffixed with **"(new)"**. If you have used these metrics before, we encourage all users to migrate to the new ones suffixed with **"(new)"** as well.
 
-For those who have used the metrics previously and have built monitoring in downstream tools that rely on the old metric IDs, here is a table that contains the corresponding newer metric IDs that can be used for the same set of metrics: 
+For those who have used the metrics previously and have built monitoring in downstream tools and configurations that rely on the old metric IDs, here is a table that contains the corresponding newer metric IDs that can be used for the same set of metrics to seamlessly transition to using the newer set of metrics: 
 
 | Metric Name (as viewed in the portal) | Current Metric ID | New Metric ID | 
 | :---     | :---      | :---     |
@@ -49,4 +49,5 @@ For those who have used the metrics previously and have built monitoring in down
 | Average Memory Usage   | UsageAverage    | MemUsageAverage  |
 | Percentage CPU   | EffectiveCpuAverage  | CpuUsageAverage   |
 | Percentage Datastore Disk Used    | DiskUsedPercentage   | DiskUsedPercentage   |
+
 
