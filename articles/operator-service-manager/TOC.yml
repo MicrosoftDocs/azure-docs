@@ -91,6 +91,8 @@
       items:
         - name: Common Issues
           href: troubleshooting-cli-common-issues.md
+    - name: Helm Install Failures
+      href: troubleshooting-helm-install-failures.md
 - name: Resources
   expanded: false
   items:
