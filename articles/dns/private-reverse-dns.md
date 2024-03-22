@@ -26,19 +26,19 @@ Reverse DNS zones follow a hierarchical naming pattern. For example:
 
 You can create a PTR record for the IPv4 address 10.1.2.5 in any of these zones by adding the remaining octets for the IPv4 address and providing a ptrdname value. For example:
 
-- 10.1.2.5 in the 10.in-addr.arpa zone appears as: `5.2.1  IN  PTR  myvm.contoso.com.` 
-- 10.1.2.5 in the 1.10.in-addr.arpa zone appears as:`5.2   IN  PTR  myvm.contoso.com.`
-- 10.1.2.5 in the 2.1.10.in-addr.arpa zone appears as:`5   IN  PTR  myvm.contoso.com.` 
+* 10.1.2.5 in the 10.in-addr.arpa zone appears as: `5.2.1  IN  PTR  myvm.contoso.com.` 
+* 10.1.2.5 in the 1.10.in-addr.arpa zone appears as:`5.2   IN  PTR  myvm.contoso.com.`
+* 10.1.2.5 in the 2.1.10.in-addr.arpa zone appears as:`5   IN  PTR  myvm.contoso.com.` 
 
-  > [!IMPORTANT]
-  > A reverse DNS zone for address space with a longer prefix takes precendence. For example, if all three zones contain entries for the IPv4 address 10.1.2.5 as shown here, only the entry in the 2.1.10.in-addr.arpa zone will be used. If the longer prefix zone (2.1.10.in-addr.arpa) exists, then all reverse DNS entries for the corresponding /24 address space must be entered in this zone.
+> [!IMPORTANT]
+> A reverse DNS zone for address space with a longer prefix takes precendence. For example, if all three zones contain entries for the IPv4 address 10.1.2.5 as shown here, only the entry in the 2.1.10.in-addr.arpa zone will be used. If the longer prefix zone (2.1.10.in-addr.arpa) exists, then all reverse DNS entries for the corresponding /24 address space must be entered in this zone.
 
 ## Requirements and restrictions
 
 - [Autoregistration](private-dns-autoregistration.md) isn't supported for reverse DNS.
 - A [virtual network link](private-dns-virtual-network-links.md) from the reverse zone is required to enable DNS resolution of PTR records.
-    - You can also forward DNS queries to a DNS resolver, as long as the resolver's VNet is linked to the reverse zone.
-- Reverse zones must follow the naming guidelines described in this article.
+    - You can also forward DNS queries to a DNS resolver if the resolver's VNet is linked to the reverse zone.
+- Reverse zones must follow the naming guidelines described in this article and in [RFC 3172](https://www.rfc-editor.org/rfc/rfc3172.html).
 
 ## Create a reverse lookup DNS zone
 
@@ -64,14 +64,16 @@ You can create a PTR record for the IPv4 address 10.1.2.5 in any of these zones 
 1. Select **+ Record set** to open the **Add record set** pane.
 2. As described previously in this article, PTR records in a class C reverse DNS zone are single digit entries. In this example, enter the following:
 
-**Name**: Enter `5`<br>
-**Type**: Select `PTR - Pointer record type`<br>
-**TTL and TTL unit**: Use default values<br>
-**Domain name**: Enter `myvm.contoso.com`<br>
+   | Setting | Details |
+   | --- | --- |
+   | **Name** | Enter `5`.|
+   | **Type** | Select `PTR - Pointer record type`. |
+   | **TTL and TTL unit** | Use default values.  |
+   | **Domain name** | Enter `myvm.contoso.com`. |
 
-See the following example:
+  See the following example:
 
-  ![Screenshot of creating a private reverse DNS record.](./media/private-reverse-dns/create-private-record.png)
+  <img src="./media/private-reverse-dns/create-private-record.png" alt="Screenshot of creating a private reverse DNS record." width="50%">
 
 3. Select **OK** to create the reverse DNS record.
 
@@ -82,21 +84,21 @@ See the following example:
 In order for resources to resolve the reverse DNS zone, you must add a virtual network link pointing to the VNet that contains those resources. You can add multiple virtual network links. In this example, a link is added to the VNet: **myeastvnet** that contains a virtual machine. The virtual machine is then used to verify reverse DNS resolution.
 
 1. Open the private zone overview, and then select **Virtual network links** under **Settings**.
-2. Select **+ Add** to open the Add virtual network link page.
-3. Enter the following values:
+2. Select **+ Add**.
+3. Enter the following values on the **Add virtual network link** page:
 
- | Setting | Details |
- | --- | --- |
- | **Link name** | Enter a name for your link. For example: **myvlink**.|
- | **Subscription** | Select your subscription. |
- | **Virtual network** | Choose the virtual network that you wish to link to this private DNS zone.  |
- | **Configuration** | Don't select the checkbox to enable auto registration. Selecting this setting prevents creation of the virtual network link. |
+   | Setting | Details |
+   | --- | --- |
+   | **Link name** | Enter a name for your link. For example: **myvlink**.|
+   | **Subscription** | Select your subscription. |
+   | **Virtual network** | Choose the virtual network that you wish to link to this private DNS zone.  |
+   | **Configuration** | Don't select the checkbox to enable auto registration. Selecting this setting prevents creation of the virtual network link. |
 
   See the following example: 
 
   ![Screenshot of adding a virtual network link.](./media/private-reverse-dns/add-virtual-network-link.png)
 
-4. Select **OK** and verify that the link is now listed on the Virtual network links page.
+4. Select **OK** and verify that the link is displayed on the Virtual network links page.
 
 ## Test DNS resolution
 
