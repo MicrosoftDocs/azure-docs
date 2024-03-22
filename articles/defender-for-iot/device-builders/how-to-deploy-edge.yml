@@ -13,23 +13,23 @@ introduction: |
 
   In this article, you'll learn how to deploy a security module on your IoT Edge device.
 
+prerequisites:
+  summary: |
+    1. In your IoT Hub, make sure your device is [Register a new device](../../iot-edge/how-to-provision-single-device-linux-symmetric.md#register-your-device).
+
+    1. Defender for IoT Edge module requires the [AuditD framework](https://linux.die.net/man/8/auditd) is installed on the IoT Edge device.
+
+      - Install the framework by running the following command on your IoT Edge device:
+          `sudo apt-get install auditd audispd-plugins`
+      - Verify AuditD is active by running the following command:
+          `sudo systemctl status auditd`<br>
+      - Expected response is: `active (running)`
+
 procedureSection: 
   - title: |
       Deploy security module
     summary: |
       Use the following steps to deploy a Defender for IoT security module for IoT Edge.
-
-      ### Prerequisites
-
-      1. In your IoT Hub, make sure your device is [Register a new device](../../iot-edge/how-to-provision-single-device-linux-symmetric.md#register-your-device).
-
-      1. Defender for IoT Edge module requires the [AuditD framework](https://linux.die.net/man/8/auditd) is installed on the IoT Edge device.
-
-        - Install the framework by running the following command on your IoT Edge device:
-            `sudo apt-get install auditd audispd-plugins`
-        - Verify AuditD is active by running the following command:
-            `sudo systemctl status auditd`<br>
-        - Expected response is: `active (running)`
 
       ### Deployment using Azure portal
     steps:
