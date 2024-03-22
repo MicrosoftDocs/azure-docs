@@ -8,13 +8,13 @@ manager: KumudD
 ms.service: azure-cdn
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
-ms.date: 02/27/2023
+ms.date: 03/20/2024
 ms.author: duau
 ---
 
-# Quickstart: Create an Azure CDN profile and endpoint - ARM template
+# Quickstart: Create an Azure Content Delivery Network profile and endpoint - ARM template
 
-Get started with Azure Content Delivery Network (CDN) by using an Azure Resource Manager template (ARM template). The template deploys a profile and an endpoint.
+Get started with Azure Content Delivery Network by using an Azure Resource Manager template (ARM template). The template deploys a profile and an endpoint.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -32,18 +32,20 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 This template is configured to create a:
 
-* Profile
-* Endpoint
+- Profile
+- Endpoint
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.cdn/cdn-with-custom-origin/azuredeploy.json":::
 
 One Azure resource is defined in the template:
 
-* **[Microsoft.Cdn/profiles](/azure/templates/microsoft.cdn/profiles)**
+- **[Microsoft.Cdn/profiles](/azure/templates/microsoft.cdn/profiles)**
 
 ## Deploy the template
 
-### Azure CLI
+<a name='azure-cli'></a>
+
+### The Azure CLI
 
 ```azurecli-interactive
 read -p "Enter the location (i.e. eastus): " location
@@ -85,11 +87,13 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 4. Verify the following resources were created in the resource group:
 
-    :::image type="content" source="media/create-profile-endpoint-template/cdn-profile-template-rg.png" alt-text="Azure CDN resource group" border="true":::
+    :::image type="content" source="media/create-profile-endpoint-template/cdn-profile-template-rg.png" alt-text="Screenshot of Azure Content Delivery Network resource group." border="true":::
 
 ## Clean up resources
 
-### Azure CLI
+<a name='azure-cli'></a>
+
+### The Azure CLI
 
 When no longer needed, you can use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group and all resources contained within.
 
@@ -108,16 +112,16 @@ Remove-AzResourceGroup -Name myResourceGroupCDN
 
 ### Portal
 
-When no longer needed, delete the resource group, CDN profile, and all related resources. Select the resource group **myResourceGroupCDN** that contains the CDN profile and endpoint, and then select **Delete**.
+When no longer needed, delete the resource group, content delivery network profile, and all related resources. Select the resource group **myResourceGroupCDN** that contains the content delivery network profile and endpoint, and then select **Delete**.
 
 ## Next steps
 
 In this quickstart, you created a:
 
-* CDN Profile
-* Endpoint
+- Content delivery network Profile
+- Endpoint
 
-To learn more about Azure CDN and Azure Resource Manager, continue to the next article:
+To learn more about Azure Content Delivery Network and Azure Resource Manager, continue to the next article:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Use CDN to serve static content from a web app](cdn-add-to-web-app.md)
+> [Tutorial: Use content delivery network to serve static content from a web app](cdn-add-to-web-app.md)
