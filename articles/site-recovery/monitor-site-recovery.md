@@ -29,11 +29,9 @@ For a detailed description of how to monitor Azure Site Recovery in the Azure po
 
 Azure Backup Center also provides at-scale monitoring and management capabilities for Azure Site Recovery. For more information, see [About Backup center for Azure Backup and Azure Site Recovery](/azure/backup/backup-center-overview).
 
-For Azure Backup monitoring information, see [Monitoring and reporting for Azure Backup](/azure/backup/monitoring-and-alerts-overview).
-
 ### Monitor churn rate
 
-High data change rates (churn) are a common source of replication issues. You can use various tools to monitor churn patterns on virtual machines. For more information, see [Monitoring churn patterns on virtual machines](monitoring-high-churn.md).
+High data change rates (churn) are a common source of replication issues. You can use various tools, including Azure Monitor Logs, to monitor churn patterns on virtual machines. For more information, see [Monitor churn patterns on virtual machines](monitoring-high-churn.md).
 
 [!INCLUDE [horz-monitor-resource-types](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
 
@@ -47,13 +45,23 @@ There are no automatically collected platform metrics for Azure Site Recovery. A
 
 [!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 
-### Site Recovery resource logs
+### Azure Site Recovery resource logs
 
-You can use Azure Monitor Logs to monitor Azure Site Recovery replication health, test failover status, Site Recovery events, recovery point objectives (RPOs) for protected machines, and disk/data change rates. Using Azure Monitor Logs with Site Recovery is supported for **Azure to Azure** replication and **VMware VM/physical server to Azure** replication.
+Using Azure Monitor Logs with Azure Site Recovery is supported for **Azure to Azure** replication and **VMware VM/physical server to Azure** replication.
+
+You can use Azure Monitor Logs to monitor:
+
+- Replication health
+- Test failover status
+- Site Recovery events
+- Recovery point objectives (RPOs) for protected machines
+- Disk/data change rates (churn)
 
 For detailed instructions on using diagnostic settings to collect and route Site Recovery logs and events, see [Monitor Site Recovery with Azure Monitor Logs](monitor-log-analytics.md).
 
-To get the churn data logs and upload rate logs for VMware and physical machines, you need to install a Microsoft monitoring agent on the process server. This agent sends the logs of the replicating machines to the workspace. For instructions, see [Configure Microsoft monitoring agent on the process server to send churn and upload rate logs](monitor-log-analytics.md#configure-microsoft-monitoring-agent-on-the-process-server-to-send-churn-and-upload-rate-logs). For more information about monitoring the process server and the health alerts it generates, see [Monitor the process server](vmware-physical-azure-monitor-process-server.md).
+To get churn data and upload rate logs for VMware and physical machines, you need to install a Microsoft monitoring agent on the process server. This agent sends the logs of the replicating machines to the workspace.
+
+For instructions, see [Configure Microsoft monitoring agent on the process server to send churn and upload rate logs](monitor-log-analytics.md#configure-microsoft-monitoring-agent-on-the-process-server-to-send-churn-and-upload-rate-logs). For more information about monitoring the process server and the health alerts it generates, see [Monitor the process server](vmware-physical-azure-monitor-process-server.md).
 
 - For more information about the resource logs collected for Site Recovery, see [Common questions about Azure Site Recovery monitoring](monitoring-common-questions.md#azure-monitor-logging).
 - For the available resource log categories, associated Log Analytics tables, and logs schemas for Azure Site Recovery, see [Site Recovery monitoring data reference](monitor-site-recovery-reference.md#resource-logs).
@@ -74,7 +82,7 @@ For example Kusto queries you can use for Site Recovery monitoring, see [Query t
 
 You can set up alerts for any log entry listed in the [Azure Site Recovery monitoring data reference](monitor-site-recovery-reference.md). For example, you can configure alerts for machine health, test failover status, or Site Recovery job status.
 
-For detailed query examples and scenarios to use for setting up Site Recovery alerts, see [Set up alerts - examples](monitor-log-analytics.md#set-up-alerts---examples).
+For detailed query examples and scenarios you can use for setting up Site Recovery alerts, see [Set up alerts - examples](monitor-log-analytics.md#set-up-alerts---examples).
 
 ### Built-in Azure Monitor alerts for Azure Site Recovery
 

@@ -543,7 +543,7 @@
   items:
   - name: Monitor
     href: monitor-site-recovery.md
-  - name: Use monitoring dashboard
+  - name: Use Recovery Services dashboard
     href: site-recovery-monitor-and-troubleshoot.md
   - name: Use Azure Monitor Logs
     href: monitor-log-analytics.md
