@@ -208,9 +208,9 @@ If your search service appears to be stalled in a provisioning state, check for 
 
 ## Partition and replica combinations
 
-On search services created before April 1, 2024: Basic can have exactly one partition and up to three replicas, for a maximum limit of three SUs. The only adjustable resource is replicas. 
+On search services created before April 3, 2024: Basic can have exactly one partition and up to three replicas, for a maximum limit of three SUs. The only adjustable resource is replicas. 
 
-On search services created after April 1, 2024: Basic can have up to three partitions. The maximum SU limit is still three, so if you have three partitions, your replica count must be one.
+On search services created after April 3, 2024: Basic can have up to three partitions. The maximum SU limit is still three, so if you have three partitions, your replica count must be one.
 
 For any Basic service regardless of creation date, you need a minimum of two replicas for high availability SLA.
 

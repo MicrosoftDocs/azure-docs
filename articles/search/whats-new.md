@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 04/01/2024
+ms.date: 04/03/2024
 ms.custom:
   - references_regions
   - ignite-2023
@@ -21,8 +21,10 @@ ms.custom:
 
 | Item&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Type |  Description |
 |-----------------------------|------|--------------|
-| [**More quota on Basic and Standard tiers**](search-limits-quotas-capacity.md#service-limits) | Feature |  Basic now supports up to three partitions, and Basic and Standard (S1, S2, S3) tiers have significantly more storage per partition, at the same per-partition billing rate. Extra capacity is subject to [regional availability](search-create-service-portal.md#choose-a-region) and applies to new search services created after April 1, 2024. Currently, there's no in-place upgrade, so please create a new search service to get the extra storage. |
-| [**Higher limits for vectors**](vector-search-index-size.md#vector-limits-for-services-created-after-april-1-2024) | Feature | Vector storage limits are also higher on new services created after April 1, 2024 in selected regions. |
+| [**More quota on Basic and Standard tiers**](search-limits-quotas-capacity.md#service-limits) | Feature |  Basic now supports up to three partitions, and Basic and Standard (S1, S2, S3) tiers have significantly more storage per partition, at the same per-partition billing rate. Extra capacity is subject to [regional availability](search-create-service-portal.md#choose-a-region) and applies to new search services created after April 3, 2024. Currently, there's no in-place upgrade, so please create a new search service to get the extra storage. |
+| [**Higher limits for vectors**](vector-search-index-size.md#vector-limits-for-services-created-after-april-1-2024) | Feature | Vector storage limits are also higher on new services created after April 3, 2024 in selected regions. |
+| [**2024-03-01-preview Search REST API**](/rest/api/searchservice/search-service-api-versions#2024-03-01-preview) | API | New preview version of the Search REST APIs for vector compression and storage optimization all-up.|
+| [**2024-03-01-preview Management REST API**](/rest/api/searchmanagement/operation-groups?view=rest-searchmanagement-2024-03-01-preview&preserve-view=true) | API | New preview version of the Management REST APIs for control plane operations. This version adds APIs for Network Security Perimeter. |
 
 ## February 2024
 

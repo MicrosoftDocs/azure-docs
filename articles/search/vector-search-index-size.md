@@ -43,7 +43,7 @@ The following table shows vector quotas by partition, and by service if all part
 
 + Vector quotas for are the vector indexes created for each vector field, and they're enforced at the partition level. On Basic, the sum total of all vector fields can't be more than 1 GB because Basic only has one partition. On S1, which can have up to 12 partitions, the quota for vector data is 3 GB if you allocate just one partition, or up to 36 GB if you allocate all 12 partitions. For more information about partitions and replicas, see [Estimate and manage capacity](search-capacity-planning.md).
 
-## Vector limits for services created after April 1, 2024
+## Vector limits for services created after April 3, 2024
 
 Higher vector limits exist for new services [in supported regions](search-create-service-portal.md#choose-a-region).
 
@@ -86,7 +86,7 @@ If you aren't sure what your search service limits are, here are two ways to get
 
    + [Before July 1, 2023](search-limits-quotas-capacity.md#services-created-before-july-1-2023)
    + [After July 1, 2023](search-limits-quotas-capacity.md#services-created-after-july-1-2023-in-supported-regions)
-   + [After April 1, 2024](search-limits-quotas-capacity.md#services-created-after-april-1-2024-in-supported-regions)
+   + [After April 3, 2024](search-limits-quotas-capacity.md#services-created-after-april-1-2024-in-supported-regions)
 
 ## How to get vector index size
 
