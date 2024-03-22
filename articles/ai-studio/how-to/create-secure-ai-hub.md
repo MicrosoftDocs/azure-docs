@@ -6,7 +6,7 @@ ms.service: azure-ai-studio
 ms.reviewer: jhirono
 ms.author: larryfr
 author: Blackmist
-ms.date: 03/14/2024
+ms.date: 03/22/2024
 ms.topic: how-to
 # Customer intent: As an administrator, I want to create a secure AI hub and project with a managed virtual network so that I can secure access to the AI hub and project resources.
 ---
@@ -53,6 +53,21 @@ You can secure your AI hub, AI projects, and managed resources in a managed virt
             :::image type="content" source="../media/how-to/network/ai-hub-create-private-endpoint.png" alt-text="Screenshot of the create private endpoint form." lightbox="../media/how-to/network/ai-hub-create-private-endpoint.png":::
 
         1. Select **Ok** to save the endpoint configuration.
+
+1. Select **Next: Encryption**. You can either use **Microsoft-managed keys** or enable **Customer-managed keys**. 
+
+    :::image type="content" source="../media/how-to/resource-create-encryption.png" alt-text="Screenshot of the Create an Azure AI hub resource with the option to select your encryption type." lightbox="../media/how-to/resource-create-encryption.png":::
+
+1. Select **Next: Identity**. By default, **System assigned identity** is enabled, but you can switch to **User assigned identity** if existing storage, key vault, and container registry are selected in the **Resources**.
+
+    :::image type="content" source="../media/how-to/resource-create-identity.png" alt-text="Screenshot of the Create an Azure AI hub resource with the option to select a managed identity." lightbox="../media/how-to/resource-create-identity.png":::
+
+    >[!NOTE
+    >If you select **User assigned identity**, your identity needs to have the `Cognitive Services Contributor` role in order to successfully create a new Azure AI hub resource.
+    
+1. Select **Next: Tags** if you need to add tags.
+
+    :::image type="content" source="../media/how-to/resource-create-tags.png" alt-text="Screenshot of the Create an Azure AI hub resource with the option to add tags." lightbox="../media/how-to/resource-create-tags.png":::
 
 1. Select **Review + create**, then **Create** to create the AI hub. Once the AI hub has been created, any AI projects or compute instances created from the AI hub inherit the network configuration.
 
