@@ -582,8 +582,8 @@
         displayName: MTHR, multi-tenant, multitenant, hosting, rights, windows 10, windows 11, find
         href: ./windows/windows-desktop-multitenant-hosting-deployment.md
     - name: Generalizing a VM
-      displayName: generalize sysprep deprovision
-      href: generalize.md
+      displayName: generalize sysprep deprovision 
+      href: generalize.yml
     - name: Linux custom images
       items:
       - name: Overview
