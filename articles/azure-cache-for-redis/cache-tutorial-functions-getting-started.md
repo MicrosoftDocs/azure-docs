@@ -335,7 +335,9 @@ public class RedisBindings
 
 1. For **Value**, enter your connection string.
 
-1. Select **Apply** on the page to confirm. The function app restarts with the new connection string information.
+1. Select **Apply** on the page to confirm.
+
+1. Navigate to the **Overview** pane and select **Restart** to reboot the functions app with the connection string information. 
 
 ## Test your triggers and bindings
 
