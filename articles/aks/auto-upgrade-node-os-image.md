@@ -106,12 +106,11 @@ The default cadence means there's no planned maintenance window applied.
 
 ## SecurityPatch channel requirements
 
-To use the `SecurityPatch` channel, your cluster must support these requirements.
-- Must be using API version `11-02-preview` or later
+To use the `SecurityPatch` channel, your cluster must support these requirements:
 
-- If using Azure CLI, the `aks-preview` CLI extension version `0.5.166` or later must be installed
-
-- The `NodeOsUpgradeChannelPreview` feature flag must be enabled on your subscription
+* Must be using API version `11-02-preview` or later
+* If using Azure CLI, the `aks-preview` CLI extension version `0.5.166` or later must be installed
+* The `NodeOsUpgradeChannelPreview` feature flag must be enabled on your subscription
 
 ### Register NodeOsUpgradeChannelPreview
 
