@@ -27,15 +27,15 @@ There are two main types of distributed training: [data parallelism](#data-paral
 
 * [Distributed training with TensorFlow](how-to-train-distributed-gpu.md#tensorflow)
 
-For machine learning models that don't require distributed training, see [train models with Azure Machine Learning](concept-train-machine-learning-model.md#python-sdk) for the different ways to train models using the Python SDK.
+For machine learning models that don't require distributed training, see [Train models with Azure Machine Learning](concept-train-machine-learning-model.md#python-sdk) for different ways to train models using the Python SDK.
 
 ## Data parallelism
 
 Data parallelism is the easiest to implement of the two distributed training approaches, and is sufficient for most use cases.
 
-In this approach, the data is divided into partitions, where the number of partitions is equal to the total number of available nodes, in the compute cluster or [serverless compute](./how-to-use-serverless-compute.md). The model is copied in each of these worker nodes, and each node operates on its own subset of the data. Keep in mind that each node must have the capacity to support the model that's being trained, that is, the model has to entirely fit on each node.
+In this approach, the data is divided into partitions, where the number of partitions is equal to the total number of available nodes, in the compute cluster or [serverless compute](./how-to-use-serverless-compute.md). The model is copied in each of these worker nodes, and each node operates on its own subset of the data. Keep in mind that each node must have the capacity to support the model that's being trained, that is, the entire model has to fit on each node.
 
-The following diagram provides a visual demonstration of this approach.
+The following diagram shows this approach.
 
 :::image type="content" source="media/concept-distributed-training/distributed-training.svg" alt-text="Diagram of data parrallelism showing the model copied into worker nodes.":::
 
