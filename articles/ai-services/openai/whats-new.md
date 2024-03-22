@@ -18,6 +18,10 @@ recommendations: false
 
 ## March 2024
 
+### Elasticsearch database support for Azure OpenAI On Your Data
+
+- You can now connect to an Elasticsearch vector database to be used with [Azure OpenAI On Your Data](./concepts/use-your-data.md?tabs=elasticsearch#supported-data-sources).
+
 ### Model deprecations and retirements
 
 We have added a page to track [model deprecations and retirements](./concepts/model-retirements.md) in Azure OpenAI Service. This page provides information about the models that are currently available, deprecated, and retired.

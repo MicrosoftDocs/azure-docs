@@ -68,6 +68,7 @@ When you choose the following data sources, your data is ingested into an Azure 
 |Upload files (preview)      | Upload files from your local machine to be stored in an Azure Blob Storage database, and ingested into Azure AI Search.         |
 |URL/Web address (preview)        | Web content from the URLs is stored in Azure Blob Storage.         |
 |Azure Blob Storage (preview) | Upload files from Azure Blob Storage to be ingested into an Azure AI Search index.         |
+|Elasticsearch (preview) | Use an existing [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/elasticsearch-intro.html) vector database.|
 
 # [Azure AI Search](#tab/ai-search)
 
