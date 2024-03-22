@@ -18,7 +18,7 @@ Reverse DNS (as the name indicates) is the opposite process to forward DNS. Reve
 
 ### IPv6 reverse DNS
 
-IPv6 reverse DNS zones use the special domain **ip6.arpa**. For more information about IPv6 reverse zones and records, see the IPv6 sections that describe [creating an IPv6 reverse zone](dns-reverse-dns-hosting.md#ipv6) and [adding an IPv6 reverse DNS record](dns-reverse-dns-hosting.md#ipv6-1) in the [Host reverse DNS lookup zones in Azure DNS](dns-reverse-dns-hosting.md) article for public DNS.
+IPv6 reverse DNS zones use the special domain **ip6.arpa**. For more information about IPv6 reverse zones and records, see the IPv6 sections that describe [creating an IPv6 reverse zone](dns-reverse-dns-hosting.md#ipv6) and [adding an IPv6 reverse DNS record](dns-reverse-dns-hosting.md#ipv6-1) in the [Host reverse DNS lookup zones in Azure DNS](dns-reverse-dns-hosting.md) article for public DNS. Azure Private DNS also supports IPv6 reverse DNS zones under the [requirements and restrictions](#requirements-and-restrictions) described in this article.
 
 ### IPv4 reverse DNS zones
 
