@@ -164,9 +164,9 @@ If you have a flow that contains one of these tools, follow the steps below to u
    :::image type="content" source="../../media/prompt-flow/upgrade-index-tools/mlindex-box.png" alt-text="Screenshot of the expanded Index Lookup node with the mlindex_content box outlined in red." lightbox="../../media/prompt-flow/upgrade-index-tools/mlindex-box.png":::
 
 1. In the Generate drawer that appears, follow the instructions below to upgrade from the three legacy tools:
-- If using the legacy **Vector Index Lookup** tool, select “Registered Index" in the “index_type” dropdown. Select your vector index asset from the “mlindex_asset_id” dropdown.
-- If using the legacy **Faiss Index Lookup** tool, select “Faiss” in the “index_type” dropdown and specify the same path as in the legacy tool.
-- If using the legacy **Vector DB Lookup** tool, select AI Search or Pinecone depending on the DB type in the “index_type” dropdown and fill in the information as necessary.
+    - If using the legacy **Vector Index Lookup** tool, select “Registered Index" in the “index_type” dropdown. Select your vector index asset from the “mlindex_asset_id” dropdown.
+    - If using the legacy **Faiss Index Lookup** tool, select “Faiss” in the “index_type” dropdown and specify the same path as in the legacy tool.
+    - If using the legacy **Vector DB Lookup** tool, select AI Search or Pinecone depending on the DB type in the “index_type” dropdown and fill in the information as necessary.
 1. After filling in the necessary information, click save. 
 1. Upon returning to the node, there should be information populated in the “mlindex_content” textbox. Click on the “queries” textbox next, and select the search terms you want to query. You’ll want to select the same value as the input to the “embed_the_question” node, typically either “\${inputs.question}” or “${modify_query_with_history.output}” (the former if you’re in a standard flow and the latter if you’re in a chat flow).
 
