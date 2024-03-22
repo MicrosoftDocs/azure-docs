@@ -60,9 +60,9 @@ procedureSection:
         Select **Test** to see how the event appears in the S3 bucket. 
 
 relatedContent:
-  - text: get visibility into your data, and potential threats
+  - text: Get visibility into your data, and potential threats
     url: get-visibility.md
-  - text: detecting threats with Microsoft Sentinel
+  - text: Detect threats with Microsoft Sentinel
     url: detect-threats-built-in.md
   - text: Use workbooks
     url: monitor-your-data.md
