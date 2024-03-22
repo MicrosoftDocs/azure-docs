@@ -1,5 +1,5 @@
 ---
-title: Upgrade your HDInsight on AKS Clusters and Cluster Pools 
+title: Upgrade your HDInsight on AKS clusters and cluster pools 
 description: Upgrade your HDInsight on AKS clusters and cluster pools.
 ms.service: hdinsight-aks
 ms.topic: how-to
