@@ -48,7 +48,7 @@ For configurations specific to the *internal* mode, where the endpoints are acce
 
 7. In the top navigation bar, select **Save**, then select **Apply network configuration**.
 
-It can take 15 to 45 minutes to update the API Management instance. The Developer tier has downtime during the process. The Basic and higher SKUs don't have downtime during the process. 
+It can take 15 to 45 minutes to update the API Management instance. Instances in the Developer tier have downtime during the process. Instancesin the Premium tier don't have downtime during the process. 
 
 ### Enable connectivity using a Resource Manager template (`stv2` compute platform)
 

@@ -20,7 +20,7 @@ ms.custom: devx-track-azurepowershell, devx-track-arm-template
 
 You have the following options:
 
-* For small customizations,  use a built-in widget to [add custom HTML](developer-portal-extend-custom-functionality.md#use-custom-html-code-widget). Currently, the customer HTML code widget isn't available in the v2 tiers of API Management.
+* For small customizations,  use a built-in widget to [add custom HTML](developer-portal-extend-custom-functionality.md#use-custom-html-code-widget). Currently, the custom HTML code widget isn't available in the v2 tiers of API Management.
 
 * For larger customizations, [create and upload](developer-portal-extend-custom-functionality.md#create-and-upload-custom-widget) a custom widget to the managed developer portal. Currently, custom widgets aren't available in the v2 tiers of API Management.
 
