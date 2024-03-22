@@ -24,4 +24,4 @@ ms.custom: Include file
 | Maximum size of metadata per widget<sup>1</sup> | 350 KB | 350 KB |
 | Maximum number of client requests per minute | 200 | 200 |
 
-<sup>1</sup>Limit for built-in widgets such as text, images, or APIs list. Currently, custom widgets and custom HTML code widgets aren't supported in the v2 tiers.
+<sup>1</sup> Limit for built-in widgets such as text, images, or APIs list. Currently, custom widgets and custom HTML code widgets aren't supported in the v2 tiers.
