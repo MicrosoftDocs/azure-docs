@@ -132,7 +132,9 @@ When you create or update an action group in the Azure portal, you can test the 
    When you run a test and select a notification type, you get a message with "Test" in the subject. The tests provide a way to check that your action group works as expected before you enable it in a production environment. All the details and links in test email notifications are from a sample reference set.
 
 ### Role requirements for test action groups
+
 The following table describes the role membership requirements that are needed for the *test actions* functionality:
+
 | Role membership | Existing action group | Existing resource group and new action group | New resource group and new action group |
 | ---------- | ------------- | ----------- | ------------- |
 | Subscription contributor | Supported | Supported | Supported |
