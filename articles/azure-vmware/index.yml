@@ -100,7 +100,7 @@ additionalContent:
         - title: Concepts
           links: 
           - text: Access and identity
-            url: architcture-identity.md
+            url: architecture-identity.md
           - text: API Management
             url: architecture-api-management.md
           - text: Hub and spoke
