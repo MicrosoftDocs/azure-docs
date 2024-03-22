@@ -73,7 +73,7 @@ The DALL-E models generate images from text prompts that the user provides. DALL
 
 ## Whisper
 
-The Whisper models, can be used for speech to text.
+The Whisper models can be used for speech to text.
 
 You can also use the Whisper model via Azure AI Speech [batch transcription](../../speech-service/batch-transcription-create.md) API. Check out [What is the Whisper model?](../../speech-service/whisper-overview.md) to learn more about when to use Azure AI Speech vs. Azure OpenAI Service.
 
@@ -254,7 +254,7 @@ The following Embeddings models are available with [Azure Government](/azure/azu
 
 ### Assistants (Preview)
 
-For Assistants you need a combination of a supported model, and a supported region. Certain tools and capabilities require the latest models. For example [parallel function](../how-to/assistant-functions.md) calling requires the latest 1106 models.
+For Assistants you need a combination of a supported model and a supported region. Certain tools and capabilities require the latest models. For example, [parallel function calling](../how-to/assistant-functions.md) requires the latest 1106 models.
 
 | Region | `gpt-35-turbo (0613)` | `gpt-35-turbo (1106)` | `gpt-4 (0613)` | `gpt-4 (1106)` | `gpt-4 (0125)` | 
 |-----|---|---|---|---|---|
