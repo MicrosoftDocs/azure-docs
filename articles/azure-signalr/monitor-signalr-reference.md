@@ -33,7 +33,7 @@ For more details about the metrics for Azure SignalR Service, see [Azure SignalR
 
 > [!NOTE]
 > The metrics aggregation types appear in metrics explorer in the Azure portal as **Count**, **Avg**, **Min**, **Max**, and **Sum**.
-
+> 
 > **Count** is the count of sampling data received. Count is defined as a general metrics aggregation type and can't be excluded from the list of available aggregation types. It's not generally useful for SignalR Service but can sometimes be used to check if the sampling data has been sent to metrics.
 
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
