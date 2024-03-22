@@ -193,7 +193,7 @@ The server created has the following attributes:
 - The default connectivity method is Private access (virtual network integration) with a linked virtual network and an auto generated subnet.
 
 > [!NOTE]
-> The connectivity method cannot be changed after creating the server. For example, if you selected `Private access (VNet Integration)` during creation, then you cannot change to `Public access (allowed IP addresses)` after creation. We highly recommend creating a server with Private access to securely access your server using VNet Integration. Learn more about Private access in the [concepts article](concepts-networking-vnet).
+> The connectivity method cannot be changed after creating the server. For example, if you selected `Private access (VNet Integration)` during creation, then you cannot change to `Public access (allowed IP addresses)` after creation. We highly recommend creating a server with Private access to securely access your server using VNet Integration. Learn more about Private access in the [concepts article](./concepts-networking-vnet).
 
 If you'd like to change any defaults, refer to the Azure CLI [reference documentation](/cli/azure//mysql/flexible-server) for the complete list of configurable CLI parameters.
 
