@@ -46,7 +46,11 @@ To use ElasticSAN with Azure VMware Solution, you need to set three feature flag
 - iSCSIMultipath
 - ElasticSanDatastore
 
-Setting a feature flag can be done in the subscription over page in the Azure portal. Under the **Settings** section, select **Preview features**. On the **Preview features** page, use the search bar to find the feature flags you need to register. Once found, select the feature flag you want to register ad select **Register** at the top.
+Setting a feature flag can be done in the subscription over page in the Azure portal. 
+
+1. Under the **Settings** section, select **Preview features**.
+1. On the **Preview features** page, use the search bar to find the feature flags you need to register. Once found, select the feature flag you want to register ad select **Register** at the top.
+1. Verify the **State** of the feature is changed to **Registered** with a green checkmark.
 
 
 ## Set up Elastic SAN
@@ -69,7 +73,7 @@ In this section, you create a virtual network for your Elastic SAN. Then you cre
 
 ## Add an Elastic SAN volume as a datastore
 
-After you receive confirmation that your subscription is allowlisted, you can use the Azure portal to add the Elastic SAN volume as a datastore in your private cloud. Use the following steps to add, connect, disconnect, and delete Elastic SAN.
+Once all three feature flags (earlyAccess, iSCSIMultipath, ElasticSanDatastore) are set on your subscription, you can use the Azure portal to add the Elastic SAN volume as a datastore in your private cloud. Use the following steps to add, connect, disconnect, and delete Elastic SAN. 
 
 ## Configure external storage address block
 
@@ -85,6 +89,10 @@ Start by providing an IP block for deploying external storage. Navigate to the *
 After you provide an External storage address block, you can connect to an Elastic SAN volume from the same page.
 
 ## Connect Elastic SAN
+
+First, you'll need to connect your SDDC express route with the private endpoint you set up for your Elastic SAN volume group. Instructions on how to establish this connection can be found in the Tutorial, [Configure networking for your VMware private cloud in Azure](../azure-vmware/tutorial-configure-networking#connect-to-the-private-cloud-manually). 
+
+Once your SDDC express route is connected with the private endpoint for your Elastic SAN volume group, use the following steps to connect the volume to your SDDC: 
 
 1. From the left navigation in your Azure VMware Solution private cloud, select **Storage**, then **+ Connect Elastic SAN**.
 1. Select your **Subscription**, **Resource**, **Volume Group**, **Volume(s)**, and **Client cluster**.
