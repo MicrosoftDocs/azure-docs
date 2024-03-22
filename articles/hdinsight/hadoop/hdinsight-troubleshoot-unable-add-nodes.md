@@ -3,7 +3,7 @@ title: Unable to add nodes to Azure HDInsight cluster
 description: Troubleshoot why unable to add nodes to Apache Hadoop cluster in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 02/27/2023
+ms.date: 03/22/2024
 ---
 
 # Scenario: Unable to add nodes to Azure HDInsight cluster
