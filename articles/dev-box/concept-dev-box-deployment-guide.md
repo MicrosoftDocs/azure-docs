@@ -17,19 +17,27 @@ In this article, you learn about the process, configuration options, and conside
 
 ## Roles and responsibilities
 
-Describe who's involved and what they're responsible for.
+The Dev Box service was designed with three organizational roles in mind: platform engineers, development team leads, and developers. Depending on the size and structure of your organization, some of these roles might be combined by a person or team.
 
-- Platform engineer
-    - Microsoft Entra ID
-    - Azure resources
-    - Microsoft Intune
-    - Networking
-    - Security
-- Developer team lead
-    - Projects
+Each of these roles have specific responsibities during the deployment of Microsoft Dev Box in your organization:
+
+- **Platform engineer**: works with the IT admins to configure the developer infrastructure and tools for developer teams. This consists of the following tasks:
+    - Configure Microsoft Entra ID to enable identity and authentication for development team leads and developers
+    - Create and configure Azure resources in the organization Azure subscription(s)
+    - Configure Microsoft Intune device configuration for dev boxes and assignment of licenses to Dev Box users
+    - Configure networking settings to enable secure access and connectivity to organizational resources
+    - Configure security settings for authorizing access to dev boxes
+
+- **Development team lead**: assists with creating and managing the developer experience. This includes the following tasks:
+    - Create and manage projects within a dev center
+    - Create and manage dev box pools within a project
     - Dev box definitions?
-- Developer
-    - Create and connect to dev box
+
+- **Developer**: self-serve one or more dev boxes within their assigned projects.
+    - Create and manage a dev box based on project dev box pool from the developer portal
+    - Connect to a dev box by using remote desktop or from the browser
+
+:::image type="content" source="media/overview-what-is-microsoft-dev-box/dev-box-roles.png" alt-text="Diagram that shows roles and responsibilities for Dev Box platform engineers, team leads, and developers." lightbox="media/overview-what-is-microsoft-dev-box/dev-box-roles.png" border="false":::
 
 ## Define your requirements for Microsoft Dev Box
 
