@@ -46,7 +46,7 @@ You need the following prerequisites to complete the steps in this guide:
 - Visual Studio Code or other tool to edit PowerShell and JSON files.[Get Visual Studio Code](https://code.visualstudio.com/Download).
 - Git client. Download the latest version from [Git - Downloads (git-scm.com)](https://git-scm.com/downloads).
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Download the sample code
 

@@ -486,8 +486,8 @@ groups:
     title: Java
 - id: function-worker-process
   title: .NET Azure Functions process model
-  prompt: Choose your .NET mode   
-  pivots: 
+  prompt: Choose your .NET mode
+  pivots:
   - id: isolated
     title: Isolated worker model
   - id: in-proc
@@ -957,6 +957,29 @@ groups:
     title: Objective-C
   - id: programming-language-python
     title: Python
+  - id: programming-language-swift
+    title: Swift
+- id: programming-languages-reference-ai-services
+# Owner: laujan
+  title: Programming languages
+  prompt: Choose a programming language or tool
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-objectivec
+    title: Objective-C
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-ruby
+    title: Ruby
   - id: programming-language-swift
     title: Swift
 - id: speech-studio-cli-rest
@@ -1712,16 +1735,16 @@ groups:
     title: JavaScript
   - id: programming-language-python
     title: Python
-- id: acs-azcli-azp-azpnew-java-net-python-csharp-js
+- id: acs-azp-azpnew-azcli-java-csharp-js-python
   title: Platform
   prompt: Choose a platform
   pivots:
-  - id: platform-azcli
-    title: Azure CLI
   - id: platform-azp
     title: Azure portal
   - id: platform-azp-new
     title: Azure portal (new)
+  - id: platform-azcli
+    title: Azure CLI
   - id: programming-language-java
     title: Java
   - id: programming-language-csharp
@@ -1899,10 +1922,12 @@ groups:
   pivots:
   - id: programming-language-studio
     title: Azure OpenAI Studio
-  - id: programming-language-python
-    title: Python
+  - id: programming-language-ai-studio
+    title: AI Studio (Preview)
   - id: programming-language-csharp
     title: C#
+  - id: programming-language-python
+    title: Python
   - id: rest-api
     title: REST
 # Owner: mbullwin
@@ -1988,11 +2013,11 @@ groups:
   - id: programming-language-spring
     title: Spring
   - id: programming-language-javascript
-    title: JavaScript 
+    title: JavaScript
   - id: programming-language-python
     title: Python
   - id: programming-language-go
-    title: Go 
+    title: Go
   - id: rest-api
     title: REST
   - id: programming-language-powershell
@@ -2471,7 +2496,7 @@ groups:
   - id: azure-cli
     title: Azure CLI
   - id: bicep
-    title: Bicep    
+    title: Bicep
 # Owner: cshoe
 - id: container-apps-portal-or-cli
   title: Interaction type
@@ -2692,7 +2717,7 @@ groups:
     title: Local build
 # Owner: cshoe
 - id: container-apps-code-to-cloud-segmemts
-  title: Code 
+  title: Code
   prompt: Choose if your source code has a Dockerfile
   pivots:
   - id: with-dockerfile
@@ -3072,7 +3097,7 @@ groups:
     title: Start with a template
 # Owner: sloanster
 - id: acs-web-safari-chrome-firefox-known-issues
-  title: Knowns issues
+  title: Known issues
   prompt: Choose a platform
   pivots:
   - id: all-browsers
@@ -3112,6 +3137,15 @@ groups:
   prompt: Choose a scope option
   pivots:
   - id: development-environment-azure-portal
-    title: Portal 
+    title: Portal
   - id: development-environment-azure-cli
     title: CLI
+# Owner: schaffererin
+- id: aks-azure-developer-cli
+  title: Azure command line interfaces
+  prompt: Choose a command line interface
+  pivots:
+  - id: development-environment-azure-cli
+    title: Azure CLI
+  - id: development-environment-azure-developer
+    title: Azure Developer CLI
