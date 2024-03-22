@@ -7,7 +7,6 @@ metadata:
   title: Azure Arc site manager
   description: Manage logical groups of Arc-enabled resources
   ms.service: azure-arc
-#  ms.subservice: azure-arc-data # Optional; Remove if no subservice is used.
   ms.topic: landing-page
   author: kgremban
   ms.author: kgremban
