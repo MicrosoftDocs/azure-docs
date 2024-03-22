@@ -1,14 +1,13 @@
 ---
 title: Use stored procedures
 description: Tips for implementing stored procedures using Synapse SQL in Azure Synapse Analytics for solution development.
-author: mstehrani 
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql
-ms.date: 11/03/2020
-ms.author: emtehran   
+author: mstehrani
+ms.author: emtehran
 ms.reviewer: wiassaf
+ms.date: 11/03/2020
+ms.service: synapse-analytics
+ms.subservice: sql
+ms.topic: conceptual
 ---
 
 # Stored procedures using Synapse SQL in Azure Synapse Analytics

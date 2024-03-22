@@ -4,7 +4,7 @@ description: Learn how to use Azure Data Lake Tools for Visual Studio to debug a
 ms.reviewer: whhender
 ms.service: data-lake-analytics
 ms.topic: how-to
-ms.date: 01/27/2023
+ms.date: 12/20/2023
 ---
 
 # Troubleshoot an abnormal recurring job

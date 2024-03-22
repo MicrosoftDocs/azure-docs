@@ -5,7 +5,7 @@ ms.reviewer: whhender
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.custom: understand-apache-spark-data-formats
-ms.date: 01/20/2022
+ms.date: 12/20/2023
 ---
 
 # Understand differences between U-SQL and Spark data formats

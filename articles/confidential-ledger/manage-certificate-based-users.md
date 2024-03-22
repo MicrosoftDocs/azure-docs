@@ -348,4 +348,4 @@ main().catch((err) => {
 ## Next steps
 
 - [Create a client certificate](create-client-certificate.md)
-- [Manage Azure AD token-based users](manage-azure-ad-token-based-users.md)
+- [Manage Microsoft Entra token-based users](manage-azure-ad-token-based-users.md)

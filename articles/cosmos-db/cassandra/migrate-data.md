@@ -9,7 +9,6 @@ ms.subservice: apache-cassandra
 ms.topic: tutorial
 ms.date: 12/03/2018
 ms.devlang: csharp
-ms.custom: seodec18, ignite-2022
 #Customer intent: As a developer, I want to migrate my existing Cassandra workloads to Azure Cosmos DB so that the overhead to manage resources, clusters, and garbage collection is automatically handled by Azure Cosmos DB.
 ---
 
@@ -58,7 +57,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
       }
     ```
 
-* **Allocate the required throughput:** Azure Cosmos DB can automatically scale storage and throughput as your requirements grow. You can estimate your throughput needs by using the [Azure Cosmos DB request unit calculator](https://www.documentdb.com/capacityplanner). 
+* **Allocate the required throughput:** Azure Cosmos DB can automatically scale storage and throughput as your requirements grow. You can estimate your throughput needs by using the [Azure Cosmos DB request unit calculator](https://cosmos.azure.com/capacitycalculator). 
 
 * **Create tables in the API for Cassandra account:** Before you start migrating data, pre-create all your tables from the Azure portal or from `cqlsh`. If you're migrating to an Azure Cosmos DB account that has database-level throughput, make sure to provide a partition key when you create the containers.
 

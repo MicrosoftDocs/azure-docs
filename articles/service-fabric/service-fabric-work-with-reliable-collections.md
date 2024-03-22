@@ -238,7 +238,7 @@ Alternatively, you can perform a multi-phase upgrade.
           from the V1 collection.
         - If the value has already been removed from the V1 collection since the copy process started,
           the key should be skipped and not resurected in the V2 collection.
-        - [TryAddAsync](/dotnet/api/microsoft.servicefabric.data.collections.ireliabledictionary.tryaddasync)
+        - [TryAddAsync](/dotnet/api/microsoft.servicefabric.data.collections.ireliabledictionary-2.tryaddasync)
           the value to the V2 collection.
         - If the value has already been added to the V2 collection since the copy process started,
           the key should be skipped.

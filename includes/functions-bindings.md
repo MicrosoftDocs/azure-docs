@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 08/22/2022
+ms.date: 09/19/2023
 ms.author: glenga
 ms.custom: fasttrack-edit
 ---
@@ -15,7 +15,7 @@ This table shows the bindings that are supported in the major versions of the Az
 | [Azure Cosmos DB](../articles/azure-functions/functions-bindings-cosmosdb-v2.md)               |✔|✔|✔|✔|✔|
 | [Azure Data Explorer](../articles/azure-functions/functions-bindings-azure-data-explorer.md)               | |✔| |✔|✔|
 | [Azure SQL](../articles/azure-functions/functions-bindings-azure-sql.md)               | |✔|✔|✔|✔|
-| [Dapr](https://github.com/dapr/azure-functions-extension)<sup>4</sup>             | |✔|✔|✔|✔|
+| [Dapr](../articles/azure-functions/functions-bindings-dapr.md)<sup>4</sup>             | |✔|✔|✔|✔|
 | [Event Grid](../articles/azure-functions/functions-bindings-event-grid.md)              |✔|✔|✔| |✔|
 | [Event Hubs](../articles/azure-functions/functions-bindings-event-hubs.md)              |✔|✔|✔| |✔|
 | [HTTP & webhooks](../articles/azure-functions/functions-bindings-http-webhook.md)             |✔|✔|✔| |✔|

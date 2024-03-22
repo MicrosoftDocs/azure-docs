@@ -2,7 +2,6 @@
 title: Azure Monitor service limits | Microsoft Docs
 description: This article lists limits in different areas of Azure Monitor.
 ms.topic: conceptual
-ms.custom: ignite-2022
 author: bwren
 ms.author: bwren
 ms.date: 05/31/2023
@@ -52,7 +51,11 @@ This article lists limits in different areas of Azure Monitor.
 
 [!INCLUDE [monitoring-limits-application-insights](../../includes/application-insights-limits.md)]
 
+## Azure Monitor Private Link Scope (AMPLS)
+
+[!INCLUDE [ampls-limitations](includes/ampls-limitations.md)]
+
 ## Next steps
 
 - [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/)
-- [Monitoring usage and estimated costs in Azure Monitor](./usage-estimated-costs.md)
+- [Azure Monitor cost and usage](cost-usage.md)

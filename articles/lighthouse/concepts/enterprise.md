@@ -1,19 +1,19 @@
 ---
 title: Azure Lighthouse in enterprise scenarios
-description: The capabilities of Azure Lighthouse can be used to simplify cross-tenant management within an enterprise which uses multiple Azure AD tenants.
+description: The capabilities of Azure Lighthouse can be used to simplify cross-tenant management within an enterprise which uses multiple Microsoft Entra tenants.
 ms.date: 05/10/2023
 ms.topic: conceptual
 ---
 
 # Azure Lighthouse in enterprise scenarios
 
-A common scenario for [Azure Lighthouse](../overview.md) involves a service provider that manages resources in in its customers' Azure Active Directory (Azure AD) tenants. The capabilities of Azure Lighthouse can also be used to simplify cross-tenant management within an enterprise that uses multiple Azure AD tenants.
+A common scenario for [Azure Lighthouse](../overview.md) involves a service provider that manages resources in its customers' Microsoft Entra tenants. The capabilities of Azure Lighthouse can also be used to simplify cross-tenant management within an enterprise that uses multiple Microsoft Entra tenants.
 
 ## Single vs. multiple tenants
 
-For most organizations, management is easier with a single Azure AD tenant. Having all resources within one tenant allows centralization of management tasks by designated users, user groups, or service principals within that tenant. We recommend using one tenant for your organization whenever possible.
+For most organizations, management is easier with a single Microsoft Entra tenant. Having all resources within one tenant allows centralization of management tasks by designated users, user groups, or service principals within that tenant. We recommend using one tenant for your organization whenever possible.
 
-Some organizations may need to use multiple Azure AD tenants. This might be a temporary situation, as when acquisitions have taken place and a long-term tenant consolidation strategy hasn't been defined yet. Other times, organizations may need to maintain multiple tenants on an ongoing basis due to wholly independent subsidiaries, geographical or legal requirements, or other considerations.
+Some organizations may need to use multiple Microsoft Entra tenants. This might be a temporary situation, as when acquisitions have taken place and a long-term tenant consolidation strategy hasn't been defined yet. Other times, organizations may need to maintain multiple tenants on an ongoing basis due to wholly independent subsidiaries, geographical or legal requirements, or other considerations.
 
 In cases where a [multitenant architecture](/azure/architecture/guide/multitenant/overview) is required, Azure Lighthouse can help centralize and streamline management operations. By using Azure Lighthouse, users in one managing tenant can perform [cross-tenant management functions](cross-tenant-management-experience.md) in a centralized, scalable manner.
 
@@ -21,7 +21,7 @@ In cases where a [multitenant architecture](/azure/architecture/guide/multitenan
 
 To use Azure Lighthouse in an enterprise, you'll need to determine which tenant will include the users who perform management operations on the other tenants. In other words, you will need to designate one tenant as the managing tenant for the other tenants.
 
-For example, say your organization has a single tenant that we’ll call *Tenant A*. Your organization then acquires *Tenant B* and *Tenant C*, and you you have business reasons that require you to maintain them as separate tenants. However, you'd like to use the same policy definitions, backup practices, and security processes for all of them, with management tasks performed by the same set of users.
+For example, say your organization has a single tenant that we’ll call *Tenant A*. Your organization then acquires *Tenant B* and *Tenant C*, and you have business reasons that require you to maintain them as separate tenants. However, you'd like to use the same policy definitions, backup practices, and security processes for all of them, with management tasks performed by the same set of users.
 
 Since Tenant A already includes users in your organization who have been performing those tasks for Tenant A, you can onboard subscriptions within Tenant B and Tenant C, which allows the same users in Tenant A to perform those tasks across all tenants.
 

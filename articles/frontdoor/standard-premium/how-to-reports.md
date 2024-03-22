@@ -130,7 +130,7 @@ The *Traffic by domain* report includes these fields:
 
 # [Traffic by location](#tab/traffic-by-location)
 
-The *Traffic by location* report includes these fields:
+The *Traffic by location* report includes the below fields. The location split is done based on client location.
 
 * Location
 * TotalRequests

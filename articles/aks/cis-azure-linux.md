@@ -5,12 +5,10 @@ author: htaubenfeld
 ms.author: htaubenfeld
 ms.service: microsoft-linux
 ms.topic: article
-ms.date: 07/06/2023
+ms.date: 12/07/2023
 ---
 
 # Center for Internet Security (CIS) Azure Linux benchmark
-
-Azure Kubernetes Service (AKS) and the Microsoft Azure Linux image alignment with Center for Internet Security (CIS) benchmark
 
 The security OS configuration applied to the Azure Linux Container Host for AKS image is based on the Azure Linux security baseline, which aligns with the CIS benchmark. As a secure service, AKS complies with SOC, ISO, PCI DSS, and HIPAA standards. For more information about the Azure Linux Container Host security, see [Security concepts for clusters in AKS][security-concepts-aks]. To learn more about the CIS benchmark, see [Center for Internet Security (CIS) Benchmarks][cis-benchmarks]. For more information on the Azure security baselines for Linux, see [Linux security baseline][linux-security-baseline].
 
@@ -34,7 +32,7 @@ The below table has four sections:
 * **Status:**
     * *Pass* - The recommendation has been applied.
     * *Fail* - The recommendation hasn't been applied.
-    * *N/A* - The recommendation relates to manifest file permission requirements that are not relevant to AKS.
+    * *N/A* - The recommendation relates to manifest file permission requirements that aren't relevant to AKS.
     * *Depends on Environment* - The recommendation is applied in the user's specific environment and isn't controlled by AKS.
     * *Equivalent Control* - The recommendation has been implemented in a different equivalent manner.
 * **Reason:**
@@ -64,52 +62,52 @@ The following are the results from the [CIS Azure Linux 2.0 Benchmark v1.0][cis-
 |1.7.5|Ensure permissions on /etc/issue.net are configured|Pass||
 |2.1.1|Ensure time synchronization is in use|Pass||
 |2.1.2|Ensure chrony is configured|Pass||
-|2.2.1|Ensure xinetd is not installed|Pass||
-|2.2.2|Ensure xorg-x11-server-common is not installed|Pass||
-|2.2.3|Ensure avahi is not installed|Pass||
-|2.2.4|Ensure a print server is not installed|Pass||
-|2.2.5|Ensure a dhcp server is not installed|Pass||
-|2.2.6|Ensure a dns server is not installed|Pass||
-|2.2.7|Ensure FTP client is not installed|Pass||
-|2.2.8|Ensure an ftp server is not installed|Pass||
-|2.2.9|Ensure a tftp server is not installed|Pass||
-|2.2.10|Ensure a web server is not installed|Pass||
-|2.2.11|Ensure IMAP and POP3 server is not installed|Pass||
-|2.2.12|Ensure Samba is not installed|Pass||
-|2.2.13|Ensure HTTP Proxy Server is not installed|Pass||
-|2.2.14|Ensure net-snmp is not installed or the snmpd service is not enabled|Pass||
-|2.2.15|Ensure NIS server is not installed|Pass||
-|2.2.16|Ensure telnet-server is not installed|Pass||
+|2.2.1|Ensure xinetd isn't installed|Pass||
+|2.2.2|Ensure xorg-x11-server-common isn't installed|Pass||
+|2.2.3|Ensure avahi isn't installed|Pass||
+|2.2.4|Ensure a print server isn't installed|Pass||
+|2.2.5|Ensure a dhcp server isn't installed|Pass||
+|2.2.6|Ensure a dns server isn't installed|Pass||
+|2.2.7|Ensure FTP client isn't installed|Pass||
+|2.2.8|Ensure an ftp server isn't installed|Pass||
+|2.2.9|Ensure a tftp server isn't installed|Pass||
+|2.2.10|Ensure a web server isn't installed|Pass||
+|2.2.11|Ensure IMAP and POP3 server isn't installed|Pass||
+|2.2.12|Ensure Samba isn't installed|Pass||
+|2.2.13|Ensure HTTP Proxy Server isn't installed|Pass||
+|2.2.14|Ensure net-snmp isn't installed or the snmpd service isn't enabled|Pass||
+|2.2.15|Ensure NIS server isn't installed|Pass||
+|2.2.16|Ensure telnet-server isn't installed|Pass||
 |2.2.17|Ensure mail transfer agent is configured for local-only mode|Pass||
-|2.2.18|Ensure nfs-utils is not installed or the  nfs-server service is masked|Pass||
-|2.2.19|Ensure rsync-daemon is not installed or the rsyncd service is masked|Pass||
-|2.3.1|Ensure NIS Client is not installed|Pass||
-|2.3.2|Ensure rsh client is not installed|Pass||
-|2.3.3|Ensure talk client is not installed|Pass||
-|2.3.4|Ensure telnet client is not installed|Pass||
-|2.3.5|Ensure LDAP client is not installed|Pass||
-|2.3.6|Ensure TFTP client is not installed|Pass||
+|2.2.18|Ensure nfs-utils isn't installed or the  nfs-server service is masked|Pass||
+|2.2.19|Ensure rsync-daemon isn't installed or the rsyncd service is masked|Pass||
+|2.3.1|Ensure NIS Client isn't installed|Pass||
+|2.3.2|Ensure rsh client isn't installed|Pass||
+|2.3.3|Ensure talk client isn't installed|Pass||
+|2.3.4|Ensure telnet client isn't installed|Pass||
+|2.3.5|Ensure LDAP client isn't installed|Pass||
+|2.3.6|Ensure TFTP client isn't installed|Pass||
 |3.1.1|Ensure IPv6 is enabled|Pass||
 |3.2.1|Ensure packet redirect sending is disabled|Pass||
-|3.3.1|Ensure source routed packets are not accepted|Pass||
-|3.3.2|Ensure ICMP redirects are not accepted|Pass||
-|3.3.3|Ensure secure ICMP redirects are not accepted|Pass||
+|3.3.1|Ensure source routed packets aren't accepted|Pass||
+|3.3.2|Ensure ICMP redirects aren't accepted|Pass||
+|3.3.3|Ensure secure ICMP redirects aren't accepted|Pass||
 |3.3.4|Ensure suspicious packets are logged|Pass||
 |3.3.5|Ensure broadcast ICMP requests are ignored|Pass||
 |3.3.6|Ensure bogus ICMP responses are ignored|Pass||
 |3.3.7|Ensure Reverse Path Filtering is enabled|Pass||
 |3.3.8|Ensure TCP SYN Cookies is enabled|Pass||
-|3.3.9|Ensure IPv6 router advertisements are not accepted|Pass||
+|3.3.9|Ensure IPv6 router advertisements aren't accepted|Pass||
 |3.4.3.1.1|Ensure iptables package is installed|Pass||
-|3.4.3.1.2|Ensure nftables is not installed with iptables|Pass||
+|3.4.3.1.2|Ensure nftables isn't installed with iptables|Pass||
 |3.4.3.1.3|Ensure firewalld is either not installed or masked with iptables|Pass||
 |4.2|Ensure logrotate is configured|Pass||
-|4.2.2|Ensure all logfiles have appropriate access configured|Pass||
+|4.2.2|Ensure all log files have appropriate access configured|Pass||
 |4.2.1.1|Ensure rsyslog is installed|Pass||
 |4.2.1.2|Ensure rsyslog service is enabled|Pass||
 |4.2.1.3|Ensure rsyslog default file permissions are configured|Pass||
 |4.2.1.4|Ensure logging is configured|Pass||
-|4.2.1.5|Ensure rsyslog is not configured to receive logs from a remote client|Pass||
+|4.2.1.5|Ensure rsyslog isn't configured to receive logs from a remote client|Pass||
 |5.1.1|Ensure cron daemon is enabled|Pass||
 |5.1.2|Ensure permissions on /etc/crontab are configured|Pass||
 |5.1.3|Ensure permissions on /etc/cron.hourly are configured|Pass||
@@ -140,7 +138,7 @@ The following are the results from the [CIS Azure Linux 2.0 Benchmark v1.0][cis-
 |5.2.19|Ensure SSH MaxSessions is set to 10 or less|Pass||
 |5.2.20|Ensure SSH Idle Timeout Interval is configured|Pass||
 |5.3.1|Ensure sudo is installed|Pass||
-|5.3.2|Ensure re-authentication for privilege escalation is not disabled globally|Pass||
+|5.3.2|Ensure reauthentication for privilege escalation isn't disabled globally|Pass||
 |5.3.3|Ensure sudo authentication timeout is configured correctly|Pass||
 |5.4.1|Ensure password creation requirements are configured|Pass||
 |5.4.2|Ensure lockout for failed password attempts is configured|Pass||
@@ -150,8 +148,8 @@ The following are the results from the [CIS Azure Linux 2.0 Benchmark v1.0][cis-
 |5.5.3|Ensure default group for the root account is GID 0|Pass||
 |5.5.4|Ensure default user umask is 027 or more restrictive|Pass||
 |5.5.1.1|Ensure password expiration is 365 days or less|Pass||
-|5.5.1.2|Ensure minimum days between password changes is configured|Pass||
-|5.5.1.3|Ensure password expiration warning days is 7 or more|Pass||
+|5.5.1.2|Ensure minimum days between password changes are configured|Pass||
+|5.5.1.3|Ensure password expiration warning days are 7 or more|Pass||
 |5.5.1.4|Ensure inactive password lock is 30 days or less|Pass||
 |5.5.1.5|Ensure all users last password change date is in the past|Pass||
 |6.1.1|Ensure permissions on /etc/passwd are configured|Pass||
@@ -164,7 +162,7 @@ The following are the results from the [CIS Azure Linux 2.0 Benchmark v1.0][cis-
 |6.1.8|Ensure permissions on /etc/gshadow- are configured|Pass||
 |6.1.9|Ensure no unowned or ungrouped files or directories exist|Pass||
 |6.1.10|Ensure world writable files and directories are secured|Pass||
-|6.2.1|Ensure password fields are not empty|Pass||
+|6.2.1|Ensure password fields aren't empty|Pass||
 |6.2.2|Ensure all groups in /etc/passwd exist in /etc/group|Pass||
 |6.2.3|Ensure no duplicate UIDs exist|Pass||
 |6.2.4|Ensure no duplicate GIDs exist|Pass||
@@ -175,8 +173,8 @@ The following are the results from the [CIS Azure Linux 2.0 Benchmark v1.0][cis-
 |6.2.9|Ensure all users' home directories exist|Pass||
 |6.2.10|Ensure users' own their home directories|Pass||
 |6.2.11|Ensure users' home directories permissions are 750 or more restrictive|Pass||
-|6.2.12|Ensure users' dot files are not group or world writable|Pass||
-|6.2.13|Ensure users' .netrc Files are not group or world accessible|Pass||
+|6.2.12|Ensure users' dot files aren't group or world writable|Pass||
+|6.2.13|Ensure users' .netrc files aren't group or world accessible|Pass||
 |6.2.14|Ensure no users have .forward files|Pass||
 |6.2.15|Ensure no users have .netrc files|Pass||
 |6.2.16|Ensure no users have .rhosts files|Pass||
@@ -188,11 +186,11 @@ For more information about Azure Linux Container Host security, see the followin
 * [Azure Linux Container Host for AKS][linux-container-host-aks]
 * [Security concepts for clusters in AKS][security-concepts-aks]
 
-<!-- LINKS - external -->
+<!-- EXTERNAL LINKS -->
+[cis-benchmark-azure-linux]: https://www.cisecurity.org/benchmark/azure_linux
 
-<!-- LINKS - internal -->
+<!-- INTERNAL LINKS -->
 [security-concepts-aks]: concepts-security.md
 [cis-benchmarks]: /compliance/regulatory/offering-CIS-Benchmark
-[cis-benchmark-azure-linux]: https://www.cisecurity.org/benchmark/azure_linux
 [linux-security-baseline]: ../governance/policy/samples/guest-configuration-baseline-linux.md
 [linux-container-host-aks]: ../azure-linux/intro-azure-linux.md

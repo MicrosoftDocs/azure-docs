@@ -1,5 +1,5 @@
 ---
-title: Create alerts with dynamic thresholds in Azure Monitor metric alerts
+title: Create an Azure Monitor metric alerts with dynamic thresholds
 description: Create metric alerts with machine learning-based dynamic thresholds.
 author: AbbyMSFT
 ms.author: abbyweisberg
@@ -8,15 +8,19 @@ ms.topic: conceptual
 ms.date: 05/28/2023
 ---
 
-# Dynamic thresholds in metric alerts
+# Create a metric alert with dynamic thresholds
 
-Dynamic thresholds apply advanced machine learning, and use a set of algorithms and methods to:
+Dynamic thresholds apply advanced machine learning and use a set of algorithms and methods to:
 - Learn the historical behavior of metrics
 - Analyze metrics over time and identify patterns such as hourly, daily or weekly patterns
 - Recognize anomalies that indicate possible service issues
 - Calculate the most appropriate threshold for the metric
 
 When you use dynamic thresholds, you don't have to know the "right" threshold for each metric, because dynamic thresholds calculate the most appropriate thresholds for you.
+
+We recommend configuring alert rules with dynamic thresholds on these metrics:
+- Virtual machine CPU percentage
+- Application Insights HTTP request execution time
 
 Dynamic thresholds help you:
 - Create scalable alerts for hundreds of metric series with one alert rule. If you have fewer alert rules, you spend less time creating and managing alerts rules. Scalable alerting is especially useful for multiple dimensions or for multiple resources, such as to all resources in a subscription.
@@ -32,8 +36,6 @@ You can use dynamic thresholds on:
 - metrics with low dispersion, such as availability and error rate
 See [metrics not supported by dynamic thresholds](#metrics-not-supported-by-dynamic-thresholds) for a list of metrics that aren't supported by dynamic thresholds.
 
-The system automatically recognizes prolonged outages and removes them from the threshold learning algorithm. If there's a prolonged outage, dynamic thresholds understand the data, and detect system issues with the same level of sensitivity as before the outage occurred.
-
 You can configure dynamic thresholds using:
 - [the Azure portal](https://portal.azure.com/)
 - the fully automated [Azure Resource Manager API](/rest/api/resources/)
@@ -42,22 +44,8 @@ You can configure dynamic thresholds using:
 
 When an alert rule is first created, dynamic thresholds use 10 days of historical data to calculate hourly or daily seasonal patterns. The chart that you see in the alert preview reflects that data. After an alert rule is created, dynamic thresholds continually use all available historical data to learn, and adjust the thresholds to be more accurate. After three weeks, dynamic thresholds have enough data to identify weekly patterns as well, and the model is adjusted to include weekly seasonality.
 Alert rules that use dynamic thresholds don't trigger an alert before collecting three days and at least 30 samples of metric data.
-## Understand dynamic thresholds charts
 
-The following chart shows a metric, its dynamic thresholds limits, and some alerts that fired when the value was outside the allowed thresholds.
-
-![Screenshot that shows a metric, its dynamic thresholds limits, and some alerts that fired.](media/alerts-dynamic-thresholds/threshold-picture-8bit.png)
-
-Use the following information to interpret the chart:
-
-- **Blue line**: The actual measured metric over time.
-- **Blue shaded area**: Shows the allowed range for the metric. If the metric values stay within this range, no alert is triggered.
-- **Blue dots**: If you left select on part of the chart and then hover over the blue line, a blue dot appears under your cursor that shows an individual aggregated metric value.
-- **Pop-up with blue dot**: Shows the measured metric value (the blue dot) and the upper and lower values of the allowed range.  
-- **Red dot with a black circle**: Shows the first metric value out of the allowed range. This value fires a metric alert and puts it in an active state.
-- **Red dots**: Indicate other measured values outside of the allowed range. They don't trigger more metric alerts, but the alert stays in the active state.
-- **Red area**: Shows the time when the metric value was outside of the allowed range. The alert remains in the active state as long as subsequent measured values are out of the allowed range, but no new alerts are fired.
-- **End of red area**: When the blue line is back inside the allowed values, the red area stops and the measured value line turns blue. The status of the metric alert fired at the time of the red dot with black outline is set to resolved.
+The system automatically recognizes prolonged outages and removes them from the threshold learning algorithm. If there's a prolonged outage, dynamic thresholds understand the data, and detect system issues with the same level of sensitivity as before the outage occurred.
 
 ## Considerations when using dynamic thresholds
 
@@ -83,13 +71,10 @@ Use the following information to interpret the chart:
     - The metric exhibits an irregular behavior with high variance, which appears as spikes or dips in the data.
 
     Consider making the model less sensitive by choosing a higher sensitivity or selecting a larger **Lookback period**. You can also use the **Ignore data before** option to exclude a recent irregularity from the historical data used to build the model.
-## Configuring dynamic thresholds
 
-We recommend configuring alert rules with dynamic thresholds on these metrics:
-- Virtual machine CPU percentage
-- Application Insights HTTP request execution time
+## Configure dynamic thresholds
 
-When configuring alert rules in the [Azure portal](https://portal.azure.com), follow the procedure to [Create a new alert rule in the Azure portal](alerts-create-new-alert-rule.md#create-or-edit-an-alert-rule-in-the-azure-portal), with these settings
+Follow the procedure to [create or edit an alert rule](alerts-create-new-alert-rule.md#create-or-edit-an-alert-rule-in-the-azure-portal), using these settings
 1. In the **Conditions** tab, 
     1. In the **Thresholds** field, select **Dynamic**.
     1. In the **Aggregation type**, we recommend that you don't select **Maximum**.
@@ -101,6 +86,25 @@ When configuring alert rules in the [Azure portal](https://portal.azure.com), fo
 
 > [!NOTE]
 > Metric alert rules created through the portal are created in the same resource group as the target resource.
+
+## Understand dynamic thresholds charts
+
+The following chart shows a metric, its dynamic thresholds limits, and some alerts that fired when the value was outside the allowed thresholds.
+
+:::image type="content" source="media/alerts-dynamic-thresholds/threshold-picture-8bit.png" lightbox="media/alerts-dynamic-thresholds/threshold-picture-8bit.png" alt-text="Screenshot that shows a metric, its dynamic thresholds limits, and some alerts that fired.":::
+
+Use the following information to interpret the chart:
+
+- **Blue line**: The actual measured metric over time.
+- **Blue shaded area**: Shows the allowed range for the metric. If the metric values stay within this range, no alert is triggered.
+- **Blue dots**: If you left select on part of the chart and then hover over the blue line, a blue dot appears under your cursor that shows an individual aggregated metric value.
+- **Pop-up with blue dot**: Shows the measured metric value (the blue dot) and the upper and lower values of the allowed range.  
+- **Red dot with a black circle**: Shows the first metric value out of the allowed range. This value fires a metric alert and puts it in an active state.
+- **Red dots**: Indicate other measured values outside of the allowed range. They don't trigger more metric alerts, but the alert stays in the active state.
+- **Red area**: Shows the time when the metric value was outside of the allowed range. The alert remains in the active state as long as subsequent measured values are out of the allowed range, but no new alerts are fired.
+- **End of red area**: When the blue line is back inside the allowed values, the red area stops and the measured value line turns blue. The status of the metric alert fired at the time of the red dot with black outline is set to resolved.
+
+
 ## Metrics not supported by dynamic thresholds
 
 Dynamic thresholds are supported for most metrics, but some metrics can't use dynamic thresholds.

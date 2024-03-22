@@ -1,14 +1,13 @@
 ---
 title: Deploy Intel SGX virtual machines
 description: Learn about using Intel SGX virtual machines (VMs) in Azure confidential computing.
-author: mamccrea
+author: ju-shim
 ms.service: virtual-machines
 ms.subservice: confidential-computing
-ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 9/12/2023
-ms.author: mamccrea
-ms.custom: ignite-fall-2021, devx-track-arm-template
+ms.author: jushiman
+ms.custom: devx-track-arm-template
 ---
 
 # Solutions on Azure for Intel SGX
@@ -112,24 +111,24 @@ Specify one of the following sizes in your ARM template in the VM resource. This
 Under **properties**, you also have to specify an image under **storageProfile**. Use *only one* of the following images for your **imageReference**.
 
 ```json
-      "2019-datacenter-gensecond": {
-        "offer": "WindowsServer",
-        "publisher": "MicrosoftWindowsServer",
-        "sku": "2019-datacenter-gensecond",
-        "version": "latest"
-      },
-      "20_04-lts-gen2": {
-        "offer": "0001-com-ubuntu-server-focal",
-        "publisher": "Canonical",
-        "sku": "20_04-lts-gen2",
-        "version": "latest"
-      }
-      "22_04-lts-gen2": {
-        "offer": "0001-com-ubuntu-server-jammy",
-        "publisher": "Canonical",
-        "sku": "22_04-lts-gen2",
-        "version": "latest"
-      },
+  "2019-datacenter-gensecond": {
+    "offer": "WindowsServer",
+    "publisher": "MicrosoftWindowsServer",
+    "sku": "2019-datacenter-gensecond",
+    "version": "latest"
+  },
+  "20_04-lts-gen2": {
+    "offer": "0001-com-ubuntu-server-focal",
+    "publisher": "Canonical",
+    "sku": "20_04-lts-gen2",
+    "version": "latest"
+  }
+  "22_04-lts-gen2": {
+    "offer": "0001-com-ubuntu-server-jammy",
+    "publisher": "Canonical",
+    "sku": "22_04-lts-gen2",
+    "version": "latest"
+  },
 ```
 
 ## Next step

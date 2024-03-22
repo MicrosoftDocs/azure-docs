@@ -272,9 +272,8 @@ For examples, see [Service Bus filter examples](service-bus-filter-examples.md).
 
 ## Next steps
 
-- [SQLFilter class (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
-- [SQLFilter class (.NET Standard)](/dotnet/api/microsoft.azure.servicebus.sqlfilter)
-- [SqlFilter class (Java)](/java/api/com.microsoft.azure.servicebus.rules.SqlFilter)
+- [SqlRuleFilter (.NET)](/dotnet/api/azure.messaging.servicebus.administration.sqlrulefilter)
+- [SqlRuleFilter (Java)](/java/api/com.azure.messaging.servicebus.administration.models.sqlrulefilter)
 - [SqlRuleFilter (JavaScript)](/javascript/api/@azure/service-bus/sqlrulefilter)
 - [`az servicebus topic subscription rule`](/cli/azure/servicebus/topic/subscription/rule)
 - [New-AzServiceBusRule](/powershell/module/az.servicebus/new-azservicebusrule)

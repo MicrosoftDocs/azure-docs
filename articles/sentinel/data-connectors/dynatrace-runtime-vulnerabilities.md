@@ -3,14 +3,14 @@ title: "Dynatrace Runtime Vulnerabilities connector for Microsoft Sentinel"
 description: "Learn how to install the connector Dynatrace Runtime Vulnerabilities to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/28/2023
+ms.date: 11/29/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
 # Dynatrace Runtime Vulnerabilities connector for Microsoft Sentinel
 
-This connector uses the [Dynatrace Security Problem REST API](https://www.dynatrace.com/support/help/dynatrace-api/environment-api/application-security/security-problems) to ingest detected runtime vulnerabilities into Microsoft Sentinel Log Analytics.
+This connector uses the [Dynatrace Security Problem REST API](https://docs.dynatrace.com/docs/dynatrace-api/environment-api/application-security/vulnerabilities/get-vulnerabilities) to ingest detected runtime vulnerabilities into Microsoft Sentinel Log Analytics.
 
 ## Connector attributes
 
@@ -103,7 +103,7 @@ DynatraceSecurityProblems
 
 To integrate with Dynatrace Runtime Vulnerabilities make sure you have: 
 
-- **Dynatrace tenant (ex. xyz.dynatrace.com)**: You need a valid Dynatrace tenant with [Application Security](https://www.dynatrace.com/support/help/how-to-use-dynatrace/application-security) enabled, learn more about the [Dynatrace platform](https://www.dynatrace.com/).
+- **Dynatrace tenant (ex. xyz.dynatrace.com)**: You need a valid Dynatrace tenant with [Application Security](https://www.dynatrace.com/platform/application-security/) enabled, learn more about the [Dynatrace platform](https://www.dynatrace.com/).
 - **Dynatrace Access Token**: You need a Dynatrace Access Token, the token should have ***Read security problems*** (securityProblems.read) scope.
 
 
@@ -111,8 +111,8 @@ To integrate with Dynatrace Runtime Vulnerabilities make sure you have:
 
 Dynatrace Vulnerabilities Events to Microsoft Sentinel
 
-Configure and Enable Dynatrace [Application Security](https://www.dynatrace.com/support/help/how-to-use-dynatrace/application-security). 
- Follow [these instructions](https://www.dynatrace.com/support/help/get-started/access-tokens#create-api-token) to generate an access token.
+Configure and Enable Dynatrace [Application Security](https://www.dynatrace.com/platform/application-security/). 
+ Follow [these instructions](https://docs.dynatrace.com/docs/shortlink/token#create-api-token) to generate an access token.
 
 
 

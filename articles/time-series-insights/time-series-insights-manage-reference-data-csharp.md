@@ -2,16 +2,14 @@
 title: 'Manage reference data in GA environments using C# - Azure Time Series Insights'
 description: Learn how to manage reference data for your GA environment by creating a custom application written in C#.
 ms.service: time-series-insights
-services: time-series-insights
 author: esung22
 ms.author: elsung
 manager: cnovak
 ms.reviewer: orspodek
 ms.devlang: csharp
-ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/29/2020
-ms.custom: "seodec18, devx-track-csharp"
+ms.custom: devx-track-csharp
 ---
 
 # Manage reference data for an Azure Time Series Insights Gen 1 environment using C Sharp
@@ -21,7 +19,7 @@ ms.custom: "seodec18, devx-track-csharp"
 > [!CAUTION]
 > This is a Gen1 article.
 
-This article demonstrates how to combine C#, [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet), and Azure Active Directory to make programmatic API requests to the Azure Time Series Insights Gen 1 [Reference Data Management API](/rest/api/time-series-insights/gen1-reference-data-api).
+This article demonstrates how to combine C#, [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet), and Microsoft Entra ID to make programmatic API requests to the Azure Time Series Insights Gen 1 [Reference Data Management API](/rest/api/time-series-insights/gen1-reference-data-api).
 
 > [!TIP]
 > View GA C# code samples at [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/gen1-sample/csharp-tsi-gen1-sample).
@@ -48,7 +46,7 @@ Complete the following steps before you compile and run the sample code:
    | --- | --- |
    | uuid | String |
 
-1. Configure your Azure Time Series Insights environment for Azure Active Directory as described in [Authentication and authorization](time-series-insights-authentication-and-authorization.md). Use `http://localhost:8080/` as the **Redirect URI**.
+1. Configure your Azure Time Series Insights environment for Microsoft Entra ID as described in [Authentication and authorization](time-series-insights-authentication-and-authorization.md). Use `http://localhost:8080/` as the **Redirect URI**.
 
 1. Install the required project dependencies.
 

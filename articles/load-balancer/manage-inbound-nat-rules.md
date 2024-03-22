@@ -27,7 +27,7 @@ In this article, you learn how to add and remove an inbound NAT rule for both ty
 
 - A standard public load balancer in your subscription. For more information on creating an Azure Load Balancer, see [Quickstart: Create a public load balancer to load balance VMs using the Azure portal](quickstart-load-balancer-standard-public-portal.md). The load balancer name for the examples in this article is **myLoadBalancer**.
 - If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 
 ## Add a single VM inbound NAT rule
@@ -76,6 +76,17 @@ Use [Add-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/add-a
 
 To save the configuration to the load balancer, use [Set-AzLoadBalancer](/powershell/module/az.network/set-azloadbalancer).
 
+Use [Get-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/get-azloadbalancerinboundnatruleconfig) to place the newly created inbound NAT rule information into a variable. 
+
+Use [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) to place the network interface information into a variable.
+
+Use [Set-AzNetworkInterfaceIpConfig](/powershell/module/az.network/set-aznetworkinterfaceipconfig) to add the newly created inbound NAT rule to the IP configuration of the network interface. 
+
+To save the configuration to the network interface, use [Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface).
+
+
+
+
 ```azurepowershell
 ## Place the load balancer information into a variable for later use. ##
 $slb = @{
@@ -96,11 +107,36 @@ $lb | Add-AzLoadBalancerInboundNatRuleConfig @rule
 
 $lb | Set-AzLoadBalancer
 
+## Add the inbound NAT rule to a virtual machine 
+
+$NatRule = @{                                                                                       
+    Name = 'MyInboundNATrule'
+    LoadBalancer = $lb
+}
+
+$NatRuleConfig = Get-AzLoadBalancerInboundNatRuleConfig @NatRule 
+
+$NetworkInterface = @{                                                                                           
+     ResourceGroupName = 'myResourceGroup'
+     Name = 'MyNIC'
+ }
+
+ $NIC = Get-AzNetworkInterface @NetworkInterface
+ 
+ $IPconfig = @{                                                                                       
+    Name = 'Ipconfig'
+    LoadBalancerInboundNatRule = $NatRuleConfig
+}
+
+$NIC | Set-AzNetworkInterfaceIpConfig @IPconfig
+
+$NIC | Set-AzNetworkInterface  
+
 ```
 
 # [**CLI**](#tab/inbound-nat-rule-cli)
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 In this example, you will create an inbound NAT rule to forward port **500** to backend port **443**. You will then attach the inbound NAT rule to a VM's NIC
 

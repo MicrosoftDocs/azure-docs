@@ -25,7 +25,7 @@ This article describes several ways to consume and export your scan results.
 1. Search for and select either:
 
     - For Azure SQL databases - `SQL databases should have vulnerability findings resolved`.
-    
+
     - For SQL on machines - `SQL servers on machines should have vulnerability findings resolved`.
 
 1. Select **Open Query**.

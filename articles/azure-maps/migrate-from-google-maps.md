@@ -7,7 +7,6 @@ ms.date: 09/23/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
-ms.custom: 
 ---
 
 # Tutorial: Migrate from Google Maps to Azure Maps
@@ -61,7 +60,7 @@ The table provides a high-level list of Azure Maps features, which correspond to
 | Maps Embedded API           | N/A                                    |
 | Map URLs                    | N/A                                    |
 
-Google Maps provides basic key-based authentication. Azure Maps provides both basic key-based authentication and Azure Active Directory authentication. Azure Active Directory authentication provides more security features, compared to the basic key-based authentication.
+Google Maps provides basic key-based authentication. Azure Maps provides both basic key-based authentication and Microsoft Entra authentication. Microsoft Entra authentication provides more security features, compared to the basic key-based authentication.
 
 ## Licensing considerations
 
@@ -83,7 +82,7 @@ A high-level migration plan includes.
 
 1. Take inventory of the Google Maps SDKs and services that your application uses. Verify that Azure Maps provides alternative SDKs and services.
 2. If you don't already have one, create an [Azure subscription].
-3. Create an [Azure Maps account] and [subscription key] or [Azure Active Directory authentication].
+3. Create an [Azure Maps account] and [subscription key] or [Microsoft Entra authentication].
 4. Migrate your application code.
 5. Test your migrated application.
 6. Deploy your migrated application to production.
@@ -95,7 +94,7 @@ To create an Azure Maps account and get access to the Azure Maps platform, follo
 1. If you don't have an Azure subscription, create a [free account] before you begin.
 2. Sign in to the [Azure portal].
 3. Create an [Azure Maps account].
-4. Get your Azure Maps [subscription key] or [Azure Active Directory authentication] for enhanced security.
+4. Get your Azure Maps [subscription key] or [Microsoft Entra authentication] for enhanced security.
 
 ## Azure Maps technical resources
 
@@ -124,7 +123,6 @@ Learn the details of how to migrate your Google Maps application with these arti
 > [!div class="nextstepaction"]
 > [Migrate a web app](migrate-from-google-maps-web-app.md)
 
-[Azure Active Directory authentication]: azure-maps-authentication.md#azure-ad-authentication
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Azure Maps Blog]: https://aka.ms/AzureMapsBlog
 [Azure Maps developer forums]: https://aka.ms/AzureMapsForums
@@ -133,13 +131,14 @@ Learn the details of how to migrate your Google Maps application with these arti
 [Azure Maps product page]: https://azure.com/maps
 [Azure Maps Q&A]: https://aka.ms/AzureMapsFeedback
 [Azure Maps term of use]: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=46
-[Azure Maps Web SDK code samples]: https://aka.ms/AzureMapsSamples
+[Azure Maps Web SDK code samples]: https://samples.azuremaps.com/
 [Azure portal]: https://portal.azure.com/
 [Azure pricing calculator]: https://azure.microsoft.com/pricing/calculator/?service=azure-maps
 [Azure subscription]: https://azure.com
 [Azure support options]: https://azure.microsoft.com/support/options
 [free account]: https://azure.microsoft.com/free/
 [Manage authentication in Azure Maps]: how-to-manage-authentication.md
+[Microsoft Entra authentication]: azure-maps-authentication.md#microsoft-entra-authentication
 [Microsoft learning center shows]: https://aka.ms/AzureMapsVideos
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [terms of use]: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=46

@@ -1,7 +1,7 @@
 ---
 title: Msv2/Mdsv2 Medium Memory Series - Azure Virtual Machines
 description: Specifications for the Msv2-series VMs.
-author: lauradolan
+author: ju-shim
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
@@ -16,13 +16,13 @@ ms.author: ayshak
 The Msv2 and Mdsv2 Medium Memory VM Series features Intel® Xeon® Platinum 8280 (Cascade Lake) processor with an all core base frequency of 2.7 GHz and 4.0 GHz single core turbo frequency. With these VMs, customers achieve increased flexibility with local disk and diskless options. Customers also have access to a set of new isolated VM sizes with more CPU and memory that go up to 192 vCPU with 4 TiB of memory. 
 
 > [!NOTE]
-> Msv2 and Mdsv2 Medium Memory VMs are generation 2 only. For more information on generation 2 virtual machines, see [Support for generation 2 VMs on Azure](./generation-2.md).
+> Msv2 and Mdsv2 Medium Memory VMs are generation 2 only. For more information on generation 2 virtual machines, see [Support for generation 2 VMs on Azure](./generation-2.md). Standard_M192is_v2, Standard_M192ims_v2, Standard_M192ids_v2, and Standard_M192idms_v2 will be retired on March 31, 2027.
 
 
 
 [Premium Storage](premium-storage-performance.md): Supported<br>
 [Premium Storage caching](premium-storage-performance.md): Supported<br>
-[Live Migration](maintenance-and-updates.md): Not Supported<br>
+[Live Migration](maintenance-and-updates.md): Restricted Support<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 2<br>
 [Write Accelerator](./how-to-enable-write-accelerator.md): Supported<br>
@@ -33,7 +33,7 @@ The Msv2 and Mdsv2 Medium Memory VM Series features Intel® Xeon® Platinum 8280
  
 ## Msv2 Medium Memory Diskless 
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Burst uncached disk throughput: IOPS/MBps<sup>1</sup> | Max NICs | Expected network bandwidth (Mbps) | 
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Burst uncached disk throughput: IOPS/MBps<sup>1</sup> | Max NICs | Expected network egress bandwidth (Mbps) | 
 |---|---|---|---|---|---|---|---|---|
 | Standard_M32ms_v2   | 32  | 875  | 0 | 32 | 20000/500  | 40000/1000 | 8 | 8000  | 
 | Standard_M64s_v2    | 64  | 1024 | 0 | 64 | 40000/1000 | 80000/2000 | 8 | 16000 | 
@@ -52,7 +52,7 @@ The Msv2 and Mdsv2 Medium Memory VM Series features Intel® Xeon® Platinum 8280
 
 ## Mdsv2 Medium Memory with Disk  
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disk | Max cached and temp storage throughput: IOPS / MBps | Burst cached and temp storage throughput: IOPS/MBps<sup>1</sup> | Max uncached disk throughput: IOPS/MBps | Burst uncached disk throughput: IOPS/MBps<sup>1</sup> | Max NICs | Expected network bandwidth (Mbps) | 
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disk | Max cached and temp storage throughput: IOPS / MBps | Burst cached and temp storage throughput: IOPS/MBps<sup>1</sup> | Max uncached disk throughput: IOPS/MBps | Burst uncached disk throughput: IOPS/MBps<sup>1</sup> | Max NICs | Expected network egress bandwidth (Mbps) | 
 |---|---|---|---|---|---|---|---|---|---|---|
 | Standard_M32dms_v2   | 32  | 875  | 1024 | 32 | 40000/400   | 40000/1000 | 20000/500  | 40000/1000 | 8 | 8000  | 
 | Standard_M64ds_v2    | 64  | 1024 | 2048 | 64 | 80000/800   | 80000/2000 | 40000/1000 | 80000/2000 | 8 | 16000 | 

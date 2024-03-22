@@ -643,7 +643,7 @@ The following table lists the available Index groups (indexGroupId):
 [Azure Maps Weather services coverage]: weather-coverage.md
 [Azure Maps Weather services frequently asked questions (FAQ)]: weather-services-faq.yml
 [Get Daily Indices API]: /rest/api/maps/weather
-[Get Map Tile v2 API]: /rest/api/maps/render-v2/get-map-tile
+[Get Map Tile v2 API]: /rest/api/maps/render/get-map-tile
 [Index IDs and index groups IDs]: #index-ids-and-index-groups-ids
 [Weather services API]: /rest/api/maps/weather
 [Weather services]: /rest/api/maps/weather

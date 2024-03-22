@@ -36,7 +36,7 @@ When you use a gallery to store images, multiple resource types are created:
 
 Image definitions are a logical grouping for versions of an image. The image definition holds information about why the image was created and also contains Image metadata such as, what OS it is for, features it supports and other information about using the image. An image definition is like a plan for all of the details around creating a specific image. You don't deploy a VM from an image definition, but from the image versions created from the definition.
 
-There are three parameters for each image definition that are used in combination - **Publisher**, **Offer** and **SKU**. These are used to find a specific image definition. You can have image versions that share one or two, but not all three values.  For example, here are three image definitions and their values:
+There are three parameters for each image definition that are used in combination - **Publisher**, **Offer** and **SKU**. These are used to find a specific image definition. You can have image definitions that share one or two, but not all three values. For example, here are three image definitions and their values:
 
 |Image Definition|Publisher|Offer|Sku|
 |---|---|---|---|
@@ -173,7 +173,7 @@ You can create Azure Compute Gallery resource using templates. There are several
 * [Can I move the Azure Compute Gallery resource to a different subscription after it has been created?](#can-i-move-the-azure-compute-gallery-resource-to-a-different-subscription-after-it-has-been-created)
 * [Can I replicate my image versions across clouds such as Microsoft Azure operated by 21Vianet, Azure Germany, or Azure Government Cloud?](#can-i-replicate-my-image-versions-across-clouds-such-as-azure-operated-by-21vianet-or-azure-germany-or-azure-government-cloud)
 * [Can I replicate my image versions across subscriptions?](#can-i-replicate-my-image-versions-across-subscriptions)
-* [Can I share image versions across Azure AD tenants?](#can-i-share-image-versions-across-azure-ad-tenants)
+* [Can I share image versions across Microsoft Entra tenants?](#can-i-share-image-versions-across-azure-ad-tenants)
 * [How long does it take to replicate image versions across the target regions?](#how-long-does-it-take-to-replicate-image-versions-across-the-target-regions)
 * [What is the difference between source region and target region?](#what-is-the-difference-between-source-region-and-target-region)
 * [How do I specify the source region while creating the image version?](#how-do-i-specify-the-source-region-while-creating-the-image-version)
@@ -183,6 +183,7 @@ You can create Azure Compute Gallery resource using templates. There are several
 * [What API version should I use when creating images?](#what-api-version-should-i-use-when-creating-images)
 * [What API version should I use to create a VM or Virtual Machine Scale Set out of the image version?](#what-api-version-should-i-use-to-create-a-vm-or-virtual-machine-scale-set-out-of-the-image-version)
 * [Can I update my Virtual Machine Scale Set created using managed image to use Azure Compute Gallery images?](#can-i-update-my-virtual-machine-scale-set-created-using-managed-image-to-use-azure-compute-gallery-images)
+* [How can I update my code to use the new property and ensure permissions are granted accurately during VM image creation?](#how-can-i-update-my-code-to-use-the-new-property-and-ensure-permissions-are-granted-accurately-during-vm-image-creation)
 
 ### How can I list all the Azure Compute Gallery resources across subscriptions?
 
@@ -249,7 +250,9 @@ No, you can't replicate image versions across clouds.
 
 No, you may replicate the image versions across regions in a subscription and use it in other subscriptions through RBAC.
 
-### Can I share image versions across Azure AD tenants? 
+<a name='can-i-share-image-versions-across-azure-ad-tenants'></a>
+
+### Can I share image versions across Microsoft Entra tenants? 
 
 Yes, you can use RBAC to share to individuals across tenants. But, to share at scale, see "Share gallery images across Azure tenants" using [PowerShell](share-gallery.md?tabs=powershell) or [CLI](share-gallery.md?tabs=cli).
 
@@ -310,6 +313,32 @@ For VM and Virtual Machine Scale Set deployments using an image version, we reco
 
 Yes, you can update the scale set image reference from a managed image to an Azure Compute Gallery image, as long as the OS type, Hyper-V generation, and the data disk layout matches between the images.
 
+### How can I update my code to use the new property and ensure permissions are granted accurately during VM image creation?
+For Virtual Machine ID field, use VirtualMachineId field under GallerySource(GalleryImageVersionStorageProfile.GallerySource.VirtualMachineID). The new property requires api-version 2023-07-03 or version 1.4.0 (or higher) of .NET SDK
+```
+StorageProfile = new GalleryImageVersionStorageProfile()
+            {
+                GallerySource = new GalleryArtifactVersionFullSource()
+                {
+                    VirtualMachineId = new ResourceIdentifier(virtualMachineId),
+                }
+            },
+```
+
+For VHD as a source, use StorageAccountID field under GallerySource under OS disk or Data disk Image(GalleryImageVersionStorageProfile.OSDiskImage.GallerySource.StorageAccountId). The new property requires api-version 2022-03-03
+```
+StorageProfile = new GalleryImageVersionStorageProfile()
+            {
+                OSDiskImage = new GalleryOSDiskImage()
+                {
+                    GallerySource = new GalleryDiskImageSource()
+                    {
+                        StorageAccountId = new ResourceIdentifier(storageAccountId),
+                        Uri = new Uri(blobUri),
+                    }
+                }
+            },
+```
 ## Troubleshoot
 If you have issues with performing any operations on the gallery resources, consult the list of common errors in the [troubleshooting guide](troubleshooting-shared-images.md).
 

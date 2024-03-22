@@ -17,7 +17,7 @@ ms.author: mopeakande
     >
     > Alternatively, use `az ml workspace show` with [CLI](../how-to-manage-workspace-cli.md#get-workspace-information), `my_ml_client.workspace.get("my-workspace-name")` with [SDK](../how-to-manage-workspace.md?tabs=python#find-a-workspace), or `curl` on a workspace with [REST API](../how-to-manage-rest.md#drill-down-into-workspaces-and-their-resources).
 
-- When you use network isolation with a deployment, you can use resources (Azure Container Registry (ACR), Storage account, Key Vault, and Application Insights) from a different resource group or subscription than that of your workspace. However, these resources must belong to the same tenant as your workspace.
+- When you use network isolation with online endpoints, you can use workspace-associated resources (Azure Container Registry (ACR), Storage account, Key Vault, and Application Insights) from a different resource group than that of your workspace. However, these resources must belong to the same subscription and tenant as your workspace.
 
 > [!NOTE]
 > Network isolation described in this article applies to data plane operations, that is, operations that result from scoring requests (or model serving). Control plane operations (such as requests to create, update, delete, or retrieve authentication keys) are sent to the Azure Resource Manager over the public network.

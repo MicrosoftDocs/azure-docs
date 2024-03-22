@@ -176,7 +176,7 @@ Update-AzVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
 There are times where you might want to add a new VM to your scale set but want different configuration options than then listed in the scale set model. VMs can be added to a scale set during creation by using the [Get-AzVmss](/powershell/module/az.compute/get-azvmss) command and specifying the scale set name you want the instance added to. 
 
 ```azurepowershell-interactive
-New-AzVM -Name myNewInstance -ResourceGroupName myResourceGroup -image UbuntuLTS -VmssId /subscriptions/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet
+New-AzVM -Name myNewInstance -ResourceGroupName myResourceGroup -image Ubuntu2204 -VmssId /subscriptions/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet
 ```
 
 ```output

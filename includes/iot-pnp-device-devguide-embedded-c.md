@@ -61,7 +61,7 @@ status = nx_azure_iot_provisioning_client_registration_payload_set(prov_client_p
 
 ## Use components
 
-As described in [Understand components in IoT Plug and Play models](../articles/iot-develop/concepts-modeling-guide.md), you must decide if you want to use components to describe your devices. When you use components, devices must follow the rules described in the following sections. To simplify working with the IoT Plug and Play conventions for components, the samples use the helper functions in [nx_azure_iot_hub_client.h](https://github.com/azure-rtos/netxduo/blob/master/addons/azure_iot/nx_azure_iot_hub_client.h).
+As described in [Understand components in IoT Plug and Play models](../articles/iot/concepts-modeling-guide.md), you must decide if you want to use components to describe your devices. When you use components, devices must follow the rules described in the following sections. To simplify working with the IoT Plug and Play conventions for components, the samples use the helper functions in [nx_azure_iot_hub_client.h](https://github.com/azure-rtos/netxduo/blob/master/addons/azure_iot/nx_azure_iot_hub_client.h).
 
 ## Telemetry
 

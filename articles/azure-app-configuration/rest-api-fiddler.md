@@ -1,5 +1,5 @@
-﻿---
-title: Azure Active Directory REST API - Test Using Fiddler
+---
+title: Microsoft Entra REST API - Test Using Fiddler
 description: Use Fiddler to test the Azure App Configuration REST API
 author: maud-lv
 ms.author: malev

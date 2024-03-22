@@ -92,7 +92,7 @@ To get started on Azure Kubernetes Service, follow these steps:
 
 1. [Deploy an Azure Kubernetes Service (AKS) cluster using the Azure portal](../../aks/learn/quick-kubernetes-deploy-portal.md)
 
-1. [Install the Apache Spark 2.4.0 helm chart](https://hub.helm.sh/charts/microsoft/spark)
+1. [Install the Apache Spark 2.4.0 helm chart](https://hub.helm.sh/charts/microsoft/spark) - warning: [Spark 2.4](../spark/apache-spark-24-runtime.md) is retired and out of the support.
 
 1. [Install an Azure AI container using Helm](../../ai-services/computer-vision/deploy-computer-vision-on-premises.md)
 

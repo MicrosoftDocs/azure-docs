@@ -3,11 +3,10 @@ title: Understand your Microsoft Partner Agreement invoice in Azure
 description: Learn how to read and understand your Microsoft Partner Agreement bill in Azure
 author: bandersmsft
 ms.reviewer: amberb
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 03/13/2023
+ms.date: 01/08/2024
 ms.author: banders
 ---
 
@@ -62,8 +61,6 @@ The **Billing details by product** section lists the total charges for each prod
 ## How to pay
 
 At the bottom of the invoice, there are instructions for paying your bill. You can pay by wire within 60 days of your invoice date.
-
-[!INCLUDE [Pay by check](../../../includes/cost-management-pay-check.md)]
 
 ## Publisher information
 

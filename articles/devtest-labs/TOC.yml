@@ -231,8 +231,6 @@
       href: deliver-proof-concept.md
     - name: Scale up your DevTest Labs deployment
       href: devtest-lab-guidance-scale.md
-    - name: Orchestrate the implementation
-      href: devtest-lab-guidance-orchestrate-implementation.md
     - name: Governance of DevTest Labs
       href: devtest-lab-guidance-governance-resources.md
   - name: Publish an app for testing

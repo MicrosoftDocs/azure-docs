@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, azla
 ms.topic: conceptual
-ms.date: 08/25/2022
+ms.date: 01/04/2024
 ---
 
 # Schedule and run tasks for contiguous data by using the Sliding Window trigger in Azure Logic Apps

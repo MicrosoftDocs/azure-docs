@@ -64,9 +64,9 @@ The following image is of the expected output message properties inspected in Ev
 
 ## System properties
 
-You can attach query columns as [system properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#properties) to your outgoing service bus Queue or Topic messages.
+You can attach query columns as [system properties](/dotnet/api/azure.messaging.servicebus.servicebusmessage#properties) to your outgoing service bus Queue or Topic messages.
 
-These columns don't go into the payload instead the corresponding BrokeredMessage [system property](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#properties) is populated with the query column values.
+These columns don't go into the payload instead the corresponding ServiceBusMessage [system property](/dotnet/api/azure.messaging.servicebus.servicebusmessage#properties) is populated with the query column values.
 These system properties are supported - `MessageId, ContentType, Label, PartitionKey, ReplyTo, SessionId, CorrelationId, To, ForcePersistence, TimeToLive, ScheduledEnqueueTimeUtc`.
 
 String values of these columns are parsed as corresponding system property value type and any parsing failures are treated as data errors.

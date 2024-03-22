@@ -23,7 +23,7 @@ Here are the active content types supported with workspace manager:
 
 - You need at least two Microsoft Sentinel workspaces. One workspace to manage from and at least one other workspace to be managed.
 - The [Microsoft Sentinel Contributor role assignment](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-contributor) is required on the central workspace (where workspace manager is enabled on), and on the member workspace(s) the contributor needs to manage. To learn more about roles in Microsoft Sentinel, see [Roles and permissions in Microsoft Sentinel](roles.md).
-- Enable Azure Lighthouse if you're managing workspaces across multiple Azure AD tenants. To learn more, see [Manage Microsoft Sentinel workspaces at scale](/azure/lighthouse/how-to/manage-sentinel-workspaces).
+- Enable Azure Lighthouse if you're managing workspaces across multiple Microsoft Entra tenants. To learn more, see [Manage Microsoft Sentinel workspaces at scale](/azure/lighthouse/how-to/manage-sentinel-workspaces).
 
 
 ## Considerations
@@ -122,11 +122,11 @@ Common reasons for failure include:
 - Currently, deleting content residing in member workspace(s) centrally via workspace manager isn't supported.
 
 ### API references
-- [Workspace Manager Assignment Jobs](/rest/api/securityinsights/preview/workspace-manager-assignment-jobs)
-- [Workspace Manager Assignments](/rest/api/securityinsights/preview/workspace-manager-assignments)
-- [Workspace Manager Configurations](/rest/api/securityinsights/preview/workspace-manager-configurations)
-- [Workspace Manager Groups](/rest/api/securityinsights/preview/workspace-manager-groups)
-- [Workspace Manager Members](/rest/api/securityinsights/preview/workspace-manager-members)
+- [Workspace Manager Assignment Jobs](/rest/api/securityinsights/workspace-manager-assignment-jobs)
+- [Workspace Manager Assignments](/rest/api/securityinsights/workspace-manager-assignments)
+- [Workspace Manager Configurations](/rest/api/securityinsights/workspace-manager-configurations)
+- [Workspace Manager Groups](/rest/api/securityinsights/workspace-manager-groups)
+- [Workspace Manager Members](/rest/api/securityinsights/workspace-manager-members)
 
 ## Next steps
 - [Manage multiple tenants in Microsoft Sentinel as an MSSP](multiple-tenants-service-providers.md)

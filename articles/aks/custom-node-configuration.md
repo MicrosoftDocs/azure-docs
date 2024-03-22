@@ -1,7 +1,7 @@
 ---
 title: Customize the node configuration for Azure Kubernetes Service (AKS) node pools
 description: Learn how to customize the configuration on Azure Kubernetes Service (AKS) cluster nodes and node pools.
-ms.custom: event-tier1-build-2022, devx-track-azurecli
+ms.custom: devx-track-azurecli
 ms.topic: article
 ms.date: 04/24/2023
 ms.author: jpalma
@@ -14,46 +14,9 @@ Customizing your node configuration allows you to adjust operating system (OS) s
 
 ## Create an AKS cluster with a customized node configuration
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-### Prerequisites for Windows kubelet custom configuration (preview)
-
-Before you begin, make sure you have an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You also need to register the feature flag using the following steps:
-
-
-1. Install the aks-preview extension using the [`az extension add`][az-extension-add] command.
-
-    ```azurecli
-    az extension add --name aks-preview
-    ```
-
-2. Update to the latest version of the extension using the [`az extension update`][az-extension-update] command.
-
-    ```azurecli
-    az extension update --name aks-preview
-    ```
-
-3. Register the `WindowsCustomKubeletConfigPreview` feature flag using the [`az feature register`][az-feature-register] command.
-
-    ```azurecli-interactive
-    az feature register --namespace "Microsoft.ContainerService" --name "WindowsCustomKubeletConfigPreview"
-    ```
-
-    It takes a few minutes for the status to show *Registered*.
-
-4. Verify the registration status using the [`az feature show`][az-feature-show] command.
-
-    ```azurecli-interactive
-    az feature show --namespace "Microsoft.ContainerService" --name "WindowsCustomKubeletConfigPreview"
-    ```
-
-5. When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider using the [`az provider register`][az-provider-register] command.
-
-    ```azurecli-interactive
-    az provider register --namespace Microsoft.ContainerService
-    ```
-
 ### Create config files
+
+OS and kubelet configuration changes require you to create a new configuration file with the parameters and your desired settings. If a value for a parameter is not specified, then the value will be set to the default.
 
 #### Kubelet configuration
 
@@ -197,7 +160,7 @@ Kubelet custom configuration is supported for Linux and Windows node pools. Supp
 | `containerLogMaxFiles` | ≥ 2 | 5 | The maximum number of container log files that can be present for a container. |
 | `podMaxPids` | -1 to kernel PID limit | -1 (∞)| The maximum amount of process IDs that can be running in a Pod |
 
-#### Windows Kubelet custom configuration (preview)
+#### Windows Kubelet custom configuration
 
 | Parameter | Allowed values/interval | Default | Description |
 | --------- | ----------------------- | ------- | ----------- |
@@ -265,7 +228,7 @@ The settings below can be used to tune the operation of the virtual memory (VM) 
 | Setting | Allowed values/interval | Default | Description |
 | ------- | ----------------------- | ------- | ----------- |
 | `vm.max_map_count` | 	65530 - 262144 | 65530 | This file contains the maximum number of memory map areas a process may have. Memory map areas are used as a side-effect of calling `malloc`, directly by `mmap`, `mprotect`, and `madvise`, and also when loading shared libraries. |
-| `vm.vfs_cache_pressure` | 1 - 500 | 100 | This percentage value controls the tendency of the kernel to reclaim the memory, which is used for caching of directory and inode objects. |
+| `vm.vfs_cache_pressure` | 1 - 100 | 100 | This percentage value controls the tendency of the kernel to reclaim the memory, which is used for caching of directory and inode objects. |
 | `vm.swappiness` | 0 - 100 | 60 | This control is used to define how aggressive the kernel will swap memory pages. Higher values will increase aggressiveness, lower values decrease the amount of swap. A value of 0 instructs the kernel not to initiate swap until the amount of free and file-backed pages is less than the high water mark in a zone. |
 | `swapFileSizeMB` | 1 MB - Size of the [temporary disk](../virtual-machines/managed-disks-overview.md#temporary-disk) (/dev/sdb) | None | SwapFileSizeMB specifies size in MB of a swap file will be created on the agent nodes from this node pool. |
 | `transparentHugePageEnabled` | `always`, `madvise`, `never` | `always` | [Transparent Hugepages](https://www.kernel.org/doc/html/latest/admin-guide/mm/transhuge.html#admin-guide-transhuge) is a Linux kernel feature intended to improve performance by making more efficient use of your processor’s memory-mapping hardware. When enabled the kernel attempts to allocate `hugepages` whenever possible and any Linux process will receive 2-MB pages if the `mmap` region is 2 MB naturally aligned. In certain cases when `hugepages` are enabled system wide, applications may end up allocating more memory resources. An application may `mmap` a large region but only touch 1 byte of it, in that case a 2-MB page might be allocated instead of a 4k page for no good reason. This scenario is why it's possible to disable `hugepages` system-wide or to only have them inside `MADV_HUGEPAGE madvise` regions. |

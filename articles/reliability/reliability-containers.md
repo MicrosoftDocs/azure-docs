@@ -3,7 +3,7 @@ title: Reliability in Azure Container Instances
 description: Find out about reliability in Azure Container Instances
 author: anaharris-ms
 ms.author: anaharris
-ms.topic: overview
+ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: container-instances
 ms.date: 11/29/2022
@@ -215,8 +215,5 @@ When an entire Azure region or datacenter experiences downtime, your mission-cri
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-[Azure Architecture Center's guide on availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability).
-
-> [!div class="nextstepaction"]
-> [Reliability in Azure](./overview.md)
+- [Azure Architecture Center's guide on availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability).
+- [Reliability in Azure](./overview.md)

@@ -2,7 +2,8 @@
 title: Use Container Storage Interface (CSI) driver for Azure Disk on Azure Kubernetes Service (AKS)
 description: Learn how to use the Container Storage Interface (CSI) driver for Azure Disk in an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
-ms.custom: devx-track-linux
+ms.custom:
+ms.subservice: aks-storage
 ms.date: 04/19/2023
 ---
 
@@ -103,7 +104,7 @@ metadata:
   name: azuredisk-csi-waitforfirstconsumer
 provisioner: disk.csi.azure.com
 parameters:
-  skuname: StandardSSD_LRS 
+  skuname: StandardSSD_LRS
 allowVolumeExpansion: true
 reclaimPolicy: Delete
 volumeBindingMode: WaitForFirstConsumer

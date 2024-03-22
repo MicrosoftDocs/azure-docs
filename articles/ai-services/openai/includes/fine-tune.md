@@ -4,7 +4,7 @@ titleSuffix: Azure OpenAI
 description: Describes the fine-tuning guidance for a model deployment that's inactive for more than 15 days.
 author: mrbullwinkle 
 ms.author: mbullwin 
-ms.service: cognitive-services
+ms.service: azure-ai-openai
 ms.topic: include
 ms.date: 09/01/2023
 manager: nitinme

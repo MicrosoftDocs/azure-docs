@@ -1,10 +1,9 @@
 ---
 title: Monitor Azure Container Apps metrics
-description: Monitor your running apps metrics
+description: Monitor your running apps metrics.
 services: container-apps
 author: v-jaswel
 ms.service: container-apps
-ms.custom: event-tier1-build-2022
 ms.topic: how-to
 ms.date: 08/30/2022
 ms.author: v-wellsjason
@@ -22,15 +21,26 @@ Container Apps provides these metrics.
 
 |Title  | Description | Metric ID |Unit  |
 |---------|---------|---------|---------|
-|CPU usage nanocores | CPU usage in nanocores (1,000,000,000 nanocores = 1 core) | UsageNanoCores| nanocores|
-|Memory working set bytes |Working set memory used in bytes |WorkingSetBytes |bytes|
-|Network in bytes|Network received bytes|RxBytes|bytes|
-|Network out bytes|Network transmitted bytes|TxBytes|bytes|
+| CPU Usage | CPU consumed by the container app, in nano cores (1,000,000,000 nanocores = 1 core)  | UsageNanoCores| nanocores|
+|Memory Working Set Bytes |Container app working set memory used in bytes|WorkingSetBytes|bytes|
+|Network In Bytes|Network received bytes|RxBytes|bytes|
+|Network Out Bytes|Network transmitted bytes|TxBytes|bytes|
+|Replica count|Number of active replicas| Replicas | n/a |
+|Replica Restart Count|Restarts count of container app replicas| RestartCount | n/a |
 |Requests|Requests processed|Requests|n/a|
-|Replica count| Number of active replicas| Replicas | n/a |
-|Replica Restart Count| Number of replica restarts | RestartCount | n/a |
+|Reserved Cores|Number of reserved cores for container app revisions |CoresQuotaUsed|n/a|
+|Resiliency Connection Timeouts |Total connection timeouts |ResiliencyConnectTimeouts |n/a|
+|Resiliency Ejected Hosts |Number of currently ejected hosts|ResiliencyEjectedHosts |n/a|
+|Resiliency Ejections Aborted |Number of ejections aborted due to the max ejection % |ResiliencyEjectionsAborted |n/a|
+|Resiliency Request Retries |Total request retries|ResiliencyRequestRetries|n/a|
+|Resiliency Request Timeouts |Total requests that timed out waiting for a response |ResiliencyRequestTimeouts|n/a|
+|Resiliency Requests Pending Connection Pool |Total requests pending a connection pool connection |ResiliencyRequestsPendingConnectionPool |n/a|
+|Total Reserved Cores |Total cores reserved for the container app |TotalCoresQuotaUsed|n/a|
 
 The metrics namespace is `microsoft.app/containerapps`.
+
+> [!NOTE]
+> Replica Restart Count is the aggregate restart count over the specified time range, not the number of restarts that occurred at a point in time.
 
 ## Metrics snapshots
 
@@ -44,7 +54,7 @@ From this view, you can pin one or more charts to your dashboard or select a cha
 
 The Azure Monitor metrics explorer lets you create charts from metric data to help you analyze your container app's resource and network usage over time. You can pin charts to a dashboard or in a shared workbook.
 
-1. Open the metrics explorer in the Azure portal by selecting **Metrics** from the sidebar menu on your container app's page.  To learn more about metrics explorer, go to [Getting started with metrics explorer](../azure-monitor/essentials/metrics-getting-started.md).
+1. Open the metrics explorer in the Azure portal by selecting **Metrics** from the sidebar menu on your container app's page.  To learn more about metrics explorer, see [Analyze metrics with Azure Monitor metrics explorer](../azure-monitor/essentials/analyze-metrics.md).
 
 1. Create a chart by selecting **Metric**.  You can modify the chart by changing aggregation, adding more metrics, changing time ranges and intervals, adding filters, and applying splitting.
 :::image type="content" source="media/observability/metrics-main-page.png" alt-text="Screenshot of the metrics explorer from the container app resource page.":::

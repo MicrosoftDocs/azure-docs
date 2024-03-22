@@ -232,7 +232,7 @@ pvcUid="$(oc apply -f test-pvc.yaml -o jsonpath='{.items[0].metadata.uid}')"
 pvName="$(oc get pv pvc-$pvcUid -o jsonpath='{.spec.azureDisk.diskName}')"
 ```
 > [!NOTE]
-> On occasion there may be a slight delay when applying role assignments within Azure Active Directory. Depending upon the speed that these instructions are executed, the command to "Determine the full Azure Disk name" may not succeed. If this occurs, review the output of **oc describe pvc mypod-with-cmk-encryption-pvc** to ensure that the disk was successfully provisioned. If the role assignment propagation has not completed you may need to *delete* and re-*apply* the Pod & PVC YAML.
+> On occasion there may be a slight delay when applying role assignments within Microsoft Entra ID. Depending upon the speed that these instructions are executed, the command to "Determine the full Azure Disk name" may not succeed. If this occurs, review the output of **oc describe pvc mypod-with-cmk-encryption-pvc** to ensure that the disk was successfully provisioned. If the role assignment propagation has not completed you may need to *delete* and re-*apply* the Pod & PVC YAML.
 
 ### Verify PVC disk is configured with "EncryptionAtRestWithCustomerKey" (Optional)
 The Pod should create a persistent volume claim that references the CMK storage class. Running the following command will validate that the PVC has been deployed as expected:

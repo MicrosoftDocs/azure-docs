@@ -15,12 +15,7 @@ ms.custom: references_regions
 
 Azure Virtual Network Manager is a management service that enables you to group, configure, deploy, and manage virtual networks globally across subscriptions. With Virtual Network Manager, you can define network groups to identify and logically segment your virtual networks. Then you can determine the connectivity and security configurations you want and apply them across all the selected virtual networks in network groups at once.
 
-> [!IMPORTANT]
-> Azure Virtual Network Manager is now in General Availability for Virtual Network Manager and hub and spoke connectivity configurations. 
->
-> Mesh connectivity configurations and security admin rules remain in Public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
 
 ## How does Azure Virtual Network Manager work?
 
@@ -48,10 +43,20 @@ Next, you create connectivity and/or security configuration(s) applied to those 
 
 For current information on the regions where Azure Virtual Network Manager is available, see [Azure Virtual Network Manager regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=virtual-network-manager).
 
+## Pricing   
+For pricing details, see [Azure Virtual Network Manager pricing](https://azure.microsoft.com/pricing/details/virtual-network-manager/).
+ 
+## FAQs  
+For FAQs, see [Azure Virtual Network Manager FAQs](faq.md).
+ 
+## Limits  
+For limits, see [Azure Virtual Network Manager limits](faq.md#what-are-the-service-limitations-of-azure-virtual-network-manager).
+
+## Service Level Agreement
+For SLA, see [SLA for Azure Virtual Network Manager](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1)
+
 ## Next steps
 
-- Create an [Azure Virtual Network Manager](create-virtual-network-manager-portal.md) instance using the Azure portal.
-- Deploy an [Azure Virtual Network Manager](create-virtual-network-manager-terraform.md) instance using Terraform.
-- Learn more about [network groups](concept-network-groups.md) in Azure Virtual Network Manager.
-- Learn what you can do with a [connectivity configuration](concept-connectivity-configuration.md).
-- Learn more about [security admin configurations](concept-security-admins.md).
+> [!div class="nextstepaction"]
+> [Create an Azure Virtual Network Manager instance using the Azure portal](create-virtual-network-manager-portal.md).
+

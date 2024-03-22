@@ -3,18 +3,21 @@ title: Use features of the Remote Desktop Web client - Azure Virtual Desktop
 description: Learn how to use features of the Remote Desktop Web client when connecting to Azure Virtual Desktop.
 author: dknappettmsft
 ms.topic: how-to
-ms.date: 01/25/2023
+ms.date: 02/07/2024
 ms.author: daknappe
 ---
 
 # Use features of the Remote Desktop Web client when connecting to Azure Virtual Desktop
+
+Autoscale support for Azure Stack HCI with Azure Virtual Desktop is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Once you've connected to Azure Virtual Desktop using the Remote Desktop client, it's important to know how to use the features. This article shows you how to use the features available in the Remote Desktop Web client. If you want to learn how to connect to Azure Virtual Desktop, see [Connect to Azure Virtual Desktop with the Remote Desktop Web client](connect-web.md).
 
 You can find a list of all the Remote Desktop clients at [Remote Desktop clients overview](remote-desktop-clients-overview.md). For more information about the differences between the clients, see [Compare the Remote Desktop clients](../compare-remote-desktop-clients.md).
 
 > [!NOTE]
-> Your admin can choose to override some of these settings in Azure Virtual Desktop, such as being able to copy and paste between your local device and your remote session. If some of these settings are disabled, please contact your admin.
+>* Your admin can choose to override some of these settings in Azure Virtual Desktop, such as being able to copy and paste between your local device and your remote session. If some of these settings are disabled, please contact your admin.
+>* Users can now only see the new client version of the Azure Virtual Desktop Web client user experience. 
 
 ## Display preferences
 
@@ -31,27 +34,19 @@ Native resolution is set to off by default. To turn on native resolution:
 
 1. Set **Enable native display resolution** to **On**.
 
-### Preview user interface (preview)
-
-A new user interface is available in preview for you to try. To enable the new user interface:
-
-1. Sign in to the Remote Desktop Web client.
-
-1. Toggle **Try the new client (Preview)** to **On**. To revert to the original user interface, toggle this to **Off**.
-
-### Grid view and list view (preview)
+### Grid view and list view 
 
 You can change the view of remote resources assigned to you between grid view (default) and list view. To change between grid view and list view:
 
-1. Sign in to the Remote Desktop Web client and make sure you have toggled **Try the new client (Preview)** to **On**.
+1. Sign in to the Remote Desktop Web client and select **Settings** on the taskbar. 
 
-1. In the top-right hand corner, select **Grid View** icon or the **List View** icon. The change will take effect immediately.
+1. In the top-right hand corner, select the **Grid View** icon or the **List View** icon. The change will take effect immediately.
 
-### Light mode and dark mode (preview)
+### Light mode and dark mode
 
 You can change between light mode (default) and dark mode. To change between light mode and dark mode:
 
-1. Sign in to the Remote Desktop Web client and make sure you have toggled **Try the new client (Preview)** to **On**, then select **Settings** on the taskbar.
+1. Sign in to the Remote Desktop Web client and select **Settings** on the taskbar. 
 
 1. Toggle **Dark Mode** to **On** to use dark mode, or **Off** to use light mode. The change will take effect immediately.
 
@@ -77,7 +72,7 @@ There are several keyboard shortcuts you can use to help use some of the feature
 
 #### Input Method Editor
 
-The web client supports Input Method Editor (IME) in the remote session. Before you can use the IME, you must install the language pack for the keyboard you want to use in the remote session must be installed on your session host by your admin. To learn more about setting up language packs in the remote session, see [Add language packs to a Windows 10 multi-session image](../language-packs.md).
+The web client supports Input Method Editor (IME) in the remote session. Before you can use the IME in a remote session, the language pack for the keyboard you want to use must be installed on your session host by your admin. To learn more about setting up language packs in the remote session, see [Add language packs to a Windows 10 multi-session image](../language-packs.md).
 
 To enable IME input using the web client:
 
@@ -166,11 +161,11 @@ If you have another Remote Desktop client installed, you can download an RDP fil
 
 1. Open the downloaded RDP file in your Remote Desktop client to launch a remote session.
 
-## Reset user settings (preview)
+## Reset user settings
 
 If you want to reset your user settings back to the default, you can do this in the web client for the current browser. To reset user settings:
 
-1. Sign in to the Remote Desktop Web client and make sure you have toggled **Try the new client (Preview)** to **On**, then select **Settings** on the taskbar.
+1. Sign in to the Remote Desktop Web client and select **Settings** on the taskbar.
 
 1. Select **Reset user settings**. You'll need to confirm that you want reset the web client settings to default.
 

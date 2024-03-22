@@ -120,8 +120,8 @@ az containerapp up \
   --resource-group my-container-apps \
   --location centralus \
   --environment 'my-container-apps' \
-  --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest \
-  --target-port 80 \
+  --image mcr.microsoft.com/k8se/quickstart:latest \
+  --target-port 8080 \
   --ingress external \
   --query properties.configuration.ingress.fqdn \
 ```
@@ -134,9 +134,9 @@ az containerapp up `
   --resource-group my-container-apps `
   --location centralus `
   --environment my-container-apps `
-  --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest `
-  --target-port 80 `
-  --ingress external  `
+  --image mcr.microsoft.com/k8se/quickstart:latest `
+  --target-port 8080 `
+  --ingress external `
   --query properties.configuration.ingress.fqdn `
 ```
 
@@ -228,7 +228,7 @@ The `show` command returns entries from the system logs for your container app i
 }
 {
 	"TimeStamp":"2023-08-01T16:47:31.9481264+00:00",
-	"Log":"Now listening on: http://[::]:3500"
+	"Log":"Now listening on: http://[::]:8080"
 }
 {
 	"TimeStamp":"2023-08-01T16:47:31.9490917+00:00",

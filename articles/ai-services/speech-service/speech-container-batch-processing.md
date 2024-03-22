@@ -2,13 +2,11 @@
 title: Batch processing kit for Speech containers
 titleSuffix: Azure AI services
 description: Use the Batch processing kit to scale Speech container requests. 
-services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 10/22/2020
+ms.date: 1/21/2024
 ms.author: eur
 ---
 
@@ -18,7 +16,7 @@ Use the batch processing kit to complement and scale out workloads on Speech con
 
 :::image type="content" source="media/containers/general-diagram.png" alt-text="A diagram showing an example batch-kit container workflow.":::
 
-The batch kit container is available for free on [GitHub](https://github.com/microsoft/batch-processing-kit) and   [Docker hub](https://hub.docker.com/r/batchkit/speech-batch-kit/tags). You are only [billed](speech-container-overview.md#billing) for the Speech containers you use.
+The batch kit container is available for free on [GitHub](https://github.com/microsoft/batch-processing-kit) and   [Docker hub](https://hub.docker.com/r/batchkit/speech-batch-kit/tags). You're only [billed](speech-container-overview.md#billing) for the Speech containers you use.
 
 | Feature  | Description  |
 |---------|---------|
@@ -26,7 +24,7 @@ The batch kit container is available for free on [GitHub](https://github.com/mic
 | Speech SDK integration | Pass common flags to the Speech SDK, including: n-best hypotheses, diarization, language, profanity masking.  |
 |Run modes     | Run the batch client once, continuously in the background, or create HTTP endpoints for audio files.         |
 | Fault tolerance | Automatically retry and continue transcription without losing progress, and differentiate between which errors can, and can't be retried on. |
-| Endpoint availability detection | If an endpoint becomes unavailable, the batch client will continue transcribing, using other container endpoints. After becoming available again, the client will automatically begin using the endpoint.   |
+| Endpoint availability detection | If an endpoint becomes unavailable, the batch client continues transcribing, using other container endpoints. When the client is available it automatically begins using the endpoint.   |
 | Endpoint hot-swapping | Add, remove, or modify Speech container endpoints during runtime without interrupting the batch progress. Updates are immediate. |
 | Real-time logging | Real-time logging of attempted requests, timestamps, and failure reasons, with Speech SDK log files for each audio file. |
 
@@ -74,7 +72,7 @@ MyContainer3:
 
 This yaml example specifies three speech containers on three hosts. The first host is specified by a IPv4 address, the second is running on the same VM as the batch-client, and the third container is specified by the DNS hostname of another VM. The `concurrency` value specifies the maximum concurrent file transcriptions that can run on the same container. The `rtf` (Real-Time Factor) value is optional and can be used to tune performance.
 
-The batch client can dynamically detect if an endpoint becomes unavailable (for example, due to a container restart or networking issue), and when it becomes available again. Transcription requests will not be sent to containers that are unavailable, and the client will continue using other available containers. You can add, remove, or edit endpoints at any time without interrupting the progress of your batch.
+The batch client can dynamically detect if an endpoint becomes unavailable (for example, due to a container restart or networking issue), and when it becomes available again. Transcription requests won't be sent to containers that are unavailable, and the client continues using other available containers. You can add, remove, or edit endpoints at any time without interrupting the progress of your batch.
 
 
 
@@ -540,10 +538,10 @@ The batch client can dynamically detect if an endpoint becomes unavailable (for 
   
 > [!NOTE] 
 > * This example uses the same directory (`/my_nfs`) for the configuration file and the inputs, outputs, and logs directories. You can use hosted or NFS-mounted directories for these folders.
-> * Running the client with `–h` will list the available command-line parameters, and their default values. 
+> * Running the client with the `–h` flag lists the available command-line parameters, and their default values. 
 > * The batch processing container is only supported on Linux.
 
-Use the Docker `run` command to start the container. This will start an interactive shell inside the container.
+Use the Docker `run` command to start the container. This command starts an interactive shell inside the container.
 
 
 
@@ -945,7 +943,7 @@ docker run --network host --rm -ti -v /mnt/my_nfs:/my_nfs docker.io/batchkit/spe
 
 
 
-The client will start running. If an audio file has already been transcribed in a previous run, the client will automatically skip the file. Files are sent with an automatic retry if transient errors occur, and you can differentiate between which errors you want to the client to retry on. On a transcription error, the client will continue transcription, and can retry without losing progress.  
+The client starts running. If an audio file was transcribed in a previous run, the client automatically skips the file. Files are sent with an automatic retry if transient errors occur, and you can differentiate between which errors you want to the client to retry on. On a transcription error, the client continues transcription, and can retry without losing progress.  
 
 ## Run modes 
 
@@ -957,9 +955,9 @@ The batch processing kit offers three modes, using the `--run-mode` parameter.
 
 :::image type="content" source="media/containers/batch-oneshot-mode.png" alt-text="A diagram showing the batch-kit container processing files in oneshot mode.":::
 
-1. Define the Speech container endpoints that the batch client will use in the `config.yaml` file. 
+1. Define the Speech container endpoints that the batch client uses in the `config.yaml` file. 
 2. Place audio files for transcription in an input directory.  
-3. Invoke the container on the directory, which will begin processing the files. If the audio file has already been transcribed in a previous run with the same output directory (same file name and checksum), the client will skip the file. 
+3. Invoke the container on the directory to begin processing the files. If the audio file is already transcribed in a previous run with the same output directory (same file name and checksum), the client skips the file. 
 4. The files are dispatched to the container endpoints from step 1.
 5. Logs and the Speech container output are returned to the specified output directory. 
 
@@ -968,13 +966,13 @@ The batch processing kit offers three modes, using the `--run-mode` parameter.
 > [!TIP]
 > If multiple files are added to the input directory at the same time, you can improve performance by instead adding them in a regular interval.
 
-`DAEMON` mode transcribes existing files in a given folder, and continuously transcribes new audio files as they are added.          
+`DAEMON` mode transcribes existing files in a given folder, and continuously transcribes new audio files as they're added.          
 
 :::image type="content" source="media/containers/batch-daemon-mode.png" alt-text="A diagram showing batch-kit container processing files in daemon mode.":::
 
-1. Define the Speech container endpoints that the batch client will use in the `config.yaml` file. 
-2. Invoke the container on an input directory. The batch client will begin monitoring the directory for incoming files. 
-3. Set up continuous audio file delivery to the input directory. If the audio file has already been transcribed in a previous run with the same output directory (same file name and checksum), the client will skip the file. 
+1. Define the Speech container endpoints that the batch client uses in the `config.yaml` file. 
+2. Invoke the container on an input directory. The batch client begins monitoring the directory for incoming files. 
+3. Set up continuous audio file delivery to the input directory. If the audio file was transcribed in a previous run with the same output directory (same file name and checksum), the client skips the file. 
 4. Once a file write or POSIX signal is detected, the container is triggered to respond.
 5. The files are dispatched to the container endpoints from step 1.
 6. Logs and the Speech container output are returned to the specified output directory. 
@@ -985,16 +983,16 @@ The batch processing kit offers three modes, using the `--run-mode` parameter.
 
 :::image type="content" source="media/containers/batch-rest-api-mode.png" alt-text="A diagram showing the batch-kit container processing files in REST mode.":::
 
-1. Define the Speech container endpoints that the batch client will use in the `config.yaml` file. 
+1. Define the Speech container endpoints that the batch client uses in the `config.yaml` file. 
 2. Send an HTTP request to one of the API server's endpoints.
   
     |Endpoint  |Description  |
     |---------|---------|
     |`/submit`     | Endpoint for creating new batch requests.        |
-    |`/status`     | Endpoint for checking the status of a batch request. The connection will stay open until the batch completes.       |
+    |`/status`     | Endpoint for checking the status of a batch request. The connection stays open until the batch completes.       |
     |`/watch`     | Endpoint for using HTTP long polling until the batch completes.        |
 
-3. Audio files are uploaded from the input directory. If the audio file has already been transcribed in a previous run with the same output directory (same file name and checksum), the client will skip the file. 
+3. Audio files are uploaded from the input directory. If the audio file was transcribed in a previous run with the same output directory (same file name and checksum), the client skips the file. 
 4. If a request is sent to the `/submit` endpoint, the files are dispatched to the container endpoints from step
 5. Logs and the Speech container output are returned to the specified output directory. 
 
@@ -1006,7 +1004,7 @@ The batch processing kit offers three modes, using the `--run-mode` parameter.
 
 The client creates a *run.log* file in the directory specified by the `-log_folder` argument in the docker `run` command. Logs are captured at the DEBUG level by default. The same logs are sent to the `stdout/stderr`, and filtered depending on the `-file_log_level` or `console_log_level` arguments. This log is only necessary for debugging, or if you need to send a trace for support. The logging folder also contains the Speech SDK logs for each audio file.
 
-The output directory specified by `-output_folder` will contain a *run_summary.json* file, which is periodically rewritten every 30 seconds or whenever new transcriptions are finished. You can use this file to check on progress as the batch proceeds. It will also contain the final run statistics and final status of every file when the batch is completed. The batch is completed when the process has a clean exit. 
+The output directory specified by `-output_folder` contains a *run_summary.json* file, which is periodically rewritten every 30 seconds or whenever new transcriptions are finished. You can use this file to check on progress as the batch proceeds. It also contains the final run statistics and final status of every file when the batch is completed. The batch is completed when the process has a clean exit. 
 
 ## Next steps
 

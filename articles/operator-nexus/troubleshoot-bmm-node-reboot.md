@@ -60,3 +60,6 @@ Perform the following Azure CLI update on any affected VMs with dummy tag values
 This process restores the VM to an online state.
 
 :::image type="content" source="media\troubleshoot-bmm-server\BMM-running-status.png" alt-text="Screenshot of an example virtual machine in a running status." lightbox="media\troubleshoot-bmm-server\BMM-running-status.png":::
+
+If you still have questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+For more information about Support plans, see [Azure Support plans](https://azure.microsoft.com/support/plans/response/).

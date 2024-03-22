@@ -79,7 +79,7 @@ sections:
         answer: | 
                 Azure Virtual Instance for SAP solutions is available in the following regions:  
 
-                - West Europe, North Europe, East US, East US 2, West US 2, West US 3, Central US, South Central US, India Central, East Asia, Southeast Asia, Australia East, and Australia Central.  
+                - West Europe, North Europe, East US, East US 2, West US, West US 2, West US 3, Central US, South Central US,  North Central US, India Central, East Asia, Southeast Asia, Australia East, Australia Central, Canada Central, Brazil South, UK South, Germany West Central and Sweden Central.  
                 - You can also see [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=all#:~:text=Azure%20Center%20for%20SAP%20solutions) page for information about availability of Azure Center for SAP solutions in different Azure regions. 
 
   - name: Registering Existing SAP System Questions 

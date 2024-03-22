@@ -1,10 +1,10 @@
 ---
-author: v-dalc
+author: stevenmatthew
 ms.service: databox  
 ms.subservice: pod
 ms.topic: include
 ms.date: 11/16/2021
-ms.author: alkohli
+ms.author: shaas
 ---
 
 Take the following steps if you're returning the device in Singapore.
@@ -29,3 +29,4 @@ Take the following steps if you're returning the device in Singapore.
    > For booking requests received on a business day:
    > * Before 3 PM, pickup will be the next business day between 9 AM and 1 PM.
    > * After 3 PM, pickup will be the next business day between 2 PM to 6 PM.
+

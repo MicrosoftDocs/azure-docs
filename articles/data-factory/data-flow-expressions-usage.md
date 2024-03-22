@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/19/2022
+ms.date: 10/20/2023
 ---
 
 # Data transformation expression usage in mapping data flow
@@ -2716,7 +2716,7 @@ ___
 Gets the year value of a date.  
 * ``year(toDate('2012-8-8')) -> 2012``  
 
-## Next steps
+## Related content
 
 - List of all [aggregate functions](data-flow-aggregate-functions.md).
 - List of all [array functions](data-flow-array-functions.md).

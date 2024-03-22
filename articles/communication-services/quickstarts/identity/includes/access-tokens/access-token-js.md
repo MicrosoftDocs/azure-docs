@@ -97,7 +97,7 @@ const tokenCredential = new AzureKeyCredential(accessKey);
 const identityClient = new CommunicationIdentityClient(endpoint, tokenCredential)
 ```
 
-If you've already set up an Azure Active Directory (Azure AD) application, you can [authenticate by using Azure AD](../../../identity/service-principal.md).
+If you've already set up a Microsoft Entra application, you can [authenticate by using Microsoft Entra ID](../../../identity/service-principal.md).
 
 ```javascript
 const endpoint = process.env["COMMUNICATION_SERVICES_ENDPOINT"];

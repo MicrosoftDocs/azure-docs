@@ -10,6 +10,8 @@ ms.custom: devx-track-azurepowershell
 ---
 # Auto grow storage in Azure Database for MariaDB server using PowerShell
 
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
+
 This article describes how you can configure an Azure Database for MariaDB server storage to grow
 without impacting the workload.
 

@@ -25,7 +25,7 @@ This tutorial walks you through how to create an RAG pipeline. For advanced scen
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
 
-* Access to Azure Open AI. 
+* Access to Azure OpenAI. 
 
 * Enable prompt flow in your Azure Machine Learning workspace
 
@@ -42,7 +42,7 @@ Azure Machine Learning offers notebook tutorials for several use cases with prom
 
 **Test Data Generation and Auto Prompt**
  
-[Use vector indexes to build a retrieval augmented generation model](https://github.com/Azure/azureml-examples/blob/main/sdk/python/generative-ai/rag/notebooks/mlindex_with_testgen_autoprompt.ipynb) and to evaluate prompt flow on a test dataset.
+[Use vector indexes to build a retrieval augmented generation model](https://github.com/Azure/azureml-examples/blob/main/sdk/python/generative-ai/rag/notebooks/mlindex_with_testgen.ipynb) and to evaluate prompt flow on a test dataset.
 
 **Create a FAISS based Vector Index**
 

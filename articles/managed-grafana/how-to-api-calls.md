@@ -1,7 +1,7 @@
 ---
 title: 'Call Grafana APIs programmatically with Azure Managed Grafana'
 titleSuffix: Azure Managed Grafana
-description: Learn how to call Grafana APIs programmatically with Azure Active Directory and an Azure service principal
+description: Learn how to call Grafana APIs programmatically with Microsoft Entra ID and an Azure service principal
 author: maud-lv 
 ms.author: malev 
 ms.service: managed-grafana 
@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 - An Azure Managed Grafana workspace. [Create an Azure Managed Grafana instance](./quickstart-managed-grafana-portal.md).
-- An Azure Active Directory (Azure AD) application with a service principal. [Create an Azure AD application and service principal](../active-directory/develop/howto-create-service-principal-portal.md). For simplicity, use an application located in the same Azure AD tenant as your Azure Managed Grafana instance.
+- A Microsoft Entra application with a service principal. [Create a Microsoft Entra application and service principal](../active-directory/develop/howto-create-service-principal-portal.md). For simplicity, use an application located in the same Microsoft Entra tenant as your Azure Managed Grafana instance.
 
 ## Sign in to Azure
 
@@ -47,22 +47,22 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 You now need to gather some information, which you'll use to get a Grafana API access token, and call Grafana APIs.
 
 1. Find your tenant ID:
-   1. In the Azure portal, enter *Azure Active Directory* in the **Search resources, services, and docs (G+ /)**.
-   1. Select **Azure Active Directory**.
+   1. In the Azure portal, enter *Microsoft Entra ID* in the **Search resources, services, and docs (G+ /)**.
+   1. Select **Microsoft Entra ID**.
    1. Select **Properties** from the left menu.
    1. Locate the field **Tenant ID** and save its value.
 
     :::image type="content" source="./media/tutorial-api/tenant-id.png" alt-text="Screenshot of the Azure portal, getting tenant ID.":::
 
 1. Find your client ID:
-   1. In the Azure portal, in Azure Active Directory, select **App registrations** from the left menu.
+   1. In the Azure portal, in Microsoft Entra ID, select **App registrations** from the left menu.
    1. Select your app.
    1. In **Overview**, find the **Application (client) ID** field and save its value.
 
     :::image type="content" source="./media/tutorial-api/client-id.png" alt-text="Screenshot of the Azure portal, getting client ID.":::
   
 1. Create an application secret:
-   1. In the Azure portal, in Azure Active Directory, select **App registrations** from the left menu.
+   1. In the Azure portal, in Microsoft Entra ID, select **App registrations** from the left menu.
    1. Select your app.
    1. Select **Certificates & secrets** from the left menu.
    1. Select **New client secret**.
@@ -110,7 +110,7 @@ az grafana api-key create --key keyname --name <name> --resource-group <rg> --ro
 
 ### [POST request](#tab/post)
 
-Follow the example below to call Azure AD and retrieve a token. Replace `<tenant-id>`, `<client-id>`, and `<client-secret>` with the tenant ID, application (client) ID, and client secret collected in the previous step.
+Follow the example below to call Microsoft Entra ID and retrieve a token. Replace `<tenant-id>`, `<client-id>`, and `<client-secret>` with the tenant ID, application (client) ID, and client secret collected in the previous step.
 
 ```bash
 curl -X POST -H 'Content-Type: application/x-www-form-urlencoded' \
@@ -155,8 +155,8 @@ If you're not going to continue to use these resources, delete them with the fol
    1. Select **Delete**.
    1. Enter the resource name to confirm deletion and select **Delete**.
 
-1. Delete the Azure AD application:
-   1. In the Azure portal, in Azure Active Directory, select **App registrations** from the left menu.
+1. Delete the Microsoft Entra application:
+   1. In the Azure portal, in Microsoft Entra ID, select **App registrations** from the left menu.
    1. Select your app.
    1. In the **Overview** tab, select **Delete**.
    1. Select **Delete**.

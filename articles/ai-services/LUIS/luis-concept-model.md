@@ -1,13 +1,13 @@
 ---
 title: Design with models - LUIS
 description: Language understanding provides several types of models. Some models can be used in more than one way.
-ms.service: cognitive-services
+ms.service: azure-ai-language
 author: aahill
 ms.author: aahi
 ms.manager: nitinme
-ms.subservice: language-understanding
+ms.subservice: azure-ai-luis
 ms.topic: conceptual
-ms.date: 01/07/2022
+ms.date: 01/19/2024
 ---
 
 # Design with intent and entity models

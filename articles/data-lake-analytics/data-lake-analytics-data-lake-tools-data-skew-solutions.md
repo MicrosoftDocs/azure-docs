@@ -4,7 +4,7 @@ description: Troubleshoot potential solutions for data-skew problems in Azure Da
 ms.reviewer: whhender
 ms.service: data-lake-analytics
 ms.topic: how-to
-ms.date: 03/16/2023
+ms.date: 12/20/2023
 ---
 
 # Resolve data-skew problems in Azure Data Lake Analytics using Azure Data Lake Tools for Visual Studio
@@ -44,7 +44,7 @@ Instead of using only _State_ as a partition key, you can use more than one key 
 
 ### Option 4: Use round-robin distribution
 
-If you can't find an appropriate key for partition and distribution, you can try to use round-robin distribution. Round-robin distribution treats all rows equally and randomly puts them into corresponding buckets. The data gets evenly distributed, but it loses locality information, a drawback that can also reduce job performance for some operations. Additionally, if you're doing aggregation for the skewed key anyway, the data-skew problem will persist. To learn more about round-robin distribution, see the U-SQL Table Distributions section in [CREATE TABLE (U-SQL): Creating a Table with Schema](/u-sql/ddl/tables/create/managed/create-table-u-sql-creating-a-table-with-schema#dis_sch).
+If you can't find an appropriate key for partition and distribution, you can try to use round-robin distribution. Round-robin distribution treats all rows equally and randomly puts them into corresponding buckets. The data gets evenly distributed, but it loses locality information, a drawback that can also reduce job performance for some operations. Additionally, if you're doing aggregation for the skewed key anyway, the data-skew problem will persist. To learn more about round-robin distribution, see the [U-SQL Table Distributions section in CREATE TABLE (U-SQL): Creating a Table with Schema](/u-sql/ddl/tables/create/managed/create-table-u-sql-creating-a-table-with-schema#dis_sch).
 
 ## Solution 2: Improve the query plan
 

@@ -4,7 +4,7 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Release notes for the Azure Data Science Virtual Machine
 author: jesscioffi
 ms.service: data-science-vm
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 
 ms.author: jcioffi
 ms.date: 04/18/2023
@@ -20,6 +20,57 @@ Due to the rapidly evolving needs and packages updates, we target to release new
 Azure portal users will always find the latest image available for provisioning the Data Science Virtual Machine. For CLI or Azure Resource Manager (ARM) users, we keep images of individual versions available for 12 months. After that period, particular version of image is no longer available for provisioning.
 
 See the [list of known issues](reference-known-issues.md) to learn about known bugs and workarounds.
+
+## December 20, 2023
+[Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview)
+
+Version `23.12.18`
+
+Main changes:
+
+- `numpy` version `1.22.3`
+- `pytz` version `2022.6`
+- `torch` version `1.12.0`
+- `certifi` version `2023.7.2`
+- `azure-mgmt-network` to version `25.1.0`
+- `scikit-learn` version `1.0.2`
+- `scipy` version `1.9.2`
+- `accuracy`
+- `pickle5`
+- `pillow` version `10.1.0`
+- `experimental`
+- `ipykernel` version `6.14.0`
+- `en_core_web_sm`
+
+## December 18, 2023
+
+[Data Science Virtual Machine - Windows 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview)
+
+Version `23.12.11`
+
+Main changes:
+
+- SDK `1.54.0`
+- numba
+- Scipy
+- `azure-core` to version `1.29.4`
+- `azure-identity` to version `1.14.0`
+- `azure-storage-queue` to version `12.7.2`
+
+## December 5, 2023
+
+DSVM offering for [Data Science VM – Windows 2022](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2022?tab=Overview) is now generally available in the marketplace.
+
+Version `23.11.23`
+
+Main changes:
+
+- SDK `1.54.0`
+- numba
+- Scipy
+- `azure-core` to version `1.29.4`
+- `azure-identity` to version `1.14.0`
+- `azure-storage-queue` to version `12.7.2`
 
 ## July 26, 2023
 

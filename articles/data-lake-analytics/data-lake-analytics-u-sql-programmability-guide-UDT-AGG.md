@@ -4,7 +4,7 @@ description: Learn about the U-SQL UDT and UDAGG programmability in Azure Data L
 ms.service: data-lake-analytics
 ms.reviewer: whhender
 ms.topic: how-to
-ms.date: 01/27/2023
+ms.date: 12/20/2023
 ---
 
 # U-SQL programmability guide - UDT and UDAGG
@@ -13,10 +13,10 @@ ms.date: 01/27/2023
 
 User-defined types, or UDT, is another programmability feature of U-SQL. U-SQL UDT acts like a regular C# user-defined type. C# is a strongly typed language that allows the use of built-in and custom user-defined types.
 
-U-SQL can't implicitly serialize or de-serialize arbitrary UDTs when the UDT is passed between vertices in rowsets. This means that the user has to provide an explicit formatter by using the IFormatter interface. This provides U-SQL with the serialize and de-serialize methods for the UDT.
+U-SQL can't implicitly serialize or deserialize arbitrary UDTs when the UDT is passed between vertices in rowsets. This means that the user has to provide an explicit formatter by using the IFormatter interface. This provides U-SQL with the serialize and deserialize methods for the UDT.
 
 > [!NOTE]
-> U-SQL’s built-in extractors and outputters currently cannot serialize or de-serialize UDT data to or from files even with the IFormatter set. So when you're writing UDT data to a file with the OUTPUT statement, or reading it with an extractor, you have to pass it as a string or byte array. Then you call the serialization and deserialization code (that is, the UDT’s ToString() method) explicitly. User-defined extractors and outputters, on the other hand, can read and write UDTs.
+> U-SQL’s built-in extractors and outputters currently cannot serialize or deserialize UDT data to or from files even with the IFormatter set. So when you're writing UDT data to a file with the OUTPUT statement, or reading it with an extractor, you have to pass it as a string or byte array. Then you call the serialization and deserialization code (that is, the UDT’s ToString() method) explicitly. User-defined extractors and outputters, on the other hand, can read and write UDTs.
 
 If we try to use UDT in EXTRACTOR or OUTPUTTER (out of previous SELECT), as shown here:
 
@@ -109,9 +109,9 @@ public class MyTypeFormatter : IFormatter<MyType>
 }
 ```
 
-The `IFormatter` interface serializes and de-serializes an object graph with the root type of \<typeparamref name="T">.
+The `IFormatter` interface serializes and deserializes an object graph with the root type of \<typeparamref name="T">.
 
-\<typeparam name="T">The root type for the object graph to serialize and de-serialize.
+\<typeparam name="T">The root type for the object graph to serialize and deserialize.
 
 * **Deserialize**: De-serializes the data on the provided stream and reconstitutes the graph of objects.
 

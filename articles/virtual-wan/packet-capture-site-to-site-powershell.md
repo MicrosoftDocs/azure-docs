@@ -7,7 +7,7 @@ author: cherylmc
 ms.service: virtual-wan
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 11/21/2023
 ms.author: cherylmc
 ---
 
@@ -23,7 +23,7 @@ Verify that you have the following configuration already set up in your environm
 
 * A Virtual WAN and a virtual hub.
 * A site-to-site VPN gateway deployed in the virtual hub.
-* You may also have connections connecting VPN sites to your site-to-site VPN gateway.
+* You can also have connections connecting VPN sites to your site-to-site VPN gateway.
 
 ### Working with Azure PowerShell
 
@@ -31,7 +31,7 @@ Verify that you have the following configuration already set up in your environm
 
 ### Set up the environment
 
-Use the following command to verify that you are using the correct subscription and are logged in as a user that has permissions to perform the packet capture on the site-to-site VPN gateway
+Use the following command to verify that you're using the correct subscription and are logged in as a user that has permissions to perform the packet capture on the site-to-site VPN gateway
 
 ```azurepowershell-interactive
 $subid = “<insert Virtual WAN subscription ID here>”
@@ -79,10 +79,10 @@ This section helps you start a packet capture for your site-to-site VPN gateway 
 
 ## <a name="filters"></a> Optional: Specify filters
 
-To simplify your packet captures, you may specify filters on your packet capture to focus on specific behaviors.
+To simplify your packet captures, you can specify filters on your packet capture to focus on specific behaviors.
 
 >[!NOTE]
-> For TracingFlags and TCPFlags, you may specify multiple protocols by adding up the numerical values for the protocols you wish to capture (same as a logical OR). For example, if you want to capture only ESP and OPVN packets, specify a TracingFlag value of 8+1 = 9.  
+> For TracingFlags and TCPFlags, you can specify multiple protocols by adding up the numerical values for the protocols you wish to capture (same as a logical OR). For example, if you want to capture only ESP and OPVN packets, specify a TracingFlag value of 8+1 = 9.  
 
 | Parameter | Description | Default values | Available values|
 |--- |--- | --- | ---|
@@ -110,7 +110,7 @@ Start-AzVpnGatewayPacketCapture -ResourceGroupName $rg -Name "<name of the Gatew
 
 We recommend that you let the packet capture run for at least 600 seconds before stopping. When you stop a packet capture, the parameters are similar to the parameters in the [Start a packet capture](#start) section. In the command, the SAS URL value was generated in the [Create a storage account](#storage) section. If the `SasUrl` parameter isn't configured correctly, the capture might fail with storage errors.
 
-When you are ready to stop the packet capture, run the following command:
+When you're ready to stop the packet capture, run the following command:
 
 ```azurepowershell-interactive
 Stop-AzVpnGatewayPacketCapture -ResourceGroupName $rg -Name <GatewayName> -SasUrl $sasurl

@@ -1,19 +1,19 @@
 ---
-title: Onboarding to Microsoft Teams Phone with Azure Communications Gateway
-description: Understand the Included Benefits and your other options for onboarding
+title: Onboarding for Azure Communications Gateway
+description: Understand the Included Benefits and your other options for onboarding to Azure Communications Gateway for Microsoft or Zoom connectivity
 author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: conceptual 
-ms.date: 07/27/2023
+ms.date: 11/06/2023
 ms.custom: template-concept 
 ---
 
 # Onboarding with Included Benefits for Azure Communications Gateway
 
-To launch Operator Connect and/or Teams Phone Mobile, you need an onboarding partner. Launching requires changes to the Operator Connect or Teams Phone Mobile environments and your onboarding partner manages the integration process and coordinates with Microsoft Teams on your behalf. They can also help you design and set up your network for success.
-
-We provide a customer success program and onboarding service called _Included Benefits_ for operators deploying Azure Communications Gateway. We work with your team to enable rapid and effective solution design and deployment. The program includes tailored guidance from Azure for Operators engineers, using proven practices and architectural guides.
+Azure Communications Gateway includes a project team for helping you design and set up your network for success. This service includes a customer success program and onboarding service called _Included Benefits_. We work with your team to enable rapid and effective solution design and deployment. The program includes tailored guidance from Azure for Operators engineers, using proven practices and architectural guides. If you're not eligible for Included Benefits or you require more support, discuss your requirements with your Microsoft sales representative. 
+ 
+The Operator Connect and Teams Phone Mobile programs also require an onboarding partner who manages the necessary changes to the Operator Connect or Teams Phone Mobile environments and coordinates with Microsoft Teams on your behalf. The Azure Communications Gateway Included Benefits project team fulfills this role, but you can choose a different onboarding partner to coordinate with Microsoft Teams on your behalf.
 
 ## Eligibility for Included Benefits and alternatives
 
@@ -21,7 +21,7 @@ Included Benefits is available to operator customers who:
 
 - Have an active paid Azure subscription.
 - Have a defined project using Azure Communications Gateway with intent to deploy. A defined project has an executive sponsor, committed customer/partner resources, established success metrics, and clear timelines for start and end of the project.
-- Are located in a country/region supported by  Azure Communications Gateway. Engagements are in English (although we may offer engagements in your local language, depending on the availability of our teams).
+- Are located in a country/region supported by  Azure Communications Gateway. Engagements are in English (although we might offer engagements in your local language, depending on the availability of our teams).
 
 There's no cost to you for the Included Benefits program.
 

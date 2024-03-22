@@ -76,7 +76,7 @@ Here's how the behavior is based on the status you set on a topic and its subscr
 | Disabled or Send Disabled | Disabled or Receive Disabled | You can't send messages to the topic and you can't receive from the subscription either. | 
 
 ## Other statuses
-The [EntityStatus](/dotnet/api/microsoft.servicebus.messaging.entitystatus) enumeration also defines a set of transitional states that can only be set by the system. 
+The [EntityStatus](/dotnet/api/azure.messaging.servicebus.administration.entitystatus) enumeration also defines a set of transitional states that can only be set by the system. 
 
 
 ## Next steps
@@ -86,5 +86,3 @@ To learn more about Service Bus messaging, see the following topics:
 * [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
 * [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
 * [How to use Service Bus topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md)
-
-[1]: ./media/entity-suspend/entity-state-change.png

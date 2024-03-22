@@ -6,7 +6,8 @@ ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: overview
 ms.date: 09/15/2023
-# Customer intent: As someone with basic Azure network experience, I want to understand how Azure Network Watcher can help me resolve some of the network-related problems I've encountered and provide insight into how I use Azure networking.
+
+#CustomerIntent: As someone with basic Azure network experience, I want to understand how Azure Network Watcher can help me resolve some of the network-related problems I've encountered and provide insight into how I use Azure networking.
 ---
 
 # What is Azure Network Watcher?
@@ -37,7 +38,7 @@ Network Watcher offers two monitoring tools that help you view and monitor resou
 
 ### Connection monitor
 
-**Connection monitor** provides end-to-end connection monitoring for Azure and hybrid endpoints. It helps you understand network performance between various endpoints in your network infrastructure. For more information, see [Connection monitor overview](connection-monitor-overview.md) and [Monitor network communication between two virtual machines](connection-monitor.md).
+**Connection monitor** provides end-to-end connection monitoring for Azure and hybrid endpoints. It helps you understand network performance between various endpoints in your network infrastructure. For more information, see [Connection monitor overview](connection-monitor-overview.md) and [Monitor network communication between two virtual machines](monitor-vm-communication.md).
 
 ## Network diagnostic tools
 
@@ -53,7 +54,7 @@ Network Watcher offers seven network diagnostic tools that help troubleshoot and
 
 ### IP flow verify
 
-**IP flow verify** allows you to detect traffic filtering issues at a virtual machine level. It checks if a packet is allowed or denied to or from an IP address (IPv4 or IPv6 address). It also tells you which security rule allowed or denied the traffic. For more information, see [IP flow verify overview](network-watcher-ip-flow-verify-overview.md) and [Diagnose a virtual machine network traffic filter problem](diagnose-vm-network-traffic-filtering-problem.md).
+**IP flow verify** allows you to detect traffic filtering issues at a virtual machine level. It checks if a packet is allowed or denied to or from an IP address (IPv4 or IPv6 address). It also tells you which security rule allowed or denied the traffic. For more information, see [IP flow verify overview](ip-flow-verify-overview.md) and [Diagnose a virtual machine network traffic filter problem](diagnose-vm-network-traffic-filtering-problem.md).
 
 ### NSG diagnostics
 
@@ -69,15 +70,15 @@ Network Watcher offers seven network diagnostic tools that help troubleshoot and
 
 ### Connection troubleshoot
 
-**Connection troubleshoot** enables you to test a connection between a virtual machine, a virtual machine scale set, an application gateway, or a Bastion host and a virtual machine, an FQDN, a URI, or an IPv4 address. The test returns similar information returned when using the [connection monitor](#connection-monitor) capability, but tests the connection at a point in time instead of monitoring it over time, as connection monitor does. For more information, see [Connection troubleshoot overview](connection-troubleshoot-overview.md) and [Troubleshoot connections with Azure Network Watcher](network-watcher-connectivity-portal.md). 
+**Connection troubleshoot** enables you to test a connection between a virtual machine, a virtual machine scale set, an application gateway, or a Bastion host and a virtual machine, an FQDN, a URI, or an IPv4 address. The test returns similar information returned when using the [connection monitor](#connection-monitor) capability, but tests the connection at a point in time instead of monitoring it over time, as connection monitor does. For more information, see [Connection troubleshoot overview](connection-troubleshoot-overview.md) and [Troubleshoot connections with Azure Network Watcher](connection-troubleshoot-portal.md). 
 
 ### Packet capture
 
-**Packet capture** allows you to remotely create packet capture sessions to track traffic to and from a virtual machine (VM) or a virtual machine scale set. For more information, see [packet capture](network-watcher-packet-capture-overview.md) and [Manage packet captures in virtual machines](network-watcher-packet-capture-manage-portal.md).
+**Packet capture** allows you to remotely create packet capture sessions to track traffic to and from a virtual machine (VM) or a virtual machine scale set. For more information, see [packet capture](packet-capture-overview.md) and [Manage packet captures for virtual machines](packet-capture-vm-portal.md).
 
 ### VPN troubleshoot
 
-**VPN troubleshoot** enables you to troubleshoot virtual network gateways and their connections. For more information, see [VPN troubleshoot overview](network-watcher-troubleshoot-overview.md) and [Diagnose a communication problem between networks](diagnose-communication-problem-between-networks.md).
+**VPN troubleshoot** enables you to troubleshoot virtual network gateways and their connections. For more information, see [VPN troubleshoot overview](vpn-troubleshoot-overview.md) and [Diagnose a communication problem between networks](diagnose-communication-problem-between-networks.md).
 
 ## Traffic
 
@@ -89,7 +90,7 @@ Network Watcher offers two traffic tools that help you log and visualize network
 ### Flow logs
 
 **Flow logs** allows you to log information about your Azure IP traffic and stores the data in Azure storage. You can log IP traffic flowing through a network security group or Azure virtual network. For more information, see:
-- [NSG flow logs](network-watcher-nsg-flow-logging-overview.md) and [Log network traffic to and from a virtual machine](network-watcher-nsg-flow-logging-portal.md).
+- [NSG flow logs](nsg-flow-logs-overview.md) and [Log network traffic to and from a virtual machine](nsg-flow-logs-portal.md).
 - [VNet flow logs (preview)](vnet-flow-logs-overview.md) and [Manage VNet flow logs](vnet-flow-logs-powershell.md).
 
 ### Traffic analytics

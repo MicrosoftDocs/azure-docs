@@ -46,16 +46,16 @@ This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Bil
 
 ### DCasv5-series products
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max NICs |
-|---|---|---|---|---|---|---|
-| Standard_DC2as_v5  | 2  | 8   | Remote Storage Only | 4  | 3750/82    | 2 |
-| Standard_DC4as_v5  | 4  | 16  | Remote Storage Only | 8  | 6400/144   | 2 |
-| Standard_DC8as_v5  | 8  | 32  | Remote Storage Only | 16 | 12800/200  | 4 |
-| Standard_DC16as_v5 | 16 | 64  | Remote Storage Only | 32 | 25600/384  | 4 |
-| Standard_DC32as_v5 | 32 | 128 | Remote Storage Only | 32 | 51200/768  | 8 |
-| Standard_DC48as_v5 | 48 | 192 | Remote Storage Only | 32 | 76800/1152 | 8 |
-| Standard_DC64as_v5 | 64 | 256 | Remote Storage Only | 32 | 80000/1200 | 8 |
-| Standard_DC96as_v5 | 96 | 384 | Remote Storage Only | 32 | 80000/1600 | 8 |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max NICs | Max network bandwidth (Mbps)
+|---|---|---|---|---|---|---|---|
+| Standard_DC2as_v5  | 2  | 8   | Remote Storage Only | 4  | 3750/82    | 2 | 3000
+| Standard_DC4as_v5  | 4  | 16  | Remote Storage Only | 8  | 6400/144   | 2 | 5000
+| Standard_DC8as_v5  | 8  | 32  | Remote Storage Only | 16 | 12800/200  | 4 | 5000
+| Standard_DC16as_v5 | 16 | 64  | Remote Storage Only | 32 | 25600/384  | 4 | 10000
+| Standard_DC32as_v5 | 32 | 128 | Remote Storage Only | 32 | 51200/768  | 8 | 12500
+| Standard_DC48as_v5 | 48 | 192 | Remote Storage Only | 32 | 76800/1152 | 8 | 15000
+| Standard_DC64as_v5 | 64 | 256 | Remote Storage Only | 32 | 80000/1200 | 8 | 20000
+| Standard_DC96as_v5 | 96 | 384 | Remote Storage Only | 32 | 80000/1600 | 8 | 20000
 
 ## DCadsv5-series
 
@@ -83,16 +83,16 @@ This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Bil
 
 ### DCadsv5-series products
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS/MBps | Max uncached disk throughput: IOPS/MBps | Max NICs |
-|---|---|---|---|---|---|---|---|
-| Standard_DC2ads_v5  | 2  | 8   | 75   | 4  | 9000 / 125    | 3750/82    | 2 |
-| Standard_DC4ads_v5  | 4  | 16  | 150  | 8  | 19000 / 250   | 6400/144   | 2 |
-| Standard_DC8ads_v5  | 8  | 32  | 300  | 16 | 38000 / 500   | 12800/200  | 4 |
-| Standard_DC16ads_v5 | 16 | 64  | 600  | 32 | 75000 / 1000  | 25600/384  | 4 |
-| Standard_DC32ads_v5 | 32 | 128 | 1200 | 32 | 150000 / 2000 | 51200/768  | 8 |
-| Standard_DC48ads_v5 | 48 | 192 | 1800 | 32 | 225000 / 3000 | 76800/1152 | 8 |
-| Standard_DC64ads_v5 | 64 | 256 | 2400 | 32 | 300000 / 4000 | 80000/1200 | 8 |
-| Standard_DC96ads_v5 | 96 | 384 | 3600 | 32 | 450000 / 4000 | 80000/1600 | 8 |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS/MBps | Max uncached disk throughput: IOPS/MBps | Max NICs |  Max network bandwidth (Mbps)
+|---|---|---|---|---|---|---|---|---|
+| Standard_DC2ads_v5  | 2  | 8   | 75   | 4  | 9000 / 125    | 3750/82    | 2 | 3000
+| Standard_DC4ads_v5  | 4  | 16  | 150  | 8  | 19000 / 250   | 6400/144   | 2 | 5000
+| Standard_DC8ads_v5  | 8  | 32  | 300  | 16 | 38000 / 500   | 12800/200  | 4 | 5000
+| Standard_DC16ads_v5 | 16 | 64  | 600  | 32 | 75000 / 1000  | 25600/384  | 4 | 10000
+| Standard_DC32ads_v5 | 32 | 128 | 1200 | 32 | 150000 / 2000 | 51200/768  | 8 | 12500
+| Standard_DC48ads_v5 | 48 | 192 | 1800 | 32 | 225000 / 3000 | 76800/1152 | 8 | 15000
+| Standard_DC64ads_v5 | 64 | 256 | 2400 | 32 | 300000 / 4000 | 80000/1200 | 8 | 20000
+| Standard_DC96ads_v5 | 96 | 384 | 3600 | 32 | 450000 / 4000 | 80000/1600 | 8 | 20000
 
 > [!NOTE]
 > To achieve these IOPs, use [Gen2 VMs](generation-2.md).
@@ -102,4 +102,4 @@ This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Bil
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Confidential virtual machine options on AMD processors](../confidential-computing/virtual-machine-solutions-amd.md)
+> [Confidential virtual machine options on AMD processors](../confidential-computing/virtual-machine-options.md)

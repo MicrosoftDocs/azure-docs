@@ -507,7 +507,7 @@ To fix a **verticalPenetrationError** error, read about how to use a vertical pe
 > [!div class="nextstepaction"]
 > [Creator for indoor mapping]
 
-[Conversion service]: /rest/api/maps/v2/conversion
+[Conversion service]: /rest/api/maps-creator/conversion
 [Creator for indoor mapping]: creator-indoor-maps.md
 [Drawing files requirements]: drawing-requirements.md#drawing-package-requirements
 [Drawing Package Guide]: drawing-package-guide.md

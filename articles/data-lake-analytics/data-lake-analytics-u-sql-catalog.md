@@ -4,8 +4,9 @@ description: Learn how to use the U-SQL catalog to share code and data. Create t
 ms.service: data-lake-analytics
 ms.reviewer: whhender
 ms.topic: how-to
-ms.date: 01/27/2023
+ms.date: 12/20/2023
 ---
+
 # Get started with the U-SQL Catalog in Azure Data Lake Analytics
 
 [!INCLUDE [retirement-flag](includes/retirement-flag.md)]

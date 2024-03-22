@@ -1,17 +1,22 @@
 ---
-title: Upgrade Azure Kubernetes Service (AKS) workloads from Windows Server 2019 to 2022
+title: Upgrade the OS version for your Azure Kubernetes Service (AKS) Windows workloads
 description: Learn how to upgrade the OS version for Windows workloads on Azure Kubernetes Service (AKS).
 ms.topic: article
-ms.custom: devx-track-linux
+ms.custom:
 ms.date: 09/12/2023
 ---
 
-# Upgrade Azure Kubernetes Service (AKS) workloads from Windows Server 2019 to 2022
+# Upgrade the OS version for your Azure Kubernetes Service (AKS) Windows workloads
 
-When upgrading the OS version of a running Windows workload on Azure Kubernetes Service (AKS), you need to deploy a new node pool to ensure the Windows versions match on each node pool. This article describes the steps to upgrade the OS version for Windows workloads on AKS.
+When upgrading the OS version of a running Windows workload on Azure Kubernetes Service (AKS), you need to deploy a new node pool to ensure the Windows versions match on each node pool. This article describes the steps to upgrade the OS version for Windows workloads on AKS. While this example focuses on the upgrade from Windows Server 2019 to Windows Server 2022, the same process can be followed to upgrade from any Windows Server version to another.
+
+## Windows Server OS version support
+
+When a new version of the Windows Server operating system is released, AKS is committed to supporting it and recommending you upgrade to the latest version to take advantage of the fixes, improvements, and new functionality. AKS provides a five-year support lifecycle for every Windows Server version, starting with Windows Server 2022. During this period, AKS will release a new version that supports a newer version of Windows Server OS for you to upgrade to.
 
 > [!NOTE]
-> Windows Server 2019 is being retired after Kubernetes version 1.32 reaches end of life (EOL) and won't be supported in future releases. For more information about this retirement, see the [AKS release notes][aks-release-notes].
+>- Windows Server 2019 is being retired after Kubernetes version 1.32 reaches end of life (EOL). For more information, see [AKS release notes][aks-release-notes].
+>- Windows Server 2022 is being retired after Kubernetes version 1.34 reaches its end of life (EOL). For more information, see [AKS release notes][aks-release-notes].
 
 ## Limitations
 
@@ -107,7 +112,7 @@ Node Selector is the most common and recommended option for placement of Windows
 
 ## Security and authentication considerations
 
-If you're using Group Managed Service Accounts (gMSA), you need to update the Managed Identity configuration for the new node pool. gMSA uses a secret (user account and password) so the node that runs the Windows pod can authenticate the container against Azure Active Directory (Azure AD). To access that secret on Azure Key Vault, the node uses a Managed Identity that allows the node to access the resource. Since Managed Identities are configured per node pool, and the pod now resides on a new node pool, you need to update that configuration. For more information, see [Enable Group Managed Service Accounts (GMSA) for your Windows Server nodes on your Azure Kubernetes Service (AKS) cluster](./use-group-managed-service-accounts.md).
+If you're using Group Managed Service Accounts (gMSA), you need to update the Managed Identity configuration for the new node pool. gMSA uses a secret (user account and password) so the node that runs the Windows pod can authenticate the container against Microsoft Entra ID. To access that secret on Azure Key Vault, the node uses a Managed Identity that allows the node to access the resource. Since Managed Identities are configured per node pool, and the pod now resides on a new node pool, you need to update that configuration. For more information, see [Enable Group Managed Service Accounts (GMSA) for your Windows Server nodes on your Azure Kubernetes Service (AKS) cluster](./use-group-managed-service-accounts.md).
 
 The same principle applies to Managed Identities for any other pod or node pool when accessing other Azure resources. You need to update any access that Managed Identity provides to reflect the new node pool. To view update and sign-in activities, see [How to view Managed Identity activity](../active-directory/managed-identities-azure-resources/how-to-view-managed-identity-activity.md).
 

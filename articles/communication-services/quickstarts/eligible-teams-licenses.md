@@ -14,11 +14,11 @@ ms.custom: kr2b-contr-experiment
 
 # Teams License requirements to use Azure Communication Services support for Teams users
 
-To use Azure Communication Services support for Teams users, you need an Azure Active Directory instance with users that have a valid Teams license. Furthermore, license must be assigned to the administrators or relevant users. Also, note that [MSA accounts (personal Microsoft accounts)](../../active-directory/external-identities/microsoft-account.md) are not supported. This article describes the service plans requirements to use Azure Communication Services support for Teams users.
+To use Azure Communication Services support for Teams users, you need a Microsoft Entra instance with users that have a valid Teams license. Furthermore, license must be assigned to the administrators or relevant users. Also, note that [MSA accounts (personal Microsoft accounts)](../../active-directory/external-identities/microsoft-account.md) are not supported. This article describes the service plans requirements to use Azure Communication Services support for Teams users.
 
 ## Eligible products and service plans
 
-Ensure that your Azure Active Directory users have at least one of the following eligible service plans or products:
+Ensure that your Microsoft Entra users have at least one of the following eligible service plans or products:
 
 | Service Plan (friendly names)   |  Service Plan ID  | Product names|
 |:--- |:--- | :--- |
@@ -81,7 +81,7 @@ Ensure that your Azure Active Directory users have at least one of the following
 | TEAMS_AR_DOD | fd500458-c24c-478e-856c-a6067a8376cd | Office 365 E3_USGOV_DOD |
 |   |   | Microsoft 365 E3_USGOV_DOD |
 
-For more information, see [Azure AD Product names and service plan identifiers](../../active-directory/enterprise-users/licensing-service-plan-reference.md).
+For more information, see [Microsoft Entra Product names and service plan identifiers](../../active-directory/enterprise-users/licensing-service-plan-reference.md).
 
 ### How to find assigned service plans and products?
 

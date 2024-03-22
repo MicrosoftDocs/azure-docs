@@ -5,15 +5,14 @@ author: sandeepraichura
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
-ms.workload: infrastructure
-ms.date: 08/15/2023
+ms.date: 09/20/2023
 ms.author: saraic
 ms.reviewer: cynthn, mattmcinnes
 ms.custom: template-how-to
 ms.devlang: azurecli
 ---
 
-# Share images using a community gallery (preview)
+# Share images using a community gallery
 
 To share a gallery with all Azure users, you can create a [community gallery](azure-compute-gallery.md#community-gallery). Community galleries can be used by anyone with an Azure subscription. Someone creating a VM can browse images shared with the community using the portal, REST, or the Azure CLI.
 
@@ -24,9 +23,6 @@ Sharing images to the community is a new capability in [Azure Compute Gallery](.
 > Microsoft does not provide support for images you share to the community.
 > 
 
-
-
-
 There are three main ways to share images in an Azure Compute Gallery, depending on who you want to share with:
 
 | Sharing with: | People | Groups | Service Principal | All users in a specific   subscription (or) tenant | Publicly with all users in   Azure |
@@ -35,6 +31,11 @@ There are three main ways to share images in an Azure Compute Gallery, depending
 | RBAC + [Direct shared gallery](./share-gallery-direct.md)  | Yes | Yes | Yes | Yes | No |
 | RBAC + [Community gallery](./share-gallery-community.md) | Yes | Yes | Yes | No | Yes |
 
+> [!NOTE]
+> Please note that Images can be used with read permissions on them to deploy virtual machines and disks.
+> 
+> When utilizing the direct shared gallery, images are distributed widely to all users in a subscription/tenant, while the community gallery distributes images publicly. It is recommended to exercise caution when sharing images that contain intellectual property to prevent widespread distribution.
+
 ## Disclaimer
 
 [!INCLUDE [community-gallery-artifacts](./includes/community-gallery-artifacts.md)]
@@ -42,7 +43,7 @@ There are three main ways to share images in an Azure Compute Gallery, depending
 ## Limitations for images shared to the community
 
 There are some limitations for sharing your gallery to the community:
-- You can't convert an existing private gallery to Community gallery.
+- You can't convert an existing private gallery(RBAC enabled gallery) to Community gallery.
 - You can't use a third party image from Marketplace and publish it to the community. For a list of approved operating system base images, please see: [approved base images](https://go.microsoft.com/fwlink/?linkid=2245050).
 - Encrypted images are not supported
 - Image resources need to be created in the same region as the gallery. For example, if you create a gallery in West US, the image definitions and image versions should be created in West US if you want to make them available.
@@ -117,6 +118,26 @@ You can also use the following links to report issues, but the forms won't be pr
 ## Best practices
 
 - Images published to the community gallery should be [generalized](generalize.md) images that have had sensitive or machine specific information removed. For more information about preparing an image, see the OS specific information for [Linux](./linux/create-upload-generic.md) or [Windows](./windows/prepare-for-upload-vhd-image.md).
+- If you would like to block sharing images to Community at the organization level, create an Azure policy with the following policy rule to deny sharing to Community.
+```
+  "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Compute/galleries"
+          },
+          {
+            "field": "Microsoft.Compute/galleries/sharingProfile.permissions",
+            "equals": "Community"
+          }
+        ]
+      },
+      "then": {
+        "effect": "[parameters('effect')]"
+      }
+    }
+```
 ## FAQ
 
 **Q: What are the charges for using a gallery that is shared to the community?**

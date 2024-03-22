@@ -1,5 +1,5 @@
 ---
-title: Managed computes in managed virtual network isolation (preview)
+title: Managed computes in managed virtual network isolation
 titleSuffix: Azure Machine Learning
 description: Use managed compute resources with managed virtual network isolation with Azure Machine Learning.
 services: machine-learning
@@ -14,7 +14,7 @@ ms.topic: how-to
 
 # Use managed compute in a managed virtual network
 
-Learn how to configure compute clusters or compute instances in an Azure Machine Learning managed virtual network (preview).
+Learn how to configure compute clusters or compute instances in an Azure Machine Learning managed virtual network.
 
 When using a managed network, compute resources managed by Azure Machine Learning can participate in the virtual network. Azure Machine Learning _compute clusters_, _compute instances_, and _managed online endpoints_ are created in the managed network.
 

@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: devx-track-java, ignite-2022, devx-track-extended-java
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # How to create a Java application that uses Azure Cosmos DB for NoSQL and change feed processor
@@ -23,7 +23,7 @@ Azure Cosmos DB is a fully managed NoSQL database service provided by Microsoft.
 
 ## Prerequisites
 
-* Azure Cosmos DB Account: you can create it from the [Azure portal](https://portal.azure.com/) or you can use [Azure Cosmos DB Emulator](../local-emulator.md) as well.
+* Azure Cosmos DB Account: you can create it from the [Azure portal](https://portal.azure.com/) or you can use [Azure Cosmos DB Emulator](../emulator.md) as well.
 
 * Java Development Environment: Ensure you have Java Development Kit (JDK) installed on your machine with at least 8 version.
 

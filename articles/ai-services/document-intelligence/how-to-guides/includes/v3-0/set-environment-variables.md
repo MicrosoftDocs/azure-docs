@@ -3,8 +3,7 @@ title: Environment variables in Windows, macOS, and Linux
 description: How to set environment variables for keys and endpoint
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: include
 ms.date: 08/21/2023
 ms.author: lajanuar

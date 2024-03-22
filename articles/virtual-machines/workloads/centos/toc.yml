@@ -1,0 +1,4 @@
+- name: CentOS
+  items:
+  - name: CentOS End-Of-Life guidance
+    href: centos-end-of-life.md

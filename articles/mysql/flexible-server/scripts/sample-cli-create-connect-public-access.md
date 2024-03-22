@@ -1,6 +1,6 @@
 ---
-title: CLI script - Create an Azure Database for MySQL - Flexible Server and enable public access connectivity
-description: This Azure CLI sample script shows how to create a Azure Database for MySQL - Flexible Server, configure a server-level firewall rule (public access connectivity method) and connect to the server.
+title: CLI script - Create and enable public access connectivity
+description: This Azure CLI sample script shows how to create a Azure Database for MySQL - Flexible Server instance, configure a server-level firewall rule (public access connectivity method), and connect to the server.
 author: shreyaaithal
 ms.author: shaithal
 ms.service: mysql
@@ -11,7 +11,9 @@ ms.custom: mvc, devx-track-azurecli
 ms.date: 02/10/2022 
 ---
 
-# Create an Azure Database for MySQL - Flexible Server and enable public access connectivity using Azure CLI
+# Create an Azure Database for MySQL - Flexible Server instance and enable public access connectivity using Azure CLI
+
+[!INCLUDE[applies-to-mysql-flexible-server](../../includes/applies-to-mysql-flexible-server.md)]
 
 This sample CLI script creates an Azure Database for MySQL - Flexible Server, configures a server-level firewall rule ([public access connectivity method](../concepts-networking-public.md)) and connects to the server after creation.
 
@@ -22,7 +24,7 @@ Once the script runs successfully, the MySQL Flexible Server will be accessible 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/flexible-server-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 

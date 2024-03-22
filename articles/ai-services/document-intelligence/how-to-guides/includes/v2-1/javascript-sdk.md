@@ -3,8 +3,7 @@ title: "Use Document Intelligence (formerly Form Recognizer) SDK for JavaScript 
 description: Use the Document Intelligence SDK for JavaScript (REST API v2.1) to create a forms processing app that extracts key data from documents.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: include
 ms.date: 08/21/2023
 ms.author: lajanuar

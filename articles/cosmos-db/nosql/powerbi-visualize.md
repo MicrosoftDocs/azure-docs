@@ -73,7 +73,7 @@ To build a Power BI report/dashboard:
    > [!NOTE]
    >  Your Azure Cosmos DB container proprieties will be represented as columns in T-SQL views, including deep nested JSON data. This is a quick start for your BI dashboards. These views will be available in your Synapse workspace/database; you can also use these exact same views in Synapse Workspace for data exploration, data science, data engineering, etc. Please note that advanced scenarios may demand more complex views or fine tuning of these views, for better performance. For more information. see [best practices for Synapse Link when using Synapse serverless SQL pools](../../synapse-analytics/sql/resources-self-help-sql-on-demand.md#azure-cosmos-db-performance-issues) article.
     
-1. You can either choose an existing workspace or create a new one. To select an existing workspace, provide the **Subscription**, **Workspace**, and the **Database** details. Azure portal will use your Azure AD credentials to automatically connect to your Synapse workspace and create T-SQL views. Make sure you have "Synapse administrator" permissions to this workspace.
+1. You can either choose an existing workspace or create a new one. To select an existing workspace, provide the **Subscription**, **Workspace**, and the **Database** details. Azure portal will use your Microsoft Entra credentials to automatically connect to your Synapse workspace and create T-SQL views. Make sure you have "Synapse administrator" permissions to this workspace.
 
    :::image type="content" source="../media/integrated-power-bi-synapse-link/synapse-create-views.png" alt-text="Connect to Synapse Link workspace and create views." border="true" lightbox="../media/integrated-power-bi-synapse-link/synapse-create-views.png":::
 
@@ -118,7 +118,7 @@ To build a Power BI report/dashboard:
 
 9. Click and expand on the database where the data for the report comes from. Now, select a collection that contains the data to retrieve.
     
-    The Preview pane shows a list of **Record** items.  A Document is represented as a **Record** type in Power BI. Similarly, a nested JSON block inside a document is also a **Record**. To view the the properties documents as columns, click on the grey button with 2 arrows in opposite directions that symbolize the expansion of the record. It's located on the right of the container's name, in the same preview pane.
+    The Preview pane shows a list of **Record** items.  A Document is represented as a **Record** type in Power BI. Similarly, a nested JSON block inside a document is also a **Record**. To view the properties documents as columns, click on the grey button with 2 arrows in opposite directions that symbolize the expansion of the record. It's located on the right of the container's name, in the same preview pane.
 
 10. Power BI Desktop Report view is where you can start creating reports to visualize data.  You can create reports by dragging and dropping fields into the **Report** canvas.
 

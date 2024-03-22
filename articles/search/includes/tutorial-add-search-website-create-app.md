@@ -1,9 +1,11 @@
 ---
 ms.topic: include
-ms.date: 08/29/2023
+ms.date: 09/21/2023
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ---
 
 Deploy the search-enabled website as an Azure Static Web Apps site. This deployment includes both the React app and the Function app.  
@@ -12,7 +14,7 @@ The static web app pulls the information and files for deployment from GitHub us
 
 ## Create a Static Web App in Visual Studio Code
 
-1. In Visual Studio Code, open a folder at the repository root (`azure-search-javascript-samples`).
+1. In Visual Studio Code, open a folder at the repository root (for example, `azure-search-javascript-samples`).
 
 1. Select **Azure** from the Activity Bar, then open **Resources** from the side bar. 
 
@@ -37,8 +39,8 @@ The static web app pulls the information and files for deployment from GitHub us
     |Select a SKU | Select the free SKU for this tutorial.|
     |Select a location for new resources. | For Node.js: Select `West US 2` during the Azure Function programming model (PM) v4 preview. For C# and Python, select a region near you. |
     |Choose build preset to configure default project structure. |Select **Custom**. |
-    |Select the location of your client application code | `search-website-functions-v4/client-v4`<br><br>This is the path, from the root of the repository, to your static web app. |
-    |Select the location of your Azure Functions code | `search-website-functions-v4/api-v4`<br><br>This is the path, from the root of the repository, to your static web app. If there are no other functions in the repository, you won't be prompted for the function code location. Currently, you'll need to perform extra steps to ensure the function code location is correct. These steps are performed after the resource is created and are documented in this article. |
+    |Select the location of your client application code | `search-website-functions-v4/client`<br><br>This is the path, from the root of the repository, to your static web app. |
+    |Select the location of your Azure Functions code | `search-website-functions-v4/api`<br><br>This is the path, from the root of the repository, to your static web app. If there are no other functions in the repository, you won't be prompted for the function code location. Currently, you'll need to perform extra steps to ensure the function code location is correct. These steps are performed after the resource is created and are documented in this article. |
     |Enter the path of your build output... | `build`<br><br>This is the path, from your static web app, to your generated files.|
 
     If you get an error about an incorrect region, make sure the resource group and static web app resource are in one of the supported regions listed in the error response. 
@@ -64,8 +66,8 @@ The static web app pulls the information and files for deployment from GitHub us
    1. Change the path syntax to use a forward slash (only `api_location` needs editing, other locations are here for context):
 
       ```yml
-      app_location: "search-website-functions-v4/client-v4" # App source code path
-      api_location: "search-website-functions-v4/api-v4" # Api source code path - optional
+      app_location: "search-website-functions-v4/client" # App source code path
+      api_location: "search-website-functions-v4/api" # Api source code path - optional
       output_location: "build" # Built app content directory - optional
       ```
 
@@ -99,7 +101,7 @@ The static web app pulls the information and files for deployment from GitHub us
 
     :::code language="yml" source="~/azure-search-javascript-samples/search-website-functions-v4/example-github-action-v4.yml"::: -->
 
-## Get Cognitive Search query key in Visual Studio Code
+## Get the Azure AI Search query key in Visual Studio Code
 
 1. In Visual Studio Code, open a new terminal window.
 
@@ -133,7 +135,7 @@ The Azure Function app won't return search data until the search secrets are in 
     |SearchIndexName|`good-books`|
     |SearchFacets|`authors*,language_code`|
 
-    Azure Cognitive Search requires different syntax for filtering collections than it does for strings. Add a `*` after a field name to denote that the field is of type `Collection(Edm.String)`. This allows the Azure Function to add filters correctly to queries.
+    Azure AI Search requires different syntax for filtering collections than it does for strings. Add a `*` after a field name to denote that the field is of type `Collection(Edm.String)`. This allows the Azure Function to add filters correctly to queries.
 
 1. Select **Save** to save the settings. 
 

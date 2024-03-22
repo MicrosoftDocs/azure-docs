@@ -4,6 +4,11 @@
             "source_path_from_root": "/articles/attestation/audit-logs.md",
             "redirect_url": "/azure/attestation/view-logs",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/attestation/azure-diagnostic-monitoring.md",
+            "redirect_url": "/azure/attestation/enable-logging",
+            "redirect_document_id": true
         }
      ]
 }

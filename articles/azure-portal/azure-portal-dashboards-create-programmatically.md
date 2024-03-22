@@ -2,7 +2,7 @@
 title: Programmatically create Azure Dashboards
 description: Use a dashboard in the Azure portal as a template to programmatically create Azure Dashboards. Includes JSON reference.
 ms.topic: how-to
-ms.custom: devx-track-azurecli
+ms.custom:
 ms.date: 09/05/2023
 ---
 
@@ -81,8 +81,10 @@ Declare required template metadata and the parameters at the top of the JSON tem
         }
     },
     "variables": {},
-
-    ... rest of template omitted ...
+    "resources": [
+        ... rest of template omitted ...
+    ]
+}
 ```
 
 Once you've configured your template, deploy it using any of the following methods:

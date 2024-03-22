@@ -6,8 +6,7 @@ ms.subservice: tutorials
 ms.topic: conceptual
 ms.author: susabat
 author: ssabat
-ms.custom: seo-lt-2019
-ms.date: 10/18/2022
+ms.date: 10/20/2023
 ---
 
 # Templates

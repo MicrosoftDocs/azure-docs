@@ -20,6 +20,9 @@ NAT gateway can be integrated with Azure Firewall by configuring NAT gateway dir
 
 :::image type="content" source="./media/tutorial-hub-spoke-nat-firewall/resources-diagram.png" alt-text="Diagram of Azure resources created in tutorial." lightbox="./media/tutorial-hub-spoke-nat-firewall/resources-diagram.png":::
 
+>[!NOTE]
+>Azure NAT Gateway is not currently supported in secured virtual hub network (vWAN) architectures. You must deploy using a hub virtual network architecture as described in this tutorial. For more information about Azure Firewall architecture options, see [What are the Azure Firewall Manager architecture options?](/azure/firewall-manager/vhubs-and-vnets).
+
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
@@ -195,19 +198,19 @@ A virtual network peering is used to connect the hub to the spoke and the spoke 
     | ------- | ----- |
     | **This virtual network** |   |
     | Peering link name | Enter **vnet-hub-to-vnet-spoke**. |
-    | Allow access to remote virtual network | Leave the default of **Selected**. |
-    | Allow traffic to remote virtual network | **Select** the checkbox. |
-    | Allow traffic forwarded from the remote virtual network (allow gateway transit) | **Select** the checkbox.. |
-    | Use remote virtual network gateway or route server | Leave the default of **Unselected**. |
+    | Allow 'vnet-hub' to access 'vnet-spoke' | Leave the default of **Selected**. |
+    | Allow 'vnet-hub' to receive forwarded traffic from 'vnet-spoke' | **Select** the checkbox. |
+    | Allow gateway in 'vnet-hub' to forward traffic to 'vnet-spoke' | Leave the default of **Unselected**. |
+    | Enable 'vnet-hub' to use 'vnet-spoke's' remote gateway | Leave the default of **Unselected**. |
     | **Remote virtual network** |   |
     | Peering link name | Enter **vnet-spoke-to-vnet-hub**. |
     | Virtual network deployment model | Leave the default of **Resource manager**. |
     | Subscription | Select your subscription. |
     | Virtual network | Select **vnet-spoke**. |
-    | Allow access to current virtual network | Leave the default of **Selected**. |
-    | Allow traffic to current virtual network | **Select** the checkbox. |
-    | Allow traffic forwarded from the current virtual network (allow gateway transit) | **Select** the checkbox. |
-    | Use remote virtual network gateway or route server | Leave the default of **Unselected**. |
+    | Allow 'vnet-spoke' to access 'vnet-hub' | Leave the default of **Selected**. |
+    | Allow 'vnet-spoke' to receive forwarded traffic from 'vnet-hub' | **Select** the checkbox. |
+    | Allow gateway in 'vnet-spoke' to forward traffic to 'vnet-hub' | Leave the default of **Unselected**. |
+    | Enable 'vnet-spoke' to use 'vnet-hub's' remote gateway | Leave the default of **Unselected**. |
     
 1. Select **Add**.
 

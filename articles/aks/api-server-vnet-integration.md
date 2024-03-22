@@ -250,6 +250,14 @@ AKS clusters configured with API Server VNet Integration can have public network
     --disable-private-cluster
     ```
 
+## Connect to cluster using kubectl
+
+* Configure `kubectl` to connect to your cluster using the [`az aks get-credentials`][az-aks-get-credentials] command.
+
+    ```azurecli-interactive
+    az aks get-credentials -g <resource-group> -n <cluster-name>
+    ```
+
 ## Next steps
 
 For associated best practices, see [Best practices for network connectivity and security in AKS][operator-best-practices-network].
@@ -272,3 +280,4 @@ For associated best practices, see [Best practices for network connectivity and 
 [az-identity-create]: /cli/azure/identity#az-identity-create
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [ref-support-levels]: /cli/azure/reference-types-and-status
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials

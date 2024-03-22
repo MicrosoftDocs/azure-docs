@@ -6,11 +6,9 @@ summary: Use Azure Stack Edge devices to deliver Azure capabilities such as comp
 metadata:
   title: Azure Stack Edge documentation
   description: Azure Stack Edge Documentation for high-performance over-the-network data transfer to Azure.
-  services: databox
   ms.service: databox
   ms.subservice: edge
   ms.topic: landing-page
-  ms.collection: collection
   author: alkohli
   ms.author: alkohli
   ms.date: 02/09/2022

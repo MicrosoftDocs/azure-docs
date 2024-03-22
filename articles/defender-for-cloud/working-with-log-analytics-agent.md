@@ -4,7 +4,6 @@ description: Learn about how the Log Analytics agent collects data from your wor
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
-ms.custom: ignite-2022
 ms.date: 07/31/2023
 ---
 
@@ -71,7 +70,7 @@ When you select a data collection tier in Microsoft Defender for Cloud, the secu
 
 The enhanced security protections of Defender for Cloud are required for storing Windows security event data. Learn more about [the enhanced protection plans](defender-for-cloud-introduction.md).
 
-You may be charged for storing data in Log Analytics. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
+You might be charged for storing data in Log Analytics. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
 ### Information for Microsoft Sentinel users
 
@@ -139,7 +138,7 @@ To manually install the Log Analytics agent:
     1. Set the workspace on which you're installing the agent. Make sure the workspace is in the same subscription you use in Defender for Cloud and that you have read/write permissions for the workspace.
 
     1. Select one or both "Servers" or "SQL servers on machines"(Foundational CSPM is the free default), and then select **Save**.
-    
+
         :::image type="content" source="media/working-with-log-analytics-agent/apply-plan-to-workspace.png" alt-text="Screenshot that shows where to set the workspace on which you're installing the agent." lightbox="media/working-with-log-analytics-agent/apply-plan-to-workspace.png":::
 
        >[!NOTE]

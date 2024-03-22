@@ -151,7 +151,7 @@ In this tutorial, you use a sample Node.js IoT solution to interact with the sam
 In this scenario, it outputs `Model Id: dtmi:com:example:Thermostat;1`.
 
 > [!NOTE]
-> These service samples use the **Registry** class from the **IoT Hub service client**. To learn more about the APIs, including the digital twins API, see the [service developer guide](../articles/iot-develop/concepts-developer-guide-service.md).
+> These service samples use the **Registry** class from the **IoT Hub service client**. To learn more about the APIs, including the digital twins API, see the [service developer guide](../articles/iot/concepts-developer-guide-service.md).
 
 ### Update a writable property
 

@@ -27,4 +27,10 @@ The following table describes the mapping between geography and supported Azure 
 | Europe| West Europe, North Europe | eu.atlas.microsoft.com |
 |United States | West US 2, East US 2 | us.atlas.microsoft.com |
 
+## Next steps
+
+> [!div class="nextstepaction"]
+> [What is Azure Maps Creator?]
+
 [Azure geographies]: https://azure.microsoft.com/global-infrastructure/geographies
+[What is Azure Maps Creator?]: about-creator.md

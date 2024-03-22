@@ -3,7 +3,7 @@ title: "Rubrik Security Cloud data connector (using Azure Functions) connector f
 description: "Learn how to install the connector Rubrik Security Cloud data connector (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 08/28/2023
+ms.date: 11/29/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -83,7 +83,8 @@ Use this method for automated deployment of the Rubrik connector.
 		Workspace Key 
 		Anomalies_table_name 
 		RansomwareAnalysis_table_name 
-		ThreatHunts_table_name 
+		ThreatHunts_table_name
+		LogLevel 
  
 4. Mark the checkbox labeled **I agree to the terms and conditions stated above**. 
 5. Click **Purchase** to deploy.
@@ -131,6 +132,7 @@ If you're already signed in, go to the next step.
 		Anomalies_table_name
 		RansomwareAnalysis_table_name
 		ThreatHunts_table_name
+		LogLevel
 		logAnalyticsUri (optional)
  - Use logAnalyticsUri to override the log analytics API endpoint for dedicated cloud. For example, for public cloud, leave the value empty; for Azure GovUS cloud environment, specify the value in the following format: `https://<CustomerId>.ods.opinsights.azure.us`. 
 4. Once all application settings have been entered, click **Save**.
@@ -140,26 +142,29 @@ If you're already signed in, go to the next step.
 
 
 
+Step 1 - Get the Function app endpoint
 
-**STEP 1 - To get the Azure Function url**
+1. Go to Azure function Overview page and Click on **"Functions"** tab.
+2. Click on the function called **"RubrikHttpStarter"**.
+3. Go to **"GetFunctionurl"** and copy the function url.
 
- 1. Go to Azure function Overview page and Click on "Functions" in the left blade.
- 2. Click on the Rubrik defined function for the event.
- 3. Go to "GetFunctionurl" and copy the function url.
+Step 2 -  Add a webhook in RubrikSecurityCloud to send data to Microsoft Sentinel.
 
-
-**STEP 2 - Follow the Rubrik User Guide instructions to [Add a Webhook](https://docs.rubrik.com/en-us/saas/saas/common/adding_webhook.html) to begin receiving event information related to Ransomware Anomalies.**
-
+Follow the Rubrik User Guide instructions to [Add a Webhook](https://docs.rubrik.com/en-us/saas/saas/common/adding_webhook.html) to begin receiving event information related to Ransomware Anomalies 
  1. Select the Generic as the webhook Provider(This will use CEF formatted event information)
- 2. Enter the Function App URL as the webhook URL endpoint for the Rubrik Microsoft Sentinel Solution
- 3. Select the Custom Authentication option 
+ 2. Enter the URL part from copied Function-url as the webhook URL endpoint and replace **{functionname}**  with **"RubrikAnomalyOrchestrator"**, for the Rubrik Microsoft Sentinel Solution 
+ 3. Select the Advanced or Custom Authentication option 
  4. Enter x-functions-key as the HTTP header 
- 5. Enter the Function access key as the HTTP value(Note: if you change this function access key in Microsoft Sentinel in the future you will need to update this webhook configuration)
- 6. Select the following Event types: Anomaly, Ransomware Investigation Analysis, Threat Hunt 
- 7. Select the following severity levels: Critical, Warning, Informational
+ 5. Enter the Function access key(value of code parameter from copied function-url) as the HTTP value(Note: if you change this function access key in Microsoft Sentinel in the future you will need to update this webhook configuration) 
+ 6. Select the EventType as Anomaly 
+ 7. Select the following severity levels: Critical, Warning, Informational 
+ 8. Repeat the same steps to add webhooks for Ransomware Investigation Analysis and Threat Hunt. 
+
+ >[!NOTE]
+ > While adding webhooks for Ransomware Investigation Analysis and Threat Hunt, replace **{functionname}**  with **"RubrikRansomwareOrchestrator"** and **"RubrikThreatHuntOrchestrator"** respectively in copied function-url.
 
 
-*Now we are done with the rubrik Webhook configuration. Once the webhook events triggered , you should be able to see the Anomaly, Ransomware Analysis, ThreatHunt events from the Rubrik into respective LogAnalytics workspace table called "Rubrik_Anomaly_Data_CL", "Rubrik_Ransomware_Data_CL", "Rubrik_ThreatHunt_Data_CL".*
+*Now we are done with the rubrik Webhook configuration. Once the webhook events triggered , you should be able to see the Anomaly, Ransomware Investigation Analysis, Threat Hunt events from the Rubrik into respective LogAnalytics workspace table called "Rubrik_Anomaly_Data_CL", "Rubrik_Ransomware_Data_CL", "Rubrik_ThreatHunt_Data_CL".*
 
 
 

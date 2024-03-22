@@ -4,8 +4,9 @@ description: Learn how to use the intelligence of Cognitive capabilities in U-SQ
 ms.reviewer: whhender
 ms.service: data-lake-analytics
 ms.topic: how-to
-ms.date: 01/27/2023
+ms.date: 12/20/2023
 ---
+
 # Get started with the Cognitive capabilities of U-SQL
 
 ## Overview

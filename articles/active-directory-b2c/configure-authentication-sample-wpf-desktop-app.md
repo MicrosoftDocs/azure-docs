@@ -1,16 +1,20 @@
 ---
 title: Configure authentication in a sample WPF desktop application by using Azure Active Directory B2C
 description:  This article discusses how to use Azure Active Directory B2C to sign in and sign up users in a WPF desktop application.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 08/04/2021
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
+
+
+#Customer intent: As a developer creating a WPF desktop app, I want to configure authentication using Azure AD B2C, so that I can securely sign users into my application and call a protected web API.
+
 ---
 
 # Configure authentication in a sample WPF desktop app by using Azure AD B2C

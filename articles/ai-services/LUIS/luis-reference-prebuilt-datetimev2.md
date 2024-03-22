@@ -2,15 +2,14 @@
 title: DatetimeV2 Prebuilt entities - LUIS
 titleSuffix: Azure AI services
 description: This article has datetimeV2 prebuilt entity information in Language Understanding (LUIS).
-services: cognitive-services
+#services: cognitive-services
 ms.author: aahi
 author: aahill
 manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
+ms.service: azure-ai-language
+ms.subservice: azure-ai-luis
 ms.topic: reference
-ms.date: 04/13/2020
+ms.date: 01/19/2024
 ---
 
 # DatetimeV2 prebuilt entity for a LUIS app
@@ -680,7 +679,6 @@ To replace `datetime` with `datetimeV2` in your LUIS app, complete the following
 
 ## Next steps
 
-Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
+
 
 Learn about the [dimension](luis-reference-prebuilt-dimension.md), [email](luis-reference-prebuilt-email.md) entities, and [number](luis-reference-prebuilt-number.md).
-

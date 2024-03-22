@@ -1,9 +1,9 @@
 ---
-author: alkohli
+author: stevenmatthew
 ms.service: databox  
 ms.topic: include
 ms.date: 03/05/2019
-ms.author: alkohli
+ms.author: shaas
 ---
 
 If you experience any device issues, you can create a support package from the system logs. Microsoft Support uses this package to troubleshoot the issues. Follow these steps to create a support package:
@@ -34,3 +34,4 @@ If you experience any device issues, you can create a support package from the s
     - `-IncludePeriodicStats` - Specify to include periodic stat logs in the support package.
 
     
+

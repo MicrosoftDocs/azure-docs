@@ -2,9 +2,7 @@
 title: Submit a workflow using FASTQ file inputs
 titleSuffix: Microsoft Genomics
 description: This article demonstrates how to submit a workflow to the Microsoft Genomics service if your input files are a single pair of FASTQ files. 
-services: genomics
 author: vigunase
-manager: cgronlun
 ms.author: vigunase
 ms.service: genomics
 ms.topic: conceptual

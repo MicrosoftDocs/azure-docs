@@ -2,7 +2,7 @@
 title: Post event to custom Azure Event Grid topic
 description: This article describes how to post an event to a custom topic. It shows the format of the post and event data.
 ms.topic: conceptual
-ms.date: 11/17/2022 
+ms.date: 01/18/2024 
 ---
 
 # Publish events to Azure Event Grid custom topics using access keys
@@ -11,7 +11,7 @@ This article describes how to post an event to a custom topic using an access ke
 
 
 > [!NOTE]
-> Azure AD authentication provides a superior authentication support than that's offered by access key or Shared Access Signature (SAS) token authentication. With Azure AD authentication, the identity is validated against Azure AD identity provider. As a developer, you won't have to handle keys in your code if you use Azure AD authentication. you'll also benefit from all security features built into the Microsoft Identity platform, such as Conditional Access, that can help you improve your application's security stance. For more information, see [Authenticate publishing clients using Azure Active Directory](authenticate-with-active-directory.md).
+> Microsoft Entra authentication provides a superior authentication support than that's offered by access key or Shared Access Signature (SAS) token authentication. With Microsoft Entra authentication, the identity is validated against Microsoft Entra identity provider. As a developer, you won't have to handle keys in your code if you use Microsoft Entra authentication. you'll also benefit from all security features built into the Microsoft identity platform, such as Conditional Access, that can help you improve your application's security stance. For more information, see [Authenticate publishing clients using Microsoft Entra ID](authenticate-with-microsoft-entra-id.md).
 
 ## Endpoint
 

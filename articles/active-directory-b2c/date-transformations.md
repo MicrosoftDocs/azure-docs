@@ -1,17 +1,21 @@
 ---
 title: Date claims transformation examples for custom policies
 description: Date claims transformation examples for the Identity Experience Framework (IEF) schema of Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 02/16/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
+
+
+#Customer intent: As a developer using Azure AD B2C, I want to understand how to use date claims transformations, so that I can manipulate and compare dates in my authentication and authorization processes.
+
 ---
 
 # Date claims transformations

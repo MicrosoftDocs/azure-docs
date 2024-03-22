@@ -3,7 +3,7 @@ title: Industrial IoT patterns with Azure IoT Central
 description: This article introduces common Industrial IoT patterns that you can implement using Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/28/2022
+ms.date: 03/01/2024
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -22,6 +22,8 @@ IoT Central lets you evaluate your IIoT scenario by using the following built-in
 - Integrate and extend your solution by connecting to first and third party applications and services
 
 By using the Azure IoT platform, IoT Central lets you evaluate solutions that are scalable and secure.
+
+To set up a sample to evaluate a solution, see [Ingest Industrial Data with Azure IoT Central and Calculate OEE](https://github.com/Azure-Samples/iotc-solution-builder).
 
 ## Connect your industrial assets
 
@@ -74,7 +76,7 @@ Secure your IIoT solution by using the following IoT Central features:
 
 - Create private endpoints to limit and secure industrial assets/gateway connectivity to your Azure IoT Central application with Private Link.
 
-- Ensure safe, secure data exports with Azure Active Directory managed identities.
+- Ensure safe, secure data exports with Microsoft Entra managed identities.
 
 - Use audit logs to track activity in your IoT Central application.
 
@@ -137,4 +139,3 @@ Industrial networks are crucial to the working of a manufacturing facility. With
 ## Next steps
 
 Now that you've learned about IIoT architecture patterns with Azure IoT Central, the suggested next step is to learn about [device connectivity](overview-iot-central-developer.md) in Azure IoT Central.
-

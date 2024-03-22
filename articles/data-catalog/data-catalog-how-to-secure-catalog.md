@@ -3,7 +3,7 @@ title: How to secure access to Azure Data Catalog
 description: This article explains how to secure a data catalog and its data assets in Azure Data Catalog.
 ms.service: data-catalog
 ms.topic: how-to
-ms.date: 12/16/2022
+ms.date: 12/13/2023
 ---
 # How to secure access to data catalog and data assets
 
@@ -28,7 +28,7 @@ To give a user or a group the access to a data catalog and set permissions:
 
 3. Select **Add**.
 
-4. Enter the fully qualified **user name** or name of the **security group** in the Microsoft Azure Active Directory (Azure AD) associated with the catalog. Use comma (`,’) as a separator if you're adding more than one user or group.
+4. Enter the fully qualified **user name** or name of the **security group** in the Microsoft Entra ID associated with the catalog. Use comma (`,’) as a separator if you're adding more than one user or group.
 
    :::image type="content" source="media/data-catalog-how-to-secure-catalog/data-catalog-users-groups.png" alt-text="Example user name and security groups added in the space, with a comma separating the two.":::
 
@@ -55,7 +55,3 @@ To give a user or a group the access to a data catalog and set permissions:
 
 - The permissions assigned to security groups are additive. For example: a user is in two groups. One group has annotate permissions and other group doesn't have annotate permissions. Then, the user has annotate permissions. 
 - The permissions assigned explicitly to a user override the permissions assigned to groups to which the user belongs. For example: A user is in a group that has annotate permissions. If you explicitly add the user to catalog users and don't assign annotate permissions, then the user can’t annotate data assets. The explicit permission on the user overrides the group permissions.
-
-## Next steps
-
-- [Get started with Azure Data Catalog](data-catalog-get-started.md)

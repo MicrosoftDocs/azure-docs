@@ -4,9 +4,7 @@ title: Azure Automation documentation
 metadata:
   title: Azure Automation documentation
   description: Learn how to use Automation to configure and automate operational tasks across a hybrid environment.
-  services: automation
   author: SnehaSudhirG
-  manager: evansma
   ms.service: automation
   ms.topic: landing-page
   ms.date: 08/30/2022
@@ -31,9 +29,7 @@ landingContent:
             url: ./learn/powershell-runbook-managed-identity.md
       - linkListType: deploy
         links:
-          - text: Start/Stop VMs during off-hours
-            url: automation-solution-vm-management.md
-          - text: Change tracking and inventory using Azure Monitoring Agent (Preview)
+          - text: Change tracking and inventory using Azure Monitoring Agent
             url:  change-tracking/overview-monitoring-agent.md
 
   - title: Manage Updates for VMs

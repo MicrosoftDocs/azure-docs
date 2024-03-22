@@ -53,7 +53,9 @@ To learn about how to get, set, and update the access control lists (ACL) of dir
 
 Choose how you want your commands to obtain authorization to the storage account.
 
-### Option 1: Obtain authorization by using Azure Active Directory (Azure AD)
+<a name='option-1-obtain-authorization-by-using-azure-active-directory-azure-ad'></a>
+
+### Option 1: Obtain authorization by using Microsoft Entra ID
 
 With this approach, the system ensures that your user account has the appropriate Azure role-based access control (Azure RBAC) assignments and ACL permissions.
 

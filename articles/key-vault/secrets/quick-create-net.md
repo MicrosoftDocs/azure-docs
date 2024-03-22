@@ -167,7 +167,11 @@ In this example, the name of your key vault is expanded to the key vault URI, in
 
 ### Save a secret
 
-Now that the console app is authenticated, add a secret to the key vault. For this task, use the [SetSecretAsync](/dotnet/api/azure.security.keyvault.secrets.secretclient.setsecretasync) method. The method's first parameter accepts a name for the secret&mdash;"mySecret" in this sample.
+Now that the console app is authenticated, add a secret to the key vault. For this task, use the [SetSecretAsync](/dotnet/api/azure.security.keyvault.secrets.secretclient.setsecretasync) method.
+
+The method's first parameter accepts a name for the secret. In this sample, the variable `secretName` stores the string "mySecret".
+
+The method's second parameter accepts a value for the secret. In this sample, the secret is input by the user via the commandline and stored in the variable `secretValue`.
 
 ```csharp
 await client.SetSecretAsync(secretName, secretValue);
@@ -175,7 +179,6 @@ await client.SetSecretAsync(secretName, secretValue);
 
 > [!NOTE]
 > If secret name exists, the code will create new version of that secret.
-
 
 ### Retrieve a secret
 
@@ -189,14 +192,14 @@ Your secret is now saved as `secret.Value`.
 
 ### Delete a secret
 
-Finally, let's delete the secret from your key vault with the [StartDeleteSecretAsync](/dotnet/api/azure.security.keyvault.secrets.secretclient.startdeletesecretasync) and [PurgeDeletedSecretAsync](/dotnet/api/azure.security.keyvault.keys.keyclient) methods.
+Finally, let's delete the secret from your key vault with the [StartDeleteSecretAsync](/dotnet/api/azure.security.keyvault.secrets.secretclient.startdeletesecretasync) and [PurgeDeletedSecretAsync](/dotnet/api/azure.security.keyvault.secrets.secretclient.purgedeletedsecretasync) methods.
 
 ```csharp
-var operation = await client.StartDeleteSecretAsync("mySecret");
+var operation = await client.StartDeleteSecretAsync(secretName);
 // You only need to wait for completion if you want to purge or recover the key.
 await operation.WaitForCompletionAsync();
 
-await client.PurgeDeletedSecretAsync("mySecret");
+await client.PurgeDeletedSecretAsync(secretName);
 ```
 
 ## Sample code

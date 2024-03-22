@@ -1,12 +1,11 @@
 ---
 title: Azure Virtual Desktop environment host pool creation - Azure
-description: How to troubleshoot and resolve tenant and host pool issues during setup of a Azure Virtual Desktop environment.
+description: How to troubleshoot and resolve tenant and host pool issues during setup of an Azure Virtual Desktop environment.
 author: Heidilohr
 ms.topic: troubleshooting
 ms.custom: references_regions, devx-track-arm-template
 ms.date: 02/17/2021
 ms.author: helohr
-manager: femila
 ---
 # Host pool creation
 
@@ -44,7 +43,7 @@ If your operation goes over the quota limit, you can do one of the following thi
 
 ### Error: Can't see user assignments in application groups.
 
-**Cause**: This error usually happens after you've moved the subscription from one Azure Active Directory tenant to another. If your old assignments are still tied to the previous Azure Active Directory tenant, the Azure portal will lose track of them.
+**Cause**: This error usually happens after you've moved the subscription from one Microsoft Entra tenant to another. If your old assignments are still tied to the previous Microsoft Entra tenant, the Azure portal will lose track of them.
 
 **Fix**: You'll need to reassign users to application groups.
 

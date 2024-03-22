@@ -6,7 +6,6 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.author: thvankra
-ms.custom: ignite-fall-2021, ignite-2022
 ---
 
 # Use Azure portal to add Azure Cosmos DB service principal

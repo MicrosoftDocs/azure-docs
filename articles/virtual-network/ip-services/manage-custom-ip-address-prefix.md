@@ -51,7 +51,7 @@ Use the following CLI and PowerShell commands to create public IP prefixes with 
 
 The example derivation of a public IP prefix from a custom IP prefix using PowerShell is shown as follows:
 
- ```azurepowershell-interactive
+```azurepowershell-interactive
 Set-AzContext -Subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 $customprefix = Get-AzCustomIpPrefix -Name myBYOIPPrefix -ResourceGroupName myResourceGroup
 Set-AzContext -Subscription yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy
@@ -92,12 +92,12 @@ The operation is asynchronous. You can check the status by reviewing the **Commi
 
 Use the following example PowerShell to put a custom IP prefix range into this state.
 
- ```azurepowershell-interactive
+```azurepowershell-interactive
 Update-AzCustomIpPrefix 
 (other arguments)
 -Commission
 -NoInternetAdvertise
- ```
+```
 
 ## View a custom IP prefix
 
@@ -126,8 +126,8 @@ The following commands can be used in Azure CLI and Azure PowerShell to begin th
 |Tool|Command|
 |---|---|
 |Azure portal|Use the **Decommission** option in the Overview section of a Custom IP Prefix |
-|CLI|[az network custom-ip prefix update](/cli/azure/network/public-ip/prefix#az-network-custom-ip-prefix-update) with the flag to `-Decommission` |
-|PowerShell|[Update-AzCustomIpPrefix](/powershell/module/az.network/update-azcustomipprefix) with the `--state` flag set to decommission |
+|CLI|[az network custom-ip prefix update](/cli/azure/network/public-ip/prefix#az-network-custom-ip-prefix-update) with `--state` flag set to decommission |
+|PowerShell|[Update-AzCustomIpPrefix](/powershell/module/az.network/update-azcustomipprefix) with the flag to `-Decommission`  |
 
 Alternatively, a custom IP prefix can be decommissioned via the Azure portal using the **Decommission** button in the **Overview** section of the custom IP prefix.
 
@@ -137,12 +137,12 @@ A custom IP prefix must be clear of public IP prefixes before it can be put into
 
 The command is similar as the one from earlier on this page:
 
- ```azurepowershell-interactive
+```azurepowershell-interactive
 Update-AzCustomIpPrefix 
 (other arguments)
 -Decommission
 -NoInternetAdvertise
- ```
+```
 
 The operation is asynchronous. You can check the status by reviewing the **Commissioned state** field for the custom IP prefix. Initially, the status will show the prefix as **InternetDecommissioningInProgress**, followed in the future by **CommissionedNoInternetAdvertise**. The advertisement to the Internet isn't binary and the range is partially advertised while still in the **InternetDecommissioningInProgress** status.
 
@@ -162,8 +162,8 @@ The following commands can be used in Azure CLI and Azure PowerShell to deprovis
 |Tool|Command|
 |---|---|
 |Azure portal|Use the **Deprovision** option in the Overview section of a Custom IP Prefix |
-|CLI|[az network custom-ip prefix update](/cli/azure/network/public-ip/prefix#az-network-custom-ip-prefix-update) with the flag to `-Deprovision` <br>[az network custom-ip prefix delete](/cli/azure/network/public-ip/prefix#az-network-custom-ip-prefix-delete) to remove|
-|PowerShell|[Update-AzCustomIpPrefix](/powershell/module/az.network/update-azcustomipprefix) with the `--state` flag set to deprovision<br>[Remove-AzCustomIpPrefix](/powershell/module/az.network/update-azcustomipprefix) to remove|
+|CLI|[az network custom-ip prefix update](/cli/azure/network/public-ip/prefix#az-network-custom-ip-prefix-update) with the `--state` flag set to deprovision <br>[az network custom-ip prefix delete](/cli/azure/network/public-ip/prefix#az-network-custom-ip-prefix-delete) to remove|
+|PowerShell|[Update-AzCustomIpPrefix](/powershell/module/az.network/update-azcustomipprefix)with the flag to `-Deprovision` <br>[Remove-AzCustomIpPrefix](/powershell/module/az.network/remove-azcustomipprefix) to remove|
 
 Alternatively, a custom IP prefix can be decommissioned via the Azure portal using the **Deprovision** button in the **Overview** section of the custom IP prefix, and then deleted using the **Delete** button in the same section.
 

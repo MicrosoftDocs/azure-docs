@@ -2,16 +2,21 @@
 title: Define a phone factor technical profile in a custom policy
 titleSuffix: Azure AD B2C
 description: Define a phone factor technical profile in a custom policy in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 10/12/2020
+ms.date: 01/11/2024
+
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer implementing phone number verification in Azure AD B2C, I want to define a phone factor technical profile, so that I can provide a user interface for users to verify or enroll their phone numbers, support multiple phone numbers, and return claims indicating the status of the phone number.
+
 ---
 
 # Define a phone factor technical profile in an Azure Active Directory B2C custom policy
@@ -94,6 +99,7 @@ The **CryptographicKeys** element is not used.
 | setting.authenticationMode | No | The method to validate the phone number. Possible values: `sms`, `phone`, or `mixed` (default).|
 | setting.autodial| No| Specify whether the technical profile should auto dial or auto send an SMS. Possible values: `true`, or `false` (default). Auto dial requires the `setting.authenticationMode` metadata be set to `sms`, or `phone`. The input claims collection must have a single phone number. |
 | setting.autosubmit | No | Specifies whether the technical profile should auto submit the one-time password entry form. Possible values are `true` (default), or `false`. When auto-submit is turned off, the user needs to select a button to progress the journey. |
+| setting.enableCaptchaChallenge | No | Specifies whether CAPTCHA challenge code should be displayed in an MFA flow. Possible values: `true` , or `false` (default). For this setting to work, the [CAPTCHA display control]() must be referenced in the display claims of the phone factor technical profile. [CAPTCHA feature](add-captcha.md) is in **public preview**.|
 
 ### UI elements
 

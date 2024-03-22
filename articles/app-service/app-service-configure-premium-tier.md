@@ -7,8 +7,7 @@ ms.topic: article
 ms.date: 08/29/2023
 ms.author: msangapu
 author: msangapu-msft
-ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
-
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Configure Premium V3 tier for Azure App Service

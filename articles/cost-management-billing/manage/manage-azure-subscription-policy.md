@@ -5,7 +5,7 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 12/06/2022
+ms.date: 03/21/2024
 ms.reviewer: sgautam
 ms.author: banders
 ---
@@ -23,11 +23,11 @@ This article helps you configure Azure subscription policies for subscription op
 
 Use the following policy settings to control the movement of Azure subscriptions from and into directories.
 
-### Subscriptions leaving AAD directory
+### Subscriptions leaving a Microsoft Entra ID directory
 
 The policy allows or stops users from moving subscriptions out of the current directory. [Subscription owners](../../role-based-access-control/built-in-roles.md#owner) can [change the directory of an Azure subscription](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md) to another one where they're a member. It poses governance challenges, so global administrators can allow or disallow directory users from changing the directory.
 
-### Subscriptions entering AAD directory
+### Subscriptions entering a Microsoft Entra ID directory
 
 The policy allows or stops users from other directories, who have access in the current directory, to move subscriptions into the current directory. [Subscription owners](../../role-based-access-control/built-in-roles.md#owner) can [change the directory of an Azure subscription](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md) to another one where they're a member. It poses governance challenges, so global administrators can allow or disallow directory users from changing the directory.
 

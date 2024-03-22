@@ -4,15 +4,16 @@ titleSuffix: Azure AI services
 description: Key ideas and concepts for the Metrics Advisor service
 author: mrbullwinkle
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: metrics-advisor
-ms.custom: applied-ai-non-critical-metrics-advisor, ignite-2022
+ms.service: azure-ai-metrics-advisor
+ms.custom: applied-ai-non-critical-metrics-advisor
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 01/19/2024
 ms.author: mbullwin
 ---
 
 # Metrics Advisor glossary of common vocabulary and concepts
+
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 This document explains the technical terms used in Metrics Advisor. Use this article to learn about common concepts and objects you might encounter when using the service.
 

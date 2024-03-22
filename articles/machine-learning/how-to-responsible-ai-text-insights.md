@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to generate Responsible AI text insights with Python and YAML in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: enterprise-readiness
+ms.subservice: rai
 ms.topic:  how-to
 ms.reviewer: lagayhar
 ms.author: wenxwei
@@ -113,7 +113,7 @@ rai_text_insights_component = ml_client_registry.components.get(
 #Then inside the pipeline:  
         # Initiate the RAI Text Insights 
         rai_text_job = rai_text_insights_component( 
-            title=”From Python”, 
+            title="From Python", 
             task_type="text_classification", 
             model_info=expected_model_id, 
             model_input=Input(type=AssetTypes.MLFLOW_MODEL, path= "<azureml:model_name:model_id>"), 

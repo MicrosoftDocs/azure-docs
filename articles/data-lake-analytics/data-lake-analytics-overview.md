@@ -4,8 +4,9 @@ description: Data Lake Analytics lets you drive your business using insights gai
 ms.reviewer: whhender
 ms.service: data-lake-analytics
 ms.topic: overview
-ms.date: 10/17/2022
+ms.date: 12/20/2023
 ---
+
 # What is Azure Data Lake Analytics?
 
 Azure Data Lake Analytics is an on-demand analytics job service that simplifies big data. Instead of deploying, configuring, and tuning hardware, you write queries to transform your data and extract valuable insights. The analytics service can handle jobs of any scale instantly by setting the dial for how much power you need. You only pay for your job when it's running, making it cost-effective.

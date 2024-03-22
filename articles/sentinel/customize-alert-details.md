@@ -3,7 +3,7 @@ title: Customize alert details in Microsoft Sentinel | Microsoft Docs
 description: Customize how alerts are named and described, along with their severity and assigned tactics, based on the alerts' content.
 author: yelevin
 ms.topic: how-to
-ms.date: 11/23/2022
+ms.date: 03/05/2024
 ms.author: yelevin
 ---
 
@@ -50,30 +50,39 @@ Follow the procedure detailed below to use the alert details feature. These step
 
     1. To override other default properties, select an alert property from the **Alert property** drop-down list. Then select the field from the query results, whose contents you want to populate the alert property, from the **Value** drop-down list.
 
-    1. To override more default properties, select **+ Add new** and repeat the previous step.
+    1. To override more default properties, select **+ Add new** and repeat the previous step. The following properties can be overridden:
 
-        The following alert properties can be overridden:
-        - AlertName
-        - Description
-        - AlertSeverity
-        - Tactics
-        - Techniques (Preview)
-        - AlertLink (Preview)
-        - ConfidenceLevel (Preview)
-        - ConfidenceScore (Preview)
-        - ExtendedLinks (Preview)
-        - ProductComponentName (Preview)
-        - ProductName (Preview)
-        - ProviderName (Preview)
-        - RemediationSteps (Preview)
+        |Name  |Description  |
+        |---------|---------|
+        |**AlertName**     |    String     |
+        |**Description**     | String        |
+        |**AlertSeverity**     | One of the following values: <br>- **Informational**<br>- **Low**<br>- **Medium**<br>- **High**        |
+        |**Tactics**     |    One of the following values: <br>- **Reconnaissance**<br>- **ResourceDevelopment**<br>- **InitialAccess**<br>-         **Execution**<br>        - **Persistence**<br>-        **PrivilegeEscalation**<br>-        **DefenseEvasion**<br>-        **CredentialAccess** <br>- **Discovery**<br>        - **LateralMovement**<br>-        **Collection**<br>-        **Exfiltration**<br>-        **CommandAndControl**<br>-        **Impact**<br> - **PreAttack**<br>- **ImpairProcessControl**<br>- **InhibitResponseFunction**     |
+        |**Techniques** (Preview)     | A string that matches the following regular expression: `^T(?<Digits>\d{4})$`. <br>For example: **T1234**        |
+        |**AlertLink** (Preview)     |  String       |
+        |**ConfidenceLevel** (Preview)     | One of the following values: <br>-  **Low**<br>- **High**<br>- **Unknown**      |
+        |**ConfidenceScore** (Preview)     | Integer, between **0**-**1** (inclusive)     |
+        |**ExtendedLinks** (Preview)     |  String       |
+        |**ProductComponentName** (Preview)     |   String      |
+        |**ProductName** (Preview)     |   String      |
+        |**ProviderName** (Preview)     |   String      |
+        |**RemediationSteps** (Preview)     |    String     |
     
     If you change your mind, or if you made a mistake, you can remove an alert detail by clicking the trash can icon next to the **Alert property/Value** pair, or delete the free text from the **Alert Name/Description Format** fields.
 
 1. When you have finished customizing your alert details, if you're now creating the rule, continue to the next tab in the wizard. If you're editing an existing rule, select the **Review and create** tab. Once the rule validation is successful, select **Save**.
 
+    > [!NOTE]
+    > 
+    > **Service limits**
+    > - The combined size limit for all alert details and [custom details](surface-custom-details-in-alerts.md), collectively, is **64 KB**.
+
 ## Next steps
 
 In this document, you learned how to customize alert details in Microsoft Sentinel analytics rules. To learn more about Microsoft Sentinel, see the following articles:
 
+- Explore the other ways to enrich your alerts:
+    - [Map data fields to entities in Microsoft Sentinel](map-data-fields-to-entities.md)
+    - [Surface custom event details in alerts in Microsoft Sentinel](surface-custom-details-in-alerts.md)
 - Get the complete picture on [scheduled query analytics rules](detect-threats-custom.md).
 - Learn more about [entities in Microsoft Sentinel](entities.md).

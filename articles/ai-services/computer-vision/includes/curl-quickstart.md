@@ -2,15 +2,13 @@
 title: "Quickstart: Optical character recognition REST API"
 titleSuffix: "Azure AI services"
 description: In this quickstart, get started with the Optical character recognition REST API.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.topic: include
 ms.date: 08/07/2023
 ms.author: pafarley
-ms.custom: seodec18
 ---
 
 Use the optical character recognition (OCR) REST API to read printed and handwritten text.

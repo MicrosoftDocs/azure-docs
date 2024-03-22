@@ -11,7 +11,7 @@ metadata:
   ms.service: cosmos-db
   ms.subservice: nosql
   ms.topic: landing-page
-  ms.collection: collection
+
   author: seesharprun
   ms.author: sidandrews
   ms.reviewer: markjbrown
@@ -60,4 +60,4 @@ landingContent:
           - text: Free tier
             url: free-tier.md
           - text: Use the emulator
-            url: local-emulator.md
+            url: emulator.md

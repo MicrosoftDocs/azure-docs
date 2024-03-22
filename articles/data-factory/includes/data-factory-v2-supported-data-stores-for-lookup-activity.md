@@ -1,13 +1,12 @@
 ---
 title: include file
 description: supported connectors for Lookup Activity
-services: data-factory
 author: jianleishen
 ms.service: data-factory
 ms.topic: include
-ms.date: 05/31/2022
+ms.date: 10/20/2023
 ms.author: jianleishen
-ms.custom: include file, ignite-2022
+ms.custom: include file
 ---
 
 | Category | Data store |
@@ -23,14 +22,14 @@ ms.custom: include file, ignite-2022
 | &nbsp; |[Azure Databricks Delta Lake](../connector-azure-databricks-delta-lake.md) |
 | &nbsp; |[Azure Files](../connector-azure-file-storage.md) |
 | &nbsp; |[Azure SQL Database](../connector-azure-sql-database.md) |
-| &nbsp; |[Azure SQL Database Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) |
+| &nbsp; |[Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) |
 | &nbsp; |[Azure Synapse Analytics](../connector-azure-sql-data-warehouse.md) |
 | &nbsp; |[Azure Table storage](../connector-azure-table-storage.md) |
 | **Database** |[Amazon RDS for Oracle](../connector-amazon-rds-for-oracle.md) |
 | &nbsp; |[Amazon RDS for SQL Server](../connector-amazon-rds-for-sql-server.md) |
 | &nbsp; |[Amazon Redshift](../connector-amazon-redshift.md) |
 | &nbsp; |[Apache Impala](../connector-impala.md) |
-| &nbsp; |[Azure SQL Database Managed Instance](../connector-azure-sql-managed-instance.md) |
+| &nbsp; |[Azure SQL Managed Instance](../connector-azure-sql-managed-instance.md) |
 | &nbsp; |[DB2](../connector-db2.md) |
 | &nbsp; |[Drill](../connector-drill.md) |
 | &nbsp; |[Google AdWords](../connector-google-adwords.md) |
@@ -65,6 +64,7 @@ ms.custom: include file, ignite-2022
 | &nbsp; |[Google Cloud Storage](../connector-google-cloud-storage.md) |
 | &nbsp; |[HDFS](../connector-hdfs.md) |
 | &nbsp; |[Generic HTTP](../connector-http.md)|
+| &nbsp; |[Microsoft Fabric Lakehouse](../connector-microsoft-fabric-lakehouse.md) |
 | &nbsp; |[Oracle Cloud Storage](../connector-oracle-cloud-storage.md) |
 | &nbsp; |[SFTP](../connector-sftp.md) |
 | **Generic protocol** |[Generic OData](../connector-odata.md) |

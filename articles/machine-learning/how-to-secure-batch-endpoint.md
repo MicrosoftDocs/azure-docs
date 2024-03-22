@@ -37,7 +37,7 @@ The following diagram shows how the networking looks like for batch endpoints wh
 :::image type="content" source="./media/how-to-secure-batch-endpoint/batch-vnet-peering.png" alt-text="Diagram that shows the high level architecture of a secure Azure Machine Learning workspace deployment.":::
 
 > [!CAUTION]
-> Batch Endpoints, as opposite to Online Endpoints, don't use Azure Machine Learning managed VNets. Hence, they don't support the keys `public_network_access` or `egress_public_network_access`. It is not possible to deploy public batch endpoints on private link-enabled workspaces.
+> Batch Endpoints, as opposite to Online Endpoints, don't support the keys `public_network_access` or `egress_public_network_access` when configuring the endpoint. It is not possible to deploy public batch endpoints on private link-enabled workspaces.
 
 ## Securing batch deployment jobs
 

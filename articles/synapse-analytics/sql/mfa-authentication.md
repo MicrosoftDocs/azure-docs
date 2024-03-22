@@ -1,5 +1,5 @@
 ---
-title: Using Multi-factor AAD authentication
+title: Using multifactor Microsoft Entra authentication
 description: Synapse SQL support connections from SQL Server Management Studio (SSMS) using Active Directory Universal Authentication. 
 author: vvasic-msft
 ms.service: synapse-analytics
@@ -11,7 +11,7 @@ ms.reviewer: sngun
 ms.custom: has-adal-ref
 ---
 
-# Use Multi-factor AAD authentication with Synapse SQL (SSMS support for MFA)
+# Use multifactor Microsoft Entra authentication with Synapse SQL (SSMS support for MFA)
 
 Synapse SQL support connections from SQL Server Management Studio (SSMS) using *Active Directory Universal Authentication*. 
 
@@ -34,25 +34,27 @@ There are two non-interactive authentication models as well, which can be used i
 - `Active Directory - Password`
 - `Active Directory - Integrated`
 
-The interactive method is that also supports Azure AD Multi-Factor Authentication (MFA) is:
+The interactive method is that also supports Microsoft Entra multifactor authentication (MFA) is:
 
 - `Active Directory - Universal with MFA`
 
-Azure AD MFA helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication with a range of easy verification options (phone call, text message, smart cards with pin, or mobile app notification), allowing users to choose the method they prefer. Interactive MFA with Azure AD can result in a pop-up dialog box for validation.
+Microsoft Entra multifactor authentication helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication with a range of easy verification options (phone call, text message, smart cards with pin, or mobile app notification), allowing users to choose the method they prefer. Interactive MFA with Microsoft Entra ID can result in a pop-up dialog box for validation.
 
-For a description of Multi-Factor Authentication, see [Multi-Factor Authentication](../../active-directory/authentication//concept-mfa-howitworks.md).
+For a description of multifactor authentication, see [multifactor authentication](../../active-directory/authentication//concept-mfa-howitworks.md).
 
-### Azure AD domain name or tenant ID parameter
+<a name='azure-ad-domain-name-or-tenant-id-parameter'></a>
 
-Beginning with [SSMS version 17](/sql/ssms/download-sql-server-management-studio-ssms?view=azure-sqldw-latest&preserve-view=true), users that are imported into the current Active Directory from other Azure Active Directories as guest users, can provide the Azure AD domain name, or tenant ID when they connect. 
+### Microsoft Entra domain name or tenant ID parameter
+
+Beginning with [SSMS version 17](/sql/ssms/download-sql-server-management-studio-ssms?view=azure-sqldw-latest&preserve-view=true), users that are imported into the current Active Directory from other Azure Active Directories as guest users, can provide the Microsoft Entra domain name, or tenant ID when they connect. 
 
 Guest users include users invited from other Azure ADs, Microsoft accounts such as outlook.com, hotmail.com, live.com, or other accounts like gmail.com. This information, allows **Active Directory Universal with MFA Authentication** to identify the correct authenticating authority. This option is also required to support Microsoft accounts (MSA) such as outlook.com, hotmail.com, live.com, or non-MSA accounts. 
 
-All these users who want to be authenticated using Universal Authentication must enter their Azure AD domain name or tenant ID. This parameter represents the current Azure AD domain name/tenant ID the Azure Server is linked with. 
+All these users who want to be authenticated using Universal Authentication must enter their Microsoft Entra domain name or tenant ID. This parameter represents the current Microsoft Entra domain name/tenant ID the Azure Server is linked with. 
 
-For example, if Azure Server is associated with Azure AD domain `contosotest.onmicrosoft.com` where user `joe@contosodev.onmicrosoft.com` is hosted as an imported user from Azure AD domain `contosodev.onmicrosoft.com`, the domain name required to authenticate this user is `contosotest.onmicrosoft.com`. 
+For example, if Azure Server is associated with Microsoft Entra domain `contosotest.onmicrosoft.com` where user `joe@contosodev.onmicrosoft.com` is hosted as an imported user from Microsoft Entra domain `contosodev.onmicrosoft.com`, the domain name required to authenticate this user is `contosotest.onmicrosoft.com`. 
 
-When the user is a native user of the Azure AD linked to Azure Server, and is not an MSA account, no domain name or tenant ID is required. 
+When the user is a native user of the Microsoft Entra ID linked to Azure Server, and is not an MSA account, no domain name or tenant ID is required. 
 
 To enter the parameter (beginning with SSMS version 17.2), in the **Connect to Database** dialog box, complete the dialog box, selecting **Active Directory - Universal with MFA** authentication, select **Options**, complete the **User name** box, and then select the **Connection Properties** tab. 
 
@@ -64,10 +66,12 @@ If you are running SSMS 18.x or later, then the AD domain name or tenant ID is n
 
    ![mfa-tenant-ssms](./media/mfa-authentication/mfa-no-tenant-ssms.png)
 
-### Azure AD business to business support   
-Azure AD users supported for Azure AD B2B scenarios as guest users (see [What is Azure B2B collaboration](../../active-directory/external-identities/what-is-b2b.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) can connect to Synapse SQL only as part of members of a group created in current Azure AD and mapped manually using the Transact-SQL `CREATE USER` statement in a given database. 
+<a name='azure-ad-business-to-business-support'></a>
 
-For example, if `steve@gmail.com` is invited to Azure AD `contosotest` (with the Azure Ad domain `contosotest.onmicrosoft.com`), an Azure AD group, such as `usergroup` must be created in the Azure AD that contains the `steve@gmail.com` member. Then, this group must be created for a specific  database (that is, MyDatabase) by Azure AD SQL admin or Azure AD DBO  by executing a Transact-SQL `CREATE USER [usergroup] FROM EXTERNAL PROVIDER` statement. 
+### Microsoft Entra business to business support   
+Microsoft Entra users supported for Microsoft Entra B2B scenarios as guest users (see [What is Azure B2B collaboration](../../active-directory/external-identities/what-is-b2b.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) can connect to Synapse SQL only as part of members of a group created in current Microsoft Entra ID and mapped manually using the Transact-SQL `CREATE USER` statement in a given database. 
+
+For example, if `steve@gmail.com` is invited to Azure AD `contosotest` (with the Microsoft Entra domain `contosotest.onmicrosoft.com`), a Microsoft Entra group, such as `usergroup` must be created in the Microsoft Entra ID that contains the `steve@gmail.com` member. Then, this group must be created for a specific  database (that is, MyDatabase) by Microsoft Entra SQL admin or Microsoft Entra DBO  by executing a Transact-SQL `CREATE USER [usergroup] FROM EXTERNAL PROVIDER` statement. 
 
 After the database user is created, then the user `steve@gmail.com` can log in to `MyDatabase` using the SSMS authentication option `Active Directory – Universal with MFA support`. 
 
@@ -78,7 +82,7 @@ As a guest user, `steve@gmail.com` must check the box and add the AD domain name
 ## Universal Authentication limitations for Synapse SQL
 
 - SSMS and SqlPackage.exe are the only tools currently enabled for MFA through Active Directory Universal Authentication.
-- SSMS version 17.2, supports multi-user concurrent access using Universal Authentication with MFA. Version 17.0 and 17.1, restricted a login for an instance of SSMS using Universal Authentication to a single Azure Active Directory account. To log in as another Azure AD account, you must use another instance of SSMS. (This restriction is limited to Active Directory Universal Authentication; you can log in to different servers using Active Directory Password Authentication, Active Directory Integrated Authentication, or SQL Server Authentication).
+- SSMS version 17.2, supports multi-user concurrent access using Universal Authentication with MFA. Version 17.0 and 17.1, restricted a login for an instance of SSMS using Universal Authentication to a single Microsoft Entra account. To log in as another Microsoft Entra account, you must use another instance of SSMS. (This restriction is limited to Active Directory Universal Authentication; you can log in to different servers using Active Directory Password Authentication, Active Directory Integrated Authentication, or SQL Server Authentication).
 - SSMS supports Active Directory Universal Authentication for Object Explorer, Query Editor, and Query Store visualization.
 - SSMS version 17.2 provides DacFx Wizard support for Export/Extract/Deploy Data database. Once a specific user is authenticated through the initial authentication dialog using Universal Authentication, the DacFx Wizard functions the same way it does for all other authentication methods.
 - The SSMS Table Designer doesn't support Universal Authentication.

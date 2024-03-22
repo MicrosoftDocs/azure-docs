@@ -9,7 +9,6 @@ ms.date: 02/15/2023
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sngun, wiassaf
-ms.custom: ignite-fall-2021
 ---
 
 # Query Delta Lake files using serverless SQL pool in Azure Synapse Analytics
@@ -32,7 +31,7 @@ The [OPENROWSET](develop-openrowset.md) function enables you to read the content
 
 ### Read Delta Lake folder
 
-The easiest way to see to the content of your `DELTA` file is to provide the file URL to the [OPENROWSET](develop-openrowset.md) function and specify `DELTA` format. If the file is publicly available or if your Azure AD identity can access this file, you should be able to see the content of the file using a query like the one shown in the following example:
+The easiest way to see to the content of your `DELTA` file is to provide the file URL to the [OPENROWSET](develop-openrowset.md) function and specify `DELTA` format. If the file is publicly available or if your Microsoft Entra identity can access this file, you should be able to see the content of the file using a query like the one shown in the following example:
 
 ```sql
 SELECT TOP 10 *

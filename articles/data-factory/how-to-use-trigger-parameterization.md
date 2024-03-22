@@ -5,7 +5,6 @@ ms.service: data-factory
 ms.subservice: orchestration
 author: chez-charlie
 ms.author: chez
-ms.reviewer: 
 ms.topic: conceptual
 ms.date: 07/20/2023
 ---
@@ -141,6 +140,6 @@ Under **pipelines** section, assign parameter values in **parameters** section. 
 
 To use the values in pipeline, utilize parameters _@pipeline().parameters.parameterName_, __not__ system variable, in pipeline definitions.
 
-## Next steps
+## Related content
 
 For detailed information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-execution-with-json).

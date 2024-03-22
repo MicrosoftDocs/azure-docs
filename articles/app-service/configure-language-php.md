@@ -348,7 +348,7 @@ To customize PHP_INI_USER, PHP_INI_PERDIR, and PHP_INI_ALL directives for linux 
 4. Create a directory called "ini" (for example, mkdir ini).
 5. Change the current working directory to the "ini" folder you just created.
 
-You need to create an "ini" file to add your settings to. In this example, we use "extensions.ini." There are no file editors such as Vi, Vim, or Nano so you'll use echo to add the settings to the file. Change the "upload_max_filesize" from 2M to 50M. Use the following command to add the setting and create an "extensions.ini" file if one doesn't already exist.
+You need to create an "ini" file to add your settings to. In this example, we use "extensions.ini". There are no file editors such as Vi, Vim, or Nano so you'll use echo to add the settings to the file. Change the "upload_max_filesize" from 2M to 50M. Use the following command to add the setting and create an "extensions.ini" file if one doesn't already exist.
 
 ```
 /home/site/wwwroot/ini>echo "upload_max_filesize=50M" >> extensions.ini
@@ -364,7 +364,7 @@ Then, go to the Azure portal and add an Application Setting to scan the "ini" di
 1. Go to the [Azure portal](https://portal.azure.com) and select your App Service Linux PHP application.
 2. Select Application Settings for the app.
 3. Under the Application settings section, select **+ Add new setting**.
-4. For the App Setting Name, enter "PHP_INI_SCAN_DIR" and for value, enter "/home/site/wwwroot/ini."
+4. For the App Setting Name, enter "PHP_INI_SCAN_DIR" and for value, enter "/home/site/wwwroot/ini".
 5. Select the save button.
 
 > [!NOTE]

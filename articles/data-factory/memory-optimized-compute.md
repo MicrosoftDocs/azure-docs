@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 01/18/2023
+ms.date: 10/20/2023
 ---
 
 # Memory optimized compute type for Data Flows in Azure Data Factory and Azure Synapse
@@ -21,6 +21,6 @@ Data flow activities in Azure Data Factory and Azure Synapse support the [Comput
 
 If your data flow has many joins and lookups, you may want to use a memory optimized cluster. These more memory intensive operations will benefit particularly by additional memory, and any out-of-memory errors encountered with the default compute type will be minimized. **Memory optimized** clusters do incur the highest cost per core, but may avoid pipeline failures for memory intensive operations. If you experience any out of memory errors when executing data flows, switch to a memory optimized Azure IR configuration.
 
-## Next steps
+## Related content
 
 [Data Flow type properties](control-flow-execute-data-flow-activity.md#type-properties)

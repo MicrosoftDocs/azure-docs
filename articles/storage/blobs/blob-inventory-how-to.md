@@ -9,7 +9,8 @@ ms.date: 02/24/2023
 ms.topic: how-to
 ms.author: normesta
 ms.reviewer: klaasl
-ms.devlang: powershell, azurecli
+ms.devlang: powershell
+# ms.devlang: powershell, azurecli
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 

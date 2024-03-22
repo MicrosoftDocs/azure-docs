@@ -6,7 +6,6 @@ ms.topic: how-to
 ms.date: 07/26/2022
 ms.author: helohr 
 ms.custom: devx-track-azurepowershell
-manager: femila
 ---
 # Customize Remote Desktop Protocol (RDP) properties for a host pool
 

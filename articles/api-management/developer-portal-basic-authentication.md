@@ -55,7 +55,7 @@ There are two ways to add a username and password for authentication to the deve
 
 ## Delete the username and password provider
 
-If you've configured another identity provider for the developer portal such as [Azure AD](api-management-howto-aad.md) or [Azure AD B2C](api-management-howto-aad-b2c.md), you might want to delete the username and password provider. 
+If you've configured another identity provider for the developer portal such as [Microsoft Entra ID](api-management-howto-aad.md) or [Azure AD B2C](api-management-howto-aad-b2c.md), you might want to delete the username and password provider. 
 
 Deleting the identity provider prevents adding users to use username and password authentication. Existing users configured for basic authentication are also prevented from signing into the developer portal.
 
@@ -70,5 +70,5 @@ Deleting the identity provider prevents adding users to use username and passwor
 
 For steps to add other identity providers for developer sign-up to the developer portal, see:
 
-- [Authorize developer accounts by using Azure Active Directory in Azure API Management](api-management-howto-aad.md)
+- [Authorize developer accounts by using Microsoft Entra ID in Azure API Management](api-management-howto-aad.md)
 - [Authorize developer accounts by using Azure Active Directory B2C in Azure API Management](api-management-howto-aad-b2c.md)

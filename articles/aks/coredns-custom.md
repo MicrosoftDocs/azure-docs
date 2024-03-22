@@ -182,23 +182,37 @@ CoreDNS can also be used to configure stub domains.
 
 ## Hosts plugin
 
-All built-in plugins are supported, so the [CoreDNS hosts][coredns hosts] plugin is available to customize as well.
+All built-in plugins are supported, so the [CoreDNS hosts][coredns hosts] plugin is available to customize /etc/hosts as well.
 
-```yaml
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: coredns-custom # this is the name of the configmap you can overwrite with your changes
-  namespace: kube-system
-data:
-    test.override: | # you may select any name here, but it must end with the .override file extension
-          hosts { 
-              10.0.0.1 example1.org
-              10.0.0.2 example2.org
-              10.0.0.3 example3.org
-              fallthrough
-          }
-```
+1. Create a file named `corednsms.yaml` and paste the following example configuration. Make sure to update the IP addresses and hostnames with the values for your own environment.
+
+     ```yaml
+     apiVersion: v1
+     kind: ConfigMap
+     metadata:
+       name: coredns-custom # this is the name of the configmap you can overwrite with your changes
+       namespace: kube-system
+     data:
+         test.override: | # you may select any name here, but it must end with the .override file extension
+               hosts { 
+                   10.0.0.1 example1.org
+                   10.0.0.2 example2.org
+                   10.0.0.3 example3.org
+                   fallthrough
+               }
+     ```
+
+2. Create the ConfigMap using the [`kubectl apply configmap`][kubectl-apply] command and specify the name of your YAML manifest.
+
+     ```console
+     kubectl apply -f corednsms.yaml
+     ```
+
+3. To reload the ConfigMap and enable Kubernetes Scheduler to restart CoreDNS without downtime, perform a rolling restart using [`kubectl rollout restart`][kubectl-rollout].
+
+     ```console
+     kubectl -n kube-system rollout restart deployment coredns
+     ```
 
 ## Troubleshooting
 
@@ -209,6 +223,9 @@ For general CoreDNS troubleshooting steps, such as checking the endpoints or res
 Sudden spikes in DNS traffic within AKS clusters are a common occurrence due to the elasticity that AKS provides for workloads. These spikes can lead to an increase in memory consumption by CoreDNS pods. In some cases, this increased memory consumption could cause `Out of memory` issues. To preempt this issue, AKS clusters auto scale CoreDNS pods to reduce memory usage per pod. The default settings for this auto scaling logic are stored in the `coredns-autoscaler` ConfigMap. However, you may observe that the default auto scaling of CoreDNS pods is not always aggressive enough to prevent `Out of memory` issues for your CoreDNS pods. In this case, you can directly modify the `coredns-autoscaler` ConfigMap. Please note that simply increasing the number of CoreDNS pods without addressing the root cause of the `Out of memory` issue may only provide a temporary fix. If there is not enough memory available across the nodes where the CoreDNS pods are running, increasing the number of CoreDNS pods will not help. You may need to investigate further and implement appropriate solutions such as optimizing resource usage, adjusting resource requests and limits, or adding more memory to the nodes.
 
 CoreDNS uses [horizontal cluster proportional autoscaler][cluster-proportional-autoscaler] for pod auto scaling. The `coredns-autoscaler` ConfigMap can be edited to configure the scaling logic for the number of CoreDNS pods. The `coredns-autoscaler` ConfigMap currently supports two different ConfigMap key values: `linear` and `ladder` which correspond to two supported control modes. The `linear` controller yields a number of replicas in [min,max] range equivalent to `max( ceil( cores * 1/coresPerReplica ) , ceil( nodes * 1/nodesPerReplica ) )`. The `ladder` controller calculates the number of replicas by consulting two different step functions, one for core scaling and another for node scaling, yielding the max of the two replica values. For more information on the control modes and ConfigMap format, please consult the [upstream documentation][cluster-proportional-autoscaler-control-patterns].
+
+> [!IMPORTANT]
+> A minimum of 2 CoreDNS pod replicas per cluster is recommended. Configuring a minimum of 1 CoreDNS pod replica may result in failures during operations which require node draining, such as cluster upgrade operations.
 
 To retrieve the `coredns-autoscaler` ConfigMap, you can run the `kubectl get configmap coredns-autoscaler -n kube-system -o yaml` command which will return the following:
 

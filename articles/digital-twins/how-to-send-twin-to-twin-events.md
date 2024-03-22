@@ -7,7 +7,7 @@ ms.author: baanders # Microsoft employees only
 ms.date: 06/21/2022
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: contperf-fy22q3, devx-track-azurecli
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 
 # Optional fields. Don't forget to remove # if you need a field.
@@ -25,7 +25,7 @@ To set up this twin-to-twin event handling, you'll create an [Azure function](..
 
 To set up twin-to-twin handling, you'll need an Azure Digital Twins instance to work with. For instructions on how to create an instance, see [Set up an Azure Digital Twins instance and authentication](./how-to-set-up-instance-portal.md). The instance should contain at least two twins that you want to send data between.
 
-Optionally, you may want to set up [automatic telemetry ingestion through IoT Hub](how-to-ingest-iot-hub-data.md) for your twins as well. This process isn't required to send data from twin to twin, but it's an important piece of a complete solution where the twin graph is driven by live telemetry.
+Optionally, you may want to set up [automatic telemetry ingestion through IoT Hub](how-to-ingest-iot-hub-data.md) for your twins as well. This process isn't required to send data from twin to twin, but it's an important piece of a complete solution where the twin graph is driven by live device telemetry.
 
 ## Send twin events to an endpoint
 

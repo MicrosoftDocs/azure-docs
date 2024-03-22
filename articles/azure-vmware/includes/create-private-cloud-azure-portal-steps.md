@@ -3,8 +3,8 @@ title: Create an Azure VMware Solution private cloud
 description: Steps to create an Azure VMware Solution private cloud using the Azure portal.
 ms.topic: include
 ms.service: azure-vmware
-ms.custom: devx-track-azurecli
-ms.date: 4/7/2023
+ms.custom: devx-track-azurecli, engagement-fy23
+ms.date: 1/03/2024
 author: suzizuber
 ms.author: v-szuber
 ---
@@ -42,7 +42,7 @@ You can create an Azure VMware Solution private cloud using the Azure portal or 
    | **Location** | Select a location, such as **(US) East US 2**. It's the *region* you defined during the planning phase. |
    | **Size of host** | Select the **AV36**, **AV36P** or **AV52** SKU. |
    | **Host Location** | Select **All hosts in one availability zone** for a standard private cloud or **Hosts in two availability zones** for stretched clusters. |
-   | **Number of hosts** | Number of hosts allocated for the private cloud cluster. The default value is 3, which you can increase or decrease after deployment. If these nodes are not listed as available, please contact support to [request a quota increase](../request-host-quota-azure-vmware-solution.md?WT.mc_id=Portal-VMCP). You can also click the link labeled **If you need more hosts, request a quota increase** in the Azure portal. |
+   | **Number of hosts** | Number of hosts allocated for the private cloud cluster. The default value is 3, which you can increase or decrease after deployment. If these nodes aren't listed as available, contact support to [request a quota increase](../request-host-quota-azure-vmware-solution.md?WT.mc_id=Portal-VMCP). You can also select the link labeled **If you need more hosts, request a quota increase** in the Azure portal. |
    | **Address block for private cloud** | Provide an IP address block for the private cloud.  The CIDR represents the private cloud management network and is used for the cluster management services, such as vCenter Server and NSX-T Manager. Use /22 address space, for example, 10.175.0.0/22.  The address should be unique and not overlap with other Azure Virtual Networks and with on-premises networks. |
    
 
@@ -53,7 +53,7 @@ You can create an Azure VMware Solution private cloud using the Azure portal or 
    > [!NOTE]
    > This step takes roughly 3-4 hours. Adding a single host in an existing or the same cluster takes between 30 - 45 minutes.
 
-1. Verify that the deployment was successful. Navigate to the resource group you created and select your private cloud.  You'll see the status of **Succeeded** when the deployment has finished. 
+1. Verify that the deployment was successful. Navigate to the resource group you created and select your private cloud.  You see the status of **Succeeded** when the deployment is finished. 
 
    :::image type="content" source="../media/tutorial-create-private-cloud/validate-deployment.png" alt-text="Screenshot showing that the deployment was successful." border="true":::
 
@@ -63,7 +63,7 @@ Instead of the Azure portal to create an Azure VMware Solution private cloud, yo
 
 To begin using Azure CLI:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 
 1. Create a resource group with the ['az group create'](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *eastus* location:

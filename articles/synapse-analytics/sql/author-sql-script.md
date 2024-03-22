@@ -1,7 +1,6 @@
 ---
 title: SQL scripts in Synapse Studio
 description: Introduction to Synapse Studio SQL scripts in Azure synapse Analytics.  
-services: synapse-analytics 
 author: pimorano 
 ms.service: synapse-analytics 
 ms.subservice: sql

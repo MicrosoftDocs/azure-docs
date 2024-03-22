@@ -14,7 +14,7 @@ ms.author: greglin
 If you already have AGIC deployed through Helm but want to migrate to AGIC deployed as an AKS add-on, the following steps help to guide you through the migration process. 
 
 > [!TIP]
-> Also see [What is Application Gateway for Containers?](for-containers/overview.md) currently in public preview.
+> Also see [What is Application Gateway for Containers](for-containers/overview.md).
 
 ## Prerequisites 
 Before you start the migration process, there are a few things to check. 

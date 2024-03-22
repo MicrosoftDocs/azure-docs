@@ -19,7 +19,6 @@
 | ATH | Athens, Greece | Greece Central, Europe |
 | BCN | Barcelona, Spain | Spain Central, Europe |
 | BER | Berlin, Germany | Germany West Central, Europe |
-| BJJ | Beijing, China | APAC |
 | BKK | Bangkok, Thailand | South East Asia |
 | BL  | Ashburn, Virginia, USA | East US, United States |
 | BN  | Boydton, Virginia, USA | East US, United States |
@@ -65,7 +64,7 @@
 | HNL | Honolulu, Hawaii, USA | West US, United States |
 | HOU | Houston, Texas, USA | Central US, United States |
 | HYD | Hyderabad, India | Central India, Asia |
-| IST | Istanbul, Turkey | West Europe |
+| IST | Istanbul, Türkiye | West Europe |
 | JAX | Jacksonville, Florida, USA | East US, United States |
 | JKT | Jakarta, Indonesia | Indonesia Central, Asia |
 | JNB | Johannesburg, South Africa | South Africa North |
@@ -110,7 +109,7 @@
 | SAO | Sao Paulo, Brazil | South Brazil |
 | SAN | San Antonio, Texas, USA | South Central US, United States |
 | SCL | Santiago, Chile | Chile Central, Latin America |
-| SEL | Seoul, Singapore | Southeast Asia |
+| SEL | Seoul, Korea | Korea Central, Asia |
 | SG  | Singapore, Singapore | Southeast Asia |
 | SGE | Singapore, Singapore | Southeast Asia |
 | SGN | Ho Chi Minh City, Vietnam | Southeast Asia |

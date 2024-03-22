@@ -1,9 +1,8 @@
 ---
-title: Connect to HiveServer2 using Beeline or install Beeline locally to connect from your local - Azure HDInsight 
+title: Connect to HiveServer2 using Beeline or install Beeline locally to connect from your local - Azure HDInsight
 description: Learn how to connect to the Apache Beeline client to run Hive queries with Hadoop on HDInsight. Beeline is a utility for working with HiveServer2 over JDBC.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: contperf-fy21q1
 ms.date: 06/12/2023
 ---
 # Connect to HiveServer2 using Beeline or install Beeline locally to connect from your local
@@ -32,14 +31,14 @@ Replace `<headnode-FQDN>` with the fully qualified domain name of a cluster head
 
 ### To HDInsight Enterprise Security Package (ESP) cluster using Kerberos
 
-When connecting from a client to an Enterprise Security Package (ESP) cluster joined to Azure Active Directory (AAD)-DS on a machine in same realm of the cluster, you must also specify the domain name `<AAD-Domain>` and the name of a domain user account with permissions to access the cluster `<username>`:
+When connecting from a client to an Enterprise Security Package (ESP) cluster joined to Microsoft Entra Domain Services on a machine in same realm of the cluster, you must also specify the domain name `<AAD-Domain>` and the name of a domain user account with permissions to access the cluster `<username>`:
 
 ```bash
 kinit <username>
 beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD-Domain>;auth-kerberos;transportMode=http' -n <username>
 ```
 
-Replace `<username>` with the name of an account on the domain with permissions to access the cluster. Replace `<AAD-DOMAIN>` with the name of the Azure Active Directory (AAD) that the cluster is joined to. Use an uppercase string for the `<AAD-DOMAIN>` value, otherwise the credential won't be found. Check `/etc/krb5.conf` for the realm names if needed.
+Replace `<username>` with the name of an account on the domain with permissions to access the cluster. Replace `<AAD-DOMAIN>` with the name of the Microsoft Entra ID that the cluster is joined to. Use an uppercase string for the `<AAD-DOMAIN>` value, otherwise the credential won't be found. Check `/etc/krb5.conf` for the realm names if needed.
 
 To find the JDBC URL from Ambari:
 

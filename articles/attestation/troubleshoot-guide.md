@@ -32,26 +32,26 @@ User with Reader role trying to edit an attestation policy in PowerShell
 
   ```powershell
   Set-AzAttestationPolicy : Operation returned HTTP Status Code 401
-At line:1 char:1
-+ Set-AzAttestationPolicy -Name $attestationProvider -ResourceGroupName ...
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  At line:1 char:1
+  + Set-AzAttestationPolicy -Name $attestationProvider -ResourceGroupName ...
+  + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     + CategoryInfo          : CloseError: (:) [Set-AzAttestationPolicy], RestException
     + FullyQualifiedErrorId : Microsoft.Azure.Commands.Attestation.SetAzureAttestationPolicy
   ```
 
 **Troubleshooting steps**
 
-In order to manage policies, an Azure AD user requires the following permissions for "Actions":
+In order to manage policies, a Microsoft Entra user requires the following permissions for "Actions":
 - Microsoft.Attestation/attestationProviders/attestation/read
 - Microsoft.Attestation/attestationProviders/attestation/write
 - Microsoft.Attestation/attestationProviders/attestation/delete
 
-  To perform these actions, an Azure AD user must have "Attestation Contributor" role on the attestation provider. These permissions can also be inherited with roles such as "Owner" (wildcard permissions), "Contributor" (wildcard permissions) on  the subscription/ resource group.  
+  To perform these actions, a Microsoft Entra user must have "Attestation Contributor" role on the attestation provider. These permissions can also be inherited with roles such as "Owner" (wildcard permissions), "Contributor" (wildcard permissions) on  the subscription/ resource group.  
 
-In order to read policies, an Azure AD user requires the following permission for "Actions":
+In order to read policies, a Microsoft Entra user requires the following permission for "Actions":
 - Microsoft.Attestation/attestationProviders/attestation/read
 
-  To perform this action, an Azure AD user must have "Attestation Reader" role on the attestation provider. Read permissions are also part of roles such as "Reader" (wildcard permissions) on the subscription/ resource group.  
+  To perform this action, a Microsoft Entra user must have "Attestation Reader" role on the attestation provider. Read permissions are also part of roles such as "Reader" (wildcard permissions) on the subscription/ resource group.  
 
 To verify the roles in PowerShell, run the below steps:
 

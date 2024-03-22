@@ -2,8 +2,8 @@
 title: Tutorial - Migrate an Android app
 titleSuffix: Microsoft Azure Maps
 description: 'Tutorial on how to migrate an Android app from Google Maps to Microsoft Azure Maps'
-author: dubiety
-ms.author: yuchungchen 
+author: sinnypan
+ms.author: sipa
 ms.date: 12/1/2021
 ms.topic: tutorial
 ms.service: azure-maps

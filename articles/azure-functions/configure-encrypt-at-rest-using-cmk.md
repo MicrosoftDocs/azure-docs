@@ -2,6 +2,7 @@
 title: Encrypt your application source at rest
 description: Encrypt your application data in Azure Storage and deploy it as a package file.
 ms.topic: article
+ms.custom: devx-track-azurecli
 ms.date: 03/06/2020
 ---
 

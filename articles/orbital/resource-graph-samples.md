@@ -23,11 +23,11 @@ and [Resource Graph samples by Table](../governance/resource-graph/samples/sampl
 
 ```kusto
 OrbitalResources  
-| where type == 'microsoft.orbital/spacecrafts/contacts' and todatetime(properties.reservationStartTime) >= now()  
-| sort by todatetime(properties.reservationStartTime)  
-| extend Contact_Profile = tostring(split(properties.contactProfile.id, "/")[-1]) 
-| extend Spacecraft = tostring(split(id, "/")[-3]) 
-| project Contact = tostring(name), Groundstation = tostring(properties.groundStationName), Spacecraft, Contact 
+| where type == 'microsoft.orbital/spacecrafts/contacts' and todatetime(properties.reservationStartTime) >= now()
+| sort by todatetime(properties.reservationStartTime)
+| extend Contact_Profile = tostring(split(properties.contactProfile.id, "/")[-1])
+| extend Spacecraft = tostring(split(id, "/")[-3])
+| project Contact = tostring(name), Groundstation = tostring(properties.groundStationName), Spacecraft, Contact_Profile, Status=properties.status, Provisioning_Status=properties.provisioningState
 ```
 
 #### Sorted by ground station
@@ -46,16 +46,18 @@ OrbitalResources
 ```kusto
 OrbitalResources 
 | where type == 'microsoft.orbital/spacecrafts/contacts' 
-| where todatetime(properties.reservationStartTime) >= now() 
-| sort by Contact_Profile 
+| where todatetime(properties.reservationStartTime) >= now()
 | extend Contact_Profile = tostring(split(properties.contactProfile.id, "/")[-1]) 
+| sort by Contact_Profile 
 | extend Spacecraft = tostring(split(id, "/")[-3]) 
-| project Contact = tostring(name), Groundstation = tostring(properties.groundStationName), Spacecraft, Contact_Profile, Reservation_Start_Time = todatetime(properties.reservationStartTime), Reservation_End_Time = todatetime(properties.reservationEndTime), Status=properties.status, Provisioning_Status=properties.provisioningState 
+| project Contact = tostring(name), Groundstation = tostring(properties.groundStationName), Spacecraft, Contact_Profile, Reservation_Start_Time = todatetime(properties.reservationStartTime), Reservation_End_Time = todatetime(properties.reservationEndTime), Status=properties.status, Provisioning_Status=properties.provisioningState
 ```
 
-### List Contacts from Past ‘x’ Days – sorted by reservation start time 
+### List Contacts from Past ‘x’ Days
 
-```kusto
+#### Sorted by reservation start time 
+
+```kust
 OrbitalResources  
 | where type == 'microsoft.orbital/spacecrafts/contacts' and todatetime(properties.reservationStartTime) >= now(-1d)  
 | sort by todatetime(properties.reservationStartTime)  

@@ -4,7 +4,6 @@ description: Learn about designing a solution for securing and protecting your m
 ms.topic: how-to
 author: dcurwin
 ms.author: dacurwin
-ms.custom: ignite-2022
 ms.date: 10/03/2022
 ---
 
