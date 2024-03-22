@@ -1,4 +1,4 @@
-Get started with the Phone Numbers client library for JavaScript to look up operator information for phone numbers, which can be used to determine whether and how to communicate with that phone number.  Follow these steps to install the package and look up operator information about a phone number.
+Get started with the Phone Numbers client library for JavaScript to look up operator information for phone numbers, which can be used to determine whether and how to communicate with that phone number. Follow these steps to install the package and look up operator information about a phone number.
 
 > [!NOTE]
 > Find the code for this quickstart on [GitHub](https://github.com/Azure/communication-preview/tree/master/samples/NumberLookup).
@@ -6,7 +6,7 @@ Get started with the Phone Numbers client library for JavaScript to look up oper
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Node.js](https://nodejs.org/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
+- [Node.js](https://nodejs.org/) Active LTS _(long-term support)_ and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
 
 ### Prerequisite check
@@ -55,9 +55,9 @@ The `--save` option adds the library as a dependency in your **package.json** fi
 
 ### Authenticate the client
 
-Import the **PhoneNumbersClient** from the client library and instantiate it with your connection string, which can be acquired from an Azure Communication Services resource in the [Azure portal](https://portal.azure.com). It's recommended to use a `COMMUNICATION_SERVICES_CONNECTION_STRING` environment variable to avoid putting your connection string in plain text within your code. Learn how to [manage your resource's connection string](../../create-communication-resource.md#store-your-connection-string).
+Import the **PhoneNumbersClient** from the client library and instantiate it with your connection string, which can be acquired from an Azure Communication Services resource in the [Azure portal](https://portal.azure.com). Using a `COMMUNICATION_SERVICES_CONNECTION_STRING` environment variable is recommended to avoid putting your connection string in plain text within your code. Learn how to [manage your resource's connection string](../../create-communication-resource.md#store-your-connection-string).
 
-Add the following code to the top of **phone-numbers-quickstart.js**:
+Add the following code to the top of **number-lookup-quickstart.js**:
 
 ```javascript
 const { PhoneNumbersClient } = require('@azure/communication-phone-numbers');
@@ -95,16 +95,16 @@ let searchResults = await phoneNumbersClient.searchOperatorInformation([ "<targe
 
 ### Use operator information
 
-You can now use the operator information.  For this quickstart guide, we can print some of the details to the console.
+You can now use the operator information. For this quickstart guide, we can print some of the details to the console.
 
-First, we can print out details about the number format.
+First, we can print details about the number format.
 
 ```javascript
 let formatInfo = formattingResults.values[0];
 console.log(formatInfo.phoneNumber + " is formatted " + formatInfo.internationalFormat + " internationally, and " + formatInfo.nationalFormat + " nationally");
 ```
 
-Next, we can print out details about the phone number and operator.
+Next, we can print details about the phone number and operator.
 
 ```javascript
 let operatorInfo = searchResults.values[0];
@@ -112,7 +112,7 @@ console.log(operatorInfo.phoneNumber + " is a " + (operatorInfo.numberType ? ope
     + operatorInfo.isoCountryCode + " by " + (operatorInfo.operatorDetails.name ? operatorInfo.operatorDetails.name : "an unknown operator"));
 ```
 
-You may also use the operator information to determine whether to send an SMS.  For more information on sending an SMS, see the [SMS Quickstart](../../sms/send.md).
+You may also use the operator information to determine whether to send an SMS. For more information on sending an SMS, see the [SMS Quickstart](../../sms/send.md).
 
 ## Run the code
 
