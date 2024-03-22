@@ -16,6 +16,7 @@ In this article, you learn how to deploy [User-Defined Routes (UDRs)](concept-us
     - two virtual networks and a network group
     - a routing configuration to create UDRs for the network group
 
+[!INCLUDE [virtual-network-manager-udr-preview](../../includes/virtual-network-manager-udr-preview.md)]
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).

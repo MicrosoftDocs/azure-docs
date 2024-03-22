@@ -1,6 +1,6 @@
 ---
 title: Automate UDR Management with Azure Virtual Network Manager
-description: Learn to automate and simplifying routing behaviours using user-defined routes management with Azure Virtual Network Manager.
+description: Learn to automate and simplifying routing behaviors using user-defined routes management with Azure Virtual Network Manager.
 author: mbender-ms
 ms.author: mbender
 ms.topic: overview 
@@ -10,14 +10,50 @@ ms.service: virtual-network-manager
 ---
 # Automate UDR Management with Azure Virtual Network Manager
 
-## What is UDR management and what we are solving? 
+In Azure Virtual Network Manager, you can automate and simplify routing behaviors using user-defined routes (UDRs). UDR management allows you to describe your desired routing behavior, and Azure Virtual Network Manager orchestrates the creation and maintenance of UDRs to achieve the desired routing behavior. This article provides an overview of UDR management, why it's important, how it works, and common routing scenarios that you can simplify and automate using UDR management.
+
+[!INCLUDE [virtual-network-manager-udr-preview](../../includes/virtual-network-manager-udr-preview.md)]
+
+## What is UDR management
+
 Azure Virtual Network Manager (AVNM) allows you to describe your desired routing behavior, and AVNM orchestrates user-defined routes (UDRs) to create and maintain the desired routing behavior. 
 
-## Why UDR management is important
 User-defined routes addresses the need for automation and simplification in managing routing behaviors. Currently, you’d manually create User-Defined Routes (UDRs) or utilize custom scripts. However, these methods are prone to errors and overly complicated. Also, you can utilize the Azure-managed hub in Virtual WAN, but this option has certain limitations (such as the inability to customize the hub or lack of IPV6 support) not be relevant to your organization. With UDR management in your virtual network manager, you have a centralized hub for managing and maintaining routing behaviors.
 
 ## How does UDR management works
-In virtual network manager, you create rule collections to describe the UDRs needed for a network group (target network group). In the rule collection, route rules are used to describe the desired routing behavior for the subnets or virtual networks or virtual networks in the target network group. Each route rule consists of the following attributes: 
+
+In virtual network manager, you create a routing configuration. Inside the configuration, you create rule collections to describe the UDRs needed for a network group (target network group). In the rule collection, route rules are used to describe the desired routing behavior for the subnets or virtual networks in the target network group. 
+
+Routing configurations create UDRs for you based on what the route rules specify. For example, you can specify that the spoke network group, consisting of two virtual networks, *VNet1* and *VNet2*, accesses the DNS service's address through a Firewall. Your network manager will create UDRs to make this routing behavior happen.
+
+:::image type="content" source="media/concept-udr-management/udr-management-example.png" alt-text="Diagram of user-defined rules being applied to virtual networks to route DNS traffic through firewall.":::
+
+### Routing configurations
+
+Routing configurations are the building blocks of UDR management. They're used to describe the desired routing behavior for a network group. A routing configuration consists of the following settings:
+
+| **Attribute** | **Description** |
+|---------------|-----------------|
+| **Name** | The name of the routing configuration. |
+| **Description** | The description of the routing configuration. |
+
+### Route collection settings
+
+A route collection consists of the following settings:
+
+| **Attribute** | **Description** |
+|---------------|-----------------|
+| **Name** | The name of the route collection. |
+| **Local routing settings** | The local routing settings for the route collection. |
+| **Enable BGP route propagation** | The BGP settings for the route collection. |
+| **Target network group** | The target network group for the route collection. |
+| **Route rules** | The route rules that describe the desired routing behavior for the target network group. |
+
+:::image type="content" source="media/how-to-deploy-user-defined-routes/rule-collection-settings.png" alt-text="Screenshot of a configured rule collection with a routing rule.":::
+
+### Route rule settings
+
+Each route rule consists of the following settings: 
 
 | **Attribute** | **Description** |
 |---------------|-----------------|
@@ -33,11 +69,9 @@ In virtual network manager, you create rule collections to describe the UDRs nee
 | Virtual appliance | The virtual appliance as the next hop. |
 | **Next hop address** | The IP address of the next hop. |
 
-For each type of next hop, please refer to https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview#user-defined.
- 
-Routing configurations create UDRs for you based on what the route rules specify. For example, you can specify that the spoke network group, consisting of two virtual networks, *VNet1* and *VNet2*, accesses the DNS service's address through a Firewall. Your network manager will then create UDRs to make this routing behavior happen.
+:::image type="content" source="media/how-to-deploy-user-defined-routes/routing-rule-settings.png" alt-text="Screenshot of configured routing rule.":::
 
-:::image type="content" source="media/concept-udr-management/udr-management-example.png" alt-text="Diagram of user-defined rules being applied to virtual networks to route DNS traffic through firewall.":::
+For each type of next hop, please refer to https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview#user-defined.
 
 ### Common destination patterns for IP Addresses
 
@@ -54,8 +88,7 @@ The following are common destination patterns:
 
 You can also easily choose an Azure Firewall as the next hop by selecting **Import Azure firewall private IP address** when creating your routing rule. The IP address of the Azure Firewall is then used as the next hop.
 
-
-
+:::image type="content" source="media/how-to-deploy-user-defined-routes/add-routing-rule-azure-firewall.png" alt-text="Screenshot of routing rule with Azure Firewall option.":::
 
 ## Common routing scenarios
 
@@ -71,45 +104,20 @@ Here are the common routing scenarios that you can simplify and automate by usin
 | hub and spoke network with Spoke network to on-premises needs to go via Network Virtual Appliance |              |
 | Gateway -> Network Virtual Appliance -> Spoke network  |              |
 
-## Routing configurations
-
-Routing configurations are the building blocks of UDR management. They are used to describe the desired routing behavior for a network group. A routing configuration consists of the following attributes:
-
-| **Attribute** | **Description** |
-|---------------|-----------------|
-| **Name** | The name of the routing configuration. |
-| **Target network group** | The target network group for the routing configuration. |
-| **Route rules** | The route rules that describe the desired routing behavior for the target network group. |
-
-### 
-
 ## Local routing settings
 
-Local route setting
-You can choose to select whether you want to create local routing behavior so that 
-1.	If the source and destination are in the same Vnet, route to the destination directly
-2.	If the source and destination are in the same subnet, route to the destination directly
-3.	No above behavior
+When you create a rule collection, you define the local routing settings. The local routing settings determine how traffic is routed within the same virtual network or subnet. The following are the local routing settings:
 
+| **Local routing setting** | **Description** |
+|---------------------------|-----------------|
+| **Direct routing within virtual network** | Route traffic directly to the destination within the same virtual network. |
+| **Direct routing within subnet** | Route traffic directly to the destination within the same subnet. |
+| **Not specified** | Route traffic to the next hop specified in the route rule. |
 
-Selecting "Direct routing within virtual network" or "Direct routing within subnet" creates a UDR with a "virtual network" next hop for local traffic routing within the same VNet or subnet. However, if the destination CIDR is fully contained within the source CIDR under these selections and direct routing is selected, a UDR specifying a network appliance as the next hop won't be set up.
-
-Sample setting of routing all traffic to an Azure Firewall, unless in the same VNet
-By using the following sample setting, you can easily route all traffic to an Azure Firewall, except the destination is in the same VNet to save routing and inspection cost. All new subnets in the VNets in the spoke network group can automatically get the necessary UDRs to make this routing behavior happen.
-
-
-
-Use Azure Firewall as the next hop
-Note, you can also easily choose an Azure Firewall as the next hop by importing Azure firewall private IP address in your AVNM’s scope. AVNM will use the IP of the Azure Firewall you choose as the next hop.
-
-## Availability
-
-## Service level agreement
-
-
+When you select **Direct routing within virtual network** or **Direct routing within subne**t, a UDR with a virtual network next hop is created for local traffic routing within the same virtual network or subnet. However, if the destination CIDR is fully contained within the source CIDR under these selections and direct routing is selected, a UDR specifying a network appliance as the next hop won't be set up.
 
 ## Next step
 
 > [!div class="nextstepaction"]
-> Learn to how to [create user-defined routes in Azure Virtual Network Manager](how-to-create-user-defined-routes.md).
+> Learn too how to [create user-defined routes in Azure Virtual Network Manager](how-to-create-user-defined-routes.md).
 
