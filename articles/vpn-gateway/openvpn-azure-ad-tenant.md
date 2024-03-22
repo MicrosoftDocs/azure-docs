@@ -15,12 +15,14 @@ This article helps you configure your AD tenant and P2S (point-to-site) VPN Gate
 
 [!INCLUDE [OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
 
-## <a name="tenant"></a> Microsoft Entra tenant
+## Prerequisites
 
 The steps in this article require a Microsoft Entra tenant. If you don't have a Microsoft Entra tenant, you can create one using the steps in the [Create a new tenant](../active-directory/fundamentals/active-directory-access-create-new-tenant.md) article. Note the following fields when creating your directory:
 
 * Organizational name
 * Initial domain name
+
+If you already have an existing P2S gateway, the steps in this article help you configure the gateway for Microsoft Entra authentication. You can also create a new VPN gateway that specifies Microsoft Entra authentication. The link to create a new gateway is included in this article.
 
 <a name='create-azure-ad-tenant-users'></a>
 
