@@ -32,18 +32,19 @@ Customers should aim to run the latest minor release of the major version they'r
 
 ### Upgrade channels
 
-Upgrade channels are tied to a minor version of Red Hat OpenShift Container Platform (OCP). For instance, OCP 4.9 upgrade channels will never include an upgrade to a 4.10 release. Upgrade channels control only release selection and don't impact the version of the cluster.
+Upgrade channels are tied to a minor version of Red Hat OpenShift Container Platform (OCP). For instance, OCP 4.9 upgrade never includes an upgrade to a 4.10 release. Upgrade channels control only release selection and don't impact the version of the cluster.
 
 Azure Red Hat OpenShift 4 supports stable channels only. For example: stable-4.9.
 
-You can use the stable-4.10 channel to upgrade from a previous minor version of Azure Red Hat OpenShift. Clusters upgraded using fast, prerelease, and candidate channels won't be supported.
+You can use the stable-4.10 channel to upgrade from a previous minor version of Azure Red Hat OpenShift. Clusters upgraded using fast, prerelease, and candidate channels aren't supported.
 
 If you change to a channel that doesn't include your current release, an alert displays and no updates can be recommended. However, you can safely change back to your original channel at any point.
 
 ## Red Hat OpenShift Container Platform version support policy
 
 Azure Red Hat OpenShift supports two generally available (GA) minor versions of Red Hat OpenShift Container Platform:
-* The latest GA minor version that is released in Azure Red Hat OpenShift (which we'll refer to as N)
+* The latest GA minor version that is released in Azure Red Hat OpenShift (referred to as N)
+
 * One previous minor version (N-1)
 
 If available in a stable upgrade channel, newer minor releases (N+1, N+2) available in upstream OCP are supported as well.
