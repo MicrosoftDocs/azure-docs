@@ -23,7 +23,7 @@ In this article, you learn how to create and manage an Azure AI hub resource in 
 
 ## Create an Azure AI hub resource in AI Studio
 
-To create a new Azure AI hub resource, you need either the Owner or Contributor role on the resource group or on an existing Azure AI hub resource. If you're unable to create an Azure AI hub resource due to permissions, reach out to your administrator. If your organization is using [Azure Policy](../../governance/policy/overview.md) or wants to use network isolation, don't create the resource in AI Studio. Create the Azure AI hub resource [in the Azure portal](create-secure-ai-hub.md) instead.
+To create a new Azure AI hub resource, you need either the Owner or Contributor role on the resource group or on an existing Azure AI hub resource. If you're unable to create an Azure AI hub resource due to permissions, reach out to your administrator. If your organization is using [Azure Policy](../../governance/policy/overview.md), don't create the resource in AI Studio. Create the Azure AI hub resource [in the Azure portal](#create-a-secure-azure-ai-hub-resource-in-the-azure-portal) instead.
 
 Follow these steps to create a new Azure AI hub resource in AI Studio.
 
@@ -47,6 +47,40 @@ Follow these steps to create a new Azure AI hub resource in AI Studio.
 When the AI hub is created, you can see it on the **Manage** page in AI Studio. You can see that initially no projects are created in the AI hub. You can [create a new project](./create-projects.md).
 
 :::image type="content" source="../media/how-to/hub-resource-overview.png" alt-text="Screenshot of the new AI hub overview." lightbox="../media/how-to/hub-resource-overview.png":::
+
+## Create a secure Azure AI hub resource in the Azure portal
+
+If your organization is using [Azure Policy](../../governance/policy/overview.md), set up an Azure AI hub resource that meets your organization's requirements instead of using AI Studio for resource creation. 
+
+1. From the Azure portal, search for `Azure AI Studio` and create a new resource by selecting **+ New Azure AI**
+1. Enter your AI hub name, subscription, resource group, and location details.
+1. For advanced settings, select **Next: Resources** to specify resources, networking, encryption, identity, and tags. 
+
+    :::image type="content" source="../media/how-to/resource-create-basics.png" alt-text="Screenshot of the option to set Azure AI hub resource basic information." lightbox="../media/how-to/resource-create-basics.png":::
+
+1. Select an existing **Azure AI services** resource or create a new one. New Azure AI services include multiple API endpoints for Speech, Content Safety and Azure OpenAI. You can also bring an existing Azure OpenAI resource. Optionally, choose an existing **Storage account**, **Key vault**, **Container Registry**, and **Application insights** to host artifacts generated when you use AI Studio.
+
+    :::image type="content" source="../media/how-to/resource-create-resources.png" alt-text="Screenshot of the Create an Azure AI hub resource with the option to set resource information." lightbox="../media/how-to/resource-create-resources.png"::: 
+
+1. Set up Network isolation. Read more on [network isolation](configure-managed-network.md). For a walkthrough of creating a secure Azure AI hub resource, see [Create a secure Azure AI hub resource](create-secure-ai-hub.md).
+
+    :::image type="content" source="../media/how-to/resource-create-networking.png" alt-text="Screenshot of the Create an Azure AI hub resource with the option to set network isolation information." lightbox="../media/how-to/resource-create-networking.png":::  
+
+1. Set up data encryption. You can either use **Microsoft-managed keys** or enable **Customer-managed keys**. 
+
+    :::image type="content" source="../media/how-to/resource-create-encryption.png" alt-text="Screenshot of the Create an Azure AI hub resource with the option to select your encryption type." lightbox="../media/how-to/resource-create-encryption.png":::
+
+1. By default, **System assigned identity** is enabled, but you can switch to **User assigned identity** if existing storage, key vault, and container registry are selected in Resources.
+
+    :::image type="content" source="../media/how-to/resource-create-identity.png" alt-text="Screenshot of the Create an Azure AI hub resource with the option to select a managed identity." lightbox="../media/how-to/resource-create-identity.png":::
+    >[!Note]
+    >If you select **User assigned identity**, your identity needs to have the `Cognitive Services Contributor` role in order to successfully create a new Azure AI hub resource.
+    
+1. Add tags.
+
+    :::image type="content" source="../media/how-to/resource-create-tags.png" alt-text="Screenshot of the Create an Azure AI hub resource with the option to add tags." lightbox="../media/how-to/resource-create-tags.png":::
+
+1. Select **Review + create**
 
 ## Manage your Azure AI hub resource from the Azure portal
 
