@@ -129,7 +129,7 @@ saveRDS(myobject, file = file.path(args$output,"myobject.rds"))
 
 ```
 
-## `crate` your models with the `carrier` package
+## <a name="crate"></a>`crate` your models with the `carrier` package
 
 The [R MLflow API documentation](https://MLflow.org/docs/latest/models.html#r-function-crate) specifies that your R models need to be of the `crate` _model flavor_.  
 

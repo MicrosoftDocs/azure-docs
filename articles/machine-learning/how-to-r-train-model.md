@@ -44,9 +44,8 @@ Create this folder structure for your project:
 > [!IMPORTANT]
 > All source code goes in the `src` directory.
 
-* The **r-source.R** file is the R script that you adapted to run in production
-* The **azureml_utils.R** file is necessary. The source code is shown [here](how-to-r-modify-script-for-production.md#source-the-azureml_utilsr-helper-script)
-
+* The **r-source.R** file is the R script that you adapted to run in production. Make sure you use the source code tips from the [adapting article](how-to-r-modify-script-for-production.md#source-the-r-script.md#crate), especially to crate and log your model.
+* The **azureml_utils.R** file is necessary. Use [this source code](how-to-r-modify-script-for-production.md#source-the-azureml_utilsr-helper-script) for the contents of the file.
 
 
 ## Prepare the job YAML
@@ -159,7 +158,7 @@ Finally, once the training job is complete, register your model if you want to d
 
     :::image type="content" source="media/how-to-r-train-model/register-model.png" alt-text="Screenshot shows the Job section of studio with the Outputs section open.":::
 
-1. For **Model type**, change the default from **MLflow** to **Unspecified type**.
+1. Do not use the **MLflow** model type, even though it is detected. Change **Model type** from the default **MLflow** to **Unspecified type**.  Leaving it as **MLflow** will cause an error.
 1. For **Job output**, select **models**, the folder that contains the model.
 1. Select **Next**.
 1. Supply the name you wish to use for your model.  Add **Description**, **Version**, and **Tags** if you wish.
