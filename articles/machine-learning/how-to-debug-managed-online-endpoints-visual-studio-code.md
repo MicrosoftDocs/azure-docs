@@ -8,7 +8,7 @@ ms.subservice: inferencing
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
-ms.date: 03/18/2024
+ms.date: 03/20/2024
 ms.topic: troubleshooting
 ms.custom: devplatv2, devx-track-azurecli, cliv2
 ms.devlang: azurecli
@@ -56,7 +56,7 @@ This guide assumes you have the following items installed locally on your PC.
 
 For more information, see the guide on [how to prepare your system to deploy online endpoints](how-to-deploy-online-endpoints.md#prepare-your-system).
 
-The examples in this article are based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) GitHub repository. To run the commands locally without having to copy/paste YAML and other files, clone the repo and then change directories to the *azureml-examples/cli*:
+The examples in this article are based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) GitHub repository. To run the commands locally without having to copy/paste YAML and other files, clone the repo and then change directories to *azureml-examples/cli*:
 
 ```azurecli
 git clone https://github.com/Azure/azureml-examples --depth 1
@@ -89,6 +89,7 @@ This guide assumes you have the following items installed locally on your PC.
 - [Azure CLI](/cli/azure/install-azure-cli)
 - [Azure CLI ml extension (v2)](how-to-configure-cli.md)
 - [Azure Machine Learning Python SDK (v2)](https://aka.ms/sdk-v2-install)
+- [Windows Subsystem for Linux (WSL)](/windows/wsl/install)
 
 For more information, see the guide on [how to prepare your system to deploy online endpoints](how-to-deploy-online-endpoints.md#prepare-your-system).
 
