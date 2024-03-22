@@ -65,7 +65,7 @@ az k8s-extension create --cluster-type managedClusters \
 --auto-upgrade-minor-version true \
 --configuration-settings "global.ha.enabled=true" \
 --configuration-settings "dapr_operator.replicaCount=2" \
---configuration-settings "global.nodeSelector.kubernetes\.io/zone: us-east-1c"
+--configuration-settings "global.nodeSelector.kubernetes\.io/zone=us-east-1c"
 ```
 
 For managing OS and architecture, use the [supported versions](https://github.com/dapr/dapr/blob/b8ae13bf3f0a84c25051fcdacbfd8ac8e32695df/docker/docker.mk#L50) of the `global.daprControlPlaneOs` and `global.daprControlPlaneArch` configuration:
@@ -241,7 +241,10 @@ az k8s-extension update --cluster-type managedClusters \
 
 ## Meet network requirements
 
-The Dapr extension for AKS and Arc for Kubernetes requires outbound URLs on `https://:443` to function. In addition to the `https://mcr.microsoft.com/daprio` URL for pulling Dapr artifacts, verify you've included the [outbound URLs required for AKS or Arc for Kubernetes](../azure-arc/kubernetes/network-requirements.md). 
+The Dapr extension for AKS and Arc for Kubernetes requires the following outbound URLs on `https://:443` to function:
+1. `https://mcr.microsoft.com/daprio` URL for pulling Dapr artifacts.
+2. `https://linuxgeneva-microsoft.azurecr.io/` URL for pulling some Dapr dependencies.
+3. The [outbound URLs required for AKS or Arc for Kubernetes](../azure-arc/kubernetes/network-requirements.md). 
 
 ## Next Steps
 

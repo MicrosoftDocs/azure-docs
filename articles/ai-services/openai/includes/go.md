@@ -44,7 +44,7 @@ import (
 )
 
 func main() {
-	azureOpenAIKey := os.Getenv("AZURE_OPENAI_KEY")
+	azureOpenAIKey := os.Getenv("AZURE_OPENAI_API_KEY")
 	modelDeploymentID := "gpt-35-turbo-instruct"
 
 	azureOpenAIEndpoint := os.Getenv("AZURE_OPENAI_ENDPOINT")

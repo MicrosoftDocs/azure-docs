@@ -64,7 +64,7 @@ GET /indexes/hotels-sample-index/docs?moreLikeThis=20&searchFields=Description&$
 
 ## Next steps
 
-You can use any web testing tool to experiment with this feature.  We recommend using Postman for this exercise.
+You can use any REST client for this exercise.
 
 > [!div class="nextstepaction"]
-> [Explore Azure AI Search REST APIs using Postman](search-get-started-rest.md)
+> [Quickstart: Text search using REST](search-get-started-rest.md)

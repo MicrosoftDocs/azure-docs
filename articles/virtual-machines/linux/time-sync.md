@@ -12,7 +12,7 @@ ms.author: jushiman
 # Time sync for Linux VMs in Azure
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets 
 
@@ -73,7 +73,7 @@ There are some basic commands for checking your time synchronization configurati
 Check to see if the integration service (hv_utils) is loaded.
 
 ```bash
-lsmod | grep hv_utils
+$ sudo lsmod | grep hv_utils
 ```
 You should see something similar to this:
 
@@ -91,13 +91,13 @@ install the updated driver. When the PTP clock source is available, the Linux de
 See which PTP clock sources are available.
 
 ```bash
-ls /sys/class/ptp
+$ ls /sys/class/ptp
 ```
 
 In this example, the value returned is *ptp0*, so we use that to check the clock name. To verify the device, check the clock name.
 
 ```bash
-cat /sys/class/ptp/ptp0/clock_name
+$ sudo cat /sys/class/ptp/ptp0/clock_name
 ```
 
 This should return `hyperv`, meaning the Azure host.
@@ -143,7 +143,7 @@ makestep 1.0 -1
 Here, chrony will force a time update if the drift is greater than 1 second. To apply the changes restart the chronyd service:
 
 ```bash
-systemctl restart chronyd && systemctl restart chrony
+$ sudo systemctl restart chronyd && sudo systemctl restart chrony
 ```
 
 ### Time sync messages related to systemd-timesyncd
@@ -162,7 +162,7 @@ Aug  1 12:59:45 vm-name systemd-timesyncd[945]: Synchronized to time server 185.
 You can disable it by using:
 
 ```bash
-systemctl disable systemd-timesyncd
+$ sudo systemctl disable systemd-timesyncd
 ````
 In most cases, systemd-timesyncd will try during boot but once chrony starts up it will overwrite and become the default time sync source.
 
@@ -195,7 +195,7 @@ ntp:
        driftfile /var/lib/chrony/chrony.drift
        logdir /var/log/chrony
        maxupdateskew 100.0
-       refclock PHC /dev/ptp_hyperv poll 3 dpoll -2
+       refclock PHC /dev/ptp_hyperv poll 3 dpoll -2 offset 0 stratum 2
        makestep 1.0 -1
 ```
 
