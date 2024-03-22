@@ -1,4 +1,4 @@
-Get started with the Phone Numbers client library for C# to look up operator information for phone numbers, which can be used to determine whether and how to communicate with that phone number.  Follow these steps to install the package and look up operator information about a phone number.
+Get started with the Phone Numbers client library for C# to look up operator information for phone numbers, which can be used to determine whether and how to communicate with that phone number. Follow these steps to install the package and look up operator information about a phone number.
 
 > [!NOTE]
 > Find the code for this quickstart on [GitHub](https://github.com/Azure/communication-preview/tree/master/samples/NumberLookup).
@@ -73,17 +73,17 @@ internal class Program
 
 ### Authenticate the client
 
-Phone Number clients can be authenticated using connection string acquired from an Azure Communication Services resource in the [Azure portal](https://portal.azure.com). It's recommended to use a `COMMUNICATION_SERVICES_CONNECTION_STRING` environment variable to avoid putting your connection string in plain text within your code. Learn how to [manage your resource's connection string](../../create-communication-resource.md#store-your-connection-string).
+Phone Number clients can be authenticated using connection string acquired from an Azure Communication Services resource in the [Azure portal](https://portal.azure.com). Using a `COMMUNICATION_SERVICES_CONNECTION_STRING` environment variable is recommended to avoid putting your connection string in plain text within your code. Learn how to [manage your resource's connection string](../../create-communication-resource.md#store-your-connection-string).
 
 ```csharp
 // This code retrieves your connection string from an environment variable.
 string? connectionString = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_CONNECTION_STRING");
-  
+
 PhoneNumbersClient client = new PhoneNumbersClient(connectionString, new PhoneNumbersClientOptions(PhoneNumbersClientOptions.ServiceVersion.V2024_03_01_Preview));
 ```
 
 Phone Number clients can also authenticate with Microsoft Entra authentication. With this option,
-`AZURE_CLIENT_SECRET`, `AZURE_CLIENT_ID` and `AZURE_TENANT_ID` environment variables need to be set up for authentication.
+`AZURE_CLIENT_SECRET`, `AZURE_CLIENT_ID`, and `AZURE_TENANT_ID` environment variables need to be set up for authentication.
 
 ```csharp
 // Get an endpoint to our Azure Communication Services resource.
@@ -118,23 +118,23 @@ OperatorInformationResult searchResult = await client.SearchOperatorInformationA
 
 ### Use operator information
 
-You can now use the operator information.  For this quickstart guide, we can print some of the details to the console.
+You can now use the operator information. For this quickstart guide, we can print some of the details to the console.
 
-First, we can print out details about the number format.
+First, we can print details about the number format.
 
 ```csharp
 OperatorInformation formattingInfo = formattingResult.Values[0];
 Console.WriteLine($"{formattingInfo.PhoneNumber} is formatted {formattingInfo.InternationalFormat} internationally, and {formattingInfo.NationalFormat} nationally");
 ```
 
-Next, we can print out details about the phone number and operator.
+Next, we can print details about the phone number and operator.
 
 ```csharp
 OperatorInformation operatorInformation = searchResult.Values[0];
 Console.WriteLine($"{operatorInformation.PhoneNumber} is a {operatorInformation.NumberType ?? "unknown"} number, operated in {operatorInformation.IsoCountryCode} by {operatorInformation.OperatorDetails.Name ?? "an unknown operator"}");
 ```
 
-You may also use the operator information to determine whether to send an SMS.  For more information on sending an SMS, see the [SMS Quickstart](../../sms/send.md).
+You may also use the operator information to determine whether to send an SMS. For more information on sending an SMS, see the [SMS Quickstart](../../sms/send.md).
 
 ## Run the code
 
