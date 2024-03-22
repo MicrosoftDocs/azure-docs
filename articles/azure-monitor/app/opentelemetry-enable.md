@@ -11,32 +11,8 @@ ms.reviewer: mmcc
 
 # Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python, and Java applications
 
-This article describes how to enable and configure OpenTelemetry-based data collection to power the experiences within [Azure Monitor Application Insights](app-insights-overview.md#application-insights-overview). We walk through how to install the *Azure Monitor OpenTelemetry Distro*. The Azure Monitor OpenTelemetry Distro provides an [OpenTelemetry distribution](https://opentelemetry.io/docs/concepts/distributions/#what-is-a-distribution) that includes support for features specific to Azure Monitor. The Distro enables [automatic](opentelemetry-add-modify.md#automatic-data-collection) telemetry by including OpenTelemetry instrumentation libraries for collecting traces, metrics, logs, and exceptions, and allows collecting [custom](opentelemetry-add-modify.md#collect-custom-telemetry) telemetry. You can also use the [Live Metrics](live-stream.md) feature included in the Distro to monitor and collect additional telemetry from live, in-production web applications.
+This article describes how to enable and configure OpenTelemetry-based data collection to power the experiences within [Azure Monitor Application Insights](app-insights-overview.md#application-insights-overview). We walk through how to install the *Azure Monitor OpenTelemetry Distro*. The Azure Monitor OpenTelemetry Distro provides an [OpenTelemetry distribution](https://opentelemetry.io/docs/concepts/distributions/#what-is-a-distribution) that includes support for features specific to Azure Monitor. The Distro enables [automatic](opentelemetry-add-modify.md#automatic-data-collection) telemetry by including OpenTelemetry instrumentation libraries for collecting traces, metrics, logs, and exceptions, and allows collecting [custom](opentelemetry-add-modify.md#collect-custom-telemetry) telemetry. You can also use the [Live Metrics](live-stream.md) feature included in the Distro to monitor and collect more telemetry from live, in-production web applications. For more information about the advantages of using the Azure Monitor OpenTelemetry Distro, see [Why should I use the "Azure Monitor OpenTelemetry Distro"?](#why-should-i-use-the-azure-monitor-opentelemetry-distro).
  
-There are several advantages to using the Azure Monitor OpenTelemetry Distro:
-
-- Reduces enablement effort
-- Supported by Microsoft
-- Brings in Azure-specific features such as:
-   - Sampling compatible with classic Application Insights SDKs
-   - [Microsoft Entra authentication](azure-ad-authentication.md)
-   - [Offline Storage and Automatic Retries](opentelemetry-configuration.md#offline-storage-and-automatic-retries)
-   - [Statsbeat](statsbeat.md)
-   - [Application Insights Standard Metrics](standard-metrics.md)
-   - Detect resource metadata to autopopulate [Cloud Role Name](java-standalone-config.md#cloud-role-name) and [Cloud Role Instance](java-standalone-config.md#cloud-role-instance) on various Azure environments
-   - [Live Metrics](live-stream.md)
-
-In the spirit of OpenTelemetry, we designed the distro to be open and extensible. For example, you can add:
-
-- An OpenTelemetry Protocol (OTLP) exporter and send to a second destination simultaneously
-- Other instrumentation libraries not included in the distro
-
-Because the Distro provides an OpenTelemetry distribution, anything supported by OpenTelemetry is typically supported by the Distro. For example, you can add more telemetry processors, exporters, or instrumentation libraries, if they're supported by OpenTelemetry.
-
-> [!NOTE]
-> The Distro sets the sampler to a custom, fixed-rate sampler for Application Insights. You can change this to a different sampler, but doing so might disable some of the Distro's included capabilities.
-> For more information about the supported sampler, see the [Enable Sampling](opentelemetry-configuration.md#enable-sampling) section of [Configure Azure Monitor OpenTelemetry](opentelemetry-configuration.md).
-
 To learn more about collecting data using OpenTelemetry, see [Data Collection Basics](opentelemetry-overview.md) or [OpenTelemetry FAQ](#frequently-asked-questions).
 
 ## OpenTelemetry Release Status
