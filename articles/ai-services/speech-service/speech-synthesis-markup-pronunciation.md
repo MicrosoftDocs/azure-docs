@@ -147,8 +147,8 @@ The following XML example (not SSML) would be contained in a custom lexicon `.xm
         <alias>By the way</alias>
     </lexeme>
     <lexeme>
-        <grapheme> Benigni </grapheme>
-        <phoneme> bɛˈniːnji</phoneme>
+        <grapheme>Benigni</grapheme>
+        <phoneme>bɛˈniːnji</phoneme>
     </lexeme>
     <lexeme>
         <grapheme>😀</grapheme>
@@ -307,7 +307,26 @@ The XML syntax doesn't support the MathML entities, so you must use the correspo
 The text to speech output for this example is "a squared plus b squared equals c squared".
 
 ```xml
-<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xmlns:mstts='http://www.w3.org/2001/mstts' xml:lang='en-US'><voice name='en-US-AvaMultilingualNeural'><math xmlns='http://www.w3.org/1998/Math/MathML'><msup><mi>a</mi><mn>2</mn></msup><mo>+</mo><msup><mi>b</mi><mn>2</mn></msup><mo>=</mo><msup><mi>c</mi><mn>2</mn></msup></math></voice></speak>
+<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xmlns:mstts='http://www.w3.org/2001/mstts' xml:lang='en-US'>
+    <voice name='en-US-JennyNeural'>
+        <math xmlns='http://www.w3.org/1998/Math/MathML'>
+            <msup>
+                <mi>a</mi>
+                <mn>2</mn>
+            </msup>
+            <mo>+</mo>
+            <msup>
+                <mi>b</mi>
+                <mn>2</mn>
+            </msup>
+            <mo>=</mo>
+            <msup>
+                <mi>c</mi>
+                <mn>2</mn>
+            </msup>
+        </math>
+    </voice>
+</speak>
 ```
 
 ## Next steps
