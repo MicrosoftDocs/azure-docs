@@ -297,7 +297,7 @@ If you don't wish to have your classic resource automatically migrated to a work
 
 ### Is there any implication on the cost from migration?
 
-There's usually no difference, with one exeception - Application Insights resources that were receiving 1 GB per month free via legacy Application Insights pricing model will no longer receive the free data.
+There's usually no difference, with one exception - Application Insights resources that were receiving 1 GB per month free via legacy Application Insights pricing model will no longer receive the free data.
 
 The migration to workspace-based Application Insights offers a number of options to further [optimize cost](../logs/cost-logs.md), including [Log Analytics commitment tiers](../logs/cost-logs.md#commitment-tiers), [dedicated clusters](../logs/cost-logs.md#dedicated-clusters), and [basic logs](../logs/cost-logs.md#basic-logs).  
 
