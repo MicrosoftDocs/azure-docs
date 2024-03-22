@@ -1,5 +1,5 @@
 ---
-title: Concepts - Identity and access
+title: Architecture - Identity and access
 description: Learn about the identity and access concepts of Azure VMware Solution
 ms.topic: conceptual
 ms.service: azure-vmware
@@ -9,7 +9,7 @@ ms.custom: "references_regions, engagement-fy23"
 
 # Azure VMware Solution identity concepts
 
-Azure VMware Solution private clouds are provisioned with a vCenter Server and NSX-T Manager. You use vCenter Server to manage virtual machine (VM) workloads and NSX-T Manager to manage and extend the private cloud. The CloudAdmin role is used for vCenter Server and the CloudAdmin role (with restricted permissions) is used for NSX-T Manager.
+Azure VMware Solution private clouds are provisioned with a vCenter Server and NSX Manager. You use vCenter Server to manage virtual machine (VM) workloads and NSX Manager to manage and extend the private cloud. The CloudAdmin role is used for vCenter Server and the CloudAdmin role (with restricted permissions) is used for NSX Manager.
 
 ## vCenter Server access and identity
 
@@ -90,13 +90,13 @@ To prevent creating roles that can't be assigned or deleted, clone the CloudAdmi
 
 1. Check the **Propagate to children** if needed, and select **OK**. The added permission displays in the **Permissions** section.
 
-## VMware NSX-T Data Center NSX-T Manager access and identity
+## VMware NSX Manager access and identity
 
-When a private cloud is provisioned using Azure portal, software-defined data center (SDDC) management components like vCenter Server and VMware NSX-T Data Center NSX-T Manager are provisioned for customers.
+When a private cloud is provisioned using Azure portal, software-defined data center (SDDC) management components like vCenter Server and VMware NSX Manager are provisioned for customers.
 
-Microsoft is responsible for the lifecycle management of NSX-T appliances like, VMware NSX-T Data Center NSX-T Manager and VMware NSX-T Data Center Microsoft Edge appliances. They're responsible for bootstrapping network configuration, like creating the Tier-0 gateway.
+Microsoft is responsible for the lifecycle management of NSX appliances like, VMware NSX Manager and VMware NSX Edge appliances. They're responsible for bootstrapping network configuration, like creating the Tier-0 gateway.
 
-You're responsible for VMware NSX-T Data Center software-defined networking (SDN) configuration, for example:
+You're responsible for VMware NSX software-defined networking (SDN) configuration, for example:
 
 - Network segments
 - Other Tier-1 gateways
@@ -104,17 +104,17 @@ You're responsible for VMware NSX-T Data Center software-defined networking (SDN
 - Stateful services like gateway firewall
 - Load balancer on Tier-1 gateways
 
-You can access VMware NSX-T Data Center NSX-T Manager using the built-in local user "cloudadmin" assigned to a custom role that gives limited privileges to a user to manage VMware NSX-T Data Center. While Microsoft manages the lifecycle of VMware NSX-T Data Center, certain operations aren't allowed by a user. Operations not allowed include editing the configuration of host and edge transport nodes or starting an upgrade. For new users, Azure VMware Solution deploys them with a specific set of permissions needed by that user. The purpose is to provide a clear separation of control between the Azure VMware Solution control plane configuration and Azure VMware Solution private cloud user.  
+You can access VMware NSX Manager using the built-in local user "cloudadmin" assigned to a custom role that gives limited privileges to a user to manage VMware NSX. While Microsoft manages the lifecycle of VMware NSX, certain operations aren't allowed by a user. Operations not allowed include editing the configuration of host and edge transport nodes or starting an upgrade. For new users, Azure VMware Solution deploys them with a specific set of permissions needed by that user. The purpose is to provide a clear separation of control between the Azure VMware Solution control plane configuration and Azure VMware Solution private cloud user.  
 
-For new private cloud deployments, VMware NSX-T Data Center access is provided with a built-in local user cloudadmin assigned to the **cloudadmin** role with a specific set of permissions to use VMware NSX-T Data Center functionality for workloads.
+For new private cloud deployments, VMware NSX access is provided with a built-in local user cloudadmin assigned to the **cloudadmin** role with a specific set of permissions to use VMware NSX functionality for workloads.
 
-### VMware NSX-T Data Center cloudadmin user permissions
+### VMware NSX cloudadmin user permissions
 
-The following permissions are assigned to the **cloudadmin** user in Azure VMware Solution NSX-T Data Center.
+The following permissions are assigned to the **cloudadmin** user in Azure VMware Solution NSX.
 
 > [!NOTE]
-> **VMware NSX-T Data Center cloudadmin user** on Azure VMware Solution is not the same as the **cloudadmin user** mentioned in the VMware product documentation.
-> The following permissions apply to the VMware NSX-T Data Center Policy API.  Manager API functionality may be limited.
+> **VMware NSX cloudadmin user** on Azure VMware Solution is not the same as the **cloudadmin user** mentioned in the VMware product documentation.
+> The following permissions apply to the VMware NSX Policy API.  Manager API functionality may be limited.
 
 | Category        | Type                  | Operation                                                            | Permission                                                       |
 |-----------------|-----------------------|----------------------------------------------------------------------|------------------------------------------------------------------|
@@ -134,28 +134,28 @@ The following permissions are assigned to the **cloudadmin** user in Azure VMwar
 | System          | Configuration<br>Settings<br>Settings<br>Settings              | Identity firewall<br>Users and Roles<br>Certificate Management (Service Certificate only)<br>User Interface Settings   | Full Access<br>Full Access<br>Full Access<br>Full Access                          |
 | System          | All other    |                                                                      | Read-only                                                        |
 
-You can view the permissions granted to the Azure VMware Solution cloudadmin role on your Azure VMware Solution private cloud VMware NSX-T Data Center.
+You can view the permissions granted to the Azure VMware Solution cloudadmin role on your Azure VMware Solution private cloud VMware NSX.
 
-1. Sign in to the NSX-T Manager.
+1. Sign in to the NSX Manager.
 1. Navigate to **Systems** and locate **Users and Roles**.
 1. Select and expand the **cloudadmin** role, found under **Roles**.
 1. Select a category like, Networking or Security, to view the specific permissions.
 
 > [!NOTE]
-> **Private clouds created before June 2022** will switch from **admin** role to **cloudadmin** role. You'll receive a notification through Azure Service Health that includes the timeline of this change so you can change the NSX-T Data Center credentials you've used for other integration.
+> **Private clouds created before June 2022** will switch from **admin** role to **cloudadmin** role. You'll receive a notification through Azure Service Health that includes the timeline of this change so you can change the NSX credentials you've used for other integration.
 
-## NSX-T Data Center LDAP integration for role-based access control (RBAC)
+## NSX LDAP integration for role-based access control (RBAC)
 
-In an Azure VMware Solution deployment, the VMware NSX-T Data Center can be integrated with external LDAP directory service to add remote directory users or group, and assign them a VMware NSX-T Data Center RBAC role, like on-premises deployment.  For more information on how to enable VMware NSX-T Data Center LDAP integration, see the [VMware product documentation](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-DB5A44F1-6E1D-4E5C-8B50-D6161FFA5BD2.html).
+In an Azure VMware Solution deployment, the VMware NSX can be integrated with external LDAP directory service to add remote directory users or group, and assign them a VMware NSX RBAC role, like on-premises deployment.  For more information on how to enable VMware NSX LDAP integration, see the [VMware product documentation](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-DB5A44F1-6E1D-4E5C-8B50-D6161FFA5BD2.html).
 
-Unlike on-premises deployment, not all predefined NSX-T Data Center RBAC roles are supported with Azure VMware solution to keep Azure VMware Solution IaaS control plane config management separate from tenant network and security configuration. For more information, see the next section, Supported NSX-T Data Center RBAC roles.
+Unlike on-premises deployment, not all predefined NSX RBAC roles are supported with Azure VMware solution to keep Azure VMware Solution IaaS control plane config management separate from tenant network and security configuration. For more information, see the next section, Supported NSX RBAC roles.
 
 > [!NOTE]
-> VMware NSX-T Data Center LDAP Integration is supported only with SDDC’s with VMware NSX-T Data Center “cloudadmin” user.
+> VMware NSX LDAP Integration is supported only with SDDC’s with VMware NSX “cloudadmin” user.
 
-### Supported and unsupported NSX-T Data Center RBAC roles  
+### Supported and unsupported NSX RBAC roles  
 
- In an Azure VMware Solution deployment, the following VMware NSX-T Data Center predefined RBAC roles are supported with LDAP integration:
+ In an Azure VMware Solution deployment, the following VMware NSX predefined RBAC roles are supported with LDAP integration:
  
 - Auditor
 - Cloudadmin
@@ -164,7 +164,7 @@ Unlike on-premises deployment, not all predefined NSX-T Data Center RBAC roles a
 - VPN Admin
 - Network Operator
 
- In an Azure VMware Solution deployment, the following VMware NSX-T Data Center predefined RBAC roles aren't supported with LDAP integration:
+ In an Azure VMware Solution deployment, the following VMware NSX predefined RBAC roles aren't supported with LDAP integration:
 
 - Enterprise Admin
 - Network Admin
@@ -172,7 +172,7 @@ Unlike on-premises deployment, not all predefined NSX-T Data Center RBAC roles a
 - NetX Partner Admin
 - GI Partner Admin
 
-You can create custom roles in NSX-T Data Center with permissions lesser than or equal to CloudAdmin role created by Microsoft. Following are examples on how to create a supported "Network Admin" and "Security Admin" role.
+You can create custom roles in NSX with permissions lesser than or equal to CloudAdmin role created by Microsoft. Following are examples on how to create a supported "Network Admin" and "Security Admin" role.
 
 > [!NOTE]
 > Custom role creation will fail if you assign a permission not allowed by CloudAdmin role.
@@ -211,13 +211,13 @@ You can create custom roles in NSX-T Data Center with permissions lesser than or
 4. **Apply** the changes and **Save** the Role.
 
 > [!NOTE]
-> The VMware NSX-T Data Center **System** > **Identity Firewall AD** configuration option isn't supported by the NSX-T Data Center custom role. The recommendation is to assign the **Security Operator** role to the user with the custom role to allow managing the Identity Firewall (IDFW) feature for that user.
+> The VMware NSX **System** > **Identity Firewall AD** configuration option isn't supported by the NSX custom role. The recommendation is to assign the **Security Operator** role to the user with the custom role to allow managing the Identity Firewall (IDFW) feature for that user.
 
 > [!NOTE]
-> The VMware NSX-T Data Center Traceflow feature isn't supported by the VMware NSX-T Data Center custom role. The recommendation is to assign the **Auditor** role to the user along with the custom role to enable Traceflow feature for that user.
+> The VMware NSX Traceflow feature isn't supported by the VMware NSX custom role. The recommendation is to assign the **Auditor** role to the user along with the custom role to enable Traceflow feature for that user.
 
 > [!NOTE]
-> VMware vRealize Automation (vRA) integration with the NSX-T Data Center component of the Azure VMware Solution requires the “auditor” role to be added to the user with the NSX-T Manager cloudadmin role.
+> VMware Aria Operations Automation integration with the NSX component of the Azure VMware Solution requires the “auditor” role to be added to the user with the NSX Manager cloudadmin role.
 
 ## Next steps
 
