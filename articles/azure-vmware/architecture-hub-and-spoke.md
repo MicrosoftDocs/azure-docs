@@ -3,7 +3,7 @@ title: Concept - Integrate an Azure VMware Solution deployment in a hub and spok
 description: Learn about integrating an Azure VMware Solution deployment in a hub and spoke architecture on Azure.
 ms.topic: conceptual
 ms.service: azure-vmware
-ms.date: 12/21/2023
+ms.date: 3/22/2024
 ms.custom: engagement-fy23
 ---
 
