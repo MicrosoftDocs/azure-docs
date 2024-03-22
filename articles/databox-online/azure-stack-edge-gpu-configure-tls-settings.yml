@@ -19,6 +19,9 @@ introduction: |
   If you are using a Windows client to access your Azure Stack Edge Pro device, you are required to configure TLS 1.2 on your client. This article provides resources and guidelines to configure TLS 1.2 on your Windows client. 
 
   The guidelines provided here are based on testing performed on a client running Windows Server 2016.
+prerequisites:
+  summary: |
+    Before you begin, make sure that you have access to a Windows Server client that can connect to your Azure Stack Edge device. The client should be running Windows Server 2016 or later.
 procedureSection:
   - title: |
       Configure TLS 1.2 for current PowerShell session
