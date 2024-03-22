@@ -36,9 +36,9 @@ For AS-Path Prepend, consider the following prerequisites:
 > [!IMPORTANT]
 > Azure VMware Solution management virtual machines (VMs) won't honor a default route from on-premises for RFC1918 destinations.
 
-If you're routing back to your on-premises networks by using only a default route advertised toward Azure, traffic from vCenter Server and NSX-T Manager VMs being used towards on-premises destinations with private IP addresses won't follow that route.
+If you're routing back to your on-premises networks by using only a default route advertised toward Azure, traffic from vCenter Server and NSX Manager VMs being used towards on-premises destinations with private IP addresses won't follow that route.
 
-To reach vCenter Server and NSX-T Manager from on-premises, provide specific routes to allow traffic to have a return path to those networks. For example, advertise the RFC1918 summaries (10.0.0.0/8, 172.16.0.0/12 and 192.168.0.0/16).
+To reach vCenter Server and NSX Manager from on-premises, provide specific routes to allow traffic to have a return path to those networks. For example, advertise the RFC1918 summaries (10.0.0.0/8, 172.16.0.0/12 and 192.168.0.0/16).
 
 ## Default route to Azure VMware Solution for internet traffic inspection
 
