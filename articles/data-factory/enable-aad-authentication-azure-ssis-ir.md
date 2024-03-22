@@ -55,7 +55,7 @@ You can use an existing Microsoft Entra group or create a new one using Azure AD
                              -MailNickName "NotSet"
    ```
 
-   [!INCLUDE [Azure AD PowerShell deprecation note](~/articles/reusable-content/msgraph-powershell/includes/aad-powershell-deprecation-note.md)]
+   [!INCLUDE [Azure AD PowerShell deprecation note](~/reusable-content/msgraph-powershell/includes/aad-powershell-deprecation-note.md)]
 
    The result looks like the following example, which also displays the variable value:
 
