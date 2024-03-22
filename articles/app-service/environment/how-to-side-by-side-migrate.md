@@ -233,10 +233,18 @@ You have two App Service Environments at this stage in the migration process. Yo
 > During the preview, the new inbound IP might be returned incorrectly due to a known bug. Open a support ticket to receive the correct IP addresses for your App Service Environment v3.
 > 
 
-You can get the new inbound IP address for your new App Service Environment v3 by running the following command. It's your responsibility to make any necessary updates. 
+You can get the new inbound IP address for your new App Service Environment v3 by running the following command that corresponds to your App Service Environment load balancer type. It's your responsibility to make any necessary updates. 
+
+For ILB App Service Environments, get the private inbound IP address by running the following command:
 
 ```azurecli
-az rest --method get --uri "${ASE_ID}?api-version=2022-03-01" --query properties.networkingConfiguration
+az rest --method get --uri "${ASE_ID}?api-version=2022-03-01" --query properties.internalInboundIpAddresses
+```
+
+For ELB App Service Environments, get the public inbound IP address by running the following command:
+
+```azurecli
+az rest --method get --uri "${ASE_ID}?api-version=2022-03-01" --query properties.externalInboundIpAddresses
 ```
 
 ## 11. Redirect customer traffic and complete migration
