@@ -268,7 +268,7 @@ items:
     - name: Reprotect VMs
       href: ../site-recovery/avs-tutorial-reprotect.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
     - name: Failback from Azure
-        href: ../site-recovery/avs-tutorial-failback.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
+      href: ../site-recovery/avs-tutorial-failback.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
 - name: Operations and monitoring
   items:
   - name: Run Command
