@@ -67,7 +67,7 @@ procedureSection:
         The disk stays in storage but is no longer attached to a virtual machine. The disk isn't deleted.
 
 relatedContent:
-  - text: attach it to another VM
+  - text: Attach your managed disk to another VM
     url: attach-managed-disk-portal.yml
   - text: Find and delete unattached Azure managed and unmanaged disks - Azure portal
     url: ../disks-find-unattached-portal.yml
