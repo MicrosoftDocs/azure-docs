@@ -181,7 +181,7 @@ For this tutorial, you deploy two modules. The first is **SimulatedTemperatureSe
 
    1. Select **+ Add** and choose **IoT Edge Module**.
    1. For the name, type **SimulatedTemperatureSensor**.
-   1. For the image URI, enter **mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.4**.
+   1. For the image URI, enter **mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.5**.
    1. Leave the other default settings, then select **Add**.
 
 1. Add your Azure Stream Analytics Edge job with the following steps:

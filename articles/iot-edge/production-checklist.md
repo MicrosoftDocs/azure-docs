@@ -13,7 +13,7 @@ ms.custom:  [amqp, mqtt]
 
 # Prepare to deploy your IoT Edge solution in production
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 When you're ready to take your IoT Edge solution from development into production, make sure that it's configured for ongoing performance.
 
@@ -200,10 +200,10 @@ The following steps illustrate how to pull a Docker image of **edgeAgent** and *
 
    ```bash
    # Pull edgeAgent image
-   docker pull mcr.microsoft.com/azureiotedge-agent:1.4
+   docker pull mcr.microsoft.com/azureiotedge-agent:1.5
 
    # Pull edgeHub image
-   docker pull mcr.microsoft.com/azureiotedge-hub:1.4
+   docker pull mcr.microsoft.com/azureiotedge-hub:1.5
    ```
 
 1. List all your Docker images, find the **edgeAgent** and **edgeHub** images, then copy their image IDs.
@@ -216,20 +216,20 @@ The following steps illustrate how to pull a Docker image of **edgeAgent** and *
 
    ```bash
    # Retag your edgeAgent image
-   docker tag <my-image-id> <registry-name/server>/azureiotedge-agent:1.4
+   docker tag <my-image-id> <registry-name/server>/azureiotedge-agent:1.5
 
    # Retag your edgeHub image
-   docker tag <my-image-id> <registry-name/server>/azureiotedge-hub:1.4
+   docker tag <my-image-id> <registry-name/server>/azureiotedge-hub:1.5
    ```
 
 1. Push your **edgeAgent** and **edgeHub** images to your private registry. Replace the value in brackets with your own.
 
    ```bash
    # Push your edgeAgent image to your private registry
-   docker push <registry-name/server>/azureiotedge-agent:1.4
+   docker push <registry-name/server>/azureiotedge-agent:1.5
 
    # Push your edgeHub image to your private registry
-   docker push <registry-name/server>/azureiotedge-hub:1.4
+   docker push <registry-name/server>/azureiotedge-hub:1.5
    ```
 
 1. Update the image references in the *deployment.template.json* file for the **edgeAgent** and **edgeHub** system modules, by replacing `mcr.microsoft.com` with your own "registry-name/server" for both modules.
@@ -244,7 +244,7 @@ The following steps illustrate how to pull a Docker image of **edgeAgent** and *
 
    ```toml
    [agent.config]
-   image = "<registry-name/server>/azureiotedge-agent:1.4"
+   image = "<registry-name/server>/azureiotedge-agent:1.5"
    ```
 
 1. If your private registry requires authentication, set the authentication parameters in `[agent.config.auth]`.

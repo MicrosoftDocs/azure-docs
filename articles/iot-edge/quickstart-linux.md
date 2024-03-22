@@ -12,7 +12,7 @@ ms.custom: mvc, devx-track-azurecli, mode-other
 
 # Quickstart: Deploy your first IoT Edge module to a virtual Linux device
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 Test out Azure IoT Edge in this quickstart by deploying containerized code to a virtual Linux IoT Edge device. IoT Edge allows you to remotely manage code on your devices so that you can send more of your workloads to the edge. For this quickstart, we recommend using an Azure virtual machine for your IoT Edge device, which allows you to quickly create a test machine and then delete it when you're finished.
 
@@ -99,7 +99,7 @@ During the runtime configuration, you provide a device connection string. This i
 
 This section uses an Azure Resource Manager template to create a new virtual machine and install the IoT Edge runtime on it. If you want to use your own Linux device instead, you can follow the installation steps in [Manually provision a single Linux IoT Edge device](how-to-provision-single-device-linux-symmetric.md), then return to this quickstart.
 
-Use the **Deploy to Azure** button or the CLI commands to create your IoT Edge device based on the prebuilt [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy/tree/1.4) template.
+Use the **Deploy to Azure** button or the CLI commands to create your IoT Edge device based on the prebuilt [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy/tree/1.5) template.
 
 * Deploy using the IoT Edge Azure Resource Manager template.
 
@@ -110,7 +110,7 @@ Use the **Deploy to Azure** button or the CLI commands to create your IoT Edge d
    ```azurecli-interactive
    az deployment group create \
    --resource-group IoTEdgeResources \
-   --template-uri "https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/1.4/edgeDeploy.json" \
+   --template-uri "https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/1.5/edgeDeploy.json" \
    --parameters dnsLabelPrefix='<REPLACE_WITH_VM_NAME>' \
    --parameters adminUsername='azureUser' \
    --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name <REPLACE_WITH_HUB_NAME> -o tsv) \
@@ -123,7 +123,7 @@ Use the **Deploy to Azure** button or the CLI commands to create your IoT Edge d
    ```azurecli
    az deployment group create `
    --resource-group IoTEdgeResources `
-   --template-uri "https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/1.4/edgeDeploy.json" `
+   --template-uri "https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/1.5/edgeDeploy.json" `
    --parameters dnsLabelPrefix='<REPLACE_WITH_VM_NAME>' `
    --parameters adminUsername='azureUser' `
    --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name <REPLACE_WITH_HUB_NAME> -o tsv) `
@@ -188,7 +188,7 @@ Manage your Azure IoT Edge device from the cloud to deploy a module that will se
 
 One of the key capabilities of Azure IoT Edge is deploying code to your IoT Edge devices from the cloud. *IoT Edge modules* are executable packages implemented as containers. In this section, you'll deploy a pre-built module from the [IoT Edge Modules section of Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) directly from Azure IoT Hub.
 
-The module that you deploy in this section simulates a sensor and sends generated data. This module is a useful piece of code when you're getting started with IoT Edge because you can use the simulated data for development and testing. If you want to see exactly what this module does, you can view the [simulated temperature sensor source code](https://github.com/Azure/iotedge/blob/027a509549a248647ed41ca7fe1dc508771c8123/edge-modules/SimulatedTemperatureSensor/src/Program.cs).
+The module that you deploy in this section simulates a sensor and sends generated data. This module is a useful piece of code when you're getting started with IoT Edge because you can use the simulated data for development and testing. If you want to see exactly what this module does, you can view the [simulated temperature sensor source code](https://github.com/Azure/iotedge/blob/main/edge-modules/SimulatedTemperatureSensor/src/Program.cs).
 
 Follow these steps to start the **Set Modules** wizard to deploy your first module from Azure Marketplace.
 
@@ -251,7 +251,7 @@ Open the command prompt on your IoT Edge device again, or use the SSH connection
    sudo iotedge list
    ```
 
-:::image type="content" source="./media/quickstart-linux/iot-edge-list-2-version-1.4.png" alt-text="Screenshot that shows three modules on your device." lightbox="./media/quickstart-linux/iot-edge-list-2-version-1.4.png":::
+:::image type="content" source="./media/quickstart-linux/iot-edge-list.png" alt-text="Screenshot that shows three modules on your device." lightbox="./media/quickstart-linux/iot-edge-list.png":::
 
 View the messages being sent from the temperature sensor module:
 

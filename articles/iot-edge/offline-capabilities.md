@@ -11,7 +11,7 @@ services: iot-edge
 
 # Understand extended offline capabilities for IoT Edge devices, modules, and child devices
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 Azure IoT Edge supports extended offline operations on your IoT Edge devices and enables offline operations on downstream devices too. As long as an IoT Edge device has had one opportunity to connect to IoT Hub, that device and any downstream devices can continue to function with intermittent or no internet connection.
 

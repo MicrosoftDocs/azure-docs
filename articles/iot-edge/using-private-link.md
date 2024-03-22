@@ -11,7 +11,7 @@ services: iot-edge
 
 # Using Private Link with IoT Edge
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 In Industrial IoT (IIoT) scenarios, you may want to use IoT Edge and completely isolate your network from the internet traffic. You can achieve this requirement by using various services in Azure. The following diagram is an example reference architecture for a factory network scenario.
 

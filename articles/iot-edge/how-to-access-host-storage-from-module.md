@@ -12,7 +12,7 @@ services: iot-edge
 
 # Give modules access to a device's local storage
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 
 IoT Edge modules can use storage on the host IoT Edge device itself for improved reliability, especially when operating offline.
@@ -50,7 +50,7 @@ Your deployment manifest would be similar to the following:
             }
         },
         "settings": {
-            "image": "mcr.microsoft.com/azureiotedge-agent:1.4",
+            "image": "mcr.microsoft.com/azureiotedge-agent:1.5",
             "createOptions": "{\"HostConfig\":{\"Binds\":[\"/srv/edgeAgent:/tmp/edgeAgent\"]}}"
         },
         "type": "docker"
@@ -63,7 +63,7 @@ Your deployment manifest would be similar to the following:
         },
         "restartPolicy": "always",
         "settings": {
-            "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
+            "image": "mcr.microsoft.com/azureiotedge-hub:1.5",
             "createOptions": "{\"HostConfig\":{\"Binds\":[\"/srv/edgeHub:/tmp/edgeHub\"],\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
         },
         "status": "running",

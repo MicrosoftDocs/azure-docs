@@ -42,7 +42,7 @@ While not required, for best compatibility with this feature, the recommended lo
 | 6 | Informational |
 | 7 | Debug |
 
-The [Logger class in IoT Edge](https://github.com/Azure/iotedge/blob/master/edge-util/src/Microsoft.Azure.Devices.Edge.Util/Logger.cs) serves as a canonical implementation.
+The [Logger class in IoT Edge](https://github.com/Azure/iotedge/blob/main/edge-util/src/Microsoft.Azure.Devices.Edge.Util/Logger.cs) serves as a canonical implementation.
 
 ## Retrieve module logs
 

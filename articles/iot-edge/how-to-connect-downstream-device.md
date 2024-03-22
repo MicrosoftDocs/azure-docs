@@ -13,7 +13,7 @@ ms.custom: amqp, mqtt
 
 # Connect a downstream device to an Azure IoT Edge gateway
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 Here, you find instructions for establishing a trusted connection between downstream devices and IoT Edge transparent [gateways](iot-edge-as-gateway.md). In a transparent gateway scenario, one or more devices can pass their messages through a single gateway device that maintains the connection to IoT Hub. Here, the terms *gateway* and *IoT Edge gateway* refer to an IoT Edge device configured as a transparent gateway.
 
@@ -165,7 +165,7 @@ var options = {
 
 This section introduces a sample application to connect an Azure IoT .NET device client to an IoT Edge gateway. However, .NET applications are automatically able to use any installed certificates in the system's certificate store on both Linux and Windows hosts.
 
-1. Get the sample for **EdgeDownstreamDevice** from the [IoT Edge .NET samples folder](https://github.com/Azure/iotedge/tree/master/samples/dotnet/EdgeDownstreamDevice).
+1. Get the sample for **EdgeDownstreamDevice** from the [IoT Edge .NET samples folder](https://github.com/Azure/iotedge/tree/main/samples/dotnet/EdgeDownstreamDevice).
 1. Make sure that you have all the prerequisites to run the sample by reviewing the **readme.md** file.
 1. In the **Properties / launchSettings.json** file, update the **DEVICE_CONNECTION_STRING** and **CA_CERTIFICATE_PATH** variables. If you want to use the certificate installed in the trusted certificate store on the host system, leave this variable blank.
 1. Refer to the SDK documentation for instructions on how to run the sample on your device.

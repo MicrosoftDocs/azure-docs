@@ -14,7 +14,7 @@ services: iot-edge
 > [!CAUTION]
 > This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 This article explains what operating system platforms, IoT Edge runtimes, container engines, and components are supported by IoT Edge whether generally available or in preview.
 
@@ -107,6 +107,7 @@ The following table lists the currently supported releases. IoT Edge release ass
 | Release notes and assets | Type | Release Date | End of Support Date |
 | ------------------------ | ---- | ------------ | ------------------- |
 | [1.4](https://github.com/Azure/azure-iotedge/releases/tag/1.4.0) | Long-term support (LTS) | August 2022 | November 12, 2024 |
+| [1.5](https://github.com/Azure/azure-iotedge/releases/tag/1.5.0) | Long-term support (LTS) | April 2024 |  |
 
 For more information on IoT Edge version history, see, [Version history](version-history.md#version-history).
 
@@ -117,7 +118,8 @@ IoT Edge uses the Microsoft.Azure.Devices.Client SDK. For more information, see 
 
 | IoT Edge version | Microsoft.Azure.Devices.Client SDK version |
 |------------------|--------------------------------------------|
-| 1.4              | 1.36.6                                     |
+| 1.4              | 1.36.6 |
+| 1.5              | 1.42.x |
 
 ## Virtual Machines
 

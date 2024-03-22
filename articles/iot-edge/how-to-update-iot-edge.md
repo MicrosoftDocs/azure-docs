@@ -11,7 +11,7 @@ services: iot-edge
 
 # Update IoT Edge
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 As the IoT Edge service releases new versions, update your IoT Edge devices for the latest features and security improvements. This article provides information about how to update your IoT Edge devices when a new version is available.
 
@@ -117,7 +117,7 @@ For information about IoT Edge for Linux on Windows updates, see [EFLOW Updates]
 # [Windows](#tab/windows)
 
 >[!NOTE]
->Currently, there is no support for IoT Edge version 1.4 running on Windows devices.
+>Currently, there is no support for IoT Edge running on Windows devices in Windows containers. Use a Linux container to run IoT Edge on Windows.
 >
 
 ---
