@@ -3306,6 +3306,16 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/azure-signalr/signalr-howto-monitor-reference.md",
+            "redirect_url": "/azure/azure-signalr/monitor-signalr-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-signalr/concept-metrics.md",
+            "redirect_url": "/azure/azure-signalr/monitor-signalr",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/sql-database-edge/index.yml",
             "redirect_url": "/azure/azure-sql-edge/",
             "redirect_document_id": true
