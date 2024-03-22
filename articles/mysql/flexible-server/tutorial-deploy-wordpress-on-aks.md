@@ -24,19 +24,12 @@ In this tutorial, you deploy a scalable and secure WordPress application on an A
 
 [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+## Prerequisites 
 
-##Prerequisites 
-
-Consider the following prerequisites for deploying a Web application:
-
-- Use the latest version of Azure CLI. If using Azure Cloud Shell, the latest version is already installed. 
-- Log into Azure CLI and select a subscription to use with the CLI. 
-- Ensure you have [Helm installed](https://helm.sh/docs/intro/install/).
-
+Before you get started, make sure you're logged into Azure CLI and have selected a subscription to use with the CLI. Ensure you have [Helm installed](https://helm.sh/docs/intro/install/).
 
 > [!NOTE]
-> If running the commands in this tutorial locally (instead of Azure Cloud Shell), ensure you run the commands as administrator.
+> If you're running the commands in this tutorial locally instead of Azure Cloud Shell, run the commands as administrator.
 
 ## Define Environment Variables
 
@@ -63,6 +56,7 @@ export MY_MYSQL_HOSTNAME="$MY_MYSQL_DB_NAME.mysql.database.azure.com"
 export MY_WP_ADMIN_PW="$(openssl rand -base64 32)"
 export MY_WP_ADMIN_USER="wpcliadmin"
 export FQDN="${MY_DNS_LABEL}.${REGION}.cloudapp.azure.com"
+```
 
 ## Create a resource group
 
@@ -199,9 +193,9 @@ The server created has the following attributes:
 - The default connectivity method is Private access (virtual network integration) with a linked virtual network and an auto generated subnet.
 
 > [!NOTE]
-> The connectivity method cannot be changed after creating the server. For example, if you selected `Private access (VNet Integration)` during create then you cannot change to `Public access (allowed IP addresses)` after create. We highly recommend creating a server with Private access to securely access your server using VNet Integration. Learn more about Private access in the [concepts article](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-networking-vnet).
+> The connectivity method cannot be changed after creating the server. For example, if you selected `Private access (VNet Integration)` during creation, then you cannot change to `Public access (allowed IP addresses)` after creation. We highly recommend creating a server with Private access to securely access your server using VNet Integration. Learn more about Private access in the [concepts article](concepts-networking-vnet).
 
-If you'd like to change any defaults, refer to the Azure CLI [reference documentation](https://learn.microsoft.com/cli/azure//mysql/flexible-server) for the complete list of configurable CLI parameters.
+If you'd like to change any defaults, refer to the Azure CLI [reference documentation](/cli/azure//mysql/flexible-server) for the complete list of configurable CLI parameters.
 
 ## Check the Azure Database for MySQL - Flexible Server status
 
@@ -215,11 +209,11 @@ runtime="10 minute"; endtime=$(date -ud "$runtime" +%s); while [[ $(date -u +%s)
 
 You can manage Azure Database for MySQL - Flexible Server configuration using server parameters. The server parameters are configured with the default and recommended value when you create the server.
 
-To show details about a particular parameter for a server, run the [az mysql flexible-server parameter show](https://learn.microsoft.com/cli/azure/mysql/flexible-server/parameter) command.
+To show details about a particular parameter for a server, run the [az mysql flexible-server parameter show](/cli/azure/mysql/flexible-server/parameter) command.
 
 ### Disable Azure Database for MySQL - Flexible Server SSL connection parameter for WordPress integration
 
-You can also modify the value of certain server parameters to update the underlying configuration values for the MySQL server engine. To update the server parameter, use the [az mysql flexible-server parameter set](https://learn.microsoft.com/cli/azure/mysql/flexible-server/parameter#az-mysql-flexible-server-parameter-set) command.
+You can also modify the value of certain server parameters to update the underlying configuration values for the MySQL server engine. To update the server parameter, use the [az mysql flexible-server parameter set](/cli/azure/mysql/flexible-server/parameter#az-mysql-flexible-server-parameter-set) command.
 
 ```bash
 az mysql flexible-server parameter set \
@@ -286,22 +280,22 @@ az aks create \
 To manage a Kubernetes cluster, use [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/), the Kubernetes command-line client. If you use Azure Cloud Shell, `kubectl` is already installed. The following example installs `kubectl` locally using the [az aks install-cli](/cli/azure/aks#az-aks-install-cli) command. 
  ```bash
     if ! [ -x "$(command -v kubectl)" ]; then az aks install-cli; fi
-    ```
+```
 
 Next, configure `kubectl` to connect to your Kubernetes cluster using the [az aks get-credentials](/cli/azure/aks#az-aks-get-credentials) command. This command downloads credentials and configures the Kubernetes CLI to use them. The command uses `~/.kube/config`, the default location for the [Kubernetes configuration file](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/). You can specify a different location for your Kubernetes configuration file using the **--file** argument.
 
-    > [!WARNING]
-    > This command will overwrite any existing credentials with the same entry.
+> [!WARNING]
+> This command will overwrite any existing credentials with the same entry.
 
-    ```bash
-    az aks get-credentials --resource-group $MY_RESOURCE_GROUP_NAME --name $MY_AKS_CLUSTER_NAME --overwrite-existing
-    ```
+```bash
+az aks get-credentials --resource-group $MY_RESOURCE_GROUP_NAME --name $MY_AKS_CLUSTER_NAME --overwrite-existing
+```
 
 To verify the connection to your cluster, use the [kubectl get]( https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command to return a list of the cluster nodes.
 
-    ```bash
-    kubectl get nodes
-    ```
+```bash
+kubectl get nodes
+```
 
 ## Install NGINX ingress controller
 
@@ -380,7 +374,7 @@ Cert-manager provides Helm charts as a first-class method of installation on Kub
         cert-manager jetstack/cert-manager
     ```
 
-4. Apply the certificate issuer YAML file. ClusterIssuers are Kubernetes resources that represent certificate authorities (CAs) that can generate signed certificates by honoring certificate signing requests. All cert-manager certificates require a referenced issuer that is in a ready condition to attempt to honor the request. The issuer we're using can be found in the `cluster-issuer-prod.yml file`.
+4. Apply the certificate issuer YAML file. ClusterIssuers are Kubernetes resources that represent certificate authorities (CAs) that can generate signed certificates by honoring certificate signing requests. All cert-manager certificates require a referenced issuer that is in a ready condition to attempt to honor the request. You can find the issuer we're in the `cluster-issuer-prod.yml file`.
 
     ```bash
     cluster_issuer_variables=$(<cluster-issuer-prod.yaml)
@@ -389,8 +383,8 @@ Cert-manager provides Helm charts as a first-class method of installation on Kub
 
 ## Create a custom storage class
 
-The default storage classes suit the most common scenarios, but not all. For some cases, you might want to have your own storage class customized with your own parameters. For example, use the following manifest to configure the mountOptions of the file share.
-The default value for fileMode and dirMode is 0755 for Kubernetes mounted file shares. You can specify the different mount options on the storage class object.
+The default storage classes suit the most common scenarios, but not all. For some cases, you might want to have your own storage class customized with your own parameters. For example, use the following manifest to configure the **mountOptions** of the file share.
+The default value for **fileMode** and **dirMode** is **0755** for Kubernetes mounted file shares. You can specify the different mount options on the storage class object.
 
 ```bash
 kubectl apply -f wp-azurefiles-sc.yaml
@@ -537,4 +531,4 @@ To avoid Azure charges, you should clean up unneeded resources. When you no long
 - Learn how to [access the Kubernetes web dashboard](../../aks/kubernetes-dashboard.md) for your AKS cluster
 - Learn how to [scale your cluster](../../aks/tutorial-kubernetes-scale.md)
 - Learn how to manage your [Azure Database for MySQL flexible server instance](./quickstart-create-server-cli.md)
-- Learn how to [configure server parameters](./how-to-configure-server-parameters-cli.md) for your database server.
+- Learn how to [configure server parameters](./how-to-configure-server-parameters-cli.md) for your database server
