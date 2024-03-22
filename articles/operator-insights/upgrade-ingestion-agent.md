@@ -22,20 +22,25 @@ Obtain the latest version of the ingestion agent RPM from [https://go.microsoft.
 
 Links to the current and previous releases of the agents are available below the heading of each [release note](ingestion-agent-release-notes.md). If you're looking for an agent version that's more than 6 months old, check out the [release notes archive](ingestion-agent-release-notes-archive.md).
 
-### Verify the authenticity of the RPM (optional)
+### Verify the authenticity of the ingestion agent RPM (optional)
 
-Before you install the RPM, you can verify that it's the correct version and hasn't been tampered with.
+Before you install the RPM, you can verify the signature of the RPM with the [Microsoft public key file](https://packages.microsoft.com/keys/microsoft.asc) to ensure it has not been corrupted or tampered with.
 
-This can be done using the public key file provided by Microsoft, which is available at [https://packages.microsoft.com/keys/microsoft.asc](https://packages.microsoft.com/keys/microsoft.asc).
+To do this, perform the following steps:
 
-To verify, execute the following commands once the agent has been downloaded:
-
-1. Download the provided public key (microsoft.asc)
-    - `wget https://packages.microsoft.com/keys/microsoft.asc`
+1. Download the RPM.
+1. Download the provided public key
+    ```
+    wget https://packages.microsoft.com/keys/microsoft.asc
+    ```
 1. Import the public key to the GPG keyring
-    - `gpg --import microsoft.asc`
+    ```
+    gpg --import microsoft.asc
+    ```
 1. Verify the RPM signature matches the public key
-    - `rpm --checksig <path-to-rpm>`
+    ```
+    rpm --checksig <path-to-rpm>
+    ```
 
 The output of the final command should be `<path-to-rpm>: digests signatures OK`
 
