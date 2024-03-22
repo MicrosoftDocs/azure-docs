@@ -109,4 +109,3 @@ relatedContent:
   - text: Upload a VHD to Azure or copy a managed disk to another region - [Azure CLI]
     url: linux/disks-upload-vhd-to-managed-disk-cli.md
 #- Upload a VHD to Azure or copy a managed disk to another region - [Azure CLI](linux/disks-upload-vhd-to-managed-disk-cli.md) or [Azure PowerShell module](windows/disks-upload-vhd-to-managed-disk-powershell.md)
-#- Download a VHD - [Windows](windows/download-vhd.md) or [Linux](linux/download-vhd.md)
