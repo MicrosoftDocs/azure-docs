@@ -1,12 +1,12 @@
 ---
 title: Azure classic subscription administrators
-description: Describes how to remove or change the Azure Co-Administrator and Service Administrator roles, and how to view the Account Administrator.
+description: Describes how to prepare for the retirement of the Co-Administrator and Service Administrator roles and how to remove or change these role assignments.
 author: rolyon
 manager: amycolannino
 
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.date: 03/08/2024
+ms.date: 03/15/2024
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -16,21 +16,25 @@ ms.reviewer: bagovind
 > [!IMPORTANT]
 > Classic resources and classic administrators will be [retired on August 31, 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/). Starting April 3, 2024, you won't be able to add new Co-Administrators. This date was recently extended. Remove unnecessary Co-Administrators and use Azure RBAC for fine-grained access control.
 
-Microsoft recommends that you manage access to Azure resources using Azure role-based access control (Azure RBAC). However, if you are still using the classic deployment model, you'll need to use a classic subscription administrator role: Service Administrator and Co-Administrator. For information about how to migrate your resources from classic deployment to Resource Manager deployment, see [Azure Resource Manager vs. classic deployment](../azure-resource-manager/management/deployment-models.md).
+Microsoft recommends that you manage access to Azure resources using Azure role-based access control (Azure RBAC). However, if you're still using the classic deployment model, you'll need to use a classic subscription administrator role: Service Administrator and Co-Administrator. For information about how to migrate your resources from classic deployment to Resource Manager deployment, see [Azure Resource Manager vs. classic deployment](../azure-resource-manager/management/deployment-models.md).
 
-This article describes how to remove or change the Co-Administrator and Service Administrator roles, and how to view the Account Administrator.
+This article describes how to prepare for the retirement of the Co-Administrator and Service Administrator roles and how to remove or change these role assignments.
 
 ## Frequently asked questions
 
-Will Co-Administrators lose access after August 31, 2024?
+Will Co-Administrators and Service Administrator lose access after August 31, 2024?
 
-- Starting on August 31, 2024, Microsoft will start the process to remove access for Co-Administrators.
+- Starting on August 31, 2024, Microsoft will start the process to remove access for Co-Administrators and Service Administrator.
 
 What is the equivalent Azure role I should assign for Co-Administrators?
 
 - [Owner](built-in-roles.md#owner) role at subscription scope has the equivalent access. However, Owner is a [privileged administrator role](role-assignments-steps.md#privileged-administrator-roles) and grants full access to manage Azure resources. You should consider a job function role with fewer permissions, reduce the scope, or add a condition.
 
-What should I do if I have a strong dependency on Co-Administrators?
+What is the equivalent Azure role I should assign for Service Administrator?
+
+- [Owner](built-in-roles.md#owner) role at subscription scope has the equivalent access.
+
+What should I do if I have a strong dependency on Co-Administrators or Service Administrator?
 
 - Email ACARDeprecation@microsoft.com and describe your scenario.
 
@@ -40,15 +44,17 @@ Use the following steps to help you prepare for the Co-Administrator role retire
 
 ### Step 1: Review your current Co-Administrators
 
+1. Sign in to the [Azure portal](https://portal.azure.com) as an [Owner](built-in-roles.md#owner) of a subscription.
+
 1. Use the Azure portal to [get a list of your Co-Administrators](#view-classic-administrators).
 
-1. Review the [sign-in logs](/entra/identity/monitoring-health/concept-sign-ins) for your Co-Administrators to assess whether they are active users.
+1. Review the [sign-in logs](/entra/identity/monitoring-health/concept-sign-ins) for your Co-Administrators to assess whether they're active users.
 
 ### Step 2: Remove Co-Administrators that no longer need access
 
 1. If user is no longer in your enterprise, [remove Co-Administrator](#remove-a-co-administrator).
 
-1. If user was deleted, but their Co-Administrator assignment was not removed, [remove Co-Administrator](#remove-a-co-administrator).
+1. If user was deleted, but their Co-Administrator assignment wasn't removed, [remove Co-Administrator](#remove-a-co-administrator).
 
     Users that have been deleted typically include the text **(User was not found in this directory)**.
 
@@ -76,6 +82,38 @@ Some users might need more access than what a job function role can provide. If 
 
 1. [Remove Co-Administrator](#remove-a-co-administrator).
 
+## Prepare for Service Administrator retirement
+
+Use the following steps to help you prepare for Service Administrator role retirement. To remove the Service Administrator, you must have at least one user who is assigned the Owner role at subscription scope without conditions to avoid orphaning the subscription. A subscription Owner has the same access as the Service Administrator.
+
+### Step 1: Review your current Service Administrator
+
+1. Sign in to the [Azure portal](https://portal.azure.com) as an [Owner](built-in-roles.md#owner) of a subscription.
+
+1. Use the Azure portal to [get your Service Administrator](#view-classic-administrators).
+
+1. Review the [sign-in logs](/entra/identity/monitoring-health/concept-sign-ins) for your Service Administrator to assess whether they're an active user.
+
+### Step 2: Review your current Billing account owners
+
+The user that is assigned the Service Administrator role might also be the same user that is the administrator for your billing account. You should review your current Billing account owners to ensure they are still accurate.
+
+1. Use the Azure portal to [get your Billing account owners](../cost-management-billing/manage/understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
+
+1. Review your list of Billing account owners. If necessary, [update or add another Billing account owner](../cost-management-billing/manage/understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
+
+### Step 3: Replace existing Service Administrator with Owner role
+
+Your Service Administrator might be a Microsoft account or a Microsoft Entra account. A Microsoft account is a personal account such as Outlook, OneDrive, Xbox LIVE, or Microsoft 365. A Microsoft Entra account is an identity created through Microsoft Entra ID.
+
+1. If Service Administrator user is a Microsoft account and you want this user to keep the same permissions, [assign the Owner role](role-assignments-portal.md) to this user at subscription scope without conditions.
+
+1. If Service Administrator user is a Microsoft Entra account and you want this user to keep the same permissions, [assign the Owner role](role-assignments-portal.md) to this user at subscription scope without conditions.
+
+1. If you want to change the Service Administrator user to a different user, [assign the Owner role](role-assignments-portal.md) to this new user at subscription scope without conditions.
+
+1. [Remove the Service Administrator](#remove-the-service-administrator).
+
 ## View classic administrators
 
 Follow these steps to view the Service Administrator and Co-Administrators for a subscription using the Azure portal.
@@ -84,11 +122,11 @@ Follow these steps to view the Service Administrator and Co-Administrators for a
 
 1. Open [Subscriptions](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) and select a subscription.
 
-1. Click **Access control (IAM)**.
+1. Select **Access control (IAM)**.
 
-1. Click the **Classic administrators** tab to view a list of the Co-Administrators.
+1. Select the **Classic administrators** tab to view a list of the Co-Administrators.
 
-    ![Screenshot that opens Classic administrators.](./media/shared/classic-administrators.png)
+    :::image type="content" source="./media/shared/classic-administrators.png" alt-text="Screenshot of Access control (IAM) page with Classic administrators tab selected." lightbox="./media/shared/classic-administrators.png":::
 
 ## Remove a Co-Administrator
 
@@ -101,17 +139,17 @@ Follow these steps to remove a Co-Administrator.
 
 1. Open [Subscriptions](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) and select a subscription.
 
-1. Click **Access control (IAM)**.
+1. Select **Access control (IAM)**.
 
-1. Click the **Classic administrators** tab to view a list of the Co-Administrators.
+1. Select the **Classic administrators** tab to view a list of the Co-Administrators.
 
 1. Add a check mark next to the Co-Administrator you want to remove.
 
-1. Click **Remove**.
+1. Select **Remove**.
 
-1. In the message box that appears, click **Yes**.
+1. In the message box that appears, select **Yes**.
 
-    ![Screenshot that removes co-administrator.](./media/classic-administrators/remove-coadmin.png)
+    :::image type="content" source="./media/classic-administrators/remove-coadmin.png" alt-text="Screenshot of message box when removing a Co-Administrator." lightbox="./media/classic-administrators/remove-coadmin.png":::
 
 ## Add a Co-Administrator
 
@@ -126,19 +164,19 @@ Follow these steps to remove a Co-Administrator.
 
     Co-Administrators can only be assigned at the subscription scope.
 
-1. Click **Access control (IAM)**.
+1. Select **Access control (IAM)**.
 
-1. Click the **Classic administrators** tab.
+1. Select the **Classic administrators** tab.
 
-    ![Screenshot that opens Classic administrators](./media/shared/classic-administrators.png)
+    :::image type="content" source="./media/shared/classic-administrators.png" alt-text="Screenshot of Access control (IAM) page with Classic administrators tab selected." lightbox="./media/shared/classic-administrators.png":::
 
-1. Click **Add** > **Add co-administrator** to open the Add co-administrators pane.
+1. Select **Add** > **Add co-administrator** to open the Add co-administrators pane.
 
-    If the Add co-administrator option is disabled, you do not have permissions.
+    If the **Add co-administrator** option is disabled, you don't have permissions.
 
-1. Select the user that you want to add and click **Add**.
+1. Select the user that you want to add and select **Add**.
 
-    ![Screenshot that adds co-administrator](./media/classic-administrators/add-coadmin.png)
+    :::image type="content" source="./media/classic-administrators/add-coadmin.png" alt-text="Screenshot of Add co-administrator pane to add a Co-Administrator." lightbox="./media/classic-administrators/add-coadmin.png":::
 
 ## Add a guest user as a Co-Administrator
 
@@ -175,36 +213,21 @@ The user with the Account Administrator role can access the Azure portal and man
 
 Follow these steps to change the Service Administrator in the Azure portal.
 
-1. Make sure your scenario is supported by checking the [limitations for changing the Service Administrator](#limitations-for-changing-the-service-administrator).
-
 1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Administrator.
 
 1. Open **Cost Management + Billing** and select a subscription.
 
-1. In the left navigation, click **Properties**.
+1. In the left navigation, select **Properties**.
 
-1. Click **Change service admin**.
+1. Select **Change service admin**.
 
-    ![Screenshot showing the subscription properties in the Azure portal](./media/classic-administrators/service-admin.png)
+    :::image type="content" source="./media/classic-administrators/service-admin.png" alt-text="Screenshot of subscription properties page that shows option to change Service Administrator." lightbox="./media/classic-administrators/service-admin.png":::
 
 1. In the **Edit service admin** page, enter the email address for the new Service Administrator.
 
-    ![Screenshot showing the Edit service admin page](./media/classic-administrators/service-admin-edit.png)
+    :::image type="content" source="./media/classic-administrators/service-admin-edit.png" alt-text="Screenshot of Edit service admin pane to change Service Administrator." lightbox="./media/classic-administrators/service-admin-edit.png":::
 
-1. Click **OK** to save the change.
-
-### Limitations for changing the Service Administrator
-
-There can only be one Service Administrator per Azure subscription. Changing the Service Administrator will behave differently depending on whether the Account Administrator is a Microsoft account or whether it is a Microsoft Entra account (work or school account).
-
-| Account Administrator account | Can change the Service Administrator to a different Microsoft account? | Can change the Service Administrator to a Microsoft Entra account in the same directory? | Can change the Service Administrator to a Microsoft Entra account in a different directory? |
-| --- | --- | --- | --- |
-| Microsoft account | Yes | No | No |
-| Microsoft Entra account | Yes | Yes | No |
-
-If the Account Administrator is a Microsoft Entra account, you can change the Service Administrator to a Microsoft Entra account in the same directory, but not in a different directory. For example, abby@contoso.com can change the Service Administrator to bob@contoso.com, but cannot change the Service Administrator to john@notcontoso.com unless john@notcontoso.com has a presence in the contoso.com directory.
-
-For more information about Microsoft accounts and Microsoft Entra accounts, see [What is Microsoft Entra ID?](../active-directory/fundamentals/active-directory-whatis.md).
+1. Select **OK** to save the change.
 
 ## Remove the Service Administrator
 
@@ -214,36 +237,20 @@ To remove the Service Administrator, you must have a user who is assigned the [O
 
 1. Open [Subscriptions](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) and select a subscription.
 
-1. Click **Access control (IAM)**.
+1. Select **Access control (IAM)**.
 
-1. Click the **Classic administrators** tab.
+1. Select the **Classic administrators** tab.
 
 1. Add a check mark next to the Service Administrator.
 
-1. Click **Remove**.
+1. Select **Remove**.
 
-1. In the message box that appears, click **Yes**.
+1. In the message box that appears, select **Yes**.
 
-    ![Screenshot that removes service administrator.](./media/classic-administrators/service-admin-remove.png)
-
-## View the Account Administrator
-
-The Account Administrator is the user that initially signed up for the Azure subscription, and is responsible as the billing owner of the subscription. To change the Account Administrator of a subscription, see [Transfer ownership of an Azure subscription to another account](../cost-management-billing/manage/billing-subscription-transfer.md).
-
-Follow these steps to view the Account Administrator.
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. Open **Cost Management + Billing** and select a subscription.
-
-1. In the left navigation, click **Properties**.
-
-    The Account Administrator of the subscription is displayed in the **Account Admin** box.
-
-    ![Screenshot showing the Account Administrator](./media/classic-administrators/account-admin.png)
+    :::image type="content" source="./media/classic-administrators/service-admin-remove.png" alt-text="Screenshot of remove classic administrator message when removing a Service Administrator." lightbox="./media/classic-administrators/service-admin-remove.png":::
 
 ## Next steps
 
-* [Understand the different roles](../role-based-access-control/rbac-and-directory-admin-roles.md)
-* [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md)
-* [Add or change Azure subscription administrators](../cost-management-billing/manage/add-change-subscription-administrator.md)
+- [Understand the different roles](../role-based-access-control/rbac-and-directory-admin-roles.md)
+- [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md)
+- [Understand Microsoft Customer Agreement administrative roles in Azure](../cost-management-billing/manage/understand-mca-roles.md)

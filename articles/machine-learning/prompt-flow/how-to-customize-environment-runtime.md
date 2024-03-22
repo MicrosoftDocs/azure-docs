@@ -43,14 +43,14 @@ Open the `requirements.txt` file and add your extra packages and specific versio
 
 ```
 ###### Requirements with Version Specifiers ######
-langchain == 0.0.149        # Version Matching. Must be version 0.6.1
+langchain == 0.0.149        # Version Matching. Must be version 0.0.149
 keyring >= 4.1.1            # Minimum version 4.1.1
 coverage != 3.5             # Version Exclusion. Anything except version 3.5
 Mopidy-Dirble ~= 1.1        # Compatible release. Same as >= 1.1, == 1.*
 <path_to_local_package>     # reference to local pip wheel package
 ```
 
-You can obtain the path of local packages using `ls > requirements.txt`.
+For more information about structuring the `requirements.txt` file, see [Requirements file format](https://pip.pypa.io/en/stable/reference/requirements-file-format/) in the pip documentation.
 
 #### Define the `Dockerfile`
 
@@ -81,7 +81,8 @@ In your local compute, you can use the CLI (v2) to create a customized environme
 >Prompt flow is **not supported** in the project workspace which was created with a workspace hub. The workspace hub is a private preview feature.
 
 ```shell
-az login(optional)
+az login # if not already authenticated
+
 az account set --subscription <subscription ID>
 az configure --defaults workspace=<Azure Machine Learning workspace name> group=<resource group>
 ```
@@ -95,16 +96,15 @@ build:
   path: .
 ```
 
-#### Run CLI command to create an environment
+#### Create an environment
 
-```bash
+```shell
 cd image_build
-az login(optional)
 az ml environment create -f environment.yaml --subscription <sub-id> -g <resource-group> -w <workspace>
 ```
 
 > [!NOTE]
-> Building the image may take several minutes.
+> Building the environment image may take several minutes.
 
 Go to your workspace UI page, then go to the **environment** page, and locate the custom environment you created. You can now use it to create a compute instance runtime in your prompt flow. To learn more, see [Create compute instance runtime in UI](how-to-create-manage-runtime.md#create-a-compute-instance-runtime-on-a-runtime-page).
 
@@ -138,11 +138,9 @@ A compute instance runtime is a custom application that runs on a compute instan
 ### Create custom application as prompt flow compute instance runtime via SDK v2
 
 ```python
-# import required libraries
 import os
 from azure.ai.ml import MLClient
-from azure.ai.ml.entities import WorkspaceConnection
-# Import required libraries
+from azure.ai.ml.entities import ComputeInstance, CustomApplications, EndpointsSettings, ImageSettings, VolumeSettings, WorkspaceConnection
 from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
 
 try:
@@ -153,19 +151,14 @@ except Exception as ex:
     # Fall back to InteractiveBrowserCredential in case DefaultAzureCredential not work
     credential = InteractiveBrowserCredential()
 
-from azure.ai.ml.entities import ComputeInstance 
-from azure.ai.ml.entities import CustomApplications, ImageSettings, EndpointsSettings, VolumeSettings 
-
 ml_client = MLClient.from_config(credential=credential)
 
 image = ImageSettings(reference='mcr.microsoft.com/azureml/promptflow/promptflow-runtime-stable:<newest_version>') 
-
 endpoints = [EndpointsSettings(published=8081, target=8080)]
 
 app = CustomApplications(name='promptflow-runtime',endpoints=endpoints,bind_mounts=[],image=image,environment_variables={}) 
 
 ci_basic_name = "<compute_instance_name>"
-
 ci_basic = ComputeInstance(name=ci_basic_name, size="<instance_type>",custom_applications=[app]) 
 
 ml_client.begin_create_or_update(ci_basic)

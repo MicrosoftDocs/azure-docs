@@ -2,13 +2,12 @@
 title: "How to set up multi-cluster Layer 4 load balancing across Azure Kubernetes Fleet Manager member clusters (preview)"
 description: Learn how to use Azure Kubernetes Fleet Manager to set up multi-cluster Layer 4 load balancing across workloads deployed on multiple member clusters.
 ms.topic: how-to
-ms.date: 09/09/2022
+ms.date: 03/20/2024
 author: shashankbarsin
 ms.author: shasb
 ms.service: kubernetes-fleet
 ms.custom:
   - devx-track-azurecli
-  - ignite-2023
 ---
 
 # Set up multi-cluster layer 4 load balancing across Azure Kubernetes Fleet Manager member clusters (preview)
@@ -25,13 +24,14 @@ You can follow this document to set up layer 4 load balancing for such multi-clu
 
 * Read the [conceptual overview of this feature](./concepts-l4-load-balancing.md), which provides an explanation of `ServiceExport` and `MultiClusterService` objects referenced in this document.
 
-* You must have a fleet resource with member clusters with deployed workload. If you don't have this resource, follow [Quickstart: Create a Fleet resource and join member clusters](quickstart-create-fleet-and-members.md) and [Propagate Kubernetes configurations from a Fleet resource to member clusters](resource-propagation.md).
-
-* These target clusters should be using [Azure CNI (Container Networking Interface) networking](../aks/configure-azure-cni.md).
+* You must have a Fleet resource with a hub cluster and member clusters. If you don't have this resource, follow [Quickstart: Create a Fleet resource and join member clusters](quickstart-create-fleet-and-members.md).
 
 * The target Azure Kubernetes Service (AKS) clusters on which the workloads are deployed need to be present on either the same [virtual network](../virtual-network/virtual-networks-overview.md) or on [peered virtual networks](../virtual-network/virtual-network-peering-overview.md).
 
-* These target clusters have to be [added as member clusters to the Fleet resource](./quickstart-create-fleet-and-members.md#join-member-clusters).
+  * These target clusters have to be [added as member clusters to the Fleet resource](./quickstart-create-fleet-and-members.md#join-member-clusters).
+  * These target clusters should be using [Azure CNI (Container Networking Interface) networking](../aks/configure-azure-cni.md).
+
+* You must gain access to the Kubernetes API of the hub cluster by following the steps in [Access the Kubernetes API of the Fleet resource](./access-fleet-kubernetes-api.md).
 
 * Set the following environment variables and obtain the kubeconfigs for the fleet and all member clusters:
 
@@ -45,9 +45,9 @@ You can follow this document to set up layer 4 load balancing for such multi-clu
     az aks get-credentials --resource-group ${GROUP} --name ${MEMBER_CLUSTER_1} --file aks-member-1
     ```
 
-[!INCLUDE [preview features note](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [preview features note](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-## Deploy a sample workload to demo clusters
+## Deploy a workload across member clusters of the Fleet resource
 
 > [!NOTE]
 >

@@ -52,7 +52,7 @@ For production deployments, we expect your network to have two geographically re
 
 Lab deployments must connect to one site in your network.
 
-Each Azure Communications Gateway service region provides an SRV record. This record contains all the SIP peers providing SBC functionality (for routing calls to communications services) within the region.
+Each Azure Communications Gateway service region provides an SRV record. This record contains all the SIP peers providing SBC functionality (for routing calls to communications services) within the region. This SRV record can point to any IP address in the /28 IP range provided to you by your onboarding team.
 
 If your Azure Communications Gateway includes Mobile Control Point (MCP), each service region provides an extra SRV record for MCP. Each per-region MCP record contains MCP within the region at top priority and MCP in the other region at a lower priority.
 
@@ -64,6 +64,7 @@ Each site in your network must:
 >     - Make a DNS SRV lookup on the domain name for the service region's connection to your network, using `_sip._tls.<regional-FQDN-from-portal>`. Replace `<regional-FQDN-from-portal>` with the per-region FQDNs from the **Hostname** fields on the **Overview** page for your resource in the Azure portal. For example, if your deployment uses `commsgw.azure.com` domain names, look up  `_sip._tls.pstn-region1.<deployment-id>.commsgw.azure.com` for the first region.
 >     - If the SRV lookup returns multiple targets, use the weight and priority of each target to select a single target.
 > - Send new calls to available Azure Communications Gateway peers.
+> - Be able to receive traffic from any IP address in each of the IP ranges associated with your Azure Communications Gateway.
 
 When your network routes calls to Azure Communications Gateway's SIP peers for SBC function, it must:
 
