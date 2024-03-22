@@ -934,7 +934,7 @@
     - name: Windows
       items:
       - name: Remote Desktop
-        href: ./windows/connect-rdp.md
+        href: ./windows/connect-rdp.yml
       - name: SSH
         href: ./windows/connect-ssh.md
       - name: WinRM
