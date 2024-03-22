@@ -68,7 +68,7 @@ Follow these steps:
     Connect-AzureAD
     ```
 
-    [!INCLUDE [Azure AD PowerShell deprecation note](~/articles/reusable-content/msgraph-powershell/includes/aad-powershell-deprecation-note.md)]
+    [!INCLUDE [Azure AD PowerShell deprecation note](~/reusable-content/msgraph-powershell/includes/aad-powershell-deprecation-note.md)]
 
 7. Run the following command. This downloads a script to your home directory.
 
