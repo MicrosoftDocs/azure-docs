@@ -188,7 +188,7 @@ procedureSection:
 
 relatedContent:
   - text: Assign a user as an administrator of an Azure subscription
-    url: role-assignments-portal-subscription-admin.md
+    url: role-assignments-portal-subscription-admin.yml
   - text: Remove Azure role assignments
     url: role-assignments-remove.yml
   - text: Troubleshoot Azure RBAC

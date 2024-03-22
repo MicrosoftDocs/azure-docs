@@ -65,7 +65,7 @@
 - name: How-to guides
   items:
   - name: List role definitions
-    href: role-definitions-list.md
+    href: role-definitions-list.yml
   - name: List role assignments
     items:
     - name: Portal
@@ -100,7 +100,7 @@
   - name: Delegate
     items:
     - name: Subscription administrator with conditions
-      href: role-assignments-portal-subscription-admin.md
+      href: role-assignments-portal-subscription-admin.yml
     - name: Delegate role assignment management with conditions
       href: delegate-role-assignments-portal.md
     - name: Example conditions

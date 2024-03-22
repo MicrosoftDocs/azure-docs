@@ -78,7 +78,7 @@ Most users don't need the same permissions as a Co-Administrator. Consider a job
 
 Some users might need more access than what a job function role can provide. If you must assign the [Owner](built-in-roles.md#owner) role, consider adding a condition to constrain the role assignment.
 
-1. Assign the [Owner role at subscription scope with conditions](role-assignments-portal-subscription-admin.md) to the user.
+1. Assign the [Owner role at subscription scope with conditions](role-assignments-portal-subscription-admin.yml) to the user.
 
 1. [Remove Co-Administrator](#remove-a-co-administrator).
 
