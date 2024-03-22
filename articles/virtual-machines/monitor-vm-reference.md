@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Virtual Machines
 description: This article contains important reference material you need when you monitor Azure Virtual Machines and Virtual Machine Scale Sets.
-ms.date: 02/20/2024
+ms.date: 03/21/2024
 ms.custom: horz-monitor
 ms.topic: reference
 ms.service: virtual-machines
@@ -35,12 +35,12 @@ At a minimum your service should have the following two articles:
 # Azure Virtual Machines monitoring data reference
 
 <!-- Intro. Required. -->
-[!INCLUDE [horz-monitor-ref-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
+[!INCLUDE [horz-monitor-ref-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
 
 See [Monitor Azure Virtual Machines](monitor-vm.md) for details on the data you can collect for Azure Virtual Machines and Virtual Machine Scale Sets and how to use it.
 
 <!-- ## Metrics. Required section. -->
-[!INCLUDE [horz-monitor-ref-metrics-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
+[!INCLUDE [horz-monitor-ref-metrics-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
 <!-- Repeat the following section for each resource type/namespace in your service. -->
 
 >[!IMPORTANT]
@@ -57,17 +57,17 @@ The following table lists the metrics available for the Microsoft.Compute/virtua
 4. Add any further information after each metrics table #include or link.
 Example link to metrics page: - [Microsoft.Storage/storageAccounts/blobServices](/azure/azure-monitor/reference/supported-metrics/microsoft-storage-storageaccounts-blobservices-metrics)
 Example #include. Start with the metrics tableheader: -->
-[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 [!INCLUDE [Microsoft.Compute/virtualMachines](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-compute-virtualmachines-metrics-include.md)]
 
 ### Supported metrics for Microsoft.Compute/virtualmachineScaleSets
 The following table lists the metrics available for the Microsoft.Compute/virtualmachineScaleSets resource type.
-[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 [!INCLUDE [Microsoft.Compute/virtualmachineScaleSets](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-compute-virtualmachinescalesets-metrics-include.md)]
 
 ### Supported metrics for Microsoft.Compute/virtualMachineScaleSets/virtualMachines
 The following table lists the metrics available for the Microsoft.Compute/virtualMachineScaleSets/virtualMachines resource type.
-[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 [!INCLUDE [Microsoft.Compute/virtualMachineScaleSets/virtualMachines](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-compute-virtualmachinescalesets-virtualmachines-metrics-include.md)]
 
 ### VM availability metric (preview)
@@ -80,10 +80,10 @@ The VM availability metric is currently in public preview. This metric value ind
 | Null | State of the VM is unknown. If you stop a VM from the Azure portal, CLI, or PowerShell, it immediately stops emitting the availability metric, and you see null values. |
 
 <!-- ## Metric dimensions. Required section. -->
-[!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
+[!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 <!-- Use one of the following includes, depending on whether you have metrics with dimensions.
 - If you have metrics with dimensions, use the following include and list the metrics with dimensions after the include. For an example, see https://learn.microsoft.com/azure/storage/common/monitor-storage-reference#metrics-dimensions. Questions: email azmondocs@microsoft.com. -->
-[!INCLUDE [horz-monitor-ref-metrics-dimensions](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
+[!INCLUDE [horz-monitor-ref-metrics-dimensions](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
 
 | Dimension name | Description |
 | ------------------- | ----------------- |
@@ -91,17 +91,17 @@ The VM availability metric is currently in public preview. This metric value ind
 | VMName | Used with Virtual Machine Scale Sets |
 
 <!-- If you DON'T have metrics with dimensions, use the following include: 
-[!INCLUDE [horz-monitor-ref-no-metrics-dimensions](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-no-metrics-dimensions.md)] -->
+[!INCLUDE [horz-monitor-ref-no-metrics-dimensions](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-no-metrics-dimensions.md)] -->
 
 <!-- ## Resource logs. Required section. -->
-[!INCLUDE [horz-monitor-ref-resource-logs](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
+[!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
 <!-- Add at least one resource provider/resource type here. Repeat this section for each resource type/namespace in your service. Example: ### Supported resource logs for Microsoft.Storage/storageAccounts/blobServices -->
 ### Supported resource logs for Microsoft.Compute/virtualMachines
 [!INCLUDE [Microsoft.Compute/virtualMachines](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-compute-virtualmachines-logs-include.md)]
 
 <!-- ## Azure Monitor Logs tables. Required section. -->
-[!INCLUDE [horz-monitor-ref-logs-tables](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
+[!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 
 |Microsoft.Compute/VirtualMachines|Microsoft.Compute/virtualMachineScaleSets|
 |--------------|------------------------|
@@ -150,7 +150,7 @@ Link to the service-specific tables. If your service uses the AzureDiagnostics t
 IMPORTANT: Field names for Log Analytics may vary from the same field names for Storage. Many services need a mapping table to map the two sets of fields. -->
 
 <!-- ## Activity log. Required section. -->
-[!INCLUDE [horz-monitor-ref-activity-log](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
+[!INCLUDE [horz-monitor-ref-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
 <!-- Refer to https://learn.microsoft.com/azure/role-based-access-control/resource-provider-operations and link to the possible operations for your service, using the format - [<Namespace> resource provider operations](/azure/role-based-access-control/resource-provider-operations#<namespace>).
 Example: - [Microsoft.Storage resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftstorage).
 If there are other operations not in the link, list them here in table form. -->
@@ -167,7 +167,7 @@ The following table lists a few example operations that relate to creating VMs i
 | Microsoft.Compute/virtualMachineScaleSets/write | Starts the instances of the virtual machine scale set |
 
 <!-- ## Other schemas. Optional section. Please keep heading in this order. If your service uses other schemas, add the following include and information. 
-[!INCLUDE [horz-monitor-ref-other-schemas](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-other-schemas.md)]
+[!INCLUDE [horz-monitor-ref-other-schemas](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-other-schemas.md)]
 List other schemas and their usage here. These can be resource logs, alerts, event hub formats, etc. depending on what you think is important. You can put JSON messages, API responses not listed in the REST API docs, and other similar types of info here.  -->
 
 ## Related content
