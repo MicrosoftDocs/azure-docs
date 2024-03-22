@@ -5,7 +5,7 @@ ms.service: azure-ai-language
 ms.topic: include
 ms.date: 12/19/2023
 ms.author: jboback
-ms.custom: devx-track-js, ignite-fall-2021
+ms.custom: devx-track-js
 ---
 
 [Reference documentation](/javascript/api/overview/azure/ai-language-text-readme) | [Additional samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitivelanguage/ai-language-text/samples/v1) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-language-text) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitivelanguage/ai-language-text) 
@@ -197,5 +197,3 @@ Last time the operation was updated was on: Mon Feb 13 2023 13:12:10 GMT-0800 (P
 
 > [!TIP]
 > Fast Healthcare Interoperability Resources (FHIR) structuring is available for preview using the Language REST API. The client libraries are not currently supported. [Learn more](../../how-to/call-api.md) on how to use FHIR structuring in your API call.
-
-

@@ -8,7 +8,6 @@ ms.service: cosmos-db
 ms.subservice: mongodb
 ms.topic: overview
 ms.date: 09/12/2023
-ms.custom: ignite-2022
 ---
 
 # What is Azure Cosmos DB for MongoDB RU?

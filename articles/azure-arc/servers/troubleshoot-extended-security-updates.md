@@ -1,7 +1,7 @@
 ---
 title: How to troubleshoot delivery of Extended Security Updates for Windows Server 2012 through Azure Arc
 description: Learn how to troubleshoot delivery of Extended Security Updates for Windows Server 2012 through Azure Arc.
-ms.date: 01/19/2024
+ms.date: 02/20/2024
 ms.topic: conceptual
 ---
 
@@ -15,7 +15,7 @@ If you're unable to provision a Windows Server 2012 Extended Security Update lic
 
 - **Permissions:** Verify you have sufficient permissions (Contributor role or higher) within the scope of ESU provisioning and linking.  
 
-- **Core minimums:** Verify you have specified sufficient cores for the ESU License. Physical core-based licenses require a minimum of 16 cores, and virtual core-based licenses require a minimum of 8 cores per virtual machine (VM). 
+- **Core minimums:** Verify you have specified sufficient cores for the ESU License. Physical core-based licenses require a minimum of 16 cores per machine, and virtual core-based licenses require a minimum of 8 cores per virtual machine (VM). 
 
 - **Conventions:** Verify you have selected an appropriate subscription and resource group and provided a unique name for the ESU license.     
 
@@ -51,7 +51,11 @@ If you're unable to enable this service offering, review the resource providers 
 
 - **Microsoft.Storage:** Enabling this resource provider is important for managing storage resources, which may be relevant for hybrid and on-premises scenarios.
 
-## ESU patches issues
+## ESU patch issues
+
+### ESU patch status
+
+To detect whether your Azure Arc-enabled servers are patched with the most recent Windows Server 2012/R2 Extended Security Updates, use Azure Update Manager or the Azure Policy [Extended Security Updates should be installed on Windows Server 2012 Arc machines-Microsoft Azure](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetail.ReactView/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F14b4e776-9fab-44b0-b53f-38d2458ea8be/version~/null/scopes~/%5B%22%2Fsubscriptions%2F4fabcc63-0ec0-4708-8a98-04b990085bf8%22%5D), which checks whether the most recent WS2012 ESU patches have been received. Both of these options are available at no additional cost for Azure Arc-enabled servers enrolled in WS2012 ESUs enabled by Azure Arc. 
 
 ### ESU prerequisites
 

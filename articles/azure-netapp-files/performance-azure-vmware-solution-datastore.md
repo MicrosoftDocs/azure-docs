@@ -4,7 +4,6 @@ description: Describes considerations for Azure VMware Solution (AVS) datastore 
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: conceptual
 ms.date: 11/12/2023
 ms.author: anfdocs

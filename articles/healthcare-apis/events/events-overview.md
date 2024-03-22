@@ -12,8 +12,6 @@ ms.author: jasteppe
 
 # What are events?
 
-**Applies to:** [!INCLUDE [Yes icon](../includes/applies-to.md)][!INCLUDE [FHIR service](../includes/fhir-service.md)], [!INCLUDE [DICOM service](../includes/DICOM-service.md)]
-
 Events in Azure Health Data Services allow you to subscribe to and receive notifications of changes to health data in the FHIR&reg; service or the DICOM&reg; service. Events also enable you to trigger other actions or services based changes to health data, such as starting workflows, sending email, text messages, or alerts. 
 
 Events are:

@@ -5,7 +5,7 @@ ms.author: nlarin
 author: niklarin
 ms.service: cosmos-db
 ms.subservice: postgresql
-ms.custom: ignite-2022, references_regions
+ms.custom: references_regions
 ms.topic: how-to
 ms.date: 01/28/2024
 ---

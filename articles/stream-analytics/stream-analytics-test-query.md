@@ -6,7 +6,6 @@ ms.author: ajetasi
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/03/2022
-ms.custom: seodec18
 ---
 
 # Test an Azure Stream Analytics job in the portal

@@ -8,7 +8,6 @@ ms.reviewer: sngun, garye
 ms.date: 07/01/2021
 author: nelgson
 ms.author: negust
-ms.custom: ignite-fall-2021
 ---
 
 # Tutorial: Anomaly detection with Azure AI services

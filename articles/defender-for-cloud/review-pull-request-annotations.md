@@ -1,8 +1,7 @@
 ---
 title: Review pull request annotations in GitHub and Azure DevOps
-description: Review pull request annotations in GitHub or in Azure DevOps. 
+description: Review pull request annotations in GitHub or in Azure DevOps.
 ms.topic: overview
-ms.custom: ignite-2022
 ms.date: 06/06/2023
 ---
 
@@ -38,11 +37,11 @@ Once you've configured the scanner, you're able to view all issues that were det
 
 1. Follow the remediation steps in the annotation.
 
-1. Select **Active** to change the status of the annotation and access the dropdown menu. 
+1. Select **Active** to change the status of the annotation and access the dropdown menu.
 
 1. Select an action to take:
 
-    - **Active** - The default status for new annotations.    
+    - **Active** - The default status for new annotations.
     - **Pending** - The finding is being worked on.
     - **Resolved** - The finding has been addressed.
     - **Won't fix** - The finding is noted but won't be fixed.

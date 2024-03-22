@@ -10,8 +10,6 @@ ms.author: saoh
 ms.reviewer: sgilley
 ms.date: 01/29/2024
 ms.custom:
-  - event-tier1-build-2022
-  - ignite-2022
   - build-2023
   - build-2023-dataai
   - ignite-2023

@@ -2,15 +2,13 @@
 title: Azure VMs high availability for SAP NetWeaver on SLES for SAP Applications with simple mount and NFS| Microsoft Docs
 description: Install high-availability SAP NetWeaver on SUSE Linux Enterprise Server with simple mount and NFS for SAP applications.
 services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial
-ms.workload: infrastructure-services
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.date: 01/17/2024
+ms.date: 02/05/2024
 ms.author: radeltch
 ---
 
@@ -347,7 +345,7 @@ The following items are prefixed with:
     ```bash
     # Temporarily mount the volume.
     sudo mkdir -p /saptmp
-    sudo mount -t nfs sapnfsafs.file.core.windows.net:/sapnfsafs/sapnw1 /saptmp -o vers=4.1,sec=sys
+    sudo mount -t nfs sapnfsafs.file.core.windows.net:/sapnfsafs/sapnw1 /saptmp -o noresvport,vers=4,minorversion=1,sec=sys
     # Create the SAP directories.
     sudo cd /saptmp
     sudo mkdir -p sapmntNW1
@@ -375,9 +373,9 @@ The following items are prefixed with:
    With the simple mount configuration, the Pacemaker cluster doesn't control the file systems.
 
     ```bash
-    echo "sapnfsafs.file.core.windows.net:/sapnfsafs/sapnw1/sapmntNW1 /sapmnt/NW1 nfs vers=4.1,sec=sys  0  0" >> /etc/fstab
-    echo "sapnfsafs.file.core.windows.net:/sapnfsafs/sapnw1/usrsapNW1/ /usr/sap/NW1 nfs vers=4.1,sec=sys  0  0" >> /etc/fstab
-    echo "sapnfsafs.file.core.windows.net:/sapnfsafs/saptrans /usr/sap/trans nfs vers=4.1,sec=sys  0  0" >> /etc/fstab   
+    echo "sapnfsafs.file.core.windows.net:/sapnfsafs/sapnw1/sapmntNW1 /sapmnt/NW1 nfs noresvport,vers=4,minorversion=1,sec=sys  0  0" >> /etc/fstab
+    echo "sapnfsafs.file.core.windows.net:/sapnfsafs/sapnw1/usrsapNW1/ /usr/sap/NW1 nfs noresvport,vers=4,minorversion=1,sec=sys  0  0" >> /etc/fstab
+    echo "sapnfsafs.file.core.windows.net:/sapnfsafs/saptrans /usr/sap/trans nfs noresvport,vers=4,minorversion=1,sec=sys  0  0" >> /etc/fstab   
     # Mount the file systems.
     mount -a 
     ```
@@ -844,8 +842,8 @@ If you're using NFS on Azure Files, use the following instructions to prepare th
 2. Mount the file systems.
 
     ```bash
-    echo "sapnfsafs.file.core.windows.net:/sapnfsafs/sapnw1/sapmntNW1 /sapmnt/NW1  nfs vers=4.1,sec=sys  0  0" >> /etc/fstab
-    echo "sapnfsafs.file.core.windows.net:/sapnfsafs/saptrans /usr/sap/trans  nfs vers=4.1,sec=sys  0  0" >> /etc/fstab   
+    echo "sapnfsafs.file.core.windows.net:/sapnfsafs/sapnw1/sapmntNW1 /sapmnt/NW1  nfs noresvport,vers=4,minorversion=1,sec=sys  0  0" >> /etc/fstab
+    echo "sapnfsafs.file.core.windows.net:/sapnfsafs/saptrans /usr/sap/trans  nfs noresvport,vers=4,minorversion=1,sec=sys  0  0" >> /etc/fstab   
     # Mount the file systems.
     mount -a 
     ```

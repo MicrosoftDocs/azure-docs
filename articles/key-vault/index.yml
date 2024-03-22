@@ -8,11 +8,10 @@ metadata:
   title: Azure Key Vault documentation
   description: Learn how to use Key Vault to create and maintain keys that access and encrypt your cloud resources, apps, and solutions. Tutorials, API references, and more.
   ms.service: key-vault
-  ms.subservice: na
   ms.topic: hub-page
   author: msmbaldwin
   ms.author: mbaldwin
-  ms.date: 04/07/2020
+  ms.date: 02/20/2024
 
 highlightedContent:
   items:

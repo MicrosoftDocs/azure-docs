@@ -2,7 +2,6 @@
 author: karlerickson
 ms.author: v-shilichen
 ms.service: spring-apps
-ms.custom: event-tier1-build-2022
 ms.topic: include
 ms.date: 10/17/2023
 ---
@@ -40,4 +39,3 @@ Use the following steps to update the YAML file to use your Microsoft Entra regi
    ```bash
    ./mvnw clean package
    ```
-

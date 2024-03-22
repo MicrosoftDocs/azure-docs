@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: payment-hsm
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: overview
-ms.date: 02/25/2023
+ms.date: 01/31/2024
 ms.author: mbaldwin
 ---
 # Register the Azure Payment HSM resource providers and resource provider features
@@ -36,7 +36,7 @@ az feature registration create --namespace "Microsoft.Network" --name "FastPathE
 > [!IMPORTANT]
 > After registering the "FastPathEnabled" feature flag, you **must** contact the [Azure Payment HSM support team](support-guide.md#microsoft-support) team to have your registration approved.  In your message to Microsoft support, include your subscription ID.  If multiple subsciptions must connect with the payment HSM, you must include **all** the subscriopts IDs.
 
-You can verify that your registrations are complete with the Azure CLI [az provider show](/cli/azure/provider#az-provider-show) command. (You will find the output of this command more readable if you display it in table-format.)
+You can verify that your registrations are complete with the Azure CLI [az provider show](/cli/azure/provider#az-provider-show) command. (The output of this command is more readable if you display it in table-format.)
 
 ```azurecli-interactive
 az provider show --namespace "Microsoft.HardwareSecurityModules" -o table

@@ -1,0 +1,45 @@
+items:
+- name: Azure Storage Actions documentation
+  href: storage-tasks/index.yml
+- name: Overview
+  items:
+  - name: What is Azure Storage Actions?
+    href: overview.md
+  expanded: true
+- name: Quickstarts
+  items:
+  - name: Create, assign, and run a storage task
+    href: storage-tasks/storage-task-quickstart-portal.md
+  expanded: true
+- name: Concepts
+  items: 
+  - name: Properties, operators, and operations
+    href: storage-tasks/storage-task-properties-operators-operations.md
+  - name: Storage task authorization
+    href: storage-tasks/storage-task-authorization-roles.md
+  expanded: true
+- name: How-to
+  items: 
+  - name: Create a storage task
+    href: storage-tasks/storage-task-create.md
+  - name: Define conditions & operations
+    href: storage-tasks/storage-task-conditions-operations-edit.md
+  - name: Create and manage an assignment
+    href: storage-tasks/storage-task-assignment-create.md
+  - name: Monitor storage tasks
+    href: storage-tasks/monitor-storage-tasks.md
+  - name: Analyze storage task runs
+    href: storage-tasks/storage-task-runs.md
+  expanded: true
+- name: Reference
+  items:
+  - name: Monitoring data Reference
+    href: storage-tasks/storage-tasks-monitor-data-reference.md
+  - name: Storage Tasks events
+    href: ../event-grid/event-schema-storage-actions.md?toc=/azure/storage-actions/toc.json
+  expanded: true
+- name: Resources
+  items:
+    - name: Known issues and limitations
+      href: storage-tasks/storage-task-known-issues.md
+  expanded: true

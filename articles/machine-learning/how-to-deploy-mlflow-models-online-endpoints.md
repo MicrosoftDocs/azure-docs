@@ -10,7 +10,7 @@ ms.author: fasantia
 ms.reviewer: mopeakande
 ms.date: 01/31/2024
 ms.topic: how-to
-ms.custom: deploy, mlflow, devplatv2, no-code-deployment, devx-track-azurecli, cliv2, event-tier1-build-2022
+ms.custom: deploy, mlflow, devplatv2, no-code-deployment, devx-track-azurecli, cliv2
 ---
 
 # Deploy MLflow models to online endpoints
@@ -823,4 +823,4 @@ deployment_client.delete_endpoint(endpoint_name)
 
 - [Deploy models with REST](how-to-deploy-with-rest.md)
 - [Safe rollout for online endpoints](how-to-safely-rollout-online-endpoints.md)
-- [Troubleshoot online endpoint deployment](how-to-troubleshoot-managed-online-endpoints.md)- [How to autoscale managed online endpoints](how-to-autoscale-endpoints.md)
+- [Troubleshoot online endpoint deployment](how-to-troubleshoot-managed-online-endpoints.md)

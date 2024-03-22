@@ -5,7 +5,6 @@ description: The LUIS container runtime environment is configured using the `doc
 #services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.topic: how-to

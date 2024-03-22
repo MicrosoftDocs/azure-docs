@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 11/04/2022
 ms.topic: conceptual
-ms.custom: how-to, sdkv2, event-tier1-build-2022
+ms.custom: how-to, sdkv2
 ---
 
 # Train with MLflow Projects in Azure Machine Learning (preview)

@@ -6,7 +6,7 @@ ms.service: azure-ai-language
 author: aahill
 ms.author: aahi
 ms.topic: how-to
-ms.date: 01/19/2024
+ms.date: 02/09/2024
 ---
 
 # Migrate QnA Maker to Azure OpenAI on your data 
@@ -70,7 +70,7 @@ QnA Maker was designed to be a cloud-based Natural Language Processing (NLP) ser
 
     :::image type="content" source="../media/openai/chat-playground-after-deployment.png" alt-text="A screenshot of the playground page of the Azure OpenAI Studio with sections highlighted." lightbox="../media/openai/chat-playground-after-deployment.png":::
 
-You can now start exploring Azure OpenAI capabilities with a no-code approach through the chat playground. It's simply a text box where you can submit a prompt to generate a completion. From this page, you can quickly iterate and experiment with the capabilities. You can also launch a [web app](../../openai/concepts/use-your-data.md#using-the-web-app) to chat with the model over the web.
+You can now start exploring Azure OpenAI capabilities with a no-code approach through the chat playground. It's simply a text box where you can submit a prompt to generate a completion. From this page, you can quickly iterate and experiment with the capabilities. You can also launch a [web app](../../openai/how-to/use-web-app.md) to chat with the model over the web.
 
 ## Next steps
 * [Using Azure OpenAI on your data](../../openai/concepts/use-your-data.md) 

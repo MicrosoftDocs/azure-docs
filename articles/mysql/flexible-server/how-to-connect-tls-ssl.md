@@ -8,7 +8,6 @@ ms.date: 11/21/2022
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.custom: event-tier1-build-2022
 ms.devlang: csharp
 # ms.devlang: csharp, golang, java, javascript, php, python, ruby
 ---
@@ -382,4 +381,3 @@ conn.connect(function(err) {
 - [Create and manage Azure Database for MySQL flexible server virtual network using Azure CLI](./how-to-manage-virtual-network-cli.md).
 - Learn more about [networking in Azure Database for MySQL flexible server](./concepts-networking.md)
 - Understand more about [Azure Database for MySQL flexible server firewall rules](./concepts-networking-public.md#public-access-allowed-ip-addresses)
-

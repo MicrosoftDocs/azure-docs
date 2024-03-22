@@ -84,6 +84,9 @@ If an evaluation method uses Large Language Models (LLMs) to measure the perform
 
 After you finish the input mapping, select on  **"Next"**  to review your settings and select on  **"Submit"**  to start the batch run with evaluation.
 
+> [!NOTE]
+> Batch runs have a maximum duration of 10 hours. If a batch run exceeds this limit, it will be terminated and marked as failed. We advise monitoring your Large Language Model (LLM) capacity to avoid throttling. If necessary, consider reducing the size of your data. If you continue to experience issues or need further assistance, don't hesitate to reach out to our product team through the feedback form or support request.
+
 ## View the evaluation result and metrics
 
 After submission, you can find the submitted batch run in the run list tab in prompt flow page. Select a run to navigate to the run detail page.

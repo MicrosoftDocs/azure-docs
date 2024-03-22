@@ -1,15 +1,12 @@
 ---
 title: Create managed disk from snapshot (Linux) - CLI sample
 description: Azure CLI Script Sample - restore a disk from a snapshot and learn about the performance impact of restoring managed disk snapshots
-documentationcenter: storage
 author: ramankumarlive
 manager: kavithag
-tags: azure-service-management
 ms.service: azure-disk-storage
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 01/19/2024
 ms.author: ramankum
 ms.custom: mvc, devx-track-azurecli
@@ -21,7 +18,7 @@ This article contains two scripts for creating a managed disk from a snapshot. T
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 

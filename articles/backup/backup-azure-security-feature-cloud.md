@@ -2,7 +2,7 @@
 title: Soft delete for Azure Backup
 description: Learn how to use security features in Azure Backup to make backups more secure.
 ms.topic: how-to
-ms.date: 01/04/2024
+ms.date: 02/08/2024
 ms.custom: devx-track-azurepowershell, engagement-fy24
 ms.service: backup
 author: AbhishekMallick-MS
@@ -130,8 +130,8 @@ Follow these steps:
 1. Identify the items that are in soft-deleted state.
 
    ```powershell
-
-   Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -VaultId $myVaultID | Where-Object {$_.DeleteState -eq "ToBeDeleted"}
+   $vault = Get-AzRecoveryServicesVault -ResourceGroupName "yourResourceGroupName" -Name "yourVaultName"
+   Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -VaultID $vault.ID | Where-Object {$_.DeleteState -eq "ToBeDeleted"}
 
    Name                                     ContainerType        ContainerUniqueName                      WorkloadType         ProtectionStatus     HealthStatus         DeleteState
    ----                                     -------------        -------------------                      ------------         ----------------     ------------         -----------

@@ -1,24 +1,32 @@
 ---
 title: What's new in documentation - Azure Virtual Desktop
-description: Learn about new and updated articles to the Azure Virtual Desktop documentation
+description: Learn about new and updated articles to the Azure Virtual Desktop documentation.
 ms.topic: release-notes
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 01/31/2024
+ms.date: 02/29/2024
 ---
 
 # What's new in documentation for Azure Virtual Desktop
 
-We update documentation for Azure Virtual Desktop regularly. In this article we highlight articles for new features and where there have been important updates to existing articles.
+We update documentation for Azure Virtual Desktop regularly. In this article, we highlight articles for new features and where there are important updates to existing articles.
+
+## February 2024
+
+In February 2024, we published the following changes:
+
+- Added guidance for MSIX and Appx package certificates when using MSIX app attach or app attach. For more information, see [MSIX app attach and app attach in Azure Virtual Desktop](app-attach-overview.md#msix-and-appx-package-certificates).
+- Consolidated articles for the three Remote Desktop clients available for Windows into a single article, [Connect to Azure Virtual Desktop with the Remote Desktop client for Windows](users/connect-windows.md).
+- Added Azure CLI guidance to [Configure personal desktop assignment](configure-host-pool-personal-desktop-assignment-type.md).
+- Updated [Drain session hosts for maintenance in Azure Virtual Desktop](drain-mode.md), including prerequisites and separating the Azure portal and Azure PowerShell steps into tabs.
+- Updated [Customize the feed for Azure Virtual Desktop users](customize-feed-for-virtual-desktop-users.md), including prerequisite, Azure PowerShell steps, and separating the Azure portal and Azure PowerShell steps into tabs.
 
 ## January 2024
 
 In January 2024, we published the following changes:
 
 - Consolidated articles to [Create and assign an autoscale scaling plan for Azure Virtual Desktop](autoscale-scaling-plan.md) into a single article.
-
 - Added PowerShell commands to [Create and assign an autoscale scaling plan for Azure Virtual Desktop](autoscale-scaling-plan.md).
-
 - Removed the separate documentation section for RemoteApp streaming and combined it with the main Azure Virtual Desktop documentation. Some articles that were previously only in the RemoteApp section are now discoverable in the main Azure Virtual Desktop documentation, such as [Understand and estimate costs for Azure Virtual Desktop](understand-estimate-costs.md) and [Licensing Azure Virtual Desktop](licensing.md).
 
 ## December 2023
@@ -26,9 +34,7 @@ In January 2024, we published the following changes:
 In December 2023, we published the following changes:
 
 - Published new content for the preview of *app attach*, which is now available alongside MSIX app attach. App attach brings many benefits over MSIX app attach, including assigning applications per user, using the same application package across multiple host pools, upgrading applications, and being able to run two versions of the same application concurrently on the same session host. For more information, see [MSIX app attach and app attach in Azure Virtual Desktop](app-attach-overview.md?pivots=app-attach).
-
 - Updated the article [Use Microsoft Teams on Azure Virtual Desktop](teams-on-avd.md) to include support for [new Teams desktop client](/microsoftteams/new-teams-desktop-admin) on your session hosts.
-
 - Updated the article [Configure single sign-on for Azure Virtual Desktop using Microsoft Entra ID authentication](configure-single-sign-on.md) to include example PowerShell commands to help configure single sign-on using Microsoft Entra ID authentication.
 
 ## November 2023

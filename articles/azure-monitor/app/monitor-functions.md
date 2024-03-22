@@ -24,7 +24,7 @@ For a list of supported autoinstrumentation scenarios, see [Supported environmen
 > [!Note]
 > This feature used to have an 8- to 9-second cold startup implication, which has been reduced to less than 1 second. If you were an early adopter of this feature (for example, prior to February 2023), review the "Troubleshooting" section to update to the current version and benefit from the new faster startup.
 
-To view more data from your Java-based Azure Functions applications than is [collected by default](../../azure-functions/functions-monitoring.md?tabs=cmd), enable the [Application Insights Java 3.x agent](./java-in-process-agent.md). This agent allows Application Insights to automatically collect and correlate dependencies, logs, and metrics from popular libraries and Azure SDKs. This telemetry is in addition to the request telemetry already captured by Functions.
+To view more data from your Java-based Azure Functions applications than is [collected by default](../../azure-functions/functions-monitoring.md?tabs=cmd), enable the [Application Insights Java 3.x agent](./java-in-process-agent.md). This agent allows Application Insights to automatically collect and correlate dependencies, logs, and metrics from popular libraries and Azure Software Development Kits (SDKs). This telemetry is in addition to the request telemetry already captured by Functions.
 
 By using the application map and having a more complete view of end-to-end transactions, you can better diagnose issues. You have a topological view of how systems interact along with data on average performance and error rates. You also have more data for end-to-end diagnostics. You can use the application map to easily find the root cause of reliability issues and performance bottlenecks on a per-request basis.
 
@@ -77,7 +77,7 @@ Your Java functions might have slow startup times if you adopted this feature be
 
 #### Duplicate logs
 
-If you're using log4j or logback for console logging, distributed tracing for Java Functions creates duplicate logs. These duplicate logs are then sent to Application Insights. To avoid this behavior, use the following workarounds.
+If you're using `log4j` or `logback` for console logging, distributed tracing for Java Functions creates duplicate logs. These duplicate logs are then sent to Application Insights. To avoid this behavior, use the following workarounds.
 
 ##### Log4j
 
@@ -140,6 +140,10 @@ Example:
 </configuration>
 ```
 
+## Distributed tracing for Node.js function apps
+
+To view more data from your Node Azure Functions applications than is [collected by default](../../azure-functions/functions-monitoring.md#collecting-telemetry-data), instrument your Function using the [Azure Monitor OpenTelemetry Distro](./opentelemetry-enable.md?tabs=nodejs).
+
 ## Distributed tracing for Python function apps
 
 To collect custom telemetry from services such as Redis, Memcached, and MongoDB, use the [OpenCensus Python extension](https://github.com/census-ecosystem/opencensus-python-extensions-azure) and [log your telemetry](../../azure-functions/functions-reference-python.md?tabs=azurecli-linux%2capplication-level#log-custom-telemetry). You can find the list of supported services in this [GitHub folder](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib).
@@ -147,7 +151,7 @@ To collect custom telemetry from services such as Redis, Memcached, and MongoDB,
 ## Next steps
 
 * Read more instructions and information about [monitoring Azure Functions](../../azure-functions/functions-monitoring.md).
-* Get an overview of [distributed tracing](distributed-tracing-telemetry-correlation.md).
+* Get an overview of [distributed tracing](distributed-trace-data.md).
 * See what [Application Map](./app-map.md?tabs=net) can do for your business.
 * Read about [requests and dependencies for Java apps](./java-in-process-agent.md).
 * Learn more about [Azure Monitor](../overview.md) and [Application Insights](./app-insights-overview.md).

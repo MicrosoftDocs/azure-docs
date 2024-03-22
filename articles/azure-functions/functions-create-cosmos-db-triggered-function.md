@@ -1,10 +1,10 @@
 ---
-title: Create a function triggered by Azure Cosmos DB 
+title: Create a function triggered by Azure Cosmos DB
 description: Use Azure Functions to create a serverless function that is invoked when data is added to a database in Azure Cosmos DB.
 ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
 ms.topic: how-to
 ms.date: 12/28/2023
-ms.custom: cc996988-fb4f-47, ignite-2022
+ms.custom: cc996988-fb4f-47
 ---
 # Create a function triggered by Azure Cosmos DB
 

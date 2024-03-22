@@ -4,7 +4,6 @@ description: Learn how to export an API definition from API Management to Postma
 author: dlepow
 
 ms.service: api-management
-ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 10/11/2022
 ms.author: danlep

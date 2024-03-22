@@ -6,7 +6,6 @@ ms.subservice: tutorials
 ms.topic: tutorial
 ms.author: abnarain
 author: nabhishek
-ms.custom: seo-lt-2019
 ms.date: 08/14/2023
 ---
 

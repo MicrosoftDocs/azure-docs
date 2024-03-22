@@ -11,13 +11,10 @@ ms.author: jhirono
 author: jhirono
 ms.date: 04/14/2023
 ms.custom:
-  - contperf-fy20q4
   - tracking-python
-  - contperf-fy21q1
   - references_regions
   - devx-track-azurecli
   - sdkv2
-  - event-tier1-build-2022
   - build-2023
   - ignite-2023
 ms.devlang: azurecli
@@ -251,6 +248,9 @@ compute = AmlCompute(
 ml_client.begin_create_or_update(entity=compute)
 ```
 
+> [!NOTE]
+> When configuring the **subnet** within NetworkSettings class, it should be either the name of the subnet when creating a new VNet or referencing an existing one, or the fully qualified resource ID of a subnet in an existing VNet. Do not specify **vnet_name** if the subnet ID is specified. The subnet ID can refer to a VNet/subnet in another resource group.
+
 # [Studio](#tab/azure-studio)
 
 1. Sign in to the [Azure Machine Learning studio](https://ml.azure.com), and then select your subscription and workspace.
@@ -319,7 +319,7 @@ workspace = Workspace(
     )
 )
 
-workspace = ml_client.workspaces.begin_create_or_update(workspace)
+workspace = ml_client.workspaces.begin_update(workspace)
 ```
 
 # [Studio](#tab/azure-studio)
@@ -419,6 +419,9 @@ compute = AmlCompute(
 ml_client.begin_create_or_update(entity=compute)
 ```
 
+> [!NOTE]
+> When configuring the **subnet** within NetworkSettings class, it should be either the name of the subnet when creating a new VNet or referencing an existing one, or the fully qualified resource ID of a subnet in an existing VNet. Do not specify **vnet_name** if the subnet ID is specified. The subnet ID can refer to a VNet/subnet in another resource group.
+
 # [Studio](#tab/azure-studio)
 
 1. Sign in to the [Azure Machine Learning studio](https://ml.azure.com), and then select your subscription and workspace.
@@ -486,7 +489,7 @@ workspace = Workspace(
     )
 )
 
-workspace = ml_client.workspaces.begin_create_or_update(workspace)
+workspace = ml_client.workspaces.begin_update(workspace)
 ```
 
 # [Studio](#tab/azure-studio)

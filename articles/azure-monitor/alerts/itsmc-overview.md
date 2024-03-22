@@ -1,11 +1,12 @@
 ---
 title: IT Service Management integration
 description: This article provides an overview of the ways you can integrate with an IT Service Management product.
+ms.author: abbyweisberg
+ms.reviewer: nolavime
 ms.topic: conceptual
 ms.date: 06/19/2023
-ms.custom: nolavime
-
 ---
+
 # IT Service Management integration
 
 :::image type="icon" source="media/itsmc-overview/itsmc-symbol.png":::
@@ -14,7 +15,7 @@ This article describes how you can integrate Azure Monitor with supported IT Ser
 
 Azure services like Log Analytics and Azure Monitor provide tools to detect, analyze, and troubleshoot problems with your Azure and non-Azure resources. But the work items related to an issue typically reside in an ITSM product or service.
 
-Azure Monitor provides a bidirectional connection between Azure and ITSM tools to help you resolve issues faster. You can create work items in your ITSM tool based on your Azure metric alerts, activity log alerts, and Log Analytics alerts.
+Azure Monitor provides a bidirectional connection between Azure and ITSM tools to help you resolve issues faster. You can create work items in your ITSM tool based on your Azure metric alerts, activity log alerts, and log search alerts.
 
 Azure Monitor supports connections with the following ITSM tools:
 

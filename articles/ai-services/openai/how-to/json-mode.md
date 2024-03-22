@@ -40,7 +40,7 @@ from openai import AzureOpenAI
 
 client = AzureOpenAI(
   azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
-  api_key=os.getenv("AZURE_OPENAI_KEY"),  
+  api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
   api_version="2023-12-01-preview"
 )
 
@@ -72,7 +72,7 @@ because they plan to use the output for further scripting.
 
 ```powershell-interactive
 $openai = @{
-   api_key     = $Env:AZURE_OPENAI_KEY
+   api_key     = $Env:AZURE_OPENAI_API_KEY
    api_base    = $Env:AZURE_OPENAI_ENDPOINT # like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
    api_version = '2023-12-01-preview' # may change in the future
    name        = 'YOUR-DEPLOYMENT-NAME-HERE' # name you chose for your deployment

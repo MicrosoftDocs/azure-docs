@@ -58,7 +58,7 @@ This section includes charges for alert rules.
 | Category | Description |
 |:---|:---|
 | Metric Signals Monitored | Number of [metrics alert rules](alerts/alerts-types.md#metric-alerts) and their time series. | 
-| Log Signals Monitored | Number of [log alert rules](alerts/alerts-types.md#log-alerts) and their frequency. |
+| Log Signals Monitored | Number of [log search alert rules](alerts/alerts-types.md#log-alerts) and their frequency. |
 
 ## ITSM connector - ticket creation/update
 This section includes charges for ITSM events, which are sent in response to alerts being triggered.

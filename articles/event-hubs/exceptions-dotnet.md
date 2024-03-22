@@ -6,7 +6,7 @@ author: spelluru
 ms.service: event-hubs
 ms.devlang: csharp
 ms.topic: article
-ms.custom: seodec18, devx-track-dotnet
+ms.custom: devx-track-dotnet
 ms.date: 09/23/2021
 ms.author: spelluru
 ---

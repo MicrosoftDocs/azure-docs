@@ -52,7 +52,7 @@ This guide is scoped to the Azure AI Studio playground, but you can also add ima
 From the Azure AI Studio playground, you can choose how to add your image data for GPT-4 Turbo with Vision:
 
 * [Upload image files and metadata](?tabs=upload-image-files-and-metadata): You can upload image files and metadata in the playground. This option is useful if you have a small number of image files.
-* [Azure AI Search](?tabs=azure-ai-search): If you have an existing [Azure AI search](/azure/search/search-what-is-azure-search) index, you can use it as a data source. 
+* [Azure AI Search](?tabs=azure-ai-search): If you have an existing [Azure AI Search](/azure/search/search-what-is-azure-search) index, you can use it as a data source. 
 * [Azure Blob Storage](?tabs=azure-blob-storage): The Azure Blob storage option is especially useful if you have a large number of image files and don't want to manually upload each one. 
 
 Each option uses an Azure AI Search index to do image-to-image search and retrieve the top search results for your input prompt image. 
@@ -115,7 +115,7 @@ Each option uses an Azure AI Search index to do image-to-image search and retrie
 
 # [Azure AI Search](#tab/azure-ai-search)
 
-If you have an existing [Azure AI search](/azure/search/search-what-is-azure-search) index, you can use it as a data source. 
+If you have an existing [Azure AI Search](/azure/search/search-what-is-azure-search) index, you can use it as a data source. 
 
 If you don't already have a search index created for your images:
 - You can create one using the [AI Search vector search repository on GitHub](https://github.com/Azure/cognitive-search-vector-pr), which provides you with scripts to create an index with your image files. 
@@ -126,7 +126,7 @@ If you don't already have a search index created for your images:
 
 1. Enter your data source details:
 
-    :::image type="content" source="../media/data-add/use-your-image-data/add-image-data-ai-search.png" alt-text="A screenshot showing the Azure AI search index selection." lightbox="../media/data-add/use-your-image-data/add-image-data-ai-search.png":::
+    :::image type="content" source="../media/data-add/use-your-image-data/add-image-data-ai-search.png" alt-text="A screenshot showing the Azure AI Search index selection." lightbox="../media/data-add/use-your-image-data/add-image-data-ai-search.png":::
 
     - **Subscription**: Select the Azure subscription that contains the Azure OpenAI resource you want to use.
     - **Azure AI Search service**: Select your Azure AI Search service resource that has an image search index.
@@ -136,7 +136,7 @@ If you don't already have a search index created for your images:
 
 1. Review the details you entered. 
 
-    :::image type="content" source="../media/data-add/use-your-image-data/add-your-data-ai-search-review-finish.png" alt-text="Screenshot of the review and finish page for adding data via Azure AI search." lightbox="../media/data-add/use-your-image-data/add-your-data-ai-search-review-finish.png":::
+    :::image type="content" source="../media/data-add/use-your-image-data/add-your-data-ai-search-review-finish.png" alt-text="Screenshot of the review and finish page for adding data via Azure AI Search." lightbox="../media/data-add/use-your-image-data/add-your-data-ai-search-review-finish.png":::
 
 1. Select **Save and close**.
 
@@ -182,7 +182,7 @@ After you have a blob storage populated with image files and at least one metada
     >
     > When adding data to the selected storage account for the first time in Azure AI Studio, you might be prompted to turn on [cross-origin resource sharing (CORS)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services). Azure AI Studio and Azure OpenAI need access your Azure Blob storage account.  
 
-    :::image type="content" source="../media/data-add/use-your-image-data/add-image-data-blob.png" alt-text="A screenshot showing the Azure storage account and Azure AI search index selection." lightbox="../media/data-add/use-your-image-data/add-image-data-blob.png":::
+    :::image type="content" source="../media/data-add/use-your-image-data/add-image-data-blob.png" alt-text="A screenshot showing the Azure storage account and Azure AI Search index selection." lightbox="../media/data-add/use-your-image-data/add-image-data-blob.png":::
 
     - **Subscription**: Select the Azure subscription that contains the Azure OpenAI resource you want to use.
     - **Storage resource** and **Storage container**: Select the Azure Blob storage resource where the image files and metadata are already stored. 

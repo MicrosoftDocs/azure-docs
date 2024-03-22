@@ -3,13 +3,13 @@ title: Custom text classification limits
 titleSuffix: Azure AI services
 description: Learn about the data and rate limits when using custom text classification.
 #services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.date: 12/19/2023
 ms.service: azure-ai-language
 ms.topic: conceptual
-ms.author: aahi
-ms.custom: language-service-custom-classification, references_regions, ignite-fall-2021, event-tier1-build-2022
+ms.author: jboback
+ms.custom: language-service-custom-classification, references_regions
 ---
 
 # Custom text classification limits

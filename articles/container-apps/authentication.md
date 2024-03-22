@@ -4,7 +4,6 @@ description: Use built-in authentication in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
-ms.custom: event-tier1-build-2022
 ms.topic: conceptual
 ms.date: 04/20/2022
 ms.author: cshoe

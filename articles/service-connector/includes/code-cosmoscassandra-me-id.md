@@ -199,7 +199,6 @@ Authentication type is not supported for Spring Boot.
     from ssl import PROTOCOL_TLSv1_2, SSLContext, CERT_NONE
     from cassandra.auth import PlainTextAuthProvider
     import requests
-    from azure.core.pipeline.policies import BearerTokenCredentialPolicy
     from azure.identity import ManagedIdentityCredential, ClientSecretCredential
 
     username = os.getenv('AZURE_COSMOS_USERNAME')
@@ -225,8 +224,8 @@ Authentication type is not supported for Spring Boot.
     
     # Get the password 
     session = requests.Session()
-    session = BearerTokenCredentialPolicy(cred, scope).on_request(session)
-    response = session.post(listKeyUrl)
+    token = cred.get_token(scope)
+    response = session.post(listKeyUrl, headers={"Authorization": "Bearer {}".format(token.token)})
     keys_dict = response.json()
     password = keys_dict['primaryMasterKey']
     

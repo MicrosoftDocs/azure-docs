@@ -292,8 +292,8 @@ For more information, see [Map configuration] in the article about indoor map co
 [Drawing conversion errors and warnings]: drawing-conversion-error-codes.md
 [Dataset Create API]: /rest/api/maps-creator/dataset/create
 [Dataset service]: /rest/api/maps-creator/dataset
-[Tileset service]: /rest/api/maps-creator/tileset?view=rest-maps-creator-2023-03-01-preview
-[tileset get]: /rest/api/maps-creator/tileset/get?view=rest-maps-creator-2023-03-01-preview
+[Tileset service]: /rest/api/maps-creator/tileset?view=rest-maps-creator-2023-03-01-preview&preserve-view=true
+[tileset get]: /rest/api/maps-creator/tileset/get?view=rest-maps-creator-2023-03-01-preview&preserve-view=true
 [Map configuration]: creator-indoor-maps.md#map-configuration
 [What is Azure Maps Creator?]: about-creator.md
 [Creator for indoor maps]: creator-indoor-maps.md

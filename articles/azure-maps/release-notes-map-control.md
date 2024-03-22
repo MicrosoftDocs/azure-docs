@@ -16,6 +16,16 @@ This document contains information about new features and other changes to the M
 
 ## v3 (latest)
 
+### [3.1.2] (February 22, 2024)
+
+#### New features (3.1.2)
+
+- Added `fillAntialias` option to `PolygonLayer` for enabling MSAA on polygon fills.
+ 
+#### Other changes (3.1.2)
+
+- Update the feedback icon and link.
+
 ### [3.1.1] (January 26, 2024)
 
 #### New features (3.1.1)
@@ -397,6 +407,17 @@ This update is the first preview of the upcoming 3.0.0 release. The underlying [
 
 ## v2
 
+### [2.3.7] (February 22, 2024)
+
+#### New features (2.3.7)
+
+- Added `fillAntialias` option to `PolygonLayer` for enabling MSAA on polygon fills.
+- Added a new option, `enableAccessibilityLocationFallback`, to enable or disable reverse-geocoding API fallback for accessibility (screen reader).
+ 
+#### Other changes (2.3.7)
+
+- Update the feedback icon and link.
+
 ### [2.3.6] (January 12, 2024)
 
 #### New features (2.3.6)
@@ -558,6 +579,7 @@ Stay up to date on Azure Maps:
 > [!div class="nextstepaction"]
 > [Azure Maps Blog]
 
+[3.1.2]: https://www.npmjs.com/package/azure-maps-control/v/3.1.2
 [3.1.1]: https://www.npmjs.com/package/azure-maps-control/v/3.1.1
 [3.1.0]: https://www.npmjs.com/package/azure-maps-control/v/3.1.0
 [3.0.3]: https://www.npmjs.com/package/azure-maps-control/v/3.0.3
@@ -574,6 +596,7 @@ Stay up to date on Azure Maps:
 [3.0.0-preview.3]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.3
 [3.0.0-preview.2]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.2
 [3.0.0-preview.1]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.1
+[2.3.7]: https://www.npmjs.com/package/azure-maps-control/v/2.3.7
 [2.3.6]: https://www.npmjs.com/package/azure-maps-control/v/2.3.6
 [2.3.5]: https://www.npmjs.com/package/azure-maps-control/v/2.3.5
 [2.3.4]: https://www.npmjs.com/package/azure-maps-control/v/2.3.4

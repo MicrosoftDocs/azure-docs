@@ -5,7 +5,7 @@ ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.topic: quickstart
 ms.date: 02/28/2023
 ms.devlang: csharp
-ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, 23113853-34f2-4f, contperf-fy21q3-portal, mode-ui, ai-video-demo
+ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, 23113853-34f2-4f, mode-ui, ai-video-demo
 ai-usage: ai-assisted
 ---
 
@@ -101,13 +101,11 @@ Visual Studio can publish your local project to Azure. Before you can publish yo
 
 ## Verify your function in Azure
 
-1. In Cloud Explorer, your new function app should be selected. If not, expand your subscription > **App Services**, and select your new function app.
+1. In the Azure portal, you should be in the **Overview** page for your new functions app. 
 
-1. Right-click the function app and choose **Open in Browser**. This opens the root of your function app in your default web browser and displays the page that indicates your function app is running.
+1. Under **Functions**, select your new function named **HttpExample**, then in the function page select **Get function URL** and then the **Copy to clipboard icon**. 
 
-    :::image type="content" source="media/functions-create-your-first-function-visual-studio/function-app-running-azure-v4.png" alt-text="Function app running":::
-
-1. In the address bar in the browser, append the string `/api/HttpExample?name=Functions` to the base URL and run the request.
+1. In the address bar in your browser, paste the URL you just copied and run the request.
 
     The URL that calls your HTTP trigger function is in the following format:
 
@@ -134,5 +132,3 @@ To learn more about working with C# functions that run in an isolated worker pro
 Advance to the next article to learn how to add an Azure Storage queue binding to your function:
 > [!div class="nextstepaction"]
 > [Add an Azure Storage queue binding to your function](functions-add-output-binding-storage-queue-vs.md?tabs=isolated-process)
-
-

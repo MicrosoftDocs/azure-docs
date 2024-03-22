@@ -7,7 +7,7 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 08/31/2023
 ms.author: duau
-ms.custom: seodec18, devx-track-azurepowershell, template-tutorial
+ms.custom: devx-track-azurepowershell, template-tutorial
 ---
 # Connect a virtual network to an ExpressRoute circuit using Azure PowerShell
 

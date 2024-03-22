@@ -4,9 +4,8 @@ description: Learn how to buy SQL Managed Instance enabled by Azure Arc reserved
 services: sql-database
 ms.service: azure-arc
 ms.subservice: azure-arc-data-sqlmi
-ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-author: anosov1960 
+author: anosov1960
 ms.author: sashan
 ms.reviewer: mikeray
 ms.date: 10/27/2021

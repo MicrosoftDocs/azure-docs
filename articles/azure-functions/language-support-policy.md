@@ -15,7 +15,7 @@ Azure Functions runtime is built around various components, including operating 
 
 ### Notification phase
 
-The Functions team sends notification emails to function app users about upcoming language version retirements. The notifications are sent at least one year before the date of retirement. When you receive the notification, you should prepare to upgrade functions apps to use to a supported version.
+The Functions team sends notification emails to function app users about upcoming language version retirements. When you receive the notification, you should prepare to upgrade functions apps to use to a supported version.
 
 ### Retirement phase
 
@@ -50,9 +50,9 @@ To learn more about specific language version support policy timeline, visit the
 
 |Language                         | Configuration guides         |
 |-----------------------------------------|-----------------|
-|C# (in-process model) |[link](./functions-dotnet-class-library.md#supported-versions)|
 |C# (isolated worker model) |[link](./dotnet-isolated-process-guide.md#supported-versions)|
-|Java |[link](./update-language-versions.md#update-the-language-version)|
+|C# (in-process model) |[link](./functions-dotnet-class-library.md#supported-versions)|
+|Java |[link](./update-language-versions.md#update-the-stack-configuration)|
 |Node |[link](./functions-reference-node.md#setting-the-node-version)|
 |PowerShell |[link](./functions-reference-powershell.md#changing-the-powershell-version)|
 |Python |[link](./functions-reference-python.md#python-version)|

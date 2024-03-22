@@ -1,7 +1,7 @@
 ---
 title: 'MLOps: ML model management v1'
 titleSuffix: Azure Machine Learning
-description: 'Learn about model management (MLOps) with Azure Machine Learning. Deploy, manage, track lineage and monitor your models to continuously improve them. (v1)'  
+description: 'Learn about model management (MLOps) with Azure Machine Learning. Deploy, manage, track lineage and monitor your models to continuously improve them. (v1)'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: dem108
 ms.author:  sehan
 ms.reviewer: mopeakande
-ms.custom: UpdateFrequency5, seodec18, mktng-kw-nov2021, event-tier1-build-2022
+ms.custom: UpdateFrequency5, mktng-kw-nov2021
 ms.date: 01/04/2023
 ---
 

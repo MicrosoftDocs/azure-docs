@@ -6,7 +6,7 @@ author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/31/2023
 ms.service: container-registry
-ms.custom: contperf-fy21q1, devx-track-azurecli, mode-other
+ms.custom: devx-track-azurecli, mode-other
 ---
 
 # Quickstart: Build and run a container image using Azure Container Registry Tasks
@@ -17,7 +17,7 @@ After this quickstart, explore more advanced features of ACR Tasks using the [tu
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
     
 - This quickstart requires version 2.0.58 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

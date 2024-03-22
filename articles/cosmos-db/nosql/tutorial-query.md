@@ -1,14 +1,14 @@
 ---
 title: |
   Tutorial: Query data
-titleSuffix: Azure Cosmos DB for NoSQL 
+titleSuffix: Azure Cosmos DB for NoSQL
 description: In this tutorial, learn how to query data in Azure Cosmos DB for NoSQL with the built-in query syntax using the Data Explorer.
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.custom: tutorial-develop, mvc, ignite-2022
+ms.custom: tutorial-develop, mvc
 ms.topic: tutorial
 ms.date: 03/16/2023
 ---

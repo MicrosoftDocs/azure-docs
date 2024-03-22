@@ -5,8 +5,8 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 02/18/2022
 ms.author: sidandrews
-author: seesharprun 
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, ignite-2022
+author: seesharprun
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Configure IP firewall in Azure Cosmos DB
@@ -52,6 +52,9 @@ When you enable an IP access control policy programmatically, you need to add th
 You can enable requests to access the Azure portal by selecting the **Allow access from Azure portal** option, as shown in the following screenshot:
 
 :::image type="content" source="./media/how-to-configure-firewall/enable-azure-portal.png" alt-text="Screenshot showing how to enable Azure portal access" border="true":::
+
+> [!NOTE]
+> If you are experiencing challenges connecting to your Azure Cosmos DB account from the Data Explorer, review the [Data Explorer troubleshooting guide](/troubleshoot/azure/cosmos-db/data-explorer).
 
 ### Allow requests from global Azure datacenters or other sources within Azure
 

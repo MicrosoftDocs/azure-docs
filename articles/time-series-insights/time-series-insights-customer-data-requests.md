@@ -8,7 +8,6 @@ ms.reviewer: orspodek
 ms.topic: conceptual
 ms.service: time-series-insights
 ms.date: 10/02/2020
-ms.custom: seodec18
 ---
 
 # Summary of customer data request features
