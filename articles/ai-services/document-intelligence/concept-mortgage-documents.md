@@ -1,7 +1,7 @@
 ---
-title: Document Intelligence US mortgage document
+title: Document Intelligence US mortgage documents
 titleSuffix: Azure AI services
-description: Use Document Intelligence mortgage model to analyze and extract key fields from mortgage documents.
+description: Use Document Intelligence prebuilt models to analyze and extract key fields from mortgage documents.
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
@@ -17,11 +17,11 @@ monikerRange: '>=doc-intel-4.0.0'
 <!-- markdownlint-disable MD049 -->
 <!-- markdownlint-disable MD001 -->
 
-# Document Intelligence mortgage documents model
+# Document Intelligence mortgage document models
 
 **This content applies to:** ![checkmark](media/yes-icon.png) **v4.0 (preview)** ![checkmark](media/yes-icon.png)
 
-The Document Intelligence Mortgage model uses powerful Optical Character Recognition (OCR) capabilities to analyze and extract key fields from mortgage documents. Mortgage documents can be of various formats and quality including. The API analyzes document text from mortgage documents and returns a structured JSON data representation. The model currently supports English-language document formats.
+The Document Intelligence Mortgage models use powerful Optical Character Recognition (OCR) capabilities and deep learning models to analyze and extract key fields from mortgage documents. Mortgage documents can be of various formats and quality. The API analyzes mortgage documents and returns a structured JSON data representation. The models currently support English-language documents only.
 
 **Supported document types:**
 
@@ -29,9 +29,6 @@ The Document Intelligence Mortgage model uses powerful Optical Character Recogni
 * Form 1008
 * Mortgage closing disclosure
 
-## Automated mortgage documents processing
-
-Automated mortgage  card processing is the process of extracting key  fields from bank cards. Historically, bank card analysis process is achieved manually and, hence, very time consuming. Accurate extraction of key data from bank cards s is typically the first and one of the most critical steps in the contract automation process.
 
 ## Development options
 
@@ -48,7 +45,7 @@ Document Intelligence v4.0 (2024-02-29-preview) supports the following tools, ap
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
 
-## Try mortgage document data extraction
+## Try mortgage documents data extraction
 
 To see how data extraction works for the mortgage documents service, you need the following resources:
 

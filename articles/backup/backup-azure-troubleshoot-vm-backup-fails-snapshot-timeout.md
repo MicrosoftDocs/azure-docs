@@ -4,7 +4,7 @@ description: Symptoms, causes, and resolutions of Azure Backup failures related 
 ms.topic: troubleshooting
 ms.date: 05/05/2022
 ms.service: backup
-ms.custom: linux-related-content
+ms.custom:
 ms.reviewer: geg
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
