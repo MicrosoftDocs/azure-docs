@@ -65,12 +65,13 @@ Sample code for text to speech avatar is available on [GitHub](https://github.co
 * [Batch synthesis (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch-avatar)
 * [Real-time synthesis (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/js/browser/avatar)
 * [Live chat with Azure OpenAI in behind (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/js/browser/avatar#chat-sample)
+* To create a live chat APP with Azure OpenAI [On Your Data](/openai/concepts/use-your-data.md), you can refer to [this sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/js/browser/avatar/README.md) (search "On Your Data")
 
 ## Pricing
 
-When you use the text to speech avatar feature, you'll be billed by the minutes of video output, and the text to speech, speech to text, Azure OpenAI, or other Azure services are charged separately.
-
-For more information, see [Speech service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+- When utilizing the text-to-speech avatar feature, charges will be incurred based on the minutes of video output. However, with the real-time avatar, charges are based on the minutes of avatar activation, irrespective of whether the avatar is actively speaking or remaining silent. To optimize costs for real-time avatar usage, refer to the provided tips in the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/js/browser/avatar#chat-sample) (search "Use Local Video for Idle").
+- Throughout an avatar real-time session or batch content creation, the text-to-speech, speech-to-text, Azure OpenAI, or other Azure services are charged separately.
+- For more information, see [Speech service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). Note that avatar pricing will only be visible for service regions where the feature is available, including West US 2, West Europe, and Southeast Asia.
 
 ## Available locations
 
