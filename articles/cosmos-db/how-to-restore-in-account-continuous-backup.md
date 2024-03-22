@@ -621,12 +621,12 @@ Use Azure PowerShell to restore a deleted container or database. Child container
 :::zone pivot="api-nosql"
 
 To restore a sql container, update the following template as follows: 
-  1.Set resources.name to <accountname>/databasename>/<containername> 
+  1.Set resources.name to `<accountname>/databasename>/<containername>`
   2.Set resources.properties.resource.createMode to restore. 
   3.Set resources.properties.resource.restoreParameters.id container name. 
   4.Set resources.properties.resource.restoreParameters.restoreTimestampInUtc to a UTC time stamp. 
   5.Set resources.properties.resource.restoreParameters.restoreSource to the instance identifier of the account that is the source of the restore operation. 
-  { 
+  `{ 
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#", 
     "contentVersion": "1.0.0.0", 
     "resources":[{
@@ -645,15 +645,16 @@ To restore a sql container, update the following template as follows:
             } 
         } 
     ] 
-} 
+} `
 
 To restore a sql database, update following template as follows: 
-  1.Set resources.name to <accountname>/databasename> 
+  1.Set resources.name to `<accountname>/databasename>`
   2.Set resources.properties.resource.createMode to restore.
   3.Set resources.properties.resource.restoreParameters.id database name.
   4.Set resources.properties.resource.restoreParameters.restoreTimestampInUtc to a UTC time stamp.
   5.Set resources.properties.resource.restoreParameters.restoreSource to the instance identifier of the account that is the source of the restore operation. 
-  { 
+` 
+{ 
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#", 
     "contentVersion": "1.0.0.0", 
     "resources": [ 
@@ -673,19 +674,19 @@ To restore a sql database, update following template as follows:
             } 
         } 
     ] 
-
 } 
+`
     :::zone-end
 
     :::zone pivot="api-mongodb"
 
 To restore a mongo collection, update the following template as follows: 
-  1.Set resources.name to <accountname>/databasename>/<collectionname> 
+  1.Set resources.name to `<accountname>/databasename>/<collectionname>` 
   2.Set resources.properties.resource.createMode to restore. 
   3.Set resources.properties.resource.restoreParameters.id collection name. 
   4.Set resources.properties.resource.restoreParameters.restoreTimestampInUtc to a UTC time stamp. 
   5.Set resources.properties.resource.restoreParameters.restoreSource to the instance identifier of the account that is the source of the restore operation. 
-{ 
+`{ 
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#", 
     "contentVersion": "1.0.0.0", 
     "resources": [ 
@@ -706,14 +707,14 @@ To restore a mongo collection, update the following template as follows:
         } 
     ] 
 } 
-
+`
 To restore a mongo database, update the following template as follows: 
-  1.Set resources.name to <accountname>/databasename> 
+  1.Set resources.name to `<accountname>/databasename>`
   2.Set resources.properties.resource.createMode to restore. 
   3.Set resources.properties.resource.restoreParameters.id database name. 
   4.Set resources.properties.resource.restoreParameters.restoreTimestampInUtc to a UTC time stamp. 
   5.Set resources.properties.resource.restoreParameters.restoreSource to the instance identifier of the account that is the source of the restore operation. 
-
+`
 { 
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#", 
     "contentVersion": "1.0.0.0", 
@@ -734,19 +735,19 @@ To restore a mongo database, update the following template as follows:
             } 
         } 
     ] 
-
 } 
-
+`
     :::zone-end
 
     :::zone pivot="api-gremlin"
 
   To restore a gremlin graph, update the following template as follows: 
-    1.Set resources.name to <accountname>/databasename>/<graphname> 
+    1.Set resources.name to `<accountname>/databasename>/<graphname>` 
     2.Set resources.properties.resource.createMode to restore. 
     3.Set resources.properties.resource.restoreParameters.id graph name. 
     4.Set resources.properties.resource.restoreParameters.restoreTimestampInUtc to a UTC time stamp. 
     5.Set resources.properties.resource.restoreParameters.restoreSource to the instance identifier of the account that is the source of the restore operation. 
+`    
   { 
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#", 
     "contentVersion": "1.0.0.0", 
@@ -768,14 +769,14 @@ To restore a mongo database, update the following template as follows:
         } 
     ] 
 } 
-
+`
 To restore a gremlin database, update the following template as follows: 
-  1.Set resources.name to <accountname>/databasename> 
+  1.Set resources.name to `<accountname>/databasename>`
   2.Set resources.properties.resource.createMode to restore. 
   3.Set resources.properties.resource.restoreParameters.id database name. 
   4.Set resources.properties.resource.restoreParameters.restoreTimestampInUtc to a UTC time stamp. 
   5.Set resources.properties.resource.restoreParameters.restoreSource to the instance identifier of the account that is the source of the restore operation. 
- 
+` 
 { 
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#", 
     "contentVersion": "1.0.0.0", 
@@ -797,18 +798,18 @@ To restore a gremlin database, update the following template as follows:
         } 
     ] 
 } 
-
+`
     :::zone-end
 
     :::zone pivot="api-table"
 
 To restore a table, update the following template as follows: 
-  1.Set resources.name to <accountname>/tablename> 
+  1.Set resources.name to `<accountname>/tablename> `
   2.Set resources.properties.resource.createMode to restore. 
   3.Set resources.properties.resource.restoreParameters.id table name. 
   4.Set resources.properties.resource.restoreParameters.restoreTimestampInUtc to a UTC time stamp. 
   5.Set resources.properties.resource.restoreParameters.restoreSource to the instance identifier of the account that is the source of the restore operation. 
- 
+` 
 { 
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#", 
     "contentVersion": "1.0.0.0", 
@@ -830,7 +831,7 @@ To restore a table, update the following template as follows:
         } 
     ] 
 } 
-
+`
     :::zone-end
 
    > [!NOTE]
