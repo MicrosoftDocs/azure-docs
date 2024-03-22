@@ -26,12 +26,9 @@ procedureSection:
       1. Defender for IoT Edge module requires the [AuditD framework](https://linux.die.net/man/8/auditd) is installed on the IoT Edge device.
 
         - Install the framework by running the following command on your IoT Edge device:
-
-          `sudo apt-get install auditd audispd-plugins`
-
+            `sudo apt-get install auditd audispd-plugins`
         - Verify AuditD is active by running the following command:
-
-          `sudo systemctl status auditd`<br>
+            `sudo systemctl status auditd`<br>
         - Expected response is: `active (running)`
 
       ### Deployment using Azure portal
@@ -82,33 +79,33 @@ procedureSection:
 
         1. On the **Module Twin Settings** tab, add the following configuration:
 
-          Module Twin Property:
+            Module Twin Property:
 
-          ``` json
-            "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration"
-          ```
+            ``` json
+              "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration"
+            ```
 
-          Module Twin Property Content:
+            Module Twin Property Content:
 
-          ```json
-            {
+            ```json
+              {
 
-            }
-          ```
+              }
+            ```
 
-          For more information about configuring the agent, see [Configure security agents](./how-to-agent-configuration.md).
+            For more information about configuring the agent, see [Configure security agents](./how-to-agent-configuration.md).
 
         1. Select **Update**.
 
         #### Step 2: Runtime settings
 
         1. Select **Runtime Settings**.
-        2. Under **Edge Hub**, change the **Image** to **mcr.microsoft.com/azureiotedge-hub:1.0.8.3**.
+        1. Under **Edge Hub**, change the **Image** to **mcr.microsoft.com/azureiotedge-hub:1.0.8.3**.
 
             >[!Note]
             > Currently, version 1.0.8.3 or older is supported.
 
-        3. Verify **Create Options** is set to the following configuration:
+        1. Verify **Create Options** is set to the following configuration:
 
             ``` json
             {
@@ -134,23 +131,23 @@ procedureSection:
             }
             ```
 
-        4. Select **Save**.
+        1. Select **Save**.
 
-        5. Select **Next**.
+        1. Select **Next**.
 
         #### Step 3: Specify routes
 
         1. On the **Specify Routes** tab, make sure you have a route (explicit or implicit) that will forward messages from the **azureiotsecurity** module to **$upstream** according to the following examples. Only when the route is in place, select **Next**.
 
-          Example routes:
+            Example routes:
 
-            ```Default implicit route
-            "route": "FROM /messages/* INTO $upstream"
-            ```
+              ```Default implicit route
+              "route": "FROM /messages/* INTO $upstream"
+              ```
 
-            ```Explicit route
-            "ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream"
-            ```
+              ```Explicit route
+              "ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream"
+              ```
 
         1. Select **Next**.
 
@@ -170,13 +167,13 @@ procedureSection:
 
       1. Verify that the following containers are running:
 
-        | Name | IMAGE |
-        | --- | --- |
-        | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.2 |
-        | edgeHub | mcr.microsoft.com/azureiotedge-hub:1.0.8.3 |
-        | edgeAgent | mcr.microsoft.com/azureiotedge-agent:1.0.1 |
+          | Name | IMAGE |
+          | --- | --- |
+          | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.2 |
+          | edgeHub | mcr.microsoft.com/azureiotedge-hub:1.0.8.3 |
+          | edgeAgent | mcr.microsoft.com/azureiotedge-agent:1.0.1 |
 
-        If the minimum required containers are not present, check if your IoT Edge deployment manifest is aligned with the recommended settings. For more information, see [Deploy IoT Edge module](#deployment-using-azure-portal).
+          If the minimum required containers are not present, check if your IoT Edge deployment manifest is aligned with the recommended settings. For more information, see [Deploy IoT Edge module](#deployment-using-azure-portal).
 
       ### Inspect the module logs for errors
     steps: 
