@@ -27,6 +27,8 @@ If the certificate used for the custom domain suffix contains a Subject Alternat
 
 Unlike earlier versions, the FTPS endpoints for your App Services on your App Service Environment v3 can only be reached using the default domain suffix.
 
+The connection to the custom domain suffix endpoint will need to use Server Name Indication (SNI) for TLS based connections.
+
 ## Prerequisites
 
 - ILB variation of App Service Environment v3.

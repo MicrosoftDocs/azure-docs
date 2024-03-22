@@ -408,7 +408,7 @@ In this example, we specify the `path` (where to upload files from) inline. The 
 
 For registration, you can extract the YAML definitions of `model` and `environment` into separate YAML files and use the commands `az ml model create` and `az ml environment create`. To learn more about these commands, run `az ml model create -h` and `az ml environment create -h`.
 
-For more information on registering your model as an asset, see [Register your model as an asset in Machine Learning by using the CLI](how-to-manage-models.md#register-your-model-as-an-asset-in-machine-learning-by-using-the-cli). For more information on creating an environment, see [Manage Azure Machine Learning environments with the CLI & SDK (v2)](how-to-manage-environments-v2.md#create-an-environment).
+For more information on registering your model as an asset, see [Register your model as an asset in Machine Learning by using the CLI](how-to-manage-models.md#register-your-model-as-an-asset-in-machine-learning-by-using-the-cli). For more information on creating an environment, see [Manage Azure Machine Learning environments with the CLI & SDK (v2)](how-to-manage-environments-v2.md#create-a-custom-environment).
 
 # [Python](#tab/python)
 
@@ -416,7 +416,7 @@ In this example, we specify the `path` (where to upload files from) inline. The 
 
 For more information on registering your model as an asset, see [Register your model as an asset in Machine Learning by using the SDK](how-to-manage-models.md#register-your-model-as-an-asset-in-machine-learning-by-using-the-sdk).
 
-For more information on creating an environment, see [Manage Azure Machine Learning environments with the CLI & SDK (v2)](how-to-manage-environments-v2.md#create-an-environment).
+For more information on creating an environment, see [Manage Azure Machine Learning environments with the CLI & SDK (v2)](how-to-manage-environments-v2.md#create-a-custom-environment).
 
 # [Studio](#tab/azure-studio)
 

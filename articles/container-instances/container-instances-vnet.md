@@ -7,7 +7,7 @@ author: tomvcassidy
 ms.service: container-instances
 services: container-instances
 ms.date: 06/17/2022
-ms.custom: devx-track-azurecli, linux-related-content
+ms.custom: devx-track-azurecli
 ---
 
 # Deploy container instances into an Azure virtual network
