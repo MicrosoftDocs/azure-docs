@@ -108,7 +108,7 @@ In order for resources to resolve the reverse DNS zone, you must add a virtual n
 
 ## Test DNS resolution
 
-Using a VM in the linked virtual network: open a command line, type nslookup 10.1.2.5 and press ENTER. 
+Using a VM in the linked virtual network: open a command line, type **nslookup 10.1.2.5** and press ENTER. 
 
 If reverse DNS resolution is working, you see the *ptrdname* (FQDN value) that you entered into the reverse DNS zone:
 
