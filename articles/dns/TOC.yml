@@ -170,6 +170,8 @@
       href: private-dns-import-export.md
     - name: Create and manage reverse DNS zones
       href: private-reverse-dns.md
+    - name: Use Azure Resource Graph Explorer
+      href: private-dns-arg.md
   - name: Private Resolver
     items:
     - name: Resolve Azure and on-premises domains
