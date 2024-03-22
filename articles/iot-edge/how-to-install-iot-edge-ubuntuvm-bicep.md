@@ -19,7 +19,7 @@ To learn more about how the IoT Edge runtime works and what components are inclu
 
 ## Deploy from Azure CLI
 
-You can't deploy a remote Bicep file. Save a copy of the [Bicep file](https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/master/edgeDeploy.bicep) locally as **main.bicep**.
+You can't deploy a remote Bicep file. Save a copy of the [Bicep file](https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/main/edgeDeploy.bicep) locally as **main.bicep**.
 
 1. Ensure that you have installed the Azure CLI iot extension with:
 
