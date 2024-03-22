@@ -66,7 +66,7 @@ Sample code for text to speech avatar is available on [GitHub](https://github.co
 * [Batch synthesis (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch-avatar)
 * [Real-time synthesis (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/js/browser/avatar)
 * [Live chat with Azure OpenAI in behind (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/js/browser/avatar#chat-sample)
-* To create a live chat APP with Azure OpenAI [On Your Data](/openai/concepts/use-your-data), you can refer to [this sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/js/browser/avatar/README.md) (search "On Your Data")
+* To create a live chat APP with Azure OpenAI [On Your Data](/azure/ai-services/openai/concepts/use-your-data), you can refer to [this sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/js/browser/avatar/README.md) (search "On Your Data")
 
 ## Pricing
 
