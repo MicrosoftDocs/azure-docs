@@ -4,7 +4,7 @@ description: Learn about storage capacity, storage policies, fault tolerance, an
 ms.topic: conceptual
 ms.custom: engagement-fy23
 ms.service: azure-vmware
-ms.date: 12/13/2023
+ms.date: 3/22/2024
 ---
 
 # Azure VMware Solution storage concepts
@@ -13,7 +13,7 @@ Azure VMware Solution private clouds provide native, cluster-wide storage with V
 
 ## vSAN clusters
 
-Local storage in each cluster host is claimed as part of a vSAN datastore. For the AV36 SKU, all diskgroups use an NVMe cache tier of 1.6 TB with the raw, per host, SSD-based capacity of 15.4 TB. The size of the raw capacity tier of a cluster is the per host capacity times the number of hosts. For example, a four host cluster provides 61.6-TB raw capacity in the vSAN capacity tier. Check the hardware specification for the [AV36P and AV52 SKU](introduction.md) storage device details.
+Local storage in each cluster host is claimed as part of a vSAN datastore. For the AV36 SKU, all diskgroups use an NVMe cache tier of 1.6 TB with the raw, per host, SSD-based capacity of 15.4 TB. The size of the raw capacity tier of a cluster is the per host capacity times the number of hosts. For example, a four host cluster provides 61.6-TB raw capacity in the vSAN capacity tier. Check the hardware specification for the [AV36P, AV52, and AV64 SKU](introduction.md) storage device details.
 
 Local storage in cluster hosts is used in the cluster-wide vSAN datastore. All datastores are created as part of private cloud deployment and are available for use immediately. The **cloudadmin** user and all users assigned to the CloudAdmin role can manage datastores with these vSAN privileges:
 
