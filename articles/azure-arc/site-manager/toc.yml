@@ -16,10 +16,10 @@
     href: how-to-view-connectivity-status.md
   - name: How to View Update Status
     href: how-to-view-update-status.md
-  - name: How to Configure Monitoring for Azure Arc site
+  - name: How to configure monitoring for Azure Arc site
     href: how-to-configure-monitoring-site.md
-  - name: How to Configure and View Alerts for Azure Arc site
-    href: how-to-configure-view-create-alerts.md
+  - name: How to configure and view alerts for Azure Arc site
+    href: how-to-view-alerts.md
 - name: FAQ
   items:
   - name: FAQ
@@ -27,8 +27,8 @@
 - name: Reference
   items:
   - name: Azure Arc
-    href: https://learn.microsoft.com/azure/azure-arc/
+    href: ./articles/azure-arc/overview.md
   - name: Azure CLI
-    href: https://learn.microsoft.com/cli/azure/connectedmachine
-  - name: Azure Resource Monitor
-    href: https://learn.microsoft.com/azure/azure-monitor/essentials/monitor-azure-resource
+    href: ./cli/azure/connectedmachine.md
+  - name: Azure monitor
+    href: ./azure-monitor/essentials/monitor-azure-resource.md
