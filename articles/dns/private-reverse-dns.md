@@ -45,7 +45,7 @@ To create an IPv4 reverse DNS record in your zone, add the remaining IP address 
 
 - [Autoregistration](private-dns-autoregistration.md) isn't supported for reverse DNS.
 - A [virtual network link](private-dns-virtual-network-links.md) from the reverse zone is required to enable DNS resolution of PTR records. The process of [adding a virtual network link](#add-a-virtual-network-link) is demonstrated in this article. This is different from reverse DNS for public IP addresses, which don't require a virtual network link.
-    - You can also forward DNS queries to a DNS resolver if the resolver's VNet is linked to the reverse zone.
+    - You can also forward DNS queries to a DNS resolver if the reverse zone is linked to the resolver's VNet.
 - Reverse zones must follow the naming guidelines described in this article and in [RFC 3172](https://www.rfc-editor.org/info/rfc3172).
 
 ## Create a reverse lookup DNS zone
