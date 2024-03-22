@@ -7,7 +7,7 @@ ms.author: mbender
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to 
-ms.date: 08/24/2023
+ms.date: 08/25/2023
 ms.custom: template-how-to 
 ---
 
