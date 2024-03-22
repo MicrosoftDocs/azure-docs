@@ -21,7 +21,7 @@ To test Microsoft Teams Direct Routing with Azure Communications Gateway, you ne
 
 You must have at least one number that you can allocate to your test tenant.
 
-You must be able to configure the tenant with at least one user account licensed for Microsoft Teams. You can reuse one of the accounts that you use to activate the domains in [Configure a test customer for Microsoft Teams Direct Routing](configure-test-customer-teams-direct-routing.md), or you can use an account with one of the other domain names for this tenant.
+You must be able to configure the tenant with at least one user account licensed for Microsoft Teams. You can reuse one of the accounts that you use to activate the customer subdomains in [Configure a test customer for Microsoft Teams Direct Routing](configure-test-customer-teams-direct-routing.md), or you can use an account with one of the other domain names for this tenant.
 
 You must complete the following procedures.
 
