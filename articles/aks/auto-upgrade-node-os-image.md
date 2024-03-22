@@ -50,7 +50,7 @@ The following upgrade channels are available. You're allowed to choose one of th
 
     :::image type="content" source="./media/auto-upgrade-node-os-image/set-nodeimage-channel-portal.png" alt-text="A screenshot of the Azure portal showing the node security channel type option in the Basics tab of the AKS cluster creation page.":::
 
-3. Select **Security channel scheduler** and choose the desired maintenance window. We recommend selecting the default option **Every week on Sunday (recommended)**.
+3. Select **Security channel scheduler** and choose the desired maintenance window using the [Planned Maintenance feature](./planned-maintenance.md). We recommend selecting the default option **Every week on Sunday (recommended)**.
 
     :::image type="content" source="./media/auto-upgrade-node-os-image/set-nodeimage-maintenance-window-portal.png" alt-text="A screenshot of the Azure portal showing the security channel scheduler option in the Basics tab of the AKS cluster creation page.":::
 
@@ -77,7 +77,7 @@ The following upgrade channels are available. You're allowed to choose one of th
     :::image type="content" source="./media/auto-upgrade-node-os-image/set-nodeimage-channel-portal-existing.png" alt-text="A screenshot of the Azure portal showing the node security channel type option in the Cluster configuration page of an existing AKS cluster.":::
 
 4. For **Security channel scheduler**, select **Add schedule**.
-5. On the **Add maintenance schedule** page, configure the following settings:
+5. On the **Add maintenance schedule** page, configure the following maintenance window settings using the [Planned Maintenance feature](./planned-maintenance.md):
 
     * **Repeats**: Select the desired frequency for the maintenance window. We recommend selecting **Weekly**.
     * **Frequency**: Select the desired day of the week for the maintenance window. We recommend selecting **Sunday**.
