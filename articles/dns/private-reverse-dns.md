@@ -4,7 +4,7 @@ description: Learn how to use Azure Private DNS to create reverse DNS lookup zon
 author: greg-lindsay
 ms.service: dns
 ms.topic: how-to
-ms.date: 03/21/2024
+ms.date: 03/22/2024
 ms.author: greglin
 ---
 
@@ -14,17 +14,23 @@ In this article, you learn how to create a private reverse lookup DNS zone and a
 
 ## What is reverse DNS?
 
-Reverse DNS (as the name indicates) is the opposite process to forward DNS. Reverse enables you to resolve an IP address to a name, whereas forward DNS resolves a name to an IP address. IPv4 reverse DNS zones contain pointer (PTR) records and use the reserved domain name: **in-addr.arpa**. 
+Reverse DNS (as the name indicates) is the opposite process to forward DNS. Reverse enables you to resolve an IP address to a name, whereas forward DNS resolves a name to an IP address. Azure Private DNS supports both IPv6 and IPv4 reverse DNS.
 
-IPv6 reverse DNS zones and similar to IPv4 reverse zones, but they use the special domain **ip6.arpa**. For more information about IPv6 reverse zones, see the IPv6 sections that describe [creating an IPv6 reverse zone](dns-reverse-dns-hosting.md#ipv6) and [adding an IPv6 reverse DNS record](dns-reverse-dns-hosting.md#ipv6-1) in the [Host reverse DNS lookup zones in Azure DNS](dns-reverse-dns-hosting.md) article for public DNS.
+### IPv6 reverse DNS
 
-Reverse DNS zones follow a hierarchical naming pattern. For example: 
+IPv6 reverse DNS zones use the special domain **ip6.arpa**. For more information about IPv6 reverse zones, see the IPv6 sections that describe [creating an IPv6 reverse zone](dns-reverse-dns-hosting.md#ipv6) and [adding an IPv6 reverse DNS record](dns-reverse-dns-hosting.md#ipv6-1) in the [Host reverse DNS lookup zones in Azure DNS](dns-reverse-dns-hosting.md) article for public DNS.
+
+### IPv4 reverse DNS zones
+
+IPv4 reverse DNS zones contain pointer (PTR) records and use the reserved domain name: **in-addr.arpa**. These reverse DNS zones follow a hierarchical naming pattern. For example: 
 
 - **10.in-addr.arpa** contains all PTR records for IPv4 addresses in the 10.0.0.0/8 address space.
 - **1.10.in-addr.arpa** contains all PTR records for IPv4 addresses in the 10.1.0.0/16 address space.
 - **2.1.10.in-addr.arpa** contains only PTR records for IPv4 addresses in the 10.1.2.0/24 address space.
 
-You can create a PTR record for the IPv4 address 10.1.2.5 in any of these zones by adding the remaining octets for the IPv4 address and providing a ptrdname value. For example:
+### IPv4 reverse DNS records
+
+To create an IPv4 reverse DNS record in your zone, add the remaining IP address octets in reverse order into the appropriate in-addr.arpa zone and provide a fully qualified domain name value (also called a **ptrdname**). The number of remaining IP address octets depend on the scope of the reverse DNS zone. For example:
 
 * 10.1.2.5 in the 10.in-addr.arpa zone appears as: `5.2.1  IN  PTR  myvm.contoso.com.` 
 * 10.1.2.5 in the 1.10.in-addr.arpa zone appears as:`5.2   IN  PTR  myvm.contoso.com.`
@@ -77,7 +83,7 @@ You can create a PTR record for the IPv4 address 10.1.2.5 in any of these zones 
 
 3. Select **OK** to create the reverse DNS record.
 
-  ![Screenshot of a private zone with a reverse DNS record.](./media/private-reverse-dns/private-zone-and-record.png)
+     ![Screenshot of a private zone with a reverse DNS record.](./media/private-reverse-dns/private-zone-and-record.png)
 
 ## Add a virtual network link
 
