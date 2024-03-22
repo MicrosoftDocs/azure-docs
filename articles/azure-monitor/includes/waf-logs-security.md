@@ -17,6 +17,7 @@ ms.date: 08/24/2023
 > - Configure log query auditing to track which users are running queries.
 > - Determine a strategy to filter or obfuscate sensitive data in your workspace.
 > - Purge sensitive data that was accidentally collected.
+> - Enable Customer Lockbox for Microsoft Azure to approve or reject Microsoft data access requests.
 
 
 ### Configuration recommendations
@@ -31,4 +32,5 @@ ms.date: 08/24/2023
 | Configure log query auditing to track which users are running queries. | [Log query auditing](../logs/query-audit.md) records the details for each query that's run in a workspace. Treat this audit data as security data and secure the [LAQueryLogs](/azure/azure-monitor/reference/tables/laquerylogs) table appropriately. Configure the audit logs for each workspace to be sent to the local workspace, or consolidate in a dedicated security workspace if you separate your operational and security data. Use [Log Analytics workspace insights](../logs/log-analytics-workspace-insights-overview.md) to periodically review this data and consider creating log search alert rules to proactively notify you if unauthorized users are attempting to run queries. |
 | Determine a strategy to filter or obfuscate sensitive data in your workspace. | You might be collecting data that includes [sensitive information](../logs/personal-data-mgmt.md). Filter records that shouldn't be collected using the configuration for the particular data source. Use a [transformation](../essentials/data-collection-transformations.md) if only particular columns in the data should be removed or obfuscated.<br><br>If you have standards that require the original data to be unmodified, then you can use the ['h' literal](/azure/data-explorer/kusto/query/scalar-data-types/string#obfuscated-string-literals) in KQL queries to obfuscate query results displayed in workbooks. |
 | Purge sensitive data that was accidentally collected. | Check periodically for private data that might have been accidentally collected in your workspace and use [data purge](../logs/personal-data-mgmt.md#exporting-and-deleting-personal-data) to remove it. |
+|Enable Customer Lockbox for Microsoft Azure to approve or reject Microsoft data access requests.|[Customer Lockbox for Microsoft Azure](../../security/fundamentals/customer-lockbox-overview.md) provides you with an interface to review and approve or reject customer data access requests. It's used in cases where a Microsoft engineer needs to access customer data, whether in response to a customer-initiated support ticket or a problem identified by Microsoft.|
 

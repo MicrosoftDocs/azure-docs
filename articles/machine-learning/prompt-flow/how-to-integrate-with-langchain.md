@@ -21,11 +21,17 @@ Prompt Flow can also be used together with the [LangChain](https://python.langch
 :::image type="content" source="./media/how-to-integrate-with-langchain/flow.png" alt-text="Screenshot of flows with the LangChain python library. " lightbox = "./media/how-to-integrate-with-langchain/flow.png":::
 
 We introduce the following sections:
-* [Benefits of LangChain integration](#benefits-of-langchain-integration)
-* [How to convert LangChain code into flow](#how-to-convert-langchain-code-into-flow)
-    * [Prerequisites for environment and runtime](#prerequisites-for-environment-and-runtime)
-    * [Convert credentials to prompt flow connection](#convert-credentials-to-prompt-flow-connection)
-    * [LangChain code conversion to a runnable flow](#langchain-code-conversion-to-a-runnable-flow)
+- [Integrate with LangChain](#integrate-with-langchain)
+  - [Benefits of LangChain integration](#benefits-of-langchain-integration)
+  - [How to convert LangChain code into flow](#how-to-convert-langchain-code-into-flow)
+    - [Prerequisites for environment and runtime](#prerequisites-for-environment-and-runtime)
+      - [Create a customized environment](#create-a-customized-environment)
+    - [Convert credentials to prompt flow connection](#convert-credentials-to-prompt-flow-connection)
+      - [Create a connection](#create-a-connection)
+    - [LangChain code conversion to a runnable flow](#langchain-code-conversion-to-a-runnable-flow)
+      - [Convert LangChain code to flow structure](#convert-langchain-code-to-flow-structure)
+      - [Configure connection, input and output](#configure-connection-input-and-output)
+  - [Next steps](#next-steps)
 
 ## Benefits of LangChain integration
 

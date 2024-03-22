@@ -14,7 +14,7 @@ ms.custom: devx-track-arm-template, fasttrack-edit
 
 Network security group flow logging is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through a network security group. For more information about network security group flow logging, see [NSG flow logs overview](nsg-flow-logs-overview.md).
 
-In this article, you learn how to manage NSG flow logs programmatically using an Azure Resource Manager template and Azure PowerShell. You can learn how to manage an NSG flow log using the [Azure portal](nsg-flow-logging.md), [PowerShell](nsg-flow-logs-powershell.md), [Azure CLI](nsg-flow-logs-cli.md), or [REST API](nsg-flow-logs-rest.md).
+In this article, you learn how to manage NSG flow logs programmatically using an Azure Resource Manager template and Azure PowerShell. You can learn how to manage an NSG flow log using the [Azure portal](nsg-flow-logs-portal.md), [PowerShell](nsg-flow-logs-powershell.md), [Azure CLI](nsg-flow-logs-cli.md), or [REST API](nsg-flow-logs-rest.md).
 
 An [Azure Resource Manager template](../azure-resource-manager/templates/overview.md) is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project using declarative syntax.
 
