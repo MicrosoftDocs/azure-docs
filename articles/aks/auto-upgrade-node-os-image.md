@@ -33,17 +33,63 @@ The following upgrade channels are available. You're allowed to choose one of th
 | `SecurityPatch`|This channel is in preview and requires enabling the feature flag `NodeOsUpgradeChannelPreview`. Refer to the prerequisites section for details. AKS regularly updates the node's virtual hard disk (VHD) with patches from the image maintainer labeled "security only." There might be disruptions when the security patches are applied to the nodes. When the patches are applied, the VHD is updated and existing machines are upgraded to that VHD, honoring maintenance windows and surge settings. This option incurs the extra cost of hosting the VHDs in your node resource group. If you use this channel, Linux [unattended upgrades][unattended-upgrades] are disabled by default.|Azure Linux doesn't support this channel on GPU-enabled VMs. `SecurityPatch` works on patch versions that are deprecated, so long as the minor Kubernetes version is still supported.|
 | `NodeImage`|AKS updates the nodes with a newly patched VHD containing security fixes and bug fixes on a weekly cadence. The update to the new VHD is disruptive, following maintenance windows and surge settings. No extra VHD cost is incurred when choosing this option. If you use this channel, Linux [unattended upgrades][unattended-upgrades] are disabled by default. Node image upgrades support patch versions that are deprecated, so long as the minor Kubernetes version is still supported.|
 
-To set the node OS auto-upgrade channel when creating a cluster, use the *node-os-upgrade-channel* parameter, similar to the following example.
+## Set the node OS auto-upgrade channel on a new cluster
 
-```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myAKSCluster --node-os-upgrade-channel SecurityPatch
-```
+### [Azure CLI](#tab/azure-cli)
 
-To set the node os auto-upgrade channel on existing cluster, update the *node-os-upgrade-channel* parameter, similar to the following example.
+* Set the node OS auto-upgrade channel on a new cluster using the [`az aks create`][az-aks-create] command with the `--node-os-upgrade-channel` parameter. The following example sets the node OS auto-upgrade channel to `SecurityPatch`.
 
-```azurecli-interactive
-az aks update --resource-group myResourceGroup --name myAKSCluster --node-os-upgrade-channel SecurityPatch
-```
+    ```azurecli-interactive
+    az aks create --resource-group myResourceGroup --name myAKSCluster --node-os-upgrade-channel SecurityPatch
+    ```
+
+### [Azure portal](#tab/azure-portal)
+
+1. In the Azure portal, select **Create a resource** > **Containers** > **Azure Kubernetes Service (AKS)**.
+2. In the **Basics** tab, under **Cluster details**, select the desired channel type from the **Node security channel type** dropdown.
+
+    :::image type="content" source="./media/auto-upgrade-node-os-image/set-nodeimage-channel-portal.png" alt-text="A screenshot of the Azure portal showing the node security channel type option in the Basics tab of the AKS cluster creation page.":::
+
+3. Select **Security channel scheduler** and choose the desired maintenance window using the [Planned Maintenance feature](./planned-maintenance.md). We recommend selecting the default option **Every week on Sunday (recommended)**.
+
+    :::image type="content" source="./media/auto-upgrade-node-os-image/set-nodeimage-maintenance-window-portal.png" alt-text="A screenshot of the Azure portal showing the security channel scheduler option in the Basics tab of the AKS cluster creation page.":::
+
+4. Complete the remaining steps to create the cluster.
+
+---
+
+## Set the node OS auto-upgrade channel on an existing cluster
+
+### [Azure CLI](#tab/azure-cli)
+
+* Set the node os auto-upgrade channel on an existing cluster using the [`az aks update`][az-aks-update] command with the `--node-os-upgrade-channel` parameter. The following example sets the node OS auto-upgrade channel to `SecurityPatch`.
+
+    ```azurecli-interactive
+    az aks update --resource-group myResourceGroup --name myAKSCluster --node-os-upgrade-channel SecurityPatch
+    ```
+
+### [Azure portal](#tab/azure-portal)
+
+1. In the Azure portal, navigate to your AKS cluster.
+2. In the **Settings** section, select **Cluster configuration**.
+3. Under **Security updates**, select the desired channel type from the **Node security channel type** dropdown.
+
+    :::image type="content" source="./media/auto-upgrade-node-os-image/set-nodeimage-channel-portal-existing.png" alt-text="A screenshot of the Azure portal showing the node security channel type option in the Cluster configuration page of an existing AKS cluster.":::
+
+4. For **Security channel scheduler**, select **Add schedule**.
+5. On the **Add maintenance schedule** page, configure the following maintenance window settings using the [Planned Maintenance feature](./planned-maintenance.md):
+
+    * **Repeats**: Select the desired frequency for the maintenance window. We recommend selecting **Weekly**.
+    * **Frequency**: Select the desired day of the week for the maintenance window. We recommend selecting **Sunday**.
+    * **Maintenance start date**: Select the desired start date for the maintenance window.
+    * **Maintenance start time**: Select the desired start time for the maintenance window.
+    * **UTC offset**: Select the desired UTC offset for the maintenance window. If not set, the default is **+00:00**.
+
+    :::image type="content" source="./media/auto-upgrade-node-os-image/set-nodeimage-maintenance-window-portal-existing.png" alt-text="A screenshot of the Azure portal showing the maintenance schedule configuration options in the Add maintenance schedule page of an existing AKS cluster.":::
+
+6. Select **Save** > **Apply**.
+
+---
 
 ## Update ownership and schedule
 
@@ -60,12 +106,11 @@ The default cadence means there's no planned maintenance window applied.
 
 ## SecurityPatch channel requirements
 
-To use the `SecurityPatch` channel, your cluster must support these requirements.
-- Must be using API version `11-02-preview` or later
+To use the `SecurityPatch` channel, your cluster must support these requirements:
 
-- If using Azure CLI, the `aks-preview` CLI extension version `0.5.166` or later must be installed
-
-- The `NodeOsUpgradeChannelPreview` feature flag must be enabled on your subscription
+* Must be using API version `11-02-preview` or later
+* If using Azure CLI, the `aks-preview` CLI extension version `0.5.166` or later must be installed
+* The `NodeOsUpgradeChannelPreview` feature flag must be enabled on your subscription
 
 ### Register NodeOsUpgradeChannelPreview
 
@@ -168,6 +213,8 @@ For a detailed discussion of upgrade best practices and other considerations, se
 [aks-eventgrid]: ./quickstart-event-grid.md
 [aks-upgrade]: ./upgrade-cluster.md
 [upgrade-operators-guide]: /azure/architecture/operator-guides/aks/aks-upgrade-practices
+[az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-update]: /cli/azure/aks#az-aks-update
 
 <!-- LINKS - external -->
 [Blog]: https://techcommunity.microsoft.com/t5/linux-and-open-source-blog/increased-security-and-resiliency-of-canonical-workloads-on/ba-p/3970623

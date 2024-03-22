@@ -82,7 +82,11 @@ Next, create a rule and configure the thresholds that will trigger an alert:
 4. Select the thresholds that define the logic for your alerts, and then select **Add**. The Key Vault team recommends configuring the following thresholds: 
 
     + Key Vault availability drops below 100 percent (static threshold)
-    + Key Vault latency is greater than 1000 ms (static threshold) 
+    > [!IMPORTANT]
+    > This alert currently incorrectly includes long-running operations and reports them as the service being unavailable. You can monitor Key Vault logs to see if operations are failing due to the service being unavailable instead
+    + Key Vault latency is greater than 1000 ms (static threshold)
+    > [!NOTE]
+    > The intention of the 1000 ms threshold is to notify that the Key Vault service in this region has a workload higher than average. Our SLA for Key Vault operations is several times higher, see the [Service Level Agreement for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1) for current SLA. To alert when Key Vault operations are out of SLA, use the thresholds from the SLA documents.
     + Overall vault saturation is greater than 75 percent (static threshold) 
     + Overall vault saturation exceeds average (dynamic threshold)
     + Total error codes are higher than average (dynamic threshold) 
