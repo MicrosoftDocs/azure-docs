@@ -29,7 +29,7 @@ highlightedContent:
       url: /azure/azure-vmware/azure-vmware-solution-platform-updates
     - title: Azure VMware Solution concepts 
       itemType: concept
-      url: /azure/azure-vmware/architecture-identity
+      url: /azure/azure-vmware/architecture-identity.md
     - title:  Azure native integration
       itemType: how-to-guide
       url: /azure/azure-vmware/integrate-azure-native-services
