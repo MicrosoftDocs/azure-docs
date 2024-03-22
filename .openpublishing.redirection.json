@@ -3306,6 +3306,16 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/azure-signalr/signalr-howto-monitor-reference.md",
+            "redirect_url": "/azure/azure-signalr/monitor-signalr-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-signalr/concept-metrics.md",
+            "redirect_url": "/azure/azure-signalr/monitor-signalr",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/sql-database-edge/index.yml",
             "redirect_url": "/azure/azure-sql-edge/",
             "redirect_document_id": true
@@ -5873,126 +5883,6 @@
         {
             "source_path_from_root": "/articles/industrial-iot/tutorial-visualize-data-time-series-insights.md",
             "redirect_url": "https://github.com/Azure/Industrial-IoT/blob/main/readme.md",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/industry/financial/actuarial-risk-analysis-and-financial-modeling-overview.md",
-            "redirect_url": "/azure/industry-marketing/financial/actuarial-risk-analysis-and-financial-modeling-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/industry/financial/actuarial-risk-analysis-and-financial-modeling-solution-guide.md",
-            "redirect_url": "/azure/industry-marketing/financial/actuarial-risk-analysis-and-financial-modeling-solution-guide",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/industry/financial/data-mgmt-in-banking-overview.md",
-            "redirect_url": "/azure/industry-marketing/financial/data-mgmt-in-banking-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/industry/financial/FSI-risk-modeling.md",
-            "redirect_url": "/azure/industry-marketing/financial/FSI-risk-modeling",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/industry/financial/index.md",
-            "redirect_url": "/azure/industry-marketing/financial/index",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/industry/financial/mobile-bank-fraud-overview.md",
-            "redirect_url": "/azure/industry-marketing/financial/mobile-bank-fraud-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/industry/financial/risk-grid-banking-overview.md",
-            "redirect_url": "/azure/industry-marketing/financial/risk-grid-banking-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/industry/financial/risk-grid-banking-solution-guide.md",
-            "redirect_url": "/azure/industry-marketing/financial/risk-grid-banking-solution-guide",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/industry/health/index.md",
-            "redirect_url": "/azure/industry-marketing/health/index",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/industry/health/overview-healthcare-ai-blueprint.md",
-            "redirect_url": "/azure/industry-marketing/health/overview-healthcare-ai-blueprint",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/industry/health/sg-healthcare-ai-blueprint.md",
-            "redirect_url": "/azure/industry-marketing/health/sg-healthcare-ai-blueprint",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/industry/manufacturing/Compute-in-manufacturing-overview.md",
-            "redirect_url": "/azure/industry-marketing/manufacturing/Compute-in-manufacturing-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/industry/manufacturing/extracting-insights-from-iot-data.md",
-            "redirect_url": "/azure/industry-marketing/manufacturing/extracting-insights-from-iot-data",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/industry/manufacturing/extracting-insights-from-iot-data-overview.md",
-            "redirect_url": "/azure/industry-marketing/manufacturing/extracting-insights-from-iot-data-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/industry/manufacturing/index.md",
-            "redirect_url": "/azure/industry-marketing/manufacturing/index",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/industry/manufacturing/predictive-maintenance-overview.md",
-            "redirect_url": "/azure/industry-marketing/manufacturing/predictive-maintenance-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/industry/manufacturing/predictive-maintenance-solution.md",
-            "redirect_url": "/azure/industry-marketing/manufacturing/predictive-maintenance-solution",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/industry/retail/index.md",
-            "redirect_url": "/azure/industry-marketing/retail/index",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/industry/retail/migrating-ecommerce-solution-to-azure.md",
-            "redirect_url": "/azure/industry-marketing/retail/migrating-ecommerce-solution-to-azure",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/industry/retail/recommendation-engine-optimization.md",
-            "redirect_url": "/azure/industry-marketing/retail/recommendation-engine-optimization",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/industry/retail/retail-data-management-overview.md",
-            "redirect_url": "/azure/industry-marketing/retail/retail-data-management-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/industry/retail/sku-optimization-overview.md",
-            "redirect_url": "/azure/industry-marketing/retail/sku-optimization-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/industry/retail/sku-optimization-solution-guide.md",
-            "redirect_url": "/azure/industry-marketing/retail/sku-optimization-solution-guide",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/industry/retail/visual-search-use-case-overview.md",
-            "redirect_url": "/azure/industry-marketing/retail/visual-search-use-case-overview",
             "redirect_document_id": false
         },
         {
@@ -11006,14 +10896,11 @@
             "redirect_document_id": false
         },
         {
-
             "source_path_from_root": "/articles/ddos-protection/ddos-disaster-recovery-guidance.md",
             "redirect_url": "../reliability/reliability-ddos.md",
             "redirect_document_id": false
         },
         {
-
-
             "source_path_from_root": "/articles/azure-functions/functions-monitor-log-analytics.md",
             "redirect_url": "/azure/azure-functions/monitor-functions",
             "redirect_document_id": false
