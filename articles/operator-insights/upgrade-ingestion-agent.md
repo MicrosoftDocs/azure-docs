@@ -28,13 +28,16 @@ Before you install the RPM, you can verify that it's the correct version and has
 
 This can be done using the public key file provided by Microsoft, which is available at [https://packages.microsoft.com/keys/microsoft.asc](https://packages.microsoft.com/keys/microsoft.asc).
 
-To verify, perform the following steps once the agent has been downloaded:
+To verify, execute the following commands once the agent has been downloaded:
 
 1. Download the provided public key (microsoft.asc)
+    - `wget https://packages.microsoft.com/keys/microsoft.asc`
 1. Import the public key to the GPG keyring
     - `gpg --import microsoft.asc`
 1. Verify the RPM signature matches the public key
     - `rpm --checksig <path-to-rpm>`
+
+The output of the final command should be `<path-to-rpm>: digests signatures OK`
 
 ## Upgrade the agent software
 
