@@ -27,8 +27,6 @@ EFLOW doesn't require extensive Linux knowledge and utilizes familiar Windows to
 ## Familiar Windows Management
 **Flexible Scripting**. [PowerShell modules](reference-iot-edge-for-linux-on-windows-functions.md) provide the ability to fully script deployments.
 
-**WAC**. [Windows Admin Center EFLOW extension](how-to-provision-single-device-linux-on-windows-symmetric.md#developer-tools) (preview, EFLOW 1.1 only) provides a click-through deployment wizard and remote management experience.
-
 ## Production Ready
 **Always Up-to-date**. EFLOW regularly releases feature and security improvements and is reliably updated using Microsoft Update. For more information on EFLOW updates, see [Update IoT Edge for Linux on Windows](./iot-edge-for-linux-on-windows-updates.md).
 

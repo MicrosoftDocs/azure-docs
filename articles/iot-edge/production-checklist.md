@@ -175,7 +175,7 @@ In some cases, for example when dependencies exist between modules, it may be de
 
 ### Use tags to manage versions
 
-A tag is a docker concept that you can use to distinguish between versions of docker containers. Tags are suffixes like **1.1** that go on the end of a container repository. For example, **mcr.microsoft.com/azureiotedge-agent:1.1**. Tags are mutable and can be changed to point to another container at any time, so your team should agree on a convention to follow as you update your module images moving forward.
+A tag is a docker concept that you can use to distinguish between versions of docker containers. Tags are suffixes like **1.5** that go on the end of a container repository. For example, **mcr.microsoft.com/azureiotedge-agent:1.5**. Tags are mutable and can be changed to point to another container at any time, so your team should agree on a convention to follow as you update your module images moving forward.
 
 Tags also help you to enforce updates on your IoT Edge devices. When you push an updated version of a module to your container registry, increment the tag. Then, push a new deployment to your devices with the tag incremented. The container engine will recognize the incremented tag as a new version and will pull the latest module version down to your device.
 
@@ -183,9 +183,9 @@ Tags also help you to enforce updates on your IoT Edge devices. When you push an
 
 The IoT Edge agent and IoT Edge hub images are tagged with the IoT Edge version that they are associated with. There are two different ways to use tags with the runtime images:
 
-* **Rolling tags** - Use only the first two values of the version number to get the latest image that matches those digits. For example, 1.1 is updated whenever there's a new release to point to the latest 1.1.x version. If the container runtime on your IoT Edge device pulls the image again, the runtime modules are updated to the latest version. Deployments from the Azure portal default to rolling tags. *This approach is suggested for development purposes.*
+* **Rolling tags** - Use only the first two values of the version number to get the latest image that matches those digits. For example, 1.5 is updated whenever there's a new release to point to the latest 1.5.x version. If the container runtime on your IoT Edge device pulls the image again, the runtime modules are updated to the latest version. Deployments from the Azure portal default to rolling tags. *This approach is suggested for development purposes.*
 
-* **Specific tags** - Use all three values of the version number to explicitly set the image version. For example, 1.1.0 won't change after its initial release. You can declare a new version number in the deployment manifest when you're ready to update. *This approach is suggested for production purposes.*
+* **Specific tags** - Use all three values of the version number to explicitly set the image version. For example, 1.5.0 won't change after its initial release. You can declare a new version number in the deployment manifest when you're ready to update. *This approach is suggested for production purposes.*
 
 ### Manage volumes
 IoT Edge does not remove volumes attached to module containers. This behavior is by design, as it allows persisting the data across container instances such as upgrade scenarios. However, if these volumes are left unused, then it may lead to disk space exhaustion and subsequent system errors. If you use docker volumes in your scenario, then we encourage you to use docker tools such as [docker volume prune](https://docs.docker.com/engine/reference/commandline/volume_prune/) and [docker volume rm](https://docs.docker.com/engine/reference/commandline/volume_rm/) to remove the unused volumes, especially for production scenarios.

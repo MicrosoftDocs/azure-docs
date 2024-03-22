@@ -210,9 +210,6 @@ If you are using Ubuntu snaps, you can download a snap and install it offline. F
 
 Using curl commands, you can target the component files directly from the IoT Edge GitHub repository.
 
->[!NOTE]
->If your device is currently running IoT Edge version 1.1 or older, uninstall the **iotedge** and **libiothsm-std** packages before following the steps in this section. For more information, see [Update from 1.0 or 1.1 to latest release](how-to-update-iot-edge.md#special-case-update-from-10-or-11-to-latest-release).
-
 1. Navigate to the [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases), and find the release version that you want to target.
 
 2. Expand the **Assets** section for that version.
