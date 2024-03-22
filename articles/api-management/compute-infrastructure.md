@@ -4,7 +4,7 @@ description: Learn about the compute platform used to host your API Management s
 author: dlepow
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 12/19/2023
+ms.date: 03/21/2024
 ms.author: danlep
 ms.custom:
 ---
@@ -21,7 +21,7 @@ Most new instances created in service tiers other than the Consumption tier are 
 
 ## What are the compute platforms for API Management?
 
-The following table summarizes the compute platforms currently used in the **Consumption**, **Developer**, **Basic**, **Standard**, and **Premium** tiers of API Management. This table doesn't apply to the [v2 pricing tiers (preview)](#what-about-the-v2-pricing-tiers).
+The following table summarizes the compute platforms currently used in the **Consumption**, **Developer**, **Basic**, **Standard**, and **Premium** tiers of API Management. This table doesn't apply to the [v2 pricing tiers](#what-about-the-v2-pricing-tiers).
 
 | Version | Description | Architecture | Tiers |
 | -------| ----------| ----------- | ---- |
@@ -67,7 +67,7 @@ Migration steps depend on features enabled in your API Management instance. If t
 
 ## What about the v2 pricing tiers?
 
-The v2 pricing tiers are a new set of tiers for API Management currently in preview. Hosted on a new, highly scalable and available Azure infrastructure that's different from the `stv1` and `stv2` compute platforms, the v2 tiers aren't affected by the retirement of the `stv1` platform.
+The v2 pricing tiers are a new set of tiers for API Management. Hosted on a new, highly scalable and available Azure infrastructure that's different from the `stv1` and `stv2` compute platforms, the v2 tiers aren't affected by the retirement of the `stv1` platform.
 
 The v2 tiers are designed to make API Management accessible to a broader set of customers and offer flexible options for a wider variety of scenarios. For more information, see [v2 tiers overview](v2-service-tiers-overview.md).
 

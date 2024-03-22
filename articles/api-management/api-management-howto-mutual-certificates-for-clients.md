@@ -54,7 +54,7 @@ Using key vault certificates is recommended because it helps improve API Managem
 
 ### Developer, Basic, Standard, or Premium tier
 
-To receive and verify client certificates over HTTP/2 in the Developer, Basic, Standard, or Premium tiers, you must enable the **Negotiate client certificate** setting on the **Custom domain** blade as shown below.
+To receive and verify client certificates over HTTP/2 in the Developer, Basic, Basic v2, Standard, Standard v2, or Premium tiers, you must enable the **Negotiate client certificate** setting on the **Custom domain** blade as shown below.
 
 ![Negotiate client certificate](./media/api-management-howto-mutual-certificates-for-clients/negotiate-client-certificate.png)
 
@@ -79,6 +79,7 @@ You can also create policy expressions with the [`context` variable](api-managem
 > [!IMPORTANT]
 > * Starting May 2021, the `context.Request.Certificate` property only requests the certificate when the API Management instance's [`hostnameConfiguration`](/rest/api/apimanagement/current-ga/api-management-service/create-or-update#hostnameconfiguration) sets the `negotiateClientCertificate` property to True. By default, `negotiateClientCertificate` is set to False.
 > * If TLS renegotiation is disabled in your client, you may see TLS errors when requesting the certificate using the `context.Request.Certificate` property. If this occurs, enable TLS renegotiation settings in the client. 
+> * Certification renegotiation is not supported in the API Management v2 tiers.
 
 ### Checking the issuer and subject
 
