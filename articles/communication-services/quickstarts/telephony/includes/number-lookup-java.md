@@ -1,4 +1,4 @@
-Get started with the Phone Numbers client library for Java to look up operator information for phone numbers, which can be used to determine whether and how to communicate with that phone number.  Follow these steps to install the package and look up operator information about a phone number.
+Get started with the Phone Numbers client library for Java to look up operator information for phone numbers, which can be used to determine whether and how to communicate with that phone number. Follow these steps to install the package and look up operator information about a phone number.
 
 > [!NOTE]
 > Find the code for this quickstart on [GitHub](https://github.com/Azure/communication-preview/tree/master/samples/NumberLookup).
@@ -29,7 +29,7 @@ mvn archetype:generate -DgroupId=com.communication.lookup.quickstart -DartifactI
 The 'generate' task creates a directory with the same name as the `artifactId`. Under this directory, the src/main/java directory contains the project source code, the `src/test/java directory` contains the test source, and the `pom.xml` file is the project's Project Object Model, or POM.
 
 ### Connect to dev package feed
-The public preview version of the SDK is published to a dev package feed. To connect to the dev feed, open the **pom.xml** file in your text editor and add the dev repo to **both** your pom.xml's `<repositories>` and `<distributionManagement>` sections
+The public preview version of the SDK is published to a dev package feed. To connect to the dev feed, open the **pom.xml** file in your text editor and add the dev repo to **both** your pom.xml's `<repositories>` and `<distributionManagement>` sections.
 
 ```xml
 <repository>
@@ -127,7 +127,7 @@ public class App
 
 ## Authenticate the Phone Numbers Client
 
-The `PhoneNumberClientBuilder` is enabled to use Microsoft Entra authentication. Using the `DefaultAzureCredentialBuilder` is the easiest way to get started with Microsoft Entra ID.  You can acquire your resource name from an Azure Communication Services resource in the [Azure portal](https://portal.azure.com).
+The `PhoneNumberClientBuilder` is enabled to use Microsoft Entra authentication. Using the `DefaultAzureCredentialBuilder` is the easiest way to get started with Microsoft Entra ID. You can acquire your resource name from an Azure Communication Services resource in the [Azure portal](https://portal.azure.com).
 <!-- embedme ./src/samples/java/com/azure/communication/phonenumbers/ReadmeSamples.java#L52-L62 -->
 ```java
 // You can find your resource name from your resource in the Azure portal
@@ -139,7 +139,7 @@ PhoneNumbersClient phoneNumberClient = new PhoneNumbersClientBuilder()
     .buildClient();
 ```
 
-Alternatively, the client can be authenticated using a connection string, also acquired from an Azure Communication Services resource in the [Azure portal](https://portal.azure.com). It's recommended to use a `COMMUNICATION_SERVICES_CONNECTION_STRING` environment variable to avoid putting your connection string in plain text within your code. Learn how to [manage your resource's connection string](../../create-communication-resource.md#store-your-connection-string).
+Alternatively, the client can be authenticated using a connection string, also acquired from an Azure Communication Services resource in the [Azure portal](https://portal.azure.com). Using a `COMMUNICATION_SERVICES_CONNECTION_STRING` environment variable is recommended to avoid putting your connection string in plain text within your code. Learn how to [manage your resource's connection string](../../create-communication-resource.md#store-your-connection-string).
 <!-- embedme ./src/samples/java/com/azure/communication/phonenumbers/ReadmeSamples.java#L30-L41 -->
 ```java
 // This code retrieves your connection string from an environment variable
@@ -152,7 +152,7 @@ PhoneNumbersClient phoneNumberClient = new PhoneNumbersClientBuilder()
 
 ### Look up phone number formatting
 
-To look up the national and international formatting for a number, call  `searchOperatorInformation` from the `PhoneNumbersClient`.
+To look up the national and international formatting for a number, call `searchOperatorInformation` from the `PhoneNumbersClient`.
 
 ```java
 ArrayList<String> phoneNumbers = new ArrayList<String>();
@@ -184,17 +184,17 @@ OperatorInformation operatorInfo = result.getValue().getValues().get(0);
 
 ### Use operator information
 
-You can now use the operator information.  For this quickstart guide, we can print some of the details to the console.
+You can now use the operator information. For this quickstart guide, we can print some of the details to the console.
 
-First, we can print out details about the number format.
+First, we can print details about the number format.
 
 ```java
 System.out.println(formattingInfo.getPhoneNumber() + " is formatted "
-    + formattingInfo.getInternationalFormat() +  " internationally, and "
+    + formattingInfo.getInternationalFormat() + " internationally, and "
     + formattingInfo.getNationalFormat() + " nationally");
 ```
 
-Next, we can print out details about the phone number and operator.
+Next, we can print details about the phone number and operator.
 
 ```java
 String numberType = operatorInfo.getNumberType() == null ? "unknown" : operatorInfo.getNumberType().toString();
@@ -207,7 +207,7 @@ System.out.println(operatorInfo.getPhoneNumber() + " is a " + numberType + " num
     + operatorInfo.getIsoCountryCode() + " by " + operatorName);
 ```
 
-You may also use the operator information to determine whether to send an SMS.  For more information on sending an SMS, see the [SMS Quickstart](../../sms/send.md).
+You may also use the operator information to determine whether to send an SMS. For more information on sending an SMS, see the [SMS Quickstart](../../sms/send.md).
 
 ## Run the code
 
@@ -224,7 +224,7 @@ Then, build the package.
 mvn package
 ```
 
-Run the following `mvn` command to execute the app.
+To execute the app, use the `mvn` command.
 
 ```console
 mvn exec:java -D"exec.mainClass"="com.communication.lookup.quickstart.App" -D"exec.cleanupDaemonThreads"="false"
