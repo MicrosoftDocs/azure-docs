@@ -5,7 +5,7 @@ author: rvandenbedem
 ms.author: rvandenbedem
 ms.topic: conceptual
 ms.service: azure-vmware
-ms.date: 3/20/2024
+ms.date: 3/22/2024
 ms.custom: engagement-fy24
 ---
 
