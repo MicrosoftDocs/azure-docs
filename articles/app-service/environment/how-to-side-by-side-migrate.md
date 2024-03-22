@@ -4,7 +4,7 @@ description: Learn how to migrate your App Service Environment v2 to App Service
 author: seligj95
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.date: 3/19/2024
+ms.date: 3/22/2024
 ms.author: jordanselig
 # zone_pivot_groups: app-service-cli-portal
 ---
@@ -101,7 +101,7 @@ az rest --method get --uri "${ASE_ID}?api-version=2022-03-01" --query properties
 If the step is in progress, you get a status of `Migrating`. After you get a status of `Ready`, run the following command to view your new outbound IPs. If you don't see the new IPs immediately, wait a few minutes and try again.
 
 ```azurecli
-az rest --method get --uri "${ASE_ID}/configurations/networking?api-version=2022-03-01"
+az rest --method get --uri "${ASE_ID}/configurations/networking?api-version=2022-03-01 --query properties.windowsOutboundIpAddresses"
 ```
 
 ## 5. Update dependent resources with new outbound IPs
@@ -233,10 +233,18 @@ You have two App Service Environments at this stage in the migration process. Yo
 > During the preview, the new inbound IP might be returned incorrectly due to a known bug. Open a support ticket to receive the correct IP addresses for your App Service Environment v3.
 > 
 
-You can get the new inbound IP address for your new App Service Environment v3 by running the following command. It's your responsibility to make any necessary updates. 
+You can get the new inbound IP address for your new App Service Environment v3 by running the following command that corresponds to your App Service Environment load balancer type. It's your responsibility to make any necessary updates. 
+
+For ILB App Service Environments, get the private inbound IP address by running the following command:
 
 ```azurecli
-az rest --method get --uri "${ASE_ID}?api-version=2022-03-01" --query properties.networkingConfiguration
+az rest --method get --uri "${ASE_ID}/configurations/networking?api-version=2022-03-01" --query properties.internalInboundIpAddresses
+```
+
+For ELB App Service Environments, get the public inbound IP address by running the following command:
+
+```azurecli
+az rest --method get --uri "${ASE_ID}/configurations/networking?api-version=2022-03-01" --query properties.externalInboundIpAddresses
 ```
 
 ## 11. Redirect customer traffic and complete migration
