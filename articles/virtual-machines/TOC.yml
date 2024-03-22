@@ -1550,7 +1550,7 @@
       href: ./linux/detach-disk.md
     - name: Windows
       displayName: detach a disk
-      href: ./windows/detach-disk.md
+      href: ./windows/detach-disk.yml
   - name: Expand a disk
     items:
     - name: Linux
