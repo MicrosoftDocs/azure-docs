@@ -78,7 +78,7 @@ The potentially abusive user detection relies on the user information that custo
 
 ### Recommended actions
 
-Combine this data with enriched signals to validate whether the detected users are truly abusive or not. If they are, then take responsive action such as throttling or suspending the user to ensure the responsible use of your models.
+Combine this data with enriched signals to validate whether the detected users are truly abusive or not. If they are, then take responsive action such as throttling or suspending the user to ensure the responsible use of your application.
 
 ## Next steps
 
