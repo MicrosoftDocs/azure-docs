@@ -15,7 +15,7 @@ A search service is subject to a maximum storage limit (partition size multiplie
 | Resource | Free | Basic  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 | -------- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Service level agreement (SLA) <sup>1</sup>  | No |Yes |Yes |Yes |Yes |Yes |Yes |Yes |
-| Storage (partition size) <sup>2</sup> | 50 MB |2 GB or 15 GB |25 GB or 160 GB |100 GB or 350 GB |200 GB or 700 GB | 1 TB or 5 TB |2 TB or 10 TB |
+| Storage (partition size) <sup>2</sup> | 50&nbsp;MB |2&nbsp;GB or 15&nbsp;GB |25&nbsp;GB or 160&nbsp;GB |100&nbsp;GB or 350&nbsp;GB |200&nbsp;GB or 700&nbsp;GB |200&nbsp;GB| 1&nbsp;TB | 2&nbsp;TB  |
 | Partitions | N/A |1 or 3 |12 |12 |12 |3 |12 |12 |
 | Replicas | N/A | 1 or 3 |12 |12 |12 |12 |12 |12 |
 
