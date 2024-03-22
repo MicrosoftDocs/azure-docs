@@ -134,6 +134,14 @@ Microsoft.SignalRService/SignalR
 - [AzureMetrics](/azure/azure-monitor/reference/tables/AzureMetrics#columns)
 - [SignalRServiceDiagnosticLogs](/azure/azure-monitor/reference/tables/SignalRServiceDiagnosticLogs#columns)
 
+### SignalR Service WebPubSub
+Microsoft.SignalRService/WebPubSub
+
+- [AzureActivity](/azure/azure-monitor/reference/tables/AzureActivity#columns)
+- [WebPubSubHttpRequest](/azure/azure-monitor/reference/tables/WebPubSubHttpRequest#columns)
+- [WebPubSubMessaging](/azure/azure-monitor/reference/tables/WebPubSubMessaging#columns)
+- [WebPubSubConnectivity](/azure/azure-monitor/reference/tables/WebPubSubConnectivity#columns)
+
 [!INCLUDE [horz-monitor-ref-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
 - [Microsoft.SignalRService resource provider operations](/azure/role-based-access-control/permissions/web-and-mobile#microsoftsignalrservice)
 
