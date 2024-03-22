@@ -7,7 +7,7 @@ ms.service: static-web-apps
 ms.topic:  quickstart
 ms.date: 03/21/2024
 ms.author: cshoe
-ms.custom: mode-api, devx-track-azurecli 
+ms.custom: mode-api, devx-track-azurecli, innovation-engine, linux-related-content
 ms.devlang: azurecli
 ---
 
