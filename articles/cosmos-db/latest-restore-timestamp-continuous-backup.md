@@ -5,7 +5,7 @@ author: kanshiG
 ms.author: govindk
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.date: 04/08/2022
+ms.date: 03/21/2024
 ms.topic: how-to
 ms.reviewer: mjbrown
 ---
@@ -89,7 +89,7 @@ Yes. This API can be used for account provisioned with continuous backup mode or
 The log backup data is backed up every 100 seconds. However, in some exceptional cases, backups could be delayed for more than 100 seconds.
 
 #### Will restorable timestamp work for deleted accounts?
-No. It applies only to live accounts. You can get the restorable timestamp to trigger the live account restore or monitor that your data is being backed up on time.
+No. It applies only to live resources (databases, collections or account). You can get the restorable timestamp to trigger the live account restore or monitor that your data is being backed up on time.
 
 ## Next steps
 
