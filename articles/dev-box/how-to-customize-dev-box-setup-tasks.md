@@ -138,7 +138,7 @@ Before you can create and test your own configuration file, there must be a cata
 
 1. Create a Dev Box (or use an existing Dev Box) for testing.
 1. On the test dev box, install Visual Studio Code and then install the [Dev Box v1.2.2 VS Code extension](https://aka.ms/devbox/preview/customizations/vsc-extension). 
-1. Download an [example yaml configuration file](https://azure.github.io/dev-box/reference/devbox.yaml) from the samples repository and open it in Visual Studio Code.
+1. Download an [example yaml configuration file](https://aka.ms/devbox/customizations/samplefile) from the samples repository and open it in Visual Studio Code.
 1. Discover tasks available in the catalog by using the command palette. From **View** > **Command Palette**, select **Dev Box: List available tasks for this dev box**.
  
    :::image type="content" source="media/how-to-customize-dev-box-setup-tasks/dev-box-command-list-tasks.png" alt-text="Screenshot of Visual Studio Code showing the command palette with Dev Box List available tasks for this dev box highlighted." lightbox="media/how-to-customize-dev-box-setup-tasks/dev-box-command-list-tasks.png"::: 
@@ -159,7 +159,7 @@ Before you can create and test your own configuration file, there must be a cata
 Make your configuration file seamlessly available to your developers by naming it *workload.yaml* and uploading it to a repository accessible to the developers, usually their coding repository. When you create a dev box, you specify the repository URL and the configuration file is cloned along with the rest of the repository. Dev box searches the repository for a file named workload.yaml and, if one is located, performs the tasks listed. This configuration provides a seamless way to perform customizations on a dev box.
 
 1.	Create a configuration file named *workload.yaml*.
-1.	Add the configuration file to the root of a private AzDO repository with your code and commit it.
+1.	Add the configuration file to the root of a private Azure DevOps repository with your code and commit it.
 1.	Sign in to the [Microsoft Dev Box developer portal](https://aka.ms/devbox-portal).
 1. Select **New** > **Dev Box**.
 1. In **Add a dev box**, enter the following values:
@@ -175,7 +175,7 @@ Make your configuration file seamlessly available to your developers by naming i
 
 1. Select **Create**.
 
-The new dev box has the AzDO repository cloned, and all instructions from configuration file applied. 
+The new dev box has the repository cloned, and all instructions from configuration file applied. 
 
 ## Define new tasks in a catalog
 
@@ -195,5 +195,6 @@ Creating new tasks in a catalog allows you to create customizations tailored to 
 
 ## Related content
 
-* [Add and configure a catalog from GitHub or Azure DevOps](/azure/deployment-environments/how-to-configure-catalog?tabs=DevOpsRepoMSI)
+- [Add and configure a catalog from GitHub or Azure DevOps](/azure/deployment-environments/how-to-configure-catalog?tabs=DevOpsRepoMSI)
+- [Accelerate developer onboarding with the configuration-as-code customization in Microsoft Dev Box](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/accelerate-developer-onboarding-with-the-configuration-as-code/ba-p/4062416)
 

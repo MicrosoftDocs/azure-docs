@@ -36,18 +36,15 @@ Database servers with mission-critical workloads demand robust performance, requ
 
 ## Limitations
 
-- New primary servers created under the Business Critical service tier created after *November 14* are eligible to use the accelerated logs feature. The accelerated logs feature is only available for the Business Critical service tier.
-
 - During the preview phase,  you can't enable the accelerated logs feature on servers that have the following features enabled.
     - [High Availability](./concepts-high-availability.md) (HA) servers.
+    - Primary servers with [Read Replica](./concepts-read-replicas.md) servers created. 
     - Servers enabled with [Customer Managed Keys](./concepts-customer-managed-key.md)  (CMK).
-    - Servers enabled with [Microsoft Entra ID](./concepts-azure-ad-authentication.md) authentication.
-
-- Performing a [major version upgrade](./how-to-upgrade.md) on your Azure Database for MySQL flexible server instance with the accelerated logs feature enabled is **not supported**. Suppose you wish to proceed with a major version upgrade. In that case, you should temporarily [disable](#disable-accelerated-logs-feature-preview) the accelerated logs feature, carry out the upgrade, and re-enable the accelerated logs feature once the upgrade is complete.
 
 - Accelerated logs feature in preview is currently available only in specific regions. [Learn more about supported regions](#the-accelerated-logs-feature-is-available-in-the-following-regions).
 
 - After the accelerated logs feature is activated, any previously configured value for the ["binlog_expire_seconds"](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_expire_logs_seconds) server parameter will be disregarded and not considered.
+
 
 ## The accelerated logs feature is available in the following regions
 
@@ -59,8 +56,11 @@ Database servers with mission-critical workloads demand robust performance, requ
 - East US
 - East US 2
 - France Central
+- Japan East
+- Korea Central
 - North Europe
 - Norway East
+- Poland Central
 - South Africa North
 - South Central US
 - Sweden Central
