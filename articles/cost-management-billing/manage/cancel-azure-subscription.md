@@ -21,7 +21,7 @@ Although not required, Microsoft *recommends* that you take the following action
 * Consider migrating your data. See [Move resources to new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 * Delete all resources and all resource groups.
     * To later manually delete a subscription, you must first delete all resources associated with the subscription.
-    * You might be unable to delete all resources, depending on your configuration. For example, if you have immutable blobs. For more information, see [Immutable Blobs](../../storage/blobs/immutable-storage-overview.md#scenarios-with-version-level-scope).
+    * You might be unable to delete all resources, depending on your configuration. For example, if you have immutable blobs. For more information, see [Immutable Blobs](../../storage/blobs/immutable-version-level-worm-policies.md#scenarios).
 * If you have any custom roles that reference this subscription in `AssignableScopes`, you should update those custom roles to remove the subscription. If you try to update a custom role after you cancel a subscription, you might get an error. For more information, see [Troubleshoot problems with custom roles](../../role-based-access-control/troubleshooting.md#custom-roles) and [Azure custom roles](../../role-based-access-control/custom-roles.md).
 
 Instead of canceling a subscription, you can remove all of its resources to [prevent unwanted charges](../understand/plan-manage-costs.md#prevent-unwanted-charges).

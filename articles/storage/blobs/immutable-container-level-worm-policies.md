@@ -39,7 +39,7 @@ A container with a CLW policy set must be empty before the container can be dele
 
 <sup>1</sup>    Azure Storage permits the [Put Blob](/rest/api/storageservices/put-blob) operation to create a new blob. Subsequent overwrite operations on an existing blob path in an immutable container are not allowed.
 
-<sup>2</sup>    The [Append Block](/rest/api/storageservices/append-block) operation is permitted only for policies with the allowProtectedAppendWrites or allowProtectedAppendWritesAll property enabled. For more information, see Allow protected append blobs writes.
+<sup>2</sup>    The [Append Block](/rest/api/storageservices/append-block) operation is permitted only for policies with the allowProtectedAppendWrites or allowProtectedAppendWritesAll property enabled. For more information, see the section below.
 
 ## Allow protected append blobs writes
 
