@@ -52,7 +52,7 @@ With private clusters, and outbound cluster settings you can now control ingress
 - Use Private AKS cluster feature - To ensure AKS control plane, or API server has internal IP addresses. The network traffic between AKS Control plane / API server and HDInsight on AKS node pools (clusters) remains on the private network only.
 - Avoid creating public IPs for the cluster. Use private ingress feature on your clusters.
 
-For more information, see [Control network traffic from HDInsight on AKS Clusters, Private Cluster](../control-egress-traffic-from-hdinsight-on-aks-clusters.md)
+For more information, see [Control network traffic from HDInsight on AKS Cluster pools and cluster](../control-egress-traffic-from-hdinsight-on-aks-clusters.md)
 
 **In place Upgrade**
 
