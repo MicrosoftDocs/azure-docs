@@ -1,9 +1,9 @@
 ---
-title: Concept - Integrate an Azure VMware Solution deployment in a hub and spoke architecture
+title: Architecture - Integrate an Azure VMware Solution deployment in a hub and spoke architecture
 description: Learn about integrating an Azure VMware Solution deployment in a hub and spoke architecture on Azure.
 ms.topic: conceptual
 ms.service: azure-vmware
-ms.date: 12/21/2023
+ms.date: 3/22/2024
 ms.custom: engagement-fy23
 ---
 
@@ -68,7 +68,7 @@ Because an ExpressRoute gateway doesn't provide transitive routing between its c
 
   :::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png" alt-text="Diagram showing the Azure VMware Solution to Hub virtual network traffic flow." border="false" lightbox="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png":::
 
-For more information on Azure VMware Solution networking and connectivity concepts, see the [Azure VMware Solution product documentation](./concepts-networking.md).
+For more information on Azure VMware Solution networking and connectivity concepts, see the [Azure VMware Solution product documentation](./architecture-networking.md).
 
 ### Traffic segmentation
 

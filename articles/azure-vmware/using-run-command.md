@@ -1,15 +1,15 @@
 ---
-title: Concepts - Run Command in Azure VMware Solution (Preview) 
+title: Using Run Command in Azure VMware Solution 
 description: Learn about using Run Commands in Azure VMware Solution. 
-ms.topic: conceptual 
+ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 12/05/2023
+ms.date: 3/22/2024
 ms.custom: engagement-fy23
 ---
 
 # Run Command in Azure VMware Solution
 
-In Azure VMware Solution, vCenter Server has a built-in local user called *cloudadmin* assigned to the CloudAdmin role. The CloudAdmin role has vCenter Server [privileges](concepts-identity.md#vcenter-server-access-and-identity) that differ from other VMware cloud solutions and on-premises deployments. The Run Command feature lets you perform operations that would normally require elevated privileges through a collection of PowerShell cmdlets.
+In Azure VMware Solution, vCenter Server has a built-in local user called *cloudadmin* assigned to the CloudAdmin role. The CloudAdmin role has vCenter Server [privileges](architecture-identity.md#vcenter-server-access-and-identity) that differ from other VMware cloud solutions and on-premises deployments. The Run Command feature lets you perform operations that would normally require elevated privileges through a collection of PowerShell cmdlets.
 
 Azure VMware Solution supports the following operations:
 
