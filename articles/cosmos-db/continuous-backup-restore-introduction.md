@@ -4,7 +4,7 @@ description: Azure Cosmos DB's point-in-time restore feature helps to recover da
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/15/2023
+ms.date: 04/15/2024
 ms.author: govindk
 ms.reviewer: mjbrown
 ms.custom: references_regions, cosmos-db-video, build-2023
@@ -34,12 +34,34 @@ The selected option depends on the chosen tier of continuous backup. The point i
 
 Currently, you can restore an Azure Cosmos DB account (API for NoSQL or MongoDB, API for Table, API for Gremlin) contents at a specific point in time to another account. You can perform this restore operation via the [Azure portal](restore-account-continuous-backup.md#restore-account-portal), the [Azure CLI](restore-account-continuous-backup.md#restore-account-cli) (Azure CLI), [Azure PowerShell](restore-account-continuous-backup.md#restore-account-powershell), or [Azure Resource Manager templates](restore-account-continuous-backup.md#restore-arm-template). 
 
+
+
 ## Backup storage redundancy
 
 By default, Azure Cosmos DB stores continuous mode backup data in locally redundant storage blobs. For the regions that have zone redundancy configured, the backup is stored in zone-redundant storage blobs. In continuous backup mode, you can't update the backup storage redundancy.
 
 ## Different ways to restore
 Continuous backup mode supports two ways to restore deleted containers and databases. They can be restored into a [new account](restore-account-continuous-backup.md) as documented here or can be restored into an existing account as described [here](restore-account-continuous-backup.md). The choice between these two depends on the scenarios and impact. In most cases it is preferred to restore deleted containers and databases into an existing account to prevent the cost of data transfer which is required in the case they are restored to a new account. For scenarios where you have modified the data accidentally restore into new account could be the preferred option. 
+
+## Multi region write account restores (preview)
+All the writes that are performed on the conflict resolution region are immediately confirmed and backed up asynchronously within 100 seconds. The mutations that are performed on the satellite region(non conflict resolution region) are sent to conflict resolution region for confirmation. The conflict resolution region  checks to see if any conflict resolution is needed, assigns a “conflict resolved timestamp” after resolving the conflicts and sends back to satellite region. The satellite region only backs up the entities after the confirmation is received from the conflict resolution region.  
+In short, the restore process only restores the documents that are confirmed by the hub region by the restore point of time.  
+
+> [!NOTE]
+> More information about multi write region accounts can be found [here](), conflict resolution region is the first region in the portal. 
+
+### What is not restored for Multi region write account restores (preview)? 
+The mutations that are yet to be confirmed by the restore timestamp are not restored. 
+The collections with custom conflict resolution policy is reset to last writer wins based on timestamp. 
+Example: 
+Given a multi-write region account with two regions East us and West us, out of which East US is the conflict resolution region region, consider the following sequence of events depicted in the diagram. 
+
+In this scenario, if the restore timestamp is T3, only entity1 is restored. Entity2 has not been confirmed by conflict resolution region by T3. Only if the restore timestamp > T4, the entity2 will be restored. 
+
+> [!NOTE]
+> Restore in Conflict resolution region is supported in public preview. 
+
+
 
 ## What is restored into a new account?
 
@@ -130,8 +152,6 @@ See [How do customer-managed keys affect continuous backups?](./how-to-setup-cmk
 Currently the point in time restore functionality has the following limitations:
 
 * Azure Cosmos DB APIs for SQL, MongoDB, Gremlin and Table supported for continuous backup. API for Cassandra isn't supported now.
-
-* Multi-regions write accounts aren't supported.
 
 * Currently Azure Synapse Link can be enabled in continuous backup database accounts. But the opposite situation isn't supported yet, it is not possible to turn on continuous backup in Synapse Link enabled database accounts. And analytical store isn't included in backups. For more information about backup and analytical store, see [analytical store backup](analytical-store-introduction.md#backup).
 
