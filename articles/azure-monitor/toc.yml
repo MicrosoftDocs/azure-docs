@@ -1451,10 +1451,6 @@ items:
         href: alerts/resource-manager-alerts-resource-health.md
       - name: Action groups
         href: alerts/resource-manager-action-groups.md
-    - name: Application Insights
-      items:
-        - name: Create a resource
-          href: app/resource-manager-app-resource.md
     - name: Data collection rules
       href: agents/resource-manager-data-collection-rules.md
     - name: Data collection endpoints

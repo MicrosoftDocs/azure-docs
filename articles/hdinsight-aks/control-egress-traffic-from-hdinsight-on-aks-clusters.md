@@ -1,12 +1,12 @@
 ---
-title: Control network traffic from HDInsight on AKS Clusters
+title: Control network traffic from HDInsight on AKS Cluster pools and cluster
 description: A guide to configure and manage inbound and outbound network connections from HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: how-to
 ms.date: 03/21/2024
 ---
 
-# Control network traffic from HDInsight on AKS Clusters
+# Control network traffic from HDInsight on AKS Cluster pools and clusters
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
