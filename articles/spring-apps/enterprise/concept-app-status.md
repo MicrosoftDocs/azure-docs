@@ -45,7 +45,7 @@ The deployment status shows the running state of the deployment. The status is r
 
 The deployment provisioning status describes the state of operations of the deployment resource. This status shows the comparison between the functionality and the deployment definition.
 
-The provisioning state is accessible only from the CLI.  It's reported as one of the following values:
+The provisioning state is accessible only from the CLI. It is reported as one of the following values:
 
 | Value     | Definition                                              |
 |-----------|---------------------------------------------------------|
@@ -61,9 +61,9 @@ The app registration status shows the state in service discovery. Azure Spring A
 
 ## App instances status
 
-The *app instance* status represents every instance of the app. To view the status of a specific instance of a deployed app, select the **App instance** pane and then select the **App Instance Name** value for the app. The following status values will appear:
+The *app instance* status represents every instance of the app. To view the status of a specific instance of a deployed app, select the **App instance** pane and then select the **App Instance Name** value for the app. The following status values appear:
 
-* **Status**: Whether the instance is running or its current state
+* **Status**: Indicates whether the instance is starting, running, terminating, or in failed state. 
 * **Discovery Status**: The registered status of the app instance in the Eureka server or Service Registry.
 
 :::image type="content" source="media/concept-app-status/apps-ui-instance-status.png" alt-text="Screenshot of the Azure portal showing the App instance Settings page with the Status and Discovery status columns highlighted." lightbox="media/concept-app-status/apps-ui-instance-status.png":::
