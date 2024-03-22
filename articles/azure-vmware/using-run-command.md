@@ -1,9 +1,9 @@
 ---
-title: Concepts - Run Command in Azure VMware Solution (Preview) 
+title: Concepts - Run Command in Azure VMware Solution 
 description: Learn about using Run Commands in Azure VMware Solution. 
-ms.topic: conceptual 
+ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 12/05/2023
+ms.date: 3/22/2024
 ms.custom: engagement-fy23
 ---
 
