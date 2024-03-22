@@ -14,7 +14,9 @@ In this article, you learn how to create a private reverse lookup DNS zone and a
 
 ## What is reverse DNS?
 
-Reverse DNS enables you to resolve an IP address to a name. As the name *reverse* indicates, this is the opposite process of forward DNS, which resolves names to IP addresses. Reverse DNS zones for IPv4 addresses contain pointer (PTR) records and use the reserved domain name: **in-addr.arpa**. IPv6 reverse DNS zones use the special domain **ip6.arpa**. This article only discusses IPv4 reverse DNS zones.
+Reverse DNS (as the name indicates) is the opposite process to forward DNS. Reverse enables you to resolve an IP address to a name, whereas forward DNS resolves a name to an IP address. IPv4 reverse DNS zones contain pointer (PTR) records and use the reserved domain name: **in-addr.arpa**. 
+
+IPv6 reverse DNS zones and similar to IPv4 reverse zones, but they use the special domain **ip6.arpa**. For more information about IPv6 reverse zones, see the IPv6 sections that describe [creating an IPv6 reverse zone](dns-reverse-dns-hosting.md#ipv6) and [adding an IPv6 reverse DNS record](dns-reverse-dns-hosting.md#ipv6-1) in the [Host reverse DNS lookup zones in Azure DNS](dns-reverse-dns-hosting.md) article for public DNS.
 
 Reverse DNS zones follow a hierarchical naming pattern. For example: 
 
@@ -22,29 +24,26 @@ Reverse DNS zones follow a hierarchical naming pattern. For example:
 - **1.10.in-addr.arpa** contains all PTR records for IPv4 addresses in the 10.1.0.0/16 address space.
 - **2.1.10.in-addr.arpa** contains only PTR records for IPv4 addresses in the 10.1.2.0/24 address space.
 
-To can a PTR record for the IPv4 address 10.1.2.5 in any of these zones by adding the remaining octets for the IPv4 address and providing a ptrdname value. See the following examples:
+You can create a PTR record for the IPv4 address 10.1.2.5 in any of these zones by adding the remaining octets for the IPv4 address and providing a ptrdname value. For example:
 
-- 10.in-addr.arpa entry:
-  - `5.2.1  IN    PTR     myvm.contoso.com.` 
-- 1.10.in-addr.arpa entry:
-  - `5.2    IN    PTR     myvm.contoso.com.`
-- 2.1.10.in-addr.arpa entry:
-  - `5      IN    PTR     myvm.contoso.com.` 
+- 10.1.2.5 in the 10.in-addr.arpa zone appears as: `5.2.1  IN  PTR  myvm.contoso.com.` 
+- 10.1.2.5 in the 1.10.in-addr.arpa zone appears as:`5.2   IN  PTR  myvm.contoso.com.`
+- 10.1.2.5 in the 2.1.10.in-addr.arpa zone appears as:`5   IN  PTR  myvm.contoso.com.` 
 
   > [!IMPORTANT]
-  > A reverse DNS zone for address space with a longer prefix takes precendence. For example, if all three zones and entries for the IPv4 address 10.1.2.5 exist as shown here, only the entry in the 2.1.10.in-addr.arpa zone will be used. If there is no entry for an IPv4 address in the longer prefix zone (2.1.10.in-addr.arpa), then no reverse DNS entry will be found, even if there are entries in the other zones.
+  > A reverse DNS zone for address space with a longer prefix takes precendence. For example, if all three zones contain entries for the IPv4 address 10.1.2.5 as shown here, only the entry in the 2.1.10.in-addr.arpa zone will be used. If the longer prefix zone (2.1.10.in-addr.arpa) exists, then all reverse DNS entries for the corresponding /24 address space must be entered in this zone.
 
 ## Requirements and restrictions
 
 - [Autoregistration](private-dns-autoregistration.md) isn't supported for reverse DNS.
 - A [virtual network link](private-dns-virtual-network-links.md) from the reverse zone is required to enable DNS resolution of PTR records.
-    - Forwarding of DNS queries to a DNS resolver that is linked to the reverse zone can be done.
-- Reverse zones must follow the naming guidelines described previously in this article.
+    - You can also forward DNS queries to a DNS resolver, as long as the resolver's VNet is linked to the reverse zone.
+- Reverse zones must follow the naming guidelines described in this article.
 
 ## Create a reverse lookup DNS zone
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the top left-hand side of the screen, select **Create a resource**. Search for and select **Private DNS zones**, then select **+ Create**.
+2. Select **Create a resource**, search for and select **Private DNS zones**, then select **+ Create**.
 3. On the **Create DNS zone** page, select, or enter the following settings:
 
     | Setting | Details |
@@ -54,19 +53,23 @@ To can a PTR record for the IPv4 address 10.1.2.5 in any of these zones by addin
     | **Name** | Enter a name for the DNS zone. In this example, the class C reverse DNS zone name 2.1.10.in-addr.arpa is used.  |
     | **Location** | Select the location for the resource group. The location is already be selected if you're using a previously created resource group. |
 
+    See the following example:
+
     ![Screenshot of creating a private reverse DNS zone.](./media/private-reverse-dns/create-private-zone.png)
 
-4. Select **Review create**, and then select **Create** once validation has passed.
+4. Select **Review create**, and then select **Create**.
 
 ## Create a DNS PTR record
 
 1. Select **+ Record set** to open the **Add record set** pane.
 2. As described previously in this article, PTR records in a class C reverse DNS zone are single digit entries. In this example, enter the following:
 
-- **Name**: Enter `5`
-- **Type**: Select `PTR - Pointer record type`
-- **TTL and TTL unit**: Use default values
-- **Domain name**: Enter `myvm.contoso.com`
+**Name**: Enter `5`<br>
+**Type**: Select `PTR - Pointer record type`<br>
+**TTL and TTL unit**: Use default values<br>
+**Domain name**: Enter `myvm.contoso.com`<br>
+
+See the following example:
 
   ![Screenshot of creating a private reverse DNS record.](./media/private-reverse-dns/create-private-record.png)
 
@@ -82,12 +85,14 @@ In order for resources to resolve the reverse DNS zone, you must add a virtual n
 2. Select **+ Add** to open the Add virtual network link page.
 3. Enter the following values:
 
-    | Setting | Details |
-    | --- | --- |
-    | **Link name** | Enter a name for your link. For example: **myvlink**.|
-    | **Subscription** | Select your subscription. |
-    | **Virtual network** | Choose the virtual network that you wish to link to this private DNS zone.  |
-    | **Configuration** | Don't select the checkbox to enable auto registration. Selecting this setting prevents creation of the virtual network link. |
+ | Setting | Details |
+ | --- | --- |
+ | **Link name** | Enter a name for your link. For example: **myvlink**.|
+ | **Subscription** | Select your subscription. |
+ | **Virtual network** | Choose the virtual network that you wish to link to this private DNS zone.  |
+ | **Configuration** | Don't select the checkbox to enable auto registration. Selecting this setting prevents creation of the virtual network link. |
+
+  See the following example: 
 
   ![Screenshot of adding a virtual network link.](./media/private-reverse-dns/add-virtual-network-link.png)
 
@@ -95,7 +100,9 @@ In order for resources to resolve the reverse DNS zone, you must add a virtual n
 
 ## Test DNS resolution
 
-1. From a VM in the linked virtual network, open a command line, type nslookup 10.1.2.5 and press ENTER. See the following example:
+Using a VM in the linked virtual network: open a command line, type nslookup 10.1.2.5 and press ENTER. 
+
+If reverse DNS resolution is working, you see the *ptrdname* (FQDN value) that you entered into the reverse DNS zone:
 
 ```PowerShell
 C:\>nslookup 10.1.2.5
@@ -109,5 +116,4 @@ Address:  10.1.2.5
 ## Next steps
 
 * For more information on reverse DNS, see [reverse DNS lookup on Wikipedia](https://en.wikipedia.org/wiki/Reverse_DNS_lookup).
-
 * Learn how to [manage reverse DNS records for your Azure services](dns-reverse-dns-for-azure-services.md).
