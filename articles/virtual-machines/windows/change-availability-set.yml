@@ -126,4 +126,4 @@ procedureSection:
 
 relatedContent:
   - text: Add additional storage to your VM by adding an additional data disk
-    url: attach-managed-disk-portal.md
+    url: attach-managed-disk-portal.yml
