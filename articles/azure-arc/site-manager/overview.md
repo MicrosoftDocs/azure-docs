@@ -9,7 +9,7 @@ ms.topic: overview #Don't change
 ms.date: 03/06/2024
 ms.custom: references_regions
 
-#customer intent: As a <role>, I want <what> so that <why>.
+
 
 ---
 

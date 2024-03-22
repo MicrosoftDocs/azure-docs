@@ -8,8 +8,6 @@ ms.service: azure-arc
 ms.topic: how-to #Don't change
 ms.date: 02/16/2024
 
-#customer intent: As a <role>, I want <what> so that <why>.
-
 ---
 
 <!-- --------------------------------------

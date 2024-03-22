@@ -58,12 +58,12 @@ Once you locate "Azure Arc site manager", click to open the main page of Azure A
 
 ## View and Delete your newly created site
 
-1. Navigate back to the main "site manager" page in "Azure Arc" and then to the "Overview" tab at the top of Azure Arc site manager. 
-![Site_Manager_Overview_Page](./media/Overview_Sites_page.png)
+1. Navigate back to the main "site manager" page in "Azure Arc" and then to the "Sites" tab at the top of Azure Arc site manager. 
+![Site_Manager_Overview_button_Page](./media/sites_button_from_site_manager.png)
 2. Here you should find your newly created site. [Note: For demo purposes, the image contains the site "London" as well to show how multiple sites will be displayed]
 ![Site_Manager_Overview_California_Page](./media/California_site_select.png)
 3. To manage your site, you can click the site to navigate to the specific site’s resource page and perform the delete action. If you wish to delete your site, you can also do so from within the created site.
-![Site_Manager_Overview_California_Page](./media/California_Site_Main_Page_delete.png)
+![Site_Manager_Overview_California_delete_Page](./media/California_Site_Main_Page_delete.png)
     
     *Note:* Deleting a site does not affect the resources or the resource group and subscription in its scope. After a site is deleted, the resources of that site cannot be viewed or managed from site manager.
     *Note:* A new site can be created for the resource group or the subscription after the original site is deleted.

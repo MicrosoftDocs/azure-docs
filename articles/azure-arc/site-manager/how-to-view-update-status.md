@@ -8,109 +8,45 @@ ms.service: azure-arc
 ms.topic: how-to #Don't change
 ms.date: 02/16/2024
 
-#customer intent: As a <role>, I want <what> so that <why>.
-
 ---
 
-<!-- --------------------------------------
+# How to view update status for a Arc Site
 
-- Use this template with pattern instructions for:
-
-How To
-
-- Before you sign off or merge:
-
-Remove all comments except the customer intent.
-
-- Feedback:
-
-https://aka.ms/patterns-feedback
-
--->
-
-# "[verb] * [noun]"
-
-<!-- Required: Article headline - H1
-
-Identify the product or service and the task the
-article describes.
-
--->
-
-[Introduce and explain the purpose of the article.]
-
-<!-- Required: Introductory paragraphs (no heading)
-
-Write a brief introduction that can help the user
-determine whether the article is relevant for them
-and to describe the task the article covers.
-
--->
+This article will detail how to view update status for a Arc Site, which reflects the status for the overall site and enables the ability to view the update status for support resources as well. The status of a overall site is based upon the underlying resources.
 
 ## Prerequisites
 
-<!-- Optional: Prerequisites - H2
+* Azure Portal Access
+* Internet Connectivity
+* Subscription
+* Resource Group or Subscription with at least 1 compatible resource type for Site that reflects and supports update status
+* A site created for the associated resource group or subscription
 
-If included, "Prerequisites" must be the first H2 in the article.
+## Update status colors and meanings
 
-List any items that are needed for the integration,
-such as permissions or software.
+* If the color in the portal is red, this means "Needs Attention"
+* If the color in the portal is blue, this means "Update Available"
+* If the color in the portal is yellow, this means "Update In Progress"
+* If the color in the portal is green, this means "Up to Date"
 
-If you need to sign in to a portal to do the quickstart, 
-provide instructions and a link.
+## View update status: site
 
--->
+To view update status for a Arc site as a whole, the below steps can be followed from the main page of Azure Arc site manager. For this example, two sites have already been created, a "London" site and a "California" site. 
 
-## "[verb] * [noun]"
+1. From Azure Arc site manager, navigate to the "Overview" page. 
+![Site_Manager_Overview](./media/Overview_Sites_page.png)
+2. In the "Overview" page, the update status of the sites are shown below. This is the update status of resources aggregated by sites. In the example below, this indicates that one site is "up to date" and one site "needs attention"
+![Site_Manager_Overview_updates](./media/site_manager_update_status_overview_page.png)
+3. To understand which site is "up to date" and which site "needs attention", click either the "sites" tab or the blue colored status text to be directed to the "sites" page.
+![Site_Manager_Overview_updates_details](./media/click_update_status_site_details.png)
+4. The "sites" page will appear and show the top-level status for each site, this reflects the most important status for the site. 
+![Site_Manager_Overview_updates_details_status_site_page](./media/site_update_status_from_sites_page.png)
 
-[Introduce the procedure.]
+## View update status: resource
 
-1. Procedure step
-1. Procedure step
-1. Procedure step
-
-<!-- Required: Steps to complete the task - H2
-
-In one or more H2 sections, organize procedures. A section
-contains a major grouping of steps that help the user complete
-a task.
-
-Begin each section with a brief explanation for context, and
-provide an ordered list of steps to complete the procedure.
-
-If it applies, provide sections that describe alternative tasks or
-procedures.
-
--->
-
-## Next step -or- Related content
-<!-- 
-> [!div class="nextstepaction"]
-> [Next sequential article title](link.md)
-
--or-
-
-* [Related article title](link.md)
-* [Related article title](link.md)
-* [Related article title](link.md) -->
-
-<!-- Optional: Next step or Related content - H2
-
-Consider adding one of these H2 sections (not both):
-
-A "Next step" section that uses 1 link in a blue box 
-to point to a next, consecutive article in a sequence.
-
--or- 
-
-A "Related content" section that lists links to 
-1 to 3 articles the user might find helpful.
-
--->
-
-<!--
-
-Remove all comments except the customer intent
-before you sign off or merge to the main branch.
-
--->
+1. Navigate to the main "site manager" page in "Azure Arc" and then to the "Sites" tab at the top of Azure Arc site manager. 
+![Site_Manager_Overview_button_Page_again](./media/sites_button_from_site_manager.png)
+2. From the "Sites" tab, view the top-level status for each site, this reflects the most important status for the site. To see resource status, click this. For this example, "London"'s update status is clicked.
+![Site_Manager_Overview_updates_details_status_site_page_again](./media/site_update_status_from_sites_page.png)
+3. The update status for each resource within "London" is visible, including the resource that had resulted in the top-level most important status. Which for "London" is "needs attention"
+![Site_Manager_Overview_updates_details_status_london](./media/london_resource_status_updates.png)
