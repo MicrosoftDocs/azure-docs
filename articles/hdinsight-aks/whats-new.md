@@ -3,7 +3,7 @@ title: What's new in HDInsight on AKS? (Preview)
 description: An introduction to new concepts in HDInsight on AKS that aren't in HDInsight.
 ms.service: hdinsight-aks
 ms.topic: conceptual
-ms.date: 03/20/2024
+ms.date: 03/22/2024
 ---
 
 # What's new in HDInsight on AKS? (Preview)
@@ -54,12 +54,12 @@ The following table list shows the features of HDInsight on AKS that are current
 |	Spark 3.4	|	Q2 2024	| In Progress |
 |	Trino 426 |	Q1 2024	| Completed |
 |	Ranger for RBAC	|	Q2 2024	| In Progress |
-|	App mode support for Flink	|	Q1 2024	| Completed |
+|	[App mode support for Flink](./flink/application-mode-cluster-on-hdinsight-on-aks.md)	|	Q1 2024	| Completed |
 |	Flink 1.17 	|	Q1 2024	| Completed |
 |	Spark ACID Support	|	Q1 2024	| In Progress|
 |	Configurable SKUs for Headnode, SSH	|	Q2 2024	| In Progress|
 |	[Flink SQL Gateway Support](./flink/start-sql-client-cli-gateway-mode.md)	|	Q1 2024	| Completed |
-|	Private Clusters for HDInsight on AKS	|	Q1 2024	| Completed |
+|	[Private Clusters for HDInsight on AKS](./control-egress-traffic-from-hdinsight-on-aks-clusters.md)	|	Q1 2024	| Completed |
 |	Ranger Support for Spark SQL	|	Q4 2024	| In Progress |
 |	Ranger ACLs on Storage Layer	|	Q4 2024	| In Progress |
 |	Support for One lake as primary container	|	Q2 2024	| In Progress|
