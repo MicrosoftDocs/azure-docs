@@ -90,7 +90,7 @@ After you provide an External storage address block, you can connect to an Elast
 
 ## Connect Elastic SAN
 
-First, you'll need to connect your SDDC express route with the private endpoint you set up for your Elastic SAN volume group. Instructions on how to establish this connection can be found in the Tutorial, [Configure networking for your VMware private cloud in Azure](../azure-vmware/tutorial-configure-networking#connect-to-the-private-cloud-manually). 
+First, you'll need to connect your SDDC express route with the private endpoint you set up for your Elastic SAN volume group. Instructions on how to establish this connection can be found in the Tutorial, [Configure networking for your VMware private cloud in Azure](../azure/azure-vmware/tutorial-configure-networking#connect-to-the-private-cloud-manually). 
 
 Once your SDDC express route is connected with the private endpoint for your Elastic SAN volume group, use the following steps to connect the volume to your SDDC: 
 
