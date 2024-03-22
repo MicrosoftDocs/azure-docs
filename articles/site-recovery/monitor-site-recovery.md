@@ -26,11 +26,14 @@ An Azure Recovery Services vault supports both Azure Site Recovery and Azure Bac
 - Infrastructure view of machines replicating to Azure
 
 For a detailed description of how to monitor Azure Site Recovery in the Azure portal by using the Recovery Services dashboard, see [Monitor in the dashboard](site-recovery-monitor-and-troubleshoot.md#monitor-in-the-dashboard).
+
 Azure Backup Center also provides at-scale monitoring and management capabilities for Azure Site Recovery. For more information, see [About Backup center for Azure Backup and Azure Site Recovery](/azure/backup/backup-center-overview).
+
+For Azure Backup monitoring information, see [Monitoring and reporting for Azure Backup](/azure/backup/monitoring-and-alerts-overview).
 
 ### Monitor churn rate
 
-High daily data change (churn) rates are a common source of replication issues. You can use various tools to monitor churn patterns on virtual machines. You can then find out which application is causing high churn and take further actions for that application or machine. For more information, see [Monitoring churn patterns on virtual machines](monitoring-high-churn.md).
+High data change rates (churn) are a common source of replication issues. You can use various tools to monitor churn patterns on virtual machines. For more information, see [Monitoring churn patterns on virtual machines](monitoring-high-churn.md).
 
 [!INCLUDE [horz-monitor-resource-types](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
 
@@ -40,7 +43,7 @@ Azure Site Recovery shares the Microsoft.RecoveryServices/Vaults namespace with 
 
 [!INCLUDE [horz-monitor-platform-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 
-There are no automatically collected platform metrics for Azure Site Recovery. All the automatically collected metrics for the Microsoft.RecoveryServices/Vaults namespace are for the Azure Backup service. For information about Azure Backup metrics, see [Monitor the health of your backups using Azure Backup Metrics (preview)](/azure/backup/metrics-overview).
+There are no automatically collected platform metrics for Azure Site Recovery. All the automatically collected metrics for the Microsoft.RecoveryServices/Vaults namespace pertain to the Azure Backup service. For information about Azure Backup metrics, see [Monitor the health of your backups using Azure Backup Metrics (preview)](/azure/backup/metrics-overview).
 
 [!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 
