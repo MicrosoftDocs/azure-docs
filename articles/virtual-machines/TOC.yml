@@ -1448,7 +1448,7 @@
     - name: Configure private links for disks - CLI
       href: ./linux/disks-export-import-private-links-cli.md
     - name: Configure private links for disks - Portal
-      href: disks-enable-private-links-for-import-export-portal.md
+      href: disks-enable-private-links-for-import-export-portal.yml
     - name: Upload a vhd to a disk - PowerShell
       href: ./windows/disks-upload-vhd-to-managed-disk-powershell.md
     - name: Upload a vhd to a disk - CLI
