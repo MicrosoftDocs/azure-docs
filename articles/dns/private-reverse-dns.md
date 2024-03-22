@@ -71,9 +71,9 @@ You can create a PTR record for the IPv4 address 10.1.2.5 in any of these zones 
    | **TTL and TTL unit** | Use default values.  |
    | **Domain name** | Enter `myvm.contoso.com`. |
 
-  See the following example:
+     See the following example:
 
-  <img src="./media/private-reverse-dns/create-private-record.png" alt="Screenshot of creating a private reverse DNS record." width="50%">
+     <img src="./media/private-reverse-dns/create-private-record.png" alt="Screenshot of creating a private reverse DNS record." width="50%">
 
 3. Select **OK** to create the reverse DNS record.
 
@@ -94,9 +94,9 @@ In order for resources to resolve the reverse DNS zone, you must add a virtual n
    | **Virtual network** | Choose the virtual network that you wish to link to this private DNS zone.  |
    | **Configuration** | Don't select the checkbox to enable auto registration. Selecting this setting prevents creation of the virtual network link. |
 
-  See the following example: 
+     See the following example: 
 
-  ![Screenshot of adding a virtual network link.](./media/private-reverse-dns/add-virtual-network-link.png)
+     ![Screenshot of adding a virtual network link.](./media/private-reverse-dns/add-virtual-network-link.png)
 
 4. Select **OK** and verify that the link is displayed on the Virtual network links page.
 
