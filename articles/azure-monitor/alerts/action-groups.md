@@ -99,9 +99,9 @@ Global requests from clients can be processed by action group services in any re
 
    :::image type="content" source="./media/action-groups/action-group-5-review.png" alt-text="Screenshot that shows the Review + create tab of the Create action group dialog. All configured values are visible.":::
 
-> [!NOTE]
->
-> When you configure an action to notify a person by email or SMS, they receive a confirmation that indicates they were added to the action group.
+   > [!NOTE]
+   >
+   > When you configure an action to notify a person by email or SMS, they receive a confirmation that indicates they were added to the action group.
 
 ### Test an action group in the Azure portal
 
