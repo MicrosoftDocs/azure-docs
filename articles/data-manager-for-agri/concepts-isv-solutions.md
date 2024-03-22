@@ -19,7 +19,7 @@ In this article, you learn how Azure Data Manager for Agriculture provides a fra
 
 The agriculture industry is going through a significant technology transformation. Technology is playing a key role in building sustainable agriculture.
 
-With the increase in the adoption of technology like drones, satellite imagery, and Internet of Things (IoT) devices, there are large volumes of data generated from these source systems and stored in the cloud. Companies want to efficiently manage this data and derive actionable insights that they can use to achieve more with less.
+The adoption of technology like drones, satellite imagery, and Internet of Things (IoT) devices has increased. These source systems generate large volumes of data that's stored in the cloud. Companies want to efficiently manage this data and derive actionable insights that they can use to achieve more with less.
 
 Azure Data Manager for Agriculture provides a core technology platform that hides all the technical complexity and helps customers focus on building their core business logic and drive business value.
 
