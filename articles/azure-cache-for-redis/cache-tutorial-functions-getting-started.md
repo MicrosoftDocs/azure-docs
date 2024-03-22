@@ -73,7 +73,7 @@ Creating the cache can take a few minutes. You can move to the next section whil
 
 ## Install the necessary NuGet package
 
-You need to install `Microsoft.Azure.WebJobs.Extensions.Redis`, the NuGet package for the Redis extension that allows Redis keyspace notifications to be used as triggers in Azure Functions.
+You need to install `Microsoft.Azure.Functions.Worker.Extensions.Redis`, the NuGet package for the Redis extension that allows Redis keyspace notifications to be used as triggers in Azure Functions.
 
 Install this package by going to the **Terminal** tab in VS Code and entering the following command:
 
