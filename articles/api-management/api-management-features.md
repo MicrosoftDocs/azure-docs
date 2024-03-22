@@ -32,12 +32,13 @@ Each API Management [pricing tier](https://aka.ms/apimpricing) offers a distinct
 | Availability zones                                                                           | No          | No        | No    | No       | No       | No       | Yes     |
 | Multiple custom domain names for gateway                                                                 | No          | Yes        | No    | No      | No       | No        | Yes     |
 | Developer portal<sup>2</sup>                                                                 | No          | Yes       | Yes   | Yes      | Yes      | Yes      | Yes     |
-| Built-in cache | Yes      | Yes                                            | No          | Yes       | Yes   | Yes      | Yes     |
-| API analytics                                                                           | No          | Yes       | Yes   | Yes      | Yes      | Yes      | Yes     |
+| Built-in cache | No      | Yes                                            | Yes          | Yes       | Yes   | Yes      | Yes     |
+| [External cache](./api-management-howto-cache-external.md)                                                    | Yes         | Yes       | Yes   | Yes      | Yes      | Yes      |Yes     |
+| Autoscaling                                                    | No         | No       | Yes   | No      | Yes      | No      |Yes     |
+| API analytics                                     | No          | Yes       | Yes   | Yes      | Yes      | Yes      | Yes     |
 | [Self-hosted gateway](self-hosted-gateway-overview.md)<sup>3</sup>                           | No          | Yes       | No    | No       | No       | No       | Yes     |
 | [Workspaces](workspaces-overview.md)                                                         | No          | No       | No    | No     | No     | No       | Yes     |
 | [TLS settings](api-management-howto-manage-protocols-ciphers.md)                             | Yes         | Yes       | Yes   | Yes      | Yes      | Yes      | Yes     |
-| [External cache](./api-management-howto-cache-external.md)                                                    | Yes         | Yes       | Yes   | Yes      | Yes      | Yes      |Yes     |
 | [Client certificate authentication](api-management-howto-mutual-certificates-for-clients.md) | Yes         | Yes       | Yes   | Yes      | Yes     | Yes      |Yes     |
 | [Policies](api-management-howto-policies.md)<sup>4</sup> | Yes         | Yes       | Yes   | Yes      | Yes      | Yes      | Yes     |
 | [Credential manager](credentials-overview.md)  | Yes         | Yes       | Yes   | Yes      | Yes      | Yes      | Yes     | 

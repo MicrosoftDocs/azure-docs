@@ -24,7 +24,7 @@ sections:
       - question: |
           How can I increase the transactions-per-second (TPS) allowed by the service?
         answer: |
-          The free (S0) tier only allows 20 transactions per minute. Upgrade to the S1 tier to get up to 30 transactions per second. If you're seeing the error code 429 and the "Too many requests" error message, [submit an Azure support ticket](https://azure.microsoft.com/support/create-ticket/) to raise your TPS to 50 or higher with a brief business justification. [Azure AI Vision pricing](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/#pricing).
+          The free (S0) tier only allows 20 transactions per minute. Upgrade to the S1 tier to get up to 20 transactions per second. If you're seeing the error code 429 and the "Too many requests" error message, [submit an Azure support ticket](https://azure.microsoft.com/support/create-ticket/) to raise your TPS to 50 or higher with a brief business justification. [Azure AI Vision pricing](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/#pricing).
 
       - question: |
           The service is throwing an error because my image file is too large. How can I work around this?

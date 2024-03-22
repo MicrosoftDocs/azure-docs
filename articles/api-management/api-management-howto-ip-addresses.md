@@ -13,6 +13,8 @@ ms.custom: fasttrack-edit
 
 # IP addresses of Azure API Management
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 In this article we describe how to retrieve the IP addresses of Azure API Management service. IP addresses can be public or private if the service is in a virtual network. You can use IP addresses to create firewall rules, filter the incoming traffic to the backend services, or restrict the outbound traffic.
 
 ## IP addresses of API Management service

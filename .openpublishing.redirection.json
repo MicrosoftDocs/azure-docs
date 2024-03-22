@@ -1,6 +1,51 @@
 {
     "redirections": [
     {
+      "source_path": "articles/internet-analyzer/internet-analyzer-cli.md",
+      "redirect_url": "/previous-versions/azure/internet-analyzer/internet-analyzer-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/internet-analyzer/internet-analyzer-create-test-portal.md",
+      "redirect_url": "/previous-versions/azure/internet-analyzer/internet-analyzer-create-test-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/internet-analyzer/internet-analyzer-custom-endpoint.md",
+      "redirect_url": "/previous-versions/azure/internet-analyzer/internet-analyzer-custom-endpoint",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/internet-analyzer/internet-analyzer-embed-client.md",
+      "redirect_url": "/previous-versions/azure/internet-analyzer/internet-analyzer-embed-client",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/internet-analyzer/internet-analyzer-faq.md",
+      "redirect_url": "/previous-versions/azure/internet-analyzer/internet-analyzer-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/internet-analyzer/internet-analyzer-overview.md",
+      "redirect_url": "/previous-versions/azure/internet-analyzer/internet-analyzer-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/internet-analyzer/internet-analyzer-scorecard.md",
+      "redirect_url": "/previous-versions/azure/internet-analyzer/internet-analyzer-scorecard",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/internet-analyzer/troubleshoot.md",
+      "redirect_url": "/previous-versions/azure/internet-analyzer/troubleshoot",
+      "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/internet-analyzer/index.yml",
+        "redirect_url": "/previous-versions/azure/internet-analyzer/internet-analyzer-overview",
+        "redirect_document_id": false
+    },
+    {
       "source_path": "articles/batch/batch-pool-no-public-ip-address.md",
       "redirect_url": "/previous-versions/azure/batch/articles/batch/batch-pool-no-public-ip-address",
       "redirect_document_id": false
@@ -6766,6 +6811,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/search/search-get-started-retrieval-augmented-generation.md",
+            "redirect_url": "/azure/ai-services/openai/use-your-data-quickstart",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/search/cognitive-search-tutorial-blob-python.md",
             "redirect_url": "/azure/search/samples-python",
             "redirect_document_id": false
@@ -10979,6 +11029,29 @@
             "redirect_document_id": false
         },
         {
+
+            "source_path_from_root": "/articles/cosmos-db/mongodb/vcore/high-availability.md",
+            "redirect_url": "/azure/reliability/reliability-cosmos-mongodb",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cosmos-db/mongodb/vcore/failover-disaster-recovery.md",
+            "redirect_url": "/azure/reliability/reliability-cosmos-mongodb",
+            "redirect_document_id": false 
+        },
+        {  
+
+            "source_path_from_root": "/articles/notification-hubs/notification-hubs-high-availability.md",
+            "redirect_url": "/azure/reliability/reliability-notification-hubs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/reliability/reliability-guidance-overview.md",
+            "redirect_url": "/azure/reliability/overview-reliability-guidance",
+            "redirect_document_id": false
+        },
+        {
+
             "source_path_from_root": "/articles/event-hubs/move-across-regions.md",
             "redirect_url": "/azure/operational-excellence/relocation-event-hub",
             "redirect_document_id": false
@@ -11003,6 +11076,6 @@
             "redirect_url": "/azure/operational-excellence/relocation-storage-account",
             "redirect_document_id": false 
         }
-        
+
     ]
 }

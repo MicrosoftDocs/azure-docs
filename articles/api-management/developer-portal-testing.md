@@ -11,6 +11,8 @@ ms.topic: how-to
 
 # Test the self-hosted developer portal
 
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
+
 This article explains how to set up unit tests and end-to-end tests for your [self-hosted portal](developer-portal-self-host.md).
 
 ## Unit tests

@@ -11,6 +11,8 @@ ms.author: danlep
 
 # Workspaces - breaking changes (June 2024)
 
+[!INCLUDE [api-management-availability-premium](../../../includes/api-management-availability-premium.md)]
+
 On 14 June 2024, as part of our development of [workspaces](../workspaces-overview.md) (preview) in Azure API Management, we're introducing several breaking changes. 
 
 These changes will have no effect on the availability of your API Management service. However, you may have to take action to continue using full workspaces functionality beyond 14 June 2024.

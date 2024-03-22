@@ -6,11 +6,13 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 12/01/2022
+ms.date: 03/18/2024
 ms.author: danlep
 ---
 
 # Authenticate with Basic
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 Use the `authentication-basic` policy to authenticate with a backend service using Basic authentication. This policy effectively sets the HTTP Authorization header to the value corresponding to the credentials provided in the policy.
 
@@ -51,6 +53,6 @@ Use the `authentication-basic` policy to authenticate with a backend service usi
 
 ## Related policies
 
-* [API Management authentication policies](api-management-authentication-policies.md)
+* [Authentication and authorization](api-management-policies.md#authentication-and-authorization)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

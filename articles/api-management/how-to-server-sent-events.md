@@ -10,6 +10,8 @@ ms.date: 02/24/2022
 
 # Configure API for server-sent events
 
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
+
 This article provides guidelines for configuring an API in API Management that implements server-sent events (SSE). SSE is based on the HTML5 `EventSource` standard for streaming (pushing) data automatically to a client over HTTP after a client has established a connection.
 
 > [!TIP]
@@ -19,8 +21,6 @@ This article provides guidelines for configuring an API in API Management that i
 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).
 - An API that implements SSE. [Import and publish](import-and-publish.md) the API to your API Management instance using one of the supported import methods. 
-
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## Guidelines for SSE
 
@@ -42,7 +42,7 @@ Follow these guidelines when using API Management to reach a backend API that im
 
 * **Avoid logging request/response body for Azure Monitor, Application Insights, and Event Hubs** - You can configure API request logging for Azure Monitor or Application Insights using diagnostic settings. The diagnostic settings allow you to log the request/response body at various stages of the request execution. For APIs that implement SSE, this can cause unexpected buffering which can lead to problems. Diagnostic settings for Azure Monitor and Application Insights configured at the global/All APIs scope apply to all APIs in the service. You can override the settings for individual APIs as needed. When logging to Event Hubs, you configure the scope and amount of context information for request/response logging by using the [log-to-eventhubs](api-management-howto-log-event-hubs.md#configure-log-to-eventhub-policy). For APIs that implement SSE, ensure you have disabled request/response body logging for Azure Monitor, Application Insights, and Event Hubs. 
 
-* **Disable response caching** - To ensure that notifications to the client are timely, verify that [response caching](api-management-howto-cache.md) isn't enabled. For more information, see [API Management caching policies](api-management-caching-policies.md).
+* **Disable response caching** - To ensure that notifications to the client are timely, verify that [response caching](api-management-howto-cache.md) isn't enabled. For more information, see [API Management caching policies](api-management-policies.md#caching).
 
 * **Test API under load** - Follow general practices to test your API under load to detect performance or configuration issues before going into production.  
 

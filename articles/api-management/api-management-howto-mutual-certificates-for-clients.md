@@ -14,6 +14,8 @@ ms.custom: engagement-fy23
 
 # How to secure APIs using client certificate authentication in API Management
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 API Management provides the capability to secure access to APIs (that is, client to API Management) using client certificates and mutual TLS authentication. You can validate certificates presented by the connecting client and check certificate properties against desired values using policy expressions.
 
 For information about securing access to the backend service of an API using client certificates (that is, API Management to backend), see [How to secure back-end services using client certificate authentication](./api-management-howto-mutual-certificates.md).

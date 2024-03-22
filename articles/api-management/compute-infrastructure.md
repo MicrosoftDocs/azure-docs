@@ -9,7 +9,9 @@ ms.author: danlep
 ms.custom:
 ---
 
-# Compute platform for Azure API Management
+# Compute platform for Azure API Management - Classic tiers
+
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-consumption](../../includes/api-management-availability-premium-dev-standard-basic-consumption.md)]
 
 As a cloud platform-as-a-service (PaaS), Azure API Management abstracts many details of the infrastructure used to host and run your service. You can create, manage, and scale most aspects of your API Management instance without needing to know about its underlying resources.
 

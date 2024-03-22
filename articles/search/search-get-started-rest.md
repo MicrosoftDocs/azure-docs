@@ -51,7 +51,7 @@ If you're not familiar with the REST client for Visual Studio Code, this section
 
 1. Search for the REST client and select **Install**.
 
-   :::image type="content" source="media/search-get-started-rest/rest-client-install.png" alt-text="Screenshot of the install command.":::
+   :::image type="content" source="media/search-get-started-rest/rest-client-install.png" alt-text="Screenshot of the REST client install command.":::
 
 1. Open or create new file named with either a `.rest` or `.http` file extension.
 
@@ -257,7 +257,7 @@ Now that documents are loaded, you can issue queries against them using [Documen
 The URI is extended to include a query expression, specified using the `/docs/search` operator.
 
 1. Paste in the following example to query the search index, and then select **Send request**. A text search request always includes a `search` parameter. This example includes an optional `searchFields` parameter that constrains text search to specific fields.
-    
+
     ```http
     ### Run a query
     POST {{baseUrl}}/indexes/hotels-quickstart/docs/search?api-version=2023-11-01  HTTP/1.1
@@ -333,7 +333,7 @@ DELETE  {{baseUrl}}/indexes/hotels-quickstart?api-version=2023-11-01 HTTP/1.1
     api-key: {{apiKey}}
 ```
 
-## Next steps
+## Next step
 
 Now that you're familiar with the REST client and making REST calls to Azure AI Search, try another quickstart that demonstrates vector support.
 

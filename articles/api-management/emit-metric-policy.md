@@ -6,12 +6,14 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 06/02/2023
+ms.date: 03/18/2024
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
 
 # Emit custom metrics
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 The `emit-metric` policy sends custom metrics in the specified format to Application Insights.
 
@@ -93,6 +95,6 @@ The following example sends a custom metric to count the number of API requests 
 
 ## Related policies
 
-* [API Management advanced policies](api-management-advanced-policies.md)
+* [Logging](api-management-policies.md#logging)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

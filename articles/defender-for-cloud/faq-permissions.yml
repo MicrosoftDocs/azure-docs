@@ -40,12 +40,19 @@ sections:
 
             - `Microsoft.Compute/disks/read`
             - `Microsoft.Compute/disks/beginGetAccess/action`
+            - `Microsoft.Compute/disks/diskEncryptionSets/read`
             - `Microsoft.Compute/virtualMachines/instanceView/read`
             - `Microsoft.Compute/virtualMachines/read`
             - `Microsoft.Compute/virtualMachineScaleSets/instanceView/read`
             - `Microsoft.Compute/virtualMachineScaleSets/read`
             - `Microsoft.Compute/virtualMachineScaleSets/virtualMachines/read`
             - `Microsoft.Compute/virtualMachineScaleSets/virtualMachines/instanceView/read`
+            
+            When coverage for CMK encrypted disks is enabled, these additional permissions are used: 
+            - `Microsoft.KeyVault/vaults/keys/read`
+            - `Microsoft.KeyVault/vaults/keys/wrap/action`
+            - `Microsoft.KeyVault/vaults/keys/unwrap/action`
+
 
           - AWS permissions - The role “VmScanner” is assigned to the scanner when you enable agentless scanning. This role has the minimal permission set to create and clean up snapshots (scoped by tag) and to verify the current state of the VM. The detailed permissions are:
 
@@ -97,7 +104,7 @@ sections:
             | Resources | arn:aws:kms::${AWS::AccountId}:key/ |
             | Effect | Allow |
             
-          - GCP permissions: during onboarding - a new custom role is created with minimal permissions required to get instances status and create snapshots. on top of that permissions to an existing GCP KMS role are granted to support scanning disks that are encrypted with CMEK. The roles are:
+          - GCP permissions: during onboarding - a new custom role is created with minimal permissions required to get instances status and create snapshots. On top of that permissions to an existing GCP KMS role are granted to support scanning disks that are encrypted with CMEK. The roles are:
             - roles/MDCAgentlessScanningRole granted to Defender for Cloud’s service account with permissions: compute.disks.createSnapshot, compute.instances.get
             - roles/cloudkms.cryptoKeyEncrypterDecrypter granted to Defender for Cloud’s compute engine service agent
 

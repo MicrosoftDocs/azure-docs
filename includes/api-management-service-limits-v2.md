@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: include
-ms.date: 03/15/2024
+ms.date: 03/22/2024
 ms.author: danlep
 ms.custom: Include file
 ---
@@ -17,6 +17,7 @@ To request a limit increase, create a support request from the Azure portal. For
 
 | Resource | Basic v2 | Standard v2 |
 | ---------| ----------- | ----------- |
+| Maximum number of scale units | 10 | 10 |
 | Maximum cache size per service instance  | 250 MB | 1 GB |
 | Maximum number of APIs per service instance | 150 | 500 |
 | Maximum number of API operations per service instance | 3,000 | 10,000 |
@@ -46,13 +47,21 @@ To request a limit increase, create a support request from the Azure portal. For
 | Maximum number of products per subscription | 100 | 100 |
 | Maximum number of groups per product | 100 | 100 |
 | Maximum number of tags per product | 100 | 100 |
+| Concurrent back-end connections<sup>1</sup> per HTTP authority | 2,048 | 2,048 |
+| Maximum cached response size | 2 MiB | 2 MiB |
 | Maximum policy document size  | 256 KiB | 256 KiB |
+| Maximum total request duration | 30 seconds | 30 seconds |
+| Maximum request payload size | 1 GiB | 1 GiB |
+| Maximum buffered payload size | 2 MiB | 2 MiB |
 | Maximum request/response payload size in diagnostic logs | 8,192 bytes | 8,192 bytes | 
+| Maximum request URL size<sup>2</sup> | 16,384 bytes | 16,384 bytes |
+| Maximum length of URL path segment | 1,024 characters | 1,024 characters  |
 | Maximum size of request or response body in [validate-content policy](../articles/api-management/validate-content-policy.md) | 100 KiB |  100 KiB |
-| Maximum character length of URL path segment | 1,024  | 1,024  | 
 | Maximum size of API schema used by [validation policy](../articles/api-management/validation-policies.md) | 4 MB | 4 MB |
+| Maximum number of active WebSocket connections per unit | 5,000 | 2,500 | 5,000 | 5,000 | 5,000 |
 
-
+<sup>1</sup> Connections are pooled and reused unless explicitly closed by the backend.<br/>
+<sup>2</sup>Includes an up to 2048-bytes long query string.<br/>
 
 
 

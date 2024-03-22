@@ -11,9 +11,9 @@ ms.custom:
 
 # Set up a workspace
 
-Set up a [workspace](workspaces-overview.md) (preview) to enable a decentralized API development team to manage and productize their own APIs, while a central API platform team maintains the API Management infrastructure. After you create a workspace and assign permissions, workspace collaborators can create and manage their own APIs, products, subscriptions, and related resources.
+[!INCLUDE [api-management-availability-premium](../../includes/api-management-availability-premium.md)]
 
-[!INCLUDE [api-management-availability-premium-dev-standard](../../includes/api-management-availability-premium-dev-standard.md)]
+Set up a [workspace](workspaces-overview.md) (preview) to enable a decentralized API development team to manage and productize their own APIs, while a central API platform team maintains the API Management infrastructure. After you create a workspace and assign permissions, workspace collaborators can create and manage their own APIs, products, subscriptions, and related resources.
 
 > [!NOTE]
 > * Workspaces are a preview feature of API Management and subject to certain [limitations](workspaces-overview.md#preview-limitations).

@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: include
-ms.date: 03/15/2024
+ms.date: 03/22/2024
 ms.author: danlep
 ms.custom: Include file
 ---
@@ -20,7 +20,8 @@ ms.custom: Include file
 | Maximum size of a media file | 500 KB | 500 KB |
 | Maximum number of pages | 30 | 50 |
 | Maximum number of widgets<sup>1</sup> | 30 | 50 |
-| Maximum size of metadata per page or widget | 350 KB | 350 KB |
-| Maximum number of requests per minute | 200 | 200 |
+| Maximum size of metadata per page | 350 KB | 350 KB |
+| Maximum size of metadata per widget<sup>1</sup> | 350 KB | 350 KB |
+| Maximum number of client requests per minute | 200 | 200 |
 
-<sup>1</sup>Limit for built-in widgets such as text, images, or APIs list. Currently, custom widgets and HTML widgets aren't supported in the v2 tiers.
+<sup>1</sup>Limit for built-in widgets such as text, images, or APIs list. Currently, custom widgets and custom HTML code widgets aren't supported in the v2 tiers.

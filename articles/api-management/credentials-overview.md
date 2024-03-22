@@ -11,6 +11,8 @@ ms.custom: references_regions
 
 # About API credentials and credential manager
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 To help you manage access to backend APIs, your API Management instance includes a *credential manager*. Use credential manager to manage, store, and control access to API credentials from your API Management instance.
 
 > [!NOTE]

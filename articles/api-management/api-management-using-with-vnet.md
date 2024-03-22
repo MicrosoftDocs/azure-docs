@@ -11,6 +11,8 @@ ms.author: danlep
 ---
 # Deploy your Azure API Management instance to a virtual network - external mode
 
+[!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
+
 Azure API Management can be deployed (injected) inside an Azure virtual network (VNet) to access backend services within the network. For VNet connectivity options, requirements, and considerations, see [Using a virtual network with Azure API Management](virtual-network-concepts.md).
 
 This article explains how to set up VNet connectivity for your API Management instance in the *external* mode, where the developer portal, API gateway, and other API Management endpoints are accessible from the public internet, and backend services are located in the network. 
@@ -20,8 +22,6 @@ This article explains how to set up VNet connectivity for your API Management in
 For configurations specific to the *internal* mode, where the endpoints are accessible only within the VNet, see [Deploy your Azure API Management instance to a virtual network - internal mode](./api-management-using-with-internal-vnet.md). 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-[!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
 [!INCLUDE [api-management-virtual-network-prerequisites](../../includes/api-management-virtual-network-prerequisites.md)]
 
@@ -54,7 +54,7 @@ It can take 15 to 45 minutes to update the API Management instance. The Develope
 
 * Azure Resource Manager [template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/api-management-create-with-external-vnet-publicip) (API version 2021-08-01)
 
-     :::image type="content" source="~/articles/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.apimanagement%2Fapi-management-create-with-external-vnet-publicip%2Fazuredeploy.json":::
+     :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.apimanagement%2Fapi-management-create-with-external-vnet-publicip%2Fazuredeploy.json":::
 
 
 ### Enable connectivity using Azure PowerShell cmdlets (`stv1` platform)

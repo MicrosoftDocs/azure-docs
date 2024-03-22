@@ -75,7 +75,7 @@ The following sections answer commonly asked questions about switching from a pa
 
 An Azure offer is the *type* of the Azure subscription you have. For example, [a subscription with pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/), [Azure in Open](https://azure.microsoft.com/offers/ms-azr-0111p/), and [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) are all Azure offers. Each offer has different [terms](https://azure.microsoft.com/support/legal/offer-details/) and some have special benefits. The offer of your subscription is shown on the subscription details page.
 
-:::image type="content" source="./media/switch-azure-offer/subscription-details.png" alt-text="Subscription details page showing the offer type" lightbox="./media/switch-azure-offer/subscription-details.png" :::
+:::image type="content" source="./media/switch-azure-offer/subscription-details.png" alt-text="Screenshot showing the subscription details page with the offer type." lightbox="./media/switch-azure-offer/subscription-details.png" :::
 
 ### Why don't I see the Switch Offer option?
 

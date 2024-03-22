@@ -31,7 +31,7 @@ For an overview of options to secure the developer portal, see [Secure access to
 
 - [Import and publish](import-and-publish.md) an API in the Azure API Management instance.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 [!INCLUDE [premium-dev-standard.md](../../includes/api-management-availability-premium-dev-standard.md)]
 
@@ -228,7 +228,7 @@ Although a new account will automatically be created when a new user signs in wi
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Get started with Azure API Management]: get-started-create-service-instance.md
 [API Management policy reference]: ./api-management-policies.md
-[Caching policies]: ./api-management-policies.md#caching-policies
+[Caching policies]: ./api-management-policies.md#caching
 [Create an API Management service instance]: get-started-create-service-instance.md
 
 [https://oauth.net/2/]: https://oauth.net/2/

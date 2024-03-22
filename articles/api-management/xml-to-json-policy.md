@@ -6,11 +6,14 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 12/02/2022
+ms.date: 03/18/2024
 ms.author: danlep
 ---
 
 # Convert XML to JSON
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 The `xml-to-json` policy converts a request or response body from XML to JSON. This policy can be used to modernize APIs based on XML-only backend web services.
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
@@ -52,6 +55,6 @@ The `xml-to-json` policy converts a request or response body from XML to JSON. T
 
 ## Related policies
 
-* [API Management transformation policies](api-management-transformation-policies.md)
+* [Transformation](api-management-policies.md#transformation)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]
