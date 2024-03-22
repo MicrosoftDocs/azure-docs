@@ -261,9 +261,9 @@ The `clientRetryOptions` settings only apply to interactions with the Service Bu
 |**maxDelay**|`00:01:00`|The maximum delay to allow between retry attempts|
 |**maxRetries**|`3`|The maximum number of retry attempts before considering the associated operation to have failed.|
 |**prefetchCount**|`0`|Gets or sets the number of messages that the message receiver can simultaneously request.|
-| **transportType**| amqpTcp | The protocol and transport that is used for communicating with Service Bus. Available options: `amqpTcp`, `amqpWebSockets`|
-| **webProxy**| n/a | The proxy to use for communicating with Service Bus over web sockets. A proxy cannot be used with the `amqpTcp` transport. |
-|**autoCompleteMessages**|`true`|Determines whether or not to automatically complete messages after successful execution of the function and should be used in place of the `autoComplete` configuration setting.|
+|**transportType**| amqpTcp | The protocol and transport that is used for communicating with Service Bus. Available options: `amqpTcp`, `amqpWebSockets`|
+|**webProxy**| n/a | The proxy to use for communicating with Service Bus over web sockets. A proxy cannot be used with the `amqpTcp` transport. |
+|**autoCompleteMessages**|`true`|Determines whether or not to automatically complete messages after successful execution of the function.|
 |**maxAutoLockRenewalDuration**|`00:05:00`|The maximum duration within which the message lock will be renewed automatically. This setting only applies for functions that receive a single message at a time.|
 |**maxConcurrentCalls**|`16`|The maximum number of concurrent calls to the callback that should be initiated per scaled instance. By default, the Functions runtime processes multiple messages concurrently. This setting is used only when the `isSessionsEnabled` property or attribute on [the trigger](functions-bindings-service-bus-trigger.md) is set to `false`. This setting only applies for functions that receive a single message at a time.|
 |**maxConcurrentSessions**|`8`|The maximum number of sessions that can be handled concurrently per scaled instance. This setting is used only when the `isSessionsEnabled` property or attribute on [the trigger](functions-bindings-service-bus-trigger.md) is set to `true`. This setting only applies for functions that receive a single message at a time.|

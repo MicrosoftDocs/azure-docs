@@ -354,14 +354,6 @@ Before removing a machine from Azure Automation State Configuration, onboard eac
 Azure Policy can manage the machine. The machine can be onboarded to Azure Arc at any time, but you
 can use Azure Automation State Configuration to automate the process.
 
-You can register a machine to Azure Arc-enabled servers by using PowerShell DSC. For details, view
-the page [How to install the Connected Machine agent using Windows PowerShell DSC][15]. Remember
-however, that Azure Automation State Configuration can manage only one configuration per machine,
-per Automation Account. You can export, test, and prepare your content for machine configuration,
-and then switch the node configuration in Azure Automation to onboard to Azure Arc. As the last
-step, remove the node registration from Azure Automation State Configuration and move forward only
-managing the machine state through machine configuration.
-
 ## Troubleshooting issues when exporting content
 
 Details about known issues are provided in this section.
@@ -372,13 +364,13 @@ When using PowerShell on macOS and Linux, you may have issues dealing with the f
 `Export-AzAutomationDSCConfiguration`.
 
 As a workaround, a module has been published to the PowerShell Gallery named
-[AADSCConfigContent][16]. The module has only one command, which exports the content of a
+[AADSCConfigContent][15]. The module has only one command, which exports the content of a
 configuration stored in Azure Automation by making a REST request to the service.
 
 ## Next steps
 
-- [Develop a custom machine configuration package][17].
-- Use the **GuestConfiguration** module to [create an Azure Policy definition][19] for at-scale
+- [Develop a custom machine configuration package][16].
+- Use the **GuestConfiguration** module to [create an Azure Policy definition][18] for at-scale
   management of your environment.
 - [Assign your custom policy definition][20] using Azure portal.
 - Learn how to view [compliance details for machine configuration][21] policy assignments.
@@ -398,9 +390,8 @@ configuration stored in Azure Automation by making a REST request to the service
 [12]: ../../policy/assign-policy-portal.md
 [13]: /azure/automation/automation-dsc-onboarding#enable-physicalvirtual-linux-machines
 [14]: /azure/azure-arc/servers/overview
-[15]: /azure/azure-arc/servers/onboard-dsc
-[16]: https://www.powershellgallery.com/packages/AADSCConfigContent/
-[17]: ../how-to/develop-custom-package/overview.md
-[19]: ../how-to/create-policy-definition.md
-[20]: ../../policy/assign-policy-portal.md
-[21]: ../../policy/how-to/determine-non-compliance.md
+[15]: https://www.powershellgallery.com/packages/AADSCConfigContent/
+[16]: ../how-to/develop-custom-package/overview.md
+[17]: ../how-to/create-policy-definition.md
+[18]: ../../policy/assign-policy-portal.md
+[19]: ../../policy/how-to/determine-non-compliance.md

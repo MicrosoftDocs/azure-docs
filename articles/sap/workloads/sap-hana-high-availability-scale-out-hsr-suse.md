@@ -6,7 +6,6 @@ manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.workload: infrastructure-services
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.date: 01/16/2024
 ms.author: radeltch

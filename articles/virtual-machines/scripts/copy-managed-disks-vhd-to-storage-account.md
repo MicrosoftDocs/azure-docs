@@ -5,7 +5,6 @@ author: ramankumarlive
 manager: kavithag
 ms.service: azure-disk-storage
 ms.topic: sample
-ms.workload: infrastructure
 ms.date: 02/23/2022
 ms.author: ramankum
 ms.custom: mvc, devx-track-azurecli
@@ -17,7 +16,7 @@ This script exports the underlying VHD of a managed disk to a storage account in
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 

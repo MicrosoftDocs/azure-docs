@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Add your Question Answering project to Power Virtual Agents"
-description: In this tutorial, you will learn how to add your Question Answering project to Power Virtual Agents.
+title: "Tutorial: Add your custom question answering project to Power Virtual Agents"
+description: In this tutorial, you will learn how to add your custom question answering project to Power Virtual Agents.
 ms.service: azure-ai-language
 ms.topic: tutorial
 author: jboback
@@ -9,7 +9,7 @@ ms.date: 12/19/2023
 ms.custom: language-service-question-answering
 ---
 
-# Add your Question Answering project to Power Virtual Agents
+# Add your custom question answering project to Power Virtual Agents
 
 Create and extend a [Power Virtual Agents](https://powervirtualagents.microsoft.com/) bot to provide answers from your project. 
 
@@ -20,24 +20,24 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create a Power Virtual Agents bot 
 > * Create a system fallback topic
-> * Add Question Answering as an action to a topic as a Power Automate flow
+> * Add custom question answering as an action to a topic as a Power Automate flow
 > * Create a Power Automate solution
 > * Add a Power Automate flow to your solution
 > * Publish Power Virtual Agents
-> * Test Power Virtual Agents, and receive an answer from your Question Answering project
+> * Test Power Virtual Agents, and receive an answer from your custom question answering project
 
 > [!NOTE]
-> The QnA Maker service is being retired on the 31st of March, 2025. A newer version of the question and answering capability is now available as part of [Azure AI Language](../../index.yml). For question answering capabilities within the Language Service, see [question answering](../overview.md). Starting 1st October, 2022 you won’t be able to create new QnA Maker resources. For information on migrating existing QnA Maker knowledge bases to question answering, consult the [migration guide](../how-to/migrate-qnamaker.md).
+> The QnA Maker service is being retired on the 31st of March, 2025. A newer version of the question and answering capability is now available as part of [Azure AI Language](../../index.yml). For custom question answering capabilities within the Language Service, see [custom question answering](../overview.md). Starting 1st October, 2022 you won’t be able to create new QnA Maker resources. For information on migrating existing QnA Maker knowledge bases to custom question answering, consult the [migration guide](../how-to/migrate-qnamaker.md).
 
 ## Create and publish a project
-1. Follow the [quickstart](../quickstart/sdk.md?pivots=studio) to create a Question Answering project. Once you have deployed your project.
+1. Follow the [quickstart](../quickstart/sdk.md?pivots=studio) to create a custom question answering project. Once you have deployed your project.
 2. After deploying your project from Language Studio, select “Get Prediction URL”. 
 3. Get your Site URL from the hostname of Prediction URL and your Account key which would be the Ocp-Apim-Subscription-Key.
 
 > [!div class="mx-imgBorder"]
 > [ ![Screenshot of how to obtain the prediction URL and subscription key displayed.]( ../media/power-virtual-agents/get-prediction-url.png) ]( ../media/power-virtual-agents/get-prediction-url.png#lightbox)
 
-4. Create a Custom Question Answering connector: Follow the [connector documentation](/connectors/languagequestionansw/) to create a connection to Question Answering.
+4. Create a custom question answering connector: Follow the [connector documentation](/connectors/languagequestionansw/) to create a connection to question answering.
 5. Use this tutorial to create a Bot with Power Virtual Agents instead of creating a bot from Language Studio.
 
 ## Create a bot in Power Virtual Agents
@@ -48,12 +48,12 @@ Create a bot by following the steps in [Create and delete Power Virtual Agents b
 ## Create the system fallback topic
 In Power Virtual Agents, you create a bot with a series of topics (subject areas), in order to answer user questions by performing actions.
 
-Although the bot can connect to your project from any topic, this tutorial uses the system fallback topic. The fallback topic is used when the bot can't find an answer. The bot passes the user's text to Question Answering Query knowledgebase API, receives the answer from your project, and displays it to the user as a message.
+Although the bot can connect to your project from any topic, this tutorial uses the system fallback topic. The fallback topic is used when the bot can't find an answer. The bot passes the user's text to custom question answering Query knowledgebase API, receives the answer from your project, and displays it to the user as a message.
 
 Create a fallback topic by following the steps in [Configure the system fallback topic in Power Virtual Agents](/power-virtual-agents/authoring-system-fallback-topic).
 
 ## Use the authoring canvas to add an action
-Use the Power Virtual Agents authoring canvas to connect the fallback topic to your project. The topic starts with the unrecognized user text. Add an action that passes that text to Question Answering, and then shows the answer as a message. The last step of displaying an answer is handled as a [separate step](../../../QnAMaker/Tutorials/integrate-with-power-virtual-assistant-fallback-topic.md#add-your-solutions-flow-to-power-virtual-agents), later in this tutorial.
+Use the Power Virtual Agents authoring canvas to connect the fallback topic to your project. The topic starts with the unrecognized user text. Add an action that passes that text to custom question answering, and then shows the answer as a message. The last step of displaying an answer is handled as a [separate step](../../../QnAMaker/Tutorials/integrate-with-power-virtual-assistant-fallback-topic.md#add-your-solutions-flow-to-power-virtual-agents), later in this tutorial.
 
 This section creates the fallback topic conversation flow.
 
@@ -79,7 +79,7 @@ Power Automate opens a new template as shown below.
 **Do not use the template shown above.**
 
 Instead you need to follow the steps below that creates a Power Automate flow. This flow:
-- Takes the incoming user text as a question, and sends it to Question Answering.
+- Takes the incoming user text as a question, and sends it to custom question answering.
 - Returns the top response back to your bot.
 
 select **Create** in the left panel, then click "OK" to leave the page.
@@ -102,7 +102,7 @@ Select "New Step" and search for "Power Virtual Agents". Choose "Add an input" a
 > [!div class="mx-imgBorder"]
 > [ ![Screenshot of the Add an input option.]( ../media/power-virtual-agents/flow-step-1.png) ]( ../media/power-virtual-agents/flow-step-1.png#lightbox)
 
-Select "New Step" and search "Language - Question Answering" and choose "Generate answer from Project" from the three actions.
+Select "New Step" and search "Language - custom question answering" and choose "Generate answer from Project" from the three actions.
 
 > [!div class="mx-imgBorder"]
 > [ ![Screenshot of the Generate answer from Project selection in the Action list.]( ../media/power-virtual-agents/flow-step-2.png) ]( ../media/power-virtual-agents/flow-step-2.png#lightbox)
@@ -165,7 +165,7 @@ For the bot to find and connect to the flow, the flow must be included in a Powe
 > [!div class="mx-imgBorder"]
 > [ ![Screenshot of the selected bot.UnrecognizedTriggerPhrase variable within the action call.]( ../media/power-virtual-agents/flow-step-9.png) ]( ../media/power-virtual-agents/flow-step-9.png#lightbox)
 
-5. To correctly set the output variable to the Question Answering action, in the **Message** action, select **UnrecognizedTriggerPhrase**, then select the icon to insert a variable, {x}, then select **FinalAnswer**.
+5. To correctly set the output variable to the custom Question Answering action, in the **Message** action, select **UnrecognizedTriggerPhrase**, then select the icon to insert a variable, {x}, then select **FinalAnswer**.
 6. From the context toolbar, select **Save**, to save the authoring canvas details for the topic.
 
 Here's what the final bot canvas looks like:

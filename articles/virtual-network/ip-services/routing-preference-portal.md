@@ -7,7 +7,6 @@ ms.author: mbender
 author: mbender-ms
 ms.service: virtual-network
 ms.topic: how-to
-ms.workload: infrastructure-services
 ---
 
 # Configure routing preference for a public IP address using the Azure portal

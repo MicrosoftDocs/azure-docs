@@ -125,8 +125,6 @@
       href: tutorial-dr-drill-azure.md
     - name: Run VMware VMs failover to Azure
       href: vmware-azure-tutorial-failover-failback-modernized.md
-
-
 - name: Concepts
   items:
   - name: Support matrices
@@ -139,8 +137,6 @@
       href: hyper-v-azure-support-matrix.md
     - name: Support requirements for Azure Site Recovery replication appliance
       href: replication-appliance-support-matrix.md 
-    - name: VMware/physical to Azure support matrix
-      href: vmware-physical-azure-support-matrix.md      
     - name: Backup center support matrix
       href: ../backup/backup-center-support-matrix.md?toc=/azure/site-recovery/toc.json&bc=/azure/site-recovery/breadcrumb/toc.json
     - name: Using Site Recovery with Azure Backup
@@ -341,6 +337,8 @@
         href: physical-server-enable-replication.md
       - name: Enable replication for VMware VMs
         href: vmware-azure-enable-replication.md
+      - name: For an added disk
+        href: vmware-azure-enable-replication-added-disk.md
       - name: Exclude disks from replication
         href: vmware-azure-exclude-disk.md
       - name: Walkthrough-Set up replication with multi-tenancy and CSP for VMware VMs

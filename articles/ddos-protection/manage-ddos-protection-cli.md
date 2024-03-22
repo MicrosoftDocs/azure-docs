@@ -6,7 +6,6 @@ author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.workload: infrastructure-services
 ms.date: 05/23/2023
 ms.author: abell
 ---

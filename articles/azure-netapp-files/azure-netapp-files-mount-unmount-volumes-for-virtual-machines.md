@@ -4,7 +4,6 @@ description: Learn how to mount an NFS volume for Windows or Linux virtual machi
 author: b-hchen
 ms.author: anfdocs
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: how-to
 ms.date: 09/07/2022
 ---

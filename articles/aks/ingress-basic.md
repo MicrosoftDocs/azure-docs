@@ -70,6 +70,10 @@ helm install ingress-nginx ingress-nginx/ingress-nginx `
 
 ---
 
+> [!NOTE]
+> In this tutorial, `service.beta.kubernetes.io/azure-load-balancer-health-probe-request-path` is being set to `/healthz`. This means if the response code of the requests to `/healthz` is not `200`, the entire ingress controller will be down. You can modify the value to other URI in your own scenario. You cannot delete this part or unset the value, or the ingress controller will still be down.
+> The package `ingress-nginx` used in this tutorial, which is provided by [Kubernetes official](https://github.com/kubernetes/ingress-nginx), will always return `200` response code if requesting `/healthz`, as it is designed as [default backend](https://kubernetes.github.io/ingress-nginx/user-guide/default-backend/) for users to have a quick start, unless it is being overwritten by ingress rules.
+
 ## Customized configuration
 
 As an alternative to the basic configuration presented in the above section, the next set of steps will show how to deploy a customized ingress controller. You'll have the option of using an internal static IP address, or using a dynamic public IP address.

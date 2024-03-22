@@ -162,6 +162,26 @@ If you have content expressed in a less frequently used language, you can try La
 | Telugu              | `te`          |
 | Urdu                | `ur`          |
 
+## Script detection
+
+| Language |Script code	| Scripts |
+| --- | ---	| --- |
+| Bengali (Bengali-Assamese) | `as` | `Latn`, `Beng` |
+| Bengali (Bangla) | `bn` | `Latn`, `Beng` |
+| Gujarati | `gu` | `Latn`, `Gujr` |
+| Hindi | `hi` | `Latn`, `Deva` |
+| Kannada | `kn` | `Latn`, `Knda` |
+| Malayalam | `ml` | `Latn`, `Mlym` |
+| Marathi	| `mr` | `Latn`, `Deva` |
+| Oriya | `or` | `Latn`, `Orya` |
+| Gurmukhi | `pa` | `Latn`, `Guru` |
+| Tamil | `ta` | `Latn`, `Taml` |
+| Telugu | `te` | `Latn`, `Telu` |
+| Arabic | `ur` | `Latn`, `Arab` |
+| Cyrillic | `tt` | `Latn`, `Cyrl` |
+| Serbian `sr` | `Latn`, `Cyrl` |
+| Unified Canadian Aboriginal Syllabics	| `iu` | `Latn`, `Cans` |
+
 ## Next steps
 
 [Language detection overview](overview.md)

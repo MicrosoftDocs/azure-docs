@@ -4,7 +4,7 @@ description: This article provides information on how to deploy an Application G
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
-ms.custom: devx-track-arm-template, linux-related-content, devx-track-azurecli
+ms.custom: devx-track-arm-template, devx-track-azurecli
 ms.topic: how-to
 ms.date: 02/07/2024
 ms.author: greglin
@@ -17,7 +17,7 @@ AGIC monitors the Kubernetes [Ingress](https://kubernetes.io/docs/concepts/servi
 resources, and creates and applies Application Gateway config based on the status of the Kubernetes cluster.
 
 > [!TIP]
-> Also see [What is Application Gateway for Containers?](for-containers/overview.md) currently in public preview.
+> Also see [What is Application Gateway for Containers](for-containers/overview.md).
 
 ## Outline
 
@@ -61,12 +61,6 @@ Gateway should that become necessary
     kubectl create serviceaccount --namespace kube-system tiller-sa
     kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller-sa
     helm init --tiller-namespace kube-system --service-account tiller-sa
-    ```
-
-    - *Kubernetes RBAC disabled* AKS cluster
-
-    ```bash
-    helm init
     ```
 
 2. Add the AGIC Helm repository:
