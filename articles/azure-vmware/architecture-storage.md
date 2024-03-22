@@ -84,7 +84,7 @@ Now that you've covered Azure VMware Solution storage concepts, you may want to 
 
 - [Azure NetApp Files with Azure VMware Solution](netapp-files-with-azure-vmware-solution.md) - You can use Azure NetApp Files to migrate and run the most demanding enterprise file-workloads in the cloud: databases, and general purpose computing applications, with no code changes. Azure NetApp Files volumes can be attached to virtual machines, and as [datastores](./attach-azure-netapp-files-to-azure-vmware-solution-hosts.md) to extend the vSAN datastore capacity without adding more nodes.
 
-- [vSphere role-based access control for Azure VMware Solution](concepts-identity.md) - You use vCenter Server to manage VM workloads and NSX Manager to manage and extend the private cloud. Access and identity management use the CloudAdmin role for vCenter Server and restricted administrator rights for NSX Manager.
+- [vSphere role-based access control for Azure VMware Solution](architecture-identity.md) - You use vCenter Server to manage VM workloads and NSX Manager to manage and extend the private cloud. Access and identity management use the CloudAdmin role for vCenter Server and restricted administrator rights for NSX Manager.
 
 
 <!-- LINKS - external-->
