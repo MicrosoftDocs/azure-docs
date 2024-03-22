@@ -24,6 +24,27 @@ introduction: |
 
   1. Reset data on the device by following the steps in [Reset device](#reset-device).
   2. Create a new resource that uses the new subscription with your existing device, and then activate the device. Follow the steps in [Reactivate device](#reactivate-device).
+prerequisites:
+  summary: |
+    Before you begin, make sure that:
+
+      - You have access to an Azure Stack Edge device that you'll reset, reconfigure, and reactivate.
+      - You have created a copy of the local data on the device if needed. You can copy the data from the device to an Azure Storage container.
+    
+    In the Reset device section, remove the following sentence as we have included that as a prereq:
+    Before you reset, create a copy of the local data on the device if needed. You can copy the data from the device to an Azure Storage container.
+
+    Also in the **Reset device** section, the Important note is enormous. Is it possible to break this note into 2 notes? The top note will have the following text:
+
+    Resetting your device will erase all local data and workloads from your device, and that can't be reversed. Reset your device only if you want to start afresh with the device.
+
+    The second note is at the bottom of **Reset device** section:
+
+    If running AP5GC/SAP Kubernetes workload profiles and you updated your Azure Stack Edge to 2309, and reset your Azure Stack Edge device, you see the following behavior:
+
+    In the local web UI, go to the Software updates page. You see that the Kubernetes version is unavailable.
+    In the Azure portal, you are prompted to apply a Kubernetes update. Go ahead and apply the Kubernetes update.
+    After the device is reset, you must select a Kubernetes workload profile again. Otherwise, the default Other workloads profile is applied. For more information, see [Configure compute IPs](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
 
 procedureSection:
   - title: |
