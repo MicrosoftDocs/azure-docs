@@ -1,13 +1,11 @@
 ---
 title: Create and manage reverse DNS zones in Azure Private DNS
-description: Learn how to use Azure Private DNS to create reverse DNS lookup zones for your private IP address ranges
+description: Learn how to use Azure Private DNS to create reverse DNS lookup zones for your private IP address ranges.
 author: greg-lindsay
 ms.service: dns
 ms.topic: how-to
 ms.date: 03/21/2024
 ms.author: greglin
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, linux-related-content
-ms.devlang: azurecli
 ---
 
 # Create and manage reverse DNS zones in Azure Private DNS
@@ -38,7 +36,7 @@ To can a PTR record for the IPv4 address 10.1.2.5 in any of these zones by addin
 
 ## Requirements and restrictions
 
-- [Autoregistration](private-dns-autoregistration.md) is not supported for reverse DNS.
+- [Autoregistration](private-dns-autoregistration.md) isn't supported for reverse DNS.
 - A [virtual network link](private-dns-virtual-network-links.md) from the reverse zone is required to enable DNS resolution of PTR records.
     - Forwarding of DNS queries to a DNS resolver that is linked to the reverse zone can be done.
 - Reverse zones must follow the naming guidelines described previously in this article.
@@ -62,7 +60,7 @@ To can a PTR record for the IPv4 address 10.1.2.5 in any of these zones by addin
 
 ## Create a DNS PTR record
 
-1. Select **+ Record set** to open the *Add record set* pane.
+1. Select **+ Record set** to open the **Add record set** pane.
 2. As described previously in this article, PTR records in a class C reverse DNS zone are single digit entries. In this example, enter the following:
 
 - **Name**: Enter `5`
