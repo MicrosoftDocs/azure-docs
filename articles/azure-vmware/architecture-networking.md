@@ -1,5 +1,5 @@
 ---
-title: Concepts - Network interconnectivity
+title: Architecture - Network interconnectivity
 description: Learn about key concepts and use cases of networking and interconnectivity in Azure VMware Solution.
 ms.topic: conceptual
 ms.service: azure-vmware
@@ -38,7 +38,7 @@ You can interconnect your Azure virtual network with the Azure VMware Solution p
 
 The following diagram illustrates the basic network interconnectivity established during a private cloud deployment. It shows the logical networking between a virtual network in Azure and a private cloud. This connectivity is established via a backend ExpressRoute that is part of the Azure VMware Solution service. The interconnectivity supports the following primary use cases:
 
-- Inbound access to vCenter Server and NSX-T Manager from VMs in your Azure subscription.
+- Inbound access to vCenter Server and NSX Manager from VMs in your Azure subscription.
 - Outbound access from VMs on the private cloud to Azure services.
 - Inbound access to workloads running in the private cloud.
 
@@ -77,7 +77,7 @@ Follow these guidelines when advertising routes from your on-premises and Azure 
 |Customer owned public-IP CIDR block or its subnets.||
 
 > [!NOTE]
-> The customer-advertised default route to Azure VMware Solution can't be used to route back the traffic when the customer accesses Azure VMware Solution management appliances (vCenter Server, NSX-T Manager, HCX Manager). The customer needs to advertise a more specific route to Azure VMware Solution for that traffic to be routed back.
+> The customer-advertised default route to Azure VMware Solution can't be used to route back the traffic when the customer accesses Azure VMware Solution management appliances (vCenter Server, NSX Manager, HCX Manager). The customer needs to advertise a more specific route to Azure VMware Solution for that traffic to be routed back.
 
 ## Limitations
 
