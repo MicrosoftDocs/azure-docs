@@ -103,7 +103,7 @@ The following upgrade channels are available:
 
 4. On the **Upgrade Kubernetes version** page, select the desired auto-upgrade channel from the **Automatic upgrade** dropdown. We recommend selecting the **Enabled with patch (recommended)** option.
 
-    :::image type="content" source="./media/auto-upgrade-cluster/portal-autoupgrade-upgrade-page-existing-cluster.png" alt-text="The screenshot of the upgrade blade for an AKS cluster in the Azure portal.":::
+    :::image type="content" source="./media/auto-upgrade-cluster/portal-autoupgrade-upgrade-page-existing-cluster.png" alt-text="The screenshot of the Upgrade Kubernetes page for an AKS cluster in the Azure portal.":::
 
 5. Select **Save**.
 

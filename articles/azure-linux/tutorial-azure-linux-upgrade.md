@@ -53,7 +53,7 @@ To set the auto-upgrade channel on existing cluster, update the `--auto-upgrade-
 az aks update --resource-group testAzureLinuxResourceGroup --name testAzureLinuxCluster --auto-upgrade-channel stable
 ```
 
-For more information on upgrade channels, see [Using cluster auto-upgrade](../../articles/aks/auto-upgrade-cluster.md#use-cluster-auto-upgrade).
+For more information on upgrade channels, see [Using cluster auto-upgrade](../../articles/aks/auto-upgrade-cluster.md).
 
 ## Enable automatic package upgrades
 
