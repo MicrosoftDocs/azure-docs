@@ -113,7 +113,7 @@ First let's create an ASP.NET Core web app in a `chatapp` folder.
     </html>
     ```
     
-You can test the server by running `dotnet run --urls http://localhost:8080` and access [http://localhost:8080/index.html](http://localhost:8080/index.html) in the browser.
+You can test the server by running `dotnet run --urls http://localhost:8080` and access `http://localhost:8080/index.html` in the browser.
 
 # [JavaScript](#tab/javascript)
 
@@ -152,7 +152,7 @@ First let's create an express web app in a `chatapp` folder.
     </html>
     ```
 
-You can test the server by running `node server` and access [http://localhost:8080](http://localhost:8080) in the browser.
+You can test the server by running `node server` and access `http://localhost:8080` in the browser.
 
 # [Java](#tab/java)
 
@@ -230,7 +230,7 @@ We use the [Javalin](https://javalin.io/) web framework to host the web pages an
     </html>
     ```
 
-You can test the server by running the following command under the directory containing the *pom.xml* file, and access http://localhost:8080 in browser.
+You can test the server by running the following command under the directory containing the *pom.xml* file, and access `http://localhost:8080` in browser.
 
 ```bash
 mvn compile & mvn package & mvn exec:java -Dexec.mainClass="com.webpubsub.tutorial.App" -Dexec.cleanupDaemonThreads=false
@@ -473,9 +473,9 @@ mvn compile & mvn package & mvn exec:java -Dexec.mainClass="com.webpubsub.tutori
 
 First install Azure Web PubSub SDK.
 
-    ```bash
-    pip install azure-messaging-webpubsubservice
-    ```
+```bash
+pip install azure-messaging-webpubsubservice
+```
 
 Now let's add a `/negotiate` API to the server to generate the token.
 
@@ -526,7 +526,7 @@ Rerun the server using `python server.py`.
 
 ---
 
-You can test this API by accessing [http://localhost:8080/negotiate?id=user1](http://localhost:8080/negotiate?id=user1) and it gives you the full url of the Azure Web PubSub with an access token.
+You can test this API by accessing `http://localhost:8080/negotiate?id=user1` and it gives you the full url of the Azure Web PubSub with an access token.
 
 ## Handle events
 
@@ -879,7 +879,7 @@ The complete code sample of this tutorial can be found [here][code-python].
 
 ---
 
-Open [http://localhost:8080/index.html](http://localhost:8080/index.html). You can input your user name and start chatting.
+Open `http://localhost:8080/index.html`. You can input your user name and start chatting.
 
 <!-- Adding Lazy Auth part with `connect` handling -->
 
