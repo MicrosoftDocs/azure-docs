@@ -157,7 +157,7 @@ Creating and loading the index are separate steps. In Azure AI Search, the index
 
 The URI is extended to include the `docs` collections and `index` operation.
 
-1. Paste in the following example to upload JSON documents to the search index. Then select **Send request**.
+- Paste in the following example to upload JSON documents to the search index. Then select **Send request**.
 
     ```http
     ### Upload documents
