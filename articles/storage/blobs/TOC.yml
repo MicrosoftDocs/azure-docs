@@ -404,10 +404,6 @@ items:
         href: immutable-version-level-worm-policies.md
       - name: Container-level WORM policies
         href: immutable-container-level-worm-policies.md
-      - name: Time-based retention policies
-        href: immutable-time-based-retention-policy-overview.md
-      - name: Legal holds
-        href: immutable-legal-hold-overview.md
       - name: Configure version-level immutability policies
         href: immutable-policy-configure-version-scope.md
       - name: Configure container-level immutability policies
