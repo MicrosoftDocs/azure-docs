@@ -50,13 +50,14 @@ ms.custom: template-how-to
 Excessive use of mute/unmute is blocked in Azure Communication Services infrastructure. Throttling happens if the participant (or application on behalf of participant) attempts to mute/unmute continuously, every second, more than 15 times in a 30-second rolling window.
 <br>
 
-### Siri activation during WebRTC call does not automatically mute microphone on macOS
+### Siri activation during WebRTC call doesn't automatically mute microphone on macOS
 **Operating system:** macOS.<br>
 **Browsers:** All browsers and versions.<br>
-**Azure Communication Service calling SDK version:** All.<br>
-**Description:** WebRTC call is not automatically muted when a user starts talking with Siri in the middle of the call. During such instances, other participants can either hear the user giving commands to Siri or both the given command and Siri's response.<br>
+**Azure Communication Services calling SDK version:** All.<br>
+**Description:** WebRTC call isn't automatically muted when a user starts talking with Siri in the middle of the call. During such instances, other participants can hear either the user giving commands to Siri or both the given command and Siri's response.<br>
 **Known issue reference:** This is a known issue on [macOS](https://bugs.webkit.org/show_bug.cgi?id=247897).<br>
 **Recommended workaround:** Currently, no workaround is available. Users need to manually mute their microphone when activating Siri during a call.<br>
+
 
 
 ## All mobile browsers
