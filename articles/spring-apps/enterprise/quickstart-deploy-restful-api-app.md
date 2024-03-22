@@ -6,7 +6,7 @@ ms.service: spring-apps
 ms.topic: quickstart
 ms.date: 10/02/2023
 ms.author: v-shilichen
-ms.custom: devx-track-java, devx-track-extended-java, mode-other, engagement-fy23, devx-track-extended-azdevcli
+ms.custom: devx-track-java, devx-track-extended-java, mode-other, engagement-fy23, devx-track-extended-azdevcli, devx-track-azurecli
 zone_pivot_groups: spring-apps-enterprise-or-consumption-plan-selection
 ---
 

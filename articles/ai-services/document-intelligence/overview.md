@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: overview
-ms.date: 02/21/2024
+ms.date: 02/29/2024
 ms.author: lajanuar
 monikerRange: '<=doc-intel-4.0.0'
 ---
@@ -106,12 +106,34 @@ Prebuilt models enable you to add intelligent document processing to your apps a
 :::row-end:::
 :::row:::
    :::column span="":::
+      :::image type="icon" source="media/overview/icon-invoice.png" link="#invoice":::</br>
+    [**1003  EULA**](#invoice) | Extract mortgage details.
+   :::column-end:::
+   :::column span="":::
+      :::image type="icon" source="media/overview/icon-receipt.png" link="#receipt":::</br>
+    [**Form 1008**](#receipt) | Extract mortgage details.
+   :::column-end:::
+   :::column span="":::
+      :::image type="icon" source="media/overview/icon-id-document.png" link="#identity-id":::</br>
+    [**Closing Disclosure**](#identity-id) | Extract mortgage details.
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
       :::image type="icon" source="media/overview/icon-insurance-card.png" link="#health-insurance-card":::</br>
     [**Health Insurance card**](#health-insurance-card) | Extract health </br>insurance details.
    :::column-end:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-contract.png" link="#contract-model":::</br>
     [**Contract**](#contract-model) | Extract agreement</br> and party details.
+   :::column-end:::
+:::column span="":::
+      :::image type="icon" source="media/overview/icon-contract.png" link="#contract-model":::</br>
+    [**Credit/Debit card**](#contract-model) | Extract information from bank cards.
+   :::column-end:::
+       :::column span="":::
+      :::image type="icon" source="media/overview/icon-contract.png" link="#contract-model":::</br>
+    [**Marriage Certificate**](#contract-model) | Extract information from Marriage certificates.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -134,6 +156,10 @@ Prebuilt models enable you to add intelligent document processing to your apps a
    :::column span="":::
       :::image type="icon" source="media/overview/icon-1098t.png" link="#us-tax-1098-t-form":::</br>
     [**US Tax 1099 form**](concept-tax-document.md#field-extraction-1099-nec) | Extract information from variations of the 1099 form.
+   :::column-end:::
+   :::column span="":::
+      :::image type="icon" source="media/overview/icon-1098t.png" link="#us-tax-1098-t-form":::</br>
+    [**US Tax 1040 form**](concept-tax-document.md#field-extraction-1099-nec) | Extract information from variations of the 1040 form.
    :::column-end:::
 :::row-end:::
 :::moniker-end
@@ -240,33 +266,13 @@ Document Intelligence supports optional features that can be enabled and disable
 
 * [`ocr.barcode`](concept-add-on-capabilities.md#barcode-property-extraction)
 
-Document Intelligence supports optional features that can be enabled and disabled depending on the document extraction scenario. The following add-on capabilities are available for `2023-10-31-preview` and later releases:
+Document Intelligence supports optional features that can be enabled and disabled depending on the document extraction scenario. The following add-on capabilities areavailable for`2024-02-29-preview`, `2023-10-31-preview`, and later releases:
 
 * [`queryFields`](concept-add-on-capabilities.md#query-fields)
 
 ## Analysis features
 
-|Model ID|Content Extraction|Paragraphs|Paragraph Roles|Selection Marks|Tables|Key-Value Pairs|Languages|Barcodes|Document Analysis|Formulas*|Style Font*|High Resolution*|query fields|
-|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|
-|prebuilt-read|✓|✓| | | | |O|O| |O|O|O| |
-|prebuilt-layout|✓|✓|✓|✓|✓|O|O|O| |O|O|O|✓|
-|prebuilt-idDocument|✓| | | | | |O|O|✓|O|O|O|✓|
-|prebuilt-invoice|✓| | |✓|✓|O|O|O|✓|O|O|O|✓|
-|prebuilt-receipt|✓| | | | | |O|O|✓|O|O|O|✓|
-|prebuilt-healthInsuranceCard.us|✓| | | | | |O|O|✓|O|O|O|✓|
-|prebuilt-tax.us.w2|✓| | |✓| | |O|O|✓|O|O|O|✓|
-|prebuilt-tax.us.1098|✓| | |✓| | |O|O|✓|O|O|O|✓|
-|prebuilt-tax.us.1098E|✓| | |✓| | |O|O|✓|O|O|O|✓|
-|prebuilt-tax.us.1098T|✓| | |✓| | |O|O|✓|O|O|O|✓|
-|prebuilt-tax.us.1099(Variations)|✓| | |✓| | |O|O|✓|O|O|O|✓|
-|prebuilt-contract|✓|✓|✓|✓| | |O|O|✓|O|O|O|✓|
-|{ customModelName }|✓|✓|✓|✓|✓| |O|O|✓|O|O|O|✓|
-|prebuilt-document (**deprecated </br>2023-10-31-preview**)|✓|✓|✓|✓|✓|✓|O|O| |O|O|O| |
-|prebuilt-businessCard (**deprecated </br>2023-10-31-preview**)|✓| | | | | | | |✓| | | | |
-
-✓ - Enabled</br>
-O - Optional</br>
-\* - Premium features incur extra costs.
+[!INCLUDE [model analysis features](includes/model-analysis-features.md)]
 
 ## Models and development options
 

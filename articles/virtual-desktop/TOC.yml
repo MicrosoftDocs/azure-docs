@@ -320,7 +320,7 @@
       - name: Identity and access management
         items:
         - name: Enforce Microsoft Entra multifactor authentication
-          displayName: identity, multi-factor authentication, multifactor, multi factor, two-factor authentication, two factor
+          displayName: identity, multi-factor authentication, multifactor, multi factor, mfa, two-factor authentication, two factor, 2fa
           href: set-up-mfa.md
         - name: Configure single sign-on using Microsoft Entra ID
           displayName: identity, sso

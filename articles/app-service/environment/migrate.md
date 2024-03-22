@@ -151,6 +151,17 @@ Migration requires a three to six hour service window for App Service Environmen
   - If you can't support downtime, see the [side-by-side migration feature](side-by-side-migrate.md) or the [migration-alternatives](migration-alternatives.md#migrate-manually).
 - The public addresses that are used by the App Service Environment change to the IPs generated during the IP generation step.
 
+The following statuses are available during the migration process:
+
+|Status      |Description  |
+|------------|-------------|
+|Validating and preparing the migration.     |The platform is validating migration support and performing necessary checks.     |
+|Deploying App Service Environment v3 infrastructure.    |Your new App Service Environment v3 infrastructure is provisioning.          |
+|Waiting for infrastructure to complete.  |The platform is validating your new infrastructure and performing necessary checks.         |
+|Setting up networking. Migration downtime period has started. Applications are not accessible.  |The platform is deleting your old infrastructure and moving all of your apps to your new App Service Environment v3. Your apps are down and aren't accepting traffic.         |
+|Running post migration validations.  |The platform is performing necessary checks to ensure the migration succeeded.         |
+|Finalizing migration.  |The platform is finalizing the migration.         |
+
 As in the IP generation step, you can't scale, modify your App Service Environment, or deploy apps to it during this process. When migration is complete, the apps that were on the old App Service Environment are running on the new App Service Environment v3.
 
 ## Pricing

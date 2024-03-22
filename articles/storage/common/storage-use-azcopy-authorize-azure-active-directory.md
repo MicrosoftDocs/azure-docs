@@ -179,12 +179,9 @@ Then, run any azcopy command (For example: `azcopy list https://contoso.blob.cor
 
 ### Authorize by using the AzCopy login command
 
-As an alternative to using in-memory variables, you authorize access by using the azcopy login command. However, this approach is not recommended as the azcopy login command will soon be deprecated. 
+As an alternative to using in-memory variables, you authorize access by using the azcopy login command.
 
 The azcopy login command retrieves an OAuth token and then places that token into a secret store on your system. If your operating system doesn't have a secret store such as a Linux keyring, the azcopy login command won't work because there is nowhere to place the token.
-
-> [!IMPORTANT]
-> The azcopy login command will soon be deprecated.
 
 #### Authorize a user identity (azcopy login command)
 
