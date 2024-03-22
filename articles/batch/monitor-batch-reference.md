@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Batch
 description: This article contains important reference material you need when you monitor Azure Batch.
-ms.date: 03/06/2024
+ms.date: 03/21/2024
 ms.custom: horz-monitor
 ms.topic: reference
 ms.service: batch
@@ -10,25 +10,25 @@ ms.service: batch
 # Azure Batch monitoring data reference
 
 <!-- Intro. Required. -->
-[!INCLUDE [horz-monitor-ref-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
+[!INCLUDE [horz-monitor-ref-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
 
 See [Monitor Azure Batch](monitor-batch.md) for details on the data you can collect for Azure Batch and how to use it.
 
-[!INCLUDE [horz-monitor-ref-metrics-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
+[!INCLUDE [horz-monitor-ref-metrics-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
 
 ### Supported metrics for Microsoft.Batch/batchaccounts
 The following table lists the metrics available for the Microsoft.Batch/batchaccounts resource type.
-[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 [!INCLUDE [Microsoft.Batch/batchaccounts](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-batch-batchaccounts-metrics-include.md)]
 
-[!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
+[!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 
-[!INCLUDE [horz-monitor-ref-metrics-dimensions](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
+[!INCLUDE [horz-monitor-ref-metrics-dimensions](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
 
 - poolId
 - jobId
 
-[!INCLUDE [horz-monitor-ref-resource-logs](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
+[!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
 ### Supported resource logs for Microsoft.Batch/batchaccounts
 [!INCLUDE [Microsoft.Batch/batchaccounts](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-batch-batchaccounts-logs-include.md)]
@@ -83,7 +83,7 @@ Each event emitted by Batch is logged in JSON format. The following example show
 }
 ```
 
-[!INCLUDE [horz-monitor-ref-logs-tables](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
+[!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 ### Batch Accounts
 microsoft.batch/batchaccounts
 
@@ -91,7 +91,7 @@ microsoft.batch/batchaccounts
 - [AzureMetrics](/azure/azure-monitor/reference/tables/AzureMetrics#columns)
 - [AzureDiagnostics](/azure/azure-monitor/reference/tables/AzureDiagnostics#columns)
 
-[!INCLUDE [horz-monitor-ref-activity-log](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
+[!INCLUDE [horz-monitor-ref-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
 - [Microsoft.Batch resource provider operations](/azure/role-based-access-control/permissions/compute#microsoftbatch)
 
 ## Related content

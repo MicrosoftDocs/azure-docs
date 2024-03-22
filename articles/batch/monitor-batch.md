@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Batch
 description: Start here to learn how to monitor Azure Batch.
-ms.date: 03/06/2024
+ms.date: 03/21/2024
 ms.custom: horz-monitor
 ms.topic: conceptual
 ms.service: batch
@@ -9,7 +9,7 @@ ms.service: batch
 
 # Monitor Azure Batch
 
-[!INCLUDE [horz-monitor-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
+[!INCLUDE [horz-monitor-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
 
 ## Batch Explorer
 
@@ -35,7 +35,7 @@ Reducing the amount of data that the Batch service returns for queries improves 
 
 Instead of potentially time-consuming list queries that return detailed information about large collections of tasks or nodes, you can use the [Get Task Counts](/rest/api/batchservice/job/gettaskcounts) and [List Pool Node Counts](/rest/api/batchservice/account/listpoolnodecounts) operations to get counts for Batch tasks and compute nodes. For more information, see [Monitor Batch solutions by counting tasks and nodes by state](batch-get-resource-counts.md). At times, the numbers returned by these operations might not be up to date. If you need to be sure that a count is accurate, use list queries to count these resources.
 
-[!INCLUDE [horz-monitor-insights](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights.md)]
+[!INCLUDE [horz-monitor-insights](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights.md)]
 
 ### Application Insights
 
@@ -46,11 +46,11 @@ See [Monitor and debug an Azure Batch .NET application with Application Insights
 > [!NOTE]
 > You might incur costs to use Application Insights. See the [pricing information](https://azure.microsoft.com/pricing/details/application-insights).
 
-[!INCLUDE [horz-monitor-resource-types](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
+[!INCLUDE [horz-monitor-resource-types](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
 
 For more information about the resource types for Batch, see [Batch monitoring data reference](monitor-batch-reference.md).
 
-[!INCLUDE [horz-monitor-data-storage](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-data-storage.md)]
+[!INCLUDE [horz-monitor-data-storage](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-data-storage.md)]
 
 ### Access diagnostics logs in storage
 
@@ -82,7 +82,7 @@ The following example shows a `PoolResizeCompleteEvent` entry in a *PT1H.json* l
 
 To access the logs in your storage account programmatically, use the [Storage APIs](/rest/api/storageservices).
 
-[!INCLUDE [horz-monitor-platform-metrics](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
+[!INCLUDE [horz-monitor-platform-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 
 Examples of metrics in a Batch account are Pool Create Events, Low-Priority Node Count, and Task Complete Events. These metrics can help identify trends and can be used for data analysis.
 
@@ -91,7 +91,7 @@ Examples of metrics in a Batch account are Pool Create Events, Low-Priority Node
 
 For a complete list of available metrics for Batch, see [Batch monitoring data reference](monitor-batch-reference.md#metrics).
 
-[!INCLUDE [horz-monitor-resource-logs](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
+[!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 
 For the available resource log categories, their associated Log Analytics tables, and the logs schemas for Batch, see [Batch monitoring data reference](monitor-batch-reference.md#resource-logs).
 
@@ -116,17 +116,17 @@ When you create an Azure Batch pool, you can install any of the following monito
 
 For a comparison of the different extensions and agents and the data they collect, see [Compare agents](/azure/azure-monitor/agents/agents-overview#compare-to-legacy-agents).
 
-[!INCLUDE [horz-monitor-activity-log](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
+[!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 
 For Batch accounts specifically, the activity log collects events related to account creation and deletion and key management.
 
-[!INCLUDE [horz-monitor-analyze-data](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
+[!INCLUDE [horz-monitor-analyze-data](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
 
 When you analyze count-based Batch metrics like Dedicated Core Count or Low-Priority Node Count, use the **Avg** aggregation. For event-based metrics like Pool Resize Complete Events, use the **Count** aggregation. Avoid using the **Sum** aggregation, which adds up the values of all data points received over the period of the chart.
 
-[!INCLUDE [horz-monitor-external-tools](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-external-tools.md)]
+[!INCLUDE [horz-monitor-external-tools](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-external-tools.md)]
 
-[!INCLUDE [horz-monitor-kusto-queries](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
+[!INCLUDE [horz-monitor-kusto-queries](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
 
 ### Sample queries
 
@@ -157,9 +157,9 @@ AzureDiagnostics
 | summarize failedTaskList=make_list(id_s) by jobId=jobId_s, ResourceId
 ```
 
-[!INCLUDE [horz-monitor-alerts](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
+[!INCLUDE [horz-monitor-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
 
-[!INCLUDE [horz-monitor-insights-alerts](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights-alerts.md)]
+[!INCLUDE [horz-monitor-insights-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights-alerts.md)]
 
 ### Batch alert rules
 
@@ -174,7 +174,7 @@ The following table lists some alert rule triggers for Batch. These alert rules 
 | Metric | Unusable node count | Whenever the Unusable Node Count is greater than 0 |
 | Metric | Task Fail Events | Whenever the total Task Fail Events is greater than dynamic threshold |
 
-[!INCLUDE [horz-monitor-advisor-recommendations](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
+[!INCLUDE [horz-monitor-advisor-recommendations](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
 
 ## Related content
 
