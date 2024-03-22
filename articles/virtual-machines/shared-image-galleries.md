@@ -144,12 +144,12 @@ ACG images can be created by users from various sources, including virtual machi
 
 ### [VM as source](#tab/vmsource)
 - Users will require write permission on the Virtual Machine to create an ACG Image version.
-- For Azure SDK, use the property [properties.storageProfile.source.virtualMachineId](https://learn.microsoft.com/rest/api/compute/gallery-image-versions/create-or-update?view=rest-compute-2023-10-02&%253Btabs=HTTP&tabs=HTTP), This property requires API version 2023-07-03 or [Version 1.4.0](https://www.nuget.org/packages/Azure.ResourceManager.Compute) (or higher) of .NET SDK
+- For Azure SDK, use the property [properties.storageProfile.source.virtualMachineId](https://learn.microsoft.com/rest/api/compute/gallery-image-versions/create-or-update), This property requires API version 2023-07-03 or [Version 1.4.0](https://www.nuget.org/packages/Azure.ResourceManager.Compute) (or higher) of .NET SDK
 ### [Disk/Snapshot as Source](#tab/disksnapsource)
 - Users will require write permission (contributor) on the source disk/snapshot to create an ACG Image version.
 ### [VHD as Source](#tab/vhdsource)
 - Users will require Microsoft.Storage/storageAccounts/listKeys/action, Microsoft.Storage/storageAccounts/write permission (contributor role) on the storage account.
-- For SDK, use the property [properties.storageProfile.osDiskImage.source.storageAccountId](https://learn.microsoft.com/rest/api/compute/gallery-image-versions/create-or-update?view=rest-compute-2023-10-02&%3Btabs=HTTP&tabs=HTTP#gallerydiskimagesource), This property requires minimum api-version 2022-03-03.
+- For SDK, use the property [properties.storageProfile.osDiskImage.source.storageAccountId](https://learn.microsoft.com/rest/api/compute/gallery-image-versions/create-or-update?#gallerydiskimagesource), This property requires minimum api-version 2022-03-03.
 ### [Managed Image and Gallery Image Version as Source](#tab/managedgallerysource)
 - Users will require read permission on the Managed Image/Gallery Image.
 
