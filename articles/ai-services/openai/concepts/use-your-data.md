@@ -231,6 +231,68 @@ You can paste URLs and the service will store the webpage content, using it when
 
 Once you have added the URL/web address for data ingestion, the web pages from your URL are fetched and saved to Azure Blob Storage with a container name: `webpage-<index name>`. Each URL will be saved into a different container within the account. Then the files are indexed into an Azure AI Search index, which is used for retrieval when you’re chatting with the model.
 
+# [Elasticsearch (preview)](#tab/elasticsearch)
+
+You can connect to your [Elasticsearch vector database](https://www.elastic.co/guide/elasticsearch/reference/current/elasticsearch-intro.html) and chat with your data.
+
+### Prerequisite 
+
+* An Elasticsearch database 
+* An embedding model. You can:
+    * Use an existing Azure OpenAI `text-embedding-ada-002` embedding model, or  
+    * Bring your own embedding model hosted on Elasticsearch.
+* Prepare your data using the python notebook available on [GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/blob/main/notebooks/AzureOpenAI_OnYourData_Elasticsearch.ipynb). 
+
+### Connect Elasticsearch to Azure OpenAI On Your Data
+
+1. Set up [Elasticsearch](https://www.elastic.co/guide/elasticsearch/reference/current/setup.html) and get your connection information. 
+
+    You need to enter your [Elasticsearch endpoint](https://www.elastic.co/guide/cloud-on-k8s/current/k8s-request-elasticsearch-endpoint.html) and encoded API key to connect with your Elasticsearch database. Then, click **verify connection**. 
+
+
+    :::image type="content" source="../media/use-your-data/connect-elasticsearch.png" alt-text="A screenshot showing the connection screen for Elasticsearch." lightbox="../media/use-your-data/connect-elasticsearch.png":::
+
+1. Select the index you want to connect with. 
+
+1. (optional) use a custom field mapping.  
+
+    You can customize the field mapping when you add your data source to define the fields that will get mapped when answering questions, or use the default values.  
+
+1. Choose the search types. Azure OpenAI On Your Data provides the following search types you can use when you add your data source.  
+
+    * [Keyword search](../../../search/search-lucene-query-architecture.md) which is available for any index.  
+    * [Vector search](../../../search/vector-search-overview.md) using a `text-embedding-ada-002` embedding model, available in [selected regions](./models.md#embeddings-models). 
+
+   To enable vector search, you need:  
+
+    1. An index that is generated with vector embeddings generated from one of the embedding models in the prerequisites. 
+    1. To have an existing embedding model deployed in your Azure OpenAI resource (`text-embedding-ada-002`) or hosted on Elasticsearch.  
+
+1. Continue through the screens that appear and select **Save and close**.
+ 
+### Search types
+
+Azure OpenAI On Your Data provides the following search types you can use when you add your data source.
+
+* [Keyword search](/azure/search/search-lucene-query-architecture)
+
+* [Semantic search](/azure/search/semantic-search-overview)
+* [Vector search](/azure/search/vector-search-overview) using Ada [embedding](./understand-embeddings.md) models, available in [selected regions](models.md#embeddings-models) 
+
+    To enable vector search, you need an existing embedding model deployed in your Azure OpenAI resource. Select your embedding deployment when connecting your data, then select one of the vector search types under **Data management**. If you're using Azure AI Search as a data source, make sure you have a vector column in the index.
+
+If you're using your own index, you can customize the [field mapping](#index-field-mapping) when you add your data source to define the fields that will get mapped when answering questions. To customize field mapping, select **Use custom field mapping** on the **Data Source** page when adding your data source.
+
+| Search option       | Retrieval type | Additional pricing? |Benefits|
+|---------------------|------------------------|---------------------| -------- |
+| *keyword*            | Keyword search                       | No additional pricing.                    |Performs fast and flexible query parsing and matching over searchable fields, using terms or phrases in any supported language, with or without operators.|
+| *vector*            | Vector search       | No additional pricing |Enables you to find documents that are similar to a given query input based on the vector embeddings of the content. |
+| *hybrid (vector + keyword)*   | A hybrid of vector search and keyword search | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model.            |Performs similarity search over vector fields using vector embeddings, while also supporting flexible query parsing and full text search over alphanumeric fields using term queries.|
+
+### Use Elasticsearch as a data source via API  
+
+Along with using Elasticsearch databases in Azure OpenAI Studio, you can also use your Elasticsearch database using the [API](../references/elasticsearch.md) 
+
 ---
 
 ### How data is ingested into Azure AI search
