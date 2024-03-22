@@ -1,5 +1,5 @@
 ---
-title: Deliver events to Azure Event Hubs using push model
+title: Deliver events to Azure Event Hubs using push model (CLI)
 description: This article provides step-by-step instructions to publish to Azure Event Grid in the CloudEvents JSON format and deliver those events by using the push delivery model.
 ms.topic: quickstart
 ms.custom: ignite-2023, devx-track-azurecli
@@ -8,7 +8,7 @@ author: robece
 ms.date: 02/20/2024
 ---
 
-# Deliver events to Azure Event Hubs using namespace topics (preview)
+# Deliver events to Azure Event Hubs using namespace topics - Azure CLI (preview)
 
 The article provides step-by-step instructions to publish events to Azure Event Grid in the [CloudEvents JSON format](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/formats/json-format.md) and deliver those events by using the push delivery model. To be specific, you use Azure CLI and Curl to publish events to a namespace topic in Event Grid and push those events from an event subscription to an Event Hubs handler destination. For more information about the push delivery model, see [Push delivery overview](push-delivery-overview.md).
 
