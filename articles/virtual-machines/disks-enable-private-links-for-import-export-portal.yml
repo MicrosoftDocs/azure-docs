@@ -108,4 +108,3 @@ relatedContent:
     url: /previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account 
   - text: Upload a VHD to Azure or copy a managed disk to another region - [Azure CLI]
     url: linux/disks-upload-vhd-to-managed-disk-cli.md
-#- Upload a VHD to Azure or copy a managed disk to another region - [Azure CLI](linux/disks-upload-vhd-to-managed-disk-cli.md) or [Azure PowerShell module](windows/disks-upload-vhd-to-managed-disk-powershell.md)
