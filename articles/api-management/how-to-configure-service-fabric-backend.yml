@@ -150,12 +150,13 @@ procedureSection:
         :::image type="content" source="media/backends/test-backend-service.png" alt-text="Test Service Fabric backend":::
 
 relatedContent:
-  - text: configure policies
-    url: api-management-advanced-policies.md
   - text: REST API
     url: /rest/api/apimanagement/current-ga/backend
   - text: Azure PowerShell
     url: /powershell/module/az.apimanagement/new-azapimanagementbackend
+  - text: Azure Resource Manager templates
+    url: ../service-fabric/service-fabric-tutorial-deploy-api-management.md)
+
 
 # Learn how to [configure policies](api-management-advanced-policies.md) to forward requests to a backend
 # Backends can also be configured using the API Management [REST API](/rest/api/apimanagement/current-ga/backend), [Azure PowerShell](/powershell/module/az.apimanagement/new-azapimanagementbackend), or [Azure Resource Manager templates](../service-fabric/service-fabric-tutorial-deploy-api-management.md)
