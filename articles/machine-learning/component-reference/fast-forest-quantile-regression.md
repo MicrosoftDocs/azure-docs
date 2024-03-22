@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 07/13/2020
+ms.date: 02/27/2024
 ---
 # Fast Forest Quantile Regression
 
@@ -87,6 +87,13 @@ Quantile regression helps you understand the distribution of the predicted value
 After training is complete:
 
 + To save a snapshot of the trained model, select the training component, then switch to **Outputs+logs** tab in the right panel. Click on the icon **Register dataset**.  You can find the saved model as a component in the component tree.
+
+## Evaluation metrics
+
+You can use [Evaluate Model component](./evaluate-model.md) to evaluate the trained model. For **Fast Forest Quantile Regression**, the metrics are as following.
+
+- **Quantile Loss**: This is a measure of the error for a specific quantile in your model.
+- **Average Quantile Loss**: This is simply the average of the Quantile Loss values across all the quantiles considered in the model. It gives an overall measure of how well the model is performing across all quantiles.
 
 ## Next steps
 

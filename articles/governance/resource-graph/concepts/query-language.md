@@ -1,7 +1,7 @@
 ---
 title: Understand the query language
 description: Describes Resource Graph tables and the available Kusto data types, operators, and functions usable with Azure Resource Graph.
-ms.date: 01/22/2023
+ms.date: 03/20/2024
 ms.topic: conceptual
 ---
 
@@ -44,6 +44,7 @@ Resource Graph tables support the `join` flavors:
 | AzureBusinessContinuityResources | Yes | Includes resources _related_ to `Microsoft.AzureBusinessContinuity`. |
 | ChaosResources | Yes | Includes resources _related_ to `Microsoft.Chaos`. |
 | CommunityGalleryResources | Yes | Includes resources _related_ to `Microsoft.Compute`. |
+| ComputeResources | Yes | Includes resources related to `Microsoft.Compute` Virtual Machine Scale Sets. |
 | DesktopVirtualizationResources | Yes | Includes resources _related_ to `Microsoft.DesktopVirtualization`. |
 | DnsResources | Yes | Includes resources _related_ to `Microsoft.Network`. |
 | EdgeOrderResources | Yes | Includes resources _related_ to `Microsoft.EdgeOrder`. |
@@ -80,18 +81,16 @@ Resource Graph tables support the `join` flavors:
 For a list of tables that includes resource types, go to [Azure Resource Graph table and resource type reference](../reference/supported-tables-resources.md).
 
 > [!NOTE]
-> _Resources_ is the default table. While querying the _Resources_ table, it isn't required to
+> `Resources` is the default table. While querying the `Resources` table, it isn't required to
 > provide the table name unless `join` or `union` are used. But the recommended practice is to
 > always include the initial table in the query.
 
-Use Resource Graph Explorer in the portal to discover which resource types are available in each
-table. As an alternative, use a query such as `<tableName> | distinct type` to get a list of
-resource types the given Resource Graph table supports that exist in your environment.
+To discover which resource types are available in each table, use Resource Graph Explorer in the portal. As an alternative, use a query such as `<tableName> | distinct type` to get a list of resource types the given Resource Graph table supports that exist in your environment.
 
 The following query shows a simple `join`. The query result blends the columns together and any
 duplicate column names from the joined table, _ResourceContainers_ in this example, are appended
 with **1**. As _ResourceContainers_ table has types for both subscriptions and resource groups,
-either type might be used to join to the resource from _Resources_ table.
+either type might be used to join to the resource from `Resources` table.
 
 ```kusto
 Resources
@@ -100,10 +99,10 @@ Resources
 ```
 
 The following query shows a more complex use of `join`. First, the query uses `project` to get the
-fields from _Resources_ for the Azure Key Vault vaults resource type. The next step uses `join` to
+fields from `Resources` for the Azure Key Vault vaults resource type. The next step uses `join` to
 merge the results with _ResourceContainers_ where the type is a subscription _on_ a property that is
 both in the first table's `project` and the joined table's `project`. The field rename avoids `join`
-adding it as _name1_ since the property already is projected from _Resources_. The query result is a
+adding it as _name1_ since the property already is projected from `Resources`. The query result is a
 single key vault displaying type, the name, location, and resource group of the key vault, along
 with the name of the subscription it's in.
 
@@ -125,7 +124,7 @@ Resources
 As a _preview_ feature, some of the resource types in Resource Graph have more type-related
 properties available to query beyond the properties provided by Azure Resource Manager. This set of
 values, known as _extended properties_, exists on a supported resource type in
-`properties.extended`. To show which resource types have _extended properties_, use the following
+`properties.extended`. To show resource types with _extended properties_, use the following
 query:
 
 ```kusto
@@ -160,7 +159,7 @@ reference in another query. This query is the same as the one created in
 > [!NOTE]
 > You can't save a query that references a shared query as a shared query.
 
-Example 1: Use only the shared query
+Example 1: Use only the shared query:
 
 The results of this Resource Graph query are the same as the query stored in the shared query.
 
@@ -168,7 +167,7 @@ The results of this Resource Graph query are the same as the query stored in the
 {{/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SharedQueries/providers/Microsoft.ResourceGraph/queries/Count VMs by OS}}
 ```
 
-Example 2: Include the shared query as part of a larger query
+Example 2: Include the shared query as part of a larger query:
 
 This query first uses the shared query, and then uses `limit` to further restrict the results.
 
@@ -218,7 +217,7 @@ To support the _Open Query_ portal experience, Azure Resource Graph Explorer has
 The scope of the subscriptions or [management groups](../../management-groups/overview.md) from
 which resources are returned by a query defaults to a list of subscriptions based on the context of
 the authorized user. If a management group or a subscription list isn't defined, the query scope is
-all resources, which includes [Azure Lighthouse](../../../lighthouse/overview.md) delegated
+all resources, and includes [Azure Lighthouse](../../../lighthouse/overview.md) delegated
 resources.
 
 The list of subscriptions or management groups to query can be manually defined to change the scope
@@ -249,8 +248,8 @@ The `AuthorizationScopeFilter` parameter enables you to list Azure Policy assign
 
 - **AtScopeAndBelow** (default if not specified): Returns assignments for the given scope and all child scopes.
 - **AtScopeAndAbove**: Returns assignments for the given scope and all parent scopes, but not child scopes.
-- **AtScopeAboveAndBelow**: Returns assignments for the given scope, all parent scopes and all child scopes.
-- **AtScopeExact**: Returns assignments  only for the given scope; no parent or child scopes are included.
+- **AtScopeAboveAndBelow**: Returns assignments for the given scope, all parent scopes, and all child scopes.
+- **AtScopeExact**: Returns assignments only for the given scope; no parent or child scopes are included.
 
 > [!NOTE]
 > To use the `AuthorizationScopeFilter` parameter, be sure to use the **2021-06-01-preview** or later API version in your requests.
@@ -299,7 +298,7 @@ Example: Get all policy assignments at the **mySubscriptionId** subscription, ma
 Some property names, such as those that include a `.` or `$`, must be wrapped or escaped in the
 query or the property name is interpreted incorrectly and doesn't provide the expected results.
 
-- `.` - Wrap the property name as such: `['propertyname.withaperiod']`
+- Dot (`.`): Wrap the property name `['propertyname.withaperiod']` using brackets.
 
   Example query that wraps the property _odata.type_:
 
@@ -307,9 +306,9 @@ query or the property name is interpreted incorrectly and doesn't provide the ex
   where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.['odata.type']
   ```
 
-- `$` - Escape the character in the property name. The escape character used depends on the shell that runs Resource Graph.
+- Dollar sign (`$`): Escape the character in the property name. The escape character used depends on the shell that runs Resource Graph.
 
-  - **bash** - `\`
+  - **Bash**: Use a backslash (`\`) as the escape character.
 
     Example query that escapes the property _\$type_ in Bash:
 
@@ -317,9 +316,9 @@ query or the property name is interpreted incorrectly and doesn't provide the ex
     where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.\$type
     ```
 
-  - **cmd** - Don't escape the `$` character.
+  - **cmd**: Don't escape the dollar sign (`$`) character.
 
-  - **PowerShell** - ``` ` ```
+  - **PowerShell**: Use a backtick (``` ` ```) as the escape character.
 
     Example query that escapes the property _\$type_ in PowerShell:
 
@@ -329,5 +328,5 @@ query or the property name is interpreted incorrectly and doesn't provide the ex
 
 ## Next steps
 
-- Azure Resource graph query language [Starter queries](../samples/starter.md) and [Advanced queries](../samples/advanced.md).
+- Azure Resource Graph query language [Starter queries](../samples/starter.md) and [Advanced queries](../samples/advanced.md).
 - Learn more about how to [explore Azure resources](explore-resources.md).

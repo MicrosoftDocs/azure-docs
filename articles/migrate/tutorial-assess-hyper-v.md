@@ -5,7 +5,7 @@ author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 02/12/2024
+ms.date: 02/26/2024
 ms.service: azure-migrate
 ms.custom: MVC, engagement-fy23
 #Customer intent: As a Hyper-V admin, I want to assess my Hyper-V VMs in preparation for migration to Azure.
@@ -105,7 +105,7 @@ Run an assessment as follows:
      - Cost estimates are based on the duration specified.
     - Default is 31 days per month/24 hours per day.
    - In **EA Subscription**, specify whether to take an Enterprise Agreement (EA) subscription discount into account for cost estimation. 
-   - In **Azure Hybrid Benefit**, specify whether you already have a Windows Server license or Enterprise Linux subscription. If you do and they're covered with active Software Assurance of Windows Server or Enterprise Linux Subscriptions, you can apply for the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/) when you bring licenses to Azure.
+   - In **Azure Hybrid Benefit**, specify whether you already have a Windows Server license or Enterprise Linux subscription (RHEL and SLES). If you do and they're covered with active Software Assurance of Windows Server or Enterprise Linux Subscriptions (RHEL and SLES), you can apply for the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/) when you bring licenses to Azure.
 1. Select **Save** if you make changes.
 
 1. In **Assess Servers**, select **Next**.

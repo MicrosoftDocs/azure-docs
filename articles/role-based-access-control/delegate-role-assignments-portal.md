@@ -1,7 +1,6 @@
 ---
 title: Delegate Azure role assignment management to others with conditions - Azure ABAC
 description: How to delegate Azure role assignment management to other users by using Azure attribute-based access control (Azure ABAC).
-services: active-directory
 author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
@@ -39,7 +38,7 @@ Once you know the permissions that delegate needs, you use the following steps t
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Follow the steps to [open the Add role assignment page](role-assignments-portal.md).
+1. Follow the steps to [open the Add role assignment page](role-assignments-portal.yml).
 
 1. On the **Roles** tab, select the **Privileged administrator roles** tab.
 
@@ -163,7 +162,7 @@ If the condition templates don't work for your scenario or if you want more cont
 
 ## Step 5: Delegate assigns roles with conditions
 
-- Delegate can now follow steps to [assign roles](role-assignments-portal.md).
+- Delegate can now follow steps to [assign roles](role-assignments-portal.yml).
 
     :::image type="content" source="./media/shared/groups-constrained.png" alt-text="Diagram of role assignments constrained to specific roles and specific groups." lightbox="./media/shared/groups-constrained.png":::
 

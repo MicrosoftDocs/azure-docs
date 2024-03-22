@@ -84,7 +84,7 @@ DICOM images are added to the DICOM service by copying them into the `import-con
 
 #### Grant write access to the import container
 
-The user or account that adds DICOM images to the import container needs write access to the container by using the `Data Owner` role. For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+The user or account that adds DICOM images to the import container needs write access to the container by using the `Data Owner` role. For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
 #### Upload DICOM images to the import container
 

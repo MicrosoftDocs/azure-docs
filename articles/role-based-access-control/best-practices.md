@@ -1,7 +1,6 @@
 ---
 title: Best practices for Azure RBAC
 description: Best practices for using Azure role-based access control (Azure RBAC).
-services: active-directory
 author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
@@ -25,7 +24,7 @@ The following diagram shows a suggested pattern for using Azure RBAC.
 
 ![Azure RBAC and least privilege](./media/best-practices/rbac-least-privilege.png)
 
-For information about how to assign roles, see [Assign Azure roles using the Azure portal](role-assignments-portal.md).
+For information about how to assign roles, see [Assign Azure roles using the Azure portal](role-assignments-portal.yml).
 
 ## Limit the number of subscription owners
 

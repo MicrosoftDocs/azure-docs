@@ -66,7 +66,7 @@ To enable an option in the Azure portal:
 1. Select **Billing scopes** to view a list of available billing scopes and billing accounts.
 1. Select your **Billing Account** from the list of available billing accounts.
 1. Under **Settings**, select the **Policies** menu item and then configure the setting.  
-    ![Billing scope policies showing view charges options](./media/assign-access-acm-data/azure-portal-policies-view-charges.png)
+    :::image type="content" border="true" source="./media/assign-access-acm-data/azure-portal-policies-view-charges.png" alt-text="Screenshot showing the Policies page and options.":::
 
 After the view charge options are enabled, most scopes also require Azure role-based access control (Azure RBAC) permission configuration in the Azure portal.
 
@@ -94,19 +94,19 @@ Access to the enrollment account scope requires account owner (AO view charges) 
 
 Access to view the management group scope requires at least the Cost Management Reader (or Reader) permission. You can configure permissions for a management group in the Azure portal. You must have at least the User Access Administrator (or Owner) permission for the management group to enable access for others. And for Azure EA accounts, you must also enable the **AO view charges** setting.
 
-You can assign the Cost Management Reader (or reader) role to a user at the management group scope. For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+You can assign the Cost Management Reader (or reader) role to a user at the management group scope. For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
 ## Assign subscription scope access
 
 Access to a subscription requires at least the Cost Management Reader (or Reader) permission. You can configure permissions to a subscription in the Azure portal. You must have at least the User Access Administrator (or Owner) permission for the subscription to enable access for others. And for Azure EA accounts, you must also enable the **AO view charges** setting.
 
-You can assign the Cost Management Reader (or reader) role to a user at the subscription scope. For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+You can assign the Cost Management Reader (or reader) role to a user at the subscription scope. For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
 ## Assign resource group scope access
 
 Access to a resource group requires at least the Cost Management Reader (or Reader) permission. You can configure permissions to a resource group in the Azure portal. You must have at least the User Access Administrator (or Owner) permission for the resource group to enable access for others. And for Azure EA accounts, you must also enable the **AO view charges** setting.
 
-You can assign the Cost Management Reader (or reader) role to a user at the resource group scope. For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+You can assign the Cost Management Reader (or reader) role to a user at the resource group scope. For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
 ## Cross-tenant authentication issues
 

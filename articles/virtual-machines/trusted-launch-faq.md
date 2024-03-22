@@ -14,7 +14,7 @@ ms.custom: template-faq, devx-track-azurecli, devx-track-azurepowershell
 # Trusted Launch FAQ
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 Frequently asked questions about trusted launch. Feature use cases, support for other Azure features, and fixes for common errors.
 
@@ -58,6 +58,9 @@ $adminPassword = <PASSWORD> | ConvertTo-SecureString -AsPlainText -Force
 $vmCred = New-Object System.Management.Automation.PSCredential($adminUsername, $adminPassword)
 New-AzVM -Name MyVm -Credential $vmCred -SecurityType Standard
 ```
+### Can I disable Secure Boot option for Trusted Launch VMs?
+
+Secure Boot is NOT enabled by default but it is recommended to enable it if you are not using custom unsigned kernel or drivers. Once a VM is created with Trusted Launch and Secure Boot option enabled, you can go to VM, under Settings tab, go to Configurations and unselect 'Enable secure boot' option. 
 
 ---
 
@@ -357,6 +360,9 @@ Architecture      : x64
 
 ---
 
+### How external communication drivers work with Trusted Launch VMs ?
+
+Adding COM ports requires disabling Secure Boot. Hence, COM ports are disabled by default in Trusted Launch VMs.
 
 ## Power states
 
