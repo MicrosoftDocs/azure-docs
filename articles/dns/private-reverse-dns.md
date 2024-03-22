@@ -14,7 +14,7 @@ In this article, you learn how to create a private reverse lookup DNS zone and a
 
 ## What is reverse DNS?
 
-Reverse DNS (as the name indicates) is the opposite process to forward DNS. Reverse enables you to resolve an IP address to a name, whereas forward DNS resolves a name to an IP address. Azure Private DNS supports both IPv6 and IPv4 reverse DNS.
+Reverse DNS (as the name indicates) is the opposite process to forward DNS. Reverse enables you to resolve an IP address to a name (for example: 10.1.2.5 --> myvm.contoso.com), whereas forward DNS resolves a name to an IP address. Azure Private DNS supports both IPv6 and IPv4 reverse DNS.
 
 ### IPv6 reverse DNS
 
@@ -27,6 +27,8 @@ IPv4 reverse DNS zones contain pointer (PTR) records and use the reserved domain
 - **10.in-addr.arpa** contains all PTR records for IPv4 addresses in the 10.0.0.0/8 address space.
 - **1.10.in-addr.arpa** contains all PTR records for IPv4 addresses in the 10.1.0.0/16 address space.
 - **2.1.10.in-addr.arpa** contains only PTR records for IPv4 addresses in the 10.1.2.0/24 address space.
+
+Private IPv4 reverse DNS zones are intended for use with private IP address space as defined in [RFC 1918](https://www.rfc-editor.org/info/rfc1918).
 
 ### IPv4 reverse DNS records
 
@@ -42,9 +44,9 @@ To create an IPv4 reverse DNS record in your zone, add the remaining IP address 
 ## Requirements and restrictions
 
 - [Autoregistration](private-dns-autoregistration.md) isn't supported for reverse DNS.
-- A [virtual network link](private-dns-virtual-network-links.md) from the reverse zone is required to enable DNS resolution of PTR records.
+- A [virtual network link](private-dns-virtual-network-links.md) from the reverse zone is required to enable DNS resolution of PTR records. The process of [adding a virtual network link](#add-a-virtual-network-link) is demonstrated in this article. This is different from reverse DNS for public IP addresses, which don't require a virtual network link.
     - You can also forward DNS queries to a DNS resolver if the resolver's VNet is linked to the reverse zone.
-- Reverse zones must follow the naming guidelines described in this article and in [RFC 3172](https://www.rfc-editor.org/rfc/rfc3172.html).
+- Reverse zones must follow the naming guidelines described in this article and in [RFC 3172](https://www.rfc-editor.org/info/rfc3172).
 
 ## Create a reverse lookup DNS zone
 
@@ -56,7 +58,7 @@ To create an IPv4 reverse DNS record in your zone, add the remaining IP address 
     | --- | --- |
     | **Subscription** | Select your subscription.|
     | **Resource group** | Select or create a new resource group. |
-    | **Name** | Enter a name for the DNS zone. In this example, the class C reverse DNS zone name 2.1.10.in-addr.arpa is used.  |
+    | **Name** | Enter a name for the DNS zone. In this example, the class C reverse DNS zone name **2.1.10.in-addr.arpa** is used.  |
     | **Location** | Select the location for the resource group. The location is already be selected if you're using a previously created resource group. |
 
     See the following example:
