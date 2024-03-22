@@ -221,7 +221,7 @@ Additionally, when a client establishes a connection using OpenVPN and Microsoft
 ```
 
 > [!NOTE]
-> The username is partially obfuscated in the point-to-site log. The first octect for the client user IP will be replace with a `0`.
+> The username is partially obfuscated in the point-to-site log. The first octect for the client user IP will be replaced with a `0`.
 
 ## Next Steps
 
