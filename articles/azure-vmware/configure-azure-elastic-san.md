@@ -1,10 +1,10 @@
 ---
 title: Use Azure VMware Solution with Azure Elastic SAN
-description: Learn how to use Elastic SAN  with Azure VMware Solution
+description: Learn how to use Elastic SAN  with Azure VMware Solution.
 ms.topic: how-to
 ms.service: azure-vmware
 ms.author: v-suzuber
-ms.date: 12/22/2023
+ms.date: 3/22/2024
 ms.custom: references_regions, engagement-fy23
 ---
 
@@ -37,7 +37,17 @@ The following prerequisites are required to continue.
 	> [!NOTE]
 	> The host exposes its Availability Zone. You should use that AZ when deploying other Azure resources for the same subscription.
 - You have permission to set up new resources in the subscription your private cloud is in.
-- Verify that you received an email confirmation that your subscription is now allowlisted.
+
+## Set preview feature flags
+
+To use ElasticSAN with Azure VMware Solution, you need to set three feature flags on our subscription:
+
+- earlyAccess
+- iSCSIMultipath
+- ElasticSanDatastore
+
+Setting a feature flag can be done in the subscription over page in the Azure portal. Under the **Settings** section, select **Preview features**. On the **Preview features** page, use the search bar to find the feature flags you need to register. Once found, select the feature flag you want to register ad select **Register** at the top.
+
 
 ## Set up Elastic SAN
 
