@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure HDInsight
 description: This article contains important reference material you need when you monitor Azure HDInsight.
-ms.date: 03/11/2024
+ms.date: 03/21/2024
 ms.custom: horz-monitor
 ms.topic: reference
 ms.service: hdinsight
@@ -9,20 +9,20 @@ ms.service: hdinsight
 
 # Azure HDInsight monitoring data reference
 
-[!INCLUDE [horz-monitor-ref-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
+[!INCLUDE [horz-monitor-ref-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
 
 See [Monitor HDInsight](monitor-hdinsight.md) for details on the data you can collect for Azure HDInsight and how to use it.
 
-[!INCLUDE [horz-monitor-ref-metrics-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
+[!INCLUDE [horz-monitor-ref-metrics-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
 
 ### Supported metrics for Microsoft.HDInsight/clusters
 The following table lists the metrics available for the Microsoft.HDInsight/clusters resource type.
-[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 [!INCLUDE [Microsoft.HDInsight/clusters](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-hdinsight-clusters-metrics-include.md)]
 
-[!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
+[!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 
-[!INCLUDE [horz-monitor-ref-metrics-dimensions](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
+[!INCLUDE [horz-monitor-ref-metrics-dimensions](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
 
 Dimensions for the Microsoft.HDInsight/clusters table include:
 
@@ -31,11 +31,11 @@ Dimensions for the Microsoft.HDInsight/clusters table include:
 - Topic
 - MetricName
 
-[!INCLUDE [horz-monitor-ref-resource-logs](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
+[!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
 HDInsight doesn't use Azure Monitor resource logs or diagnostic settings. Logs are collected by other methods, including the use of the Log Analytics agent.
 
-[!INCLUDE [horz-monitor-ref-logs-tables](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
+[!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 
 ### HDInsight Clusters
 Microsoft.HDInsight/Clusters
@@ -148,7 +148,7 @@ The **New table** column shows the name of the new table. The **Description** ro
 | --- | --- | --- |
 | HDInsightOozieLogs | All logs generated from the Oozie framework. | Log\_oozie\_CL |
 
-[!INCLUDE [horz-monitor-ref-activity-log](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
+[!INCLUDE [horz-monitor-ref-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
 
 - [Microsoft.HDInsight resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsofthdinsight)
 

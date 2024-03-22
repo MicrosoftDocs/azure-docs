@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure HDInsight
 description: Start here to learn how to monitor Azure HDInsight.
-ms.date: 03/13/2024
+ms.date: 03/21/2024
 ms.custom: horz-monitor
 ms.topic: conceptual
 ms.service: hdinsight
@@ -9,7 +9,7 @@ ms.service: hdinsight
 
 # Monitor Azure HDInsight
 
-[!INCLUDE [horz-monitor-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
+[!INCLUDE [horz-monitor-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
 
 ## HDInsight monitoring options
 
@@ -33,7 +33,7 @@ To use the new Azure Monitor integration, enable it by selecting **Monitor integ
 - [Use Azure Monitor logs to monitor HDInsight clusters](hdinsight-hadoop-oms-log-analytics-tutorial.md)
 - [Log Analytics migration guide for Azure HDInsight clusters](log-analytics-migration.md)
 
-[!INCLUDE [horz-monitor-insights](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights.md)]
+[!INCLUDE [horz-monitor-insights](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights.md)]
 
 ### Insights cluster portal integration
 
@@ -43,18 +43,18 @@ After enabling Azure Monitor integration, you can select **Insights (Preview)** 
 
 These detailed graphs and visualizations give you deep insights into your cluster's performance and health. For more information, see [Use HDInsight out-of-box Insights to monitor a single cluster](hdinsight-hadoop-oms-log-analytics-tutorial.md#use-hdinsight-out-of-box-insights-to-monitor-a-single-cluster).
 
-[!INCLUDE [horz-monitor-resource-types](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
+[!INCLUDE [horz-monitor-resource-types](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
 For more information about the resource types for Azure HDInsight, see [HDInsight monitoring data reference](monitor-hdinsight-reference.md).
 
-[!INCLUDE [horz-monitor-data-storage](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-data-storage.md)]
+[!INCLUDE [horz-monitor-data-storage](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-data-storage.md)]
 
 HDInsight stores its log files both in the cluster file system and in Azure Storage. Due to the large number and size of log files, it's important to optimize log storage and archiving to help with cost management. For more information, see [Manage logs for an HDInsight cluster](hdinsight-log-management.md).
 
-[!INCLUDE [horz-monitor-platform-metrics](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
+[!INCLUDE [horz-monitor-platform-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 
 For a list of metrics automatically collected for HDInsight, see [HDInsight monitoring data reference](monitor-hdinsight-reference.md#metrics).
 
-[!INCLUDE [horz-monitor-resource-logs](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
+[!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 
 ### Agent-collected logs
 
@@ -81,9 +81,9 @@ HDInsight clusters can collect many verbose logs. To help save on monitoring and
 
 You can configure log collection and analysis to enable or disable tables in the Log Analytics workspace and adjust the source type for each table. For detailed instructions, see [Use selective logging with a script action in Azure HDInsight](selective-logging-analysis.md).
 
-[!INCLUDE [horz-monitor-activity-log](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
+[!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 
-[!INCLUDE [horz-monitor-analyze-data](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
+[!INCLUDE [horz-monitor-analyze-data](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
 
 Azure Monitor Logs collects data from your HDInsight cluster resources and from other monitoring tools, and uses the data to provide analysis across multiple sources.
 
@@ -95,9 +95,9 @@ Azure Monitor Logs collects data from your HDInsight cluster resources and from 
 
 - For detailed instructions on how to enable Azure Monitor logs and add a monitoring solution for Hadoop cluster operations, see [Use Azure Monitor logs to monitor HDInsight clusters](hdinsight-hadoop-oms-log-analytics-tutorial.md).
 
-[!INCLUDE [horz-monitor-external-tools](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-external-tools.md)]
+[!INCLUDE [horz-monitor-external-tools](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-external-tools.md)]
 
-[!INCLUDE [horz-monitor-kusto-queries](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
+[!INCLUDE [horz-monitor-kusto-queries](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
 
 After you enable Azure Monitor integration, you can select **Logs (preview)** in the left navigation for your HDInsight portal page, and then select the **Queries** tab to see example queries for your cluster. For example, the following query lists all known computers that didn't send a heartbeat in the past five hours.
 
@@ -121,7 +121,7 @@ LAQueryLogs
 > 
 > The new monitoring integration in the Azure portal uses the new tables, but you must rework older queries and dashboards to use the new tables. For the log table mappings from the classic Azure Monitor integration to the new tables, see [Log table mapping](monitor-hdinsight-reference.md#log-table-mapping).
 
-[!INCLUDE [horz-monitor-alerts](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
+[!INCLUDE [horz-monitor-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
 
 ### HDInsight alert rules
 
@@ -134,7 +134,7 @@ The following table describes a couple of alert rules for HDInsight. These alert
 | Metric| Pending CPU | Whenever the maximum pending CPU is greater or less than dynamic threshold|
 | Activity log| Delete cluster | Whenever the Activity Log has an event with Category='Administrative', Signal name='Delete Cluster (HDInsight Cluster)'|
 
-[!INCLUDE [horz-monitor-advisor-recommendations](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
+[!INCLUDE [horz-monitor-advisor-recommendations](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
 
 ## Related content
 
