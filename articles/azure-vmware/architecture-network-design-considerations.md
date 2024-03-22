@@ -1,5 +1,5 @@
 ---
-title: Concepts - Network design considerations
+title: Architecture - Network design considerations
 description: Learn about network design considerations for Azure VMware Solution
 ms.topic: conceptual
 ms.service: azure-vmware
