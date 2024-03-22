@@ -27,7 +27,7 @@ An example to collect Arc resource bridge logs for Azure Stack HCI using the app
    az arcappliance logs hci --ip 192.168.02 --cloudagent 192.168.05 --loginconfigfile c:\clusterstorage\moc\workingdir\kvatoken.tok
    ```
 
-If you are unsure of your appliance VM IP, there is also the option to use the kubeconfig. You can retrieve the kubeconfig by running the [get-credentials command](/cli/azure/arcappliance?view=azure-cli-latest) then run the logs command. 
+If you are unsure of your appliance VM IP, there is also the option to use the kubeconfig. You can retrieve the kubeconfig by running the [get-credentials command](/cli/azure/arcappliance) then run the logs command. 
 
    ```azurecli
    az arcappliance get-credentials --resource-group my-rg-01 --name arb-name --credentials-dir c:\user\arbcreds
