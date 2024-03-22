@@ -402,6 +402,8 @@ items:
       items:
       - name: Version-level WORM policies
         href: immutable-version-level-worm-policies.md
+      - name: Container-level WORM policies
+        href: immutable-container-level-worm-policies.md
       - name: Time-based retention policies
         href: immutable-time-based-retention-policy-overview.md
       - name: Legal holds

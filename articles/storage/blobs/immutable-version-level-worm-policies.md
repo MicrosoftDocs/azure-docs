@@ -1,7 +1,7 @@
 ---
 title: Version-level WORM policies for immutable blob data
 titleSuffix: Azure Storage
-description: Time-based retention policies store blob data in a Write-Once, Read-Many (WORM) state for a specified interval. You can configure a time-based retention policy that is scoped to a blob version or to a container.
+description: Description goes here.
 services: storage
 author: normesta
 
@@ -106,6 +106,6 @@ There can only be 10,000 containers set with unique time-based retention policie
 
 - [Data protection overview](data-protection-overview.md)
 - [Store business-critical blob data with immutable storage](immutable-storage-overview.md)
-- [Legal holds for immutable blob data](immutable-legal-hold-overview.md)
+- [Container-level WORM policies](immutable-container-level-worm-policies.md)
 - [Configure immutability policies for blob versions](immutable-policy-configure-version-scope.md)
 - [Configure immutability policies for containers](immutable-policy-configure-container-scope.md)
