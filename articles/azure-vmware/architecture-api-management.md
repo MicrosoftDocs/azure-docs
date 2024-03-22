@@ -1,5 +1,5 @@
 ---
-title: Concepts - API Management 
+title: Architecture - API Management 
 description: Learn how API Management protects APIs running on Azure VMware Solution virtual machines (VMs)
 ms.topic: conceptual
 ms.service: azure-vmware
