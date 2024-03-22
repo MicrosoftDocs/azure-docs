@@ -38,6 +38,8 @@ items:
     href: ./concept-azure-monitor-integration.md
   - name: Customize clusters
     href : ./customize-clusters.md
+  - name: In-place upgrades
+    href : ./in-place-upgrade.md  
 - name: Releases
   items:
   - name: Release notes
