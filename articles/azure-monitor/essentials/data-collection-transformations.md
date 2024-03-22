@@ -30,7 +30,8 @@ The following table describes the different goals that you can achieve by using 
 | Format data for destination | You might have a data source that sends data in a format that doesn't match the structure of the destination table. Use a transformation to reformat the data to the required schema. |
 
 ## Supported tables
-You can apply transformations to the following tables in a Log Analytics workspace:
+See [Tables that support transformations in Azure Monitor Logs](../logs/tables-feature-support.md) for a list of the tables that can be used with transformations. You can also use the [Azure Monitor data reference](/azure/azure-monitor/reference/) which lists the attributes for each table, including whether it supports transformations. In addition to these tables, any custom tables (suffix of *_CL*) are also supported. 
+
 
 - Any Azure table listed in [Tables that support transformations in Azure Monitor Logs](../logs/tables-feature-support.md). You can also use the [Azure Monitor data reference](/azure/azure-monitor/reference/) which lists the attributes for each table, including whether it supports transformations.
 - Any custom table created for the Azure Monitor Agent. (MMA custom table can't use transformations)
@@ -45,7 +46,6 @@ There are multiple methods to create transformations depending on the data colle
 | Virtual machine with Azure Monitor agent | [Add transformation to Azure Monitor Log](../agents/azure-monitor-agent-transformation.md) |
 | Kubernetes cluster with Container insights | [Data transformations in Container insights](../containers/container-insights-transformations.md) |
 | Azure Event Hubs | [Tutorial: Ingest events from Azure Event Hubs into Azure Monitor Logs (Public Preview)](../logs/ingest-logs-event-hub.md) |
-| Transformation in workspace DCR | [Add workspace transformation to Azure Monitor Logs by using the Azure portal](../logs/tutorial-workspace-transformations-portal.md)<br>[Add workspace transformation to Azure Monitor Logs by using Resource Manager templates](../logs/tutorial-workspace-transformations-api.md) |
 
 ## Multiple destinations
 
@@ -59,16 +59,6 @@ To use multiple destinations, you must currently either manually create a new DC
 > Currently, the tables in the DCR must be in the same Log Analytics workspace. To send to multiple workspaces from a single data source, use multiple DCRs and configure your application to send the data to each.
 
 :::image type="content" source="media/data-collection-transformations/transformation-multiple-destinations.png" lightbox="media/data-collection-transformations/transformation-multiple-destinations.png" alt-text="Diagram that shows transformation sending data to multiple tables." border="false":::
-
-
-## Workspace transformation DCR
-The workspace transformation DCR is a special DCR that's applied directly to a Log Analytics workspace. The purpose of this DCR is to perform transformations on data that does not yet use a DCR for its data collection, and thus has no means to define a transformation.
-
-The workspace transformation DCR includes default transformations for one or more supported tables in the workspace. These transformations are applied to any data sent to these tables unless that data came from another DCR. For example, if you create a transformation in the workspace transformation DCR for the Event table, it would be applied to events collected by virtual machines running the Log Analytics agent because this agent doesn't use a DCR. The transformation would be ignored by any data sent from Azure Monitor Agent because it uses a DCR and would be expected to provide its own transformation.
-
-A common use of the workspace transformation DCR is collection of [resource logs](./resource-logs.md) that are configured with a [diagnostic setting](./diagnostic-settings.md). You might want to apply a transformation to this data to filter out records that you don't require. Since diagnostic settings don't have transformations, you can use the workspace transformation DCR to apply a transformation to this data.
-
-:::image type="content" source="media/data-collection-transformations/transformation-workspace.png" lightbox="media/data-collection-transformations/transformation-workspace.png" alt-text="Diagram that shows operation of the workspace transformation DCR." border="false":::
 
 
 ## Monitor transformations
@@ -309,5 +299,6 @@ The following example is a DCR for data from the Logs Ingestion API that sends d
 
 ## Next steps
 
-[Create a data collection rule](../agents/data-collection-rule-azure-monitor-agent.md) and an association to it from a virtual machine by using Azure Monitor Agent.
+- [Read more about data collection rules (DCRs)](./data-collection-rule-overview.md).
+- [Create a workspace transformation DCRs that applies to data not collected using a DCR](./data-collection-transformations-workspace.md).
 
