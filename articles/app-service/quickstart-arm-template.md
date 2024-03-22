@@ -23,7 +23,7 @@ To complete this quickstart, you'll need an Azure account with an active subscri
 
 ## Skip to the end
 
-If you're familiar with using ARM templates, you can skip to the end by selecting this :::image type="content" source="~/articles/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.web%2Fapp-service-docs-windows%2Fazuredeploy.json"::: button. This button opens the ARM template in the Azure portal. 
+If you're familiar with using ARM templates, you can skip to the end by selecting this :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.web%2Fapp-service-docs-windows%2Fazuredeploy.json"::: button. This button opens the ARM template in the Azure portal. 
 
 :::image type="content" source="media/quickstart-arm/create-windows-code.png" alt-text="Screenshot of the ARM Template in the Azure portal.":::
 
@@ -37,7 +37,7 @@ To complete this quickstart, you'll need an Azure account with an active subscri
 
 ## Skip to the end
 
-If you're familiar with using ARM templates, you can skip to the end by selecting this :::image type="content" source="~/articles/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.web%2Fapp-service-docs-linux%2Fazuredeploy.json"::: button. This button opens the ARM template in the Azure portal. 
+If you're familiar with using ARM templates, you can skip to the end by selecting this :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.web%2Fapp-service-docs-linux%2Fazuredeploy.json"::: button. This button opens the ARM template in the Azure portal. 
 
 :::image type="content" source="media/quickstart-arm/create-linux.png" alt-text="Screenshot of the ARM Template in the Azure portal.":::
 
@@ -48,7 +48,7 @@ Get started with [Azure App Service](overview.md) by deploying an app to the clo
 
 ## Skip to the end
 
-If you're familiar with using ARM templates, you can skip to the end by selecting this :::image type="content" source="~/articles/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.web%2Fapp-service-docs-windows-container%2Fazuredeploy.json"::: button. This button opens the ARM template in the Azure portal. 
+If you're familiar with using ARM templates, you can skip to the end by selecting this :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.web%2Fapp-service-docs-windows-container%2Fazuredeploy.json"::: button. This button opens the ARM template in the Azure portal. 
 
 :::image type="content" source="media/quickstart-arm/create-windows-container.png" alt-text="Screenshot of the ARM Template in the Azure portal.":::
 

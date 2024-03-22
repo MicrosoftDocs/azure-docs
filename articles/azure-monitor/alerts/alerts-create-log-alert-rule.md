@@ -18,6 +18,15 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
 [!INCLUDE [alerts-wizard-access](../includes/alerts-wizard-access.md)]
 
+### Edit an existing alert rule
+
+1. In the [portal](https://portal.azure.com/), either from the home page or from a specific resource, select **Alerts** from the left pane.
+1. Select **Alert rules**.
+1. Select the alert rule you want to edit, and then select **Edit**.
+
+    :::image type="content" source="media/alerts-create-log-alert-rule/alerts-edit-log-search-alert-rule.png" alt-text="Screenshot that shows steps to edit an existing log search alert rule.":::
+1. Select any of the tabs for the alert rule to edit the settings.
+
 [!INCLUDE [alerts-wizard-scope](../includes/alerts-wizard-scope.md)]
 
 ## Configure the alert rule conditions
@@ -179,7 +188,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
         |Identity  |Description  |
         |---------|---------|
         |None|Alert rule permissions are based on the permissions of the last user who edited the rule, at the time the rule was edited.|
-        |System assigned managed identity| Azure creates a new, dedicated identity for this alert rule. This identity has no permissions and is automatically deleted when the rule is deleted. After creating the rule, you must assign permissions to this identity to access the workspace and data sources needed for the query. For more information about assigning permissions, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md). |
+        |System assigned managed identity| Azure creates a new, dedicated identity for this alert rule. This identity has no permissions and is automatically deleted when the rule is deleted. After creating the rule, you must assign permissions to this identity to access the workspace and data sources needed for the query. For more information about assigning permissions, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml). |
         |User assigned managed identity|Before you create the alert rule, you [create an identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#create-a-user-assigned-managed-identity) and assign it appropriate permissions for the log query. This is a regular Azure identity. You can use one identity in multiple alert rules. The identity isn't deleted when the rule is deleted. When you select this type of identity, a pane opens for you to select the associated identity for the rule. |
 
 1. (Optional) In the **Advanced options** section, you can set several options:
