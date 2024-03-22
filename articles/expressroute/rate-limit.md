@@ -5,12 +5,10 @@ description: This document provides guidance on how to enable or disable rate li
 services: expressroute
 author: duongau
 ms.service: expressroute
-ms.custom:
-  - ignite-2023
+ms.custom: ignite-2023, ai-usage
 ms.topic: how-to
 ms.date: 03/21/2024
 ms.author: duau
-ms.custom: ai-usage
 ---
 
 # Rate limiting for ExpressRoute Direct circuits (Preview)
