@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: managed-grafana
 ms.topic: how-to 
-ms.date: 22/03/2024
+ms.date: 03/22/2024
 ---
 
 # Enable Grafana Enterprise
