@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a budget in the Azure portal
-> * Create and edit budgets with PowerShell
+> * Create and edit budgets
 > * Create a budget with an Azure Resource Manager template
 
 ## Prerequisites
@@ -238,7 +238,7 @@ az consumption budget create --amount 100 --name TestCLIBudget --category Cost -
 
 ### [Terraform](#tab/tfbudget)
 
-Make sure to properly [install and configure Terraform](/developer/terraform/quickstart-configure) before continuing. All examples are based on [HashiCorp's 'azurerm_subscription_cost_management_export' docs](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subscription_cost_management_export).
+Make sure to properly [install and configure Terraform](/azure/developer/terraform/quickstart-configure) before continuing. All examples are based on [HashiCorp's 'azurerm_subscription_cost_management_export' docs](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subscription_cost_management_export).
 
 The following example creates a budget using Terraform. Make sure to replace all example prompts with your own info.
 
