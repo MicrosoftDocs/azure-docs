@@ -18,10 +18,10 @@ This article contains release notes for the API for MongoDB vCore. These release
 
 ## Latest release: March 18, 2024
 
-- Private Endpoint support enabled on Portal. (GA)
-- AFEC Flag to enable HNSW on M40 & larger SKUs.
-- AFEC Flag to enable Geo-spatial queries. (Public Preview)
-- Query operator enhancements
+- [Private Endpoint](how-to-private-link.md) support enabled on Portal. (GA)
+- [HNSW](vector-search.md) on M40 & larger SKUs. (GA)
+- Enable Geo-spatial queries. (Public Preview)
+- Query operator enhancements.
 	- $centerSphere with index pushdown.
 	- $min & $max operator with $project.
 	- $binarySize aggregation operator.
