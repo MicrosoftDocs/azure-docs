@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 03/13/2024
+ms.date: 03/15/2024
 ms.author: greglin
 ---
 
@@ -79,7 +79,7 @@ You can use the built-in roles, such as [Network contributor](../role-based-acce
 
 #### Identify affected users or service principals for your subscription
 
-By visiting Azure Advisor for your account, you can verify if your subscription has any users or service principals with insufficient permission. The details of that recommendation are:
+By visiting Azure Advisor for your account, you can verify if your subscription has any users or service principals with insufficient permission. The details of that recommendation are as follows:
 
 **Title**: Update VNet permission of Application Gateway users </br>
 **Category**: Reliability </br>

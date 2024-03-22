@@ -6,9 +6,7 @@ ms.author: anaharris
 ms.date: 03/01/2024
 ms.service: azure-storage
 ms.topic: concept
-ms.custom:
-  - subject-relocation
-  - devx-track-arm-template
+ms.custom: subject-relocation
 ---
 
 
@@ -395,6 +393,3 @@ In this tutorial, you moved an Azure network security group from one region to a
 
 - [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md)
 - [Move Azure VMs to another region](../site-recovery/azure-to-azure-tutorial-migrate.md)
-
-
-

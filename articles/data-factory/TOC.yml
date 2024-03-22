@@ -554,7 +554,11 @@ items:
     - name: Phoenix
       href: connector-phoenix.md
     - name: PostgreSQL
-      href: connector-postgresql.md
+      items:
+      - name: PostgreSQL
+        href: connector-postgresql.md
+      - name: PostgreSQL (legacy)
+        href: connector-postgresql-legacy.md
     - name: Presto
       href: connector-presto.md
     - name: Quickbase

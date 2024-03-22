@@ -759,7 +759,7 @@ For managed disks, Azure Disk encryption allows you to encrypt the OS and Data d
 Azure Disk encryption does not support Managed HSM or an on-premises key management service. Only key vaults managed by the Azure Key Vault service can be used to safeguard customer-managed encryption keys for Azure Disk encryption. See [Encryption at host](#encryption-at-host) for other options involving Managed HSM.
 
 > [!NOTE]
-> Detailed instructions are available for creating and configuring a key vault for Azure Disk encryption with both **[Windows](../virtual-machines/windows/disk-encryption-key-vault.md)** and **[Linux](../virtual-machines/linux/disk-encryption-key-vault.md)** VMs.
+> Detailed instructions are available for creating and configuring a key vault for Azure Disk encryption with both **[Windows](../virtual-machines/windows/disk-encryption-key-vault.yml)** and **[Linux](../virtual-machines/linux/disk-encryption-key-vault.md)** VMs.
 
 Azure Disk encryption relies on two encryption keys for implementation, as described previously:
 

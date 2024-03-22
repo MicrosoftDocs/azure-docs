@@ -163,6 +163,6 @@ For example, you might want Defender for Cloud to email a specific user when a c
 
 To learn more, see these related pages:
 
-- [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md) - Learn how to select which standards appear in your regulatory compliance dashboard.
+- [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.yml) - Learn how to select which standards appear in your regulatory compliance dashboard.
 - [Managing security recommendations in Defender for Cloud](review-security-recommendations.md) - Learn how to use recommendations in Defender for Cloud to help protect your multicloud resources.
 - Check out [common questions](faq-regulatory-compliance.yml) about regulatory compliance.

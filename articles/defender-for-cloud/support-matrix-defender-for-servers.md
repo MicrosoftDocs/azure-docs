@@ -1,10 +1,10 @@
 ---
 title: Support for the Defender for Servers plan
-description: Review support requirements for the Defender for Servers plan in Microsoft Defender for Cloud.
+description: Review support requirements for the Defender for Servers plan in Defender for Cloud and learn how to configure and manage the Defender for Servers features.
 ms.topic: limits-and-quotas
 author: dcurwin
 ms.author: dacurwin
-ms.date: 01/07/2024
+ms.date: 03/13/2024
 ---
 
 # Defender for Servers support
@@ -50,7 +50,8 @@ This table summarizes Azure cloud support for Defender for Servers features.
 | [Adaptive network hardening](./adaptive-network-hardening.md) | GA | NA | NA |
 | [Docker host hardening](./harden-docker-hosts.md)  | GA | GA | GA |
 | [Agentless secret scanning](secret-scanning.md) | GA | NA | NA |
-| [Agentless malware scanning](agentless-malware-scanning.md) | Preview | NA | NA |
+| [Agentless malware scanning](agentless-malware-scanning.md) | Preview | NA | NA | 
+| [Endpoint detection and response](endpoint-detection-response.md) | Preview | NA | NA |
 
 ## Windows machine support
 
@@ -58,7 +59,7 @@ The following table shows feature support for Windows machines in Azure, Azure A
 
 | **Feature** | **Azure VMs*<br/> **[VM Scale Sets (Flexible orchestration](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration)** | **Azure Arc-enabled machines** | **Defender for Servers required** |
 |--|:-:|:-:|:-:|
-| [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md) | ✔</br>(on supported versions) | ✔ | Yes |
+| [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md) | ✔</br> Available on: Windows Server 2022, 2019, 2016, 2012 R2, 2008 R2 SP1, [Windows 10/11 Enterprise multi-session](../virtual-desktop/windows-10-multisession-faq.yml) (formerly Enterprise for Virtual Desktops)<br>Not available on: Azure VMs running Windows 10 or Windows 11 (except if running Windows 10/11 Enterprise multi-session) | ✔ | Yes |
 | [Virtual machine behavioral analytics (and security alerts)](alerts-reference.md) | ✔ | ✔ | Yes |
 | [Fileless security alerts](alerts-reference.md#alerts-for-windows-machines) | ✔ | ✔ | Yes |
 | [Network-based security alerts](other-threat-protections.md#network-layer) | ✔ | - | Yes |
@@ -83,7 +84,7 @@ The following table shows feature support for Linux machines in Azure, Azure Arc
 
 | **Feature** | **Azure VMs**<br/> **[VM Scale Sets (Flexible orchestration](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration)** | **Azure Arc-enabled machines** | **Defender for Servers required** |
 |--|:-:|:-:|:-:|
-| [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md) | ✔ | ✔ | Yes |
+| [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md) | ✔ <br> ([supported versions](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux)) | ✔ | Yes |
 | [Virtual machine behavioral analytics (and security alerts)](./azure-defender.md) | ✔</br>(on supported versions) | ✔ | Yes |
 | [Fileless security alerts](alerts-reference.md#alerts-for-windows-machines) | - | - | Yes |
 | [Network-based security alerts](other-threat-protections.md#network-layer) | ✔ | - | Yes |
@@ -129,6 +130,7 @@ The following table shows feature support for AWS and GCP machines.
 | [Cloud security explorer](how-to-manage-cloud-security-explorer.md) | ✔ | - |
 | [Agentless secret scanning](secret-scanning.md) | ✔ | ✔ |
 | [Agentless malware scanning](agentless-malware-scanning.md) | ✔ | ✔ |
+| [Endpoint detection and response](endpoint-detection-response.md) | ✔ | ✔ |
 
 ## Endpoint protection support
 
