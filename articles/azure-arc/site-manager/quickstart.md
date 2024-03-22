@@ -36,7 +36,7 @@ Navigate to Azure Arc site manager the via "Azure Arc" [pane](https://ms.portal.
 Alternatively, you can also search for "Azure Arc site manager" in the Azure Portal or "Sites - Azure Arc" using terms such as "site", "Arc Site", "site manager" and so on.
 ![Site_Manager_Search_Azure_Arc_Portal](./media/Portal_Search_Site.png)
 
-Once you locate "Azure Arc site manager", click to open the main page of Azure Arc site manager which will appear as shown below (note: this page is subject to change, may not match exactly as captured below)
+Once you locate "Azure Arc site manager", click to open the main page of Azure Arc site manager which will appear as shown below (note: this page is subject to change, may not match exactly as captured below).
 ![Site_Manager_Main_Page_Azure_Arc_Portal](./media/Azure_Portal_Site_Manager.png)
 
 ## Create your site
@@ -46,10 +46,10 @@ Once you locate "Azure Arc site manager", click to open the main page of Azure A
 2. Fill in the details for your first site. While these details may change, at the time of this article the required details are:
     * Site scope: subscription or resource group
      *Note:* The scope can be defined only at the time of creating a site and cannot be modified later. By defining the scope for a site, all the resources in the scope can be viewed and managed from site manager.
-    * Site name: custom name for site
-    * Display name: custom display name for site
-    * Subscription: subscription for the site to be created under
-    * Address: Physical address for a site
+    * Site name: custom name for site.
+    * Display name: custom display name for site.
+    * Subscription: subscription for the site to be created under.
+    * Address: Physical address for a site.
 3. Once these details are provided, click "Review + create" and you will be brough to a summary page to review and confirm the site details prior to creation.
 ![Site_Manager_Create_a_site_page_california_Azure_Arc_Portal](./media/Create_a_site_page_California.png)
 4. Click "Create" to create your site.
