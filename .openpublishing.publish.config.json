@@ -1113,7 +1113,7 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "articles/reusable-content",
+      "path_to_root": "reusable-content",
       "url": "https://github.com/MicrosoftDocs/reusable-content",
       "branch": "main",
       "branch_mapping": {}
