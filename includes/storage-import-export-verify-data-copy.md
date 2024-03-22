@@ -11,7 +11,7 @@ ms.author: shaas
 ms.custom: include file
 ---
 
-Track the job to completion. Then make sure that your data has been uploaded to Azure successfully. 
+Track the job to completion, then verify that the upload was successful and all data is present. 
 
 Review the **Data copy details** of the completed job to locate the logs for each drive included in the job:
 
