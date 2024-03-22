@@ -5,7 +5,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: how-to
-ms.date: 01/08/2024
+ms.date: 03/22/2024
 
 #CustomerIntent: As someone deploying Azure Communications Gateway, I want to test my deployment so that I can be sure that calls work.
 ---
@@ -18,6 +18,11 @@ Testing Microsoft Teams Direct Routing requires some test numbers in a Microsoft
 > When you onboard a real customer, you'll typically need to ask them to change their tenant's configuration, because your organization won't have permission. You'll still need to make configuration changes on Azure Communications Gateway.
 >
 > For more information about how Azure Communications Gateway and Microsoft Teams use tenant configuration to route calls, see [Support for multiple customers with the Microsoft Teams multitenant model](interoperability-teams-direct-routing.md#support-for-multiple-customers-with-the-microsoft-teams-multitenant-model).
+
+This article provides detailed guidance equivalent to the following steps in the [Microsoft Teams documentation for configuring an SBC for multiple tenants](/microsoftteams/direct-routing-sbc-multiple-tenants).
+
+- Registering a subdomain name in the customer tenant.
+- Configuring derived trunks in the customer tenant (including failover).
 
 ## Prerequisites
 
@@ -32,6 +37,11 @@ You must complete the following procedures.
 Your organization must [integrate with Azure Communications Gateway's Provisioning API](integrate-with-provisioning-api.md). Someone in your organization must be able to make requests using the Provisioning API during this procedure.
 
 You must be able to sign in to the Microsoft 365 admin center for your test customer tenant as a Global Administrator.
+
+You must be able to configure the tenant with at least two user or resource accounts licensed for Microsoft Teams. For more information on suitable licenses, see the [Microsoft Teams documentation](/microsoftteams/direct-routing-sbc-multiple-tenants#activate-the-subdomain-name).
+
+- You need two user or resource accounts to activate the Azure Communications Gateway domains that you add to Microsoft 365 by following this article. Lab deployments require one account.
+- You need at least one user account to use for testing later when you carry out [Configure test numbers for Microsoft Teams Direct Routing with Azure Communications Gateway](configure-test-numbers-teams-direct-routing.md). You can reuse one of the accounts that you use to activate the domains, or you can use an account with one of the other domain names for this tenant.
 
 ## Choose a DNS subdomain label to use to identify the customer
 
@@ -96,11 +106,26 @@ When you have used Azure Communications Gateway to generate the DNS records for 
 1. Select **Settings** > **Domains**.
 1. Finish verifying the customer-specific per-region domain names by following [Add a subdomain to the customer tenant and verify it](/microsoftteams/direct-routing-sbc-multiple-tenants#add-a-subdomain-to-the-customer-tenant-and-verify-it).
 
+## Activate the domains in the customer tenant
+
+To activate the per-region domain names in Microsoft 365, set up at least one user or resource account licensed for Microsoft Teams for each  domain name. For information on the licenses you can use and instructions, see [Activate the subdomain name](/microsoftteams/direct-routing-sbc-multiple-tenants#activate-the-subdomain-name).
+
+> [!IMPORTANT]
+> Ensure the accounts use the per-region domain names, instead of any existing domain names in the tenant.
+
 ## Configure the customer tenant's call routing to use Azure Communications Gateway
 
 In the customer tenant, [configure a call routing policy](/microsoftteams/direct-routing-voice-routing) (also called a voice routing policy) with a voice route that routes calls to Azure Communications Gateway.
-- Set the PSTN gateway to the customer-specific per-region domain names for Azure Communications Gateway (for example, `test.1-r1.<deployment-id>.commsgw.azure.com` and `test.1-r2.<deployment-id>.commsgw.azure.com`).
+- Set the PSTN gateway to the customer-specific per-region domain names for Azure Communications Gateway (for example, `test.1-r1.<deployment-id>.commsgw.azure.com` and `test.1-r2.<deployment-id>.commsgw.azure.com`). This sets up _derived trunks_ for the customer tenant.
 - Don't configure any users to use the call routing policy yet.
+
+> [!IMPORTANT]
+> You must use PowerShell to set the PSTN gateways for the voice route, because the Microsoft Teams Admin Center doesn't support adding derived trunks. You can use the Microsoft Teams Admin Center for all other voice route configuration.
+>
+> To set the PSTN gateways for a voice route, use the following PowerShell command.
+> ```powershell
+> Set-CsOnlineVoiceRoute -id "<voice-route-id>" -OnlinePstnGatewayList <customer-specific-domain-name-1>, <customer-specific-domain-name-2>
+> ```
 
 ## Next step
 
