@@ -64,11 +64,11 @@ Based on the storage account selected, Data Box creates up to:
 
 The following table identifies the names of the Data Box shares to which you can connect, and the type of data uploaded to your target storage account. It also identifies the hierarchy of shares and directories into which you copy your source data.
 
-| Storage type | Share name                     | First-level entity  | Second-level entity | Third-level entity |
-|--------------|--------------------------------|---------------------|---------------------|--------------------|
-| Block blob   | <storageAccountName>_BlockBlob | <accessTier>        | <containerName>     | <blockBlob>        |
-| Page blob    | <storageAccountName>_PageBlob  | <containerName>     | <pageBlob>          |                    |
-| File storage | <storageAccountName>_AzFile    | <fileShareName>     | <file>              |                    |
+| Storage type | Share name                       | First-level entity  | Second-level entity | Third-level entity |
+|--------------|----------------------------------|---------------------|---------------------|--------------------|
+| Block blob   | \<storageAccountName\>_BlockBlob | <\accessTier\>      | <\containerName\>   | <\blockBlob\>      |
+| Page blob    | <\storageAccountName\>_PageBlob  | <\containerName\>   | <\pageBlob\>        |                    |
+| File storage | <\storageAccountName\>_AzFile    | <\fileShareName\>   | <\file\>            |                    |
 
 You can't copy files directly to the *root* folder of any Data Box share. Instead, create folders within the Data Box share corresponding to your user case.
 
