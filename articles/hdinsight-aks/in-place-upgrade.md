@@ -220,9 +220,9 @@ upgraded with cluster pool), and the notification updates reflect the success of
 
    :::image type="content" source="./media/in-place-upgrade/overview-status.png" alt-text="Diagram showing status overview page." border="true" lightbox="./media/in-place-upgrade/overview-status.png" 
 
-1.  Once the upgrade is complete, the overview banner and the notification updated.
+1.  Once the upgrade is complete, the overview banner and the notification tray updated.
  
-    :::image type="content" source="./media/in-place-upgrade/success-status-message.png" alt-text="Diagram showing  success status message." border="true" lightbox="./media/in-place-upgrade/success-status-message.png" 
+    :::image type="content" source="./media/in-place-upgrade/success-status-message.png" alt-text="Diagram showing success status message." border="true" lightbox="./media/in-place-upgrade/success-status-message.png" 
 
     :::image type="content" source="./media/in-place-upgrade/notification-all-upgrades-success.png" alt-text="Diagram showing notification all upgrades success." border="true" lightbox="./media/in-place-upgrade/notification-all-upgrades-success.png" 
 
