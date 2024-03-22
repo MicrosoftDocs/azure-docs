@@ -50,9 +50,9 @@ items:
 - name: Architecture
   items:
   - name: Private clouds and clusters
-    href: architecture-private-clouds-clusters.md
-  - name: Multi-AZ with vSAN stretched clusters
-    href: architecture-vsan-stretched-clusters.md
+    href: architecture-private-clouds.md
+  - name: Multi-AZ with stretched clusters
+    href: architecture-stretched-clusters.md
   - name: Access and identity
     href: architecture-identity.md
   - name: API Management
@@ -104,11 +104,11 @@ items:
   - name: Security solutions for Azure VMware Solution
     href: ecosystem-security-solutions.md
   - name: Security recommendations
-    href: concepts-security-recommendations.md
+    href: security-recommendations.md
   - name: Security baseline
     href: /security/benchmark/azure/baselines/azure-vmware-solution-security-baseline?toc=/azure/azure-vmware/toc.json
   - name: Vulnerability Management
-    href: concepts-vulnerability-management.md
+    href: vulnerability-management.md
   - name: Rotate cloudadmin credentials
     href: rotate-cloudadmin-credentials.md
   - name: Configure identity
@@ -272,7 +272,7 @@ items:
 - name: Operations and monitoring
   items:
   - name: Run Command
-    href: concepts-run-command.md
+    href: using-run-command.md
   - name: Configure VMware syslogs
     href: configure-vmware-syslogs.md
   - name: Configure alerts and work with metrics
