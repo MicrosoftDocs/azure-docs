@@ -65,7 +65,7 @@ To view your jobs in the studio:
 
 On the **All jobs** page, you can filter the jobs list by tags, experiments, compute target, and more to better organize and scope your work.  
 
-1. Make customizations to the page by selecting jobs to compare, adding charts, or applying filters. These changes can be saved as a **Custom view** so you can easily return to your work. Users with workspace permissions can edit, or view the custom view. Also, share the custom view with team members for enhanced collaboration by selecting **Share view**.
+1. Make customizations to the page by selecting jobs to compare, adding charts, or applying filters. These changes can be saved as a **Custom view** so you can easily return to your work. Users with workspace permissions can edit or view the custom view. Also, share the custom view with team members for enhanced collaboration by selecting **Share view**.
 
     :::image type="content" source="media/how-to-track-monitor-analyze-runs/custom-views-2.gif" alt-text="Screenshot of how to create a custom view.":::   
 
@@ -93,10 +93,10 @@ You can add, edit, or delete job tags from the studio. Navigate to the details p
 
 You can query jobs within an experiment to return a list of jobs that match specific properties and tags.
 
-To search for specific jobs, navigate to the **All jobs** list. From there you have two options:
+To search for specific jobs, navigate to the **All jobs** list. From there, you have two options:
 
 - Use the **Add filter** button and select filter on tags to filter your jobs by tag that was assigned to the job(s).
-- Use the search bar to quickly find jobs by searching on the job metadata like the job status, descriptions, experiment names, and submitter name. 
+- Use the search bar to quickly find jobs by searching on the job metadata like job status, descriptions, experiment names, and submitter name. 
 
 ## Cancel or fail jobs
 
@@ -114,11 +114,11 @@ To cancel a job in the studio:
 
 1. In the [Azure portal](https://portal.azure.com), in the left navigation bar, select the **Monitor** tab.
 
-1. Select **Diagnostic settings** and then select **+ Add diagnostic setting**.
+1. Select **Diagnostic settings**, then choose **+ Add diagnostic setting**.
 
     :::image type="content" source="media/how-to-track-monitor-analyze-runs/diagnostic-setting.png" alt-text="Screenshot of diagnostic settings for email notification.":::
 
-1. Under **Category details**, select **AmlRunStatusChangedEvent**. Then, under **Destination details**, select **Send to Log Analytics workspace** and specify the **Subscription** and **Log Analytics workspace**.
+1. Under **Category details**, select **AmlRunStatusChangedEvent**. Under **Destination details**, select **Send to Log Analytics workspace** and specify the **Subscription** and **Log Analytics workspace**.
 
     :::image type="content" source="media/how-to-track-monitor-analyze-runs/log-location.png" alt-text="Screenshot of where to save email notification.":::
 
