@@ -163,7 +163,7 @@ The following table provides a detailed list of roles and responsibilities betwe
 
 ## Next steps
 
-The next step is to learn key [private cloud and cluster concepts](concepts-private-clouds-clusters.md).
+The next step is to learn key [private cloud architecture concepts](architecture-private-clouds.md).
 
 <!-- LINKS - external -->
 
