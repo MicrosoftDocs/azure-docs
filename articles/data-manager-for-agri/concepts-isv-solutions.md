@@ -57,4 +57,4 @@ To install the preceding solutions, see the [article about working with ISV solu
 
 ## Next steps
 
-* [Test the Azure Data Manager for Agriculture REST APIs](/rest/api/data-manager-for-agri).
+* [Test the Azure Data Manager for Agriculture REST APIs](/rest/api/data-manager-for-agri)
