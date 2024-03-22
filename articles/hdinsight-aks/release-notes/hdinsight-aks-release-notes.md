@@ -39,7 +39,9 @@ You can refer to [What's new](../whats-new.md) page for all the details of the f
 
 **Apache Flink Application Mode Cluster**
 
- Application mode clusters are designed to support dedicated resources for large and long-running jobs. When you have resource-intensive or extensive data processing tasks, you can use the [Application Mode Cluster](https://flink.apache.org/2020/07/14/application-deployment-in-flink-current-state-and-the-new-application-mode/#application-mode). This mode allows you to allocate dedicated resources for specific Apache Flink applications, ensuring that they have the necessary computing power and memory to handle large workloads effectively.  
+Application mode clusters are designed to support dedicated resources for large and long-running jobs. When you have resource-intensive or extensive data processing tasks, you can use the [Application Mode Cluster](https://flink.apache.org/2020/07/14/application-deployment-in-flink-current-state-and-the-new-application-mode/#application-mode). This mode allows you to allocate dedicated resources for specific Apache Flink applications, ensuring that they have the necessary computing power and memory to handle large workloads effectively.  
+
+For more information, see [Apache Flink Application Mode cluster on HDInsight on AKS](../flink/application-mode-cluster-on-hdinsight-on-aks.md).
 
 **Private Clusters for HDInsight on AKS**
 
@@ -49,6 +51,8 @@ With private clusters, and outbound cluster settings you can now control ingress
 - Use Outbound cluster pool with User defined routing to control egress traffic at the subnet level.
 - Use Private AKS cluster feature - To ensure AKS control plane, or API server has internal IP addresses. The network traffic between AKS Control plane / API server and HDInsight on AKS node pools (clusters) remains on the private network only.
 - Avoid creating public IPs for the cluster. Use private ingress feature on your clusters.
+
+For more information, see [Control network traffic from HDInsight on AKS Cluster pools and cluster](../control-egress-traffic-from-hdinsight-on-aks-clusters.md).
 
 **In place Upgrade**
 
