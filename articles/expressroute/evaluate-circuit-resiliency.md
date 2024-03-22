@@ -40,7 +40,7 @@ To manually failover an ExpressRoute circuit that is configured with maximum res
 
 1. In the **ExpressRoute circuits** page, identity and select the ExpressRoute circuit for which you intend to disable peering, to facilitate a failover to the second ExpressRoute circuit.
 
-1. Navigate to the **Overview** page and select the peering that is to be disabled.
+1. Navigate to the **Overview** page and select the private peering that is to be disabled.
 
     :::image type="content" source="./media/evaluate-circuit-resiliency/primary-circuit.png" alt-text="Screenshot of the peering section of an ExpressRoute circuit on the overview page.":::
 
