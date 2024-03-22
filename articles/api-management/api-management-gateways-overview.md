@@ -164,7 +164,7 @@ For estimated maximum gateway throughput in the API Management service tiers, se
 
 * **Dedicated service tiers**
     * Scale gateway capacity by adding and removing scale [units](upgrade-and-scale.md), or upgrade the service tier. (Scaling not available in the Developer tier.)
-    * In the Standard and Premium tiers, optionally configure [Azure Monitor autoscale](api-management-howto-autoscale.md).
+    * In the Basic, Standard, and Premium tiers, optionally configure [Azure Monitor autoscale](api-management-howto-autoscale.md).
     * In the Premium tier, optionally add and distribute gateway capacity across multiple [regions](api-management-howto-deploy-multi-region.md).
 
 * **Consumption tier**
