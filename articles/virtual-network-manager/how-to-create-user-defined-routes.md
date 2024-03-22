@@ -1,4 +1,4 @@
-git p---
+---
 title: Create User-Defined Routes with Azure Virtual Network Manager
 description: Learn how to deploy User-Defined Routes (UDRs) with Azure Virtual Network Manager using the Azure portal.
 author: mbender-ms
@@ -11,7 +11,7 @@ ms.date: 03/18/2023
 
 # Create User-Defined Routes (UDRs) in Azure Virtual Network Manager
 
-In this article, you learn how to deploy [User-Defined Routes (UDRs)](./concept-udr-management.md) with Azure Virtual Network Manager using the Azure portal. UDRs allow you to describe your desired routing behavior, and Virtual Network Manager orchestrates UDRs to create and maintain that behavior. You'll deploy all the resources needed to create UDRs, including:
+In this article, you learn how to deploy [User-Defined Routes (UDRs)](concept-user-defined-route-management.md) with Azure Virtual Network Manager in the Azure portal. UDRs allow you to describe your desired routing behavior, and Virtual Network Manager orchestrates UDRs to create and maintain that behavior. You deploy all the resources needed to create UDRs, including:
     - a Virtual Network Manager instance
     - two virtual networks and a network group
     - a routing configuration to create UDRs for the network group
@@ -19,11 +19,11 @@ In this article, you learn how to deploy [User-Defined Routes (UDRs)](./concept-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- You need to have the **Network Contributor Role** for the scope that you want to use. 
+- You need to have the **Network Contributor Role** for the scope that you want to use for you virtual network manager instance. 
 
 ## Create a Virtual Network Manager instance
 
-Deploy a Virtual Network Manager instance with the defined scope and access that you need. 
+In this step,you deploy a Virtual Network Manager instance with the defined scope and access that you need. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -36,7 +36,7 @@ Deploy a Virtual Network Manager instance with the defined scope and access that
     | **Subscription** | Select the subscription where you want to deploy Virtual Network Manager. |
     | **Resource group** | Select **Create new** and enter **rg-vnm**.</br> Select **Ok**. |
     | **Name** | Enter **vnm-1**. |
-    | **Region** | Select **(US) East US** or a region of your choosing. Virtual Network Manager can manage virtual networks in any region. The selected region is where the Virtual Network Manager instance will be deployed. |
+    | **Region** | Select **(US) East US** or a region of your choosing. Virtual Network Manager can manage virtual networks in any region. The selected region is where the Virtual Network Manager instance is deployed. |
     | **Description** | *(Optional)* Provide a description about this Virtual Network Manager instance and the task it's managing. |
     | [Features](concept-network-manager-scope.md#features) | Select **User defined routing** from the dropdown list. |
 
@@ -111,7 +111,7 @@ In this step, you create a network group containing your virtual networks using 
     | **Member type** | Select **Virtual network**. |
 
 1. Select **Create**.
-1. Select **ng-spoke** and choose **Create Azue Policy**.
+1. Select **ng-spoke** and choose **Create Azure Policy**.
    
    :::image type="content" source="media/how-to-deploy-user-defined-routes/network-group-page.png" alt-text="Screenshot of network group page with options for group creation and membership view.":::
 
@@ -147,7 +147,7 @@ In this step, you create a routing configuration to define the UDRs for the netw
 
     | Setting | Value |
     | ------- | ----- |
-    | **Name** | Enter **rc-spoke**. |
+    | **Name** | Enter **routing-configuration**. |
     | **Description** | *(Optional)* Provide a description about this routing configuration. |
 
 4. Select **Rule collections** tab or **Next: Rule collections >**.
@@ -156,22 +156,65 @@ In this step, you create a routing configuration to define the UDRs for the netw
    
    | Setting | Value |
     | ------- | ----- |
-    | **Name** | Enter **rc-spoke-001**. |
+    | **Name** | Enter **rule-collection-1**. |
     | **Description** | *(Optional)* Provide a description about this rule collection. |
-    | **Local route setting** | Select **Not specified**. |
+    | **Local route setting** | Select **Direct routing within virtual network**. |
     | **Target network groups** | select **ng-spoke**. |
 
     :::image type="content" source="media/how-to-deploy-user-defined-routes/add-rule-collection.png" alt-text="Screenshot of Add a rule collection window with target network group selected.":::
 
-1. Under **Routing rules**, select **+ add**.
-2. In the **Add a routing rule** window, enter or select the following information:
+    > [!NOTE]
+    > With the **Local route setting** option, you can choose how to route traffic within the same virtual network or subnet:
+    >
+    > | Setting | Description |
+    > | ------- | ----------- |
+    > | **Direct routing within virtual network** | Route traffic directly within the same virtual network. |
+    > | **Direct routing within subnet** | Route traffic directly within the same subnet. |
+    > | **Not specified** | No specific routing behavior. |
+    >
+    > When you select **Direct routing within virtual network** or **Direct routing within subnet**, a UDR is created with a virtual network next-hop for local traffic routing within the same VNet or subnet. However, if the destination CIDR is fully contained within the source CIDR and direct routing is selected, a UDR specifying a network appliance as the next hop won't be set up.
+
+7. Under **Routing rules**, select **+ add**.
+8. In the **Add a routing rule** window, enter or select the following information:
    
    | Setting | Value |
     | ------- | ----- |
     | **Name** | Enter **rr-spoke**. |
-    | **Description** | *(Optional)* Provide a description about this routing rule. |
-    | **Route type** | Select **User defined**. |
-    | **Destination** | Enter **
+    | **Destination** | |
+    | **Destination type** | Select **IP address**. |
+    | **Destination IP addresses/CIDR ranges** | Enter **0.0.0.0/0**. |
+    | **Next hop** | |
+    | **Next hop type** | Select **Virtual network**. |
 
-12345678-9012-345a-b89c-12d4e6ff901g
-6a5f35e9-6951-499d-a36b-83c6c6eed44a
+    :::image type="content" source="media/how-to-deploy-user-defined-routes/add-routing-rule-virtual-network.png" alt-text="Screenshot of Add a routing rule window with selections for virtual network next hop.":::
+
+1. Select **Add** and **Add to save the routing rule collection.
+1. Select **Review + create** and then **Create** to create the routing configuration.
+
+## Deploy the routing configuration
+
+In this step, you deploy the routing configuration to create the UDRs for the network group.
+
+1. On the **Configurations** page, select the checkbox for **routing-configuration** and choose **Deploy** from the taskbar.
+   
+   :::image type="content" source="media/how-to-deploy-user-defined-routes/deploy-routing-configuration.png" alt-text="Screenshot of routing configurations with configuration selected and deploy link.":::
+
+1. In the **Deploy a configuration** window, select or enter the **routing-configuration**
+   
+   | Setting | Value |
+    | ------- | ----- |
+    | **Configurations** |  |
+    | **Include user defined routing configurations in your goal state** | Select checkbox. |
+    | **User defined routing configurations** | Select **routing-configuration**. |
+    | **Region** |  |
+    | **Target regions** | Select **(US) East US**. |
+
+2. Select **Next** and then **Deploy** to deploy the routing configuration.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Learn more about User-Defined Routes (UDRs)](../virtual-network/virtual-networks-udr-overview.md)
+
+
+
