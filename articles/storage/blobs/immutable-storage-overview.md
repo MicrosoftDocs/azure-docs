@@ -11,23 +11,27 @@ ms.date: 09/20/2023
 ms.author: normesta
 ---
 
-# Store business-critical blob data with immutable storage
+# Store business-critical blob data with immutable storage in a write once, read many (WORM) state
 
 Immutable storage for Azure Blob Storage enables users to store business-critical data in a WORM (Write Once, Read Many) state. While in a WORM state, data cannot be modified or deleted for a user-specified interval. By configuring immutability policies for blob data, you can protect your data from overwrites and deletes.
 
 Immutable storage for Azure Blob Storage supports two types of immutability policies:
 
-- **Time-based retention policies**: With a time-based retention policy, users can set policies to store data for a specified interval. When a time-based retention policy is set, objects can be created and read, but not modified or deleted. After the retention period has expired, objects can be deleted but not overwritten. To learn more about time-based retention policies, see [Time-based retention policies for immutable blob data](immutable-time-based-retention-policy-overview.md).
+- **Time-based retention policies**: With a time-based retention policy, users can set policies to store data for a specified interval. When a time-based retention policy is set, objects can be created and read, but not modified or deleted. After the retention period has expired, objects can be deleted but not overwritten. 
 
-- **Legal hold policies**: A legal hold stores immutable data until the legal hold is explicitly cleared. When a legal hold is set, objects can be created and read, but not modified or deleted. To learn more about legal hold policies, see [Legal holds for immutable blob data](immutable-legal-hold-overview.md).
+- **Legal hold policies**: A legal hold stores immutable data until the legal hold is explicitly cleared. When a legal hold is set, objects can be created and read, but not modified or deleted.
+
+These policies can be set at the same time as one another. For example, a user can have both a time-based retention policy and a legal hold set at the same level and at the same time. In order for a write to succeed, you must either have versioning enabled or have neither a legal hold or time-based retention policy on the data. In order for a delete to succeed, there must not be a legal hold or time-based retention policy on the data as well.
 
 The following diagram shows how time-based retention policies and legal holds prevent write and delete operations while they are in effect.
 
 :::image type="content" source="media/immutable-storage-overview/worm-diagram.png" alt-text="Diagram showing how retention policies and legal holds prevent write and delete operations":::
 
+There are two features under the immutable storage umbrella: container-level WORM (CLW) and version-level WORM (VLW). CLW allows policies to be set at the container level only, while VLW allows policies to be set at the account, container, or version level.
+
 ## About immutable storage for blobs
 
-Immutable storage helps healthcare organization, financial institutions, and related industries&mdash;particularly broker-dealer organizations&mdash;to store data securely. Immutable storage can be leveraged in any scenario to protect critical data against modification or deletion.
+Immutable storage helps healthcare organizations, financial institutions, and related industries&mdash;particularly broker-dealer organizations&mdash;to store data securely. Immutable storage can be leveraged in any scenario to protect critical data against modification or deletion.
 
 Typical applications include:
 
@@ -43,94 +47,103 @@ Microsoft retained a leading independent assessment firm that specializes in rec
 
 The Cohasset report is available in the [Microsoft Service Trust Center](https://aka.ms/AzureWormStorage). The [Azure Trust Center](https://www.microsoft.com/trustcenter/compliance/compliance-overview) contains detailed information about Microsoft's compliance certifications. To request a letter of attestation from Microsoft regarding WORM immutability compliance, please contact [Azure Support](https://azure.microsoft.com/support/options/).
 
-## Immutability policy scope
+## Time-based retention policies
 
-Immutability policies can be scoped to a blob version or to a container. How an object behaves under an immutability policy depends on the scope of the policy. For more information about policy scope for each type of immutability policy, see the following sections:
+A time-based retention policy stores blob data in a Write-Once, Read-Many (WORM) format for a specified interval. When a time-based retention policy is set, clients can create and read blobs, but can't modify or delete them. After the retention interval has expired, blobs can be deleted but not overwritten.
 
-- [Time-based retention policy scope](immutable-time-based-retention-policy-overview.md#time-based-retention-policy-scope)
-- [Legal hold scope](immutable-legal-hold-overview.md#legal-hold-scope)
+### Scope
 
-You can configure both a time-based retention policy and a legal hold for a resource (container or blob version), depending on the scope.
+A time-based retention policy can be configured at the following scopes:
 
-### Version-level scope
+- Version-level policy: A time-based retention policy can be configured at the account, container, or version level. If it is configured at the account or container level, it will be inherited by all blobs in the respective account or container.
+- Container-level policy: A time-based retention policy configured at the container level applies to all blobs in that container. Individual blobs can't be configured with their own immutability policies.
 
-To configure an immutability policy that is scoped to a blob version, you must enable support for version-level immutability on either the storage account or a container. After you enable support for version-level immutability on a storage account, you can configure a default policy at the account level that applies to all objects subsequently created in the storage account. If you enable support for version-level immutability on an individual container, you can configure a default policy for that container that applies to all objects subsequently created in the container.
+### Retention interval for a time-based policy
 
-The following table summarizes which immutability policies are supported for each resource scope:
+The minimum retention interval for a time-based retention policy is one day, and the maximum is 146,000 days (400 years).
+When you configure a time-based retention policy, the affected objects will stay in the immutable state during the effective retention period. The effective retention period for objects is equal to the difference between the blob's creation time and the user-specified retention interval. Because a policy's retention interval can be extended, immutable storage uses the most recent value of the user-specified retention interval to calculate the effective retention period.
 
-| Resource | Enable version-level immutability policies | Policy support |
-|--|--|--|
-| Account | Yes, at account creation only. | Supports one default version-level immutability policy. The default policy applies to any new blob versions created in the account after the policy is configured.<br /><br /> Does not support legal hold. |
-| Container | Yes, at container creation. Existing containers must be migrated to support version-level immutability policies. | Supports one default version-level immutability policy. The default policy applies to any new blob versions created in the container after the policy is configured.<br /><br /> Does not support legal hold. |
-| Blob version | N/A | Supports one version-level immutability policy and one legal hold. A policy on a blob version can override a default policy specified on the account or container. |
+For example, suppose that a user creates a time-based retention policy with a retention interval of five years. An existing blob in that container, testblob1, was created one year ago, so the effective retention period for testblob1 is four years. When a new blob, testblob2, is uploaded to the container, the effective retention period for testblob2 is five years from the time of its creation.
 
-### Container-level scope
+### Locked versus unlocked policies
 
-When support for version-level immutability policies has not been enabled for a storage account or a container, then any immutability policies are scoped to the container. A container supports one immutability policy and one legal hold. Policies apply to all objects within the container.
+When you first configure a time-based retention policy, the policy is unlocked for testing purposes. When you have finished testing, you can lock the policy so that it's fully compliant with SEC 17a-4(f) and other regulatory compliance.
 
-## Summary of immutability scenarios
+Both locked and unlocked policies protect against deletes and overwrites. However, you can modify an unlocked policy by shortening or extending the retention period. You can also delete an unlocked policy.
+You can't delete a locked time-based retention policy. You can extend the retention period, but you can't decrease it. A maximum of five increases to the effective retention period is allowed over the lifetime of a locked policy that is defined at the container level. For a policy configured for a blob version, there's no limit to the number of increases to the effective period.
 
-The protection afforded by an immutability policy depends on the scope of the immutability policy and, in the case of a time-based retention policy, whether it is locked or unlocked and whether it is active or expired.
+> [!IMPORTANT]
+> A time-based retention policy must be locked for the blob to be in a compliant immutable (write and delete protected) state for SEC 17a-4(f) and other regulatory compliance. Microsoft recommends that you lock the policy in a reasonable amount of time, typically less than 24 hours. While the unlocked state provides immutability protection, using the unlocked state for any purpose other than short-term testing is not recommended.
 
-### Scenarios with version-level scope
+### Retention policy audit logging
 
-The following table provides a summary of protections provided by version-level immutability policies.
+Each container with a time-based retention policy enabled provides a policy audit log. The audit log includes up to seven time-based retention commands for locked time-based retention policies. Log entries include the user ID, command type, time stamps, and retention interval. The audit log is retained for the policy's lifetime in accordance with the SEC 17a-4(f) regulatory guidelines.
 
-| Scenario | Prohibited operations | Blob protection | Container protection | Account protection |
-|--|--|--|--|--|
-| A blob version is protected by an *active* retention policy and/or a legal hold is in effect | [Delete Blob](/rest/api/storageservices/delete-blob), [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata), [Put Page](/rest/api/storageservices/put-page), and [Append Block](/rest/api/storageservices/append-block)<sup>1</sup> | The blob version cannot be deleted. User metadata cannot be written. <br /><br /> Overwriting a blob with [Put Blob](/rest/api/storageservices/put-blob), [Put Block List](/rest/api/storageservices/put-block-list), or [Copy Blob](/rest/api/storageservices/copy-blob) creates a new version.<sup>2</sup> | Container deletion fails if at least one blob exists in the container, regardless of whether policy is locked or unlocked. | Storage account deletion fails if there is at least one container with version-level immutable storage enabled, or if it is enabled for the account. |
-| A blob version is protected by an *expired* retention policy and no legal hold is in effect | [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata), [Put Page](/rest/api/storageservices/put-page), and [Append Block](/rest/api/storageservices/append-block)<sup>1</sup> | The blob version can be deleted. User metadata cannot be written. <br /><br /> Overwriting a blob with [Put Blob](/rest/api/storageservices/put-blob), [Put Block List](/rest/api/storageservices/put-block-list), or [Copy Blob](/rest/api/storageservices/copy-blob) creates a new version<sup>2</sup>. | Container deletion fails if at least one blob exists in the container, regardless of whether policy is locked or unlocked. | Storage account deletion fails if there is at least one container that contains a blob version with a locked time-based retention policy.<br /><br />Unlocked policies do not provide delete protection. |
+The Azure Activity log provides a more comprehensive log of all management service activities. Azure resource logs retain information about data operations. It's the user's responsibility to store those logs persistently, as might be required for regulatory or other purposes.
 
-<sup>1</sup> The [Append Block](/rest/api/storageservices/append-block) operation is permitted only for policies with the **allowProtectedAppendWrites** or **allowProtectedAppendWritesAll** property enabled. For more information, see [Allow protected append blobs writes](immutable-time-based-retention-policy-overview.md#allow-protected-append-blobs-writes).
-<sup>2</sup> Blob versions are always immutable for content. If versioning is enabled for the storage account, then a write operation to a block blob creates a new version, with the exception of the [Put Block](/rest/api/storageservices/put-block) operation.
+Changes to time-based retention policies at the version level aren't audited.
 
-### Scenarios with container-level scope
+## Legal holds
 
-The following table provides a summary of protections provided by container-level immutability policies.
+A legal hold is a temporary immutability policy that can be applied for legal investigation purposes or general protection policies. A legal hold stores blob data in a Write-Once, Read-Many (WORM) format until it's explicitly cleared. When a legal hold is in effect, blobs can be created and read, but not modified or deleted. Use a legal hold when the period of time that the data must be kept in a WORM state is unknown.
 
-| Scenario | Prohibited operations | Blob protection | Container protection | Account protection |
-|--|--|--|--|--|
-| A container is protected by an *active* time-based retention policy with container scope and/or a legal hold is in effect | [Delete Blob](/rest/api/storageservices/delete-blob), [Put Blob](/rest/api/storageservices/put-blob)<sup>1</sup>, [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata), [Put Page](/rest/api/storageservices/put-page), [Set Blob Properties](/rest/api/storageservices/set-blob-properties), [Snapshot Blob](/rest/api/storageservices/snapshot-blob), [Incremental Copy Blob](/rest/api/storageservices/incremental-copy-blob), [Append Block](/rest/api/storageservices/append-block)<sup>2</sup> | All blobs in the container are immutable for content and user metadata | Container deletion fails if a container-level policy is in effect. | Storage account deletion fails if there is a container with at least one blob present. |
-| A container is protected by an *expired* time-based retention policy with container scope and no legal hold is in effect | [Put Blob](/rest/api/storageservices/put-blob)<sup>1</sup>, [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata), [Put Page](/rest/api/storageservices/put-page), [Set Blob Properties](/rest/api/storageservices/set-blob-properties), [Snapshot Blob](/rest/api/storageservices/snapshot-blob), [Incremental Copy Blob](/rest/api/storageservices/incremental-copy-blob), [Append Block](/rest/api/storageservices/append-block)<sup>2</sup> | Delete operations are allowed. Overwrite operations are not allowed. | Container deletion fails if at least one blob exists in the container, regardless of whether policy is locked or unlocked. | Storage account deletion fails if there is at least one container with a locked time-based retention policy.<br /><br />Unlocked policies do not provide delete protection. |
+### Scope
 
-<sup>1</sup> Azure Storage permits the [Put Blob](/rest/api/storageservices/put-blob) operation to create a new blob. Subsequent overwrite operations on an existing blob path in an immutable container are not allowed.
+A legal hold policy can be configured at either of the following scopes:
 
-<sup>2</sup> The [Append Block](/rest/api/storageservices/append-block) operation is permitted only for policies with the **allowProtectedAppendWrites** or **allowProtectedAppendWritesAll** property enabled. For more information, see [Allow protected append blobs writes](immutable-time-based-retention-policy-overview.md#allow-protected-append-blobs-writes).
+- Version-level policy: A legal hold can be configured on an individual blob version level for granular management of sensitive data.
 
-> [!NOTE]
-> Some workloads, such as [SQL Backup to URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url), create a blob and then add to it. If a container has an active time-based retention policy or legal hold in place, this pattern will not succeed.
+- Container-level policy: A legal hold that is configured at the container level applies to all blobs in that container. Individual blobs can't be configured with their own immutability policies.
 
-## Supported account configurations
+### Tags
 
-Immutability policies are supported for both new and existing storage accounts. The following table shows which types of storage accounts are supported for each type of policy:
+A container-level legal hold must be associated with one or more user-defined alphanumeric tags that serve as identifier strings. For example, a tag may include a case ID or event name.
 
-| Type of immutability policy | Scope of policy | Types of storage accounts supported | Supports hierarchical namespace |
-|--|--|--|--|
-| Time-based retention policy | Version-level scope | General-purpose v2<br />Premium block blob | No |
-| Time-based retention policy | Container-level scope | General-purpose v2<br />Premium block blob<br />General-purpose v1 (legacy)<sup>1</sup><br> Blob storage (legacy) | Yes |
-| Legal hold | Version-level scope | General-purpose v2<br />Premium block blob | No |
-| Legal hold | Container-level scope | General-purpose v2<br />Premium block blob<br />General-purpose v1 (legacy)<sup>1</sup><br> Blob storage (legacy) | Yes |
+### Audit logging
 
-> [!NOTE]
-> Immutability policies are not supported in accounts that have the Network File System (NFS) 3.0 protocol or the SSH File Transfer Protocol (SFTP) enabled on them.
+Each container with a legal hold in effect provides a policy audit log. The log contains the user ID, command type, time stamps, and legal hold tags. The audit log is retained for the policy's lifetime in accordance with the SEC 17a-4(f) regulatory guidelines.
 
-<sup>1</sup> Microsoft recommends upgrading general-purpose v1 accounts to general-purpose v2 so that you can take advantage of more features. For information on upgrading an existing general-purpose v1 storage account, see [Upgrade a storage account](../common/storage-account-upgrade.md).
+The Azure Activity log provides a more comprehensive log of all management service activities. Azure resource logs retain information about data operations. It's the user's responsibility to store those logs persistently, as might be required for regulatory or other purposes.
+
+Changes to legal holds at the version level aren't audited.
+
+## Immutable storage feature options
+
+The following table shows a breakdown of the differences between container-level WORM and version-level WORM:
+
+| Category | CLW | VLW |
+|----------|-----|-----|
+| Policy granularity level | Policies can only be configured at the container level. Each object uploaded into the container will inherit the immutable policy set. | Policies can be configured at the account, container, or blob level. If a policy is set at the account level, all blobs uploaded into that account will inherit the policy; the same logic follows with containers. If a policy is set at multiple levels, the order of precedence will always be Blob -> Container -> Account. |
+| Types of policies available |Two different types of policies can be set at the container level: Time-based retention policies and legal holds.| At the account and container level, only time-based retention policies can be set. At the blob level, both time-based retention policies and legal holds can be set.|
+| Feature dependencies | No other features are a pre-requisite or requirement for this feature to function. | Versioning is a pre-requisite for this feature to be used. |
+| Enablement for existing accounts/container | This feature can be enabled at any time for any existing containers. | Depending on the level of granularity, this feature may not be enabled for all existing accounts/containers (more information on this below). |
+| Account/container deletion | Once a time-based retention policy has been locked on a container, containers may only be deleted if they are empty. | Once VLW is enabled on an account or container level, they may only be deleted if they are empty (more information on this below).|
+| Feature availability | This feature is available for Blob Storage and ADLS Gen2. | This feature is only available for Blob Storage. |
+
+To learn more about container-level WORM, please visit Container-Level WORM Policies. To learn more about version-level WORM, please visit Version-Level WORM Policies.
+
+## Considerations for using CLW vs VLW
+
+Now that it has been established what the key differences in the features are, there are couple considerations for why you may want to use VLW over CLW or vice versa.
+
+| Criteria | CLW Usage | VLW Usage |
+|---|---|---|
+| Organization of data | You want to set policies for specific data sets, which can be categorized by container. All the data in said container needs to be kept in a WORM state for the same amount of time. | You cannot group objects by retention periods— all blobs must be stored with an individual retention time based on that blob’s scenarios, or user has a mixed workload—some groups of data can be clustered into containers while other blobs cannot. You want to set container-level policies as well as blob-level policies within the same account. |
+| Amount of data that requires an immutable policy | You do not need to set policies on more than 10,000 containers per account. | You want to set policies on all data or very large amounts of data that can be delineated by account. You know that if you use CLW, you will have to exceed the 10,000-container limit. |
+| Interest in enabling versioning | You do not want to deal with enabling versioning—either because of the cost or because the workload would create a lot of extra versions to deal with. | You either do not mind or want to use versioning—you know that if they don’t enable versioning, you cannot keep edits or overwrites to immutable blobs as separate versions. |
+| Storage location (Blob Storage vs ADLS Gen2) | Your workload is entirely on ADLS Gen2 and has no interest/plan to switch to Blob Storage currently. | Your workload is either on Blob Storage and can use VLW now, or you are willing to wait for VLW to be available for ADLS Gen2.|
 
 ### Access tiers
 
-All blob access tiers support immutable storage. You can change the access tier of a blob with the Set Blob Tier operation. For more information, see [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md).
+All blob access tiers support immutable storage. You can change the access tier of a blob with the Set Blob Tier operation. For more information, see [Access tiers for blob data](access-tiers-overview.md).
 
 ### Redundancy configurations
 
 All redundancy configurations support immutable storage. For more information about redundancy configurations, see [Azure Storage redundancy](../common/storage-redundancy.md).
 
-### Hierarchical namespace support
-
-Accounts that have a hierarchical namespace support immutability policies that are scoped to the container. However, you cannot rename or move a blob when the blob is in the immutable state and the account has a hierarchical namespace enabled. Both the blob name and the directory structure provide essential container-level data that cannot be modified once the immutable policy is in place.
-
 ## Recommended blob types
 
-Microsoft recommends that you configure immutability policies mainly for block blobs and append blobs. Configuring an immutability policy for a page blob that stores a VHD disk for an active virtual machine is discouraged as writes to the disk will be blocked. Microsoft recommends that you thoroughly review the documentation and test your scenarios before locking any time-based policies.
+Microsoft recommends that you configure immutability policies mainly for block blobs and append blobs. Configuring an immutability policy for a page blob that stores a VHD disk for an active virtual machine is discouraged as writes to the disk will be blocked, or if versioning is enabled, each write will be stored as a new version. Microsoft recommends that you thoroughly review the documentation and test your scenarios before locking any time-based policies. Microsoft recommends that you thoroughly review the documentation and test your scenarios before locking any time-based policies.
 
 ## Immutable storage with blob soft delete
 
@@ -142,7 +155,7 @@ If you enable blob soft delete and then configure an immutability policy, any bl
 
 Azure Storage blob inventory provides an overview of the containers in your storage accounts and the blobs, snapshots, and blob versions within them. You can use the blob inventory report to understand the attributes of blobs and containers, including whether a resource has an immutability policy configured.
 
-When you enable blob inventory, Azure Storage generates an inventory report on a daily basis. The report provides an overview of your data for business and compliance requirements.
+When you enable blob inventory, Azure Storage generates an inventory report daily. The report provides an overview of your data for business and compliance requirements.
 
 For more information about blob inventory, see [Azure Storage blob inventory](blob-inventory.md).
 
@@ -151,7 +164,7 @@ For more information about blob inventory, see [Azure Storage blob inventory](bl
 
 ## Pricing
 
-There is no additional capacity charge for using immutable storage. Immutable data is priced in the same way as mutable data. For pricing details on Azure Blob Storage, see the [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/).
+There is no additional capacity charge for using immutable storage. Immutable data is priced in the same way as mutable data. If you are using VLW, since versioning will be enabled, the bill may be higher due to the additional versions being stored. Please review the versioning pricing policy for more information.  For pricing details on Azure Blob Storage, see the [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 Creating, modifying, or deleting a time-based retention policy or legal hold on a blob version results in a write transaction charge.
 
@@ -159,9 +172,13 @@ If you fail to pay your bill and your account has an active time-based retention
 
 ## Feature support
 
-This feature is incompatible with Point in Time Restore and Last Access Tracking. 
+This feature is incompatible with point in time restore and last access tracking. 
 
-[!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
+Immutability policies are not supported in accounts that have Network File System (NFS) 3.0 protocol or the SSH File Transfer Protocol (SFTP) enabled on them.
+
+Some workloads, such as SQL Backup to URL, create a blob and then add to it.   If a container has an active time-based retention policy or legal hold in place, this pattern will not succeed. Please see the Allow protected append blob writes for more detail.
+
+For more information, see [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md).
 
 ## Next steps
 
