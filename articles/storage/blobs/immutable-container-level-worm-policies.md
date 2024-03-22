@@ -1,7 +1,7 @@
 ---
 title: Container-level WORM policies for immutable blob data
 titleSuffix: Azure Storage
-description: Description goes here.
+description: Description for container-level WORM goes here.
 services: storage
 author: normesta
 

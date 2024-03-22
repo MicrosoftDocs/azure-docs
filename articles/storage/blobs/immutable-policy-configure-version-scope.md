@@ -32,7 +32,7 @@ Configuring a version-level immutability policy is a two-step process:
 
 To configure version-level time-based retention policies, blob versioning must be enabled for the storage account. Keep in mind that enabling blob versioning may have a billing impact. To learn how to enable blob versioning, see [Enable and manage blob versioning](versioning-enable.md).
 
-For information about supported storage account configurations for version-level immutability policies, see [Supported account configurations](immutable-storage-overview.md#supported-account-configurations).
+For information about supported storage account configurations for version-level immutability policies, see [Version-level WORM policies for immutable blob data](immutable-version-level-worm-policies.md).
 
 ## Enable support for version-level immutability
 
