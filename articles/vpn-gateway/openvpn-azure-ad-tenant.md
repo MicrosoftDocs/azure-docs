@@ -38,8 +38,6 @@ If you already have an existing P2S gateway, the steps in this article help you 
 
 ## Authorize the Azure VPN application
 
-### Authorize the application
-
 [!INCLUDE [Steps to authorize the Azure VPN app](../../includes/vpn-gateway-vwan-azure-ad-tenant.md)]
 
 ## <a name="enable-authentication"></a>Configure the VPN gateway - Entra authentication
