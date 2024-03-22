@@ -114,7 +114,7 @@ By default when you create an API, a subscription key is required for API access
 > Use care when configuring a product or an API that doesn't require a subscription. This configuration may be overly permissive and may make an API more vulnerable to certain [API security threats](mitigate-owasp-api-threats.md#security-misconfiguration).
 
 > [!NOTE]
-> Open products have the **Requires subscription** setting disabled, which means users do not need to subscribe to it. For this reason, open products are not displayed on **Products** page of the developer portal.
+> Open products have the **Requires subscription** setting disabled, which means that users don't need to subscribe to it. For this reason, open products aren't displayed on the **Products** page of the developer portal.
 
 You can disable the subscription requirement at the time you create an API or product, or at a later date.
 
