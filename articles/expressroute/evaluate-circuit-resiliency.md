@@ -1,18 +1,22 @@
 ---
-title: Evaluate ExpressRoute circuit resiliency
-description: This article shows you how to evaluate the resiliency of ExpressRoute circuits configured with maximum resiliency by manually failing over the circuits.
+title: Evaluate the resiliency of multi-site redundant ExpressRoute circuits
+description: This article shows you how to evaluate the resiliency of your ExpressRoute circuit deployment by manually testing the failover of your ExpressRoute circuits.
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 03/18/2024
+ms.date: 03/22/2024
 ms.author: duau
 ms.custom: ai-usage
 ---
 
-# Evaluate ExpressRoute circuit resiliency
+# Evaluate the resiliency of multi-site redundant ExpressRoute circuits
 
-ExpressRoute circuits can be configured with either maximum resiliency or standard resiliency. The recommended option, maximum resiliency, provides site (peering location) redundancy in addition to intra-site redundancy. Conversely, standard resiliency only offers intra-site connection redundancy. This article guides you through the process of manually testing the resiliency provided by your ExpressRoute circuit deployment.
+The [guided portal experience](expressroute-howto-circuit-portal-resource-manager.md?pivots=expressroute-preview) assists in the configuration of ExpressRoute circuits for maximum resiliency. The subsequent diagram illustrates the logical architecture of an ExpressRoute circuit designed for maximum resiliency."
+
+:::image type="content" source=".\media\evaluate-circuit-resiliency\maximum-resiliency.png" alt-text="Diagram of ExpressRoute circuits configured with maximum resiliency.":::
+
+Circuits configured for maximum resiliency provide both site (peering location) redundancy and intra-site redundancy. After deploying multi-site redundant ExpressRoute circuits, it's essential to ensure that on-premises routes are advertised over the redundant circuits to fully utilize the benefits of multi-site redundancy. This article offers a guide on how to manually validate your router advertisements and test the resiliency provided by your multi-site redundant ExpressRoute circuit deployment.
 
 ## Prerequisites
 
