@@ -1,5 +1,5 @@
 ---
-title: Concepts - Storage
+title: Architecture - Storage
 description: Learn about storage capacity, storage policies, fault tolerance, and storage integration in Azure VMware Solution private clouds.
 ms.topic: conceptual
 ms.custom: engagement-fy23
@@ -37,7 +37,7 @@ In a three-host cluster, FTT-1 accommodates a single host's failure. Microsoft g
 >When you log on to the vSphere Client, you may notice a VM Storage Policy called **vSAN Default Storage Policy** with **Object Space Reservation** set to **Thick** provisioning. Please note that this is not the default storage policy applied to the cluster. This policy exists for historical purposes and will eventually be modified to **Thin** provisioning. 
 
 >[!NOTE]
->All of the software-defined data center (SDDC) management VMs (vCenter Server, NSX-T Manager, NSX-T Data Center Edges, and others) use the **Microsoft vSAN Management Storage Policy**, with **Object Space Reservation** set to **Thin** provisioning.
+>All of the software-defined data center (SDDC) management VMs (vCenter Server, NSX Manager, NSX Edges, and others) use the **Microsoft vSAN Management Storage Policy**, with **Object Space Reservation** set to **Thin** provisioning.
 
 >[!TIP]
 >If you're unsure if the cluster will grow to four or more, then deploy using the default policy.  If you're sure your cluster will grow, then instead of expanding the cluster after your initial deployment, we recommend deploying the extra hosts during deployment. As the VMs are deployed to the cluster, change the disk's storage policy in the VM settings to either RAID-5 FTT-1 or RAID-6 FTT-2. In reference to [SLA for Azure VMware Solution](https://azure.microsoft.com/support/legal/sla/azure-vmware/v1_1/), note that more than 6 hosts should be configured in the cluster to use an FTT-2 policy (RAID-1, or RAID-6). Also note that the storage policy is not automatically updated based on cluster size. Similarly, changing the default does not automatically update the running VM policies.  
@@ -84,7 +84,7 @@ Now that you've covered Azure VMware Solution storage concepts, you may want to 
 
 - [Azure NetApp Files with Azure VMware Solution](netapp-files-with-azure-vmware-solution.md) - You can use Azure NetApp Files to migrate and run the most demanding enterprise file-workloads in the cloud: databases, and general purpose computing applications, with no code changes. Azure NetApp Files volumes can be attached to virtual machines, and as [datastores](./attach-azure-netapp-files-to-azure-vmware-solution-hosts.md) to extend the vSAN datastore capacity without adding more nodes.
 
-- [vSphere role-based access control for Azure VMware Solution](concepts-identity.md) - You use vCenter Server to manage VM workloads and NSX-T Manager to manage and extend the private cloud. Access and identity management use the CloudAdmin role for vCenter Server and restricted administrator rights for NSX-T Manager.
+- [vSphere role-based access control for Azure VMware Solution](concepts-identity.md) - You use vCenter Server to manage VM workloads and NSX Manager to manage and extend the private cloud. Access and identity management use the CloudAdmin role for vCenter Server and restricted administrator rights for NSX Manager.
 
 
 <!-- LINKS - external-->
