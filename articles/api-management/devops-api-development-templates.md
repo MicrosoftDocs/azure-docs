@@ -2,12 +2,12 @@
 title: Use DevOps and CI/CD to publish APIs
 description: Introduction to API DevOps with Azure API Management
 services: api-management
-author: adrianhall
+author: dlepow
 ms.service: api-management
 
 ms.topic: conceptual
 ms.date: 08/15/2022
-ms.author: adhal
+ms.author: danlep
 ---
 
 # Use DevOps and CI/CD to publish APIs

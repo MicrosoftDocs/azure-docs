@@ -115,7 +115,7 @@ In this section, you test the remote desktop port (RDP) connectivity from one vi
 
 ## Test connectivity to a web address
 
-In this section, you test connectivity between a virtual machine and a web address.
+In this section, you test the connectivity between a virtual machine and a web address.
 
 1. On the **Connection troubleshoot** page. Enter or select the following information:
 
@@ -157,7 +157,7 @@ In this section, you test connectivity between a virtual machine and a web addre
 
 ## Test connectivity to an IP address
 
-In this section, you test connectivity between a virtual machine and an IP address of another virtual machine.
+In this section, you test the connectivity between a virtual machine and an IP address of another virtual machine.
 
 1. On the **Connection troubleshoot** page. Enter or select the following information:
 
@@ -172,7 +172,7 @@ In this section, you test connectivity between a virtual machine and an IP addre
     | **Probe Settings** |  |
     | Preferred IP version | Select **IPv4**. The other available options are: **Both** and **IPv6**. |
     | Protocol | Select **TCP**. The other available option is: **ICMP**. |
-    | Destination port | Enter any port number. Connection troubleshoot doesn't run port scanner test when the destination is an IP address. |
+    | Destination port | Enter **3389**. |
     | Source port | Leave blank or enter a source port number that you want to test. |
     | **Connection Diagnostic** |  |
     | Diagnostics tests | Select **Connectivity**, **NSG diagnostic**, and **Next hop**. |
