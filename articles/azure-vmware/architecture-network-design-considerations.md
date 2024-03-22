@@ -112,6 +112,6 @@ This topology requires a complex initial setup. The topology then works as expec
 
 After learning about network design considerations for Azure VMware Solution, consider exploring the following articles:
 
-- [Azure VMware Solution networking and interconnectivity concepts](concepts-networking.md)
+- [Azure VMware Solution networking and interconnectivity concepts](architecture-networking.md)
 - [Plan the Azure VMware Solution deployment](plan-private-cloud-deployment.md)
 - [Tutorial: Networking planning checklist for Azure VMware Solution](tutorial-network-checklist.md)
