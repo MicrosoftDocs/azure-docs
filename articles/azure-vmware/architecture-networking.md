@@ -87,8 +87,8 @@ Follow these guidelines when advertising routes from your on-premises and Azure 
 
 Now that you understand Azure VMware Solution network and interconnectivity concepts, consider learning about:
 
-- [Azure VMware Solution storage concepts](concepts-storage.md)
-- [Azure VMware Solution identity concepts](concepts-identity.md)
+- [Azure VMware Solution storage concepts](architecture-storage.md)
+- [Azure VMware Solution identity concepts](architecture-identity.md)
 - [Enabling the Azure VMware Solution resource provider](deploy-azure-vmware-solution.md#register-the-microsoftavs-resource-provider)
 
 <!-- LINKS - external -->
