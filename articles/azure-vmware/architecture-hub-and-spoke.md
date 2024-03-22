@@ -68,7 +68,7 @@ Because an ExpressRoute gateway doesn't provide transitive routing between its c
 
   :::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png" alt-text="Diagram showing the Azure VMware Solution to Hub virtual network traffic flow." border="false" lightbox="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png":::
 
-For more information on Azure VMware Solution networking and connectivity concepts, see the [Azure VMware Solution product documentation](./concepts-networking.md).
+For more information on Azure VMware Solution networking and connectivity concepts, see the [Azure VMware Solution product documentation](./architecture-networking.md).
 
 ### Traffic segmentation
 
