@@ -51,7 +51,7 @@ Feature support depends on which backing storage option you select. The followin
 
 | **Feature** | **Local NVMe** | **Local SSD** | **Azure Disks** | **Azure Elastic SAN** |
 |-------------|----------------|---------------|-----------------|-------------------------------|
-| Storage pool expansion/resize | Supported | Supported | Not supported |
+| Storage pool expansion/resize | Supported | Supported | Not supported | Not supported |
 | Replication | Supported | Not supported | Natively supported | Natively supported |
 | Resource consumption | Supported | Supported | Supported | Preview |
 | SSE/CMK | Not supported | Not supported | Supported | Preview |
