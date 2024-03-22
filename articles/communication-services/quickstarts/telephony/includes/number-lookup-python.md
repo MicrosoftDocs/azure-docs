@@ -1,4 +1,4 @@
-Get started with the Phone Numbers client library for Python to look up operator information for phone numbers, which can be used to determine whether and how to communicate with that phone number.  Follow these steps to install the package and look up operator information about a phone number.
+Get started with the Phone Numbers client library for Python to look up operator information for phone numbers, which can be used to determine whether and how to communicate with that phone number. Follow these steps to install the package and look up operator information about a phone number.
 
 > [!NOTE]
 > Find the code for this quickstart on [GitHub](https://github.com/Azure/communication-preview/tree/master/samples/NumberLookup).
@@ -60,7 +60,7 @@ Creating a `DefaultAzureCredential` object requires you to have `AZURE_CLIENT_ID
 
 For a quick ramp-up on how to get these environment variables, you can follow the [Set up service principals from CLI quickstart](../../identity/service-principal-from-cli.md).
 
-Once you have installed the `azure-identity` library, we can continue authenticating the client.
+Once the `azure-identity` library is installed, you can continue authenticating the client.
 
 ```python
 from azure.identity import DefaultAzureCredential
@@ -75,7 +75,7 @@ except Exception as ex:
     print(ex)
 ```
 
-Alternatively, the client can be authenticated using a connection string, also acquired from an Azure Communication Services resource in the [Azure portal](https://portal.azure.com). It's recommended to use a `COMMUNICATION_SERVICES_CONNECTION_STRING` environment variable to avoid putting your connection string in plain text within your code. Learn how to [manage your resource's connection string](../../create-communication-resource.md#store-your-connection-string).
+Alternatively, the client can be authenticated using a connection string, also acquired from an Azure Communication Services resource in the [Azure portal](https://portal.azure.com). Using a `COMMUNICATION_SERVICES_CONNECTION_STRING` environment variable is recommended to avoid putting your connection string in plain text within your code. Learn how to [manage your resource's connection string](../../create-communication-resource.md#store-your-connection-string).
 
 ```python
 # This code retrieves your connection string from an environment variable
@@ -89,7 +89,7 @@ except Exception as ex:
 
 ### Look up phone number formatting
 
-To look up the national and international formatting for a number, call  `search_operator_information` from the `PhoneNumbersClient`.
+To look up the national and international formatting for a number, call `search_operator_information` from the `PhoneNumbersClient`.
 
 ```python
 formatting_results = phone_numbers_client.search_operator_information("<target-phone-number>")
@@ -114,16 +114,16 @@ operator_results = phone_numbers_client.search_operator_information("<target-pho
 
 ### Use operator information
 
-You can now use the operator information.  For this quickstart guide, we can print some of the details to the console.
+You can now use the operator information. For this quickstart guide, we can print some of the details to the console.
 
-First, we can print out details about the number format.
+First, we can print details about the number format.
 
 ```python
 formatting_info = formatting_results.values[0]
 print(str.format("{0} is formatted {1} internationally, and {2} nationally", formatting_info.phone_number, formatting_info.international_format, formatting_info.national_format))
 ```
 
-Next, we can print out details about the phone number and operator.
+Next, we can print details about the phone number and operator.
 
 ```python
 operator_information = operator_results.values[0]
@@ -137,7 +137,7 @@ else:
 print(str.format("{0} is a {1} number, operated in {2} by {3}", operator_information.phone_number, number_type, operator_information.iso_country_code, operator_name))
 ```
 
-You may also use the operator information to determine whether to send an SMS.  For more information on sending an SMS, see the [SMS Quickstart](../../sms/send.md).
+You may also use the operator information to determine whether to send an SMS. For more information on sending an SMS, see the [SMS Quickstart](../../sms/send.md).
 
 ## Run the code
 
