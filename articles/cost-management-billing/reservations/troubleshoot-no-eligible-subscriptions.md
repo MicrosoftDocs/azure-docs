@@ -7,7 +7,7 @@ ms.subservice: reservations
 ms.author: banders
 ms.reviewer: primittal
 ms.topic: troubleshooting
-ms.date: 07/20/2023
+ms.date: 03/21/2024
 ---
 
 # Troubleshoot no eligible subscriptions
