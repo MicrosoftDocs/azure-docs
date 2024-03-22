@@ -126,7 +126,7 @@ AV52 is now available in the East US 2 Region. This node size is used for inte
 
 **Customer-managed keys using Azure Key Vault**
 
-You can use customer-managed keys to bring and manage your master encryption keys to encrypt vSAN. Azure Key Vault allows you to store your privately managed keys securely to access your Azure VMware Solution data.
+You can use customer-managed keys to bring and manage your master encryption keys to encrypt vSAN data. Azure Key Vault allows you to store your privately managed keys securely to access your Azure VMware Solution data.
 
 **Azure NetApp Files - more storage options available**    
 
@@ -140,7 +140,7 @@ For more information, see [Azure Migration and Modernization blog](https://techc
 
 ## January 2023
 
-Starting January 2023, all new Azure VMware Solution private clouds are being deployed with Microsoft signed TLS certificate for vCenter Server and NSX-T Data Center.
+Starting January 2023, all new Azure VMware Solution private clouds are being deployed with Microsoft signed TLS certificate for vCenter Server and NSX.
 
 ## November 2022
 

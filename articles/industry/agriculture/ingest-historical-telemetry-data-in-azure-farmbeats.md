@@ -5,7 +5,7 @@ author: gourdsay
 ms.topic: article
 ms.date: 11/29/2023
 ms.author: angour
-ms.custom: has-azure-ad-ps-ref
+ms.custom: has-azure-ad-ps-ref, azure-ad-ref-level-one-done
 ---
 
 # Ingest historical telemetry data
@@ -67,6 +67,8 @@ Follow these steps:
     ```azurepowershell-interactive
     Connect-AzureAD
     ```
+
+    [!INCLUDE [Azure AD PowerShell deprecation note](~/reusable-content/msgraph-powershell/includes/aad-powershell-deprecation-note.md)]
 
 7. Run the following command. This downloads a script to your home directory.
 
