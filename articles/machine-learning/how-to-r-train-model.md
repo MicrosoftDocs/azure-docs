@@ -44,7 +44,7 @@ Create this folder structure for your project:
 > [!IMPORTANT]
 > All source code goes in the `src` directory.
 
-* The **r-source.R** file is the R script that you adapted to run in production. Make sure you follow the steps to [crate and log your model](how-to-r-modify-script-for-production.md#source-the-r-script.md#crate-your-models-with-the-carrier-package) in this script.
+* The **r-source.R** file is the R script that you adapted to run in production. Make sure you follow the steps to [crate and log your model](how-to-r-modify-script-for-production.md#crate-your-models-with-the-carrier-package) in this script.
 * The **azureml_utils.R** file is necessary. Use [this source code](how-to-r-modify-script-for-production.md#source-the-azureml_utilsr-helper-script) for the contents of the file.
 
 
