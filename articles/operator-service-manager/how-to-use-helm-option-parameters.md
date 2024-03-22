@@ -95,8 +95,8 @@ resource nfdv 'Microsoft.Hybridnetwork/publishers/networkfunctiondefinitiongroup
 
 1. Edit the template to override the default helm install `--atomic` option by adding the following configuration to the `nfResource` properties in the NF ARM Template:
 
-```json
-roleOverrideValues: ["{\"name\": \"Contoso-one\", \"deployParametersMappingRuleProfile\": {\"applicationEnablement\": \"Enabled\", \"helmMappingRuleProfile\": {\"options\": {\"installOptions\": {\"atomic\": \"false\"}},{\"upgradeOptions\": {\"atomic\": \"false\"}}}}}"]
+```bicep
+roleOverrideValues: ['{"name": "Contoso-one", "deployParametersMappingRuleProfile": {"applicationEnablement": "Enabled", "helmMappingRuleProfile": {"options": {"installOptions": {"atomic": "false"}},{"upgradeOptions": {"atomic": "false"}}}}}']
 ```
 
 1. Confirm that you have made this edit correctly by comparing against the following snippet from the Contoso example NF
@@ -116,7 +116,7 @@ resource nfResource 'Microsoft.HybridNetwork/networkFunctions@2023-09-01' = [for
     allowSoftwareUpdate: true
     configurationType: 'Secret'
     secretDeploymentValues: string(values)
-    roleOverrideValues: ['{\"name\": \"Contoso-one\", \"deployParametersMappingRuleProfile\": {\"applicationEnablement\": \"Enabled\", \"helmMappingRuleProfile\": {\"options\": {\"installOptions\": {\"atomic\": \"false\"}},{\"upgradeOptions\": {\"atomic\": \"false\"}}}}}']}}]
+    roleOverrideValues: ['{"name": "Contoso-one", "deployParametersMappingRuleProfile": {"applicationEnablement": "Enabled", "helmMappingRuleProfile": {"options": {"installOptions": {"atomic": "false"}},{"upgradeOptions": {"atomic": "false"}}}}}']}}]
 ```
 
 ### Build the edited ARM Template and upload it to the Artifact Store
@@ -200,7 +200,7 @@ resource nfResource 'Microsoft.HybridNetwork/networkFunctions@2023-09-01' = [for
     allowSoftwareUpdate: true
     configurationType: 'Secret'
     secretDeploymentValues: string(values)
-    roleOverrideValues: ['{\"name\": \"Contoso-one\", \"deployParametersMappingRuleProfile\": {\"applicationEnablement\": \"Enabled\", \"helmMappingRuleProfile\": {\"options\": {\"installOptions\": {\"atomic\": \"false\"}},{\"upgradeOptions\": {\"atomic\": \"false\"}}}}},{\"name\": \"Contoso-two\", \"deployParametersMappingRuleProfile\": {\"applicationEnablement\": \"Enabled\", \"helmMappingRuleProfile\": {\"options\": {\"installOptions\": {\"atomic\": \"false\"}},{\"upgradeOptions\": {\"atomic\": \"false\"}}}}},{\"name\": \"Contoso-three\", \"deployParametersMappingRuleProfile\": {\"applicationEnablement\": \"Enabled\", \"helmMappingRuleProfile\": {\"options\": {\"installOptions\": {\"atomic\": \"true\"}},{\"upgradeOptions\": {\"atomic\": \"true\"}}}}}']}}]
+    roleOverrideValues: ['{"name": "Contoso-one", "deployParametersMappingRuleProfile": {"applicationEnablement": "Enabled", "helmMappingRuleProfile": {"options": {"installOptions": {"atomic": "false"}},{"upgradeOptions": {"atomic": "false"}}}}},{"name": "Contoso-two", "deployParametersMappingRuleProfile": {"applicationEnablement": "Enabled", "helmMappingRuleProfile": {"options": {"installOptions": {"atomic": "false"}},{"upgradeOptions": {"atomic": "false"}}}}},{"name": "Contoso-three", "deployParametersMappingRuleProfile": {"applicationEnablement": "Enabled", "helmMappingRuleProfile": {"options": {"installOptions": {"atomic": "false"}},{"upgradeOptions": {"atomic": "false"}}}}}']}}]
 ```
 
 ## Next steps
