@@ -35,13 +35,13 @@ High data change rates (churn) are a common source of replication issues. You ca
 
 [!INCLUDE [horz-monitor-resource-types](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
 
-Azure Site Recovery shares the Microsoft.RecoveryServices/Vaults namespace with Azure Backup. For more information, see [Azure Site Recovery monitoring data reference](monitor-site-recovery-reference.md).
+Azure Site Recovery shares the `Microsoft.RecoveryServices/Vaults` namespace with Azure Backup. For more information, see [Azure Site Recovery monitoring data reference](monitor-site-recovery-reference.md).
 
 [!INCLUDE [horz-monitor-data-storage](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-data-storage.md)]
 
 [!INCLUDE [horz-monitor-platform-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 
-There are no automatically collected platform metrics for Azure Site Recovery. All the automatically collected metrics for the Microsoft.RecoveryServices/Vaults namespace pertain to the Azure Backup service. For information about Azure Backup metrics, see [Monitor the health of your backups using Azure Backup Metrics (preview)](/azure/backup/metrics-overview).
+There are no automatically collected platform metrics for Azure Site Recovery. All the automatically collected metrics for the `Microsoft.RecoveryServices/Vaults` namespace pertain to the Azure Backup service. For information about Azure Backup metrics, see [Monitor the health of your backups using Azure Backup Metrics (preview)](/azure/backup/metrics-overview).
 
 [!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 

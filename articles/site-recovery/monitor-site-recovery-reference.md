@@ -17,7 +17,7 @@ See [Monitor Azure Site Recovery](monitor-site-recovery.md) for details on the d
 
 ## Metrics
 
-There are no automatically collected metrics for Azure Site Recovery. All the automatically collected metrics for the Microsoft.RecoveryServices/Vaults namespace are for the Azure Backup service. For information about Azure Backup metrics, see [Monitor Azure Backup](/azure/backup/backup-azure-monitoring-built-in-monitor).
+There are no automatically collected metrics for Azure Site Recovery. All the automatically collected metrics for the `Microsoft.RecoveryServices/Vaults` namespace are for the Azure Backup service. For information about Azure Backup metrics, see [Monitor Azure Backup](/azure/backup/backup-azure-monitoring-built-in-monitor).
 
 [!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
