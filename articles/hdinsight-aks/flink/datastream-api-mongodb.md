@@ -1,6 +1,6 @@
 ---
 title: Use DataStream API for MongoDB as a source and sink with Apache Flink®
-description: Learn how to use Apache Flink® DataStream API on HDInsight on AKS for MongoDB as a source and sink
+description: Learn how to use Apache Flink® DataStream API on HDInsight on AKS for MongoDB as a source and sink.
 ms.service: hdinsight-aks
 ms.topic: how-to
 ms.date: 03/22/2024
@@ -14,7 +14,7 @@ Apache Flink provides a MongoDB connector for reading and writing data from and 
 
 This example demonstrates on how to use Apache Flink 1.17.0 on HDInsight on AKS along with your existing MongoDB as Sink and Source with Flink DataStream API MongoDB connector.
 
-MongoDB is a non-relational document database that provides support for JSON-like storage that helps store complex structures easily.
+MongoDB is a nonrelational document database that provides support for JSON-like storage that helps store complex structures easily.
 
 In this example, you learn how to use MongoDB to source and sink with DataStream API.
 
@@ -27,9 +27,9 @@ In this example, you learn how to use MongoDB to source and sink with DataStream
 
 ## Installation of MongoDB on Ubuntu VM
 
-[Install MongoDB on Ubuntu](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-ubuntu/)
+[Install MongoDB on Ubuntu](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-ubuntu/).
 
-[MongoDB Shell commands](https://www.mongodb.com/docs/mongodb-shell/run-commands/)
+[MongoDB Shell commands](https://www.mongodb.com/docs/mongodb-shell/run-commands/).
 
 **Prepare MongoDB environment**:
 ```
@@ -97,7 +97,7 @@ net:
 
 ## Get started
 
-### Create a maven project on IdeaJ, to prepare the pom.xml for MongoDB Collection
+### Create a maven project on IdeaJ to prepare the pom.xml for MongoDB Collection
 
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -300,7 +300,7 @@ public class Event {
 ```
 ### Use MongoDB as a source and sink to ADLS Gen2
 
-Write a program for MongoDB as a source and sink to ADLS Gen2
+Write a program for MongoDB as a source and sink to ADLS Gen2.
 
 **MongoDBSourceDemo.java**
 ``` java
@@ -373,7 +373,7 @@ public class MongoDBSourceDemo {
 ```
 ### Package the maven jar, and submit to Apache Flink UI
 
-Package the maven jar, upload it to Storage and then wget it to [Flink CLI](./flink-web-ssh-on-portal-to-flink-sql.md) or directly upload to Flink UI to run.
+Package the maven jar, and upload it to Storage and then wget it to [Flink CLI](./flink-web-ssh-on-portal-to-flink-sql.md) or directly upload to Flink UI to run.
 
 :::image type="content" source="./media/datastream-api-mongodb/step-3-1-maven-jar-upload-abfs.png" alt-text="Screenshot displays how to upload package to storage." border="true" lightbox="./media/datastream-api-mongodb/step-3-1-maven-jar-upload-abfs.png":::
 
