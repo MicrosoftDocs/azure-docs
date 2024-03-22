@@ -155,7 +155,7 @@ relatedContent:
   - text: Azure PowerShell
     url: /powershell/module/az.apimanagement/new-azapimanagementbackend
   - text: Azure Resource Manager templates
-    url: ../service-fabric/service-fabric-tutorial-deploy-api-management.md)
+    url: ../service-fabric/service-fabric-tutorial-deploy-api-management.yml)
 
 
 # Learn how to [configure policies](api-management-advanced-policies.md) to forward requests to a backend
