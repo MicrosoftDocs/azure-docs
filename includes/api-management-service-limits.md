@@ -49,6 +49,6 @@ To request a limit increase, create a support request from the Azure portal. For
 | Maximum number of authorization requests per minute per connection | 250 | 250 | 250 | 250 | 250 |
 | Maximum number of [workspaces](../articles/api-management/workspaces-overview.md) per service instance | N/A | N/A | N/A | N/A | 100 |
 
-<sup>1</sup>Connections are pooled and reused unless explicitly closed by the backend.<br/>
-<sup>2</sup>Includes an up to 2048-bytes long query string.<br/>
-<sup>3</sup>The number of nodes (or replicas) associated with a self-hosted gateway resource is unlimited in the Premium tier and capped at a single node in the Developer tier.<br/>
+<sup>1</sup> Connections are pooled and reused unless explicitly closed by the backend.<br/>
+<sup>2</sup> Includes an up to 2048-bytes long query string.<br/>
+<sup>3</sup> The number of nodes (or replicas) associated with a self-hosted gateway resource is unlimited in the Premium tier and capped at a single node in the Developer tier.<br/>
