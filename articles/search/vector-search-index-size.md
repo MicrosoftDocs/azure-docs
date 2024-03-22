@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 04/01/2024
+ms.date: 04/03/2024
 ---
 
 # Vector index size limits
@@ -86,7 +86,7 @@ If you aren't sure what your search service limits are, here are two ways to get
 
    + [Before July 1, 2023](search-limits-quotas-capacity.md#services-created-before-july-1-2023)
    + [After July 1, 2023](search-limits-quotas-capacity.md#services-created-after-july-1-2023-in-supported-regions)
-   + [After April 3, 2024](search-limits-quotas-capacity.md#services-created-after-april-1-2024-in-supported-regions)
+   + [After April 3, 2024](search-limits-quotas-capacity.md#services-created-after-april-3-2024-in-supported-regions)
 
 ## How to get vector index size
 
