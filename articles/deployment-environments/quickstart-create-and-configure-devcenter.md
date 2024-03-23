@@ -12,13 +12,13 @@ ms.date: 03/22/2024
 
 # Quickstart: Create and configure a dev center for Azure Deployment Environments
 
-In this quickstart, you set up all the resources in Azure Deployment Environments to enable self-service deployment environments for development teams. Learn how to create and configure a dev center, add a catalog to the dev center, and define an environment type. Then associate the project with the dev center, add environment types, and allow dev access to the project.
+In this quickstart, you set up all the resources in Azure Deployment Environments to enable self-service deployment environments for development teams. Learn how to create and configure a dev center, add a catalog to the dev center, and define an environment type. Then associate a project with the dev center, add environment types, and allow dev access to the project.
 
 A dev center is the top-level resource for Azure Deployment Environments that contains the collection of development projects. In the dev center, you specify the common configuration for your projects, such as catalogs with application templates, and the types of environments to which development teams can deploy their code.
 
 A platform engineering team typically sets up the dev center, attaches external catalogs to the dev center, creates projects, and provides access to development teams. Development teams then create [environments](concept-environments-key-concepts.md#environments) by using [environment definitions](concept-environments-key-concepts.md#environment-definitions), connect to individual resources, and deploy applications. 
 
-After you complete this quickstart, developers can use the developer portal to create environments in the project to deploy their applications.
+After you complete this quickstart, developers can use the [developer portal](quickstart-create-access-environments.md), the [Azure CLI](how-to-create-access-environments.md), or the [Azure Developer CLI](how-to-create-environment-with-azure-developer.md) to create environments in the project to deploy their applications.
 
 To learn more about the components of Azure Deployment Environments, see [Key concepts for Azure Deployment Environments](concept-environments-key-concepts.md).
 
@@ -30,7 +30,7 @@ To learn more about the components of Azure Deployment Environments, see [Key co
 
 ## Create a dev center
 
-First, you create a dev center and attach a catalog to it. The catalog contains the application templates that development teams can use to create environments. In this quickstart, you attach the *Microsoft quick start catalog*, which contains sample environment definitions to help you get started. 
+First, you create a dev center and attach a catalog to it. The catalog contains the application templates, called environment definitions, that development teams can use to create environments. In this quickstart, you attach the *Microsoft quick start catalog*, which contains sample environment definitions to help you get started. 
 
 To create and configure a dev center in Azure Deployment Environments by using the Azure portal:
 
@@ -64,9 +64,9 @@ To create and configure a dev center in Azure Deployment Environments by using t
 
 ## Configure a managed identity for the dev center
 
-After you create a dev center, attach an [identity](concept-environments-key-concepts.md#identities) to the dev center. You can attach either a system-assigned managed identity or a user-assigned managed identity. Learn about the two [types of identities](how-to-configure-managed-identity.md#add-a-managed-identity).
+To allow the creation of environments, the dev center requires permissions on the subscription. You can attach an [identity](concept-environments-key-concepts.md#identities) to the dev center, and then assign the necessary permissions to that identity. You can attach either a system-assigned managed identity or a user-assigned managed identity. Learn about the two [types of identities](how-to-configure-managed-identity.md#add-a-managed-identity).
 
-In this quickstart, you configure a system-assigned managed identity for your dev center. You then assign roles to the managed identity to allow the dev center to create environment types in your subscription and read the catalog.
+In this quickstart, you configure a system-assigned managed identity for your dev center. You then assign roles to the managed identity to allow the dev center to create environment types in your subscription.
 
 ### Attach a system-assigned managed identity
 
