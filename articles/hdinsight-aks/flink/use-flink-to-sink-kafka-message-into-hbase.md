@@ -3,7 +3,7 @@ title: Write messages to Apache HBase® with Apache Flink® DataStream API
 description: Learn how to write messages to Apache HBase with Apache Flink DataStream API
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 03/23/2024
 ---
 
 # Write messages to Apache HBase® with Apache Flink® DataStream API
@@ -166,7 +166,7 @@ hbase:002:0>
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <flink.version>1.16.0</flink.version>
+        <flink.version>1.17.0</flink.version>
         <java.version>1.8</java.version>
         <scala.binary.version>2.12</scala.binary.version>
         <hbase.version>2.4.11</hbase.version>
@@ -362,29 +362,29 @@ We can monitor the jobs on Flink Web UI
 ## Validate HBase table data
 
 ```
-hbase:001:0> scan 'user_click_events'
-ROW                                   COLUMN+CELL
- 0000000853                           column=user_info:ts, timestamp=2023-07-11T06:50:08.505, value=07/11/2023 06:39:44
- 0000000853                           column=user_info:userName, timestamp=2023-07-11T06:50:08.505, value=Sean
- 0000000853                           column=user_info:visitURL, timestamp=2023-07-11T06:50:08.505, value=https://kafka.apache.org
- 0000000854                           column=user_info:ts, timestamp=2023-07-11T06:50:08.556, value=07/11/2023 06:39:45
- 0000000854                           column=user_info:userName, timestamp=2023-07-11T06:50:08.556, value=Pick
- 0000000854                           column=user_info:visitURL, timestamp=2023-07-11T06:50:08.556, value=https://www.bing.com/new
- 0000000855                           column=user_info:ts, timestamp=2023-07-11T06:50:08.609, value=07/11/2023 06:39:45
- 0000000855                           column=user_info:userName, timestamp=2023-07-11T06:50:08.609, value=Pick
- 0000000855                           column=user_info:visitURL, timestamp=2023-07-11T06:50:08.609, value=https://kafka.apache.org
- 0000000856                           column=user_info:ts, timestamp=2023-07-11T06:50:08.663, value=07/11/2023 06:39:45
- 0000000856                           column=user_info:userName, timestamp=2023-07-11T06:50:08.663, value=Andrew
- 0000000856                           column=user_info:visitURL, timestamp=2023-07-11T06:50:08.663, value=https://hadoop.apache.org
- 0000000857                           column=user_info:ts, timestamp=2023-07-11T06:50:08.714, value=07/11/2023 06:39:45
- 0000000857                           column=user_info:userName, timestamp=2023-07-11T06:50:08.714, value=Machael
- 0000000857                           column=user_info:visitURL, timestamp=2023-07-11T06:50:08.714, value=https://flink.apache.org
- 0000000858                           column=user_info:ts, timestamp=2023-07-11T06:50:08.767, value=07/11/2023 06:39:45
- 0000000858                           column=user_info:userName, timestamp=2023-07-11T06:50:08.767, value=Luke
- 0000000858                           column=user_info:visitURL, timestamp=2023-07-11T06:50:08.767, value=/azure/
-                                      hdinsight/hdinsight-overview
-859 row(s)
-Took 0.9531 seconds
+hbase:001:0> scan 'user_click_events',{LIMIT=>5}
+ROW                                  COLUMN+CELL
+0000000000                          column=user_info:ts, timestamp=2024-03-20T02:02:46.932, value=03/20/2024 02:02:43
+0000000000                          column=user_info:userName, timestamp=2024-03-20T02:02:46.932, value=Pick
+0000000000                          column=user_info:visitURL, timestamp=2024-03-20T02:02:46.932, value=
+https://hadoop.apache.org
+0000000001                          column=user_info:ts, timestamp=2024-03-20T02:02:46.991, value=03/20/2024 02:02:43
+0000000001                          column=user_info:userName, timestamp=2024-03-20T02:02:46.991, value=Zheng Hu
+0000000001                          column=user_info:visitURL, timestamp=2024-03-20T02:02:46.991, value=/azure/hdinsight/hdinsight-overview
+0000000002                          column=user_info:ts, timestamp=2024-03-20T02:02:47.001, value=03/20/2024 02:02:43
+0000000002                          column=user_info:userName, timestamp=2024-03-20T02:02:47.001, value=Sean
+0000000002                          column=user_info:visitURL, timestamp=2024-03-20T02:02:47.001, value=
+https://spark.apache.org
+0000000003                          column=user_info:ts, timestamp=2024-03-20T02:02:47.008, value=03/20/2024 02:02:43
+0000000003                          column=user_info:userName, timestamp=2024-03-20T02:02:47.008, value=Zheng Hu
+0000000003                          column=user_info:visitURL, timestamp=2024-03-20T02:02:47.008, value=
+https://kafka.apache.org
+0000000004                          column=user_info:ts, timestamp=2024-03-20T02:02:47.017, value=03/20/2024 02:02:43
+0000000004                          column=user_info:userName, timestamp=2024-03-20T02:02:47.017, value=Chunck
+0000000004                          column=user_info:visitURL, timestamp=2024-03-20T02:02:47.017, value=
+https://github.com
+5 row(s)
+Took 0.9269 seconds
 ```
 
 > [!NOTE]
