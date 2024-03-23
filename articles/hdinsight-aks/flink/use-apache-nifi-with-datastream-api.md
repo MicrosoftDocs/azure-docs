@@ -197,10 +197,10 @@ You can replace 2.4.1 with 3.2.0 in case you're using Kafka 3.2.0 on HDInsight, 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <flink.version>1.16.0</flink.version>
+        <flink.version>1.17.0</flink.version>
         <java.version>1.8</java.version>
         <scala.binary.version>2.12</scala.binary.version>
-        <kafka.version>2.4.1</kafka.version>     ---> Replace 2.4.1 with 3.2.0 , in case you're using HDInsight Kafka 3.2.0
+        <kafka.version>3.2.0</kafka.version>     ---> Replace 2.4.1 with 3.2.0 , in case you're using HDInsight Kafka 3.2.0
     </properties>
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-streaming-java -->
