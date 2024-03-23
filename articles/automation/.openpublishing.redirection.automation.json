@@ -1,11 +1,6 @@
 {
     "redirection": [
         {
-            "source_path_from_root": "/articles/automation/dsc-linux-powershell.md",
-            "redirect_url": "/azure/automation/automation-dsc-overview",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/automation/automation-intro.md",
             "redirect_url": "/azure/automation/overview",
             "redirect_document_id": false
@@ -237,28 +232,33 @@
         },
         {
             "source_path_from_root": "/articles/automation/automation-solution-vm-management.md",
-            "redirect_url": "/azure/azure-functions/start-stop-vms/overview",
+            "redirect_url":"/azure/azure-functions/start-stop-vms/overview",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/automation/automation-solution-vm-management-config.md",
-            "redirect_url": "/azure/azure-functions/start-stop-vms/deploy",
-            "redirect_document_id": false
+             "source_path_from_root": "/articles/automation/automation-solution-vm-management-config.md",
+             "redirect_url": "/azure/azure-functions/start-stop-vms/deploy",
+             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/automation/automation-solution-vm-management-logs.md",
-            "redirect_url": "/azure/azure-functions/start-stop-vms/deploy",
-            "redirect_document_id": false
+             "source_path_from_root": "/articles/automation/automation-solution-vm-management-logs.md",
+             "redirect_url": "/azure/azure-functions/start-stop-vms/deploy",
+             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/automation/automation-solution-vm-management-remove.md",
-            "redirect_url": "/azure/azure-functions/start-stop-vms/remove",
-            "redirect_document_id": false
+             "source_path_from_root": "/articles/automation/automation-solution-vm-management-remove.md",
+             "redirect_url": "/azure/azure-functions/start-stop-vms/remove",
+             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/automation/troubleshoot/start-stop-vm.md",
-            "redirect_url": "/azure/azure-functions/start-stop-vms/troubleshoot",
+             "source_path_from_root": "/articles/automation/troubleshoot/start-stop-vm.md",
+             "redirect_url": "/azure/azure-functions/start-stop-vms/troubleshoot",
+             "redirect_document_id": false
+        },       
+        {
+            "source_path_from_root": "/articles/automation/dsc-linux-powershell.md",
+            "redirect_url": "/azure/automation/automation-dsc-overview",
             "redirect_document_id": false
-        }   
+        }        
     ]
 }
