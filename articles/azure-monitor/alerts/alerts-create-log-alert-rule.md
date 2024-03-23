@@ -18,6 +18,15 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
 [!INCLUDE [alerts-wizard-access](../includes/alerts-wizard-access.md)]
 
+### Edit an existing alert rule
+
+1. In the [portal](https://portal.azure.com/), either from the home page or from a specific resource, select **Alerts** from the left pane.
+1. Select **Alert rules**.
+1. Select the alert rule you want to edit, and then select **Edit**.
+
+    :::image type="content" source="media/alerts-create-log-alert-rule/alerts-edit-log-search-alert-rule.png" alt-text="Screenshot that shows steps to edit an existing log search alert rule.":::
+1. Select any of the tabs for the alert rule to edit the settings.
+
 [!INCLUDE [alerts-wizard-scope](../includes/alerts-wizard-scope.md)]
 
 ## Configure the alert rule conditions
@@ -57,9 +66,10 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
     For sample log search alert queries that query ARG or ADX, see [Log search alert query samples](./alerts-log-alert-query-samples.md)
 
    For limitations:
-   * [Cross-service query limitations](https://learn.microsoft.co/azure/azure-monitor/logs/azure-monitor-data-explorer-proxy#limitations)
-   * [Combine Azure Resource Graph tables with a Log Analytics workspace](https://learn.microsoft.com/azure/azure-monitor/logs/azure-monitor-data-explorer-proxy#combine-azure-resource-graph-tables-with-a-log-analytics-workspace) limitations
-   * Not suppprted in Gov clouds
+   * [Cross-service query limitations](../logs/azure-monitor-data-explorer-proxy.md#limitations)
+   * [Combine Azure Resource Graph tables with a Log Analytics workspace](../logs/azure-monitor-data-explorer-proxy.md#combine-azure-resource-graph-tables-with-a-log-analytics-workspace)
+   * Not supported in government clouds
+
 1. Select **Run** to run the alert.
 1. The **Preview** section shows you the query results. When you're finished editing your query, select **Continue Editing Alert**.
 1. The **Condition** tab opens populated with your log query. By default, the rule counts the number of results in the last five minutes. If the system detects summarized query results, the rule is automatically updated with that information.
@@ -125,13 +135,13 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
     Select values for these fields under **Number of violations to trigger the alert**:
 
-    |Field  |Description  |
-    |---------|---------|
-    |Number of violations|The number of violations that trigger the alert.|
-    |Evaluation period|The time period within which the number of violations occur. |
-    |Override query time range| If you want the alert evaluation period to be different than the query time range, enter a time range here.<br> The alert time range is limited to a maximum of two days. Even if the query contains an **ago** command with a time range of longer than two days, the two-day maximum time range is applied. For example, even if the query text contains **ago(7d)**, the query only scans up to two days of data. If the query requires more data than the alert evaluation you can change the time range manually. If the query contains **ago** command, it will be changed automatically to 2 days (48 hours).|
-
-    > [!NOTE]
+   |Field  |Description  |
+   |---------|---------|
+   |Number of violations|The number of violations that trigger the alert.|
+   |Evaluation period|The time period within which the number of violations occur. |
+   |Override query time range| If you want the alert evaluation period to be different than the query time range, enter a time range here.<br> The alert time range is limited to a maximum of two days. Even if the query contains an **ago** command with a time range of longer than two days, the two-day maximum time range is applied. For example, even if the query text contains **ago(7d)**, the query only scans up to two days of data. If the query requires more data than the alert evaluation, you can change the time range manually. If the query contains an **ago** command, it will be changed automatically to 2 days (48 hours).|
+   
+   > [!NOTE]
     > If you or your administrator assigned the Azure Policy **Azure Log Search Alerts over Log Analytics workspaces should use customer-managed keys**, you must select **Check workspace linked storage**. If you don't, the rule creation will fail because it won't meet the policy requirements.
 
 1. The **Preview** chart shows query evaluations results over time. You can change the chart period or select different time series that resulted from a unique alert splitting by dimensions.

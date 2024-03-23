@@ -32,7 +32,7 @@ The Geo-Disaster recovery feature ensures that the entire configuration of a nam
     - Enable auto scale
     - Disable local authentication
 - Pairing a [partitioned namespace](enable-partitions-premium.md) with a non-partitioned namespace isn't supported.
-- If `AutoDeleteOnIdle` is turned on an entity, the entity might not be present in the secondary namespace when the failover occurs. When the secondary becomes primary the last access status, which is not part of the metadata, won't be available to the new primary and entity may be deleted as part of `AutoDeleteOnIdle` clean up.
+- If `AutoDeleteOnIdle` is enabled for an entity, the entity might not be present in the secondary namespace when the failover occurs. When the secondary becomes primary the last access status, which is not part of the metadata, won't be available to the new primary and entity may be deleted as part of `AutoDeleteOnIdle` clean up.
  
 > [!TIP]
 > For replicating the contents of queues and topic subscriptions and operating corresponding namespaces in active/active configurations to cope with outages and disasters, don't lean on this Geo-disaster recovery feature set, but follow the [replication guidance](service-bus-federation-overview.md).  
@@ -197,7 +197,7 @@ If pairing between primary and secondary namespace already exists, private endpo
 ### Recommended configuration
 When creating a disaster recovery configuration for your application and Service Bus, you must create private endpoints for both primary and secondary Service Bus namespaces against virtual networks hosting both primary and secondary instances of your application.
 
-Let's say you have two virtual networks: VNET-1, VNET-2 and these primary and second namespaces: `ServiceBus-Namespace1-Primary`, `ServiceBus-Namespace2-Secondary`. You need to do the following steps: 
+Let's say you have two virtual networks: VNET-1, VNET-2 and these primary and secondary namespaces: `ServiceBus-Namespace1-Primary`, `ServiceBus-Namespace2-Secondary`. You need to do the following steps: 
 
 - On `ServiceBus-Namespace1-Primary`, create two private endpoints that use subnets from VNET-1 and VNET-2
 - On `ServiceBus-Namespace2-Secondary`, create two private endpoints that use the same subnets from VNET-1 and VNET-2 

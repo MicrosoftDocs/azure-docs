@@ -293,7 +293,7 @@ if err != nil {
 defer speechConfig.Close()
 
 speechConfig.SetSpeechSynthesisLanguage("en-US")
-speechConfig.SetSpeechSynthesisVoiceName("en-US-JennyNeural")
+speechConfig.SetSpeechSynthesisVoiceName("en-US-AvaMultilingualNeural")
 ```
 
 All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is, "I'm excited to try text to speech," and you select `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent.
@@ -320,7 +320,7 @@ First, create a new XML file for the SSML configuration in your root project dir
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-  <voice name="en-US-JennyNeural">
+  <voice name="en-US-AvaMultilingualNeural">
     When you're on the freeway, it's a good idea to use a GPS.
   </voice>
 </speak>
@@ -329,7 +329,7 @@ First, create a new XML file for the SSML configuration in your root project dir
 Next, you need to change the speech synthesis request to reference your XML file. The request is mostly the same, but instead of using the `SpeakTextAsync()` function, you use `SpeakSsmlAsync()`. This function expects an XML string, so you first load your SSML configuration as a string. From this point, the result object is exactly the same as previous examples.
 
 > [!NOTE]
-> To set the voice without using SSML, you can set the property on  `SpeechConfig` by using `speechConfig.SetSpeechSynthesisVoiceName("en-US-JennyNeural")`.
+> To set the voice without using SSML, you can set the property on  `SpeechConfig` by using `speechConfig.SetSpeechSynthesisVoiceName("en-US-AvaMultilingualNeural")`.
 
 ## Subscribe to synthesizer events
 
@@ -445,7 +445,7 @@ func main() {
     speechSynthesizer.VisemeReceived(visemeReceivedHandler)
     speechSynthesizer.WordBoundary(wordBoundaryHandler)
 
-    speechSynthesisVoiceName := "en-US-JennyNeural"
+    speechSynthesisVoiceName := "en-US-AvaMultilingualNeural"
 
     ssml := fmt.Sprintf(`<speak version='1.0' xml:lang='en-US' xmlns='http://www.w3.org/2001/10/synthesis' xmlns:mstts='http://www.w3.org/2001/mstts'>
             <voice name='%s'>
