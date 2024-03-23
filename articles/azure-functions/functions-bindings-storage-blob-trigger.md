@@ -545,13 +545,13 @@ The way that you can control the number of concurrent executions depends on the 
 
 When using version 5.0.0 of the Storage extension or a later version, you control trigger concurrency by using the `maxDegreeOfParallelism` setting in the [blobs configuration in host.json](functions-bindings-storage-blob.md#hostjson-settings). 
 
-### [Before extension 5.x](#tab/extensionv4)
+### [Pre-extension 5.x](#tab/extensionv4)
 
 Because the blob trigger uses a queue internally, the maximum number of concurrent function invocations is controlled by the [queues configuration in host.json](functions-bindings-storage-queue.md#host-json). 
 
 ---
 
-Limits applies separately to each function that uses a blob trigger.
+Limits apply separately to each function that uses a blob trigger.
 
 ## host.json properties
 
