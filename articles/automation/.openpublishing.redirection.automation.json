@@ -2,7 +2,8 @@
     "redirection": [
         {
             "source_path_from_root": "/articles/automation/dsc-linux-powershell.md",
-            "redirect_url": "/azure/automation/automation-dsc-overview"
+            "redirect_url": "/azure/automation/automation-dsc-overview",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/automation/automation-intro.md",
@@ -258,6 +259,6 @@
             "source_path_from_root": "/articles/automation/troubleshoot/start-stop-vm.md",
             "redirect_url": "/azure/azure-functions/start-stop-vms/troubleshoot",
             "redirect_document_id": false
-        }
+        }   
     ]
 }
