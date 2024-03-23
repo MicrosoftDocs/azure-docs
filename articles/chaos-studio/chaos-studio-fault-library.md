@@ -559,7 +559,8 @@ The parameters **destinationFilters** and **inboundDestinationFilters** use the 
 ### Limitations
 
 * The agent-based network faults currently only support IPv4 addresses.
-* When running in a Linux environment, the agent-based network latency fault can only affect **outbound** traffic, not inbound traffic. The fault can affect **both inbound and outbound** traffic on Windows environments (via the `inboundDestinationFilters` and `destinationFilters` parameters).
+* When running on Linux, the network latency fault can only affect **outbound** traffic, not inbound traffic. The fault can affect **both inbound and outbound** traffic on Windows environments (via the `inboundDestinationFilters` and `destinationFilters` parameters).
+* When running on Windows, the network latency fault currently only works with TCP or UDP packets.
 
 
 ## Network disconnect
@@ -621,7 +622,7 @@ The parameters **destinationFilters** and **inboundDestinationFilters** use the 
 
 * The agent-based network faults currently only support IPv4 addresses.
 * The network disconnect fault only affects new connections. Existing active connections continue to persist. You can restart the service or process to force connections to break.
-* On Windows, the network disconnect fault currently only works with TCP or UDP packets.
+* When running on Windows, the network disconnect fault currently only works with TCP or UDP packets.
 
 ## Network disconnect with firewall rule
 
@@ -724,6 +725,8 @@ The parameters **destinationFilters** and **inboundDestinationFilters** use the 
 ### Limitations
 
 * The agent-based network faults currently only support IPv4 addresses.
+* When running on Windows, the network packet loss fault currently only works with TCP or UDP packets.
+
 
 ## Virtual Machine shutdown
 | Property | Value |
