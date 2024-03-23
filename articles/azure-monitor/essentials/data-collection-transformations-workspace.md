@@ -26,10 +26,11 @@ See [Tables that support transformations in Azure Monitor Logs](../logs/tables-f
 See the following tutorials for creating a workspace transformation DCR:
 
 - [Add workspace transformation to Azure Monitor Logs by using the Azure portal](../logs/tutorial-workspace-transformations-portal.md)
-- [Add workspace transformation to Azure Monitor Logs by using Resource Manager templates](../logs/tutorial-workspace-transformations-api.md) |
+- [Add workspace transformation to Azure Monitor Logs by using Resource Manager templates](../logs/tutorial-workspace-transformations-api.md) 
 
 
 ## Next steps
 
-[Create a data collection rule](../agents/data-collection-rule-azure-monitor-agent.md) and an association to it from a virtual machine by using Azure Monitor Agent.
+- [Use the Azure portal to create a workspace transformation DCR.](../logs/tutorial-workspace-transformations-api.md)
+- [Use ARM templates to create a workspace transformation DCR.](../logs/tutorial-workspace-transformations-portal.md)
 
