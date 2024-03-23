@@ -56,7 +56,7 @@ landingContent:
       - linkListType: how-to-guide
         links: 
           - text: List role assignments
-            url: role-assignments-list-portal.md
+            url: /azure/role-based-access-control/role-assignments-list-portal
   # Card
   - title: Assign roles
     linkLists: 
@@ -76,8 +76,8 @@ landingContent:
             url: role-assignments-cli.md
           - text: REST API
             url: role-assignments-rest.md
-          - text: Template
-            url: role-assignments-template.md
+          - text: Bicep
+            url: quickstart-role-assignments-bicep.md
   # Card
   - title: Create or update custom roles
     linkLists: 
@@ -89,12 +89,6 @@ landingContent:
         links: 
           - text: Create a custom role - Portal
             url: custom-roles-portal.md
-      - linkListType: tutorial
-        links: 
-          - text: Create a custom role - PowerShell
-            url: tutorial-custom-role-powershell.md
-          - text: Create a custom role - CLI
-            url: tutorial-custom-role-cli.md
   # Card
   - title: Add ABAC conditions
     linkLists: 
