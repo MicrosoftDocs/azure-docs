@@ -12,7 +12,7 @@ ms.custom: subject-armqs, mode-arm, devx-track-bicep
 
 # Deployment
 
-Azure App Configuration supports following methods to read and manage your configuration for deployment:
+Azure App Configuration supports the following methods to read and manage your configuration for deployment:
 
 - [ARM template](./quickstart-resource-manager.md)
 - [Bicep](./quickstart-bicep.md)
@@ -31,20 +31,20 @@ To learn more about Azure RBAC and Microsoft Entra ID, see [Authorize access to 
 
 ## Manage Azure App Configuration data in deployment
 
-Azure App Configuration data, such as key-values and snapshots, can be managed in deployment. It is recommended to configure **Pass-through** ARM authentication mode to require proper Azure App Configuration data plane authorization.
+Azure App Configuration data, such as key-values and snapshots, can be managed in deployment. When managing App Configuration data using this method, it is recommended to set configuration store's ARM authentication mode to **Pass-through**. This ensures that data access requires a combination of data plane and ARM management roles as well as ensuring that data access can be properly attributed to the deployment caller for audit purpose.
 
 ### ARM authentication mode
 
 # [Azure portal](#tab/portal)
 
-To configure ARM authentication mode of Azure App Configuration resource in the Azure portal, follow these steps:
+To configure the ARM authentication mode of an Azure App Configuration resource in the Azure portal, follow these steps:
 
-1. Navigate to your Azure App Configuration resource in the Azure portal.
-2. Locate the **Access settings** setting under **Settings**.
+1. Navigate to your Azure App Configuration resource in the Azure portal
+2. Locate the **Access settings** setting under **Settings**
 
     :::image type="content" border="true" source="./media/access-settings-blade.png" alt-text="Screenshot showing how to access an Azure App Configuration resources access settings blade":::
 
-3. Select the recommended **Pass-through** authentication mode under **Azure Resource Manager Authentication Mode**.
+3. Select the recommended **Pass-through** authentication mode under **Azure Resource Manager Authentication Mode**
 
     :::image type="content" border="true" source="./media/quickstarts/deployment/select-passthrough-authentication-mode.png" alt-text="Screenshot showing pass-through authentication mode being selected under Azure Resource Manager Authentication Mode":::
 
@@ -55,36 +55,43 @@ To configure ARM authentication mode of Azure App Configuration resource in the 
 
 ### Azure App Configuration Authorization
 
-In addition to the permissions required for managing Azure App Configuration resource, you must have Azure App Configuration data plane permissions to read and manage Azure App Configuration data in deployment under pass-through mode. Azure App Configuration data plane permissions include Microsoft.AppConfiguration/configurationStores/keyValues/read and Microsoft.AppConfiguration/configurationStores/snapshots/read. Built-in roles with this action include:
+When your App Configuration resource has its ARM authentication mode set to **Pass-through**, you must have Azure App Configuration data plane permissions to read and manage Azure App Configuration data in deployment. This is in addition to baseline management permission requirements of the resource.  Azure App Configuration data plane permissions include Microsoft.AppConfiguration/configurationStores/keyValues/read and Microsoft.AppConfiguration/configurationStores/snapshots/read. Built-in roles with this action include:
 
 - App Configuration Data Owner
 - App Configuration Data Reader
 
 To learn more about Azure RBAC and Microsoft Entra ID, see [Authorize access to Azure App Configuration using Microsoft Entra ID](./concept-enable-rbac.md).
 
-### ARM private access
+### Private network access
 
-[Azure Resource Management Private Link](../azure-resource-manager/management/create-private-link-access-portal.md) can be set up to restrict access for managing resources in your virtual network. Azure App Configuration supports ARM Private Link access to the App Configuration data under pass-through authentication mode and ARM private access enabled.
+When an App Configuration resource is restricted to private network access, deployments accessing App Configuration data through public networks will be blocked. To enable successful deployments when access to an App Configuration resource is restricted to private networks the following actions must be taken:
+
+- [Azure Resource Management Private Link](../azure-resource-manager/management/create-private-link-access-portal.md) must be set up
+- The App Configuration resource must have its ARM authentication mode set to **Pass-through**
+- The App Configuration resource must have its ARM private access enabled
+- Deployments accessing App Configuration data must run through the configured ARM private link
+
+If all of these criteria are met, then deployments accessing App Configuration data will be successful.
 
 # [Azure portal](#tab/portal)
 
-To configure ARM private access of Azure App Configuration resource in the Azure portal, follow these steps:
+To enable the ARM private access of an Azure App Configuration resource in the Azure portal, follow these steps:
 
-1. Navigate to your Azure App Configuration resource in the Azure portal.
-2. Locate the **Networking** setting under **Settings**.
+1. Navigate to your Azure App Configuration resource in the Azure portal
+2. Locate the **Networking** setting under **Settings**
 
     :::image type="content" border="true" source="./media/networking-blade.png" alt-text="Screenshot showing how to access an Azure App Configuration resources networking blade":::
 
-3. Check **Enable Azure Resource Manager Private Access** under **Private Access**.
+3. Check **Enable Azure Resource Manager Private Access** under **Private Access**
 
     :::image type="content" border="true" source="./media/quickstarts/deployment/enable-arm-private-access.png" alt-text="Screenshot showing Enable Azure Resource Manager Private Access is checked":::
 
 > [!NOTE]
-> ARM private access can only be enabled under pass-through authentication mode.
+> ARM private access can only be enabled under **Pass-through** authentication mode.
 
 ## Next steps
 
-To learn about adding feature flag and Key Vault reference to an App Configuration store, check out the ARM template examples.
+To learn about deployment using ARM template and Bicep, check below documentations.
 
-- [app-configuration-store-ff](https://azure.microsoft.com/resources/templates/app-configuration-store-ff/)
-- [app-configuration-store-keyvaultref](https://azure.microsoft.com/resources/templates/app-configuration-store-keyvaultref/)
+- [Quickstart: Create an Azure App Configuration store by using an ARM template](./quickstart-resource-manager.md)
+- [Quickstart: Create an Azure App Configuration store using Bicep](./quickstart-bicep.md)
