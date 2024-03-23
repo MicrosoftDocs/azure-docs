@@ -201,12 +201,12 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/migrate/tutorial-assess-webapps-physical.md",
+            "source_path_from_root": "/articles/migrate/tutorial-assess-webapps-physical.md",
             "redirect_URL": "tutorial-assess-webapps",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/migrate/tutorial-assess-webapps-hyper-v.md",
+            "source_path_from_root": "/articles/migrate/tutorial-assess-webapps-hyper-v.md",
             "redirect_URL": "tutorial-assess-webapps",
             "redirect_document_id": false
         },
