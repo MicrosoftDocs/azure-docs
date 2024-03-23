@@ -79,5 +79,4 @@ The users can now view the project and the specific environment type that you gr
 
 ## Related content
 
-* [Create and configure an Azure Deployment Environments project](./quickstart-create-and-configure-projects.md)
 * [Provide access for dev team leads to Deployment Environments projects](./how-to-configure-project-admin.md)
