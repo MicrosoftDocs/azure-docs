@@ -246,7 +246,7 @@ The following information can be helpful when you work with [resources](./syntax
      For more information about connecting to virtual machines, see:
 
    * [What is Azure Bastion?](../../bastion/bastion-overview.md)
-   * [How to connect and sign on to an Azure virtual machine running Windows](../../virtual-machines/windows/connect-rdp.md)
+   * [How to connect and sign on to an Azure virtual machine running Windows](../../virtual-machines/windows/connect-rdp.yml)
    * [Setting up WinRM access for Virtual Machines in Azure Resource Manager](../../virtual-machines/windows/connect-winrm.md)
    * [Connect to a Linux VM](../../virtual-machines/linux-vm-connect.md)
 

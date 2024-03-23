@@ -582,8 +582,8 @@
         displayName: MTHR, multi-tenant, multitenant, hosting, rights, windows 10, windows 11, find
         href: ./windows/windows-desktop-multitenant-hosting-deployment.md
     - name: Generalizing a VM
-      displayName: generalize sysprep deprovision
-      href: generalize.md
+      displayName: generalize sysprep deprovision 
+      href: generalize.yml
     - name: Linux custom images
       items:
       - name: Overview
@@ -934,7 +934,7 @@
     - name: Windows
       items:
       - name: Remote Desktop
-        href: ./windows/connect-rdp.md
+        href: ./windows/connect-rdp.yml
       - name: SSH
         href: ./windows/connect-ssh.md
       - name: WinRM
@@ -1448,7 +1448,7 @@
     - name: Configure private links for disks - CLI
       href: ./linux/disks-export-import-private-links-cli.md
     - name: Configure private links for disks - Portal
-      href: disks-enable-private-links-for-import-export-portal.md
+      href: disks-enable-private-links-for-import-export-portal.yml
     - name: Upload a vhd to a disk - PowerShell
       href: ./windows/disks-upload-vhd-to-managed-disk-powershell.md
     - name: Upload a vhd to a disk - CLI
@@ -1550,7 +1550,7 @@
       href: ./linux/detach-disk.md
     - name: Windows
       displayName: detach a disk
-      href: ./windows/detach-disk.md
+      href: ./windows/detach-disk.yml
   - name: Expand a disk
     items:
     - name: Linux
