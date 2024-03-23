@@ -1,5 +1,5 @@
 {
-    "redirection": [
+    "redirections": [
         {
             "source_path_from_root": "/articles/migrate/migrate-architecture.md",
             "redirect_url": "agent-based-migration-architecture",

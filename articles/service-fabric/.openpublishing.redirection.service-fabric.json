@@ -1,5 +1,5 @@
 {
-    "redirection": [
+    "redirections": [
         {
             "source_path_from_root": "/articles/service-fabric/how-to-enable-managed-cluster-disk-encryption.md",
             "redirect_url": "/azure/service-fabric/how-to-managed-cluster-enable-disk-encryption",

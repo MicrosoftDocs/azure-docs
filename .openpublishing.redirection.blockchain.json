@@ -1,5 +1,5 @@
 {
-    "redirection": [
+    "redirections": [
         {
             "source_path_from_root": "/articles/blockchain/tokens/account-management.md",
             "redirect_url": "https://azure.microsoft.com/solutions/blockchain",

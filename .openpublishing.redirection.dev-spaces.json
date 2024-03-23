@@ -1,5 +1,5 @@
 {
-    "redirection": [
+    "redirections": [
         {
             "source_path_from_root": "/articles/dev-spaces/index.yml",
             "redirect_url": "/previous-versions/azure/dev-spaces/index",

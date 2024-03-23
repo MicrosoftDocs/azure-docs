@@ -1,5 +1,5 @@
 {
-    "redirection": [
+    "redirections": [
         {
             "source_path_from_root": "/articles/automation/automation-intro.md",
             "redirect_url": "/azure/automation/overview",
