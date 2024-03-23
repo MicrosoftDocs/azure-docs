@@ -4,7 +4,7 @@ description: Learn how to create HDInsight clusters with secure transfer enabled
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 07/10/2023
+ms.date: 03/23/2024
 ---
 
 # Apache Hadoop clusters with secure transfer storage accounts in Azure HDInsight
