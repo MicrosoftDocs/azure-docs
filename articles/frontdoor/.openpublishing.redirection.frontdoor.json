@@ -1,0 +1,194 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/frontdoor/front-door-whats-new.md",
+            "redirect_url": "https://azure.microsoft.com/updates/?category=networking\u0026query=Azure%20Front%20Door",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/resource-manager-template-samples.md",
+            "redirect_url": "/azure/frontdoor/front-door-quickstart-template-samples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/concept-health-probes.md",
+            "redirect_url": "/azure/frontdoor/front-door-health-probes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/concept-ddos.md",
+            "redirect_url": "/azure/frontdoor/front-door-ddos",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/concept-rule-set-match-conditions.md",
+            "redirect_url": "/azure/frontdoor/rules-match-conditions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/front-door-rules-engine-match-conditions.md",
+            "redirect_url": "/azure/frontdoor/rules-match-conditions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/geo-filtering.md",
+            "redirect_url": "/azure/frontdoor/front-door-geo-filtering",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/front-door-geo-filtering.md",
+            "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-geo-filtering",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/web-application-firewall/scripts/waf-custom-rules-powershell.md",
+            "redirect_url": "/azure/web-application-firewall/ag/configure-waf-custom-rules",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/edge-locations.md",
+            "redirect_url": "/azure/frontdoor/edge-locations-by-region",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/edge-locations-by-abbreviation.md",
+            "redirect_url": "/azure/frontdoor/edge-locations-by-abbreviation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/edge-locations-abbreviation.md",
+            "redirect_url": "/azure/frontdoor/edge-locations-by-abbreviation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/troubleshoot-route-issues.md",
+            "redirect_url": "/azure/frontdoor/troubleshoot-issues",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/front-door-troubleshoot-routing.md",
+            "redirect_url": "/azure/frontdoor/troubleshoot-issues",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/concept-rule-set-actions.md",
+            "redirect_url": "/azure/frontdoor/front-door-rules-engine-actions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/concept-rules-set.md",
+            "redirect_url": "/azure/frontdoor/front-door-rules-engine",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/concept-caching.md",
+            "redirect_url": "/azure/frontdoor/front-door-caching",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/concept-route.md",
+            "redirect_url": "/azure/frontdoor/front-door-route-matching",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/front-door-backend-pool.md",
+            "redirect_url": "/azure/frontdoor/origin",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/concept-origin.md",
+            "redirect_url": "/azure/frontdoor/origin",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/concept-private-link.md",
+            "redirect_url": "/azure/frontdoor/private-link",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/concept-end-to-end-tls.md",
+            "redirect_url": "/azure/frontdoor/end-to-end-tls",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/front-door-routing-methods.md",
+            "redirect_url": "/azure/frontdoor/routing-methods",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/front-door-health-probes.md",
+            "redirect_url": "/azure/frontdoor/health-probes",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/create-front-door-portal.md",
+            "redirect_url": "/azure/frontdoor/create-front-door-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/concept-rule-set-url-redirect-and-rewrite.md",
+            "redirect_url": "/azure/frontdoor/front-door-url-redirect",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/index.yml",
+            "redirect_url": "/azure/frontdoor/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/front-door-lb-with-azure-app-delivery-suite.md",
+            "redirect_url": "/azure/architecture/guide/technology-choices/load-balancing-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/overview.md",
+            "redirect_url": "/azure/frontdoor/front-door-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/how-to-configure-endpoint-manager.md",
+            "redirect_url": "/azure/frontdoor/how-to-configure-endpoints",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/create-front-door-cli.md",
+            "redirect_url": "/azure/frontdoor/create-front-door-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/how-to-create-origin.md",
+            "redirect_url": "/azure/frontdoor/how-to-configure-origin",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/front-door-application-security.md",
+            "redirect_url": "/azure/frontdoor/web-application-firewall",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/how-to-configure-route.md",
+            "redirect_url": "/azure/frontdoor/how-to-configure-endpoints",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/concept-endpoint-manager.md",
+            "redirect_url": "/azure/frontdoor/manager",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/faq.md",
+            "redirect_url": "/azure/frontdoor/front-door-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/tier-comparison.md",
+            "redirect_url": "/azure/frontdoor/front-door-cdn-comparison",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cdn/index.yml",
+            "redirect_url": "/azure/frontdoor",
+            "redirect_document_id": false
+        }
+    ]
+}
