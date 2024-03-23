@@ -35,9 +35,9 @@ The following v2 tiers are generally available:
 
 ## Networking options
 
-The Standard v2 tier supports VNet integration to allow your API Management instance to reach API backends that are isolated in a VNet. The API Management gateway, management plane, and developer portal remain publicly accessible from the internet. The VNet must be in the same region as the API Management instance. [Learn more](integrate-vnet-outbound.md).
+The Standard v2 tier supports VNet integration to allow your API Management instance to reach API backends that are isolated in a single connected VNet. The API Management gateway, management plane, and developer portal remain publicly accessible from the internet. The VNet must be in the same region as the API Management instance. [Learn more](integrate-vnet-outbound.md).
 
-## Features and limitations
+## Features
 
 ### API version
 
@@ -47,7 +47,6 @@ The v2 tiers are supported in API Management API version **2023-03-01-preview** 
 
 The v2 tiers are available in the following regions:
 
-* East US
 * South Central US
 * West US
 * France Central
@@ -69,7 +68,7 @@ Most capabilities of the classic API Management tiers are supported in the v2 ti
 
 ### Limitations
 
-Currently, the following API Management capabilities are unavailable in the v2 tiers.
+The following API Management capabilities are currently unavailable in the v2 tiers.
 
 **Infrastructure and networking**
 * Zone redundancy 
@@ -91,7 +90,20 @@ Currently, the following API Management capabilities are unavailable in the v2 t
 * Quota by key policy
 * Cipher configuration
 * Client certificate renegotiation
+* Request tracing
 * Requests to the gateway over localhost
+
+## Resource limits
+
+The following resource limits apply to the v2 tiers.
+
+[!INCLUDE [api-management-service-limits-v2](../../includes/api-management-service-limits-v2.md)]
+
+## Developer portal limits
+
+The following limits apply to the developer portal in the v2 tiers.
+
+[!INCLUDE [api-management-developer-portal-limits-v2](../../includes/api-management-developer-portal-limits-v2.md)]
 
 ## Deployment
 
@@ -111,13 +123,13 @@ A: They're not related. stv2 is a [compute platform](compute-infrastructure.md) 
 
 A: Yes, there are no changes to the Basic or Standard tiers. 
 
-### Q: What is the difference between VNet integration in Standard v2 tier and VNet support in the Developer and Premium tiers? 
+### Q: What is the difference between VNet integration in Standard v2 tier and VNet support in the Premium tier? 
 
-A: A Standard v2 service instance can be integrated with a VNet to provide secure access to the backends residing there. A Standard v2 service instance integrated with a VNet will have a public IP address. The Developer and Premium tiers support a [fully private integration](api-management-using-with-internal-vnet.md) with a VNet (often referred to as injection into VNet) without exposing a public IP address. 
+A: A Standard v2 service instance can be integrated with a VNet to provide secure access to the backends residing there. A Standard v2 service instance integrated with a VNet will have a public IP address. The Premium tier supports a [fully private integration](api-management-using-with-internal-vnet.md) with a VNet (often referred to as injection into VNet) without exposing a public IP address. 
 
 ### Q: Can I deploy an instance of the Basic v2 or Standard v2 tier entirely in my VNet? 
 
-A: No, such a deployment is only supported in the Developer and Premium tiers. 
+A: No, such a deployment is only supported in the Premium tier. 
 
 ### Q: Is a Premium v2 tier planned?
 
