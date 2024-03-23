@@ -188,9 +188,9 @@ procedureSection:
       11. Repeat the previous steps to add any additional private IP addresses that you added to the Azure network interface.
 
       > [!IMPORTANT]
-      > You should never manually assign the public IP address assigned to an Azure virtual machine within the virtual machine's operating system. When you manually set the IP address within the operating system, ensure that it's the same address as the private IP address assigned to the Azure network interface. Failure to assign the address correctly can cause loss of connectivity to the virtual machine. For more information, see [Change IP address settings](../articles/virtual-network/ip-services/virtual-network-network-interface-addresses.md#change-ip-address-settings).
+      > You should never manually assign the public IP address assigned to an Azure virtual machine within the virtual machine's operating system. When you manually set the IP address within the operating system, ensure that it's the same address as the private IP address assigned to the Azure network interface. Failure to assign the address correctly can cause loss of connectivity to the virtual machine. For more information, see [Change IP address settings](./virtual-network-network-interface-addresses.md#change-ip-address-settings).
       >
-      For more information about private IP addresses, see [Private IP address](../articles/virtual-network/ip-services/virtual-network-network-interface-addresses.md#private).
+      For more information about private IP addresses, see [Private IP address](./virtual-network-network-interface-addresses.md#private).
 
       12. Select **OK** to close the secondary IP address settings.
 
