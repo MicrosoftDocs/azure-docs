@@ -4,8 +4,6 @@
   href: choose-model.md
 - name: Comparing MongoDB Atlas
   href: cosmos-db-vs-mongodb-atlas.md
-- name: FAQ
-  href: faq.yml
 - name: RU
   items:
     - name: MongoDB RU documentation
@@ -27,7 +25,7 @@
             - name: Upgrade API version
               href: upgrade-version.md
         - name: FAQ
-          href: mongodb-faq.yml
+          href: faq.yml
         - name: Change log
           href: change-log.md
     - name: Quickstarts
@@ -505,7 +503,7 @@
               href: ../how-to-setup-managed-identity.md
         - name: Monitor
           items:
-            - name: Monitor Azure Cosmos DB
+            - name: Monitor
               href: ../monitor.md
             - name: Use Azure monitor metrics
               items:

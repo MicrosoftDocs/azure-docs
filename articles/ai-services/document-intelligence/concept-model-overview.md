@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 02/21/2024
+ms.date: 03/06/2024
 ms.author: lajanuar
 ---
 
@@ -45,7 +45,7 @@ ms.author: lajanuar
 
 The following table shows the available models for each current preview and stable API:
 
-|**Model Type**| **Model**|[2023-10-31-preview](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP)|[2023-07-31 (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)|[2022-08-31 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)|[v2.1 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)|
+|**Model Type**| **Model**|&bullet; [2024-02-29-preview](/rest/api/aiservices/document-models/build-model?view=rest-aiservices-2024-02-29-preview&preserve-view=true&branch=docintelligence&tabs=HTTP) <br> &bullet [2023-10-31-preview](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-02-29-preview&preserve-view=true)|[2023-07-31 (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)|[2022-08-31 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)|[v2.1 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)|
 |----------------|-----------|---|--|---|---|
 |Document analysis models|[Read](concept-read.md)                                  | ✔️| ✔️| ✔️| n/a|
 |Document analysis models|[Layout](concept-layout.md)                              | ✔️| ✔️| ✔️| ✔️|
@@ -61,13 +61,16 @@ The following table shows the available models for each current preview and stab
 |Prebuilt models|[US 1098-T Tax](concept-tax-document.md)                 | ✔️| ✔️| n/a| n/a|
 |Prebuilt models|[US 1099 Tax](concept-tax-document.md)                 | ✔️| n/a| n/a| n/a|
 |Prebuilt models|[US W2 Tax](concept-tax-document.md)                     | ✔️| ✔️| ✔️| n/a|
-|Prebuilt models|[Add-on capabilities](concept-add-on-capabilities.md)    | ✔️| ✔️| n/a| n/a|
+|Prebuilt models|[US Mortgage 1003 URLA](concept-mortgage-documents.md)    | ✔️| n/a| n/a| n/a|
+|Prebuilt models|[US Mortgage 1008 ](concept-mortgage-documents.md)       | ✔️| n/a| n/a| n/a|
+|Prebuilt models|[US Mortgage closing disclosure](concept-mortgage-documents.md)   | ✔️| n/a| n/a| n/a|
 |Custom models|[Custom classifier](concept-custom-classifier.md)        | ✔️| ✔️| n/a| n/a|
 |Custom models|[Custom neural](concept-custom-neural.md)                | ✔️| ✔️| ✔️| n/a|
 |Custom models|[Custom template](concept-custom-template.md)            | ✔️| ✔️| ✔️| ✔️|
 |Custom models|[Custom composed](concept-composed-models.md)            | ✔️| ✔️| ✔️| ✔️|
+|All models|[Add-on capabilities](concept-add-on-capabilities.md)    | ✔️| ✔️| n/a| n/a|
 
-|**Add-on Capability**| **Add-On/Free**|[2023-10-31-preview](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP)|[`2023-07-31` (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)|[`2022-08-31` (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)|[v2.1 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)|
+|**Add-on Capability**| **Add-On/Free**|&bullet; [2024-02-29-preview](/rest/api/aiservices/document-models/build-model?view=rest-aiservices-2024-02-29-preview&preserve-view=true&branch=docintelligence&tabs=HTTP) <br>&bullet [2023-10-31-preview](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-02-29-preview&preserve-view=true|[`2023-07-31` (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)|[`2022-08-31` (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)|[v2.1 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)|
 |----------------|-----------|---|--|---|---|
 |Font property extraction|Add-On| ✔️| ✔️| n/a| n/a|
 |Formula extraction|Add-On| ✔️| ✔️| n/a| n/a|
@@ -77,6 +80,9 @@ The following table shows the available models for each current preview and stab
 |Key value pairs|Free| ✔️|n/a|n/a| n/a|
 |Query fields|Add-On*| ✔️|n/a|n/a| n/a|
 
+### Model analysis features
+
+[!INCLUDE [model analysis features](includes/model-analysis-features.md)]
 
 Add-On* - Query fields are priced differently than the other add-on features. See [pricing](https://azure.microsoft.com/pricing/details/ai-document-intelligence/) for details.
 
@@ -108,8 +114,8 @@ For all models, except Business card model, Document Intelligence now supports a
 * [`styleFont`](concept-add-on-capabilities.md#font-property-extraction)
 * [`barcodes`](concept-add-on-capabilities.md#barcode-property-extraction)
 * [`languages`](concept-add-on-capabilities.md#language-detection)
-* [`keyValuePairs`](concept-add-on-capabilities.md#key-value-pairs) (2023-10-31-preview)
-* [`queryFields`](concept-add-on-capabilities.md#query-fields) (2023-10-31-preview) `Not available with the US.Tax models`
+* [`keyValuePairs`](concept-add-on-capabilities.md#key-value-pairs) (2024-02-29-preview, 2023-10-31-preview)
+* [`queryFields`](concept-add-on-capabilities.md#query-fields) (2024-02-29-preview, 2023-10-31-preview) `Not available with the US.Tax models`
 
 ## Analysis features
 

@@ -128,7 +128,7 @@ For the supported scenarios mentioned previously, we provide default metrics by 
 | Question Answering                                         | `qa`              | `gpt_groundedness` (requires context), `gpt_relevance` (requires context), `gpt_coherence` | `gpt_groundedness`, `gpt_relevance`, `gpt_coherence`, `gpt_fluency`, `gpt_similarity`, `f1_score`, `exact_match`, `ada_similarity` |
 | Single and multi-turn conversation (context required) | `chat`            |  `gpt_groundedness`, `gpt_relevance`, `gpt_retrieval_score`                                 |`gpt_groundedness`, `gpt_relevance`, `gpt_retrieval_score`                                 |
 
-### Set up your Azure Open AI configurations for AI-assisted metrics
+### Set up your Azure OpenAI configurations for AI-assisted metrics
 
 Before you call the `evaluate()` function, your environment needs to set up your large language model deployment configuration that's required for generating the AI-assisted metrics. 
 

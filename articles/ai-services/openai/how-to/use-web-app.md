@@ -7,7 +7,7 @@ ms.service: azure-ai-openai
 ms.topic: how-to
 author: aahill
 ms.author: aahi
-ms.date: 02/09/2024
+ms.date: 02/23/2024
 recommendations: false
 ---
 
@@ -33,7 +33,7 @@ Along with Azure OpenAI Studio, APIs and SDKs, you can also use the available st
 
 ## Web app customization
 
-You can customize the app's frontend and backend logic. For example, you could change the icon that appears in the center of the app by updating `/frontend/src/assets/Contoso.svg` and then redeploying the app [using the Azure CLI](https://github.com/microsoft/sample-app-aoai-chatGPT#deploy-with-the-azure-cli).  See the source code for the web app, and more information on [GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT).
+You can customize the app's frontend and backend logic. The app provides several [environment variables](https://github.com/microsoft/sample-app-aoai-chatGPT#common-customization-scenarios-eg-updating-the-default-chat-logo-and-headers) for common customization scenarios such as changing the icon in the app. See the source code for the web app, and more information on [GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT).
 
 When customizing the app, we recommend:
 
@@ -42,6 +42,8 @@ When customizing the app, we recommend:
 - Clearly communicating how each setting you implement will affect the user experience.
 
 - When you rotate API keys for your Azure OpenAI or Azure AI Search resource, be sure to update the app settings for each of your deployed apps to use the new keys.
+
+Sample source code for the web app is available on [GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT). Source code is provided "as is" and as a sample only. Customers are responsible for all customization and implementation of their web apps. 
 
 ### Updating the web app
 

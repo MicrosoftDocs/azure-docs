@@ -38,7 +38,7 @@
     - name: About Azure confidential VMs
       href: confidential-vm-overview.md
     - name: Azure confidential VM options
-      href: virtual-machine-solutions.md
+      href: virtual-machine-options.md
     - name: FAQ for confidential VMs
       href: confidential-vm-faq.yml
     - name: Guest attestation for confidential VMs

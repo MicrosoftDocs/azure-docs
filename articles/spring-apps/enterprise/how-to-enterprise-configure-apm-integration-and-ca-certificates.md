@@ -132,7 +132,7 @@ This section lists the supported languages and required environment variables fo
   - `controller_ssl_enabled`
   - `controller_port`
 
-  For other supported environment variables, see [AppDynamics](https://docs.appdynamics.com/21.11/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent#MonitorAzureSpringCloudwithJavaAgent-ConfigureUsingtheEnvironmentVariablesorSystemProperties)
+  For other supported environment variables, see [AppDynamics](https://docs.appdynamics.com/appd/23.x/23.11/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent#id-.MonitorAzureSpringCloudwithJavaAgentv23.1-ConfigureUsingtheEnvironmentVariablesorSystemProperties)
 
 ## Bindings in builder is deprecated
 

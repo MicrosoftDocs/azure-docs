@@ -38,7 +38,7 @@ This section covers information about Oracle solutions based on virtual machine 
 To get a list of currently available Oracle images, run the following command using
 Azure CLI or Azure Cloud Shell
 
-``az vm image list --publisher oracle --output table –all``
+`az vm image list --publisher oracle --output table –all`
 
 The images are bring-your-own-license. You're charged only for the costs of compute, storage, and networking incurred running a VM. You can also choose to build your solutions on a custom image that you create from scratch in Azure or upload a custom image from your on-premises environment.  
 >[!IMPORTANT]
@@ -55,11 +55,11 @@ Oracle and Microsoft are collaborating to bring WebLogic Server to the Azure Mar
 **UDP multicast isn't supported**. Azure supports UDP unicasting, but not multicasting or broadcasting. Oracle WebLogic Server can rely on Azure UDP unicast capabilities. For best results relying on UDP unicast, we recommend that the WebLogic cluster size is kept static, or kept with no more than 10 managed servers.
 **Oracle WebLogic Server expects public and private ports to be the same for T3 access**. For example, when using Enterprise JavaBeans (EJB). Consider a multi-tier scenario where a service layer application is running on an Oracle WebLogic Server cluster consisting of two or more VMs, in a virtual network named SLWLS. The client tier is in a different subnet in the same virtual network, running a simple Java program trying to call EJB in the service layer. Because you must load balance the service layer, a public load-balanced endpoint needs to be created for the VMs in the Oracle WebLogic Server cluster. If the private port specified is different from the public port an error occurs. For example, if you use ``7006:7008``, the following error occurs because for any remote T3 access, Oracle WebLogic Server expects the load balancer port and the WebLogic managed server port to be the same.
 
-``[java] javax.naming.CommunicationException [Root exception is java.net.ConnectException: t3://example.cloudapp.net:7006:``
+`[java] javax.naming.CommunicationException [Root exception is java.net.ConnectException: t3://example.cloudapp.net:7006:`
 
-``Bootstrap to: example.cloudapp.net/138.91.142.178:7006' over: 't3' got an error or timed out]``
+`Bootstrap to: example.cloudapp.net/138.91.142.178:7006' over: 't3' got an error or timed out]`
 
- In the preceding case, the client is accessing port 7006, which is the load balancer port, and the managed server is listening on 7008, which is the private port. This restriction is applicable only for T3 access, not HTTP.
+In the preceding case, the client is accessing port 7006, which is the load balancer port, and the managed server is listening on 7008, which is the private port. This restriction is applicable only for T3 access, not HTTP.
 
 To avoid this issue, use one of the following workarounds:
 
@@ -84,10 +84,13 @@ With Oracle Active Data Guard, you can achieve high availability with a primary 
 
 To walk through the basic setup procedure on Azure, see [Implement Oracle Golden Gate on an Azure Linux VM](configure-oracle-golden-gate.md).
 
+You can effectively achieve high availability for your Oracle databases by using Azure NetApp Files [availability zone volume placement](../../../azure-netapp-files/use-availability-zones.md) in combination with Oracle Data Guard for an HA architecture across zones. Alternatively, to eliminate the cost of Data Guard licenses and running VMs in the secondary zone, you can use the storage-based replication functionality of Azure NetApp Files. Azure NetApp Files volumes can be placed in the availability zone of your choice the same way and can then be replicated between zones within the region by using [cross-zone replication](../../../azure-netapp-files/cross-zone-replication-introduction.md) (or to another region using [cross-region replication](../../../azure-netapp-files/cross-region-replication-introduction.md)). 
+
 In addition to having a high availability and disaster recovery solution architected in Azure, you should have a backup strategy in place to restore your database. 
 ## Backup Oracle workloads
 Different [backup strategies](oracle-database-backup-strategies.md) are available for Oracle on Azure VMs, the following backups are other options:
 - Using [Azure files](oracle-database-backup-azure-storage.md)
+- Using [Azure NetApp Files](oracle-database-backup-strategies.md#azure-netapp-files)
 - Using [Azure backup](oracle-database-backup-azure-backup.md) 
 - Using [Oracle RMAN Streaming data](oracle-rman-streaming-backup.md) backup
 ## Deploy Oracle applications on Azure

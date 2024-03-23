@@ -111,9 +111,7 @@ The Fully Qualified Domains resolve to the following Canonical Names (CNAMEs) ca
 
 The FQDNs resolve to the IP addresses of the Azure Machine Learning workspace in that region. However, resolution of the workspace Private Link FQDNs can be overridden by using a custom DNS server hosted in the virtual network. For an example of this architecture, see the [custom DNS server hosted in a vnet](#example-custom-dns-server-hosted-in-vnet) example.
 
-> [!NOTE]
-> Managed online endpoints share the workspace private endpoint. If you are manually adding DNS records to the private DNS zone `privatelink.api.azureml.ms`, an A record with wildcard
-> `*.<per-workspace globally-unique identifier>.inference.<region>.privatelink.api.azureml.ms` should be added to route all endpoints under the workspace to the private endpoint.
+[!INCLUDE [machine-learning-add-dns-records](includes/machine-learning-add-dns-records.md)]
 
 ## Manual DNS server integration
 
