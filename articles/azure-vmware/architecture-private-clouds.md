@@ -1,9 +1,9 @@
 ---
-title: Concepts - Private clouds and clusters
+title: Architecture - Private clouds and clusters
 description: Understand the key capabilities of Azure VMware Solution software-defined data centers and VMware vSphere clusters. 
 ms.topic: conceptual
 ms.service: azure-vmware
-ms.date: 3/7/2024
+ms.date: 3/22/2024
 ms.custom: engagement-fy23
 ---
 
@@ -164,8 +164,8 @@ Azure VMware Solution continuously monitors the health of both the physical unde
 
 Now that you've covered Azure VMware Solution private cloud concepts, you might want to learn about:
 
-- [Azure VMware Solution networking and interconnectivity concepts](concepts-networking.md)
-- [Azure VMware Solution storage concepts](concepts-storage.md)
+- [Azure VMware Solution networking and interconnectivity concepts](architecture-networking.md)
+- [Azure VMware Solution storage concepts](architecture-storage.md)
 - [How to enable Azure VMware Solution resource](deploy-azure-vmware-solution.md#register-the-microsoftavs-resource-provider)
 
 <!-- LINKS - internal -->
