@@ -75,8 +75,6 @@ az rest --method put --url $ResourceId"?api-version=2022-06-01" --body @$FilePat
 
 ### [ARM](#tab/arm)
 
-### DCR
-
 See the follow references for defining DCRs and associations in a template.
 - [Data collection rules](/azure/templates/microsoft.insights/datacollectionrules)
 - [Data collection rule associations](/azure/templates/microsoft.insights/datacollectionruleassociations)
@@ -116,9 +114,10 @@ Use the following template to create a DCR using information from [Structure of 
 
 ```
 
-### DCR Association -Azure VM
+#### DCR Association -Azure VM
+The following sample creates an association between an Azure virtual machine and a data collection rule.
 
-#### Bicep
+**Bicep template file**
 
 ```bicep
 @description('The name of the virtual machine.')
@@ -144,7 +143,7 @@ resource association 'Microsoft.Insights/dataCollectionRuleAssociations@2021-09-
 }
 ```
 
-#### ARM
+**ARM template file**
 
 ```json
 {
@@ -185,7 +184,7 @@ resource association 'Microsoft.Insights/dataCollectionRuleAssociations@2021-09-
 }
 ```
 
-#### Parameter file
+**Parameter file**
 
 ```json
 {
@@ -205,8 +204,9 @@ resource association 'Microsoft.Insights/dataCollectionRuleAssociations@2021-09-
 }
 ```
 ### DCR Association -Arc-enabled server
+The following sample creates an association between an Azure Arc-enabled server and a data collection rule.
 
-#### Bicep
+**Bicep template file**
 
 ```bicep
 @description('The name of the virtual machine.')
@@ -232,7 +232,7 @@ resource association 'Microsoft.Insights/dataCollectionRuleAssociations@2021-09-
 }
 ```
 
-#### ARM
+**ARM template file**
 
 ```json
 {
@@ -273,7 +273,7 @@ resource association 'Microsoft.Insights/dataCollectionRuleAssociations@2021-09-
 }
 ```
 
-#### Parameter file
+**Parameter file**
 
 ```json
 {
