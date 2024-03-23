@@ -79,7 +79,7 @@ To configure a project, add a [project environment type](how-to-configure-projec
     |**Type**| Select a dev center level environment type to enable for the specific project.|
     |**Deployment subscription**| Select the subscription in which the environment is created.|
     |**Deployment identity** | Select either a system-assigned identity or a user-assigned managed identity to perform deployments on behalf of the user.|
-    |**Permissions on environment resources** > **Environment creator role(s)**|  Select the roles to give access to the environment resources.|
+    |**Permissions on environment resources** > **Environment creator role(s)**|  Select the roles to give access to the creator of the environment resources.|
     |**Permissions on environment resources** > **Additional access** | Select the users or Microsoft Entra groups to assign to specific roles on the environment resources.|
     |**Tags** | Enter a tag name and a tag value. These tags are applied on all resources that are created as part of the environment.|
 
