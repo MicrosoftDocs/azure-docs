@@ -30,11 +30,11 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 - Microsoft Entra AD. Your organization must use Microsoft Entra AD for identity and access management.
 - Microsoft Intune subscription. Your organization must use Microsoft Intune for device management.
 
-## Review the template 
+## Review the template
 
 The template used in this quickStart is from [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/deployment-environments/).
 
-To view the template, see [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.devcenter/deployment-environments/azuredeploy.json)
+To view the template, see [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.devcenter/deployment-environments/azuredeploy.json).
 
 Azure resources defined in the template:
 
@@ -47,9 +47,9 @@ Azure resources defined in the template:
 
 ## Deploy the template
 
-1. Select **Open Cloudshell** on either of the following code blocks and follow instructions to sign in to Azure.
+1. Select **Open Cloud Shell** on either of the following code blocks and follow instructions to sign in to Azure.
 2. Wait until you see the prompt from the console, then ensure you're set to deploy to the subscription you want.
-3. If you want to continue deploying the template, select **Copy** on the code block, then right-click the shell console and select **Paste**
+3. If you want to continue deploying the template, select **Copy** on the code block, then right-click the shell console and select **Paste**.
 
    1. If you want to use the default parameter values:
 
@@ -91,13 +91,13 @@ Azure PowerShell is used to deploy the template. You can also use the Azure port
 
 ### Required Parameters
 
-- *Resource Group Name*: The name of the resource group where the dev center and project will be located.
-- *Dev Center Name*:
-- *Project Name*:
-- *Environment Type Name*:
-- *User Object ID*: 
+- *Resource Group Name*: The name of the resource group where the dev center and project are located.
+- *Dev Center Name*: The name of the dev center.
+- *Project Name*: The name of the project that is associated with the dev center.
+- *Environment Type Name*: The name of the environment type for both the dev center and project.
+- *User Object ID*: The object ID of the user that is granted the *Deployment Environments User* role.
 
-Alternatively, you can provide access to deployment environments project in the Azure portal, see [Provide user access to Azure Deployment Environments projects](./how-to-configure-deployment-environments-user.md)
+Alternatively, you can provide access to deployment environments project in the Azure portal. See [Provide user access to Azure Deployment Environments projects](./how-to-configure-deployment-environments-user.md).
 
 ## Review deployed resources
 
@@ -107,11 +107,11 @@ Alternatively, you can provide access to deployment environments project in the 
 
 ## Clean up resources
 
-1. If there are environments associated with the project resource, delete them first either through the Azure Portal or the developer portal
-2. Delete the project resource
-3. Delete the dev center resource
-4. Delete the resource group
-5. Remove the role assignments that you don't need anymore from the subscription
+1. Delete any environments associated with the project either through the Azure portal or the developer portal.
+2. Delete the project resource.
+3. Delete the dev center resource.
+4. Delete the resource group.
+5. Remove the role assignments that you don't need anymore from the subscription.
 
 ## Next steps
 
