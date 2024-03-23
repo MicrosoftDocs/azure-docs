@@ -47,43 +47,63 @@ Azure resources defined in the template:
 
 ## Deploy the template
 
-1. Select **Open Cloudshell** from the following code block to open Azure Cloud Shell, and then follow the instructions to sign in to Azure.
+1. Select **Open Cloudshell** on either of the following code blocks and follow instructions to sign in to Azure.
+2. Wait until you see the prompt from the console, then ensure you're set to deploy to the subscription you want.
+3. If you want to continue deploying the template, select **Copy** on the code block, then right-click the shell console and select **Paste**
 
-   ```azurepowershell-interactive
-   $resourceGroupName = Read-Host "Please enter resource group name e.g. test-ade-rg"
-   $userPrincipalId = Read-Host "Please enter user principal ID e.g. xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-   $devcenterName = Read-Host "Please enter dev center name e.g. test-dev-center"
-   $projectName = Read-Host "Please enter project name e.g. test-project"
-   $environmentTypeName = Read-Host "Please enter environment type name or leave it empty to default to the name 'Sandbox'"
-   $location = Read-Host "Please enter region name e.g. eastus"
-   $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.devcenter/deployment-environments/azuredeploy.json"
+   1. If you want to use the default parameter values:
 
-   if ([string]::IsNullOrWhiteSpace($environmentTypeName)) {
-     $environmentTypeName = "Sandbox"
-   }
+      ```azurepowershell-interactive
+      $location = Read-Host "Please enter region name e.g. eastus"
+      $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.devcenter/deployment-environments/azuredeploy.json"
 
-   Write-Host "Start provisioning..."
+      Write-Host "Start provisioning..."
 
-   New-AzDeployment -Name (New-Guid) -Location $location -TemplateUri $templateUri -resourceGroupName $resourceGroupName -userPrincipalId $userPrincipalId -devcenterName $devcenterName -projectName $projectName -environmentTypeName $environmentTypeName
+      New-AzDeployment -Name (New-Guid) -Location $location -TemplateUri $templateUri
 
-   Write-Host "Provisioning completed."
+      Write-Host "Provisioning completed."
 
-   ```
+      ```
 
-   Wait until you see the prompt from the console.
- 
-2. Ensure you're set to deploy to the subscription you want.
-3. Select **Copy** from the previous code block to copy the PowerShell script. 
-4. Right-click the shell console pane and then select **Paste**. 
-5. Enter the values. 
+   2. If you want to input your own values:
 
-It takes about 30 minutes to deploy the template. 
+      ```azurepowershell-interactive
+      $resourceGroupName = Read-Host "Please enter resource group name: "
+      $devCenterName = Read-Host "Please enter dev center name: "
+      $projectName = Read-Host "Please enter project name: "
+      $environmentTypeName = Read-Host "Please enter environment type name: "
+      $userObjectId = Read-Host "Please enter your user object ID e.g. xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+
+      $location = Read-Host "Please enter region name e.g. eastus"
+      $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.devcenter/deployment-environments/azuredeploy.json"
+
+      Write-Host "Start provisioning..."
+
+      New-AzDeployment -Name (New-Guid) -Location $location -TemplateUri $templateUri -resourceGroupName $resourceGroupName -devCenterName $devCenterName -projectName $projectName -environmentTypeName $environmentTypeName -userObjectId $userObjectId
+
+      Write-Host "Provisioning completed."
+
+      ```
+
+It takes about 5 minutes to deploy the template.
 
 Azure PowerShell is used to deploy the template. You can also use the Azure portal and Azure CLI. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-portal.md).
 
+### Required Parameters
+
+- *Resource Group Name*: The name of the resource group where the dev center and project will be located.
+- *Dev Center Name*:
+- *Project Name*:
+- *Environment Type Name*:
+- *User Object ID*: 
+
+Alternatively, you can provide access to deployment environments project in the Azure portal, see [Provide user access to Azure Deployment Environments projects](./how-to-configure-deployment-environments-user.md)
+
 ## Review deployed resources
 
-
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Select **Resource groups** from the left pane. 
+3. Select the resource group that you created in the previous section.  
 
 ## Clean up resources
 
@@ -91,7 +111,11 @@ Azure PowerShell is used to deploy the template. You can also use the Azure port
 2. Delete the project resource
 3. Delete the dev center resource
 4. Delete the resource group
+5. Remove the role assignments that you don't need anymore from the subscription
 
 ## Next steps
 
-- [Quickstart: Create and access an environment](./quickstart-create-access-environments.md)
+In this quickstart, you created and configured a dev center and project. Advance to the next quickstart to learn how to create an environment.
+
+> [!div class="nextstepaction"]
+> [Quickstart: Create and access an environment](./quickstart-create-access-environments.md)
