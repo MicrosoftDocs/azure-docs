@@ -206,12 +206,12 @@ public class onelakeDemo {
 
 `bin/flink run -c contoso.example.onelakeDemo -j OneLakeDemo-1.0-SNAPSHOT.jar`
 
-image
+:::image type="content" source="./media/fabric-lakehouse-flink-datastream-api/package-the-jar-file.png" alt-text="Screenshot showing how to package the jar file." border="true" lightbox="./media/fabric-lakehouse-flink-datastream-api/package-the-jar-file.png":::
 
 Check Job running on Flink UI:
 
-image
 
+:::image type="content" source="./media/fabric-lakehouse-flink-datastream-api/check-job-runs-on-flink-ui.png" alt-text="Screenshot showing how to check job runs on Flink UI." border="true" lightbox="./media/fabric-lakehouse-flink-datastream-api/check-job-runs-on-flink-ui.png":::
 
 
 ### Results on Microsoft Fabric 
