@@ -9,9 +9,12 @@
         key vault, resource manager, dns, open-source relational databases,
         Azure cosmos db, db, Azure, defender
       href: defender-for-cloud-introduction.md
-    - name: What's new?
+    - name: Release notes
       displayName: changelog, news, release notes
       href: release-notes.md
+    - name: Release notes (recommendations/alerts
+      displayName: what's new, recommendations, alerts
+      href: release-notes-recommendations-alerts.md
     - name: Important upcoming changes
       displayName: release notes, changelog, news  
       href: upcoming-changes.md
