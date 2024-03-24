@@ -114,51 +114,49 @@ GitHub Actions are only supported for deployments from GitHub.
 
 1. Navigate to your function app in the [Azure portal](https://portal.azure.com) and select **Deployment Center**. 
 
-1. select **GitHub**, and then select **Authorize**. If you've already authorized GitHub, select **Continue** and skip the next step. 
+1. For **Source** select **Azure Repos**. If **App Service build service** provider isn't the default, select **Change provider** choose **App Service build service** and select **OK**.
 
-    :::image type="content" source="./media/functions-continuous-deployment/github.png" alt-text="Azure App Service Deployment Center":::
+1. Select values for **Organization**, **Project**, **Repository**, and **Branch**. Only organizations that belong to your Azure account are displayed. 
 
-1. In GitHub, select **Authorize AzureAppService**.
+1. Select **Save** to create the webhook in your repository. 
 
-    :::image type="content" source="./media/functions-continuous-deployment/authorize.png" alt-text="Authorize Azure App Service":::
+### [GitHub](#tab/github/app-service)
 
-    Enter your GitHub password and then select **Continue**.
+1. Navigate to your function app in the [Azure portal](https://portal.azure.com) and select **Deployment Center**. 
 
-1. Select the **App Service build service** provider, then select **Continue**.
+1. For **Source** select **GitHub**. If **App Service build service** provider isn't the default, select **Change provider** choose **App Service build service** and select **OK**.
 
-1. Configure information specific to the source control option you specified. For GitHub, you must enter or select values for **Organization**, **Repository**, and **Branch**. The values are based on the location of your code. Then, select **Continue**.
+1. If you haven't already authorized GitHub access, select **Authorize**. Provide your GitHub credentials and select **Sign in**. If want to authorize a diffent GitHub account, select **Change Account** and sign in with a different account.
 
-    :::image type="content" source="./media/functions-continuous-deployment/github-specifics.png" alt-text="Configure GitHub":::
+1. Select values for **Organization**, **Repository**, and **Branch**. The values are based on the location of your code. 
 
-6. Review all details, and then select **Finish** to complete your deployment configuration.
- 
-1. ### [GitHub](#tab/github/app-service)
+1. Review all details and select **Save**. A webhook is placed in your chosen repository. 
 
-1. In your function app in the [Azure portal](https://portal.azure.com), select **Deployment Center**, select **GitHub**, and then select **Authorize**. If you've already authorized GitHub, select **Continue** and skip the next step. 
-
-    :::image type="content" source="./media/functions-continuous-deployment/github.png" alt-text="Azure App Service Deployment Center":::
-
-1. In GitHub, select **Authorize AzureAppService**.
-
-    :::image type="content" source="./media/functions-continuous-deployment/authorize.png" alt-text="Authorize Azure App Service":::
-
-    Enter your GitHub password and then select **Continue**.
-
-1. Select the **App Service build service** provider, then select **Continue**.
-
-1. Configure information specific to the source control option you specified. For GitHub, you must enter or select values for **Organization**, **Repository**, and **Branch**. The values are based on the location of your code. Then, select **Continue**.
-
-    :::image type="content" source="./media/functions-continuous-deployment/github-specifics.png" alt-text="Configure GitHub":::
-
-6. Review all details, and then select **Finish** to complete your deployment configuration.
+When a new commit is pushed to the selected branch, the service pulls your code, builds your application, and deploys it to your function app.
 
 ### [Bitbucket](#tab/bitbucket/app-service)
 
+1. Navigate to your function app in the [Azure portal](https://portal.azure.com) and select **Deployment Center**. 
 
+1. For **Source** select **Bitbucket**. 
+
+1. If you haven't already authorized Bitbucket access, select **Authorize** and then **Grant access**. If requested, provide your Bitbucket credentials and select **Sign in**. If want to authorize a diffent Bitbucket account, select **Change Account** and sign in with a different account.
+
+1. Select values for **Organization**, **Repository**, and **Branch**. The values are based on the location of your code. 
+
+1. Review all details and select **Save**. A webhook is placed in your chosen repository. 
+
+When a new commit is pushed to the selected branch, the service pulls your code, builds your application, and deploys it to your function app.
 
 ### [Local Git](#tab/local-git/app-service)
 
+1. Navigate to your function app in the [Azure portal](https://portal.azure.com) and select **Deployment Center**. 
 
+1. For **Source** select **Local Git** and select **Save**. 
+
+1. A local repository is created in your existing App Service plan, which is accessed from the `scm` domain. Copy the **Git clone URI** and use it to create a clone of this new repository on your local computer.   
+
+When a new commit is pushed to the local git repository, the service pulls your code, builds your application, and deploys it to your function app.
 
 ---
 
