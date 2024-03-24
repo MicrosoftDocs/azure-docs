@@ -15,11 +15,11 @@ Continuous deployment is a good option for projects where you integrate multiple
 
 ### [Azure Repos](#tab/azure-repos)
 
-Maintain your project code in [Azure Repos](https://azure.microsoft.com/services/devops/repos/), one of the services in Azure DevOps. Supports both Git and Team Foundation Version Control. Supports all [build providers](#build-providers). For more information, see [What is Azure Repos?](/azure/devops/repos/get-started/what-is-repos).
+Maintain your project code in [Azure Repos](https://azure.microsoft.com/services/devops/repos/), one of the services in Azure DevOps. Supports both Git and Team Foundation Version Control. Used with the Azure Pipelines [build provider](#build-providers). For more information, see [What is Azure Repos?](/azure/devops/repos/get-started/what-is-repos).
 
 ### [GitHub](#tab/github)
 
-Maintain your project code in [GitHub](https://github.com). Supports all [build providers](#build-providers). For more information, see [GitHub docs](https://docs.github.com/en/get-started).
+Maintain your project code in [GitHub](https://github.com). Supported by all [build providers](#build-providers). For more information, see [GitHub docs](https://docs.github.com/en/get-started).
 
 ### [Bitbucket](#tab/bitbucket)
 
@@ -45,6 +45,8 @@ For continuous deployment to succeed, your directory structure must be compatibl
 ## Build providers
 
 Building your code project is part of the deployment process. While this build process is key for compiled languages (C#/Java/TypeScript) to generate runable binaries, even interpreted and hybrid languages (Python/JavaScript) require a build to obtain and package any required libraries. Builds can be done locally or remotely. For more information, see [Remote build](functions-deployment-technologies.md#remote-build).
+
+Functions supports these build providers:
 
 ### [Azure Pipelines](#tab/azure-pipelines)
 
