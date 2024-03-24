@@ -294,10 +294,6 @@ resource association 'Microsoft.Insights/dataCollectionRuleAssociations@2021-09-
 ```
 ---
 
-The following tutorials include examples of manually creating DCRs.
-
-- [Send data to Azure Monitor using Logs ingestion API (Resource Manager templates)](../logs/tutorial-logs-ingestion-api.md)
-- [Add transformation in workspace data collection rule to Azure Monitor using Resource Manager templates](../logs/tutorial-workspace-transformations-api.md)
 
 ## Edit a DCR
 To edit a DCR, you can use any of the methods described in the previous section to create a DCR using a modified version of the JSON.

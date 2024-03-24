@@ -1433,8 +1433,6 @@ items:
     items:
     - name: Overview
       href: resource-manager-samples.md
-    - name: Agents
-      href: agents/resource-manager-agent.md
     - name: Alerts
       items:
       - name: Log search alert rules
