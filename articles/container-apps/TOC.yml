@@ -293,9 +293,9 @@
   items:
     - name: .NET
       items:
-      - name: Deploy a .NET Aspire app
-        href: /aspnet/core/host-and-deploy/scaling-aspnet-apps/scaling-aspnet-apps
       - name: Deploy and scale an ASP.NET Core app
+        href: /aspnet/core/host-and-deploy/scaling-aspnet-apps/scaling-aspnet-apps
+      - name: Deploy a .NET Aspire app
         href: /dotnet/aspire/deployment/azure/aca-deployment
     - name: Java
       items:
@@ -308,10 +308,20 @@
       - name: Build environment variables
         href: java-build-environment-variables.md
         displayName: java
+      - name: Use Spring Cloud Eureka Server
+        href: spring-cloud-eureka-server-usage.md
+      - name: Use Spring Cloud Config Server
+        href: spring-cloud-config-server-usage.md
+        displayName: java
       - name: Tutorials
         items:
           - name: Deploy a WAR file
             href: java-deploy-war-file.md
+            displayName: java
+          - name: Connect to Spring Cloud Eureka Server
+            href: spring-cloud-eureka-server.md
+          - name: Connect to Spring Cloud Config Server
+            href: spring-cloud-config-server.md
             displayName: java
 - name: Billing & quotas
   items:
