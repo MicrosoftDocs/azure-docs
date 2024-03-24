@@ -98,7 +98,9 @@ GitHub Actions are only supported for deployments from GitHub.
 
 ### [GitHub](#tab/github/github-actions)
 
-Deployments from GitHub that use GitHub Actions are defined in the [Azure DevOps portal](https://go.microsoft.com/fwlink/?linkid=2245703) and not from your function app. For a step-by-step guide for creating a Pipelines-based deployment from GitHub, see [Continuous delivery with Azure Pipelines](functions-how-to-azure-devops.md). 
+[!INCLUDE [functions-deploy-github-actions](../../includes/functions-deploy-github-actions.md)]
+
+To learn more about GitHub Action deployments, including other ways to generate the workflow configuration file, see [Continuous delivery by using GitHub Actions](functions-how-to-github-actions.md). 
 
 ### [Bitbucket](#tab/bitbucket/github-actions)
 
@@ -110,7 +112,9 @@ GitHub Actions are only supported for deployments from GitHub.
 
 ### [Azure Repos](#tab/azure-repos/app-service)
 
-1. In your function app in the [Azure portal](https://portal.azure.com), select **Deployment Center**, select **GitHub**, and then select **Authorize**. If you've already authorized GitHub, select **Continue** and skip the next step. 
+1. Navigate to your function app in the [Azure portal](https://portal.azure.com) and select **Deployment Center**. 
+
+1. select **GitHub**, and then select **Authorize**. If you've already authorized GitHub, select **Continue** and skip the next step. 
 
     :::image type="content" source="./media/functions-continuous-deployment/github.png" alt-text="Azure App Service Deployment Center":::
 
@@ -150,11 +154,11 @@ GitHub Actions are only supported for deployments from GitHub.
 
 ### [Bitbucket](#tab/bitbucket/app-service)
 
-GitHub Actions are only supported for deployments from GitHub.
+
 
 ### [Local Git](#tab/local-git/app-service)
 
-GitHub Actions are only supported for deployments from GitHub.
+
 
 ---
 
