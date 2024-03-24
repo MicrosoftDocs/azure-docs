@@ -3,7 +3,7 @@ title: How to perform Change Data Capture of SQL Server with Apache Flink® Data
 description: Learn how to perform Change Data Capture of SQL Server with Apache Flink® DataStream API and DataStream Source.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 03/22/2024
 ---
 
 # Change Data Capture of SQL Server with Apache Flink® DataStream API and DataStream Source on HDInsight on AKS
@@ -294,7 +294,7 @@ public class mssqlSinkToKafka {
   ```
 * On Flink UI make the following change.
 
-    Add image.
+  :::image type="content" source="./media/change-data-capture-connectors-for-apache-flink/flink-ui.png" alt-text="Screenshot showing the Flink UI.":::
 
 
 ### Validation
