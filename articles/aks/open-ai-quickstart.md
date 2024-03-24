@@ -31,7 +31,7 @@ To access the GitHub codebase for the sample application, see [AKS Store Demo][a
   - If you plan on using Azure OpenAI service, you need to request access to enable it on your Azure subscription using the [Request access to Azure OpenAI Service form][aoai-access].
   - If you plan on using OpenAI, sign up on the [OpenAI website][open-ai-landing].
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Create a resource group
 
