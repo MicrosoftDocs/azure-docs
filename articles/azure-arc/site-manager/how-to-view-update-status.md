@@ -6,7 +6,9 @@ ms.author: kgremban
 ms.service: azure-arc
 #ms.subservice: site-manager
 ms.topic: how-to #Don't change
-ms.date: 02/16/2024
+ms.date: 03/24/2024
+
+# As a site admin, I want to know how to view update status for sites so that I can use my site.
 
 ---
 
