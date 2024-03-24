@@ -28,7 +28,5 @@
   items:
   - name: Azure Arc
     href: ../overview.md
-  - name: Azure CLI 
-    href: ../../../../docs-ref-conceptual/get-started-with-azure-cli.md
   - name: Azure monitor
     href: ../../azure-monitor/overview.md
