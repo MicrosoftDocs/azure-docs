@@ -4916,12 +4916,12 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/containers/container-insights-enable-aks-policy.md",
-            "redirect_url": "/azure/azure-monitor/containers/kubernetes-monitoring-enable&tabs=policy#enable-container-insights",
+            "redirect_url": "/azure/azure-monitor/containers/kubernetes-monitoring-enable?tabs=policy#enable-container-insights",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-monitor/containers/container-insights-enable-provisioned-clusters.md",
-            "redirect_url": "/azure/azure-monitor/containers/kubernetes-monitoring-enable.md&tabs=cli#aks-hybrid-cluster",
+            "redirect_url": "/azure/azure-monitor/containers/kubernetes-monitoring-enable?tabs=cli#aks-hybrid-cluster",
             "redirect_document_id": false
         },
         {
@@ -6602,6 +6602,11 @@
         {
             "source_path_from_root": "/articles/azure-monitor/app/java-standalone-arguments.md",
             "redirect_url": "/azure/azure-monitor/app/java-get-started-supplemental",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/resource-manager-app-resource.md",
+            "redirect_url": "/azure/azure-monitor/app/create-workspace-resource",
             "redirect_document_id": false
         },
         {

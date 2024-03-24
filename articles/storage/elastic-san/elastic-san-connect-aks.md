@@ -1,6 +1,6 @@
 ---
-title: Connect an Azure Elastic SAN volume to an AKS cluster.
-description: Learn how to connect to an Azure Elastic SAN volume an Azure Kubernetes Service cluster.
+title: Connect Azure Elastic SAN to Azure Kubernetes over iSCSI
+description: Use the Kubernetes iSCSI CSI driver to use Azure Elastic SAN as backing storage for Azure Kubernetes Service clusters.
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
@@ -81,7 +81,7 @@ Use the following example to create a storageclass.yml file. This file defines y
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: sanVolume
+  name: san-volume
 provisioner: manual
 ```
 
@@ -98,7 +98,7 @@ metadata:
   labels:
     name: data-iscsiplugin
 spec:
-  storageClassName: sanVolume
+  storageClassName: san-volume
   accessModes:
     - ReadWriteOnce
   capacity:
@@ -137,7 +137,7 @@ spec:
   resources:
     requests:
       storage: 1Gi
-  storageClassName: sanVolume
+  storageClassName: san-volume
   selector:
     matchExpressions:
       - key: name
