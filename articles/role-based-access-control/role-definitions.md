@@ -403,7 +403,7 @@ For more information about `AssignableScopes` for custom roles, see [Azure custo
 
 ## Privileged administrator role definition
 
-Privileged administrator roles are roles that grant privileged administrator access, such as the ability to manage Azure resources or assign roles to other users. If a built-in or custom role includes any of the following actions, it is considered privileged. For more information, see [List or manage privileged administrator role assignments](./role-assignments-list-portal.md#list-or-manage-privileged-administrator-role-assignments).
+Privileged administrator roles are roles that grant privileged administrator access, such as the ability to manage Azure resources or assign roles to other users. If a built-in or custom role includes any of the following actions, it is considered privileged. For more information, see [List or manage privileged administrator role assignments](./role-assignments-list-portal.yml#list-or-manage-privileged-administrator-role-assignments).
 
 > [!div class="mx-tableFixed"]
 > | Action string | Description |

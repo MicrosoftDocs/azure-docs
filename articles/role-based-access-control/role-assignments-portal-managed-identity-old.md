@@ -86,4 +86,4 @@ Follow these steps to assign a role to a user-assigned managed identity by start
 
 - [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
 - [Assign Azure roles using the Azure portal](role-assignments-portal.yml)
-- [List Azure role assignments using the Azure portal](role-assignments-list-portal.md)
+- [List Azure role assignments using the Azure portal](role-assignments-list-portal.yml)
