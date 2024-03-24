@@ -11,7 +11,7 @@ The Logs Ingestion API in Azure Monitor lets you send data to a Log Analytics wo
 
 ## Basic operation
 Data can be sent to the Logs Ingestion API from any application that can make a REST API call. This may be a custom application that you create, or it may be an application or agent that understands how to send data to the API.
-The application sends data to a [data collection endpoint (DCE)](../essentials/data-collection-endpoint-overview.md), which is a unique connection point for your Azure subscription. It specifies a [data collection rule (DCR)](../essentials/data-collection-rule-overview.md) that includes the target table and workspace and the credentials of an app registration with access to the specified DCR. 
+The application sends data to a [data collection endpoint (DCE)](../essentials/logs-ingestion-api-overview/logs-ingestion-api-overview.md), which is a unique connection point for your Azure subscription. It specifies a [data collection rule (DCR)](../essentials/logs-ingestion-api-overview/logs-ingestion-api-overview.md) that includes the target table and workspace and the credentials of an app registration with access to the specified DCR. 
 
 The data sent by your application to the API must be formatted in JSON and match the structure expected by the DCR. It doesn't necessarily need to match the structure of the target table because the DCR can include a [transformation](../essentials//data-collection-transformations.md) to convert the data to match the table's structure. You can modify the target table and workspace by modifying the DCR without any change to the API call or source data.
 
