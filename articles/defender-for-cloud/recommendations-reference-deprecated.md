@@ -12,7 +12,7 @@ ai-usage: ai-assisted
 
 # Deprecated security recommendations
 
-This article lists all the deprecated security recommendations in Microsoft Defender for Cloud. The recommendations that appear in your environment are based on the resources that you're protecting and on your customized configuration.
+This article lists all the deprecated security recommendations in Microsoft Defender for Cloud.
 
 
 ## Deprecated recommendations

@@ -12,17 +12,17 @@ ai-usage: ai-assisted
 
 # DevOps security recommendations
 
-This article lists the recommendations you might see in Microsoft Defender for Cloud if you connect an [Azure DevOps](quickstart-onboard-devops.md), [GitHub](quickstart-onboard-github.md), or [GitLab](quickstart-onboard-gitlab.md) environment by using the **Environment settings** page. The recommendations that appear in your environment are based on the resources that you're protecting and on your customized configuration.
+This article lists the recommendations you might see in Microsoft Defender for Cloud if you connect an [Azure DevOps](quickstart-onboard-devops.md), [GitHub](quickstart-onboard-github.md), or [GitLab](quickstart-onboard-gitlab.md) environment by using the **Environment settings** page. 
 
-To learn about actions that you can take in response to these recommendations, see [Remediate recommendations in Defender for Cloud](implement-security-recommendations.md).
+The recommendations that appear in your environment are based on the resources that you're protecting and on your customized configuration.
 
-Learn more about [DevOps security](defender-for-devops-introduction.md) benefits and features.
+- To learn about actions that you can take in response to these recommendations, see [Remediate recommendations in Defender for Cloud](implement-security-recommendations.md).
+- Learn more about [DevOps security](defender-for-devops-introduction.md) benefits and features.
+- DevOps recommendations don't affect your [secure score](secure-score-security-controls.md).
+- To decide which recommendations to resolve first, look at the severity of each recommendation and its potential impact on your secure score.
 
-DevOps recommendations don't affect your [secure score](secure-score-security-controls.md). To decide which recommendations to resolve first, look at the severity of each recommendation and its potential impact on your secure score.
 
-## DevOps recommendations
-
-### Azure DevOps recommendations
+## Azure DevOps recommendations
 
 ### [Azure DevOps repositories should have GitHub Advanced Security for Azure DevOps (GHAzDO) enabled](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsWithRulesBlade/assessmentKey/c7a934bf-7be6-407a-84d9-4f20e6e49592/showSecurityCenterCommandBar~/false)
 
@@ -84,7 +84,7 @@ DevOps recommendations don't affect your [secure score](secure-score-security-co
 
 **Severity**: Medium
 
-### GitHub recommendations
+## GitHub recommendations
 
 ### [GitHub repositories should have secret scanning enabled](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsWithRulesBlade/assessmentKey/b6ad173c-0cc6-4d44-b954-8217c8837a8e/showSecurityCenterCommandBar~/false)
 

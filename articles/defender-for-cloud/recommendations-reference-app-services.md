@@ -12,7 +12,9 @@ ai-usage: ai-assisted
 
 # Azure App Service security recommendations
 
-This article lists all the security recommendations you might see in Microsoft Defender for Cloud for Azure App Service The recommendations that appear in your environment are based on the resources that you're protecting and on your customized configuration.
+This article lists all the security recommendations you might see in Microsoft Defender for Cloud for Azure App Service.
+
+The recommendations that appear in your environment are based on the resources that you're protecting and on your customized configuration.
 
 To learn about actions that you can take in response to these recommendations, see [Remediate recommendations in Defender for Cloud](implement-security-recommendations.md).
 
@@ -22,7 +24,7 @@ To learn about actions that you can take in response to these recommendations, s
 >
 > For example, the recommendation *Endpoint protection health failures should be remediated* relies on the recommendation that checks whether an endpoint protection solution is even installed (*Endpoint protection solution should be installed*). The underlying recommendation *does* have a policy. Limiting the policies to only the foundational recommendation simplifies policy management.
 
-## AppServices recommendations
+## App Services recommendations
 
 ### [API App should only be accessible over HTTPS](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/bf82a334-13b6-ca57-ea75-096fc2ffce50)
 

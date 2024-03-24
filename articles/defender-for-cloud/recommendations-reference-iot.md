@@ -12,16 +12,20 @@ ai-usage: ai-assisted
 
 # IoT security recommendations
 
-This article lists all the IoT security recommendations you might see in Microsoft Defender for Cloud. The recommendations that appear in your environment are based on the resources that you're protecting and on your customized configuration.
+This article lists all the IoT security recommendations you might see in Microsoft Defender for Cloud. 
+
+The recommendations that appear in your environment are based on the resources that you're protecting and on your customized configuration.
 
 
 To learn about actions that you can take in response to these recommendations, see [Remediate recommendations in Defender for Cloud](implement-security-recommendations.md).
 
 
 > [!TIP]
-> If a recommendation's description says *No related policy*, usually it's because that recommendation is dependent on a different recommendation and *its* policy.
+> If a recommendation description says *No related policy*, usually it's because that recommendation is dependent on a different recommendation.
 >
-> For example, the recommendation *Endpoint protection health failures should be remediated* relies on the recommendation that checks whether an endpoint protection solution is even installed (*Endpoint protection solution should be installed*). The underlying recommendation *does* have a policy. Limiting the policies to only the foundational recommendation simplifies policy management.
+> For example, the recommendation *Endpoint protection health failures should be remediated* relies on the recommendation that checks whether an endpoint protection solution is installed (*Endpoint protection solution should be installed*). The underlying recommendation *does* have a policy.
+> Limiting policies to only foundational recommendations simplifies policy management.
+
 
 
 ## Azure IoT recommendations

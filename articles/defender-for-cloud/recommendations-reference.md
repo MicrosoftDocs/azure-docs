@@ -13,9 +13,11 @@ ai-usage: ai-assisted
 # Security recommendations
 
 
-Microsoft Defender for Cloud provides security recommendations that help to improve your cloud posture. Defender for Cloud assesses resources and settings against security standards, and make security recommendations based on those assessments. 
+Microsoft Defender for Cloud provides security recommendations that help to improve your cloud posture.
 
-You can review reference lists of the security recommendations we provide across Azure, AWS, and GCP. 
+Defender for Cloud assesses resources and settings against security standards, and make security recommendations based on those assessments. 
+
+You can review reference lists of the security recommendations across Azure, AWS, and GCP. 
 
 - [Azure App Service recommendations](recommendations-reference-app-services.md)
 - [Compute recommendations](recommendations-reference-compute.md)
@@ -27,7 +29,7 @@ You can review reference lists of the security recommendations we provide across
 - [API and API Management recommendations](recommendations-reference-api.md)
 - [AI recommendations](recommendations-reference-ai.md)
 
-You can also review an ongoing [deprecated recommendations](recommendations-reference-deprecated.md) in Defender for Cloud.
+You can also review [deprecated recommendations](recommendations-reference-deprecated.md).
 
 ## Related content
 
