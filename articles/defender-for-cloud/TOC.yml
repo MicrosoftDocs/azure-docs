@@ -12,7 +12,7 @@
     - name: Release notes
       displayName: changelog, news, release notes
       href: release-notes.md
-    - name: Release notes (recommendations/alerts
+    - name: Release notes (recommendations and alerts)
       displayName: what's new, recommendations, alerts
       href: release-notes-recommendations-alerts.md
     - name: Important upcoming changes

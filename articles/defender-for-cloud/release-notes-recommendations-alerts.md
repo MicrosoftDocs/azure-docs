@@ -6,26 +6,23 @@ ms.date: 03/18/2024
 #customer intent: As a Defender for Cloud admin, I want to stay up to date on the latest new and changed security recommendations and alerts.
 ---
 
-# New and upcoming changes in Defender for Cloud recommendations and alerts
+# Release notes for recommendations/alerts - Microsoft Defender for Cloud
 
-Microsoft Defender for Cloud is in active development and receives improvements on an ongoing basis. To stay up to date with the most recent developments, this page provides you with information about new and modified security recommendations and alerts.
+Microsoft Defender for Cloud is in active development and receives improvements on an ongoing basis.
 
+This article provides information about new and modified security recommendations and alerts. 
 
-
-> [!TIP]
-> Get notified when this page is updated by copying and pasting the following URL into your feed reader:
->
-> `https://aka.ms/mdc/rss`
-
-- To get the latest on new and updated Defender for Cloud features, review the [feature release notes](release-notes.md).
+- Find the latest information about new and updated Defender for Cloud features in thee [feature release notes](release-notes.md) article.
 - If you're looking for items older than six months, you can find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
+- Review a reference list of all [security recommendations](recommendations-reference.md) and [alerts].
+- Review [deprecated security recommendations](recommendations-reference-deprecated.md).
 
 ## Recommendations and alerts
 
 New and updated recommendations and alerts are added to the table in date order.
 
-- Get afull list of recommendations here: 
-- Review [deprecated security recommendations](recommendations-reference-deprecated.md).
+- Get a full list of recommendations here: 
+- 
 
 <!-- 1. Add new recommendations and alerts to the table.-->
 <!-- 2. Include the date of the change or release of new item.-->
@@ -94,7 +91,7 @@ December 14 | New recommendation  | Azure registry container images should have 
 December 14 | New recommendation  | Running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management) | Vulnerability assessment for Linux container images with Microsoft Defender Vulnerability Management.
 December 14 | Renamed recommendation  | **Old**: Container registry images should have vulnerability findings resolved (powered by Qualys)<br/>**New**: Azure registry container images should have vulnerabilities resolved (powered by Qualys. | Vulnerability assessment for container images using Qualys.
 December 14 | Renamed recommendation | Old: Running container images should have vulnerability findings resolved (powered by Qualys)<br/>****New**: Azure running container images should have vulnerabilities resolved - (powered by Qualys). | Vulnerability assessment for container images using Qualys.
-December 4 | New preview alert | `Malicious blob was downloaded from a storage account (Preview)` | 
+December 4 | New preview alert | `Malicious blob was downloaded from a storage account (Preview)` | MITRE tactics: Lateral movember
 November 30 | Deprecated alert | `Possible data exfiltration detected (K8S.NODE_DataEgressArtifacts)` | 
 November 30 | Deprecated alert | `Executable found running from a suspicious location (K8S.NODE_SuspectExecutablePath)` | 
 November 30 | Deprecated alert | `Suspicious process termination burst (VM_TaskkillBurst)` | 
