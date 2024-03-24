@@ -6,7 +6,7 @@ ms.author: jushiman
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: automatic-os-upgrade
-ms.custom: linux-related-content
+ms.custom: linux-related-content, devx-track-azurecli, devx-track-azurepowershell
 ms.date: 10/26/2023
 ms.reviewer: mimckitt
 ---

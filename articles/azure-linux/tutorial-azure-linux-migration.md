@@ -5,7 +5,7 @@ author: htaubenfeld
 ms.author: htaubenfeld
 ms.reviewer: schaffererin
 ms.service: microsoft-linux
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, linux-related-content
 ms.topic: tutorial
 ms.date: 01/19/2024
 ---

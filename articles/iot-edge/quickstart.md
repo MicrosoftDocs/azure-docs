@@ -9,7 +9,7 @@ ms.date: 1/31/2023
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc, devx-track-azurecli, mode-other
+ms.custom: mvc, devx-track-azurecli, mode-other, linux-related-content
 ---
 
 # Quickstart: Deploy your first IoT Edge module to a Windows device
