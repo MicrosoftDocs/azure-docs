@@ -2690,9 +2690,9 @@ When you set up your continuous export, you configure what is exported, and wher
 
 We've enhanced and expanded this feature over time:
 
-- In November 2020, we added the **preview** option to stream changes to your **secure score**.<br/>For full details, see [Secure score is now available in continuous export (preview)](release-notes-archive.md#secure-score-is-now-available-in-continuous-export-preview).
+- In November 2020, we added the **preview** option to stream changes to your **secure score**.
 
-- In December 2020, we added the **preview** option to stream changes to your **regulatory compliance assessment data**.<br/>For full details, see [Continuous export gets new data types (preview)](release-notes-archive.md#continuous-export-gets-new-data-types-and-improved-deployifnotexist-policies).
+- In December 2020, we added the **preview** option to stream changes to your **regulatory compliance assessment data**.
 
 With this update, these two options are released for general availability (GA).
 
@@ -3551,7 +3551,7 @@ Related links:
 
 ### CSV export of filtered list of recommendations
 
-In November 2020, we added filters to the recommendations page ([Recommendations list now includes filters](release-notes-archive.md#recommendations-list-now-includes-filters)). In December, we expanded those filters ([Recommendations page has new filters for environment, severity, and available responses](release-notes-archive.md#recommendations-page-has-new-filters-for-environment-severity-and-available-responses)).
+In November 2020, we added filters to the recommendations page.
 
 With this announcement, we're changing the behavior of the **Download to CSV** button so that the CSV export only includes the recommendations currently displayed in the filtered list.
 
