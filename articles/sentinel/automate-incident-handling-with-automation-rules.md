@@ -107,9 +107,9 @@ One of these properties is **Updated by**. This property lets you track the type
 
 ##### [Onboarded to the unified SOC platform](#tab/onboarded)
 
-- An application, including applications in both the Azure and Defender portals. <!--or is this Defender XDR?-->
+- An application, including applications in both the Azure and Defender portals.
 - A user, including changes made by users in both the Azure and Defender portals.
-- AIR <!--what does this mean?-->
+- **AIR**, for updates by [automated investigation and response in Microsoft Defender for Office 365](/microsoft-365/security/office-365-security/air-about?view=o365-worldwide)
 - An alert grouping (that added alerts to the incident).
 - A playbook
 - An automation rule
