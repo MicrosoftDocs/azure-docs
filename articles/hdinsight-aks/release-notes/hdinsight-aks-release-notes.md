@@ -56,7 +56,7 @@ For more information, see [Control network traffic from HDInsight on AKS Cluster
 
 **In place Upgrade**
 
-Upgrade your clusters and cluster pools with the latest software updates. This means that you can enjoy the latest cluster package hotfixes, security updates, and AKS patches, without recreating clusters.  
+Upgrade your clusters and cluster pools with the latest software updates. This means that you can enjoy the latest cluster package hotfixes, security updates, and AKS patches, without recreating clusters. For more information, see [Upgrade your HDInsight on AKS clusters and cluster pools](../in-place-upgrade.md).
 
 
 ### Known issues
