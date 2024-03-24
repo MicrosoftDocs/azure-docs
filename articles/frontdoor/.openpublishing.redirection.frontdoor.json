@@ -359,11 +359,6 @@
             "source_path_from_root": "/articles/frontdoor/waf-overview.md",
             "redirect_url": "/azure/web-application-firewall/afds/afds-overview",
             "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/web-application-firewall/scripts/waf-custom-rules-powershell.md",
-            "redirect_url": "/azure/web-application-firewall/ag/configure-waf-custom-rules",
-            "redirect_document_id": false
         }
     ]
 }
