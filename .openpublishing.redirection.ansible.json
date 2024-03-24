@@ -1,158 +1,153 @@
 {
     "redirections": [
         {
-            "source_path_from_root": "/articles/germany/germany-developer-guide.md",
-            "redirect_url": "/previous-versions/azure/germany/germany-developer-guide",
+            "source_path_from_root": "/articles/ansible/ansible-aks-configure-cni-networking.md",
+            "redirect_url": "/azure/developer/ansible/aks-configure-cni-networking",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/germany/germany-get-started-connect-with-cli.md",
-            "redirect_url": "/previous-versions/azure/germany/germany-get-started-connect-with-cli",
+            "source_path_from_root": "/articles/ansible/ansible-aks-configure-kubenet-networking.md",
+            "redirect_url": "/azure/developer/ansible/aks-configure-kubenet-networking",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/germany/germany-get-started-connect-with-portal.md",
-            "redirect_url": "/previous-versions/azure/germany/germany-get-started-connect-with-portal",
+            "source_path_from_root": "/articles/ansible/ansible-aks-configure-rbac.md",
+            "redirect_url": "/azure/developer/ansible/aks-configure-rbac",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/germany/germany-get-started-connect-with-ps.md",
-            "redirect_url": "/previous-versions/azure/germany/germany-get-started-connect-with-ps",
+            "source_path_from_root": "/articles/ansible/ansible-auto-scale-vmss.md",
+            "redirect_url": "/azure/developer/ansible/vm-scale-set-auto-scale",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/germany/germany-get-started-connect-with-vs.md",
-            "redirect_url": "/previous-versions/azure/germany/germany-get-started-connect-with-vs",
+            "source_path_from_root": "/articles/ansible/ansible-azure-hdinsight-configure.md",
+            "redirect_url": "/azure/developer/ansible/hdinsight-configure",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/germany/germany-howto-deploy-webandmobile.md",
-            "redirect_url": "/previous-versions/azure/germany/germany-howto-deploy-webandmobile",
+            "source_path_from_root": "/articles/ansible/ansible-create-configure-aks.md",
+            "redirect_url": "/azure/developer/ansible/aks-configure-clusters",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/germany/germany-image-gallery.md",
-            "redirect_url": "/previous-versions/azure/germany/germany-image-gallery",
+            "source_path_from_root": "/articles/ansible/ansible-create-configure-application-gateway.md",
+            "redirect_url": "/azure/developer/ansible/application-gateway-configure",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/germany/germany-manage-subscriptions.md",
-            "redirect_url": "/previous-versions/azure/germany/germany-manage-subscriptions",
+            "source_path_from_root": "/articles/ansible/ansible-create-configure-azure-web-apps.md",
+            "redirect_url": "/azure/developer/ansible/azure-web-apps-configure",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/germany/germany-migration-analytics.md",
-            "redirect_url": "/previous-versions/azure/germany/germany-migration-analytics",
+            "source_path_from_root": "/articles/ansible/ansible-create-configure-mysql.md",
+            "redirect_url": "/azure/developer/ansible/mysql-configure",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/germany/germany-migration-compute.md",
-            "redirect_url": "/previous-versions/azure/germany/germany-migration-compute",
+            "source_path_from_root": "/articles/ansible/ansible-create-configure-route-table.md",
+            "redirect_url": "/azure/developer/ansible/route-table-configure",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/germany/germany-migration-databases.md",
-            "redirect_url": "/previous-versions/azure/germany/germany-migration-databases",
+            "source_path_from_root": "/articles/ansible/ansible-create-configure-vmss.md",
+            "redirect_url": "/azure/developer/ansible/vm-scale-set-configure",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/germany/germany-migration-identity.md",
-            "redirect_url": "/previous-versions/azure/germany/germany-migration-identity",
+            "source_path_from_root": "/articles/ansible/ansible-create-vm.md",
+            "redirect_url": "/azure/developer/ansible/vm-configure",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/germany/germany-migration-integration.md",
-            "redirect_url": "/previous-versions/azure/germany/germany-migration-integration",
+            "source_path_from_root": "/articles/ansible/ansible-data-cache-for-redis-configure.md",
+            "redirect_url": "/azure/developer/ansible/cache-for-redis-configure",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/germany/germany-migration-iot.md",
-            "redirect_url": "/previous-versions/azure/germany/germany-migration-iot",
+            "source_path_from_root": "/articles/ansible/ansible-data-cosmos-configure.md",
+            "redirect_url": "/azure/developer/ansible/cosmos-configure",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/germany/germany-migration-main.md",
-            "redirect_url": "/previous-versions/azure/germany/germany-migration-main",
+            "source_path_from_root": "/articles/ansible/ansible-deploy-app-vmss.md",
+            "redirect_url": "/azure/developer/ansible/vm-scale-set-deploy-app",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/germany/germany-migration-management-tools.md",
-            "redirect_url": "/previous-versions/azure/germany/germany-migration-management-tools",
+            "source_path_from_root": "/articles/ansible/ansible-deploy-solution-template.md",
+            "redirect_url": "/azure/developer/ansible/solution-template-deploy",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/germany/germany-migration-media.md",
-            "redirect_url": "/previous-versions/azure/germany/germany-migration-media",
+            "source_path_from_root": "/articles/ansible/ansible-devtest-labs-configure.md",
+            "redirect_url": "/azure/developer/ansible/devtest-labs-configure",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/germany/germany-migration-networking.md",
-            "redirect_url": "/previous-versions/azure/germany/germany-migration-networking",
+            "source_path_from_root": "/articles/ansible/ansible-install-configure.md",
+            "redirect_url": "/azure/developer/ansible/install-on-linux-vm",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/germany/germany-migration-security.md",
-            "redirect_url": "/previous-versions/azure/germany/germany-migration-security",
+            "source_path_from_root": "/articles/ansible/ansible-manage-azure-dynamic-inventories.md",
+            "redirect_url": "/azure/developer/ansible/dynamic-inventory-configure",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/germany/germany-migration-storage.md",
-            "redirect_url": "/previous-versions/azure/germany/germany-migration-storage",
+            "source_path_from_root": "/articles/ansible/ansible-manage-linux-vm.md",
+            "redirect_url": "/azure/developer/ansible/vm-manage",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/germany/germany-migration-web.md",
-            "redirect_url": "/previous-versions/azure/germany/germany-migration-web",
+            "source_path_from_root": "/articles/ansible/ansible-matrix.md",
+            "redirect_url": "/azure/developer/ansible/module-version-matrix",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/germany/germany-overview-data-trustee.md",
-            "redirect_url": "/previous-versions/azure/germany/germany-overview-data-trustee",
+            "source_path_from_root": "/articles/ansible/ansible-overview.md",
+            "redirect_url": "/azure/developer/ansible/overview",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/germany/germany-services-compute.md",
-            "redirect_url": "/previous-versions/azure/germany/germany-services-compute",
+            "source_path_from_root": "/articles/ansible/ansible-run-playbook-in-cloudshell.md",
+            "redirect_url": "/azure/developer/ansible/cloudshell-run-playbook",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/germany/germany-services-database.md",
-            "redirect_url": "/previous-versions/azure/germany/germany-services-database",
+            "source_path_from_root": "/articles/ansible/ansible-scale-azure-web-apps.md",
+            "redirect_url": "/azure/developer/ansible/azure-web-apps-scale",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/germany/germany-services-iot.md",
-            "redirect_url": "/previous-versions/azure/germany/germany-services-iot",
+            "source_path_from_root": "/articles/ansible/ansible-service-bus-queue-configure.md",
+            "redirect_url": "/azure/developer/ansible/service-bus-queue-configure",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/germany/germany-services-networking.md",
-            "redirect_url": "/previous-versions/azure/germany/germany-services-networking",
+            "source_path_from_root": "/articles/ansible/ansible-service-bus-topic-configure.md",
+            "redirect_url": "/azure/developer/ansible/service-bus-topic-configure",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/germany/germany-services-securityandidentity.md",
-            "redirect_url": "/previous-versions/azure/germany/germany-services-securityandidentity",
+            "source_path_from_root": "/articles/ansible/ansible-vm-create-from-shared-generalized-image.md",
+            "redirect_url": "/azure/developer/ansible/vm-configure-from-azure-shared-image-gallery",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/germany/germany-services-storage.md",
-            "redirect_url": "/previous-versions/azure/germany/germany-services-storage",
+            "source_path_from_root": "/articles/ansible/ansible-vmss-update-image.md",
+            "redirect_url": "/azure/developer/ansible/vm-scale-set-update-image",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/germany/germany-services-webandmobile.md",
-            "redirect_url": "/previous-versions/azure/germany/germany-services-webandmobile",
+            "source_path_from_root": "/articles/ansible/ansible-vnet-peering-configure.md",
+            "redirect_url": "/azure/developer/ansible/virtual-network-peering-configure",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/germany/germany-services.md",
-            "redirect_url": "/previous-versions/azure/germany/germany-services",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/germany/germany-welcome.md",
-            "redirect_url": "/previous-versions/azure/germany/germany-welcome",
+            "source_path_from_root": "/articles/ansible/index.yml",
+            "redirect_url": "/azure/developer/ansible/",
             "redirect_document_id": false
         }
     ]
