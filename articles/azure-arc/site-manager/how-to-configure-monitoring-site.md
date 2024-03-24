@@ -6,109 +6,36 @@ ms.author: kgremban
 ms.service: azure-arc
 #ms.subservice: site-manager
 ms.topic: how-to #Don't change
-ms.date: 02/16/2024
+ms.date: 03/24/2024
+
+#customer intent: As a site admin, I want to know where to create a alert in Azure for my site so that I can deploy monitoring for resources in my site.
 
 ---
 
-<!-- --------------------------------------
+# Monitoring and alerts for sites in Azure Arc
 
-- Use this template with pattern instructions for:
-
-How To
-
-- Before you sign off or merge:
-
-Remove all comments except the customer intent.
-
-- Feedback:
-
-https://aka.ms/patterns-feedback
-
--->
-
-# "[verb] * [noun]"
-
-<!-- Required: Article headline - H1
-
-Identify the product or service and the task the
-article describes.
-
--->
-
-[Introduce and explain the purpose of the article.]
-
-<!-- Required: Introductory paragraphs (no heading)
-
-Write a brief introduction that can help the user
-determine whether the article is relevant for them
-and to describe the task the article covers.
-
--->
+Sites within Azure Arc aren't able to have monitoring setup on the site overall. Instead, customers can set up alerts and monitoring for supported resources within a site. Once alerts are set up and triggered depending on the alert criteria, site manager makes the resource alert status visible within the Azure Arc site manager pages.
 
 ## Prerequisites
 
-<!-- Optional: Prerequisites - H2
+* Azure portal Access
+* Internet Connectivity
+* Subscription
+* Resource Group or Subscription with at-least one resource for Site that supports alerts
 
-If included, "Prerequisites" must be the first H2 in the article.
+## Configuring monitoring and alerts for sites in Azure Arc
 
-List any items that are needed for the integration,
-such as permissions or software.
+To configure monitoring and alerts for sites in Azure Arc, follow the below steps.
 
-If you need to sign in to a portal to do the quickstart, 
-provide instructions and a link.
+1. Navigate to Azure Monitor, via searching for **monitor** within the Azure portal. Select **monitor** as shown.
+![searching for monitor within the azure portal](./media/how-to-configure-monitoring-site/search_monitor.png)
+2. Once **monitor** is open, navigate to the **alerts** page either via the menu on the left or the boxes shown in the primary screen.
+![opening alerts from monitor](./media/how-to-configure-monitoring-site/select_alerts_monitor.png)
+3. From the **alerts** page, alerts can be managed if they exist or the can be created via the following **create** button. Alerts can't be created for an entire site, but they can be created for specific supported resources within a site. Once created, any alerts triggered via the rules set in monitor for support resources, will have alerts appear in site manager.
+![creating alerts from monitor](./media/how-to-configure-monitoring-site/create_alert_monitor.png)
 
--->
+## Viewing alerts in site manager
 
-## "[verb] * [noun]"
+To understand more regarding how to view alerts created and triggered from monitor for supported resources within site manager, view this article:
 
-[Introduce the procedure.]
-
-1. Procedure step
-1. Procedure step
-1. Procedure step
-
-<!-- Required: Steps to complete the task - H2
-
-In one or more H2 sections, organize procedures. A section
-contains a major grouping of steps that help the user complete
-a task.
-
-Begin each section with a brief explanation for context, and
-provide an ordered list of steps to complete the procedure.
-
-If it applies, provide sections that describe alternative tasks or
-procedures.
-
--->
-
-## Next step -or- Related content
-<!-- 
-> [!div class="nextstepaction"]
-> [Next sequential article title](link.md)
-
--or-
-
-* [Related article title](link.md)
-* [Related article title](link.md)
-* [Related article title](link.md) -->
-
-<!-- Optional: Next step or Related content - H2
-
-Consider adding one of these H2 sections (not both):
-
-A "Next step" section that uses 1 link in a blue box 
-to point to a next, consecutive article in a sequence.
-
--or- 
-
-A "Related content" section that lists links to 
-1 to 3 articles the user might find helpful.
-
--->
-
-<!--
-
-Remove all comments except the customer intent
-before you sign off or merge to the main branch.
-
--->
+- [How to view alerts in site manager](./how-to-view-alerts.md)
