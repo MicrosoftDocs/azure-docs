@@ -16,7 +16,7 @@
       displayName: what's new, recommendations, alerts
       href: release-notes-recommendations-alerts.md
     - name: Important upcoming changes
-      displayName: release notes, changelog, news  
+      displayName: release notes, changelog  
       href: upcoming-changes.md
       items:
         - name: Prepare for retirement of the Log Analytics agent
