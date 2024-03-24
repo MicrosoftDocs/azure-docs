@@ -1,6 +1,6 @@
 ---
 title: Continuous deployment for Azure Functions
-description: Use the continuous deployment features of Azure App Service to publish your functions.
+description: Use the continuous deployment features of Azure App Service when publishing to Azure Functions.
 ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
 ms.topic: conceptual
 ms.date: 03/15/2024
@@ -9,7 +9,7 @@ ms.date: 03/15/2024
 
 # Continuous deployment for Azure Functions
 
-You can use Azure Functions to deploy your code continuously by using [source control integration](functions-deployment-technologies.md#source-control). Source control integration enables a workflow in which a code update triggers build, packaging, and deployment from your preoject to Azure. 
+You can use Azure Functions to deploy your code continuously by using [source control integration](functions-deployment-technologies.md#source-control). Source control integration enables a workflow in which a code update triggers build, packaging, and deployment from your project to Azure. 
 
 Continuous deployment is a good option for projects where you integrate multiple and frequent contributions. When you use continuous deployment, you maintain a single source of truth for your code, which allows teams to easily collaborate. You can configure continuous code deployments to Azure Functions from the following source locations:
 
@@ -31,7 +31,7 @@ Maintain your project code in a dedicated Git server hosted in the same App Serv
 
 --- 
 
-You can also connect your function app to an external Git repository, but this requires a manual sychronization. For more information about deployment options, see [Deployment technologies in Azure Functions](functions-deployment-technologies.md).
+You can also connect your function app to an external Git repository, but this requires a manual synchronization. For more information about deployment options, see [Deployment technologies in Azure Functions](functions-deployment-technologies.md).
 
 >[!NOTE] 
 >Continuous deployment options covered in this article are specific to code-only deployments. For containerized function app deployments, see [Enable continuous deployment to Azure](functions-how-to-custom-container.md#enable-continuous-deployment-to-azure).
@@ -44,11 +44,11 @@ For continuous deployment to succeed, your directory structure must be compatibl
 
 ## Build providers
 
-Building your code project is part of the deployment process. While this build proces is key for compiled languages (C#/Java/TypeScript) to generate runable binaries, even interpreted and hybrid languages (Python/JavaScript) require a build to obtain and package any required libraries. Builds can be done locally or remotely. For more information, see [Remote build](functions-deployment-technologies.md#remote-build).
+Building your code project is part of the deployment process. While this build process is key for compiled languages (C#/Java/TypeScript) to generate runable binaries, even interpreted and hybrid languages (Python/JavaScript) require a build to obtain and package any required libraries. Builds can be done locally or remotely. For more information, see [Remote build](functions-deployment-technologies.md#remote-build).
 
 ### [Azure Pipelines](#tab/azure-pipelines)
 
-Azure Pipelines is the default build provider for Azure Repos projects, and it can also be used to build projects from GitHub. In Pipelines, there's an `AzureFunctionApp` task designed specfically for deploying to Azure Functions. This task provides you with  control over how the project gets built, packaged, and deployed. For a complete example of how to configure Pipelines for continuous deployment from Azure Repos to Functions, see [Continuous delivery by using Azure Pipelines](./functions-how-to-azure-devops.md).
+Azure Pipelines is the default build provider for Azure Repos projects, and it can also be used to build projects from GitHub. In Pipelines, there's an `AzureFunctionApp` task designed specifically for deploying to Azure Functions. This task provides you with  control over how the project gets built, packaged, and deployed. For a complete example of how to configure Pipelines for continuous deployment from Azure Repos to Functions, see [Continuous delivery by using Azure Pipelines](./functions-how-to-azure-devops.md).
 
 ### [GitHub Actions](#tab/github-actions)
 
@@ -60,7 +60,7 @@ The App Service platform maintains a native deployment service ([Project Kudu](h
 
 ---
 
-## Considerations for continous deployment
+## Considerations for continuous deployment
 
 You should keep these considerations in mind when planning for a continuous deployment strategy:
 
@@ -126,7 +126,7 @@ GitHub Actions are only supported for deployments from GitHub.
 
 1. For **Source** select **GitHub**. If **App Service build service** provider isn't the default, select **Change provider** choose **App Service build service** and select **OK**.
 
-1. If you haven't already authorized GitHub access, select **Authorize**. Provide your GitHub credentials and select **Sign in**. If want to authorize a diffent GitHub account, select **Change Account** and sign in with a different account.
+1. If you haven't already authorized GitHub access, select **Authorize**. Provide your GitHub credentials and select **Sign in**. If you need to authorize a different GitHub account, select **Change Account** and sign in with another account.
 
 1. Select values for **Organization**, **Repository**, and **Branch**. The values are based on the location of your code. 
 
@@ -140,7 +140,7 @@ When a new commit is pushed to the selected branch, the service pulls your code,
 
 1. For **Source** select **Bitbucket**. 
 
-1. If you haven't already authorized Bitbucket access, select **Authorize** and then **Grant access**. If requested, provide your Bitbucket credentials and select **Sign in**. If want to authorize a diffent Bitbucket account, select **Change Account** and sign in with a different account.
+1. If you haven't already authorized Bitbucket access, select **Authorize** and then **Grant access**. If requested, provide your Bitbucket credentials and select **Sign in**. If you need to authorize a different Bitbucket account, select **Change Account** and sign in with another account.
 
 1. Select values for **Organization**, **Repository**, and **Branch**. The values are based on the location of your code. 
 
