@@ -122,7 +122,7 @@ We are continuously working on adding and updating new standards for Azure, AWS,
 
 Learn how to [assign a security standard](update-regulatory-compliance-packages.md).
 
-## Upcoming: Defender for open-source relational databases updates
+### Upcoming: Defender for open-source relational databases updates
 
 March 6, 2024**
 
@@ -142,7 +142,7 @@ Specific billing notifications have been sent via email for affected subscriptio
 
 Learn more about [Microsoft Defender for open-source relational databases](defender-for-databases-introduction.md).
 
-## Upcoming: Changes in where you access Compliance offerings and Microsoft Actions
+### Upcoming: Changes in where you access Compliance offerings and Microsoft Actions
 
 March 3, 2024**
 
@@ -195,7 +195,7 @@ February 26, 2024
 
 Azure Kubernetes Service (AKS) threat detection features in Defender for Containers are now fully supported in commercial, Azure Government, and Azure China 21Vianet clouds. [Review](support-matrix-defender-for-containers.md#azure) supported features.
 
-## Upcoming: Microsoft Security Code Analysis (MSCA) is no longer operational
+### Upcoming: Microsoft Security Code Analysis (MSCA) is no longer operational
 
 February 26, 2024**
 
@@ -212,7 +212,7 @@ February 20, 2024
 
 [A new version](../aks/supported-kubernetes-versions.md#aks-kubernetes-release-calendar) of the [Defender sensor for Defender for Containers](tutorial-enable-containers-azure.md#deploy-the-defender-sensor-in-azure) is available. It includes performance and security improvements, support for both AMD64 and ARM64 arch nodes (Linux only), and uses [Inspektor Gadget](https://www.inspektor-gadget.io/) as the process collection agent instead of Sysdig. The new version is only supported on Linux kernel versions 5.4 and higher, so if you have older versions of the Linux kernel, you need to upgrade. Support for ARM 64 is only available from AKS V1.29 and above. For more information, see [Supported host operating systems](support-matrix-defender-for-containers.md#supported-host-operating-systems).
 
-## Upcoming: Update recommendations to align with Azure AI Services resources
+### Upcoming: Update recommendations to align with Azure AI Services resources
 
 February 20, 2024**
 
@@ -240,7 +240,7 @@ February 13, 2024
 
 The container vulnerability assessment powered by Trivy has been retired. Any customers who were previously using this assessment should upgrade to the new [AWS container vulnerability assessment powered by Microsoft Defender Vulnerability Management](agentless-vulnerability-assessment-aws.md). For instructions on how to upgrade, see [How do I upgrade from the retired Trivy vulnerability assessment to the AWS vulnerability assessment powered by Microsoft Defender Vulnerability Management?](faq-defender-for-containers.yml#how-do-i-upgrade-from-the-retired-trivy-vulnerability-assessment-to-the-aws-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management-)
 
-## Upcoming: Deprecation of data recommendation
+### Upcoming: Deprecation of data recommendation
 
 February 12, 2024**
 
@@ -250,7 +250,7 @@ The recommendation [`Public network access should be disabled for Cognitive Serv
 
 This recommendation is already being covered by another networking recommendation for Azure AI Services, [`Cognitive Services accounts should restrict network access`](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/f738efb8-005f-680d-3d43-b3db762d6243/showSecurityCenterCommandBar~/false).
 
-## Upcoming: Decommissioning of Microsoft.SecurityDevOps resource provider
+### Upcoming: Decommissioning of Microsoft.SecurityDevOps resource provider
 
 February 5, 2024**
 
@@ -289,7 +289,7 @@ A new insight for Azure DevOps repositories has been added to the Cloud Security
 
 To test out the query through Cloud Security Explorer, use [this query link](https://ms.portal.azure.com#view/Microsoft_Azure_Security/SecurityGraph.ReactView/query/%7B%22type%22%3A%22securitygraphquery%22%2C%22version%22%3A2%2C%22properties%22%3A%7B%22source%22%3A%7B%22type%22%3A%22datasource%22%2C%22properties%22%3A%7B%22sources%22%3A%5B%7B%22type%22%3A%22entity%22%2C%22properties%22%3A%7B%22source%22%3A%22azuredevopsrepository%22%7D%7D%5D%2C%22conditions%22%3A%7B%22type%22%3A%22conditiongroup%22%2C%22properties%22%3A%7B%22operator%22%3A%22and%22%2C%22conditions%22%3A%5B%7B%22type%22%3A%22insights%22%2C%22properties%22%3A%7B%22name%22%3A%226b8f221b-c0ce-48e3-9fbb-16f917b1c095%22%7D%7D%5D%7D%7D%7D%7D%7D%7D).
 
-## Upcoming: Change in pricing for multicloud container threat detection
+### Upcoming: Change in pricing for multicloud container threat detection
 
 January 30, 2024**
 
@@ -297,7 +297,7 @@ January 30, 2024**
 
 When [multicloud container threat detection](support-matrix-defender-for-containers.md) moves to GA, it will no longer be free of charge. For more information, see [Microsoft Defender for Cloud pricing](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
-## Upcoming: Enforcement of Defender CSPM for Premium DevOps Security Value
+### Upcoming: Enforcement of Defender CSPM for Premium DevOps Security Value
 
 January 29, 2024**
 
@@ -342,7 +342,7 @@ The integration brings competitive cloud protection capabilities into the Securi
 
 Learn more about [alerts and incidents in Microsoft Defender XDR](concept-integration-365.md).
 
-## Upcoming: Update to agentless VM scanning built-in Azure role
+### Upcoming: Update to agentless VM scanning built-in Azure role
 
 January 14, 2024**
 
@@ -360,7 +360,7 @@ By default, PR annotations are enabled only for High severity Infrastructure as 
 
 Learn more about [enabling Pull Request annotations for Azure DevOps](enable-pull-request-annotations.md#enable-pull-request-annotations-in-azure-devops).
 
-## Upcoming: Defender for Servers built-in vulnerability assessment (Qualys) retirement path
+### Upcoming: Defender for Servers built-in vulnerability assessment (Qualys) retirement path
 
 January 9, 2024**
 
@@ -372,7 +372,7 @@ For more information about our decision to unify our vulnerability assessment of
 
 You can also check out the [common questions about the transition to Microsoft Defender Vulnerability Management solution](faq-scanner-detection.yml).
 
-## Upcoming: Defender for Cloud’s multicloud network requirements
+### Upcoming: Defender for Cloud’s multicloud network requirements
 
 January 3, 2024**
 
