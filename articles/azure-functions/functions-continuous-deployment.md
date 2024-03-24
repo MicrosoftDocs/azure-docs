@@ -60,18 +60,6 @@ The App Service platform maintains a native deployment service ([Project Kudu](h
 
 ---
 
-## Considerations for continuous deployment
-
-You should keep these considerations in mind when planning for a continuous deployment strategy:
-
-+ Continuous deployment isn't yet supported for Linux apps running on a Consumption plan. 
-
-+ The unit of deployment for functions in Azure is the function app. All functions in a function app are deployed at the same time and in the same package. 
-
-+ After you enable continuous deployment, access to function code in the Azure portal is configured as *read-only* because the _source of truth_ is known to reside elsewhere.
-
-+ You should always configure continuous deployment for a staging slot and not for the production slot. When you use the production slot, code updates are pushed directly to production without being verified in Azure. Instead, enable continuous deployment to a staging slot, verify updates in the staging slot, and after everything runs correctly you can [swap the staging slot code into production](./functions-deployment-slots.md#swap-slots). 
-
 ## <a name="credentials"></a>Deployment center
 
 The [Azure portal](https://portal.azure.com) provides a **Deployment center**, which makes it easier to configure continuous deployment for your function app. The way that you configure continuous deployment depends both on the specific source control in which your code resides and the [build provider](#build-providers) you choose. 
@@ -86,15 +74,15 @@ Deployments from GitHub that use Azure Pipelines are defined in the [Azure DevOp
 
 ### [Bitbucket](#tab/bitbucket/azure-pipelines)
 
-Not supported by Azure Pipelines. Choose a different [build provider](#build-providers). 
+You can't deploy from Bitbucket using Azure Pipelines. Choose a different [build provider](#build-providers). 
 
 ### [Local Git](#tab/local-git/azure-pipelines)
 
-Not supported by Azure Pipelines. Choose a different [build provider](#build-providers). 
+You can't deploy from local git using Azure Pipelines. Choose a different [build provider](#build-providers). 
 
 ### [Azure Repos](#tab/azure-repos/github-actions)
 
-GitHub Actions are only supported for deployments from GitHub.
+You can't deploy from Azure Repos using GitHub Actions. Choose a different [build provider](#build-providers).
 
 ### [GitHub](#tab/github/github-actions)
 
@@ -104,11 +92,11 @@ To learn more about GitHub Action deployments, including other ways to generate 
 
 ### [Bitbucket](#tab/bitbucket/github-actions)
 
-GitHub Actions are only supported for deployments from GitHub.
+You can't deploy from Bitbucket using GitHub Actions. Choose a different [build provider](#build-providers).
 
 ### [Local Git](#tab/local-git/github-actions)
 
-GitHub Actions are only supported for deployments from GitHub.
+You can't deploy from local git using GitHub Actions. Choose a different [build provider](#build-providers).
 
 ### [Azure Repos](#tab/azure-repos/app-service)
 
@@ -161,6 +149,18 @@ When a new commit is pushed to the local git repository, the service pulls your 
 ---
 
 After deployment completes, all code from the specified source is deployed to your app. At that point, changes in the deployment source trigger a deployment of those changes to your function app in Azure.
+
+## Considerations for continuous deployment
+
+You should keep these considerations in mind when planning for a continuous deployment strategy:
+
++ Continuous deployment isn't yet supported for Linux apps running on a Consumption plan. 
+
++ The unit of deployment for functions in Azure is the function app. All functions in a function app are deployed at the same time and in the same package. 
+
++ After you enable continuous deployment, access to function code in the Azure portal is configured as *read-only* because the _source of truth_ is known to reside elsewhere.
+
++ You should always configure continuous deployment for a staging slot and not for the production slot. When you use the production slot, code updates are pushed directly to production without being verified in Azure. Instead, enable continuous deployment to a staging slot, verify updates in the staging slot, and after everything runs correctly you can [swap the staging slot code into production](./functions-deployment-slots.md#swap-slots). 
 
 ## Next steps
 
