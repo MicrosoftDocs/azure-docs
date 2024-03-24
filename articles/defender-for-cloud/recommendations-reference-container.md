@@ -304,7 +304,7 @@ Privileged containers have all of the root capabilities of a host machine. They 
 **Description**: Container image vulnerability assessment scans your registry for security vulnerabilities and exposes detailed findings for each image. Resolving the vulnerabilities can greatly improve your containers' security posture and protect them from attacks.
 (Related policy: [Vulnerabilities in Azure Container Registry images should be remediated](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f5f0f936f-2f01-4bf5-b6be-d423792fa562)).
 
-**Severity**: High
+**Assessment key**: dbd0cb49-b563-45e7-9724-889e799fa648
 
 **Type**: Vulnerability Assessment
 
@@ -322,7 +322,7 @@ Privileged containers have all of the root capabilities of a host machine. They 
 **Description**: Container image vulnerability assessment scans container images running on your Kubernetes clusters for security vulnerabilities and exposes detailed findings for each image. Resolving the vulnerabilities can greatly improve your containers' security posture and protect them from attacks.
 (No related policy)
 
-**Severity**: High
+**Assessment key**: 41503391-efa5-47ee-9282-4eff6131462c
 
 **Type**: Vulnerability Assessment
 
@@ -335,7 +335,13 @@ Privileged containers have all of the root capabilities of a host machine. They 
 **Type**: Vulnerability Assessment
 
 
-## AWS Container recommendations
+## AWS container recommendations
+
+### AWS registry container images should have vulnerabilities resolved - (powered by Trivy)
+
+**Description**: Container image vulnerability assessment scans your registry for security vulnerabilities and exposes detailed findings for each image. Resolving the vulnerabilities can greatly improve your containers' security posture and protect them from attacks.
+
+**Assessment key**: 03587042-5d4b-44ff-af42-ae99e3c71c87
 
 ### [EKS clusters should grant the required AWS permissions to Microsoft Defender for Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/7d3a977e-46f1-419a-9046-4bd44db80aac)
 

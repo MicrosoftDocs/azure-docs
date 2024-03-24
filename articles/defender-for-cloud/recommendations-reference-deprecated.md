@@ -15,9 +15,8 @@ ai-usage: ai-assisted
 This article lists all the deprecated security recommendations in Microsoft Defender for Cloud. The recommendations that appear in your environment are based on the resources that you're protecting and on your customized configuration.
 
 
-
-
 ## Deprecated recommendations
+
 
 ### Over-provisioned identities in subscriptions should be investigated to reduce the Permission Creep Index (PCI)
 

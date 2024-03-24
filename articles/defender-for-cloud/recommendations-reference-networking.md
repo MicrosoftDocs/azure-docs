@@ -120,7 +120,7 @@ Note that the following subnet types will be listed as not applicable: GatewaySu
 **Description**: Some of your virtual networks aren't protected with a firewall. Use [Azure Firewall](https://azure.microsoft.com/pricing/details/azure-firewall) to restrict access to your virtual networks and prevent potential threats.
 (Related policy: [All Internet traffic should be routed via your deployed Azure Firewall](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ffc5e4038-4584-4632-8c85-c0448d374b2c)).
 
-**Severity**: Low
+
 
 ## AWS networking recommendations
 

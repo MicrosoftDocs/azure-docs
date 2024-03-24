@@ -254,6 +254,15 @@ Learn more in [Introduction to Microsoft Defender for Key Vault](defender-for-ke
 
 **Severity**: Medium
 
+**Severity**: Low
+
+### VPN gateways should use only Azure Active Directory (Azure AD) authentication for point-to-site users
+
+**Description**:
+
+**Severity**: Disabling local authentication methods improves security by ensuring that VPN Gateways use only Azure Active Directory identities for authentication. (Related policy: [VPN gateways should use only Azure Active Directory (Azure AD) authentication for point-to-site users](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f21a6bc25-125e-4d13-b82d-2e19b7208ab7)).
+
+
 
 ## AWS identity and access recommendations
 
