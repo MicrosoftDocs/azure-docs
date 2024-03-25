@@ -29,7 +29,7 @@ Our [Zero Trust infrastructure deployment guidance](/security/zero-trust/deploy/
 
 1. [Assess compliance with chosen standards and policies](update-regulatory-compliance-packages.yml)
 1. [Harden configuration](recommendations-reference.md) wherever gaps are found
-1. Employ other hardening tools such as [just-in-time (JIT)](just-in-time-access-usage.md) VM access
+1. Employ other hardening tools such as [just-in-time (JIT)](just-in-time-access-usage.yml) VM access
 1. Set up [threat detection and protections](/azure/azure-sql/database/threat-detection-configure)
 1. Automatically block and flag risky behavior and take protective actions
 

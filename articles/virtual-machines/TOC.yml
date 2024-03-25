@@ -1218,7 +1218,7 @@
       href: availability-set-overview.md
     - name: Change an availability set
       displayName: availability and scale, availability, scale, autoscale, availability sets, AV sets
-      href: ./windows/change-availability-set.md
+      href: ./windows/change-availability-set.yml
 - name: Disks
   items:
   - name: Overview

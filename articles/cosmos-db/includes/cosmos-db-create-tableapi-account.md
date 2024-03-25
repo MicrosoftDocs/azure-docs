@@ -10,4 +10,4 @@ ms.author: mimig
 ms.custom: include file
 ---
 
-For instructions on creating an Azure Cosmos DB for Table account, see [Create a database account](../how-to-manage-database-account.md).
+For instructions on creating an Azure Cosmos DB for Table account, see [Create a database account](../how-to-manage-database-account.yml).
