@@ -1,9 +1,9 @@
 ---
 title: Use Apache NiFi with HDInsight on AKS clusters running Apache Flink® to publish into ADLS Gen2
-description: Learn how to use Apache NiFi to consume processed Apache Kafka® topic from Apache Flink® on HDInsight on AKS clusters and publish into ADLS Gen2
+description: Learn how to use Apache NiFi to consume processed Apache Kafka® topic from Apache Flink® on HDInsight on AKS clusters and publish into ADLS Gen2.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 10/27/2023
+ms.date: 03/25/2024
 ---
 
 # Use Apache NiFi to consume processed Apache Kafka® topics from Apache Flink® and publish into ADLS Gen2
@@ -14,7 +14,7 @@ Apache NiFi is a software project from the Apache Software Foundation designed t
 
 For more information, see [Apache NiFi](https://nifi.apache.org)
 
-In this document, we process streaming data using HDInsight Kafka and perform some transformations on HDInsight Apache Flink on AKS, consume these topics and write the contents into ADLS Gen2 on Apache NiFi.
+In this document, we process streaming data using HDInsight Kafka and perform some transformations on HDInsight Apache Flink on AKS, consume these topics, and write the contents into ADLS Gen2 on Apache NiFi.
 
 By combining the low latency streaming features of Apache Flink and the dataflow capabilities of Apache NiFi, you can process events at high volume. This combination helps you to trigger, enrich, filter, to enhance overall user experience. Both these technologies complement each other with their strengths in event streaming and correlation.
 
@@ -22,13 +22,13 @@ By combining the low latency streaming features of Apache Flink and the dataflow
 
 * [Flink cluster on HDInsight on AKS](../flink/flink-create-cluster-portal.md) 
 * [Kafka cluster on HDInsight](../../hdinsight/kafka/apache-kafka-get-started.md)
-    *  You're required to ensure the network settings are taken care as described on [Using Kafka on HDInsight](../flink/process-and-consume-data.md); that's to make sure HDInsight on AKS and HDInsight clusters are in the same VNet 
+    *  You're required to ensure the network settings taken care as described on [Using Kafka on HDInsight](../flink/process-and-consume-data.md) to make sure HDInsight on AKS and HDInsight clusters are in the same VNet 
 * For this demonstration, we're using a Window VM as maven project develop env in the same VNET as HDInsight on AKS
 * For this demonstration, we're using an Ubuntu VM in the same VNET as HDInsight on AKS, install Apache NiFi 1.22.0 on this VM
 
 ## Prepare HDInsight Kafka topic
 
-For purposes of this demonstration, we're using a HDInsight Kafka Cluster, let us prepare HDInsight Kafka topic for the demo.
+For purposes of this demonstration, we're using a HDInsight Kafka Cluster. Let us prepare HDInsight Kafka topic for the demo.
 
 > [!NOTE]
 > Setup a HDInsight cluster with [Apache Kafka](../../hdinsight/kafka/apache-kafka-get-started.md) and replace broker list with your own list before you get started for both Kafka 2.4 and 3.2.
@@ -73,7 +73,7 @@ Here, we configure NiFi properties in order to be accessed outside the localhost
 
 ## Process streaming data from Kafka cluster on HDInsight with Flink cluster on HDInsight on AKS
 
-Let us develop the source code on Maven, to build the jar.
+Let us develop the source code on Maven, and build the jar.
 
 **SinkToKafka.java**
 
@@ -182,7 +182,7 @@ public class ClickSource implements SourceFunction<Event> {
 ```
 **Maven pom.xml**
 
-You can replace 2.4.1 with 3.2.0 in case you're using Kafka 3.2.0 on HDInsight, where applicable on the pom.xml
+You can replace 2.4.1 with 3.2.0 in case you're using Kafka 3.2.0 on HDInsight, where applicable on the pom.xml.
 
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -197,10 +197,10 @@ You can replace 2.4.1 with 3.2.0 in case you're using Kafka 3.2.0 on HDInsight, 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <flink.version>1.16.0</flink.version>
+        <flink.version>1.17.0</flink.version>
         <java.version>1.8</java.version>
         <scala.binary.version>2.12</scala.binary.version>
-        <kafka.version>2.4.1</kafka.version>     ---> Replace 2.4.1 with 3.2.0 , in case you're using HDInsight Kafka 3.2.0
+        <kafka.version>3.2.0</kafka.version>     ---> Replace 2.4.1 with 3.2.0 , in case you're using HDInsight Kafka 3.2.0
     </properties>
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-streaming-java -->
@@ -261,7 +261,7 @@ You can replace 2.4.1 with 3.2.0 in case you're using Kafka 3.2.0 on HDInsight, 
 
 ## Submit streaming job to Flink cluster on HDInsight on AKS
 
-Now, lets submit streaming job as mentioned in the previous step into Flink cluster
+Now, lets submit streaming job as mentioned in the previous step into Flink cluster.
 
 :::image type="content" source="./media/use-apache-nifi-with-datastream-api/step-5-flink-ui-job-submission.png" alt-text="Screenshot showing how to submit the streaming job from FLink UI." border="true" lightbox="./media/use-apache-nifi-with-datastream-api/step-5-flink-ui-job-submission.png":::
 
@@ -300,13 +300,13 @@ root@hn0-contos:/home/sshuser# /usr/hdp/current/kafka-broker/bin/kafka-console-c
 > [!NOTE]
 > In this example, we use Azure User Managed Identity to credentials for ADLS Gen2.
 
-In this demonstration, we have used Apache NiFi instance installed on an Ubuntu VM. We're accessing the NiFi web interface from a Windows VM. The Ubuntu VM needs to have a managed identity assigned to it and network security group (NSG) rules configured.
+In this demonstration, we use Apache NiFi instance installed on an Ubuntu VM. We're accessing the NiFi web interface from a Windows VM. The Ubuntu VM needs to have a managed identity assigned to it and network security group (NSG) rules configured.
 
 To use Managed Identity authentication with the PutAzureDataLakeStorage processor in NiFi. You're required to ensure Ubuntu VM on which NiFi is installed has a managed identity assigned to it, or assign a managed identity to the Ubuntu VM.
 
 :::image type="content" source="./media/use-apache-nifi-with-datastream-api/step-6-nifi-ui-kafka-consumption.png" alt-text="Screenshot showing how to create a flow in Apache NiFi - Step 1." border="true" lightbox="./media/use-apache-nifi-with-datastream-api/step-6-nifi-ui-kafka-consumption.png":::
 
-Once you have assigned a managed identity to the Azure VM, you need to make sure that the VM can connect to the IMDS (Instance Metadata Service) endpoint. The IMDS endpoint is available at the IP address shown in this example. You need to update your network security group rules to allow outbound traffic from the Ubuntu VM to this IP address.
+Once you assign a managed identity to the Azure VM, you need to make sure that the VM can connect to the IMDS (Instance Metadata Service) endpoint. The IMDS endpoint is available at the IP address shown in this example. You need to update your network security group rules to allow outbound traffic from the Ubuntu VM to this IP address.
 
 :::image type="content" source="./media/use-apache-nifi-with-datastream-api/step-6-2-nifi-ui-kafka-consumption.png" alt-text="Screenshot showing how to create a flow in Apache NiFi-Step2." border="true" lightbox="./media/use-apache-nifi-with-datastream-api/step-6-2-nifi-ui-kafka-consumption.png":::
 
@@ -340,4 +340,4 @@ Once you have assigned a managed identity to the Azure VM, you need to make sure
 * [Azure Data Lake Storage](https://nifi.apache.org/docs/nifi-docs/components/org.apache.nifi/nifi-azure-nar/1.12.0/org.apache.nifi.processors.azure.storage.PutAzureDataLakeStorage/index.html)
 * [ADLS Credentials Controller Service](https://nifi.apache.org/docs/nifi-docs/components/org.apache.nifi/nifi-azure-nar/1.12.0/org.apache.nifi.services.azure.storage.ADLSCredentialsControllerService/index.html)
 * [Download IntelliJ IDEA for development](https://www.jetbrains.com/idea/download/#section=windows)
-* Apache, Apache Kafka, Kafka, Apache Flink, Flink,Apache NiFi, NiFi and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
+* Apache, Apache Kafka, Kafka, Apache Flink, Flink, Apache NiFi, NiFi, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
