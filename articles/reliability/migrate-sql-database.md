@@ -199,7 +199,7 @@ To create a geo-replica of the database:
 To disable zone-redundancy, you can use the portal or ARM API. For Hyperscale service tier, you can simply reverse the steps document in [Redeployment (Hyperscale)](#redeployment-hyperscale).
 
 
-# [Azure portal](#tab/portal)
+**To disable zone-redundancy with Azure portal:**
 
 1. Go to the  [Azure portal](https://portal.azure.com) to find and select the elastic pool that you want to migrate.
 
@@ -210,12 +210,10 @@ To disable zone-redundancy, you can use the portal or ARM API. For Hyperscale se
 1. Select **Save**.
 
 
+**To disable zone-redundancy with ARM:**
 
-# [ARM](#tab/arm)
 
-To enable zone redundancy, see [Elastic Pools - Create Or Update in ARM](/rest/api/sql/2022-05-01-preview/elastic-pools/create-or-update?tabs=HTTP). 
 
----
 
 ## Next steps
 
