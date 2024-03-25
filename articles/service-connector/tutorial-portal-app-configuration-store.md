@@ -40,7 +40,7 @@ To store your connection configuration into an App Configuration, start by conne
     | Setting      | Suggested value  | Description                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Service type** | App Configuration | Target service type. If you don't have an App Configuration, [create one](../azure-app-configuration/quickstart-azure-app-configuration-create.md). |
-    | **Connection name** | Generated unique name | The connection name that identifies the connection between your App Service and target service  |
+    | **Connection name** | Unique name | The connection name that identifies the connection between your App Service and target service  |
     | **Subscription** | One of your subscriptions. | The subscription in which your target service is deployed. The target service is the service you want to connect to. The default value is the subscription listed for the App Service. |
     | **App Configuration** | Your App Configuration name | The target App Configuration you want to connect to. |
     | **Client type** | The same app stack on this App Service | Your application stack that works with the target service you selected. The default value comes from the App Service runtime stack. |
