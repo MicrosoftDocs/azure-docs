@@ -10,7 +10,7 @@ ms.date: 03/20/2024
 
 # Quickstart: Connect Azure services and store configuration in App Configuration Store
 
-Azure App Configuration is a cloud service that provides a central store for managing application settings. The configuration stored in App Configuration naturally supports IaC tools. When you create a service connection, you can choose to store your connection configuration into a connected App Configuration. In this tutorial, you'll complete the following tasks using the Azure portal. Both methods are explained in the following procedures.
+[Azure App Configuration](../azure-app-configuration/overview.md) is a cloud service that provides a central store for managing application settings. The configuration stored in App Configuration naturally supports IaC tools. When you create a service connection via Service Connector, you can choose to store your connection configuration into a connected App Configuration. In this tutorial, you'll complete the following tasks using the Azure portal. Both methods are explained in the following procedures.
 
 > [!div class="checklist"]
 > * Create a service connection to Azure App Configuration in Azure App Service
@@ -26,7 +26,7 @@ To create a service connection and store configuration in Azure App Configuratio
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 * An app hosted on App Service. If you don't have one yet, [create and deploy an app to App Service](../app-service/quickstart-dotnetcore.md)
 * An Azure App Configuration. If you don't have one, [create an Azure App Configuration](../azure-app-configuration/quickstart-azure-app-configuration-create.md)
-* Another target service instance supported by Service Connector. In this tutorial, you'll use [Azure Blob Storage](../storage/blobs/storage-quickstart-blobs-portal.md)
+* An Azure Blob Storage. If you don't have one, [create an Azure Blob Storage](../storage/blobs/storage-quickstart-blobs-portal.md)
 * Read and write access to the App Service, App Configuration and the target service.
 
 ## Create an App Configuration connection in App Service
@@ -45,14 +45,22 @@ To store your connection configuration into an App Configuration, start by conne
     | **App Configuration** | Your App Configuration name | The target App Configuration you want to connect to. |
     | **Client type** | The same app stack on this App Service | Your application stack that works with the target service you selected. The default value comes from the App Service runtime stack. |
 
+    :::image type="content" source="./media/app-configuration-store-tutorial/appconfig_create.png" alt-text="Screenshot of the Azure portal, creating App Configuration connection.":::
+
 1. Select **Next: Authentication** to select the authentication type. Then select **System assigned managed identity** to connect your App Configuration.
+
+    :::image type="content" source="./media/app-configuration-store-tutorial/appconfig_auth.png" alt-text="Screenshot of the Azure portal, selecting App Configuration connection auth.":::
 
 1. Select **Next: Network** to select the network configuration. Then select **Configure firewall rules** when your App Configuration open to public network by default.
 
     > [!TIP]
     > Service Connector will write configuration to App Configuration directly, so you need to enable the App Configuration public access when using this feature.
 
+    :::image type="content" source="./media/app-configuration-store-tutorial/appconfig_network.png" alt-text="Screenshot of the Azure portal, selecting App Configuration connection network.":::
+
 1. Then select **Next: Review + Create**  to review the provided information. Select **Create** to create the service connection. It can take one minute to complete the operation.
+
+    :::image type="content" source="./media/app-configuration-store-tutorial/appconfig_review.png" alt-text="Screenshot of the Azure portal, reviewing App Configuration connection.":::
 
 ## Create a Blob Storage connection in App Service and store configuration into App Configuration
 
@@ -60,7 +68,6 @@ Now you can create a service connection to another target service and store conf
 
 1. In the Azure portal, type **App Service** in the search menu and select the name of the App Service you want to use from the list.
 1. Select **Service Connector** from the left table of contents. Then select **Create**.
-
 1. Select or enter the following settings.
 
     | Setting      | Suggested value  | Description                                        |
@@ -71,13 +78,20 @@ Now you can create a service connection to another target service and store conf
     | **Storage account** | Your storage account | The target storage account you want to connect to. If you choose a different service type, select the corresponding target service instance. |
     | **Client type** | The same app stack on this App Service | Your application stack that works with the target service you selected. The default value comes from the App Service runtime stack. |
 
-1. Select **Next: Authentication** to select the authentication type and select **System assigned managed identity** to connect your storage account.
+    :::image type="content" source="./media/app-configuration-store-tutorial/storage_create.png" alt-text="Screenshot of the Azure portal, creating Blob Storage connection.":::
 
+1. Select **Next: Authentication** to select the authentication type and select **System assigned managed identity** to connect your storage account.
 1. Check **Store Configuration in App Configuration** to let Service Connector store the configuration info into your App Configuration. Then select one of your App Configuration connections under **App Configuration connection**.
+
+    :::image type="content" source="./media/app-configuration-store-tutorial/storage_auth.png" alt-text="Screenshot of the Azure portal, selecting Blob Storage connection auth.":::
 
 1. Select **Next: Network** and **Configure firewall rules** to update the firewall allowlist in Storage Account so that your App Service can reach the Storage Account.
 
+    :::image type="content" source="./media/app-configuration-store-tutorial/storage_network.png" alt-text="Screenshot of the Azure portal, selecting Blob Storage connection network.":::
+
 1. Then select **Next: Review + Create**  to review the provided information.
+
+    :::image type="content" source="./media/app-configuration-store-tutorial/storage_review.png" alt-text="Screenshot of the Azure portal, reviewing Blob Storage connection.":::
 
 1. Select **Create** to create the service connection. It might take up to one minute to complete the operation.
 
@@ -90,6 +104,8 @@ Now you can create a service connection to another target service and store conf
 1. Select **Configuration explorer** in the App Configuration left ToC, and select the blob storage configuration name.
 
 1. Click **Edit** to show the value of this blob storage connection.
+
+    :::image type="content" source="./media/app-configuration-store-tutorial/appconfig_detail.png" alt-text="Screenshot of the Azure portal, reviewing App Configuration Store content.":::
 
 ## Use your connection with App Configuration Providers
 
