@@ -19,7 +19,7 @@ Defender for Cloud proactively utilizes a dynamic engine which assesses the risk
 - You must [enable Defender CSPM](enable-enhanced-security.md) on your environment.
 
 > [!NOTE]
-> Recommendations are included by default with Defender for Cloud, but you will not be able to see risk prioritization without Defender CSPM enabled on your environment. 
+> Recommendations are included by default with Defender for Cloud, but you will not be able to see risk prioritization without Defender CSPM enabled on your environment.
 
 ## Review recommendation details
 
@@ -46,7 +46,7 @@ It's important to review all of the details related to a recommendation before t
     - **Owner** - The person assigned to this recommendation.
     - **Due date** - The assigned date the recommendation must be resolved by.
     - **Tactics & techniques** - The tactics and techniques mapped to MITRE ATT&CK.
-        
+
 ## Explore a recommendation
 
 You can perform many actions to interact with recommendations. If an option isn't available, it isn't relevant for the recommendation.
@@ -67,17 +67,17 @@ You can perform many actions to interact with recommendations. If an option isn'
 
 1. In **Take action**:
     - **Remediate**: A description of the manual steps required to remediate the security issue on the affected resources. For recommendations with the **Fix** option, you can select **View remediation logic** before applying the suggested fix to your resources.
-    
-     - **Assign owner and due date**: If you have a [governance rule](governance-rules.md) turned on for the recommendation, you can assign an owner and due date.
-    
+
+    - **Assign owner and due date**: If you have a [governance rule](governance-rules.md) turned on for the recommendation, you can assign an owner and due date.
+
     - **Exempt**: You can exempt resources from the recommendation, or disable specific findings using disable rules.
-    
+
     - **Workflow automation**: Set a logic app to trigger with this recommendation.
-    
-    :::image type="content" source="media/review-security-recommendations/recommendation-take-action.png" alt-text="Screenshot that shows what you can see in the recommendation when you select the take action tab." lightbox="media/review-security-recommendations/recommendation-take-action.png"::: 
-    
+
+    :::image type="content" source="media/review-security-recommendations/recommendation-take-action.png" alt-text="Screenshot that shows what you can see in the recommendation when you select the take action tab." lightbox="media/review-security-recommendations/recommendation-take-action.png":::
+
 1. In **Findings**, you can review affiliated findings by severity.
-    
+
      :::image type="content" source="media/review-security-recommendations/recommendation-findings.png" alt-text="Screenshot of the findings tab in a recommendation that shows all of the attack paths for that recommendation." lightbox="media/review-security-recommendations/recommendation-findings.png":::
 
 1. In **Graph**, you can view and investigate all context that is used for risk prioritization, including [attack paths](how-to-manage-attack-path.md). You can select a node in an attack path to view the details of the selected node.
@@ -188,4 +188,3 @@ When you open the underlying query, and run it, Azure Resource Graph Explorer re
 
 > [!div class="nextstepaction"]
 > [Remediate security recommendations](implement-security-recommendations.md)
-

@@ -14,7 +14,7 @@ In Microsoft Defender for Cloud, you can [exempt protected resources from Defend
 
 ## Review exempted resources in the portal
 
-Once a resource has been exempted it will no longer be taken into account for security recommendation. You can review the exempted resources and manage each one in the Defender for Cloud portal. 
+Once a resource has been exempted it will no longer be taken into account for security recommendation. You can review the exempted resources and manage each one in the Defender for Cloud portal.
 
 ### Review exempted resources on the recommendations page
 
