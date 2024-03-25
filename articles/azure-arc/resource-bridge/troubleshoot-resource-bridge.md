@@ -13,9 +13,9 @@ This article provides information on troubleshooting and resolving issues that c
 
 ### Logs collection
 
-For issues encountered with Arc resource bridge, collect logs for further investigation using the Azure CLI [`az arcappliance logs`](/cli/azure/arcappliance/logs) command. This command needs to be run from the same management machine that was used to run commands to deploy the Arc resource bridge. If you are using a different machine to collect logs, you will need to run the `az arcappliance get-credentials` command first before collecting logs.
+For issues encountered with Arc resource bridge, collect logs for further investigation using the Azure CLI [`az arcappliance logs`](/cli/azure/arcappliance/logs) command. This command needs to be run from the same management machine that was used to run commands to deploy the Arc resource bridge. If you are using a different machine to collect logs, you need to run the `az arcappliance get-credentials` command first before collecting logs.
 
-If there's a problem collecting logs, most likely the management machine is unable to reach the Appliance VM, and the network administrator needs to allow SSH communication between the management machine to the Appliance VM on TCP port 22. 
+If there's a problem collecting logs, most likely the management machine is unable to reach the Appliance VM. Contact your network administrator to allow SSH communication from the management machine to the Appliance VM on TCP port 22. 
 
 You can collect the Arc resource bridge logs by passing either the appliance VM IP or the kubeconfig in the logs command.
 
@@ -55,7 +55,7 @@ In this release, all the parameters are specified at time of creation. To update
 
 ### Appliance Network Unavailable 
 
-If Arc resource bridge is experiencing a network communication problem or is offline, you may see an "Appliance Network Unavailable" error when trying to perform an action that interacts with the resource bridge or an extension operating on top of the bridge. In general, any network or infrastructure connectivity issue to the appliance VM may cause this error. This error can also surface as "Error while dialing dial tcp xx.xx.xxx.xx:55000: connect: no route to host" and this is typically a network communication problem. The problem could be that communication from the host to the Arc resource bridge VM needs to be opened with the help of your network administrator. It could be that there was a temporary network issue not allowing the host to reach the Arc resource bridge VM and once the network issue is resolved, you can retry the operation. You may also need to check that the appliance VM for Arc resource bridge isn't stopped. In the case of Azure Stack HCI, the host storage may be full which has caused the appliance VM to pause and the storage will need to be addressed. 
+If Arc resource bridge is experiencing a network communication problem or is offline, you may see an "Appliance Network Unavailable" error when trying to perform an action that interacts with the resource bridge or an extension operating on top of the bridge. In general, any network or infrastructure connectivity issue to the appliance VM may cause this error. This error can also surface as "Error while dialing dial tcp xx.xx.xxx.xx:55000: connect: no route to host" and this is typically a network communication problem. The problem could be that communication from the host to the Arc resource bridge VM needs to be opened with the help of your network administrator. It could be that there was a temporary network issue not allowing the host to reach the Arc resource bridge VM and once the network issue is resolved, you can retry the operation. You need to check that the appliance VM for Arc resource bridge isn't stopped. In the case of Azure Stack HCI, the host storage may be full which has caused the appliance VM to pause and the storage needs to be addressed. 
 
 ### Token refresh error
 
