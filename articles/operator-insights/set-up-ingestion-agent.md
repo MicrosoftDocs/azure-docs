@@ -44,6 +44,28 @@ Download the RPM for the ingestion agent using the details you received as part 
 
 Links to the current and previous releases of the agents are available below the heading of each [release note](ingestion-agent-release-notes.md). If you're looking for an agent version that's more than 6 months old, check out the [release notes archive](ingestion-agent-release-notes-archive.md).
 
+### Verify the authenticity of the ingestion agent RPM (optional)
+
+Before you install the RPM, you can verify the signature of the RPM with the [Microsoft public key file](https://packages.microsoft.com/keys/microsoft.asc) to ensure it has not been corrupted or tampered with.
+
+To do this, perform the following steps:
+
+1. Download the RPM.
+1. Download the provided public key
+    ```
+    wget https://packages.microsoft.com/keys/microsoft.asc
+    ```
+1. Import the public key to the GPG keyring
+    ```
+    gpg --import microsoft.asc
+    ```
+1. Verify the RPM signature matches the public key
+    ```
+    rpm --checksig <path-to-rpm>
+    ```
+
+The output of the final command should be `<path-to-rpm>: digests signatures OK`
+
 ## Set up authentication to Azure
 
 You must have a service principal with a certificate credential that can access the Azure Key Vault created by the Data Product to retrieve storage credentials. Each agent must also have a copy of a valid certificate and private key for the service principal stored on this virtual machine.
@@ -142,6 +164,14 @@ Repeat these steps for each VM onto which you want to install the agent.
     Verify that the VM has the following ports open. These ports must be open both in cloud network security groups and in any firewall running on the VM itself (such as firewalld or iptables).
     - Port 36001/TCP inbound from the MCCs
     - Port 443/TCP outbound to Azure
+
+    You can configure the inbound rule with:
+    ```
+    sudo firewall-cmd --permanent --new-service=mcc-connection 
+    sudo firewall-cmd --permanent --service=mcc-connection --add-port=36001/tcp 
+    sudo firewall-cmd --add-service=mcc-connection --permanent 
+    sudo firewall-cmd --reload
+    ```
 
     ---
 

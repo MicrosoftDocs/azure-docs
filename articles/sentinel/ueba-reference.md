@@ -11,6 +11,8 @@ ms.author: yelevin
 
 This reference article lists the input data sources for the User and Entity Behavior Analytics service in Microsoft Sentinel. It also describes the enrichments that UEBA adds to entities, providing needed context to alerts and incidents.
 
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
+
 ## UEBA data sources
 
 These are the data sources from which the UEBA engine collects and analyzes data to train its ML models and set behavioral baselines for users, devices, and other entities. UEBA then looks at data from these sources to find anomalies and glean insights.
@@ -26,7 +28,7 @@ These are the data sources from which the UEBA engine collects and analyzes data
 
 This section describes the enrichments UEBA adds to Microsoft Sentinel entities, along with all their details, that you can use to focus and sharpen your security incident investigations. These enrichments are displayed on [entity pages](entity-pages.md#how-to-use-entity-pages) and can be found in the following Log Analytics tables, the contents and schema of which are listed below:
 
-- The **BehaviorAnalytics** table is where UEBA's output information is stored.
+- The **[BehaviorAnalytics](#behavioranalytics-table)** table is where UEBA's output information is stored.
 
     The following three dynamic fields from the BehaviorAnalytics table are described in the [entity enrichments dynamic fields](#entity-enrichments-dynamic-fields) section below.
 
@@ -36,7 +38,7 @@ This section describes the enrichments UEBA adds to Microsoft Sentinel entities,
 
         <a name="baseline-explained"></a>User activities are analyzed against a baseline that is dynamically compiled each time it is used. Each activity has its defined lookback period from which the dynamic baseline is derived. The lookback period is specified in the [**Baseline**](#activityinsights-field) column in this table.
 
-- The **IdentityInfo** table is where identity information synchronized to UEBA from Microsoft Entra ID (and from on-premises Active Directory via Microsoft Defender for Identity) is stored.
+- The **[IdentityInfo](#identityinfo-table)** table is where identity information synchronized to UEBA from Microsoft Entra ID (and from on-premises Active Directory via Microsoft Defender for Identity) is stored.
 
 ### BehaviorAnalytics table
 
@@ -63,8 +65,6 @@ The following table describes the behavior analytics data displayed on each [ent
 | **DevicesInsights**       | dynamic  | The contextual enrichments of involved devices ([details below](#devicesinsights-field)). |
 | **ActivityInsights**      | dynamic  | The contextual analysis of activity based on our profiling ([details below](#activityinsights-field)). |
 | **InvestigationPriority** | int      | The anomaly score, between 0-10 (0=benign, 10=highly anomalous). |
-
-
 
 ### Entity enrichments dynamic fields
 
@@ -215,26 +215,29 @@ While the initial synchronization may take a few days, once the data is fully sy
 
 
 > [!NOTE]
-> Currently, only built-in roles are supported.
+> - Currently, only built-in roles are supported.
 >
-> Data about deleted groups, where a user was removed from a group, is not currently supported.
+> - Data about deleted groups, where a user was removed from a group, is not currently supported.
 >
+> - There are actually two versions of the *IdentityInfo* table: one serving Microsoft Sentinel, the other serving Microsoft Defender for Identity. Both versions of this table are fed by Microsoft Entra ID, but the Sentinel version added a few fields.
+> 
+>    [Microsoft Sentinel in the Defender portal](https://go.microsoft.com/fwlink/p/?linkid=2263690) uses the Defender for Identity version of this table, so to equalize the versions of the table, the unique fields in the Sentinel version have been added to the Defender for Identity version as well. Regardless of in which portal you're using Microsoft Sentinel, you'll have access to all the same information, though there may be a small time lag in synchronization between the versions.
 
 The following table describes the user identity data included in the **IdentityInfo** table in Log Analytics.
 
 | Field                           | Type     | Description                                                |
 | ------------------------------- | -------- | ---------------------------------------------------------- |
-| **AccountCloudSID**             | string   | The Microsoft Entra security identifier of the account.           |
+| **AccountCloudSID**             | string   | The Microsoft Entra security identifier of the account.    |
 | **AccountCreationTime**         | datetime | The date the user account was created (UTC).               |
 | **AccountDisplayName**          | string   | The display name of the user account.                      |
 | **AccountDomain**               | string   | The domain name of the user account.                       |
 | **AccountName**                 | string   | The user name of the user account.                         |
-| **AccountObjectId**             | string   | The Microsoft Entra object ID for the user account. |
+| **AccountObjectId**             | string   | The Microsoft Entra object ID for the user account.        |
 | **AccountSID**                  | string   | The on-premises security identifier of the user account.   |
-| **AccountTenantId**             | string   | The Microsoft Entra tenant ID of the user account.  |
+| **AccountTenantId**             | string   | The Microsoft Entra tenant ID of the user account.         |
 | **AccountUPN**                  | string   | The user principal name of the user account.               |
 | **AdditionalMailAddresses**     | dynamic  | The additional email addresses of the user.                |
-| **AssignedRoles**               | dynamic  | The Microsoft Entra roles the user account is assigned to.        |
+| **AssignedRoles**               | dynamic  | The Microsoft Entra roles the user account is assigned to. |
 | **BlastRadius**                 | string   | A calculation based on the position of the user in the org tree and the user's Microsoft Entra roles and permissions. <br>Possible values: *Low, Medium, High* |
 | **ChangeSource**                | string   | The source of the latest change to the entity. <br>Possible values:<br>- *AzureActiveDirectory*<br>- *ActiveDirectory*<br>- *UEBA*<br>- *Watchlist*<br>- *FullSync* |
 | **City**                        | string   | The city of the user account.                              |
@@ -242,7 +245,7 @@ The following table describes the user identity data included in the **IdentityI
 | **DeletedDateTime**             | datetime | The date and time the user was deleted.                    |
 | **Department**                  | string   | The department of the user account.                        |
 | **GivenName**                   | string   | The given name of the user account.                        |
-| **GroupMembership**             | dynamic  | Microsoft Entra groups where the user account is a member.        |
+| **GroupMembership**             | dynamic  | Microsoft Entra groups where the user account is a member. |
 | **IsAccountEnabled**            | bool     | An indication as to whether the user account is enabled in Microsoft Entra ID or not. |
 | **JobTitle**                    | string   | The job title of the user account.                         |
 | **MailAddress**                 | string   | The primary email address of the user account.             |
