@@ -31,17 +31,17 @@ Azure AI Search has three basic network traffic patterns:
 
 Inbound requests that target a search service endpoint include:
 
-+ Create or manage objects on the search service (indexes, indexers, data sources, skillsets, synonym maps)
-+ Trigger indexer or skillset execution
-+ Load an index
++ Create, read, update or delete objects on the search service
++ Load an index with search documents
 + Query an index
++ Trigger indexer or skillset execution
 
-You can review the [REST APIs](/rest/api/searchservice/) to understand the full range of inbound requests that are handled by a search service.
+The [REST APIs](/rest/api/searchservice/) describe the full range of inbound requests that are handled by a search service.
 
 At a minimum, all inbound requests must be authenticated using either of these options:
 
 + Key-based authentication (default). Inbound requests provide a valid API key.
-+ Role-based access control. Microsoft Entra identities and role assignments authorize access.
++ Role-based access control. Microsoft Entra identities and role assignments on your Azure AI Search service authorize access.
 
 Additionally, you can add [network security features](#service-access-and-authentication) to further restrict access to the endpoint. You can create either inbound rules in an IP firewall, or create private endpoints that fully shield your search service from the public internet. 
 
@@ -58,12 +58,6 @@ The following list is a full enumeration of the outbound requests that can be ma
 | Custom skills | Connect to Azure functions, Azure web apps, or other apps running external code that's hosted off-service. The request for external processing is sent during skillset execution. |
 | Indexers and [integrated vectorization](vector-search-integrated-vectorization.md) | Connect to Azure OpenAI and a deployed embedding model, or it goes through a custom skill to connect to an embedding model that you provide. The search service sends text to embedding models for vectorization during indexing or query execution. |
 | Search service | Connect to Azure Key Vault for customer-managed keys, used to encrypt and decrypt sensitive data. |
-
-<!-- + Indexers connect to external data sources. For more information, see [Indexer access to content protected by Azure network security](search-indexer-securing-resources.md).
-+ Indexers write to Azure Storage when creating knowledge stores, persisting cached enrichments, and persisting debug sessions.
-+ Custom skills connect to an external Azure function or app to run external code that's hosted off-service. The request for external processing is sent during skillset execution.
-+ During [integrated vectorization](vector-search-integrated-vectorization.md), the search service connects to Azure OpenAI and a deployed embedding model, or it goes through a custom skill to connect to an embedding model that you provide. The search service sends text to embedding models for vectorization during indexing or query execution.
-+ Search services connect to Azure Key Vault for customer-managed keys, used to encrypt and decrypt sensitive data. -->
 
 Outbound connections can be made using a resource's full access connection string that includes a key or a database login, or [a managed identity](search-howto-managed-identities-data-sources.md) if you're using Microsoft Entra ID and role-based access.
 
