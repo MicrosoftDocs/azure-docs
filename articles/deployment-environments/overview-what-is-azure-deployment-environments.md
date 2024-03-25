@@ -93,5 +93,4 @@ Start using Azure Deployment Environments:
 - [Azure Deployment Environments scenarios](./concept-environments-scenarios.md)
 - [Quickstart: Create dev center and project (ARM)](./quickstart-create-devcenter-and-project-arm.md)
 - [Quickstart: Create and configure a dev center](./quickstart-create-and-configure-devcenter.md)
-- [Quickstart: Create and configure a project](./quickstart-create-and-configure-projects.md)
 - [Quickstart: Create and access environments](./quickstart-create-access-environments.md)

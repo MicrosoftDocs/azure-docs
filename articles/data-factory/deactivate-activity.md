@@ -2,8 +2,8 @@
 title: Deactivate an Activity in Azure Data Factory 
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to deactivate an activity to exclude from pipeline run and validation
-author: chez-charlie
-ms.author: chez
+author: kromerm
+ms.author: makromer
 ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
