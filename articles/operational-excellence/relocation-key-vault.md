@@ -206,7 +206,7 @@ To deploy the template by using Azure portal:
             "ipRules": [],
             "virtualNetworkRules": [
                 {
-                    "id": "[concat(parameters('target_subnet_name'), concat('/subnets/', parameters('target_subnet_name')]",
+                    "id": "[concat(parameters('target_vnet_externalid'), concat('/subnets/', parameters('target_subnet_name')]",
                     "ignoreMissingVnetServiceEndpoint": false
                 }
             ]
@@ -288,7 +288,7 @@ To deploy the template by using PowerShell:
        "ipRules": [],
        "virtualNetworkRules": [
            {
-               "id": "[concat(parameters('target_subnet_name'), concat('/subnets/', parameters('target_subnet_name')]",
+               "id": "[concat(parameters('target_vnet_externalid'), concat('/subnets/', parameters('target_subnet_name')]",
                "ignoreMissingVnetServiceEndpoint": false
            }
        ]
