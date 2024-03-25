@@ -708,14 +708,14 @@ items:
             href: concepts/interop/virtual-visits/govern-meeting-experience.md
           - name: Teams controls
             href: concepts/interop/guest/teams-administration.md
+      - name: Closed captions
+        href: concepts/interop/enable-closed-captions.md      
       - name: Pricing
         href: concepts/pricing/teams-interop-pricing.md
     - name: Rooms
       href: concepts/rooms/room-concept.md
     - name: Recording
       href: concepts/voice-video-calling/call-recording.md
-    - name: Closed captions
-      href: concepts/interop/enable-closed-captions.md      
     - name: Advanced audio and video
       items:    
         - name: Music mode
