@@ -28,18 +28,6 @@ The following table lists the built-in policies you can assign with Azure Machin
 
 [!INCLUDE [azure-policy-reference-policies-machine-learning](../../includes/policy/reference/bycat/policies-machine-learning.md)]
 
-<!-- | Policy | Description |
-| ----- | ----- |
-| **Customer-managed key** | Audit or enforce whether workspaces must use a customer-managed key. |
-| **Private link** | Audit or enforce whether workspaces use a private endpoint to communicate with a virtual network. |
-| **Private endpoint** | Configure the Azure Virtual Network subnet where the private endpoint should be created. |
-| **Private DNS zone** | Configure the private DNS zone to use for the private link. |
-| **User-assigned managed identity** | Audit or enforce whether workspaces use a user-assigned managed identity. |
-| **Disable public network access** | Audit or enforce whether workspaces disable access from the public internet. |
-| **Disable local authentication** | Audit or enforce whether Azure Machine Learning compute resources should have local authentication methods disabled. |
-| **Modify/disable local authentication** | Configure compute resources to disable local authentication methods. |
-| **Compute cluster and instance is behind virtual network** | Audit whether compute resources are behind a virtual network. | -->
-
 Policies can be set at different scopes, such as at the subscription or resource group level. For more information, see the [Azure Policy documentation](../governance/policy/overview.md).
 
 ## Assigning built-in policies
