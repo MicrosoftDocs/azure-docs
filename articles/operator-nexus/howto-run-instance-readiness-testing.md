@@ -143,7 +143,9 @@ You can provide the network information in a `networks-blueprint.yml` file, simi
 ## One time setup
 
 ### Download IRT
-IRT is distributed via tarball from the release section of the [nexus-samples](https://aka.ms/nexus-irt) GitHub repo.
+
+IRT is distributed via tarball from the release section of the nexus-samples GitHub repo. 
+
 1. Find the release package marked with 'Latest', download it, extract it, and navigate to the `irt` directory.
 1. Extract the tarball to the local file system: `mkdir -p irt && tar xf nexus-irt.tar.gz --directory ./irt`.
 1. Switch to the new directory `cd irt`.

@@ -89,7 +89,7 @@
 - name: Reliability guides by service
   items:
   - name: Overview
-    href: reliability-guidance-overview.md
+    href: overview-reliability-guidance.md
   - name: Foundational services
     items:
       - name: Azure Cosmos DB
@@ -186,8 +186,6 @@
       href: ../bastion/bastion-faq.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#dr
     - name: Azure Batch
       href: reliability-batch.md
-    - name: Azure Bot Service 
-      href: reliability-bot.md
     - name: Azure Cognitive Search
       href: ../search/search-reliability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Cache for Redis
@@ -273,7 +271,7 @@
     - name: Azure Network Watcher
       href: ../network-watcher/frequently-asked-questions.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#service-availability-and-redundancy
     - name: Azure Notification Hubs
-      href: ../notification-hubs/availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      href: reliability-notification-hubs.md
     - name: Azure Operator Nexus
       href: reliability-operator-nexus.md
     - name: Azure Private Link
@@ -286,8 +284,6 @@
       href: ../stream-analytics/geo-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json 
     - name: Azure Storage - Blob Storage
       href: ../storage/common/storage-disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-    - name: Azure Traffic Manager
-      href: reliability-traffic-manager.md
     - name: Azure Virtual WAN
       items:
       - name: Availability zones
@@ -310,12 +306,8 @@
       href: reliability-chaos-studio.md
     - name: Azure Community Training
       href: reliability-community-training.md
-    - name : Azure Cosmos DB for MongoDB vCore
-      items:
-      - name: Availability zones
-        href: /azure/cosmos-db/mongodb/vcore/high-availability?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Disaster recovery
-        href : ../cosmos-db/mongodb/vcore/failover-disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Cosmos DB for MongoDB vCore
+      href: reliability-cosmos-mongodb.md
     - name: Azure Databox
       href: ../databox/data-box-disk-faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-can-i-recover-my-data-if-an-entire-region-fails-
     - name: Azure Data Manager for Energy
@@ -354,6 +346,12 @@
       href: reliability-fabric.md
     - name: Microsoft Purview
       href: reliability-microsoft-purview.md
+  - name: Non-regional services
+    items:
+    - name: Azure Bot Service 
+      href: reliability-bot.md
+    - name: Azure Traffic Manager
+      href: reliability-traffic-manager.md
   - name:  Azure Service Manager retirement
     items:
     - name: Overview

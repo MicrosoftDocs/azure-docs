@@ -20,7 +20,7 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
 
 - [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 - This article requires version 2.0.64 or later of the Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed there.
 - Make sure that the identity you're using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
@@ -128,7 +128,7 @@ To use Windows Server 2022, specify the following parameters:
 - `os-sku` set to `Windows2022`
 
 > [!NOTE]
-> Windows Server 2022 requires Kubernetes version 1.23.0 or higher.
+> Windows Server 2022 requires Kubernetes version 1.23.0 or higher. Windows Server 2022 is being retired after Kubernetes version 1.34 reaches its end of life (EOL). For more information about this retirement, see the [AKS release notes][aks-release-notes].
 
 Add a Windows Server 2022 node pool using the `az aks nodepool add` command:
 
