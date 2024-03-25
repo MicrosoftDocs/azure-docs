@@ -431,7 +431,7 @@ Use Azure PowerShell to restore a deleted container or database. Child container
         DatabaseName = "<database-name>"
         Name = "<container-name>"
         RestoreTimestampInUtc = "<timestamp>"
-        DisableTtl = 1 
+        DisableTtl= $true
     }
     Restore-AzCosmosDBSqlContainer @parameters 
     ```
@@ -489,7 +489,7 @@ Use Azure PowerShell to restore a deleted container or database. Child container
         AccountName = "<account-name>"
         Name = "<database-name>"
         RestoreTimestampInUtc = "<timestamp>"
-        DisableTtl = 1 
+        DisableTtl=$true 
     }
     Restore-AzCosmosDBMongoDBDatabase @parameters 
     ```
@@ -503,7 +503,7 @@ Use Azure PowerShell to restore a deleted container or database. Child container
         DatabaseName = "<database-name>"
         Name = "<collection-name>"
         RestoreTimestampInUtc = "<timestamp>"
-        DisableTtl = 1 
+        DisableTtl=$true 
     }
     Restore-AzCosmosDBMongoDBCollection @parameters   
     ```
@@ -561,7 +561,7 @@ Use Azure PowerShell to restore a deleted container or database. Child container
         AccountName = "<account-name>"
         Name = "<database-name>"
         RestoreTimestampInUtc = "<timestamp>"
-        DisableTtl = 1 
+        DisableTtl=$true 
     }
     Restore-AzCosmosDBGremlinDatabase @parameters
     ```
@@ -575,7 +575,7 @@ Use Azure PowerShell to restore a deleted container or database. Child container
         DatabaseName = "<database-name>"
         Name = "<graph-name>"
         RestoreTimestampInUtc = "<timestamp>"
-        DisableTtl = 1 
+        DisableTtl=$true 
     }
     Restore-AzCosmosDBGremlinGraph @parameters 
     ```
@@ -622,7 +622,7 @@ Use Azure PowerShell to restore a deleted container or database. Child container
         AccountName = "<account-name>"
         Name = "<table-name>"
         RestoreTimestampInUtc = "<timestamp>"
-        DisableTtl = 1 
+        DisableTtl=$true 
     }
     Restore-AzCosmosDBTable @parameters
     ```
