@@ -155,6 +155,8 @@
           href: how-to-customize-kubernetes-cluster-dns.md
         - name: Customize Worker Nodes
           href: howto-kubernetes-cluster-customize-workers.md
+        - name: Collect debug logs for support ticket
+          href: howto-kubernetes-cluster-log-collector-script.md
     - name: Nexus Virtual Machine
       expanded: false
       items:
