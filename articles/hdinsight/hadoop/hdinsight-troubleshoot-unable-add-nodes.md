@@ -27,7 +27,3 @@ Using the [Cluster size](../hdinsight-scaling-best-practices.md) feature, calcul
 * Take a look at the number of available cores in other locations. Consider recreating your cluster in a different location with enough available cores.
 
 * If you'd like to increase the core quota for a specific location, file a support ticket for an HDInsight core quota increase.
-
-## Next steps
-
-[!INCLUDE [troubleshooting next steps](../includes/-troubleshooting-next-steps.md)]
