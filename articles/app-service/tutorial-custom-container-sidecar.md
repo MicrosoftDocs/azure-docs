@@ -2,7 +2,7 @@
 title: 'Tutorial: Configure a sidecar container'
 description: Add sidecar containers to your custom container in Azure App Service. Add or update services to your application without changing your application container.
 ms.topic: tutorial
-ms.date: 03/25/2024
+ms.date: 04/07/2024
 ms.author: msangapu
 author: msangapu-msft
 keywords: azure app service, web app, linux, windows, docker, container, sidecar
@@ -10,7 +10,7 @@ keywords: azure app service, web app, linux, windows, docker, container, sidecar
 
 # Tutorial: Configure a sidecar container for custom container in Azure App Service (preview)
 
-In this tutorial, you add OpenTelemetry collector as a sidecar container to a custom container in Azure App Service. 
+In this tutorial, you add OpenTelemetry collector as a sidecar container to a Linux custom container app in Azure App Service. 
 
 In Azure App Service, you can add up to [TODO: #] sidecar containers for each custom container app. Sidecar containers let you deploy additional services and features to your container application without making them tightly coupled to your main application container. For example, you can add monitoring, logging, configuration, and networking services as sidecar containers. An OpenTelemetry collector sidecar is one such monitoring example. 
 
@@ -33,17 +33,12 @@ First you create the resources that the tutorial uses (for more information, see
     azd provision
     ```
 
-1. When prompted, supply the environment name, subscription, and region you want.
+1. When prompted, supply the environment name, subscription, and region you want. For example:
 
-    `azd provision` uses the included templates to create the following Azure resources:
-    
-    - A resource group
-    - A [container registry](../container-registry/container-registry-intro.md) with two images deployed:
-        - An Nginx image with the OpenTelemetry module.
-        - An OpenTelemetry collector image, configured to export to [Azure Monitor](../azure-monitor/overview.md).
-    - A [log analytics workspace](../azure-monitor/logs/log-analytics-overview.md)
-    - An [Application Insights](../azure-monitor/app/app-insights-overview.md) component
-    
+    - Environment name: *my-sidecar-env*
+    - Subscription: your subscription
+    - Region: *(Europe) West Europe*
+
     When deployment completes, you should see the following output:
 
     <pre>
@@ -54,16 +49,25 @@ First you create the resources that the tutorial uses (for more information, see
 
 1. Open the resource group link in a browser tab. You'll need to use the connection string later.
 
+    > [!NOTE] `azd provision` uses the included templates to create the following Azure resources:
+    > 
+    > - A resource group
+    > - A [container registry](../container-registry/container-registry-intro.md) with two images deployed:
+    >     - An Nginx image with the OpenTelemetry module.
+    >     - An OpenTelemetry collector image, configured to export to [Azure Monitor](../azure-monitor/overview.md).
+    > - A [log analytics workspace](../azure-monitor/logs/log-analytics-overview.md)
+    > - An [Application Insights](../azure-monitor/app/app-insights-overview.md) component
+    
 ## 2. Create a sidecar-enabled app
 
-1. In the resource group page, select **Create**.
+1. In the resource group's management page, select **Create**.
 1. Search for *web app*, then select the down arrow on **Create** and select **Web App**.
 
     :::image type="content" source="media/tutorial-custom-container-sidecar/create-web-app.png" alt-text="Screenshot showing the Azure Marketplace page with the web app being searched and create web app buttons being clicked.":::
 
 1. Configure the **Basics** panel as follows:
     - **Name**: A unique name
-    - **Publish**: **Docker Container**
+    - **Publish**: **Container**
     - **Operating System**: **Linux**
     - **Region**: Same region as the one you chose with `azd provision`
     - **Linux Plan**: A new App Service plan
@@ -76,8 +80,12 @@ First you create the resources that the tutorial uses (for more information, see
     - **Registry**: The registry created by `azd provision`
     - **Image**: **nginx**
     - **Tag**: **latest**
+    - **Port**: **80**
 
     :::image type="content" source="media/tutorial-custom-container-sidecar/create-wizard-container-panel.png" alt-text="Screenshot showing the web app create wizard and settings for the container image and the sidecar support highlighted.":::
+
+    > [!NOTE]
+    > These settings are configured differently in sidecar-enabled containers. For more information, see [Differences for sidecar-enabled containers](#differences-for-sidecar-enabled-containers).
 
 1. Select **Review + create**, then select **Create**.
 
@@ -125,9 +133,11 @@ You configure environment variables for the containers like any App Service app,
 
     :::image type="content" source="media/tutorial-custom-container-sidecar/configure-app-settings.png" alt-text="Screenshot showing a web app's Configuration page with two app settings added.":::
 
+> [!NOTE] Certain app settings don't apply to sidecar-enabled custom container apps. For more information, see [Differences for sidecar-enabled containers](#differences-for-sidecar-enabled-containers)
+
 ## 5. Verify in Application Insights
 
-The otel-collector sidecar should now be able exporting data to Application Insights.
+The otel-collector sidecar should export data to Application Insights now.
 
 1. Back in the browser tab for `https:<app-name>.azurewebsites.net`, refresh the page a few times to generate some web requests.
 1. Go back to the resource group overview page, select the Application Insights resource. You should now see some data in the default charts.
@@ -144,6 +154,13 @@ When you no longer need the environment, you can delete the resource group, App 
 ```azurecli-interactive
 azd down
 ```
+
+## Differences for sidecar-enabled containers
+
+Sidecar-enabled custom container apps differ from custom container apps that are not sidecar-enabled in that the settings are not set, especially in how you configure basic container settings. Custom container apps that are not sidecar-enabled are configured mainly using app settings, but sidecar-enabled custom container apps are configured directly as resource properties in the app. For example, these app settings don't apply for sidecar-enabled custom container apps:
+
+- Registry authentication settings: `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD`.
+- Container port: `WEBSITES_PORT`
 
 ## More resources
 
