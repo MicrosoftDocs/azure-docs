@@ -2,7 +2,7 @@
 title: Getting started with Azure App Service
 description: Take the first steps toward working with Azure App Service.
 ms.author: msangapu
-author: msangapu-msft
+author: msangapu-msft 
 ms.topic: overview
 ms.custom: devx-track-extended-java, devx-track-python
 ms.date: 8/31/2023
