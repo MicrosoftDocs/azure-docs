@@ -4,7 +4,6 @@ description: Learn how AKS applies the CIS benchmark with an Azure Linux image
 author: htaubenfeld
 ms.author: htaubenfeld
 ms.service: microsoft-linux
-ms.subservice: aks-security
 ms.topic: article
 ms.date: 12/07/2023
 ---
