@@ -66,7 +66,7 @@ In order to protect the data privacy of user information and manage the permissi
 
 ### Report description 
 
-The potentially abusive user detection relies on the user information that customers send with their Azure OpenAI API calls, together with the request content. Several insights are shown:
+The potentially abusive user detection relies on the user information that customers send with their Azure OpenAI API calls, together with the request content. The following insights are shown:
 - **Total potentially abusive user count**: This view shows the number of detected potentially abusive users over time. These are users for whom a pattern of abuse was detected and who might introduce high risk.
 <!-- - **Potentially abusive users list**: This view is a detailed list of detected potentially abusive users. It gives the following information for each user: 
     - **UserGUID**: This is sent by the customer through "user" field in Azure OpenAI APIs.
