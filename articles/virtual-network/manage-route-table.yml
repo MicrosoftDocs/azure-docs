@@ -209,6 +209,7 @@ procedureSection:
         Select the subnet you want to dissociate the route table from.
       - |
         In **Route table**, choose **None**.
+          
           :::image type="content" source="./media/manage-route-table/remove-route-table.png" alt-text="Screenshot of removing a route table from a subnet.":::
       - |
         Select **Save**.  
