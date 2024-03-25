@@ -19,19 +19,7 @@ Azure Elastic storage area network (SAN) addresses the problem of workload optim
 The following prerequisites are required to continue.
 
 - Register for the preview by filling out the [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8FVh9RJVPdOk_mdTpp--pZUN0RKUklROEc4UE1RRFpRMkhNVFAySTM1TC4u).
-- Verify you have a Dev/Test private cloud set up in one of the following regions:
-	- East US
-	- East US 2
-	- South Central US
-	- West US 2
-	- West US 3
-	- North Europe
-	- West Europe
-	- UK South
-	- France Central
-	- Sweden Central
-	- Southeast Asia
-	- Australia East
+- Verify you have a Dev/Test private cloud in a [region that Elastic SAN is available in](../azure/storage/elastic-san/elastic-san-create?tabs=azure-portal#limitations).
 - Know the availability zone your private cloud is in. 
 	- In the UI, select an Azure VMware Solution host.
 	> [!NOTE]
@@ -40,16 +28,16 @@ The following prerequisites are required to continue.
 
 ## Set preview feature flags
 
-To use ElasticSAN with Azure VMware Solution, you need to set three feature flags on our subscription:
+To use ElasticSAN with Azure VMware Solution, you need to set three feature flags on your subscription:
 
 - earlyAccess
 - iSCSIMultipath
 - ElasticSanDatastore
 
-Setting a feature flag can be done in the subscription over page in the Azure portal. 
+Setting a feature flag can be done in the subscription overview page in the Azure portal. 
 
 1. Under the **Settings** section, select **Preview features**.
-1. On the **Preview features** page, use the search bar to find the feature flags you need to register. Once found, select the feature flag you want to register ad select **Register** at the top.
+1. On the **Preview features** page, use the search bar to find the feature flags you need to register. Once found, select the feature flag you want to register and select **Register** at the top.
 1. Verify the **State** of the feature is changed to **Registered** with a green checkmark.
 
 
