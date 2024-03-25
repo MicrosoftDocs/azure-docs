@@ -48,7 +48,8 @@ Strings passed to the `search` parameter can include terms or phrases in any sup
 
 + A *phrase search* is an exact phrase enclosed in quotation marks `" "`. For example, while ```Roach Motel``` (without quotes) would search for documents containing ```Roach``` and/or ```Motel``` anywhere in any order, ```"Roach Motel"``` (with quotes) will only match documents that contain that whole phrase together and in that order (lexical analysis still applies). 
 
-  Depending on your search client, you might need to escape the quotation marks in a phrase search. For example, in a POST request, a phrase search on `"Roach Motel"` in the request body might be specified as `"\"Roach Motel\""`.
+  Depending on your search client, you might need to escape the quotation marks in a phrase search. For example, in a POST request, a phrase search on `"Roach Motel"` in the request body might be specified as `"\"Roach Motel\""`.Kindly note that if you are using the Azure Search SDK, you would not need to escape the quotation mark; the SDK will escape it when it serializes the search text. The search text can be sent just as "Roach Motel"
+  
 
 By default, all strings passed in the `search` parameter undergo lexical analysis. Make sure you understand the tokenization behavior of the analyzer you're using. Often, when query results are unexpected, the reason can be traced to how terms are tokenized at query time. You can [test tokenization on specific strings](/rest/api/searchservice/test-analyzer) to confirm the output.
 
