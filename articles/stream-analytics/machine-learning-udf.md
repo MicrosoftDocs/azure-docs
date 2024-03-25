@@ -55,7 +55,7 @@ The following table describes each property of Azure Machine Learning Service fu
 When your Stream Analytics query invokes an Azure Machine Learning UDF, the job creates a JSON serialized request to the web service. The request is based on a model-specific schema that Stream Analytics infers from the endpoint's swagger.
 
 > [!WARNING]
-> Machine Learning endpoints are not called when you're testing with the Azure Portal query editor, this is because the job is not running. For testing the endpoint call from the portal, the Stream Analytics job needs to be running.  
+> Machine Learning endpoints aren't called when you're testing with the Azure portal query editor because the job isn't running. To test the endpoint call from the portal, the Stream Analytics job needs to be running.  
 
 The following Stream Analytics query is an example of how to invoke an Azure Machine Learning UDF:
 
