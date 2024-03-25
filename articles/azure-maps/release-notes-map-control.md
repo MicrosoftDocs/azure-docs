@@ -32,7 +32,7 @@ This document contains information about new features and other changes to the M
 
 #### New features (3.1.2)
 
-- Added `fillAntialias` option to `PolygonLayer` for enabling MSAA on polygon fills.
+- Added `fillAntialias` option to `PolygonLayer` for enabling MSAA antialiasing on polygon fills.
  
 #### Other changes (3.1.2)
 
@@ -423,7 +423,7 @@ This update is the first preview of the upcoming 3.0.0 release. The underlying [
 
 #### New features (2.3.7)
 
-- Added `fillAntialias` option to `PolygonLayer` for enabling MSAA on polygon fills.
+- Added `fillAntialias` option to `PolygonLayer` for enabling MSAA antialiasing on polygon fills.
 - Added a new option, `enableAccessibilityLocationFallback`, to enable or disable reverse-geocoding API fallback for accessibility (screen reader).
  
 #### Other changes (2.3.7)
