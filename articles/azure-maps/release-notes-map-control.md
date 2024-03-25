@@ -16,6 +16,18 @@ This document contains information about new features and other changes to the M
 
 ## v3 (latest)
 
+### [3.2.0] (March 29, 2024)
+
+#### Bug fixes (3.2.0)
+
+- Fix incorrect accessible numbers for hidden controls while using "Show number" command.
+ 
+#### Other changes (3.2.0)
+
+- Upgrade MapLibre to v4.
+
+- Correct the default value of `HtmlMarkerOptions.pixelOffset` from `[0, -18]` to `[0, 0]` in the doc.
+
 ### [3.1.2] (February 22, 2024)
 
 #### New features (3.1.2)
