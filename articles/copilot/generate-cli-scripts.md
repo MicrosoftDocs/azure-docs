@@ -21,7 +21,7 @@ When you tell Microsoft Copilot for Azure (preview) about a task you want to per
 
 ## Sample prompts
 
-Here are a few examples of the kinds of prompts you can use to generate Azure CLI scripts. Some of these will return a single line of code, while others provide multiple steps walking through the full scenario. Modify these prompts based on your real-life scenarios, or try additional prompts to create different kinds of queries.
+Here are a few examples of the kinds of prompts you can use to generate Azure CLI scripts. Some prompts will return a single command, while others provide multiple steps walking through the full scenario. Modify these prompts based on your real-life scenarios, or try additional prompts to create different kinds of queries.
 
 - "Give me a CLI script to create a new storage account"
 - "How do I list all my VMs using Azure CLI?"
