@@ -11,11 +11,13 @@ author: ynpandey
 ms.author: yogipandey
 ms.date: 03/20/2024
 ms.reviewer: franksolomon
-ms.custom: sdkv2, update-code2
+ms.custom: sdkv2, update-code3
 #Customer intent: As a professional data scientist, I want to know how to build and deploy a model with Azure Machine Learning by using Python in a Jupyter Notebook.
 ---
 
 # Tutorial 6: Network isolation with feature store
+
+[!INCLUDE [preview disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 An Azure Machine Learning managed feature store lets you discover, create, and operationalize features. Features serve as the connective tissue in the machine learning lifecycle, starting from the prototyping phase, where you experiment with various features. That lifecycle continues to the operationalization phase, where you deploy your models, and inference steps look up the feature data. For more information about feature stores, read the [feature store concepts](./concept-what-is-managed-feature-store.md) document.
 
