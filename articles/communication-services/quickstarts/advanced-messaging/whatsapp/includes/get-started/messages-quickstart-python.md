@@ -274,9 +274,6 @@ Add send_template_message() call to the [main method](#basic-program-structure).
 
 Now, the user needs to respond to the template message. From the WhatsApp user account, reply to the template message received from the WhatsApp Business Account. The content of the message is irrelevant for this scenario.
 
-> [!IMPORTANT]
-> The recipient must respond to the template message to initiate the conversation before text or media message can be delivered to the recipient.
-
 #### Run the code for send template based message
 
 To run the code, make sure you are on the directory where your `messages-quickstart.py` file is.
@@ -289,6 +286,9 @@ python messages-quickstart.py
 Azure Communication Services - Advanced Messages Quickstart
 WhatsApp Templated Message with message id <GUID> was successfully sent to <ToRecipient>.
 ```
+
+> [!IMPORTANT]
+> The recipient must respond to the template message to initiate the conversation before text or media message can be delivered to the recipient.
 
 #### (Option 2) Initiate conversation from user
 
