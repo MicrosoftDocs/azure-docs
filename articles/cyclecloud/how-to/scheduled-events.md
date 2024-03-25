@@ -44,7 +44,7 @@ CycleCloud supports enabling [Terminate Notification](/azure/virtual-machine-sca
 ``` ini
 [[nodearray execute]]
 EnableTerminateNotification = true
-TerminateNotificationTimeout = `10m`
+TerminateNotificationTimeout = 10
 ```
 
 Without `EnableTerminateNotification` set to true, the scaleset VMs will not get a Terminate event.
