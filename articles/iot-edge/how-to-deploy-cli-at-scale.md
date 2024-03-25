@@ -84,7 +84,7 @@ Here's a basic deployment manifest with one module as an example:
       },
       "$edgeHub": {
         "properties.desired": {
-          "schemaVersion": "1.0",
+          "schemaVersion": "1.1",
           "routes": {
             "upstream": "FROM /messages/* INTO $upstream"
           },
@@ -124,13 +124,13 @@ Here's a basic layered deployment manifest with one module as an example:
       "$edgeAgent": {
         "properties.desired.modules.SimulatedTemperatureSensor": {
           "settings": {
-            "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
+            "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.5",
               "createOptions": "{}"
           },
           "type": "docker",
           "status": "running",
           "restartPolicy": "always",
-          "version": "1.0"
+          "version": "1.5"
         }
       },
       "$edgeHub": {
