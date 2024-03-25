@@ -19,8 +19,6 @@ Note that the automatic or manual updates described in this article are relevant
 
 Before you start, make sure that you have all the prerequisites for deploying Microsoft Sentinel solution for SAP applications.
 
-If you're updating from a version from before April 2024, note that you're now required to use a managed identity or service principal to authenticate to Microsoft Sentinel.
-
 For more information, see [Prerequisites for deploying Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md).
 
 ## Automatically update the SAP data connector agent (Preview)
