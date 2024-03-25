@@ -22,6 +22,28 @@ To help you stay up to date with the latest developments, this article covers:
 
 This page is updated regularly with the latest developments in Azure Private 5G Core.
 
+## March 2024
+### SUPI concealment
+
+**Type:** New feature
+
+**Date available:** March 22, 2024
+
+The SUPI (subscription permanent identifier) secret needs to be encrypted before being transmitted over the radio network as a SUCI (subscription concealed identifier). The concealment is performed by the UEs on registration, and deconcealment is performed by the packet core. You can now securely manage the required private keys through the Azure Portal and provision SIMs with public keys.
+
+For more information, see [Enable SUPI concealment](supi-concealment.md).
+
+## February 2024
+### New Entra ID user role needed for distributed tracing tool
+
+**Type:** New feature
+
+**Date available:** February 21, 2024
+
+Access to the [distributed tracing](distributed-tracing.md) tool now requires a dedicated sas.user role in Microsoft Entra ID. This user is available from AP5GC version 4.2310.0-8, and required from AP5GC version 2402 onwards. If you are using Microsoft Entra ID authentication, you should create this user prior to upgrading to version 2402 to avoid losing access to the tracing tool. Entra ID access to the packet core dashboards is unchanged.
+
+See [Enable Microsoft Entra ID for local monitoring tools](enable-azure-active-directory.md) for details.
+
 ## December 2023
 ### Packet Capture
 

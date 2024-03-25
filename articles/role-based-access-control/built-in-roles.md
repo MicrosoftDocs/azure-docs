@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 02/07/2024
+ms.date: 03/01/2024
 ms.custom: generated
 ---
 
@@ -136,9 +136,6 @@ The following table provides a brief description of each built-in role. Click th
 > | <a name='media-services-media-operator'></a>[Media Services Media Operator](./built-in-roles/web-and-mobile.md#media-services-media-operator) | Create, read, modify, and delete Assets, Asset Filters, Streaming Locators, and Jobs; read-only access to other Media Services resources. | e4395492-1534-4db2-bedf-88c14621589c |
 > | <a name='media-services-policy-administrator'></a>[Media Services Policy Administrator](./built-in-roles/web-and-mobile.md#media-services-policy-administrator) | Create, read, modify, and delete Account Filters, Streaming Policies, Content Key Policies, and Transforms; read-only access to other Media Services resources. Cannot create Jobs, Assets or Streaming resources. | c4bba371-dacd-4a26-b320-7250bca963ae |
 > | <a name='media-services-streaming-endpoints-administrator'></a>[Media Services Streaming Endpoints Administrator](./built-in-roles/web-and-mobile.md#media-services-streaming-endpoints-administrator) | Create, read, modify, and delete Streaming Endpoints; read-only access to other Media Services resources. | 99dba123-b5fe-44d5-874c-ced7199a5804 |
-> | <a name='search-index-data-contributor'></a>[Search Index Data Contributor](./built-in-roles/web-and-mobile.md#search-index-data-contributor) | Grants full access to Azure Cognitive Search index data. | 8ebe5a00-799e-43f5-93ac-243d3dce84a7 |
-> | <a name='search-index-data-reader'></a>[Search Index Data Reader](./built-in-roles/web-and-mobile.md#search-index-data-reader) | Grants read access to Azure Cognitive Search index data. | 1407120a-92aa-4202-b7e9-c0e197c71c8f |
-> | <a name='search-service-contributor'></a>[Search Service Contributor](./built-in-roles/web-and-mobile.md#search-service-contributor) | Lets you manage Search services, but not access to them. | 7ca78c08-252a-4471-8644-bb5ff32d4ba0 |
 > | <a name='signalr-accesskey-reader'></a>[SignalR AccessKey Reader](./built-in-roles/web-and-mobile.md#signalr-accesskey-reader) | Read SignalR Service Access Keys | 04165923-9d83-45d5-8227-78b77b0a687e |
 > | <a name='signalr-app-server'></a>[SignalR App Server](./built-in-roles/web-and-mobile.md#signalr-app-server) | Lets your app server access SignalR Service with AAD auth options. | 420fcaa2-552c-430f-98ca-3264be4806c7 |
 > | <a name='signalr-rest-api-owner'></a>[SignalR REST API Owner](./built-in-roles/web-and-mobile.md#signalr-rest-api-owner) | Full access to Azure SignalR Service REST APIs | fd53cd77-2268-407a-8f46-7e7863d0f521 |
@@ -237,6 +234,9 @@ The following table provides a brief description of each built-in role. Click th
 > | <a name='cognitive-services-qna-maker-reader'></a>[Cognitive Services QnA Maker Reader](./built-in-roles/ai-machine-learning.md#cognitive-services-qna-maker-reader) | Let's you read and test a KB only. | 466ccd10-b268-4a11-b098-b4849f024126 |
 > | <a name='cognitive-services-usages-reader'></a>[Cognitive Services Usages Reader](./built-in-roles/ai-machine-learning.md#cognitive-services-usages-reader) | Minimal permission to view Cognitive Services usages. | bba48692-92b0-4667-a9ad-c31c7b334ac2 |
 > | <a name='cognitive-services-user'></a>[Cognitive Services User](./built-in-roles/ai-machine-learning.md#cognitive-services-user) | Lets you read and list keys of Cognitive Services. | a97b65f3-24c7-4388-baec-2e87135dc908 |
+> | <a name='search-index-data-contributor'></a>[Search Index Data Contributor](./built-in-roles/ai-machine-learning.md#search-index-data-contributor) | Grants full access to Azure Cognitive Search index data. | 8ebe5a00-799e-43f5-93ac-243d3dce84a7 |
+> | <a name='search-index-data-reader'></a>[Search Index Data Reader](./built-in-roles/ai-machine-learning.md#search-index-data-reader) | Grants read access to Azure Cognitive Search index data. | 1407120a-92aa-4202-b7e9-c0e197c71c8f |
+> | <a name='search-service-contributor'></a>[Search Service Contributor](./built-in-roles/ai-machine-learning.md#search-service-contributor) | Lets you manage Search services, but not access to them. | 7ca78c08-252a-4471-8644-bb5ff32d4ba0 |
 
 ## Internet of Things
 
@@ -397,7 +397,6 @@ The following table provides a brief description of each built-in role. Click th
 > | <a name='azure-connected-machine-onboarding'></a>[Azure Connected Machine Onboarding](./built-in-roles/management-and-governance.md#azure-connected-machine-onboarding) | Can onboard Azure Connected Machines. | b64e21ea-ac4e-4cdf-9dc9-5b892992bee7 |
 > | <a name='azure-connected-machine-resource-administrator'></a>[Azure Connected Machine Resource Administrator](./built-in-roles/management-and-governance.md#azure-connected-machine-resource-administrator) | Can read, write, delete and re-onboard Azure Connected Machines. | cd570a14-e51a-42ad-bac8-bafd67325302 |
 > | <a name='azure-connected-machine-resource-manager'></a>[Azure Connected Machine Resource Manager](./built-in-roles/management-and-governance.md#azure-connected-machine-resource-manager) | Custom Role for AzureStackHCI RP to manage hybrid compute machines and hybrid connectivity endpoints in a resource group | f5819b54-e033-4d82-ac66-4fec3cbf3f4c |
-> | <a name='azure-resource-bridge-deployment-role'></a>[Azure Resource Bridge Deployment Role](./built-in-roles/management-and-governance.md#azure-resource-bridge-deployment-role) | Azure Resource Bridge Deployment Role | 7b1f81f9-4196-4058-8aae-762e593270df |
 > | <a name='billing-reader'></a>[Billing Reader](./built-in-roles/management-and-governance.md#billing-reader) | Allows read access to billing data | fa23ad8b-c56e-40d8-ac0c-ce449e1d2c64 |
 > | <a name='blueprint-contributor'></a>[Blueprint Contributor](./built-in-roles/management-and-governance.md#blueprint-contributor) | Can manage blueprint definitions, but not assign them. | 41077137-e803-4205-871c-5a86e6a753b4 |
 > | <a name='blueprint-operator'></a>[Blueprint Operator](./built-in-roles/management-and-governance.md#blueprint-operator) | Can assign existing published blueprints, but cannot create new blueprints. Note that this only works if the assignment is done with a user-assigned managed identity. | 437d2ced-4a38-4302-8479-ed2bcb43d090 |
@@ -414,6 +413,8 @@ The following table provides a brief description of each built-in role. Click th
 > | <a name='policy-insights-data-writer-preview'></a>[Policy Insights Data Writer (Preview)](./built-in-roles/management-and-governance.md#policy-insights-data-writer-preview) | Allows read access to resource policies and write access to resource component policy events. | 66bb4e9e-b016-4a94-8249-4c0511c2be84 |
 > | <a name='quota-request-operator'></a>[Quota Request Operator](./built-in-roles/management-and-governance.md#quota-request-operator) | Read and create quota requests, get quota request status, and create support tickets. | 0e5f05e5-9ab9-446b-b98d-1e2157c94125 |
 > | <a name='reservation-purchaser'></a>[Reservation Purchaser](./built-in-roles/management-and-governance.md#reservation-purchaser) | Lets you purchase reservations | f7b75c60-3036-4b75-91c3-6b41c27c1689 |
+> | <a name='reservations-administrator'></a>[Reservations Administrator](./built-in-roles/management-and-governance.md#reservations-administrator) | Lets one read and manage all the reservations in a tenant | a8889054-8d42-49c9-bc1c-52486c10e7cd |
+> | <a name='reservations-reader'></a>[Reservations Reader](./built-in-roles/management-and-governance.md#reservations-reader) | Lets one read all the reservations in a tenant | 582fc458-8989-419f-a480-75249bc5db7e |
 > | <a name='resource-policy-contributor'></a>[Resource Policy Contributor](./built-in-roles/management-and-governance.md#resource-policy-contributor) | Users with rights to create/modify resource policy, create support ticket and read resources/hierarchy. | 36243c78-bf99-498c-9df9-86d9f8d28608 |
 > | <a name='site-recovery-contributor'></a>[Site Recovery Contributor](./built-in-roles/management-and-governance.md#site-recovery-contributor) | Lets you manage Site Recovery service except vault creation and role assignment | 6670b86e-a3f7-4917-ac9b-5d6ab1be4567 |
 > | <a name='site-recovery-operator'></a>[Site Recovery Operator](./built-in-roles/management-and-governance.md#site-recovery-operator) | Lets you failover and failback but not perform other Site Recovery management operations | 494ae006-db33-4328-bf46-533a6560a3ca |
@@ -428,6 +429,7 @@ The following table provides a brief description of each built-in role. Click th
 > [!div class="mx-tableFixed"]
 > | Built-in role | Description | ID |
 > | --- | --- | --- |
+> | <a name='azure-resource-bridge-deployment-role'></a>[Azure Resource Bridge Deployment Role](./built-in-roles/hybrid-multicloud.md#azure-resource-bridge-deployment-role) | Azure Resource Bridge Deployment Role | 7b1f81f9-4196-4058-8aae-762e593270df |
 > | <a name='azure-stack-hci-administrator'></a>[Azure Stack HCI Administrator](./built-in-roles/hybrid-multicloud.md#azure-stack-hci-administrator) | Grants full access to the cluster and its resources, including the ability to register Azure Stack HCI and assign others as Azure Arc HCI VM Contributor and/or Azure Arc HCI VM Reader | bda0d508-adf1-4af0-9c28-88919fc3ae06 |
 > | <a name='azure-stack-hci-device-management-role'></a>[Azure Stack HCI Device Management Role](./built-in-roles/hybrid-multicloud.md#azure-stack-hci-device-management-role) | Microsoft.AzureStackHCI Device Management Role | 865ae368-6a45-4bd1-8fbf-0d5151f56fc1 |
 > | <a name='azure-stack-hci-vm-contributor'></a>[Azure Stack HCI VM Contributor](./built-in-roles/hybrid-multicloud.md#azure-stack-hci-vm-contributor) | Grants permissions to perform all VM actions | 874d1c73-6003-4e60-a13a-cb31ea190a85 |
