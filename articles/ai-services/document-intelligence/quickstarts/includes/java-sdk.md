@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: include
-ms.date: 03/22/2024
+ms.date: 03/25/2024
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD025 -->

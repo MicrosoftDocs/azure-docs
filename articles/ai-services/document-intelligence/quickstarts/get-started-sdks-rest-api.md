@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Document Intelligence (formerly Form Recognizer) SDKs | REST API "
+title: "Quickstart: Document Intelligence (formerly Form Recognizer) client libraries | REST API "
 titleSuffix: Azure AI services
 description: Use a Document Intelligence SDK or the REST API to create a forms processing app that extracts key data and structure elements from your documents.
 author: laujan
@@ -12,7 +12,7 @@ ms.custom:
   - devx-track-python
   - ignite-2023
 ms.topic: quickstart
-ms.date: 03/22/2024
+ms.date: 03/25/2024
 ms.author: lajanuar
 zone_pivot_groups: programming-languages-set-formre
 ---
@@ -50,7 +50,7 @@ zone_pivot_groups: programming-languages-set-formre
 
 ::: moniker-end
 
-* Azure AI Document Intelligence / Form Recognizer is a cloud-based Azure AI service that uses machine learning to extract key-value pairs, text, tables and key data from your documents.
+* Azure AI Document Intelligence / Form Recognizer is a cloud-based Azure AI service that uses machine learning to extract key-value pairs, text, tables, and key data from your documents.
 
 * You can easily integrate document processing models into your workflows and applications by using a programming language SDK or calling the REST API.
 
@@ -171,8 +171,8 @@ That's it, well done!
 
 * For an enhanced experience and advanced model quality, try the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio).
 
-* The Studio supports any model trained with v2.1 labeled data.
-
-* You can refer to the API migration guide for detailed information about migrating from v2.1 to v3.0. 
+  * The Studio supports any model trained with v2.1 labeled data.
+  
+  * The changelogs provide detailed information about migrating from v3.1 to v4.0. 
 
 ::: moniker-end
