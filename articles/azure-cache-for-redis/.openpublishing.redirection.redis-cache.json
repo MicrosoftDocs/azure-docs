@@ -12,7 +12,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-cache-for-redis/cache-how-to-premium-clustering.md",
-            "redirect_url": "/azure/azure-cache-for-redis/-how-to-scale",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-how-to-scale",
             "redirect_document_id": false
         },
         {
