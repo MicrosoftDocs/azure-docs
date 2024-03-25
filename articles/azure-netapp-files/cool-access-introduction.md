@@ -53,6 +53,7 @@ Standard storage with cool access is supported for the following regions:
 * Norway East
 * Norway West
 * Qatar Central
+* South Central US
 * Southeast Asia
 * Switzerland North 
 * Switzerland West 
@@ -64,6 +65,7 @@ Standard storage with cool access is supported for the following regions:
 * US Gov Arizona
 * US Gov Texas
 * US Gov Virginia 
+* West Europe
 * West US
 * West US 2
 * West US 3
