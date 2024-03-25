@@ -44,7 +44,7 @@ For the whole workflow, you need to:
 * Activate the AppDynamics Java in-process agent in Azure Spring Apps to generate application metrics data.
 * Connect the AppDynamics Agent to the AppDynamics Controller to collect and visualize the data in the controller.
 
-:::image type="content" source="media/how-to-appdynamics-java-agent-monitor/appdynamics-activation.jpg" alt-text="Diagram showing a Spring Boot application in 'Azure Spring Apps' box with a two-directional arrow connecting it to an 'AppDynamics Agent' box, which also has an arrow pointing to an 'AppDynamics Controller' box" lightbox="media/how-to-appdynamics-java-agent-monitor/appdynamics-activation.jpg":::
+:::image type="content" source="media/how-to-appdynamics-java-agent-monitor/appdynamics-activation.jpg" alt-text="Diagram that shows AppDynamics Agent with two-way arrow to Spring Boot Apps in Azure Spring Apps and arrow pointing to AppDynamics Agent." border="false":::
 
 ### Activate an application with the AppDynamics Agent using the Azure CLI
 
@@ -82,7 +82,7 @@ To activate an application through the Azure CLI, use the following steps.
               APPDYNAMICS_CONTROLLER_PORT=443
     ```
 
-Azure Spring Apps pre-installs the AppDynamics Java agent to the path */opt/agents/appdynamics/java/javaagent.jar*. You can activate the agent from your applications' JVM options, then configure the agent using environment variables. You can find values for these variables at [Monitor Azure Spring Apps with Java Agent](https://docs.appdynamics.com/21.11/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent). For more information about how these variables help to view and organize reports in the AppDynamics UI, see [Tiers and Nodes](https://docs.appdynamics.com/21.9/en/application-monitoring/tiers-and-nodes).
+Azure Spring Apps pre-installs the AppDynamics Java agent to the path */opt/agents/appdynamics/java/javaagent.jar*. You can activate the agent from your applications' JVM options, then configure the agent using environment variables. You can find values for these variables at [Monitor Azure Spring Apps with Java Agent](https://docs.appdynamics.com/appd/23.x/23.11/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent). For more information about how these variables help to view and organize reports in the AppDynamics UI, see [Tiers and Nodes](https://docs.appdynamics.com/appd/23.x/23.12/en/application-monitoring/tiers-and-nodes).
 
 ### Activate an application with the AppDynamics Agent using the Azure portal
 
@@ -241,7 +241,7 @@ For virtual network injection instances of Azure Spring Apps, make sure the outb
 
 ## Understand the limitations
 
-To understand the limitations of the AppDynamics Agent, see [Monitor Azure Spring Apps with Java Agent](https://docs.appdynamics.com/21.11/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent).
+To understand the limitations of the AppDynamics Agent, see [Monitor Azure Spring Apps with Java Agent](https://docs.appdynamics.com/appd/23.x/23.11/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent).
 
 ## Next steps
 

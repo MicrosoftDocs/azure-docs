@@ -26,7 +26,7 @@ sections:
         answer: All Azure services are available to Azure VMware Solution customers. Performance and availability limitations for specific services should be addressed on a case-by-case basis.
 
       - question: What guest operating systems are compatible with Azure VMware Solution?
-        answer: You can find information about guest operating system compatibility with vSphere by using the [VMware Compatibility Guide](https://www.vmware.com/resources/compatibility/search.php?deviceCategory=software&details=1&releases=485&page=1&display_interval=10&sortColumn=Partner&sortOrder=Asc&testConfig=16). To identify the version of vSphere running in Azure VMware Solution, see [VMware software versions](concepts-private-clouds-clusters.md#vmware-software-versions).
+        answer: You can find information about guest operating system compatibility with vSphere by using the [VMware Compatibility Guide](https://www.vmware.com/resources/compatibility/search.php?deviceCategory=software&details=1&releases=485&page=1&display_interval=10&sortColumn=Partner&sortOrder=Asc&testConfig=16). To identify the version of vSphere running in Azure VMware Solution, see [VMware software versions](architecture-private-clouds.md#vmware-software-versions).
           
       - question: What does the change control process look like?
         answer: Updates made follow Microsoft Azure's standard change management process. Customers are responsible for any workload administration tasks and the associated change management processes.
@@ -206,17 +206,17 @@ sections:
           
       - question: How do I connect a workload VM to the internet or an Azure service endpoint?
         answer: |
-          In the Azure portal, enable internet connectivity for a private cloud. With NSX-T Manager, create an NSX-T Data Center T1 gateway and a logical switch. You then use vCenter Server to deploy a VM on the network segment defined by the logical switch. That VM has network access to the internet and Azure services.
+          In the Azure portal, enable internet connectivity for a private cloud. With NSX Manager, create an NSX T1 gateway and a logical switch. You then use vCenter Server to deploy a VM on the network segment defined by the logical switch. That VM has network access to the internet and Azure services.
           
           > [!NOTE]
           > A T0 gateway is created and configured as part of a private cloud deployment.
-          > Any modification to that logical router or the NSX-T Data Center edge node VMs could affect connectivity to your private cloud and should be avoided.
+          > Any modification to that logical router or the NSX edge node VMs could affect connectivity to your private cloud and should be avoided.
 
       - question: Do I need to restrict access from the internet to VMs on logical networks in a private cloud?
         answer:  No. Network traffic inbound from the internet directly to private clouds isn't allowed by default.  However, you're able to expose Azure VMware Solution VMs to the internet through the [Public IP](./enable-public-ip-nsx-edge.md) option in your Azure portal for your Azure VMware Solution private cloud.
           
       - question: Do I need to restrict internet access from VMs on logical networks to the internet?
-        answer: Yes. You need to use NSX-T Manager to create a firewall to restrict VM access to the internet.
+        answer: Yes. You need to use NSX Manager to create a firewall to restrict VM access to the internet.
 
       - question: Which IP range can be used for DNS service IP and DHCP server IP?
         answer: The IP address range shouldn't overlap with the IP range used in other virtual networks in your subscription and on-premises networks.
@@ -227,12 +227,12 @@ sections:
       - question: Can transit connectivity be established between on-premises and Azure VMware Solution through Azure Virtual WAN over ExpressRoute Global Reach?
         answer: Azure Virtual WAN doesn't provide transitive routing between two connected ExpressRoute circuits and nonvirtual WAN ExpressRoute Gateway. ExpressRoute Global Reach allows connectivity between on-premises and Azure VMware Solution but goes through Microsoft's global network instead of the Virtual WAN Hub.
 
-      - question: Is Windows 2008 supported as an Active Directory (AD) server or Remote Desktop Session Host (RDSH) OS in NSX-T Data Center?
+      - question: Is Windows 2008 supported as an Active Directory (AD) server or Remote Desktop Session Host (RDSH) OS in NSX?
         answer:  No.
 
-      - question: Why can't I reach the Azure VMware Solution vCenter Server Appliance and NSX-T Manager from on-premises or Azure Virtual Network?
+      - question: Why can't I reach the Azure VMware Solution vCenter Server Appliance and NSX Manager from on-premises or Azure Virtual Network?
         answer: |
-          By design, you won't be able to reach NSX-T Manager and vCenter Server Appliance (vCSA) from on-premises when only 0.0.0.0/0 (default route) is being advertised over ExpressRoute Global Reach between Azure VMware Solution and your on-premises ExpressRoute or through Azure Virtual Network to Azure VMware Solution. You need to advertise specific networking routes/subnets to access NSX-T Manager and vCSA. 
+          By design, you won't be able to reach NSX Manager and vCenter Server Appliance (vCSA) from on-premises when only 0.0.0.0/0 (default route) is being advertised over ExpressRoute Global Reach between Azure VMware Solution and your on-premises ExpressRoute or through Azure Virtual Network to Azure VMware Solution. You need to advertise specific networking routes/subnets to access NSX-T Manager and vCSA. 
 
 
   - name: Storage
@@ -245,7 +245,7 @@ sections:
         answer: Each ESXi host has two vSAN disk groups with a capacity tier of 15.2 TB and a 3.2-TB NVMe cache tier (1.6 TB in each disk group).      
 
       - question: Is data stored on the vSAN datastores encrypted at rest?
-        answer: Yes, vSAN datastores use data-at-rest encryption by default using keys stored in Azure Key Vault. The encryption solution is KMS-based and supports vCenter Server operations for key management.  When a host is removed from a vSphere cluster, data on SSDs is invalidated immediately.
+        answer: Yes, vSAN datastores use data-at-rest encryption by default using keys stored in Azure Key Vault. The encryption solution is KMS-based and supports vCenter Server operations for key management.  When a host is removed from a vSphere cluster, data on disk is invalidated immediately.
 
       - question: Can I rename a datastore or cluster during creation?
         answer: No, you can't change the name of datastores or clusters.
@@ -276,10 +276,10 @@ sections:
         answer:  No. There's only one type available.
 
       - question: Do I use the same tools that I use now to manage private cloud resources?
-        answer: Yes. The Azure portal is used for deployment and several management operations. vCenter Server and NSX-T Manager are used to manage vSphere and NSX-T Data Center resources.
+        answer: Yes. The Azure portal is used for deployment and several management operations. vCenter Server and NSX Manager are used to manage vSphere and NSX resources.
 
       - question: Can I manage a private cloud with my on-premises vCenter Server?
-        answer: At launch, Azure VMware Solution won't support a single management experience across on-premises and private cloud environments. You manage private cloud clusters with vCenter Server and NSX-T Manager local to a private cloud.
+        answer: At launch, Azure VMware Solution won't support a single management experience across on-premises and private cloud environments. You manage private cloud clusters with vCenter Server and NSX Manager local to a private cloud.
 
       - question: If a cluster is scaled up, and then workload demand falls, can it be scaled back down? 
         answer: Yes, as long as you have the quota allocated against your private cloud, you can scale out your clusters. When workload demand falls, you can delete hosts from the cluster to scale it down. You can do this through the Azure VMware Solution portal.
@@ -294,20 +294,20 @@ sections:
   - name: Identity management
     questions:
       - question: What accounts and privileges will I get with my new Azure VMware Solution private cloud?
-        answer: You're provided credentials for a cloud admin user in vCenter Server and admin access on NSX-T Manager. You can also use a CloudAdmin group to incorporate Microsoft Entra ID. For more information, see [Access and identity Concepts](concepts-identity.md).
+        answer: You're provided credentials for a cloud admin user in vCenter Server and admin access on NSX Manager. You can also use a CloudAdmin group to incorporate Microsoft Entra ID. For more information, see [Access and identity architecture](architecture-identity.md).
           
       - question: Can have administrator access to ESXi hosts?
         answer: No, administrator access to ESXi is restricted to meet the security requirements of the solution.
 
       - question: What privileges and permissions will I have in vCenter Server?
-        answer: You have CloudAdmin role privileges. For more information, see [Access and identity Concepts](concepts-identity.md).
+        answer: You have CloudAdmin role privileges. For more information, see [Access and identity architecture](architecture-identity.md).
           
-      - question: What privileges and permissions will I have on the NSX-T Manager?
+      - question: What privileges and permissions will I have on the NSX Manager?
         answer: |
-          You have CloudAdmin role privileges. For more information, see [Access and identity Concepts](concepts-identity.md).
+          You have CloudAdmin role privileges. For more information, see [Access and identity architecture](architecture-identity.md).
           
           > [!NOTE]
-          > A T0 gateway is created and configured as part of a private cloud deployment. Any modification to that logical router or the NSX-T Data Center edge node VMs could affect connectivity to your private cloud and should be avoided.
+          > A T0 gateway is created and configured as part of a private cloud deployment. Any modification to that logical router or the NSX edge node VMs could affect connectivity to your private cloud and should be avoided.
 
       - question: How can I change my credentials?
         answer: For information on resetting your credentials, see [Rotate the cloudadmin credentials for Azure VMware Solution](rotate-cloudadmin-credentials.md).

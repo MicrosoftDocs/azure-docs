@@ -21,7 +21,7 @@ If you want VM Image Builder to distribute images, you need to create a user-ass
 
 You must set up permissions and privileges prior to building an image. The following sections detail how to configure possible scenarios by using the Azure CLI.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Create a user-assigned managed identity
 

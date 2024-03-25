@@ -48,20 +48,6 @@
         ]
       },
       {
-        "group": "azure-large-instances",
-        "src": "articles/azure-large-instances",
-        "dest": "./azure-large-instances/",
-        "files": [
-          "**/*.md",
-          "**/*.yml"
-        ],
-        "exclude": [
-            "**/_themes/**",
-            "**/includes/**",
-            "**/obj/**"
-        ]
-      },
-      {
         "group": "grp-machine-learning",
         "src": "articles/machine-learning",
         "dest": "./machine-learning",
@@ -271,6 +257,7 @@
       "searchScope": [
         "Azure"
       ],
+      "permissioned-type": "public",
       "recommendations": true,
       "recommendation_types": ["Training", "Certification"],
       "uhfHeaderId": "azure",
@@ -391,13 +378,13 @@
         "articles/azure-portal/**/*.md": "JnHs",
         "articles/azure-portal/**/*.yml": "JnHs",
         "articles/azure-relay/*.md": "spelluru",
-        "articles/azure-resource-manager/*.md": "tfitzmac",
+        "articles/azure-resource-manager/*.md": "mumian",
         "articles/azure-resource-manager/custom-providers/**/*.md": "davidsmatlak",
         "articles/azure-resource-manager/managed-applications/**/*.md": "davidsmatlak",
-        "articles/azure-resource-manager/management/**/*.md": "tfitzmac",
+        "articles/azure-resource-manager/management/**/*.md": "mumian",
         "articles/azure-resource-manager/templates/**/*.md": "mumian",
         "articles/azure-resource-manager/bicep/**/*.md": "mumian",
-        "articles/azure-resource-manager/troubleshooting/**/*.md": "tfitzmac",
+        "articles/azure-resource-manager/troubleshooting/**/*.md": "mumian",
         "articles/azure-vmware/**/*.md": "jjaygbay1",
         "articles/backup/**/*.md": "AbhishekMallick-MS",
         "articles/backup/**/*.yml": "AbhishekMallick-MS",

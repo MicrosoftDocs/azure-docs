@@ -4,20 +4,20 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 12/21/2023
+ms.date: 3/22/2024
 ---
 
 # What's new in Azure VMware Solution
 
-Microsoft regularly applies important updates to the Azure VMware Solution for new features and software lifecycle management. You should receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](concepts-private-clouds-clusters.md#host-maintenance-and-lifecycle-management).
+Microsoft regularly applies important updates to the Azure VMware Solution for new features and software lifecycle management. You should receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](architecture-private-clouds.md#host-maintenance-and-lifecycle-management).
 
 ## March 2024
 
-Pure Cloud Block Store, offered by Pure Storage, is one of the external block storage solutions supported by Azure VMware Solution. It helps bridge the gap by allowing customers to provision external block storage as needed to make full use of an Azure VMware Solution deployment without the need to scale out compute resources, while helping customers migrate their on-premises workloads to Azure. Pure Cloud Block Store is a 100% software-delivered product running entirely on native Azure infrastructure that brings all the relevant Purity features and capabilities to Azure.
+Pure Cloud Block Store for Azure VMware Solution is now generally available. [Learn more](ecosystem-external-storage-solutions.md)
 
 ## February 2024
 
-All new Azure VMware Solution private clouds are being deployed with VMware NSX version 4.1.1. 
+All new Azure VMware Solution private clouds are being deployed with VMware NSX version 4.1.1. [Learn more](architecture-private-clouds.md#vmware-software-versions)
 
 ## November 2023
 
@@ -65,7 +65,7 @@ Azure Arc-enabled VMware vSphere has a new refresh for the public preview. Now c
 
 **VMware Cloud Director Service**
 
-VMware Cloud Director service for Azure VMware Solution is now available for enterprise. VMware Cloud Director service provides a multicloud control plane for managing multi-tenancy on infrastructure ranging from on-premises customer data centers, managed service provider facilities, and in the cloud. [Learn more](https://blogs.vmware.com/cloud/2023/08/15/cloud-director-service-ga-for-avs/)
+VMware Cloud Director service for Azure VMware Solution is now available for enterprise. VMware Cloud Director service provides a multicloud control plane for managing multi-tenancy on infrastructure ranging from on-premises customer data centers, managed service provider facilities, and in the cloud.
 
 **Well-Architected Assessment Tool**
 
@@ -73,7 +73,7 @@ Azure VMware Solution Well-Architected Assessment Tool is now available. Based u
 
 **VMware Cloud Universal**
 
-VMware Cloud Universal now includes Azure VMware Solution. [Learn more](https://blogs.vmware.com/cloud/2023/07/06/avs-with-vmcu-announcement/)
+VMware Cloud Universal now includes Azure VMware Solution.
 
 **Updated cloudadmin Permissions**
 
@@ -126,7 +126,7 @@ AV52 is now available in the East US 2 Region. This node size is used for inte
 
 **Customer-managed keys using Azure Key Vault**
 
-You can use customer-managed keys to bring and manage your master encryption keys to encrypt vSAN. Azure Key Vault allows you to store your privately managed keys securely to access your Azure VMware Solution data.
+You can use customer-managed keys to bring and manage your master encryption keys to encrypt vSAN data. Azure Key Vault allows you to store your privately managed keys securely to access your Azure VMware Solution data.
 
 **Azure NetApp Files - more storage options available**    
 
@@ -140,7 +140,7 @@ For more information, see [Azure Migration and Modernization blog](https://techc
 
 ## January 2023
 
-Starting January 2023, all new Azure VMware Solution private clouds are being deployed with Microsoft signed TLS certificate for vCenter Server and NSX-T Data Center.
+Starting January 2023, all new Azure VMware Solution private clouds are being deployed with Microsoft signed TLS certificate for vCenter Server and NSX.
 
 ## November 2022
 

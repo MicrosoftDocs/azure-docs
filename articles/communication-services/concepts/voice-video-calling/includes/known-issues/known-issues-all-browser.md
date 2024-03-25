@@ -28,7 +28,6 @@ ms.custom: template-how-to
 **Description:** Switching between video devices might cause your video stream to pause while the stream is acquired from the selected device. Switching between devices frequently can cause performance degradation.<br>
 **Recommended workaround:** Developers should ensure to stop the stream from one device before starting another to mitigate performance degradation when switching between video devices.<br>
 
-
 ### Video signal problem when the call is in connecting state
 **Browser version:** All. <br>
 **Azure Communication Service calling SDK version:** All.<br>
@@ -50,6 +49,16 @@ ms.custom: template-how-to
     
 Excessive use of mute/unmute is blocked in Azure Communication Services infrastructure. Throttling happens if the participant (or application on behalf of participant) attempts to mute/unmute continuously, every second, more than 15 times in a 30-second rolling window.
 <br>
+
+### Siri activation during WebRTC call doesn't automatically mute microphone on macOS
+**Operating system:** macOS.<br>
+**Browsers:** All browsers and versions.<br>
+**Azure Communication Services calling SDK version:** All.<br>
+**Description:** WebRTC call isn't automatically muted when a user starts talking with Siri in the middle of the call. During such instances, other participants can hear either the user giving commands to Siri or both the given command and Siri's response.<br>
+**Known issue reference:** This is a known issue on [macOS](https://bugs.webkit.org/show_bug.cgi?id=247897).<br>
+**Recommended workaround:** Currently, no workaround is available. Users need to manually mute their microphone when activating Siri during a call.<br>
+
+
 
 ## All mobile browsers
 
