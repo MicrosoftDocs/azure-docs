@@ -7,7 +7,7 @@ ms.reviewer: aul
 ---
 # Apache Kafka
 Apache Kafka is an open-source distributed event streaming platform used by high-performance data pipelines, streaming analytics, data integration, and mission-critical applications.
-This article describes how to configure Azure Managed Prometheus with AKS to monitor kafka clusters by scraping prometheus metrics. 
+This article describes how to configure Azure Managed Prometheus with Azure Kubernetes Service(AKS) to monitor kafka clusters by scraping prometheus metrics. 
 
 ## Prerequisites
 
@@ -114,7 +114,7 @@ kubectl port-forward svc/azmon-kafka-exporter -n azmon-kafka-exporter 9308
 ```
 
 ### Deploy Service Monitor
-Deploy the following service monitor to configure azure managed prometheus addon to scrape prometheus metrics from the exporter
+Deploy the following service monitor to configure azure managed prometheus addon to scrape prometheus metrics from the exporter.
 ```yaml
 apiVersion: azmonitoring.coreos.com/v1
 kind: ServiceMonitor
@@ -135,7 +135,7 @@ spec:
 
 ### Import the Grafana Dashboard
 
-Follow the instructions on [Import a dashboard from Grafana Labs](../../managed-grafana/how-to-create-dashboard.md#import-a-grafana-dashboard) to import the grafana dashboards using the ID or JSON.</br>
+To import the grafana dashboards using the ID or JSON, follow the instructions to [Import a dashboard from Grafana Labs](../../managed-grafana/how-to-create-dashboard.md#import-a-grafana-dashboard). </br>
 
 [kafka_exporter grafana dashboard](https://grafana.com/grafana/dashboards/7589-kafka-exporter-overview/)(ID-7589)
 
@@ -163,10 +163,10 @@ Follow the instructions on [Import a dashboard from Grafana Labs](../../managed-
 > Please note that the above rules are not scoped to a cluster. If you would like to scope the rules to a specific cluster, see [Limiting rules to a specific cluster](../essentials/prometheus-rule-groups.md#limiting-rules-to-a-specific-cluster) for more details.
 
 
-### Additional jmx_exporter metrics using strimzi
-If you are using the [strimzi operator](https://github.com/strimzi/strimzi-kafka-operator.git) for deploying the kafka clusters, deploy the pod monitors below to get additional jmx_exporter metrics.
-Please note that the metrics need to exposed by the kafka cluster deployments like the examples [here](https://github.com/strimzi/strimzi-kafka-operator/tree/main/examples/metrics). Refer to the kafka-.*-metrics.yaml files to configure metrics to be exposed. 
-The podmonitors here also assume that the namespace where the kafka workload is deployed in 'kafka'. Please update it accordingly if the workloads is deployed in another namespace.
+### More jmx_exporter metrics using strimzi
+If you are using the [strimzi operator](https://github.com/strimzi/strimzi-kafka-operator.git) for deploying the kafka clusters, deploy the pod monitors to get more jmx_exporter metrics.
+Note that the metrics need to exposed by the kafka cluster deployments like the examples [here](https://github.com/strimzi/strimzi-kafka-operator/tree/main/examples/metrics). Refer to the kafka-.*-metrics.yaml files to configure metrics to be exposed. 
+The pod monitors here also assume that the namespace where the kafka workload is deployed in 'kafka'. Update it accordingly if the workloads are deployed in another namespace.
 
 ```yaml
 apiVersion: azmonitoring.coreos.com/v1
@@ -271,12 +271,12 @@ spec:
 > [!NOTE] 
 > If using any other way of exposing the jmx_exporter on your kafka cluster, please follow the instructions [here](prometheus-metrics-scrape-crd.md) on how to configure the pod or service monitors accordingly.
 
-### Grafana dashboard for additional jmx metrics
+### Grafana dashboard for more jmx metrics
 Please also see the [grafana-dashboards-for-strimzi](https://github.com/strimzi/strimzi-kafka-operator/tree/main/examples/metrics/grafana-dashboards) to view dashboards for metrics exposed by strimzi operator.
 
 
 ### Troubleshooting
-When the service monitors is successfully applied, if you want to make sure that the service monitor targets get picked up by the addon, follow the instructions [here](prometheus-metrics-troubleshoot.md#prometheus-interface). 
+When the service monitors or pod monitors are successfully applied, if you want to make sure that the service monitor targets get picked up by the addon, follow the instructions [here](prometheus-metrics-troubleshoot.md#prometheus-interface). 
 
   :::image type="content" source="media/prometheus-metrics-troubleshoot/service-monitor-kafka.png" alt-text="Screenshot showing targets for pod/service monitor" lightbox="media/prometheus-metrics-troubleshoot/service-monitor-kafka.png":::
 
