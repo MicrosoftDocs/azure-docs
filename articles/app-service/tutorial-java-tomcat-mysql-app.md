@@ -46,14 +46,14 @@ azd up
 
 ## 1. Run the sample
 
-For your convenience, the [sample repository](https://github.com/Azure-Samples/msdocs-tomcat-mysql-sample-app), includes a [dev container](https://docs.github.com/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers) configuration. The dev container has everything you need to develop an application, including the database, cache, and all environment variables needed by the sample application. The dev container can run in a [GitHub codespace](https://docs.github.com/en/codespaces/overview), which means you can run the sample on any computer with a web browser.
+First, you set up a sample data-driven app as a starting point. For your convenience, the [sample repository](https://github.com/Azure-Samples/msdocs-tomcat-mysql-sample-app), includes a [dev container](https://docs.github.com/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers) configuration. The dev container has everything you need to develop an application, including the database, cache, and all environment variables needed by the sample application. The dev container can run in a [GitHub codespace](https://docs.github.com/en/codespaces/overview), which means you can run the sample on any computer with a web browser.
 
 :::row:::
     :::column span="2":::
         **Step 1:** In a new browser window:
         1. Sign in to your GitHub account.
-        1. Navigate to [https://github.com/Azure-Samples/msdocs-tomcat-mysql-sample-app](https://github.com/Azure-Samples/msdocs-tomcat-mysql-sample-app).
-        1. Select **Fork**.
+        1. Navigate to [https://github.com/Azure-Samples/msdocs-tomcat-mysql-sample-app/fork](https://github.com/Azure-Samples/msdocs-tomcat-mysql-sample-app/fork).
+        1. Unselect **Copy the main branch only**. You want all the branches.
         1. Select **Create fork**.
     :::column-end:::
     :::column:::
@@ -62,7 +62,9 @@ For your convenience, the [sample repository](https://github.com/Azure-Samples/m
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2:** In the GitHub fork, select **Code** > **Create codespace on main**.
+        **Step 2:** In the GitHub fork:
+        1. Select **main** > **starter-no-infra** for the starter branch. This branch contains just the sample project and no Azure-related files or configuration.
+        1. Select **Code** > **Create codespace on main**.
         The codespace takes a few minutes to set up.
     :::column-end:::
     :::column:::
@@ -219,7 +221,8 @@ Like the Tomcat convention, if you want to deploy to the root context of Tomcat,
         1. Sign in to your GitHub account and follow the prompt to authorize Azure.
         1. In **Organization**, select your account.
         1. In **Repository**, select **msdocs-tomcat-mysql-sample-app**.
-        1. In **Branch**, select **main**.
+        1. In **Branch**, select **starter-no-infra**. This is the same branch that you worked in with your sample app, without any Azure-related files or configuration.
+        1. For **Authentication type**, select **User-assigned identity**.
         1. In the top menu, select **Save**. App Service commits a workflow file into the chosen GitHub repository, in the `.github/workflows` directory.
         By default, the deployment center [creates a user-assigned identity](#i-dont-have-permissions-to-create-a-user-assigned-identity) for the workflow to authenticate using Microsoft Entra (OIDC authentication). For alternative authentication options, see [Deploy to App Service using GitHub Actions](deploy-github-actions.md).
     :::column-end:::
@@ -229,7 +232,7 @@ Like the Tomcat convention, if you want to deploy to the root context of Tomcat,
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 3:** Back in the GitHub codespace of your sample fork, run `git pull origin main`. 
+        **Step 3:** Back in the GitHub codespace of your sample fork, run `git pull origin starter-no-infra`. 
         This pulls the newly committed workflow file into your codespace.
     :::column-end:::
     :::column:::
@@ -372,14 +375,7 @@ When you're finished, you can delete all of the resources from your Azure subscr
 
 In this step, you create the Azure resources and deploy a sample app to App Service on Linux. The steps used in this tutorial create a set of secure-by-default resources that include App Service and Azure Database for MySQL.
 
-1. In the GitHub codspace of your sample fork, get the remote `starter-no-infra` branch by running the following code in the terminal.
-
-    ```bash
-    git fetch upstream
-    git checkout -b starter-no-infra upstream/starter-no-infra
-    ```
-
-    This branch is your starting point. It contains a simple data-drive Tomcat application.
+The dev container already has the [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd).
 
 1. From the repository root, run `azd init`.
 
