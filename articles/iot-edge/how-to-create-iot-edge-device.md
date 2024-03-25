@@ -73,7 +73,7 @@ IoT Edge for Linux on Windows is the recommended way to run IoT Edge on Windows 
 
 ### Windows containers on Windows
 
-IoT Edge version 1.4 or later doesn't support Windows containers. Windows containers are not supported beyond version 1.1.
+IoT Edge version 1.2 or later doesn't support Windows containers. Windows containers are not supported beyond version 1.1.
 
 ## Choose how to provision your devices
 
