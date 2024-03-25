@@ -20,9 +20,9 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT License** | [OT trial license increased](#ot-trial-license)|
+| **OT License** | [OT trial license increased](#ot-trial-license-increased)|
 
-### OT trial license
+### OT trial license increased
 
 The trial version of Defender for IoT license is increased to 90 days. For more information on trial versions, see [Start a Microsoft Defender for IoT trial](getting-started.md).
 
