@@ -963,6 +963,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "msdocs-tomcat-mysql-sample-app",
+      "url": "https://github.com/Azure-Samples/msdocs-tomcat-mysql-sample-app",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azuresignalr-samples",
       "url": "https://github.com/aspnet/AzureSignalR-samples",
       "branch": "main",
@@ -1214,6 +1220,7 @@
   ".openpublishing.redirection.azure-web-pubsub.json",
   ".openpublishing.redirection.baremetal-infrastructure.json",
   ".openpublishing.redirection.container-service.json",
+  ".openpublishing.redirection.data-lake-analytics.json",
   ".openpublishing.redirection.defender-for-cloud.json",
   ".openpublishing.redirection.defender-for-iot.json",
   ".openpublishing.redirection.devops-project.json",
@@ -1251,7 +1258,6 @@
   "articles/cost-management-billing/.openpublishing.redirection.cost-management-billing.json",
   "articles/data-catalog/.openpublishing.redirection.data-catalog.json",
   "articles/data-factory/.openpublishing.redirection.data-factory.json",
-  "articles/data-lake-analytics/.openpublishing.redirection.data-lake-analytics.json",
   "articles/deployment-environments/.openpublishing.redirection.deployment-environments.json",
   "articles/dev-box/.openpublishing.redirection.dev-box.json",
   "articles/digital-twins/.openpublishing.redirection.digital-twins.json",
