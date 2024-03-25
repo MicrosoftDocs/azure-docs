@@ -1,9 +1,9 @@
 ---
 title: Write messages to Apache HBase® with Apache Flink® DataStream API
-description: Learn how to write messages to Apache HBase with Apache Flink DataStream API
+description: Learn how to write messages to Apache HBase with Apache Flink DataStream API.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 03/23/2024
+ms.date: 03/25/2024
 ---
 
 # Write messages to Apache HBase® with Apache Flink® DataStream API
@@ -14,16 +14,16 @@ In this article, learn how to write messages to HBase with Apache Flink DataStre
 
 ## Overview
 
-Apache Flink offers HBase connector as a sink, with this connector with Flink you can store the output of a real-time processing application in HBase. Learn how to process streaming data on HDInsight Kafka as a source, perform transformations, then sink into HDInsight HBase table. 
+Apache Flink offers HBase connector as a sink, with this connector with Flink you can store the output of a real-time processing application in HBase. Learn how to process streaming data on HDInsight Kafka as a source, perform transformations, then sink into HDInsight HBase table.
 
-In a real world scenario, this example is a stream analytics layer to realize value from Internet of Things (IOT) analytics, which use live sensor data. The Flink Stream can read data from Kafka topic and write it to HBase table. If there is a  real time streaming IOT application, the information can be gathered, transformed and optimized. 
+In a real world scenario, this example is a stream analytics layer to realize value from Internet of Things (IOT) analytics, which use live sensor data. The Flink Stream can read data from Kafka topic and write it to HBase table. If there's a  real time streaming IOT application, the information can be gathered, transformed, and optimized. 
 
 
 ## Prerequisites
 
 * [Apache Flink cluster on HDInsight on AKS](../flink/flink-create-cluster-portal.md) 
 * [Apache Kafka cluster on HDInsight](../flink/process-and-consume-data.md)
-* [Apache HBase 2.4.11 clusteron HDInsight](../../hdinsight/hbase/apache-hbase-tutorial-get-started-linux.md#create-apache-hbase-cluster)
+* [Apache HBase 2.4.11 cluster on HDInsight](../../hdinsight/hbase/apache-hbase-tutorial-get-started-linux.md#create-apache-hbase-cluster)
   * You're required to ensure HDInsight on AKS cluster can connect to HDInsight cluster, with same virtual network.
 * Maven project on IntelliJ IDEA for development on an Azure VM in the same VNet
 
@@ -349,13 +349,13 @@ public class KafkaSinkToHbase {
 
 ### Submit job on Secure Shell
 
-We use [Flink CLI](./flink-web-ssh-on-portal-to-flink-sql.md) from Azure portal to submit jobs
+We use [Flink CLI](./flink-web-ssh-on-portal-to-flink-sql.md) from Azure portal to submit jobs.
 
 :::image type="content" source="./media/use-flink-to-sink-kafka-message-into-hbase/submit-job-on-web-ssh.png" alt-text="Screenshot showing how to submit job on web ssh." lightbox="./media/use-flink-to-sink-kafka-message-into-hbase/submit-job-on-web-ssh.png":::
 
 ### Monitor job on Flink UI
 
-We can monitor the jobs on Flink Web UI
+We can monitor the jobs on Flink Web UI.
 
 :::image type="content" source="./media/use-flink-to-sink-kafka-message-into-hbase/check-job-on-flink-ui.png" alt-text="Screenshot showing how to check job on Flink UI." lightbox="./media/use-flink-to-sink-kafka-message-into-hbase/check-job-on-flink-ui.png":::
 
