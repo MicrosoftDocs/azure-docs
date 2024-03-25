@@ -157,7 +157,7 @@
         - name: Python with Postgres
           href: tutorial-python-postgresql-app.md
         - name: Tomcat with MySQL
-          href: tutorial-java-quarkus-postgresql-app.md            
+          href: tutorial-java-tomcat-mysql-app.md            
         - name: Spring Boot with MongoDB
           href: tutorial-java-spring-cosmosdb.md
         - name: Quarkus with Postgres
