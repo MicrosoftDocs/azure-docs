@@ -176,7 +176,7 @@ backgroundReplacementVideoEffect.setBuffer(dataBuffer);
 
 ```java
 public void enableBackgroundReplacement() {
-    videoEffectsFeature.enableEffect(backgroundReplacementEffect);
+    videoEffectsFeature.enableEffect(backgroundReplacementVideoEffect);
 }
 ```
 
@@ -184,6 +184,6 @@ To disable Background Replacement Video Effect:
 
 ```java
 public void disableBackgroundReplacement() {
-    videoEffectsFeature.disableEffect(backgroundReplacementEffect);
+    videoEffectsFeature.disableEffect(backgroundReplacementVideoEffect);
 }
 ```
