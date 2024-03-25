@@ -75,7 +75,7 @@ localVideoEffectsFeature.disable(effect: backgroundBlurVideoEffect)
 ```
 
 ### Background Replacement
-Background Replacement is a Video Effect that allows a person to set their own custom background. In order to use Background Repalcement Effect, you need to obtain a `LocalVideoEffectsFeature` feature from a valid `LocalVideoStream`.
+Background Replacement is a Video Effect that allows a person to set their own custom background. In order to use Background Replacement Effect, you need to obtain a `LocalVideoEffectsFeature` feature from a valid `LocalVideoStream`.
 
 - Create a new Background Replacement Video Effect object:
 
