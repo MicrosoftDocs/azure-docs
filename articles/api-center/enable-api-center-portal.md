@@ -4,7 +4,7 @@ description: Enable the API Center portal, an automatically generated website th
 author: dlepow
 ms.service: api-center
 ms.topic: how-to
-ms.date: 01/26/2024
+ms.date: 03/18/2024
 ms.author: danlep 
 ms.custom: 
 # Customer intent: As an API program manager, I want to enable a portal for developers and other API stakeholders in my organization to discover the APIs in my organization's API center.
@@ -14,7 +14,8 @@ ms.custom:
 
 This article shows how to enable your *API Center portal*, an automatically generated website that developers and other stakeholders in your organization can use to discover the APIs in your [API center](overview.md). The portal is hosted by Azure at a unique URL and restricts user access based on Azure role-based access control.
 
-> [!VIDEO https://www.youtube.com/embed/7Z45FdCLFbA]
+> [!IMPORTANT]
+> The Azure-hosted API Center portal is experimental and will be removed from API Center in an upcoming release. You will have an option to self-host an API Center portal for API discovery in an upcoming release.
 
 [!INCLUDE [api-center-preview-feedback](includes/api-center-preview-feedback.md)]
 
@@ -94,7 +95,7 @@ While the portal URL is publicly accessible, users must sign in to see the APIs 
 > [!IMPORTANT]
 > By default, you and other administrators of the API center don't have access to APIs in the API Center portal. Be sure to assign the **Azure API Center Data Reader** role to yourself and other administrators.  
 
-For detailed prerequisites and steps to assign a role to users and groups, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md). Brief steps follow:
+For detailed prerequisites and steps to assign a role to users and groups, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml). Brief steps follow:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API center.
 1. In the left menu, select **Access control (IAM)** > **+ Add role assignment**.

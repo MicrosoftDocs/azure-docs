@@ -62,7 +62,7 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSpeechKey" -H "Content-Type: 
     "inputs": [
         {
          "text": "<speak version='\''1.0'\'' xml:lang='\''en-US'\''>
-                <voice name='\''en-US-JennyNeural'\''>
+                <voice name='\''en-US-AvaMultilingualNeural'\''>
                     The rainbow has seven colors.
                 </voice>
             </speak>"
@@ -165,7 +165,7 @@ You receive a response body in the following format:
         {
             "textType": "PlainText",
             "synthesisConfig": {
-                "voice": "en-US-JennyNeural"
+                "voice": "en-US-AvaMultilingualNeural"
             },
             "customVoices": {},
             "properties": {
@@ -257,7 +257,7 @@ The summary file contains the synthesis results for each text input. Here's an e
   "results":  [
     {
       "texts":  [
-        "<speak version='1.0' xml:lang='en-US'>\n\t\t\t\t<voice name='en-US-JennyNeural'>\n\t\t\t\t\tThe rainbow has seven colors.\n\t\t\t\t</voice>\n\t\t\t</speak>"
+        "<speak version='1.0' xml:lang='en-US'>\n\t\t\t\t<voice name='en-US-AvaMultilingualNeural'>\n\t\t\t\t\tThe rainbow has seven colors.\n\t\t\t\t</voice>\n\t\t\t</speak>"
       ],
       "status":  "Succeeded",
       "billingDetails":  {

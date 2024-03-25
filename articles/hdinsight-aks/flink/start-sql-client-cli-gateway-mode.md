@@ -152,6 +152,9 @@ Get cluster endpoint(host or fqdn) on Azure portal.
          :::image type="image" source="./media/start-sql-client-cli-in-gateway-mode/jar-files-in-azure-portal.png" alt-text="Screenshot showing jar files in Azure portal." border="true" lightbox="./media/start-sql-client-cli-in-gateway-mode/jar-files-in-azure-portal.png":::
           
    1. Use the table already created and put it into Hive metastore for management, then run the query.
+
+      > [!NOTE]
+      > In this example, all the jars in HDInsight on AKS default Azure Data Lake Storage Gen2. The container and storage account need not be same as specified during the cluster creation. If required, you can specify another storage account, and grant cluster user managed identity the storage blob data owner role on the Azure Data Lake Storage Gen2 side.
           
          ``` SQL
          CREATE CATALOG myhive WITH (
