@@ -30,7 +30,7 @@ In this release, we made the following changes:
 
 - Fixed an issue that caused Teams audio to not apply remote volume changes or mute when using the new Teams client.
 - Fixed an issue that caused Teams to stop responding when the user tries to use the Give/Take Control feature after sharing their screen through chat.
-- Users can no longer control hidden window regions while application window sharing when using Give/Take Control feature.
+- Fixed an issue that caused users to be able to control hidden window regions while application window sharing when using the Give/Take Control feature.
 
 ## Updates for version 1.45.2310.13001
 
