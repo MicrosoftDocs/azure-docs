@@ -221,8 +221,6 @@ The IoT Edge project template in Visual Studio creates a solution that can be de
 
 1. Select **Add** to add your module to the project.
 
-   ![Screenshot of adding how to add an application and module to Visual Studio solution](./media/how-to-visual-studio-develop-csharp-module/add-module.png)
-
    > [!NOTE]
    > If you have an existing IoT Edge project, you can change the repository URL by opening the **module.json** file. The repository URL is located in the *repository* property of the JSON file.
 
