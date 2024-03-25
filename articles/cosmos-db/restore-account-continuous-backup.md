@@ -135,7 +135,7 @@ Restore-AzCosmosDBAccount `
   -RestoreTimestampInUtc "UTCTime" `
   -Location "AzureRegionName" ` 
   -PublicNetworkAccess Disabled `
-  -DisableTtl 1
+  -DisableTtl $true
 
 ```
 
@@ -150,11 +150,11 @@ Restore-AzCosmosDBAccount `
   -RestoreTimestampInUtc "2021-01-05T22:06:00" `
   -Location "West US" `
   -PublicNetworkAccess Disabled
-  -DisableTtl 0
+  -DisableTtl $false
 
 
 ```
-If `PublicNetworkAccess` is not set, restored account is accessible from public network, please ensure to pass `Disabled` to the `PublicNetworkAccess` option to disable public network access for restored account. Setting DisableTtl to 1 ensures TTL is disabled on the restored account, and not providing any value to it would restore the account with TTL enabled. 
+If `PublicNetworkAccess` is not set, restored account is accessible from public network, please ensure to pass `Disabled` to the `PublicNetworkAccess` option to disable public network access for restored account. Setting DisableTtl to $true ensures TTL is disabled on restored account,this ensure restore action sets [DefaultTimeToLive](https://learn.microsoft.com/azure/cosmos-db/nosql/time-to-live) on container  to null on the restored account, and not providing parameter restores the account with TTL enabled if it was set earlier. 
 
 > [!NOTE]
 > For restoring with public network access disabled, the minimum stable version of Az.CosmosDB required is 1.12.0.
@@ -430,7 +430,7 @@ az cosmosdb restore \
 
 ```
 
-If `--public-network-access` is not set, restored account is accessible from public network. Please ensure to pass `Disabled` to the `--public-network-access` option to prevent public network access for restored account. Setting disable-ttl to True ensures TTL is disabled on the restored account, and not providing any value to it would restore the account with TTL enabled.
+If `--public-network-access` is not set, restored account is accessible from public network. Please ensure to pass `Disabled` to the `--public-network-access` option to prevent public network access for restored account. Setting disable-ttl to  to $true ensures TTL is disabled on restored account, which ensures restore action sets [DefaultTimeToLive](https://learn.microsoft.com/azure/cosmos-db/nosql/time-to-live) on container(s) to null on the restored account, and not providing this parameter restores the account with TTL enabled if it was set earlier.. 
 
  > [!NOTE]
  > For restoring with public network access disabled, the minimum stable version of azure-cli is 2.52.0.
