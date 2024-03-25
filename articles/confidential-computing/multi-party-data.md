@@ -6,7 +6,7 @@ description: Data cleanroom and multi-party data confidential computing solution
 
 services: virtual-machines
 
-author: kapilvgit
+author: kapilv
 
 ms.service: virtual-machines
 

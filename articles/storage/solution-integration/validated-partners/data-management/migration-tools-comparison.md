@@ -1,8 +1,8 @@
 ---
 title: Azure Storage migration tools comparison - Unstructured data
 description: Basic functionality and comparison between tools used for migration of unstructured data
-author: beber-msft
-ms.author: beber-msft
+author: beber
+ms.author: beber
 ms.topic: conceptual
 ms.date: 08/25/2023
 ms.service: azure-storage
