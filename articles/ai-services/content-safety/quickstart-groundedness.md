@@ -18,16 +18,19 @@ Follow this guide to use Azure AI Content Safety Groundedness detection to check
 ## Prerequisites
 
 
-* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) Once you have your Azure subscription, <a href="https://aka.ms/acs-create"  title=" Create a Content Safety resource"  target="_blank">create a Content Safety resource </a> in the Azure portal to get your key and endpoint.
-
-### Region
-* Enter a unique name for your resource, select your subscription, and select a resource group, supported region (**East US2, East US, West US, Sweden Central**), and supported pricing tier. Then select **Create**.
+* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 
+* Once you have your Azure subscription, <a href="https://aka.ms/acs-create"  title="Create a Content Safety resource"  target="_blank">create a Content Safety resource </a> in the Azure portal to get your key and endpoint. Enter a unique name for your resource, select your subscription, and select a resource group, supported region (East US2, West US, Sweden Central), and supported pricing tier. Then select **Create**.
    * The resource takes a few minutes to deploy. After it does, go to the new resource. In the left pane, under **Resource Management**, select **API Keys and Endpoints**. Copy one of the subscription key values and endpoint to a temporary location for later use.
 * [cURL](https://curl.haxx.se/) or [Python](https://www.python.org/downloads/) installed.
 
+## Check groundedness with reasinging
+
+The Groundedness detection API provides the option to include _reasoning_ in the API response. In your request to the Groundedness detection API, set the `"Reasoning"` body parameter to `true`, and provide the other needed parameters:
+
+
 ### Enable reasoning with your own GPT deployment
 
-If you want to use your Azure OpenAI resource to enable the reasoning feature. Use Managed Identity to allow your Content Safety resource to access the Azure OpenAI resource first:
+If you want to use your Azure OpenAI resource to enable the reasoning feature, use Managed Identity to allow your Content Safety resource to access the Azure OpenAI resource first:
 
 1. Enable Managed Identity for Azure AI Content Safety.
 
@@ -46,7 +49,7 @@ If you want to use your Azure OpenAI resource to enable the reasoning feature. U
     :::image type="content" source="media/assigned-roles-simple.png" alt-text="Screenshot of the Azure portal with the Contributor and User roles displayed in a list." lightbox="media/assigned-roles-simple.png":::
 
 
-## Making a Request without Reasoning
+## Detect groundedness without Reasoning
 
 #### [cURL](#tab/curl)
 
@@ -125,7 +128,7 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
 ---
 
 > [!TIP]
-> To test a summarization task instead of QnA task, use the following sample JSON body:
+> To test a summarization task instead of a question answering (QnA) task, use the following sample JSON body:
 >
 > ```json
 > {
@@ -201,7 +204,7 @@ The JSON objects in the output are defined here:
 | - `length > utf16`      | The length of the ungrounded text in UTF-16 encoding.       | Integer |
 | - `length > codePoint`  | The length of the ungrounded text in terms of Unicode code points. |Integer    |
 
-## Making a Request with BYOD Reasoning
+## Making a request with reasoning using the default resource
 
 The Groundedness detection API provides the option to include _reasoning_ in the API response. In your request to the Groundedness detection API, set the `"Reasoning"` body parameter to `true`, and provide the other needed parameters:
     
