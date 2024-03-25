@@ -9,7 +9,7 @@ items:
     href: azure-vmware-solution-platform-updates.md
   - name: Known issues
     href: azure-vmware-solution-known-issues.md
-- name: Get started
+- name: Quickstarts
   items:
   - name: 1 - Plan the deployment
     href: plan-private-cloud-deployment.md
@@ -41,98 +41,110 @@ items:
     href: tutorial-scale-private-cloud.md
   - name: 8 - Delete a private cloud
     href: tutorial-delete-private-cloud.md
-- name: Concepts
+- name: Cost optimization
   items:
-  - name: Access and identity
-    href: concepts-identity.md
-  - name: API Management
-    href: concepts-api-management.md
-  - name: Hub and spoke
-    href: concepts-hub-and-spoke.md
-  - name: Internet connectivity design considerations
-    href: concepts-design-public-internet-access.md
-  - name: Network design considerations
-    href: concepts-network-design-considerations.md
-  - name: Networking and interconnectivity
-    href: concepts-networking.md
+  - name: Enable Azure Hybrid Benefit for SQL Server in Azure VMware Solution
+    href: enable-sql-azure-hybrid-benefit.md
+  - name: Save costs with a reserved instance
+    href: reserved-instance.md
+- name: Architecture
+  items:
   - name: Private clouds and clusters
-    href: concepts-private-clouds-clusters.md
-  - name: Run Command
-    href: concepts-run-command.md
-  - name: Security
-    items:
-    - name: Security recommendations
-      href: concepts-security-recommendations.md
-    - name: Security baseline
-      href: /security/benchmark/azure/baselines/azure-vmware-solution-security-baseline?toc=/azure/azure-vmware/toc.json
-    - name: Vulnerability Management
-      href: concepts-vulnerability-management.md
+    href: architecture-private-clouds.md
+  - name: Multi-AZ with stretched clusters
+    href: architecture-stretched-clusters.md
+  - name: Access and identity
+    href: architecture-identity.md
+  - name: API Management
+    href: architecture-api-management.md
+  - name: Hub and spoke
+    href: architecture-hub-and-spoke.md
+  - name: Internet connectivity design considerations
+    href: architecture-design-public-internet-access.md
+  - name: Network design considerations
+    href: architecture-network-design-considerations.md
+  - name: Networking and interconnectivity
+    href: architecture-networking.md
   - name: Storage
-    href: concepts-storage.md
+    href: architecture-storage.md
   - name: Migrate
-    href: concepts-migrate.md
-- name: How-to guides
-  items:
-  - name: Azure native integration
+    href: architecture-migrate.md
+  - name: Cloud Adoption Framework
     items:
-    - name: Protect, monitor, and manage VMs
-      href: integrate-azure-native-services.md
-    - name: Integrate Microsoft Defender for Cloud
-      href: azure-security-integration.md
-    - name: Protect web apps with Azure Application Gateway
-      href: protect-azure-vmware-solution-with-application-gateway.md
-    - name: Deploy Traffic Manager to balance workloads
-      href: deploy-traffic-manager-balance-workloads.md
-    - name: Configure alerts and work with metrics
-      href: configure-alerts-for-azure-vmware-solution.md
-    - name: Configure customer-managed key encryption at rest
-      href: configure-customer-managed-keys.md
-    - name: Manage and protect VMs on Azure NetApp Files
-      items:
-      - name: Attach Azure NetApp Files datastores to Azure VMware Solution hosts
-        href: attach-azure-netapp-files-to-azure-vmware-solution-hosts.md
-      - name: Attach Azure NetApp Files to Azure VMware Solution VMs
-        href: netapp-files-with-azure-vmware-solution.md
-      - name: Install Cloud Backup for Virtual Machines
-        href: install-cloud-backup-virtual-machines.md
-      - name: Backup Azure NetApp Files datastores and VMs
-        href: backup-azure-netapp-files-datastores-vms.md
-      - name: Restore VMs
-        href: restore-azure-netapp-files-vms.md
-    - name: Backup with Azure Backup Server
-      items:
-      - name: Setup Backup Server
-        href: set-up-backup-server-for-azure-vmware-solution.md
-      - name: Backup private cloud VMs with Backup Server
-        href: backup-azure-vmware-solution-virtual-machines.md
-    - name: Disaster recovery using Azure Site Recovery
-      items:
-      - name: Prepare Azure Site Recovery
-        href: ../site-recovery/avs-tutorial-prepare-azure.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
-      - name: Prepare Azure VMware Solution
-        href: ../site-recovery/avs-tutorial-prepare-avs.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
-      - name: Setup replication
-        href: ../site-recovery/avs-tutorial-replication.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
-      - name: Run disaster recovery drill
-        href: ../site-recovery/avs-tutorial-dr-drill-azure.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
-      - name: Failover to Azure
-        href: ../site-recovery/avs-tutorial-failover.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
-      - name: Reprotect VMs
-        href: ../site-recovery/avs-tutorial-reprotect.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
-      - name: Failback from Azure
-        href: ../site-recovery/avs-tutorial-failback.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
+      - name: Azure VMware Solution landing zone accelerator
+        href: https://aka.ms/avsaccelerator
+      - name: Enterprise-Scale for Azure VMware Solution repository
+        href: https://github.com/Azure/Enterprise-Scale-for-AVS
+      - name: Azure VMware Solution Landing Zone Accelerator | Video
+        href: https://www.youtube.com/watch?v=vbujjWxN268
+- name: Private cloud infrastructure
+  items:
   - name: Create an Azure VMware Solution assessment
     href: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
+  - name: Request host quota for Azure VMware Solution
+    href: request-host-quota-azure-vmware-solution.md
+  - name: Plan the deployment
+    href: plan-private-cloud-deployment.md
+  - name: Deploy Azure VMware Solution
+    href: deploy-azure-vmware-solution.md	
+  - name: Deploy vSAN stretched clusters
+    href: deploy-vsan-stretched-clusters.md
   - name: Create a placement policy
     href: create-placement-policy.md
-  - name: Configure GitHub Enterprise Server
-    href: configure-github-enterprise-server.md
+  - name: Protect, monitor, and manage VMs
+    href: integrate-azure-native-services.md
+  - name: Move resources
+    items:
+    - name: Move Azure VMware Solution subscriptions
+      href: move-ea-csp-subscriptions.md
+    - name: Move Azure VMware Solution resources across regions
+      href: move-azure-vmware-solution-across-regions.md
+- name: Security
+  items:
+  - name: Security solutions for Azure VMware Solution
+    href: ecosystem-security-solutions.md
+  - name: Security recommendations
+    href: security-recommendations.md
+  - name: Security baseline
+    href: /security/benchmark/azure/baselines/azure-vmware-solution-security-baseline?toc=/azure/azure-vmware/toc.json
+  - name: Vulnerability Management
+    href: vulnerability-management.md
+  - name: Rotate cloudadmin credentials
+    href: rotate-cloudadmin-credentials.md
   - name: Configure identity
     items:
     - name: Set an external identity source for vCenter Server
       href: configure-identity-source-vcenter.md
     - name: Set an external identity source for NSX
       href: configure-external-identity-source-nsx-t.md
+    - name: Integrate Microsoft Defender for Cloud
+      href: azure-security-integration.md
+    - name: Protect web apps with Azure Application Gateway
+      href: protect-azure-vmware-solution-with-application-gateway.md
+  - name: Configure customer-managed key encryption at rest
+    href: configure-customer-managed-keys.md
+- name: Networking
+  items:
+  - name: Connect to on-premises environment
+    href: tutorial-expressroute-global-reach-private-cloud.md
+  - name: Connect multiple private clouds in same region
+    href: connect-multiple-private-clouds-same-region.md
+  - name: Configure DHCP server or relay
+    href: configure-dhcp-azure-vmware-solution.md
+  - name: Configure DHCP on L2 stretched networks
+    href: configure-l2-stretched-vmware-hcx-networks.md
+  - name: Configure DNS forwarder
+    href: configure-dns-azure-vmware-solution.md
+  - name: Configure VMware HCX network extension
+    href: configure-hcx-network-extension.md
+  - name: VMware HCX Mobility Optimized Networking (MON) guidance
+    href: vmware-hcx-mon-guidance.md
+  - name: Configure NSX network components
+    href: configure-nsx-network-components-azure-portal.md
+  - name: Configure port mirroring
+    href: configure-port-mirroring-azure-vmware-solution.md
+  - name: Configure a site-to-site VPN in vWAN
+    href: configure-site-to-site-vpn-gateway.md
   - name: Configure internet connectivity
     items:
     - name: Enable Managed SNAT for Azure VMware Solution workloads
@@ -141,66 +153,30 @@ items:
       href: enable-public-ip-nsx-edge.md
     - name: Disable internet access or enable a default route
       href: disable-internet-access.md
-  - name: Configure networking
-    items:
-    - name: Configure DHCP server or relay
-      href: configure-dhcp-azure-vmware-solution.md
-    - name: Configure DHCP on L2 stretched networks
-      href: configure-l2-stretched-vmware-hcx-networks.md
-    - name: Configure DNS forwarder
-      href: configure-dns-azure-vmware-solution.md
-    - name: Configure VMware HCX network extension
-      href: configure-hcx-network-extension.md
-    - name: VMware HCX Mobility Optimized Networking (MON) guidance
-      href: vmware-hcx-mon-guidance.md
-    - name: Configure NSX network components
-      href: configure-nsx-network-components-azure-portal.md
-    - name: Configure port mirroring
-      href: configure-port-mirroring-azure-vmware-solution.md
-    - name: Configure a site-to-site VPN in vWAN
-      href: configure-site-to-site-vpn-gateway.md
-  - name: Configure storage
-    items:
-    - name: Configure storage policies
-      href: configure-storage-policy.md
-    - name: Configure vSAN
-      href: configure-vsan.md
-    - name: Configure Azure Elastic SAN
-      href: configure-azure-elastic-san.md
-  - name: Configure VMware syslogs
-    href: configure-vmware-syslogs.md
-  - name: Configure Windows Server Failover Cluster
-    href: configure-windows-server-failover-cluster.md
-  - name: Connect multiple private clouds in same region
-    href: connect-multiple-private-clouds-same-region.md
-  - name: Arc-enabled Azure VMware Solution private cloud
-    items:
-    - name: Deploy Arc-enabled VMware vSphere for Azure VMware Solution private cloud
-      href: deploy-arc-for-azure-vmware-solution.md
-    - name: Manage Arc-enabled Azure VMware Solution
-      href: manage-arc-enabled-azure-vmware-solution.md
-    - name: Remove Arc-enabled Azure VMware Solution vSphere resources from Azure
-      href: remove-arc-enabled-azure-vmware-solution-vsphere-resources-from-azure.md
-  - name: Deploy disaster recovery
-    items:
-    - name: Deploy VMware HCX for disaster recovery
-      href: deploy-disaster-recovery-using-vmware-hcx.md
-    - name: Deploy VMware SRM for disaster recovery
-      href: disaster-recovery-using-vmware-site-recovery-manager.md
-    - name: Deploy Zerto disaster recovery
-      href: deploy-zerto-disaster-recovery.md
-    - name: Deploy disaster recovery using JetStream DR software
-      href: deploy-disaster-recovery-using-jetstream.md
-  - name: Deploy virtual desktops
-    items:
-    - name: Deploy Horizon on Azure VMware Solution
-      href: azure-vmware-solution-horizon.md
-    - name: Deploy Citrix on Azure VMware Solution
-      href: azure-vmware-solution-citrix.md
-  - name: Deploy vSAN stretched clusters
-    href: deploy-vsan-stretched-clusters.md
-  - name: Enable Azure Hybrid Benefit for SQL Server in Azure VMware Solution
-    href: enable-sql-azure-hybrid-benefit.md
+  - name: Deploy Traffic Manager to balance workloads
+    href: deploy-traffic-manager-balance-workloads.md
+- name: Migrate workloads
+  items:
+  - name: Migration solutions for VMs
+    href: ecosystem-migration-vms.md
+  - name: Install and activate VMware HCX in Azure VMware Solution
+    href: install-vmware-hcx.md
+  - name: Configure on-premises VMware HCX Connector
+    href: configure-vmware-hcx.md
+  - name: Configure VMware HCX network extension
+    href: configure-hcx-network-extension.md
+  - name: VMware HCX Mobility Optimized Networking (MON) guidance
+    href: vmware-hcx-mon-guidance.md	
+  - name: Configure VMware HCX network extension high availability
+    href: configure-hcx-network-extension-high-availability.md
+  - name: Enable VMware HCX access over the internet
+    href: enable-hcx-access-over-internet.md
+  - name: Upgrade VMware HCX on Azure VMware Solution
+    href: upgrade-hcx-azure-vmware-solutions.md
+  - name: Use VMware HCX Run Commands
+    href: use-hcx-run-commands.md
+  - name: Uninstall VMware HCX in Azure VMware Solution
+    href: uninstall-vmware-hcx.md
   - name: Migrate Microsoft SQL Server workloads
     items:
     - name: Migrate a SQL Server standalone instance to Azure VMware Solution
@@ -209,64 +185,128 @@ items:
       href: migrate-sql-server-failover-cluster.md
     - name: Migrate Microsoft SQL Server Always On Availability Group to Azure VMware Solution
       href: migrate-sql-server-always-on-availability-group.md
-  - name: Move resources
+- name: Virtual machines
+  items:
+  - name: Operating system support for VMs
+    href: ecosystem-os-vms.md
+  - name: Configure Windows Server Failover Cluster
+    href: configure-windows-server-failover-cluster.md
+  - name: Deploy VMs from the content library
+    href: deploy-vm-content-library.md
+  - name: Configure GitHub Enterprise Server
+    href: configure-github-enterprise-server.md
+  - name: Bitnami appliance deployment
+    href: bitnami-appliances-deployment.md
+- name: Virtual Desktop Infrastructure
+  items:
+  - name: Deploy Horizon on Azure VMware Solution
+    href: azure-vmware-solution-horizon.md
+  - name: Deploy Citrix on Azure VMware Solution
+    href: azure-vmware-solution-citrix.md
+- name: Storage
+  items:
+  - name: Configure storage policies
+    href: configure-storage-policy.md
+  - name: Configure vSAN
+    href: configure-vsan.md
+  - name: Configure customer-managed key encryption at rest
+    href: configure-customer-managed-keys.md
+  - name: Configure Azure Elastic SAN
+    href: configure-azure-elastic-san.md
+  - name: Manage and protect VMs on Azure NetApp Files
     items:
-    - name: Move Azure VMware Solution subscriptions
-      href: move-ea-csp-subscriptions.md
-    - name: Move Azure VMware Solution resources across regions
-      href: move-azure-vmware-solution-across-regions.md
-  - name: Request host quota for Azure VMware Solution
-    href: request-host-quota-azure-vmware-solution.md
-  - name: Rotate cloudadmin credentials
-    href: rotate-cloudadmin-credentials.md
-  - name: Save costs with a reserved instance
-    href: reserved-instance.md
-  - name: Partner solution ecosystem
+    - name: Attach Azure NetApp Files datastores to Azure VMware Solution hosts
+      href: attach-azure-netapp-files-to-azure-vmware-solution-hosts.md
+    - name: Attach Azure NetApp Files to Azure VMware Solution VMs
+      href: netapp-files-with-azure-vmware-solution.md
+    - name: Install Cloud Backup for Virtual Machines
+      href: install-cloud-backup-virtual-machines.md
+    - name: Backup Azure NetApp Files datastores and VMs
+      href: backup-azure-netapp-files-datastores-vms.md
+    - name: Restore VMs
+      href: restore-azure-netapp-files-vms.md
+  - name: External storage solutions
     items:
-    - name: Operating system support for VMs
-      href: ecosystem-os-vms.md
-    - name: Backup solutions for VMs
-      href: ecosystem-back-up-vms.md
-    - name: Disaster recovery solutions for VMs
-      href: ecosystem-disaster-recovery-vms.md
-    - name: External storage solutions
-      items:
-      - name: Storage solution overview
-        href: ecosystem-external-storage-solutions.md
-      - name: Pure Cloud Block Store
-        href: configure-pure-cloud-block-store.md
-    - name: Migration solutions for VMs
-      href: ecosystem-migration-vms.md
-    - name: Security solutions for Azure VMware Solution
-      href: ecosystem-security-solutions.md
-    - name: Application performance monitoring solutions for Azure VMware Solution
-      href: ecosystem-app-monitoring-solutions.md
-    - name: Bitnami appliance deployment
-      href: bitnami-appliances-deployment.md
-  - name: VMware solutions
+    - name: Storage solution overview
+      href: ecosystem-external-storage-solutions.md
+    - name: Pure Cloud Block Store
+      href: configure-pure-cloud-block-store.md
+- name: Backup and recovery
+  items:
+  - name: Backup solutions for VMs
+    href: ecosystem-back-up-vms.md
+  - name: Backup with Azure Backup Server
     items:
-    - name: Configure VMware HCX network extension
-      href: configure-hcx-network-extension.md
-    - name: Configure VMware HCX network extension high availability
-      href: configure-hcx-network-extension-high-availability.md
-    - name: Enable VMware HCX access over the internet
-      href: enable-hcx-access-over-internet.md
-    - name: Upgrade VMware HCX on Azure VMware Solution
-      href: upgrade-hcx-azure-vmware-solutions.md
-    - name: Use VMware HCX Run Commands
-      href: use-hcx-run-commands.md
-    - name: Configure VMware Aria Operations
-      href: vrealize-operations-for-azure-vmware-solution.md
-    - name: Deploy VMware Horizon
-      href: azure-vmware-solution-horizon.md
-    - name: Deploy VMs from the content library
-      href: deploy-vm-content-library.md
-    - name: Configure VMware Cloud Director Service in Azure VMware Solution
-      href: configure-vmware-cloud-director-service-azure-vmware-solution.md
-    - name: Enable VMware Cloud Director Service with Azure VMware solution
-      href: enable-vmware-cds-with-azure.md
-    - name: Deploy VMware Cloud Director Availability in Azure VMware Solution
-      href: deploy-vmware-cloud-director-availability-in-azure-vmware-solution.md
+    - name: Setup Backup Server
+      href: set-up-backup-server-for-azure-vmware-solution.md
+    - name: Backup private cloud VMs with Backup Server
+      href: backup-azure-vmware-solution-virtual-machines.md
+- name: Disaster recovery
+  items:
+  - name: Disaster recovery solutions for VMs
+    href: ecosystem-disaster-recovery-vms.md
+  - name: Deploy VMware HCX for disaster recovery
+    href: deploy-disaster-recovery-using-vmware-hcx.md
+  - name: Deploy VMware SRM for disaster recovery
+    href: disaster-recovery-using-vmware-site-recovery-manager.md
+  - name: Deploy Zerto disaster recovery
+    href: deploy-zerto-disaster-recovery.md
+  - name: Deploy disaster recovery using JetStream DR software
+    href: deploy-disaster-recovery-using-jetstream.md
+  - name: Disaster recovery using Azure Site Recovery
+    items:
+    - name: Prepare Azure Site Recovery
+      href: ../site-recovery/avs-tutorial-prepare-azure.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
+    - name: Prepare Azure VMware Solution
+      href: ../site-recovery/avs-tutorial-prepare-avs.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
+    - name: Setup replication
+      href: ../site-recovery/avs-tutorial-replication.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
+    - name: Run disaster recovery drill
+      href: ../site-recovery/avs-tutorial-dr-drill-azure.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
+    - name: Failover to Azure
+      href: ../site-recovery/avs-tutorial-failover.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
+    - name: Reprotect VMs
+      href: ../site-recovery/avs-tutorial-reprotect.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
+    - name: Failback from Azure
+      href: ../site-recovery/avs-tutorial-failback.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
+- name: Operations and monitoring
+  items:
+  - name: Run Command
+    href: using-run-command.md
+  - name: Configure VMware syslogs
+    href: configure-vmware-syslogs.md
+  - name: Configure alerts and work with metrics
+    href: configure-alerts-for-azure-vmware-solution.md
+  - name: Arc-enabled Azure VMware Solution private cloud
+    items:
+    - name: Deploy Arc-enabled VMware vSphere for Azure VMware Solution private cloud
+      href: deploy-arc-for-azure-vmware-solution.md
+    - name: Manage Arc-enabled Azure VMware Solution
+      href: manage-arc-enabled-azure-vmware-solution.md
+    - name: Remove Arc-enabled Azure VMware Solution vSphere resources from Azure
+      href: remove-arc-enabled-azure-vmware-solution-vsphere-resources-from-azure.md
+  - name: Application performance monitoring solutions for Azure VMware Solution
+    href: ecosystem-app-monitoring-solutions.md
+  - name: Configure VMware Aria Operations
+    href: vrealize-operations-for-azure-vmware-solution.md
+- name: Infrastructure automation and management
+  items:
+  - name: REST API
+    href: /rest/api/avs/
+  - name: Azure CLI
+    href: /cli/azure/vmware
+  - name: Azure PowerShell
+    href: /powershell/module/az.vmware/
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.avs/privateclouds
+  - name: Terraform Azure provider
+    href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/vmware_private_cloud
+  - name: Configure VMware Cloud Director Service in Azure VMware Solution
+    href: configure-vmware-cloud-director-service-azure-vmware-solution.md
+  - name: Enable VMware Cloud Director Service with Azure VMware solution
+    href: enable-vmware-cds-with-azure.md
+  - name: Deploy VMware Cloud Director Availability in Azure VMware Solution
+    href: deploy-vmware-cloud-director-availability-in-azure-vmware-solution.md
 - name: Resources
   items:
   - name: Learning paths
@@ -335,15 +375,3 @@ items:
       href: https://kb.vmware.com/s/article/2129927
   - name: FAQ
     href: ./faq.yml
-- name: Reference
-  items:
-  - name: REST API
-    href: /rest/api/avs/
-  - name: Azure CLI
-    href: /cli/azure/vmware
-  - name: Azure PowerShell
-    href: /powershell/module/az.vmware/
-  - name: Resource Manager template
-    href: /azure/templates/microsoft.avs/privateclouds
-  - name: Terraform Azure provider
-    href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/vmware_private_cloud

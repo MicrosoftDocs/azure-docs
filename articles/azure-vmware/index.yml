@@ -11,7 +11,7 @@ metadata:
   ms.topic: hub-page 
   author: jjaygbay1
   ms.author: jjaygbay1
-  ms.date: 3/20/2024 
+  ms.date: 3/22/2024 
 
 
 highlightedContent:
@@ -29,7 +29,7 @@ highlightedContent:
       url: /azure/azure-vmware/azure-vmware-solution-platform-updates
     - title: Azure VMware Solution concepts 
       itemType: concept
-      url: /azure/azure-vmware/concepts-identity
+      url: /azure/azure-vmware/architecture-identity
     - title:  Azure native integration
       itemType: how-to-guide
       url: /azure/azure-vmware/integrate-azure-native-services
@@ -100,25 +100,25 @@ additionalContent:
         - title: Concepts
           links: 
           - text: Access and identity
-            url: concepts-identity.md
+            url: architecture-identity.md
           - text: API Management
-            url: concepts-api-management.md
+            url: architecture-api-management.md
           - text: Hub and spoke
-            url: concepts-hub-and-spoke.md
+            url: architecture-hub-and-spoke.md
           - text: Internet connectivity design considerations
-            url: concepts-design-public-internet-access.md
+            url: architecture-design-public-internet-access.md
           - text: Network design considerations
-            url: concepts-network-design-considerations.md
+            url: architecture-network-design-considerations.md
           - text: Networking and interconnectivity
-            url: concepts-networking.md
+            url: architecture-networking.md
           - text: Private clouds and clusters
-            url: concepts-private-clouds-clusters.md
+            url: architecture-private-clouds.md
           - text: Run command
-            url: concepts-run-command.md
+            url: using-run-command.md
           - text: Storage
-            url: concepts-storage.md
+            url: architecture-storage.md
           - text: Migrate
-            url: concepts-migrate.md
+            url: architecture-migrate.md
 
     - title: Advanced configuration and integration
       items:
