@@ -219,7 +219,8 @@ To list all the Azure Compute Gallery resources across subscriptions that you ha
 1. Scroll down the page and select **All resources**.
 1. Select all the subscriptions under which you'd like to list all the resources.
 1. Look for resources of the **Azure Compute Gallery** type.
-  
+
+
 ### [Azure CLI](#tab/azure-cli)
 
 To list all the Azure Compute Gallery resources, across subscriptions that you have permissions to, use the following command in the Azure CLI:
@@ -241,8 +242,6 @@ $params = @{
 
 Get-AzSubscription | ForEach-Object @params
 ```
-
----
 
 For more information, see [List, update, and delete image resources](update-image-resources.md).
 

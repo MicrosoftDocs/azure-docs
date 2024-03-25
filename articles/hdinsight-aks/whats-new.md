@@ -3,7 +3,7 @@ title: What's new in HDInsight on AKS? (Preview)
 description: An introduction to new concepts in HDInsight on AKS that aren't in HDInsight.
 ms.service: hdinsight-aks
 ms.topic: conceptual
-ms.date: 03/22/2024
+ms.date: 03/24/2024
 ---
 
 # What's new in HDInsight on AKS? (Preview)
@@ -48,7 +48,7 @@ The following table list shows the features of HDInsight on AKS that are current
 | --- | --- | --- |
 |	[Autoscale - Load Based - Trino](./hdinsight-on-aks-autoscale-clusters.md)	|	Q1 2024	| Completed |
 |	Shuffle aware load based auto scale for Spark	|	Q2 2024	| In Progress |
-|	In Place Upgrade	|	Q2 2024	| In Progress |
+|	[In Place Upgrade](./in-place-upgrade.md)	|	Q2 2024	| Completed  |
 |	Reserved Instance Support 	|	Q2 2024	| In Progress |
 |	MSI based authentication for Metastore (SQL)	|	Q1 2024	| In Progress |
 |	Spark 3.4	|	Q2 2024	| In Progress |
