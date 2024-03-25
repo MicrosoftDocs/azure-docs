@@ -137,7 +137,7 @@
         },
         {
             "source_path_from_root": "/articles/physical-server-azure-architecture-preview.md",
-            "redirect_url": "azure/site-recovery/physical-server-azure-architecture-modernized",
+            "redirect_url": "/azure/site-recovery/physical-server-azure-architecture-modernized",
             "redirect_document_id": false
         }
     ]
