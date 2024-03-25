@@ -2,7 +2,7 @@
 title: Integrate ServiceNow with Microsoft Defender for IoT
 description: In this tutorial, learn how to integrate ServiceNow with Microsoft Defender for IoT.
 ms.topic: how-to
-ms.date: 08/11/2022
+ms.date: 03/24/2024
 ---
 
 # Integrate ServiceNow with Microsoft Defender for IoT
