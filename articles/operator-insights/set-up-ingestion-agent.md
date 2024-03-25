@@ -218,7 +218,7 @@ The configuration you need is specific to the type of source and your Data Produ
         - `vault_name` must be the name of the Key Vault for your Data Product. You identified this name in [Grant permissions for the Data Product Key Vault](#grant-permissions-for-the-data-product-key-vault).
         - Depending on the type of authentication you chose in [Set up authentication to Azure](#set-up-authentication-to-azure), set either `managed_identity` or `service_principal`.
             - For a managed identity: set `object_id` to the Object ID of the managed identity that you created in [Create a managed identity](#create-a-managed-identity).
-            - For a service principal: set `tenant_id` to your Microsoft Entra ID tenant, `client_id` to the Appplication (client) ID of the service principal that you created in [Create a service principal](#create-a-service-principal), and `cert_path` to the file path of the base64-encoded P12 certificate on the VM.
+            - For a service principal: set `tenant_id` to your Microsoft Entra ID tenant, `client_id` to the Application (client) ID of the service principal that you created in [Create a service principal](#create-a-service-principal), and `cert_path` to the file path of the base64-encoded P12 certificate on the VM.
     1. For the secret provider with type `file_system` and name `local_file_system`, set the following fields.
         - `secrets_directory` to the absolute path to the secrets directory on the agent VM, which was created in the [Prepare the VMs](#prepare-the-vms) step.
     
@@ -232,7 +232,7 @@ The configuration you need is specific to the type of source and your Data Produ
         - `vault_name` must be the name of the Key Vault for your Data Product. You identified this name in [Grant permissions for the Data Product Key Vault](#grant-permissions-for-the-data-product-key-vault).
         - Depending on the type of authentication you chose in [Set up authentication to Azure](#set-up-authentication-to-azure), set either `managed_identity` or `service_principal`.
             - For a managed identity: set `object_id` to the Object ID of the managed identity that you created in [Create a managed identity](#create-a-managed-identity).
-            - For a service principal: set `tenant_id` to your Microsoft Entra ID tenant, `client_id` to the Appplication (client) ID of the service principal that you created in [Create a service principal](#create-a-service-principal), and `cert_path` to the file path of the base64-encoded P12 certificate on the VM.
+            - For a service principal: set `tenant_id` to your Microsoft Entra ID tenant, `client_id` to the Application (client) ID of the service principal that you created in [Create a service principal](#create-a-service-principal), and `cert_path` to the file path of the base64-encoded P12 certificate on the VM.
 
     You can add more secret providers (for example, if you want to upload to multiple data products) or change the names of the default secret provider.
 
@@ -253,7 +253,7 @@ The configuration you need is specific to the type of source and your Data Produ
         - `user`: the name of the user on the SFTP server that the agent should use to connect.
         - Depending on the method of authentication you chose in [Prepare the VMs](#prepare-the-vms), set either `password` or `private_key`.
             - For password authentication, set `secret_name` to the name of the file containing the password in the `secrets_directory` folder. 
-            - For SSH key authentication, set `key_secret` to the name of the file containing the SSH key in the `secrets_directory` folder. If the private key is protected with a passphrase, set `passphrase_secret_name` to the name of the file containing the passhprase in the `secrets_directory` folder.
+            - For SSH key authentication, set `key_secret` to the name of the file containing the SSH key in the `secrets_directory` folder. If the private key is protected with a passphrase, set `passphrase_secret_name` to the name of the file containing the passphrase in the `secrets_directory` folder.
         
         For required or recommended values for other fields, refer to the documentation for your Data Product.
 
