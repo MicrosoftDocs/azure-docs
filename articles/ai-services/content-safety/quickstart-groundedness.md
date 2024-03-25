@@ -159,7 +159,7 @@ The parameters in the request body are defined in this table:
 | **groundingSources**  | (Required) Uses an array of grounding sources to validate AI-generated text. Up to 55,000 characters of grounding sources can be analyzed in a single request. | String array    |
 | **reasoning**  | (Optional) Specifies whether to use the reasoning feature. The default value is `false`. If `true`, the service uses Azure OpenAI resources to provide an explanation. Be careful: using reasoning increases the processing time and incurs extra fees.| Boolean   |
 
-## Interpret the API response
+### Interpret the API response
 
 After you submit your request, you'll receive a JSON response reflecting the Groundedness analysis performed. Here’s what a typical output looks like: 
 
@@ -284,6 +284,9 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
     data = res.read()
     print(data.decode("utf-8"))
     ```
+
+---
+
 The parameters in the request body are defined in this table:
 
 
@@ -302,7 +305,7 @@ The parameters in the request body are defined in this table:
 | - `azureOpenAIDeploymentName` | The name of the specific GPT deployment to use. | String|
 
 
-## Interpret the API response
+### Interpret the API response
 
 After you submit your request, you'll receive a JSON response reflecting the Groundedness analysis performed. Here’s what a typical output looks like: 
 
