@@ -135,8 +135,8 @@ After your AKS service finishes provisioning, return to the real-time inferencin
     :::image type="content" source="media/tutorial-designer-automobile-price-deploy/deploy-notification.png" alt-text="Screenshot showing deployment notification." lightbox="media/tutorial-designer-automobile-price-deploy/deploy-notification.png":::
 
 > [!TIP]
-> You can also deploy to Azure Container Instance (ACI) if you select **Azure Container Instance** for **Compute type** in the real-time endpoint setting box.
-> ACI is used for testing or development. Use ACI for low-scale CPU-based workloads that require less than 48 GB of RAM.
+> You can also deploy to Azure Container Instance if you select **Azure Container Instance** for **Compute type** in the real-time endpoint setting box.
+> Azure Container Instance is used for testing or development. Use Azure Container Instance for low-scale CPU-based workloads that require less than 48 GB of RAM.
 
 ## Test the real-time endpoint
 
