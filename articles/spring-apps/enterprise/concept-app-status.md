@@ -45,7 +45,7 @@ The deployment status shows the running state of the deployment. The status is r
 
 The deployment provisioning status describes the state of operations of the deployment resource. This status shows the comparison between the functionality and the deployment definition.
 
-The provisioning state is accessible only from the CLI. It is reported as one of the following values:
+The provisioning state is accessible only from the CLI. The status is reported as one of the following values:
 
 | Value     | Definition                                              |
 |-----------|---------------------------------------------------------|
@@ -57,7 +57,9 @@ The provisioning state is accessible only from the CLI. It is reported as one of
 
 ### Registration status
 
-The app registration status shows the state in service discovery. Azure Spring Apps in Standard pricing plan uses Eureka for service discovery. For more information on how the Eureka client calculates the state, see [Eureka's health checks](https://cloud.spring.io/spring-cloud-static/Greenwich.RELEASE/multi/multi__service_discovery_eureka_clients.html#_eureka_s_health_checks). [Service Registry](how-to-enterprise-service-registry.md) is used in Enterprise pricing plan.
+The app registration status shows the state in service discovery. Azure Spring Apps in Basic/Standard plan uses Eureka for service discovery. For more information on how the Eureka client calculates the state, see [Eureka's health checks](https://cloud.spring.io/spring-cloud-static/Greenwich.RELEASE/multi/multi__service_discovery_eureka_clients.html#_eureka_s_health_checks). 
+
+The Enterprise pricing plan uses [Tanzu Service Registry](how-to-enterprise-service-registry.md) for service discovery.
 
 ## App instances status
 
