@@ -39,7 +39,7 @@ The list of geographies you can choose from includes:
 - United States
 
 > [!Note]
-> Only the following Regions supports Advanced Messaging at this time
+> Advanced Messaging for WhatsApp is only available in the following Regions.
 
 - Asia Pacific
 - Australia
