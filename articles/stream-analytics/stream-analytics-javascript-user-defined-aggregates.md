@@ -217,7 +217,7 @@ Create a local JSON file with below content, upload the file to Stream Analytics
 
 ## Get help
 
-For additional help, try our [Microsoft Q&A question page for Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
+For additional help, try our [Microsoft Q&A question page for Azure Stream Analytics](/answers/tags/179/azure-stream-analytics).
 
 ## Next steps
 

@@ -26,6 +26,8 @@ To enable the Map feature in VM insights, the virtual machine requires one of th
 - Azure Monitor Agent with processes and dependencies enabled.
 - The Log Analytics agent enabled for VM insights.
 
+[!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
+
 For more information, see [Enable VM insights on unmonitored machine](vminsights-enable-overview.md).
 
 > [!WARNING]

@@ -80,16 +80,16 @@ You need the following permissions to create and manage update deployments. The 
 
 Actions |Permission |Scope |
 --- | --- | --- |
-|Read assessment data for Azure VMs | Microsoft.Compute/virtualMachines/patchAssessmentResults/latest </br> Microsoft.Compute/virtualMachines/patchAssessmentResults/latest/softwarePatches ||
+|Read Azure VM properties | Microsoft.Compute/virtualMachines/read ||
 |Update assessment on Azure VMs |Microsoft.Compute/virtualMachines/assessPatches/action ||
+|Read assessment data for Azure VMs | Microsoft.Compute/virtualMachines/patchAssessmentResults/latest </br> Microsoft.Compute/virtualMachines/patchAssessmentResults/latest/softwarePatches ||
 |Install update on Azure VMs |Microsoft.Compute/virtualMachines/installPatches/action ||
 |Read patch installation data for Azure VMs | Microsoft.Compute/virtualMachines/patchInstallationResults </br> Microsoft.Compute/virtualMachines/patchInstallationResults/softwarePatches ||
-|Install update on Azure Arc-enabled server |Microsoft.HybridCompute/machines/installPatches/action ||
-|Read Azure VM properties | Microsoft.Compute/virtualMachines/read ||
-|Read assessment data for Azure Arc-enabled server | Microsoft.HybridCompute/machines/patchAssessmentResults </br> Microsoft.HybridCompute/machines/patchAssessmentResults/softwarePatches ||
-|Update assessment on Azure Arc-enabled server |Microsoft.HybridCompute/machines/assessPatches/action ||
-|Read patch installation data for Azure Arc-enabled server | Microsoft.HybridCompute/machines/patchInstallationResults </br> Microsoft.HybridCompute/machines/patchInstallationResults/softwarePatches||
 |Read Azure Arc-enabled server properties | Microsoft.HybridCompute/machines/read||
+|Update assessment on Azure Arc-enabled server |Microsoft.HybridCompute/machines/assessPatches/action ||
+|Read assessment data for Azure Arc-enabled server | Microsoft.HybridCompute/machines/patchAssessmentResults </br> Microsoft.HybridCompute/machines/patchAssessmentResults/softwarePatches ||
+|Install update on Azure Arc-enabled server |Microsoft.HybridCompute/machines/installPatches/action ||
+|Read patch installation data for Azure Arc-enabled server | Microsoft.HybridCompute/machines/patchInstallationResults </br> Microsoft.HybridCompute/machines/patchInstallationResults/softwarePatches||
 |Register the subscription for the Microsoft.Maintenance resource provider| Microsoft.Maintenance/register/action | Subscription|
 |Create/modify maintenance configuration |Microsoft.Maintenance/maintenanceConfigurations/write |Subscription/resource group |
 |Create/modify configuration assignments |Microsoft.Maintenance/configurationAssignments/write |Subscription |

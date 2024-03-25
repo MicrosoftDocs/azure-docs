@@ -4,7 +4,7 @@ description: Details on how to develop and configure serverless real-time applic
 author: vicancy
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 04/20/2022
+ms.date: 03/20/2024
 ms.author: lianwei
 ms.devlang: csharp
 # ms.devlang: csharp, javascript
@@ -78,7 +78,7 @@ The class-based model is dedicated for C#. The class-based model provides a cons
 The following code demonstrates these features:
 
 ```cs
-public class SignalRTestHub : ServerlessHub
+public class HubName1 : ServerlessHub
 {
     [FunctionName("negotiate")]
     public SignalRConnectionInfo Negotiate([HttpTrigger(AuthorizationLevel.Anonymous)]HttpRequest req)
