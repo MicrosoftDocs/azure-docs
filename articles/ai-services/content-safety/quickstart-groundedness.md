@@ -26,7 +26,7 @@ Follow this guide to use Azure AI Content Safety Groundedness detection to check
 
 ## Check groundedness without reasoning
 
-The Groundedness detection classifies the ungroundedness of the submitted content as `true` or `false` and provides a confidence score.
+In the simple case without the _reasoning_ feature, the Groundedness detection API classifies the ungroundedness of the submitted content as `true` or `false` and provides a confidence score.
 
 #### [cURL](#tab/curl)
 
