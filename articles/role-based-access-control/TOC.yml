@@ -69,7 +69,7 @@
   - name: List role assignments
     items:
     - name: Portal
-      href: role-assignments-list-portal.md
+      href: role-assignments-list-portal.yml
     - name: PowerShell
       href: role-assignments-list-powershell.yml
     - name: CLI

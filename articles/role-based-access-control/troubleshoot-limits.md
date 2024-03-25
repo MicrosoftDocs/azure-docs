@@ -36,7 +36,7 @@ Azure supports up to **4000** role assignments per subscription. This limit incl
 > [!NOTE]
 > The **4000** role assignments limit per subscription is fixed and cannot be increased.
 
-To get the number of role assignments, you can view the [chart on the Access control (IAM) page](role-assignments-list-portal.md#list-number-of-role-assignments) in the Azure portal. You can also use the following Azure PowerShell commands:
+To get the number of role assignments, you can view the [chart on the Access control (IAM) page](role-assignments-list-portal.yml#list-number-of-role-assignments) in the Azure portal. You can also use the following Azure PowerShell commands:
 
 ```azurepowershell
 $scope = "/subscriptions/<subscriptionId>"

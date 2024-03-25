@@ -99,7 +99,7 @@ The properties of an image version are:
 
 ## Generalized and specialized images
 
-There are two operating system states supported by Azure Compute Gallery. Typically images require that the VM used to create the image has been [generalized](generalize.md) before taking the image. Generalizing is a process that removes machine and user specific information from the VM.  For Linux, you can use [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` or `-deprovision+user` parameters. For Windows, the Sysprep tool is used.
+There are two operating system states supported by Azure Compute Gallery. Typically images require that the VM used to create the image has been [generalized](generalize.yml) before taking the image. Generalizing is a process that removes machine and user specific information from the VM.  For Linux, you can use [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` or `-deprovision+user` parameters. For Windows, the Sysprep tool is used.
 
 Specialized VMs haven't been through a process to remove machine specific information and accounts. Also, VMs created from specialized images don't have an `osProfile` associated with them. This means that specialized images will have some limitations in addition to some benefits.
 
@@ -138,6 +138,32 @@ There are three main ways to share images an Azure Compute Gallery, depending on
 | [RBAC Sharing](./share-gallery.md) | Yes | Yes | Yes | No | No |
 | RBAC + [Direct shared gallery](./share-gallery-direct.md)  | Yes | Yes | Yes | Yes | No |
 | RBAC + [Community gallery](./share-gallery-community.md) | Yes | Yes | Yes | No | Yes |
+
+## What RBAC Permissions are required to create an ACG Image:
+ACG images can be created by users from various sources, including virtual machines, disks/snapshots, and VHDs. The section outlines the various user permissions necessary for creating an Azure Compute Gallery image. Identifies without the necessary permissions will not be able to create ACG images.
+
+### [VM as source](#tab/vmsource)
+- Users will require write permission on the Virtual Machine to create an ACG Image version.
+- For Azure SDK, use the property [properties.storageProfile.source.virtualMachineId](/rest/api/compute/gallery-image-versions/create-or-update), This property requires API version 2023-07-03 or [Version 1.4.0](https://www.nuget.org/packages/Azure.ResourceManager.Compute) (or higher) of .NET SDK
+### [Disk/Snapshot as Source](#tab/disksnapsource)
+- Users will require write permission (contributor) on the source disk/snapshot to create an ACG Image version.
+### [VHD as Source](#tab/vhdsource)
+- Users will require Microsoft.Storage/storageAccounts/listKeys/action, Microsoft.Storage/storageAccounts/write permission (contributor role) on the storage account.
+- For SDK, use the property [properties.storageProfile.osDiskImage.source.storageAccountId](/rest/api/compute/gallery-image-versions/create-or-update), This property requires minimum api-version 2022-03-03.
+### [Managed Image and Gallery Image Version as Source](#tab/managedgallerysource)
+- Users will require read permission on the Managed Image/Gallery Image.
+
+|Source type |Permissions Required | 
+|---|---|
+| Virtual machine | Write |
+| Disk/snapshot |	Write |
+| VHD	| Write (listKeys) |
+| Managed Image	| Read|
+| Gallery Image	| Read|
+
+Refer to our documentation for additional information regarding [Azure built-in roles](../role-based-access-control/built-in-roles.md), for [granting RBAC permissions](../role-based-access-control/quickstart-assign-role-user-portal.md)
+---
+
 
 ## Shallow replication 
 
@@ -275,7 +301,7 @@ There are two ways you can specify the number of image version replicas to be cr
 1. The regional replica count which specifies the number of replicas you want to create per region. 
 2. The common replica count which is the default per region count in case regional replica count isn't specified. 
 
-### [Azure CLI](#tab/azure-cli)
+### [Azure CLI]
 
 To specify the regional replica count, pass the location along with the number of replicas you want to create in that region: "South Central US=2".
 
@@ -283,15 +309,13 @@ If regional replica count isn't specified with each location, then the default n
 
 To specify the common replica count in Azure CLI, use the **--replica-count** argument in the `az sig image-version create` command.
 
-### [Azure PowerShell](#tab/azure-powershell)
+### [Azure PowerShell]
 
 To specify the regional replica count, pass the location along with the number of replicas you want to create in that region, `@{Name = 'South Central US';ReplicaCount = 2}`, to the **-TargetRegion** parameter in the `New-AzGalleryImageVersion` command.
 
 If regional replica count isn't specified with each location, then the default number of replicas will be the common replica count that you specified.
 
 To specify the common replica count in Azure PowerShell, use the **-ReplicaCount** parameter in the `New-AzGalleryImageVersion` command.
-
----
 
 ### Can I create the gallery in a different location than the one for the image definition and image version?
 

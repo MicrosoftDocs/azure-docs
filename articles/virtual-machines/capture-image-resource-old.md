@@ -24,7 +24,7 @@ For information on how managed images are billed, see [Managed Disks pricing](ht
 
 ## Prerequisites
 
-You need a [generalized](generalize.md) VM in order to create an image.
+You need a [generalized](generalize.yml) VM in order to create an image.
 
 
 ## CLI: Create a legacy managed image of a VM

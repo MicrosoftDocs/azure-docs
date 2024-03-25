@@ -11,40 +11,44 @@ This article provides information on troubleshooting and resolving issues that c
 
 ## General issues
 
-### Logs
+### Logs collection
 
-For issues encountered with Arc resource bridge, collect logs for further investigation using the Azure CLI [`az arcappliance logs`](/cli/azure/arcappliance/logs) command. This command needs to be run from the same management machine that was used to run commands to deploy the Arc resource bridge. If there's a problem collecting logs, most likely the management machine is unable to reach the Appliance VM, and the network administrator needs to allow communication between the management machine to the Appliance VM.
+For issues encountered with Arc resource bridge, collect logs for further investigation using the Azure CLI [`az arcappliance logs`](/cli/azure/arcappliance/logs) command. This command needs to be run from the same management machine that was used to run commands to deploy the Arc resource bridge. If there's a problem collecting logs, most likely the management machine is unable to reach the Appliance VM, and the network administrator needs to allow communication between the management machine to the Appliance VM. You can collect the Arc resource bridge logs by passing either the appliance VM IP or the kubeconfig in the logs command.
 
-The `az arcappliance logs` command requires SSH to the Azure Arc resource bridge VM. The SSH key is saved to the management machine. To use a different machine to run the logs command, make sure the following files are copied to the machine in the same location:
+An example to collect Arc resource bridge logs on VMware using the appliance VM IP address: 
 
-```azurecli
-$HOME\.KVA\.ssh\logkey.pub
-$HOME\.KVA\.ssh\logkey 
-```
+   ```azurecli
+   az arcappliance logs vmware --ip 192.168.0.2 --username usrnm1 --password vsexample
+   ```
+
+An example to collect Arc resource bridge logs for Azure Stack HCI using the appliance VM IP address: 
+
+   ```azurecli
+   az arcappliance logs hci --ip 192.168.02 --cloudagent 192.168.05 --loginconfigfile c:\clusterstorage\moc\workingdir\kvatoken.tok
+   ```
+
+If you are unsure of your appliance VM IP, there is also the option to use the kubeconfig. You can retrieve the kubeconfig by running the [get-credentials command](/cli/azure/arcappliance?view=azure-cli-latest) then run the logs command. 
+
+   ```azurecli
+   az arcappliance get-credentials --resource-group my-rg-01 --name arb-name --credentials-dir c:\user\arbcreds
+   az arcappliance logs vmware --kubeconfig c:\user\arbcreds\kubeconfig --username usrnm1 --password vsexample
+   ```
+
+### Arc resource bridge is offline
+
+If the resource bridge is offline, this is typically due to a change in networking in the infrastructure, environment or cluster that stops the appliance VM from being able to function or communicate with its counterpart Azure resource. If you are unable to determine what has changed in the infrastructure, environment or cluster, you can attempt to reboot the appliance VM, collect logs and submit a support ticket for further investigation. 
 
 ### Remote PowerShell isn't supported
 
-If you run `az arcappliance` CLI commands for Arc Resource Bridge via remote PowerShell, you might experience various problems. For instance, you might see an [authentication handshake failure error when trying to install the resource bridge on an Azure Stack HCI cluster](#authentication-handshake-failure) or another type of error.
-
-Using `az arcappliance` commands from remote PowerShell isn't currently supported. Instead, sign in to the node through Remote Desktop Protocol (RDP) or use a console session.
+If you run `az arcappliance` CLI commands for Arc Resource Bridge via remote PowerShell, you might experience various problems. For instance, you might see an [authentication handshake failure error when trying to install the resource bridge on an Azure Stack HCI cluster](#authentication-handshake-failure) or another type of error. Using `az arcappliance` commands from remote PowerShell isn't currently supported. Instead, sign in to the node through Remote Desktop Protocol (RDP) or use a console session.
 
 ### Resource bridge configurations can't be updated
 
-In this release, all the parameters are specified at time of creation. To update the Azure Arc resource bridge, you must delete it and redeploy it again.
-
-For example, if you specified the wrong location, or subscription during deployment, later the resource creation fails. If you only try to recreate the resource without redeploying the resource bridge VM, you'll see the status stuck at `WaitForHeartBeat`.
-
-To resolve this issue, delete the appliance and update the appliance YAML file. Then redeploy and create the resource bridge.
+In this release, all the parameters are specified at time of creation. To update the Azure Arc resource bridge, you must delete it and redeploy it again. For example, if you specified the wrong location, or subscription during deployment, later the resource creation fails. If you only try to recreate the resource without redeploying the resource bridge VM, you'll see the status stuck at `WaitForHeartBeat`. To resolve this issue, delete the appliance and update the appliance YAML file. Then redeploy and create the resource bridge.
 
 ### Appliance Network Unavailable 
 
 If Arc resource bridge is experiencing a network communication problem or is offline, you may see an "Appliance Network Unavailable" error when trying to perform an action that interacts with the resource bridge or an extension operating on top of the bridge. In general, any network or infrastructure connectivity issue to the appliance VM may cause this error. This error can also surface as "Error while dialing dial tcp xx.xx.xxx.xx:55000: connect: no route to host" and this is typically a network communication problem. The problem could be that communication from the host to the Arc resource bridge VM needs to be opened with the help of your network administrator. It could be that there was a temporary network issue not allowing the host to reach the Arc resource bridge VM and once the network issue is resolved, you can retry the operation. You may also need to check that the appliance VM for Arc resource bridge isn't stopped. In the case of Azure Stack HCI, the host storage may be full which has caused the appliance VM to pause and the storage will need to be addressed. 
-
-### Connection closed before server preface received
-
-When there are multiple attempts to deploy Arc resource bridge, expired credentials left on the management machine might cause future deployments to fail. The error will contain the message `Unavailable desc = connection closed before server preface received`. This error will surface in various `az arcappliance` commands including `validate`, `prepare` and `delete`.
-
-To resolve this error, the .wssd\python and .wssd\kva folders in the user profile directory need to be manually deleted from the management machine. Depending on where  the deployment errored, there might not be a kva folder to delete. You can delete these folders manually by navigating to the user profile directory (typically `C:\Users\<username>`), then deleting the `.wssd\python` and `.wssd\kva` folders. After they are deleted, retry the command that failed.
 
 ### Token refresh error
 
@@ -52,9 +56,7 @@ When you run the Azure CLI commands, the following error might be returned: *The
 
 ### Default host resource pools are unavailable for deployment
 
-When using the `az arcappliance createConfig` or `az arcappliance run` command, there will be an interactive experience which shows the list of the VMware entities where user can select to deploy the virtual appliance. This list will show all user-created resource pools along with default cluster resource pools, but the default host resource pools aren't listed.
-
-When the appliance is deployed to a host resource pool, there's no high availability if the host hardware fails. Because of this, we recommend that you don't try to deploy the appliance in a host resource pool.
+When using the `az arcappliance createconfig` or `az arcappliance run` command, there will be an interactive experience which shows the list of the VMware entities where you can select to deploy the virtual appliance. This list will show all user-created resource pools along with default cluster resource pools, but the default host resource pools aren't listed. When the appliance is deployed to a host resource pool, there's no high availability if the host hardware fails. Because of this, we recommend that you don't try to deploy the appliance in a host resource pool.
 
 ### Resource bridge status "Offline" and `provisioningState` "Failed"
 
@@ -111,7 +113,7 @@ If the result is `The response ended prematurely while waiting for the next fram
 ### .local not supported
 When trying to set the configuration for Arc resource bridge, you might receive an error message similar to:
 
-`"message": "Post \"https://esx.lab.local/52b-bcbc707ce02c/disk-0.vmdk\": dial tcp: lookup esx.lab.local: no such host"`
+`"message": "Post \"https://esx.lab.local/52c-acac707ce02c/disk-0.vmdk\": dial tcp: lookup esx.lab.local: no such host"`
 
 This occurs when a `.local` path is provided for a configuration setting, such as proxy, dns, datastore or management endpoint (such as vCenter). Arc resource bridge appliance VM uses Azure Linux OS, which doesn't support `.local` by default. A workaround could be to provide the IP address where applicable.
 
@@ -127,9 +129,7 @@ To resolve this issue, reboot the resource bridge VM, and it should recover its 
 
 ### SSL proxy configuration issues
 
-Be sure that the proxy server on your management machine trusts both the SSL certificate for your SSL proxy and the SSL certificate of the Microsoft download servers.
-
-For more information, see [SSL proxy configuration](network-requirements.md#ssl-proxy-configuration).
+Be sure that the proxy server on your management machine trusts both the SSL certificate for your SSL proxy and the SSL certificate of the Microsoft download servers. For more information, see [SSL proxy configuration](network-requirements.md#ssl-proxy-configuration).
 
 ### KVA timeout error
 

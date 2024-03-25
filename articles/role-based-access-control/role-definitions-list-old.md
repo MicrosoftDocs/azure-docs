@@ -580,5 +580,5 @@ To list the details of a specific role, use the [Role Definitions - Get](/rest/a
 
 - [Azure built-in roles](built-in-roles.md)
 - [Azure custom roles](custom-roles.md)
-- [List Azure role assignments using the Azure portal](role-assignments-list-portal.md)
+- [List Azure role assignments using the Azure portal](role-assignments-list-portal.yml)
 - [Assign Azure roles using the Azure portal](role-assignments-portal.yml)
