@@ -56,6 +56,8 @@ In this section, you create a virtual network for your Elastic SAN. Then you cre
 	- [PowerShell](/azure/storage/elastic-san/elastic-san-create?tabs=azure-powershell)
 	- [Azure CLI](/azure/storage/elastic-san/elastic-san-create?tabs=azure-cli)
 1. Use one of the following instructions to configure a Private Endpoint (PE) for your Elastic SAN:
+	> [!IMPORTANT]
+	> Configure a Private Endpoint for your Elasic SAN in the same region and availability zone as your private cloud for best performance.
 	- [PowerShell](/azure/storage/elastic-san/elastic-san-networking?tabs=azure-powershell#configure-a-private-endpoint)
 	- [Azure CLI](/azure/storage/elastic-san/elastic-san-networking?tabs=azure-cli#tabpanel_2_azure-cli)
 
@@ -78,7 +80,7 @@ After you provide an External storage address block, you can connect to an Elast
 
 ## Connect Elastic SAN
 
-First, you'll need to connect your SDDC express route with the private endpoint you set up for your Elastic SAN volume group. Instructions on how to establish this connection can be found in the Tutorial, [Configure networking for your VMware private cloud in Azure](../azure-vmware/tutorial-configure-networking.md). 
+First, you need to connect your SDDC express route with the private endpoint you set up for your Elastic SAN volume group. Instructions on how to establish this connection can be found in the Tutorial, [Configure networking for your VMware private cloud in Azure](../azure-vmware/tutorial-configure-networking.md). 
 
 Once your SDDC express route is connected with the private endpoint for your Elastic SAN volume group, use the following steps to connect the volume to your SDDC: 
 
