@@ -12,7 +12,7 @@ ms.date: 02/05/2024
 # CustomerIntent: As a database owner, I want to use Mongo Shell to connect and query my database & collections.
 ---
 
-# Use MongoShell to connect to Azure Cosmos DB for MongoDB vCore
+# Use MongoDB Shell (Mongosh) to connect to Azure Cosmos DB for MongoDB vCore
 
 [!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
 
