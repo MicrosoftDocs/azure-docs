@@ -188,8 +188,7 @@ In this step, you use the SSH connection to the app container to verify the JNDI
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2:** In the SSH terminal:
-        1. Run `cat /usr/local/tomcat/conf/context.xml`. You should see that a JNDI resource called `jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS` was added. You'll use this data source later.
+        **Step 2:** In the SSH terminal, run `cat /usr/local/tomcat/conf/context.xml`. You should see that a JNDI resource called `jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS` was added. You'll use this data source later.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-check-config-in-ssh-2.png" alt-text="A screenshot showing the commands to run in the SSH shell and their output." lightbox="./media/tutorial-java-tomcat-mysql-app/azure-portal-check-config-in-ssh-2.png":::
@@ -199,6 +198,8 @@ In this step, you use the SSH connection to the app container to verify the JNDI
 > [!NOTE]
 > Only changes to files in `/home` can persist beyond app restarts. For example, if you edit `/usr/local/tomcat/conf/server.xml`, the changes won't persist beyond an app restart.
 >
+
+Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ## 5. Deploy sample code
 
@@ -305,6 +306,8 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
     :::column-end:::
 :::row-end:::
 
+Having issues? Check the [Troubleshooting section](#troubleshooting).
+
 ## 7. Stream diagnostic logs
 
 Azure App Service captures all messages output to the console to help you diagnose issues with your application. The sample application includes standard Log4j logging statements to demonstrate this capability, as shown in the following snippet:
@@ -332,6 +335,8 @@ Azure App Service captures all messages output to the console to help you diagno
 :::row-end:::
 
 Learn more about logging in Java apps in the series on [Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python and Java applications](../azure-monitor/app/opentelemetry-enable.md?tabs=java).
+
+Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ## 8. Clean up resources
 
@@ -417,6 +422,8 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
     - **Log Analytics workspace**: Acts as the target container for your app to ship its logs, where you can also query the logs.
     - **Key vault**: Used to keep your database password the same when you redeploy with AZD.
 
+Having issues? Check the [Troubleshooting section](#troubleshooting).
+
 ## 3. Verify connection strings
 
 The AZD template you use generated the connectivity variables for you already as [app settings](configure-common.md#configure-app-settings) and outputs the them to the terminal for your convenience. App settings are one way to keep connection secrets out of your code repository.
@@ -436,6 +443,8 @@ The AZD template you use generated the connectivity variables for you already as
 
     If you add an app setting that contains a valid Oracle, SQL Server, PostgreSQL, or MySQL connection string, App Service adds it as a Java Naming and Directory Interface (JNDI) data source in the Tomcat server's *context.xml* file. 
 
+Having issues? Check the [Troubleshooting section](#troubleshooting).
+
 ## 4. Confirm JNDI data source
 
 In this step, you use the SSH connection to the app container to verify the JNDI data source in the Tomcat server. In the process, you learn how to access the SSH shell for the Tomcat container.
@@ -453,6 +462,8 @@ In this step, you use the SSH connection to the app container to verify the JNDI
 > [!NOTE]
 > Only changes to files in `/home` can persist beyond app restarts. For example, if you edit `/usr/local/tomcat/conf/server.xml`, the changes won't persist beyond an app restart.
 >
+
+Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ## 5. Modify sample code and redeploy
 
@@ -479,6 +490,8 @@ In this step, you use the SSH connection to the app container to verify the JNDI
     > [!TIP]
     > You can also just use `azd up` always, which does both `azd provision` and `azd deploy`.
 
+Having issues? Check the [Troubleshooting section](#troubleshooting).
+
 ## 6. Browse to the app
 
 1. In the AZD output, find the URL of your app and navigate to it in the browser. The URL looks like this in the AZD output:
@@ -496,6 +509,8 @@ In this step, you use the SSH connection to the app container to verify the JNDI
 
     Congratulations, you're running a web app in Azure App Service, with secure connectivity to Azure Database for MySQL.
 
+Having issues? Check the [Troubleshooting section](#troubleshooting).
+
 ## 7. Stream diagnostic logs
 
 Azure App Service can capture console logs to help you diagnose issues with your application. For convenience, the AZD template already [enabled logging to the local file system](troubleshoot-diagnostic-logs.md#enable-application-logging-linuxcontainer) and is [shipping the logs to a Log Analytics workspace](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor).
@@ -511,6 +526,8 @@ Stream App Service logs at: https://portal.azure.com/#@/resource/subscriptions/&
 </pre>
 
 Learn more about logging in Java apps in the series on [Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python and Java applications](../azure-monitor/app/opentelemetry-enable.md?tabs=java).
+
+Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ## 8. Clean up resources
 
