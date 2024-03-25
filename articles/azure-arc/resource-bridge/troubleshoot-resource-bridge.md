@@ -43,7 +43,7 @@ az arcappliance logs vmware --kubeconfig kubeconfig --out-dir <path to specified
 
 ### Arc resource bridge is offline
 
-If the resource bridge is offline, this is typically due to a change in networking in the infrastructure, environment or cluster that stops the appliance VM from being able to function or communicate with its counterpart Azure resource. If you are unable to determine what has changed in the infrastructure, environment or cluster, you can attempt to reboot the appliance VM, collect logs and submit a support ticket for further investigation. 
+If the resource bridge is offline, this is typically due to a networking change in the infrastructure, environment or cluster that stops the appliance VM from being able to  communicate with its counterpart Azure resource. If you are unable to determine what changed, you can reboot the appliance VM, collect logs and submit a support ticket for further investigation. 
 
 ### Remote PowerShell isn't supported
 
@@ -55,7 +55,7 @@ In this release, all the parameters are specified at time of creation. To update
 
 ### Appliance Network Unavailable 
 
-If Arc resource bridge is experiencing a network communication problem or is offline, you may see an "Appliance Network Unavailable" error when trying to perform an action that interacts with the resource bridge or an extension operating on top of the bridge. In general, any network or infrastructure connectivity issue to the appliance VM may cause this error. This error can also surface as "Error while dialing dial tcp xx.xx.xxx.xx:55000: connect: no route to host" and this is typically a network communication problem. The problem could be that communication from the host to the Arc resource bridge VM needs to be opened with the help of your network administrator. It could be that there was a temporary network issue not allowing the host to reach the Arc resource bridge VM and once the network issue is resolved, you can retry the operation. You need to check that the appliance VM for Arc resource bridge isn't stopped. In the case of Azure Stack HCI, the host storage may be full which has caused the appliance VM to pause and the storage needs to be addressed. 
+If Arc resource bridge is experiencing a network problem, you may see an "Appliance Network Unavailable" error. In general, any network or infrastructure connectivity issue to the appliance VM may cause this error. This error can also surface as "Error while dialing dial tcp xx.xx.xxx.xx:55000: connect: no route to host". The problem could be that communication from the host to the Arc resource bridge VM needs to be opened over TCP port 22 with the help of your network administrator. It could be that there was a temporary network issue not allowing the host to reach the Arc resource bridge VM and once the network issue is resolved, you can retry the operation. You can also check that the appliance VM for Arc resource bridge isn't stopped or offline. In the case of Azure Stack HCI, the host storage may be full and the storage needs to be addressed. 
 
 ### Token refresh error
 
