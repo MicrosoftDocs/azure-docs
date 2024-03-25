@@ -51,11 +51,10 @@ In this section, you use the Azure Cloud Shell to create a provisioning service 
 
    The DPS and IoT Hub names must be globally unique. Replace the `SUFFIX` placeholder with your own value.
 
-   Also, the Azure Function code you create later in this tutorial looks for IoT hubs that have either `-toasters-` or `-heatpups-` in their names. If you change the suggested values, make sure to use names that contain the required substrings.
-
-   ### [Bash](#tab/bash)
+   Also, the Azure Function code you create later in this tutorial looks for IoT hubs that have either `-toasters-` or `-heatpumps-` in their names. If you change the suggested values, make sure to use names that contain the required substrings.
 
    ```bash
+   #!/bin/bash
    export RESOURCE_GROUP="contoso-us-resource-group"
    export LOCATION="westus"
    export DPS="contoso-provisioning-service-SUFFIX"
@@ -63,17 +62,14 @@ In this section, you use the Azure Cloud Shell to create a provisioning service 
    export HEATPUMP_HUB="contoso-heatpumps-hub-SUFFIX"
    ```
 
-   ### [PowerShell](#tab/powershell)
-
    ```powershell
+   # PowerShell
    $env:RESOURCE_GROUP = "contoso-us-resource-group"
    $env:LOCATION = "westus"
    $env:DPS = "contoso-provisioning-service-SUFFIX"
    $env:TOASTER_HUB = "contoso-toasters-hub-SUFFIX"
    $env:HEATPUMP_HUB = "contoso-heatpumps-hub-SUFFIX"
    ```
-
-   ---
 
    > [!TIP]
    > The commands used in this tutorial create resources in the West US location by default. We recommend that you create your resources in the region nearest you that supports Device Provisioning Service. You can view a list of available locations by going to the [Azure Status](https://azure.microsoft.com/status/) page and searching for "Device Provisioning Service". In commands, locations can be specified either in one word or multi-word format; for example: westus, West US, WEST US, etc. The value is not case sensitive.
@@ -113,53 +109,53 @@ In this section, you use the Azure Cloud Shell to create a provisioning service 
 5. Run the following two commands to get the connection strings for the hubs you created.
 
     ```azurecli-interactive 
-    TOASTER_HUB_CONNECTION_STRING=$(az iot hub connection-string show --hub-name $TOASTER_HUB --key primary --query connectionString -o tsv)
-    HEATPUMP_HUB_CONNECTION_STRING=$(az iot hub connection-string show --hub-name HEATPUMP_HUB --key primary --query connectionString -o tsv)
+    az iot hub connection-string show --hub-name $TOASTER_HUB --key primary --query connectionString -o tsv
+    az iot hub connection-string show --hub-name $HEATPUMP_HUB --key primary --query connectionString -o tsv
     ```
 
-6. Run the following commands to link the hubs to the DPS resource. Replace the DPS resource name with the name you chose in each command:
+6. Run the following commands to link the hubs to the DPS resource. Replace the placeholders with the hub connection strings from the previous step.
 
     ```azurecli-interactive 
-    az iot dps linked-hub create --dps-name $DPS --resource-group $RESOURCE_GROUP --connection-string $TOASTER_HUB_CONNECTION_STRING --location $LOCATION
-    az iot dps linked-hub create --dps-name $DPS --resource-group $RESOURCE_GROUP --connection-string $HEATPUMP_HUB_CONNECTION_STRING --location $LOCATION
+    az iot dps linked-hub create --dps-name $DPS --resource-group $RESOURCE_GROUP --location $LOCATION --connection-string <toaster_hub_connection_string>
+    az iot dps linked-hub create --dps-name $DPS --resource-group $RESOURCE_GROUP --location $LOCATION --connection-string <heatpump_hub_connection_string>
     ```
 
 ## Create the custom allocation function
 
 In this section, you create an Azure function that implements your custom allocation policy. This function decides which divisional IoT hub a device should be registered to based on whether its registration ID contains the string **-contoso-tstrsd-007** or **-contoso-hpsd-088**. It also sets the initial state of the device twin based on whether the device is a toaster or a heat pump.
 
-1. Sign in to the [Azure portal](https://portal.azure.com). From your home page, select **+ Create a resource**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. In the *Search the Marketplace* search box, type "Function App". From the drop-down list select **Function App**, and then select **Create**.
+1. In the search box, search for and select **Function App**.
 
-3. On the **Function App** create page, under the **Basics** tab, enter the following settings for your new function app and select **Review + create**:
+1. Select **Create** or **Create Function App**.
 
-    **Resource Group**: Select the **contoso-us-resource-group** to keep all resources created in this tutorial together.
+1. On the **Function App** create page, under the **Basics** tab, enter the following settings for your new function app and select **Review + create**:
 
-    **Function App name**: Enter a unique function app name. This example uses **contoso-function-app-1098**.
-
-    **Publish**: Verify that **Code** is selected.
-
-    **Runtime Stack**: Select **.NET** from the drop-down.
-
-    **Version**: Select **3.1** from the drop-down.
-
-    **Region**: Select the same region as your resource group. This example uses **West US**.
+   | Parameter      | Value                        |
+   |--------------------|------------------------------|
+   | **Subscription**      | Make sure that the subscription where you created the resources for this tutorial is selected. |
+   | **Resource Group** | Select the resource group that you created in the previous section. The default is **contoso-us-resource-group**.    |
+   | **Function App name** | Provide a name for your function app. |
+   | **Publish**        | Code                         |
+   | **Runtime Stack**  | .NET                         |
+   | **Version**        | 3.1                          |
+   | **Region**         | West US                      |
 
     > [!NOTE]
     > By default, Application Insights is enabled. Application Insights is not necessary for this tutorial, but it might help you understand and investigate any issues you encounter with the custom allocation. If you prefer, you can disable Application Insights by selecting the **Monitoring** tab and then selecting **No** for **Enable Application Insights**.
 
     ![Create an Azure Function App to host the custom allocation function](./media/tutorial-custom-allocation-policies/create-function-app.png)
 
-4. On the **Summary** page, select **Create** to create the function app. Deployment may take several minutes. When it completes, select **Go to resource**.
+1. On the **Summary** page, select **Create** to create the function app. Deployment may take several minutes. When it completes, select **Go to resource**.
 
-5. On the left pane of the function app **Overview** page, select **Functions** and then **+ Create** to add a new function.
+1. On the left pane of the function app **Overview** page, select **Functions** and then **+ Create** to add a new function.
 
-6. On the **Create function** page, make sure that **Development environment** is set to **Develop in portal**. Then select the **HTTP Trigger** template followed by the **Create** button.
+1. On the **Create function** page, make sure that **Development environment** is set to **Develop in portal**. Then select the **HTTP Trigger** template followed by the **Create** button.
 
-7. When the **HttpTrigger1** function opens, select **Code + Test** on the left pane. This allows you to edit the code for the function. The **run.csx** code file should be opened for editing.
+1. When the **HttpTrigger1** function opens, select **Code + Test** on the left pane. This allows you to edit the code for the function. The **run.csx** code file should be opened for editing.
 
-8. Reference required NuGet packages. To create the initial device twin, the custom allocation function uses classes that are defined in two NuGet packages that must be loaded into the hosting environment. With Azure Functions, NuGet packages are referenced using a *function.proj* file. In this step, you save and upload a *function.proj* file for the required assemblies.  For more information, see [Using NuGet packages with Azure Functions](../azure-functions/functions-reference-csharp.md#using-nuget-packages).
+1. Reference required NuGet packages. To create the initial device twin, the custom allocation function uses classes that are defined in two NuGet packages that must be loaded into the hosting environment. With Azure Functions, NuGet packages are referenced using a *function.proj* file. In this step, you save and upload a *function.proj* file for the required assemblies.  For more information, see [Using NuGet packages with Azure Functions](../azure-functions/functions-reference-csharp.md#using-nuget-packages).
 
     1. Copy the following lines into your favorite editor and save the file on your computer as *function.proj*.
 
@@ -175,11 +171,11 @@ In this section, you create an Azure function that implements your custom alloca
         </Project>
         ```
 
-    2. Select the **Upload** button located above the code editor to upload your *function.proj* file. After uploading, select the file in the code editor using the drop-down box to verify the contents.
+    1. Select the **Upload** button located above the code editor to upload your *function.proj* file. After uploading, select the file in the code editor using the drop-down box to verify the contents.
 
-    3. Select the *function.proj* file in the code editor and verify its contents. If the *function.proj* file is empty copy the lines above into the file and save it. (Sometimes the upload will create the file without uploading the contents.)
+    1. Select the *function.proj* file in the code editor and verify its contents. If the *function.proj* file is empty copy the lines above into the file and save it. (Sometimes the upload will create the file without uploading the contents.)
 
-9. Make sure *run.csx* for **HttpTrigger1** is selected in the code editor. Replace the code for the **HttpTrigger1** function with the following code and select **Save**:
+1. Make sure *run.csx* for **HttpTrigger1** is selected in the code editor. Replace the code for the **HttpTrigger1** function with the following code and select **Save**:
 
     ```csharp
     #r "Newtonsoft.Json"
