@@ -4,7 +4,7 @@ description: Guidance overview on migration from Automation Update Management to
 author: snehasudhirG
 ms.service: azure-update-manager
 ms.topic: conceptual
-ms.date: 02/14/2024
+ms.date: 03/24/2024
 ms.author: sudhirsneha
 ---
 
@@ -24,22 +24,94 @@ For the Azure Update Manager, both AMA and MMA aren't a requirement to manage so
 >
 > - All capabilities of Azure Automation Update Management will be available on Azure Update Manager before the deprecation date.
 
-## Guidance to move virtual machines from Automation Update Management to Azure Update Manager
+## Azure portal experience (preview)
 
-Guidance to move various capabilities is provided in table below:
+This section explains how to use the portal experience (preview) to move schedules and machines from Automation Update Management to Azure Update Manager. With minimal click and automated way to move your resources, it is the easiest way to move if you don't have customizations built on top of your Automation Update Management solution.
 
-**S.No** | **Capability** | **Automation Update Management** | **Azure Update Manager** | **Steps using Azure portal** | **Steps using API/script** | 
---- | --- | --- | ---| ---| ---| 
-1 | Patch management for Off-Azure machines. | Could run with or without Arc connectivity. | Azure Arc is a prerequisite for non-Azure machines. | 1. [Create service principal](../app-service/quickstart-php.md#1---get-the-sample-repository) </br> 2. [Generate installation script](../azure-arc/servers/onboard-service-principal.md#generate-the-installation-script-from-the-azure-portal) </br> 3. [Install agent and connect to Azure](../azure-arc/servers/onboard-service-principal.md#install-the-agent-and-connect-to-azure) | 1. [Create service principal](../azure-arc/servers/onboard-service-principal.md#azure-powershell) <br> 2. [Generate installation script](../azure-arc/servers/onboard-service-principal.md#generate-the-installation-script-from-the-azure-portal) </br> 3. [Install agent and connect to Azure](../azure-arc/servers/onboard-service-principal.md#install-the-agent-and-connect-to-azure) |
-2 | Enable periodic assessment to check for latest updates automatically every few hours. | Machines automatically receive the latest updates every 12 hours for Windows and every 3 hours for Linux. | Periodic assessment is an update setting on your machine. If it's turned on, the Update Manager fetches updates every 24 hours for the machine and shows the latest update status. | 1. [Single machine](manage-update-settings.md#configure-settings-on-a-single-vm) </br> 2. [At scale](manage-update-settings.md#configure-settings-at-scale) </br> 3. [At scale using policy](periodic-assessment-at-scale.md) | 1. [For Azure VM](../virtual-machines/automatic-vm-guest-patching.md#azure-powershell-when-updating-a-windows-vm) </br> 2.[For Arc-enabled VM](/powershell/module/az.connectedmachine/update-azconnectedmachine) |
-3 | Static Update deployment schedules (Static list of machines for update deployment). | Automation Update management had its own schedules. | Azure Update Manager creates a [maintenance configuration](../virtual-machines/maintenance-configurations.md) object for a schedule. So, you need to create this object, copying all schedule settings from Automation Update Management to Azure Update Manager schedule. | 1. [Single VM](scheduled-patching.md#schedule-recurring-updates-on-a-single-vm) </br> 2. [At scale](scheduled-patching.md#schedule-recurring-updates-at-scale) </br> 3. [At scale using policy](scheduled-patching.md#onboard-to-schedule-by-using-azure-policy) | [Create a static scope](manage-vms-programmatically.md) |
-4 | Dynamic Update deployment schedules (Defining scope of machines using resource group, tags, etc. that is evaluated dynamically at runtime).| Same as static update schedules. | Same as static update schedules. | [Add a dynamic scope](manage-dynamic-scoping.md#add-a-dynamic-scope) | [Create a dynamic scope]( tutorial-dynamic-grouping-for-scheduled-patching.md#create-a-dynamic-scope) |
-5 | Deboard from Azure Automation Update management. | After you complete the steps 1, 2, and 3, you need to clean up Azure Update management objects. | |  [Remove Update Management solution](../automation/update-management/remove-feature.md#remove-updatemanagement-solution) </br> | NA |
-6 | Reporting | Custom update reports using Log Analytics queries. | Update data is stored in Azure Resource Graph (ARG). Customers can query ARG data to build custom dashboards, workbooks etc. | The old Automation Update Management data stored in Log analytics can be accessed, but there's no provision to move data to ARG. You can write ARG queries to access data that will be stored to ARG after virtual machines are patched via Azure Update Manager. With ARG queries you can, build dashboards and workbooks using following instructions: </br> 1. [Log structure of Azure Resource graph updates data](query-logs.md) </br> 2. [Sample ARG queries](sample-query-logs.md) </br> 3. [Create workbooks](manage-workbooks.md) | NA |
-7 | Customize workflows using pre and post scripts. | Available as Automation runbooks. | We recommend that you try out the Public Preview for pre and post scripts on your non-production machines and use the feature on production workloads once the feature enters General Availability. |[Manage pre and post events (preview)](manage-pre-post-events.md) | |
-8 | Create alerts based on updates data for your environment | Alerts can be set up on updates data stored in Log Analytics. | We recommend that you try out the Public Preview for alerts on your non-production machines and use the feature on production workloads once the feature enters General Availability. |[Create alerts (preview)](manage-alerts.md) | |
+To access the portal migration experience, you can use several entry points.
 
-## Scripts to migrate from Automation Update Management to Azure Update Manager (preview)
+Select the **Migrate Now** button present on the following entry points. After the selection, you are guided through the process of moving your schedules and machines to Azure Update Manager. This process is designed to be user-friendly and straight forward to allow you to complete the migration with minimal effort.
+
+You can migrate from any of the following entry points:
+
+#### [Automation Update Management](#tab/update-mgmt)
+
+   :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/migrate-from-update-management.png" alt-text="Screenshot that shows how to migrate from Automation Update Management entry point." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/migrate-from-update-management.png":::
+
+After you select the **Migrate Now** button, a migration blade opens, which contains a summary of all resources including machines, schedules in the Automation account. By default, the Automation account from which you accessed this blade is preselected if you go by this route. 
+
+Here, you can see how many of Azure, Arc-enabled servers, non-Azure non Arc-enabled servers, and schedules are enabled in Automation Update Management and need to be moved to Azure Update Manager. You can also view the details of these resources.
+
+The migration blade provides an overview of the resources that will be moved, allowing you to review and confirm the migration before proceeding. Once you are ready, you can proceed with the migration process to move your schedules and machines to Azure Update Manager.
+
+:::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/migrate-resources-automation-account.png" alt-text="Screenshot that shows how to migrate all resorces from Automation account." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/migrate-resources-automation-account.png":::
+
+After you review the resources that must be moved you can proceed with the migration process which is a three-step process:
+
+1. **Prerequisites** 
+
+   :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/prerequisite-migration-update-manager.png" alt-text="Screenshot that shows the prerequisites for migration." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/prerequisite-migration-update-manager.png":::
+
+    This includes two steps:
+
+   a. **Onboard non-Azure non-Arc-enabled machines to Arc** - This is because Arc connectivity is a prerequisite for Azure Update Manager. Onboarding your machines to Azure Arc is free of cost, and once you do so, you can avail all management services as you can do for any Azure machine. For more information, see [Azure Arc documentation](../azure-arc/servers/onboard-service-principal.md)
+   on how to onboard your machines.
+
+   b. **Download and run PowerShell script locally** - The second step is to download and run a PowerShell script locally. This is required for the creation of a user identity and appropriate role assignments so that the migration can take place. This script gives proper RBAC to the User Identity on the subscription to which the automation account belongs, machines onboarded to Automation Update Management, scopes that are part of dynamic queries etc. so that the configuration can be assigned to the machines, MRP configurations can be created and updates solution can be removed. For more information, see [Azure Update Manager documentation](guidance-migration-automation-update-management-azure-update-manager.md#prerequisite-2-create-user-identity-and-role-assignments-by-running-powershell-script).
+
+1. **Move resources in Automation account to Azure Update Manager**
+
+   :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/step-two-migrate-workload.png" alt-text="Screenshot that shows how to migrate workload in your Automation account." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/step-two-migrate-workload.png":::
+   
+   The next step in the migration process is to enable Azure Update Manager on the machines to be moved and create equivalent maintenance configurations for the schedules to be migrated. When you select the **Migrate Now** button, it imports the *MigrateToAzureUpdateManager* runbook into your Automation account and sets the verbose logging to **True**.
+   
+   Select **Start** runbook which will present the parameters that must be passed to the runbook.
+    
+   :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/start-runbook-migration.png" alt-text="Screenshot that shows how to start runbook to allows the parameters to be passed to the runbook." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/start-runbook-migration.png":::
+
+   For more information on the parameters to fetch and the location from it must be fetched, see [migration of machines and schedules](#step-1-migration-of-machines-and-schedules). Once you start the runbook after passing in all the parameters, Azure Update Manager will begin to get enabled on machines and maintenance configuration in Azure Update Manager will start getting created. You can monitor Azure runbook logs for the status of execution and migration of schedules.
+
+   :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/monitor-runbook-logs.png" alt-text="Screenshot that shows monitoring of runbook logs." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/monitor-runbook-logs.png":::
+
+1. **Deboard resources from Automation Update management**
+
+   :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/run-clean-up-script.png" alt-text="Screenshot that shows how to preform post migration." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/run-clean-up-script.png":::
+
+  The last step in the migration process is to run the clean-up script. This will deboard machines from the Automation Update Management solution and disable Automation Update Management schedules. 
+
+  After you select the **Run clean-up script** button, the runbook *DeboardFromAutomationUpdateManagement* will be imported into your Automation account, and its verbose logging is set to *True*. Here, when you select **Start** the runbook, it will ask for parameters to be passed to the runbook. For more information, see [Deboarding from Automation Update Management solution](#step-2-deboarding-from-automation-update-management-solution) to fetch the parameters to be passed to the runbook.
+
+  :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/deboard-update-management-start-runbook.png" alt-text="Screenshot that shows how to deboard from Automation Update Management and starting the runbook." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/deboard-update-management-start-runbook.png":::
+
+#### [Azure Update Manager](#tab/update-manager)
+
+:::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/migration-entry-update-manager.png" alt-text="Screenshot that shows how to migrate from Azure Update Manager entry point." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/migration-entry-update-manager.png":::
+
+You can initiate migration from Azure Update Manager. On the top of screen, you will see a deprecation banner with a **Migrate Now** button at the top of screen. 
+
+Select **Migrate Now** button to view the migration blade that allows you to select the Automation account whose resources you want to move from Automation Update Management to Azure Update Manager. You must to select subscription, resource group, and finally the Automation account name. After you select, you will view the summary of machines and schedules to be migrated to Azure Update Manager. From here, follow the migration steps listed in [Automation Update Management](#automation-update-management).
+
+#### [Single virtual machine](#tab/virtual-machine)
+
+:::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/migrate-single-virtual-machine.png" alt-text="Screenshot that shows how to migrate from single virtual machine entry point." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/migrate-single-virtual-machine.png":::
+
+To initiate migration from a single VM **Updates** view, follow these steps:
+
+1. Select the machine that is enabled for Automation Update Management and under **Operations**, select **Updates**
+1. In the deprecation banner, select the **Migrate Now** button.
+   
+   You will see that the Automation account to which the machine belongs is preselected and a summary of all resources in the Automation account is presented. This will allow you to migrate the resources from Automation Update Management to Azure Update Manager.
+
+
+    :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/single-vm-migrate-now.png" alt-text="Screenshot that shows how to migration of resources from single virtual machine entry point." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/single-vm-migrate-now.png":::
+
+   From here, follow the migration steps listed in [Automation Update Management](#automation-update-management).
+
+For more information on how the scripts are executed in the backend, their behavior see,[Migration scripts (preview)](#migration-scripts-preview)
+
+---
+
+## Migration scripts (preview)
 
 Using migration runbooks, you can automatically migrate all workloads (machines and schedules) from Automation Update Management to Azure Update Manager. This section details on how to run the script, what the script does at the backend, expected behavior, and any limitations, if applicable. The script can migrate all the machines and schedules in one automation account at one go. If you have multiple automation accounts, you have to run the runbook for all the automation accounts.
 
@@ -258,6 +330,23 @@ You can also search with the name of the update schedule to get logs specific to
      - For example, if SUC has a Maintenance Window of 6 hours, then the equivalent MRP schedule will have it for 4 hours. 
 - When the migration runbook is executed multiple times, say you did Migrate All automation schedules and then again tried to migrate all the schedules, then migration runbook will run the same logic. Doing it again will update the MRP schedule if any new change is present in SUC. It won't make duplicate config assignments. Also, operations are carried only for automation schedules having enabled schedules. If an SUC was **Migrated** earlier, it will be skipped in the next turn as its underlying schedule will be **Disabled**. 
 - In the end, you can resolve more machines from Azure Resource Graph as in Azure Update Manager; You can't check if Hybrid Runbook Worker is reporting or not, unlike in Automation Update Management where it was an intersection of Dynamic Queries and Hybrid Runbook Worker.
+
+
+## Manual migration guidance
+
+Guidance to move various capabilities is provided in table below:
+
+**S.No** | **Capability** | **Automation Update Management** | **Azure Update Manager** | **Steps using Azure portal** | **Steps using API/script** | 
+--- | --- | --- | ---| ---| ---| 
+1 | Patch management for Off-Azure machines. | Could run with or without Arc connectivity. | Azure Arc is a prerequisite for non-Azure machines. | 1. [Create service principal](../app-service/quickstart-php.md#1---get-the-sample-repository) </br> 2. [Generate installation script](../azure-arc/servers/onboard-service-principal.md#generate-the-installation-script-from-the-azure-portal) </br> 3. [Install agent and connect to Azure](../azure-arc/servers/onboard-service-principal.md#install-the-agent-and-connect-to-azure) | 1. [Create service principal](../azure-arc/servers/onboard-service-principal.md#azure-powershell) <br> 2. [Generate installation script](../azure-arc/servers/onboard-service-principal.md#generate-the-installation-script-from-the-azure-portal) </br> 3. [Install agent and connect to Azure](../azure-arc/servers/onboard-service-principal.md#install-the-agent-and-connect-to-azure) |
+2 | Enable periodic assessment to check for latest updates automatically every few hours. | Machines automatically receive the latest updates every 12 hours for Windows and every 3 hours for Linux. | Periodic assessment is an update setting on your machine. If it's turned on, the Update Manager fetches updates every 24 hours for the machine and shows the latest update status. | 1. [Single machine](manage-update-settings.md#configure-settings-on-a-single-vm) </br> 2. [At scale](manage-update-settings.md#configure-settings-at-scale) </br> 3. [At scale using policy](periodic-assessment-at-scale.md) | 1. [For Azure VM](../virtual-machines/automatic-vm-guest-patching.md#azure-powershell-when-updating-a-windows-vm) </br> 2.[For Arc-enabled VM](/powershell/module/az.connectedmachine/update-azconnectedmachine) |
+3 | Static Update deployment schedules (Static list of machines for update deployment). | Automation Update management had its own schedules. | Azure Update Manager creates a [maintenance configuration](../virtual-machines/maintenance-configurations.md) object for a schedule. So, you need to create this object, copying all schedule settings from Automation Update Management to Azure Update Manager schedule. | 1. [Single VM](scheduled-patching.md#schedule-recurring-updates-on-a-single-vm) </br> 2. [At scale](scheduled-patching.md#schedule-recurring-updates-at-scale) </br> 3. [At scale using policy](scheduled-patching.md#onboard-to-schedule-by-using-azure-policy) | [Create a static scope](manage-vms-programmatically.md) |
+4 | Dynamic Update deployment schedules (Defining scope of machines using resource group, tags, etc. that is evaluated dynamically at runtime).| Same as static update schedules. | Same as static update schedules. | [Add a dynamic scope](manage-dynamic-scoping.md#add-a-dynamic-scope) | [Create a dynamic scope]( tutorial-dynamic-grouping-for-scheduled-patching.md#create-a-dynamic-scope) |
+5 | Deboard from Azure Automation Update management. | After you complete the steps 1, 2, and 3, you need to clean up Azure Update management objects. | |  [Remove Update Management solution](../automation/update-management/remove-feature.md#remove-updatemanagement-solution) </br> | NA |
+6 | Reporting | Custom update reports using Log Analytics queries. | Update data is stored in Azure Resource Graph (ARG). Customers can query ARG data to build custom dashboards, workbooks etc. | The old Automation Update Management data stored in Log analytics can be accessed, but there's no provision to move data to ARG. You can write ARG queries to access data that will be stored to ARG after virtual machines are patched via Azure Update Manager. With ARG queries you can, build dashboards and workbooks using following instructions: </br> 1. [Log structure of Azure Resource graph updates data](query-logs.md) </br> 2. [Sample ARG queries](sample-query-logs.md) </br> 3. [Create workbooks](manage-workbooks.md) | NA |
+7 | Customize workflows using pre and post scripts. | Available as Automation runbooks. | We recommend that you try out the Public Preview for pre and post scripts on your non-production machines and use the feature on production workloads once the feature enters General Availability. |[Manage pre and post events (preview)](manage-pre-post-events.md) | |
+8 | Create alerts based on updates data for your environment | Alerts can be set up on updates data stored in Log Analytics. | We recommend that you try out the Public Preview for alerts on your non-production machines and use the feature on production workloads once the feature enters General Availability. |[Create alerts (preview)](manage-alerts.md) | |
+
 
 ## Next steps
 
