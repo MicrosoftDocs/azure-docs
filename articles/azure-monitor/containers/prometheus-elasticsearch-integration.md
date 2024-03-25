@@ -1,6 +1,6 @@
 ---
 title: Configure elastic search integration for Prometheus metrics in Azure Monitor
-description: Describes how to configure kafka monitoring using Prometheus metrics in Azure Monitor to Kubernetes cluster.
+description: Describes how to configure elasticsearch monitoring using Prometheus metrics in Azure Monitor to Kubernetes cluster.
 ms.topic: conceptual
 ms.date: 3/19/2024
 ms.reviewer: aul

@@ -7,7 +7,7 @@ ms.reviewer: aul
 ---
 # Argo CD
 Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes.
-This article describes how to configure Azure Managed Prometheus with AKS to monitor Argo CD by scraping prometheus metrics. 
+This article describes how to configure Azure Managed Prometheus with Azure Kubernetes Service(AKS) to monitor Argo CD by scraping prometheus metrics. 
 
 ## Prerequisites
 
@@ -16,10 +16,11 @@ This article describes how to configure Azure Managed Prometheus with AKS to mon
 
 
 > [!NOTE] 
-> Please specify the right labels in the matchLabels for the service monitors if they do not match the configured ones in the sample below.
+> Please specify the right labels in the matchLabels for the service monitors if they do not match the configured ones in the sample.
 
 ### Deploy Service Monitors
-Deploy the following service monitor to configure azure managed prometheus addon to scrape prometheus metrics from the exporter
+Deploy the following service monitor to configure azure managed prometheus addon to scrape prometheus metrics from the exporter.
+
 ```yaml
 apiVersion: azmonitoring.coreos.com/v1
 kind: ServiceMonitor
@@ -87,7 +88,7 @@ spec:
 
 ### Import the Grafana Dashboard
 
-Follow the instructions on [Import a dashboard from Grafana Labs](../../managed-grafana/how-to-create-dashboard.md#import-a-grafana-dashboard) to import the grafana dashboards using the ID or JSON.</br>
+To import the grafana dashboards using the ID or JSON, follow the instructions to [Import a dashboard from Grafana Labs](../../managed-grafana/how-to-create-dashboard.md#import-a-grafana-dashboard). </br>
 
 [ArgoCD](https://grafana.com/grafana/dashboards/14584-argocd/)(ID-14191)
 
