@@ -15,7 +15,7 @@ ms.custom: template-how-to, engagement-fy23, devx-track-azurecli, devx-track-azu
 
 Both Private and Public IP addresses can be assigned to a virtual machine's network interface controller (NIC).  Private IP addresses assigned to a network interface enable a virtual machine to communicate with other resources in an Azure virtual network and connected networks. A private IP address also enables outbound communication to the Internet using an unpredictable IP address. A [Public IP address](virtual-network-public-ip-address.md) assigned to a network interface enables inbound communication to a virtual machine from the Internet and enables outbound communication from the virtual machine to the Internet using a predictable IP address. For details, see [Understanding outbound connections in Azure](../../load-balancer/load-balancer-outbound-connections.md).
 
-If you need to create, change, or delete a network interface, read the [Manage a network interface](../../virtual-network/virtual-network-network-interface.md) article. If you need to add network interfaces to or remove network interfaces from a virtual machine, read the [Add or remove network interfaces](../../virtual-network/virtual-network-network-interface-vm.md) article.
+If you need to create, change, or delete a network interface, read the [Manage a network interface](../../virtual-network/virtual-network-network-interface.md) article. If you need to add network interfaces to or remove network interfaces from a virtual machine, read the [Add or remove network interfaces](../../virtual-network/virtual-network-network-interface-vm.yml) article.
 
 ## Prerequisites
 
@@ -95,7 +95,7 @@ az network nic ip-config create --resource-group myResourceGroup --name myIpConf
 
 ## Change IP address settings
 
-Situations arise where you need to change the allocation method of an IPv4 address, change the static IPv4 address, or change the public IP address associated with a network interface. Place a virtual machine into the stopped (deallocated) state before changing the private IPv4 address of a secondary IP configuration associated with the secondary network interface. To learn more, see [primary and secondary network interfaces](../../virtual-network/virtual-network-network-interface-vm.md)).
+Situations arise where you need to change the allocation method of an IPv4 address, change the static IPv4 address, or change the public IP address associated with a network interface. Place a virtual machine into the stopped (deallocated) state before changing the private IPv4 address of a secondary IP configuration associated with the secondary network interface. To learn more, see [primary and secondary network interfaces](../../virtual-network/virtual-network-network-interface-vm.yml)).
 
 # [**Portal**](#tab/nic-address-portal)
 
