@@ -22,7 +22,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-cache-for-redis/cache-how-to-version.md",
-            "redirect_url": "/azure/azure-cache-for-redis/-how-to-upgrade",
+            "redirect_url": "/azure-cache-for-redis/cache-how-to-upgrade",
             "redirect_document_id": false
         },
         {
