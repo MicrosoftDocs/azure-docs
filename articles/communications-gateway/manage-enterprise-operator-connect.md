@@ -16,6 +16,13 @@ Azure Communications Gateway's Number Management Portal (preview) enables you to
 > [!IMPORTANT]
 > The Operator Connect and Teams Phone Mobile programs require that full API integration to your BSS is completed prior to launch in the Teams Admin Center. This can either be directly to the Operator Connect API or through the Azure Communications Gateway's Provisioning API (preview).
 
+You can:
+
+* Manage your agreement with an enterprise customer.
+* Manage numbers for the enterprise.
+* View civic addresses for an enterprise.
+* Configure a custom header for a number.
+
 ## Prerequisites
 
 Confirm that you have **Reader** access to the Azure Communications Gateway resource and appropriate permissions for the AzureCommunicationsGateway enterprise application:
@@ -60,22 +67,16 @@ Each number is automatically assigned to the Operator Connect or Teams Phone Mob
 
 ## Manage your agreement with an enterprise customer
 
-When an enterprise customer uses the Teams Admin Center to request service, the Operator Connect APIs create a *consent*. The consent represents the relationship between you and the enterprise.
-
-The Number Management Portal displays a consent as a *Request for Information* and allows you to update the status. Finding the Request for Information for an enterprise is also the easiest way to manage numbers for an enterprise.
+When an enterprise customer uses the Teams Admin Center to request service, the Operator Connect APIs create a *consent*. The consent represents the relationship between you and the enterprise. The Number Management Portal displays a consent as a *Request for Information* and allows you to update the status.
 
 1. From the overview page for your Communications Gateway resource, find the **Number Management (Preview)** section in the sidebar.
 1. Select **Requests for Information**.
 1. Find the enterprise that you want to manage. You can use the **Add filter** options to search for the enterprise.
 1. If you need to change the status of the relationship, select the enterprise **Tenant ID** then select **Update relationship status**. Use the drop-down to select the new status. For example, if you're agreeing to provide service to a customer, set the status to **Agreement signed**. If you set the status to **Consent declined** or **Contract terminated**, you must provide a reason.
 
-## Create an Account for the enterprise
+If you're providing service to an enterprise for the first time, you must also create an *Account* for the enterprise.
 
-You must create an *Account* for each enterprise that you manage with the Number Management Portal.
-
-1. From the overview page for your Communications Gateway resource, find the **Number Management (Preview)** section in the sidebar.
-1. Select **Accounts**.
-1. Select **Create account**.
+1. Select the enterprise, then select **Create account**.
 1. Fill in the enterprise **Account name**.
 1. Select the checkboxes for the services you want to enable for the enterprise.
 1. Fill in any additional information requested under the **Communications Services Settings** heading.
