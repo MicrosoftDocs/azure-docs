@@ -42,10 +42,6 @@ These benefits contribute to a more efficient, compliant, and user-friendly emai
 
 ## Next steps
 
-* [Get started with create and manage suppression list in Email Communication Service in Azure Communication Service](../../quickstarts/email/create-email-communication-resource.md)
-
-* [Get started by manage Domain Suppression Lists in Azure Communication Services using the Management Client Libraries](../../quickstarts/email/manage-suppression-list-mgmt-sdks.md)
-
 The following documents may be interesting to you:
 
 - Familiarize yourself with the [Email client library](../email/sdk-features.md)
