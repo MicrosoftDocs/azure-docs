@@ -61,7 +61,7 @@ The following prerequisites must be met prior to installing Azure Monitor Agent.
   -	`<virtual-machine-region-name>`.handler.control.monitor.azure.com (example: westus.handler.control.monitor.azure.com)
   -	`<log-analytics-workspace-id>`.ods.opinsights.azure.com (example: 12345a01-b1cd-1234-e1f2-1234567g8h99.ods.opinsights.azure.com)  
     (If you use private links on the agent, you must also add the [dce endpoints](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint)).
-- **Disk Space**: Required disk space can vary greatly depending upon how an agent is utilized or if the agent is unable to communicate with the destinations where it is instructed to send monitoring data. By default the agent requires 10Gb of disk space to run. The following provides guidance for capacity planning:
+- **Disk Space**: Required disk space can vary greatly depending upon how an agent is utilized or if the agent is unable to communicate with the destinations where it is instructed to send monitoring data. By default the agent requires 10Gb of disk space to run and requires 500MB for agent installation. The following provides guidance for capacity planning:
 
 | Purpose | Environment | Path | Suggested Space |
 |:---|:---|:---|:---|

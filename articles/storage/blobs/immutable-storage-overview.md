@@ -183,7 +183,6 @@ For more information, see [Blob Storage feature support in Azure Storage account
 ## Next steps
 
 - [Data protection overview](data-protection-overview.md)
-- [Time-based retention policies for immutable blob data](immutable-time-based-retention-policy-overview.md)
-- [Legal holds for immutable blob data](immutable-legal-hold-overview.md)
+- 
 - [Configure immutability policies for blob versions](immutable-policy-configure-version-scope.md)
 - [Configure immutability policies for containers](immutable-policy-configure-container-scope.md)
