@@ -111,7 +111,7 @@ Use the following steps to show, add, edit, and delete the container registry:
 
 1. To delete a container registry, select the ellipsis (**...**) button, then select **Delete** to delete the registry. If the container registry is used by build service, it can't be deleted.
 
-   :::image type="content" source="media/how-to-enterprise-deploy-polyglot-apps/delete-container-registry.png" alt-text="Screenshot of Azure portal that shows the Container registry page with Delete container registry pane open." lightbox="media/how-to-enterprise-deploy-polyglot-apps/delete-container-registry.png":::
+   :::image type="content" source="media/how-to-enterprise-deploy-polyglot-apps/delete-container-registry.png" alt-text="Screenshot of Azure portal that shows the Container registry page with Edit container registry pane open and Username and Password boxes highlighted." lightbox="media/how-to-enterprise-deploy-polyglot-apps/delete-container-registry.png":::
 
 #### [Azure CLI](#tab/Azure-CLI)
 

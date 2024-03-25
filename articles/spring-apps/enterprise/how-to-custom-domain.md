@@ -159,9 +159,9 @@ use the following steps to grant access using the Azure portal:
    > [!NOTE]
    > If you don't find the "Azure Spring Apps Domain-Management", search for "Azure Spring Cloud Domain-Management".
 
-   :::image type="content" source="./media/how-to-custom-domain/import-certificate-b.png" alt-text="Screenshot of the Azure portal that shows the Add Access Policy page for a key vault with Get and List selected." lightbox="./media/how-to-custom-domain/import-certificate-b.png":::
+   :::image type="content" source="./media/how-to-custom-domain/import-certificate-b.png" alt-text="Screenshot of the Azure portal Create an access policy page with Get and List options for Secret permissions and Certificate permissions highlighted." lightbox="./media/how-to-custom-domain/import-certificate-b.png":::
 
-   :::image type="content" source="./media/how-to-custom-domain/import-certificate-c.png" alt-text="Screenshot of the Azure portal that shows the Create Access Policy page for a key vault with Azure Spring Apps Domain-management selected." lightbox="./media/how-to-custom-domain/import-certificate-c.png":::
+   :::image type="content" source="./media/how-to-custom-domain/import-certificate-c.png" alt-text="Screenshot of the Azure portal that shows the Create Access Policy page for a key vault with Azure Spring Cloud Domain-Management selected." lightbox="./media/how-to-custom-domain/import-certificate-c.png":::
 
 #### [Azure CLI](#tab/Azure-CLI)
 
