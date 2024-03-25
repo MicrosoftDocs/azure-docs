@@ -78,7 +78,9 @@ To configure this policy, set the effect parameter to __Audit__, __Deny__, or __
 
 ### Compute instances should be recreated to get software updates
 
-TBD
+Controls whether Azure Machine Learning compute instances should be audited to make sure they are running the latest available software updates. This policy is useful to ensure that compute instances are running the latest software updates to maintain security and performance. For more information, see [Vulnerability management for Azure Machine Learning](concept-vulnerability-management.md#compute-instance).
+
+To configure this policy, set the effect parameter to __Audit__ or __Disabled__. If set to __Audit__, a warning event is created in the activity log when a compute isn't running the latest software updates.
 
 ### Compute cluster and instance should be in a virtual network
 
