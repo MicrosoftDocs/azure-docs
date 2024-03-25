@@ -498,6 +498,9 @@ Settings specific to Azure Cosmos DB are available in the **Settings** tab of th
 
 **Write throughput budget:** An integer that represents the RUs you want to allocate for this Data Flow write operation, out of the total throughput allocated to the collection.
 
+> [!Note]
+> To limit the RU usage, please set the Cosmos DB **Throughput(autoscale)** to **Manual**.
+
 ## Lookup activity properties
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
