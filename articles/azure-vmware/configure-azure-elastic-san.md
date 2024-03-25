@@ -73,7 +73,7 @@ In this section, you create a virtual network for your Elastic SAN. Then you cre
 
 ## Add an Elastic SAN volume as a datastore
 
-Once all three feature flags (earlyAccess, iSCSIMultipath, ElasticSanDatastore) are set on your subscription, you can use the Azure portal to add the Elastic SAN volume as a datastore in your private cloud. Use the following steps to add, connect, disconnect, and delete Elastic SAN. 
+Once all three feature flags (earlyAccess, iSCSIMultipath, ElasticSanDatastore) are set on your subscription, you can use the Azure portal to add the Elastic SAN volume as a datastore in your private cloud. Use the steps in [configure external storage address block](#configure-external-storage-address-block) to add, connect, disconnect, and delete Elastic SAN. 
 
 ## Configure external storage address block
 
