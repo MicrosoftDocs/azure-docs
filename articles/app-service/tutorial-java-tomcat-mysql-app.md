@@ -68,7 +68,7 @@ First, you set up a sample data-driven app as a starting point. For your conveni
         The codespace takes a few minutes to set up.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-run-sample-application-2.png" alt-text="A screenshot showing how create a codespace in GitHub." lightbox="./media/tutorial-java-tomcat-mysql-app/azure-portal-run-sample-application-2.png":::
+        :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-run-sample-application-2.png" alt-text="A screenshot showing how to create a codespace in GitHub." lightbox="./media/tutorial-java-tomcat-mysql-app/azure-portal-run-sample-application-2.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
