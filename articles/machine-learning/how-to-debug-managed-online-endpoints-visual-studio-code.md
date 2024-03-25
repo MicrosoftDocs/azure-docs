@@ -19,15 +19,13 @@ ms.devlang: azurecli
 
 [!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
-Learn how to use the Visual Studio Code (VS Code) debugger to test and debug online endpoints locally before deploying them to Azure.
+Learn how to use the Microsoft Visual Studio Code debugger to test and debug online endpoints locally before deploying them to Azure.
 
 Azure Machine Learning local endpoints help you test and debug your scoring script, environment configuration, code configuration, and machine learning model locally.
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
-## Online endpoint local debugging
-
-Debugging endpoints locally before deploying them to the cloud can help you catch errors in your code and configuration earlier. You have different options for debugging endpoints locally with VS Code.
+Debugging endpoints locally before deploying them to the cloud can help you catch errors in your code and configuration earlier. You have different options for debugging endpoints locally with Visual Studio Code.
 
 - [Azure Machine Learning inference HTTP server](how-to-inference-server-http.md)
 - Local endpoint
@@ -41,7 +39,7 @@ The following table provides an overview of scenarios to help you choose what wo
 | Update local Python environment, **without** Docker image rebuild | Yes | No |
 | Update scoring script | Yes | Yes |
 | Update deployment configurations (deployment, environment, code, model) | No | Yes |
-| VS Code debugger integration | Yes | Yes |
+| Visual Studio Code debugger integration | Yes | Yes |
 
 ## Prerequisites
 
@@ -50,7 +48,7 @@ The following table provides an overview of scenarios to help you choose what wo
 This guide assumes you have the following items installed locally on your PC.
 
 - [Docker](https://docs.docker.com/engine/install/)
-- [VS Code](https://code.visualstudio.com/#alt-downloads)
+- [Visual Studio Code](https://code.visualstudio.com/#alt-downloads)
 - [Azure CLI](/cli/azure/install-azure-cli)
 - [Azure CLI ml extension (v2)](how-to-configure-cli.md)
 
@@ -85,7 +83,7 @@ az configure --defaults workspace=<workspace> group=<resource-group> location=<l
 This guide assumes you have the following items installed locally on your PC.
 
 - [Docker](https://docs.docker.com/engine/install/)
-- [VS Code](https://code.visualstudio.com/#alt-downloads)
+- [Visual Studio Code](https://code.visualstudio.com/#alt-downloads)
 - [Azure CLI](/cli/azure/install-azure-cli)
 - [Azure CLI ml extension (v2)](how-to-configure-cli.md)
 - [Azure Machine Learning Python SDK (v2)](https://aka.ms/sdk-v2-install)
@@ -131,25 +129,25 @@ endpoint_name = "<ENDPOINT_NAME>"
 
 # [Azure CLI](#tab/cli)
 
-Azure Machine Learning local endpoints use Docker and VS Code development containers (dev containers) to build and configure a local debugging environment. With dev containers, you can take advantage of VS Code features from inside a Docker container. For more information on dev containers, see [Create a development container](https://code.visualstudio.com/docs/remote/create-dev-container).
+Azure Machine Learning local endpoints use Docker and Visual Studio Code development containers (dev containers) to build and configure a local debugging environment. With dev containers, you can take advantage of Visual Studio Code features from inside a Docker container. For more information on dev containers, see [Create a development container](https://code.visualstudio.com/docs/remote/create-dev-container).
 
-To debug online endpoints locally in VS Code, use the `--vscode-debug` flag when creating or updating and Azure Machine Learning online deployment. The following command uses a deployment example from the examples repo:
+To debug online endpoints locally in Visual Studio Code, use the `--vscode-debug` flag when creating or updating and Azure Machine Learning online deployment. The following command uses a deployment example from the examples repo:
 
 ```azurecli
 az ml online-deployment create --file endpoints/online/managed/sample/blue-deployment.yml --local --vscode-debug
 ```
 
 > [!IMPORTANT]
-> On Windows Subsystem for Linux (WSL), you'll need to update your PATH environment variable to include the path to the VS Code executable or use WSL interop. For more information, see [Windows interoperability with Linux](/windows/wsl/interop).
+> On Windows Subsystem for Linux (WSL), you'll need to update your PATH environment variable to include the path to the Visual Studio Code executable or use WSL interop. For more information, see [Windows interoperability with Linux](/windows/wsl/interop).
 
 A Docker image is built locally. Any environment configuration or model file errors are surfaced at this stage of the process.
 
 > [!NOTE]
 > The first time you launch a new or updated dev container, it can take several minutes.
 
-Once the image successfully builds, your dev container opens in a VS Code window.
+Once the image successfully builds, your dev container opens in a Visual Studio Code window.
 
-You'll use a few VS Code extensions to debug your deployments in the dev container. Azure Machine Learning automatically installs these extensions in your dev container.
+You'll use a few Visual Studio Code extensions to debug your deployments in the dev container. Azure Machine Learning automatically installs these extensions in your dev container.
 
 - Inference Debug
 - [Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance)
@@ -157,11 +155,11 @@ You'll use a few VS Code extensions to debug your deployments in the dev contain
 - [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 
 > [!IMPORTANT]
-> Before starting your debug session, make sure that the VS Code extensions have finished installing in your dev container.  
+> Before starting your debug session, make sure that the Visual Studio Code extensions have finished installing in your dev container.  
 
 # [Python](#tab/python)
 
-Azure Machine Learning local endpoints use Docker and VS Code development containers (dev containers) to build and configure a local debugging environment. With dev containers, you can take advantage of VS Code features from inside a Docker container. For more information on dev containers, see [Create a development container](https://code.visualstudio.com/docs/remote/create-dev-container).
+Azure Machine Learning local endpoints use Docker and Visual Studio Code development containers (dev containers) to build and configure a local debugging environment. With dev containers, you can take advantage of Visual Studio Code features from inside a Docker container. For more information on dev containers, see [Create a development container](https://code.visualstudio.com/docs/remote/create-dev-container).
 
 Get a handle to the workspace:
 
@@ -175,21 +173,21 @@ ml_client = MLClient(
 )
 ```
 
-To debug online endpoints locally in VS Code, set the `vscode-debug` and `local` flags when creating or updating an Azure Machine Learning online deployment. The following code mirrors a deployment example from the examples repo:
+To debug online endpoints locally in Visual Studio Code, set the `vscode-debug` and `local` flags when creating or updating an Azure Machine Learning online deployment. The following code mirrors a deployment example from the examples repo:
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/online/managed/debug-online-endpoints-locally-in-visual-studio-code.ipynb?name=launch-container-4)]
 
 > [!IMPORTANT]
-> On Windows Subsystem for Linux (WSL), you'll need to update your PATH environment variable to include the path to the VS Code executable or use WSL interop. For more information, see [Windows interoperability with Linux](/windows/wsl/interop).
+> On Windows Subsystem for Linux (WSL), you'll need to update your PATH environment variable to include the path to the Visual Studio Code executable or use WSL interop. For more information, see [Windows interoperability with Linux](/windows/wsl/interop).
 
 A Docker image is built locally. Any environment configuration or model file errors are surfaced at this stage of the process.
 
 > [!NOTE]
 > It can take several minutes to launch a new or updated dev container for the first time.
 
-Once the image successfully builds, your dev container opens in a VS Code window.
+Once the image successfully builds, your dev container opens in a Visual Studio Code window.
 
-You'll use a few VS Code extensions to debug your deployments in the dev container. Azure Machine Learning automatically installs these extensions in your dev container.
+You'll use a few Visual Studio Code extensions to debug your deployments in the dev container. Azure Machine Learning automatically installs these extensions in your dev container.
 
 - Inference Debug
 - [Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance)
@@ -197,15 +195,15 @@ You'll use a few VS Code extensions to debug your deployments in the dev contain
 - [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 
 > [!IMPORTANT]
-> Before starting your debug session, make sure that the VS Code extensions have finished installing in your dev container.  
+> Before starting your debug session, make sure that the Visual Studio Code extensions have finished installing in your dev container.  
 
 ---
 
 ## Start debug session
 
-Once your environment is set up, use the VS Code debugger to test and debug your deployment locally.
+Once your environment is set up, use the Visual Studio Code debugger to test and debug your deployment locally.
 
-1. Open your scoring script in VS Code.
+1. Open your scoring script in Visual Studio Code.
 
     > [!TIP]
     > The *score.py* script used by the endpoint deployed earlier is located at *azureml-samples/cli/endpoints/online/managed/sample/score.py* in the repository you cloned. However, the steps in this guide work with any scoring script.
@@ -215,7 +213,7 @@ Once your environment is set up, use the VS Code debugger to test and debug your
     - To debug startup behavior, place your breakpoint(s) inside the `init` function.
     - To debug scoring behavior, place your breakpoint(s) inside the `run` function.
 
-1. Select the VS Code Job view.
+1. Select the Visual Studio Code Job view.
 
 1. In the **Run and Debug** dropdown, select **AzureML: Debug Local Endpoint** to start debugging your endpoint locally.
 
@@ -230,7 +228,7 @@ Once your environment is set up, use the VS Code debugger to test and debug your
 
     At this point, any breakpoints in your `init` function are caught. Use the debug actions to step through your code. For more information on debug actions, see the [debug actions guide](https://code.visualstudio.com/Docs/editor/debugging#_debug-actions).
 
-For more information on the VS Code debugger, see [Debugging in VS Code](https://code.visualstudio.com/Docs/editor/debugging).
+For more information on the Visual Studio Code debugger, see [Debugging](https://code.visualstudio.com/Docs/editor/debugging).
 
 ## Debug your endpoint
 
@@ -352,7 +350,7 @@ For more extensive changes involving updates to your environment and endpoint co
 az ml online-deployment update --file <DEPLOYMENT-YAML-SPECIFICATION-FILE> --local --vscode-debug
 ```
 
-Once the updated image is built and your development container launches, use the VS Code debugger to test and troubleshoot your updated endpoint.
+Once the updated image is built and your development container launches, use the Visual Studio Code debugger to test and troubleshoot your updated endpoint.
 
 # [Python](#tab/python)
 
@@ -370,7 +368,7 @@ For more extensive changes involving updates to your environment and endpoint co
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/online/managed/debug-online-endpoints-locally-in-visual-studio-code.ipynb?name=edit-endpoint-1)]
 
-Once the updated image is built and your development container launches, use the VS Code debugger to test and troubleshoot your updated endpoint.
+Once the updated image is built and your development container launches, use the Visual Studio Code debugger to test and troubleshoot your updated endpoint.
 
 ---
 
