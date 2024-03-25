@@ -1,6 +1,6 @@
 ---
 title: "Available extensions for Azure Arc-enabled Kubernetes clusters"
-ms.date: 03/12/2024
+ms.date: 03/14/2024
 ms.topic: how-to
 description: "See which extensions are currently available for Azure Arc-enabled Kubernetes clusters and view release notes."
 ---
@@ -176,7 +176,7 @@ For more information, see [Dapr extension for AKS and Arc-enabled Kubernetes](..
 
 ## Azure AI Video Indexer
 
-- **Supported distributions**: AKS enabled by Azure Arc
+- **Supported distributions**: All Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters
 
 Azure AI Video Indexer enabled by Arc runs video and audio analysis on edge devices. The solution is designed to run on Azure Stack Edge Profile, a heavy edge device, and supports many video formats, including MP4 and other common formats. It supports several languages in all basic audio-related models.
 

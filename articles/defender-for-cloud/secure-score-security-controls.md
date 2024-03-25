@@ -2,7 +2,7 @@
 title: Secure score in Microsoft Defender for Cloud
 description: Learn about the Microsoft Defender for Cloud secure score, which is part of the Microsoft cloud security benchmark.
 ms.topic: conceptual
-ms.date: 11/27/2023
+ms.date: 02/05/2024
 ---
 
 # Secure score in Defender for Cloud
@@ -20,11 +20,11 @@ The MCSB issues recommendations based on assessment findings. Only built-in reco
 
 When you view the Defender for Cloud **Overview** dashboard, you can view the secure score for all of your environments. The dashboard shows the secure score as a percentage value and includes the underlying values.
 
-:::image type="content" source="./media/secure-score-security-controls/single-secure-score-via-ui.png" alt-text="Screenshot of the portal dashboard that shows an overall secure score and underlying values.":::
+:::image type="content" source="./media/secure-score-security-controls/single-secure-score-via-ui.png" alt-text="Screenshot of the portal dashboard that shows an overall secure score and underlying values." lightbox="media/secure-score-security-controls/single-secure-score-via-ui.png":::
 
 The Azure mobile app shows the secure score as a percentage value. Tap it to see details that explain the score.
 
-:::image type="content" source="./media/secure-score-security-controls/single-secure-score-via-mobile.png" alt-text="Screenshot of the Azure mobile app that shows an overall secure score and details.":::
+:::image type="content" source="./media/secure-score-security-controls/single-secure-score-via-mobile.png" alt-text="Screenshot of the Azure mobile app that shows an overall secure score and details." lightbox="media/secure-score-security-controls/single-secure-score-via-mobile.png":::
 
 ## Exploring your security posture
 
@@ -34,7 +34,7 @@ The **Security posture** page in Defender for Cloud shows the secure score for y
 
 On this page, you can see the subscriptions, accounts, and projects that affect your overall score, information about unhealthy resources, and relevant recommendations. You can filter by environment, such as Azure, Amazon Web Services (AWS), Google Cloud Platform (GCP), and Azure DevOps. You can then drill down into each Azure subscription, AWS account, and GCP project.
 
-:::image type="content" source="media/secure-score-security-controls/bottom-half.png" alt-text="Screenshot of the bottom half of the security posture page.":::
+:::image type="content" source="media/secure-score-security-controls/bottom-half.png" alt-text="Screenshot of the bottom half of the security posture page." lightbox="media/secure-score-security-controls/bottom-half.png":::
 
 ## Calculation of the secure score
 
@@ -71,26 +71,26 @@ Here's how scores are calculated.
 
 The equation for determining the score for a security control is:
 
-:::image type="content" source="./media/secure-score-security-controls/secure-score-equation-single-control.png" alt-text="Screenshot that shows the equation for calculating a security control score." :::
+:::image type="content" source="./media/secure-score-security-controls/secure-score-equation-single-control.png" alt-text="Screenshot that shows the equation for calculating a security control score."lightbox="media/secure-score-security-controls/secure-score-equation-single-control.png":::
 
 The current score for each control is a measure of the status of the resources within the control. Each individual security control contributes toward the secure score. Each resource that's affected by a recommendation within the control contributes toward the control's current score. The secure score doesn't include resources found in preview recommendations.
 
 In the following example, the maximum score of 6 is divided by 78 because that's the sum of the healthy and unhealthy resources. So, 6 / 78 = 0.0769. Multiplying that by the number of healthy resources (4) results in the current score: 0.0769 * 4 = 0.31.
 
-:::image type="content" source="./media/secure-score-security-controls/security-control-scoring-tooltips.png" alt-text="Screenshot of tooltips that show the values used in calculating the security control's current score." :::
+:::image type="content" source="./media/secure-score-security-controls/security-control-scoring-tooltips.png" alt-text="Screenshot of tooltips that show the values used in calculating the security control's current score."lightbox="media/secure-score-security-controls/security-control-scoring-tooltips.png":::
 
 ### Single subscription or connector
 
 The equation for determining the secure score for a single subscription or connector is:
 
-:::image type="content" source="./media/secure-score-security-controls/secure-score-equation-single-sub.png" alt-text="Screenshot of the equation for calculating a subscription's secure score.":::
+:::image type="content" source="./media/secure-score-security-controls/secure-score-equation-single-sub.png" alt-text="Screenshot of the equation for calculating a subscription's secure score." lightbox="media/secure-score-security-controls/secure-score-equation-single-sub.png":::
 
 In the following example, there's a single subscription or connector with all security controls available (a potential maximum score of 60 points).
 The score shows 28 points out of a possible 60. The remaining 32 points are reflected in the **Potential score increase** figures of the security controls.
 
-:::image type="content" source="./media/secure-score-security-controls/secure-score-example-single-sub.png" alt-text="Screenshot of a single-subscription secure score with all controls enabled.":::
+:::image type="content" source="./media/secure-score-security-controls/secure-score-example-single-sub.png" alt-text="Screenshot of a single-subscription secure score with all controls enabled." lightbox="media/secure-score-security-controls/secure-score-example-single-sub.png":::
 
-:::image type="content" source="./media/secure-score-security-controls/secure-score-example-single-sub-recs.png" alt-text="Screenshot that shows a list of controls and the potential score increase.":::
+:::image type="content" source="./media/secure-score-security-controls/secure-score-example-single-sub-recs.png" alt-text="Screenshot that shows a list of controls and the potential score increase."lightbox="media/secure-score-security-controls/secure-score-example-single-sub-recs.png":::
 
 This equation is the same equation for a connector, with just the word *subscription* replaced by the word *connector*.
 
@@ -98,13 +98,13 @@ This equation is the same equation for a connector, with just the word *subscrip
 
 The equation for determining the secure score for multiple subscriptions and connectors is:
 
-:::image type="content" source="./media/secure-score-security-controls/secure-score-equation-multiple-subs.png" alt-text="Screenshot that shows the equation for calculating the secure score for multiple subscriptions.":::
+:::image type="content" source="./media/secure-score-security-controls/secure-score-equation-multiple-subs.png" alt-text="Screenshot that shows the equation for calculating the secure score for multiple subscriptions."lightbox="media/secure-score-security-controls/secure-score-equation-multiple-subs.png":::
 
 The combined score for multiple subscriptions and connectors includes a *weight* for each subscription and connector. Defender for Cloud determines the relative weights for your subscriptions and connectors based on factors such as the number of resources. The current score for each subscription and connector is calculated in the same way as for a single subscription or connector, but then the weight is applied as shown in the equation.
 
 When you view multiple subscriptions and connectors, the secure score evaluates all resources within all enabled policies and groups them. Grouping them shows how, together, they affect each security control's maximum score.
 
-:::image type="content" source="./media/secure-score-security-controls/secure-score-example-multiple-subs.png" alt-text="Screenshot that shows a secure score for multiple subscriptions with all controls enabled.":::
+:::image type="content" source="./media/secure-score-security-controls/secure-score-example-multiple-subs.png" alt-text="Screenshot that shows a secure score for multiple subscriptions with all controls enabled." lightbox="media/secure-score-security-controls/secure-score-example-multiple-subs.png":::
 
 The combined score is *not* an average. Rather, it's the evaluated posture of the status of all resources across all subscriptions and connectors. If you go to the **Recommendations** page and add up the potential points available, you find that it's the difference between the current score (22) and the maximum score available (58).
 
@@ -130,6 +130,7 @@ The following table lists the security controls in Microsoft Defender for Cloud.
 10 | **Enable MFA**: Defender for Cloud places a high value on MFA. Use these recommendations to help secure the users of your subscriptions.<br/><br/> There are three ways to enable MFA and be compliant with the recommendations: security defaults, per-user assignment, and conditional access policy. [Learn more](multi-factor-authentication-enforcement.md).
 8 | **Secure management ports**: Brute force attacks often target management ports. Use these recommendations to reduce your exposure with tools like [just-in-time VM access](just-in-time-access-overview.md) and [network security groups](../virtual-network/network-security-groups-overview.md).
 6 | **Apply system updates**: Not applying updates leaves unpatched vulnerabilities and results in environments that are susceptible to attacks. Use these recommendations to maintain operational efficiency, reduce security vulnerabilities, and provide a more stable environment for your users. To deploy system updates, you can use the [Update Management solution](../automation/update-management/overview.md) to manage patches and updates for your machines.
+6 | **Remediate vulnerabilities**: When your vulnerability assessment tool reports vulnerabilities to Defender for Cloud, Defender for Cloud presents the findings and related information as recommendations. Use these recommendations to remediate identified vulnerabilities.
 4 | **Remediate security configurations**: Misconfigured IT assets have a higher risk of being attacked. Use these recommendations to harden the identified misconfigurations across your infrastructure.
 4 | **Manage access and permissions**: A core part of a security program is ensuring that your users have just the necessary access to do their jobs: the least privilege access model. Use these recommendations to manage your identity and access requirements.
 4 | **Enable encryption at rest**: Use these recommendations to ensure that you mitigate misconfigurations around the protection of your stored data.

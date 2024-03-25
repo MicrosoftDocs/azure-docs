@@ -41,7 +41,8 @@ The virtual hub router now also exposes the ability to peer with it, thereby exc
      * Public ASNs: 8074, 8075, 12076
      * Private ASNs: 65515, 65517, 65518, 65519, 65520
    * ASNs reserved by IANA: 23456, 64496-64511, 65535-65551
-* While the virtual hub router exchanges BGP routes with your NVA and propagates them to your virtual network, it directly facilitates propagating routes from on-premises via the virtual hub hosted gateways (VPN gateway/ExpressRoute gateway/Managed NVA gateways). 
+* While the virtual hub router exchanges BGP routes with your NVA and propagates them to your virtual network, it directly facilitates propagating routes from on-premises via the virtual hub hosted gateways (VPN gateway/ExpressRoute gateway/Managed NVA gateways).
+* BGP peering is only supported with an IP address that is assigned to an interface of the NVA. Peering with loopbacks is not supported.
 
    The virtual hub router has the following limits:
 
