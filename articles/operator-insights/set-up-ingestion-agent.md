@@ -217,7 +217,7 @@ The configuration you need is specific to the type of source and your Data Produ
     1. For the secret provider with type `key_vault` and name `data_product_keyvault`, set the following fields.
         - `vault_name` must be the name of the Key Vault for your Data Product. You identified this name in [Grant permissions for the Data Product Key Vault](#grant-permissions-for-the-data-product-key-vault).
         - Depending on the type of authentication you chose in [Set up authentication to Azure](#set-up-authentication-to-azure), set either `managed_identity` or `service_principal`.
-            - For a managed identity: set `object_id` to the Object ID of the managed identity that you created in [Create a managed identity](#create-a-managed-identity).
+            - For a managed identity: set `object_id` to the Object ID of the managed identity that you created in [Use a managed identity for authentication](#use-a-managed-identity-for-authentication).
             - For a service principal: set `tenant_id` to your Microsoft Entra ID tenant, `client_id` to the Application (client) ID of the service principal that you created in [Create a service principal](#create-a-service-principal), and `cert_path` to the file path of the base64-encoded P12 certificate on the VM.
     1. For the secret provider with type `file_system` and name `local_file_system`, set the following fields.
         - `secrets_directory` to the absolute path to the secrets directory on the agent VM, which was created in the [Prepare the VMs](#prepare-the-vms) step.
@@ -231,7 +231,7 @@ The configuration you need is specific to the type of source and your Data Produ
     1. For the secret provider with type `key_vault` and name `data_product_keyvault`, set the following fields.
         - `vault_name` must be the name of the Key Vault for your Data Product. You identified this name in [Grant permissions for the Data Product Key Vault](#grant-permissions-for-the-data-product-key-vault).
         - Depending on the type of authentication you chose in [Set up authentication to Azure](#set-up-authentication-to-azure), set either `managed_identity` or `service_principal`.
-            - For a managed identity: set `object_id` to the Object ID of the managed identity that you created in [Create a managed identity](#create-a-managed-identity).
+            - For a managed identity: set `object_id` to the Object ID of the managed identity that you created in [Use a managed identity for authentication](#use-a-managed-identity-for-authentication).
             - For a service principal: set `tenant_id` to your Microsoft Entra ID tenant, `client_id` to the Application (client) ID of the service principal that you created in [Create a service principal](#create-a-service-principal), and `cert_path` to the file path of the base64-encoded P12 certificate on the VM.
 
     You can add more secret providers (for example, if you want to upload to multiple data products) or change the names of the default secret provider.
