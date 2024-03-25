@@ -146,7 +146,7 @@ ssh -o StrictHostKeyChecking=no $MY_USERNAME@$IP_ADDRESS
 
 ## Next Steps
 
-* [Learn about virtual machines](./virtual-machines)
+* [Learn about virtual machines](../virtual-machines)
 * [Use Cloud-Init to initialize a Linux VM on first boot](tutorial-automate-vm-deployment.md)
 * [Create custom VM images](tutorial-custom-images.md)
 * [Load Balance VMs](../../load-balancer/quickstart-load-balancer-standard-public-cli.md)
