@@ -72,7 +72,7 @@ procedureSection:
   - title: |
       Get your authentication keys and endpoint
     summary: |
-      To authenitcate your connection to your Translator resource, you'll need to find its keys and endpoint.
+      To authenticate your connection to your Translator resource, you'll need to find its keys and endpoint.
     steps:
       - |
         After your new resource deploys, select **Go to resource** or go to your resource page.
