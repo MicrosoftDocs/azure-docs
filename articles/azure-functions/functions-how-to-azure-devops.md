@@ -28,20 +28,20 @@ Choose your task version at the top of the article. YAML pipelines aren't availa
 
 * If you plan to use GitHub instead of Azure Repos, you also need a GitHub repository. If you don't have a GitHub account, you can [create one for free](https://github.com). 
 
-* An existing function app in Azure that has its source code in a repository. If you don't yet have an Azure Functions code project, you can create one by completing the following language-specific article:
-    # [C\#](#tab/csharp)
+* An existing function app in Azure that has its source code in a supported repository. If you don't yet have an Azure Functions code project, you can create one by completing the following language-specific article:
+    ### [C\#](#tab/csharp)
 
     [Quickstart: Create a C# function in Azure using Visual Studio Code](create-first-function-vs-code-csharp.md)
 
-    # [JavaScript](#tab/javascript)
+    ### [JavaScript](#tab/javascript)
 
     [Quickstart: Create a JavaScript function in Azure using Visual Studio Code](create-first-function-vs-code-node.md)
 
-    # [Python](#tab/python)
+    ### [Python](#tab/python)
 
     [Quickstart: Create a function in Azure with Python using Visual Studio Code](create-first-function-vs-code-python.md)
 
-    # [PowerShell](#tab/powershell)
+    ### [PowerShell](#tab/powershell)
 
     [Quickstart: Create a PowerShell function in Azure using Visual Studio Code](create-first-function-vs-code-powershell.md)
 

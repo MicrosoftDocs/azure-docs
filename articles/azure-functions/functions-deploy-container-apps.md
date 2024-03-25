@@ -9,9 +9,9 @@ zone_pivot_groups: programming-languages-set-functions
 
 # Create your first containerized functions on Azure Container Apps 
 
-In this article, you create a function app running in a Linux container and deploy it to an Azure Container Apps environment from a container registry. By deploying to Container Apps, you are able to integrate your function apps into cloud-native microservices. For more information, see [Azure Container Apps hosting of Azure Functions](functions-container-apps-hosting.md).
+In this article, you create a function app running in a Linux container and deploy it to an Azure Container Apps environment from a container registry. By deploying to Container Apps, you're able to integrate your function apps into cloud-native microservices. For more information, see [Azure Container Apps hosting of Azure Functions](functions-container-apps-hosting.md).
 
-This article shows you how to use Functions tools to create your first function running in a Linux container, verify the functions locally, and then deploy the container to a Container Apps environment. 
+This article shows you how to create functions running in a Linux container and deploy the container to a Container Apps environment. 
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account, which you can minimize by [cleaning-up resources](#clean-up-resources) when you're done.
 
@@ -29,7 +29,7 @@ Before you can deploy your container to Azure, you need to create three resource
 
 Use the following commands to create these items. 
 
-1. If you haven't done already, sign in to Azure.
+1. If you haven't so done already, sign in to Azure.
 
     The [`az login`](/cli/azure/reference-index#az-login) command signs you into your Azure account. Use `az account set` when you have more than one subscription associated with your account.
 
@@ -157,7 +157,7 @@ az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --envir
 ```
 ::: zone-end
 
-In the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command, the `--environment` parameter specifies the Container Apps environment and the `--image` parameter specifies the image to use for the function app. In this example, replace `<STORAGE_NAME>` with the name you used in the previous section for the storage account. Also, replace `<APP_NAME>` with a globally unique name appropriate to you and `<DOCKER_ID>` with your Docker Hub account ID. If you are using a private registry, you also need to supply  `--registry-username`, `--registry-password`, and `--registry-server`. 
+In the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command, the `--environment` parameter specifies the Container Apps environment and the `--image` parameter specifies the image to use for the function app. In this example, replace `<STORAGE_NAME>` with the name you used in the previous section for the storage account. Also, replace `<APP_NAME>` with a globally unique name appropriate to you and `<DOCKER_ID>` with your Docker Hub account ID. If you're using a private registry, you also need to supply  `--registry-username`, `--registry-password`, and `--registry-server`. 
 
 ---
 

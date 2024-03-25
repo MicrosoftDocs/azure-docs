@@ -11,7 +11,9 @@ ms.date: 03/15/2024
 
 You can use Azure Functions to deploy your code continuously by using [source control integration](functions-deployment-technologies.md#source-control). Source control integration enables a workflow in which a code update triggers build, packaging, and deployment from your project to Azure. 
 
-Continuous deployment is a good option for projects where you integrate multiple and frequent contributions. When you use continuous deployment, you maintain a single source of truth for your code, which allows teams to easily collaborate. You can configure continuous code deployments to Azure Functions from the following source locations:
+Continuous deployment is a good option for projects where you integrate multiple and frequent contributions. When you use continuous deployment, you maintain a single source of truth for your code, which allows teams to easily collaborate. 
+
+You can configure continuous code deployments to Azure Functions from the following source locations:
 
 ### [Azure Repos](#tab/azure-repos)
 
@@ -34,7 +36,7 @@ Maintain your project code in a dedicated Git server hosted in the same App Serv
 You can also connect your function app to an external Git repository, but this requires a manual synchronization. For more information about deployment options, see [Deployment technologies in Azure Functions](functions-deployment-technologies.md).
 
 >[!NOTE] 
->Continuous deployment options covered in this article are specific to code-only deployments. For containerized function app deployments, see [Enable continuous deployment to Azure](functions-how-to-custom-container.md#enable-continuous-deployment-to-azure).
+>Continuous deployment options covered in this article are specific to code-only deployments. For containerized function app deployments, see [Enable continuous deployment of containers to Azure](functions-how-to-custom-container.md#enable-continuous-deployment-to-azure).
 
 ## Requirements for continuous deployment
 
@@ -50,7 +52,7 @@ Functions supports these build providers:
 
 ### [Azure Pipelines](#tab/azure-pipelines)
 
-Azure Pipelines is the default build provider for Azure Repos projects, and it can also be used to build projects from GitHub. In Pipelines, there's an `AzureFunctionApp` task designed specifically for deploying to Azure Functions. This task provides you with  control over how the project gets built, packaged, and deployed. For a complete example of how to configure Pipelines for continuous deployment from Azure Repos to Functions, see [Continuous delivery by using Azure Pipelines](./functions-how-to-azure-devops.md).
+Azure Pipelines is one of the services in Azure DevOps and the default build provider for Azure Repos projects. You can also use Pipelines to build projects from GitHub. In Pipelines, there's an `AzureFunctionApp` task designed specifically for deploying to Azure Functions. This task provides you with  control over how the project gets built, packaged, and deployed. For a complete example of how to configure Pipelines for continuous deployment from Azure Repos to Functions, see [Continuous delivery by using Azure Pipelines](./functions-how-to-azure-devops.md).
 
 ### [GitHub Actions](#tab/github-actions)
 
@@ -58,13 +60,13 @@ GitHub Actions is the default build provider for GitHub projects. GitHub Actions
 
 ### [App Service (Kudu) service](#tab/app-service)
 
-The App Service platform maintains a native deployment service ([Project Kudu](https://github.com/projectkudu/kudu/wiki)) to support local Git deployment, some container deployments, and other deployments not well suited for either Pipelines or GitHub Actions. Remote builds, packaging, and other maintainence tasks are performed in a subdomain of `scm.azurewebsites.net` dedicated to your app, such as `https://myfunctionapp.scm.azurewebsites.net`. This build service can't be used when the site can't be accessed from your app. For more information, see [Secure the scm endpoint](security-concepts.md#secure-the-scm-endpoint). 
+The App Service platform maintains a native deployment service ([Project Kudu](https://github.com/projectkudu/kudu/wiki)) to support local Git deployment, some container deployments, and other deployment sources not supported by either Pipelines or GitHub Actions. Remote builds, packaging, and other maintainence tasks are performed in a subdomain of `scm.azurewebsites.net` dedicated to your app, such as `https://myfunctionapp.scm.azurewebsites.net`. This build service can only be used when the `scm` site is accessible to your app. For more information, see [Secure the scm endpoint](security-concepts.md#secure-the-scm-endpoint). 
 
 ---
 
 ## <a name="credentials"></a>Deployment center
 
-The [Azure portal](https://portal.azure.com) provides a **Deployment center**, which makes it easier to configure continuous deployment for your function app. The way that you configure continuous deployment depends both on the specific source control in which your code resides and the [build provider](#build-providers) you choose. 
+The [Azure portal](https://portal.azure.com) provides a **Deployment center** for your function apps, which makes it easier to configure continuous deployment. The way that you configure continuous deployment depends both on the specific source control in which your code resides and the [build provider](#build-providers) you choose. 
 
 ### [Azure Repos](#tab/azure-repos/azure-pipelines)
 
@@ -76,11 +78,11 @@ Deployments from GitHub that use Azure Pipelines are defined in the [Azure DevOp
 
 ### [Bitbucket](#tab/bitbucket/azure-pipelines)
 
-You can't deploy from Bitbucket using Azure Pipelines. Choose a different [build provider](#build-providers). 
+You can't deploy from Bitbucket using Azure Pipelines. Instead choose the App Service (Kudu) [build provider](#build-providers). 
 
 ### [Local Git](#tab/local-git/azure-pipelines)
 
-You can't deploy from local git using Azure Pipelines. Choose a different [build provider](#build-providers). 
+You can't deploy from local git using Azure Pipelines. Instead choose the App Service (Kudu) [build provider](#build-providers). 
 
 ### [Azure Repos](#tab/azure-repos/github-actions)
 
@@ -94,11 +96,11 @@ To learn more about GitHub Action deployments, including other ways to generate 
 
 ### [Bitbucket](#tab/bitbucket/github-actions)
 
-You can't deploy from Bitbucket using GitHub Actions. Choose a different [build provider](#build-providers).
+You can't deploy from Bitbucket using GitHub Actions. Instead choose the App Service (Kudu) [build provider](#build-providers).
 
 ### [Local Git](#tab/local-git/github-actions)
 
-You can't deploy from local git using GitHub Actions. Choose a different [build provider](#build-providers).
+You can't deploy from local git using GitHub Actions. Instead choose the App Service (Kudu) [build provider](#build-providers).
 
 ### [Azure Repos](#tab/azure-repos/app-service)
 
