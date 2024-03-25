@@ -29,7 +29,7 @@ Batch deployments allow you to take control of the output of the jobs by letting
 
 ## About this sample
 
-This example shows how you can deploy a model to perform batch inference and customize how your predictions are written in the output. This example uses a model based on the [UCI Heart Disease dataset](https://archive.ics.uci.edu/ml/datasets/Heart+Disease). The database contains 76 attributes, but we use a subset of 14 of them. The model tries to predict the presence of heart disease in a patient. It's integer valued from 0 (no presence) to 1 (presence).
+This example shows how you can deploy a model to perform batch inference and customize how your predictions are written in the output. The model is based on the [UCI Heart Disease dataset](https://archive.ics.uci.edu/ml/datasets/Heart+Disease). The database contains 76 attributes, but this example uses a subset of 14 of them. The model tries to predict the presence of heart disease in a patient. It's integer valued from 0 (no presence) to 1 (presence).
 
 The model was trained using an `XGBBoost` classifier and all the required preprocessing was packaged as a `scikit-learn` pipeline, making this model an end-to-end pipeline that goes from raw data to predictions.
 
@@ -51,7 +51,7 @@ There's a Jupyter notebook that you can use to follow this example. In the clone
 
 ## Create a batch deployment with a custom output
 
-In this example, we create a deployment that can write directly to the output folder of the batch deployment job. The deployment uses this feature to write custom parquet files.
+In this example, you create a deployment that can write directly to the output folder of the batch deployment job. The deployment uses this feature to write custom parquet files.
 
 ### Register the model
 
@@ -86,7 +86,7 @@ __Remarks:__
 * The `run` method returns a list of the processed files. It's required for the `run` function to return a `list` or a `pandas.DataFrame` object.
 
 > [!WARNING]
-> Take into account that all the batch executors have write access to this path at the same time. This means that you need to account for concurrency. In this case, we ensure that each executor writes its own file by using the input file name as the name of the output folder.
+> Take into account that all the batch executors have write access to this path at the same time. This means that you need to account for concurrency. In this case, ensure that each executor writes its own file by using the input file name as the name of the output folder.
 
 ## Create the endpoint
 
@@ -96,13 +96,13 @@ You now create a batch endpoint named `heart-classifier-batch` where the model i
 
     # [Azure CLI](#tab/cli)
     
-    In this case, let's place the name of the endpoint in a variable so we can easily reference it later.
+    In this case, place the name of the endpoint in a variable so you can easily reference it later.
     
     :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deploy-and-run.sh" ID="name_endpoint" :::
     
     # [Python](#tab/python)
     
-    In this case, let's place the name of the endpoint in a variable so we can easily reference it later.
+    In this case, place the name of the endpoint in a variable so you can easily reference it later.
 
     [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=name_endpoint)]
 
@@ -179,7 +179,7 @@ Follow the next steps to create a deployment using the previous scoring script:
 
 To test your endpoint, use a sample of unlabeled data located in this repository, which can be used with the model. Batch endpoints can only process data that's located in the cloud and is accessible from the Azure Machine Learning workspace. In this example, you upload it to an Azure Machine Learning data store. You're going to create a data asset that can be used to invoke the endpoint for scoring. However, notice that batch endpoints accept data that can be placed in multiple type of locations.
 
-1. Let's invoke the endpoint with data from a storage account:
+1. Invoke the endpoint with data from a storage account:
 
    # [Azure CLI](#tab/cli)
    
@@ -213,7 +213,7 @@ To test your endpoint, use a sample of unlabeled data located in this repository
    
 ## Analyze the outputs
 
-The job generates a named output called `score` where all the generated files are placed. Since we wrote into the directory directly, one file per each input file, then we can expect to have the same number of files. In this particular example, we decided to name the output files the same as the inputs, but they have a parquet extension.
+The job generates a named output called `score` where all the generated files are placed. Since you wrote into the directory directly, one file per each input file, then you can expect to have the same number of files. In this particular example, name the output files the same as the inputs, but they have a parquet extension.
 
 > [!NOTE]
 > Notice that a file *predictions.csv* is also included in the output folder. This file contains the summary of the processed files.
