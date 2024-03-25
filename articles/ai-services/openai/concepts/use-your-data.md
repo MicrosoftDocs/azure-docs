@@ -272,9 +272,9 @@ Using the Elasticsearch data source is a preview feature which is subject to the
 Azure OpenAI On Your Data provides the following search types you can use when you add your data source.
 
 * [Keyword search](/azure/search/search-lucene-query-architecture)
-* [Vector search](/azure/search/vector-search-overview) using Ada [embedding](./understand-embeddings.md) models, available in [selected regions](models.md#embeddings-models) 
+* [Vector search](/azure/search/vector-search-overview)
 
-To enable vector search, you need an existing embedding model deployed in your Azure OpenAI resource or hosted on Elasticsearch. Select your embedding deployment when connecting your data, then select one of the vector search types under **Data management**. If you're using Azure AI Search as a data source, make sure you have a vector column in the index.
+To enable vector search, you need an existing embedding model deployed in your Azure OpenAI resource or hosted on Elasticsearch. Select your embedding deployment when connecting your data, then select one of the vector search types under **Data management**.
 
 | Search option       | Retrieval type | Additional pricing? |Benefits|
 |---------------------|------------------------|---------------------| -------- |
