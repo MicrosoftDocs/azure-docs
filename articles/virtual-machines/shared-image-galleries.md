@@ -153,6 +153,8 @@ ACG images can be created by users from various sources, including virtual machi
 ### [Managed Image and Gallery Image Version as Source](#tab/managedgallerysource)
 - Users will require read permission on the Managed Image/Gallery Image.
 
+---
+
 |Source type |Permissions Required | 
 |---|---|
 | Virtual machine | Write |
@@ -162,7 +164,7 @@ ACG images can be created by users from various sources, including virtual machi
 | Gallery Image	| Read|
 
 Refer to our documentation for additional information regarding [Azure built-in roles](../role-based-access-control/built-in-roles.md), for [granting RBAC permissions](../role-based-access-control/quickstart-assign-role-user-portal.md)
----
+
 
 
 ## Shallow replication 
