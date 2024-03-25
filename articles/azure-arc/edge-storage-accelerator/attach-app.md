@@ -100,9 +100,6 @@ These pods are part of a **statefulSet**. You can't edit the statefulSet in plac
 
 1. To configure a generic single pod (Kubernetes native application) against the Persistent Volume Claim (PVC), create a file named `configPod.yaml` with the following contents:
 
-   > [!NOTE]
-   > See the comments in the following YAML to populate the values with your environment details.
-
    ```yaml
    kind: Deployment
    apiVersion: apps/v1
@@ -110,6 +107,8 @@ These pods are part of a **statefulSet**. You can't edit the statefulSet in plac
      name: example-static
      labels:
        app: example-static
+     ### Uncomment the next line and add your namespace only if you are not using the default namespace (if you are using azure-iot-operations) as specified from Line 6 of your pvc.yaml
+     # namespace: YOUR_NAMESPACE
    spec:
      replicas: 1
      selector:
@@ -136,7 +135,7 @@ These pods are part of a **statefulSet**. You can't edit the statefulSet in plac
            - name: blob
              persistentVolumeClaim:
                ### This claimName must refer to the PVC resource 'name' as defined in the PVC config. This name must match what your PVC resource was actually named. ###
-               claimName: pvc-esa
+               claimName: YOUR_CLAIM_NAME_FROM_YOUR_PVC
    ```
 
 1. To apply this .yaml file, run the following command:

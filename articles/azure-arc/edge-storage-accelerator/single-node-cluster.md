@@ -1,6 +1,6 @@
 ---
-title: Prepare Linux using a single-node cluster
-description: Learn how to prepare Linux with a single-node cluster using AKS enabled by Azure Arc, Edge Essentials, or Ubuntu.
+title: Prepare Linux using a single-node or 2-node cluster
+description: Learn how to prepare Linux with a single-node or 2-node cluster using AKS enabled by Azure Arc, Edge Essentials, or Ubuntu.
 author: sethmanheim
 ms.author: sethm
 ms.topic: how-to
@@ -9,9 +9,9 @@ zone_pivot_groups: platform-select
 
 ---
 
-# Prepare Linux using a single-node cluster
+# Prepare Linux using a single-node or 2-node cluster
 
-This article describes how to prepare Linux using a single-node cluster, and assumes you [fulfilled the prerequisites](prepare-linux.md#prerequisites).
+This article describes how to prepare Linux using a single-node or 2-node cluster, and assumes you [fulfilled the prerequisites](prepare-linux.md#prerequisites).
 
 ::: zone pivot="aks"
 ## Prepare Linux with AKS enabled by Azure Arc
@@ -29,8 +29,7 @@ This section describes how to prepare Linux with AKS enabled by Azure Arc if you
    ```json
    {
      "hydra.highAvailability.disk.storageClass": "default",
-     "hydra.acstorController.enabled": false,
-     "hydra.highAvailability.disk.storageClass": "local-path"
+     "hydra.acstorController.enabled": false
    }
    ```
 
@@ -39,7 +38,7 @@ This section describes how to prepare Linux with AKS enabled by Azure Arc if you
 ::: zone pivot="aks-ee"
 ## Prepare Linux with AKS Edge Essentials
 
-This section describes how to prepare Linux with AKS Edge Essentials if you run a single-node cluster.
+This section describes how to prepare Linux with AKS Edge Essentials if you run a single-node or 2-node cluster.
 
 1. For Edge Essentials to support Azure IoT Operations and Edge Storage Accelerator, the Kubernetes hosts must be modified to support more memory. You can also increase vCPU and disk allocations at this time if you anticipate requiring additional resources for your Kubernetes uses.
 
@@ -115,13 +114,13 @@ This section describes how to prepare Linux with AKS Edge Essentials if you run 
 1. Run the following command to determine if you set `fs.inotify.max_user_instances` to 1024:
 
    ```bash
-   sysctl fs.inotify.max_user_instances
+   Invoke-AksEdgeNodeCommand -NodeType "Linux" -Command "sysctl fs.inotify.max_user_instances
    ```
 
    After you run this command, if it outputs less than 1024, run the following command to increase the maximum number of files:
 
    ```bash
-   Invoke-AksEdgeNodeCommand -NodeType "Linux" -Command 'echo 'fs.inotify.max_user_instances = 1024' | sudo tee -a /etc/sysctl.conf && sudo sysctl -p'
+   Invoke-AksEdgeNodeCommand -NodeType "Linux" -Command "echo 'fs.inotify.max_user_instances = 1024' | sudo tee -a /etc/sysctl.conf && sudo sysctl -p"
    ```
 
 1. Install Open Service Mesh (OSM) using the following command:
@@ -144,7 +143,7 @@ This section describes how to prepare Linux with AKS Edge Essentials if you run 
 ::: zone pivot="ubuntu"
 ## Prepare Linux with Ubuntu
 
-This section describes how to prepare Linux with Ubuntu if you run a single-node cluster.
+This section describes how to prepare Linux with Ubuntu if you run a single-node or 2-node cluster.
 
 1. Install Open Service Mesh (OSM) using the following command:
 
