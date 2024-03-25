@@ -20,11 +20,11 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT License** | [90 day OT trial license]()|
+| **OT License** | [OT trial license increased](#ot-trial-license)|
 
-### 90 day OT trial license
+### OT trial license
 
-The trial version of Defender for IoT license increased to 90 days. For more information on trial versions, see [Start a Microsoft Defender for IoT trial](getting-started.md).
+The trial version of Defender for IoT license is increased to 90 days. For more information on trial versions, see [Start a Microsoft Defender for IoT trial](getting-started.md).
 
 ## February 2024
 
@@ -1053,7 +1053,7 @@ For more information, see:
 
 - **Sensor software version 22.1.5**:  Minor version to improve TI installation packages and software updates
 
-We've also recently optimized and enhanced our documentation as follows:
+We have also recently optimized and enhanced our documentation as follows:
 
 - [Updated appliance catalog for OT environments](#updated-appliance-catalog-for-ot-environments)
 - [Documentation reorganization for end-user organizations](#documentation-reorganization-for-end-user-organizations)
