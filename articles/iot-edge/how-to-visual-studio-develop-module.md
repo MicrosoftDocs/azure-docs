@@ -91,8 +91,6 @@ In our solution, we're going to build three projects. The main module that conta
 
 1. In **Create a new project**, search for **Azure IoT Edge**. Select the project that matches the platform and architecture for your IoT Edge device, and select **Next**.
 
-   :::image type="content" source="./media/how-to-visual-studio-develop-module/create-new-project.png" alt-text="Create New Project":::
-
 1. In **Configure your new project**, enter a name for your project, specify the location, and select **Create**.
 
 1. In **Add Module**, select the type of module you want to develop. If you have an existing module you want to add to your deployment, select **Existing module**.

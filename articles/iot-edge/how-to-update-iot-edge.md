@@ -164,15 +164,10 @@ If you use specific tags in your deployment (for example, mcr.microsoft.com/azur
 
 1. On the **Modules** tab, select **Runtime Settings**.
 
-   :::image type="content" source="media/how-to-update-iot-edge/runtime-settings.png" alt-text="Screenshot that shows location of the Runtime Settings tab.":::
+1. In **Runtime Settings**, update the **Image URI** value in the **Edge Agent** section with the desired version. For example, `mcr.microsoft.com/azureiotedge-agent:1.5`
+    Don't select **Apply** yet.
 
-1. In **Runtime Settings**, update the **Image URI** value in the **Edge Agent** section with the desired version. Don't select **Apply** yet.
-
-   :::image type="content" source="media/how-to-update-iot-edge/runtime-settings-agent.png" alt-text="Screenshot that shows where to update the image URI with your version in the Edge Agent.":::
-
-1. Select the **Edge Hub** tab and update the **Image URI** value with the same desired version.
-
-   :::image type="content" source="media/how-to-update-iot-edge/runtime-settings-hub.png" alt-text="Screenshot that shows where to update the image URI with your version in the Edge Hub.":::
+1. Select the **Edge Hub** tab and update the **Image URI** value with the same desired version. For example, `mcr.microsoft.com/azureiotedge-hub:1.5`.
 
 1. Select **Apply** to save changes.
 

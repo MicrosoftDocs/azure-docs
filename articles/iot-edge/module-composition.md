@@ -353,13 +353,13 @@ The following example shows what a valid deployment manifest document may look l
         },
         "modules": {
           "SimulatedTemperatureSensor": {
-            "version": "1.0",
+            "version": "1.5",
             "type": "docker",
             "status": "running",
             "restartPolicy": "always",
             "startupOrder": 2,
             "settings": {
-              "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
+              "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.5",
               "createOptions": "{}"
             }
           },

@@ -5,7 +5,7 @@ author: PatAltimore
 manager: lizross
 ms.author: patricka
 ms.reviewer: fcabrera
-ms.date: 1/31/2023
+ms.date: 03/25/2024
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
@@ -95,7 +95,7 @@ IoT Edge devices behave and can be managed differently than typical IoT devices.
 
 1. Copy the value of the `connectionString` key from the JSON output and save it. This value is the device connection string. You'll use it to configure the IoT Edge runtime in the next section.
 
-   :::image type="content" source="./media/quickstart/retrieve-connection-string.png" alt-text="Screenshot that shows the connectionString output in Cloud Shell." lightbox="./media/quickstart/retrieve-connection-string.png":::
+For example, your connection string should look similar to `HostName=contoso-hub.azure-devices.net;DeviceId=myEdgeDevice;SharedAccessKey={device_shared_access_key}`
 
 ## Install and start the IoT Edge runtime
 
@@ -189,36 +189,28 @@ Follow these steps to deploy your first module from Azure Marketplace.
 
 1. On the upper bar, select **Set Modules**.
 
-   :::image type="content" source="./media/quickstart-linux/select-set-modules.png" alt-text="Screenshot that shows location of the Set Modules tab.":::
+    Choose which modules you want to run on your device. You can choose from modules that you've already created, modules from Azure Marketplace, or modules that you've built yourself. In this quickstart, you'll deploy a module from Azure Marketplace.
 
 1. Under **IoT Edge Modules**, open the **Add** drop-down menu, and then select **Marketplace Module**.
 
-   :::image type="content" source="./media/quickstart-linux/add-marketplace-module.png" alt-text="Screenshot that shows the Add drop-down menu." lightbox="./media/quickstart-linux/add-marketplace-module.png":::
+1. In **IoT Edge Module Marketplace**, search for and select the `Simulated Temperature Sensor` module. The module is added to the IoT Edge Modules section with the desired **running** status.
 
-1. In **IoT Edge Module Marketplace**, search for and select the `Simulated Temperature Sensor` module.
+1. Select **Next: Routes** to continue to configure routes.
 
-   The module is added to the IoT Edge Modules section with the desired **running** status.
+    A route named *SimulatedTemperatureSensorToIoTHub* was created automatically when you added the module from Azure Marketplace. This route sends all messages from the simulated temperature module to IoT Hub.
 
-1. Select **Next: Routes** to continue to the next step of the wizard.
+1. Select **Next: Review + create**.
 
-   :::image type="content" source="./media/quickstart-linux/view-temperature-sensor-next-routes.png" alt-text="Screenshot that shows where to select the Next:Routes button.":::
+1. Review the JSON file, and then select **Create**. The JSON file defines all of the modules that you deploy to your IoT Edge device. 
 
-1. On the **Routes** tab select **Next: Review + create** to continue to the next step of the wizard.
-
-   :::image type="content" source="./media/quickstart/route-next-review-create.png" alt-text="Screenshot that shows the location of the Next: Review + create button.":::
-
-1. Review the JSON file in the **Review + create** tab. The JSON file defines all of the modules that you deploy to your IoT Edge device. You'll see the **SimulatedTemperatureSensor** module and the two runtime modules, **edgeAgent** and **edgeHub**.
-
-   >[!Note]
+   >[!NOTE]
    >When you submit a new deployment to an IoT Edge device, nothing is pushed to your device. Instead, the device queries IoT Hub regularly for any new instructions. If the device finds an updated deployment manifest, it uses the information about the new deployment to pull the module images from the cloud then starts running the modules locally. This process can take a few minutes.
 
-1. Select **Create** to deploy.
+After you create the module deployment details, the wizard returns you to the device details page. View the deployment status on the **Modules** tab.
 
-1. After you create the module deployment details, the wizard returns you to the device details page. View the deployment status on the **Modules** tab.
+You should see three modules: **$edgeAgent**, **$edgeHub**, and **SimulatedTemperatureSensor**. If one or more of the modules has **Yes** under **Specified in Deployment** but not under **Reported by Device**, your IoT Edge device is still starting them. Wait a few minutes, and then refresh the page.
 
-   You should see three modules: **$edgeAgent**, **$edgeHub**, and **SimulatedTemperatureSensor**. If one or more of the modules has **Yes** under **Specified in Deployment** but not under **Reported by Device**, your IoT Edge device is still starting them. Wait a few minutes, and then refresh the page.
-
-   :::image type="content" source="./media/quickstart-linux/view-deployed-modules.png" alt-text="Screenshot that shows Simulated Temperature Sensor in the list of deployed modules." lightbox="./media/quickstart-linux/view-deployed-modules.png":::
+:::image type="content" source="./media/quickstart/view-deployed-modules.png" alt-text="Screenshot that shows the SimulatedTemperatureSensor in the list of deployed modules." lightbox="./media/quickstart/view-deployed-modules.png":::
 
 ## View the generated data
 

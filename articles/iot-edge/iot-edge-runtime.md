@@ -157,7 +157,7 @@ The IoT Edge agent collects the telemetry every hour and sends one message to Io
 
 If you wish to opt out of sending runtime telemetry from your devices, there are two ways to do so:
 
-* Set the `SendRuntimeQualityTelemetry` environment variable to `false` for **edgeAgent**, or
+* Set the `SendRuntimeQualityTelemetry` environment variable to `false` for **edgeAgent**
 * Uncheck the option in the Azure portal during deployment.
 
 ## Next steps
