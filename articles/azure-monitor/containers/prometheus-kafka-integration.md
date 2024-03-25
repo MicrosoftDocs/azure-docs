@@ -135,214 +135,95 @@ spec:
 
 ### Import the Grafana Dashboard
 
-Follow the instructions on [Import a dashboard from Grafana Labs](../../managed-grafana/how-to-create-dashboard.md#import-a-dashboard-from-grafana-labs)
-with Grafana Dashboard ID: 7589 from your grafana instance used during managed prometheus onboarding.
-[kafka_exporter grafana dashboard](https://github.com/danielqsj/kafka_exporter#grafana-dashboard)
+Follow the instructions on [Import a dashboard from Grafana Labs](../../managed-grafana/how-to-create-dashboard.md#import-a-grafana-dashboard) to import the grafana dashboards using the ID or JSON.</br>
 
-### Deploy alerts for kafka exporter metrics
-1. Deploy the following ARM template to deploy alerts on the kafka-exporter metrics
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "clusterName": {
-            "type": "string",
-            "metadata": {
-                "description": "Cluster name"
-            }
-        },
-        "clusterResourceId": {
-            "type": "string",
-            "metadata": {
-                "description": "Cluster Resource Id"
-            }
-        },
-        "actionGroupResourceId": {
-            "type": "string",
-            "metadata": {
-                "description": "Action Group ResourceId"
-            }
-        },
-        "azureMonitorWorkspaceResourceId": {
-            "type": "string",
-            "metadata": {
-                "description": "ResourceId of Azure Monitor Workspace (AMW) to associate to"
-            }
-        },
-        "location": {
-            "type": "string",
-            "defaultValue": "[resourceGroup().location]"
-        }
-    },
-    "variables": {
-        "kubernetesAlertRuleGroup": "KubernetesAlert-KafkaExporterAlerts",
-        "kubernetesAlertRuleGroupName": "[concat(variables('kubernetesAlertRuleGroup'), parameters('clusterName'))]",
-        "kubernetesAlertRuleGroupDescription": "Kubernetes Alert RuleGroup-KafkaExporterAlerts",
-        "version": " - 0.1"
-    },
-    "resources": [
-        {
-            "name": "[variables('kubernetesAlertRuleGroupName')]",
-            "type": "Microsoft.AlertsManagement/prometheusRuleGroups",
-            "apiVersion": "2023-03-01",
-            "location": "[parameters('location')]",
-            "properties": {
-                "description": "[concat(variables('kubernetesAlertRuleGroupDescription'), variables('version'))]",
-                "scopes": [
-                    "[parameters('azureMonitorWorkspaceResourceId')]",
-                    "[parameters('clusterResourceId')]"
-                ],
-                "clusterName": "[parameters('clusterName')]",
-                "interval": "PT1M",
-                "rules": [
-                    {
-                        "alert": "KafkaUnderReplicatedPartition",
-                        "expression": "kafka_topic_partition_under_replicated_partition > 0",
-                        "for": "PT5M",
-                        "annotations": {
-                            "description": "Cluster {{ $labels.cluster}} has under replicated kafka partitions."
-                        },
-                        "labels": {
-                            "severity": "warning"
-                        },
-                        "enabled": true,
-                        "severity": 3,
-                        "resolveConfiguration": {
-                            "autoResolved": true,
-                            "timeToResolve": "PT10M"
-                        },
-                        "actions": [
-                            {
-                                "actionGroupId": "[parameters('actionGroupResourceId')]"
-                            }
-                        ]
-                    },
-                    {
-                        "alert": "KafkaTooLargeConsumerGroupLag",
-                        "expression": "sum(kafka_consumergroup_lag) by (consumergroup) > 50",
-                        "for": "PT5M",
-                        "annotations": {
-                            "summary": "Kafka consumers group (instance {{ $labels.instance }})",
-                            "description": "Kafka consumers group\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }} Cluster {{ $labels.cluster}}"
-                        },
-                        "enabled": true,
-                        "severity": 3,
-                        "resolveConfiguration": {
-                            "autoResolved": true,
-                            "timeToResolve": "PT10M"
-                        },
-                        "labels": {
-                            "severity": "warning"
-                        },
-                        "actions": [
-                            {
-                                "actionGroupId": "[parameters('actionGroupResourceId')]"
-                            }
-                        ]
-                    },
-                    {
-                        "alert": "KafkaNoMessageForTooLong",
-                        "expression": "changes(kafka_topic_partition_current_offset[10m]) == 0",
-                        "for": "PT5M",
-                        "annotations": {
-                            "description": "No messages are seen for more than 10 minutes in Cluster {{ $labels.cluster}}"
-                        },
-                        "enabled": true,
-                        "severity": 4,
-                        "resolveConfiguration": {
-                            "autoResolved": true,
-                            "timeToResolve": "PT10M"
-                        },
-                        "labels": {
-                            "severity": "warning"
-                        },
-                        "actions": [
-                            {
-                                "actionGroupId": "[parameters('actionGroupResourceId')]"
-                            }
-                        ]
-                    },
-                    {
-                        "alert": "KafkaBrokerDown",
-                        "expression": "kafka_brokers < 1",
-                        "for": "PT5M",
-                        "annotations": {
-                            "summary": "Kafka broker *{{ $labels.instance }}* alert status",
-                            "description": "One or more of the Kafka broker *{{ $labels.instance }}* is down in Cluster {{ $labels.cluster}}"
-                        },
-                        "enabled": true,
-                        "severity": 3,
-                        "resolveConfiguration": {
-                            "autoResolved": true,
-                            "timeToResolve": "PT10M"
-                        },
-                        "labels": {
-                            "severity": "warning"
-                        },
-                        "actions": [
-                            {
-                                "actionGroupId": "[parameters('actionGroupResourceId')]"
-                            }
-                        ]
-                    },
-                    {
-                        "alert": "KafkaTopicsReplicas",
-                        "expression": "sum(kafka_topic_partition_in_sync_replica) by (topic) < 1",
-                        "for": "PT5M",
-                        "annotations": {
-                            "summary": "Kafka topics replicas (instance {{ $labels.instance }})",
-                            "description": "Kafka topic in-sync partition\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }} Cluster {{ $labels.cluster}}"
-                        },
-                        "enabled": true,
-                        "severity": 4,
-                        "resolveConfiguration": {
-                            "autoResolved": true,
-                            "timeToResolve": "PT15M"
-                        },
-                        "labels": {
-                            "severity": "warning"
-                        },
-                        "actions": [
-                            {
-                                "actionGroupId": "[parameters('actionGroupResourceId')]"
-                            }
-                        ]
-                    }
-                ]
-            }
-        }
-    ]
-}
-```
+[kafka_exporter grafana dashboard](https://grafana.com/grafana/dashboards/7589-kafka-exporter-overview/)(ID-7589)
 
-2. Edit the following values in the parameter file. Retrieve the resource ID of the resources from the **JSON View** of their **Overview** page.
+### Deploy Rules
+1. Deploy the following alerting rules to alert based on the metrics ingested.
+
+[Alerting Rules](https://github.com/Azure/prometheus-collector/blob/rashmi/rules/Azure-ARM-templates/Workload-Rules/Kafka/kafka-alerting-rules.json)
+
+2. Edit the following values in the parameter files for the [alerting rules](https://github.com/Azure/prometheus-collector/blob/rashmi/rules/Azure-ARM-templates/Workload-Rules/Alert-Rules-Parameters.json). Retrieve the resource ID of the resources from the **JSON View** of their **Overview** page.
 
     | Parameter | Value |
     |:---|:---|
     | `azureMonitorWorkspaceResourceId` | Resource ID for the Azure Monitor workspace. Retrieve from the **JSON view** on the **Overview** page for the Azure Monitor workspace. |
     | `location` | Location of the Azure Monitor workspace. Retrieve from the **JSON view** on the **Overview** page for the Azure Monitor workspace. |
-    | `clusterResourceId` | Resource ID for the AKS cluster. Retrieve from the **JSON view** on the **Overview** page for the cluster. |
     | `clusterName` | Name of the AKS cluster. Retrieve from the **JSON view** on the **Overview** page for the cluster. |
     | `actionGroupResourceId` | Resource ID for the alert action group. Retrieve from the **JSON view** on the **Overview** page for the action group. Learn more about [action groups](../alerts/action-groups.md) |
 
 3. Deploy the template by using any standard methods for installing ARM templates. For guidance, see [ARM template samples for Azure Monitor](../resource-manager-samples.md).
 
-> [!Note] 
-> Learn more about [Prometheus Alerts](../containers/container-insights-metric-alerts.md#prometheus-alert-rules)
-> If you want to use any other OSS prometheus alert rules please use the converter here to create the azure equivalent prometheus alerts [az-prom-rules-converter](https://aka.ms/az-prom-rules-converter)
+4. Once deployed, you can view the rules in the Azure Portal as described in - [Prometheus Alerts](../essentials/prometheus-rule-groups.md#view-prometheus-rule-groups)
 
+> [!Note] 
+> Learn more about [Prometheus Alerts](../essentials/prometheus-rule-groups.md)
+> If you want to use any other OSS prometheus alerting/recording rules please use the converter here to create the azure equivalent prometheus rules [az-prom-rules-converter](https://aka.ms/az-prom-rules-converter)
+> Please note that the above rules are not scoped to a cluster. If you would like to scope the rules to a specific cluster, see [Limiting rules to a specific cluster](../essentials/prometheus-rule-groups.md#limiting-rules-to-a-specific-cluster) for more details.
 
 
 ### Additional jmx_exporter metrics using strimzi
-If you are using the [strimzi operator](https://github.com/strimzi/strimzi-kafka-operator.git) for deploying the kafka clusters, deploy the pod monitor below to get additional jmx_exporter metrics.
-Please note that the metrics need to exposed by the kafka cluster deployments like the examples [here](https://github.com/strimzi/strimzi-kafka-operator/blob/main/examples/metrics/kafka-metrics.yaml) for the podmonitor to be able to successfully scrape the metrics
+If you are using the [strimzi operator](https://github.com/strimzi/strimzi-kafka-operator.git) for deploying the kafka clusters, deploy the pod monitors below to get additional jmx_exporter metrics.
+Please note that the metrics need to exposed by the kafka cluster deployments like the examples [here](https://github.com/strimzi/strimzi-kafka-operator/tree/main/examples/metrics). Refer to the kafka-.*-metrics.yaml files to configure metrics to be exposed. 
+The podmonitors here also assume that the namespace where the kafka workload is deployed in 'kafka'. Please update it accordingly if the workloads is deployed in another namespace.
 
 ```yaml
 apiVersion: azmonitoring.coreos.com/v1
 kind: PodMonitor
 metadata:
-  name: kafka-resources-metrics
+  name: azmon-cluster-operator-metrics
+  labels:
+    app: strimzi
+spec:
+  selector:
+    matchLabels:
+      strimzi.io/kind: cluster-operator
+  namespaceSelector:
+    matchNames:
+      - kafka
+  podMetricsEndpoints:
+  - path: /metrics
+    port: http
+---
+apiVersion: azmonitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: azmon-entity-operator-metrics
+  labels:
+    app: strimzi
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: entity-operator
+  namespaceSelector:
+    matchNames:
+      - kafka
+  podMetricsEndpoints:
+  - path: /metrics
+    port: healthcheck
+---
+apiVersion: azmonitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: azmon-bridge-metrics
+  labels:
+    app: strimzi
+spec:
+  selector:
+    matchLabels:
+      strimzi.io/kind: KafkaBridge
+  namespaceSelector:
+    matchNames:
+      - kafka
+  podMetricsEndpoints:
+  - path: /metrics
+    port: rest-api
+---
+apiVersion: azmonitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: azmon-kafka-resources-metrics
   labels:
     app: strimzi
 spec:
@@ -391,8 +272,7 @@ spec:
 > If using any other way of exposing the jmx_exporter on your kafka cluster, please follow the instructions [here](prometheus-metrics-scrape-crd.md) on how to configure the pod or service monitors accordingly.
 
 ### Grafana dashboard for additional jmx metrics
-Follow the instructions on [Import a dashboard from Grafana Labs](../../managed-grafana/how-to-create-dashboard.md#import-a-dashboard-from-grafana-labs)
-to import the Grafana Dashboard with ID 11962([kafka metrics](https://grafana.com/grafana/dashboards/11962-kafka-metrics/) dashboard) from your grafana instance used during managed prometheus onboarding.
+Please also see the [grafana-dashboards-for-strimzi](https://github.com/strimzi/strimzi-kafka-operator/tree/main/examples/metrics/grafana-dashboards) to view dashboards for metrics exposed by strimzi operator.
 
 
 ### Troubleshooting
