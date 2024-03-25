@@ -20,7 +20,7 @@ ms.custom: devplatv2, cliv2
 
 Learn how to access Azure resources from your scoring script with an online endpoint and either a system-assigned managed identity or a user-assigned managed identity. 
 
-Both managed endpoints and Kubernetes endpoints allow Azure Machine Learning to manage the burden of provisioning your compute resource and deploying your machine learning model. Typically your model needs to access Azure resources such as the Azure Container Registry or your blob storage for inferencing; with a managed identity you can access these resources without needing to manage credentials in your code. [Learn more about managed identities](../active-directory/managed-identities-azure-resources/overview.md).
+Both managed endpoints and Kubernetes endpoints allow Azure Machine Learning to manage the burden of provisioning your compute resource and deploying your machine learning model. Typically your model needs to access Azure resources such as the Azure Container Registry or your blob storage for inferencing; with a managed identity, you can access these resources without needing to manage credentials in your code. [Learn more about managed identities](../active-directory/managed-identities-azure-resources/overview.md).
 
 This guide assumes you don't have a managed identity, a storage account, or an online endpoint. If you already have these components, skip to the [Give access permission to the managed identity](#give-access-permission-to-the-managed-identity) section. 
 
@@ -34,7 +34,7 @@ This guide assumes you don't have a managed identity, a storage account, or an o
 
 * An Azure resource group, in which you (or the service principal you use) need to have *User Access Administrator* and *Contributor* access. You have such a resource group if you configured your ML extension per the preceding article.
 
-* An Azure Machine Learning workspace. You already have a workspace if you configured your ML extension per the above article.
+* An Azure Machine Learning workspace. You already have a workspace if you configured your ML extension per the preceding article.
 
 * A trained machine learning model ready for scoring and deployment. If you're following along with the sample, a model is provided.
 
@@ -86,7 +86,7 @@ This guide assumes you don't have a managed identity, a storage account, or an o
 
 * An Azure Resource group, in which you (or the service principal you use) need to have *User Access Administrator* and *Contributor* access. You have such a resource group if you configured your ML extension per the preceding article.
 
-* An Azure Machine Learning workspace. You have a workspace if you configured your ML extension per the above article.
+* An Azure Machine Learning workspace. You already have a workspace if you configured your ML extension per the preceding article.
 
 * A trained machine learning model ready for scoring and deployment. If you're following along with the sample, a model is provided.
 
@@ -112,13 +112,13 @@ This guide assumes you don't have a managed identity, a storage account, or an o
 
 * To use Azure Machine Learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
-* Role creation permissions for your subscription or the Azure resources accessed by the User-assigned identity. 
+* Role creation permissions for your subscription or the Azure resources accessed by the user-assigned identity. 
 
 * Install and configure the Azure Machine Learning Python SDK (v2). For more information, see [Install and set up SDK (v2)](https://aka.ms/sdk-v2-install).
 
 * An Azure Resource group, in which you (or the service principal you use) need to have *User Access Administrator* and *Contributor* access. You have such a resource group if you configured your ML extension per the preceding article.
 
-* An Azure Machine Learning workspace. You have a workspace if you configured your ML extension per the above article.
+* An Azure Machine Learning workspace. You already have a workspace if you configured your ML extension per the preceding article.
 
 * A trained machine learning model ready for scoring and deployment. If you're following along with the sample, a model is provided.
 
@@ -293,14 +293,14 @@ This deployment object:
 
 To deploy an online endpoint with the Python SDK (v2), objects can be used to define the following configuration. Alternatively, YAML files can be loaded using the `.load` method. 
 
-For a user-assigned identity, we define the endpoint configuration after the User-Assigned Managed Identity is created. 
+For a user-assigned identity, you define the endpoint configuration after the user-assigned managed identity is created. 
 
 This deployment object: 
 
 * Specifies that the type of deployment you want to create is a `ManagedOnlineDeployment` via the class. 
 * Indicates that the endpoint has an associated deployment called `blue`.
 * Configures the details of the deployment such as the `name` and `instance_count` 
-* Defines other objects inline and associates them with the deployment for `Model`,`CodeConfiguration`, and `Environment`. 
+* Defines more objects inline and associates them with the deployment for `Model`,`CodeConfiguration`, and `Environment`. 
 * Includes environment variables needed for the user-assigned managed identity to access storage. 
 * Adds a placeholder environment variable for `UAI_CLIENT_ID`, which is added after creating one and before actually deploying this configuration. 
 
@@ -336,7 +336,7 @@ Then, create the identity:
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/online/managed/managed-identities/online-endpoints-managed-identity-uai.ipynb?name=3-create-identity)]
 
-Now, retrieve the identity object, which contains details we use: 
+Now, retrieve the identity object, which contains details you use: 
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/online/managed/managed-identities/online-endpoints-managed-identity-uai.ipynb?name=3-retrieve-identity-object)]
 
@@ -534,16 +534,15 @@ Give permission of default workspace storage to user-assigned managed identity.
 
 # [System-assigned (Python)](#tab/system-identity-python)
 
-First, make an `AuthorizationManagementClient` to list Role Definitions: 
+First, make an `AuthorizationManagementClient` to list role definitions: 
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/online/managed/managed-identities/online-endpoints-managed-identity-sai.ipynb?name=6-get-role-definitions-client)]
 
-Now, initialize one to make Role Assignments: 
+Now, initialize one to make role assignments: 
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/online/managed/managed-identities/online-endpoints-managed-identity-sai.ipynb?name=6-get-role-assignments-client)]
 
-
-Then, get the Principal ID of the System-assigned managed identity: 
+Then, get the principal ID of the system-assigned managed identity: 
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/online/managed/managed-identities/online-endpoints-managed-identity-sai.ipynb?name=6-get-sai-details)]
 
@@ -561,11 +560,11 @@ Now, initialize one to make role assignments:
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/online/managed/managed-identities/online-endpoints-managed-identity-uai.ipynb?name=6-get-role-assignments-client)]
 
-Then, get the Principal ID and Client ID of the user-assigned managed identity. To assign roles, you only need the Principal ID. However, you use the Client ID to fill the `UAI_CLIENT_ID` placeholder environment variable before creating the deployment.
+Then, get the principal ID and client ID of the user-assigned managed identity. To assign roles, you only need the principal ID. However, you use the client ID to fill the `UAI_CLIENT_ID` placeholder environment variable before creating the deployment.
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/online/managed/managed-identities/online-endpoints-managed-identity-uai.ipynb?name=6-get-uai-details)]
 
-Next, assign the *Storage Blob Data Reader* role to the endpoint. The role definition is retrieved by name and passed along with the Principal ID of the endpoint. The role is applied at the scope of the storage account created above to allow the endpoint to read the file. 
+Next, assign the *Storage Blob Data Reader* role to the endpoint. The role definition is retrieved by name and passed along with the principal ID of the endpoint. The role is applied at the scope of the storage account created above to allow the endpoint to read the file. 
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/online/managed/managed-identities/online-endpoints-managed-identity-uai.ipynb?name=6-give-permission-user-storage-account)]
 
@@ -664,7 +663,7 @@ Now that the deployment is confirmed, set the traffic to 100%:
 
 # [User-assigned (Python)](#tab/user-identity-python)
 
-Before we deploy, update the `UAI_CLIENT_ID` environment variable placeholder. 
+Before you deploy, update the `UAI_CLIENT_ID` environment variable placeholder. 
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/online/managed/managed-identities/online-endpoints-managed-identity-uai.ipynb?name=7-update-uai-client-id)]
 
