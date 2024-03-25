@@ -24,7 +24,7 @@ This document contains information about new features and other changes to the M
  
 #### Other changes (3.2.0)
 
-- Upgrade MapLibre to v4.
+- Upgrade MapLibre to [V4](https://github.com/maplibre/maplibre-gl-js/releases/tag/v4.0.0).
 
 - Correct the default value of `HtmlMarkerOptions.pixelOffset` from `[0, -18]` to `[0, 0]` in the doc.
 
