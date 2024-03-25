@@ -28,7 +28,7 @@ To set up system modules to use persistent storage:
 1. For both IoT Edge hub and IoT Edge agent, add an environment variable called **StorageFolder** that points to a directory in the module.
 1. For both IoT Edge hub and IoT Edge agent, add binds to connect a local directory on the host machine to a directory in the module. For example:
 
-   :::image type="content" source="./media/how-to-access-host-storage-from-module/offline-storage-1-4.png" alt-text="Screenshot that shows how to add create options and environment variables for local storage.":::
+   :::image type="content" source="./media/how-to-access-host-storage-from-module/offline-storage.png" alt-text="Screenshot that shows how to add create options and environment variables for local storage.":::
 
     Replace `<HostStoragePath>` and `<ModuleStoragePath>` with your host and module storage path. Both values must be an absolute path and `<HostStoragePath>` must exist. 
 
@@ -103,10 +103,7 @@ If your custom module requires access to persistent storage on the host file sys
 }
 ```
 
-
 Replace `<HostStoragePath>` and `<ModuleStoragePath>` with your host and module storage path; both values must be an absolute path. Refer to the [Docker Engine Mount specification](https://any-api.com/docker_com/engine/docs/Definitions/Mount) for option details.
-
-
 
 ### Host system permissions
 
