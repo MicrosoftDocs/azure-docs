@@ -38,6 +38,15 @@ The list of geographies you can choose from includes:
 - United Kingdom
 - United States
 
+> [!Note]
+> Only the following Regions supports Advanced Messaging at this time
+
+- Asia Pacific
+- Australia
+- Europe
+- United Kingdom
+- United States
+
 ## Data collection
 
 Azure Communication Services only collects diagnostic data required to deliver the service. 
