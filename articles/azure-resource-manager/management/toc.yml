@@ -88,7 +88,7 @@
         - name: Azure Database for PostgreSQL Server
           href: ../../postgresql/howto-move-regions-portal.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Event Hubs
-          href: ../../operational-excellence/event-hub.md?toc=/azure/azure-resource-manager/management/toc.json
+          href: ../../operational-excellence/relocation-event-hub.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Functions
           href: ../../azure-functions/functions-move-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure IoT Hub

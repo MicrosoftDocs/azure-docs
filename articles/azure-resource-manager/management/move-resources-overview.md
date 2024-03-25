@@ -63,7 +63,7 @@ To move resources that aren't supported by Azure Resource Mover or to move any s
 
 ### Move resources from non availability zone to availability zone support
 
-To move resources from a region that doesn't support availability zones to one that does, see [Availability zone migration guidance overview for Microsoft Azure products and services](/reliability/availability-zones-migration-overview).
+To move resources from a region that doesn't support availability zones to one that does, see [Availability zone migration guidance overview for Microsoft Azure products and services](/azure/reliability/availability-zones-migration-overview).
 
 ## Next steps
 
