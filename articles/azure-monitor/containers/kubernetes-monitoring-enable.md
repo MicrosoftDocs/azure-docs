@@ -37,10 +37,13 @@ This article provides onboarding guidance for the following types of clusters. A
 **Managed Prometheus prerequisites**
 
   - The cluster must use [managed identity authentication](../../aks/use-managed-identity.md).
-  - The following resource providers must be registered in the subscription of the AKS cluster and the Azure Monitor workspace:
+  - The following resource providers must be registered in the subscription of the AKS cluster Azure Monitor workspace subscription:
     - Microsoft.ContainerService
     - Microsoft.Insights
     - Microsoft.AlertsManagement
+    - Microsoft.Monitor
+  - The following resource providers must be registered in the subscription of the Grafana workspace subscription:
+    - Microsoft.Dashboard
 
 **Arc-Enabled Kubernetes clusters prerequisites**
 
