@@ -123,7 +123,7 @@ public void disableBackgroundBlur() {
 
 ### Background replacement
 
-Background Replacement is a Video Effect that allows a person's background to be replacementred. In order to use Background Video Effect, you need to obtain a `VideoEffectsLocalVideoStreamFeature` feature from a valid `LocalVideoStream`.
+Background Replacement is a Video Effect that allows a person's background to be replaced. In order to use Background Video Effect, you need to obtain a `VideoEffectsLocalVideoStreamFeature` feature from a valid `LocalVideoStream`.
 
 To enable Background Replacement Video Effect:
 
