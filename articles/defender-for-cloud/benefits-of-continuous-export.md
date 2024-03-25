@@ -1,7 +1,7 @@
 ---
 title: Exporting alerts and recommendations with continuous export
 description: Learn about the benefits of continuous export in Microsoft Defender for Cloud. Stream security data to Azure Monitor workspace for analysis and visualization.
-ms.date: 03/20/2024
+ms.date: 03/25/2024
 author: dcurwin
 ms.author: dacurwin
 ms.topic: concept-article
@@ -30,7 +30,7 @@ You can use continuous export to export the following data types whenever they c
     - Controls.
 - Security alerts.
 - Regulatory compliance.
-- Security attack paths
+- Attack paths
 
 Recommendation severity, security findings and controls are *sub* categories that belong to a *parent* category. For example:
 
