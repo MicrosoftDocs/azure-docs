@@ -117,6 +117,8 @@ items:
     href: ./how-to/content-filters.md
   - name: Use blocklists
     href: ./how-to/use-blocklists.md
+  - name: Risks & Safety Monitor
+    href: ./how-to/risks-safety-monitor.md
   - name: Embeddings
     items:
     - name: Embeddings basics
