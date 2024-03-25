@@ -76,7 +76,7 @@ When creating a cluster with API server authorized IP ranges enabled, you specif
 3. In the **Networking** section under **Public access**, select **Set authorized IP ranges**.
 4. For **Specify IP ranges**, enter the IP address ranges you want to authorize to access the API server.
 
-    :::image type="content" source="media/api-server-authorized-ip-ranges/create-cluster-api-server-authorized-ip-ranges-portal.png" alt-text="This screenshot shows the cluster resource's networking settings Azure portal page.":::
+    :::image type="content" source="media/api-server-authorized-ip-ranges/create-cluster-api-server-authorized-ip-ranges-portal.png" alt-text="This screenshot shows the cluster resource's specify IP ranges networking settings Azure portal page.":::
 
 5. Configure the rest of the cluster settings as needed.
 6. When you're ready, select **Review + create** > **Create** to create the cluster.
@@ -87,10 +87,10 @@ When creating a cluster with API server authorized IP ranges enabled, you specif
 
 When creating a cluster with API server authorized IP ranges enabled, you can also specify the outbound IP addresses or prefixes for the cluster using the `--load-balancer-outbound-ips` or `--load-balancer-outbound-ip-prefixes` parameters. All IPs provided in the parameters are allowed along with the IPs in the `--api-server-authorized-ip-ranges` parameter.
 
-- Create an AKS cluster with API server authorized IP ranges enabled and specify the outbound IP addresses for the Standard SKU load balancer using the `--load-balancer-outbound-ips` parameter. The following example creates a cluster named *myAKSCluster* in the resource group named *myResourceGroup* with API server authorized IP ranges enabled and the outbound IP addresses *<publicIpId1>* and *<publicIpId2>*:
+- Create an AKS cluster with API server authorized IP ranges enabled and specify the outbound IP addresses for the Standard SKU load balancer using the `--load-balancer-outbound-ips` parameter. The following example creates a cluster named *myAKSCluster* in the resource group named *myResourceGroup* with API server authorized IP ranges enabled and the outbound IP addresses `<public-ip-id-1>` and `<public-ip-id-2>`:
 
     ```azurecli-interactive
-    az aks create --resource-group myResourceGroup --name myAKSCluster --vm-set-type VirtualMachineScaleSets --load-balancer-sku standard --api-server-authorized-ip-ranges 73.140.245.0/24 --load-balancer-outbound-ips <publicIpId1>,<publicIpId2> --generate-ssh-keys
+    az aks create --resource-group myResourceGroup --name myAKSCluster --vm-set-type VirtualMachineScaleSets --load-balancer-sku standard --api-server-authorized-ip-ranges 73.140.245.0/24 --load-balancer-outbound-ips <public-ip-id-1>,<public-ip-id-2> --generate-ssh-keys
     ```
 
 ## Allow only the outbound public IP of the Standard SKU load balancer
@@ -124,7 +124,7 @@ When you enable API server authorized IP ranges during cluster creation, the out
 3. In the **Networking** section under **Public access**, select **Set authorized IP ranges**.
 4. For **Specify IP ranges**, enter *0.0.0.0/32*. This allows only the outbound public IP of the Standard SKU load balancer.
 
-    :::image type="content" source="media/api-server-authorized-ip-ranges/api-server-authorized-only-outbound-ip-ranges-portal.png" alt-text="This screenshot shows the cluster resource's networking settings Azure portal page.":::
+    :::image type="content" source="media/api-server-authorized-ip-ranges/api-server-authorized-only-outbound-ip-ranges-portal.png" alt-text="This screenshot shows the cluster resource's specify IP ranges networking settings Azure portal page set to allow only the outbound public IP of the load balancer.":::
 
 5. Configure the rest of the cluster settings as needed.
 6. When you're ready, select **Review + create** > **Create** to create the cluster.
@@ -159,7 +159,7 @@ When you enable API server authorized IP ranges during cluster creation, the out
 2. Under **Settings**, select **Networking**.
 3. Under **Resource Settings**, select **Manage**.
 
-    :::image type="content" source="media/api-server-authorized-ip-ranges/update-existing-authorized-ip-ranges-portal.png" alt-text="This screenshot shows the cluster resource's networking settings Azure portal page.":::
+    :::image type="content" source="media/api-server-authorized-ip-ranges/update-existing-authorized-ip-ranges-portal.png" alt-text="This screenshot shows the cluster resource's resource settings in the networking settings Azure portal page.":::
 
 4. On the **Authorized IP ranges** page, update the **Authorized IP ranges** as needed.
 
