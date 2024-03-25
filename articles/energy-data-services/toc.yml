@@ -68,6 +68,10 @@
           href: how-to-add-more-data-partitions.md
         - name: Deploy OSDU Admin UI
           href: how-to-deploy-osdu-admin-ui.md
+        - name: How to enable External Data Sources (EDS)
+          href: how-to-enable-external-data-sources.md
+        - name: How to register External Data Sources (EDS)
+          href: how-to-register-external-data-sources.md
     - name: Monitoring
       items:
         - name: Airflow task logs integration with Azure Monitor

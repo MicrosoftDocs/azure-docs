@@ -72,6 +72,9 @@ Your deployment manifest would be similar to the following:
 }
 ```
 
+> [!NOTE]
+> If you are using a snap installation, ensure you choose a host storage path that is accessible to the snaps. For example, `$HOME/snap/azure-iot-edge/current/modules/`.
+
 ### Automatic host system permissions management
 
 On version 1.4 and newer, there's no need for manually setting ownership or permissions for host storage backing the `StorageFolder`. Permissions and ownership are automatically managed by the system modules during startup.

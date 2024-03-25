@@ -8,20 +8,18 @@ ms.date: 06/06/2023
 ms.topic: quickstart
 ms.service: virtual-network
 ms.custom: ai-video-concept
-#Customer intent: I want to use the Azure portal to create a virtual network so that virtual machines can communicate privately with each other and with the internet.
+#Customer intent: As a network administrator, I want to use the Azure portal to create a virtual network so that virtual machines can communicate privately with each other and with the internet.
 ---
 
 # Quickstart: Use the Azure portal to create a virtual network
 
-This quickstart shows you how to create a virtual network by using the Azure portal. You then create two virtual machines (VMs) in the network, deploy Azure Bastion to securely connect to the VMs from the internet, and communicate privately between the VMs.
+This quickstart shows you how to create a virtual network by using the Azure portal. You then create two virtual machines (VMs) in the network, deploy Azure Bastion to securely connect to the VMs from the internet, and start private communication between the VMs.
 
-:::image type="content" source="./media/quick-create-portal/virtual-network-qs-resources.png" alt-text="Diagram of resources created in virtual network quickstart.":::
+:::image type="content" source="./media/quick-create-portal/virtual-network-qs-resources.png" alt-text="Diagram of resources created in the virtual network quickstart.":::
 
 A virtual network is the fundamental building block for private networks in Azure. Azure Virtual Network enables Azure resources like VMs to securely communicate with each other and the internet.
 
 >[!VIDEO https://learn-video.azurefd.net/vod/player?id=6b5b138e-8406-406e-8b34-40bdadf9fc6d]
-
-
 
 ## Prerequisites
 
@@ -41,15 +39,15 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 1. On the **Virtual machines** page, select **vm-1**.
 
-1. In the **Overview** of **vm-1**, select **Connect**.
+1. In the **Overview** information for **vm-1**, select **Connect**.
 
-1. In the **Connect to virtual machine** page, select the **Bastion** tab.
+1. On the **Connect to virtual machine** page, select the **Bastion** tab.
 
 1. Select **Use Bastion**.
 
-1. Enter the username and password you created when you created the VM, and then select **Connect**.
+1. Enter the username and password that you created when you created the VM, and then select **Connect**.
 
-## Communicate between VMs
+## Start communication between VMs
 
 1. At the bash prompt for **vm-1**, enter `ping -c 4 vm-2`.
 
@@ -64,9 +62,9 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
     64 bytes from vm-2.internal.cloudapp.net (10.0.0.5): icmp_seq=4 ttl=64 time=0.890 ms
     ```
 
-1. Close the Bastion connection to VM1.
+1. Close the Bastion connection to **vm-1**.
 
-1. Repeat the steps in [Connect to a virtual machine](#connect-to-a-virtual-machine) to connect to VM2.
+1. Repeat the steps in [Connect to a virtual machine](#connect-to-a-virtual-machine) to connect to **vm-2**.
 
 1. At the bash prompt for **vm-2**, enter `ping -c 4 vm-1`.
 
@@ -81,15 +79,15 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
     64 bytes from vm-1.internal.cloudapp.net (10.0.0.4): icmp_seq=4 ttl=64 time=0.780 ms
     ```
 
-1. Close the Bastion connection to VM2.
+1. Close the Bastion connection to **vm-2**.
 
 [!INCLUDE [portal-clean-up.md](../../includes/portal-clean-up.md)]
 
 ## Next steps
 
-In this quickstart, you created a virtual network with two subnets, one containing two VMs and the other for Azure Bastion. You deployed Azure Bastion and used it to connect to the VMs, and securely communicated between the VMs. To learn more about virtual network settings, see [Create, change, or delete a virtual network](manage-virtual-network.md).
+In this quickstart, you created a virtual network with two subnets: one that contains two VMs and the other for Bastion. You deployed Bastion, and you used it to connect to the VMs and establish communication between the VMs. To learn more about virtual network settings, see [Create, change, or delete a virtual network](manage-virtual-network.md).
 
-Private communication between VMs is unrestricted in a virtual network. Continue to the next article to learn more about configuring different types of VM network communications.
+Private communication between VMs is unrestricted in a virtual network. To learn more about configuring various types of VM network communications, continue to the next article:
 
 > [!div class="nextstepaction"]
 > [Filter network traffic](tutorial-filter-network-traffic.md)

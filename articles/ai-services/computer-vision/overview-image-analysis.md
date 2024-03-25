@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: azure-ai-vision
 ms.custom: references_regions, build-2023, build-2023-dataai
 ms.topic: overview
-ms.date: 07/04/2023
+ms.date: 02/20/2024
 ms.author: pafarley
 keywords: Azure AI Vision, Azure AI Vision applications, Azure AI Vision service
 ---
@@ -70,13 +70,15 @@ The Product Recognition APIs let you analyze photos of shelves in a retail store
 
 [Product Recognition](./concept-shelf-analysis.md)
 
-## Multi-modal embeddings (v4.0 preview only)
+## Multimodal embeddings (v4.0 only)
 
-The multi-modal embeddings APIs enable the _vectorization_ of images and text queries. They convert images to coordinates in a multi-dimensional vector space. Then, incoming text queries can also be converted to vectors, and images can be matched to the text based on semantic closeness. This allows the user to search a set of images using text, without needing to use image tags or other metadata. Semantic closeness often produces better results in search.
+The multimodal embeddings APIs enable the _vectorization_ of images and text queries. They convert images to coordinates in a multi-dimensional vector space. Then, incoming text queries can also be converted to vectors, and images can be matched to the text based on semantic closeness. This allows the user to search a set of images using text, without needing to use image tags or other metadata. Semantic closeness often produces better results in search.
+
+The `2024-02-01` API includes a multi-lingual model that supports text search in 102 languages. The original English-only model is still available, but it cannot be combined with the new model in the same search index. If you vectorized text and images using the English-only model, these vectors won’t be compatible with multi-lingual text and image vectors.
 
 These APIs are only available in the following geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
 
-[Multi-modal embeddings](./concept-image-retrieval.md)
+[Multimodal embeddings](./concept-image-retrieval.md)
 
 ## Background removal (v4.0 preview only)
 
@@ -97,7 +99,7 @@ Image Analysis works on images that meet the following requirements:
 - The dimensions of the image must be greater than 50 x 50 pixels and less than 16,000 x 16,000 pixels
 
 > [!TIP]
-> Input requirements for multi-modal embeddings are different and are listed in [Multi-modal embeddings](/azure/ai-services/computer-vision/concept-image-retrieval#input-requirements)
+> Input requirements for multimodal embeddings are different and are listed in [Multimodal embeddings](/azure/ai-services/computer-vision/concept-image-retrieval#input-requirements)
 
 #### [Version 3.2](#tab/3-2)
 
