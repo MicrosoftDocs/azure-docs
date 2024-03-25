@@ -167,22 +167,6 @@ Changes made for this version:
 - Upgrades Flux to [v2.1.2](https://github.com/fluxcd/flux2/releases/tag/v2.1.2)
 - Updates to each `fluxConfiguration` status are now relayed back to Azure once every minute, provided there are any changes to report
 
-### 1.8.0 (October 2023)
-
-Flux version: [Release v2.1.1](https://github.com/fluxcd/flux2/releases/tag/v2.1.1)
-
-- source-controller: v1.1.1
-- kustomize-controller: v1.1.0
-- helm-controller: v0.36.1
-- notification-controller: v1.1.0
-- image-automation-controller: v0.36.1
-- image-reflector-controller: v0.30.0
-
-Changes made for this version:
-
-- Upgrades Flux to [v2.1.1](https://github.com/fluxcd/flux2/releases/tag/v2.1.1)
-- Adds support for [AKS clusters with workload identity](tutorial-use-gitops-flux2.md#workload-identity-in-aks-clusters)
-
 ## Dapr extension for Azure Kubernetes Service (AKS) and Arc-enabled Kubernetes
 
 [Dapr](https://dapr.io/) is a portable, event-driven runtime that simplifies building resilient, stateless, and stateful applications that run on the cloud and edge and embrace the diversity of languages and developer frameworks. The Dapr extension eliminates the overhead of downloading Dapr tooling and manually installing and managing the runtime on your clusters.
