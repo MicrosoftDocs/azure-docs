@@ -71,7 +71,110 @@ az network application-gateway ssl-cert update \
   --cert-password "<password>"
 ```
 
+### Terraform
 
+If you're using Terraform to manage the application gateway, the Azure Terraform Key Vault data source retrieves the complete key vault URI, which includes the version of the secrets. To enable automatic rotation of the certificate to a new version, the secret needs to be without a specific version. In the following Terraform code, the data source **azurerm_key_vault_secret** fetches the Key Vault secret ID and includes the version of the secret in the complete Keyvault URL.
+
+```Terraform
+data "azurerm_key_vault_secret" "vault" {    
+   name = "byte-cloud"          
+   key_vault_id = "<resource-id-key-vault>"
+}
+```
+
+Definitions:
+
+| Entry | Description |
+| --- | --- |
+| **data** | Indicates that you are retrieving information from an existing resource rather than creating a new one.  |
+| **azurerm_key_vault_secret** | Specifies the type or kind of data source, in this case, it's fetching information about a secret from an Azure Key Vault. |
+| **vault** | The name of this particular instance of the azurerm_key_vault_secret data source. Refer to this name when using the output from this data source in your Terraform configuration.  |
+| **name**  | The name of the certificate stored in Keyvault. |
+
+The data source **azurerm_key_vault_secret** is used within the `**ssl_certificate**` block under the application gateway section.
+
+The following Terraform code adds an SSL certificate pointed to the secret version of the certificate:
+
+```Terraform
+data "azurerm_key_vault_secret" "vault" {    
+   name         = "<certificate-name>"          
+   key_vault_id = "<resource-id-key-vault>"
+}
+resource "azurerm_application_gateway" "main" {
+  name                = "myAppGateway"
+  resource_group_name = data.azurerm_resource_group.rg.name
+  location            = data.azurerm_resource_group.rg.location
+  sku {
+    name     = "Standard_v2"
+    tier     = "Standard_v2"
+    capacity = 1
+  }
+}
+  identity {
+    type                     = "UserAssigned"
+    identity_ids             = [data.azurerm_user_assigned_identity.appgw_identity.id]
+  }
+  
+  ssl_certificate {
+      name = "<desired-ssl-certificate-name>"                       
+      // Reference the Key Vault secret ID
+      `#096DA`key_vault_secret_id = data.azurerm_key_vault_secret.vault.id`#096DA`
+    }
+```
+
+**key_vault_secret_id** is the certificate object stored in Azure KeyVault.
+
+Next, navigate to Application gateway listener settings and and select the **Listener TLS Certificates Preview** tab.
+
+![navigateListener](media/renew-certificate/listener-navigation.png)
+![oldsslcert](media/renew-certificate/oldsslcertlink.png)
+
+> [!NOTE]
+> * The certificate added to the application gateway is tied to a **secret version**.
+> * Renewing the certificate in **KeyVault** doesn't automatically make the application gateway listener select the updated certificate. To reflect the changes, the certificate in the application gateway must be manually updated.
+
+To add versionless keyvault certificates, you can use the Terraform "**replace**" function. By using this function, you can replace the entire KeyVault URL, which includes the secret version, with just the secret name, excluding the version.
+
+- Modify the existing "**ssl_certificate**" block under the application gateway block of the Terraform to use the replace function.
+
+```Terraform
+resource "azurerm_application_gateway" "main" {
+  name                = "myAppGateway"
+  resource_group_name = data.azurerm_resource_group.rg.name
+  location            = data.azurerm_resource_group.rg.location
+  sku {
+    name     = "Standard_v2"
+    tier     = "Standard_v2"
+    capacity = 1
+  }
+}
+  identity {
+    type                     = "UserAssigned"
+    identity_ids             = [data.azurerm_user_assigned_identity.appgw_identity.id]
+  }
+  
+  ssl_certificate {
+      name = "afdpremium-agw-ssl-certificate"                       
+      // Reference the Key Vault secret ID
+      <span style="background-color: yellow; color: black">key_vault_secret_id = replace(data.azurerm_key_vault_secret.vault.id, "/secrets/(.*)/[^/]+/", "secrets/$1")</span>
+    }
+```
+
+- The same data source "**data.azurerm_key_vault_secret.vault.id**" is used here, but the data source is used with the replace function. 
+- You can compare the value in the data source “**data.azurerm_key_vault_secret.vault.id**” with regex “/secrets/(.*)/[^/]+/",” and then use /secrets/group1.
+
+The Terraform replace function takes three arguments: 
+- replace(string, substring, replacement).
+
+In this case, **string** is the full URL stored in the data source **data.azurerm_key_vault_secret.vault.id** , substring is **/secrets/(.*)/[^/]+/**, and replacement is **/secrets/$1**.
+
+**For-example**:
+
+- **secret_value_old** = https://dummy.vault.azure.net/secrets/afdpremium/5cd21fe4d7934a82b187ffcaa86ae3f6 [before replace function]
+
+- **secret_value_new**: https://dummy.vault.azure.net/afdpremium [after replace function]
+
+Add a forward slash “**/**” in Terraform regex, or it will not work. This is because Terraform uses forward slashes as separators in certain syntax constructs to organize resources and data sources hierarchically.
 
 ## Next steps
 
