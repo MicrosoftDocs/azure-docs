@@ -568,7 +568,6 @@ If you don't specify values for `memoryThreshold` and `outOfMemoryWatch`, the de
 
 ## Configurable log-level parameters
 
-Description:
 By default, the `log-level` for Flux controllers is set to ‘info’. Starting with [`microsoft.flux` v1.8.3](extensions-release.md#flux-gitops), you can modify these default settings using the `k8s-extension` command as follows:
 
 ```azurecli
@@ -585,7 +584,7 @@ Valid values are `debug`, `info`, or `error`. These values are only configurable
 For instance, to change the `log-level` for the `source-controller` and `kustomize-controller`, use the following command:
 
 ```azurecli
-az k8s-extension update --resource-group <resource-group> --cluster-name <cluster-name> --cluster-type managedClusters --name flux --config source-controller.log-level=error kustomize-controller.log-level=error
+az k8s-extension update --resource-group <resource-group> --cluster-name <cluster-name> --cluster-type <clusterType> --name flux --config source-controller.log-level=error kustomize-controller.log-level=error
 ```
 
 ### Workload identity in AKS clusters
