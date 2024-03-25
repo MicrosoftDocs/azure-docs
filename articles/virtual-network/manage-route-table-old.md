@@ -49,7 +49,7 @@ There's a limit to how many route tables you can create per Azure location and s
     | Subscription | Select the **subscription** to deploy the route table in. |
     | Resource group | Choose an existing **Resource group** or select **Create new** to create a new resource group. |
     | Location | Select a **region** to deploy the route table in. |
-    | Propagate gateway routes | If you plan to associate the route table to a subnet in a virtual network that's connected to your on-premises network through a VPN gateway, and you don't want to propagate your on-premises routes to the network interfaces in the subnet, set **Virtual network gateway route propagation** to **Disabled**.
+    | Propagate gateway routes | If you plan to associate the route table to a subnet in a virtual network that's connected to your on-premises network through a VPN gateway, and you don't want to propagate your on-premises routes to the network interfaces in the subnet, set **Virtual network gateway route propagation** to **Disabled**.|
 
 1. Select **Review + create** and then **Create** to create your new route table.
 
@@ -254,7 +254,7 @@ A route table contains zero or more routes. To learn more about the information 
 
 1. Select the route you want to view details of.
 
-    :::image type="content" source="./media/manage-route-table/view-route.png" alt-text="Screenshot of a route details page.":::
+    :::image type="content" source="./media/manage-route-table/view-route.png" alt-text="Screenshot of a route with details page.":::
 
 ### View details of a route - commands
 
@@ -376,7 +376,7 @@ To do tasks on route tables and routes, your account must be assigned to the [Ne
 | Microsoft.Network/networkInterfaces/effectiveRouteTable/action  |   Get the effective route table for a network interface |
 | Microsoft.Network/networkWatchers/nextHop/action                |   Gets the next hop from a VM                           |
 
-## Next steps
+## Next step
 
 - Create a route table using [PowerShell](powershell-samples.md) or [Azure CLI](cli-samples.md) sample scripts, or Azure [Resource Manager templates](template-samples.md)
 - Create and assign [Azure Policy definitions](./policy-reference.md) for virtual networks

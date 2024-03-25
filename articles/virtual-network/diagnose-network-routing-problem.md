@@ -37,7 +37,7 @@ The steps that follow assume you have an existing VM to view the effective route
 
 Though effective routes were viewed through the VM in the previous steps, you can also view effective routes through an:
 - **Individual network interface**: Learn how to [view a network interface](virtual-network-network-interface.md#view-network-interface-settings).
-- **Individual route table**: Learn how to [view a route table](manage-route-table.md#view-details-of-a-route-table).
+- **Individual route table**: Learn how to [view a route table](manage-route-table.yml#view-details-of-a-route-table).
 
 ## Diagnose using PowerShell
 
@@ -100,9 +100,9 @@ az vm show \
 
 Resolving routing problems typically consists of:
 
-- Adding a custom route to override one of Azure's default routes. Learn how to [add a custom route](manage-route-table.md#create-a-route).
-- Change or remove a custom route that may cause routing to an undesired location. Learn how to [change](manage-route-table.md#change-a-route) or [delete](manage-route-table.md#delete-a-route) a custom route.
-- Ensuring that the route table that contains any custom routes you've defined is associated to the subnet the network interface is in. Learn how to [associate a route table to a subnet](manage-route-table.md#associate-a-route-table-to-a-subnet).
+- Adding a custom route to override one of Azure's default routes. Learn how to [add a custom route](manage-route-table.yml#create-a-route).
+- Change or remove a custom route that may cause routing to an undesired location. Learn how to [change](manage-route-table.yml#change-a-route) or [delete](manage-route-table.yml#delete-a-route) a custom route.
+- Ensuring that the route table that contains any custom routes you've defined is associated to the subnet the network interface is in. Learn how to [associate a route table to a subnet](manage-route-table.yml#associate-a-route-table-to-a-subnet).
 - Ensuring that devices such as Azure VPN gateway or network virtual appliances you've deployed are operable. Use the [VPN diagnostics](../network-watcher/diagnose-communication-problem-between-networks.md?toc=%2fazure%2fvirtual-network%2ftoc.json) capability of Network Watcher to determine any problems with an Azure VPN gateway.
 
 If you're still having communication problems, see [Considerations](#considerations) and Additional diagnosis.
@@ -130,5 +130,5 @@ Consider the following points when troubleshooting communication problems:
 
 ## Next steps
 
-- Learn about all tasks, properties, and settings for a [route table and routes](manage-route-table.md).
+- Learn about all tasks, properties, and settings for a [route table and routes](manage-route-table.yml).
 - Learn about all [next hop types, system routes, and how Azure selects a route](virtual-networks-udr-overview.md).
