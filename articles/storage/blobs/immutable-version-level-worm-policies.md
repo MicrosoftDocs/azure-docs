@@ -68,7 +68,11 @@ If the default policy on a storage account or container is modified, policies on
 
 The following table shows the various options available for setting a time-based retention policy on a blob on upload:
 
-Table goes here.
+| Default policy status on account or container     | Upload a blob with the default policy         | Upload a blob with a custom policy           | Upload a blob with no policy    |
+|---------------------------------------------------|-----------------------------------------------|----------------------------------------------|---------------------------------|
+| Default policy on account or container (unlocked) | Blob is uploaded with default unlocked policy | Blob is uploaded with custom unlocked policy | Blob is uploaded with no policy |
+| Default policy on account or container (locked)   | Blob is uploaded with default locked policy   | Blob is uploaded with custom unlocked policy | Blob is uploaded with no policy |
+| No default policy on either account or container  | N/A                                           | Blob is uploaded with custom unlocked policy | Blob is uploaded with no policy |
 
 ### Configure a policy on a previous version
 
