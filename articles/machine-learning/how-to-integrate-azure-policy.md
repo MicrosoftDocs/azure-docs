@@ -72,7 +72,9 @@ Azure Machine Learning integrates with [data landing zones](https://github.com/A
 
 ### Compute instances should have idle shutdown
 
-TBD
+Controls whether an Azure Machine Learning compute instance should have idle shutdown enabled. Idle shutdown automatically stops the compute instance when it is idle for a specified period of time. This policy is useful for cost savings and to ensure that resources are not being used unnecessarily.
+
+To configure this policy, set the effect parameter to __Audit__, __Deny__, or __Disabled__. If set to __Audit__, you can create a compute instance without idle shutdown enabled and a warning event is created in the activity log.
 
 ### Compute instances should be recreated to get software updates
 
@@ -82,51 +84,55 @@ TBD
 
 Controls auditing of compute cluster and instance resources behind a virtual network.
 
-To configure this policy, set the effect parameter to __audit__ or __disabled__. If set to __audit__, you can create a compute that is not configured behind a virtual network and a warning event is created in the activity log.
+To configure this policy, set the effect parameter to __Audit__ or __Disabled__. If set to __Audit__, you can create a compute that is not configured behind a virtual network and a warning event is created in the activity log.
 
 ### Computes should have local authentication methods disabled.
 
 Controls whether an Azure Machine Learning compute cluster or instance should disable local authentication (SSH).
 
-To configure this policy, set the effect parameter to __audit__, __deny__, or __disabled__. If set to __audit__, you can create a compute with SSH enabled and a warning event is created in the activity log.
+To configure this policy, set the effect parameter to __Audit__, __Deny__, or __Disabled__. If set to __Audit__, you can create a compute with SSH enabled and a warning event is created in the activity log.
 
-If the policy is set to __deny__, then you cannot create a compute unless SSH is disabled. Attempting to create a compute with SSH enabled results in an error. The error is also logged in the activity log. The policy identifier is returned as part of this error.
+If the policy is set to __Deny__, then you cannot create a compute unless SSH is disabled. Attempting to create a compute with SSH enabled results in an error. The error is also logged in the activity log. The policy identifier is returned as part of this error.
 
 ### Workspaces should be encrypted with customer-managed key
 
 Controls whether a workspace should be encrypted with a customer-managed key, or using a Microsoft-managed key to encrypt metrics and metadata. For more information on using customer-managed key, see the [Azure Cosmos DB](concept-data-encryption.md#azure-cosmos-db) section of the data encryption article.
 
-To configure this policy, set the effect parameter to __audit__ or __deny__. If set to __audit__, you can create a workspace without a customer-managed key and a warning event is created in the activity log.
+To configure this policy, set the effect parameter to __Audit__ or __Deny__. If set to __Audit__, you can create a workspace without a customer-managed key and a warning event is created in the activity log.
 
-If the policy is set to __deny__, then you cannot create a workspace unless it specifies a customer-managed key. Attempting to create a workspace without a customer-managed key results in an error similar to `Resource 'clustername' was disallowed by policy` and creates an error in the activity log. The policy identifier is also returned as part of this error.
+If the policy is set to __Deny__, then you cannot create a workspace unless it specifies a customer-managed key. Attempting to create a workspace without a customer-managed key results in an error similar to `Resource 'clustername' was disallowed by policy` and creates an error in the activity log. The policy identifier is also returned as part of this error.
 
 ### Workspaces should disable public network access
 
 Controls whether a workspace should disable network access from the public internet.
 
-To configure this policy, set the effect parameter to __audit__, __deny__, or __disabled__. If set to __audit__, you can create a workspace with public access and a warning event is created in the activity log.
+To configure this policy, set the effect parameter to __Audit__, __Deny__, or __Disabled__. If set to __Audit__, you can create a workspace with public access and a warning event is created in the activity log.
 
-If the policy is set to __deny__, then you cannot create a workspace that allows network access from the public internet.
+If the policy is set to __Deny__, then you cannot create a workspace that allows network access from the public internet.
 
 ### Workspaces should enable V1LegacyMode to support network isolation backward compatibility
 
-TBD
+Controls whether a workspace should enable V1LegacyMode to support network isolation backward compatibility. This policy is useful if you want to keep Azure Machine Learning control plane data inside your private networks. For more information, see [Network isolation change with our new API platform](how-to-configure-network-isolation-with-v2).
+
+To configure this policy, set the effect parameter to __Audit__ or __Deny__, or __Disabled__ . If set to __Audit__, you can create a workspace without enabling V1LegacyMode and a warning event is created in the activity log.
+
+If the policy is set to __Deny__, then you cannot create a workspace unless it enables V1LegacyMode.
 
 ### Workspace should use private link
 
 Controls whether a workspace should use Azure Private Link to communicate with Azure Virtual Network. For more information on using private link, see [Configure private link for a workspace](how-to-configure-private-link.md).
 
-To configure this policy, set the effect parameter to __audit__ or __deny__. If set to __audit__, you can create a workspace without using private link and a warning event is created in the activity log.
+To configure this policy, set the effect parameter to __Audit__ or __Deny__. If set to __Audit__, you can create a workspace without using private link and a warning event is created in the activity log.
 
-If the policy is set to __deny__, then you cannot create a workspace unless it uses a private link. Attempting to create a workspace without a private link results in an error. The error is also logged in the activity log. The policy identifier is returned as part of this error.
+If the policy is set to __Deny__, then you cannot create a workspace unless it uses a private link. Attempting to create a workspace without a private link results in an error. The error is also logged in the activity log. The policy identifier is returned as part of this error.
 
 ### Workspace should use user-assigned managed identity
 
 Controls whether a workspace is created using a system-assigned managed identity (default) or a user-assigned managed identity. The managed identity for the workspace is used to access associated resources such as Azure Storage, Azure Container Registry, Azure Key Vault, and Azure Application Insights. For more information, see [Use managed identities with Azure Machine Learning](how-to-identity-based-service-authentication.md).
 
-To configure this policy, set the effect parameter to __audit__, __deny__, or __disabled__. If set to __audit__, you can create a workspace without specifying a user-assigned managed identity. A system-assigned identity is used and a warning event is created in the activity log.
+To configure this policy, set the effect parameter to __Audit__, __Deny__, or __Disabled__. If set to __Audit__, you can create a workspace without specifying a user-assigned managed identity. A system-assigned identity is used and a warning event is created in the activity log.
 
-If the policy is set to __deny__, then you cannot create a workspace unless you provide a user-assigned identity during the creation process. Attempting to create a workspace without providing a user-assigned identity results in an error. The error is also logged to the activity log. The policy identifier is returned as part of this error.
+If the policy is set to __Deny__, then you cannot create a workspace unless you provide a user-assigned identity during the creation process. Attempting to create a workspace without providing a user-assigned identity results in an error. The error is also logged to the activity log. The policy identifier is returned as part of this error.
 
 ### Configure computes to Modify/disable local authentication
 
@@ -142,7 +148,9 @@ To configure this policy, set the effect parameter to __DeployIfNotExists__. Set
 
 ### Configure workspaces to disable public network access
 
-TBD
+Configures a workspace to disable network access from the public internet. This helps protect thee workspaces against data leakage risks. You can instead access your workspace by creating private endpoints. For more information, see [Configure private link for a workspace](how-to-configure-private-link.md).
+
+To configure this policy, set the effect parameter to __Modify__ or __Disabled__. If set to __Modify__, any creation of a workspace within the scope where the policy applies will automatically have public network access disabled.
 
 ### Configure workspaces with private endpoints
 
@@ -152,11 +160,15 @@ To configure this policy, set the effect parameter to __DeployIfNotExists__. Set
 
 ### Configure diagnostic workspaces to send logs to log analytics workspaces
 
-TBD
+Configures the diagnostic settings for an Azure Machine Learning workspace to send logs to a Log Analytics workspace.
+
+To configure this policy, set the effect parameter to __DeployIfNotExists__ or __Disabled__. If set to __DeployIfNotExists__, the policy will create a diagnostic setting to send logs to a Log Analytics workspace if it does not already exist.
 
 ### Resource logs in workspaces should be enabled
 
-TBD
+Audits whether resource logs are enabled for an Azure Machine Learning workspace. Resource logs provide detailed information about operations performed on resources in the workspace.
+
+To configure this policy, set the effect parameter to __AuditIfNotExists__ or __Disabled__. If set to __AuditIfNotExists__, the policy will audit if resource logs are not enabled for the workspace.
 
 ## Next steps
 
