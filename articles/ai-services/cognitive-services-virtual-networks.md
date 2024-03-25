@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: azure-ai-services
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: how-to
-ms.date: 02/13/2024
+ms.date: 03/25/2024
 ms.author: aahi
 ---
 
@@ -597,9 +597,15 @@ curl -i -X PATCH https://management.azure.com$rid?api-version=2023-10-01-preview
 
 To revoke the exception, set `networkAcls.bypass` to `None`. 
 
-To verify if the trusted service has been enabled from the Azure Portal, use the `JSON View` from the Azure OpenAI resource Overview page, and choose api-version as `2023-10-01-preview`.
+To verify if the trusted service has been enabled from the Azure portal, 
 
-:::image type="content" source="media/trusted-service.png" alt-text="A screenshot showing the trusted service is enabled." lightbox="media/trusted-service.png":::
+1. Use the **JSON View** from the Azure OpenAI resource overview page
+
+    :::image type="content" source="media/vnet/azure-portal-json-view.png" alt-text="A screenshot showing the JSON view option for resources in the Azure portal." lightbox="media/vnet/azure-portal-json-view.png":::
+
+1.  Choose the latest API version under **API versions**, for example `2023-10-01-preview` .
+
+    :::image type="content" source="media/vnet/virtual-network-trusted-service.png" alt-text="A screenshot showing the trusted service is enabled." lightbox="media/trusted-service.png":::
 
 > [!NOTE]
 > The trusted service feature is only available using the command line described above, and cannot be done using the Azure portal.
