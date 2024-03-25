@@ -246,7 +246,7 @@ You can connect to your [Elasticsearch vector database](https://www.elastic.co/g
 
 ### Request access
 
-Using the Elasticsearch data source is a preview feature which is subject to the Limited Access Service terms in the [service-specific terms](https://go.microsoft.com/fwlink/?linkid=2018760) for Azure AI services. You must fill out and submit a [request form](https://aka.ms/aoaioydelasticsearchrequest) to request access to the Elasticsearch data source. The form requests information about your company and the scenario for which you plan to use the Elasticsearch data source. After you submit the form, the Azure AI services team will review it and email you with a decision within 10 business days.
+Using the Elasticsearch data source is a preview feature which is subject to the Limited Access Service terms in the [service-specific terms](https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/EAEAS) for Azure AI services. You must fill out and submit a [request form](https://aka.ms/aoaioydelasticsearchrequest) to request access to the Elasticsearch data source. The form requests information about your company and the scenario for which you plan to use the Elasticsearch data source. After you submit the form, the Azure AI services team will review it and email you with a decision within 10 business days.
 
 ### Connect Elasticsearch to Azure OpenAI On Your Data
 
