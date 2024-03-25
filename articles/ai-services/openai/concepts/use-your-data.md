@@ -261,7 +261,7 @@ Using the Elasticsearch data source is a preview feature which is subject to the
 
 1. (optional) use a custom field mapping.  
 
-    You can [customize the field mapping](#index-field-mapping) when you add your data source to define the fields that will get mapped when answering questions, or use the default values.  
+    You can [customize the field mapping](#index-field-mapping-2) when you add your data source to define the fields that will get mapped when answering questions, or use the default values.  
 
 1. Choose the [search type](#search-types). Azure OpenAI On Your Data provides the following search types you can use when you add your data source.
 
