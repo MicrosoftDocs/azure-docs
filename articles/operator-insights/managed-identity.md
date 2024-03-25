@@ -38,7 +38,7 @@ You use Microsoft Entra ID to manage user-assigned managed identities. For more 
 
 ## System-assigned managed identities in Azure Operator Insights
 
-Azure Operator Insights doesn't support system-assigned managed identities.
+Azure Operator Insights Data Products don't support system-assigned managed identities.
 
 ## Related content
 
