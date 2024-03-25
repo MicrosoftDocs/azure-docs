@@ -24,7 +24,7 @@ You can enable Microsoft Entra ID through the following PowerShell modules:
 >[!NOTE]
 >PowerShell Core does not support the MSOnline module. To use the module cmdlets, you must run them from Windows PowerShell. You're encouraged to use the newer Azure Active Directory PowerShell for Graph modules instead of the MSOnline module.
 
-[!INCLUDE [Azure AD PowerShell deprecation note](~/articles/reusable-content/msgraph-powershell/includes/aad-powershell-deprecation-note.md)]
+[!INCLUDE [Azure AD PowerShell deprecation note](~/reusable-content/msgraph-powershell/includes/aad-powershell-deprecation-note.md)]
 
 ### Preinstallation
 
