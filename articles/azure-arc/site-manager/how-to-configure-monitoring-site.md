@@ -28,14 +28,14 @@ Sites within Azure Arc aren't able to have monitoring setup on the site overall.
 To configure monitoring and alerts for sites in Azure Arc, follow the below steps.
 
 1. Navigate to Azure Monitor, via searching for **monitor** within the Azure portal. Select **monitor** as shown.
-![searching for monitor within the azure portal](./media/how-to-configure-monitoring-site/search_monitor.png)
+![screenshot of searching for monitor within the azure portal.](./media/how-to-configure-monitoring-site/search-monitor.png)
 2. Once **monitor** is open, navigate to the **alerts** page either via the menu on the left or the boxes shown in the primary screen.
-![opening alerts from monitor](./media/how-to-configure-monitoring-site/select_alerts_monitor.png)
+![screenshot of opening alerts from monitor.](./media/how-to-configure-monitoring-site/select-alerts-monitor.png)
 3. From the **alerts** page, alerts can be managed if they exist or the can be created via the following **create** button. Alerts can't be created for an entire site, but they can be created for specific supported resources within a site. Once created, any alerts triggered via the rules set in monitor for support resources, will have alerts appear in site manager.
-![creating alerts from monitor](./media/how-to-configure-monitoring-site/create_alert_monitor.png)
+![screenshot of creating alerts from monitor.](./media/how-to-configure-monitoring-site/create-alert-monitor.png)
 
 ## Viewing alerts in site manager
 
 To understand more regarding how to view alerts created and triggered from monitor for supported resources within site manager, view this article:
 
-- [How to view alerts in site manager](./how-to-view-alerts.md)
+- [How to view alerts in site manager.](./how-to-view-alerts.md)

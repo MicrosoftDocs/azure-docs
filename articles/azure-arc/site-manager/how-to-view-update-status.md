@@ -36,19 +36,19 @@ This article details how to view update status for an Arc Site, which reflects t
 To view update status for an Arc site as a whole, the below steps can be followed from the main page of Azure Arc site manager. For this example, two sites have already been created, a **London** site and a **California** site. 
 
 1. From Azure Arc site manager, navigate to the **Overview** page. 
-![navigate to overview page from site manager main page](./media/how-to-view-update-status/overview_sites_page.png)
+![screenshot of navigate to overview page from site manager main page.](./media/how-to-view-update-status/overview-sites-page.png)
 2. In the **Overview** page, the update statuses of the sites are shown below. This is the update status of resources aggregated by sites. In the example below, this indicates that one site is **up to date** and one site **needs attention**
-![overview page site update details and status](./media/how-to-view-update-status/site_manager_update_status_overview_page.png)
+![screenshot of overview page site update details and status.](./media/how-to-view-update-status/site-manager-update-status-overview-page.png)
 3. To understand which site is **up to date** and which site **needs attention**, select either the **sites** tab or the blue colored status text to be directed to the **sites** page.
-![overview page naviagte and view details on updates](./media/how-to-view-update-status/click_update_status_site_details.png)
+![screenshot of overview page naviagte and view details on updates.](./media/how-to-view-update-status/click-update-status-site-details.png)
 4. The **sites** page will appear and show the top-level status for each site, this reflects the most important status for the site. 
-![update status on the site page](./media/how-to-view-update-status/site_update_status_from_sites_page.png)
+![screenshot of update status on the site page.](./media/how-to-view-update-status/site-update-status-from-sites-page.png)
 
 ## View update status: resource
 
 1. Navigate to the main **site manager** page in **Azure Arc** and then to the **sites** tab at the top of Azure Arc site manager. 
-![site manager navigate to the resource status for updates via sites tab](./media/how-to-view-update-status/sites_button_from_site_manager.png)
+![screenshot of site manager navigate to the resource status for updates via sites tab.](./media/how-to-view-update-status/sites-button-from-site-manager.png)
 2. Navigate next to the **sites** tab, view the top-level status for each site, this tab reflects the most important status for the site. To see resource status, select this. For this example, **London's** update status is clicked.
-![selecting the status to see the resource status for updates](./media/how-to-view-update-status/site_update_status_from_sites_page.png)
+![screenshot of selecting the status to see the resource status for updates.](./media/how-to-view-update-status/site-update-status-from-sites-page.png)
 3. Finally, the update status for each resource within **London** is visible, including the resource that had resulted in the top-level most important status. Which for **London** is **needs attention**
-![viewing the resource status for updates](./media/how-to-view-update-status/london_resource_status_updates.png)
+![screenshot of viewing the resource status for updates.](./media/how-to-view-update-status/london-resource-status-updates.png)
