@@ -2,6 +2,7 @@
 title: Connect to Azure Kubernetes Service (AKS) cluster nodes
 description: Learn how to connect to Azure Kubernetes Service (AKS) cluster nodes for troubleshooting and maintenance tasks.
 ms.topic: troubleshooting
+ms.subservice: aks-security
 ms.date: 01/08/2024
 ms.reviewer: mattmcinnes
 ms.custom:
