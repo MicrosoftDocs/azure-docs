@@ -30,7 +30,7 @@ See [OpenTelemetry Status](https://opentelemetry.io/status/).
 
 ### What is the "Azure Monitor OpenTelemetry Distro"?
 
-You can think of it as a thin wrapper that bundles together all the OpenTelemetry components for a first class experience on Azure. This is also called [Distribution](https://opentelemetry.io/docs/concepts/distributions/) in OpenTelemetry.
+You can think of it as a thin wrapper that bundles together all the OpenTelemetry components for a first class experience on Azure. This wrapper is also called a [distribution](https://opentelemetry.io/docs/concepts/distributions/) in OpenTelemetry.
 
 ### Why should I use the "Azure Monitor OpenTelemetry Distro"?
 
@@ -38,19 +38,27 @@ There are several advantages to using the Azure Monitor OpenTelemetry Distro ove
 
 - Reduces enablement effort
 - Supported by Microsoft
-- Brings in Azure Specific features such as:
-   - Preserves traces with service components using Application Insights SDKs
+- Brings in Azure-specific features such as:
+   - Sampling compatible with classic Application Insights SDKs
    - [Microsoft Entra authentication](../app/azure-ad-authentication.md)
    - [Offline Storage and Automatic Retries](../app/opentelemetry-configuration.md#offline-storage-and-automatic-retries)
    - [Statsbeat](../app/statsbeat.md)
    - [Application Insights Standard Metrics](../app/standard-metrics.md)
-   - Detect resource metadata to autopopulate [Cloud Role Name](../app/app-map.md#understand-the-cloud-role-name-within-the-context-of-an-application-map) on Azure
-   - [Live Metrics](../app/live-stream.md) (future)
+   - Detect resource metadata to autopopulate [Cloud Role Name](../app/java-standalone-config.md#cloud-role-name) and [Cloud Role Instance](../app/java-standalone-config.md#cloud-role-instance) on various Azure environments
+   - [Live Metrics](../app/live-stream.md)
 
 In the spirit of OpenTelemetry, we designed the distro to be open and extensible. For example, you can add:
 
-- An OTLP exporter and send to a second destination simultaneously
+- An OpenTelemetry Protocol (OTLP) exporter and send to a second destination simultaneously
 - Other instrumentation libraries not included in the distro
+
+Because the Distro provides an [OpenTelemetry distribution](https://opentelemetry.io/docs/concepts/distributions/#what-is-a-distribution), the Distro supports anything supported by OpenTelemetry. For example, you can add more telemetry processors, exporters, or instrumentation libraries, if OpenTelemetry supports them.
+
+> [!NOTE]
+> The Distro sets the sampler to a custom, fixed-rate sampler for Application Insights. You can change this to a different sampler, but doing so might disable some of the Distro's included capabilities.
+> For more information about the supported sampler, see the [Enable Sampling](../app/opentelemetry-configuration.md#enable-sampling) section of [Configure Azure Monitor OpenTelemetry](../app/opentelemetry-configuration.md).
+
+For languages without a supported standalone OpenTelemetry exporter, the Azure Monitor OpenTelemetry Distro is the only currently supported way to use OpenTelemetry with Azure Monitor. For languages with a supported standalone OpenTelemetry exporter, you have the option of using either the Azure Monitor OpenTelemetry Distro or the appropriate standalone OpenTelemetry exporter depending on your telemetry scenario. For more information, see [When should I use the Azure Monitor OpenTelemetry exporter?](#when-should-i-use-the-azure-monitor-opentelemetry-exporter).
 
 ### How can I test out the Azure Monitor OpenTelemetry Distro?
 
@@ -64,9 +72,9 @@ Adopting OpenTelemetry now prevents having to migrate at a later date.
 
 ### When should I use the Azure Monitor OpenTelemetry exporter?
 
-For ASP.NET Core, Java, Node.js, and Python, we recommend using the OpenTelemetry distro. It's one line of code to get started.
+For ASP.NET Core, Java, Node.js, and Python, we recommend using the Azure Monitor OpenTelemetry Distro. It's one line of code to get started.
 
-For all other .NET scenarios (like classic ASP.NET, Console apps etc.), we recommend using the .NET Azure Monitor OpenTelemetry exporter: `Azure.Monitor.OpenTelemetry.Exporter`.
+For all other .NET scenarios, including classic ASP.NET, console apps, etc., we recommend using the .NET Azure Monitor OpenTelemetry exporter: `Azure.Monitor.OpenTelemetry.Exporter`.
 
 For more complex Python telemetry scenarios that require advanced configuration, we recommend using the Python [Azure Monitor OpenTelemetry Exporter](/python/api/overview/azure/monitor-opentelemetry-exporter-readme?view=azure-python-preview&preserve-view=true).
 
