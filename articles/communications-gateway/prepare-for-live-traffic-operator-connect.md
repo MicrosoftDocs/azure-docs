@@ -97,8 +97,8 @@ Integration testing requires setting up your test tenant for Operator Connect or
     1. Select **Update relationship status**. Use the drop-down to set the status to **Agreement signed**.
     1. Select **Create account**. Fill in the fields as required and select **Create**.
     1. Select **View account**.
-    1. Select **View numbers** and select **Upload numbers**.
-    1. Fill in the fields as required, and then select **Review and upload** and **Upload**.
+    1. Select **View numbers** and select **Create numbers**.
+    1. Fill in the fields as required, and then select **Upload**.
 
     # [Operator Portal](#tab/no-flow-through)
 

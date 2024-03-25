@@ -89,10 +89,10 @@ Uploading numbers for an enterprise allows IT administrators at the enterprise t
 1. In the sidebar, locate the **Number Management (Preview)** section and select **Accounts**. Select the enterprise **Account name**.
 1. Select **View numbers** to go to the number management page for the enterprise.
 1. To upload new numbers for an enterprise:
-    1. Select **Upload numbers**.
+    1. Select **Create numbers**.
     1. Fill in the fields based on the information you determined in [Prerequisites](#prerequisites). These settings apply to all the numbers you upload in the **Add numbers** section.
-    1. In **Add numbers**, add each number individually.
-    1. Select **Review and upload** and **Upload**. Uploading creates an order for uploading numbers over the Operator Connect API.
+    1. In **Telephone Numbers**, add each number individually.
+    1. Select **Upload**. Uploading creates an order for uploading numbers over the Operator Connect API.
     1. Wait 30 seconds, then refresh the order status. When the order status is **Complete**, the numbers are available to the enterprise. You might need to refresh more than once.
 1. To remove numbers from an enterprise:
     1. Select the numbers.
