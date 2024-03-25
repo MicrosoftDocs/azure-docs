@@ -244,6 +244,14 @@ Messages SDK allows Contoso to send templated WhatsApp messages to WhatsApp user
     - Language like 'en_us'
     - Parameters if any
 
+For more examples of how to assemble your MessageTemplate and how to create your own template, refer to the following resource:
+- [Send WhatsApp Template Messages](../../../../../concepts/advanced-messaging/whatsapp/template-messages.md) 
+   
+For further WhatsApp requirements on templates, refer to the WhatsApp Business Platform API references:
+- [Create and Manage Templates](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates/)
+- [Template Components](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates/components)
+- [Sending Template Messages](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates)
+
 To send WhatsApp template message add below code in the send_template_message(self) function.
 ```python
         input_template: MessageTemplate = MessageTemplate(
@@ -302,11 +310,12 @@ To do so, from your personal WhatsApp account, send a message to your business n
 Messages SDK allows Contoso to send text WhatsApp messages, which initiated WhatsApp users initiated. To send text messages below details are required:
 - WhatsApp Channel ID
 - Recipient Phone Number in E16 format
-- Message body to be sent
+- Message body/text to be sent
 
 > [!IMPORTANT]
 > To send a text message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
+In this example, we reply to the WhatsApp user with the text "Thanks for your feedback.\n From Notification Messaging SDK".
 ```python
     def send_text_message(self):
         from azure.communication.messages import NotificationMessagesClient
@@ -317,7 +326,7 @@ Messages SDK allows Contoso to send text WhatsApp messages, which initiated What
         text_options = TextNotificationContent (
             channel_registration_id=self.channelRegistrationId,
             to= [self.phone_number],
-            content="Hello World via Notification Messaging SDK.",
+            content="Thanks for your feedback.\n From Notification Messaging SDK",
         )
         
         # calling send() with whatsapp message details
@@ -359,6 +368,9 @@ Messages SDK allows Contoso to send Image WhatsApp messages to WhatsApp users. T
 
 > [!IMPORTANT]
 > To send a text message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
+
+An example of media_uri used in sending media WhatsApp message.
+input_media_uri: str = "https://aka.ms/acsicon1"
 
 ```python
     def send_image_message(self):
@@ -514,9 +526,3 @@ WhatsApp Image containing Message with message id <<GUID>> was successfully sent
 
 You can review and download the sample code for this quick start on [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/messages-quickstart).
 
-## References
-
-- [Send WhatsApp Template Messages](../../../../../concepts/advanced-messaging/whatsapp/template-messages.md) 
-- [Create and Manage Templates](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates/)
-- [Template Components](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates/components)
-- [Sending Template Messages](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates)
