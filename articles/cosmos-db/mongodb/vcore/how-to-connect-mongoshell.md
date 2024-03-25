@@ -16,7 +16,7 @@ ms.date: 02/05/2024
 
 [!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
 
-MongoDB Shell mongosh, is a JavaScript and Node.js REPL environment for interacting with MongoDB deployments. It's a popular community tool to test queries and interact with the data in your MongoDB database.
+MongoDB Shell (Mongosh), is a JavaScript and Node.js REPL environment for interacting with MongoDB deployments. It's a popular community tool to test queries and interact with the data in your Azure Cosmos DB for MongoDB database.
 
 ## Prerequisites
 
