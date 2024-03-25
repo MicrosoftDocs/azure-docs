@@ -149,7 +149,7 @@ The Call Started event when a call start is formatted in the following way:
 
 ## Start recording
 
-1. Create a method to handle the `CallStarted` events. This method trigger recording to start when the call started.
+1. Create a method to handle the `CallStarted` events. This method triggers the start of the recording when the call starts.
 
 ```csharp
 
@@ -178,21 +178,31 @@ The Call Started event when a call start is formatted in the following way:
 
 ### Running locally
 
-To run the function locally, you can press `F5` in Visual Studio Code. We use [ngrok](https://ngrok.com/) to hook our locally running Azure Function with Azure Event Grid.
+1. To run the function locally, please press `F5` in Visual Studio Code. You can use [Tunnelmole](https://tunnelmole.com), a free and open source tunneling tool or [ngrok](https://ngrok.com), a popular closed source tunneling tool, to connect your locally running Azure Function with Azure Event Grid.
 
-1. Once the function is running, we configure ngrok. (You need to [download ngrok](https://ngrok.com/download) for your environment.)
+#### Tunnelmole
+After running the function, you can configure Tunnelmole. Follow the [Installation Guide](https://tunnelmole.com/docs/#installation) to get Tunnelmole installed.
 
+    ```bash
+     tmole 7071
+    ```
+
+    Copy the Tunnelmole link provided where your function is running.
+
+#### ngrok
+If you prefer to use ngrok, follow the below step. Remember to [download ngrok](https://ngrok.com/download) for your environment.
+   
     ```bash
      ngrok http 7071
     ```
 
     Copy the ngrok link provided where your function is running.
 
-2. Configure C`allStarted` events through Event Grid within your Azure Communication Services resource. We do this using the [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli). You need the resource ID for your Azure Communication Services resource found in the Azure portal. (The resource ID looks something like:  `/subscriptions/<<AZURE SUBSCRIPTION ID>>/resourceGroups/<<RESOURCE GROUP NAME>>/providers/Microsoft.Communication/CommunicationServices/<<RESOURCE NAME>>`)
+2. Configure `CallStarted` events through Event Grid within your Azure Communication Services resource. We do this using the [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli). You need the resource ID for your Azure Communication Services resource found in the Azure portal. (The resource ID looks something like: `/subscriptions/<<AZURE SUBSCRIPTION ID>>/resourceGroups/<<RESOURCE GROUP NAME>>/providers/Microsoft.Communication/CommunicationServices/<<RESOURCE NAME>>`)
 
     ```bash
 
-    az eventgrid event-subscription create --name "<<EVENT_SUBSCRIPTION_NAME>>" --endpoint-type webhook --endpoint "<<NGROK URL>>/runtime/webhooks/EventGrid?functionName=<<FUNCTION NAME>> " --source-resource-id "<<RESOURCE_ID>>"  --included-event-types Microsoft.Communication.CallStarted
+    az eventgrid event-subscription create --name "<<EVENT_SUBSCRIPTION_NAME>>" --endpoint-type webhook --endpoint "<<TUNNELMOLE or NGROK URL>>/runtime/webhooks/EventGrid?functionName=<<FUNCTION NAME>> " --source-resource-id "<<RESOURCE_ID>>"  --included-event-types Microsoft.Communication.CallStarted
 
     ```
 

@@ -12,7 +12,6 @@ ms.topic: include
 ms.custom: include file
 ---
 
-
 Event Grid provides out of the box support for Azure Functions, making it easy to set up an event listener without the need to deal with the complexity of parsing headers or debugging webhooks. Using  the out of the box trigger, we can set up an Azure Function that runs each time an event is detected that matches the trigger. In this document, we focus on SMS received triggers.
 
 ## Setting up our local environment
@@ -109,9 +108,19 @@ From here, the possibilities are endless. From responding to a message with a pr
 
 ## Running locally
 
-To run the function locally, press `F5` in Visual Studio Code. We use [ngrok](https://ngrok.com/) to hook our locally running Azure Function with Azure Event Grid.
+To run the function locally, press `F5` in Visual Studio Code. To hook our locally running Azure Function with Azure Event Grid, we can use the free and open source tunneling tool, Tunnelmole, or the popular closed source tunneling tool, ngrok.
 
-1. Once the function is running, we configure ngrok. (You need to [download ngrok](https://ngrok.com/download) for your environment.)
+### Running with Tunnelmole
+1. Once the function is running, we configure Tunnelmole. (To use Tunnelmole, first install it following the [Installation Guide](https://tunnelmole.com/docs/#installation))
+
+    ```bash
+    tmole 7071
+    ```
+
+    Copy the HTTPS Tunnelmole link provided where your function is running.
+
+### Running with ngrok
+1. Alternatively, you can use ngrok. (To use ngrok, you need to [download ngrok](https://ngrok.com/download) for your environment.)
 
     ```bash
     ngrok http 7071
@@ -142,3 +151,4 @@ az eventgrid event-subscription update --name "<<EVENT_SUBSCRIPTION_NAME>>" --en
 Since we are updating the event subscription we created for local testing, make sure to use the same event subscription name you used above.
 
 You can test by sending an SMS to the phone number you have procured through Azure Communication Services resource.
+

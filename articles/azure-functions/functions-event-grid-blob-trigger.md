@@ -19,7 +19,7 @@ This article shows how to create a function that runs based on events raised whe
 > * Create a container in blob storage.
 > * Create an event-driven Blob Storage triggered function.
 > * Create an event subscription to a blob container.
-> * Debug locally using ngrok by uploading files.
+> * Debug locally using tunnelmole or ngrok by uploading files.
 > * Deploy to Azure and create a filtered event subscription.
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
@@ -43,7 +43,7 @@ This article shows how to create a function that runs based on events raised whe
 ::: zone pivot="programming-language-java"
 [!INCLUDE [functions-requirements-visual-studio-code-java](../../includes/functions-requirements-visual-studio-code-java.md)]
 ::: zone-end  
-+ The [ngrok](https://ngrok.com/) utility, which provides a way for Azure to call into your locally running function.
++ The [tunnelmole](https://tunnelmole.com/docs) or [ngrok](https://ngrok.com/) utilities, which provides a way for Azure to call into your locally running function.
 
 + [Azure Storage extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) for Visual Studio Code, minimally version 5.x.
 
@@ -351,7 +351,7 @@ After you create the function, in the function.json configuration file, add `"so
 
 ## Start local debugging
 
-Event Grid validates the endpoint URL when you create an event subscription in the Azure portal. This validation means that before you can create an event subscription for local debugging, your function must be running locally with remote access enabled by the ngrok utility. If your local function code isn't running and accessible to Azure, you won't be able to create the event subscription.
+Event Grid validates the endpoint URL when you create an event subscription in the Azure portal. This validation means that before you can create an event subscription for local debugging, your function must be running locally with remote access enabled by the tunnelmole or ngrok utility. If your local function code isn't running and accessible to Azure, you won't be able to create the event subscription.
 
 ### Determine the blob trigger endpoint 
 
@@ -380,56 +380,65 @@ Save this path, which you'll use later to create endpoint URLs for event subscri
 > [!NOTE] 
 > Because the endpoint is handling events for a Blob Storage trigger, the endpoint path includes `blobs`. The endpoint URL for an Event Grid trigger would instead have `eventgrid` in the path. 
 
-### Run ngrok
+### Run Tunnelmole or ngrok
 
-To break into a function being debugged on your machine, you must provide a way for Azure Event Grid to communicate with functions running on your local computer. 
+To break into a function being debugged on your machine, you must provide a way for Azure Event Grid to communicate with functions running on your local computer. The [Tunnelmole](https://tunnelmole.com) and [ngrok](https://ngrok.com/) utilities can accomplish this by forwarding external requests to a specific address and port on your local computer.
 
-The [ngrok](https://ngrok.com/) utility forwards external requests to a randomly generated proxy server address to a specific address and port on your local computer.  through to call the webhook endpoint of the function running on your machine. 
+Tunnelmole is a free and open source tool while ngrok is a popular closed source tool. You can select either based on your preference.
 
-1. Start *ngrok* using the following command:
+1. Start *Tunnelmole* using the following command:
+   
+    ```bash
+    > tmole 7071
+    http://wm4a9r-ip-49-183-170-98.tunnelmole.net is forwarding to localhost:7071
+    https://wm4a9r-ip-49-183-170-98.tunnelmole.net is forwarding to localhost:7071    
+    ```
+
+    In the output, you'll see two URLs, one HTTP and a HTTPS URL. It's best to use the HTTPS URL for privacy and security. Note this down as you will use it to build your endpoint URL in the next step.
+
+    Alternatively, you can use *ngrok* to accomplish the same. 
 
     ```bash
-    ngrok.exe http http://localhost:7071
+    ngrok http http://localhost:7071
     ```
 
     As the utility starts, the command window should look similar to the following screenshot:
 
     ![Screenshot that shows the Command Prompt after starting the "ngrok" utility.](./media/functions-event-grid-blob-trigger/functions-event-grid-local-dev-ngrok.png)
 
-1. Copy the **HTTPS** URL generated when *ngrok* is run. This value is used to determine the webhook endpoint on your computer exposed using ngrok.  
+2. Copy the **HTTPS** URL generated when *Tunnelmole* or *ngrok* is run. This value is used to determine the webhook endpoint on your computer exposed using either of the tools.
 
 > [!IMPORTANT]
-> At this point, don't stop `ngrok`. Every time you start `ngrok`, the HTTPS URL is regenerated with a different value. Because the endpoint of an event subscription can't be modified, you have to create a new event subscription every time you run `ngrok`. 
->
-> Unless you create an ngrok account, the maximum ngrok session time is limited to two hours.   
+> Do not stop `tmole` or `ngrok` at this point. Each time you start these utilities, the HTTPS URL is regenerated with a different value. As the endpoint of an event subscription cannot be modified, you have to create a new event subscription every time you run `tmole` or `ngrok`.
+> For ngrok, note that unless you create an account, the maximum session time is limited to two hours.
 
-### Build the endpoint URL
+### Build the Endpoint URL
 
-The endpoint used in the event subscription is made up of three different parts, a prefixed server name, a path, and a query string.  The following table describes these parts:
+The endpoint used in the event subscription is made up of three different parts: a prefixed server name, a path, and a query string. The following table describes these parts:
 
-| URL part | Description  | 
+| URL Part | Description |
 | --- | --- |
-| Prefix and server name |  When your function runs locally, the server name with an `https://` prefix comes from the **Forwarding** URL generated by *ngrok*. In the localhost URL, the *ngrok* URL replaces `http://localhost:7071`. When running in Azure, you'll instead use the published function app server, which is usually in the form `https://<FUNCTION_APP_NAME>.azurewebsites.net`. |
-| Path | The path portion of the endpoint URL comes from the localhost URL copied earlier, and looks like `/runtime/webhooks/blobs` for a Blob Storage trigger. The path for an Event Grid trigger would be `/runtime/webhooks/EventGrid` | 
-| Query string | For all languages including .NET Isolated the `functionName=Host.Functions.BlobTriggerEventGrid` parameter, except for .NET In-process which should be `functionName=BlobTriggerEventGrid` in the query string sets the name of the function that handles the event. If you used a different name for your function, you'll need to change this value. An access key isn't required when running locally. When running in Azure, you'll also need to include a `code=` parameter in the URL, which contains a key that you can get from the portal. |
+| Prefix and Server Name |  When your function runs locally, the server name with an `https://` prefix comes from the **Forwarding** URL generated by *Tunnelmole* or *ngrok*. In the localhost URL, the *Tunnelmole* or *ngrok* URL replaces `http://localhost:7071`. When running in Azure, you'll instead use the published function app server, which is usually in the form `https://<FUNCTION_APP_NAME>.azurewebsites.net`. |
+| Path | The path part of the endpoint URL comes from the `localhost` URL copied earlier, and looks like `/runtime/webhooks/blobs` for a Blob Storage trigger. The path for an Event Grid trigger would be `/runtime/webhooks/EventGrid`. | 
+| Query String | All languages including .NET Isolated should set `functionName=Host.Functions.BlobTriggerEventGrid` in the query string, except for .NET In-process which should be `functionName=BlobTriggerEventGrid`. If you used a different name for your function, you'll need to change this value. An access key isn't required when running locally. When in Azure, you'll also need to include a `code=` parameter in the URL, which contains a key which you can get from the portal. |
 
-The following screenshot shows an example of how the final endpoint URL should look when using a Blob Storage trigger named `BlobTriggerEventGrid`:
+The following screenshot shows an example of how the final endpoint URL should look like when using a Blob Storage trigger named `BlobTriggerEventGrid`:
 
 ::: zone pivot="programming-language-csharp"  
 # [Isolated process](#tab/isolated-process)
-  ![Endpoint selection](./media/functions-event-grid-blob-trigger/functions-event-grid-local-dev-event-subscription-endpoint-selection-qualified.png)
+![Endpoint selection](./media/functions-event-grid-blob-trigger/functions-event-grid-local-dev-event-subscription-endpoint-selection-qualified.png)
 # [In-process](#tab/in-process)
-  ![Endpoint selection](./media/functions-event-grid-blob-trigger/functions-event-grid-local-dev-event-subscription-endpoint-selection.png)
+![Endpoint selection](./media/functions-event-grid-blob-trigger/functions-event-grid-local-dev-event-subscription-endpoint-selection.png)
 ---
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java"   
-  ![Endpoint selection](./media/functions-event-grid-blob-trigger/functions-event-grid-local-dev-event-subscription-endpoint-selection-qualified.png)
+![Endpoint selection](./media/functions-event-grid-blob-trigger/functions-event-grid-local-dev-event-subscription-endpoint-selection-qualified.png)
 ::: zone-end  
 
-### Start debugging 
+### Start Debugging
 
-With ngrok already running, start your local project as follows:
+With tunnelmole or ngrok already running, start your local project as follows:
 
 1. Set a breakpoint in your function on the line that handles logging.
 
@@ -446,11 +455,11 @@ With ngrok already running, start your local project as follows:
     Press **F5** to start a debugging session.
     ::: zone-end
 
-With your code running and ngrok forwarding requests, it's time to create an event subscription to the blob container. 
+With your code running and tunnelmole or ngrok forwarding requests, it's time to create an event subscription to the blob container. 
 
 ## Create the event subscription 
 
-An event subscription, powered by Azure Event Grid, raises events based on changes in the linked blob container. This event is then sent to the webhook endpoint on your function's trigger. After an event subscription is created, the endpoint URL can't be changed. This means that after you're done with local debugging (or if you restart ngrok), you'll need to delete and recreate the event subscription. 
+An event subscription, powered by Azure Event Grid, raises events based on changes in the linked blob container. This event is then sent to the webhook endpoint on your function's trigger. After an event subscription is created, the endpoint URL can't be changed. This means that after you're done with local debugging (or if you restart tunnelmole or ngrok), you'll need to delete and recreate the event subscription. 
 
 1. In Visual Studio Code, choose the Azure icon in the Activity bar. In **Resources**, expand your subscription, expand **Storage accounts**, right-click the storage account you created earlier, and select **Open in portal**.
 
@@ -469,7 +478,7 @@ An event subscription, powered by Azure Event Grid, raises events based on chang
     | **System Topic Name** | *samples-workitems-blobs* | Name for the topic, which represents the container. The topic is created with the first subscription, and you'll use it for future event subscriptions. |
     | **Filter to Event Types** | *Blob Created*| 
     | **Endpoint Type** |  **Web Hook** | The blob storage trigger uses a web hook endpoint. You would use Azure Functions for an Event Grid trigger. |
-    | **Endpoint** | Your ngrok-based URL endpoint | Use the ngrok-based URL endpoint that you determined earlier. |
+    | **Endpoint** | Your tunnelmole or ngrok-based URL endpoint | Use the tunnelmole or ngrok-based URL endpoint that you determined earlier. |
 
 1. Select **Confirm selection** to validate the endpoint URL. 
 
@@ -477,7 +486,7 @@ An event subscription, powered by Azure Event Grid, raises events based on chang
 
 ## Upload a file to the container
 
-With the event subscription in place and your code project and ngrok still running, you can now upload a file to your storage container to trigger your function. You can upload a file from your computer to your blob storage container using Visual Studio Code. 
+With the event subscription in place and your code project and tunnelmole or ngrok still running, you can now upload a file to your storage container to trigger your function. You can upload a file from your computer to your blob storage container using Visual Studio Code. 
 
 1. In Visual Studio Code, open the command palette (press F1) and type `Azure Storage: Upload Files...`. 
 
@@ -492,7 +501,7 @@ With the event subscription in place and your code project and ngrok still runni
     | **Select Blob Container** | **samples-workitems** | This value is the name of the container you created in a previous step. |
     | **Enter the destination directory of this upload** | default | Just accept the default value of `/`, which is the container root. |
 
-This command uploads a file from your computer to the storage container in Azure. At this point, your running ngrok instance should report that a request was forwarded. You'll also see in the func.exe output for your debugging session that your function has been started. Hopefully, at this point, your debug session is waiting for you where you set the breakpoint.    
+This command uploads a file from your computer to the storage container in Azure. If you are running ngrok, it should report that a request was forwarded. You'll also see in the func.exe output for your debugging session that your function has been started. Hopefully, at this point, your debug session is waiting for you where you set the breakpoint.  
 
 ## Publish the project to Azure
 
@@ -577,7 +586,7 @@ This time, you'll include the filter on the event subscription so that only JPEG
 
 1. In the [Azure portal](https://portal.azure.com), select the **Events** option from the left menu.
 
-1. In the **Events** window, select your old ngrok-based event subscription, select **Delete** > **Save**. This action removes the old event subscription.  
+1. In the **Events** window, select your old tunnelmole or ngrok-based event subscription, select **Delete** > **Save**. This action removes the old event subscription.  
 
 1. Select the **+ Event Subscription** button, and provide values from the following table into the **Basic** tab:  
 
