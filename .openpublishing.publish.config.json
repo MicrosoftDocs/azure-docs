@@ -963,6 +963,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "msdocs-tomcat-mysql-sample-app",
+      "url": "https://github.com/Azure-Samples/msdocs-tomcat-mysql-sample-app",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azuresignalr-samples",
       "url": "https://github.com/aspnet/AzureSignalR-samples",
       "branch": "main",
