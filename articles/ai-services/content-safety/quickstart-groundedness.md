@@ -17,39 +17,16 @@ Follow this guide to use Azure AI Content Safety Groundedness detection to check
 
 ## Prerequisites
 
-
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 
 * Once you have your Azure subscription, <a href="https://aka.ms/acs-create"  title="Create a Content Safety resource"  target="_blank">create a Content Safety resource </a> in the Azure portal to get your key and endpoint. Enter a unique name for your resource, select your subscription, and select a resource group, supported region (East US2, West US, Sweden Central), and supported pricing tier. Then select **Create**.
    * The resource takes a few minutes to deploy. After it does, go to the new resource. In the left pane, under **Resource Management**, select **API Keys and Endpoints**. Copy one of the subscription key values and endpoint to a temporary location for later use.
+(Optional) If you want to use the _reasoning_ feature, create an Azure OpenAI Service resource with a GPT model deployed.
 * [cURL](https://curl.haxx.se/) or [Python](https://www.python.org/downloads/) installed.
 
-## Check groundedness with reasinging
 
-The Groundedness detection API provides the option to include _reasoning_ in the API response. In your request to the Groundedness detection API, set the `"Reasoning"` body parameter to `true`, and provide the other needed parameters:
+## Check groundedness without reasoning
 
-
-### Enable reasoning with your own GPT deployment
-
-If you want to use your Azure OpenAI resource to enable the reasoning feature, use Managed Identity to allow your Content Safety resource to access the Azure OpenAI resource first:
-
-1. Enable Managed Identity for Azure AI Content Safety.
-
-    Navigate to your Azure AI Content Safety instance in the Azure portal. Find the **Identity** section under the **Settings** category. Enable the system-assigned managed identity. This action grants your Azure AI Content Safety instance an identity that can be recognized and used within Azure for accessing other resources. 
-    
-    :::image type="content" source="media/content-safety-identity.png" alt-text="Screenshot of a Content Safety identity resource in the Azure portal." lightbox="media/content-safety-identity.png":::
-
-2. Assign Role to Managed Identity.
-
-    Navigate to your Azure OpenAI instance, select **Add role assignment** to start the process of assigning an Azure OpenAI role to the Azure AI Content Safety identity. 
-
-    image type="content" source="media/add-role-assignment.png" alt-text="Screenshot of adding role assignment in Azure portal.":::
-
-    Choose the **User** or **Contributor** role.
-
-    :::image type="content" source="media/assigned-roles-simple.png" alt-text="Screenshot of the Azure portal with the Contributor and User roles displayed in a list." lightbox="media/assigned-roles-simple.png":::
-
-
-## Detect groundedness without Reasoning
+The Groundedness detection classifies the ungroundedness of the submitted content as `true` or `false` and provides a confidence score.
 
 #### [cURL](#tab/curl)
 
@@ -204,9 +181,34 @@ The JSON objects in the output are defined here:
 | - `length > utf16`      | The length of the ungrounded text in UTF-16 encoding.       | Integer |
 | - `length > codePoint`  | The length of the ungrounded text in terms of Unicode code points. |Integer    |
 
-## Making a request with reasoning using the default resource
 
-The Groundedness detection API provides the option to include _reasoning_ in the API response. In your request to the Groundedness detection API, set the `"Reasoning"` body parameter to `true`, and provide the other needed parameters:
+## Check groundedness with reasoning
+
+The Groundedness detection API provides the option to include _reasoning_ in the API response. With reasoning enabled, the response includes a `"reasoning"` field that details specific instances and explanations for any detected ungroundedness. Be careful: using reasoning increases the processing time and incurs extra fees. 
+
+### Bring your own GPT deployment
+
+In order to use your Azure OpenAI resource to enable the reasoning feature, use Managed Identity to allow your Content Safety resource to access the Azure OpenAI resource:
+
+1. Enable Managed Identity for Azure AI Content Safety.
+
+    Navigate to your Azure AI Content Safety instance in the Azure portal. Find the **Identity** section under the **Settings** category. Enable the system-assigned managed identity. This action grants your Azure AI Content Safety instance an identity that can be recognized and used within Azure for accessing other resources. 
+    
+    :::image type="content" source="media/content-safety-identity.png" alt-text="Screenshot of a Content Safety identity resource in the Azure portal." lightbox="media/content-safety-identity.png":::
+
+1. Assign Role to Managed Identity.
+
+    Navigate to your Azure OpenAI instance, select **Add role assignment** to start the process of assigning an Azure OpenAI role to the Azure AI Content Safety identity. 
+
+    :::image type="content" source="media/add-role-assignment.png" alt-text="Screenshot of adding role assignment in Azure portal.":::
+
+    Choose the **User** or **Contributor** role.
+
+    :::image type="content" source="media/assigned-roles-simple.png" alt-text="Screenshot of the Azure portal with the Contributor and User roles displayed in a list." lightbox="media/assigned-roles-simple.png":::
+
+### Make the API request
+
+In your request to the Groundedness detection API, set the `"Reasoning"` body parameter to `true`, and provide the other needed parameters:
     
 ```json
  {
@@ -219,8 +221,14 @@ The Groundedness detection API provides the option to include _reasoning_ in the
 }
 ```
 
+#### [cURL](#tab/curl)
 
-the response includes a `"reasoning"` field that details specific instances and explanations for any detected ungroundedness. If you opt to use reasoning, you must provide your own Azure OpenAI resources. Be careful: using reasoning increases the processing time and incurs extra fees. If you choose not to use reasoning, the API only classifies the ungroundedness of the submitted content as `true` or `false` and provides a confidence score.
+This section walks through a sample request with cURL. Paste the command below into a text editor, and make the following changes.
+
+1. Replace `<endpoint>` with the endpoint URL associated with your resource.
+1. Replace `<your_subscription_key>` with one of the keys for your resource.
+1. Optionally, replace the `"query"` or `"text"` fields in the body with your own text you'd like to analyze.
+
 
 ```shell
 curl --location --request POST '<endpoint>/contentsafety/text:detectGroundedness?api-version=2024-02-15-preview' \
@@ -239,8 +247,8 @@ curl --location --request POST '<endpoint>/contentsafety/text:detectGroundedness
   "reasoning": true,
   "llmResource": {
         "resourceType": "AzureOpenAI",
-        "azureOpenAIEndpoint": "string",
-        "azureOpenAIDeploymentName": "string"
+        "azureOpenAIEndpoint": "<your_OpenAI_endpoint>",
+        "azureOpenAIDeploymentName": "<your_deployment_name>"
 }'
 ```
 
@@ -271,8 +279,8 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
       "reasoning": True
       "llmResource": {
        "resourceType": "AzureOpenAI",
-       "azureOpenAIEndpoint": "string",
-       "azureOpenAIDeploymentName": "string"
+       "azureOpenAIEndpoint": "<your_OpenAI_endpoint>",
+       "azureOpenAIDeploymentName": "<your_deployment_name>"
       }
     })
     headers = {
@@ -284,6 +292,14 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
     data = res.read()
     print(data.decode("utf-8"))
     ```
+
+1. Run the application with the `python` command:
+
+    ```console
+    python quickstart.py
+    ````
+
+    Wait a few moments to get the response.
 
 ---
 
@@ -303,7 +319,6 @@ The parameters in the request body are defined in this table:
 | - `resourceType `| Specifies the type of resource being used. Currently it only allows `AzureOpenAI`. | Enum|
 | - `azureOpenAIEndpoint `| Your endpoint URL for Azure OpenAI service.  | String |
 | - `azureOpenAIDeploymentName` | The name of the specific GPT deployment to use. | String|
-
 
 ### Interpret the API response
 
