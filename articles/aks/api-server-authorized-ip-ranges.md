@@ -201,6 +201,8 @@ When you enable API server authorized IP ranges during cluster creation, the out
 
 5. When you're done, select **Save**.
 
+---
+
 ## Find existing authorized IP ranges
 
 ### [Azure CLI](#tab/azure-cli)
