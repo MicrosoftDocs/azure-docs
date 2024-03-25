@@ -236,13 +236,17 @@ Once you have added the URL/web address for data ingestion, the web pages from y
 
 You can connect to your [Elasticsearch vector database](https://www.elastic.co/guide/en/elasticsearch/reference/current/elasticsearch-intro.html) and chat with your data.
 
-### Prerequisite 
+### Prerequisites
 
 * An Elasticsearch database 
 * An embedding model. You can:
     * Use an existing Azure OpenAI `text-embedding-ada-002` embedding model, or  
     * Bring your own embedding model hosted on Elasticsearch.
 * Prepare your data using the python notebook available on [GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/blob/main/notebooks/AzureOpenAI_OnYourData_Elasticsearch.ipynb). 
+
+### Request access
+
+Using the Elasticsearch data source is a preview feature which is subject to the Limited Access Service terms in the [service-specific terms](https://go.microsoft.com/fwlink/?linkid=2018760) for Azure AI services. You must fill out and submit a [request form](https://aka.ms/aoaioydelasticsearchrequest) to request access to the Elasticsearch data source. The form requests information about your company and the scenario for which you plan to use the Elasticsearch data source. After you submit the form, the Azure AI services team will review it and email you with a decision within 10 business days.
 
 ### Connect Elasticsearch to Azure OpenAI On Your Data
 
