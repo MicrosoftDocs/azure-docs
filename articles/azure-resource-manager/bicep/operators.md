@@ -1,8 +1,6 @@
 ---
 title: Bicep operators
 description: Describes the Bicep operators available for Azure Resource Manager deployments.
-author: mumian
-ms.author: jgao
 ms.topic: conceptual
 ms.custom: devx-track-bicep, devx-track-arm-template
 ms.date: 05/16/2023

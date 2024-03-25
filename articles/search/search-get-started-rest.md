@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: search index (REST)'
+title: 'Quickstart: Search index (REST)'
 titleSuffix: Azure AI Search
 description: In this quickstart, learn how to call the Azure AI Search REST APIs to create, load, and query a search index.
 zone_pivot_groups: URL-test-interface-rest-apis
@@ -15,33 +15,32 @@ ms.custom:
   - ignite-2023
 ---
 
-# Quickstart: Text search using REST
+# Quickstart: Text search by using REST
 
-The REST APIs in Azure AI Search provide programmatic access to all of its capabilities, including preview features, and they're an easy way to learn how features work. In this quickstart, learn how to call the [Search REST APIs](/rest/api/searchservice) to create, load, and query a search index in Azure AI Search. 
+The REST APIs in Azure AI Search provide programmatic access to all of its capabilities, including preview features, and they're an easy way to learn how features work. In this quickstart, learn how to call the [Search REST APIs](/rest/api/searchservice) to create, load, and query a search index in Azure AI Search.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-+ [Visual Studio Code](https://code.visualstudio.com/download) with a [REST client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client).
-
-+ [Azure AI Search](search-what-is-azure-search.md). [Create](search-create-service-portal.md) or [find an existing Azure AI Search resource](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
+- [Visual Studio Code](https://code.visualstudio.com/download) with a [REST client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client).
+- [Azure AI Search](search-what-is-azure-search.md). [Create](search-create-service-portal.md) or [find an existing Azure AI Search resource](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart.
 
 ## Download files
 
-[Download a REST sample](https://github.com/Azure-Samples/azure-search-rest-samples/tree/main/Quickstart) from GitHub to send the requests in this quickstart. [Learn how](https://docs.github.com/get-started/start-your-journey/downloading-files-from-github).
+[Download a REST sample](https://github.com/Azure-Samples/azure-search-rest-samples/tree/main/Quickstart) from GitHub to send the requests in this quickstart. For more information, see [Downloading files from GitHub](https://docs.github.com/get-started/start-your-journey/downloading-files-from-github).
 
-Or, start a new file on your local system and create requests manually using the instructions in this article.
+You can also start a new file on your local system and create requests manually by using the instructions in this article.
 
 ## Copy a search service key and URL
 
 REST calls require the search service endpoint and an API key on every request. You can get these values from the Azure portal.
 
-1. Sign in to the [Azure portal](https://portal.azure.com), navigate to the search service **Overview** page, and copy the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
+1. Sign in to the [Azure portal](https://portal.azure.com). Then go to the search service **Overview** page and copy the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
 
-1. Under **Settings** > **Keys**, copy an admin key. Admin keys are used to add, modify, and delete objects. There are two interchangeable admin keys. Copy either one.
+1. Select **Settings** > **Keys** and then copy an admin key. Admin keys are used to add, modify, and delete objects. There are two interchangeable admin keys. Copy either one.
 
-   :::image type="content" source="media/search-get-started-rest/get-url-key.png" alt-text="Screenshot of the URL and API keys in the Azure portal.":::
+   :::image type="content" source="media/search-get-started-rest/get-url-key.png" alt-text="Screenshot that shows the URL and API keys in the Azure portal.":::
 
 ## Set up Visual Studio Code
 
@@ -51,9 +50,9 @@ If you're not familiar with the REST client for Visual Studio Code, this section
 
 1. Search for the REST client and select **Install**.
 
-   :::image type="content" source="media/search-get-started-rest/rest-client-install.png" alt-text="Screenshot of the install command.":::
+   :::image type="content" source="media/search-get-started-rest/rest-client-install.png" alt-text="Screenshot that shows the REST client Install button.":::
 
-1. Open or create new file named with either a `.rest` or `.http` file extension.
+1. Open or create a new file named with either a `.rest` or `.http` file extension.
 
 1. Paste in the following example. Replace the base URL and API key with the values you copied earlier.
 
@@ -67,21 +66,21 @@ If you're not familiar with the REST client for Visual Studio Code, this section
       api-key: {{apiKey}}
     ```
 
-1. Select **Send request**. A response should appear in an adjacent pane. If you have existing indexes, they're listed. Otherwise, the list is empty, but as long as the HTTP code is 200 OK, you're ready for the next steps.
+1. Select **Send request**. A response should appear in an adjacent pane. If you have existing indexes, they're listed. Otherwise, the list is empty. If the HTTP code is `200 OK`, you're ready for the next steps.
 
-   :::image type="content" source="media/search-get-started-rest/rest-client-request-setup.png" lightbox="media/search-get-started-rest/rest-client-request-setup.png" alt-text="Screenshot of a REST client configured for a search service request.":::
+   :::image type="content" source="media/search-get-started-rest/rest-client-request-setup.png" lightbox="media/search-get-started-rest/rest-client-request-setup.png" alt-text="Screenshot that shows a REST client configured for a search service request.":::
 
-    **Key points:**
+    Key points:
   
-    + Parameters are specified using an `@` prefix.
-    + `###` designates a REST call. The next line contains the request, which must include `HTTP/1.1`.
-    + `Send request` should appear above the request.
+    - Parameters are specified by using an `@` prefix.
+    - `###` designates a REST call. The next line contains the request, which must include `HTTP/1.1`.
+    - `Send request` should appear above the request.
 
 ## Create an index
 
 Add a second request to your `.rest` file. [Create Index (REST)](/rest/api/searchservice/create-index) creates a search index and sets up the physical data structures on your search service.
 
-1. Paste in the following example to create the hotels-quickstart index on your search service.
+1. Paste in the following example to create the `hotels-quickstart` index on your search service.
 
     ```http
     ### Create a new index
@@ -113,19 +112,19 @@ Add a second request to your `.rest` file. [Create Index (REST)](/rest/api/searc
         }
     ```
 
-1. Select **Send request**. You should have an `HTTP/1.1 201 Created` response and the response body should include the JSON representation of the index schema. 
+1. Select **Send request**. You should have an `HTTP/1.1 201 Created` response and the response body should include the JSON representation of the index schema.
 
-   If you get an `Header name must be a valid HTTP token ["{"]` error, make sure there's an empty line between the `api-key` and the body of the request. If you get HTTP 504, verify the URL specifies HTTPS. If you see HTTP 400 or 404, check the request body to verify there were no copy-paste errors. An HTTP 403 typically indicates a problem with the API key (either an invalid key or a syntax problem with how the API key is specified).
+   If you get a `Header name must be a valid HTTP token ["{"]` error, make sure there's an empty line between `api-key` and the body of the request. If you get HTTP 504, verify that the URL specifies HTTPS. If you see HTTP 400 or 404, check the request body to verify there were no copy-paste errors. An HTTP 403 typically indicates a problem with the API key. It's either an invalid key or a syntax problem with how the API key is specified.
 
-   You now have several requests in your file. Recall that `###` starts a new request, and each request executes independently.
+   You now have several requests in your file. Recall that `###` starts a new request and each request runs independently.
 
-   :::image type="content" source="media/search-get-started-rest/rest-client-multiple-calls.png" alt-text="Screenshot of REST client with multiple requests.":::
+   :::image type="content" source="media/search-get-started-rest/rest-client-multiple-calls.png" alt-text="Screenshot that shows the REST client with multiple requests.":::
 
 ### About the index definition
 
-Within the index schema, the fields collection defines document structure. Each document that you upload must have these fields, and each field must be assigned to an [EDM data type](/rest/api/searchservice/supported-data-types). String fields are used in full text search. If you want numeric data to be searchable, make sure the data type is `Edm.String`. Other data types such as `Edm.Int32` are filterable, sortable, facetable, and retrievable but not full-text searchable.
+Within the index schema, the fields collection defines document structure. Each document that you upload must have these fields. Each field must be assigned to an [Entity Data Model (EDM) data type](/rest/api/searchservice/supported-data-types). String fields are used in full text search. If you want numeric data to be searchable, make sure the data type is `Edm.String`. Other data types such as `Edm.Int32` are filterable, sortable, facetable, and retrievable but not full-text searchable.
 
-Attributes on the field determine allowed actions. The REST APIs allow [many actions by default](/rest/api/searchservice/create-index#request-body). For example, all strings are searchable and retrievable by default. For REST APIs, you might only have to attributes if you need to turn off a behavior.
+Attributes on the field determine allowed actions. The REST APIs allow [many actions by default](/rest/api/searchservice/create-index#request-body). For example, all strings are searchable and retrievable by default. For REST APIs, you might only have attributes if you need to turn off a behavior.
 
 ```json
 {
@@ -154,11 +153,11 @@ Attributes on the field determine allowed actions. The REST APIs allow [many act
 
 ## Load documents
 
-Creating and loading the index are separate steps. In Azure AI Search, the index contains all searchable data and queries execute on the search service. For REST calls, the data is provided as JSON documents. Use [Documents- Index REST API](/rest/api/searchservice/documents/) for this task. 
+Creating and loading the index are separate steps. In Azure AI Search, the index contains all searchable data and queries run on the search service. For REST calls, the data is provided as JSON documents. Use [Documents- Index REST API](/rest/api/searchservice/documents/) for this task.
 
 The URI is extended to include the `docs` collections and `index` operation.
 
-1. Paste in the following example to upload JSON documents to the search index, and then select **Send request**.
+- Paste in the following example to upload JSON documents to the search index. Then select **Send request**.
 
     ```http
     ### Upload documents
@@ -248,16 +247,16 @@ The URI is extended to include the `docs` collections and `index` operation.
         }
     ```
 
-In a few seconds, you should see an HTTP 201 response in the adjacent pane. If you get a 207, at least one document failed to upload. If you get a 404, you have a syntax error in either the header or body of the request: verify you changed the endpoint to include `/docs/index`.
+In a few seconds, you should see an HTTP 201 response in the adjacent pane. If you get a 207, at least one document failed to upload. If you get a 404, you have a syntax error in either the header or body of the request. Verify that you changed the endpoint to include `/docs/index`.
 
 ## Run queries
 
-Now that documents are loaded, you can issue queries against them using [Documents - Search Post (REST)](/rest/api/searchservice/documents/search-post).
+Now that documents are loaded, you can issue queries against them by using [Documents - Search Post (REST)](/rest/api/searchservice/documents/search-post).
 
-The URI is extended to include a query expression, specified using the `/docs/search` operator.
+The URI is extended to include a query expression, which is specified by using the `/docs/search` operator.
 
-1. Paste in the following example to query the search index, and then select **Send request**. A text search request always includes a `search` parameter. This example includes an optional `searchFields` parameter that constrains text search to specific fields.
-    
+1. Paste in the following example to query the search index. Then select **Send request**. A text search request always includes a `search` parameter. This example includes an optional `searchFields` parameter that constrains text search to specific fields.
+
     ```http
     ### Run a query
     POST {{baseUrl}}/indexes/hotels-quickstart/docs/search?api-version=2023-11-01  HTTP/1.1
@@ -272,7 +271,7 @@ The URI is extended to include a query expression, specified using the `/docs/se
         }
     ```
 
-1. Review the response in the adjacent pane. You should have a count indicating the number of matches found in the index, a search score indicating relevance, and values for each field listed in the `select` statement.
+1. Review the response in the adjacent pane. You should have a count that indicates the number of matches found in the index, a search score that indicates relevance, and values for each field listed in the `select` statement.
 
     ```json
     {
@@ -296,9 +295,9 @@ The URI is extended to include a query expression, specified using the `/docs/se
 
 ## Get index properties
 
-You can also use [Get Statistics](/rest/api/searchservice/indexes/get-statistics) to query for document counts and index size: 
+You can also use [Get Statistics](/rest/api/searchservice/indexes/get-statistics) to query for document counts and index size.
 
-1. Paste in the following example to query the search index, and then select **Send request**.
+1. Paste in the following example to query the search index. Then select **Send request**.
 
     ```http
     ### Get index statistics
@@ -322,9 +321,9 @@ You can also use [Get Statistics](/rest/api/searchservice/indexes/get-statistics
 
 When you're working in your own subscription, it's a good idea at the end of a project to identify whether you still need the resources you created. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
 
-You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
+You can find and manage resources in the portal by using the **All resources** or **Resource groups** link in the leftmost pane.
 
-You can also try this DELETE command:
+You can also try this `DELETE` command:
 
 ```http
 ### Delete an index
@@ -333,7 +332,7 @@ DELETE  {{baseUrl}}/indexes/hotels-quickstart?api-version=2023-11-01 HTTP/1.1
     api-key: {{apiKey}}
 ```
 
-## Next steps
+## Next step
 
 Now that you're familiar with the REST client and making REST calls to Azure AI Search, try another quickstart that demonstrates vector support.
 
