@@ -12,7 +12,7 @@ keywords: azure app service, web app, linux, windows, docker, container, sidecar
 
 In this tutorial, you add OpenTelemetry collector as a sidecar container to a Linux custom container app in Azure App Service. 
 
-In Azure App Service, you can add up to [TODO: #] sidecar containers for each custom container app. Sidecar containers let you deploy additional services and features to your container application without making them tightly coupled to your main application container. For example, you can add monitoring, logging, configuration, and networking services as sidecar containers. An OpenTelemetry collector sidecar is one such monitoring example. 
+In Azure App Service, you can add up to [TODO: #] sidecar containers for each custom container app. Sidecar containers let you deploy extra services and features to your container application without making them tightly coupled to your main application container. For example, you can add monitoring, logging, configuration, and networking services as sidecar containers. An OpenTelemetry collector sidecar is one such monitoring example. 
 
 For more information about sidecars, see [Sidecar pattern](/azure/architecture/patterns/sidecar).
 
@@ -130,7 +130,7 @@ You configure environment variables for the containers like any App Service app,
     - **Name**: *APPLICATIONINSIGHTS_CONNECTION_STRING*
     - **Value**: The connection string in the output of `azd provision`
 
-1. Selet **Save**, then select **Continue**.
+1. Select **Save**, then select **Continue**.
 
     :::image type="content" source="media/tutorial-custom-container-sidecar/configure-app-settings.png" alt-text="Screenshot showing a web app's Configuration page with two app settings added.":::
 
@@ -159,7 +159,7 @@ azd down
 
 ## Differences for sidecar-enabled containers
 
-Sidecar-enabled custom container apps differ from custom container apps that are not sidecar-enabled in that the settings are not set, especially in how you configure basic container settings. Custom container apps that are not sidecar-enabled are configured mainly using app settings, but sidecar-enabled custom container apps are configured directly as resource properties in the app. For example, these app settings don't apply for sidecar-enabled custom container apps:
+Sidecar-enabled custom container apps differ from custom container apps that aren't sidecar-enabled in that the settings aren't set, especially in how you configure basic container settings. Custom container apps that aren't sidecar-enabled are configured mainly using app settings, but sidecar-enabled custom container apps are configured directly as resource properties in the app. For example, these app settings don't apply for sidecar-enabled custom container apps:
 
 - Registry authentication settings: `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD`.
 - Container port: `WEBSITES_PORT`
