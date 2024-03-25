@@ -170,7 +170,7 @@ The [legacy on-premises management console](legacy-central-management/legacy-air
 
 - Sensor software versions released between **January 1st, 2024 – January 1st, 2025** will continue to support an on-premises management console release.
 
-- Air-gapped sensors that cannot connect to the cloud can be managed directly via the sensor console or using REST APIs.
+- Air-gapped sensors that can't connect to the cloud can be managed directly via the sensor console or using REST APIs.
 
 For more information, see:
 
