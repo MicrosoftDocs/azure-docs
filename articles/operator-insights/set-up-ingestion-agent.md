@@ -66,7 +66,7 @@ Managed identities are the preferred form of authentication if the ingestion age
 
 ### Service principal 
 
-If the ingestion agent is running outside of Azure, such as on-premises network then you can authenticate to the Key Vault using a service principal with a certificate credential. Each agent must also have a copy of the certificate stored on the virtual machine.
+If the ingestion agent is running outside of Azure, such as an on-premises network then you **cannot use managed identities** and must instead  authenticate to the Data Product Key Vault using a service principal with a certificate credential. Each agent must also have a copy of the certificate stored on the virtual machine.
 
 #### Create a service principal
 
