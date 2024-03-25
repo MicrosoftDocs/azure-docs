@@ -134,7 +134,7 @@ Pros and cons for supported topologies are summarized as follows:
 | Port 3 and Port 4 use an external switch with >=10Gbps link bandwidth, Port 1 and Port 2 in the same subnet, teamed virtual switch. | Load balancing. |   |
 |    | Higher fault tolerance. | Can't be deployed in an environment with different subnets. | 
 |    | Two independent, redundant paths between nodes. |   |
-|    | Clients do not need to reconnect. |  |
+|    | Clients don't need to reconnect. |  |
 
 ---
 
@@ -205,7 +205,7 @@ You can manage the Azure Stack Edge cluster via the PowerShell interface of the 
 
 A two-node clustered device upgrade will first apply the device updates followed by the Kubernetes cluster updates. Rolling updates to device nodes ensure minimal downtime of workloads. 
 
-When you apply these updates via the Azure portal, you only have to start the process on one node and both the nodes are updated.For step-by-step instructions, see [Apply updates to your two-node Azure Stack Edge device](azure-stack-edge-gpu-install-update.md).
+When you apply these updates via the Azure portal, you only have to start the process on one node and both the nodes are updated. For step-by-step instructions, see [Apply updates to your two-node Azure Stack Edge device](azure-stack-edge-gpu-install-update.md).
 
 ## Billing
 
