@@ -102,7 +102,7 @@ If you're using your own index, you can customize the [field mapping](#index-fie
 |---------------------|------------------------|---------------------| -------- |
 | *keyword*            | Keyword search                       | No additional pricing.                    |Performs fast and flexible query parsing and matching over searchable fields, using terms or phrases in any supported language, with or without operators.|
 | *semantic*          |  Semantic search  |  Additional pricing for [semantic search](/azure/search/semantic-search-overview#availability-and-pricing) usage.                  |Improves the precision and relevance of search results by using a reranker (with AI models) to understand the semantic meaning of query terms and documents returned by the initial search ranker|
-| *vector*            | Vector search       | No additional pricing |Enables you to find documents that are similar to a given query input based on the vector embeddings of the content. |
+| *vector*            | Vector search       | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model.     |Enables you to find documents that are similar to a given query input based on the vector embeddings of the content. |
 | *hybrid (vector + keyword)*   | A hybrid of vector search and keyword search | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model.            |Performs similarity search over vector fields using vector embeddings, while also supporting flexible query parsing and full text search over alphanumeric fields using term queries.|
 | *hybrid (vector + keyword) + semantic* | A hybrid of vector search, semantic search, and keyword search.     | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model, and additional pricing for [semantic search](/azure/search/semantic-search-overview#availability-and-pricing) usage.                    |Uses vector embeddings, language understanding, and flexible query parsing to create rich search experiences and generative AI apps that can handle complex and diverse information retrieval scenarios. |
 
@@ -279,7 +279,7 @@ To enable vector search, you need an existing embedding model deployed in your A
 | Search option       | Retrieval type | Additional pricing? |Benefits|
 |---------------------|------------------------|---------------------| -------- |
 | *keyword*            | Keyword search                       | No additional pricing.                    |Performs fast and flexible query parsing and matching over searchable fields, using terms or phrases in any supported language, with or without operators.|
-| *vector*            | Vector search       | No additional pricing |Enables you to find documents that are similar to a given query input based on the vector embeddings of the content. |
+| *vector*            | Vector search       | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model. |Enables you to find documents that are similar to a given query input based on the vector embeddings of the content. |
 
 
 ### Index field mapping 
