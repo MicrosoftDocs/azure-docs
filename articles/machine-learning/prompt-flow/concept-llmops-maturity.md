@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: ssahami1
 ms.author: sasahami
 ms.reviewer: sgilley; tahiguch; setuchokshi
-ms.date: 03/12/2024
+ms.date: 03/25/2024
 ---
 
 # Advance your maturity level for Large Language Model Operations (LLMOps)
@@ -18,11 +18,9 @@ Large Language Model Operations, or **LLMOps**, describes the operational practi
 
 :::image type="content" source="../media/concept-llmops-maturity/llmopsml.png" alt-text="Diagram shows maturity level of LLMOps" lightbox="../media/concept-llmops-maturity/llmopsml.png":::
 
-[**Start by answering this questionnaire**]() to assesses your organization's current LLMOps maturity level. The questionnaire is designed to help you understand your organization's current capabilities and identify areas for improvement.
+Use the descriptions below to find your *LLMOps Maturity Model* ranking level. These levels provide a general understanding and practical application level of your organization. The guidelines provide you with helpful links to expand your LLMOps knowledge base.  
 
-Your results from the questionnaire corresponds to a *LLMOps Maturity Model* ranking level, providing a general understanding and practical application level of your organization. These guidelines provide you with helpful links to expand your LLMOps knowledge base.  
-
-## <a name="level1"></a>Level 1 - initial foundational stage
+## <a name="level1"></a>Level 1 - initial
 
 **Description:** Your organization is at the initial foundational stage of LLMOps maturity. You're exploring the capabilities of LLMs but haven't yet developed structured practices or systematic approaches.
 
@@ -43,7 +41,7 @@ To better understand LLMOps, consider available MS Learning courses and workshop
 - [***Microsoft Azure AI Fundaments: GenAI***](/training/paths/introduction-generative-ai/)
 - [***GenAI for Beginners Course***](https://techcommunity.microsoft.com/t5/educator-developer-blog/generative-ai-for-beginners-a-12-lesson-course/ba-p/3968583)
 
-## <a name="level2"></a> Level 2 - systemizing LLMops development
+## <a name="level2"></a> Level 2 - defined
 
 **Description:** Your organization has started to systematize LLM operations, with a focus on structured development and experimentation. However, there's room for more sophisticated integration and optimization.
 
@@ -61,7 +59,7 @@ To improve your capabilities and skills, learn how to develop more complex promp
 - [***Azure Content Safety***](/azure/ai-services/content-safety/overview)
 - [***Responsible AI Tools and Practices***](https://azure.microsoft.com/blog/infuse-responsible-ai-tools-and-practices-in-your-llmops/#:~:text=Azure%20AI%20offers%20robust%20tools,or%20build%20your%20own%20metrics)
 
-## <a name="level3"></a> Level 3 - managing advanced workflows
+## <a name="level3"></a> Level 3 - managed
 
 **Description:** Your organization is managing advanced LLM workflows with proactive monitoring and structured deployment strategies. You're close to achieving operational excellence.
 
@@ -74,7 +72,7 @@ To expand your base knowledge, focus on continuous improvement and innovation in
 - [***GenAI Model Monitoring***](/azure/machine-learning/prompt-flow/how-to-monitor-generative-ai-applications)
 - [***Elevate LLM Apps to Production with LLMOps***](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/elevate-your-llm-applications-to-production-via-llmops/ba-p/3979114)
 
-## <a name="level4"></a> Level 4 - achieved operational excellence
+## <a name="level4"></a> Level 4 - optimized
 
 **Description:** Your organization demonstrates operational excellence in LLMOps. You have a sophisticated approach to LLM application development, deployment, and monitoring.
 
