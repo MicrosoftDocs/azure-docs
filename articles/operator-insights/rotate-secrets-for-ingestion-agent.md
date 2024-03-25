@@ -25,7 +25,7 @@ None.
 ## Rotate certificates
 
 1. Create a new certificate, and add it to the service principal. For instructions, refer to [Upload a trusted certificate issued by a certificate authority](/entra/identity-platform/howto-create-service-principal-portal).
-1. Obtain the new certificate and private key in the base64-encoded P12 format, as described in [Set up Ingestion Agents for Azure Operator Insights](set-up-ingestion-agent.md#prepare-certificates).
+1. Obtain the new certificate and private key in the base64-encoded P12 format, as described in [Set up Ingestion Agents for Azure Operator Insights](set-up-ingestion-agent.md#prepare-certificates-for-the-service-principal).
 1. Copy the certificate to the ingestion agent VM.
 1. Save the existing certificate file and replace with the new certificate file.
 1. Restart the agent.

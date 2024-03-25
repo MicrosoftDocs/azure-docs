@@ -54,17 +54,15 @@ The ingestion agent must be able to authenticate with the Azure Key Vault create
 > [!IMPORTANT]
 > You may need a Microsoft Entra tenant administrator in your organization to perform this setup for you.
 
-### Managed identity
+### Use a managed identity for authentication
 
 If the ingestion agent is running in Azure, we recommend managed identities. For more detailed information, see the [overview of managed identities](managed-identity.md#overview-of-managed-identities).
 
 > [!NOTE]
 > The ingestion agent runs on a standard Azure VM and supports both system-assigned and user-assigned managed identity. For multiple agents, a user-assigned managed identity is simpler as you can authorise the identity to the Data Product Key Vault for all VMs running the agent.
 
-#### Create a managed identity
-
-1. Create or obtain a user-assigned managed identity, follow the instructions in [Manage user-assigned managed identities](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md). If you plan to use a system-assigned managed identity, do not create a user-assigned managed identity.
-1. Follow the instructions in [Configure managed identities for Azure resources on a VM using the Azure portal](/entra/identity/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) according to the type of managed identity being used.
+1. Create or obtain a user-assigned managed identity, follow the instructions in [Manage user-assigned managed identities](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities). If you plan to use a system-assigned managed identity, do not create a user-assigned managed identity.
+1. Follow the instructions in [Configure managed identities for Azure resources on a VM using the Azure portal](/entra/identity/managed-identities-azure-resources/qs-configure-portal-windows-vm) according to the type of managed identity being used.
 1. Note the Object ID of the managed identity. This is a UUID of the form xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx, where each character is a hexadecimal digit.
 
 You can now [grant permissions for the Data Product Key Vault](#grant-permissions-for-the-data-product-key-vault).
@@ -75,7 +73,7 @@ If the ingestion agent is running outside of Azure, such as an on-premises netwo
 
 #### Create a service principal
 
-1. Create or obtain a Microsoft Entra ID service principal. Follow the instructions detailed in [Create a Microsoft Entra app and service principal in the portal](/entra/identity-platform/howto-create-service-principal-portal.md). Leave the **Redirect URI** field empty.
+1. Create or obtain a Microsoft Entra ID service principal. Follow the instructions detailed in [Create a Microsoft Entra app and service principal in the portal](/entra/identity-platform/howto-create-service-principal-portal). Leave the **Redirect URI** field empty.
 1. Note the Application (client) ID, and your Microsoft Entra Directory (tenant) ID (these IDs are UUIDs of the form xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx, where each character is a hexadecimal digit).
 
 #### Prepare certificates for the service principal
@@ -140,7 +138,7 @@ Repeat these steps for each VM onto which you want to install the agent.
     sudo dnf install systemd logrotate zip
     ```
 1. Obtain the ingestion agent RPM and copy it to the VM.
-1. If you are using a service principal, copy the base64-encoded P12 certificate (created in the [Prepare certificates](#prepare-certificates) step) to the VM, in a location accessible to the ingestion agent.
+1. If you are using a service principal, copy the base64-encoded P12 certificate (created in the [Prepare certificates](#prepare-certificates-for-the-service-principal) step) to the VM, in a location accessible to the ingestion agent.
 1. Configure the agent VM based on the type of ingestion source.
 
     # [SFTP sources](#tab/sftp)
