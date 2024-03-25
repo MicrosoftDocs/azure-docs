@@ -87,9 +87,9 @@ The ingestion agent only supports certificate credentials for service principals
 3. Ensure the certificates are available in PKCS#12 (P12) format, with no passphrase protecting them. 
     - If the certificate is stored in an Azure Key Vault, download the certificate in the PFX format. PFX is identical to P12.
     - On Linux, you can convert a certificate and private key using OpenSSL. When prompted for an export password, press <kbd>Enter</kbd> to supply an empty passphrase. This can then be stored in an Azure Key Vault as outlined in step 1.
-            ```
-            openssl pkcs12 -nodes -export -in <certificate.pem> -inkey <key.pem> -out <certificate.p12>
-            ```
+    ```
+    openssl pkcs12 -nodes -export -in <certificate.pem> -inkey <key.pem> -out <certificate.p12>
+    ```
 
 > [!IMPORTANT]
 > The P12 file must not be protected with a passphrase.
