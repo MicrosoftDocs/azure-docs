@@ -12,11 +12,11 @@ ms.custom: template-how-to-pattern #Required; leave this attribute/value as-is.
 # Implement Signing Integrations with Trusted Signing
 
 Trusted Signing currently supports the following signing integrations: 
-•	SignTool
-•	GitHub Action 
-•	ADO Task
-•	PowerShell for Authenticode
-•	Azure PowerShell - App Control for Business CI Policy
+* SignTool
+* GitHub Action 
+* ADO Task
+* PowerShell for Authenticode
+* Azure PowerShell - App Control for Business CI Policy
 We constantly work to support more signing integrations and will update the above list if/when more are available. 
 
 This article explains how to set up each of the above Trusted Signing signing integrations.

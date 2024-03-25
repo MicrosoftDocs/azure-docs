@@ -43,7 +43,7 @@ sections:
           *[Review permissions granted to applications](https://learn.microsoft.com/entra/identity/enterprise-apps/manage-application-permissions?pivots=portal.
       - question: What if I don’t see Microsoft.CodeSigning in my resource provider? 
         answer: | 
-          Register the Microsoft.CodeSigning app in the subscription resource provider page using the below screenshot as a guide: :::image type="content" source="media/trusted-signing-resource-provider.png" alt-text="Screenshot of registering Microsoft.CodeSigning resource provider."::: 
+          Register the Microsoft.CodeSigning app in the subscription resource provider page using the below screenshot as a guide: :::image type="content" source="media/trusted-signing-resource-provider.png" alt-text="Screenshot of registering Microsoft.CodeSigning resource provider." lightbox="media/trusted-signing-resource-provider.png"::: 
       - question: What if I fail identity validation?
         answer: | 
           If more documentation is required for identity validation, you're asked to provide those documents on the Azure portal. Otherwise, we recommend checking for an email sent to the listed address for email validation. However, if your organization fails identity validation we can't onboard you to Trusted Signing. We recommend you delete your Trusted Signing account so you don't get billed for unused resources.
