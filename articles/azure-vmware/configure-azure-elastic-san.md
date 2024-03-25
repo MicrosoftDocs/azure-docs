@@ -57,7 +57,7 @@ In this section, you create a virtual network for your Elastic SAN. Then you cre
 	- [Azure CLI](/azure/storage/elastic-san/elastic-san-create?tabs=azure-cli)
 1. Use one of the following instructions to configure a Private Endpoint (PE) for your Elastic SAN:
 	> [!IMPORTANT]
-	> Configure a Private Endpoint for your Elasic SAN in the same region and availability zone as your private cloud for best performance.
+	> You must have a Private Endpoint set up for your dedicated volume group to be able to connect your SDDC to the Elastic SAN.
 	- [PowerShell](/azure/storage/elastic-san/elastic-san-networking?tabs=azure-powershell#configure-a-private-endpoint)
 	- [Azure CLI](/azure/storage/elastic-san/elastic-san-networking?tabs=azure-cli#tabpanel_2_azure-cli)
 
