@@ -571,6 +571,7 @@ Make sure that you made the code changes to use the `java:comp/env/jdbc/AZURE_MY
 - [How much does this setup cost?](#how-much-does-this-setup-cost)
 - [How do I connect to the MySQL server behind the virtual network with other tools?](#how-do-i-connect-to-the-mysql-server-behind-the-virtual-network-with-other-tools)
 - [How does local app development work with GitHub Actions?](#how-does-local-app-development-work-with-github-actions)
+- [I don't have permissions to create a user-assigned identity](#i-dont-have-permissions-to-create-a-user-assigned-identity)
 
 #### How much does this setup cost?
 
