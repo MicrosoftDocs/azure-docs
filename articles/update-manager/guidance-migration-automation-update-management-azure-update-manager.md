@@ -8,7 +8,7 @@ ms.date: 03/24/2024
 ms.author: sudhirsneha
 ---
 
-# Guidance to move virtual machines from Automation Update Management to Azure Update Manager
+# Move from Automation Update Management to Azure Update Manager
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
