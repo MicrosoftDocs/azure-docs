@@ -2,7 +2,7 @@
 title: Microsoft Defender for IoT billing
 description: Learn how you're billed for the Microsoft Defender for IoT service.
 ms.topic: concept-article
-ms.date: 11/07/2023
+ms.date: 03/25/2024
 ms.custom: enterprise-iot
 #CustomerIntent: As a Defender for IoT customer, I want to understand how I'm billed for Defender for IoT services so that I can best plan my deployment.
 ---
