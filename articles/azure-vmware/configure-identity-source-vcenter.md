@@ -3,7 +3,7 @@ title: Set an external identity source for vCenter Server
 description: Learn how to set Windows Server Active Directory over LDAP or LDAPS for VMware vCenter Server as an external identity source.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 12/06/2023
+ms.date: 3/22/2024
 ms.custom: engagement-fy23
 ---
 
@@ -17,7 +17,7 @@ In this article, you learn how to:
 >
 > - Export a certificate for LDAPS authentication. (Optional)
 > - Upload the LDAPS certificate to blob storage and generate a shared access signature (SAS) URL. (Optional)
-> - Configure NSX-T DNS for resolution to your Windows Server Active Directory domain.
+> - Configure NSX DNS for resolution to your Windows Server Active Directory domain.
 > - Add Windows Server Active Directory by using LDAPS (secure) or LDAP (unsecured).
 > - Add an existing Windows Server Active Directory group to the CloudAdmin group.
 > - List all existing external identity sources that are integrated with vCenter Server SSO.
@@ -304,6 +304,6 @@ To remove all existing external identity sources at once, run the Remove-Externa
 ## Related content
 
 - [Create a storage policy](configure-storage-policy.md)
-- [Azure VMware Solution identity concepts](concepts-identity.md)
-- [Set an external identity source for NSX-T Data Center](configure-external-identity-source-nsx-t.md)
+- [Azure VMware Solution identity architecture](architecture-identity.md)
+- [Set an external identity source for NSX](configure-external-identity-source-nsx-t.md)
 - [VMware product documentation](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-DB5A44F1-6E1D-4E5C-8B50-D6161FFA5BD2.html)
