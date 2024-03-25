@@ -130,8 +130,8 @@ spec:
 4. Once deployed, you can view the rules in the Azure Portal as described in - [Prometheus Alerts](../essentials/prometheus-rule-groups.md#view-prometheus-rule-groups)
 
 > [!Note] 
-> Learn more about [Prometheus Alerts](../essentials/prometheus-rule-groups.md)
-> If you want to use any other OSS prometheus alerting/recording rules please use the converter here to create the azure equivalent prometheus rules [az-prom-rules-converter](https://aka.ms/az-prom-rules-converter)
+> Learn more about [Prometheus Alerts](../essentials/prometheus-rule-groups.md).</br>
+> If you want to use any other OSS prometheus alerting/recording rules please use the converter here to create the azure equivalent prometheus rules [az-prom-rules-converter](https://aka.ms/az-prom-rules-converter).</br>
 > Please note that the above rules are not scoped to a cluster. If you would like to scope the rules to a specific cluster, see [Limiting rules to a specific cluster](../essentials/prometheus-rule-groups.md#limiting-rules-to-a-specific-cluster) for more details.
 
 ### Import the Grafana Dashboard
