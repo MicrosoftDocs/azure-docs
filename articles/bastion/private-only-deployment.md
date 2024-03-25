@@ -4,7 +4,7 @@ description: Learn how to deploy Bastion for a private-only scenario.
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 03/15/2024
+ms.date: 03/25/2024
 ms.author: cherylmc
 
 ---
