@@ -55,7 +55,7 @@ Once the tar file is generated, exit your cluster and use the following command 
 
 This command is familiar—it’s the same one you’ve used before to access the Nexus Kubernetes cluster node. Now, all you need to do is run it again to copy files from the node to your local machine, just by adding the cat command at the end.
 
-```
+```azurecli
 az ssh arc --subscription $SUBSCRIPTION_ID \
     --resource-group $MANAGED_RESOURCE_GROUP \
     --name <VM Name> \
