@@ -49,7 +49,8 @@ First you create the resources that the tutorial uses (for more information, see
 
 1. Open the resource group link in a browser tab. You'll need to use the connection string later.
 
-    > [!NOTE] `azd provision` uses the included templates to create the following Azure resources:
+    > [!NOTE]
+    > `azd provision` uses the included templates to create the following Azure resources:
     > 
     > - A resource group
     > - A [container registry](../container-registry/container-registry-intro.md) with two images deployed:
@@ -133,7 +134,8 @@ You configure environment variables for the containers like any App Service app,
 
     :::image type="content" source="media/tutorial-custom-container-sidecar/configure-app-settings.png" alt-text="Screenshot showing a web app's Configuration page with two app settings added.":::
 
-> [!NOTE] Certain app settings don't apply to sidecar-enabled custom container apps. For more information, see [Differences for sidecar-enabled containers](#differences-for-sidecar-enabled-containers)
+> [!NOTE]
+> Certain app settings don't apply to sidecar-enabled custom container apps. For more information, see [Differences for sidecar-enabled containers](#differences-for-sidecar-enabled-containers)
 
 ## 5. Verify in Application Insights
 
