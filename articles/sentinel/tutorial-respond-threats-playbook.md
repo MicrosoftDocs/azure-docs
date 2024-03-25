@@ -258,14 +258,30 @@ To create an automation rule:
 
 1. The **Create new automation rule** panel opens. Enter a name for your rule.
 
+    Your options differ depending on whether your workspace is onboarded to the unified SOC platform. For example:
+
+    #### [Onboarded workspaces](#tab/after-onboarding)
+
+    :::image type="content" source="./media/tutorial-respond-threats-playbook/create-automation-rule-onboarded.png" alt-text="Screenshot showing the automation rule creation wizard.":::
+
+    #### [Workspaces that aren't onboarded](#tab/before-onboarding)
+
    :::image type="content" source="./media/tutorial-respond-threats-playbook/create-automation-rule.png" alt-text="Screenshot showing the automation rule creation wizard.":::
+
+    ---
 
 1. **Trigger:** Select the appropriate trigger according to the circumstance for which you're creating the automation rule&mdash;**When incident is created**, **When incident is updated**, or **When alert is created**.
 
 1. **Conditions:**
-    1. Incidents can have two possible sources: they can be created inside Microsoft Sentinel, and they can also be [imported from&mdash;and synchronized with&mdash;Microsoft Defender XDR](microsoft-365-defender-sentinel-integration.md).
-    
-        If you selected one of the incident triggers and you want the automation rule to take effect only on incidents sourced in Microsoft Sentinel, or alternatively in Microsoft Defender XDR, specify the source in the **If Incident provider equals** condition. (This condition will be displayed only if an incident trigger is selected.)
+
+    1. If your workspace is not yet onboarded to the unified SOC platform, incidents can have two possible sources:
+
+        - Incidents can be created inside Microsoft Sentinel
+        - Incidents can be be [imported from&mdash;and synchronized with&mdash;Microsoft Defender XDR](microsoft-365-defender-sentinel-integration.md). 
+
+        If you selected one of the incident triggers and you want the automation rule to take effect only on incidents sourced in Microsoft Sentinel, or alternatively in Microsoft Defender XDR, specify the source in the **If Incident provider equals** condition.
+
+        This condition will be displayed only if an incident trigger is selected and your workspace isn't onboarded to the unified SOC platform.
 
     1. For all trigger types, if you want the automation rule to take effect only on certain analytics rules, specify which ones by modifying the **If Analytics rule name contains** condition.
 
@@ -398,7 +414,7 @@ The **Actions** column might also show one of the following statuses:
 
 |Status  |Description and action required |
 |---------|---------|
-|<a name="missing-perms"></a>**Missing permissions**      | You must have the *Logic App Contributor* role on any resource group containing playbooks you want to run. If you're missing permissions, we recommend you contact an admin to grant you with the relevant permissions. <br><br>For more information, see [Permissions required to work with playbooks](automate-responses-with-playbooks.md#permissions-required).|
+|<a name="missing-perms"></a>**Missing permissions**      | You must have the *Microsoft Sentinel playbook operator* role on any resource group containing playbooks you want to run. If you're missing permissions, we recommend you contact an admin to grant you with the relevant permissions. <br><br>For more information, see [Permissions required to work with playbooks](automate-responses-with-playbooks.md#permissions-required).|
 |<a name="grant-perms"></a>**Grant permission**     | Microsoft Sentinel is missing the *Microsoft Sentinel Automation Contributor* role, which is required to run playbooks on incidents. In such cases, select **Grant permission** to open the **Manage permissions** pane. The **Manage permissions** pane is filtered by default to the selected playbook's resource group. Select the resource group and then select **Apply** to grant the required permissions. <br><br>You must be an *Owner* or a *User access administrator* on the resource group to which you want to grant Microsoft Sentinel permissions. If you're missing permissions, the resource group is greyed out and you won't be able to select it. In such cases, we recommend you contact an admin to grant you with the relevant permissions. <br><br>For more information, see the note above](#explicit-permissions).  |
 
 ---

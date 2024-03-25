@@ -118,8 +118,9 @@ There are many differences between these two resource types, some of which affec
 
 - **Microsoft Sentinel Contributor** role lets you attach a playbook to an analytics or automation rule.
 - **Microsoft Sentinel Responder** role lets you access an incident in order to run a playbook manually. But to actually run the playbook, you also need...
-- **Microsoft Sentinel Playbook Operator** role lets you run a playbook manually.
-- **Microsoft Sentinel Automation Contributor** allows automation rules to run playbooks. It is not used for any other purpose.
+
+    - **Microsoft Sentinel Playbook Operator** role lets you run a playbook manually.
+    - **Microsoft Sentinel Automation Contributor** allows automation rules to run playbooks. It is not used for any other purpose.
 
 #### Learn more
 
