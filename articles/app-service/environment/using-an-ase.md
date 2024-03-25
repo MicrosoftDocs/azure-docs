@@ -4,7 +4,7 @@ description: Learn how to create, publish, and scale apps in an App Service Envi
 author: madsd
 ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.topic: article
-ms.date: 03/29/2022
+ms.date: 03/25/2024
 ms.author: madsd
 ---
 # Manage an App Service Environment
