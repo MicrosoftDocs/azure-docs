@@ -37,6 +37,10 @@ Here, we'll learn how to enable push notifications for Azure Communication Servi
 [!INCLUDE [Enable push notifications iOS](./includes/push-notifications/push-notifications-ios.md)]
 ::: zone-end
 
+::: zone pivot="platform-windows"
+[!INCLUDE [Enable push notifications Windows](./includes/push-notifications/push-notifications-windows.md)]
+::: zone-end
+
 ## Next steps
 - [Learn how to subscribe to events](./events.md)
 - [Learn how to manage calls](./manage-calls.md)
