@@ -5,7 +5,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.topic: conceptual
 ms.service: cache
-ms.date: 01/29/2024
+ms.date: 03/25/2024
 ms.custom: subject-monitoring
 ---
 
@@ -18,6 +18,8 @@ For more information about Azure Monitor for Azure Cache for Redis, see [Monitor
 ## View insights from Azure Monitor
 
 You can access Azure Cache for Redis insights from the **Insights Hub** of Azure Monitor.
+
+To view the utilization and performance of your Azure Cache for Redis instances across all of your subscriptions, do the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 

@@ -143,7 +143,7 @@ items:
               href: event-grid-dotnet-get-started-pull-delivery.md
         - name: Push delivery
           items:
-          - name: Publish and deliver events using namespace topics
+          - name: Deliver events to Azure Event Hubs using namespace topics
             items:
             - name: Azure CLI
               href: publish-deliver-events-with-namespace-topics.md
