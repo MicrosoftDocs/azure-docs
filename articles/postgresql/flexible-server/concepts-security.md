@@ -16,9 +16,6 @@ ms.devlang: python
 
 # Security in Azure Database for PostgreSQL - Flexible Server
 
-For information about the free trial, please visit [here](link-to-free-trial).
-
-
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 Multiple layers of security are available to help protect the data on your Azure Database for PostgreSQL - Flexible Server instance. This article outlines those security options.
