@@ -571,12 +571,12 @@ If you don't specify values for `memoryThreshold` and `outOfMemoryWatch`, the de
 By default, the `log-level` for Flux controllers is set to ‘info’. Starting with [`microsoft.flux` v1.8.3](extensions-release.md#flux-gitops), you can modify these default settings using the `k8s-extension` command as follows:
 
 ```azurecli
---config helm-controller.log-level=<log/error/debug>
---config source-controller.log-level=<log/error/debug>
---config kustomize-controller.log-level=<log/error/debug>
---config notification-controller.log-level=<log/error/debug>
---config image-automation-controller.log-level=<log/error/debug>
---config image-reflector-controller.log-level=<log/error/debug>
+--config helm-controller.log-level=<info/error/debug>
+--config source-controller.log-level=<info/error/debug>
+--config kustomize-controller.log-level=<info/error/debug>
+--config notification-controller.log-level=<info/error/debug>
+--config image-automation-controller.log-level=<info/error/debug>
+--config image-reflector-controller.log-level=<info/error/debug>
 ```
 
 Valid values are `debug`, `info`, or `error`. These values are only configurable for the controllers listed above; they don't apply to the `fluxconfig-agent` and `fluxconfig-controller`.
