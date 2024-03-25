@@ -50,16 +50,12 @@ For workload specific versions, see
 - Security fixes from Ambari and Oozie components
 
 
-## ![Icon showing coming soon.](./media/hdinsight-release-notes/clock.svg) Coming soon
+## :::image type="icon" border="false" source="./media/hdinsight-release-notes/clock.svg"::: Coming soon
 
 * Basic and Standard A-series VMs Retirement.
    * On August 31, 2024, we'll retire Basic and Standard A-series VMs. Before that date, you need to migrate your workloads to Av2-series VMs, which provide more memory per vCPU and faster storage on solid-state drives (SSDs).
    * To avoid service disruptions, [migrate your workloads](https://aka.ms/Av1retirement) from Basic and Standard A-series VMs to Av2-series VMs before August 31, 2024.
  
-## Known issues
-
-- HMS secrets failure v1.1 HTTP 401
-
 If you have any more questions, contact [Azure Support](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).
 
 You can always ask us about HDInsight on [Azure HDInsight - Microsoft Q&A](/answers/tags/168/azure-hdinsight)

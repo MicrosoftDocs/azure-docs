@@ -69,13 +69,13 @@ The reservation product owner (transfer request recipient) must have one of the 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using CSP Admin Agent credentials in the CSP tenant.
 1. Search for **Cost Management + Billing**.  
-    ![Screenshot that shows Azure portal search for cost management + billing to request billing ownership.](./media/mpa-request-ownership/search-cmb.png)
+    :::image type="content" border="true" source="./media/mpa-request-ownership/search-cmb.png" alt-text="Screenshot that shows Azure portal search for cost management + billing to request billing ownership.":::
 1. Select **Customers** from the left-hand side and then select a customer from the list.  
-    [![Screenshot that shows selecting customers](./media/mpa-request-ownership/mpa-select-customers.png)](./media/mpa-request-ownership/mpa-select-customers.png#lightbox)
+    :::image type="content" border="true" source="./media/mpa-request-ownership/mpa-select-customers.png" lightbox="./media/mpa-request-ownership/mpa-select-customers.png" alt-text="Screenshot that shows selecting customers.":::
 1. Select **Transfer requests** from the lower-left side and then select **Add a new request**.  
-    [![Screenshot that shows selecting transfer requests](./media/mpa-request-ownership/mpa-select-transfer-requests.png)](./media/mpa-request-ownership/mpa-select-transfer-requests.png#lightbox)
+    :::image type="content" border="true" source="./media/mpa-request-ownership/mpa-select-transfer-requests.png" lightbox="./media/mpa-request-ownership/mpa-select-transfer-requests.png" alt-text="Screenshot that shows selecting transfer requests.":::
 1. Enter the email address of the user in the customer organization who will accept the transfer request. Select **Send transfer request**.  
-    [![Screenshot that shows sending a transfer request](./media/mpa-request-ownership/mpa-send-transfer-requests.png)](./media/mpa-request-ownership/mpa-send-transfer-requests.png#lightbox)
+    :::image type="content" border="true" source="./media/mpa-request-ownership/mpa-send-transfer-requests.png" lightbox="./media/mpa-request-ownership/mpa-send-transfer-requests.png" alt-text="Screenshot that shows sending a transfer request.":::
 
 
 ## Review and approve transfer request
@@ -112,12 +112,12 @@ On the Review request tab, the following status messages might be displayed.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for **Cost Management + Billing**.  
-    ![Screenshot that shows Azure portal search for cost management + billing to request transfer status.](./media/mpa-request-ownership/billing-search-cost-management-billing.png)
+    :::image type="content" border="true" source="./media/mpa-request-ownership/billing-search-cost-management-billing.png" alt-text="Screenshot that shows Azure portal search for cost management + billing to request transfer status.":::
 1. Select **Customers** from the left-hand side.  
-    [![Screenshot that shows selecting customers](./media/mpa-request-ownership/mpa-select-customers.png)](./media/mpa-request-ownership/mpa-select-customers.png#lightbox)
+    :::image type="content" border="true" source="./media/mpa-request-ownership/mpa-select-customers.png" lightbox="./media/mpa-request-ownership/mpa-select-customers.png" alt-text="Screenshot that shows selecting customers.":::
 1. Select the customer from the list for which you sent the transfer request.
 1. Select **Transfer requests** from the lower-left side. The Transfer requests page displays the following information:
-    [![Screenshot that shows list of transfer requests](./media/mpa-request-ownership/mpa-select-transfer-requests-for-status.png)](./media/mpa-request-ownership/mpa-select-transfer-requests-for-status.png#lightbox)
+    :::image type="content" border="true" source="./media/mpa-request-ownership/mpa-select-transfer-requests-for-status.png" lightbox="./media/mpa-request-ownership/mpa-select-transfer-requests-for-status.png" alt-text="Screenshot that shows list of transfer requests.":::
 
    |Column|Definition|
    |---------|---------|
@@ -139,7 +139,7 @@ On the Review request tab, the following status messages might be displayed.
    |Declined|The user declined the transfer request|
 
 1. Select a transfer request to view details. The transfer details page displays the following information:
-   [![Screenshot that shows list of transferred subscriptions](./media/mpa-request-ownership/mpa-transfer-completed.png)](./media/mpa-request-ownership/mpa-transfer-completed.png#lightbox)
+   :::image type="content" border="true" source="./media/mpa-request-ownership/mpa-transfer-completed.png" lightbox="./media/mpa-request-ownership/mpa-transfer-completed.png" alt-text="Screenshot that shows list of transferred subscriptions.":::
 
    |Column  |Definition|
    |---------|---------|

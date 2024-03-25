@@ -7,7 +7,7 @@ ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 04/05/2023
+ms.date: 03/21/2024
 ms.author: banders
 ---
 
@@ -27,7 +27,7 @@ To resolve this issue, try one of the following options:
 
 Only the email that has the account administrator role for the subscription can view its invoice. Verify that you've signed in with the correct email address. The email address is displayed in the email that you received when your invoice is generated.  
 
-  ![Screenshot that shows invoice email](./media/troubleshoot-cant-find-invoice/invoice-email.png)
+  :::image type="content" border="true" source="./media/troubleshoot-cant-find-invoice/invoice-email.png" alt-text="Screenshot that shows invoice email.":::
 
 **Verify that you're signed in with the correct account:**
 
@@ -36,7 +36,7 @@ Some customers have two accounts with the same email address - a work or a schoo
 1. Sign in to the [Azure portal](https://portal.azure.com) in an InPrivate/Incognito window.
 1. If you have multiple accounts with the same email, then you'll be prompted to select either **Work or school account** or **Personal account**. Select one of the accounts then follow the [instructions here to view your invoice](../understand/download-azure-invoice.md#download-your-mosp-azure-subscription-invoice).  
 
-    ![Screenshot that shows account selection](./media/troubleshoot-cant-find-invoice/two-accounts.png)
+    :::image type="content" border="true" source="./media/troubleshoot-cant-find-invoice/two-accounts.png" alt-text="Screenshot that shows account selection.":::
 
 1. Try other account, if you still can't view the invoice in the Azure portal.
 
@@ -48,11 +48,11 @@ Your billing account and subscription is associated with a Microsoft Entra tenan
 1. Select your email address from the top-right of the page.
 1. Select Switch directory.  
 
-    ![Screenshot that shows selecting switch directory](./media/troubleshoot-cant-find-invoice/select-switch-tenant.png)
+    :::image type="content" border="true" source="./media/troubleshoot-cant-find-invoice/select-switch-tenant.png" alt-text="Screenshot that shows selecting switch directory.":::
 
 1. Select a tenant from the All Directories section. If you don't see All Directories section, you don't have access to multiple tenants.  
 
-    ![Screenshot that shows selecting another directory](./media/troubleshoot-cant-find-invoice/select-another-tenant.png)
+    :::image type="content" border="true" source="./media/troubleshoot-cant-find-invoice/select-another-tenant.png" alt-text="Screenshot that shows selecting another directory.":::
 
 #### <a name="cantsearchinvoice"></a>You couldn't find the invoice that you see on your credit card statement
 
@@ -62,7 +62,7 @@ You find a charge on your credit card **Microsoft Gxxxxxxxxx**. You can find all
 1. Search for the invoice number in the Azure portal search bar.
 1. Select **View your invoice**.  
 
-    ![Screenshot that shows searching for invoice](./media/troubleshoot-cant-find-invoice/search-invoice.png)
+    :::image type="content" border="true" source="./media/troubleshoot-cant-find-invoice/search-invoice.png" alt-text="Screenshot that shows searching for invoice.":::
 
 ## Contact us for help
 

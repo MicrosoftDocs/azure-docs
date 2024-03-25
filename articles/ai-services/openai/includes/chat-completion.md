@@ -110,6 +110,8 @@ Microsoft was founded by Bill Gates and Paul Allen. They established the company
 
 # [OpenAI Python 0.28.1](#tab/python)
 
+[!INCLUDE [Deprecation](../includes/deprecation.md)]
+
 ```python
 import os
 import openai

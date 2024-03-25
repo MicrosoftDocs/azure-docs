@@ -83,7 +83,7 @@ wget https://dl.google.com/android/repository/android-ndk-r16b-linux-x86_64.zip
 unzip -q -o android-ndk-r16b-linux-x86_64.zip
 export PATH=$PATH:$(pwd)/android-ndk-r16b
 export NDK_PROJECT_PATH=$(pwd)/android-ndk-r16b
-wget https://gstreamer.freedesktop.org/data/pkg/android/1.14.4/gstreamer-1.0-android-universal-1.14.4.tar.bz2
+wget https://gstreamer.freedesktop.org/download/
 mkdir gstreamer_android
 tar -xjf gstreamer-1.0-android-universal-1.14.4.tar.bz2 -C $(pwd)/gstreamer_android/
 export GSTREAMER_ROOT_ANDROID=$(pwd)/gstreamer_android
