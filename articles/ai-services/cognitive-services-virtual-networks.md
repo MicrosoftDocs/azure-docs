@@ -595,6 +595,9 @@ curl -i -X PATCH https://management.azure.com$rid?api-version=2023-10-01-preview
 '
 ```
 
+> [!NOTE]
+> The trusted service feature is only available using the command line described above, and cannot be done using the Azure portal.
+
 To revoke the exception, set `networkAcls.bypass` to `None`. 
 
 To verify if the trusted service has been enabled from the Azure portal, 
@@ -606,9 +609,6 @@ To verify if the trusted service has been enabled from the Azure portal,
 1.  Choose the latest API version under **API versions**, for example `2023-10-01-preview` .
 
     :::image type="content" source="media/vnet/virtual-network-trusted-service.png" alt-text="A screenshot showing the trusted service is enabled." lightbox="media/vnet/virtual-network-trusted-service.png":::
-
-> [!NOTE]
-> The trusted service feature is only available using the command line described above, and cannot be done using the Azure portal.
 
 ### Pricing
 
