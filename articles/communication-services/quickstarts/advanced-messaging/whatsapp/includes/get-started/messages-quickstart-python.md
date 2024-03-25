@@ -370,6 +370,7 @@ Messages SDK allows Contoso to send Image WhatsApp messages to WhatsApp users. T
 > To send a text message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
 An example of media_uri used in sending media WhatsApp message.
+
 input_media_uri: str = "https://aka.ms/acsicon1"
 
 ```python
@@ -524,5 +525,5 @@ WhatsApp Image containing Message with message id <<GUID>> was successfully sent
 
 ## Sample code
 
-You can review and download the sample code for this quick start on [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/messages-quickstart).
+You can review and download this and other sample codes for Python Messages SDK on [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/messages-quickstart).
 
