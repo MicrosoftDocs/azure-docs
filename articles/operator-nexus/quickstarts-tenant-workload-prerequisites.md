@@ -237,7 +237,7 @@ New-AzNetworkCloudServicesNetwork -CloudServicesNetworkName "<YourCloudServicesN
 After setting up the cloud services network, you can use it to create a VM or cluster that can connect to the egress endpoints you have specified. Remember that the proxy only works with HTTPS.
 
 > [!NOTE]
-> To ensure that the VNF image is pulled correctly, you should include the ACR URL in the egress allow list of the cloud services network that you will use with your Operator Nexus virtual machine.
+> To ensure that the VNF image can be pulled correctly, ensure the ACR URL is in the egress allow list of the cloud services network that you will use with your Operator Nexus virtual machine.
 
 #### Using the proxy to reach outside of the virtual machine
 
