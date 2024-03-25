@@ -310,7 +310,7 @@ procedureSection:
         To download the log information, select **Download as CSV**.
 
 nextStep:
-  text: JIT explained
+  text: Understand just-in-time VM access management
   url: just-in-time-access-overview.md
 
 #In this article, you learned how to configure and use just-in-time VM access. To learn why you should use JIT, read the article that explains the threats JIT defends against:
