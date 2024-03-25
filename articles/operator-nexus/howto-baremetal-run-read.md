@@ -35,6 +35,10 @@ Also note that some commands begin with `nc-toolbox nc-toolbox-runread` and must
 `nc-toolbox-runread` is a special container image that includes more tools that aren't installed on the
 baremetal host, such as `ipmitool` and `racadm`.
 
+Some of the run-read commands require specific arguments be supplied to enforce read-only capabilities of the commands.
+An example of run-read commands that require specific arguments is the allowed Mellanox command `mstconfig`,
+which requires the `query` argument be provided to enforce read-only.
+
 The list below shows the commands you can use. Commands in `*italics*` cannot have `arguments`; the rest can.
 
 - `arp`
@@ -194,10 +198,16 @@ The list below shows the commands you can use. Commands in `*italics*` cannot ha
 - *`nc-toolbox nc-toolbox-runread racadm vflashsd status`*
 - *`nc-toolbox nc-toolbox-runread racadm vflashpartition list`*
 - *`nc-toolbox nc-toolbox-runread racadm vflashpartition status -a`*
+- `nc-toolbox nc-toolbox-runread mstregdump`
+- `nc-toolbox nc-toolbox-runread mstconfig`   (requires `query` arg )
+- `nc-toolbox nc-toolbox-runread mstflint`    (requires `query` arg )
+- `nc-toolbox nc-toolbox-runread mstlink`     (requires `query` arg )
+- `nc-toolbox nc-toolbox-runread mstfwmanager` (requires `query` arg )
+- `nc-toolbox nc-toolbox-runread mlx_temp`
 
 The command syntax is:
-
-@@ -62,21 +137,9 @@ az networkcloud baremetalmachine run-read-command --name "<machine-name>"
+```azurecli
+az networkcloud baremetalmachine run-read-command --name <machine-name>
     --limit-time-seconds <timeout> \
     --commands '[{"command":"<command1>"},{"command":"<command2>","arguments":["<arg1>","<arg2>"]}]' \
     --resource-group "<resourceGroupName>" \
@@ -240,3 +250,31 @@ Sample output is shown. It prints the top 4,000 characters of the result to the 
 
 ```output
   ====Action Command Output====
+  + hostname
+  rack1compute01
+  + ping 198.51.102.1 -c 3
+  PING 198.51.102.1 (198.51.102.1) 56(84) bytes of data.
+
+  --- 198.51.102.1 ping statistics ---
+  3 packets transmitted, 0 received, 100% packet loss, time 2049ms
+
+  ================================
+  Script execution result can be found in storage account:
+  https://<storage_account_name>.blob.core.windows.net/bmm-run-command-output/a8e0a5fe-3279-46a8-b995-51f2f98a18dd-action-bmmrunreadcmd.tar.gz?se=2023-04-14T06%3A37%3A00Z&sig=XXX&sp=r&spr=https&sr=b&st=2023-04-14T02%3A37%3A00Z&sv=2019-12-12
+```
+
+## How to view the output of an `az networkcloud baremetalmachine run-read-command` in the Cluster Manager Storage account
+
+This guide walks you through accessing the output file that is created in the Cluster Manager Storage account when an `az networkcloud baremetalmachine run-read-command` is executed on a server. The name of the file is identified in the `az rest` status output.
+
+1. Open the Cluster Manager Managed Resource Group for the Cluster where the server is housed and then select the **Storage account**.
+
+1. In the Storage account details, select **Storage browser** from the navigation menu on the left side.
+
+1. In the Storage browser details, select on **Blob containers**.
+
+1. Select the baremetal-run-command-output blob container.
+
+1. Select the output file from the run-read command. The file name can be identified from the `az rest --method get` command. Additionally, the **Last modified** timestamp aligns with when the command was executed.
+
+1. You can manage & download the output file from the **Overview** pop-out.
