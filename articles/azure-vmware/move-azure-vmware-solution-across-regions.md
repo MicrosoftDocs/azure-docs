@@ -75,13 +75,13 @@ Azure VMware Solution supports all backup solutions. You need CloudAdmin privile
 
 - VM workload backup using the Commvault solution:
 
-   - [Create a VMware client](https://documentation.commvault.com/commvault/v11_sp20/article?p=119380.htm) from the Command center for Azure VMware Solution vCenter.
+   - [Create a VMware client](https://documentation.commvault.com/11.20/guided_setup_for_vmware.html) from the Command center for Azure VMware Solution vCenter.
 
-   - [Create a VM group](https://documentation.commvault.com/commvault/v11_sp20/article?p=121182.htm) with the required VMs for backups.
+   - [Create a VM group](https://documentation.commvault.com/11.20/adding_vm_group_for_vmware.html) with the required VMs for backups.
 
-   - [Run backups on VM groups](https://documentation.commvault.com/commvault/v11_sp20/article?p=121657.htm).
+   - [Run backups on VM groups](https://documentation.commvault.com/11.20/performing_backups_for_vmware_vm_or_vm_group.html).
 
-   - [Restore VMs](https://documentation.commvault.com/commvault/v11_sp20/article?p=87275.htm).
+   - [Restore VMs](https://documentation.commvault.com/11.20/restoring_full_virtual_machines_for_vmware.html).
 
 - VM workload backup using [Veritas NetBackup solution](https://vrt.as/nb4avs). 
 
