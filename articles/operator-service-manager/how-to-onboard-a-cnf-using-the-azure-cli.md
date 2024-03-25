@@ -221,7 +221,7 @@ az aosm nsd generate-config --output-file <nsd-output-filename.jsonc>
     // Will be created if it does not exist.
     "publisher_name": "contoso",
     // Resource group for the Publisher resource.
-    // You should create this before running the publish command.
+    // Will be created if it does not exist.
     "publisher_resource_group_name": "contoso",
     // Name of the ACR Artifact Store resource.
     // Will be created if it does not exist.
