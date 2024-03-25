@@ -25,7 +25,7 @@ None
 
 ### New features
 
-- Simplified configuration schema. This is a signficant breaking change and requires manual updates to the configuration file in order to upgrade existing agents. See the [configuration reference](./ingestion-agent-configuration-reference.md) for the new schema.
+- Simplified configuration schema. This is a significant breaking change and requires manual updates to the configuration file in order to upgrade existing agents. See the [configuration reference](./ingestion-agent-configuration-reference.md) for the new schema.
 - Added support for authenticating to the Data Product Key Vault with managed identities.
 
 ### Fixed

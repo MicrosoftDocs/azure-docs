@@ -46,25 +46,30 @@ Links to the current and previous releases of the agents are available below the
 
 ## Set up authentication to Azure
 
-The ingestion agent must be able to authenticate with the Azure Key Vault created by the Data Product to retrieve storage credentials. The method of authentication can either be a managed identity or service principal. 
+The ingestion agent must be able to authenticate with the Azure Key Vault created by the Data Product to retrieve storage credentials. The method of authentication can either be:
+
+- Service principal with certificate credential. This must be used if the ingestion agent is running outside of Azure, such as an on-premises network. 
+- Managed identity. This can be used as an alternative to a service principal if the ingestion agent is running on an Azure VM, it removes the need to handle any credentials.
 
 > [!IMPORTANT]
 > You may need a Microsoft Entra tenant administrator in your organization to perform this setup for you.
 
 ### Managed identity
 
-Managed identities are the preferred form of authentication if the ingestion agent is running in Azure. For more detailed information, see the [overview of managed identities](managed-identity.md#overview-of-managed-identities).
+If the ingestion agent is running in Azure, we recommend managed identities. For more detailed information, see the [overview of managed identities](managed-identity.md#overview-of-managed-identities).
 
 > [!NOTE]
 > The ingestion agent runs on a standard Azure VM and supports both system-assigned and user-assigned managed identity. For multiple agents, a user-assigned managed identity is simpler as you can authorise the identity to the Data Product Key Vault for all VMs running the agent.
 
 #### Create a managed identity
 
-1. To create a user-assigned managed identity, follow the instructions detailed in [Manage user-assigned managed identities](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md). This step can be skipped if the agent VM will be using a system-assigned managed identity.
-1. Follow the instructions detailed in [Configure managed identities for Azure resources on a VM using the Azure portal](/entra/identity/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) according to the type of managed identity being used.
-1. Note the Object ID of the managed identity (This will be a UUID of the form xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx, where each character is a hexadecimal digit).
+1. Create or obtain a user-assigned managed identity, follow the instructions in [Manage user-assigned managed identities](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md). If you plan to use a system-assigned managed identity, do not create a user-assigned managed identity.
+1. Follow the instructions in [Configure managed identities for Azure resources on a VM using the Azure portal](/entra/identity/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) according to the type of managed identity being used.
+1. Note the Object ID of the managed identity. This is a UUID of the form xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx, where each character is a hexadecimal digit.
 
-### Service principal 
+You can now [grant permissions for the Data Product Key Vault](#grant-permissions-for-the-data-product-key-vault).
+
+### Use a service principal for authentication
 
 If the ingestion agent is running outside of Azure, such as an on-premises network then you **cannot use managed identities** and must instead  authenticate to the Data Product Key Vault using a service principal with a certificate credential. Each agent must also have a copy of the certificate stored on the virtual machine.
 
@@ -73,30 +78,30 @@ If the ingestion agent is running outside of Azure, such as an on-premises netwo
 1. Create or obtain a Microsoft Entra ID service principal. Follow the instructions detailed in [Create a Microsoft Entra app and service principal in the portal](/entra/identity-platform/howto-create-service-principal-portal.md). Leave the **Redirect URI** field empty.
 1. Note the Application (client) ID, and your Microsoft Entra Directory (tenant) ID (these IDs are UUIDs of the form xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx, where each character is a hexadecimal digit).
 
-#### Prepare certificates
+#### Prepare certificates for the service principal
 
 The ingestion agent only supports certificate credentials for service principals. It's up to you whether you use the same certificate and key for each VM, or use a unique certificate and key for each. Using a certificate per VM provides better security and has a smaller impact if a key is leaked or the certificate expires. However, this method adds a higher maintainability and operational complexity.
 
-1. Obtain one or more certificates. We strongly recommend using trusted certificates from a certificate authority. 
-2. We **strongly recommend** storing the certificates in a secure location such as Azure Key Vault. Certificates can also be generated from Azure Key Vault, see [Set and retrieve a certificate from Key Vault using Azure portal](../key-vault/certificates/quick-create-portal.md). Doing so allows you to configure expiry alerting and gives you time to regenerate new certificates and apply them to your ingestion agents before they expire. Once a certificate expires, the agent is unable to authenticate to Azure and no longer uploads data. For details of this approach see [Renew your Azure Key Vault certificates](../key-vault/certificates/overview-renew-certificate.md). If you choose to use Azure Key Vault then:
-    - This Azure Key Vault must be a different instance, either one you already control, or a new one. You can't use the Data Product's Azure Key Vault.
+1. Obtain one or more certificates. We strongly recommend using trusted certificates from a certificate authority. Certificates can be generated from Azure Key Vault: see [Set and retrieve a certificate from Key Vault using Azure portal](../key-vault/certificates/quick-create-portal.md). Doing so allows you to configure expiry alerting and gives you time to regenerate new certificates and apply them to your ingestion agents before they expire. Once a certificate expires, the agent is unable to authenticate to Azure and no longer uploads data. For details of this approach see [Renew your Azure Key Vault certificates](../key-vault/certificates/overview-renew-certificate.md). If you choose to use Azure Key Vault then:
+    - This Azure Key Vault must be a different instance to the Data Product Key Vault, either one you already control, or a new one.
     - You need the 'Key Vault Certificates Officer' role on this Azure Key Vault in order to add the certificate to the Key Vault. See [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md) for details of how to assign roles in Azure.
-3. Add the certificate or certificates as credentials to your service principal, following [Create a Microsoft Entra app and service principal in the portal](/entra/identity-platform/howto-create-service-principal-portal).
-4. Ensure the certificates are available in PKCS#12 (P12) format, with no passphrase protecting them. If the certificate is stored in an Azure Key Vault, download the certificate in the PFX format which is identical to P12.
-    - On Linux, you can convert a certificate and private key using OpenSSL. When prompted for an export password, press <kbd>Enter</kbd> to supply an empty passphrase. This can then be stored in an Azure Key Vault as outlined in step 2.
-        ```
-        openssl pkcs12 -nodes -export -in <certificate.pem> -inkey <key.pem> -out <certificate.p12>
-        ```
+2. Add the certificate or certificates as credentials to your service principal, following [Create a Microsoft Entra app and service principal in the portal](/entra/identity-platform/howto-create-service-principal-portal).
+3. Ensure the certificates are available in PKCS#12 (P12) format, with no passphrase protecting them. 
+    - If the certificate is stored in an Azure Key Vault, download the certificate in the PFX format. PFX is identical to P12.
+    - On Linux, you can convert a certificate and private key using OpenSSL. When prompted for an export password, press <kbd>Enter</kbd> to supply an empty passphrase. This can then be stored in an Azure Key Vault as outlined in step 1.
+            ```
+            openssl pkcs12 -nodes -export -in <certificate.pem> -inkey <key.pem> -out <certificate.p12>
+            ```
 
 > [!IMPORTANT]
 > The P12 file must not be protected with a passphrase.
 
-5. Validate your P12 file. This displays information about the P12 file including the certificate and private key.
+4. Validate your P12 file. This displays information about the P12 file including the certificate and private key.
     ```
     openssl pkcs12 -nodes -in <certificate.p12> -info
     ```
 
-6. Ensure the P12 file is base64 encoded. On Linux, you can base64 encode a P12 certificate by using the `base64` command.
+5. Ensure the P12 file is base64 encoded. On Linux, you can base64 encode a P12 certificate by using the `base64` command.
     ```
     base64 -w 0 <certificate.p12> > <base64-encoded-certificate.p12>
     ```
@@ -135,7 +140,7 @@ Repeat these steps for each VM onto which you want to install the agent.
     sudo dnf install systemd logrotate zip
     ```
 1. Obtain the ingestion agent RPM and copy it to the VM.
-1. If a service principal is being used, copy the base64-encoded P12 certificate (created in the [Prepare certificates](#prepare-certificates) step) to the VM, in a location accessible to the ingestion agent.
+1. If you are using a service principal, copy the base64-encoded P12 certificate (created in the [Prepare certificates](#prepare-certificates) step) to the VM, in a location accessible to the ingestion agent.
 1. Configure the agent VM based on the type of ingestion source.
 
     # [SFTP sources](#tab/sftp)

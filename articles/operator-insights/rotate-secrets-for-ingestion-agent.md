@@ -16,7 +16,7 @@ The ingestion agent is a software package that is installed onto a Linux Virtual
 
 It uses a managed identity or service principal to obtain, from the Data Product's Azure Key Vault, the credentials needed to upload data to the Data Product's input storage account.
 
-If a service principal is used, you must refresh your credentials before they expire. In this article, you'll rotate the service principal certificates on the ingestion agent.
+If you use a service principal, you must refresh its credentials before they expire. In this article, you'll rotate the service principal certificates on the ingestion agent.
 
 ## Prerequisites
 
