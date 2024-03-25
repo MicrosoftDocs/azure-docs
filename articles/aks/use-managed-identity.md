@@ -164,7 +164,7 @@ For a user-assigned kubelet identity outside the default worker node resource gr
     ```
 
 > [!NOTE]
-> It may take up to 60 minutes for the permissions granted to your cluster's managed identity to populate.
+> It may take up to 60 minutes for the permissions granted to your cluster's managed identity to propagate.
 
 ## Bring your own managed identity
 
