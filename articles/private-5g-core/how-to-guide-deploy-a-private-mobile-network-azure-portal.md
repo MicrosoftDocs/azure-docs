@@ -99,5 +99,5 @@ You can begin designing policy control to determine how your private mobile netw
 
 - [Learn more about designing the policy control configuration for your private mobile network](policy-control.md)
 - [Create and manage network slices](create-manage-network-slices.md)
-- [Enable SUPI concealment (preview)](supi-concealment.md)
+- [Enable SUPI concealment](supi-concealment.md)
 - [Collect the required information for a site](collect-required-information-for-a-site.md)
