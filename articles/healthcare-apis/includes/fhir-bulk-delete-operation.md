@@ -4,8 +4,8 @@ description: Explains bulk delete operation capability
 services: healthcare-apis
 ms.service: fhir
 ms.topic: "include"
-ms.date: 03/25/2024
-ms.author: MohamedIsmail
+ms.date: 10/24/2023
+ms.author: kesheth
 ms.custom: "include file"
 ---
 `$bulk-delete' allows you to delete resources from FHIR server asynchronously. Bulk delete operation can be executed at system level or for individual resource type. 
