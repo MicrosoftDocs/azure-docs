@@ -24,6 +24,22 @@ description: Steps on how to integrate TelecomManager with Azure Communication S
 
  `TelecomManager` Integration in the Azure Communication Services Android SDK handles interaction with other VoIP and PSTN calling Apps that also integrated with `TelecomManager`.
 
+  ### Configure `TelecomConnectionService`
+  Add `TelecomConnectionService` to your App AndroidManifest.xml
+  ```
+  <application android:hardwareAccelerated="true">
+    ...
+    <service
+        android:name="com.azure.android.communication.calling.TelecomConnectionService"
+        android:permission="android.permission.BIND_TELECOM_CONNECTION_SERVICE"
+        android:exported="true">
+        <intent-filter>
+            <action android:name="android.telecom.ConnectionService" />
+        </intent-filter>
+    </service>
+  </application>
+  ```
+
   ### Initialize call agent with TelecomManagerOptions
 
   With configured instance of `TelecomManagerOptions`, we can create the `CallAgent` with `TelecomManager` eanbled.  
