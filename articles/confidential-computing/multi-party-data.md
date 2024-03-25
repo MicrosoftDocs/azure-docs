@@ -16,7 +16,7 @@ ms.topic: conceptual
 
 ms.date: 04/20/2023
 
-ms.author: kapilvgit
+ms.author: kapilv
 ---
 
 # Cleanroom and Multi-party Data Analytics

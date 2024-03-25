@@ -65,7 +65,7 @@ This documentation assumes that:
 - you have the [read and write permissions](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) in the Azure Storage Container that you are using, or an appropriate [RBAC role](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor).
 - you already have a Miria Server and Miria Data Mover installed and running on a VM or on a server in your environment. If this is not the case, please refer to the following links for more information regarding:
     - [Miria Server and Data Movers deployment and initial configuration](https://www.atempo.com/privatedocs/Miria_2022_Migration_Documentation.pdf)
-    - [Details on platforms and OS versions supported by Miria](https://usergroup.atempo.com/wp-content/uploads/2021/08/COMPATIBILITY-GUIDE_MIRIA_2021.pdf)
+    - [Details on platforms and OS versions supported by Miria](https://www.atempo.com/wp-content/uploads/2022/08/COMPATIBILITY-GUIDE_en_Miria_3.15_17-08-2022.pdf)
 
 &nbsp;
 
