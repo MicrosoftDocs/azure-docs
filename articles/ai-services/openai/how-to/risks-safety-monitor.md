@@ -18,6 +18,8 @@ When you use an Azure OpenAI model deployment with a content filter, you may wan
 
 ## Access the Risks & Safety monitor
 
+To access the Risks & Safety monitor, you need an Azure OpenAI resource in one of the supported Azure regions: East US, Switzerland North, France Central, Sweden Central, Canada East. You also need a model deployment that uses a content filter configuration.
+
 Go to [Azure OpenAI Studio](https://oai.azure.com/) and sign in with the credentials associated with your Azure OpenAI resource. Select the **Deployments** tab on the left and then select your model deployment from the list. On the deployment's page, select the **Risks & Safety** tab at the top.
 
 ## Content detection   
