@@ -181,15 +181,6 @@ Run the maintenance procedure using pg_cron. To enable `pg_cron` on your server 
     postgres=> SELECT cron.schedule_in_database('sample_job','@hourly', $$SELECT partman.run_maintenance(p_parent_table:= 'partman.partition_test')$$,'postgres'); 
     ```
 
-    ```output
-     schedule_in_database 
-
-    ---------------------- 
-
-                    One 
-    (one row) 
-    ```
-
 5. You can view all the cron job using the command below. 
 
     ```sql
@@ -222,14 +213,6 @@ Run the maintenance procedure using pg_cron. To enable `pg_cron` on your server 
 
     ```sql    
     postgres=> select cron.unschedule(1); 
-    ```
-
-    ```output
-     unschedule 
-    ------------ 
-     t 
-
-    (1 row) 
     ```
 
 ## Limitations and considerations
