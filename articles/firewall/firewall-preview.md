@@ -1,6 +1,6 @@
 ---
 title: Azure Firewall preview features
-description: Learn about Azure Firewall preview features that are currently publicly available.
+description: Learn about Azure Firewall preview features that are publicly available now.
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -48,6 +48,13 @@ You can configure Azure Firewall to auto-learn both registered and private range
 You can now update multiple IP Groups in parallel at the same time. This is useful for administrators who want to make configuration changes more quickly and at scale, especially when making those changes using a dev ops approach (templates, ARM template, CLI, and PowerShell).
 
 For more information, see [IP Groups in Azure Firewall](ip-groups.md#parallel-ip-group-updates-preview).
+
+### Private IP address DNAT rules (preview)
+
+You can now configure a firewall policy DNAT rule with the private IP address of the firewall. Previously, DNAT rules only worked with Azure Firewall public IP addresses.
+This feature enables connectivity between overlapped IP networks, which is a common scenario for organizations when onboarding new partners to their network or integrating new acquisitions.
+Another scenario where the private IP address DNAT rule can be configured is for hybrid scenarios connecting on-premises networks with the Azure cloud to enable communication between private resources with no direct routing.
+
 
 ## Next steps
 
