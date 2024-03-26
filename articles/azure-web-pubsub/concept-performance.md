@@ -12,15 +12,15 @@ author: bjqian
 
 One of the key benefits of using Azure Web PubSub Service is the ease of scaling. In a large-scale scenario, performance is an important factor. 
 
-In this guide, we'll introduce the factors that affect Web PubSub service performance. We'll describe typical performance in different use-case scenarios. 
+In this guide, we introduce the factors that affect Web PubSub service performance. We describe typical performance in different use-case scenarios. 
 
 ## Quick evaluation using metrics
-   Before going through the factors that impact the performance, let's first introduce an easy way to monitor the pressure of your service. There's a metrics called **Server Load** on the Portal.
+   Before going through the factors that impact the performance, let's first introduce an easy way to monitor the pressure of your service. There's a metric called **Server Load** on the Portal.
    
-  <kbd>![Screenshot of the Server Load metric of Azure Web PubSub on Portal. The metrics shows Server Load is at about 8 percent usage. ](./media/concept-performance/server-load.png "Server Load")</kbd>
+  <kbd>![Screenshot of the Server Load metric of Azure Web PubSub on Portal. The metric shows Server Load is at about 8 percent usage. ](./media/concept-performance/server-load.png "Server Load")</kbd>
 
 
-   It shows the computing pressure of your Azure Web PubSub service. You could test on your own scenario and check this metrics to decide whether to scale up. The latency inside Azure Web PubSub service would remain low if the Server Load is below 70%. 
+   It shows the computing pressure of your Azure Web PubSub service. You could test on your own scenario and check this metric to decide whether to scale up. The latency inside Azure Web PubSub service would remain low if the Server Load is below 70%. 
    
 > [!NOTE]
 > If you are using unit 50 or larger **and** your scenario is mainly sending to small groups (group size <20), you need to check [sending to small group](#small-group) for reference. In those scenarios there is large routing cost which is not included in the Server Load.
@@ -110,9 +110,9 @@ The service supports a specific subprotocol called `json.webpubsub.azure.v1`, wh
 Group member and group count are two factors that affect performance. To simplify the analysis, we define two kinds of groups:
 
 - **Big group**: The group number is always 10. The group member count is equal to (max
-connection count) / 10. For example, for Unit1, if there are 1,000 connection counts, then every group has 1000 / 10 = 100 members.
+connection count) / 10. For example, for Unit 1, if there are 1,000 connection counts, then every group has 1000 / 10 = 100 members.
 - **Small group**: Every group has 10 connections. The group number is equal to (max
-  connection count) / 10. For example, for Unit1, if there are 1,000 connection counts, then we have 1000 / 10 = 100 groups.
+  connection count) / 10. For example, for Unit 1, if there are 1,000 connection counts, then we have 1000 / 10 = 100 groups.
 
 **Send to group** brings a routing cost to Azure Web PubSub Service because it has to find the target connections through a distributed data structure. As the sending connections increase, the cost increases.
 
@@ -120,7 +120,7 @@ connection count) / 10. For example, for Unit1, if there are 1,000 connection co
 
 For **send to big group**, the outbound bandwidth becomes the bottleneck before hitting the routing cost limit. The following table lists the maximum outbound bandwidth.
 
-| Send to big group | Unit1 | Unit2 | Unit10 | Unit50 | Unit100 | Unit 200 | Unit 500 | Unit 1000 |
+| Send to big group | Unit 1 | Unit 2 | Unit 10 | Unit 50 | Unit 100 | Unit 200 | Unit 500 | Unit 1000 |
 |-------------------|-------|-------|--------|--------|---------|----------|----------|-----------|
 | Connections       | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000  | 500,000  | 1,000,000 |
 | Group member count | 100   | 200   | 1,000  | 5,000  | 10,000  | 5,000    | 10,000   | 20,000    |
@@ -133,9 +133,9 @@ For **send to big group**, the outbound bandwidth becomes the bottleneck before 
 
 ##### Small group
 
-The routing cost is significant for sending message to many small groups. Currently, the Azure Web PubSub Service implementation hits the routing cost limit at Unit 50. Adding more CPU and memory doesn't help, so Unit100 can't improve further by design. If you need more inbound bandwidth, need to scale up to use **Premium_P2**(unit >100).
+The routing cost is significant for sending message to many small groups. Currently, the Azure Web PubSub Service implementation hits the routing cost limit at Unit 50. Adding more CPU and memory doesn't help, so Unit 100 can't improve further by design. If you need more inbound bandwidth, need to scale up to use **Premium_P2**(unit >100).
 
-|   Send to small group     | Unit1 | Unit2 | Unit10  | Unit50 | Unit100 | Unit 200 | Unit 500 | Unit 1000 | 
+|   Send to small group     | Unit 1 | Unit 2 | Unit 10  | Uni 50 | Unit 100 | Unit 200 | Unit 500 | Unit 1000 | 
 |---------------------------|-------|-------|--------|--------|---------|--------|---------|---------|
 | Connections               | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
 | Group member count        | 10    | 10    | 10     | 10     | 10 | 10     | 10     | 10 |
@@ -162,7 +162,7 @@ For every event, it formulates an HTTP POST request to the registered upstream a
 
 In this case, the app server writes back the original message back in the http response. The behavior of **echo** determines that the maximum inbound bandwidth is equal to the maximum outbound bandwidth. For details, see the following table.
 
-| Echo | Unit1 | Unit2 | Unit10 | Unit50 | Unit100 | Unit 200 | Unit 500 | Unit 1000 |
+| Echo | Unit 1 | Unit 2 | Unit 10 | Unit 50 | Unit 100 | Unit 200 | Unit 500 | Unit 1000 |
 |------|-------|-------|--------|--------|---------|----------|----------|-----------|
 | Connections | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
 | Inbound/outbound messages per second | 500 | 1,000 | 5,000 | 25,000 | 50,000 | 100,000 | 250,000 | 500,000 |
@@ -180,7 +180,7 @@ Azure Web PubSub provides powerful [APIs](/rest/api/webpubsub/) to manage client
 #### Send to user through REST API
 The benchmark assigns usernames to all of the clients before they start connecting to Azure Web PubSub Service. 
 
-| Send to user through REST API | Unit1 | Unit2 | Unit10 | Unit50 | Unit100 | Unit 200 | Unit 500 | Unit 1000 |
+| Send to user through REST API | Unit 1 | Unit 2 | Unit 10 | Unit 50 | Unit 100 | Unit 200 | Unit 500 | Unit 1000 |
 |-------------------------------|-------|-------|--------|--------|---------|----------|----------|-----------|
 | Connections                   | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000  | 500,000  | 1,000,000 |
 | Inbound/outbound messages per second | 180 | 360 | 1,800 | 9,000 | 18,000 | 36,000 | 90,000 | 180,000 |
@@ -190,7 +190,7 @@ The benchmark assigns usernames to all of the clients before they start connecti
 #### Broadcast through REST API
 The bandwidth is the same as that for **send to big group**.
 
-| Broadcast through REST API | Unit1 | Unit2 | Unit10 | Unit50 | Unit100 | Unit 200 | Unit 500 | Unit 1000 |
+| Broadcast through REST API | Unit 1 | Unit 2 | Unit 10 | Unit 50 | Unit 100 | Unit 200 | Unit 500 | Unit 1000 |
 |----------------------------|-------|-------|--------|--------|---------|----------|----------|-----------|
 | Connections                | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000  | 500,000  | 1,000,000 |
 | Inbound messages per second| 3     | 3     | 3      | 3      | 3       | 3        | 3        | 3        |
