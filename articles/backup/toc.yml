@@ -767,7 +767,7 @@
       href: backup-sql-server-azure-troubleshoot.md
     - name: Azure Database for PostgreSQL
       href: backup-azure-database-postgresql-troubleshoot.md
-    - name: Azure Database for PostgreSQL - Flexible server backup (preview)
+    - name: Azure Database for PostgreSQL - Flexible server backup
       href: backup-azure-database-postgresql-flex-troubleshoot.md
     - name: SAP HANA backup in Azure VMs
       href: backup-azure-sap-hana-database-troubleshoot.md
