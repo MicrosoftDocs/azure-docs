@@ -31,7 +31,7 @@ Rate limiting for an ExpressRoute Direct circuit can be enabled during the circu
 
 1. Sign-in to the [Azure portal](https://portal.azure.com).
 
-1. From the left side pane, select **+ Create a resource**, then search for and select **ExpressRoute**.
+1. From the left side pane, select **+ Create a resource**, then search for and select **ExpressRoute Direct**.
 
 1. Select **Create** to initiate the creation of a new ExpressRoute Direct circuit.
 
