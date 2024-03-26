@@ -50,34 +50,22 @@ spec:
     spec:
       containers:
       - name: azmon-elasticsearch-exporter
-        args:
-        - --es.uri=https://username:password@quickstart-es-internal-http:9200
+        command: ["elasticsearch_exporter",
+        "--es.uri=https://username:password@quickstart-es-internal-http.namespace:9200",
+        "--web.listen-address=:9108",
+        "--web.telemetry-path=/metrics"]
         image: quay.io/prometheuscommunity/elasticsearch-exporter:latest
         imagePullPolicy: IfNotPresent
-        livenessProbe:
-          failureThreshold: 3
-          httpGet:
-            path: /healthz
-            port: metrics
-            scheme: HTTP
-          initialDelaySeconds: 5
-          periodSeconds: 5
-          successThreshold: 1
-          timeoutSeconds: 5
+        lifecycle:
+          preStop:
+            exec:
+              command:
+              - /bin/sleep
+              - "20"
         ports:
         - containerPort: 9108
           name: metrics
           protocol: TCP
-        readinessProbe:
-          failureThreshold: 3
-          httpGet:
-            path: /healthz
-            port: http
-            scheme: HTTP
-          initialDelaySeconds: 1
-          periodSeconds: 5
-          successThreshold: 1
-          timeoutSeconds: 5
       affinity:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
