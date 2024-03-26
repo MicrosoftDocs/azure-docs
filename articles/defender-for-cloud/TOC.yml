@@ -209,9 +209,6 @@
       - name: Integration with Defender EASM
         displayName: EASM, attack surface management
         href: concept-easm.md
-      - name: Permissions Management
-        displayName: permissions, management, role-based access control, RBAC, azure, azure ad, active directory
-        href: permissions-management.md
       - name: Critical assets protection
         href: critical-assets-protection.md
       - name: Agentless machine scanning
