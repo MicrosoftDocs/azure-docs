@@ -30,7 +30,7 @@ For more information on Azure Data Factory an overview of ingestion agents, see 
 
 ## Create a Key Vault linked service
 
-To connection Azure Data Factory to another Azure service, you must create a [Linked Service](/azure/data-factory/concepts-linked-services?tabs=data-factory). First, create a linked service to connect Azure Data Factory to the Data Product Key Vault.
+To connect Azure Data Factory to another Azure service, you must create a [linked service](/azure/data-factory/concepts-linked-services?tabs=data-factory). First, create a linked service to connect Azure Data Factory to the Data Product Key Vault.
 
 1. In the [Azure portal](https://ms.portal.azure.com/#home), find the Azure Data Factory resource
 2. From the 'Overview' blade, launch the Azure Data Factory studio
