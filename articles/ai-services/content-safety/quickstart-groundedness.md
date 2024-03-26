@@ -134,7 +134,7 @@ The parameters in the request body are defined in this table:
 | - `query`       | (Optional) This represents the question in a QnA task. Character limit: 7,500. | String  |
 | **text**   | (Required) The LLM output text to be checked. Character limit: 7,500. |  String  |
 | **groundingSources**  | (Required) Uses an array of grounding sources to validate AI-generated text. Up to 55,000 characters of grounding sources can be analyzed in a single request. | String array    |
-| **reasoning**  | (Optional) Specifies whether to use the reasoning feature. The default value is `false`. If `true`, the service uses Azure OpenAI resources to provide an explanation. Be careful: using reasoning increases the processing time and incurs extra fees.| Boolean   |
+| **reasoning**  | (Optional) Specifies whether to use the reasoning feature. The default value is `false`. If `true`, you need to bring your own Azure OpenAI resources to provide an explanation. Be careful: using reasoning increases the processing time and incurs extra fees.| Boolean   |
 
 ### Interpret the API response
 
@@ -142,24 +142,13 @@ After you submit your request, you'll receive a JSON response reflecting the Gro
 
 ```json
 {
-  "ungrounded": true,
-  "confidenceScore": 1,
-  "ungroundedPercentage": 1,
-  "ungroundedDetails": [
-    {
-      "text": "string",
-      "offset": {
-        "utf8": 0,
-        "utf16": 0,
-        "codePoint": 0
-      },
-      "length": {
-        "utf8": 0,
-        "utf16": 0,
-        "codePoint": 0
-      }
-    }
-  ]
+    "ungroundedDetected": true,
+    "ungroundedPercentage": 1,
+    "ungroundedDetails": [
+        {
+            "text": "12/hour."
+        }
+    ]
 }
 ```
 
@@ -172,15 +161,6 @@ The JSON objects in the output are defined here:
 | **ungroundedPercentage** | Specifies the proportion of the text identified as ungrounded, expressed as a number between 0 and 1, where 0 indicates no ungrounded content and 1 indicates entirely ungrounded content.| Float	 |
 | **ungroundedDetails** | Provides insights into ungrounded content with specific examples and percentages.| Array |
 | -**`Text`**   |  The specific text that is ungrounded.  | String   |
-| -**`offset`**   |  An object describing the position of the ungrounded text in various encoding.  | String   |
-| - `offset > utf8`       | The offset position of the ungrounded text in UTF-8 encoding.      | Integer   |
-| - `offset > utf16`      | The offset position of the ungrounded text in UTF-16 encoding.       | Integer |
-| - `offset > codePoint`  | The offset position of the ungrounded text in terms of Unicode code points. |Integer    |
-| -**`length`**   |  An object describing the length of the ungrounded text in various encoding. (utf8, utf16, codePoint), similar to the offset. | Object   |
-| - `length > utf8`       | The length of the ungrounded text in UTF-8 encoding.      | Integer   |
-| - `length > utf16`      | The length of the ungrounded text in UTF-16 encoding.       | Integer |
-| - `length > codePoint`  | The length of the ungrounded text in terms of Unicode code points. |Integer    |
-
 
 ## Check groundedness with reasoning
 
@@ -326,25 +306,24 @@ After you submit your request, you'll receive a JSON response reflecting the Gro
 
 ```json
 {
-  "ungrounded": true,
-  "confidenceScore": 1,
-  "ungroundedPercentage": 1,
-  "ungroundedDetails": [
-    {
-      "text": "string",
-      "offset": {
-        "utf8": 0,
-        "utf16": 0,
-        "codePoint": 0
-      },
-      "length": {
-        "utf8": 0,
-        "utf16": 0,
-        "codePoint": 0
-      },
-      "reason": "string"
-    }
-  ]
+    "ungroundedDetected": true,
+    "ungroundedPercentage": 1,
+    "ungroundedDetails": [
+        {
+            "text": "12/hour.",
+            "offset": {
+                "utF8": 0,
+                "utF16": 0,
+                "codePoint": 0
+            },
+            "length": {
+                "utF8": 8,
+                "utF16": 8,
+                "codePoint": 8
+            },
+            "reason": "None. The premise mentions a pay of \"10/hour\" but does not mention \"12/hour.\" It's neutral. "
+        }
+    ]
 }
 ```
 
