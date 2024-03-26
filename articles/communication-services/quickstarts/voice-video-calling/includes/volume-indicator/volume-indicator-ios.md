@@ -13,7 +13,7 @@ ms.subservice: calling
 
 [!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
 
-As a developer you can have control over checking microphone volume. This quickstart shows examples of how to accomplish this within the Azure Communication Services Calling SDK.
+As a developer you can have control over checking microphone volume. This quickstart shows examples of how to accomplish it within the Azure Communication Services Calling SDK.
 
 ## Checking the local audio stream volume
 As a developer it can be nice to have the ability to check and display to end users the current local microphone volume level. Azure Communication Services calling API exposes this information using `volumeLevel`. The `volumeLevel` value is a float number ranging from 0 to 1 (with 0 noting zero audio detected, 100 as the max level detectable, -1 noting a failed operation).

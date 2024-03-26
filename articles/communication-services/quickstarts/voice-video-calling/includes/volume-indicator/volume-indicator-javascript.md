@@ -6,13 +6,13 @@ author: sloanster
 
 ms.author: micahvivion
 ms.date: 1/18/2023
-ms.topic: quickstart
+ms.topic: include
 ms.service: azure-communication-services
 ms.subservice: calling
 ms.custom: mode-other
 ---
 
-As a developer you can have control over checking microphone volume in JavaScript. This quickstart shows examples of how to accomplish this within the Azure Communication Services WebJS.
+As a developer you can have control over checking microphone volume in JavaScript. This quickstart shows examples of how to accomplish it within the Azure Communication Services WebJS.
 
 ## Prerequisites
 >[!IMPORTANT]
@@ -39,5 +39,5 @@ volumeIndicator.on('levelChanged', ()=>{
 })
 ```
 
-For a more detailed code sample on how to create a UI display to show the local and current incominng audio level please see [here](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/blob/2a3548dd4446fa2e06f5f5b2c2096174500397c9/Project/src/MakeCall/VolumeVisualizer.js).
+For a more detailed code sample on how to create a UI display to show the local and current incoming audio level, see [here](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/blob/2a3548dd4446fa2e06f5f5b2c2096174500397c9/Project/src/MakeCall/VolumeVisualizer.js).
 
