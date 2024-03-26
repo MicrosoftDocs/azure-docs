@@ -50,7 +50,7 @@ Automation rules are made up of several components:
 
 ### Triggers
 
-Automation rules are triggered **when an incident is created or updated** or **when an alert is created**. Recall that incidents include alerts, and that both alerts and incidents are created by analytics rules, of which there are several types, as explained in [Detect threats with built-in analytics rules in Microsoft Sentinel](detect-threats-built-in.md).
+Automation rules are triggered **when an incident is created or updated** or **when an alert is created**. Recall that incidents include alerts, and that both alerts and incidents can be created by analytics rules, of which there are several types, as explained in [Detect threats with built-in analytics rules in Microsoft Sentinel](detect-threats-built-in.md).
 
 The following table shows the different possible scenarios that will cause an automation rule to run.
 
@@ -302,9 +302,9 @@ In the specific case of a Managed Security Service Provider (MSSP), where a serv
 
 ## Creating and managing automation rules
 
-You can [create and manage automation rules](create-manage-use-automation-rules.md) from different points in the Microsoft Sentinel experience, depending on your particular need and use case.
+You can [create and manage automation rules](create-manage-use-automation-rules.md) from different areas in Microsoft Sentinel or the unified SOC platform, depending on your particular need and use case.
 
-- **Automation blade**
+- **Automation page**
 
     Automation rules can be centrally managed in the **Automation** page, under the **Automation rules** tab. From there, you can create new automation rules and edit the existing ones. You can also drag automation rules to change the order of execution, and enable or disable them.
 
@@ -318,7 +318,7 @@ You can [create and manage automation rules](create-manage-use-automation-rules.
 
     You'll notice that when you create an automation rule from here, the **Create new automation rule** panel shows the **analytics rule** condition as unavailable, because this rule is already set to apply only to the analytics rule you're editing in the wizard. All the other configuration options are still available to you.
 
-- **Incidents blade**
+- **Incidents page**
 
     You can also create an automation rule from the **Incidents** page, in order to respond to a single, recurring incident. This is useful when creating a [suppression rule](#incident-suppression) for [automatically closing "noisy" incidents](false-positives.md).
 
