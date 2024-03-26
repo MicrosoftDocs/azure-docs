@@ -37,6 +37,8 @@ You can also connect your function app to an external Git repository, but this r
 
 >[!NOTE] 
 >Continuous deployment options covered in this article are specific to code-only deployments. For containerized function app deployments, see [Enable continuous deployment of containers to Azure](functions-how-to-custom-container.md#enable-continuous-deployment-to-azure).
+>
+>GitHub is the only continuous deployment source supported for apps running on Linux in a [Consumption plan](./consumption-plan.md), which includes serverless Python apps. 
 
 ## Requirements for continuous deployment
 
@@ -158,7 +160,7 @@ After deployment completes, all code from the specified source is deployed to yo
 
 You should keep these considerations in mind when planning for a continuous deployment strategy:
 
-+ Continuous deployment isn't yet supported for Linux apps running on a Consumption plan. 
++ GitHub is the only source that currently supports continuous deployment for Linux apps running on a Consumption plan, which is serverless option for Python hosting.  
 
 + The unit of deployment for functions in Azure is the function app. All functions in a function app are deployed at the same time and in the same package. 
 
