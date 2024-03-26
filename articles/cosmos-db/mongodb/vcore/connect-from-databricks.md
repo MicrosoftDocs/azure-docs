@@ -64,7 +64,7 @@ collection="<collection_name>"
 
 ### Data Sample Set
 
-For the purpose with this lab, we're using the Mongo 'Citibike2019' data set. You can import it from here
+For the purpose with this lab, we're using the CSV 'Citibike2019' data set. You can import it:
 [CitiBike Trip History 2019](https://citibikenyc.com/system-data).
 We loaded it into a database called "CitiBikeDB" and the collection "CitiBike2019".
 We're setting the variables database and collection to point to the data loaded and we're using variables in the examples.
