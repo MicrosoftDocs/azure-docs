@@ -8,7 +8,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 04/01/2024
+ms.date: 04/03/2024
 ---
 
 # Tips for better performance in Azure AI Search
@@ -105,7 +105,7 @@ The tier of your search service and the number of replicas/partitions also have 
 
 ### Tip: Create a new high capacity search service
 
-Basic and standard services created after April 3, 2024 have more storage per partition than older services. Before upgrading to a higher tier and a higher billable rate, revisit the [tier service limits](search-limits-quotas-capacity.md#service-limits) to see if the same tier on a newer service gives you the necessary storage.
+Basic and standard services created [in supported regions](search-create-service-portal.md#choose-a-region) after April 3, 2024 have more storage per partition than older services. Before upgrading to a higher tier and a higher billable rate, revisit the [tier service limits](search-limits-quotas-capacity.md#service-limits) to see if the same tier on a newer service gives you the necessary storage.
 
 ### Tip: Upgrade to a Standard S2 tier
 

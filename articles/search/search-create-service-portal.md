@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 03/05/2024
+ms.date: 04/03/2024
 ---
 
 # Create an Azure AI Search service in the portal
 
-[**Azure AI Search**](search-what-is-azure-search.md) adds vector and full text search as an information retrieval solution for the enterprise, and for traditional and generative AI scenarios.
+[**Azure AI Search**](search-what-is-azure-search.md) is a vector and full text information retrieval solution for the enterprise, and for traditional and generative AI scenarios.
 
 If you have an Azure subscription, including a [trial subscription](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F), you can create a search service for free. Free services have limitations, but you can complete all of the quickstarts and most tutorials, except for those featuring semantic ranking (it requires a billable service).
 
