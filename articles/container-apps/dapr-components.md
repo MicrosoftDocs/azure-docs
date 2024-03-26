@@ -21,51 +21,53 @@ Dapr components in container apps are environment-level resources that:
 
 In this guide, you learn how to configure Dapr components for your Azure Container Apps services. 
 
-## Supported components
+## Managed versus standard components
 
-The following table lists supported Dapr components in Azure Container Apps. Support for Dapr components is broken into two tiers: 
-- Tier 1: Azure Container Apps-managed components with the highest level of support
-- Tier 2: Built-in components that are supported, but with a lower SLA guarantee
+Support for Dapr components is broken into two levels: 
+- Managed components: fully managed, GA components that provided highest level of support
+- Standard components: Built-in components that are supported, but with a lower SLA guarantee
+
+
 
 ### State store components
 
-| Component | String | Support level |
+| Component | Type | Support level |
 | --------- | ------ | ------------- |
-| Azure Blob Storage | `state.azure.blobstorage` | Tier 1 |
-| Azure CosmosDB | `state.azure.cosmosdb` | Tier 1 |
-| Azure Table Storage | `state.azure.tablestorage` | Tier 2 |
+| Azure Blob Storage | `state.azure.blobstorage` | Managed |
+| Azure CosmosDB | `state.azure.cosmosdb` | Managed |
+| Azure Table Storage | `state.azure.tablestorage` | Standard |
 
 ### Pub/sub components
 
-| Component | String | Support level |
+| Component | Type | Support level |
 | --------- | ------ | ------------- |
-| Azure Service Bus | `pubsub.azure.servicebus` | Tier 1 |
-| Azure Event Hubs | `pubsub.azure.eventhubs` | Tier 2 |
+| Azure Service Bus | `pubsub.azure.servicebus` | Managed |
+| Azure Event Hubs | `pubsub.azure.eventhubs` | Standard |
 
 ### Binding components
 
-| Component | String | Support level |
+| Component | Type | Support level |
 | --------- | ------ | ------------- |
-| Azure Storage Queues | `bindings.azure.storagequeues` | Tier 1 |
-| Azure Service Bus Queues | `bindings.azure.servicebusqueues` | Tier 1 |
-| Azure Blob Storage | `bindings.azure.blobstorage` | Tier 1 |
-| Azure Event Hubs | `bindings.azure.eventhubs` | Tier 2 |
-| Azure SignalR | `bindings.azure.signalr` | Tier 2 |
-| Azure Event Grid | `bindings.azure.eventgrid` | Tier 2 |
-| Azure CosmosDB | `bindings.azure.cosmosdb` | Tier 2 |
-| Cron | `bindings.cron` | Tier 1 |
+| Azure Storage Queues | `bindings.azure.storagequeues` | Managed |
+| Azure Service Bus Queues | `bindings.azure.servicebusqueues` | Managed |
+| Azure Blob Storage | `bindings.azure.blobstorage` | Managed |
+| Azure Event Hubs | `bindings.azure.eventhubs` | Standard |
+| Azure SignalR | `bindings.azure.signalr` | Standard |
+| Azure Event Grid | `bindings.azure.eventgrid` | Standard |
+| Azure CosmosDB | `bindings.azure.cosmosdb` | Standard |
+| Cron | `bindings.cron` | Managed |
 
 ### Secret store components
 
-| Component | String | Support level |
+| Component | Type | Support level |
 | --------- | ------ | ------------- |
-| Azure Key Vault | `secretstores.azure.keyvault` | Tier 1 |
+| Azure Key Vault | `secretstores.azure.keyvault` | Managed |
 
 ### Configuration store components
 
-| Component | String | Support level |
+| Component | Type | Support level |
 | --------- | ------ | ------------- |
-| Azure App Config | `configuration.azure.appconfig` | Tier 1 |
+| Azure App Config | `configuration.azure.appconfig` | Managed |
 
 ## Component schema
 
