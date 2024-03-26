@@ -21,6 +21,7 @@ The Azure CLI AOSM extension provides a command to push all the artifacts needed
 - You might have provided the wrong container image and need to push a single replacement image
 - You might need to push a new version of a single container to provide a fix for an issue
 - You might need to edit the NF ARM template as part of a debugging cycle
+- You might need to edit helm packages or a VM ARM template as part of a debugging cycle
 
 This How-To article describes how to push artifacts to and pull artifacts from an existing ACR-backed artifact store using the AOSM Artifact Manifest resource and the [ORAS command line tool](https://oras.land/docs/). See this [How-To](/how-to-pull-and-push-artifacts-manually-vnf-core.md) for the equivalent article for Storage Account backed artifact stores.
 

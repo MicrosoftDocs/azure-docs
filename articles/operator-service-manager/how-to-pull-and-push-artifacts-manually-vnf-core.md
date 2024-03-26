@@ -9,7 +9,7 @@ ms.service: azure-operator-service-manager
 ms.custom: devx-track-azurecli
 
 ---
-# Push and pull images and other artifacts to/from a Storage Account backed artifact store.
+# Push and pull VHD images to/from a Storage Account backed artifact store.
 
 The Azure Operator Service Manager (AOSM) artifact store resource manages the artifacts required to deploy network functions (NFs). These artifacts include containerized network function (CNF) images, virtualized network function (VNF) images, Azure Resource Manager (ARM) templates, and Helm packages. There are two flavors of artifact store:
 
@@ -20,16 +20,15 @@ The Azure CLI Azure Operator Service Manager extension provides a command to pus
 
 - You might have provided the wrong virtual machine image and need to push a single replacement image
 - You might need to push a new version of a virtual machine to provide a fix for an issue
-- You might need to edit the virtual machine ARM template as part of a debugging cycle
 
-This How-To article describes how to push artifacts to and pull artifacts from an existing blob storage backed artifact store using the AOSM Artifact Manifest resource. See this [How-To](/how-to-pull-and-push-artifacts-manually-aon.md) for the equivalent article for ACR-backed artifact stores.
+This How-To article describes how to push VHD images to and pull VHD images from an existing blob storage backed artifact store using the AOSM Artifact Manifest resource. See this [How-To](/how-to-pull-and-push-artifacts-manually-aon.md) for the equivalent article for ACR-backed artifact stores.
 
 ## Prerequisites
 
 - [Enable AOSM](quickstart-onboard-subscription-to-aosm.md) on your Azure subscription
 - Installed the [Azure CLI](/cli/azure/install-azure-cli)
 - Deploy an Artifact Store resource of type Azure Storage Account
-- Deploy an Artifact manifest resource that contains an entry for the artifact you want to install. This example shows the artifact manifest BICEP definition for a fictional Contoso VNF virtual machine image
+- Deploy an Artifact manifest resource that contains an entry for the image you want to push. This example shows the artifact manifest BICEP definition for a fictional Contoso VNF virtual machine image
 
 ```bicep
 resource storageAccountArtifactManifest 'Microsoft.Hybridnetwork/publishers/artifactStores/artifactManifests@2023-09-01' = {
@@ -51,8 +50,8 @@ resource storageAccountArtifactManifest 'Microsoft.Hybridnetwork/publishers/arti
 >[!IMPORTANT]
 > The `artifactVersion` must be in `1-0-0` format, ie, numbers in the range 0-9 separated by hyphens.
 
-- (If you're downloading an artifact) The artifact is already available in the AOSM artifact store resource
-- (If you're uploading an artifact) The artifact is available in the environment from which you execute the commands in this article
+- (If you're downloading an image) The VHD image is already available in the AOSM artifact store resource
+- (If you're uploading an image) The VHD image is available in the environment from which you execute the commands in this article
 - You require the Contributor role over the resource group that contains your artifact store
 
 ### Sign in to a storage account backed artifact store
@@ -79,28 +78,28 @@ This command returns the SAS URI you'll use to sign in to the storage account ba
 }
 ```
 
-### Push an artifact to a storage account backed artifact store
+### Push an image to a storage account backed artifact store
 
-1. Push the artifact to a storage blob using the credentials returned from the artifact manifest.
+1. Push the image to a storage blob using the credentials returned from the artifact manifest.
 
 ```azurecli
 az storage blob upload \
     --account-name <storage-account-name> \
     --container-name <container-name> \
-    --name <artifact-name> \
+    --name <image-name> \
     --file </path/to/file> \
     --sas-token <container-sas-token>
 ```
 
-### Pull an artifact from a storage account backed artifact store
+### Pull an image from a storage account backed artifact store
 
-1. Pull the artifact from a storage blob using the credentials returned from the artifact manifest.
+1. Pull the image from a storage blob using the credentials returned from the artifact manifest.
 
 ```azurecli
 az storage blob download \
     --account-name <storage-account-name> \
     --container-name <container-name> \
-    --name <artifact-name> \
+    --name <image-name> \
     --file <~/destination/path/for/file> \
     --sas-token <container-sas-token>
 ```
