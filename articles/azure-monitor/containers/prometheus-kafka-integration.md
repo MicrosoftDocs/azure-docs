@@ -282,7 +282,7 @@ Rich set of alerts based off of strimzi metrics can also be configured by referi
 > [!NOTE] 
 > If using any other way of exposing the jmx_exporter on your kafka cluster, please follow the instructions [here](prometheus-metrics-scrape-crd.md) on how to configure the pod or service monitors accordingly.
 
-### Grafana dashboard for more jmx metrics
+### Grafana dashboards for more jmx metrics
 Please also see the [grafana-dashboards-for-strimzi](https://github.com/strimzi/strimzi-kafka-operator/tree/main/examples/metrics/grafana-dashboards) to view dashboards for metrics exposed by strimzi operator.
 
 

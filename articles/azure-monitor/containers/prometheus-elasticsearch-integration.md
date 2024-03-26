@@ -6,7 +6,7 @@ ms.date: 3/19/2024
 ms.reviewer: rashmy
 ---
 # ElasticSearch
-Elasticsearch is the distributed search and analytics engine at the heart of the Elastic Stack. Logstash and Beats facilitate collecting, aggregating, and enriching your data and storing it in Elasticsearch. Kibana enables you to interactively explore, visualize, and share insights into your data and manage and monitor the stack. Elasticsearch is where the indexing, search, and analysis magic happens.
+Elasticsearch is the distributed search and analytics engine at the heart of the Elastic Stack. It is where the indexing, search, and analysis magic happens.
 This article describes how to configure Azure Managed Prometheus with AKS to monitor elasticsearch clusters by scraping prometheus metrics. 
 
 ## Prerequisites
@@ -15,12 +15,12 @@ This article describes how to configure Azure Managed Prometheus with AKS to mon
 + Azure Managed prometheus enabled on the AKS cluster - [Enable Azure Managed Prometheus on AKS](kubernetes-monitoring-enable.md#enable-prometheus-and-grafana)
 
 
-### Install Kafka Exporter -
+### Install Elastic Search Exporter -
 Install the [elastic search exporter](https://github.com/prometheus-community/elasticsearch_exporter) as a deployment using the following yaml configuration - 
 
 > [!NOTE] 
 > The container can be configured with arguments as described in the [Flags](https://github.com/prometheus-community/elasticsearch_exporter#configuration) section.
-Please specify the right server address where the elasticsearch server can be reached. Based on your configuration set the username,password or certs used to authenticate with the elasticsearch server. For the following configuration, the server address is set to "my-cluster-kafka-0.my-cluster-kafka-brokers.kafka.svc:9092" using the argument "kafka.server"
+Please specify the right server address where the elasticsearch server can be reached. Based on your configuration set the username,password or certs used to authenticate with the elasticsearch server. For the following configuration, the server address is set to "quickstart-es-internal-http" using the argument "es.uri"
 
 ```yaml
 kind: Namespace
@@ -77,7 +77,7 @@ spec:
                       - linux
 ```
 ### Deploy Pod Monitor
-Deploy the following service monitor to configure azure managed prometheus addon to scrape prometheus metrics from the exporter
+Deploy the following pod monitor to configure azure managed prometheus addon to scrape prometheus metrics from the exporter
 ```yaml
 apiVersion: azmonitoring.coreos.com/v1
 kind: PodMonitor
