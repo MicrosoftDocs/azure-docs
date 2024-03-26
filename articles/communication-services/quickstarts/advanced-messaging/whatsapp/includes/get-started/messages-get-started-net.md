@@ -391,7 +391,7 @@ Response<SendMessageResult> sendMediaMessageResult =
 Build and run your program.  
 
 To send a text or media message to a WhatsApp user, there must be an active conversation between the WhatsApp Business Account and the WhatsApp user.  
-If you don't have an active conversation, for the purposes of this quickstart, you should add a wait between sending the template message and sending the text message. This added delay gives you enough time to reply to the business on the user's WhatsApp account. For reference, the full example at [Sample code](#sample-code) prompts for manual user input before sending the next message.
+If you don't have an active conversation, for the purposes of this quickstart, you should add a wait between sending the template message and sending the text message. This added delay gives you enough time to reply to the business on the user's WhatsApp account. For reference, the full example at [Sample code](#full-sample-code) prompts for manual user input before sending the next message.
   
 If successful, you receive three messages on the user's WhatsApp account.
 
