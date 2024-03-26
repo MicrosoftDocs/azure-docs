@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Azure Arc site manager # < 60 chars
-summary: Manage logical groups of Arc-enabled resources. # < 160 chars
+summary: Organize your Arc-connected resources based on physical location. # < 160 chars
  
 metadata:
   title: Azure Arc site manager
-  description: Manage logical groups of Arc-enabled resources
+  description: Organize your Arc-connected resources.
   ms.service: azure-arc
   ms.topic: landing-page
   author: kgremban
@@ -30,3 +30,35 @@ landingContent:
         links:
           - text: How do I get started with Azure Arc site manager?
             url: quickstart.md
+          - text: Frequently Asked Questions
+            url: faq.md
+  - title: Using Azure Arc site manager
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: How do I create, use, delete, and modify an Arc site?
+            url: how-to-crud-site.md
+          - text: How do I view connectivity status?
+            url: how-to-view-connectivity-status.md
+          - text: How do I view update status?
+            url: how-to-view-update-status.md
+          - text: How do I view alerts?
+            url: how-to-view-alerts.md
+          - text: How do I view alerts?
+            url: how-to-view-alerts.md
+          - text: How do I configure monitor?
+            url: how-to-configure-monitor-site.md
+
+additionalContent:
+  # Supports up to 4 subsections
+  sections:
+    - title: Explore more
+      items:
+        # Card
+        - title: Azure Arc
+          summary: Learn more about Azure Arc.
+          href: ../overview.md
+        # Card
+        - title: Azure Monitor
+          summary: Learn more about Azure Monitor.
+          href: ../../azure-monitor/overview.md

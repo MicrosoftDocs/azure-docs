@@ -32,3 +32,7 @@ The following are frequently asked questions and answers for Azure Arc site mana
 
 *Answer:* Site manager currently supports resources in Azure Global.
 
+*Question:* Does an Arc site have to represent a physical site or location?
+
+*Answer:* Site manager is tailored for customers who manage on-premises infrastructure. Arc sites can also be created to represent more than just a physical location as well.
+

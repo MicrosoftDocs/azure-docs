@@ -13,6 +13,8 @@ ms.custom: references_regions
 
 ---
 
+<!-- Revise with nathans comment -->
+
 # What is Azure Arc site manager (preview)?
 
 Azure Arc site manager (preview) is a unified plane that simplifies the tasks of monitoring, governing, and providing extended functionality for all resources grouped to represent a "site" within a resource group.
@@ -57,3 +59,5 @@ Site manager only provides health status aggregation for the supported resource 
 ## Supported regions
 
 Site manager supports resources that are deployed in any of the Azure regions in Azure Global.
+
+<!-- Happy Path / All Green -->
