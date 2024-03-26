@@ -490,6 +490,9 @@ items:
         - name: Custom configuration
           displayName: Prometheus
           href: containers/prometheus-metrics-scrape-configuration.md
+        - name: Configure collection using Service and Pod Monitor Custom Resources (Preview)
+          displayName: Prometheus
+          href: containers/prometheus-metrics-scrape-crd.md
         - name: Create and validate custom scrape config
           displayName: Prometheus
           href: containers/prometheus-metrics-scrape-validate.md
@@ -949,7 +952,7 @@ items:
       displayName: Platform logs, Resource logs, Activity log
       href: logs/data-platform-logs.md
     - name: Best practices
-      displayName: Logs, WAF, well architected framework
+      displayName: Logs, WAF, well architected framework, Azure Customer Lockbox, Customer Lockbox, Lockbox
       href: best-practices-logs.md
     - name: Cost details
       displayName: Log Analytics workspace,Logs
@@ -1025,6 +1028,7 @@ items:
         - name: Roles permissions and security
           href: roles-permissions-security.md
         - name: Log data
+          displayName: Azure Customer Lockbox, Customer Lockbox, Lockbox
           href: logs/data-security.md
         - name: Customer-managed keys
           href: logs/customer-managed-keys.md
@@ -1447,10 +1451,6 @@ items:
         href: alerts/resource-manager-alerts-resource-health.md
       - name: Action groups
         href: alerts/resource-manager-action-groups.md
-    - name: Application Insights
-      items:
-        - name: Create a resource
-          href: app/resource-manager-app-resource.md
     - name: Data collection rules
       href: agents/resource-manager-data-collection-rules.md
     - name: Data collection endpoints
