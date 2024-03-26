@@ -269,6 +269,10 @@ spec:
       replacement: $1
       action: replace
 ```
+
+#### Alerts with strimzi
+Rich set of alerts based off of strimzi metrics can also be configured by refering to the [examples](https://github.com/strimzi/strimzi-kafka-operator/blob/main/examples/metrics/prometheus-install/prometheus-rules.yaml).
+
 > [!NOTE] 
 > If using any other way of exposing the jmx_exporter on your kafka cluster, please follow the instructions [here](prometheus-metrics-scrape-crd.md) on how to configure the pod or service monitors accordingly.
 
