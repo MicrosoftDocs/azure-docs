@@ -40,7 +40,9 @@ To set a policy at the storage account level, you must first enable version-leve
 > [!div class="mx-imgBorder"]
 > ![Diagram of setting a policy for version-level immutable storage at the account level.](media/immutable-version-level-worm-policies/version-level-immutable-storage-account-level.png)
 
-To set a policy at the container level, you must first enable version-level WORM either on the account OR on the container. To enable a container to set version-level WORM policies, Microsoft recommends that you enable version-level WORM at container creation. However, you can migrate a non-enabled container to an enabled one. You can set a container-level WORM policy on containers that you don't migrate, but the option to set blob-level policies won't be available for those containers.
+To set a policy at the container level, you must first enable version-level WORM either on the account OR on the container.
+
+If you plan to enable version-level WORM on a container, Microsoft recommends that you enable it at container creation time. However, you can migrate a non-version-level WORM enabled container to a version-level WORM enabled container. If you choose not to migrate a container, you can still set a container-level WORM policy on that container, but the option to set blob-level policies won't be available on that container.
 
 > [!div class="mx-imgBorder"]
 > ![Diagram of setting a policy for version-level immutable storage at the container level.](media/immutable-version-level-worm-policies/version-level-immutable-container-level.png)
