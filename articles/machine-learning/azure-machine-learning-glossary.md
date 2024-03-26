@@ -72,7 +72,7 @@ Machine Learning environments are an encapsulation of the environment where your
 
 Machine Learning supports two types of environments: curated and custom.
 
-Curated environments are provided by Machine Learning and are available in your workspace by default. They're intended to be used as is. They contain collections of Python packages and settings to help you get started with various machine learning frameworks. These precreated environments also allow for faster deployment time. To retrieve a full list of available environments, see [Azure Machine Learning environments with the CLI & SDK (v2)](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-manage-environments-v2?view=azureml-api-2&tabs=cli#curated-environments).
+Curated environments are provided by Machine Learning and are available in your workspace by default. They're intended to be used as is. They contain collections of Python packages and settings to help you get started with various machine learning frameworks. These precreated environments also allow for faster deployment time. To retrieve a full list of available environments, see [Azure Machine Learning environments with the CLI & SDK (v2)](/azure/machine-learning/how-to-manage-environments-v2?view=azureml-api-2&tabs=cli#curated-environments&preserve-view=true).
 
 In custom environments, you're responsible for setting up your environment. Make sure to install the packages and any other dependencies that your training or scoring script needs on the compute. Machine Learning allows you to create your own environment by using:
 
