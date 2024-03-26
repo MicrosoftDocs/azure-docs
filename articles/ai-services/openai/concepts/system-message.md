@@ -53,7 +53,7 @@ Here are some examples of lines you can include:
 
 When using the system message to define the model’s desired output format in your scenario, consider and include the following types of information:
 
-- **Define the language and syntax** of the output format. If you want the output to be machine parse-able, you might want the output to be in formats like JSON, XSON, or XML.
+- **Define the language and syntax** of the output format. If you want the output to be machine parse-able, you might want the output to be in formats like JSON, or XML.
 
 - **Define any styling or formatting** preferences for better user or machine readability. For example, you might want relevant parts of the response to be bolded or citations to be in a specific format.
 
