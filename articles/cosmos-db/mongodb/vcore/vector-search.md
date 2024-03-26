@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.date: 11/1/2023
 ---
 
-# Use vector search on embeddings in Azure Cosmos DB for MongoDB vCore
+# Use Integrated Vector Database in Azure Cosmos DB for MongoDB vCore
 
 [!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
 
