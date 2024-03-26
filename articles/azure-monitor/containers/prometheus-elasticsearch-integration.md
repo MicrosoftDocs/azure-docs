@@ -1,13 +1,13 @@
 ---
 title: Configure elastic search integration for Prometheus metrics in Azure Monitor
-description: Describes how to configure elasticsearch monitoring using Prometheus metrics in Azure Monitor to Kubernetes cluster.
+description: Describes how to configure elastic search monitoring using Prometheus metrics in Azure Monitor to Kubernetes cluster.
 ms.topic: conceptual
 ms.date: 3/19/2024
 ms.reviewer: rashmy
 ---
 # ElasticSearch
-Elasticsearch is the distributed search and analytics engine at the heart of the Elastic Stack. It is where the indexing, search, and analysis magic happens.
-This article describes how to configure Azure Managed Prometheus with AKS to monitor elasticsearch clusters by scraping prometheus metrics. 
+Elasticsearch is the distributed search and analytics engine at the heart of the Elastic Stack. It is where the indexing, search, and analysis magic happen.
+This article describes how to configure Azure Managed Prometheus with Azure Kubernetes Service(AKS) to monitor elastic search clusters by scraping prometheus metrics. 
 
 ## Prerequisites
 
@@ -77,7 +77,7 @@ spec:
                       - linux
 ```
 ### Deploy Pod Monitor
-Deploy the following pod monitor to configure azure managed prometheus addon to scrape prometheus metrics from the exporter
+Deploy the following pod monitor to configure azure managed prometheus addon to scrape prometheus metrics from the exporter.
 ```yaml
 apiVersion: azmonitoring.coreos.com/v1
 kind: PodMonitor
