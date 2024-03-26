@@ -76,6 +76,7 @@ Run the following Azure CLI commands, setting variables where indicated with the
 > The following script is written for the bash shell. To run the script in PowerShell, prefix the variable names with the `$` character. Example: `$APIM_NAME`.
 
 ```azurecli
+APIM_NAME={name of your API Management instance}
 RG_NAME={name of your resource group}
 # Get resource ID of API Management instance
 APIM_RESOURCE_ID=$(az apim show --name $APIM_NAME --resource-group $RG_NAME --query id --output tsv)

@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 09/18/2023
 ms.author: schaffererin
 author: schaffererin
+ms.subservice: aks-developer
 ---
 
 # Secure access to Azure OpenAI from Azure Kubernetes Service (AKS)

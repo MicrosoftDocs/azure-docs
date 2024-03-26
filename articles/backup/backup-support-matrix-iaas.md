@@ -208,6 +208,7 @@ Dynamic disk with spanned or striped volumes | Supported, unless you enable the 
 VMs with encryption at host | Supported
 Disks with enabled Data Access with Microsoft Entra authentication for disk upload/download | Not Supported
 Storage Replicas | Not supported
+[Performance-plus disks](../virtual-machines/disks-enable-performance.md) | Recovering from snapshot tier (instant restore) will recover disks as performance-plus disks. Recovering from vault does not respect the performance-plus flag and will restore disks as normal disks.
 
 ## VM network support
 
