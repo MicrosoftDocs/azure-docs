@@ -1,6 +1,6 @@
 ---
-title: "How to CRUD a site"
-description: "Describes how to CRUD a site."
+title: "How to create and manage an Azure Arc site"
+description: "Describes how to create, view, delete, or modify an Azure Arc site in the Azure portal using site manager."
 author: kgremban
 ms.author: kgremban
 ms.service: azure-arc
@@ -12,84 +12,82 @@ ms.date: 03/24/2024
 
 ---
 
-# Create a site
+# Create and manage sites
 
-This how to will guide you through how to create, modify, and delete a site.
+This how-to will guide you through how to create, modify, and delete a site.
 
 ## Prerequisites
 
-* Azure portal Access
-* Internet Connectivity
+* Azure portal access
+* Internet connectivity
 * Subscription
-* Resource Group or Subscription with at-least one resource for Site
+* Resource group or subscription with at least one resource for a site
 
 ## Open Azure Arc site manager
 
-Navigate to Azure Arc site manager via **Azure Arc** [pane.](https://ms.portal.azure.com/#blade/Microsoft-Azure-HybridCompute/AzureArcCenterBlade) in Azure in which **Site manager** will be displayed on the left side. 
-![screenshot of site manager from the azure arc main page.](./media/how-to-crud-site/arc-portal-main.png)
+In the [Azure portal](https://portal.azure.com), search for and select **Azure Arc**. Select **Site manager (preview)** from the Azure Arc navigation menu.
 
-Alternatively, you can also search for **Azure Arc site manager** in the Azure portal or **Sites - Azure Arc** using terms such as **site**, **Arc Site**, **site manager** and so on.
-![screenshot of searching for site manager in Azure.](./media/how-to-crud-site/portal-search-site.png)
+:::image type="content" source="./media/how-to-crud-site/arc-portal-main.png" alt-text="Screenshot that shows selecting Site manager from the Azure Arc overview.:::
 
-Once you locate **Azure Arc site manager**, select to open the main page of Azure Arc site manager, which will appear as shown.
-![screenshot of opening the main page of site manager.](./media/how-to-crud-site/azure-portal-site-manager.png)
+Alternatively, you can also search for Azure Arc site manager directly in the Azure portal using terms such as **site**, **Arc Site**, **site manager** and so on.
 
-## Create your site
+## Create a site
 
-1. From the main **site manager** page in **Azure Arc**, select the blue box icon that says **Create a site**
-![screenshot of creating a site from site manager.](./media/how-to-crud-site/create-a-site-button.png)
-2. Fill in the details for your first site. While these details might change, at the time of this article the required details are:
-    * Site scope: subscription or resource group
-     *Note:* The scope can be defined only at the time of creating a site and can't be modified later. After defining the scope for a site, all the resources in the scope can be viewed and managed from site manager.
-    * Site name: custom name for site
-    * Display name: custom display name for site
-    * Subscription: subscription for the site to be created under
-    * Address: Physical address for a site
-3. Once these details are provided, select **Review + create** and you're brought to a summary page to review and confirm the site details prior to creation.
-![screenshot of confirm creating a site in site manager.](./media/how-to-crud-site/create-a-site-page-california.png)
-4. Select **Create** to create your site.
-![screenshot of final confirmation creating a site.](./media/how-to-crud-site/final-create-screen-arc-site.png)
+Create a site to manage geographically related resources.
 
-## View and Delete your newly created site
+1. From the main **Site manager** page in **Azure Arc**, select the blue **Create a site** button.
 
-1. Navigate to the main **site manager** page in **Azure Arc** and then to the **sites** tab at the top of Azure Arc site manager. 
-![screenshot of navigating to all sites in the site tab.](./media/how-to-crud-site/sites-button-from-site-manager.png)
-2. Here you should find your newly created site. [Note: For demo purposes, the image contains the site **London** as well to show how multiple sites will be displayed.]
-![screenshot of viewing all sites in the site tab.](./media/how-to-crud-site/california-site-select.png)
-3. To manage your site, you can select the site to navigate to the specific site’s resource page and perform the delete action. If you wish to delete your site, you can also do so from within the created site.
-![screenshot of viewing details of california site and deletion option.](./media/how-to-crud-site/california-site-main-page-delete.png)
-    
-    *Note:* Deleting a site doesn't affect the resources or the resource group and subscription in its scope. After a site is deleted, the resources of that site can't be viewed or managed from site manager.
-    *Note:* A new site can be created for the resource group or the subscription after the original site is deleted.
+   :::image type="content" source="./media/how-to-crud-site/create-a-site-button.png" alt-text="Screenshot that shows creating a site from the site manager overview.":::
 
-## View and Modify your site
+1. Provide the following information about your site:
 
-1. Navigate to the "Sites" tab at the top of Azure Arc site manager.
-![screenshot of navigating to the sites tab from site manager.](./media/how-to-crud-site/sites-button-from-site-manager.png)
-2. Here you should find your created sites.
-![screenshot of view all created sites.](./media/how-to-crud-site/california-site-select.png)
-3. To manage your site, you can select the site to navigate to the specific site’s resource page.
-![screenshot of navigating to the main page and main page site view for california site.](./media/how-to-crud-site/california-site-main-page.png)
+   | Parameter | Description |
+   |--|--|
+   | **Site scope** | **Subscription** or **Resource group**. The scope can only be defined at the time of creating a site and can't be modified later. After defining the scope for a site, all the resources in the scope can be viewed and managed from site manager. |
+   | **Site name** | Custom name for site. |
+   | **Display name** | Custom display name for site. |
+   | **Subscription** | Subscription for the site to be created under. |
+   | **Address** | Physical address for a site. |
 
-## Use your site
+1. Once these details are provided, select **Review + create**.
 
-From within your site, you have the ability to certain function listed:
-* View resources
-* Modify resources (modifications affect the resources elsewhere as well)
-* View connectivity status (when supported by resources)
-* View update status (when supported by resources)
-* View alerts (when supported by resources)
-* Add new resources (currently only resources supporting creation from the site view)
+   :::image type="content" source="./media/how-to-crud-site/create-a-site-page-california.png" alt-text="Screenshot that shows all the site details filled in to create a site and then select review + create.":::
 
-To access these functions:
-1. Navigate to the "Sites" tab at the top of Azure Arc site manager.
-![screenshot of navigating again to the site view via the site tab.](./media/how-to-crud-site/sites-button-from-site-manager.png)
-2. Here you should find your created sites.
-![screenshot of viewing details of the california site.](./media/how-to-crud-site/california-site-select.png)
-3. To manage your site, you can select the site to navigate to the specific site’s resource page.
-![screenshot of managing details of the site resource page for california.](./media/how-to-crud-site/california-site-main-page.png)
+1. On the summary page, review and confirm the site details then select **Create** to create your site.
 
+   :::image type="content" source="./media/how-to-crud-site/final-create-screen-arc-site.png" alt-text="Screenshot that shows the validation and review page for a new site and then select create.":::
 
-## Related content
+## View and modify a site
 
-- [Azure Arc.](https://azure.microsoft.com/products/azure-arc/)
+Once you create a site, you can access it and its managed resources through site manager.
+
+1. From the main **Site manager** page in **Azure Arc**, select **Sites** to view all existing sites.
+
+   :::image type="content" source="./media/how-to-crud-site/sites-button-from-site-manager.png" alt-text="Screenshot that shows selecting Sites to view all sites.":::
+
+1. On the **Sites** page, you can view all existing sites. Select the name of the site that you want to delete.
+
+   :::image type="content" source="./media/how-to-crud-site/california-site-select.png" alt-text="Screenshot that shows selecting a site to manage from the list of sites.":::
+
+1. On a specific site's resource page, you can:
+
+   * View resources
+   * Modify resources (modifications affect the resources elsewhere as well)
+   * View connectivity status (when supported by resources)
+   * View update status (when supported by resources)
+   * View alerts (when supported by resources)
+   * Add new resources (currently only resources supporting creation from the site view)
+
+## Delete a site
+
+If you no longer want to manage a site you can delete it from the site manager. 
+
+Deleting a site doesn't affect the resources, resource group, or subscription in its scope. After a site is deleted, the resources of that site will still exist but can't be viewed or managed from site manager. You can create a new site for the resource group or the subscription after the original site is deleted.
+
+1. From the main **Site manager** page in **Azure Arc**, select **Sites** to view all existing sites.
+
+1. On the **Sites** page, you can view all existing sites. Select the name of the site that you want to delete.
+
+1. On the site's resource page, select **Delete**.
+
+   :::image type="content" source="./media/how-to-crud-site/california-site-main-page-delete.png" alt-text="Screenshot that shows selecting Delete on the details page of a site.":::

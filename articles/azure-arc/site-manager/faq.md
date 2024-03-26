@@ -1,6 +1,6 @@
 ---
-title: Frequently Asked Questions
-description: "FAQ"
+title: Frequently asked questions
+description: "Frequently asked questions to understand and troubleshoot Azure Arc sites and site manager"
 author: kgremban
 ms.author: kgremban
 ms.service: azure-arc
@@ -12,8 +12,7 @@ ms.date: 02/16/2024
 
 ---
 
-
-# Frequently Asked Questions
+# Frequently asked questions
 
 The following are frequently asked questions and answers for Azure Arc site manager:
 
@@ -23,7 +22,7 @@ The following are frequently asked questions and answers for Azure Arc site mana
 
 *Question:* Can I update a site after it has been created?
 
-*Answer:* Site properties and details can't be updated. The ability to update such details might be available in future versions of the feature.
+*Answer:* Site properties and details can't be updated.
 
 *Question:* Does site manager have a subscription or fee for usage?
 

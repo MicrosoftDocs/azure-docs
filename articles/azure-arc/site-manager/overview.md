@@ -1,5 +1,5 @@
 ---
-title: "What is Azure Arc site manager (preview)?"
+title: "What is Azure Arc site manager (preview)"
 description: "Describes how you can use Azure Arc sites and site manager to monitor and manage physical and logical resources, focused on edge scenarios."
 author: kgremban
 ms.author: kgremban
@@ -25,11 +25,11 @@ Arc sites have a 1:1 relationship with resource groups and subscriptions. Any gi
 
 ## Mapping
 
-Resource Group <- 1:1 -> Arc site.
+Resource group <- 1:1 -> Arc site.
 
 Subscription <- 1:1 -> Arc site.
 
-Subscription <- 1:M -> Resource Group.
+Subscription <- 1:M -> Resource group.
 
 ## Supported resource types
 

@@ -10,45 +10,53 @@ ms.date: 02/16/2024
 
 ---
 
-# How to view alert status for an Arc Site
+# How to view alert status for an Arc site
 
-This article details how to view alert status for an Arc Site, which reflects the status for the overall site and enables the ability to view the alert status for support resources as well. The status of an overall site is based upon the underlying resources.
+This article details how to view alert status for an Arc site, which reflects the status for the overall site and enables the ability to view the alert status for support resources as well. The status of an overall site is based upon the underlying resources.
 
 ## Prerequisites
 
-* Azure portal Access
-* Internet Connectivity
+* Azure portal access
+* Internet connectivity
 * Subscription
-* Resource Group or Subscription with at least one compatible resource type for Site that reflects and supports alert status
+* Resource group or subscription with at least one resource for a site
 * A site created for the associated resource group or subscription
 
 ## Alert status colors and meanings
 
-* If the color in the portal is red, this means **Critical**
-* If the color in the portal is orange, this means **Error**
-* If the color in the portal is yellow, this means **Warning**
-* If the color in the portal is blue, this means **Info**
-* If the color in the portal is purple, this means **Verbose**
-* If the color in the portal is green, this means **Up to Date**
+In the Azure portal, status is indicated using color.
 
-## View alert status: site
+* Red: **Critical**
+* Orange: **Error**
+* Yellow: **Warning**
+* Blue: **Info**
+* Purple: **Verbose**
+* Green: **Up to Date**
 
-To view alert status for an Arc site as a whole, the below steps can be followed from the main page of Azure Arc site manager. For this example, two sites have already been created, a **London** site and a **California** site. 
+## View alert status
+
+View alert status for an Arc site from the main page of Azure Arc site manager.
+
+1. From the [Azure portal](https://portal.azure.com), navigate to **Azure Arc** and select **Site manager (preview)** to open site manager.
 
 1. From Azure Arc site manager, navigate to the **Overview** page. 
-![screenshot of site manager get started page directing to overview page.](./media/how-to-view-alerts/overview-sites-page.png)
-2. In the **Overview** page, the alert statuses of the sites are shown below. This is the alert status of resources aggregated by sites. In the example below, this indicates that one site is **up to date** and one site **needs attention**
-![screenshot of overview page showing the alerts area.](./media/how-to-view-alerts/site-manager-overview-alerts.png)
-3. To understand which site is **up to date** and which site **needs attention**, select either the **sites** tab or the blue colored status text to be directed to the **sites** page.
-![screenshot of site manager overview page directing to the sites page to view more details.](./media/how-to-view-alerts/site-manager-overview-alerts-details.png)
-4. The **sites** page will appear and show the top-level status for each site, this reflects the most important status for the site. 
-![screenshot of site manager sites page showing the top level status for each site.](./media/how-to-view-alerts/site-manager-overview-alerts-details-status-site-page.png)
 
-## View alert status: resource
+   :::image type="content" source="./media/how-to-view-alerts/overview-sites-page.png" alt-text="Screenshot that shows selecting the overview page from site manager.":::
 
-1. Navigate to the main **site manager** page in **Azure Arc** and then to the **Sites** tab at the top of Azure Arc site manager. 
-![screenshot of site manager main page highlighting the site button tab.](./media/how-to-view-alerts/sites-button-from-site-manager.png)
-2. From the **Sites** tab, view the top-level status for each site, this reflects the most important status for the site. To see resource status, select this. For this example, **London's** alert status is clicked.
-![screenshot of site tab inside site manager showing the alert status.](./media/how-to-view-alerts/site-manager-overview-alerts-details-status-site-page.png)
-3. The alert status for each resource within **London** is visible, including the resource that had resulted in the top-level most important status. Which for **London** is **needs attention**
-![screenshot of alert status for each resource inside the london site.](./media/how-to-view-alerts/site-manager-overview-alerts-details-status-london.png)
+1. In the **Overview** page, you can view the summarized alert statuses of all sites. This site-level alert status is an aggregation of all the alert statuses of the resources in that site. In the example below, one site is **up to date** and one site **needs attention**.
+
+   :::image type="content" source="./media/how-to-view-alerts/site-manager-overview-alerts.png" alt-text="Screenshot that shows viewing the alert status on the site manager overview page.":::
+
+1. To understand which site is **up to date** and which site **needs attention**, select either the **Sites** tab or the blue status text.
+
+   :::image type="content" source="./media/how-to-view-alerts/site-manager-overview-alerts-details.png" alt-text="Screenshot of site manager overview page directing to the sites page to view more details.":::
+
+1. The **sites** page shows the top-level status for each site, which reflects the most important status for the site.
+
+   :::image type="content" source="./media/how-to-view-alerts/site-manager-overview-alerts-details-status-site-page.png" alt-text="Screenshot that shows the top level alerts status for each site.":::
+
+1. If there's an alert, select the status text to open details for a given site. You can also select the name of the site to open its details.
+
+1. On a site's resource page, you can view the alert status for each resource within the site, including the resource that had resulted in the top-level most important status.
+
+   :::image type="content" source="./media/how-to-view-alerts/site-manager-overview-alerts-details-status-london.png" alt-text="Screenshot that shows the site detail page with alert status for each resource.":::
