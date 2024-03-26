@@ -79,7 +79,7 @@ The request body includes the values in the following table.
 
 |Name | Type | Description |
 | --- | --- | --- |
-|properties.retentionInDays | integer  | TThe workspace data retention in days. Allowed values are per pricing plan. See pricing tiers documentation for details. |
+|properties.retentionInDays | integer  | The workspace data retention in days. Allowed values are per pricing plan. See pricing tiers documentation for details. |
 
 **Example**
 
@@ -115,7 +115,7 @@ Status code: 200
 
 # [CLI](#tab/cli-3)
 
-To set the retention and archive duration for a table, run the [az monitor log-analytics workspace update](/cli/azure/monitor/log-analytics/workspace/#az-monitor-log-analytics-workspace-update) command and pass the `--retention-time`parameter.
+To set the retention and archive duration for a table, run the [az monitor log-analytics workspace update](/cli/azure/monitor/log-analytics/workspace/#az-monitor-log-analytics-workspace-update) command and pass the `--retention-time` parameter.
 
 This example sets the table's interactive retention to 30 days, and the total retention to two years, which means that the archive duration is 23 months:
 
