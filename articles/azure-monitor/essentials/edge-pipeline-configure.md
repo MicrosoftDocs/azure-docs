@@ -11,48 +11,36 @@ author: bwren
 
 Azure Monitor pipeline for edge and multicloud is an Azure Monitor component that enables at-scale collection, transformation, and routing of telemetry data at the edge and to the cloud. It leverages OpenTelemetry Collector as a foundation that enables an extensibility model to support collection from a wide range of data sources.
 
-Azure Monitor Pipeline will be deployed on an Arc-enabled K8s cluster in the customers’ environment.  
+Azure Monitor Pipeline is deployed on an Arc-enabled K8s cluster in your environment. The Azure Monitor Pipeline Controller Arc Extension is installed on this cluster to consolidate data from your clients, which is then forwarded to Azure Monitor in the cloud.
+
+[Placeholder for image]()
+
 
 ## Prerequisites
 
-- This process assumes that you already have a data collection process that sends data to a Log Analytics workspace using a [data collection rule (DCR)](./data-collection-rule-overview.md). If not, then see the following articles to create a DCR and any required tables in your workspace.
-
-- Arc-enabled Kubernetes cluster with an external IP address.
-
-
-
-## Components
-
-
-| Component | Description |
-|:---|:--|
-| Arc-enabled Kubernetes cluster | with an external IP address.  You can use Azure Kubernetes Service (AKS) if you don’t already have a cluster.
-- Workload generating OTLP or Syslog data.
-- Log Analytics workspace
-- Azure CLI
-- Azure resource provider
-  - For Azure Arc-enabled Kubernetes, the following Azure resource providers must be registered in your subscription:
-      - Microsoft.Kubernetes
-      - Microsoft.KubernetesConfiguration
-      - Microsoft.ExtendedLocation
-  - To use Azure Monitor, the following Azure resource providers must be registered in your subscription:
-      - Microsoft.Insights
-      - Microsoft.Monitor
-
+- [Arc-enabled Kubernetes cluster](../../azure-arc/kubernetes/overview.md ) in your own environment with an external IP address. See [Connect an existing Kubernetes cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md).
+- A data collection process that sends Syslog or OLTP data to a Log Analytics workspace using a [data collection rule (DCR)](./data-collection-rule-overview.md).
 
 
 ## Pipeline installation
 
 The following three components must be installed and configured for the Azure Monitor Pipeline.
 
-- Azure Monitor Pipeline Controller Arc Extension
-- Entitle installed Arc Extension to send telemetry to your Log Analytics Workspace via DCR
-- Deploy the Azure Monitor Pipeline Configuration to the cluster.
+1. Install Azure Monitor Pipeline Controller Arc extension on your Kubernetes cluster.
+2. Grant the Arc extension permission to send telemetry to your Log Analytics Workspace via DCR
+3. Deploy the Azure Monitor Pipeline Configuration to the cluster.
 
-## Deploy Azure Monitor Pipeline Arc Extension
+## Deploy Azure Monitor Pipeline Arc extension
+The first step is to deploy the Azure Monitor Pipeline Arc extension to your Azure Arc-enabled Kubernetes cluster. 
+
 
 ### [Portal](#tab/Portal)
 
+1. From the **Monitor** menu in the Azure portal, select **Pipelines**.
+2. Click **Create Azure Monitor pipeline extension**.
+3. 
+
+:::image type="content" source="media/edge-pipeline/create-pipeline.png" lightbox="media/edge-pipeline/create-pipeline.png" alt-text="Screenshot of Create Azure Monitor pipeline screen.":::
 
 ### [CLI](#tab/CLI)
 
@@ -66,6 +54,11 @@ az k8s-extension create --name <extension-name> --extension-type microsoft.monit
 
 ## Give the Arc extension access to your DCR
 A system identity is created when you deploy the extension. This identity is used when the pipeline connects to Azure Monitor and requires access to the DCR used in the data collection scenario.
+
+### [Portal](#tab/Portal)
+
+
+
 
 ### [CLI](#tab/CLI)
 
@@ -84,9 +77,19 @@ az role assignment create --assignee "<extension principal ID>" --role "Monitori
 Verify access to the DCR from the Access Control (IAM) option for the DCR in the Azure portal. The identity should be listed as a Monitoring Metrics Publisher.
 
 
-[Placeholder for image]()
+[Placeholder for image]
 ---
 
+
+## Dataflows
+Once you have the pipeline configured, you can add one or more *dataflows*. Each dataflow includes the details in the following table.
+
+| Setting | Description |
+|:---|:---|
+| Name | Name for the dataflow. Must be unique for this pipeline. |
+| Source type | The type of data being collected. The following source types are currently supported:<br> - Syslog<br> - OTLP |
+| Port | Port that the pipeline listens on for incoming data. If two dataflows use the same port, they will both receive and process the data. |
+| Destination Type
 
 
 ## Deploy the Azure Monitor Pipeline Configuration to the cluster
@@ -124,6 +127,7 @@ kubectl logs -l component=collector -n <namespace> -f --tail 1000
 ```
 
 ## Client configuration
+Once your 
 
 ### Retrieve ingress endpoint
 Each client requires the external IP address of the pipeline. Use the following command to retrieve this address:
@@ -176,6 +180,6 @@ $WorkDirectory /var/spool/syslog
 *.* @10.0.0.92:6514
 ```
 
-### OLTP
+### OTLP
 The Azure Monitor edge pipeline exposes a gRPC-based OTLP endpoint on port 4317. Configuring your instrumentation to send to this OTLP endpoint will depend on the instrumentation library itself. See [OTLP endpoint or Collector](https://opentelemetry.io/docs/instrumentation/python/exporters/#otlp-endpoint-or-collector) for OpenTelemetry documentation. The environment variable method is documented at [OTLP Exporter Configuration](https://opentelemetry.io/docs/concepts/sdk-configuration/otlp-exporter-configuration/).
 
