@@ -8,7 +8,7 @@ ms.subservice: inferencing
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
-ms.date: 03/06/2024
+ms.date: 03/26/2024
 ms.topic: how-to
 ms.custom: deploy, devplatv2, devx-track-azurecli, cliv2, sdkv2
 ms.devlang: azurecli
@@ -64,7 +64,7 @@ cd azureml-examples/cli
 
 ```azurecli
 git clone https://github.com/Azure/azureml-examples --depth 1
-cd azureml-examples/sdk
+cd azureml-examples/cli
 ```
 
 See also [the example notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/custom-container/online-endpoints-custom-container.ipynb), but note that `3. Test locally` section in the notebook assumes that it runs under the `azureml-examples/sdk` directory.
