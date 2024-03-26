@@ -1,19 +1,18 @@
 ---
 title: "Quickstart: Document Intelligence (formerly Form Recognizer) Python SDK (beta) | v3.1 | v3.0"
 titleSuffix: Azure AI services
-description: Form and document processing, data extraction, and analysis using Document Intelligence Python client library SDKs v3.1 or v3.0
+description: Form and document processing, data extraction, and analysis using Document Intelligence Python client library.
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: include
-ms.date: 01/29/2024
+ms.date: 03/25/2024
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD025 -->
 
 :::moniker range="doc-intel-4.0.0"
-[**Form Recognizer → to → Document Intelligence migration guide**](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/documentintelligence/azure-ai-documentintelligence/MIGRATION_GUIDE.md)
-[Client library](/python/api/overview/azure/ai-documentintelligence-readme?view=azure-python-preview&preserve-view=true) |[SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-documentintelligence/latest/index.html) | [REST API reference](https://westus.dev.cognitive.microsoft.com/docs/services/document-intelligence-api-2023-10-31-preview/operations/AnalyzeDocument) | [Package (PyPi)](https://pypi.org/project/azure-ai-documentintelligence/1.0.0b1/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/documentintelligence/azure-ai-documentintelligence/samples) | [Supported REST API versions](../../sdk-overview-v4-0.md#supported-programming-languages)
+[Client library](/python/api/overview/azure/ai-documentintelligence-readme?view=azure-python-preview&preserve-view=true) |[SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-documentintelligence/latest/index.html) | [REST API reference](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2024-02-29-preview&preserve-view=true&tabs=HTTP) | [Package (PyPi)](https://pypi.org/project/azure-ai-documentintelligence/1.0.0b2/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/documentintelligence/azure-ai-documentintelligence/samples) | [Supported REST API versions](../../sdk-overview-v4-0.md#supported-programming-languages)
 :::moniker-end
 
 :::moniker range="doc-intel-3.1.0"
@@ -24,7 +23,7 @@ ms.author: lajanuar
 [Client library](/python/api/overview/azure/ai-formrecognizer-readme?view=azure-python-previous&preserve-view=true) | [SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0b6/index.html) | [REST API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) | [Package (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/3.2.0b6/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_3.2.0b6/sdk/formrecognizer/azure-ai-formrecognizer/samples) | [Supported REST API versions](../../sdk-overview-v3-0.md#supported-programming-languages)
 :::moniker-end
 
-In this quickstart you'll, use the following features to analyze and extract data and values from forms and documents:
+In this quickstart, use the following features to analyze and extract data from forms and documents:
 
 * [**Layout**](#layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes, and key-value pairs, without the need to train a model.
 
@@ -32,9 +31,9 @@ In this quickstart you'll, use the following features to analyze and extract dat
 
 ## Prerequisites
 
-* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
+* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services).
 
-* [Python 3.7 or later](https://www.python.org/)
+* [Python 3.7 or later](https://www.python.org/).
 
   * Your Python installation should include [pip](https://pip.pypa.io/en/stable/). You can check if you have pip installed by running `pip --version` on the command line. Get pip by installing the latest version of Python.
 
@@ -56,7 +55,7 @@ Open a terminal window in your local environment and install the Azure AI Docume
 :::moniker range="doc-intel-4.0.0"
 
 ```console
-pip install azure-ai-documentintelligence==1.0.0b1
+pip install azure-ai-documentintelligence==1.0.0b2
 
 ```
 
@@ -276,7 +275,7 @@ def analyze_layout():
         endpoint=endpoint, credential=AzureKeyCredential(key)
     )
 
-    poller = document_analysis_client.begin_analyze_document_from_url(
+    poller = document_analysis_client.begin_analyze_document(
             "prebuilt-layout", formUrl)
     result = poller.result()
 
@@ -391,7 +390,7 @@ Here's a snippet of the expected output:
   ......Word 'D.C.' has a confidence of 1.0
 ```
 
-To view the entire output, visit the Azure samples repository on GitHub to view the [layout model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/v3-python-sdk-layout-output.md)
+To view the entire output, visit the Azure samples repository on GitHub to view the [layout model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/v3-python-sdk-layout-output.md).
 
 ::: moniker-end
 
@@ -526,7 +525,7 @@ ___
 Analyze and extract common fields from specific document types using a prebuilt model. In this example, we analyze an invoice using the **prebuilt-invoice** model.
 
 > [!TIP]
-> You aren't limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. See [**model data extraction**](../../concept-model-overview.md#model-data-extraction).
+> You aren't limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the `analyze` operation depends on the type of document to be analyzed. See [**model data extraction**](../../concept-model-overview.md#model-data-extraction).
 
 > [!div class="checklist"]
 >
@@ -560,193 +559,197 @@ def analyze_invoice():
         endpoint=endpoint, credential=AzureKeyCredential(key)
     )
 
-    poller = document_intelligence_client.begin_analyze_document_from_url(
+    poller = document_intelligence_client.begin_analyze_document(
         "prebuilt-invoice", invoiceUrl
     )
     invoices = poller.result()
 
-    for idx, invoice in enumerate(invoices.documents):
-        print(f"--------Analyzing invoice #{idx + 1}--------")
-        vendor_name = invoice.fields.get("VendorName")
-        if vendor_name:
-            print(
-                f"Vendor Name: {vendor_name.get('content')} has confidence: {vendor_name.get('confidence')}"
-            )
-        vendor_address = invoice.fields.get("VendorAddress")
-        if vendor_address:
-            print(
-                f"Vendor Address: {vendor_address.get('content')} has confidence: {vendor_address.get('confidence')}"
-            )
-        vendor_address_recipient = invoice.fields.get("VendorAddressRecipient")
-        if vendor_address_recipient:
-            print(
-                f"Vendor Address Recipient: {vendor_address_recipient.get('content')} has confidence: {vendor_address_recipient.get('confidence')}"
-            )
-        customer_name = invoice.fields.get("CustomerName")
-        if customer_name:
-            print(
-                f"Customer Name: {customer_name.get('content')} has confidence: {customer_name.get('confidence')}"
-            )
-        customer_id = invoice.fields.get("CustomerId")
-        if customer_id:
-            print(
-                f"Customer Id: {customer_id.get('content')} has confidence: {customer_id.get('confidence')}"
-            )
-        customer_address = invoice.fields.get("CustomerAddress")
-        if customer_address:
-            print(
-                f"Customer Address: {customer_address.get('content')} has confidence: {customer_address.get('confidence')}"
-            )
-        customer_address_recipient = invoice.fields.get("CustomerAddressRecipient")
-        if customer_address_recipient:
-            print(
-                f"Customer Address Recipient: {customer_address_recipient.get('content')} has confidence: {customer_address_recipient.get('confidence')}"
-            )
-        invoice_id = invoice.fields.get("InvoiceId")
-        if invoice_id:
-            print(
-                f"Invoice Id: {invoice_id.get('content')} has confidence: {invoice_id.get('confidence')}"
-            )
-        invoice_date = invoice.fields.get("InvoiceDate")
-        if invoice_date:
-            print(
-                f"Invoice Date: {invoice_date.get('content')} has confidence: {invoice_date.get('confidence')}"
-            )
-        invoice_total = invoice.fields.get("InvoiceTotal")
-        if invoice_total:
-            print(
-                f"Invoice Total: {invoice_total.get('content')} has confidence: {invoice_total.get('confidence')}"
-            )
-        due_date = invoice.fields.get("DueDate")
-        if due_date:
-            print(
-                f"Due Date: {due_date.get('content')} has confidence: {due_date.get('confidence')}"
-            )
-        purchase_order = invoice.fields.get("PurchaseOrder")
-        if purchase_order:
-            print(
-                f"Purchase Order: {purchase_order.get('content')} has confidence: {purchase_order.get('confidence')}"
-            )
-        billing_address = invoice.fields.get("BillingAddress")
-        if billing_address:
-            print(
-                f"Billing Address: {billing_address.get('content')} has confidence: {billing_address.get('confidence')}"
-            )
-        billing_address_recipient = invoice.fields.get("BillingAddressRecipient")
-        if billing_address_recipient:
-            print(
-                f"Billing Address Recipient: {billing_address_recipient.get('content')} has confidence: {billing_address_recipient.get('confidence')}"
-            )
-        shipping_address = invoice.fields.get("ShippingAddress")
-        if shipping_address:
-            print(
-                f"Shipping Address: {shipping_address.get('content')} has confidence: {shipping_address.get('confidence')}"
-            )
-        shipping_address_recipient = invoice.fields.get("ShippingAddressRecipient")
-        if shipping_address_recipient:
-            print(
-                f"Shipping Address Recipient: {shipping_address_recipient.get('content')} has confidence: {shipping_address_recipient.get('confidence')}"
-            )
-        print("Invoice items:")
-        for idx, item in enumerate(invoice.fields.get("Items").get("valueArray")):
-            print(f"...Item #{idx + 1}")
-            item_description = item.get("valueObject").get("Description")
-            if item_description:
+    if invoices.documents:
+        for idx, invoice in enumerate(invoices.documents):
+            print(f"--------Analyzing invoice #{idx + 1}--------")
+            vendor_name = invoice.fields.get("VendorName")
+            if vendor_name:
                 print(
-                    f"......Description: {item_description.get('content')} has confidence: {item_description.get('confidence')}"
+                    f"Vendor Name: {vendor_name.get('content')} has confidence: {vendor_name.get('confidence')}"
                 )
-            item_quantity = item.get("valueObject").get("Quantity")
-            if item_quantity:
+            vendor_address = invoice.fields.get("VendorAddress")
+            if vendor_address:
                 print(
-                    f"......Quantity: {item_quantity.get('content')} has confidence: {item_quantity.get('confidence')}"
+                    f"Vendor Address: {vendor_address.get('content')} has confidence: {vendor_address.get('confidence')}"
                 )
-            unit = item.get("valueObject").get("Unit")
-            if unit:
+            vendor_address_recipient = invoice.fields.get("VendorAddressRecipient")
+            if vendor_address_recipient:
                 print(
-                    f"......Unit: {unit.get('content')} has confidence: {unit.get('confidence')}"
+                    f"Vendor Address Recipient: {vendor_address_recipient.get('content')} has confidence: {vendor_address_recipient.get('confidence')}"
                 )
-            unit_price = item.get("valueObject").get("UnitPrice")
-            if unit_price:
-                unit_price_code = (
-                    unit_price.get("valueCurrency").get("currencyCode")
-                    if unit_price.get("valueCurrency").get("currencyCode")
-                    else ""
-                )
+            customer_name = invoice.fields.get("CustomerName")
+            if customer_name:
                 print(
-                    f"......Unit Price: {unit_price.get('content')}{unit_price_code} has confidence: {unit_price.get('confidence')}"
+                    f"Customer Name: {customer_name.get('content')} has confidence: {customer_name.get('confidence')}"
                 )
-            product_code = item.get("valueObject").get("ProductCode")
-            if product_code:
+            customer_id = invoice.fields.get("CustomerId")
+            if customer_id:
                 print(
-                    f"......Product Code: {product_code.get('content')} has confidence: {product_code.get('confidence')}"
+                    f"Customer Id: {customer_id.get('content')} has confidence: {customer_id.get('confidence')}"
                 )
-            item_date = item.get("valueObject").get("Date")
-            if item_date:
+            customer_address = invoice.fields.get("CustomerAddress")
+            if customer_address:
                 print(
-                    f"......Date: {item_date.get('content')} has confidence: {item_date.get('confidence')}"
+                    f"Customer Address: {customer_address.get('content')} has confidence: {customer_address.get('confidence')}"
                 )
-            tax = item.get("valueObject").get("Tax")
-            if tax:
+            customer_address_recipient = invoice.fields.get("CustomerAddressRecipient")
+            if customer_address_recipient:
                 print(
-                    f"......Tax: {tax.get('content')} has confidence: {tax.get('confidence')}"
+                    f"Customer Address Recipient: {customer_address_recipient.get('content')} has confidence: {customer_address_recipient.get('confidence')}"
                 )
-            amount = item.get("valueObject").get("Amount")
-            if amount:
+            invoice_id = invoice.fields.get("InvoiceId")
+            if invoice_id:
                 print(
-                    f"......Amount: {amount.get('content')} has confidence: {amount.get('confidence')}"
+                    f"Invoice Id: {invoice_id.get('content')} has confidence: {invoice_id.get('confidence')}"
                 )
-        subtotal = invoice.fields.get("SubTotal")
-        if subtotal:
-            print(
-                f"Subtotal: {subtotal.get('content')} has confidence: {subtotal.get('confidence')}"
+            invoice_date = invoice.fields.get("InvoiceDate")
+            if invoice_date:
+                print(
+                    f"Invoice Date: {invoice_date.get('content')} has confidence: {invoice_date.get('confidence')}"
+                )
+            invoice_total = invoice.fields.get("InvoiceTotal")
+            if invoice_total:
+                print(
+                    f"Invoice Total: {invoice_total.get('content')} has confidence: {invoice_total.get('confidence')}"
+                )
+            due_date = invoice.fields.get("DueDate")
+            if due_date:
+                print(
+                    f"Due Date: {due_date.get('content')} has confidence: {due_date.get('confidence')}"
+                )
+            purchase_order = invoice.fields.get("PurchaseOrder")
+            if purchase_order:
+                print(
+                    f"Purchase Order: {purchase_order.get('content')} has confidence: {purchase_order.get('confidence')}"
+                )
+            billing_address = invoice.fields.get("BillingAddress")
+            if billing_address:
+                print(
+                    f"Billing Address: {billing_address.get('content')} has confidence: {billing_address.get('confidence')}"
+                )
+            billing_address_recipient = invoice.fields.get("BillingAddressRecipient")
+            if billing_address_recipient:
+                print(
+                    f"Billing Address Recipient: {billing_address_recipient.get('content')} has confidence: {billing_address_recipient.get('confidence')}"
+                )
+            shipping_address = invoice.fields.get("ShippingAddress")
+            if shipping_address:
+                print(
+                    f"Shipping Address: {shipping_address.get('content')} has confidence: {shipping_address.get('confidence')}"
+                )
+            shipping_address_recipient = invoice.fields.get("ShippingAddressRecipient")
+            if shipping_address_recipient:
+                print(
+                    f"Shipping Address Recipient: {shipping_address_recipient.get('content')} has confidence: {shipping_address_recipient.get('confidence')}"
+                )
+            print("Invoice items:")
+            for idx, item in enumerate(invoice.fields.get("Items").get("valueArray")):
+                print(f"...Item #{idx + 1}")
+                item_description = item.get("valueObject").get("Description")
+                if item_description:
+                    print(
+                        f"......Description: {item_description.get('content')} has confidence: {item_description.get('confidence')}"
+                    )
+                item_quantity = item.get("valueObject").get("Quantity")
+                if item_quantity:
+                    print(
+                        f"......Quantity: {item_quantity.get('content')} has confidence: {item_quantity.get('confidence')}"
+                    )
+                unit = item.get("valueObject").get("Unit")
+                if unit:
+                    print(
+                        f"......Unit: {unit.get('content')} has confidence: {unit.get('confidence')}"
+                    )
+                unit_price = item.get("valueObject").get("UnitPrice")
+                if unit_price:
+                    unit_price_code = (
+                        unit_price.get("valueCurrency").get("currencyCode")
+                        if unit_price.get("valueCurrency").get("currencyCode")
+                        else ""
+                    )
+                    print(
+                        f"......Unit Price: {unit_price.get('content')}{unit_price_code} has confidence: {unit_price.get('confidence')}"
+                    )
+                product_code = item.get("valueObject").get("ProductCode")
+                if product_code:
+                    print(
+                        f"......Product Code: {product_code.get('content')} has confidence: {product_code.get('confidence')}"
+                    )
+                item_date = item.get("valueObject").get("Date")
+                if item_date:
+                    print(
+                        f"......Date: {item_date.get('content')} has confidence: {item_date.get('confidence')}"
+                    )
+                tax = item.get("valueObject").get("Tax")
+                if tax:
+                    print(
+                        f"......Tax: {tax.get('content')} has confidence: {tax.get('confidence')}"
+                    )
+                amount = item.get("valueObject").get("Amount")
+                if amount:
+                    print(
+                        f"......Amount: {amount.get('content')} has confidence: {amount.get('confidence')}"
+                    )
+            subtotal = invoice.fields.get("SubTotal")
+            if subtotal:
+                print(
+                    f"Subtotal: {subtotal.get('content')} has confidence: {subtotal.get('confidence')}"
+                )
+            total_tax = invoice.fields.get("TotalTax")
+            if total_tax:
+                print(
+                    f"Total Tax: {total_tax.get('content')} has confidence: {total_tax.get('confidence')}"
+                )
+            previous_unpaid_balance = invoice.fields.get("PreviousUnpaidBalance")
+            if previous_unpaid_balance:
+                print(
+                    f"Previous Unpaid Balance: {previous_unpaid_balance.get('content')} has confidence: {previous_unpaid_balance.get('confidence')}"
+                )
+            amount_due = invoice.fields.get("AmountDue")
+            if amount_due:
+                print(
+                    f"Amount Due: {amount_due.get('content')} has confidence: {amount_due.get('confidence')}"
+                )
+            service_start_date = invoice.fields.get("ServiceStartDate")
+            if service_start_date:
+                print(
+                    f"Service Start Date: {service_start_date.get('content')} has confidence: {service_start_date.get('confidence')}"
+                )
+            service_end_date = invoice.fields.get("ServiceEndDate")
+            if service_end_date:
+                print(
+                    f"Service End Date: {service_end_date.get('content')} has confidence: {service_end_date.get('confidence')}"
+                )
+            service_address = invoice.fields.get("ServiceAddress")
+            if service_address:
+                print(
+                    f"Service Address: {service_address.get('content')} has confidence: {service_address.get('confidence')}"
+                )
+            service_address_recipient = invoice.fields.get("ServiceAddressRecipient")
+            if service_address_recipient:
+                print(
+                    f"Service Address Recipient: {service_address_recipient.get('content')} has confidence: {service_address_recipient.get('confidence')}"
+                )
+            remittance_address = invoice.fields.get("RemittanceAddress")
+            if remittance_address:
+                print(
+                    f"Remittance Address: {remittance_address.get('content')} has confidence: {remittance_address.get('confidence')}"
+                )
+            remittance_address_recipient = invoice.fields.get(
+                "RemittanceAddressRecipient"
             )
-        total_tax = invoice.fields.get("TotalTax")
-        if total_tax:
-            print(
-                f"Total Tax: {total_tax.get('content')} has confidence: {total_tax.get('confidence')}"
-            )
-        previous_unpaid_balance = invoice.fields.get("PreviousUnpaidBalance")
-        if previous_unpaid_balance:
-            print(
-                f"Previous Unpaid Balance: {previous_unpaid_balance.get('content')} has confidence: {previous_unpaid_balance.get('confidence')}"
-            )
-        amount_due = invoice.fields.get("AmountDue")
-        if amount_due:
-            print(
-                f"Amount Due: {amount_due.get('content')} has confidence: {amount_due.get('confidence')}"
-            )
-        service_start_date = invoice.fields.get("ServiceStartDate")
-        if service_start_date:
-            print(
-                f"Service Start Date: {service_start_date.get('content')} has confidence: {service_start_date.get('confidence')}"
-            )
-        service_end_date = invoice.fields.get("ServiceEndDate")
-        if service_end_date:
-            print(
-                f"Service End Date: {service_end_date.get('content')} has confidence: {service_end_date.get('confidence')}"
-            )
-        service_address = invoice.fields.get("ServiceAddress")
-        if service_address:
-            print(
-                f"Service Address: {service_address.get('content')} has confidence: {service_address.get('confidence')}"
-            )
-        service_address_recipient = invoice.fields.get("ServiceAddressRecipient")
-        if service_address_recipient:
-            print(
-                f"Service Address Recipient: {service_address_recipient.get('content')} has confidence: {service_address_recipient.get('confidence')}"
-            )
-        remittance_address = invoice.fields.get("RemittanceAddress")
-        if remittance_address:
-            print(
-                f"Remittance Address: {remittance_address.get('content')} has confidence: {remittance_address.get('confidence')}"
-            )
-        remittance_address_recipient = invoice.fields.get("RemittanceAddressRecipient")
-        if remittance_address_recipient:
-            print(
-                f"Remittance Address Recipient: {remittance_address_recipient.get('content')} has confidence: {remittance_address_recipient.get('confidence')}"
-            )
+            if remittance_address_recipient:
+                print(
+                    f"Remittance Address Recipient: {remittance_address_recipient.get('content')} has confidence: {remittance_address_recipient.get('confidence')}"
+                )
 
-        print("----------------------------------------")
+
+          print("----------------------------------------")
 
 
 if __name__ == "__main__":
@@ -1098,7 +1101,7 @@ Here's a snippet of the expected output:
   Due Date: 2019-12-15 has confidence: 0.973
 ```
 
-To view the entire output, visit the Azure samples repository on GitHub to view the [prebuilt invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/v3-python-sdk-prebuilt-invoice-output.md)
+To view the entire output, visit the Azure samples repository on GitHub to view the [prebuilt invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/v3-python-sdk-prebuilt-invoice-output.md).
 
 :::moniker-end
 

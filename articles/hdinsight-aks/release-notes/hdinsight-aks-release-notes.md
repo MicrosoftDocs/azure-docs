@@ -58,6 +58,8 @@ For more information, see [Control network traffic from HDInsight on AKS Cluster
 
 Upgrade your clusters and cluster pools with the latest software updates. This means that you can enjoy the latest cluster package hotfixes, security updates, and AKS patches, without recreating clusters. For more information, see [Upgrade your HDInsight on AKS clusters and cluster pools](../in-place-upgrade.md).
 
+> [!IMPORTANT]
+> To take benefit of all these **latest features**, you are required to create a new cluster pool with 1.1 and clsuter version 1.1.1.
 
 ### Known issues
 

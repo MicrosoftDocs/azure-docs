@@ -4,7 +4,7 @@ description: This article provides a summary of supported regions and operating 
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 03/22/2024
+ms.date: 03/26/2024
 ms.topic: overview
 ms.custom: references_regions
 ---
@@ -20,7 +20,7 @@ This article details the Windows and Linux operating systems supported and syste
 
 **Windows**: [Windows Update Agent (WUA)](/windows/win32/wua_sdk/updating-the-windows-update-agent) reports to Microsoft Update by default, but you can configure it to report to [Windows Server Update Services (WSUS)](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus). If you configure WUA to report to WSUS, based on the last synchronization from WSUS with Microsoft Update, the results in Update Manager might differ from what Microsoft Update shows.
 
-To specify sources for scanning and downloading updates, see [Specify intranet Microsoft Update service location](/windows/deployment/update/waas-wu-settings?branch=main#specify-intranet-microsoft-update-service-location). To restrict machines to the internal update service, see [Do not connect to any Windows Update internet locations](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates?branch=main#do-not-connect-to-any-windows-update-internet-locations).
+To specify sources for scanning and downloading updates, see [Specify intranet Microsoft Update service location](/windows/deployment/update/waas-wu-settings?branch=main#specify-intranet-microsoft-update-service-location). To restrict machines to the internal update service, see [Don't connect to any Windows Update internet locations](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates?branch=main#do-not-connect-to-any-windows-update-internet-locations).
 
 **Linux**: You can configure Linux machines to report to a local or public YUM or APT package repository. The results shown in Update Manager depend on where the machines are configured to report.
 
@@ -132,7 +132,7 @@ Azure Update Manager supports the following operations:
 
 - [periodic assessment](assessment-options.md#periodic-assessment)
 - [scheduled patching](prerequsite-for-schedule-patching.md)
-- [on-demand assessment](assessment-options.md#check-for-updates-nowon-demand-assessment), and patching is described in the sections below.
+- [on-demand assessment](assessment-options.md#check-for-updates-nowon-demand-assessment), and patching is described in the following sections:
 
 # [Azure VMs](#tab/azurevm-os)
 
@@ -217,7 +217,7 @@ Following is the list of supported images and no other marketplace images releas
 | | oracle-database | oracle_db_21 |
 | | oracle-database-19-3 | oracle-database-19-0904 |
 |microsoftcblmariner| cbl-mariner | cbl-mariner-1,1-gen2, cbl-mariner-2, cbl-mariner-2-gen2 |
-| openlogic | centos | 7.2 , 7.3, 7.4, 7.5, 7.6, 7_8, 7_9, 7_9-gen2, 8.0, 8_1, 8_2,8_3, 8_4, 8_5 |
+| openlogic | centos | 7.2, 7.3, 7.4, 7.5, 7.6, 7_8, 7_9, 7_9-gen2, 8.0, 8_1, 8_2,8_3, 8_4, 8_5 |
 | |centos-hpc | 7.1, 7.3, 7.4 |
 | |centos-lvm | 7-lvm, 8-lvm |
 | |centos-ci | 7-ci |
@@ -235,7 +235,7 @@ We support VMs created from customized images (including images) uploaded to [Az
    |Windows Server 2016|
    |Windows Server 2012 R2|
    |Windows Server 2012|
-   |Windows Server 2008 R2 (RTM and SP1 Standard)|
+  
 
    |**Linux operating system**|
    |---|
