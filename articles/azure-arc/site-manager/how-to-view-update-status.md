@@ -45,7 +45,7 @@ You can view update status for an Arc site as a whole from the main page of Azur
 
 2. In the **Overview** page, you can view the summarized update statuses of your sites. This site-level status is aggregated from the statuses of its managed resources. In the example below, one site is **up to date** and one site **needs attention**.
 
-   :::image type="content" source="./media/how-to-view-update-status/site-manager-update-status-overview-page.png" alt-text="Screenshot that shows the update status summary on the view view page.":::
+   :::image type="content" source="./media/how-to-view-update-status/site-manager-update-status-overview-page.png" alt-text="Screenshot that shows the update status summary on the view page.":::
 
 3. To understand which site is **up to date** and which site **needs attention**, select either the **sites** tab or the blue colored status text to be directed to the **sites** page.
 
