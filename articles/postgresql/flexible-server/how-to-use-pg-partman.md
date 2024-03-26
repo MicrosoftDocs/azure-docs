@@ -30,7 +30,7 @@ CREATE EXTENSION PG_PARTMAN;
 
 ## Overview
 
-- When an identity feature uses sequences, the data that comes from the parent table gets new sequence value. It doesn't generate new sequence values when the data is directly added to the child table. 
+When an identity feature uses sequences, the data that comes from the parent table gets new sequence value. It doesn't generate new sequence values when the data is directly added to the child table. 
 
 PG_partman uses a template to control whether the table is UNLOGGED or not. This means that the Alter table command can't change this status for a partition set. By changing the status on the template, you can apply it to all future partitions. But for existing child tables, you must use the Alter command manually. [Here](https://www.postgresql.org/message-id/flat/15954-b61523bed4b110c4%40postgresql.org) is a bug that shows why.    
 
@@ -145,7 +145,7 @@ Here's the output of the select statement executed.
 
 :::image type="content" source="media/how-to-use-pg-partman/pg-partman-explain-plan-output.png" alt-text="Screenshot of explain plan output.":::
 
-## How to manually run the run_maintenance procedure: 
+## How to manually run the run_maintenance procedure 
 
 ```sql
 select partman.run_maintenance(p_parent_table:='partman.partition_test'); 
@@ -153,7 +153,7 @@ select partman.run_maintenance(p_parent_table:='partman.partition_test');
 
 Warning: If you insert data before creating partitions, the data goes to the default partition. If the default partition has data that belongs to a new partition that you want to be created later, then you get a default partition violation error and the procedure won't work. Therefore, change the premake value as recommended above and then run the procedure. 
 
-## How to schedule maintenance procedure using pg_cron: 
+## How to schedule maintenance procedure using pg_cron 
 
 Run the maintenance procedure using pg_cron. To enable `pg_cron` on your server follow the below steps. 
 1.	Add PG_CRON to `azure.extensions`, `Shared_preload_libraries` and `cron.database_name` server parameter from Azure portal. 
