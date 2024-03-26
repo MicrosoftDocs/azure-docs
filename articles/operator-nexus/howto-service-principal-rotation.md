@@ -4,14 +4,15 @@ description: Instructions on service principal rotation lifecycle management.
 ms.service: azure-operator-nexus
 ms.custom: template-how-to
 ms.topic: how-to
-ms.date: 02/05/2024
+ms.date: 03/05/2024
 author: sbatchu0108
 ms.author: sbatchu
 ---
 
 # Service principal rotation on the target cluster
 
-This document provides an overview on the process of performing service principal rotation on the target cluster.
+This document provides an overview on the process of performing Service Principal rotation on the target Nexus cluster.
+In alignment with security best practices, a Security Principal should be rotated periodically. Anytime the integrity of the Service Principal is suspected or known to be compromised, it should be rotated immediately.
 
 ## Prerequisites
 
