@@ -247,7 +247,7 @@ To link the private DNS zone with your Azure Spring Apps instance, you can use t
 az spring private-dns-zone add \
    --resource-group $RESOURCE_GROUP \
    --service $AZURE_SPRING_APPS_INSTANCE_NAME \
-   --zone_id $PRIVATE_DNS_ZONE_RESOURCE_ID
+   --zone-id $PRIVATE_DNS_ZONE_RESOURCE_ID
 ```
 
 
