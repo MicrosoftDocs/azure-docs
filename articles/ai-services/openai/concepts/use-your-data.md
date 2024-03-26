@@ -68,7 +68,6 @@ When you choose the following data sources, your data is ingested into an Azure 
 |Upload files (preview)      | Upload files from your local machine to be stored in an Azure Blob Storage database, and ingested into Azure AI Search.         |
 |URL/Web address (preview)        | Web content from the URLs is stored in Azure Blob Storage.         |
 |Azure Blob Storage (preview) | Upload files from Azure Blob Storage to be ingested into an Azure AI Search index.         |
-|Elasticsearch (preview) | Use an existing [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/elasticsearch-intro.html) vector database.|
 
 # [Azure AI Search](#tab/ai-search)
 
@@ -132,6 +131,7 @@ Mapping these fields correctly helps ensure the model has better response and ci
 
 If you want to implement additional value-based criteria for query execution, you can set up a [search filter](/azure/search/search-filters) using the `filter` parameter in the [REST API](../references/azure-search.md).
 
+[!INCLUDE [ai-search-ingestion](../includes/ai-search-ingestion.md)]
 
 # [Azure Cosmos DB for MongoDB vCore](#tab/mongo-db)
 
@@ -211,12 +211,15 @@ To modify the schedule, you can use the [Azure portal](https://portal.azure.com/
 
     1. Select **Save**.
 
+[!INCLUDE [ai-search-ingestion](../includes/ai-search-ingestion.md)]
+
 # [Upload files (preview)](#tab/file-upload)
 
 Using Azure OpenAI Studio, you can upload files from your machine to try Azure OpenAI On Your Data, and optionally creating a new Azure Blob Storage account and Azure AI Search resource. The service then stores the files to an Azure storage container and performs ingestion from the container. You can use the [quickstart](../use-your-data-quickstart.md) article to learn how to use this data source option.
 
 :::image type="content" source="../media/quickstarts/add-your-data-source.png" alt-text="A screenshot showing options for selecting a data source in Azure OpenAI Studio." lightbox="../media/quickstarts/add-your-data-source.png":::
 
+[!INCLUDE [ai-search-ingestion](../includes/ai-search-ingestion.md)]
 
 # [URL/Web address (preview)](#tab/web-pages)
 
@@ -293,16 +296,6 @@ Mapping these fields correctly helps ensure the model has better response and ci
 Along with using Elasticsearch databases in Azure OpenAI Studio, you can also use your Elasticsearch database using the [API](../references/elasticsearch.md). 
 
 ---
-
-### How data is ingested into Azure AI search
-
-Data is ingested into Azure AI search using the following process:
-
-1. Ingestion assets are created in Azure AI Search resource and Azure storage account. Currently these assets are: indexers, indexes, data sources, a [custom skill](/azure/search/cognitive-search-custom-skill-interface) in the search resource, and a container (later called the chunks container) in the Azure storage account. You can specify the input Azure storage container using the [Azure OpenAI studio](https://oai.azure.com/), or the [ingestion API (preview)](/rest/api/azureopenai/ingestion-jobs).  
-
-2. Data is read from the input container, contents are opened and chunked into small chunks with a maximum of 1,024 tokens each. If vector search is enabled, the service calculates the vector representing the embeddings on each chunk. The output of this step (called the "preprocessed" or "chunked" data) is stored in the chunks container created in the previous step. 
-
-3. The preprocessed data is loaded from the chunks container, and indexed in the Azure AI Search index.
 
 ## Deploy to a copilot (preview) or web app 
 

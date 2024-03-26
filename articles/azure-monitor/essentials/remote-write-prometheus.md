@@ -65,7 +65,7 @@ To send data to your Azure Monitor Workspace, you'll need the following informat
 > [!IMPORTANT]
 > To complete the steps in this section, you must have owner or user access administrator permissions for the cluster/resource.
 
-#### For AKS: Give the AKS cluster access to the managed identity
+**For AKS: Give the AKS cluster access to the managed identity**
 
 - Identify the virtual machine scale sets in the node resource group for your AKS cluster. The node resource group of the AKS cluster contains resources that you use in other steps in this process. This resource group has the name "MC_*aks-resource-group_clustername_region*". You can find the resource group name by using the Resource groups menu in the Azure portal.
 
@@ -77,7 +77,7 @@ To send data to your Azure Monitor Workspace, you'll need the following informat
     az vmss identity assign -g <AKS-NODE-RESOURCE-GROUP> -n <AKS-VMSS-NAME> --identities <USER-ASSIGNED-IDENTITY-RESOURCE-ID>
     ```
 
-#### For VM: Give the VM access to the managed identity
+**For VM: Give the VM access to the managed identity**
 
 - For virtual machine, run the following command in the Azure CLI:
 
