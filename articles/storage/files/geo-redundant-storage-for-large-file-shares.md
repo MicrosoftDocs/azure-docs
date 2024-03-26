@@ -115,7 +115,7 @@ Pricing is based on the standard file share tier and redundancy option configure
 
 ## Register for the feature
 
-To get started, register for the feature using Azure portal or PowerShell.
+To get started, register for the feature using Azure portal or PowerShell. This step is required for regions that are generally available or in preview.
 
 # [Azure portal](#tab/portal)
 
