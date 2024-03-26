@@ -56,9 +56,9 @@ A permanent failure occurs due to a change in the conditions that allow the rule
 
 **In the event of a predetermined number of consecutive permanent failures, of the same type and on the same rule,** Microsoft Sentinel stops trying to execute the rule, and also takes the following steps:
 
-- Disables the rule.
-- Adds the words **"AUTO DISABLED"** to the beginning of the rule's name.
-- Adds the reason for the failure (and the disabling) to the rule's description.
+1. Disables the rule.
+1. Adds the words **"AUTO DISABLED"** to the beginning of the rule's name.
+1. Adds the reason for the failure (and the disabling) to the rule's description.
 
 You can easily determine the presence of any autodisabled rules, by sorting the rule list by name. The autodisabled rules are at or near the top of the list.
 

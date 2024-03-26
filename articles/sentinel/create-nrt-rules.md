@@ -60,7 +60,7 @@ You create NRT rules the same way you create regular [scheduled-query analytics 
 
 ---
 
-1. Follow the instructions of the [**analytics rule wizard**](detect-threats-custom.md).
+3. Follow the instructions of the [**analytics rule wizard**](detect-threats-custom.md).
 
     The configuration of NRT rules is in most ways the same as that of scheduled analytics rules. 
 

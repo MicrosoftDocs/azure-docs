@@ -60,7 +60,7 @@ This section describes how to create a rule using the Azure or Defender portals.
 
 1. In the action bar at the top, select **+Create** and select **Scheduled query rule**. This opens the **Analytics rule wizard**.
 
-    :::image type="content" source="media/detect-threats-custom/create-scheduled-query.png" alt-text="Screenshot of Analytics screen in Azure portal" lightbox="media/detect-threats-custom/create-scheduled-query.png":::
+    :::image type="content" source="media/detect-threats-custom/create-scheduled-query.png" alt-text="Screenshot of Analytics screen in Azure portal." lightbox="media/detect-threats-custom/create-scheduled-query.png":::
 
 # [Defender portal](#tab/defender)
 
@@ -89,7 +89,7 @@ In the Azure portal, stages are represented visually as tabs. In the Defender po
 
     Severity level defaults are not a guarantee of current or environmental impact level. [Customize alert details](customize-alert-details.md) to customize the severity, tactics, and other properties of a given instance of an alert with the values of any relevant fields from a query output.
   
-    Severity definitions for Microsoft Sentinel analytics rule templates are relevant only for alerts created by analytics rules. For alerts ingested from from other services, the severity is defined by the source security service.
+    Severity definitions for Microsoft Sentinel analytics rule templates are relevant only for alerts created by analytics rules. For alerts ingested from other services, the severity is defined by the source security service.
 
 1. In the **Tactics and techniques** field, you can choose from among categories of threat activities by which to classify the rule. These are based on the tactics and techniques of the [MITRE ATT&CK](https://attack.mitre.org/) framework.
 
