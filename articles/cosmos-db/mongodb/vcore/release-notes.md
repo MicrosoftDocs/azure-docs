@@ -19,7 +19,7 @@ This article contains release notes for the API for MongoDB vCore. These release
 ## Latest release: March 18, 2024
 
 - [Private Endpoint](how-to-private-link.md) support enabled on Portal. (GA)
-- [HNSW](vector-search.md) on M40 & larger SKUs. (GA)
+- [HNSW](vector-search.md) vector index on M40 & larger cluster tiers. (GA)
 - Enable Geo-spatial queries. (Public Preview)
 - Query operator enhancements.
 	- $centerSphere with index pushdown.
