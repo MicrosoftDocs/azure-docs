@@ -68,11 +68,11 @@ landingContent:
           - text: Use a blocklist
             url: how-to/use-blocklist.md
 
-  - title: Jailbreak risk detection
+  - title: User input risk detection
     linkLists:
       - linkListType: concept
         links:
-          - text: Jailbreak risk detection
+          - text: Prompt Shields
             url: concepts/jailbreak-detection.md
       - linkListType: quickstart
         links:
