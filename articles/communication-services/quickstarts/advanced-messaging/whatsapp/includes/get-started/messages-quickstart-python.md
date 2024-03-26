@@ -282,18 +282,6 @@ Add send_template_message() call to the [main method](#basic-program-structure).
 
 Now, the user needs to respond to the template message. From the WhatsApp user account, reply to the template message received from the WhatsApp Business Account. The content of the message is irrelevant for this scenario.
 
-#### Run the code for send template based message
-
-To run the code, make sure you are on the directory where your `messages-quickstart.py` file is.
-
-```console
-python messages-quickstart.py
-```
-
-```output
-Azure Communication Services - Advanced Messages Quickstart
-WhatsApp Templated Message with message id <GUID> was successfully sent to <ToRecipient>.
-```
 
 > [!IMPORTANT]
 > The recipient must respond to the template message to initiate the conversation before text or media message can be delivered to the recipient.
@@ -346,19 +334,6 @@ Update the [main method](#basic-program-structure) to run send_text_message()
     messages.send_text_message()
 ```
 
-#### Run the code for send text message
-
-To run the code, make sure you are on the directory where your `messages-quickstart.py` file is.
-
-```console
-python messages-quickstart.py
-```
-
-```output
-Azure Communication Services - Advanced Messages Quickstart
-WhatsApp Text Message with message id <GUID> was successfully sent to <ToRecipient>.
-```
-
 ### Send a media message to a WhatsApp user
 
 Messages SDK allows Contoso to send Image WhatsApp messages to WhatsApp users. To send Image embedded messages below details are required:
@@ -404,7 +379,8 @@ Update the [main method](#basic-program-structure) to run send_image_message()
     messages.send_image_message()
 ```
 
-#### Run the code for send image based message
+
+## Run the code
 
 To run the code, make sure you are on the directory where your `messages-quickstart.py` file is.
 
@@ -414,7 +390,9 @@ python messages-quickstart.py
 
 ```output
 Azure Communication Services - Advanced Messages Quickstart
-WhatsApp Image containing Message with message id <GUID> was successfully sent to <ToRecipient>.
+WhatsApp Templated Message with message id <<GUID>> was successfully sent to <<ToRecipient>>
+WhatsApp Text Message with message id <<GUID>> was successfully sent to <<ToRecipient>>
+WhatsApp Image containing Message with message id <<GUID>> was successfully sent to <<ToRecipient>>
 ```
 
 ## Full sample code
@@ -506,21 +484,6 @@ if __name__ == '__main__':
     messages.send_template_message()
     messages.send_text_message()
     messages.send_image_message()
-```
-
-## Run the code
-
-To run the code, make sure you are on the directory where your `messages-quickstart.py` file is.
-
-```console
-python messages-quickstart.py
-```
-
-```output
-Azure Communication Services - Advanced Messages Quickstart
-WhatsApp Templated Message with message id <<GUID>> was successfully sent to <<ToRecipient>>
-WhatsApp Text Message with message id <<GUID>> was successfully sent to <<ToRecipient>>
-WhatsApp Image containing Message with message id <<GUID>> was successfully sent to <<ToRecipient>>
 ```
 
 ### Other Samples
