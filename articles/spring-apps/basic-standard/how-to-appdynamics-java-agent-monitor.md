@@ -82,7 +82,7 @@ To activate an application through the Azure CLI, use the following steps.
               APPDYNAMICS_CONTROLLER_PORT=443
     ```
 
-Azure Spring Apps pre-installs the AppDynamics Java agent to the path */opt/agents/appdynamics/java/javaagent.jar*. You can activate the agent from your applications' JVM options, then configure the agent using environment variables. You can find values for these variables at [Monitor Azure Spring Apps with Java Agent](https://docs.appdynamics.com/appd/23.x/23.11/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent). For more information about how these variables help to view and organize reports in the AppDynamics UI, see [Tiers and Nodes](https://docs.appdynamics.com/appd/23.x/23.12/en/application-monitoring/tiers-and-nodes).
+Azure Spring Apps pre-installs the AppDynamics Java agent to the path */opt/agents/appdynamics/java/javaagent.jar*. You can activate the agent from your applications' JVM options, then configure the agent using environment variables. You can find values for these variables at [Monitor Azure Spring Apps with Java Agent](https://docs.appdynamics.com/appd/24.x/24.3/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent). For more information about how these variables help to view and organize reports in the AppDynamics UI, see [Tiers and Nodes](https://docs.appdynamics.com/appd/24.x/24.3/en/application-monitoring/tiers-and-nodes).
 
 ### Activate an application with the AppDynamics Agent using the Azure portal
 
@@ -237,11 +237,11 @@ The AppDynamics Agent will be upgraded regularly with JDK (quarterly). Agent upg
 
 ## Configure virtual network injection instance outbound traffic
 
-For virtual network injection instances of Azure Spring Apps, make sure the outbound traffic is configured correctly for AppDynamics Agent. For details, see [SaaS Domains and IP Ranges](https://docs.appdynamics.com/display/PAA/SaaS+Domains+and+IP+Ranges) and [Customer responsibilities for running Azure Spring Apps in a virtual network](../enterprise/vnet-customer-responsibilities.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json).
+For virtual network injection instances of Azure Spring Apps, make sure the outbound traffic is configured correctly for AppDynamics Agent. For details, see [SaaS Domains and IP Ranges](https://docs.appdynamics.com/appd/24.x/latest/en/cisco-appdynamics-essentials/getting-started/saas-domains-and-ip-ranges) and [Customer responsibilities for running Azure Spring Apps in a virtual network](../enterprise/vnet-customer-responsibilities.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json).
 
 ## Understand the limitations
 
-To understand the limitations of the AppDynamics Agent, see [Monitor Azure Spring Apps with Java Agent](https://docs.appdynamics.com/appd/23.x/23.11/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent).
+To understand the limitations of the AppDynamics Agent, see [Monitor Azure Spring Apps with Java Agent](https://docs.appdynamics.com/appd/24.x/24.3/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent).
 
 ## Next steps
 

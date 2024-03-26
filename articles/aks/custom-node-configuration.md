@@ -6,6 +6,7 @@ ms.topic: article
 ms.date: 04/24/2023
 ms.author: jpalma
 author: palma21
+ms.subservice: aks-nodes
 ---
 
 # Customize node configuration for Azure Kubernetes Service (AKS) node pools
