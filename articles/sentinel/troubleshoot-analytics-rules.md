@@ -14,18 +14,18 @@ This article explains how to deal with certain issues that may arise with execut
 
 ## Issue: No events appear in query results
 
-When **event grouping** is set to **trigger an alert for each event**, query results viewed at a later time may appear to be missing, or different than expected.  For example, you might view a query's results at a later time when investigating a related incident, and as part of that investigation you decide to pivot back to this query's earlier results.
+When **event grouping** is set to **trigger an alert for each event**, query results viewed at a later time may appear to be missing, or different than expected. For example, you might view a query's results at a later time when investigating a related incident, and as part of that investigation you decide to pivot back to this query's earlier results.
 
-- Results are automatically saved with the alerts. However, if the results are too large, no results are saved, and no data appears when viewing the query results again.
+Results are automatically saved with the alerts. However, if the results are too large, no results are saved, and no data appears when viewing the query results again.
 
-- In cases where there is [ingestion delay](ingestion-delay.md), or the query is not deterministic due to aggregation, the alert's result might be different than the result shown by running the query manually.
+In cases where there's [ingestion delay](ingestion-delay.md), or the query is not deterministic due to aggregation, the alert's result might be different than the result shown by running the query manually.
 
-To solve this problem, when a rule has this event grouping setting, Microsoft Sentinel adds the **OriginalQuery** field to the results of the query. Here is a comparison of the existing **Query** field and the new field:
+To solve this problem, when a rule has this event grouping setting, Microsoft Sentinel adds the **OriginalQuery** field to the results of the query. Here's a comparison of the existing **Query** field and the new field:
 
   | Field name | Contains | Running the query in this field<br>results in... |
   | - | :-: | :-: |
-  | **Query** | The compressed record of the event that generated this instance of the alert | The event that generated this instance of the alert;<br>limited to 10240 bytes  |
-  | **OriginalQuery** | The original query as written in the analytics&nbsp;rule | The most recent event in the timeframe in which the query runs, that fits the parameters defined by the query |
+  | **Query** | The compressed record of the event that generated this instance of the alert. | The event that generated this instance of the alert;<br>limited to 10 kilobytes.  |
+  | **OriginalQuery** | The original query as written in the analytics&nbsp;rule. | The most recent event in the timeframe in which the query runs, that fits the parameters defined by the query. |
 
   In other words, the **OriginalQuery** field behaves like the **Query** field behaves under the default event grouping setting.
 
@@ -81,9 +81,9 @@ One particular example of when a permanent failure could occur due to a permissi
 
 When you create an analytics rule, an access permissions token is applied to the rule and saved along with it. This token ensures that the rule can access the workspace that contains the tables referenced by the rule's query, and that this access is maintained even if the rule's creator loses access to that workspace.
 
-There is one exception, however: when a rule is created to access workspaces in other subscriptions or tenants, such as what happens in the case of an MSSP, Microsoft Sentinel takes extra security measures to prevent unauthorized access to customer data. These kinds of rules have the credentials of the user that created the rule applied to them, instead of an independent access token. When the user no longer has access to the other tenant, the rule stops working.
+There's one exception, however: when a rule is created to access workspaces in other subscriptions or tenants, such as what happens in the case of an MSSP, Microsoft Sentinel takes extra security measures to prevent unauthorized access to customer data. These kinds of rules have the credentials of the user that created the rule applied to them, instead of an independent access token. When the user no longer has access to the other tenant, the rule stops working.
 
-If you operate Microsoft Sentinel in a cross-subscription or cross-tenant scenario, and if one of your analysts or engineers loses access to a particular workspace, any rules created by that user will stop working. You will get a health monitoring message regarding "insufficient access to resource", and the rule will be [auto-disabled according to the procedure described above](#permanent-failurerule-auto-disabled).
+If you operate Microsoft Sentinel in a cross-subscription or cross-tenant scenario, and if one of your analysts or engineers loses access to a particular workspace, any rules created by that user will stop working. You'll get a health monitoring message regarding "insufficient access to resource", and the rule will be [auto-disabled according to the procedure described above](#permanent-failurerule-auto-disabled).
 
 ## Next steps
 
