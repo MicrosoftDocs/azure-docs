@@ -113,13 +113,13 @@ One of these properties is **Updated by**. This property lets you track the type
 - An alert grouping (that added alerts to the incident), including alert groupings that were done both by analytics rules and built-in Microsoft Defender XDR correlation logic
 - A playbook
 - An automation rule
-- Other
+- Other, if none of the above values apply
 
 ##### [Not onboarded to the unified SOC platform](#tab/not-onboarded)
 
 - An application
-- A user
-- An alert grouping (that added alerts to the incident). 
+- A Microsoft Sentinel user
+- An alert grouping done by analytics rules (that added alerts to the incident). 
 - A playbook
 - An automation rule
 - Microsoft Defender XDR
