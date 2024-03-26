@@ -1,8 +1,8 @@
 ---
 title: Organize subscriptions into management groups and assign roles to users
-description: Learn how to organize your Azure subscriptions into management groups in Microsoft Defender for Cloud and assign roles to users in your organization
+description: Learn how to organize your Azure subscriptions into management groups in Microsoft Defender for Cloud and assign roles to users in your organization.
 ms.topic: how-to
-ms.date: 01/24/2023
+ms.date: 03/12/2024
 ms.custom: subject-rbac-steps
 ---
 
@@ -22,7 +22,7 @@ Each Microsoft Entra tenant is given a single top-level management group called 
 
 The root management group is created automatically when you do any of the following actions:
 
-- In the [Azure portal](https://portal.azure.com), select **Management Groups** .
+- In the [Azure portal](https://portal.azure.com), select **Management Groups**.
 - Create a management group with an API call.
 - Create a management group with PowerShell. For PowerShell instructions, see [Create management groups for resource and organization management](../governance/management-groups/create-management-group-portal.md).
 
@@ -38,7 +38,7 @@ For a detailed overview of management groups, see the [Organize your resources w
 
 1. To create a management group, select **Create**, enter the relevant details, and select **Submit**.
 
-    :::image type="content" source="media/management-groups-roles/add-management-group.png" alt-text="Adding a management group to Azure.":::
+    :::image type="content" source="media/management-groups-roles/add-management-group.png" alt-text="Adding a management group to Azure." lightbox="media/management-groups-roles/add-management-group.png":::
 
     - The **Management Group ID** is the directory unique identifier that is used to submit commands on this management group. This identifier isn't editable after creation as it is used throughout the Azure system to identify this group.
 
@@ -58,10 +58,10 @@ You can add subscriptions to the management group that you created.
 
 1. From the subscriptions page, select **Add**, then select your subscriptions and select **Save**. Repeat until you've added all the subscriptions in the scope.
 
-    :::image type="content" source="./media/management-groups-roles/management-group-add-subscriptions.png" alt-text="Adding a subscription to a management group.":::
+    :::image type="content" source="./media/management-groups-roles/management-group-add-subscriptions.png" alt-text="Adding a subscription to a management group." lightbox="media/management-groups-roles/management-group-add-subscriptions.png":::
 
    > [!IMPORTANT]
-   > Management groups can contain both subscriptions and child management  groups. When you assign a user an Azure role to the parent management group, the access is inherited by the child management group's subscriptions. Policies set at the parent management group are also inherited by the children.
+   > Management groups can contain both subscriptions and child management groups. When you assign a user an Azure role to the parent management group, the access is inherited by the child management group's subscriptions. Policies set at the parent management group are also inherited by the children.
 
 ## Assign Azure roles to other users
 
@@ -75,11 +75,11 @@ You can add subscriptions to the management group that you created.
 
 1. Select **Access control (IAM)**, open the **Role assignments** tab and select **Add** > **Add role assignment**.
 
-    :::image type="content" source="./media/management-groups-roles/add-user.png" alt-text="Adding a user to a management group.":::
+    :::image type="content" source="./media/management-groups-roles/add-user.png" alt-text="Adding a user to a management group."  lightbox="media/management-groups-roles/add-user.png":::
 
 1. From the **Add role assignment** page, select the relevant role.
 
-    :::image type="content" source="./media/management-groups-roles/add-role-assignment-page.png" alt-text="Add role assignment page.":::
+    :::image type="content" source="./media/management-groups-roles/add-role-assignment-page.png" alt-text="Add role assignment page." lightbox="media/management-groups-roles/add-role-assignment-page.png":::
 
 1. From the **Members** tab, select **+ Select members** and assign the role to the relevant members.
 
@@ -115,7 +115,7 @@ You can add subscriptions to the management group that you created.
 
 ## Remove elevated access
 
-Once the Azure roles have been assigned to the users, the tenant administrator should remove itself from the user access administrator role.
+Once the Azure roles are assigned to the users, the tenant administrator should remove itself from the user access administrator role.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 

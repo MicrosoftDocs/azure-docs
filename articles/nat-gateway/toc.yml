@@ -19,6 +19,8 @@ items:
   - name: ARM template
     displayName: Resource Manager
     href: quickstart-create-nat-gateway-template.md
+  - name: Terraform
+    href: quickstart-create-nat-gateway-terraform.md
 - name: Tutorials
   items:
   - name: Configure dual-stack outbound with a NAT gateway

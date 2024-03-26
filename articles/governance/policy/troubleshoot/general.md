@@ -165,7 +165,7 @@ are prevented from being created or updated.
 
 The error message from a deny policy assignment includes the policy definition and policy assignment
 IDs. If the error information in the message is missed, it's also available in the
-[Activity log](../../../azure-monitor/essentials/activity-log.md#view-the-activity-log). Use this
+[Activity log](../../../azure-monitor/essentials/activity-log-insights.md#view-the-activity-log). Use this
 information to get more details to understand the resource restrictions and adjust the resource
 properties in your request to match allowed values.
 

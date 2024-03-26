@@ -91,14 +91,19 @@ This procedure describes how to install the Defender for IoT software you'd down
 
     - **Physical media** – burn the ISO file to your external storage, and then boot from the media.
 
-        - DVDs: First burn the software to the DVD as an image
+        - DVDs: First burn the software to the DVD as an image.
         - USB drive: First make sure that you’ve created a bootable USB drive with software such as [Rufus](https://rufus.ie/en/), and then save the software to the USB drive. USB drives must have USB version 3.0 or later.
+        - Select the **DD Image mode** setting when creating your image, for example:
+
+        :::image type="content" source="media/rufus-4-4-dd-image-mode.png" alt-text="Screenshot of the DD image settings.":::
+
+        :::image type="content" source="media/rufus-4-4-drive-properties.png" alt-text="Screenshot of the drive properties.":::
 
         Your physical media must have a minimum of 4-GB storage.
 
     - **Virtual mount** – use iLO for HPE appliances, or iDRAC for Dell appliances to boot the ISO file.
 
-1. When the installation boots, you're prompted to start the installation process. Either select the **Install iot-sensor-`<version number>`** item to continue, or leave the wizard to make the selection automatically on its own. 
+1. When the installation boots, you're prompted to start the installation process. Either select the **Install iot-sensor-`<version number>`** item to continue, or leave the wizard to make the selection automatically on its own.
 
     The wizard automatically selects to install the software after 30 seconds of waiting. For example:
 

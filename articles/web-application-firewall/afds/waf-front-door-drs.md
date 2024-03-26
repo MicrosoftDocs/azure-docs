@@ -5,12 +5,12 @@ ms.service: web-application-firewall
 author: vhorne
 ms.author: victorh
 ms.topic: conceptual
-ms.date: 10/25/2022
+ms.date: 02/29/2024
 ---
 
 # Web Application Firewall DRS rule groups and rules
 
-Azure Web Application Firewall on Azure Front Door protects web applications from common vulnerabilities and exploits. Azure-managed rule sets provide an easy way to deploy protection against a common set of security threats. Because such rule sets are managed by Azure, the rules are updated as needed to protect against new attack signatures.
+Azure Web Application Firewall on Azure Front Door protects web applications from common vulnerabilities and exploits. Azure-managed rule sets provide an easy way to deploy protection against a common set of security threats. Because Azure manages these rule sets, the rules are updated as needed to protect against new attack signatures.
 
 The Default Rule Set (DRS) also includes the Microsoft Threat Intelligence Collection rules that are written in partnership with the Microsoft Intelligence team to provide increased coverage, patches for specific vulnerabilities, and better false positive reduction.
 
@@ -42,7 +42,7 @@ Custom rules are always applied before rules in the DRS are evaluated. If a requ
 
 The Microsoft Threat Intelligence Collection rules are written in partnership with the Microsoft Threat Intelligence team to provide increased coverage, patches for specific vulnerabilities, and better false positive reduction.
 
-Some of the built-in DRS rules are disabled by default because they've been replaced by newer rules in the Microsoft Threat Intelligence Collection rules. For example, rule ID 942440, *SQL Comment Sequence Detected*, has been disabled and replaced by the Microsoft Threat Intelligence Collection rule 99031002. The replaced rule reduces the risk of false positive detections from legitimate requests.
+By default, the Microsoft Threat Intelligence Collection rules replace some of the built-in DRS rules, causing them to be disabled. For example, rule ID 942440, *SQL Comment Sequence Detected*, has been disabled and replaced by the Microsoft Threat Intelligence Collection rule 99031002. The replaced rule reduces the risk of false positive detections from legitimate requests.
 
 ### <a name="anomaly-scoring-mode"></a>Anomaly scoring
 
@@ -59,7 +59,7 @@ When you configure your WAF, you can decide how the WAF handles requests that ex
 
 For example, if the anomaly score is 5 or greater on a request, and the WAF is in Prevention mode with the anomaly score action set to Block, the request is blocked. If the anomaly score is 5 or greater on a request, and the WAF is in Detection mode, the request is logged but not blocked.
 
-A single *Critical* rule match is enough for the WAF to block a request when in Prevention mode with the anomaly score action set to Block because the overall anomaly score is 5. However, one *Warning* rule match only increases the anomaly score by 3, which isn't enough by itself to block the traffic. When an anomaly rule is triggered, it shows a "matched" action in the logs. If the anomaly score is 5 or greater, there will be a separate rule triggered with the anomaly score action configured for the rule set. Default anomaly score action is Block, which results in a log entry with the action `blocked`.
+A single *Critical* rule match is enough for the WAF to block a request when in Prevention mode with the anomaly score action set to Block because the overall anomaly score is 5. However, one *Warning* rule match only increases the anomaly score by 3, which isn't enough by itself to block the traffic. When an anomaly rule is triggered, it shows a "matched" action in the logs. If the anomaly score is 5 or greater, there a separate rule is triggered with the anomaly score action configured for the rule set. Default anomaly score action is Block, which results in a log entry with the action `blocked`.
 
 When your WAF uses an older version of the Default Rule Set (before DRS 2.0), your WAF runs in the traditional mode. Traffic that matches any rule is considered independently of any other rule matches. In traditional mode, you don't have visibility into the complete set of rules that a specific request matched.
 

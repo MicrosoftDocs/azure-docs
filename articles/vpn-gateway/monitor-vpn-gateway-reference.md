@@ -10,7 +10,7 @@ ms.custom: subject-monitoring
 
 ---
 
-# Monitoring VPN Gateway data reference
+# Monitoring VPN Gateway - Data reference
 
 This article provides a reference of log and metric data collected to analyze the performance and availability of VPN Gateway. See [Monitoring VPN Gateway](monitor-vpn-gateway.md) for details on collecting and analyzing monitoring data for VPN Gateway.
 
