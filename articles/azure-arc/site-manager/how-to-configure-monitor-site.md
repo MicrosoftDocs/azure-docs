@@ -1,6 +1,6 @@
 ---
-title: "How to configure monitoring for a site"
-description: "How to configure monitoring for a site"
+title: "How to configure monitor for a site"
+description: "How to configure monitor for a site"
 author: kgremban
 ms.author: kgremban
 ms.service: azure-arc
@@ -29,11 +29,11 @@ To configure monitoring and alerts for sites in Azure Arc, follow the below step
 
 1. Navigate to Azure Monitor by searching for **monitor** within the Azure portal. Select **Monitor** as shown.
 
-   :::image type="content" source="./media/how-to-configure-monitoring-site/search-monitor.png" alt-text="Screenshot that shows searching for monitor within the Azure portal.":::
+   :::image type="content" source="./media/how-to-configure-monitor-site/search-monitor.png" alt-text="Screenshot that shows searching for monitor within the Azure portal.":::
 
 1. On the **Monitor** overview, select **Alerts** in either the navigation menu or the boxes shown in the primary screen.
 
-   :::image type="content" source="./media/how-to-configure-monitoring-site/select-alerts-monitor.png" alt-text="Screenshot that shows selecting the Alerts option on the Monitor overview.":::
+   :::image type="content" source="./media/how-to-configure-monitor-site/select-alerts-monitor.png" alt-text="Screenshot that shows selecting the Alerts option on the Monitor overview.":::
 
 1. On  the **Alerts** page, you can manage existing alerts or create new ones. 
 
@@ -41,7 +41,7 @@ To configure monitoring and alerts for sites in Azure Arc, follow the below step
 
    Select **Create** to create an alert rule for a specific resource. If a resource is managed as part of a site, any alerts triggered via its rule will appear in the site manager overview.
 
-   :::image type="content" source="./media/how-to-configure-monitoring-site/create-alert-monitor.png" alt-text="Screenshot that shows the Create and Alert rules actions on the Alerts blade.":::
+   :::image type="content" source="./media/how-to-configure-monitor-site/create-alert-monitor.png" alt-text="Screenshot that shows the Create and Alert rules actions on the Alerts blade.":::
 
 ## Next steps
 

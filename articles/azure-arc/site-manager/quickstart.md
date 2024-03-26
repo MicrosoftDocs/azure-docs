@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Creating an Arc Site"
-description: "Describes how to create an Arc Site"
+title: "Quickstart: Create an Arc site"
+description: "Describes how to create an Arc site"
 author: kgremban
 ms.author: kgremban
 ms.service: azure-arc
@@ -8,7 +8,7 @@ ms.service: azure-arc
 ms.topic: quickstart  #Don't change
 ms.date: 03/06/2024
 
-#customer intent: As a admin who manages my sites as resource groups in Azure, I want to represent them as Arc Sites and so that I can benefit from logical representation and extended functionality in Arc for my resources under my resource groups.
+#customer intent: As a admin who manages my sites as resource groups in Azure, I want to represent them as Arc sites and so that I can benefit from logical representation and extended functionality in Arc for my resources under my resource groups.
 
 ---
   
