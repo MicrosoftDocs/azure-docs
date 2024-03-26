@@ -125,12 +125,15 @@ procedureSection:
       - |  
         Confirm the deletion request by entering the resource group name and selecting **Delete**.
   
-relatedContent:
-  - text: Get started with Translator
-    url: quickstart-text-rest-api.md
-  - text: Microsoft Translator code samples
-    url: https://github.com/MicrosoftTranslator
-  - text: Microsoft Translator Support Forum
-    url: https://www.aka.ms/TranslatorForum
+nextStep:
+  text: Get started with Translato
+  url: quickstart-text-rest-api.md
+  
+#  - text: Get started with Translator
+#    url: quickstart-text-rest-api.md
+#  - text: Microsoft Translator code samples
+#    url: https://github.com/MicrosoftTranslator
+#  - text: Microsoft Translator Support Forum
+#    url: https://www.aka.ms/TranslatorForum
 #- text: Get Started with Azure (3-minute video)
 #  url: https://azure.microsoft.com/get-started/?b=16.24
