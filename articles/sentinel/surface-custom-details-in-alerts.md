@@ -9,17 +9,27 @@ ms.author: yelevin
 
 # Surface custom event details in alerts in Microsoft Sentinel 
 
-## Introduction
-
 [Scheduled query analytics rules](detect-threats-custom.md) analyze **events** from data sources connected to Microsoft Sentinel, and produce **alerts** when the contents of these events are significant from a security perspective. These alerts are further analyzed, grouped, and filtered by Microsoft Sentinel's various engines and distilled into **incidents** that warrant a SOC analyst's attention. However, when the analyst views the incident, only the properties of the component alerts themselves are immediately visible. Getting to the actual content - the information contained in the events - requires doing some digging.
 
 Using the **custom details** feature in the **analytics rule wizard**, you can surface event data in the alerts that are constructed from those events, making the event data part of the alert properties. In effect, this gives you immediate event content visibility in your incidents, enabling you to triage, investigate, draw conclusions, and respond with much greater speed and efficiency.
 
 The procedure detailed below is part of the analytics rule creation wizard. It's treated here independently to address the scenario of adding or changing custom details in an existing analytics rule.
 
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
+
 ## How to surface custom event details
 
-1. From the Microsoft Sentinel navigation menu, select **Analytics**.
+1. Enter the **Analytics** page in the portal through which you access Microsoft Sentinel:
+
+    # [Azure portal](#tab/azure)
+
+    From the **Configuration** section of the Microsoft Sentinel navigation menu, select **Analytics**.
+
+    # [Defender portal](#tab/defender)
+
+    From the Microsoft Defender navigation menu, expand **Microsoft Sentinel**, then **Configuration**. Select **Analytics**.
+
+    ---
 
 1. Select a scheduled query rule and click **Edit**. Or create a new rule by clicking **Create > Scheduled query rule** at the top of the screen.
 

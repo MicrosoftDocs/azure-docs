@@ -12,6 +12,8 @@ Microsoft Sentinel’s [near-real-time analytics rules](near-real-time-rules.md)
 
 For the time being, these templates have limited application as outlined below, but the technology is rapidly evolving and growing.
 
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
+
 ## View near-real-time (NRT) rules
 
 # [Azure portal](#tab/azure)

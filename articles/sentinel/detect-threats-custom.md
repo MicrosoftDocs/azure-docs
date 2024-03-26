@@ -12,9 +12,11 @@ ms.date: 03/26/2024
 
 You’ve set up [connectors and other means of collecting activity data](connect-data-sources.md) across your digital estate. Now you need to dig through all that data to detect patterns of activity and discover activities that don’t fit those patterns and that could represent a security threat.
 
-Microsoft Sentinel and its many [solutions provided in the Content hub](sentinel-solutions.md) offer templates for the most commonly used types of analytics rules, and you’re strongly encouraged to make use of those templates, customizing them to fit your specific scenarios. But it’s possible you might need something completely different, so in that case you can create a rule from scratch, either with the Analytics rule wizard, using the Azure command line (?), or by issuing REST API requests.
+Microsoft Sentinel and its many [solutions provided in the Content hub](sentinel-solutions.md) offer templates for the most commonly used types of analytics rules, and you’re strongly encouraged to make use of those templates, customizing them to fit your specific scenarios. But it’s possible you might need something completely different, so in that case you can create a rule from scratch, using the analytics rule wizard.
 
 This article walks you through the **Analytics rule wizard** and explains all the available options. It's accompanied by screenshots and directions to access the wizard in both the Azure portal, for Microsoft Sentinel users who aren't also Microsoft Defender subscribers, and the Defender portal, for users of the Microsoft Defender unified security operations platform.
+
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 ## Prerequisites
 
