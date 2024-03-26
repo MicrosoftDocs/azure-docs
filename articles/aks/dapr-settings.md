@@ -5,6 +5,7 @@ author: hhunter-ms
 ms.author: hannahhunter
 ms.topic: article
 ms.custom: build-2023, devx-track-azurecli
+ms.subservice: aks-developer
 ms.date: 06/08/2023
 ---
 

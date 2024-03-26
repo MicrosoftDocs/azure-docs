@@ -32,11 +32,14 @@ Azure Private 5G Core packet core instances are deployed on Azure Stack Edge dev
 
 In addition to the default [Encryption at rest](#encryption-at-rest) using Microsoft-Managed Keys (MMK), you can optionally use Customer Managed Keys (CMK) when [creating a SIM group](manage-sim-groups.md#create-a-sim-group) or [when deploying a private mobile network](how-to-guide-deploy-a-private-mobile-network-azure-portal.md#deploy-your-private-mobile-network) to encrypt data with your own key.
 
-If you elect to use a CMK, you will need to create a Key URI in your [Azure Key Vault](../key-vault/index.yml) and a [User-assigned identity](../active-directory/managed-identities-azure-resources/overview.md) with read, wrap, and unwrap access to the key.
+If you elect to use a CMK, you will need to create a Key URI in your [Azure Key Vault](../key-vault/index.yml) and a [User-assigned identity](../active-directory/managed-identities-azure-resources/overview.md) with read, wrap, and unwrap access to the key. Note that:
 
 - The key must be configured to have an activation and expiration date and we recommend that you [configure cryptographic key auto-rotation in Azure Key Vault](../key-vault/keys/how-to-configure-key-rotation.md).
 - The SIM group accesses the key via the user-assigned identity.
-- For additional information on configuring CMK for a SIM group, see [Configure customer-managed keys](/azure/cosmos-db/how-to-setup-cmk).
+
+For further information on configuring CMK, see [Configure customer-managed keys](/azure/cosmos-db/how-to-setup-cmk).
+
+You can use Azure Policy to enforce using CMK for SIM groups. See [Azure Policy definitions for Azure Private 5G Core](azure-policy-reference.md).
 
 > [!IMPORTANT]
 > Once a SIM group is created, you cannot change the encryption type. However, if the SIM group uses CMK, you can update the key used for encryption.
@@ -74,6 +77,8 @@ Microsoft Entra ID allows you to natively authenticate using passwordless method
 If you decide to set up Microsoft Entra ID for local monitoring access, after deploying a mobile network site, you'll need to follow the steps in [Enable Microsoft Entra ID for local monitoring tools](enable-azure-active-directory.md).
 
 See [Choose the authentication method for local monitoring tools](collect-required-information-for-a-site.md#choose-the-authentication-method-for-local-monitoring-tools) for additional information on configuring local monitoring access authentication.
+
+You can use Azure Policy to enforce using Entra ID for local monitoring access. See [Azure Policy definitions for Azure Private 5G Core](azure-policy-reference.md).
 
 ## Next steps
 
