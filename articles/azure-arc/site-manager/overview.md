@@ -25,11 +25,12 @@ Arc sites have a 1:1 relationship with resource groups and subscriptions. Any gi
 
 ## Mapping
 
-Resource group <- 1:1 -> Arc site.
+The below are an overview of the mappings related to sites.
 
-Subscription <- 1:1 -> Arc site.
-
-Subscription <- 1:M -> Resource group.
+| Resource type | Mapping | Arc site | 
+| -------- | --------- | ------------------- |
+| Resource group | One-to-One | Arc site |
+| Subscription | One-to-One | Arc site |
 
 ## Supported resource types
 
