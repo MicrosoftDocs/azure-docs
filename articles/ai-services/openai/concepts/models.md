@@ -254,7 +254,7 @@ The following Embeddings models are available with [Azure Government](/azure/azu
 
 ### Assistants (Preview)
 
-For Assistants you need a combination of a supported model, and a supported region. Certain tools and capabilities require the latest models. Some models are only available in Azure OpenAI Studio and the API, and are unavailable in Azure AI Studio.
+For Assistants you need a combination of a supported model, and a supported region. Certain tools and capabilities require the latest models. Some models are only available in Azure OpenAI studio and the API, and are unavailable in Azure AI studio.
 
 | Region | `gpt-35-turbo (0613)` | `gpt-35-turbo (1106)` | `gpt-4 (0613)` | `gpt-4 (1106)` | `gpt-4 (0125)` | 
 |-----|---|---|---|---|---|
