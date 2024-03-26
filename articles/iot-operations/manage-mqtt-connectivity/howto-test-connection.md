@@ -152,12 +152,12 @@ By default, IoT MQ only accepts Kubernetes service accounts for authentication f
 
 To turn off authentication for testing purposes, edit the `BrokerListener` resource and set the `authenticationEnabled` field to `false`:
 
+> [!CAUTION]
+> Turning off authentication should only be used for testing purposes with a test cluster that's not accessible from the internet.
+
 ```bash
 kubectl patch brokerlistener listener -n azure-iot-operations --type='json' -p='[{"op": "replace", "path": "/spec/authenticationEnabled", "value": false}]'
 ```
-
-> [!WARNING]
-> Turning off authentication should only be used for testing purposes with a test cluster that's not accessible from the internet.
 
 ### Port connectivity
 
@@ -227,9 +227,6 @@ But for this method to work with IoT MQ, you must configure it to use a load bal
     mosquitto_pub --qos 1 --debug -h XXX.XX.X.X --message hello --topic world --username client1 --pw password --cafile ca.crt
     ```
 
-> [!WARNING]
-> Never expose IoT MQ port to the internet without authentication and TLS. Doing so is dangerous and can lead to unauthorized access to your IoT devices and bring unsolicited traffic to your cluster.
-
 > [!TIP]
 > You can use the external IP address to connect to IoT MQ from outside the cluster. If you used the K3d command with port forwarding option, you can use `localhost` to connect to IoT MQ. For example, to connect with mosquitto client:
 >
@@ -237,7 +234,11 @@ But for this method to work with IoT MQ, you must configure it to use a load bal
 > mosquitto_pub --qos 1 --debug -h localhost --message hello --topic world --username client1 --pw password --cafile ca.crt --insecure
 > ```
 >
-> In this example, the mosquitto client uses username and password to authenticate with the broker along with the root CA cert to verify the broker's TLS certificate chain. Here, the `--insecure` flag is required because the default TLS certificate issued to the load balancer is only valid for the load balancer's default service name (aio-mq-dmqtt-frontend) and assigned IPs, not localhost. For more information on how to add localhost to the certificate's subject alternative name (SAN) to avoid using the insecure flag, see [Configure server certificate parameters](howto-configure-tls-auto.md#optional-configure-server-certificate-parameters).
+> In this example, the mosquitto client uses username and password to authenticate with the broker along with the root CA cert to verify the broker's TLS certificate chain. Here, the `--insecure` flag is required because the default TLS certificate issued to the load balancer is only valid for the load balancer's default service name (aio-mq-dmqtt-frontend) and assigned IPs, not localhost. 
+> 
+> Never expose IoT MQ port to the internet without authentication and TLS. Doing so is dangerous and can lead to unauthorized access to your IoT devices and bring unsolicited traffic to your cluster.
+>
+> For information on how to add localhost to the certificate's subject alternative name (SAN) to avoid using the insecure flag, see [Configure server certificate parameters](howto-configure-tls-auto.md#optional-configure-server-certificate-parameters).
 
 #### Use port forwarding
 
@@ -253,7 +254,7 @@ With [minikube](https://minikube.sigs.k8s.io/docs/), [kind](https://kind.sigs.k8
 
 Port forwarding is also useful for testing IoT MQ locally on your development machine without having to modify the broker's configuration.
 
-To learn more, see [Use Port Forwarding to Access Applications in a Cluster](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/) for minikube.
+To learn more, see [Use Port Forwarding to Access Applications in a Cluster](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/) for minikube and [Expose Kubernetes services to external devices](/azure/aks/hybrid/aks-edge-howto-expose-service) for Azure Kubernetes Services Edge Essentials.
 
 ## No TLS and no authentication
 
