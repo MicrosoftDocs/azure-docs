@@ -41,7 +41,7 @@ The [REST APIs](/rest/api/searchservice/) describe the full range of inbound req
 At a minimum, all inbound requests must be authenticated using either of these options:
 
 + Key-based authentication (default). Inbound requests provide a valid API key.
-+ Role-based access control. Microsoft Entra identities and role assignments on your Azure AI Search service authorize access.
++ Role-based access control. Authorization is through Microsoft Entra identities and role assignments on your search service.
 
 Additionally, you can add [network security features](#service-access-and-authentication) to further restrict access to the endpoint. You can create either inbound rules in an IP firewall, or create private endpoints that fully shield your search service from the public internet. 
 
@@ -61,9 +61,9 @@ The following list is a full enumeration of the outbound requests that can be ma
 
 Outbound connections can be made using a resource's full access connection string that includes a key or a database login, or [a managed identity](search-howto-managed-identities-data-sources.md) if you're using Microsoft Entra ID and role-based access.
 
-For Azure resources behind a firewall, [create inbound rules that admit search service requests](search-indexer-howto-access-ip-restricted.md). 
+To reach Azure resources behind a firewall, [create inbound rules that admit search service requests](search-indexer-howto-access-ip-restricted.md). 
 
-For Azure resources protected by Azure Private Link, [create a shared private link](search-indexer-howto-access-private.md) that an indexer uses to make its connection.
+To reach Azure resources protected by Azure Private Link, [create a shared private link](search-indexer-howto-access-private.md) that an indexer uses to make its connection.
 
 #### Exception for same-region search and storage services
 
