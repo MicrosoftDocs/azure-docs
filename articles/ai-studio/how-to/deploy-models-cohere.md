@@ -92,7 +92,7 @@ To create a deployment:
 1. You can return to the Deployments page, select the deployment, and note the endpoint's **Target** URL and the Secret **Key**, which you can use to call the deployment for chat completions using the [`<target_url>/v1/chat/completions`](#chat-api) API.
 1. You can always find the endpoint's details, URL, and access keys by navigating to the **Build** tab  and selecting **Deployments** from the Components section.
 
-To learn about billing for the Cohere models deployed with pay-as-you-go, see [Cost and quota considerations for Mistral Large deployed as a service](#cost-and-quota-considerations-for-mistral-large-deployed-as-a-service).
+To learn about billing for the Cohere models deployed with pay-as-you-go, see [Cost and quota considerations for Cohere models deployed as a service](#cost-and-quota-considerations-for-models-deployed-as-a-service).
 
 ### Consume the Cohere models as a service
 
@@ -106,7 +106,7 @@ These models can be consumed using the chat API.
 
 1. Make an API request using the [`/v1/chat/completions`](#chat-api) API using [`<target_url>/v1/chat/completions`](#chat-api).
 
-    For more information on using the APIs, see the [reference](#reference-for-mistral-large-deployed-as-a-service) section.
+    For more information on using the APIs, see the [reference](#reference-for-models-deployed-as-a-service) section.
 
 ### Reference for models deployed as a service
 
