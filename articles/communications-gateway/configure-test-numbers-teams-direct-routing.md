@@ -61,9 +61,9 @@ You can configure numbers directly in the Number Management Portal, or by upload
         | Heading | Description  | Valid values |
         |---------|--------------|--------------|
         | `telephoneNumber`|The number to upload | E.164 numbers, including the country code |
-        | `accountName` | The account to upload the number to | The name of an account you've already created |
+        | `accountName` | The account to upload the number to | The name of an existing account |
         | `serviceDetails_teamsDirectRouting_enabled`| Whether Microsoft Teams Direct Routing is enabled | `true` or `false`|
-        | `configuration_customSipHeader`| Optional: the value for a SIP custom header. | Can only contain letters, numbers, underscores and dashes. Can be up to 100 characters in length. |
+        | `configuration_customSipHeader`| Optional: the value for a SIP custom header. | Can only contain letters, numbers, underscores, and dashes. Can be up to 100 characters in length. |
 
     1. Select **File Upload**.
     1. Select the `.csv` file that you prepared.
@@ -85,7 +85,7 @@ Update your network configuration to route calls involving the test numbers to A
 
 Follow [Create a user and assign the license](/microsoftteams/direct-routing-enable-users#create-a-user-and-assign-the-license).
 
-If you are migrating users from Skype for Business Server Enterprise Voice, you must also [ensure that the user is homed online](/microsoftteams/direct-routing-enable-users#ensure-that-the-user-is-homed-online).
+If you're migrating users from Skype for Business Server Enterprise Voice, you must also [ensure that the user is homed online](/microsoftteams/direct-routing-enable-users#ensure-that-the-user-is-homed-online).
 
 ### Configure phone numbers for the user and enable enterprise voice
 

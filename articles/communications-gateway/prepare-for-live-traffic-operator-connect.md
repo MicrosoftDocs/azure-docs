@@ -192,7 +192,7 @@ Your onboarding team can obtain proof automatically. You don't need to do anythi
 
 # [Number Management Portal (preview)](#tab/number-management-portal)
 
-You can't use the Number Management Portal after you launch, because the Operator Connect and Teams Phone Mobile programs require full API integration. You can integrate with Azure Communications Gateway's [Provisioning API](provisioning-platform.md) or directly with the Operator Connect API.
+You can't use the Number Management Portal after you launch your service, because the Operator Connect and Teams Phone Mobile programs require full API integration. You can integrate with Azure Communications Gateway's [Provisioning API](provisioning-platform.md) or directly with the Operator Connect API.
 
 If you integrate with the Provisioning API, your onboarding team can obtain proof automatically.
 

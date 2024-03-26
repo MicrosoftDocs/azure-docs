@@ -75,7 +75,7 @@ When an enterprise customer uses the Teams Admin Center to request service, the 
 1. Find the enterprise that you want to manage. You can use the **Add filter** options to search for the enterprise.
 1. If you need to change the status of the relationship, select the enterprise **Tenant ID** then select **Update relationship status**. Use the drop-down to select the new status. For example, if you're agreeing to provide service to a customer, set the status to **Agreement signed**. If you set the status to **Consent declined** or **Contract terminated**, you must provide a reason.
 
-If you're providing service to an enterprise for the first time, you must also create an *Account* for the enterprise.
+If you're providing service to an enterprise for the first time, you must also create an *account* for the enterprise.
 
 1. Select the enterprise, then select **Create account**.
 1. Fill in the enterprise **Account name**.
@@ -108,7 +108,7 @@ Uploading numbers for an enterprise allows IT administrators at the enterprise t
             | Heading | Description  | Valid values |
             |---------|---------|---------|
             | `telephoneNumber`|The number to upload | E.164 numbers, including the country code |
-            | `accountName` | The account to upload the number to | The name of an account you've already created |
+            | `accountName` | The account to upload the number to | The name of an existing account |
             | `serviceDetails_teamsOperatorConnect_enabled`| Whether Operator Connect is enabled | `true` or `false`|
             | `serviceDetails_teamsOperatorConnect_assignmentStatus` | Whether the number is assigned to a user | `assigned` or `unassigned` |
             | `serviceDetails_teamsOperatorConnect_configuration_usage` | The usage of the number | `CallingUserAssignment`, `FirstPartyAppAssignment`, or `ConferenceAssignment` |
@@ -118,14 +118,14 @@ Uploading numbers for an enterprise allows IT administrators at the enterprise t
             | `serviceDetails_teamsOperatorConnect_configuration_locationId` | The ID of a location associated with the civic address | An existing ID |
             | `serviceDetails_teamsOperatorConnect_configuration_allowTenantAddressUpdate` | Whether the enterprise can update the civic address | `true` or `false` |
             | `serviceDetails_teamsOperatorConnect_configuration_displayedCountryCode` | The country code to display for the number | A valid country code |
-            | `configuration_customSipHeader`| Optional: the value for a SIP custom header. | Can only contain letters, numbers, underscores and dashes. Can be up to 100 characters in length. |
+            | `configuration_customSipHeader`| Optional: the value for a SIP custom header. | Can only contain letters, numbers, underscores, and dashes. Can be up to 100 characters in length. |
 
         * For Teams Phone Mobile:
 
             | Heading | Description  | Valid values |
             |---------|---------|---------|
             | `telephoneNumber`|The number to upload | E.164 numbers, including the country code |
-            | `accountName` | The account to upload the number to | The name of an account you've already created |
+            | `accountName` | The account to upload the number to | The name of an existing account |
             | `serviceDetails_teamsPhoneMobile_enabled`| Whether Teams Phone Mobile is enabled | `true` or `false`|
             | `serviceDetails_teamsPhoneMobile_assignmentStatus` | Whether the number is assigned to a user | `assigned` or `unassigned` |
             | `serviceDetails_teamsPhoneMobile_configuration_usage` | The usage of the number | `CallingUserAssignment`, `FirstPartyAppAssignment`, or `ConferenceAssignment` |
@@ -135,7 +135,7 @@ Uploading numbers for an enterprise allows IT administrators at the enterprise t
             | `serviceDetails_teamsPhoneMobile_configuration_locationId` | The ID of a location associated with the civic address | An existing ID |
             | `serviceDetails_teamsPhoneMobile_configuration_allowTenantAddressUpdate` | Whether the enterprise can update the civic address | `true` or `false` |
             | `serviceDetails_teamsPhoneMobile_configuration_displayedCountryCode` | The country code to display for the number | A valid country code |
-            | `configuration_customSipHeader`| Optional: the value for a SIP custom header. | Can only contain letters, numbers, underscores and dashes. Can be up to 100 characters in length. |
+            | `configuration_customSipHeader`| Optional: the value for a SIP custom header. | Can only contain letters, numbers, underscores, and dashes. Can be up to 100 characters in length. |
 
     1. Select **Create numbers**.    
     1. Select **File Upload**.
