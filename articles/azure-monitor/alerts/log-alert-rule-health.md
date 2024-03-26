@@ -50,7 +50,7 @@ To view the health of your log search alert rule and set up health status alerts
 This table describes the possible resource health status values for a log search alert rule:
 
 | Resource health status | Description |Recommended steps|
-|---|---|
+|---|---|---|
 |Available|There are no known issues affecting this log search alert rule.|     |
 |Unknown|This log search alert rule is currently disabled or in an unknown state.|Check if this log alert rule has been disabled - Reasons why [Log alert was disabled](alerts-troubleshoot-log.md). 
 If your rule runs less frequently than every 15 minutes (30 minutes, 1 hour, etc.), it won’t provide health status updates. Therefore, be aware that an ‘unavailable’ status is to be expected and is not indicative of an issue.
