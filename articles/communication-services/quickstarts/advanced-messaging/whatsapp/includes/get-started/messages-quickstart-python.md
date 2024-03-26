@@ -237,8 +237,8 @@ Here's MessageTemplate creation using a default template, `sample_template`.
 If `sample_template` isn't available to you, skip to [Option 2](#option-2-initiate-conversation-from-user). For advanced users, see the page [Templates](../../../../../concepts/advanced-messaging/whatsapp/template-messages.md) to understand how to send a different template with Option 1.
 
 Messages SDK allows Contoso to send templated WhatsApp messages to WhatsApp users. To send template messages below details are required:
-- WhatsApp Channel ID
-- Recipient Phone Number in E16 format
+- [WhatsApp Channel ID](#set-channel-registration-id)
+- [Recipient Phone Number in E16 format](#set-recipient-list)
 - Template details
     - Name like 'sample_template'
     - Language like 'en_us'
@@ -308,8 +308,8 @@ To do so, from your personal WhatsApp account, send a message to your business n
 ### Send a text message to a WhatsApp user
 
 Messages SDK allows Contoso to send text WhatsApp messages, which initiated WhatsApp users initiated. To send text messages below details are required:
-- WhatsApp Channel ID
-- Recipient Phone Number in E16 format
+- [WhatsApp Channel ID](#set-channel-registration-id)
+- [Recipient Phone Number in E16 format](#set-recipient-list)
 - Message body/text to be sent
 
 > [!IMPORTANT]
@@ -362,8 +362,8 @@ WhatsApp Text Message with message id <GUID> was successfully sent to <ToRecipie
 ### Send a media message to a WhatsApp user
 
 Messages SDK allows Contoso to send Image WhatsApp messages to WhatsApp users. To send Image embedded messages below details are required:
-- WhatsApp Channel ID
-- Recipient Phone Number in E16 format
+- [WhatsApp Channel ID](#set-channel-registration-id)
+- [Recipient Phone Number in E16 format](#set-recipient-list)
 - MediaUri of the Image
 
 > [!IMPORTANT]
@@ -417,7 +417,7 @@ Azure Communication Services - Advanced Messages Quickstart
 WhatsApp Image containing Message with message id <GUID> was successfully sent to <ToRecipient>.
 ```
 
-### Full code
+## Full sample code
 
 ```python
 import os
@@ -523,7 +523,7 @@ WhatsApp Text Message with message id <<GUID>> was successfully sent to <<ToReci
 WhatsApp Image containing Message with message id <<GUID>> was successfully sent to <<ToRecipient>>
 ```
 
-## Sample code
+### Other Samples
 
-You can review and download this and other sample codes for Python Messages SDK on [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/messages-quickstart).
+You can review and download other sample codes for Python Messages SDK on [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/messages-quickstart).
 

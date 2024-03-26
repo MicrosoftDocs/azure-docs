@@ -240,8 +240,8 @@ Here's MessageTemplate creation using a default template, `sample_template`.
 If `sample_template` isn't available to you, skip to [Option 2](#option-2-initiate-conversation-from-user). For advanced users, see the page [Templates](../../../../../concepts/advanced-messaging/whatsapp/template-messages.md) to understand how to send a different template with Option 1.
 
 Messages SDK allows Contoso to send templated WhatsApp messages to WhatsApp users. To send template messages below details are required:
-- WhatsApp Channel ID
-- Recipient Phone Number in E16 format
+- [WhatsApp Channel ID](#set-channel-registration-id)
+- [Recipient Phone Number in E16 format](#set-recipient-list)
 - Template details
     - Name like 'sample_template'
     - Language like 'en_us'
@@ -300,8 +300,8 @@ To do so, from your personal WhatsApp account, send a message to your business n
 ### Send a text message to a WhatsApp user
 
 Messages SDK allows Contoso to send text WhatsApp messages, which initiated WhatsApp users initiated. To send text messages below details are required:
-- WhatsApp Channel ID
-- Recipient Phone Number in E16 format
+- [WhatsApp Channel ID](#set-channel-registration-id)
+- [Recipient Phone Number in E16 format](#set-recipient-list)
 - Message body/text to be sent
 
 > [!IMPORTANT]
@@ -335,8 +335,8 @@ if (textMessageResult.status === "202") {
 ### Send a media message to a WhatsApp user
 
 Messages SDK allows Contoso to send Image WhatsApp messages to WhatsApp users. To send Image embedded messages below details are required:
-- WhatsApp Channel ID
-- Recipient Phone Number in E16 format
+- [WhatsApp Channel ID](#set-channel-registration-id)
+- [Recipient Phone Number in E16 format](#set-recipient-list)
 - MediaUri of the Image
 
 > [!IMPORTANT]
@@ -378,7 +378,7 @@ Use the node command to run the code you added to the send-messages.js file.
 node ./send-messages.js
 ```
 
-## Sample code
+## Full sample code
 
 You can download the sample app from [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/7efc61a0414c6f898409e355d0ba8d228882625f/sdk/communication/communication-messages-rest/samples-dev).
 

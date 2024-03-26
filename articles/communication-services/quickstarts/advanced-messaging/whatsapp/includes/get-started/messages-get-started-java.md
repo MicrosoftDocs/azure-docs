@@ -236,8 +236,8 @@ Here's MessageTemplate creation using a default template, `sample_template`.
 If `sample_template` isn't available to you, skip to [Option 2](#option-2-initiate-conversation-from-user). For advanced users, see the page [Templates](../../../../../concepts/advanced-messaging/whatsapp/template-messages.md) to understand how to send a different template with Option 1.
 
 Messages SDK allows Contoso to send templated WhatsApp messages to WhatsApp users. To send template messages below details are required:
-- WhatsApp Channel ID
-- Recipient Phone Number in E16 format
+- [WhatsApp Channel ID](#set-channel-registration-id)
+- [Recipient Phone Number in E16 format](#set-recipient-list)
 - Template details
     - Name like 'sample_template'
     - Language like 'en_us'
@@ -276,8 +276,8 @@ To do so, from your personal WhatsApp account, send a message to your business n
 ### Send a text message to a WhatsApp user
 
 Messages SDK allows Contoso to send text WhatsApp messages, which initiated WhatsApp users initiated. To send text messages below details are required:
-- WhatsApp Channel ID
-- Recipient Phone Number in E16 format
+- [WhatsApp Channel ID](#set-channel-registration-id)
+- [Recipient Phone Number in E16 format](#set-recipient-list)
 - Message body/text to be sent
 
 > [!IMPORTANT]
@@ -302,8 +302,8 @@ for (MessageReceipt messageReceipt : textMessageResult.getReceipts()) {
 ### Send a media message to a WhatsApp user
 
 Messages SDK allows Contoso to send Image WhatsApp messages to WhatsApp users. To send Image embedded messages below details are required:
-- WhatsApp Channel ID
-- Recipient Phone Number in E16 format
+- [WhatsApp Channel ID](#set-channel-registration-id)
+- [Recipient Phone Number in E16 format](#set-recipient-list)
 - MediaUri of the Image
 
 > [!IMPORTANT]
@@ -342,7 +342,7 @@ for (MessageReceipt messageReceipt : mediaMessageResult.getReceipts()) {
    mvn exec:java -D"exec.mainClass"="com.communication.quickstart.App" -D"exec.cleanupDaemonThreads"="false"
    ```
 
-## Sample code
+## Full sample code
 
 Find the finalized code for this quickstart on [GitHub](https://github.com/Azure/azure-sdk-for-java/tree/d668cb44f64d303e71d2ee72a8b0382896aa09d5/sdk/communication/azure-communication-messages/src/samples/java/com/azure/communication/messages).
 
