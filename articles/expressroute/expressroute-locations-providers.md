@@ -200,6 +200,8 @@ If you're remote and don't have fiber connectivity or want to explore other conn
 * [SES](https://www.ses.com/networks/signature-solutions/signature-cloud/ses-and-azure-expressroute)
 * [Viasat](https://news.viasat.com/newsroom/press-releases/viasat-introduces-direct-cloud-connect-a-new-service-providing-fast-secure-private-connections-to-business-critical-cloud-services)
 
+## Connectivity through additional service providers
+
 | Location | Exchange | Connectivity providers |
 |--|--|--|
 | **Amsterdam** | Equinix<br/>Interxion<br/>Level 3 Communications | BICS<br/>CloudXpress<br/>Eurofiber<br/>Fastweb S.p.A<br/>Gulf Bridge International<br/>Kalaam Telecom Bahrain B.S.C<br/>MainOne<br/>Nianet<br/>POST Telecom Luxembourg<br/>Proximus<br/>RETN<br/>TDC Erhverv<br/>Telecom Italia Sparkle<br/>Telekom Deutschland GmbH<br/>Telia |

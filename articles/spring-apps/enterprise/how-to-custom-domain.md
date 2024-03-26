@@ -159,9 +159,9 @@ use the following steps to grant access using the Azure portal:
    > [!NOTE]
    > If you don't find the "Azure Spring Apps Domain-Management", search for "Azure Spring Cloud Domain-Management".
 
-   :::image type="content" source="./media/how-to-custom-domain/import-certificate-b.png" alt-text="Screenshot of the Azure portal showing the Add Access Policy page for a key vault with Get and List selected from Secret permissions and from Certificate permissions." lightbox="./media/how-to-custom-domain/import-certificate-b.png":::
+   :::image type="content" source="./media/how-to-custom-domain/import-certificate-b.png" alt-text="Screenshot of the Azure portal Create an access policy page with Get and List options for Secret permissions and Certificate permissions highlighted." lightbox="./media/how-to-custom-domain/import-certificate-b.png":::
 
-   :::image type="content" source="./media/how-to-custom-domain/import-certificate-c.png" alt-text="Screenshot of the Azure portal showing the Create Access Policy page for a key vault with Azure Spring Apps Domain-management selected from the Select a principal dropdown." lightbox="./media/how-to-custom-domain/import-certificate-c.png":::
+   :::image type="content" source="./media/how-to-custom-domain/import-certificate-c.png" alt-text="Screenshot of the Azure portal that shows the Create Access Policy page for a key vault with Azure Spring Cloud Domain-Management selected." lightbox="./media/how-to-custom-domain/import-certificate-c.png":::
 
 #### [Azure CLI](#tab/Azure-CLI)
 
@@ -186,7 +186,7 @@ az keyvault set-policy \
 1. From the navigation pane, select **TLS/SSL settings**.
 1. Select **Import key vault certificate**.
 
-   :::image type="content" source="./media/how-to-custom-domain/import-certificate.png" alt-text="Screenshot of the Azure portal showing the TLS/SSL settings page for an Azure Spring Apps instance, with the Import key vault certificate button highlighted." lightbox="./media/how-to-custom-domain/import-certificate.png":::
+   :::image type="content" source="./media/how-to-custom-domain/import-certificate.png" alt-text="Screenshot of the Azure portal that shows the TLS/SSL settings page with the Import key vault certificate button highlighted." lightbox="./media/how-to-custom-domain/import-certificate.png":::
 
 1. On the **Select certificate from Azure** page, select the **Subscription**, **Key Vault**, and **Certificate** from the drop-down options, and then choose **Select**.
 

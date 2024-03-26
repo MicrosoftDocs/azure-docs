@@ -1,12 +1,12 @@
 ---
 title: Source control
-description: Learn how to configure source control in Azure Data Factory
+description: Learn how to configure source control in Azure Data Factory.
 ms.service: data-factory
 ms.subservice: ci-cd
 author: nabhishek
 ms.author: abnarain
 ms.topic: conceptual
-ms.date: 11/06/2023
+ms.date: 03/19/2024
 ---
 
 # Source control in Azure Data Factory
@@ -16,7 +16,7 @@ By default, the Azure Data Factory user interface experience (UX) authors direct
 
 - The Data Factory service doesn't include a repository for storing the JSON entities for your changes. The only way to save changes is via the **Publish All** button and all changes are published directly to the data factory service.
 - The Data Factory service isn't optimized for collaboration and version control.
-- The Azure Resource Manager template required to deploy Data Factory itself is not included.
+- The Azure Resource Manager template required to deploy Data Factory itself isn't included.
 
 To provide a better authoring experience, Azure Data Factory allows you to configure a Git repository with either Azure Repos or GitHub. Git is a version control system that allows for easier change tracking and collaboration. This article outlines how to configure and work in a git repository along with highlighting best practices and a troubleshooting guide.
 
@@ -33,12 +33,12 @@ To learn more about how Azure Data Factory integrates with Git, view the 15-minu
 
 Below is a list of some of the advantages git integration provides to the authoring experience:
 
--   **Source control:** As your data factory workloads become crucial, you would want to integrate your factory with Git to leverage several source control benefits like the following:
+-   **Source control:** As your data factory workloads become crucial, you would want to integrate your factory with Git to apply several source control benefits like the following:
     -   Ability to track/audit changes.
     -   Ability to revert changes that introduced bugs.
--   **Partial saves:** When authoring against the data factory service, you can't save changes as a draft and all publishes must pass data factory validation. Whether your pipelines are not finished or you simply don't want to lose changes if your computer crashes, git integration allows for incremental changes of data factory resources regardless of what state they are in. Configuring a git repository allows you to save changes, letting you only publish when you have tested your changes to your satisfaction.
+-   **Partial saves:** When authoring against the data factory service, you can't save changes as a draft, and all publishes must pass data factory validation. Whether your pipelines aren't finished or you simply don't want to lose changes if your computer crashes, git integration allows for incremental changes of data factory resources regardless of what state they are in. Configuring a git repository allows you to save changes, letting you only publish after you test your changes to your satisfaction.
 -   **Collaboration and control:** If you have multiple team members contributing to the same factory, you might want to let your teammates collaborate with each other via a code review process. You can also set up your factory such that not every contributor has equal permissions. Some team members might only be allowed to make changes via Git and only certain people in the team are allowed to publish the changes to the factory.
--   **Better CI/CD:**  If you are deploying to multiple environments with a [continuous delivery process](continuous-integration-delivery.md), git integration makes certain actions easier. Some of these actions include:
+-   **Better CI/CD:**  If you're deploying to multiple environments with a [continuous delivery process](continuous-integration-delivery.md), git integration makes certain actions easier. Some of these actions include:
     -   Configure your release pipeline to trigger automatically as soon as there are any changes made to your 'dev' factory.
     -   Customize the properties in your factory that are available as parameters in the Resource Manager template. It can be useful to keep only the required set of properties as parameters, and have everything else hard-coded.
 -   **Better Performance:** An average factory with git integration loads 10 times faster than one authoring against the data factory service. This performance improvement is because resources are downloaded via Git.
@@ -48,7 +48,7 @@ Below is a list of some of the advantages git integration provides to the author
 
 ## Connect to a Git repository
 
-There are four different ways to connect a Git repository to your data factory for both Azure Repos and GitHub. After you connect to a Git repository, you can view and manage your configuration in the [management hub](author-management-hub.md) under **Git configuration** in the **Source control** section
+There are four different ways to connect a Git repository to your data factory for both Azure Repos and GitHub. After you connect to a Git repository, you can view and manage your configuration in the [management hub](author-management-hub.md) under **Git configuration** in the **Source control** section.
 
 ### Configuration method 1: Home page
 
@@ -64,7 +64,7 @@ In the Azure Data Factory UX authoring canvas, select the **Data Factory** drop-
 
 ### Configuration method 3: Management hub
 
-Go to the management hub in the ADF UX. Select **Git configuration** in the **Source control** section. If you have no repository connected, click **Configure**.
+Go to the management hub in the Azure Data Factory Studio. Select **Git configuration** in the **Source control** section. If you have no repository connected, select **Configure**.
 
 :::image type="content" source="media/author-visually/configure-repo-3.png" alt-text="Configure the code repository settings from management hub":::
 
@@ -81,16 +81,14 @@ When creating a new data factory in the Azure portal, you can configure Git repo
 
 Visual authoring with Azure Repos Git integration supports source control and collaboration for work on your data factory pipelines. You can associate a data factory with an Azure Repos Git organization repository for source control, collaboration, versioning, and so on. A single Azure Repos Git organization can have multiple repositories, but an Azure Repos Git repository can be associated with only one data factory. If you don't have an Azure Repos organization or repository, follow [these instructions](/azure/devops/organizations/accounts/create-organization?view=azure-devops&preserve-view=true) to create your resources.
 
-
-
 > [!NOTE]
 > You can store script and data files in an Azure Repos Git repository. However, you have to upload the files manually to Azure Storage. A data factory pipeline doesn't automatically upload script or data files stored in an Azure Repos Git repository to Azure Storage. Additional files such as ARM templates, scripts, or configuration files, can be stored in the repository outside of the mapped folder. If you do this, keep in mind that an additional task is required to build/deploy and interact with the files stored outside of the mapped Azure DevOps folder.
 
 ### Azure Repos settings
 
-:::image type="content" source="media/author-visually/repo-settings.png" alt-text="Configure the code repository settings.":::
+:::image type="content" source="media/author-visually/repo-settings.png" alt-text="Screenshot showing the Configure a repository settings.":::
 
-The configuration pane shows the following Azure Repos code repository settings:
+The configuration pane walks you step-by-step through configuring each of the following code repository settings:
 
 | Setting | Description | Value |
 |:--- |:--- |:--- |
@@ -123,7 +121,7 @@ You can update your publish branch and decide whether or not to disable the publ
 
 ### Use a different Microsoft Entra tenant
 
-The Azure Repos Git repo can be in a different Microsoft Entra tenant. To specify a different Microsoft Entra tenant, you have to have administrator permissions for the Azure subscription that you're using. For more info, see [change subscription administrator](../cost-management-billing/manage/add-change-subscription-administrator.md#to-assign-a-user-as-an-administrator)
+The Azure Repos Git repo can be in a different Microsoft Entra tenant. To specify a different Microsoft Entra tenant, you have to have administrator permissions for the Azure subscription that you're using. For more info, see [change subscription administrator](../cost-management-billing/manage/add-change-subscription-administrator.md#to-assign-a-user-as-an-administrator).
 
 > [!IMPORTANT]
 > To connect to another Microsoft Entra ID, the user logged in must be a part of that active directory. 
@@ -134,7 +132,7 @@ To use a personal Microsoft account for Git integration, you can link your perso
 
 1. Add your personal Microsoft account to your organization's Active Directory as a guest. For more info, see [Add Microsoft Entra B2B collaboration users in the Azure portal](../active-directory/external-identities/add-users-administrator.md).
 
-2. Log in to the Azure portal with your personal Microsoft account. Then switch to your organization's Active Directory.
+2. Sign in to the Azure portal with your personal Microsoft account. Then switch to your organization's Active Directory.
 
 3. Go to the Azure DevOps section, where you now see your personal repo. Select the repo and connect with Active Directory.
 
@@ -144,11 +142,11 @@ For more info about connecting Azure Repos to your organization's Active Directo
 
 ## Author with GitHub integration
 
-Visual authoring with GitHub integration supports source control and collaboration for work on your data factory pipelines. You can associate a data factory with a GitHub account repository for source control, collaboration, versioning. A single GitHub account can have multiple repositories, but a GitHub repository can be associated with only one data factory. If you don't have a GitHub account or repository, follow [these instructions](https://github.com/join) to create your resources.
+Visual authoring with GitHub integration supports source control and collaboration for work on your data factory pipelines. You can associate a data factory with a GitHub account repository for source control, collaboration, versioning. A single GitHub account can have multiple repositories, but a GitHub repository can be associated with only one data factory. If you don't have a GitHub account or repository, follow [these instructions](https://github.com/join) to create your resources.
 
 The GitHub integration with Data Factory supports both public GitHub (that is, [https://github.com](https://github.com)), GitHub Enterprise Cloud and GitHub Enterprise Server. You can use both public and private GitHub repositories with Data Factory as long you have read and write permission to the repository in GitHub. To connect with a public repository, select the **Use Link Repository option**, as they aren't visible in the dropdown menu of **Repository name**. ADF’s GitHub enterprise server integration only works with [officially supported versions of GitHub enterprise server.](https://docs.github.com/en/enterprise-server@3.1/admin/all-releases)  
 
-For repositories owned by GitHub organization account, the admin has to authorize the ADF app. For repositories owned by GitHub user account, a user with at least collaborator permission can authorize ADF app. This doesn't give ADF app direct access to all the repositories owned by the account/organization, it only allows the ADF app to act on-behalf of the user to access repositories based on user's access permissions.
+For repositories owned by GitHub organization account, the admin has to authorize the ADF app. For repositories owned by GitHub user account, a user with at least collaborator permission can authorize ADF app. This permission doesn't give ADF app direct access to all the repositories owned by the account/organization, it only allows the ADF app to act on-behalf of the user to access repositories based on user's access permissions.
 
 > [!NOTE]
 > If you are using Microsoft Edge, GitHub Enterprise version less than 2.1.4 does not work with it. GitHub officially supports >=3.0 and these all should be fine for ADF. As GitHub changes its minimum version, ADF supported versions also change. 
@@ -196,14 +194,14 @@ Connecting to a GitHub organization requires the organization to grant permissio
 If you're connecting to public GitHub or GitHub Enterprise Cloud from Azure Data Factory for the first time, follow these steps to connect to a GitHub organization.
 
 1. In the Git configuration pane, enter the organization name in the *GitHub Account* field. A prompt to log into GitHub appears. 
-1. Login using your user credentials.
-1. You'll be asked to authorize Azure Data Factory as an application called *AzureDataFactory*. On this screen, you see an option to grant permission for ADF to access the organization. If you don't see the option to grant permission, ask an admin to manually grant the permission through GitHub.
+1. Sign in using your user credentials.
+1. You are asked to authorize Azure Data Factory as an application called *AzureDataFactory*. On this screen, you see an option to grant permission for ADF to access the organization. If you don't see the option to grant permission, ask an admin to manually grant the permission through GitHub.
 
-Once you follow these steps, your factory can connect to both public and private repositories within your organization. If you are unable to connect, try clearing the browser cache and retrying.
+Once you follow these steps, your factory can connect to both public and private repositories within your organization. If you're unable to connect, try clearing the browser cache and retrying.
 
 #### Already connected to public GitHub or GitHub Enterprise Cloud using a personal account
 
-If you have already connected to public GitHub or GitHub Enterprise Cloud and only granted permission to access a personal account, follow the below steps to grant permissions to an organization. 
+If you already connected to public GitHub or GitHub Enterprise Cloud and only granted permission to access a personal account, follow the below steps to grant permissions to an organization. 
 
 1. Go to GitHub and open **Settings**.
 
@@ -232,7 +230,7 @@ If you connect to GitHub Enterprise Server, you need to use a personal access to
 
 ### Known GitHub limitations
 
-- You can store script and data files in a GitHub repository. However, you have to upload the files manually to Azure Storage. A Data Factory pipeline does not automatically upload script or data files stored in a GitHub repository to Azure Storage.
+- You can store script and data files in a GitHub repository. However, you have to upload the files manually to Azure Storage. A Data Factory pipeline doesn't automatically upload script or data files stored in a GitHub repository to Azure Storage.
 
 - GitHub Enterprise with a version older than 2.14.0 doesn't work in the Microsoft Edge browser.
 

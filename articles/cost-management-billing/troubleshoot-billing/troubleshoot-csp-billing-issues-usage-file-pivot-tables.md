@@ -6,7 +6,7 @@ ms.reviewer: isvargas
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 04/05/2023
+ms.date: 03/21/2024
 ms.author: banders
 ---
 
@@ -30,13 +30,13 @@ Because Azure usage files are in CSV format, you need to prepare the data for us
 1. Download the usage file using the instructions at [Find your bill](/partner-center/read-your-bill#find-your-bill).
 1. Open the file in Excel.
 1. The unformatted data resembles the following example.  
-    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/raw-csv-data.png" alt-text="Example showing unformatted data in Excel" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/raw-csv-data.png" :::
+    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/raw-csv-data.png" alt-text="Screenshot showing unformatted data in Excel." lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/raw-csv-data.png" :::
 1. Select the first field in the table, **PartnerID**.
 1. Press Ctrl + Shift + Down arrow and then Ctrl + Shift + Right Arrow to select all the information in the table.
 1. In the top menu, select **Insert** > **Table**. In the Create table box, select **My table has headers** and then select **OK**.  
-    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/create-table-dialog.png" alt-text="Example showing the Create Table dialog" :::
+    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/create-table-dialog.png" alt-text="Screenshot showing the Create Table dialog." :::
 1. In top menu, select **Insert** > **Pivot Table** and then select **OK**. The action creates a new sheet in the file and takes you to the pivot table area on the right side of the sheet.  
-    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-fields.png" alt-text="Example showing the PivotTable fields area" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-fields.png" :::
+    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-fields.png" alt-text="Screenshot showing the PivotTable fields area." lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-fields.png" :::
 
 The PivotTable Fields area is a drag-and-drop area. Continue to the next section to create the pivot table.
 
@@ -45,13 +45,13 @@ The PivotTable Fields area is a drag-and-drop area. Continue to the next section
 In this section, you create a pivot table where you can troubleshoot overall general Azure usage. The example table can help you investigate which service consumes the most resources. Or you can view the resources that incur the most cost and see how a service is getting charged.
 
 1. In the PivotTable Fields area, drag **Service Name** and **Resource** to the **Rows** area. Put **Resource** below **Service Name**.  
-    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/rows-section.png" alt-text="Example showing Service Name and Resource in Rows" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/rows-section.png" :::
+    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/rows-section.png" alt-text="Screenshot showing the Service Name and Resource in Rows." lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/rows-section.png" :::
 1. Next, put **Post-Tax Total** in the **Values** area. You can also use the Consumed Quantity column instead to get information about consumption units and transactions. For example, GB and Hours. Or, transactions instead of cost in different currencies like USD, EUR, and INR.  
-    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/add-pivot-table-fields.png" alt-text="Example showing columns added to pivot table fields" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/add-pivot-table-fields.png" :::
+    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/add-pivot-table-fields.png" alt-text="Screenshot showing columns added to pivot table fields." lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/add-pivot-table-fields.png" :::
 1. Now you have a dashboard for generalized consumption investigation. You can filter for a specific service using the filtering options in the pivot table.  
-    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-filter-option-row-label.png" alt-text="Example showing pivot table filter option for row label" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-filter-option-row-label.png" :::
+    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-filter-option-row-label.png" alt-text="Screenshot showing the pivot table filter option for row label." lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-filter-option-row-label.png" :::
     To filter a second level in a pivot table, for example a resource, select a second-level item in the table.
-    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-filter-option-select-field.png" alt-text="Example showing filter options for Select field" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-filter-option-select-field.png" :::
+    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-filter-option-select-field.png" alt-text="Screenshot showing filter options for Select field." lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-filter-option-select-field.png" :::
 1. For additional filters, you can add **SubscriptionID** and **Customer Company Name** to the **Filters** area and select the desired scope.
 
 ## Create a pivot table to view Azure usage by date
@@ -60,12 +60,12 @@ In this section, you create a pivot table where you can troubleshoot overall gen
 
 Your reconciliation file has two tables. One is at the top (the main table) and there's another table at the bottom of the document. This second table has much of the same information, however it doesn't include pricing or cost details. It does have usage date and consumed quantity.
 
-:::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/reconciliation-file-two-tables.png" alt-text="Example showing the reconciliation files with two tables of data" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/reconciliation-file-two-tables.png" :::
+:::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/reconciliation-file-two-tables.png" alt-text="Screenshot showing the reconciliation files with two tables of data." lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/reconciliation-file-two-tables.png" :::
 
 1. Use the same steps from the [Get the data and format it](#get-the-data-and-format-it) section to create an Excel table with the information at the bottom of the reconciliation file.
 1. When the table is ready and you have a pivot table sheet, use the same steps from the create-pivot-table-to-view-azure-costs-by-resources section to prepare the dashboard. Instead of using the Post-Tax total, put **Consumed quantity** in the **Values** area.
 1. Add **Usage Date** to the columns section. The pivot table should look like the following example.  
-    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/final-pivot-table-fields.png" alt-text="Example showing final pivot table fields" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/final-pivot-table-fields.png" :::
+    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/final-pivot-table-fields.png" alt-text="Screenshot showing the final pivot table fields." lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/final-pivot-table-fields.png" :::
 1. You now have a dashboard that shows the usage per date. You can extend each month by selecting the **+** symbol.
 
 The dashboard shows the consumed quantity in units such as GB, Hours, and Transfers.
@@ -80,7 +80,7 @@ A single resource can incur several charges for different services. For example,
 
 Reconciliation files don't contain resource-specific details. So, you use the aggregated usage file. Contact [Azure Billing support](https://go.microsoft.com/fwlink/?linkid=2083458) to have them provide you with the aggregated usage file for your subscription. Aggregated files are generated at the subscription level. The unformatted data resembles the following example.
 
-:::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/raw-aggregated-usage-file.png" alt-text="Example showing unformatted aggregated usage file" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/raw-aggregated-usage-file.png" :::
+:::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/raw-aggregated-usage-file.png" alt-text="Screenshot showing an unformatted aggregated usage file." lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/raw-aggregated-usage-file.png" :::
 
 The file contains the following columns.
 
@@ -92,11 +92,11 @@ The file contains the following columns.
 1. Select the first field in the table, **PartnerID**.  
 1. Press Ctrl + Shift + Down arrow and then Ctrl + Shift + Right Arrow to select all the information in the table.
 1. In the top menu, select **Insert** > **Table**. In the Create table box, select **My table has headers** and then select **OK**.  
-    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/create-table-dialog.png" alt-text="Example showing the Create Table dialog" :::
+    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/create-table-dialog.png" alt-text="Screenshot showing the Create Table dialog." :::
 1. In top menu, select **Insert** > **Pivot Table** and then select **OK**. The action creates a new sheet in the file and takes you to the pivot table area on the right side of the sheet.  
-    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-fields-reconciliation.png" alt-text="Example showing the PivotTable fields area for the reconciliation file" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-fields-reconciliation.png" :::
+    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-fields-reconciliation.png" alt-text="Screenshot showing the PivotTable fields area for the reconciliation file." lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-fields-reconciliation.png" :::
 1. Next, add **MeteredResourceID** to the **Rows** area and **Quantity** to **Values**. Results show the overall usage information. For additional details, put **UsageEndDateTime** in the **Columns** area.  
-    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/overall-usage.png" alt-text="Example showing overall usage information" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/overall-usage.png" :::
+    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/overall-usage.png" alt-text="Screenshot showing overall usage information." lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/overall-usage.png" :::
 1. To view an overall report, add **Properties** to **Rows** under **MeteredResourceID**. It shows a complete dashboard for your usage.
 1. To filter by a specific resource, add **Properties** to the **Filters** area and select the desired usage. You can use Search to find a resource name.
     To view the cost for the resource, find the total consumed quantity and multiply the value by the list price. The list price is specific for each Resource GUID (MeteredResourceID). If a resource is consuming several MeteredResourceIDs, you have to note the total value for each ID.

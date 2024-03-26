@@ -4,7 +4,7 @@ description: This article provides a summary of supported regions and operating 
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 12/19/2023
+ms.date: 03/26/2024
 ms.topic: overview
 ms.custom: references_regions
 ---
@@ -16,15 +16,15 @@ ms.custom: references_regions
 
 This article details the Windows and Linux operating systems supported and system requirements for machines or servers managed by Azure Update Manager. The article includes the supported regions and specific versions of the Windows Server and Linux operating systems running on Azure virtual machines (VMs) or machines managed by Azure Arc-enabled servers.
 
-## Update sources supported
+## Supported update sources
 
 **Windows**: [Windows Update Agent (WUA)](/windows/win32/wua_sdk/updating-the-windows-update-agent) reports to Microsoft Update by default, but you can configure it to report to [Windows Server Update Services (WSUS)](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus). If you configure WUA to report to WSUS, based on the last synchronization from WSUS with Microsoft Update, the results in Update Manager might differ from what Microsoft Update shows.
 
-To specify sources for scanning and downloading updates, see [Specify intranet Microsoft Update service location](/windows/deployment/update/waas-wu-settings?branch=main#specify-intranet-microsoft-update-service-location). To restrict machines to the internal update service, see [Do not connect to any Windows Update internet locations](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates?branch=main#do-not-connect-to-any-windows-update-internet-locations).
+To specify sources for scanning and downloading updates, see [Specify intranet Microsoft Update service location](/windows/deployment/update/waas-wu-settings?branch=main#specify-intranet-microsoft-update-service-location). To restrict machines to the internal update service, see [Don't connect to any Windows Update internet locations](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates?branch=main#do-not-connect-to-any-windows-update-internet-locations).
 
 **Linux**: You can configure Linux machines to report to a local or public YUM or APT package repository. The results shown in Update Manager depend on where the machines are configured to report.
 
-## Types of updates supported
+## Supported update types
 
 The following types of updates are supported.
 
@@ -110,17 +110,29 @@ United States | Central US </br> East US </br> East US 2</br> North Central US <
 ## Supported operating systems
 
 >[!NOTE]
-> 1. All operating systems are assumed to be x64. For this reason, x86 isn't supported for any operating system.
-> 1. Update Manager doesn't support VMs created from CIS-hardened images.
+> - All operating systems are assumed to be x64. For this reason, x86 isn't supported for any operating system.
+> - Update Manager doesn't support VMs created from CIS-hardened images.
+
+### Support for Azure Update Manager operations
+
+- [Periodic assessment, Schedule patching, On-demand assessment, and On-demand patching](#support-for-all-other-azure-update-manager-operations)
+- [Automatic VM guest patching](#support-for-automatic-vm-guest-patching)
+
 
 ### Support for automatic VM Guest patching
+
+If [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md) is enabled on a VM, then the available Critical and Security patches are downloaded and applied automatically on the VM.
 
 - For marketplace images, see the list of [supported OS images](../virtual-machines/automatic-vm-guest-patching.md#supported-os-images).
 - For VMs created from customized images even if the Patch orchestration mode is set to `Azure Orchestrated/AutomaticByPlatform`, automatic VM guest patching doesn't work. We recommend that you use scheduled patching to patch the machines by defining your own schedules or install updates on-demand.
 
 ### Support for all other Azure Update Manager operations
 
-The support for all Azure Update Manager operations like periodic assessment, scheduled patching, on-demand assessment, and patching is described in the sections below.
+Azure Update Manager supports the following operations:
+
+- [periodic assessment](assessment-options.md#periodic-assessment)
+- [scheduled patching](prerequsite-for-schedule-patching.md)
+- [on-demand assessment](assessment-options.md#check-for-updates-nowon-demand-assessment), and patching is described in the following sections:
 
 # [Azure VMs](#tab/azurevm-os)
 
@@ -135,55 +147,86 @@ The Azure Marketplace image has the following attributes:
 
 Update Manager supports the following operating system versions on VMs for all operations except automatic VM guest patching. You might experience failures if there are any configuration changes on the VMs, such as package or repository.
 
+Following is the list of supported images and no other marketplace images released by any other publisher are supported for use with Azure Update Manager.
+
 #### Supported Windows OS versions
 
-| **Publisher**| **Versions**
-|----------|-------------|
-|Microsoft Windows Server | 1709, 1803, 1809, 2012, 2016, 2019, 2022|
-|Microsoft Windows Server HPC Pack | 2012, 2016, 2019 |
-|Microsoft SQL Server | 2008, 2012, 2014, 2016, 2017, 2019, 2022 |
-|Microsoft Visual Studio | ws2012r2, ws2016, ws2019, ws2022 |
-|Microsoft Azure Site Recovery | Windows 2012
-|Microsoft BizTalk Server | 2016, 2020 |
-|Microsoft DynamicsAx | ax7 |
-|Microsoft Power BI | 2016, 2017, 2019, 2022 |
-|Microsoft SharePoint | sp* |
+| **Publisher**| **Offer** | **SKU**|  **Unsupported image(s)** |
+|----------|-------------|-----| ---|
+|microsoftwindowsserver | windowsserver | * | windowsserver 2008|
+|microsoftbiztalkserver | biztalk-server | *|
+|microsoftdynamicsax | dynamics | * |
+|microsoftpowerbi |* |* |
+|microsoftsharepoint | microsoftsharepointserver | *|
+|microsoftvisualstudio | Visualstudio* |  *-ws2012r2. </br> *-ws2016-ws2019 </br> *-ws2022 |
+|microsoftwindowsserver | windows-cvm | * |
+|microsoftwindowsserver | windowsserverdotnet | *|
+|microsoftwindowsserver | windowsserver-gen2preview | *|
+|microsoftwindowsserver | windowsserverupgrade | * |
+|microsoftwindowsserver | windowsserverhotpatch-previews | windows-server-2022-azure-edition-hotpatch |
+| | microsoftserveroperatingsystems-previews | windows-server-vnext-azure-edition-core |
+|microsoftwindowsserverhpcpack | windowsserverhpcpack | * |
+|microsoftsqlserver | sql2016sp1-ws2016 | standard |
+| | sql2016sp2-ws2016 | standard|
+| | sql2017-ws2016 | standard|
+| | sql2017-ws2016 | enterprise |
+| | sql2019-ws2019 | enterprise |
+| | sql2019-ws2019 | sqldev|
+| | sql2019-ws2019 | standard |
+| | sql2019-ws2019 | standard-gen2|
+|microsoftazuresiterecovery  | process-server | windows-2012-r2-datacenter |
 
 #### Supported Linux OS versions
 
-| **Publisher**| **Versions**
-|----------|-------------|
-|Canonical | Ubuntu 16.04, 18.04, 20.04, 22.04 |
-|Red Hat | RHEL 7,8,9|
-|OpenLogic | CentOS 7|
-|SUSE 12 |sles, sles-byos, sap, sap-byos, sapcal, sles-standard |
-|SUSE 15 | basic, hpc, opensuse, sles, sap, sapcal|
-|Oracle Linux | 7*, ol7*, ol8*, ol9* |
-|Oracle Database | 21, 19-0904, 18.*|
-
-#### Unsupported operating system images
-
-The following table lists the images (from which the VMs are created) that aren't supported:
-
-| **Publisher**| **OS offer** | **SKU**|
-|----------|-------------|-----|
-|OpenLogic | CentOS | 8* |
-|OpenLogic | centos-hpc| * |
-|Oracle | Oracle-Linux | 8, 8-ci, 81, 81-ci , 81-gen2, ol82, ol8_2-gen2,ol82-gen2, ol83-lvm, ol83-lvm-gen2, ol84-lvm,ol84-lvm-gen2 |
-|Red Hat | RHEL-BYOS | *|
-|Red Hat | RHEL | 74-gen2 |
-|Red Hat | RHEL-HANA | 7.4, 7.5, 7.6, 8.1, 81_gen2 |
-|Red Hat | 	RHEL-SAP | 7.4, 7.5, 7.7 |
-|Red Hat | 	RHEL-SAP-HANA | 7.5 |
-|Microsoft SQL Server | SQL 2019-SLES* | * |
-|Microsoft SQL Server | SQL 2019-RHEL7 | * |
-|Microsoft SQL Server | SQL 2017-RHEL7 | * |
-|Microsoft | microsoft-ads |*.* |
-|SUSE| sles-sap-15-*-byos | gen *|
+| **Publisher**| **Offer** | **SKU**| **Unsupported image(s)**  |
+|----------|-------------|-----|----|
+|canonical | * | *||
+|microsoftsqlserver | * | * | **Offers**: sql2019-sles* </br> sql2019-rhel7 </br> sql2017-rhel 7 </br></br> Example  </br> Publisher: </br> microsoftsqlserver </br> Offer: sql2019-sles12sp5 </br> sku:webARM </br></br> Publisher: microsoftsqlserver </br> Offer: sql2019-rhel7 </br> sku: web-ARM | 
+|microsoftsqlserver | * | *|**Offers**:  sql2019-sles*</br> sql2019-rhel7 </br> sql2017-rhel7 |
+|microsoftcblmariner | cbl-mariner | cbl-mariner-1 </br> 1-gen2 </br> cbl-mariner-2 </br> cbl-mariner-2-gen2. | |
+|microsoft-aks | aks |aks-engine-ubuntu-1804-202112 | |
+|microsoft-dsvm |aml-workstation |  ubuntu-20, ubuntu-20-gen2 | |
+|redhat | rhel| 7*,8*,9* | 74-gen2 |
+|redhat | rhel-ha | 8* | 8.1, 81_gen2 |
+|redhat | rhel-raw | 7*,8*,9* | |
+|redhat | rhel-sap | 7*| 7.4, 7.5, 7.7 |
+|redhat | sap-apps | 7*, 8* |
+|redhat | rhel-sap* | 9_0 |
+|redhat | rhel-sap-ha| 7*, 8* | 7.5|
+|redhat | rhel-sap-apps | 90sapapps-gen2 |
+|redhat | rhel-sap-ha | 90sapha-gen2 |
+|suse | opensuse-leap-15-* | gen* |
+|suse | sles-12-sp5-* | gen* |
+|suse | sles-sap-12-sp5* |gen*  |
+|suse | sles-sap-15-* | gen* | **Offer**: sles-sap-15-\*-byos  </br></br> **Sku**: gen\* </br> Example </br> Publisher: suse </br> Offer: sles-sap-15-sp3-byos </br> sku: gen1-ARM  |
+|suse | sles-12-sp5 | gen1, gen2 |
+|suse | sles-15-sp2 | gen1, gen2 |
+| |sle-hpc-15-sp4 | gen1, gen2 |
+| | sles| 12-sp4-gen2 |
+| | sles-15-sp1-sapcal | gen1, gen2 |
+| | sles-15-sp2-basic  | gen2 |
+| | sles-15-sp2-hpc | gen2 |
+| | sles-15-sp3-sapcal | gen1, gen2 |
+| | sles-15-sp4 | gen1, gen2 |
+| | sles-byos | 12-sp4, 12-sp4-gen2 |
+| | sles-sap | 12-sp4, 12-sp4-gen2 |
+| | sles-sap-byos | 12-sp4, 12-sp4-gen2, gen2-12-sp4 |
+| | sles-sapcal | 12-sp3 |
+| | sles-standard | 12-sp4-gen2 |
+|oracle | oracle-linux | 7*, ol7*, ol8*, ol9*, ol9-lvm*, 8, 8-ci, 81, 81-ci, 81-gen2 |
+| | oracle-database | oracle_db_21 |
+| | oracle-database-19-3 | oracle-database-19-0904 |
+|microsoftcblmariner| cbl-mariner | cbl-mariner-1,1-gen2, cbl-mariner-2, cbl-mariner-2-gen2 |
+| openlogic | centos | 7.2, 7.3, 7.4, 7.5, 7.6, 7_8, 7_9, 7_9-gen2, 8.0, 8_1, 8_2,8_3, 8_4, 8_5 |
+| |centos-hpc | 7.1, 7.3, 7.4 |
+| |centos-lvm | 7-lvm, 8-lvm |
+| |centos-ci | 7-ci |
+| |centos-lvm | 7-lvm-gen2 |
 
 ### Custom images
 
-We support VMs created from customized images, and the following table lists the operating systems that we support for all Azure Update Manager operations except automatic VM guest patching. For instructions on how to use Update Manager to manage updates on VMs created from custom images, see [Manage updates for custom images](manage-updates-customized-images.md).
+We support VMs created from customized images (including images) uploaded to [Azure Compute gallery](../virtual-machines/linux/tutorial-custom-images.md#overview) and the following table lists the operating systems that we support for all Azure Update Manager operations except automatic VM guest patching. For instructions on how to use Update Manager to manage updates on VMs created from custom images, see [Manage updates for custom images](manage-updates-customized-images.md).
+
 
    |**Windows operating system**|
    |---|
@@ -192,7 +235,7 @@ We support VMs created from customized images, and the following table lists the
    |Windows Server 2016|
    |Windows Server 2012 R2|
    |Windows Server 2012|
-   |Windows Server 2008 R2 (RTM and SP1 Standard)|
+  
 
    |**Linux operating system**|
    |---|
@@ -201,6 +244,7 @@ We support VMs created from customized images, and the following table lists the
    |Red Hat Enterprise 7, 8, 9|
    |SUSE Linux Enterprise Server 12.x, 15.0-15.4|
    |Ubuntu 16.04 LTS, 18.04 LTS, 20.04 LTS, 22.04 LTS|
+
 
 # [Azure Arc-enabled servers](#tab/azurearc-os)
 

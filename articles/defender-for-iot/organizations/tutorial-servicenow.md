@@ -2,12 +2,12 @@
 title: Integrate ServiceNow with Microsoft Defender for IoT
 description: In this tutorial, learn how to integrate ServiceNow with Microsoft Defender for IoT.
 ms.topic: how-to
-ms.date: 08/11/2022
+ms.date: 03/24/2024
 ---
 
 # Integrate ServiceNow with Microsoft Defender for IoT
 
-The Defender for IoT integration with ServiceNow provides a extra level of centralized visibility, monitoring, and control for the IoT and OT landscape. These bridged platforms enable automated device visibility and threat management to previously unreachable ICS & IoT devices.
+The Defender for IoT integration with ServiceNow provides an extra level of centralized visibility, monitoring, and control for the IoT and OT landscape. These bridged platforms enable automated device visibility and threat management to previously unreachable ICS & IoT devices.
 
 The [Operational Technology Manager](https://store.servicenow.com/sn_appstore_store.do#!/store/application/31eed0f72337201039e2cb0a56bf65ef/1.1.2?referer=%2Fstore%2Fsearch%3Flistingtype%3Dallintegrations%25253Bancillary_app%25253Bcertified_apps%25253Bcontent%25253Bindustry_solution%25253Boem%25253Butility%25253Btemplate%26q%3Doperational%2520technology%2520manager&sl=sh) integration is available from the ServiceNow store, which streamlines Microsoft Defender for IoT sensor appliances, OT assets, network connections, and vulnerabilities to ServiceNow’s Operational Technology (OT) data model.
 
@@ -17,9 +17,11 @@ Once you have the Operational Technology Manager application, two integrations a
 
 ### Service Graph Connector (SGC)
 
-Import Microsoft Defender for IoT sensors with additional attributes, including connection details and Purdue model zones, into the Network Intrusion Detection Systems (NIDS) class. Provide visibility into your OT network status and manage it within the ServiceNow application.
+Import Microsoft Defender for IoT sensors with more attributes, including connection details and Purdue model zones, into the Network Intrusion Detection Systems (NIDS) class. Provide visibility into your OT network status and manage it within the ServiceNow application.
 
-For more information, please see the [Service Graph Connector (SGC)](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ddd4bf1b53f130104b5cddeeff7b1229) information on the ServiceNow store.
+For more information about the On-premises Management Console option, see the [Service Graph Connector (SGC) for Microsoft Defender for IoT (On-premises Management Console)](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ddd4bf1b53f130104b5cddeeff7b1229) information on the ServiceNow store.
+
+For more information about the Azure Defender for IoT option, see the [Service Graph Connector (SGC) Integration with Microsoft Azure Defender for IoT](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ddd4bf1b53f130104b5cddeeff7b1229) information on the ServiceNow store.
 
 ### Vulnerability Response (VR)
 
