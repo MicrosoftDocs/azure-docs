@@ -126,6 +126,8 @@ items:
       href: monitor-load-testing-reference.md
     - name: Test configuration YAML
       href: reference-test-config-yaml.md
+    - name: Azure Policy support
+      href: azure/governance/policy/samples/built-in-policies#azure-load-testing
 
 - name: Resources
   items: 
