@@ -3,7 +3,7 @@ title: Troubleshoot YARN in Azure HDInsight
 description: Get answers to common questions about working with Apache Hadoop YARN and Azure HDInsight.
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 03/15/2024
+ms.date: 03/22/2024
 ---
 
 # Troubleshoot Apache Hadoop YARN by using Azure HDInsight
