@@ -127,6 +127,8 @@ items:
       href: ./trino/trino-add-delta-lake-catalog.md
     - name: Configure Iceberg catalog
       href: ./trino/trino-add-iceberg-catalog.md
+    - name: Configure sharded SQL connector
+      href: ./trino/trino-sharded-sql-connector.md
   - name: Cluster management
     items:
     - name: Trino configuration
