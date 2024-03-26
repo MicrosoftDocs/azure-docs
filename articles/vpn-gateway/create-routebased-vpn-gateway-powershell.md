@@ -5,7 +5,7 @@ description: Learn how to create a route-based virtual network gateway for a VPN
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 12/07/2023
+ms.date: 03/12/2024
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
 ---
@@ -13,6 +13,13 @@ ms.custom: devx-track-azurepowershell
 # Create a route-based VPN gateway using PowerShell
 
 This article helps you quickly create a route-based Azure VPN gateway using PowerShell. A VPN gateway is used when creating a VPN connection to your on-premises network. You can also use a VPN gateway to connect VNets.
+
+A VPN gateway is just one part of a connection architecture to help you securely access resources within a virtual network.
+
+:::image type="content" source="./media/tutorial-create-gateway-portal/gateway-diagram.png" alt-text="Diagram that shows a virtual network and a VPN gateway." lightbox="./media/tutorial-create-gateway-portal/gateway-diagram-expand.png":::
+
+* The left side of the diagram shows the virtual network and the VPN gateway that you create by using the steps in this article.
+* You can later add different types of connections, as shown on the right side of the diagram. For example, you can create [site-to-site](tutorial-site-to-site-portal.md) and [point-to-site](point-to-site-about.md) connections. To view different design architectures that you can build, see [VPN gateway design](design.md).
 
 ## Before you begin
 

@@ -85,6 +85,7 @@ These metrics are available for Azure Database for MySQL flexible server:
 |Replica SQL Status|replica_sql_running|State|Replica SQL Status indicates the state of [replication SQL thread](https://dev.mysql.com/doc/refman/8.0/en/replication-implementation-details.html). Metric value is 1 if the SQL thread is running and 0 if not.|
 |HA IO Status|ha_io_running|State|HA IO Status indicates the state of [HA replication](./concepts-high-availability.md). Metric value is 1 if the I/O thread is running and 0 if not.|
 |HA SQL Status|ha_sql_running|State|HA SQL Status indicates the state of [HA replication](./concepts-high-availability.md). Metric value is 1 if the SQL thread is running and 0 if not.|
+|HA Replication Lag|ha_replication_lag|Seconds|HA Replication lag is the number of seconds the HA Standby server is behind in replaying the transactions received from the source server. This metric is calculated from "Seconds_behind_Master" from the command "SHOW SLAVE STATUS" and is available for HA standby servers only.|
 
 
 > [!NOTE]

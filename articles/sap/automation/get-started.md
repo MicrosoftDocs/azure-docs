@@ -138,6 +138,53 @@ The SAP automation deployment framework can also use a user assigned identity (M
 > [!IMPORTANT]
 > If you don't assign the User Access Administrator role to the managed identity, you can't assign permissions using the automation framework.
 
+
+## Pre-flight checks
+
+You can use the following script to perform pre-flight checks. The script performs the following checks and tests:
+
+- Checks if the service principal has the correct permissions to create resources in the subscription.
+- Checks if the service principal has user Access Administrator permissions.
+- Create a Azure Virtual Network.   
+- Create a Azure Virtual Key Vault with private end point.   
+- Create a Azure Files NSF share.   
+- Create a Azure Virtual Virtual Machine with data disk using Premium Storage v2.   
+- Check access to the required URLs using the deployed virtual machine.
+
+```powershell
+
+$sdaf_path = Get-Location
+if ( $PSVersionTable.Platform -eq "Unix") {
+    if ( -Not (Test-Path "SDAF") ) {
+      $sdaf_path = New-Item -Path "SDAF" -Type Directory
+    }
+}
+else {
+    $sdaf_path = Join-Path -Path $Env:HOMEDRIVE -ChildPath "SDAF"
+    if ( -not (Test-Path $sdaf_path)) {
+        New-Item -Path $sdaf_path -Type Directory
+    }
+}
+
+Set-Location -Path $sdaf_path
+
+git clone https://github.com/Azure/sap-automation.git 
+
+cd sap-automation
+cd deploy
+cd scripts
+
+if ( $PSVersionTable.Platform -eq "Unix") {
+./Test-SDAFReadiness.ps1
+}
+else {
+.\Test-SDAFReadiness.ps1
+}
+
+```
+
+
+
 ## Use SAP Deployment Automation Framework from Azure DevOps Services
 
 Using Azure DevOps streamlines the deployment process. Azure DevOps provides pipelines that you can run to perform the infrastructure deployment and the configuration and SAP installation activities.

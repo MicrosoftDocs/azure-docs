@@ -5,14 +5,12 @@ ms.service: azure-arc
 ms.custom:
   - ignite-2023
 ms.topic: include
-ms.date: 12/12/2023
+ms.date: 03/12/2024
 ---
 
-<!--
 At this time, a test or preview build is not available for the next release.
---->
 
-
+<!---
 March, 2024 preview release is now available.
 
 |Component|Value|
@@ -35,7 +33,7 @@ March, 2024 preview release is now available.
 |`telemetrycollectors.arcdata.microsoft.com`| v1beta1 through v1beta5|
 |`telemetryrouters.arcdata.microsoft.com`| v1beta1 through v1beta5|
 |Azure Resource Manager (ARM) API version|2023-11-01-preview|
-|`arcdata` Azure CLI extension version|1.5.11 ([Download](https://aka.ms/az-cli-arcdata-ext))|
+|`arcdata` Azure CLI extension version|1.5.12 ([Download](https://aka.ms/az-cli-arcdata-ext))|
 |Arc-enabled Kubernetes helm chart extension version|1.28.0|
 |Azure Arc Extension for Azure Data Studio<br/>`arc`<br/>`azcli`|<br/>1.8.0 ([Download](https://aka.ms/ads-arcdata-ext))</br>1.8.0 ([Download](https://aka.ms/ads-azcli-ext))|
 |SQL Database version | 964 |
@@ -48,3 +46,5 @@ Arc SQL Server | Backups | Configure backups at DB level for Arc enabled SQL Ser
 Arc SQL Server | Set feature flags via the Azure CLI | GA
 
 Arc SQL Server | Billing | Support unlimited virtualization benefit for PAYG and Software Assurance customers | GA
+
+-->
