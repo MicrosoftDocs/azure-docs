@@ -119,6 +119,6 @@ az vm extension show --name NetworkWatcherAgentLinux --resource-group myResource
 
 ## Related content
 
-- [Update Azure Network Watcher extension to the latest version](/network-watcher-update.md).
+- [Update Azure Network Watcher extension to the latest version](network-watcher-update.md).
 - [Network Watcher documentation](../../network-watcher/index.yml).
 - [Microsoft Q&A - Network Watcher](/answers/topics/azure-network-watcher.html).
