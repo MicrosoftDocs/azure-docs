@@ -16,6 +16,9 @@ This article shows you how to use Planned Maintenance to schedule and control cl
 
 Your AKS cluster has regular maintenance performed on it automatically. There are two types of maintenance operations: AKS-initiated and user-initiated. AKS-initiated maintenance involves the weekly releases that AKS performs to keep your cluster up-to-date with the latest features and fixes. User-initiated maintenance includes [cluster auto-upgrades][aks-upgrade] and [Node OS automatic security updates][node-image-auto-upgrade]. The Planned Maintenance feature allows you to run both types of maintenance in a cadence of your choice, thereby minimizing any workload impact.
 
+> [!CAUTION]
+> This feature is never related to enabling or disabling AKS auto upgrade. Hence, adding or deleting "maintenance window configurations" does not mean that it will enable or disable the auto upgrade.  
+
 ## Before you begin
 
 * This article assumes that you have an existing AKS cluster. If you don't have an AKS cluster, see [Create an AKS cluster](./learn/quick-kubernetes-deploy-cli.md).
