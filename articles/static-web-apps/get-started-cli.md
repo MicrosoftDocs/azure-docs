@@ -42,12 +42,13 @@ export MY_STATIC_WEB_APP_NAME="myStaticWebApp$RANDOM_ID"
 
 (Optional) This article uses a GitHub template repository as another way to make it easy for you to get started. The template features a starter app to deploy to Azure Static Web Apps.
 
-- Navigate to the following location to create a new repository: https://github.com/staticwebdev/vanilla-basic/generate
-- Name your repository `my-first-static-web-app`
+1. Navigate to the following location to create a new repository: https://github.com/staticwebdev/vanilla-basic/generate.
+2. Name your repository `my-first-static-web-app`.
 
-> **Note:** Azure Static Web Apps requires at least one HTML file to create a web app. The repository you create in this step includes a single `index.html` file.
+> [!NOTE]
+> Azure Static Web Apps requires at least one HTML file to create a web app. The repository you create in this step includes a single `index.html` file.
 
-Select **Create repository**.
+3. Select **Create repository**.
 
 ## Deploy a Static Web App
 
