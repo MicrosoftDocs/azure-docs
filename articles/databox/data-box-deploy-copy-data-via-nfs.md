@@ -56,7 +56,7 @@ The following table identifies the names of the Data Box shares to which you can
 | Page blob    | <\storageAccountName\>_PageBlob  | <\containerName\>   | <\pageBlob\>        |                    |
 | File storage | <\storageAccountName\>_AzFile    | <\fileShareName\>   | <\file\>            |                    |
 
-You can't copy files directly to the *root* folder of any Data Box share. Instead, create folders within the Data Box share corresponding to your user case.
+You can't copy files directly to the *root* folder of any Data Box share. Instead, create folders within the Data Box share depending on your use case.
 
 Block blobs support the assignment of access tiers at the file level. Before you copy files to the block blob share, the recommended best-practice is to add new subfolders within the appropriate access tier. Then, after creating new subfolders, continue adding files to each subfolder as appropriate.
 

@@ -7,7 +7,7 @@ author: stevenmatthew
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 03/25/2024
 ms.author: shaas
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box Heavy to upload on-premises data from my server onto Azure.
 ---
@@ -25,12 +25,20 @@ ms.author: shaas
 
 ::: zone target = "docs"
 
+> [!IMPORTANT]
+> Azure Data Box now supports access tier assignment at the blob level. The steps contained within this tutorial reflect the updated data copy process and are specific to block blobs. 
+>
+>For help with determining the appropriate access tier for your block blob data, refer to the [Determine appropriate access tiers for block blobs](#determine-appropriate-access-tiers-for-block-blobs) section. Follow the steps containined within the [Copy data to Azure Data Box](#copy-data-to-azure-data-box) section to copy your data to the appropriate access tier.
+>
+> The information contained within this section applies to orders placed after April 1, 2024.
+
 This tutorial describes how to connect to and copy data from your host computer using the local web UI.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Connect to Data Box Heavy
+> * Determine appropriate access tiers for block blobs
 > * Copy data to Data Box Heavy
 
 ::: zone-end
@@ -39,7 +47,7 @@ In this tutorial, you learn how to:
 
 You can copy data from your source server to your Data Box via SMB, NFS, REST, data copy service or to managed disks.
 
-In each case, make sure that the share and folder names, and the data size follow guidelines described in the [Azure Storage and Data Box Heavy service limits](data-box-heavy-limits.md).
+In each case, make sure that the share names, folder names, and data size follow guidelines described in the [Azure Storage and Data Box Heavy service limits](data-box-heavy-limits.md).
 
 ::: zone-end
 
@@ -49,9 +57,9 @@ In each case, make sure that the share and folder names, and the data size follo
 
 Before you begin, make sure that:
 
-1. You've completed the [Tutorial: Set up Azure Data Box Heavy](data-box-deploy-set-up.md).
-2. You've received your Data Box Heavy and the order status in the portal is **Delivered**.
-3. You have a host computer that has the data that you want to copy over to Data Box Heavy. Your host computer must
+1. You complete the [Tutorial: Set up Azure Data Box Heavy](data-box-deploy-set-up.md).
+2. You receive your Data Box Heavy and that the order status in the portal is **Delivered**.
+3. You have a host computer that has the data that you want to copy over to Data Box Heavy. Your host computer must:
     - Run a [Supported operating system](data-box-system-requirements.md).
     - Be connected to a high-speed network. For fastest copy speeds, two 40-GbE connections (one per node) can be utilized in parallel. If you do not have 40-GbE connection available, we recommend that you have at least two 10-GbE connections (one per node).
    
@@ -61,30 +69,33 @@ Before you begin, make sure that:
 Based on the storage account selected, Data Box Heavy creates up to:
 - Three shares for each associated storage account for GPv1 and GPv2.
 - One share for premium storage.
-- One share for blob storage account.
+- One share for a blob storage account, containing one folder for each of the four access tiers.
 
-These shares are created on both the nodes of the device.
+The following table identifies the names of the Data Box shares to which you can connect, and the type of data uploaded to your target storage account. It also identifies the hierarchy of shares and directories into which you copy your source data.
 
-Under page blob shares:
-- First-level entities are containers.
-- Second-level entities are blobs.
+| Storage type | Share name                       | First-level entity  | Second-level entity | Third-level entity |
+|--------------|----------------------------------|---------------------|---------------------|--------------------|
+| Block blob   | \<storageAccountName\>_BlockBlob | <\accessTier\>      | <\containerName\>   | <\blockBlob\>      |
+| Page blob    | <\storageAccountName\>_PageBlob  | <\containerName\>   | <\pageBlob\>        |                    |
+| File storage | <\storageAccountName\>_AzFile    | <\fileShareName\>   | <\file\>            |                    |
 
-Under shares for Azure Files:
-- First-level entities are shares.
-- Second-level entities are files.
-
-Under block blob shares:
-- First-level entities are access tiers
-- Second-level entities are containers
-- Third-level entities are blobs.
-
-The following table shows the UNC path to the shares on your Data Box Heavy and Azure Storage path URL where the data is uploaded. The final Azure Storage path URL can be derived from the UNC share path.
+The following table shows the UNC path to the shares on your Data Box and the corresponding Azure Storage path URL to which data is uploaded. The final Azure Storage path URL can be derived from the UNC share path.
  
-| Storage           | UNC path                                                                       |
-|-------------------|--------------------------------------------------------------------------------|
-| Azure Block blobs | <li>UNC path to shares: `\\<DeviceIPAddress>\<StorageAccountName_BlockBlob>\<ContainerName>\<AccessTierName>\file.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/file.txt`</li> |  
-| Azure Page blobs  | <li>UNC path to shares: `\\<DeviceIPAddres>\<StorageAccountName_PageBlob>\<ContainerName>\files.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/file.txt`</li>   |  
-| Azure Files       |<li>UNC path to shares: `\\<DeviceIPAddres>\<StorageAccountName_AzFile>\<ShareName>\files.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.file.core.windows.net/<ShareName>/file.txt`</li>        |
+| Azure Storage types | Data Box shares |
+|---------------------|-----------------|
+| Azure Block blobs   | <li>UNC path to shares: `\\<DeviceIPAddress>\<storageaccountname_BlockBlob>\<accessTier>\<ContainerName>\myBlob.txt`</li><li>Azure Storage URL: `https://<storageaccountname>.blob.core.windows.net/<ContainerName>/myBlob.txt`</li> |
+| Azure Page blobs    | <li>UNC path to shares: `\\<DeviceIPAddress>\<storageaccountname_PageBlob>\<ContainerName>\myBlob.vhd`</li><li>Azure Storage URL: `https://<storageaccountname>.blob.core.windows.net/<ContainerName>/myBlob.vhd`</li> | 
+| Azure Files         | <li>UNC path to shares: `\\<DeviceIPAddress>\<storageaccountname_AzFile>\<ShareName>\myFile.txt`</li><li>Azure Storage URL: `https://<storageaccountname>.file.core.windows.net/<ShareName>/myFile.txt`</li> | 
+
+Note that you can't copy files directly to the *root* folder of any Data Box share. Instead, create folders within the Data Box share depending on your use case.
+
+Block blobs support the assignment of access tiers at the file level. When copying files to the block blob share, the recommended best-practice is to add new subfolders within the appropriate access tier. After creating new subfolders, continue adding files to each subfolder as appropriate. 
+
+A new container is created for any folder residing at the root of the block blob share. Any file within that folder is copied to the storage account's default access tier as a block blob.
+
+For more information about blob access tiers, see [Access tiers for blob data](../storage/blobs/access-tiers-overview.md). For more detailed information about access tier best practices, see [Best practices for using blob access tiers](../storage/blobs/access-tiers-best-practices.md).
+
+The following table shows the UNC path to the shares on your Data Box and the corresponding Azure Storage path URL to which data is uploaded. The final Azure Storage path URL can be derived from the UNC share path.
 
 The steps to connect using a Windows or a Linux client are different.
 

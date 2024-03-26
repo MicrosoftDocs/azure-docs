@@ -6,7 +6,7 @@ author: stevenmatthew
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 02/27/2024
+ms.date: 03/25/2024
 ms.author: shaas
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 #Customer intent: As an IT admin, I need to be able to order Data Box to upload on-premises data from my server onto Azure.
@@ -58,7 +58,7 @@ Before you begin, make sure that:
 
 **Sign in to Azure**
 
-Open up a Windows PowerShell command window and sign in to Azure with the [az login](/cli/azure/reference-index#az-login) command:
+Open up a Windows PowerShell command window and sign in to Azure with the [az sign in](/cli/azure/reference-index#az-login) command:
 
 ```azurecli
 PS C:\Windows> az login
@@ -390,18 +390,18 @@ Do the following steps using Azure PowerShell to order a device:
 
 After you place the order, you can track the status of the order from Azure portal. Go to your Data Box order and then go to **Overview** to view the status. The portal shows the order in **Ordered** state.
 
-If the device isn't available, you receive a notification. If the device is available, Microsoft identifies the device for shipment and prepares the shipment. During device preparation, following actions occur:
+If the device isn't available, you receive a notification. If the device is available, Microsoft identifies the device and prepares it for shipment. The following actions occur during device preparation:
 
 * SMB shares are created for each storage account associated with the device.
 * For each share, access credentials such as username and password are generated.
-* Device password that helps unlock the device is also generated.
-* The Data Box is locked to prevent unauthorized access to the device at any point.
+* The device password is generated. This password is used to unlock the device.
+* The device is locked to prevent unauthorized access at any point.
 
-When the device preparation is complete, the portal shows the order in **Processed** state.
+When the device preparation is complete, the portal shows the order in a **Processed** state.
 
 ![A Data Box order that's been processed](media/data-box-overview/data-box-order-status-processed.png)
 
-Microsoft then prepares and dispatches your device via a regional carrier. You receive a tracking number once the device is shipped. The portal shows the order in **Dispatched** state.
+Microsoft then prepares and dispatches your device via a regional carrier. You receive a tracking number after the device is shipped. The portal shows the order in **Dispatched** state.
 
 ![A Data Box order that's been dispatched](media/data-box-overview/data-box-order-status-dispatched.png)
 
@@ -428,7 +428,7 @@ To get tracking information about a single, existing Azure Data Box order, run [
    |query| The JMESPath query string. For more information, see [JMESPath](http://jmespath.org/). | --query &lt;string&gt;|
    |verbose| Include verbose logging. | --verbose |
 
-   The following example contains the the same command, but with the `output` parameter value set to "table":
+   The following example contains the same command, but with the `output` parameter value set to "table":
 
    ```azurecli
     PS C:\WINDOWS\system32> az databox job show --resource-group "myresourcegroup" \
@@ -510,13 +510,13 @@ To get tracking information about a single, existing Azure Data Box order, run [
    |Name [Required]| The name of the order to get information for. | "mydataboxorder"|
    |ResourceId| The ID of the resource associated with the order. |  |
 
-   Here is an example of the command with output:
+   The following example can be used to retrieve details about a specific order:
 
    ```azurepowershell
-    PS C:\WINDOWS\system32> Get-AzDataBoxJob -ResourceGroupName "myResourceGroup" -Name "myDataBoxOrderPSTest"
+   Get-AzDataBoxJob -ResourceGroupName "myResourceGroup" -Name "myDataBoxOrderPSTest"
    ```
 
-   Here is the output from running the command:
+   The following example output indicates that the command was completed successfully:
 
    ```output
    jobResource.Name     jobResource.Sku.Name jobResource.Status jobResource.StartTime jobResource.Location ResourceGroup
@@ -526,20 +526,15 @@ To get tracking information about a single, existing Azure Data Box order, run [
 
 ### List all orders
 
-If you have ordered multiple devices, you can run [`Get-AzDataBoxJob`](/powershell/module/az.databox/Get-AzDataBoxJob) to view all your Azure Data Box orders. The command lists all orders that belong to a specific resource group. Also displayed in the output: order name, shipping status, Azure region, delivery type, order status. Canceled orders are also included in the list.
-The command also displays time stamps of each order.
+To view all your Azure Data Box orders, run the [`Get-AzDataBoxJob`](/powershell/module/az.databox/Get-AzDataBoxJob) cmdlet. The cmdlet lists all orders that belong to a specific resource group. The resulting output also contains additional data such as order name, shipping status, Azure region, delivery type, order status, and the time stamp associated with each order. Canceled orders are also included in the list. 
+
+The following example can be used to retrieve details about all orders associated to a specific Azure resource group:
 
 ```azurepowershell
 Get-AzDataBoxJob -ResourceGroupName <String>
 ```
 
-Here is an example of the command:
-
-```azurepowershell
-PS C:\WINDOWS\system32> Get-AzDataBoxJob -ResourceGroupName "myResourceGroup"
-```
-
-Here is the output from running the command:
+The following example output indicates that the command was completed successfully:
 
 ```output
 jobResource.Name     jobResource.Sku.Name jobResource.Status jobResource.StartTime jobResource.Location ResourceGroup
@@ -557,32 +552,26 @@ PS C:\WINDOWS\system32>
 
 ## Cancel the order
 
-# [Portal](#tab/portal)
-
-To cancel this order, in the Azure portal, go to **Overview** and select **Cancel** from the command bar.
-
 After placing an order, you can cancel it at any point before the order status is marked processed.
 
-To delete a canceled order, go to **Overview** and select **Delete** from the command bar.
+# [Portal](#tab/portal)
+
+To cancel and delete an order using the Azure portal, select **Overview** from within the command bar. To cancel the order, select the **Cancel** option. To delete a canceled order, select the **Delete** option.
 
 # [Azure CLI](#tab/azure-cli)
 
 ### Cancel an order
 
-To cancel an Azure Data Box order, run [`az databox job cancel`](/cli/azure/databox/job#az-databox-job-cancel). You're required to specify your reason for canceling the order.
+Use the [`az databox job cancel`](/cli/azure/databox/job#az-databox-job-cancel) command to cancel a Data Box order. You're required to specify your reason for canceling the order.
 
-   ```azurecli
-   az databox job cancel --resource-group <resource-group> --name <order-name> --reason <cancel-description>
-   ```
-
-   The following table shows the parameter information for `az databox job cancel`:
+   The following table provides parameter information for the `az databox job cancel` command:
 
    | Parameter | Description |  Sample value |
    |---|---|---|
    |resource-group [Required]| The name of the resource group associated with the order to be deleted. A resource group is a logical container for the resources that can be managed or deployed together. | "myresourcegroup"|
    |name [Required]| The name of the order to be deleted. | "mydataboxorder"|
    |reason [Required]| The reason for canceling the order. | "I entered erroneous information and needed to cancel the order." |
-   |yes| Do not prompt for confirmation. | --yes (-y)| 
+   |yes| Don't prompt for confirmation. | --yes (-y)| 
    |debug| Include debugging information to verbose logging | --debug |
    |help| Display help information for this command. | --help -h |
    |only-show-errors| Only show errors, suppressing warnings. | --only-show-errors |
@@ -590,27 +579,22 @@ To cancel an Azure Data Box order, run [`az databox job cancel`](/cli/azure/data
    |query| The JMESPath query string. For more information, see [JMESPath](http://jmespath.org/). | --query &lt;string&gt;|
    |verbose| Include verbose logging. | --verbose |
 
-   Here is an example of the command with output:
+   The following sample command can be used to cancel a specific Data Box order:
 
    ```azurecli
-   PS C:\Windows> az databox job cancel --resource-group "myresourcegroup" --name "mydataboxtest3" --reason "Our budget was slashed due to **redacted** and we can no longer afford this device."
+   az databox job cancel --resource-group "myresourcegroup" --name "mydataboxtest3" --reason "Our migration plan was modified and we are ordering a device using a different cost center."
    ```
 
-   Here is the output from running the command:
+   The following example output indicates that the command was completed successfully:
 
    ```output
    Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
    Are you sure you want to perform this operation? (y/n): y
-   PS C:\Windows>
    ```
 
 ### Delete an order
 
-After you cancel an Azure Data Box order, you can run [`az databox job delete`](/cli/azure/databox/job#az-databox-job-delete) to delete the order.
-
-   ```azurecli
-   az databox job delete --name [-n] <order-name> --resource-group <resource-group> [--yes] [--verbose]
-   ```
+After you cancel an Azure Data Box order, use the [`az databox job delete`](/cli/azure/databox/job#az-databox-job-delete) command to delete the order.
 
    The following table shows the parameter information for `az databox job delete`:
 
@@ -619,7 +603,7 @@ After you cancel an Azure Data Box order, you can run [`az databox job delete`](
    |resource-group [Required]| The name of the resource group associated with the order to be deleted. A resource group is a logical container for the resources that can be managed or deployed together. | "myresourcegroup"|
    |name [Required]| The name of the order to be deleted. | "mydataboxorder"|
    |subscription| The name or ID (GUID) of your Azure subscription. | "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" |
-   |yes| Do not prompt for confirmation. | --yes (-y)|
+   |yes| Don't prompt for confirmation. | --yes (-y)|
    |debug| Include debugging information to verbose logging | --debug |
    |help| Display help information for this command. | --help -h |
    |only-show-errors| Only show errors, suppressing warnings. | --only-show-errors |
@@ -627,29 +611,24 @@ After you cancel an Azure Data Box order, you can run [`az databox job delete`](
    |query| The JMESPath query string. For more information, see [JMESPath](http://jmespath.org/). | --query &lt;string&gt;|
    |verbose| Include verbose logging. | --verbose |
 
-Here is an example of the command with output:
+The following example can be used to delete a specific Data Box order after being canceled:
 
    ```azurecli
-   PS C:\Windows> az databox job delete --resource-group "myresourcegroup" --name "mydataboxtest3" --yes --verbose
+   az databox job delete --resource-group "myresourcegroup" --name "mydataboxtest3" --yes --verbose
    ```
 
-   Here is the output from running the command:
+   The following example output indicates that the command was completed successfully:
 
    ```output
    Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
    command ran in 1.142 seconds.
-   PS C:\Windows>
    ```
 
 # [PowerShell](#tab/azure-ps)
 
 ### Cancel an order
 
-To cancel an Azure Data Box order, run [Stop-AzDataBoxJob](/powershell/module/az.databox/stop-azdataboxjob). You're required to specify your reason for canceling the order.
-
-```azurepowershell
-Stop-AzDataBoxJob -ResourceGroup <String> -Name <String> -Reason <String>
-```
+You can cancel an Azure Data Box order using the [Stop-AzDataBoxJob](/powershell/module/az.databox/stop-azdataboxjob) cmdlet. You're required to specify your reason for canceling the order.
 
 The following table shows the parameter information for `Stop-AzDataBoxJob`:
 
@@ -660,32 +639,27 @@ The following table shows the parameter information for `Stop-AzDataBoxJob`:
 |Reason [Required]| The reason for canceling the order. | "I entered erroneous information and needed to cancel the order." |
 |Force | Forces the cmdlet to run without user confirmation. | -Force |
 
-Here is an example of the command with output:
+The following example can be used to delete a specific Data Box order after being canceled:
 
 ```azurepowershell
-PS C:\PowerShell\Modules> Stop-AzDataBoxJob -ResourceGroupName myResourceGroup \
-                                            -Name "myDataBoxOrderPSTest" \
-                                            -Reason "I entered erroneous information and had to cancel."
+Stop-AzDataBoxJob -ResourceGroupName myResourceGroup \
+    -Name "myDataBoxOrderPSTest" \
+    -Reason "I entered erroneous information and need to cancel and re-order."
 ```
 
-Here is the output from running the command:
+  The following example output indicates that the command was completed successfully:
 
 ```output
 Confirm
 "Cancelling Databox Job "myDataBoxOrderPSTest
 [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
-PS C:\WINDOWS\system32>
 ```
 
 ### Delete an order
 
-After cancelling an Azure Data Box order, you can run [`Remove-AzDataBoxJob`](/powershell/module/az.databox/remove-azdataboxjob) to delete it.
+After canceling an Azure Data Box order, you can delete it using the [`Remove-AzDataBoxJob`](/powershell/module/az.databox/remove-azdataboxjob) cmdlet.
 
-```azurepowershell
-Remove-AzDataBoxJob -Name <String> -ResourceGroup <String>
-```
-
-The following table shows the parameter information for `Remove-AzDataBoxJob`:
+The following table shows parameter information for `Remove-AzDataBoxJob`:
 
 | Parameter | Description |  Sample value |
 |---|---|---|
@@ -693,34 +667,33 @@ The following table shows the parameter information for `Remove-AzDataBoxJob`:
 |Name [Required]| The name of the order to be deleted. | "mydataboxorder"|
 |Force | Forces the cmdlet to run without user confirmation. | -Force |
 
-Here is an example of the command with output:
+The following example can be used to delete a specific Data Box order after canceling:
 
 ```azurepowershell
-PS C:\Windows> Remove-AzDataBoxJob -ResourceGroup "myresourcegroup" \
-                                   -Name "mydataboxtest3"
+Remove-AzDataBoxJob -ResourceGroup "myresourcegroup" \
+    -Name "mydataboxtest3"
 ```
 
-Here is the output from running the command:
+The following example output indicates that the command was completed successfully:
 
 ```output
 Confirm
 "Removing Databox Job "mydataboxtest3
 [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
-PS C:\Windows>
 ```
 
 ---
 
 ## Next steps
 
-In this tutorial, you learned about Azure Data Box articles such as:
+In this tutorial, you learned about Azure Data Box topics such as:
 
 > [!div class="checklist"]
 >
 > * Prerequisites to deploy Data Box
-> * Order Data Box
-> * Track the order
-> * Cancel the order
+> * Ordering Data Box
+> * Tracking the Data Box order
+> * Canceling the Data Box order
 
 Advance to the next tutorial to learn how to set up your Data Box.
 

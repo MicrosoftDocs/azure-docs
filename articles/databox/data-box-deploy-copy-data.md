@@ -7,7 +7,7 @@ author: stevenmatthew
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 03/21/2024
+ms.date: 03/25/2024
 ms.author: shaas
 
 # Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
@@ -42,6 +42,7 @@ In this tutorial, you learn how to:
 >
 > * Prerequisites
 > * Connect to Data Box
+> * Determine appropriate access tiers for block blobs
 > * Copy data to Data Box
 
 ## Prerequisites
@@ -70,7 +71,7 @@ The following table identifies the names of the Data Box shares to which you can
 | Page blob    | <\storageAccountName\>_PageBlob  | <\containerName\>   | <\pageBlob\>        |                    |
 | File storage | <\storageAccountName\>_AzFile    | <\fileShareName\>   | <\file\>            |                    |
 
-You can't copy files directly to the *root* folder of any Data Box share. Instead, create folders within the Data Box share corresponding to your user case.
+You can't copy files directly to the *root* folder of any Data Box share. Instead, create folders within the Data Box share depending on your use case.
 
 Block blobs support the assignment of access tiers at the file level. When copying files to the block blob share, the recommended best-practice is to add new subfolders within the appropriate access tier. After creating new subfolders, continue adding files to each subfolder as appropriate. 
 
