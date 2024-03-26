@@ -164,7 +164,7 @@ Vector index limits and estimations are covered in [another article](vector-sear
 
 + [Check the deployment date of your search service](vector-search-index-size.md#how-to-determine-service-creation-date). If it was created before July 1, 2023, consider creating a new search service for greater capacity.
 
-+ [Choose a scalable tier](search-sku-tier.md) if you anticipate fluctuations in vector storage requirements. The Basic tier is fixed at one partition. Consider Standard 1 (S1) and above for more flexibility and faster performance.
++ [Choose a scalable tier](search-sku-tier.md) if you anticipate fluctuations in vector storage requirements. The Basic tier is fixed at one partition on older search services. Consider Standard 1 (S1) and above for more flexibility and faster performance, or create a new search service that uses higher limits and more partitions at every nillable tier.
 
 ## Basic operations and interaction
 

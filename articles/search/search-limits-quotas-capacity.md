@@ -98,11 +98,11 @@ Use the [GET /servicestats](/rest/api/searchservice/get-service-statistics) to r
 | L1    | 1,000              | 12                                         | 2,800 million                |
 | L2    | 2,000              | 36                                         | 8,400 million                |
 
-### Services created after July 1, 2023 in supported regions
+### Services created between July 1, 2023 and before April 3, 2024
 
 Azure AI Search is rolling out increased vector index size limits worldwide for **new search services**, but the team is building out infrastructure capacity in certain regions. Unfortunately, existing services can't be migrated to the new limits.
 
-The following regions **do not** support increased limits:
+The following regions **did not** support increased limits:
 
 + Germany West Central
 + West India
@@ -118,6 +118,8 @@ The following regions **do not** support increased limits:
 | L2    | 2,000              | 36                                         | 8,400 million                |
 
 ### Services created after April 3, 2024 in supported regions
+
+For more information, see [choose a region for your search service](search-create-service-portal.md#choose-a-region).
 
 | Tier   | Storage quota (GB) | Vector quota per partition (GB) | Approx. floats per partition (assuming 15% overhead) |
 | ----- | ------------------  | ------------------------------------------ | ---------------------------- |

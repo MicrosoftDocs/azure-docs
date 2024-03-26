@@ -40,7 +40,7 @@ Tiers include **Free**, **Basic**, **Standard**, and **Storage Optimized**. Stan
 
 The most commonly used billable tiers include the following:
 
-+ **Basic** has just one partition but with the ability to meet SLA with its support for three replicas. 
++ **Basic** has the ability to meet SLA with its support for three replicas. 
 
 + **Standard (S1, S2, S3)** is the default. It gives you more flexibility in scaling for workloads. You can scale both partitions and replicas. With dedicated resources under your control, you can deploy larger projects, optimize performance, and increase capacity.
 

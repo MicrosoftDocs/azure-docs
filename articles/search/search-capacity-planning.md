@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 04/01/2024
+ms.date: 04/03/2024
 ---
 
 # Estimate and manage capacity of a search service
@@ -210,15 +210,9 @@ If your search service appears to be stalled in a provisioning state, check for 
 
 On search services created before April 3, 2024: Basic can have exactly one partition and up to three replicas, for a maximum limit of three SUs. The only adjustable resource is replicas. 
 
-On search services created after April 3, 2024: Basic can have up to three partitions. The maximum SU limit is still three, so if you have three partitions, your replica count must be one.
+On search services created after April 3, 2024 in [supported regions](search-create-service-portal.md#choose-a-region): Basic can have up to three partitions and three replicas. The maximum SU limit is nine to support a full complement of partitions and replicas.
 
 For any Basic service regardless of creation date, you need a minimum of two replicas for high availability SLA.
-
-|   | **1 partition** | **2 partitions** | **3 partitions** | 
-| --- | --- | --- | --- | 
-| **1 replica** |1 SU |2 SU |3 SU |
-| **2 replicas** |2 SU |N/A |N/A |
-| **3 replicas** |3 SU |N/A |N/A |
 
 All Standard and Storage Optimized search services can assume the following combinations of replicas and partitions, subject to the 36-SU limit allowed for these tiers. 
 
