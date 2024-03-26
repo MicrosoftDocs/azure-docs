@@ -4,7 +4,7 @@ description: This article provides a summary of supported regions and operating 
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 03/22/2024
+ms.date: 03/26/2024
 ms.topic: overview
 ms.custom: references_regions
 ---
@@ -235,7 +235,7 @@ We support VMs created from customized images (including images) uploaded to [Az
    |Windows Server 2016|
    |Windows Server 2012 R2|
    |Windows Server 2012|
-   |Windows Server 2008 R2 (RTM and SP1 Standard)|
+  
 
    |**Linux operating system**|
    |---|
