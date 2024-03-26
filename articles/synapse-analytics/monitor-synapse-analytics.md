@@ -15,7 +15,9 @@ ms.service: synapse-analytics
 
 ## Synapse Analytics monitoring options
 
-You can collect and analyze metrics and logs for Azure Synapse Analytics built-in and serverless SQL pools, dedicated SQL pools, Azure Spark pools, and Data Explorer pools (preview). You can monitor current and historical activities for SQL, Apache Spark, pipelines and triggers, and integration runtimes. There are several ways to monitor activities in your Synapse Analytics workspace.
+You can collect and analyze metrics and logs for Azure Synapse Analytics built-in and serverless SQL pools, dedicated SQL pools, Azure Spark pools, and Data Explorer pools (preview). You can monitor current and historical activities for SQL, Apache Spark, pipelines and triggers, and integration runtimes.
+
+There are several ways to monitor activities in your Synapse Analytics workspace.
 
 ### Synapse Studio
 
@@ -35,7 +37,7 @@ For more information about monitoring in Synapse Studio, see [Monitor your Synap
 
 To programmatically monitor Synapse SQL via T-SQL, Synapse Analytics provides a set of Dynamic Management Views (DMVs). These views are useful to troubleshoot and identify performance bottlenecks with your workload. For more information, see [DMVs](sql/query-history-storage-analysis.md#dmvs) and [Monitor your Azure Synapse Analytics dedicated SQL pool workload using DMVs](sql-data-warehouse/sql-data-warehouse-manage-monitor.md). For the list of DMVs that apply to Synapse SQL, see [Dedicated SQL pool Dynamic Management Views (DMVs)](sql/reference-tsql-system-views.md#dedicated-sql-pool-dynamic-management-views-dmvs).
 
-Query Store is a set of internal stores and DMVs that provide insight on query plan choice and performance. Query Store simplifies performance troubleshooting by helping find performance differences caused by query plan changes. For more information, see [Query Store](sql/query-history-storage-analysis.md#query-store).
+Query Store is a set of internal stores and DMVs that provide insight on query plan choice and performance. Query Store simplifies performance troubleshooting by helping find performance differences caused by query plan changes. For more information about enabling and using Query Store on Synapse Analytics databases, see [Query Store](sql/query-history-storage-analysis.md#query-store).
 
 ### Azure portal
 
@@ -61,7 +63,7 @@ Synapse Analytics supports storing monitoring data in Azure Storage or Azure Dat
 
 For lists of available platform metrics for Synapse Analytics, see [Synapse Analytics monitoring data reference](monitor-synapse-analytics-reference.md#metrics).
 
-In addition to Log Analytics, Synapse Analytics Apache Spark pools support Prometheus server metrics and Grafana dashboards. For more information, see [Monitor Apache Spark Applications metrics with Prometheus and Grafana](spark/use-prometheus-grafana-to-monitor-apache-spark-application-level-metrics.md) and [Collect Apache Spark applications metrics using Prometheus APIs](connect-monitor-azure-synapse-spark-application-level-metrics.md).
+In addition to Log Analytics, Synapse Analytics Apache Spark pools support Prometheus server metrics and Grafana dashboards. For more information, see [Monitor Apache Spark Applications metrics with Prometheus and Grafana](spark/use-prometheus-grafana-to-monitor-apache-spark-application-level-metrics.md) and [Collect Apache Spark applications metrics using Prometheus APIs](spark/connect-monitor-azure-synapse-spark-application-level-metrics.md).
 
 [!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 

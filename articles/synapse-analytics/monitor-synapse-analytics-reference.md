@@ -46,9 +46,9 @@ The following table lists the metrics available for the Microsoft.Synapse/worksp
 
 - Dedicated SQL pool measures performance in compute data warehouse units (DWUs). Rather than surfacing details of individual nodes such as memory per node or number of CPUs per node, metrics such as `MemoryUsedPercent` and `CPUPercent` show general usage trend over a period of time. These trends help administrators understand how a dedicated SQL pool instance is utilized. Changes in memory or CPU footprint could be a trigger for actions such as scale-up or scale-down of DWUs, or investigating queries that might require optimization.
 
-  `DWUUsed` represents only high-level usage across the SQL pool and isn't a comprehensive indicator of utilization. To determine whether to scale up or down, consider all factors that DWU can impact, such as concurrency, memory, tempdb size, and adaptive cache capacity. [Run your workload at different DWU settings](sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md#finding-the-right-size-of-data-warehouse-units) to determine what works best to meet your business objectives.
+- `DWUUsed` represents only high-level usage across the SQL pool and isn't a comprehensive indicator of utilization. To determine whether to scale up or down, consider all factors that DWU can impact, such as concurrency, memory, tempdb size, and adaptive cache capacity. [Run your workload at different DWU settings](sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md#finding-the-right-size-of-data-warehouse-units) to determine what works best to meet your business objectives.
 
-- Memory percentage reflects utilization even if the data warehouse is idle, not active workload memory consumption. Track this metric along with tempdb size and Gen2 cache to decide whether you need to scale for more cache capacity to increase workload performance.
+- `MemoryUsedPercent` reflects utilization even if the data warehouse is idle, not active workload memory consumption. Track this metric along with tempdb size and Gen2 cache to decide whether you need to scale for more cache capacity to increase workload performance.
 
 - Failed and successful connections are reported for a particular data warehouse, not for the server itself.
 
