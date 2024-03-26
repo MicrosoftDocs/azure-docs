@@ -264,7 +264,7 @@ For Assistants you need a combination of a supported model, and a supported regi
 | France Central  | ✅ | ✅ |✅ |✅ |  |
 | Norway East | |  | | ✅ |  |
 | Sweden Central  | ✅ |✅ |✅ |✅| |
-| UK South  | ✅ |  ✅ | ✅ |✅ |✅ |
+| UK South  | ✅ |  ✅ | ✅ |✅ | |
 
 
 For information on Provisioned Throughput Unit (PTU) availability, see [provisioned throughput](./provisioned-throughput.md). 
