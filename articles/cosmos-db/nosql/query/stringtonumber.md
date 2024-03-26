@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Converts a string expression to a number.
 
 ## Syntax
 
-```sql
+```nosql
 StringToNumber(<string_expr>)  
 ```  
 
@@ -38,7 +39,7 @@ Returns a number value.
 
 The following example illustrates how this function works with various data types.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/stringtonumber/query.sql" highlight="2-10":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/stringtonumber/query.sql" highlight="2-10":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/stringtonumber/result.json":::
 

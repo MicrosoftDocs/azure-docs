@@ -3,11 +3,9 @@ title: Monitoring options - Azure Dedicated HSM | Microsoft Docs
 description: Overview of Azure Dedicated HSM monitoring options and monitoring responsibilities
 services: dedicated-hsm
 author: msmbaldwin
-manager: rkarlin
-ms.custom: mvc
-ms.service: key-vault
 ms.topic: conceptual
-ms.date: 01/30/2024
+ms.service: dedicated-hsm
+ms.date: 02/20/2024
 ms.author: mbaldwin
 ---
 

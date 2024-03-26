@@ -1,14 +1,13 @@
 ---
 title: Network Watcher Agent VM extension - Windows 
-description: Deploy the Network Watcher Agent virtual machine extension on Windows virtual machines.
-ms.topic: conceptual
+description: Learn about the Network Watcher Agent virtual machine extension on Windows virtual machines and how to deploy it.
+author: halkazwini
+ms.author: halkazwini
 ms.service: virtual-machines
 ms.subservice: extensions
-ms.author: halkazwini
-author: halkazwini
+ms.topic: concept-article
+ms.date: 03/25/2024
 ms.collection: windows
-ms.date: 06/09/2023
-ms.custom: template-concept, engagement-fy23
 ---
 
 # Network Watcher Agent virtual machine extension for Windows
@@ -21,39 +20,41 @@ This article details the supported platforms and deployment options for the Netw
 
 ### Operating system
 
-The Network Watcher Agent extension for Windows can be configured for Windows Server 2008 R2, 2012, 2012 R2, 2016, 2019 and 2022 releases. Nano Server isn't supported at this time.
+The Network Watcher Agent extension for Windows can be configured for Windows Server 2012, 2012 R2, 2016, 2019 and 2022 releases. Currently, Nano Server isn't supported.
 
 ### Internet connectivity
 
-Some of the Network Watcher Agent functionality requires that the virtual machine is connected to the Internet. Without the ability to establish outgoing connections, the Network Watcher Agent won't be able to upload packet captures to your storage account. For more details, please see the [Network Watcher documentation](../../network-watcher/index.yml).
+Some of the Network Watcher Agent functionality requires that the virtual machine is connected to the Internet. Without the ability to establish outgoing connections, the Network Watcher Agent can't upload packet captures to your storage account. For more information, please see the [Network Watcher documentation](../../network-watcher/index.yml).
 
 ## Extension schema
 
 The following JSON shows the schema for the Network Watcher Agent extension. The extension doesn't require, or support, any user-supplied settings, and relies on its default configuration.
 
+
 ```json
 {
-    "type": "extensions",
-    "name": "Microsoft.Azure.NetworkWatcher",
+    "type": "Microsoft.Compute/virtualMachines/extensions",
     "apiVersion": "[variables('apiVersion')]",
+    "name": "[concat(parameters('vmName'), '/AzureNetworkWatcherExtension')]",
     "location": "[resourceGroup().location]",
     "dependsOn": [
-        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+        "[resourceId('Microsoft.Compute/virtualMachines', parameters('vmName'))]"
     ],
     "properties": {
+        "autoUpgradeMinorVersion": true,
         "publisher": "Microsoft.Azure.NetworkWatcher",
         "type": "NetworkWatcherAgentWindows",
-        "typeHandlerVersion": "1.4",
-        "autoUpgradeMinorVersion": true
+        "typeHandlerVersion": "1.4"
     }
 }
+
 ```
 
 ### Property values
 
 | Name | Value / Example |
 | ---- | ---- |
-| apiVersion | 2022-11-01 |
+| apiVersion | 2023-03-01 |
 | publisher | Microsoft.Azure.NetworkWatcher |
 | type | NetworkWatcherAgentWindows |
 | typeHandlerVersion | 1.4 |
@@ -69,18 +70,16 @@ Use the `Set-AzVMExtension` command to deploy the Network Watcher Agent virtual 
 
 ```powershell
 Set-AzVMExtension `
-  -ResourceGroupName "myResourceGroup1" `
+  -ResourceGroupName "myResourceGroup" `
   -Location "WestUS" `
-  -VMName "myVM1" `
+  -VMName "myVM" `
   -Name "networkWatcherAgent" `
   -Publisher "Microsoft.Azure.NetworkWatcher" `
   -Type "NetworkWatcherAgentWindows" `
   -TypeHandlerVersion "1.4"
 ```
 
-## Troubleshooting and support
-
-### Troubleshooting
+## Troubleshooting
 
 You can retrieve data about the state of extension deployments from the Azure portal and PowerShell. To see the deployment state of extensions for a given VM, run the following command using the Azure PowerShell module:
 
@@ -94,6 +93,7 @@ Extension execution output is logged to files found in the following directory:
 C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.NetworkWatcher.NetworkWatcherAgentWindows\
 ```
 
-### Support
+## Related content
 
-If you need more help at any point in this article, you can refer to the [Network Watcher documentation](../../network-watcher/index.yml), or contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select Get support. For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/support/faq/).
+- [Network Watcher documentation](../../network-watcher/index.yml).
+- [Microsoft Q&A - Network Watcher](/answers/topics/azure-network-watcher.html).

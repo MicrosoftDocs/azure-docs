@@ -2,10 +2,10 @@
 title: Azure Communication Services - query call logs
 titleSuffix: An Azure Communication Services concept document
 description: About using Log Analytics for Call Summary and Call Diagnostic logs
-author:  timmitchell
+author:  mkhribech
 services: azure-communication-services
 
-ms.author: timmitchell
+ms.author: mkhribech
 ms.date: 10/25/2021
 ms.topic: conceptual
 ms.service: azure-communication-services

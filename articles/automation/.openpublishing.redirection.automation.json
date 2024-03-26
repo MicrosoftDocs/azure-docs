@@ -1,0 +1,264 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/automation/automation-intro.md",
+            "redirect_url": "/azure/automation/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/automation-quickstart-create-account.md",
+            "redirect_url": "/azure/automation/quickstarts/create-account-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/automation-quickstart-create-runbook.md",
+            "redirect_url": "/azure/automation/quickstarts/create-powershell-runbook",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/automation-quickstart-dsc-configuration.md",
+            "redirect_url": "/azure/automation/quickstarts/dsc-configuration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/learn/automation-tutorial-runbook-graphical.md",
+            "redirect_url": "/azure/automation/learn/powershell-runbook-managed-identity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/learn/automation-tutorial-runbook-textual-powershell.md",
+            "redirect_url": "/azure/automation/learn/powershell-runbook-managed-identity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/learn/automation-tutorial-runbook-textual-python2.md",
+            "redirect_url": "/azure/automation/learn/automation-tutorial-runbook-textual-python-3",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/quickstarts/create-powershell-runbook.md",
+            "redirect_url": "/azure/automation/learn/powershell-runbook-managed-identity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/automation-change-tracking.md",
+            "redirect_url": "/azure/automation/change-tracking",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/automation-vm-change-tracking.md",
+            "redirect_url": "/azure/automation/change-tracking",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/automation-enable-changes-from-auto-acct.md",
+            "redirect_url": "/azure/automation/change-tracking/enable-from-automation-account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/automation-enable-changes-from-browse.md",
+            "redirect_url": "/azure/automation/change-tracking/enable-from-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/automation-enable-changes-from-runbook.md",
+            "redirect_url": "/azure/automation/change-tracking/enable-from-runbook",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/automation-enable-changes-from-vm.md",
+            "redirect_url": "/azure/automation/change-tracking/enable-from-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/change-tracking-file-contents.md",
+            "redirect_url": "/azure/automation/change-tracking/manage-change-tracking",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/automation-vm-inventory.md",
+            "redirect_url": "/azure/automation/change-tracking/manage-inventory-vms",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/create-run-as-account.md",
+            "redirect_url": "/azure/automation/enable-managed-identity-for-automation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/automation-scope-configurations-change-tracking.md",
+            "redirect_url": "/azure/automation/change-tracking/manage-scope-configurations.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/change-tracking.md",
+            "redirect_url": "/azure/automation/change-tracking/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/automation-unlink-workspace-change-tracking.md",
+            "redirect_url": "/azure/automation/change-tracking/remove-feature.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/automation-remove-vms-from-change-tracking.md",
+            "redirect_url": "/azure/automation/change-tracking/remove-vms-from-change-tracking.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/policy-samples.md",
+            "redirect_url": "/azure/automation/policy-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/automation-create-account-template.md",
+            "redirect_url": "/azure/automation/quickstart-create-automation-account-template",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/update-management/update-mgmt-groups.md",
+            "redirect_url": "/azure/automation/update-management/configure-groups",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/update-management/update-mgmt-configure-wuagent.md",
+            "redirect_url": "/azure/automation/update-management/configure-wuagent",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/update-management/update-mgmt-enable-automation-account.md",
+            "redirect_url": "/azure/automation/update-management/enable-from-automation-account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/update-management/update-mgmt-enable-portal.md",
+            "redirect_url": "/azure/automation/update-management/enable-from-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/update-management/update-mgmt-enable-runbook.md",
+            "redirect_url": "/azure/automation/update-management/enable-from-runbook",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/update-management/update-mgmt-enable-template.md",
+            "redirect_url": "/azure/automation/update-management/enable-from-template",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/update-management/update-mgmt-enable-vm.md",
+            "redirect_url": "/azure/automation/update-management/enable-from-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/manage-update-multi.md",
+            "redirect_url": "/azure/automation/update-management/manage-updates-for-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/update-management/update-mgmt-manage-updates-for-vm.md",
+            "redirect_url": "/azure/automation/update-management/manage-updates-for-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/update-management/update-mgmt-mecmintegration.md",
+            "redirect_url": "/azure/automation/update-management/mecmintegration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/update-management/update-mgmt-overview.md",
+            "redirect_url": "/azure/automation/update-management/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/update-management/update-mgmt-pre-post-scripts.md",
+            "redirect_url": "/azure/automation/update-management/pre-post-scripts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/update-management/update-mgmt-query-logs.md",
+            "redirect_url": "/azure/automation/update-management/query-logs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/update-management/update-mgmt-remove-feature.md",
+            "redirect_url": "/azure/automation/update-management/remove-feature",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/update-management/update-mgmt-remove-vms.md",
+            "redirect_url": "/azure/automation/update-management/remove-vms",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/update-management/update-mgmt-scope-configuration.md",
+            "redirect_url": "/azure/automation/update-management/scope-configuration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/oms-solution-updatemgmt-sccmintegration.md",
+            "redirect_url": "/azure/automation/update-management/update-mgmt-mecmintegration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/automation-view-update-assessments.md",
+            "redirect_url": "/azure/automation/update-management/update-mgmt-view-update-assessments",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/source-control-integration-legacy.md",
+            "redirect_url": "source-control-integration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/manage-runas-account.md",
+            "redirect_url": "/azure/automation/migrate-run-as-accounts-managed-identity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/manage-run-as-account.md",
+            "redirect_url": "/azure/automation/migrate-run-as-accounts-managed-identity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/quickstarts/create-account-portal.md",
+            "redirect_url": "/azure/automation/create-azure-automation-account-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/automation-solution-vm-management-enable.md",
+            "redirect_url": "/azure/automation/automation-solution-vm-management",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/automation-solution-vm-management.md",
+            "redirect_url":"/azure/azure-functions/start-stop-vms/overview",
+            "redirect_document_id": false
+        },
+        {
+             "source_path_from_root": "/articles/automation/automation-solution-vm-management-config.md",
+             "redirect_url": "/azure/azure-functions/start-stop-vms/deploy",
+             "redirect_document_id": false
+        },
+        {
+             "source_path_from_root": "/articles/automation/automation-solution-vm-management-logs.md",
+             "redirect_url": "/azure/azure-functions/start-stop-vms/deploy",
+             "redirect_document_id": false
+        },
+        {
+             "source_path_from_root": "/articles/automation/automation-solution-vm-management-remove.md",
+             "redirect_url": "/azure/azure-functions/start-stop-vms/remove",
+             "redirect_document_id": false
+        },
+        {
+             "source_path_from_root": "/articles/automation/troubleshoot/start-stop-vm.md",
+             "redirect_url": "/azure/azure-functions/start-stop-vms/troubleshoot",
+             "redirect_document_id": false
+        },       
+        {
+            "source_path_from_root": "/articles/automation/dsc-linux-powershell.md",
+            "redirect_url": "/azure/automation/automation-dsc-overview",
+            "redirect_document_id": false
+        }        
+    ]
+}

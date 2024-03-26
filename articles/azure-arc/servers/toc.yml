@@ -167,6 +167,8 @@
       href: azcmagent-connect.md
     - name: azcmagent disconnect
       href: azcmagent-disconnect.md
+    - name: azcmagent extension
+      href: azcmagent-extension.md
     - name: azcmagent genkey
       href: azcmagent-genkey.md
     - name: azcmagent help

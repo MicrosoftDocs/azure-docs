@@ -34,6 +34,12 @@ A dev center is a collection of [Projects](#project) that require similar settin
 
 [Azure Deployment Environments](../deployment-environments/concept-environments-key-concepts.md#dev-centers) also uses dev centers to organize resources. An organization can use the same dev center for both services.
 
+## Catalogs
+
+The Dev Box quick start catalog contains tasks and scripts that you can use to configure your dev box during the final stage of the creation process.Microsoft provides a [*quick start* catalog](https://github.com/microsoft/devcenter-catalog) that contains a set of sample tasks. You can attach the quick start catalog to a dev center to make these tasks available to all the projects associated with the dev center. You can modify the sample tasks to suit your needs, and you can create your own catalog of tasks. 
+
+To learn how to create reusable customization tasks, see [Create reusable dev box customizations](./how-to-customize-dev-box-setup-tasks.md).
+
 ## Project
 
 In Dev Box, a project represents a team or business function within the organization. Each project is a collection of [pools](#dev-box-pool), and each pool represents a region or workload. When you associate a project with a dev center, all the settings at the dev center level are applied to the project automatically.
@@ -58,7 +64,6 @@ When you're creating a network connection, you must choose the Active Directory 
 - If your dev boxes need to connect to on-premises resources and cloud-based resources, use hybrid Microsoft Entra ID.
 
 To learn more about native Microsoft Entra join and Microsoft Entra hybrid join, see [Plan your Microsoft Entra device deployment](../active-directory/devices/plan-device-deployment.md).
-
 
 ## Azure regions for Dev Box
 

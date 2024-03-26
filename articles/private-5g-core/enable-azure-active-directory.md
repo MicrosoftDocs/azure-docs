@@ -12,9 +12,6 @@ ms.custom: template-how-to
 
 # Enable Microsoft Entra ID for local monitoring tools
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
-
 Azure Private 5G Core provides the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md) tools for monitoring your deployment at the edge. You can access these tools using [Microsoft Entra ID](../active-directory/authentication/overview-authentication.md) or a local username and password. We recommend setting up Microsoft Entra authentication to improve security in your deployment.
 
 In this how-to guide, you'll carry out the steps you need to complete after deploying or configuring a site that uses Microsoft Entra ID to authenticate access to your local monitoring tools. You don't need to follow this if you decided to use local usernames and passwords to access the distributed tracing and packet core dashboards.
@@ -42,6 +39,9 @@ You'll now register a new local monitoring application with Microsoft Entra ID t
 
 If your deployment contains multiple sites, you can use the same two redirect URIs for all sites, or create different URI pairs for each site. You can configure a maximum of two redirect URIs per site. If you've already registered an application for your deployment and you want to use the same URIs across your sites, you can skip this step.
 
+> [!NOTE]
+> These instructions assume you are using a single application for both distributed tracing and the packet core dashboards. If you want to grant access to different user groups for these two tools, you can instead set up one application for the packet core dashboards roles and one for the distributed trace role.
+
 1. Follow [Quickstart: Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md) to register a new application for your local monitoring tools with the Microsoft identity platform.
     1. In *Add a redirect URI*, select the **Web** platform and add the following two redirect URIs, where *\<local monitoring domain\>* is the domain name for your local monitoring tools that you set up in [Configure domain system name (DNS) for local monitoring IP](#configure-domain-system-name-dns-for-local-monitoring-ip):
 
@@ -50,13 +50,13 @@ If your deployment contains multiple sites, you can use the same two redirect UR
 
     1. In *Add credentials*, follow the steps to add a client secret. Make sure to record the secret under the **Value** column, as this field is only available immediately after secret creation. This is the **Client secret** value that you'll need later in this procedure.
 
-1. Follow [App roles UI](../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui) to create three roles for your application (Admin, Viewer, and Editor) with the following configuration:
+1. Follow [App roles UI](../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui) to create the roles for your application with the following configuration:
 
     - In **Allowed member types**, select **Users/Groups**.
-    - In **Value**, enter one of **Admin**, **Viewer**, and **Editor** for each role you're creating.
+    - In **Value**, enter one of **Admin**, **Viewer**, and **Editor** for each role you're creating. For distributed tracing, you also need a **sas.user** role.
     - In **Do you want to enable this app role?**, ensure the checkbox is selected.
 
-    You'll be able to use these roles when managing access to the packet core dashboards.
+    You'll be able to use these roles when managing access to the packet core dashboards and distributed tracing tool.
 
 1. Follow [Assign users and groups to roles](../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md#assign-users-and-groups-to-roles) to assign users and groups to the roles you created.
 
@@ -132,7 +132,7 @@ You'll need to apply your Kubernetes Secret Objects if you're enabling Microsoft
 1. Sign in to [Azure Cloud Shell](../cloud-shell/overview.md) and select **PowerShell**. If this is your first time accessing your cluster via Azure Cloud Shell, follow [Access your cluster](../azure-arc/kubernetes/cluster-connect.md?tabs=azure-cli) to configure kubectl access.
 1. Apply the Secret Object for both distributed tracing and the packet core dashboards, specifying the core kubeconfig filename.
 
-    `kubectl apply -f  /home/centos/secret-azure-ad-local-monitoring.yaml --kubeconfig=<core kubeconfig>`
+    `kubectl apply -f  $HOME/secret-azure-ad-local-monitoring.yaml --kubeconfig=<core kubeconfig>`
 
 1. Use the following commands to verify if the Secret Objects were applied correctly, specifying the core kubeconfig filename. You should see the correct **Name**, **Namespace**, and **Type** values, along with the size of the encoded values.
 

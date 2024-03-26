@@ -1,14 +1,15 @@
 ---
 title: Azure Communication Services Simulcast
 titleSuffix: An Azure Communication Services concept document
-description: Overview of Simulcast - how sending multiple video quality streams helps overall call quality
-author: chriswhilar
-manager: artur.kania@skype.net
+description: Overview of Simulcast - how sending multiple video quality streams helps overall call quality.
+author: sloanster
+manager: chpalm
 services: azure-communication-services
 
-ms.author: chwhilar
-ms.date: 11/21/2022
+ms.author: micahvivion
+ms.date: 02/19/2024
 ms.topic: conceptual
+ms.subservice: calling
 ms.service: azure-communication-services
 ---
 # What is Simulcast?
@@ -26,6 +27,7 @@ Simulcast streaming from a web endpoint supports a maximum two video qualities. 
 
 ## Available video resolutions
 When streaming with simulcast, there are no set resolutions for high or low quality simulcast video streams. Instead, based on many different variables, either a single or multiple video steams are delivered. If every subscriber to video is requesting and capable of receiving maximum resolution what publisher can provide, only that maximum resolution will be sent. The following resolutions are supported:
+- 1080P
 - 720p
 - 540p
 - 360p

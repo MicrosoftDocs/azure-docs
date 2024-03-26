@@ -185,6 +185,29 @@ To trigger a rebuild, run the following statement on each table in the preceding
 SELECT TOP 1 * FROM [ReplicatedTable]
 ```
 
+> [!NOTE]
+> If you are planning to rebuild the statistics of the uncached replicated table, make sure to update the statistics before triggering the cache. Updating statistics will invalidate the cache, so the sequence is important.
+> 
+> Example: Start with `UPDATE STATISTICS`, then trigger the rebuild of the cache. In the following examples, the correct sample updates the statistics then triggers the rebuild of the cache.
+> 
+> ```sql
+> -- Incorrect sequence. Ensure that the rebuild operation is the last statement within the batch.
+> BEGIN
+> SELECT TOP 1 * FROM [ReplicatedTable]
+> 
+> UPDATE STATISTICS [ReplicatedTable]
+> END
+> ```
+>
+> ```sql
+> -- Correct sequence. Ensure that the rebuild operation is the last statement within the batch.
+> BEGIN
+> UPDATE STATISTICS [ReplicatedTable]
+>
+> SELECT TOP 1 * FROM [ReplicatedTable]
+> END
+> ```
+
 To monitor the rebuild process, you can use [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest&preserve-view=true), where the `command` will start with 'BuildReplicatedTableCache'. For example:
 
 ```sql
