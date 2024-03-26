@@ -6,7 +6,7 @@ author: greglin
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: conceptual
-ms.date: 02/27/2024
+ms.date: 03/26/2024
 ms.author: greglin
 ---
 
@@ -84,6 +84,10 @@ When the client initiates the request, the DNS name specified is passed as a hos
 A set of routing rules evaluates how the request for that hostname should be initiated to a defined backend target.
 
 ## How Application Gateway for Containers routes a request
+
+### HTTP/2 Requests
+
+Application Gateway for Containers fully supports HTTP/2 protocol for communication from the client to the frontend. Communication from Application Gateway for Containers to the backend target uses the HTTP/1.1 protocol. The HTTP/2 setting is always enabled and cannot be changed. If clients prefer to use HTTP/1.1 for their communication to the frontend of Application Gateway for Containers, they may continue to negotiate accordingly.
 
 ### Modifications to the request
 
