@@ -120,8 +120,10 @@ resource "azurerm_application_gateway" "main" {
       // Reference the Key Vault secret ID
       `#096DA`key_vault_secret_id = data.azurerm_key_vault_secret.vault.id`#096DA`
     }
-```
 
+  # Other lines of code
+}
+```
 
 - where, **key_vault_secret_id** is Certificate object stored in Azure KeyVault.
 
@@ -164,8 +166,10 @@ resource "azurerm_application_gateway" "main" {
   ssl_certificate {
       name = "afdpremium-agw-ssl-certificate"                       
       // Reference the Key Vault secret ID
-      <span style="background-color: yellow; color: black">key_vault_secret_id = replace(data.azurerm_key_vault_secret.vault.id, "/secrets/(.*)/[^/]+/", "secrets/$1")</span>
+      key_vault_secret_id = replace(data.azurerm_key_vault_secret.vault.id, "/secrets/(.*)/[^/]+/", "secrets/$1")
     }
+  # Other lines of code
+  }
 ```
 
 
