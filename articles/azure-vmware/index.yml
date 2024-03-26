@@ -192,7 +192,22 @@ additionalContent:
             url: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-platform-automation-and-devops
           - text: Enterprise-Scale for Azure VMware Solution automation
             url: https://github.com/Azure/Enterprise-Scale-for-AVS
-
+        # Card
+        - title: Infrastructure automation and management
+          links:
+          - text: REST API
+            url: /rest/api/avs
+          - text: Azure CLI
+            url: /cli/azure/vmware
+          - text: Azure PowerShell
+            url: /powershell/module/az.vmware
+          - text: Resource Manager template
+            url: /azure/templates/microsoft.avs/privateclouds
+          - text: Terraform Azure provider
+            url: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/vmware_private_cloud
+          - text: Enterprise-Scale for Azure VMware Solution automation
+            url: https://github.com/Azure/Enterprise-Scale-for-AVS
+    
     - title: Disaster recovery, networking, and other resources
       items:
         #card
@@ -283,21 +298,6 @@ additionalContent:
             url: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-security-governance-and-compliance
           - text: Platform automation and DevOps
             url: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-platform-automation-and-devops
-          - text: Enterprise-Scale for Azure VMware Solution automation
-            url: https://github.com/Azure/Enterprise-Scale-for-AVS
-          # Card
-        - title: Infrastructure automation and management
-          links:
-          - text: REST API
-            url: /rest/api/avs
-          - text: Azure CLI
-            url: /cli/azure/vmware
-          - text: Azure PowerShell
-            url: /powershell/module/az.vmware
-          - text: Resource Manager template
-            url: /azure/templates/microsoft.avs/privateclouds
-          - text: Terraform Azure provider
-            url: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/vmware_private_cloud
           - text: Enterprise-Scale for Azure VMware Solution automation
             url: https://github.com/Azure/Enterprise-Scale-for-AVS
           # Card
