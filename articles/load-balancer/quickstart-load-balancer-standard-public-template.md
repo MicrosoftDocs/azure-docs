@@ -44,13 +44,14 @@ Load balancer and public IP SKUs must match. When you create a standard load bal
 Multiple Azure resources have been defined in the template:
 
 - [**Microsoft.Network/loadBalancers**](/azure/templates/microsoft.network/loadbalancers)
-- [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses): for the load balancer, bastion host, and for each of the three virtual machines.
+- [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses): for the load balancer, bastion host, and the NAT gateway.
 - [**Microsoft.Network/bastionHosts**](/azure/templates/microsoft.network/bastionhosts)
 - [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
 - [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
 - [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines) (3).
 - [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces) (3).
 - [**Microsoft.Compute/virtualMachine/extensions**](/azure/templates/microsoft.compute/virtualmachines/extensions) (3): use to configure the Internet Information Server (IIS), and the web pages.
+- [**Microsoft.Network/natGateways**](/azure/templates/microsoft.network/natgateways): for the NAT gateway.
 
 > [!IMPORTANT]
 
