@@ -87,16 +87,20 @@ The table describes the vector index size quota per partition across the service
 
 Use the [GET /servicestats](/rest/api/searchservice/get-service-statistics) to retrieve your vector index size quota. See our [documentation on vector index size](vector-search-index-size.md) for more details.
 
-### Services created before July 1, 2023
+### Services created after April 3, 2024 in supported regions
+
+For more information, see [choose a region for your search service](search-create-service-portal.md#choose-a-region).
 
 | Tier   | Storage quota (GB) | Vector quota per partition (GB) | Approx. floats per partition (assuming 15% overhead) |
-| ----- | ------------------ | ------------------------------------------ | ---------------------------- |
-| Basic | 2                  | 0.5                                        | 115 million                  |
-| S1    | 25                 | 1                                          | 235 million                  |
-| S2    | 100                | 6                                          | 1,400 million                |
-| S3    | 200                | 12                                         | 2,800 million                |
-| L1    | 1,000              | 12                                         | 2,800 million                |
-| L2    | 2,000              | 36                                         | 8,400 million                |
+| ----- | ------------------  | ------------------------------------------ | ---------------------------- |
+| Basic | 15                  | 5                                          | 1,100 million              |
+| S1    | 160                 | 35                                         | 8,200 million              |
+| S2    | 350                 | 100                                        | 23,500 million             |
+| S3    | 700                 | 200                                        | 47,000 million             |
+| L1    | 1,000               | 12                                         | 2,800 million              |
+| L2    | 2,000               | 36                                         | 8,400 million              |
+
+L1 and L2 currently have the same quota as services created after July 1, 2023.
 
 ### Services created between July 1, 2023 and before April 3, 2024
 
@@ -117,20 +121,16 @@ The following regions **did not** support increased limits:
 | L1    | 1,000              | 12                                         | 2,800 million                |
 | L2    | 2,000              | 36                                         | 8,400 million                |
 
-### Services created after April 3, 2024 in supported regions
-
-For more information, see [choose a region for your search service](search-create-service-portal.md#choose-a-region).
+### Services created before July 1, 2023
 
 | Tier   | Storage quota (GB) | Vector quota per partition (GB) | Approx. floats per partition (assuming 15% overhead) |
-| ----- | ------------------  | ------------------------------------------ | ---------------------------- |
-| Basic | 15                  | 5                                          | 1,100 million              |
-| S1    | 160                 | 35                                         | 8,200 million              |
-| S2    | 350                 | 100                                        | 23,500 million             |
-| S3    | 700                 | 200                                        | 47,000 million             |
-| L1    | 1,000               | 12                                         | 2,800 million              |
-| L2    | 2,000               | 36                                         | 8,400 million              |
-
-L1 and L2 currently have the same quota as services created after July 1, 2023.
+| ----- | ------------------ | ------------------------------------------ | ---------------------------- |
+| Basic | 2                  | 0.5                                        | 115 million                  |
+| S1    | 25                 | 1                                          | 235 million                  |
+| S2    | 100                | 6                                          | 1,400 million                |
+| S3    | 200                | 12                                         | 2,800 million                |
+| L1    | 1,000              | 12                                         | 2,800 million                |
+| L2    | 2,000              | 36                                         | 8,400 million                |
 
 ## Indexer limits
 
