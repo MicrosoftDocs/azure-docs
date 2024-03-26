@@ -41,13 +41,14 @@ If you don't have these permissions, ask your administrator to set them up by fo
 If you're uploading new numbers for an enterprise customer:
 
 * You must complete any internal procedures for assigning numbers.
+* You must know whether you want to configure the numbers directly in the Number Management Portal, or by uploading a CSV file to the Number Management Portal.
 * You must know the numbers you need to upload (as E.164 numbers). Each number must:
   * Contain only digits (0-9), with an optional `+` at the start.
   * Include the country code.
   * Be up to 19 characters long.
 * You must know the following information for each number.
 
-|Information for each number |Notes  |
+|Information for each number |Notes |
 |---------|---------|
 |Intended usage | Individuals (calling users), applications, or conference calls.|
 |Capabilities     |Which types of call to allow (for example, inbound calls or outbound calls).|
@@ -89,11 +90,60 @@ Uploading numbers for an enterprise allows IT administrators at the enterprise t
 1. In the sidebar, locate the **Number Management (Preview)** section and select **Accounts**. Select the enterprise **Account name**.
 1. Select **View numbers** to go to the number management page for the enterprise.
 1. To upload new numbers for an enterprise:
+    
+    # [Configure numbers directly in the portal](#tab/manual-configuration)
+    
     1. Select **Create numbers**.
-    1. Fill in the fields based on the information you determined in [Prerequisites](#prerequisites). These settings apply to all the numbers you upload in the **Add numbers** section.
-    1. In **Telephone Numbers**, add each number individually.
-    1. Select **Upload**. Uploading creates an order for uploading numbers over the Operator Connect API.
-    1. Wait 30 seconds, then refresh the order status. When the order status is **Complete**, the numbers are available to the enterprise. You might need to refresh more than once.
+    1. Select **Manual input**.
+    1. Select the service.
+    1. Optionally, enter a value for **Custom SIP header**.
+    1. Add the numbers in **Telephone Numbers**.
+    1. Select **Upload**.
+    
+    # [Upload a CSV](#tab/csv-upload)
+
+    1. Prepare a `.csv` file containing the numbers. It should use the headings shown in the following tables, and contain one number per line (up to 10,000 numbers).
+        * For Operator Connect:
+
+            | Heading | Description  | Valid values |
+            |---------|---------|---------|
+            | `telephoneNumber`|The number to upload | E.164 numbers, including the country code |
+            | `accountName` | The account to upload the number to | The name of an account you've already created |
+            | `serviceDetails_teamsOperatorConnect_enabled`| Whether Operator Connect is enabled | `true` or `false`|
+            | `serviceDetails_teamsOperatorConnect_assignmentStatus` | Whether the number is assigned to a user | `assigned` or `unassigned` |
+            | `serviceDetails_teamsOperatorConnect_configuration_usage` | The usage of the number | `CallingUserAssignment`, `FirstPartyAppAssignment`, or `ConferenceAssignment` |
+            | `serviceDetails_teamsOperatorConnect_configuration_choosableCapabilities` | The capabilities of the number | `InboundCalling`, `OutboundCalling`, or `Mobile` |
+            | `serviceDetails_teamsOperatorConnect_configuration_additionalUsages` | Additional usages for the number | `CallingUserAssignment`, `FirstPartyAppAssignment`, or `ConferenceAssignment` |
+            | `serviceDetails_teamsOperatorConnect_configuration_civicAddressId` | The ID of the civic address used as the emergency address | An existing ID |
+            | `serviceDetails_teamsOperatorConnect_configuration_locationId` | The ID of a location associated with the civic address | An existing ID |
+            | `serviceDetails_teamsOperatorConnect_configuration_allowTenantAddressUpdate` | Whether the enterprise can update the civic address | `true` or `false` |
+            | `serviceDetails_teamsOperatorConnect_configuration_displayedCountryCode` | The country code to display for the number | A valid country code |
+            | `configuration_customSipHeader`| Optional: the value for a SIP custom header. | Can only contain letters, numbers, underscores and dashes. Can be up to 100 characters in length. |
+
+        * For Teams Phone Mobile:
+
+            | Heading | Description  | Valid values |
+            |---------|---------|---------|
+            | `telephoneNumber`|The number to upload | E.164 numbers, including the country code |
+            | `accountName` | The account to upload the number to | The name of an account you've already created |
+            | `serviceDetails_teamsPhoneMobile_enabled`| Whether Teams Phone Mobile is enabled | `true` or `false`|
+            | `serviceDetails_teamsPhoneMobile_assignmentStatus` | Whether the number is assigned to a user | `assigned` or `unassigned` |
+            | `serviceDetails_teamsPhoneMobile_configuration_usage` | The usage of the number | `CallingUserAssignment`, `FirstPartyAppAssignment`, or `ConferenceAssignment` |
+            | `serviceDetails_teamsPhoneMobile_configuration_choosableCapabilities` | The capabilities of the number | `InboundCalling`, `OutboundCalling`, or `Mobile` |
+            | `serviceDetails_teamsPhoneMobile_configuration_additionalUsages` | Additional usages for the number | `CallingUserAssignment`, `FirstPartyAppAssignment`, or `ConferenceAssignment` |
+            | `serviceDetails_teamsPhoneMobile_configuration_civicAddressId` | The ID of the civic address used as the emergency address | An existing ID |
+            | `serviceDetails_teamsPhoneMobile_configuration_locationId` | The ID of a location associated with the civic address | An existing ID |
+            | `serviceDetails_teamsPhoneMobile_configuration_allowTenantAddressUpdate` | Whether the enterprise can update the civic address | `true` or `false` |
+            | `serviceDetails_teamsPhoneMobile_configuration_displayedCountryCode` | The country code to display for the number | A valid country code |
+            | `configuration_customSipHeader`| Optional: the value for a SIP custom header. | Can only contain letters, numbers, underscores and dashes. Can be up to 100 characters in length. |
+
+    1. Select **Create numbers**.    
+    1. Select **File Upload**.
+    1. Select the `.csv` file that you prepared.
+    1. Select **Upload**.
+
+    ---
+
 1. To remove numbers from an enterprise:
     1. Select the numbers.
     1. Select **Delete numbers**.

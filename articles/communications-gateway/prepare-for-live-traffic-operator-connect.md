@@ -99,6 +99,9 @@ Integration testing requires setting up your test tenant for Operator Connect or
     1. Select **View account**.
     1. Select **View numbers** and select **Create numbers**.
     1. Fill in the fields as required, and then select **Upload**.
+    
+    > [!TIP]
+    > If you are uploading multiple numbers, you can provide configuration for them in a CSV file and upload the file. For instructions, see [Manage an enterprise with Azure Communications Gateway's Number Management Portal (preview)](manage-enterprise-operator-connect.md).
 
     # [Operator Portal](#tab/no-flow-through)
 
