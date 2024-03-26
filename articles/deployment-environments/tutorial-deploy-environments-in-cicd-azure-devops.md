@@ -12,7 +12,7 @@ ms.date: 02/26/2024
 
 # Tutorial: Deploy environments in CI/CD by using Azure Pipelines
 
-In this tutorial, you will learn how to integrate Azure Deployment Environments (ADE) into your Azure Pipelines CI/CD pipeline.
+In this tutorial, you learn how to integrate Azure Deployment Environments (ADE) into your Azure Pipelines CI/CD pipeline.
 
 Continuous integration and continuous delivery (CI/CD) is a software development approach that helps teams to automate the process of building, testing, and deploying software changes. CI/CD enables you to release software changes more frequently and with greater confidence. 
 
@@ -111,7 +111,7 @@ In Azure Pipelines, you create a *service connection* in your Azure DevOps proje
 1. In the Azure portal, copy the **Display name** value.
     You use this value in the next step to grant permissions for running load tests to the service principal.
 
-### Grant access to an ADE project
+### Grant the service connection access to the ADE project
 
 Azure Deployment Environments uses role-based access control to grant permissions for performing specific activities on your ADE resource. To make changes from a CI/CD pipeline, you grant the Deployment Environments User role to the service principal.
 
@@ -124,6 +124,18 @@ Azure Deployment Environments uses role-based access control to grant permission
 
 You can now use the service connection in your Azure Pipelines workflow definition to access your ADE environments.
 
+### Grant your account access to the ADE project
+
+To view environments created by other users, including the service connection, you need to grant your account read access to the ADE project.
+
+1. In the [Azure portal](https://portal.azure.com/), go to your ADE project.
+1. Select **Access control (IAM)** > **Add** > **Add role assignment**.
+1. In the **Role** tab, select **Deployment Environments Reader** in the list of job function roles.
+1. In the **Members** tab, select **Select members**, and then search for your own account.
+1. Select your account from the list, and then select **Select**.
+1. In the **Review + assign tab**, select **Review + assign** to add the role assignment.
+
+You can now view the environments created by your Azure Pipelines workflow.
 
 ## Configure a pipeline
 
@@ -148,8 +160,9 @@ The Azure CLI is a command-line tool that provides a set of commands for working
       | `<dev-center-name>`             | The name of your dev center. |
       | `<project-name>`                | The name of your project. |
       | `<catalog-name>`                | The name of your catalog. |
-      | `<environment-definition-name>` | Do not change. Defines the environment type that is used. |
-      | `<environment-name>`            | The name of the environment. |
+      | `<environment-definition-name>` | Do not change. Defines the environment definition that is used. |
+      | `<environment-type>`            | The environment type. |
+      | `<environment-name>`            | Specify a name for your new environment. |
       | `<parameters>`                  | Do not change. References the json file that defines parameters for the environment. |
 
 1. Select **Commit** to save your changes.
