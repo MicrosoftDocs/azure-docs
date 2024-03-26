@@ -39,13 +39,13 @@ If you have other resources in the Azure resource group that contains the Event 
 - Identify all dependent resources. Event Hub is a messaging system that lets applications publish and subscribe for messages.  Consider whether or not your application at target requires messaging support for the same set of dependent services that it had at the source target.
 
 
-## Consideration for Service Endpoints
+## Considerations for Service Endpoints
 
 The virtual network service endpoints for Azure Event Hub restrict access to a specified virtual network. The endpoints can also restrict access to a list of IPv4 (internet protocol version 4) address ranges. Any user connecting to the Event Hub from outside those sources is denied access. If Service endpoints were configured in the source region for the Event Hub resource, the same would need to be done in the target one.
 
 For a successful recreation of the Event Hub to the target region, the VNet and Subnet must be created beforehand. In case the move of these two resources is being carried out with the Azure Resource Mover tool, the service endpoints won’t be configured automatically. Hence, they need to be configured manually, which can be done through the [Azure portal](/azure/key-vault/general/quick-create-portal), the [Azure CLI](/azure/key-vault/general/quick-create-cli), or [Azure PowerShell](/azure/key-vault/general/quick-create-powershell).
 
-## Consideration for Private Endpoint
+## Considerations for Private Endpoint
 
 Azure Private Link provides private connectivity from a virtual network to [Azure platform as a service (PaaS), customer-owned, or Microsoft partner services](/azure/private-link/private-endpoint-overview). Private Link simplifies the network architecture and secures the connection between endpoints in Azure by eliminating data exposure to the public internet.
 
