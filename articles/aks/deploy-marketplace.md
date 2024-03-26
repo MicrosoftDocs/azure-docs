@@ -5,6 +5,7 @@ author: nickomang
 ms.author: nickoman
 ms.topic: how-to
 ms.date: 08/18/2023
+ms.subservice: aks-developer
 ms.custom: ignite-fall-2022, references_regions
 ---
 
