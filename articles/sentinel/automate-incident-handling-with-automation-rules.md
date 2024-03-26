@@ -110,7 +110,7 @@ One of these properties is **Updated by**. This property lets you track the type
 - An application, including applications in both the Azure and Defender portals.
 - A user, including changes made by users in both the Azure and Defender portals.
 - **AIR**, for updates by [automated investigation and response in Microsoft Defender for Office 365](/microsoft-365/security/office-365-security/air-about?view=o365-worldwide)
-- An alert grouping, including Microsoft Defender XDR alert groupings (that added alerts to the incident).
+- An alert grouping (that added alerts to the incident), including alert groupings that were done both by analytics rules and built-in Microsoft Defender XDR correlation logic
 - A playbook
 - An automation rule
 - Other
