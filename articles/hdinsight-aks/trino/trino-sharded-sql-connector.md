@@ -12,7 +12,7 @@ The sharded SQL connector allows queries to be executed over data distributed ac
 
 ## Prerequisites 
 
-To connect to sharded SQL servers, you need.
+To connect to sharded SQL servers, you need the following:
 
    - SQL Server 2012 or higher, or Azure SQL Database.
    - Network access from the Trino coordinator and workers to SQL Server. Port 1433 is the default port.
