@@ -1,7 +1,6 @@
 ---
 title: Delegate Azure access management to others - Azure ABAC
 description: Overview of how to delegate Azure role assignment management to other users by using Azure attribute-based access control (Azure ABAC).
-services: active-directory
 author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
@@ -270,7 +269,7 @@ Here are the known issues related to delegating role assignment management with 
 
 ## License requirements
 
-[!INCLUDE [Azure AD free license](../../includes/active-directory-free-license.md)]
+[!INCLUDE [Free license](./includes/license-free.md)]
 
 ## Next steps
 

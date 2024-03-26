@@ -4,10 +4,10 @@ description: Learn how to fine-tune the Microsoft Defender for Cloud security al
 ms.topic: quickstart
 ms.author: dacurwin
 author: dcurwin
-ms.date: 07/23/2023
+ms.date: 02/25/2024
 ms.custom: mode-other
 ---
-# Quickstart: Configure email notifications for security alerts
+# Quickstart: configure email notifications for security alerts
 
 Security alerts need to reach the right people in your organization. By default, Microsoft Defender for Cloud emails subscription owners whenever a high-severity alert is triggered for their subscription. This page explains how to customize these notifications.
 
@@ -16,13 +16,13 @@ Use Defender for Cloud's **Email notifications** settings page to define prefere
 - ***who* should be notified** - Emails can be sent to select individuals or to anyone with a specified Azure role for a subscription.
 - ***what* they should be notified about** - Modify the severity levels for which Defender for Cloud should send out notifications.
 
-To avoid alert fatigue, Defender for Cloud limits the volume of outgoing mails. For each subscription, Defender for Cloud sends:
+To avoid alert fatigue, Defender for Cloud limits the volume of outgoing emails. For each email address, Defender for Cloud sends:
 
 - approximately **four emails per day** for **high-severity** alerts
 - approximately **two emails per day** for **medium-severity** alerts
 - approximately **one email per day** for **low-severity** alerts
 
-:::image type="content" source="./media/configure-email-notifications/email-notification-settings.png" alt-text="Configuring the details of the contact who is to receive emails about security alerts." :::
+:::image type="content" source="./media/configure-email-notifications/email-notification-settings.png" alt-text="Configuring the details of the contact who is to receive emails about security alerts." lightbox="media/configure-email-notifications/email-notification-settings.png":::
 
 ## Availability
 

@@ -3,7 +3,6 @@ title: SQL Server Azure Virtual Machines DBMS deployment for SAP workload | Micr
 description: SQL Server Azure Virtual Machines DBMS deployment for SAP workload
 author: msjuergent
 manager: bburns
-tags: azure-resource-manager
 keywords: 'Azure, SQL Server, SAP, AlwaysOn, Always On'
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads

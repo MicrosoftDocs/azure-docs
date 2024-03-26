@@ -27,6 +27,9 @@ You can specify the default serverless SQL pool database collation at creation t
 
 To change the default collation for dedicated SQL pool database, update to the **Collation** field in the provisioning experience. For example, if you wanted to change the default collation to case sensitive, you would change the collation from `SQL_Latin1_General_CP1_CI_AS` to `SQL_Latin1_General_CP1_CS_AS`. 
 
+> [!NOTE]
+> Collation cannot be changed on an existing dedicated SQL pool database. If you need to have a different collation at the dedicated SQL pool level, create a new dedicated SQL pool with the required collation.
+
 To change the default collation for a serverless SQL pool database, you can use ALTER DATABASE statement.
 
 ## Collation support

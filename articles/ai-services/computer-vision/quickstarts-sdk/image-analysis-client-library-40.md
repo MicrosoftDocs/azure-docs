@@ -7,7 +7,7 @@ author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision
 ms.topic: quickstart
-ms.date: 01/24/2023
+ms.date: 02/27/2024
 ms.author: pafarley
 ms.custom: devx-track-python, devx-track-csharp, mode-api, devx-track-dotnet, devx-track-extended-java, devx-track-js
 zone_pivot_groups: programming-languages-computer-vision-40
@@ -45,5 +45,11 @@ Get started with the Image Analysis 4.0 REST API or client SDK to set up a basic
 ::: zone pivot="programming-language-rest-api"
 
 [!INCLUDE [REST API quickstart](../includes/image-analysis-curl-quickstart-40.md)]
+
+::: zone-end
+
+::: zone pivot="vision-studio"
+
+[!INCLUDE [Vision Studio quickstart](../includes/image-analysis-studio-quickstart.md)]
 
 ::: zone-end

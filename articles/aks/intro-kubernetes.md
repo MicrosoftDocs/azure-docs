@@ -113,13 +113,17 @@ Pods can also connect to other services in a peered virtual network and on-premi
 
 For more information, see the [Network concepts for applications in AKS][aks-networking].
 
-### Ingress with HTTP application routing
+### Ingress with application routing add-on
 
-The HTTP application routing add-on helps you easily access applications deployed to your AKS cluster. When enabled, the HTTP application routing solution configures an ingress controller in your AKS cluster.  
+The application routing addon is the recommended way to configure an Ingress controller in AKS. The application routing addon is a fully managed, ingress controller for Azure Kubernetes Service (AKS) that provides the following features:
 
-As applications are deployed, publicly accessible DNS names are auto-configured. The HTTP application routing sets up a DNS zone and integrates it with the AKS cluster. You can then deploy Kubernetes ingress resources as normal.  
+* Easy configuration of managed NGINX Ingress controllers based on Kubernetes NGINX Ingress controller.
 
-To get started with Ingress traffic, see [HTTP application routing][aks-http-routing].
+* Integration with Azure DNS for public and private zone management.
+
+* SSL termination with certificates stored in Azure Key Vault.
+
+For more information about the application routing add-on, see [Managed NGINX ingress with the application routing add-on](app-routing.md).
 
 ## Development tooling integration
 
@@ -161,7 +165,6 @@ Learn more about deploying and managing AKS.
 [aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
 [aks-quickstart-template]: ./learn/quick-kubernetes-deploy-rm-template.md
 [aks-gpu]: ./gpu-cluster.md
-[aks-http-routing]: ./http-application-routing.md
 [aks-networking]: ./concepts-network.md
 [aks-scale]: ./tutorial-kubernetes-scale.md
 [aks-upgrade]: ./upgrade-cluster.md
