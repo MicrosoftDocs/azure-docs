@@ -67,7 +67,7 @@ To set the default workspace retention:
 
 # [API](#tab/api-3)
 
-To set the retention and archive duration for a table, call the **Workspaces- Update** API:
+To set the retention and archive duration for a table, call the [Workspaces - Update API](/rest/api/azureml/workspaces/update):
 
 ```http
 PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}?api-version=2023-09-01
@@ -159,7 +159,7 @@ To set the retention and archive duration for a table in the Azure portal:
 
 # [API](#tab/api-1)
 
-To set the retention and archive duration for a table, call the **Tables - Update** API:
+To set the retention and archive duration for a table, call the [Tables - Update API](/rest/api/loganalytics/tables/update):
 
 ```http
 PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{tableName}?api-version=2022-10-01
