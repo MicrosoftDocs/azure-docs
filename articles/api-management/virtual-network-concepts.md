@@ -27,9 +27,9 @@ The following table compares virtual networking options. For more information, s
 |Networking model  |Supported tiers  |Supported components  |Supported traffic  |Usage scenario |
 |---------|---------|---------|---------|----|
 |**[Virtual network injection - external](#virtual-network-injection)**     | Developer, Premium       | Developer portal, gateway, management plane, and Git repository        | Inbound and outbound traffic can be allowed to internet, peered virtual networks, Express Route, and S2S VPN connections.     | External access to private and on-premises backends |
-|**[Virtual network injection - internal](#virtual-network-injection)**     |  Developer, Premium      |  Developer portal, gateway, management plane, and Git repository.       |  Inbound and outbound traffic can be allowed to peered virtual networks, Express Route, and S2S VPN connections.       | Internal access to private and on-premises backends |
-|**[Outbound integration](#outbound-intgration)**   | Standard v2        |   Gateway only.      |  Outbound request traffic can reach APIs hosted in a delegated subnet of a virtual network.     | External access to private and on-premises backends | 
-|**[Inbound private endpoint](#inbound-private-endpoint)**   | Developer, Basic, Standard, Premium        |   Gateway only (managed gateway supported, self-hosted gateway not supported).      |    Only inbound traffic can be allowed from internet, peered virtual networks, Express Route, and S2S VPN connections.     | Secure client connection to API Management gateway |
+|**[Virtual network injection - internal](#virtual-network-injection)**     |  Developer, Premium      |  Developer portal, gateway, management plane, and Git repository       |  Inbound and outbound traffic can be allowed to peered virtual networks, Express Route, and S2S VPN connections.       | Internal access to private and on-premises backends |
+|**[Outbound integration](#outbound-integration)**   | Standard v2        |   Gateway only      |  Outbound request traffic can reach APIs hosted in a delegated subnet of a virtual network.     | External access to private and on-premises backends | 
+|**[Inbound private endpoint](#inbound-private-endpoint)**   | Developer, Basic, Standard, Premium        |   Gateway only (managed gateway supported, self-hosted gateway not supported)      |    Only inbound traffic can be allowed from internet, peered virtual networks, Express Route, and S2S VPN connections.     | Secure client connection to API Management gateway |
 
 
 ## Virtual network injection

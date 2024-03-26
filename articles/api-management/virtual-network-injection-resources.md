@@ -64,13 +64,13 @@ The minimum size of the subnet in which API Management can be deployed is /29, w
 > [!IMPORTANT]
 > The private IP addresses of internal load balancer and API Management units are assigned dynamically. Therefore, it is impossible to anticipate the private IP of the API Management instance prior to its deployment. Additionally, changing to a different subnet and then returning may cause a change in the private IP address.
 
-### Routing
+## Routing
 
 See the Routing guidance when deploying your API Management instance into an [external virtual network](./api-management-using-with-vnet.md#routing) or [internal virtual network](./api-management-using-with-internal-vnet.md#routing).
 
 Learn more about the [IP addresses of API Management](api-management-howto-ip-addresses.md).
 
-### DNS
+## DNS
 
 * In external mode, the virtual network enables [Azure-provided name resolution](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) by default for your API Management endpoints and other Azure resources. It doesn't provide name resolution for on-premises resources. Optionally, configure your own DNS solution.
 

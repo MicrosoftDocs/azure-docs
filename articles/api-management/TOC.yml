@@ -106,6 +106,8 @@
     items:
     - name: Networking options
       href: virtual-network-concepts.md
+    - name: VNet injection - network requirements
+      href: virtual-network-injection-resources.md
     - name: Deploy to a VNet - external
       href: api-management-using-with-vnet.md
     - name: Deploy to a VNet - internal
