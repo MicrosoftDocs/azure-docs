@@ -26,27 +26,27 @@ For the Azure Update Manager, both AMA and MMA aren't a requirement to manage so
 
 ## Azure portal experience (preview)
 
-This section explains how to use the portal experience (preview) to move schedules and machines from Automation Update Management to Azure Update Manager. With minimal click and automated way to move your resources, it is the easiest way to move if you don't have customizations built on top of your Automation Update Management solution.
+This section explains how to use the portal experience (preview) to move schedules and machines from Automation Update Management to Azure Update Manager. With minimal clicks and automated way to move your resources, it's the easiest way to move if you don't have customizations built on top of your Automation Update Management solution.
 
 To access the portal migration experience, you can use several entry points.
 
-Select the **Migrate Now** button present on the following entry points. After the selection, you are guided through the process of moving your schedules and machines to Azure Update Manager. This process is designed to be user-friendly and straight forward to allow you to complete the migration with minimal effort.
+Select the **Migrate Now** button present on the following entry points. After the selection, you're guided through the process of moving your schedules and machines to Azure Update Manager. This process is designed to be user-friendly and straight forward to allow you to complete the migration with minimal effort.
 
 You can migrate from any of the following entry points:
 
 #### [Automation Update Management](#tab/update-mgmt)
 
-Select the **Migrate Now** button and a migration blade opens. It contains a summary of all resources including machines, schedules in the Automation account. By default, the Automation account from which you accessed this blade is preselected if you go by this route. 
+Select the **Migrate Now** button and a migration blade opens. It contains a summary of all resources including machines, and schedules in the Automation account. By default, the Automation account from which you accessed this blade is preselected if you go by this route. 
 
    :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/migrate-from-update-management.png" alt-text="Screenshot that shows how to migrate from Automation Update Management entry point." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/migrate-from-update-management.png":::
 
 Here, you can see how many of Azure, Arc-enabled servers, non-Azure non Arc-enabled servers, and schedules are enabled in Automation Update Management and need to be moved to Azure Update Manager. You can also view the details of these resources.
 
-The migration blade provides an overview of the resources that will be moved, allowing you to review and confirm the migration before proceeding. Once you are ready, you can proceed with the migration process to move your schedules and machines to Azure Update Manager.
+The migration blade provides an overview of the resources that will be moved, allowing you to review and confirm the migration before proceeding. Once you're ready, you can proceed with the migration process to move your schedules and machines to Azure Update Manager.
 
-:::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/migrate-resources-automation-account.png" alt-text="Screenshot that shows how to migrate all resorces from Automation account." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/migrate-resources-automation-account.png":::
+:::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/migrate-resources-automation-account.png" alt-text="Screenshot that shows how to migrate all resources from Automation account." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/migrate-resources-automation-account.png":::
 
-After you review the resources that must be moved you can proceed with the migration process which is a three-step process:
+After you review the resources that must be moved, you can proceed with the migration process which is a three-step process:
 
 1. **Prerequisites** 
 
@@ -55,7 +55,7 @@ After you review the resources that must be moved you can proceed with the migra
    a. **Onboard non-Azure non-Arc-enabled machines to Arc** - This is because Arc connectivity is a prerequisite for Azure Update Manager. Onboarding your machines to Azure Arc is free of cost, and once you do so, you can avail all management services as you can do for any Azure machine. For more information, see [Azure Arc documentation](../azure-arc/servers/onboard-service-principal.md)
    on how to onboard your machines.
 
-   b. **Download and run PowerShell script locally** - The second step is to download and run a PowerShell script locally. This is required for the creation of a user identity and appropriate role assignments so that the migration can take place. This script gives proper RBAC to the User Identity on the subscription to which the automation account belongs, machines onboarded to Automation Update Management, scopes that are part of dynamic queries etc. so that the configuration can be assigned to the machines, MRP configurations can be created and updates solution can be removed. For more information, see [Azure Update Manager documentation](guidance-migration-automation-update-management-azure-update-manager.md#prerequisite-2-create-user-identity-and-role-assignments-by-running-powershell-script).
+   b. **Download and run PowerShell script locally** -  This is required for the creation of a user identity and appropriate role assignments so that the migration can take place. This script gives proper RBAC to the User Identity on the subscription to which the automation account belongs, machines onboarded to Automation Update Management, scopes that are part of dynamic queries etc. so that the configuration can be assigned to the machines, MRP configurations can be created and updates solution can be removed. For more information, see [Azure Update Manager documentation](guidance-migration-automation-update-management-azure-update-manager.md#prerequisite-2-create-user-identity-and-role-assignments-by-running-powershell-script).
    
    :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/prerequisite-migration-update-manager.png" alt-text="Screenshot that shows the prerequisites for migration." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/prerequisite-migration-update-manager.png":::
 
@@ -65,35 +65,35 @@ After you review the resources that must be moved you can proceed with the migra
 
    :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/step-two-migrate-workload.png" alt-text="Screenshot that shows how to migrate workload in your Automation account." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/step-two-migrate-workload.png":::
    
-   Select **Start** runbook which will present the parameters that must be passed to the runbook.
+   Select **Start** runbook, which presents the parameters that must be passed to the runbook.
     
-   :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/start-runbook-migration.png" alt-text="Screenshot that shows how to start runbook to allows the parameters to be passed to the runbook." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/start-runbook-migration.png":::
+   :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/start-runbook-migration.png" alt-text="Screenshot that shows how to start runbook to allow the parameters to be passed to the runbook." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/start-runbook-migration.png":::
 
-   For more information on the parameters to fetch and the location from it must be fetched, see [migration of machines and schedules](#step-1-migration-of-machines-and-schedules). Once you start the runbook after passing in all the parameters, Azure Update Manager will begin to get enabled on machines and maintenance configuration in Azure Update Manager will start getting created. You can monitor Azure runbook logs for the status of execution and migration of schedules.
+   For more information on the parameters to fetch and the location from where it must be fetched, see [migration of machines and schedules](#step-1-migration-of-machines-and-schedules). Once you start the runbook after passing in all the parameters, Azure Update Manager will begin to get enabled on machines and maintenance configuration in Azure Update Manager will start getting created. You can monitor Azure runbook logs for the status of execution and migration of schedules.
 
    :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/monitor-runbook-logs.png" alt-text="Screenshot that shows monitoring of runbook logs." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/monitor-runbook-logs.png":::
 
 1. **Deboard resources from Automation Update management**
 
-   The last step in the migration process is to run the clean-up script. This will deboard machines from the Automation Update Management solution and disable Automation Update Management schedules. 
+   Run the clean-up script to deboard machines from the Automation Update Management solution and disable Automation Update Management schedules. 
 
    After you select the **Run clean-up script** button, the runbook *DeboardFromAutomationUpdateManagement* will be imported into your Automation account, and its verbose logging is set to **True**. 
 
-   :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/run-clean-up-script.png" alt-text="Screenshot that shows how to preform post migration." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/run-clean-up-script.png":::
+   :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/run-clean-up-script.png" alt-text="Screenshot that shows how to perform post migration." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/run-clean-up-script.png":::
 
-   Here, when you select **Start** the runbook, it will ask for parameters to be passed to the runbook. For more information, see [Deboarding from Automation Update Management solution](#step-2-deboarding-from-automation-update-management-solution) to fetch the parameters to be passed to the runbook.
+   When you select **Start** the runbook, asks for parameters to be passed to the runbook. For more information, see [Deboarding from Automation Update Management solution](#step-2-deboarding-from-automation-update-management-solution) to fetch the parameters to be passed to the runbook.
 
    :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/deboard-update-management-start-runbook.png" alt-text="Screenshot that shows how to deboard from Automation Update Management and starting the runbook." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/deboard-update-management-start-runbook.png":::
 
 #### [Azure Update Manager](#tab/update-manager)
 
-You can initiate migration from Azure Update Manager. On the top of screen, you will see a deprecation banner with a **Migrate Now** button at the top of screen. 
+You can initiate migration from Azure Update Manager. On the top of screen, you can see a deprecation banner with a **Migrate Now** button at the top of screen. 
 
   :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/migration-entry-update-manager.png" alt-text="Screenshot that shows how to migrate from Azure Update Manager entry point." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/migration-entry-update-manager.png":::
 
-Select **Migrate Now** button to view the migration blade that allows you to select the Automation account whose resources you want to move from Automation Update Management to Azure Update Manager. You must to select subscription, resource group, and finally the Automation account name. After you select, you will view the summary of machines and schedules to be migrated to Azure Update Manager. From here, follow the migration steps listed in [Automation Update Management](#azure-portal-experience-preview).
+Select **Migrate Now** button to view the migration blade that allows you to select the Automation account whose resources you want to move from Automation Update Management to Azure Update Manager. You must select subscription, resource group, and finally the Automation account name. After you select, you will view the summary of machines and schedules to be migrated to Azure Update Manager. From here, follow the migration steps listed in [Automation Update Management](#azure-portal-experience-preview).
 
-#### [Single virtual machine](#tab/virtual-machine)
+#### [Virtual machine](#tab/virtual-machine)
 
 To initiate migration from a single VM **Updates** view, follow these steps:
 
@@ -102,7 +102,7 @@ To initiate migration from a single VM **Updates** view, follow these steps:
    
    :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/migrate-single-virtual-machine.png" alt-text="Screenshot that shows how to migrate from single virtual machine entry point." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/migrate-single-virtual-machine.png":::
 
-   You will see that the Automation account to which the machine belongs is preselected and a summary of all resources in the Automation account is presented. This will allow you to migrate the resources from Automation Update Management to Azure Update Manager.
+   You can see that the Automation account to which the machine belongs is preselected and a summary of all resources in the Automation account is presented. This allows you to migrate the resources from Automation Update Management to Azure Update Manager.
 
    :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/single-vm-migrate-now.png" alt-text="Screenshot that shows how to migration of resources from single virtual machine entry point." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/single-vm-migrate-now.png":::
 
@@ -180,9 +180,9 @@ Migration automation runbook ignores resources that aren't onboarded to Arc. It'
  1. The script assigns the following permissions to the user managed identity: [Update Management Permissions Required](../automation/automation-role-based-access-control.md#update-management-permissions).
 
 
-     1. For this, the script will fetch all the machines onboarded to Automation Update Management under this automation account and parse their subscription IDs to be given the required RBAC to the User Identity. 
+     1. For this, the script fetches all the machines onboarded to Automation Update Management under this automation account and parse their subscription IDs to be given the required RBAC to the User Identity. 
      1. The script gives a proper RBAC to the User Identity on the subscription to which the automation account belongs so that the MRP configs can be created here.
-     1. The script will assign the required roles for the Log Analytics workspace and solution. 
+     1. The script assigns the required roles for the Log Analytics workspace and solution. 
  
 #### Step 1: Migration of machines and schedules
 
@@ -235,7 +235,7 @@ The migration of runbook does the following tasks:
 
 The following is the behavior of the migration script:
 
-- Check if a resource group with the name taken as input is already present in the subscription of the automation account or not. If not, then create a resource group with the name specified by the Cx. This resource group will be used for creating the MRP configs for V2. 
+- Check if a resource group with the name taken as input is already present in the subscription of the automation account or not. If not, then create a resource group with the name specified by the Cx. This resource group is used for creating the MRP configs for V2. 
 - The script ignores the update schedules that have pre and post scripts associated with them. For pre and post scripts update schedules, migrate them manually.
 - RebootOnly Setting isn't available in Azure Update Manager. Schedules having RebootOnly Setting aren't migrated.
 - Filter out SUCs that are in the errored/expired/provisioningFailed/disabled state and mark them as **Not Migrated**, and print the appropriate logs indicating that such SUCs aren't migrated. 
@@ -319,7 +319,7 @@ You can also search with the name of the update schedule to get logs specific to
 - User Managed Identities [don't support](/entra/identity/managed-identities-azure-resources/managed-identities-faq#can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant) cross tenant scenarios.
 - RebootOnly Setting isn't available in Azure Update Manager. Schedules having RebootOnly Setting won't be migrated.
 - For Recurrence, Automation schedules support values between (1 to 100) for Hourly/Daily/Weekly/Monthly schedules, whereas Azure Update Manager’s maintenance configuration supports between (6 to 35) for Hourly and (1 to 35) for Daily/Weekly/Monthly.
-   - For example, if the automation schedule has a recurrence of every 100 Hours, then the equivalent maintenance configuration schedule will have it for every 100/24 = 4.16 (Round to Nearest Value) -> Four days will be the recurrence for the maintenance configuration. 
+   - For example, if the automation schedule has a recurrence of every 100 Hours, then the equivalent maintenance configuration schedule has it for every 100/24 = 4.16 (Round to Nearest Value) -> Four days will be the recurrence for the maintenance configuration. 
    - For example, if the automation schedule has a recurrence of every 1 hour, then the equivalent maintenance configuration schedule will have it every 6 hours.
    - Apply the same convention for Weekly and Daily. 
      - If the automation schedule has daily recurrence of say 100 days, then 100/7 = 14.28 (Round to Nearest Value) -> 14 weeks will be the recurrence for the maintenance configuration schedule.
