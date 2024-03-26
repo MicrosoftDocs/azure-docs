@@ -127,13 +127,13 @@ Results:
 echo "You can now visit your web server at https://$MY_STATIC_WEB_APP_URL"
 ```
 
-## Next Steps
+## Use a Github template
 
 You've successfully deployed a static web app to Azure Static Web Apps using the Azure CLI. Now that you have a basic understanding of how to deploy a static web app, you can explore more advanced features and functionality of Azure Static Web Apps.
 
 In case you want to use the GitHub template repository, follow these steps:
 
-Go to https://github.com/login/device and enter the user code 329B-3945 to activate and retrieve your GitHub personal access token.
+Go to https://github.com/login/device and enter the code you get from GitHub to activate and retrieve your GitHub personal access token.
 
 1. Go to https://github.com/login/device.
 2. Enter the user code as displayed your console's message.
@@ -156,7 +156,7 @@ Go to https://github.com/login/device and enter the user code 329B-3945 to activ
 ```
 5. Copy the URL into your browser to go to your website.
 
-## Clean up resources
+## Clean up resources (optional)
 
 If you're not going to continue to use this application, delete the resource group and the static web app using the [az group delete](/cli/azure/group#az-group-delete) command.
 
