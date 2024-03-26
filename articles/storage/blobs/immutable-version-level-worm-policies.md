@@ -35,12 +35,12 @@ To learn how to configure version-level time-based retention policies, see [Conf
 
 Using immutable policies with version-level WORM is a two-step process. First, enable version-level immutability. Then, you can set version-level immutability policies.
 
-To set a policy at the storage account level, you must enable version-level WORM on the storage account. You can do this only at account creation time. There's no option to enable version-level WORM for pre-existing accounts.
+To set a policy at the storage account level, you must first enable version-level WORM on the storage account. You can do this only at account creation time. There's no option to enable version-level WORM for pre-existing accounts.
 
 > [!div class="mx-imgBorder"]
 > ![Diagram of setting a policy for version-level immutable storage at the account level.](media/immutable-version-level-worm-policies/version-level-immutable-storage-account-level.png)
 
-To set a policy at the container level, you must enable version-level WORM either on the account OR on the container. To enable a container to set version-level WORM policies, Microsoft recommends that you enable version-level WORM at container creation, but an existing container can be migrated from a non-enabled container to an enabled one. If a user chooses not to migrate, they can still always set a container-level policy at the container, but the option to set blob-level policies won't be available.
+To set a policy at the container level, you must first enable version-level WORM either on the account OR on the container. To enable a container to set version-level WORM policies, Microsoft recommends that you enable version-level WORM at container creation. However, you can migrate a non-enabled container to an enabled one. You can set a container-level WORM policy on containers that you don't migrate, but the option to set blob-level policies won't be available for those containers.
 
 > [!div class="mx-imgBorder"]
 > ![Diagram of setting a policy for version-level immutable storage at the container level.](media/immutable-version-level-worm-policies/version-level-immutable-container-level.png)
