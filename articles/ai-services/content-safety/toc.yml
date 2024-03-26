@@ -25,6 +25,8 @@ items:
     href: quickstart-image.md
   - name: Prompt Shields (new)
     href: quickstart-jailbreak.md
+  - name: Groundedness detection (new)
+    href: quickstart-groundedness.md
   - name: Protected material detection
     href: quickstart-protected-material.md
 
