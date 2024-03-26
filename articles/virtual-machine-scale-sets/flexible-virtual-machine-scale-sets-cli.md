@@ -25,7 +25,7 @@ The Azure Cloud Shell is a free interactive shell that you can use to run the st
 
 To open the Cloud Shell, select **Open Cloud Shell** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com/cli](https://shell.azure.com/cli). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press enter to run it.
 
-## Define Environment Variables
+## Define environment variables
 
 Define environment variables as follows.
 
@@ -71,11 +71,11 @@ Results:
 }
 ```
 
-## Create Network Resources 
+## Create network resources 
 
 Now you'll create network resources. In this step you're going to create a virtual network, one subnet 1 for Application Gateway, and one subnet for VMs. You also need to have a public IP to attach your Application Gateway to reach your web application from the internet. 
 
-#### Create Virtual Network and Subnet
+#### Create virtual network and subnet
 
 ```bash
 az network vnet create  --name $MY_VNET_NAME  --resource-group $MY_RESOURCE_GROUP_NAME --location $REGION  --address-prefix $MY_VNET_PREFIX  --subnet-name $MY_VM_SN_NAME --subnet-prefix $MY_VM_SN_PREFIX -o JSON
@@ -119,7 +119,7 @@ Results:
 }
 ```
 
-### Create Application Gateway Resources
+### Create Application Gateway resources
 
 Azure Application Gateway requires a dedicated subnet within your virtual network. The following command creates a subnet named $MY_APPGW_SN_NAME with a specified address prefix named $MY_APPGW_SN_PREFIX in your virtual network $MY_VNET_NAME.
 
@@ -842,6 +842,6 @@ az network public-ip show --resource-group $MY_RESOURCE_GROUP_NAME --name $MY_AP
 To avoid Azure charges, you should clean up unneeded resources. When you no longer need your scale set and other resources, delete the resource group and all its resources with [az group delete](/cli/azure/group). The `--no-wait` parameter returns control to the prompt without waiting for the operation to complete. The `--yes` parameter confirms that you wish to delete the resources without another prompt to do so. This tutorial cleans up resources for you.
 
 ## Next steps
-- [Learn how to create a scale set in the Azure Portal.](flexible-virtual-machine-scale-sets-portal.md)
+- [Learn how to create a scale set in the Azure portal.](flexible-virtual-machine-scale-sets-portal.md)
 - [Learn about Virtual Machine Scale Sets.](overview.md)
 - [Automatically scale a Virtual Machine Scale Set with the Azure CLI](tutorial-autoscale-cli.md)
