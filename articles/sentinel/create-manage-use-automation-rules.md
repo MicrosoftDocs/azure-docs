@@ -141,7 +141,7 @@ Use the options in the **Conditions** area to define conditions for your automat
 1. Select an operator from the next drop-down box to the right.
     :::image type="content" source="media/create-manage-use-automation-rules/select-operator.png" alt-text="Screenshot of selecting a condition operator for automation rules.":::
 
-The list of operators you can choose from varies according to the selected trigger and property. Here's a summary of what's available:
+The list of operators you can choose from varies according to the selected trigger and property. 
 
 #### Conditions available with the create trigger
 
@@ -149,7 +149,7 @@ The list of operators you can choose from varies according to the selected trigg
 | -------- | -------- |
 | - Title<br>- Description<br>- Tag<br>- All listed entity properties | - Equals/Does not equal<br>- Contains/Does not contain<br>- Starts with/Does not start with<br>-Ends with/Does not end with |
 | - Severity<br>- Status<br>- Custom details key (Preview) | -Equals/Does not equal |
-| - Tactics<br>- Alert product names<br>- Custom details value (Preview) | - Contains/Does not contain |
+| - Tactics<br>- Alert product names<br>- Custom details value (Preview) <br>- Analytic rule name| - Contains/Does not contain |
 
 #### Conditions available with the update trigger
 
@@ -161,7 +161,7 @@ The list of operators you can choose from varies according to the selected trigg
 | - Owner | - Changed |
 | - Updated by<br>- Custom details key (Preview) | - Equals/Does not equal |
 | - Tactics | - Contains/Does not contain<br>- Added |
-| - Alert product names<br>- Custom details value (Preview) | - Contains/Does not contain |
+| - Alert product names<br>- Custom details value (Preview) <br>- Analytic rule name| - Contains/Does not contain |
 
 
 #### Conditions based on custom details
