@@ -126,7 +126,7 @@ procedureSection:
         Confirm the deletion request by entering the resource group name and selecting **Delete**.
   
 nextStep:
-  text: Get started with Translato
+  text: Get started with Translator
   url: quickstart-text-rest-api.md
   
 #  - text: Get started with Translator
