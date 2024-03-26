@@ -13,11 +13,11 @@ ms.author: normesta
 
 # Container-level write once, read many (WORM) policies for immutable blob data
 
-A container-level write once, read many (WORM) policy is a type of immutability policy that can be set at the container-level.
+A container-level write once, read many (WORM) policy is a type of immutability policy that can be set at the container-level. To learn more about immutable storage for Azure Blob Storage, see [Store business-critical blob data with immutable storage in a write once, read many (WORM) state](immutable-storage-overview.md)
 
 ## Availability
 
-Container-level WORM policies are available for all new and existing containers. These policies are supported for general-purpose v2, premium block blob, general-purpose v1 (legacy), and blob storage (legacy) accounts.
+Container-level WORM (CLW) policies are available for all new and existing containers. These policies are supported for general-purpose v2, premium block blob, general-purpose v1 (legacy), and blob storage (legacy) accounts.
 
 > [!TIP]
 > Microsoft recommends upgrading general-purpose v1 accounts to general-purpose v2 so that you can take advantage of more features. For information on upgrading an existing general-purpose v1 storage account, see [Upgrade a storage account](../common/storage-account-upgrade.md).
