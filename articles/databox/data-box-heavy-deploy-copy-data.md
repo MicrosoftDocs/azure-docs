@@ -123,15 +123,15 @@ If using a Windows Server host computer, follow these steps to connect to the Da
     - Azure Page blob - `\\10.100.10.100\databoxe2etest_PageBlob`
     - Azure Files - `\\10.100.10.100\databoxe2etest_AzFile`
     
-4. Enter the password for the share when prompted. The following sample shows connecting to a share via the preceding command.
+4. Enter the password for the share when prompted. The following sample can be used to connect to *BlockBlob* share on the Data Box having in IP address of *10.100.10.100*.
 
     ```
-    C:\Users\Databoxuser>net use \\10.100.10.100\databoxe2etest_BlockBlob /u:databoxe2etest
+    net use \\10.100.10.100\databoxe2etest_BlockBlob /u:databoxe2etest
     Enter the password for 'databoxe2etest' to connect to '10.100.10.100':
     The command completed successfully.
     ```
 
-4. Press  Windows + R. In the **Run** window, specify the `\\<device IP address>`. Click **OK** to open File Explorer.
+5. Press  Windows + R. In the **Run** window, specify the `\\<device IP address>`. Click **OK** to open File Explorer.
     
     ![Connect to share via File Explorer](media/data-box-heavy-deploy-copy-data/connect-shares-file-explorer-1.png)
 

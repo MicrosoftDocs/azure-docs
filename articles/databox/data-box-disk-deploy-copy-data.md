@@ -7,7 +7,7 @@ author: stevenmatthew
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 03/10/2024
+ms.date: 03/26/2024
 ms.author: shaas
 ---
 
@@ -17,13 +17,12 @@ ms.author: shaas
 # Doc scores:
 #    11/18/22: 75 (2456/62)
 #    09/01/23: 100 (2159/0)
+-->
 
 ::: zone target="docs"
--->
 
 # Tutorial: Copy data to Azure Data Box Disk and verify
 
-<!--
 ::: zone-end
 
 ::: zone target="chromeless"
@@ -35,7 +34,16 @@ After the disks are connected and unlocked, you can copy data from your source d
 ::: zone-end
 
 ::: zone target="docs"
--->
+
+> [!IMPORTANT]
+> Azure Data Box now supports access tier assignment at the blob level. The steps contained within this tutorial reflect the updated data copy process and are specific to block blobs. 
+>
+>For help with determining the appropriate access tier for your block blob data, refer to the [Determine appropriate access tiers for block blobs](#determine-appropriate-access-tiers-for-block-blobs) section. Follow the steps containined within the [Copy data to Azure Data Box](#copy-data-to-azure-data-box) section to copy your data to the appropriate access tier.
+>
+> The information contained within this section applies to orders placed after April 1, 2024.
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
 
 This tutorial describes how to copy data from your host computer and generate checksums to verify data integrity.
 
@@ -52,8 +60,26 @@ Before you begin, make sure that:
 - You have completed the [Tutorial: Install and configure your Azure Data Box Disk](data-box-disk-deploy-set-up.md).
 - Your disks are unlocked and connected to a client computer.
 - The client computer used to copy data to the disks is running a [Supported operating system](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
-- The intended storage type for your data matches [Supported storage types](data-box-disk-system-requirements.md#supported-storage-types-for-upload).
+- The intended storage type for your data matches the [Supported storage types](data-box-disk-system-requirements.md#supported-storage-types-for-upload).
 - You've reviewed [Managed disk limits in Azure object size limits](data-box-disk-limits.md#azure-object-size-limits).
+
+## Determine appropriate access tiers for block blobs
+
+> [!IMPORTANT]
+> The information contained within this section applies to orders placed after April 1<sup>st</sup>, 2024.
+
+Azure Storage allows you to store block blob data in multiple access tiers within the same storage account. This ability allows data to be organized and stored more efficiently based on how often it's accessed. The following table contains information and recommendations about Azure Storage access tiers.
+
+| Tier    | Recommendation | Best practice |
+|---------|----------------|---------------|
+| Hot     | Useful for online data accessed or modified frequently. This tier has the highest storage costs, but the lowest access costs. | Data in this tier should be in regular and active use. |
+| Cool    | Useful for online data accessed or modified infrequently. This tier has lower storage costs and higher access costs than the hot tier. | Data in this tier should be stored for at least 30 days. |
+| Cold    | Useful for online data accessed or modified rarely but still requiring fast retrieval. This tier has lower storage costs and higher access costs than the cool tier.| Data in this tier should be stored for a minimum of 90 days. |
+| Archive | Useful for offline data rarely accessed and having lower latency requirements. | Data in this tier should be stored for a minimum of 180 days. Data removed from the archive tier within 180 days is subject to an early deletion charge. |
+
+For more information about blob access tiers, see [Access tiers for blob data](../storage/blobs/access-tiers-overview.md). For more detailed best practices, see [Best practices for using blob access tiers](../storage/blobs/access-tiers-best-practices.md).
+
+You can transfer your block blob data to the appropriate access tier by copying it to the corresponding folder within Data Box. This process is discussed in greater detail within the [Copy data to Azure Data Box](#copy-data-to-disks) section.
 
 ## Copy data to disks
 
@@ -311,10 +337,8 @@ Advance to the next tutorial to learn how to return the Data Box Disk and verify
 > [!div class="nextstepaction"]
 > [Ship your Azure Data Box back to Microsoft](./data-box-disk-deploy-picked-up.md)
 
-<!--
 ::: zone-end
--->
-<!--
+
 ::: zone target="chromeless"
 
 ### Copy data to disks
@@ -349,4 +373,3 @@ Take the following steps to verify your data.
     For more information on data validation, see [Validate data](#validate-data). If you experience errors during validation, see [troubleshoot validation errors](data-box-disk-troubleshoot.md).
 
 ::: zone-end
--->

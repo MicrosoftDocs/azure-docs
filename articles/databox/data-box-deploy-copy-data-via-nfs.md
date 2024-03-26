@@ -109,7 +109,7 @@ If you're using a Linux host computer, perform the following steps to configure 
 > [!IMPORTANT]
 > The information contained within this section applies to orders placed after April 1<sup>st</sup>, 2024.
 
-Azure Storage allows you to store block blob data in several access tiers within the same storage account. This ability allows data to be organized and stored more efficiently based on how often it's accessed. The following table contains information and recommendations about Azure Storage access tiers.
+Azure Storage allows you to store block blob data in multiple access tiers within the same storage account. This ability allows data to be organized and stored more efficiently based on how often it's accessed. The following table contains information and recommendations about Azure Storage access tiers.
 
 | Tier    | Recommendation | Best practice |
 |---------|----------------|---------------|
