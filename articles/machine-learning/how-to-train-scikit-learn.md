@@ -8,7 +8,7 @@ ms.subservice: training
 ms.author: balapv
 author: balapv
 ms.reviewer: sgilley
-ms.date: 09/29/2022
+ms.date: 03/26/2024
 ms.topic: how-to
 ms.custom: sdkv2
 #Customer intent: As a Python scikit-learn developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my machine learning models at scale.
