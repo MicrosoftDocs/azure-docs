@@ -20,7 +20,6 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 > [!IMPORTANT]
 > - Trusted Launch is selected as the default state for newly created Azure VMs. If your new VM requires features which are not supported by trusted launch, see the [Trusted Launch FAQs](trusted-launch-faq.md)
 > - Existing [Azure Generation 2 VMs](generation-2.md) can have trusted launch enabled after being created. For more information, see **[Enable Trusted Launch on existing VMs](trusted-launch-existing-vm.md)**
-> - You cannot enable trusted launch on an existing virtual machine scale set (VMSS) that was initially created without it. Trusted launch requires the creation of new VMSS. 
 
 ## Benefits
 
