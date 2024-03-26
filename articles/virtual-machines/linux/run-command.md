@@ -9,7 +9,7 @@ ms.author: jushiman
 ms.date: 06/01/2023
 ms.topic: how-to
 ms.reviewer: jushiman
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, linux-related-content
 ms.devlang: azurecli
 ---
 # Run scripts in your Linux VM by using action Run Commands

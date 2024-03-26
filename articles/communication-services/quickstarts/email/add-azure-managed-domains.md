@@ -27,7 +27,7 @@ Before provisioning an Azure Managed Domain, review the following table to deter
 | | [Azure Managed Domains](./add-azure-managed-domains.md) | [Custom Domains](./add-custom-verified-domains.md) | 
 |---|---|---|
 |**Pros:** | - Setup is quick & easy<br/>- No domain verification required<br /> | - Emails are sent from your own domain |
-|**Cons:** | - Sender domain is not personalized and cannot be changed<br/>- High volume sending is limited. <br /> | - Requires verification of domain records <br /> - Longer setup for verification |
+|**Cons:** | - Sender domain is not personalized and cannot be changed<br/>- Sender usernames cannot be personalized<br/>- Very limited sending volume<br />- User Engagement Tracking cannot be enabled <br /> | - Requires verification of domain records <br /> - Longer setup for verification |
 
 
 ## Provision Azure Managed Domain
@@ -58,13 +58,6 @@ Before provisioning an Azure Managed Domain, review the following table to deter
 
 ## Sender authentication for Azure Managed Domain
 Azure communication Services Email automatically configures the required email authentication protocols to set proper authentication for the email as detailed in [Email Authentication best practices](../../concepts/email/email-authentication-best-practice.md). 
-
-## Changing MailFrom and FROM display name for Azure Managed Domain
-
-You can optionally configure your MailFrom address to be something other than the default DoNotReply, and also add more than one sender username to your domain. To understand how to configure your sender address, see how to [add multiple sender addresses](add-multiple-senders.md).
-
-> [!NOTE]
-> Azure Managed Domains facilitate developers in rapidly initiating application development. Once your application is prepared for deployment, you can seamlessly integrate your custom domain. It's crucial to note that if you continue to rely on Azure Managed Domains, the MailFrom Address displayed in the recipient's mailbox will differ from what you observe in the Portal. This address is dynamically generated, dependent on the data location. As an illustration, if the data location is set to the US, the received email address will transform into 'donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.US1.azurecomm.net'. If you would like to send high volume of messages, you have to switch to custom domain as Azure Managed Domain has the limitations on the number of email messages you can send as defined in the [Email Service Limits](../../concepts/service-limits.md). 
 
 **Your email domain is now ready to send emails.**
 

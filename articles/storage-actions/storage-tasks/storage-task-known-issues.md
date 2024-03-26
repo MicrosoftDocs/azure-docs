@@ -105,6 +105,10 @@ Storage Actions operate on blobs in a hierarchical namespace-enabled account at 
 
 When you apply storage task assignments to storage accounts that have IP or network rules for access control, the task execution might fail. This is because the storage task assignments needs to access the storage account through the public endpoint, which might be blocked by the firewall or virtual network rules. To avoid this issue, you need to configure the network access to your storage account properly.
 
+## Storage Tasks won't be trigger on regional account migrated in GRS / GZRS accounts
+
+If you migrate your storage account from a GRS or GZRS primary region to a secondary region or vice versa, then any storage tasks that target the storage account won't be triggered and any existing task executions might fail. 
+
 ## See Also
 
 - [Azure Storage Actions overview](../overview.md)

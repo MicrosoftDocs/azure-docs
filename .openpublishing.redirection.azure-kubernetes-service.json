@@ -464,7 +464,7 @@
         },
         {
             "source_path_from_root": "/articles/aks/operator-best-practices-run-at-scale.md",
-            "redirect_url": "/azure/aks/best-practices-performance-scale-large.md",
+            "redirect_url": "/azure/aks/best-practices-performance-scale-large",
             "redirect_document_id": false
         }
     ]

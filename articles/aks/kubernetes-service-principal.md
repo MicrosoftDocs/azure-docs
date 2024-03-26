@@ -2,6 +2,7 @@
 title: Use a service principal with Azure Kubernetes Services (AKS)
 description: Learn how to create and manage a Microsoft Entra service principal with a cluster in Azure Kubernetes Service (AKS).
 ms.topic: conceptual
+ms.subservice: aks-security
 ms.date: 06/27/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 

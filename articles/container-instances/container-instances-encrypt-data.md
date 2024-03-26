@@ -32,7 +32,7 @@ This article reviews two flows for encrypting data with a customer-managed key:
 * Encrypt data with a customer-managed key stored in a network-protected Azure Key Vault with [Trusted Services](../key-vault/general/network-security.md) enabled.
 
 ## Encrypt data with a customer-managed key stored in a standard Azure Key Vault
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 ### Create Service Principal for ACI
 
 The first step is to ensure that your [Azure tenant](../active-directory/develop/quickstart-create-new-tenant.md) has a service principal assigned for granting permissions to the Azure Container Instances service. 

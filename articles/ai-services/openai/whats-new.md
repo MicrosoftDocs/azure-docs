@@ -24,6 +24,10 @@ Azure OpenAI Studio now provides a Risks & Safety dashboard for each of your dep
 
 [Use the Risks & Safety monitor](./how-to/risks-safety-monitor.md)
 
+### Elasticsearch database support for Azure OpenAI On Your Data
+
+- You can now connect to an Elasticsearch vector database to be used with [Azure OpenAI On Your Data](./concepts/use-your-data.md?tabs=elasticsearch#supported-data-sources).
+
 ### 2024-02-01 general availability (GA) API released
 
 This is the latest GA API release and is the replacement for the previous `2023-05-15` GA release. This release adds support for the latest Azure OpenAI GA features like Whisper, DALLE-3, fine-tuning, on your data, etc.
