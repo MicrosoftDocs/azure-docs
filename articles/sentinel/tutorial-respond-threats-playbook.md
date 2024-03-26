@@ -387,7 +387,7 @@ You can see the run history for playbooks on an alert by selecting the **Runs** 
 This procedure differs, depending on if you're working in Microsoft Sentinel or in the unified SOC platform. Select the relevant tab for your environment:
 
 
-# [Microsoft Sentinel](#tab/-sentinel)
+# [Azure portal](#tab/azure)
 
 1. In the **Incidents** page, select an incident.
 
