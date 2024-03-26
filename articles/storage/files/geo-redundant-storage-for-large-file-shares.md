@@ -180,7 +180,7 @@ It's important to understand the following about the Last Sync Time property:
 This section lists considerations that might impact your ability to fail over to the secondary region.
 
 - Storage account failover will be blocked if a system snapshot doesn't exist in the secondary region.
-- Storage account failover will be blocked if the storage account contains more than 100,000 file shares. To failover this storage account, please open a support request.
+- Storage account failover will be blocked if the storage account contains more than 100,000 file shares. To failover the storage account, open a support request.
 - File handles and leases aren't retained on failover, and clients must unmount and remount the file shares.
 - File share quota might change after failover. The file share quota in the secondary region will be based on the quota that was configured when the system snapshot was taken in the primary region.
 - Copy operations in progress will be aborted when a failover occurs. When the failover to the secondary region completes, retry the copy operation.
