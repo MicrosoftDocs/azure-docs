@@ -29,7 +29,7 @@ In this quickstart, you'll get started with Azure Arc site manager by creating a
 
 In the [Azure portal](https://portal.azure.com), search for and select **Azure Arc**. Select **Site manager (preview)** from the Azure Arc navigation menu.
 
-:::image type="content" source="./media/quickstart/arc-portal-main.png" alt-text="Screenshot that shows selecting Site manager from the Azure Arc overview.:::
+:::image type="content" source="./media/quickstart/arc-portal-main.png" alt-text="Screenshot that shows selecting Site manager from the Azure Arc overview.":::
 
 Alternatively, you can also search for Azure Arc site manager directly in the Azure portal using terms such as **site**, **Arc Site**, **site manager** and so on.
 

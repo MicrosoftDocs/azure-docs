@@ -12,7 +12,7 @@ ms.date: 02/16/2024
 
 ---
 
-# Frequently asked questions
+# Frequently asked questions: Azure Arc site manager
 
 The following are frequently asked questions and answers for Azure Arc site manager:
 

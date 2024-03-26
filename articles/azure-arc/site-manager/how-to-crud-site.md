@@ -27,7 +27,7 @@ This how-to will guide you through how to create, modify, and delete a site.
 
 In the [Azure portal](https://portal.azure.com), search for and select **Azure Arc**. Select **Site manager (preview)** from the Azure Arc navigation menu.
 
-:::image type="content" source="./media/how-to-crud-site/arc-portal-main.png" alt-text="Screenshot that shows selecting Site manager from the Azure Arc overview.:::
+:::image type="content" source="./media/how-to-crud-site/arc-portal-main.png" alt-text="Screenshot that shows selecting Site manager from the Azure Arc overview.":::
 
 Alternatively, you can also search for Azure Arc site manager directly in the Azure portal using terms such as **site**, **Arc Site**, **site manager** and so on.
 
