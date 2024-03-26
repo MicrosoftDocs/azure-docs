@@ -21,27 +21,27 @@ highlightedContent:
     - title: What's Azure VMware Solution? 
       itemType: overview
       url: /azure/azure-vmware/introduction
-    - title: Plan and get started 
+    - title: Architecture and design 
       itemType: get-started
       url: /azure/azure-vmware/plan-private-cloud-deployment
-    - title: What's new?
-      itemType: whats-new
+    - title: Implementation
+      itemType: how-to-guide
       url: /azure/azure-vmware/azure-vmware-solution-platform-updates
-    - title: Azure VMware Solution concepts 
+    - title: Operation
+      itemType: how-to-guide
+      url: /azure/azure-vmware/concepts-identity
+    - title:  Third-party integration
+      itemType: how-to-guide
+      url: /azure/azure-vmware/integrate-azure-native-services
+    - title: Migration
+      itemType: how-to-guide
+      url: /azure/azure-vmware/concepts-migrate
+    - title: Well-Architected Framework (WAF)
       itemType: concept
-      url: /azure/azure-vmware/architecture-identity
-    - title:  Azure native integration
-      itemType: how-to-guide
-      url: /azure/azure-vmware/integrate-azure-native-services
-    - title: Azure VMware Solution network configuration
-      itemType: how-to-guide
-      url: /azure/azure-vmware/integrate-azure-native-services
-    - title: Partner solution ecosystem
-      itemType: how-to-guide
-      url: /azure/azure-vmware/ecosystem-os-vms
-    - title: videos
-      itemType: video
-      url: https://www.youtube.com/playlist?list=PL1NLwHeM6ewbZu0dC0guj-OSpIoZnnJin
+      url: /azure/well-architected/
+    - title: Cloud Adoption Framework (CAF)
+      itemType: concept
+      url: https://azure.microsoft.com/solutions/cloud-enablement/cloud-adoption-framework/
     
 
 # additionalContent section (optional)
@@ -49,7 +49,7 @@ highlightedContent:
 additionalContent:
   # Supports up to 3 sections
   sections:
-    - title: Get started, concepts, and tutorials
+    - title: Overview, Quickstart, and tutorials
       items:
         # Card
         - title: Overview
@@ -63,7 +63,7 @@ additionalContent:
           - text: FAQ
             url: ./faq.yml
         # Card
-        - title: Get started
+        - title: Quickstart
           links:
           - text: 1 - Plan the deployment
             url: plan-private-cloud-deployment.md
@@ -241,8 +241,50 @@ additionalContent:
           - text: Bitnami appliance deployment
             url: bitnami-appliances-deployment.md
         # Card
+        - title: Implementation
+          links:
+           - text: Known issues
+             url: azure-vmware-solution-known-issues.md
+           - text: Integrate Microsoft Defender for Cloud
+             url: azure-security-integration.md
+           - text: Protect web apps with Azure Application Gateway
+             url: protect-azure-vmware-solution-with-application-gateway.md
+           - text: Deploy Traffic Manager to balance workloads
+             url: deploy-traffic-manager-balance-workloads.md
+           - text: Configure alerts and work with metrics 
+             url: configure-alerts-for-azure-vmware-solution.md
+           - text: Configure customer-managed key encryption at rest
+             url: configure-customer-managed-keys.md
+           - text: Attach Azure NetApp Files datastores to Azure VMware Solution hosts
+             url: attach-azure-netapp-files-to-azure-vmware-solution-hosts.md
+           - text: "Attach Azure NetApp Files to Azure VMware Solution VMs"
+             url: netapp-files-with-azure-vmware-solution.md
+        # Card
+        - title: Enterprise-scale for Azure VMware Solution
+          links:
+          - text: Enterprise-Scale for Azure VMware Solution
+            url: /azure/cloud-adoption-framework/scenarios/azure-vmware/enterprise-scale-landing-zone
+          - text: Identity and access management
+            url: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-identity-and-access-management
+          - text: Network topology and connectivity
+            url: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-network-topology-connectivity
+          - text: Management and monitoring
+            url: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-management-and-monitoring
+          - text: Enterprise-scale business continuity and disaster recovery
+            url: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-business-continuity-and-disaster-recovery
+          - text: Enterprise-scale security, governance, and compliance
+            url: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-security-governance-and-compliance
+          - text: Platform automation and DevOps
+            url: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-platform-automation-and-devops
+          - text: Enterprise-Scale for Azure VMware Solution automation
+            url: https://github.com/Azure/Enterprise-Scale-for-AVS
+        # Card
         - title: Resources
           links:
+          - text: Well-Architected Framework (WAF)
+            url: /rest/api/avs
+          - text: Cloud Adoption Framework (CAF)
+            url: /cli/azure/vmware  
           - text: REST API
             url: /rest/api/avs
           - text: Azure CLI
