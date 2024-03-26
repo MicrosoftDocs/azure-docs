@@ -95,8 +95,6 @@ items:
             href: concepts-modeling-guide.md
           - name: Use models in a solution
             href: concepts-model-discovery.md
-          - name: Model repository
-            href: concepts-model-repository.md
           - name: Model parser
             href: concepts-model-parser.md
 

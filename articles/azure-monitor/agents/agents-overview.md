@@ -60,6 +60,7 @@ Azure Monitor Agent uses [data collection rules](../essentials/data-collection-r
 
 > [!NOTE]
 > To send data across tenants, you must first enable [Azure Lighthouse](../../lighthouse/overview.md).
+> Cloning a machine with Azure Monitor Agent installed is not supported. The best practice for these situations is to use [Azure Policy](../../azure-arc/servers/deploy-ama-policy.md) or an Infrastructure as a code tool to deploy AMA at scale.
 
 **To collect data using Azure Monitor Agent:**
 
@@ -207,6 +208,7 @@ View [supported operating systems for Azure Arc Connected Machine agent](../../a
 | AlmaLinux 8                                                 | ✓<sup>3</sup> | ✓ |   |
 | Amazon Linux 2017.09                                        |  | ✓ |   |
 | Amazon Linux 2                                              | ✓ | ✓ |   |
+| Azure Linux                                                 | ✓ |   |   |
 | CentOS Linux 8                                              | ✓ | ✓ |   |
 | CentOS Linux 7                                              | ✓<sup>3</sup> | ✓ | ✓ |
 | CBL-Mariner 2.0                                             | ✓<sup>3,4</sup> |   |   |
@@ -226,9 +228,9 @@ View [supported operating systems for Azure Arc Connected Machine agent](../../a
 | Red Hat Enterprise Linux Server 6.7+                        |   |  |  |
 | Rocky Linux 9                                               | ✓ | ✓ |   |
 | Rocky Linux 8                                               | ✓ | ✓ |   |
-| SUSE Linux Enterprise Server 15 SP4                         | ✓<sup>3</sup> |   |   |
-| SUSE Linux Enterprise Server 15 SP3                         | ✓ |   |   |
-| SUSE Linux Enterprise Server 15 SP2                         | ✓ |   |   |
+| SUSE Linux Enterprise Server 15 SP4                         | ✓<sup>3</sup> | ✓   |   |
+| SUSE Linux Enterprise Server 15 SP3                         | ✓ | ✓ |   |
+| SUSE Linux Enterprise Server 15 SP2                         | ✓ | ✓ |   |
 | SUSE Linux Enterprise Server 15 SP1                         | ✓ | ✓ |   |
 | SUSE Linux Enterprise Server 15                             | ✓ | ✓ |   |
 | SUSE Linux Enterprise Server 12                             | ✓ | ✓ | ✓ |
