@@ -84,6 +84,7 @@ The following API Management capabilities are currently unavailable in the v2 ti
 
 **Developer portal**
 * Delegation of user registration and product subscription
+* Reports
 * Custom HTML code widget and custom widget
 
 **Gateway**
