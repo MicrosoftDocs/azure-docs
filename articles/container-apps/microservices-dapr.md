@@ -7,7 +7,7 @@ ms.service: container-apps
 ms.topic: conceptual
 ms.date: 09/29/2022
 ms.author: aawislan
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: azurecli
 ---
 

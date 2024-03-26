@@ -30,7 +30,7 @@ To view general status of an application type, select **Apps** in the left navig
 * **Running instance**: Shows how many app instances are running and how many app instances you desire. If you stop the app, this column shows **stopped**.
 * **Registered status**: Shows how many app instances are registered to Eureka and how many app instances you desire. If you stop the app, this column shows **stopped**. Eureka isn't applicable to the Enterprise plan. For more information if you're using the Enterprise plan, see [Use Service Registry](how-to-enterprise-service-registry.md).
 
-:::image type="content" source="media/concept-app-status/apps-ui-status.png" alt-text="Screenshot of the Azure portal showing the Apps Settings page with the Provisioning state, Running instance, and Registration status columns highlighted." lightbox="media/concept-app-status/apps-ui-status.png":::
+:::image type="content" source="media/concept-app-status/apps-ui-status.png" alt-text="Screenshot of the Azure portal that shows the Apps Settings page with specific columns highlighted." lightbox="media/concept-app-status/apps-ui-status.png":::
 
 ## Deployment status
 

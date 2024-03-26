@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Create an Azure Kubernetes Fleet Manager resource and join member clusters"
-description: In this quickstart, you learn how to create an Azure Kubernetes Fleet Manager resource and join member clusters.
-ms.date: 11/06/2023
+title: "Quickstart: Create an Azure Kubernetes Fleet Manager resource and join member clusters using Azure CLI"
+description: In this quickstart, you learn how to create an Azure Kubernetes Fleet Manager resource and join member clusters using Azure CLI.
+ms.date: 03/18/2024
 author: shashankbarsin
 ms.author: shasb
 ms.service: kubernetes-fleet
@@ -10,37 +10,30 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ---
 
-# Quickstart: Create an Azure Kubernetes Fleet Manager resource and join member clusters
+# Quickstart: Create an Azure Kubernetes Fleet Manager resource and join member clusters using Azure CLI
 
 Get started with Azure Kubernetes Fleet Manager (Fleet) by using the Azure CLI to create a Fleet resource and later connect Azure Kubernetes Service (AKS) clusters as member clusters.
 
 ## Prerequisites
 
 * Read the [conceptual overview of this feature](./concepts-fleet.md), which provides an explanation of fleets and member clusters referenced in this document.
-
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
-* A basic understanding of [Kubernetes core concepts](../aks/concepts-clusters-workloads.md).
-
 * An identity (user or service principal) which can be used to [log in to Azure CLI](/cli/azure/authenticate-azure-cli). This identity needs to have the following permissions on the Fleet and AKS resource types for completing the steps listed in this quickstart:
 
-    * Microsoft.ContainerService/fleets/read
-    * Microsoft.ContainerService/fleets/write
-    * Microsoft.ContainerService/fleets/listCredentials/action
-    * Microsoft.ContainerService/fleets/members/read
-    * Microsoft.ContainerService/fleets/members/write
-    * Microsoft.ContainerService/fleetMemberships/read
-    * Microsoft.ContainerService/fleetMemberships/write
-    * Microsoft.ContainerService/managedClusters/read
-    * Microsoft.ContainerService/managedClusters/write
-    * Microsoft.ContainerService/managedClusters/listClusterUserCredential/action
+  * Microsoft.ContainerService/fleets/read
+  * Microsoft.ContainerService/fleets/write
+  * Microsoft.ContainerService/fleets/members/read
+  * Microsoft.ContainerService/fleets/members/write
+  * Microsoft.ContainerService/fleetMemberships/read
+  * Microsoft.ContainerService/fleetMemberships/write
+  * Microsoft.ContainerService/managedClusters/read
+  * Microsoft.ContainerService/managedClusters/write
 
-* [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version `2.53.1` or later
+* [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version `2.53.1` or later.
 
+* Install the **fleet** Azure CLI extension using the [`az extension add`][az-extension-add] command and Make sure your version is at least `1.0.0`.
 
-* Install the **fleet** Azure CLI extension. Make sure your version is at least `1.0.0`:
-
-    ```azurecli
+    ```azurecli-interactive
     az extension add --name fleet
     ```
 
@@ -52,22 +45,19 @@ Get started with Azure Kubernetes Fleet Manager (Fleet) by using the Azure CLI t
     export FLEET=<your_fleet_name>
     ```
 
-* Install `kubectl` and `kubelogin` using the `az aks install-cli` command:
+* Install `kubectl` and `kubelogin` using the [`az aks install-cli`][az-aks-install-cli] command.
 
-  ```azurecli
+  ```azurecli-interactive
   az aks install-cli
   ```
 
-* The AKS clusters that you want to join as member clusters to the fleet resource need to be within the supported versions of AKS. Learn more about AKS version support policy [here](../aks/supported-kubernetes-versions.md#kubernetes-version-support-policy).
+* The AKS clusters that you want to join as member clusters to the Fleet resource need to be within the supported versions of AKS. Learn more about AKS version support policy [here](../aks/supported-kubernetes-versions.md#kubernetes-version-support-policy).
 
 ## Create a resource group
 
-An [Azure resource group](../azure-resource-manager/management/overview.md) is a logical group in which Azure resources are deployed and managed. When you create a resource group, you're prompted to specify a location. This location is:
+An [Azure resource group](../azure-resource-manager/management/overview.md) is a logical group in which Azure resources are deployed and managed. When you create a resource group, you're prompted to specify a location. This location is the storage location of your resource group metadata and where your resources run in Azure if you don't specify another location during resource creation.
 
-* The storage location of your resource group metadata.
-* Where your resources will run in Azure if you don't specify another location during resource creation.
-
-Set the Azure subscription and create a resource group using the [az group create](/cli/azure/group#az-group-create) command.
+Set the Azure subscription and create a resource group using the [`az group create`][az-group-create] command.
 
 ```azurecli-interactive
 az account set -s ${SUBSCRIPTION_ID}
@@ -76,7 +66,7 @@ az group create --name ${GROUP} --location eastus
 
 The following output example resembles successful creation of the resource group:
 
-```json
+```output
 {
   "id": "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/fleet-demo",
   "location": "eastus",
@@ -90,24 +80,24 @@ The following output example resembles successful creation of the resource group
 }
 ```
 
-## Create a fleet resource
+## Create a Fleet resource
 
-You can create a fleet resource to later group your AKS clusters as member clusters. By default this resource enables member cluster grouping and update orchestration. If the fleet hub is enabled, additional preview features are enabled such as Kubernetes object propagation to member clusters, and L4 service load balancing across multiple member clusters.
+You can create a Fleet resource to later group your AKS clusters as member clusters. By default, this resource enables member cluster grouping and update orchestration. If the Fleet hub is enabled, other preview features are enabled, such as Kubernetes object propagation to member clusters and L4 service load balancing across multiple member clusters.
 
 > [!IMPORTANT]
-> As of now, once a fleet resource has been created, it is not possible to change the hub mode for the fleet resource.
+> As of now, once a Fleet resource has been created, it's not possible to change the hub mode for the fleet resource.
 
-### Update orchestration only (default)
+### Option 1 - Create a Fleet without a hub cluster
 
-If you want to use Fleet only for update orchestration, you can create a fleet resource without the hub cluster using the [az fleet create](/cli/azure/fleet#az-fleet-create) command. This is the default experience when creating a new fleet resource.
+If you want to use Fleet only for update orchestration, which is the default experience when creating a new Fleet resource, you can create a Fleet resource without the hub cluster using the [`az fleet create`][az-fleet-create] command. For more information, see [What is a hub cluster (preview)?](./concepts-fleet.md#what-is-a-hub-cluster-preview).
 
 ```azurecli-interactive
 az fleet create --resource-group ${GROUP} --name ${FLEET} --location eastus
 ```
 
-The output will look similar to the following example:
+Your output should look similar to the following example output:
 
-```json
+```output
 {
   "etag": "...",
   "hubProfile": null,
@@ -135,118 +125,31 @@ The output will look similar to the following example:
 }
 ```
 
-### All scenarios enabled
+### Option 2 - Create a Fleet with a hub cluster
 
-If you want to use fleet for Kubernetes object propagation and multi-cluster load balancing in addition to update orchestration, then you need to create the fleet resource with the hub cluster enabled by specifying the `--enable-hub` parameter while using the [az fleet create](/cli/azure/fleet#az-fleet-create) command:
+If you want to use Fleet for Kubernetes object propagation and multi-cluster load balancing in addition to update orchestration, then you need to create the Fleet resource with the hub cluster enabled by specifying the `--enable-hub` parameter with the [`az fleet create`][az-fleet-create] command.
 
 ```azurecli-interactive
 az fleet create --resource-group ${GROUP} --name ${FLEET} --location eastus --enable-hub
 ```
 
-Output will look similar to the example above.
+Your output should look similar to the example output in the previous section.
 
 ## Join member clusters
 
 Fleet currently supports joining existing AKS clusters as member clusters.
 
-1. If you already have existing AKS clusters that you want to join to the fleet resource, you can skip to Step 2. If not, you can create three AKS clusters using the following commands:
-
-    **Create virtual network and subnets**
-
-    ```azurecli-interactive
-    export FIRST_VNET=first-vnet
-    export SECOND_VNET=second-vnet
-    export MEMBER_1_SUBNET=member-1
-    export MEMBER_2_SUBNET=member-2
-    export MEMBER_3_SUBNET=member-3
-    
-    az network vnet create \
-        --name ${FIRST_VNET} \
-        --resource-group ${GROUP} \
-        --location eastus \
-        --address-prefixes 10.0.0.0/8
-
-    az network vnet create \
-        --name ${SECOND_VNET} \
-        --resource-group ${GROUP} \
-        --location westcentralus \
-        --address-prefixes 10.0.0.0/8
-    
-    az network vnet subnet create \
-        --vnet-name ${FIRST_VNET} \
-        --name ${MEMBER_1_SUBNET} \
-        --resource-group ${GROUP} \
-        --address-prefixes 10.1.0.0/16
-    
-    az network vnet subnet create \
-        --vnet-name ${FIRST_VNET} \
-        --name ${MEMBER_2_SUBNET} \
-        --resource-group ${GROUP} \
-        --address-prefixes 10.2.0.0/16
-
-    az network vnet subnet create \
-        --vnet-name ${SECOND_VNET} \
-        --name ${MEMBER_3_SUBNET} \
-        --resource-group ${GROUP} \
-        --address-prefixes 10.1.0.0/16
-    ```
-
-    **Create AKS clusters**
-
-    ```azurecli-interactive
-    export MEMBER_NAME_1=aks-member-1
-
-    az aks create \
-        --resource-group ${GROUP} \
-        --location eastus \
-        --name ${MEMBER_NAME_1} \
-        --node-count 1 \
-        --network-plugin azure \
-        --vnet-subnet-id "/subscriptions/${SUBSCRIPTION_ID}/resourceGroups/${GROUP}/providers/Microsoft.Network/virtualNetworks/${FIRST_VNET}/subnets/${MEMBER_1_SUBNET}"
-    ```
-
-    ```azurecli-interactive
-    export MEMBER_NAME_2=aks-member-2
-
-    az aks create \
-        --resource-group ${GROUP} \
-        --location eastus \
-        --name ${MEMBER_NAME_2} \
-        --node-count 1 \
-        --network-plugin azure \
-        --vnet-subnet-id "/subscriptions/${SUBSCRIPTION_ID}/resourceGroups/${GROUP}/providers/Microsoft.Network/virtualNetworks/${FIRST_VNET}/subnets/${MEMBER_2_SUBNET}"
-    ```
-
-    ```azurecli-interactive
-    export MEMBER_NAME_3=aks-member-3
-
-    az aks create \
-        --resource-group ${GROUP} \
-        --location westcentralus \
-        --name ${MEMBER_NAME_3} \
-        --node-count 1 \
-        --network-plugin azure \
-        --vnet-subnet-id "/subscriptions/${SUBSCRIPTION_ID}/resourceGroups/${GROUP}/providers/Microsoft.Network/virtualNetworks/${SECOND_VNET}/subnets/${MEMBER_3_SUBNET}"
-    ```
-
-    We created the third cluster in a different region above to demonstrate that fleet can support joining clusters from different regions. Fleet also supports joining clusters from different subscriptions. The only requirement for AKS clusters being joined to fleet as members is that they all need to be a part of the same Microsoft Entra tenant.
-
-1. Set the following environment variables for members:
+1. Set the following environment variables for member clusters:
 
     ```azurecli-interactive
     export MEMBER_NAME_1=aks-member-1
     export MEMBER_CLUSTER_ID_1=/subscriptions/${SUBSCRIPTION_ID}/resourceGroups/${GROUP}/providers/Microsoft.ContainerService/managedClusters/${MEMBER_NAME_1}
-
-    export MEMBER_NAME_2=aks-member-2
-    export MEMBER_CLUSTER_ID_2=/subscriptions/${SUBSCRIPTION_ID}/resourceGroups/${GROUP}/providers/Microsoft.ContainerService/managedClusters/${MEMBER_NAME_2}
-
-    export MEMBER_NAME_3=aks-member-3
-    export MEMBER_CLUSTER_ID_3=/subscriptions/${SUBSCRIPTION_ID}/resourceGroups/${GROUP}/providers/Microsoft.ContainerService/managedClusters/${MEMBER_NAME_3}
     ```
 
-1. Join these clusters to the Fleet resource using the following commands:
+2. Join your existing AKS clusters to the Fleet resource using the [`az fleet member create`][az-fleet-member-create] command.
 
     ```azurecli-interactive
+    # Join the first member cluster
     az fleet member create \
         --resource-group ${GROUP} \
         --fleet-name ${FLEET} \
@@ -254,13 +157,13 @@ Fleet currently supports joining existing AKS clusters as member clusters.
         --member-cluster-id ${MEMBER_CLUSTER_ID_1}
     ```
 
-    The output will look similar to the following example:
+    Your output should look similar to the following example output:
 
-    ```json
+    ```output
     {
-      "clusterResourceId": "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<GROUP>/providers/Microsoft.ContainerService/managedClusters/aks-member-1",
+      "clusterResourceId": "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<GROUP>/providers/Microsoft.ContainerService/managedClusters/aks-member-x",
       "etag": "...",
-      "id": "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<GROUP>/providers/Microsoft.ContainerService/fleets/<FLEET>/members/aks-member-1",
+      "id": "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<GROUP>/providers/Microsoft.ContainerService/fleets/<FLEET>/members/aks-member-x",
       "name": "aks-member-1",
       "provisioningState": "Succeeded",
       "resourceGroup": "<GROUP>",
@@ -276,75 +179,15 @@ Fleet currently supports joining existing AKS clusters as member clusters.
     }
     ```
 
-    ```azurecli-interactive
-    az fleet member create \
-        --resource-group ${GROUP} \
-        --fleet-name ${FLEET} \
-        --name ${MEMBER_NAME_2} \
-        --member-cluster-id ${MEMBER_CLUSTER_ID_2}
-    ```
-
-    The output will look similar to the following example:
-
-    ```json
-    {
-      "clusterResourceId": "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<GROUP>/providers/Microsoft.ContainerService/managedClusters/aks-member-2",
-      "etag": "...",
-      "id": "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<GROUP>/providers/Microsoft.ContainerService/fleets/<FLEET>/members/aks-member-2",
-      "name": "aks-member-2",
-      "provisioningState": "Succeeded",
-      "resourceGroup": "<GROUP>",
-      "systemData": {
-        "createdAt": "2022-10-04T19:05:06.483268+00:00",
-        "createdBy": "<user>",
-        "createdByType": "User",
-        "lastModifiedAt": "2022-10-04T19:05:06.483268+00:00",
-        "lastModifiedBy": "<user>",
-        "lastModifiedByType": "User"
-      },
-      "type": "Microsoft.ContainerService/fleets/members"
-    }
-    ```
-
-    ```azurecli-interactive
-    az fleet member create \
-        --resource-group ${GROUP} \
-        --fleet-name ${FLEET} \
-        --name ${MEMBER_NAME_3} \
-        --member-cluster-id ${MEMBER_CLUSTER_ID_3}
-    ```
-
-    The output will look similar to the following example:
-
-    ```json
-    {
-      "clusterResourceId": "/subscriptions/<SUBSCRIPTION_ID>/resourcegroups/<GROUP>/providers/Microsoft.ContainerService/managedClusters/aks-member-3",
-      "etag": "...",
-      "id": "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<GROUP>/providers/Microsoft.ContainerService/fleets/<FLEET>/members/aks-member-3",
-      "name": "aks-member-3",
-      "provisioningState": "Succeeded",
-      "resourceGroup": "fleet-demo",
-      "systemData": {
-        "createdAt": "2022-10-04T19:05:19.497275+00:00",
-        "createdBy": "<user>",
-        "createdByType": "User",
-        "lastModifiedAt": "2022-10-04T19:05:19.497275+00:00",
-        "lastModifiedBy": "<user>",
-        "lastModifiedByType": "User"
-      },
-      "type": "Microsoft.ContainerService/fleets/members"
-    }
-    ```
-
-1. Verify that the member cluster has successfully joined by running the following command:
+3. Verify that the member clusters have successfully joined the Fleet resource using the [`az fleet member list`][az-fleet-member-list] command.
 
     ```azurecli-interactive
     az fleet member list --resource-group ${GROUP} --fleet-name ${FLEET} -o table
     ```
 
-    If successful, the output will look similar to the following example:
-    
-    ```console
+    If successful, your output should look similar to the following example output:
+
+    ```output
     ClusterResourceId                                                                                                                                Name          ProvisioningState    ResourceGroup
     -----------------------------------------------------------------------------------------------------------------------------------------------  ------------  -------------------  ---------------
     /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<GROUP>/providers/Microsoft.ContainerService/managedClusters/aks-member-1  aks-member-1  Succeeded            <GROUP>
@@ -352,84 +195,16 @@ Fleet currently supports joining existing AKS clusters as member clusters.
     /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<GROUP>/providers/Microsoft.ContainerService/managedClusters/aks-member-3  aks-member-3  Succeeded            <GROUP>
     ```
 
-## (Optional) Access the Kubernetes API of the Fleet resource cluster
-
-If the Azure Kubernetes Fleet Manager resource was created with the hub cluster enabled, then it can be used to centrally control scenarios like Kubernetes object propagation.
-
-If the Azure Kubernetes Fleet Manager resource was created without the hub cluster enabled, then you can skip this section.
-
-To access the Fleet cluster's Kubernetes API, run the following commands:
-
-1. Get the kubeconfig file of the Fleet resource:
-
-    ```azurecli-interactive
-    az fleet get-credentials --resource-group ${GROUP} --name ${FLEET}
-    ```
-
-    The output will look similar to the following example:
-
-    ```console
-    Merged "hub" as current context in /home/fleet/.kube/config
-    ```
-
-1. Set the following environment variable for the `id` of the Fleet resource:
-
-    ```azurecli-interactive
-    export FLEET_ID=/subscriptions/${SUBSCRIPTION_ID}/resourceGroups/${GROUP}/providers/Microsoft.ContainerService/fleets/${FLEET}
-    ```
-
-1. Authorize your identity to the Fleet resource's Kubernetes API:
-
-    ```azurecli-interactive
-    export IDENTITY=$(az ad signed-in-user show --query "id" --output tsv)
-    export ROLE="Azure Kubernetes Fleet Manager RBAC Cluster Admin"
-    az role assignment create --role "${ROLE}" --assignee ${IDENTITY} --scope ${FLEET_ID}
-    ```
-
-    For the above command, for the `ROLE` environment variable, you can use one of the following four built-in role definitions as value:
-
-    * Azure Kubernetes Fleet Manager RBAC Reader
-    * Azure Kubernetes Fleet Manager RBAC Writer
-    * Azure Kubernetes Fleet Manager RBAC Admin
-    * Azure Kubernetes Fleet Manager RBAC Cluster Admin
-
-
-    You should see output similar to the following example:
-
-    ```json
-    {
-      "canDelegate": null,
-      "condition": null,
-      "conditionVersion": null,
-      "description": null,
-      "id": "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<GROUP>/providers/Microsoft.ContainerService/fleets/<FLEET>/providers/Microsoft.Authorization/roleAssignments/<assignment>",
-      "name": "<name>",
-      "principalId": "<id>",
-      "principalType": "User",
-      "resourceGroup": "<GROUP>",
-      "roleDefinitionId": "/subscriptions/<SUBSCRIPTION_ID>/providers/Microsoft.Authorization/roleDefinitions/18ab4d3d-a1bf-4477-8ad9-8359bc988f69",
-      "scope": "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<GROUP>/providers/Microsoft.ContainerService/fleets/<FLEET>",
-      "type": "Microsoft.Authorization/roleAssignments"
-    }
-    ```
-
-1. Verify the status of the member clusters:
-
-    ```bash
-    kubectl get memberclusters
-    ```
-
-    If successful, the output will look similar to the following example:
-
-    ```console
-    NAME           JOINED   AGE
-    aks-member-1   True     2m
-    aks-member-2   True     2m
-    aks-member-3   True     2m
-    ```
-
 ## Next steps
 
 * [Orchestrate updates across multiple member clusters](./update-orchestration.md).
 * [Set up Kubernetes resource propagation from hub cluster to member clusters](./resource-propagation.md).
 * [Set up multi-cluster layer-4 load balancing](./l4-load-balancing.md).
+
+<!-- INTERNAL LINKS -->
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-aks-install-cli]: /cli/azure/aks#az-aks-install-cli
+[az-group-create]: /cli/azure/group#az-group-create
+[az-fleet-create]: /cli/azure/fleet#az-fleet-create
+[az-fleet-member-create]: /cli/azure/fleet/member#az-fleet-member-create
+[az-fleet-member-list]: /cli/azure/fleet/member#az-fleet-member-list
