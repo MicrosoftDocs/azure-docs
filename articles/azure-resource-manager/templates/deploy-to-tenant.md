@@ -143,7 +143,7 @@ When deploying to a tenant, you can deploy resources to:
 * subscriptions
 * resource groups
 
-[!INCLUDE [Scope transitions](../../includes/resource-manager-scope-transition.md)]
+[!INCLUDE [Scope transitions](../../../includes/resource-manager-scope-transition.md)]
 
 An [extension resource](scope-extension-resources.md) can be scoped to a target that is different than the deployment target.
 
