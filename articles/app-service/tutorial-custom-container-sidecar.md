@@ -12,7 +12,7 @@ keywords: azure app service, web app, linux, windows, docker, container, sidecar
 
 In this tutorial, you add OpenTelemetry collector as a sidecar container to a Linux custom container app in Azure App Service. 
 
-In Azure App Service, you can add up to [TODO: #] sidecar containers for each custom container app. Sidecar containers let you deploy extra services and features to your container application without making them tightly coupled to your main application container. For example, you can add monitoring, logging, configuration, and networking services as sidecar containers. An OpenTelemetry collector sidecar is one such monitoring example. 
+In Azure App Service, you can add up to 5 sidecar containers for each sidecar-enabled custom container app. Sidecar containers let you deploy extra services and features to your container application without making them tightly coupled to your main application container. For example, you can add monitoring, logging, configuration, and networking services as sidecar containers. An OpenTelemetry collector sidecar is one such monitoring example. 
 
 For more information about sidecars, see [Sidecar pattern](/azure/architecture/patterns/sidecar).
 
@@ -28,8 +28,8 @@ First you create the resources that the tutorial uses (for more information, see
 1. In the [Azure Cloud Shell](https://shell.azure.com), run the following commands:
 
     ```azurecli-interactive
-    git clone https://github.com/lcephas/template [TODO: change]
-    cd template [TODO: change]
+    git clone https://github.com/Azure-Samples/app-service-sidecar-tutorial-prereqs
+    cd app-service-sidecar-tutorial-prereqs
     azd provision
     ```
 
@@ -86,7 +86,7 @@ First you create the resources that the tutorial uses (for more information, see
     :::image type="content" source="media/tutorial-custom-container-sidecar/create-wizard-container-panel.png" alt-text="Screenshot showing the web app create wizard and settings for the container image and the sidecar support highlighted.":::
 
     > [!NOTE]
-    > These settings are configured differently in sidecar-enabled containers. For more information, see [Differences for sidecar-enabled containers](#differences-for-sidecar-enabled-containers).
+    > These settings are configured differently in sidecar-enabled apps. For more information, see [Differences for sidecar-enabled apps](#differences-for-sidecar-enabled-apps).
 
 1. Select **Review + create**, then select **Create**.
 
@@ -110,7 +110,7 @@ In this section, you add a sidecar container to your custom container app.
     - **Tag**: **latest**
     - **Port**: **4317**
 
-    Port 4317 is the default port used by the sample container to receive OpenTelemetry data. It's accessible from any other container in the app at `localhost:4317`. This is exactly how the nginx container sends data to the sidecar (see [TODO: add location]).
+    Port 4317 is the default port used by the sample container to receive OpenTelemetry data. It's accessible from any other container in the app at `localhost:4317`. This is exactly how the Nginx container sends data to the sidecar (see the [OpenTelemetry module configuration for the sample Nginx image](https://github.com/Azure-Samples/app-service-sidecar-tutorial-prereqs/blob/main/images/nginx/opentelemetry_module.conf)).
 
 1. Select **Apply**.
 
@@ -120,7 +120,7 @@ In this section, you add a sidecar container to your custom container app.
 
 ## 4. Configure environment variables
 
-For the sample scenario, the otel-collector sidecar is configured to export the OpenTelemetry data to Azure Monitor, but it needs the connection string as an environment variable (see [TODO: add location]).
+For the sample scenario, the otel-collector sidecar is configured to export the OpenTelemetry data to Azure Monitor, but it needs the connection string as an environment variable (see the [OpenTelemetry configuration file for the otel-collector image](https://github.com/Azure-Samples/app-service-sidecar-tutorial-prereqs/blob/main/images/otel-collector/otel-collector-config.yaml)).
 
 You configure environment variables for the containers like any App Service app, by configuring [app settings](configure-common.md#configure-app-settings). The app settings are accessible to all the containers in the app.
 
@@ -135,7 +135,7 @@ You configure environment variables for the containers like any App Service app,
     :::image type="content" source="media/tutorial-custom-container-sidecar/configure-app-settings.png" alt-text="Screenshot showing a web app's Configuration page with two app settings added.":::
 
 > [!NOTE]
-> Certain app settings don't apply to sidecar-enabled custom container apps. For more information, see [Differences for sidecar-enabled containers](#differences-for-sidecar-enabled-containers)
+> Certain app settings don't apply to sidecar-enabled apps. For more information, see [Differences for sidecar-enabled apps](#differences-for-sidecar-enabled-apps)
 
 ## 5. Verify in Application Insights
 
@@ -157,9 +157,9 @@ When you no longer need the environment, you can delete the resource group, App 
 azd down
 ```
 
-## Differences for sidecar-enabled containers
+## Differences for sidecar-enabled apps
 
-Sidecar-enabled custom container apps differ from custom container apps that aren't sidecar-enabled in that the settings aren't set, especially in how you configure basic container settings. Custom container apps that aren't sidecar-enabled are configured mainly using app settings, but sidecar-enabled custom container apps are configured directly as resource properties in the app. For example, these app settings don't apply for sidecar-enabled custom container apps:
+You configure sidecar-enabled apps differently than apps that aren't sidecar-enabled. Specifically, you don't configure the the main container and sidecars with app settings, but directly in the resource properties. These app settings don't apply for sidecar-enabled apps:
 
 - Registry authentication settings: `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD`.
 - Container port: `WEBSITES_PORT`
