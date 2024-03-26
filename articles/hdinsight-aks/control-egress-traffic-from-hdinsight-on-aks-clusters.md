@@ -3,7 +3,7 @@ title: Control network traffic from HDInsight on AKS Cluster pools and cluster
 description: A guide to configure and manage inbound and outbound network connections from HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 03/21/2024
+ms.date: 03/26/2024
 ---
 
 # Control network traffic from HDInsight on AKS Cluster pools and clusters
@@ -62,7 +62,7 @@ To allow requests to be sent to the cluster, you need to [allowlist the traffic]
 >  The `userDefinedRouting` outbound type is an advanced networking scenario and requires proper network configuration, before you begin.  
 > Changing the outbound type after cluster pool creation is not supported.  
 
-If `userDefinedRouting` is set, HDInsight on AKS cant't automatically configure egress paths. The user needs to do the egress setup.
+If `userDefinedRouting` is set, HDInsight on AKS can't automatically configure egress paths. The user needs to do the egress setup.
 
 You must deploy the HDInsight on AKS cluster into an existing virtual network with a subnet previously configured, and you must establish explicit egress.  
 
