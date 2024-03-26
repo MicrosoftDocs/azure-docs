@@ -44,11 +44,11 @@ The following table lists the metrics available for the Microsoft.Synapse/worksp
 
 #### Details
 
-- Dedicated SQL pool measures performance in compute data warehouse units (cDWUs). Rather than surfacing details of individual nodes such as memory per node or number of CPUs per node, the intent behind emitting metrics such as `MemoryUsedPercent` and `CPUPercent`  is to show general usage trend over a period of time. These trends help administrators understand how an instance of dedicated SQL pool is utilized, and changes in footprint of memory and/or CPU could be a trigger for actions such as scale-up or scale-down of cDWUs, or investigating queries that might require optimization.
+- Dedicated SQL pool measures performance in compute data warehouse units (DWUs). Rather than surfacing details of individual nodes such as memory per node or number of CPUs per node, metrics such as `MemoryUsedPercent` and `CPUPercent` show general usage trend over a period of time. These trends help administrators understand how a dedicated SQL pool instance is utilized. Changes in memory or CPU footprint could be a trigger for actions such as scale-up or scale-down of DWUs, or investigating queries that might require optimization.
 
-  DWU used represents only a high-level representation of usage across the SQL pool and isn't a comprehensive indicator of utilization. To determine whether to scale up or down, consider all factors that DWU can impact, such as concurrency, memory, `tempdb`, and adaptive cache capacity. [Run your workload at different DWU settings](sql-data-warehouse-manage-compute-overview.md#finding-the-right-size-of-data-warehouse-units) to determine what works best to meet your business objectives.
+  `DWUUsed` represents only high-level usage across the SQL pool and isn't a comprehensive indicator of utilization. To determine whether to scale up or down, consider all factors that DWU can impact, such as concurrency, memory, tempdb size, and adaptive cache capacity. [Run your workload at different DWU settings](sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md#finding-the-right-size-of-data-warehouse-units) to determine what works best to meet your business objectives.
 
-- Memory percentage reflects utilization even if the data warehouse is idle, not active workload memory consumption. Track this metric along with `tempdb` and Gen2 cache to decide whether you need to scale for more cache capacity to increase workload performance.
+- Memory percentage reflects utilization even if the data warehouse is idle, not active workload memory consumption. Track this metric along with tempdb size and Gen2 cache to decide whether you need to scale for more cache capacity to increase workload performance.
 
 - Failed and successful connections are reported for a particular data warehouse, not for the server itself.
 
@@ -56,35 +56,27 @@ The following table lists the metrics available for the Microsoft.Synapse/worksp
 
 [!INCLUDE [horz-monitor-ref-metrics-dimensions](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
 
-**Microsoft.Synapse/workspaces**
+### Microsoft.Synapse/workspaces
 
-Result, FailureType, Activity, ActivityType, Pipeline, Trigger,<br>
-EventType, TableName, LinkTableStatus, LinkConnectionName,<br>
-SQLPoolName, SQLDatabaseName, JobName, LogicalName, PartitionId, ProcessorInstance
+`Result`, `FailureType`, `Activity`, `ActivityType`, `Pipeline`, `Trigger`, `EventType`, `TableName`, `LinkTableStatus`, `LinkConnectionName`, `SQLPoolName`, `SQLDatabaseName`, `JobName`, `LogicalName`, `PartitionId`, `ProcessorInstance`
 
-Use the `Result` dimension of the `IntegrationActivityRunsEnded`, `IntegrationPipelineRunsEnded`, `IntegrationTriggerRunsEnded`, and `BuiltinSqlPoolDataRequestsEnded` metrics to filter by Succeeded, Failed, or Cancelled final state.
+Use the `Result` dimension of the `IntegrationActivityRunsEnded`, `IntegrationPipelineRunsEnded`, `IntegrationTriggerRunsEnded`, and `BuiltinSqlPoolDataRequestsEnded` metrics to filter by `Succeeded`, `Failed`, or `Canceled` final state.
 
-**Microsoft.Synapse/workspaces/bigDataPools**
+### Microsoft.Synapse/workspaces/bigDataPools
 
-SubmitterId,<br>
-JobState, JobType, JobResult
+`SubmitterId`, `JobState`, `JobType`, `JobResult`
 
-**Microsoft.Synapse/workspaces/kustoPools**
-Database, SealReason,<br>
-ComponentType, ComponentName,<br>
-ContinuousExportName, Result,<br>
-EventStatus, State, RoleInstance,<br>
-IngestionResultDetails, FailureKind,<br>
-MaterializedViewName, Kind, Result,<br>
-QueryStatus, ComponentType, CommandType
+### Microsoft.Synapse/workspaces/kustoPools
 
-**Microsoft.Synapse/workspaces/scopePools**
+`Database`, `SealReason`, `ComponentType`, `ComponentName`, `ContinuousExportName`, `Result`, `EventStatus`, `State`, `RoleInstance`, `IngestionResultDetails`, `FailureKind`, `MaterializedViewName`, `Kind`, `Result`, `QueryStatus`, `ComponentType`, `CommandType`
 
-JobType, JobResult
+### Microsoft.Synapse/workspaces/scopePools
 
-**Microsoft.Synapse/workspaces/sqlPools**
+`JobType`, `JobResult`
 
-IsUserDefined, Result
+### Microsoft.Synapse/workspaces/sqlPools
+
+`IsUserDefined`, `Result`
 
 [!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 

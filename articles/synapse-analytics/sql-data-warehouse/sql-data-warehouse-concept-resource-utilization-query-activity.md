@@ -17,15 +17,13 @@ Azure Synapse Analytics provides a rich monitoring experience within the Azure p
 
 ## Resource utilization
 
-For a list and details about the metrics that are available for dedicated SQL pools (formerly SQL Data Warehouse), see [Supported metrics for Microsoft.Synapse/workspaces/sqlPools](monitor-synapse-analytics-reference.md).
-
-These metrics are surfaced through [Azure Monitor](../../azure-monitor/data-platform.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json#metrics).
+For a list and details about the metrics that are available for dedicated SQL pools (formerly SQL Data Warehouse), see [Supported metrics for Microsoft.Synapse/workspaces/sqlPools](../monitor-synapse-analytics-reference.md). These metrics are surfaced through [Azure Monitor](/azure/azure-monitor/data-platform?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json#metrics).
 
 Things to consider when viewing metrics and setting alerts:
 
-- DWU used represents only a **high-level representation of usage** across the SQL pool and is not meant to be a comprehensive indicator of utilization. To determine whether to scale up or down, consider all factors which can be impacted by DWU such as concurrency, memory, `tempdb`, and adaptive cache capacity. We recommend [running your workload at different DWU settings](sql-data-warehouse-manage-compute-overview.md#finding-the-right-size-of-data-warehouse-units) to determine what works best to meet your business objectives.
+- DWU used represents only a **high-level representation of usage** across the SQL pool and isn't meant to be a comprehensive indicator of utilization. To determine whether to scale up or down, consider all factors which can be impacted by DWU such as concurrency, memory, `tempdb`, and adaptive cache capacity. We recommend [running your workload at different DWU settings](sql-data-warehouse-manage-compute-overview.md#finding-the-right-size-of-data-warehouse-units) to determine what works best to meet your business objectives.
 - Failed and successful connections are reported for a particular data warehouse - not for the server itself.
-- Memory percentage reflects utilization even if the data warehouse is in idle state - it does not reflect active workload memory consumption. Use and track this metric along with others (`tempdb`, Gen2 cache) to make a holistic decision on if scaling for additional cache capacity will increase workload performance to meet your requirements.
+- Memory percentage reflects utilization even if the data warehouse is in idle state - it doesn't reflect active workload memory consumption. Use and track this metric along with others (`tempdb`, Gen2 cache) to make a holistic decision on if scaling for additional cache capacity will increase workload performance to meet your requirements.
 
 ## Query activity
 
@@ -35,15 +33,15 @@ To view the list of DMVs that apply to Synapse SQL, review [dedicated SQL pool D
 
 > [!NOTE]
 > You need to resume your dedicated SQL Pool to monitor the queries using the Query activity tab.
-> The **Query activity** tab cannot be used to view historical executions. To check the query history, it is recommended to enable [diagnostics](sql-data-warehouse-monitor-workload-portal.md) to export the available DMVs to one of the available destinations (such as Log Analytics) for future reference. By design, DMVs contain records of the last 10,000 executed queries only. Once this limit is reached, the DMV data will be flushed, and new records will be inserted. Additionally, after any pause, resume, or scale operation, the DMV data will be cleared.
+> The **Query activity** tab can't be used to view historical executions. To check the query history, it's recommended to enable [diagnostics](sql-data-warehouse-monitor-workload-portal.md) to export the available DMVs to one of the available destinations (such as Log Analytics) for future reference. By design, DMVs contain records of the last 10,000 executed queries only. Once this limit is reached, the DMV data is flushed, and new records are inserted. Additionally, after any pause, resume, or scale operation, the DMV data is cleared.
 
 ## Metrics and diagnostics logging
 
-Both metrics and logs can be exported to Azure Monitor, specifically the [Azure Monitor logs](../../azure-monitor/logs/log-query-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) component and can be programmatically accessed through [log queries](../../azure-monitor/logs/log-analytics-tutorial.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json). The log latency for Synapse SQL is about 10-15 minutes.
+Both metrics and logs can be exported to Azure Monitor, specifically the [Azure Monitor logs](/azure/azure-monitor/logs/log-query-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) component and can be programmatically accessed through [log queries](../../azure-monitor/logs/log-analytics-tutorial.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json). The log latency for Synapse SQL is about 10-15 minutes.
 
-## Next steps
+## Related content
 
-The following How-to guide describes common scenarios and use cases when monitoring and managing your data warehouse:
+The following articles describe common scenarios and use cases when monitoring and managing your data warehouse:
 
 - [Monitor your data warehouse workload with DMVs](sql-data-warehouse-manage-monitor.md)
-- [Use Azure Monitor with your Azure Synapse Analytics workspace](../monitoring/how-to-monitor-using-azure-monitor.md)
+- [Use Azure Monitor with your Azure Synapse Analytics workspace](../monitor-synapse-analytics.md)
