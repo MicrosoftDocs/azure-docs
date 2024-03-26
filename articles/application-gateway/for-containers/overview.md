@@ -7,7 +7,7 @@ ms.custom: references_regions
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: overview
-ms.date: 03/07/2024
+ms.date: 03/26/2024
 ms.author: greglin
 ---
 
@@ -58,6 +58,7 @@ Application Gateway for Containers supports the following features for traffic m
 - Availability zone resiliency
 - Default and custom health probes
 - Header rewrite
+- HTTP/2
 - HTTPS traffic management:
   - SSL termination
   - End to End SSL
