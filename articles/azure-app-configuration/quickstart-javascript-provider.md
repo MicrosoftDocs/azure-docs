@@ -188,6 +188,57 @@ In this tutorial, you'll create a Node.js console app and load data from your Ap
     true
     ```
 
+## Use configuration object
+
+JSON configuration files are used in some applications, where configuration is loaded into an object. An API `constructConfigurationObject` is available for such applications, which constructs a configuration object based on the key-values loaded from Azure App Configuration. It minimizes necessary code changes to adopt Azure App Configuration.
+
+1. Open *app.js* in the *app-configuration-quickstart* directory and replace its content with below: 
+
+    ```javascript
+    const { load } = require("@azure/app-configuration-provider");
+    const connectionString = process.env.AZURE_APPCONFIG_CONNECTION_STRING;
+
+    async function run() {
+        // Load all key-values from Azure App Configuration
+        const settings = await load(connectionString);
+        
+        // Construct configuration object from loaded key-values
+        const config = settings.constructConfigurationObject({
+            separator: "."
+        });
+
+    // Print out the configuration object
+    console.log("Constructed configuration object 'config': ");
+    console.log(config);
+
+    // Use dot-notation to access configuration
+    console.log(`config.message:\t${config.message}`);
+    console.log(`config.app.greeting:\t${config.app.greeting}`);
+    console.log(`config.app.json.myKey:\t${config.app.json.myKey}`);
+    }
+
+    run().catch(console.error);
+    ```
+
+1. Run the following command to run the app locally:
+
+    ```bash
+    node app.js
+    ```
+
+    You should see the following output:
+
+    ```Output
+    Constructed configuration object 'config': 
+    {
+        app: { greeting: 'Hello World', json: { myKey: 'myValue' } },
+        message: 'Message from Azure App Configuration'
+    }
+    config.message: Message from Azure App Configuration
+    config.app.greeting:    Hello World
+    config.app.json.myKey:  myValue
+    ```
+
 ## Clean up resources
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
