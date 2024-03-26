@@ -41,9 +41,9 @@ A transient failure occurs due to a circumstance that's temporary and soon retur
 - Connectivity issues between data sources and Log Analytics, or between Log Analytics and Microsoft Sentinel.
 - Any other new and unknown failure is considered transient.
 
-In the event of a transient failure, Microsoft Sentinel continues trying to execute the rule again after predetermined and ever-increasing intervals, up to a point. After that, the rule will run again only at its next scheduled time. A rule is never auto-disabled due to a transient failure.
+In the event of a transient failure, Microsoft Sentinel continues trying to execute the rule again after predetermined and ever-increasing intervals, up to a point. After that, the rule will run again only at its next scheduled time. A rule is never autodisabled due to a transient failure.
 
-### Permanent failure&mdash;rule auto-disabled
+### Permanent failure&mdash;rule autodisabled
 
 A permanent failure occurs due to a change in the conditions that allow the rule to run, which without human intervention can't return to their former status. The following are some examples of failures that are classified as permanent:
 
@@ -51,7 +51,7 @@ A permanent failure occurs due to a change in the conditions that allow the rule
 - The target table (on which the rule query operated) was deleted.
 - Microsoft Sentinel was removed from the target workspace.
 - A function used by the rule query is no longer valid; it was either modified or removed.
-- Permissions to one of the data sources of the rule query were changed ([see example below](#permanent-failure-due-to-lost-access-across-subscriptionstenants)).
+- Permissions to one of the data sources of the rule query were changed ([see example](#permanent-failure-due-to-lost-access-across-subscriptionstenants)).
 - One of the data sources of the rule query was deleted.
 
 **In the event of a predetermined number of consecutive permanent failures, of the same type and on the same rule,** Microsoft Sentinel stops trying to execute the rule, and also takes the following steps:
@@ -60,13 +60,13 @@ A permanent failure occurs due to a change in the conditions that allow the rule
 - Adds the words **"AUTO DISABLED"** to the beginning of the rule's name.
 - Adds the reason for the failure (and the disabling) to the rule's description.
 
-You can easily determine the presence of any auto-disabled rules, by sorting the rule list by name. The auto-disabled rules are at or near the top of the list.
+You can easily determine the presence of any autodisabled rules, by sorting the rule list by name. The autodisabled rules are at or near the top of the list.
 
-SOC managers should be sure to check the rule list regularly for the presence of auto-disabled rules.
+SOC managers should be sure to check the rule list regularly for the presence of autodisabled rules.
 
 ### Permanent failure due to resource drain
 
-Another kind of permanent failure occurs due to an **improperly built query** that causes the rule to consume **excessive computing resources** and risks being a performance drain on your systems. When Microsoft Sentinel identifies such a rule, it takes the same three steps mentioned above for the other permanent failures&mdash;disables the rule, prepends **"AUTO DISABLED"** to the rule name, and adds the reason for the failure to the description.
+Another kind of permanent failure occurs due to an **improperly built query** that causes the rule to consume **excessive computing resources** and risks being a performance drain on your systems. When Microsoft Sentinel identifies such a rule, it takes the same three steps mentioned for the other types of permanent failures&mdash;disables the rule, prepends **"AUTO DISABLED"** to the rule name, and adds the reason for the failure to the description.
 
 To re-enable the rule, you must address the issues in the query that cause it to use too many resources. See the following articles for best practices to optimize your Kusto queries:
 
@@ -77,13 +77,13 @@ Also see [Useful resources for working with Kusto Query Language in Microsoft Se
 
 ### Permanent failure due to lost access across subscriptions/tenants
 
-One particular example of when a permanent failure could occur due to a permissions change on a data source ([see list above](#permanent-failurerule-auto-disabled)) concerns the case of a Microsoft Security Solution Provider (MSSP)&mdash;or any other scenario where analytics rules query across subscriptions or tenants.
+One particular example of when a permanent failure could occur due to a permissions change on a data source ([see the list](#permanent-failurerule-autodisabled)) concerns the case of a Microsoft Security Solution Provider (MSSP)&mdash;or any other scenario where analytics rules query across subscriptions or tenants.
 
 When you create an analytics rule, an access permissions token is applied to the rule and saved along with it. This token ensures that the rule can access the workspace that contains the tables referenced by the rule's query, and that this access is maintained even if the rule's creator loses access to that workspace.
 
 There's one exception, however: when a rule is created to access workspaces in other subscriptions or tenants, such as what happens in the case of an MSSP, Microsoft Sentinel takes extra security measures to prevent unauthorized access to customer data. These kinds of rules have the credentials of the user that created the rule applied to them, instead of an independent access token. When the user no longer has access to the other tenant, the rule stops working.
 
-If you operate Microsoft Sentinel in a cross-subscription or cross-tenant scenario, and if one of your analysts or engineers loses access to a particular workspace, any rules created by that user will stop working. You'll get a health monitoring message regarding "insufficient access to resource", and the rule will be [auto-disabled according to the procedure described above](#permanent-failurerule-auto-disabled).
+If you operate Microsoft Sentinel in a cross-subscription or cross-tenant scenario, and if one of your analysts or engineers loses access to a particular workspace, any rules created by that user will stop working. You'll get a health monitoring message regarding "insufficient access to resource", and the rule will be [autodisabled according to the procedure described previously](#permanent-failurerule-autodisabled).
 
 ## Next steps
 
