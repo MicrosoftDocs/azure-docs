@@ -91,7 +91,7 @@ API Management uses a public IP address for a connection outside the VNet or a p
 
 * When API management is deployed in an external or internal virtual network and API management connects to private (intranet-facing) backends, internal IP addresses (dynamic IP, or DIP addresses) from the subnet are used for the runtime API traffic. When a request is sent from API Management to a private backend, a private IP address will be visible as the origin of the request. 
 
-    Therefore, if IP restriction lists secure resources within the VNet or a peered VNet, it is recommended to use the whole API Management [subnet range](virtual-network-concepts.md#subnet-size) with an IP rule - and (in internal mode) not just the private IP address associated with the API Management resource.
+    Therefore, if IP restriction lists secure resources within the VNet or a peered VNet, it is recommended to use the whole API Management [subnet range](virtual-network-injection-resources.md#subnet-size) with an IP rule - and (in internal mode) not just the private IP address associated with the API Management resource.
 
 * When a request is sent from API Management to a public (internet-facing) backend, a public IP address will always be visible as the origin of the request.
 

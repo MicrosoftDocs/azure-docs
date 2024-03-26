@@ -41,7 +41,7 @@ The Standard v2 tier supports VNet integration to allow your API Management inst
 
 ### API version
 
-The v2 tiers are supported in API Management API version **2023-03-01-preview** or later.
+The v2 tiers are supported in API Management API version **2023-05-01-preview** or later.
 
 ### Supported regions
 
@@ -65,6 +65,7 @@ Most capabilities of the classic API Management tiers are supported in the v2 ti
 * API Management service configuration using Git
 * Back up and restore of API Management instance
 * Enabling Azure DDoS Protection
+* Built-in analytics (replaced with Azure Monitor-based dashboard)
 
 ### Limitations
 
@@ -90,7 +91,7 @@ The following API Management capabilities are currently unavailable in the v2 ti
 * Quota by key policy
 * Cipher configuration
 * Client certificate renegotiation
-* Request tracing
+* Request tracing in the test console
 * Requests to the gateway over localhost
 
 ## Resource limits
@@ -137,6 +138,5 @@ A: Yes, a Premium v2 preview is planned and will be announced separately.
 
 ## Related content
 
-* Learn more about the API Management [tiers](api-management-features.md).
-
-
+* Compare the API Management [tiers](api-management-features.md).
+* Learn about [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).
