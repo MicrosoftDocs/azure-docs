@@ -152,7 +152,7 @@ To edit metadata in the Azure portal, use the following steps:
 1. Specify values for the properties listed for **API**.
 1. Select **Save**.
 
-:::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-configuration.png" alt-text="Screenshot of the Azure portal that shows the Spring Cloud Gateway configuration tab for an Azure Spring Apps instance, with the API section highlighted." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-configuration.png":::
+:::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-configuration.png" alt-text="Screenshot of the Azure portal that shows the Spring Cloud Gateway configuration tab with the API section highlighted." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-configuration.png":::
 
 #### [Azure CLI](#tab/Azure-CLI)
 
@@ -195,7 +195,7 @@ To edit SSO properties in the Azure portal, use the following steps:
 1. Specify values for the properties listed for **SSO**.
 1. Select **Save**.
 
-:::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sso-configuration.png" alt-text="Screenshot of the Azure portal that shows the Spring Cloud Gateway configuration tab for an Azure Spring Apps instance, with the section for single sign-on highlighted." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sso-configuration.png":::
+:::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sso-configuration.png" alt-text="Screenshot of the Azure portal that shows the Spring Cloud Gateway configuration tab with the section for single sign-on highlighted." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sso-configuration.png":::
 
 #### [Azure CLI](#tab/Azure-CLI)
 

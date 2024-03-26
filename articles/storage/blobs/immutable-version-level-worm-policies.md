@@ -27,7 +27,7 @@ After versioning is enabled, when a blob is first uploaded, that version of the 
 
 If a default policy is in effect for the storage account or container, then when an overwrite operation creates a previous version, the new current version inherits the default policy for the account or container.
 
-Each version may have only one time-based retention policy configured. A version may also have one legal hold configured. 
+Each version may have only one time-based retention policy configured. A version may also have one legal hold configured.
 
 To learn how to configure version-level time-based retention policies, see [Configure immutability policies for blob versions](immutable-policy-configure-version-scope.md).
 
@@ -81,7 +81,7 @@ When versioning is enabled, a write or delete operation to a blob creates a new 
 If the policy inherited by a previous version is unlocked, then the retention interval can be shortened or lengthened, or the policy can be deleted. The policy on a previous version can also be locked for that version, even if the policy on the current version is unlocked.
 
 If the policy inherited by a previous version is locked, then the retention interval can be lengthened. The policy can't be deleted, nor can the retention interval be shortened.
-If there's no policy configured on the current version, then the previous version doesn't inherit any policy. 
+If there's no policy configured on the current version, then the previous version doesn't inherit any policy.
 
 You can configure a custom policy for the version.
 If the policy on a current version is modified, the policies on existing previous versions remain unchanged, even if the policy was inherited from a current version.
