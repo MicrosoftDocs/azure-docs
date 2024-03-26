@@ -21,7 +21,7 @@ This article walks you through connecting Azure Cosmos DB for MongoDB vCore usin
 * Provision your choice of Spark environment [Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal).
 
 ## Dependencies for connectivity
-* **Spark connector for MongoDV vCore:**
+* **Spark connector for MongoDB**
   Spark connector is used to connect to Azure Cosmos DB for MongoDB vCore. Identify and use the version of the connector located in [Maven central](hhttps://mvnrepository.com/artifact/org.mongodb.spark/mongo-spark-connector) that is compatible with the Spark and Scala versions of your Spark environment. We recommend an environment that supports Spark 3.2.1 or higher, and the spark connector available at maven coordinates `org.mongodb.spark:mongo-spark-connector_2.12:3.0.1`.
 
 * **Azure Cosmos DB for MongoDB connection strings:** Your Azure Cosmos DB for MongoDB vCore connection string, user name, and passwords.
