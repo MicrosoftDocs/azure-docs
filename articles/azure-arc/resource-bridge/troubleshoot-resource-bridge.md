@@ -13,30 +13,37 @@ This article provides information on troubleshooting and resolving issues that c
 
 ### Logs collection
 
-For issues encountered with Arc resource bridge, collect logs for further investigation using the Azure CLI [`az arcappliance logs`](/cli/azure/arcappliance/logs) command. This command needs to be run from the same management machine that was used to run commands to deploy the Arc resource bridge. If there's a problem collecting logs, most likely the management machine is unable to reach the Appliance VM, and the network administrator needs to allow communication between the management machine to the Appliance VM. You can collect the Arc resource bridge logs by passing either the appliance VM IP or the kubeconfig in the logs command.
+For issues encountered with Arc resource bridge, collect logs for further investigation using the Azure CLI [`az arcappliance logs`](/cli/azure/arcappliance/logs) command. This command needs to be run from the same management machine that was used to run commands to deploy the Arc resource bridge. If you are using a different machine to collect logs, you need to run the `az arcappliance get-credentials` command first before collecting logs.
 
-An example to collect Arc resource bridge logs on VMware using the appliance VM IP address: 
+If there's a problem collecting logs, most likely the management machine is unable to reach the Appliance VM. Contact your network administrator to allow SSH communication from the management machine to the Appliance VM on TCP port 22. 
+
+You can collect the Arc resource bridge logs by passing either the appliance VM IP or the kubeconfig in the logs command.
+
+To collect Arc resource bridge logs on VMware using the appliance VM IP address: 
 
    ```azurecli
-   az arcappliance logs vmware --ip 192.168.0.2 --username usrnm1@domain --password vsexample --address vcenter.address
+   az arcappliance logs vmware --ip <appliance VM IP> --username <vSphere username> --password <vSphere password> --address <vCenter address> --out-dir <path to output directory>
    ```
 
-An example to collect Arc resource bridge logs for Azure Stack HCI using the appliance VM IP address: 
+To collect Arc resource bridge logs for Azure Stack HCI using the appliance VM IP address: 
 
    ```azurecli
-   az arcappliance logs hci --ip 192.168.02 --cloudagent 192.168.05 --loginconfigfile c:\clusterstorage\moc\workingdir\kvatoken.tok
+   az arcappliance logs hci --ip <appliance VM IP> --cloudagent <cloud agent service IP/FQDN> --loginconfigfile <file path of kvatoken.tok> 
    ```
 
-If you are unsure of your appliance VM IP, there is also the option to use the kubeconfig. You can retrieve the kubeconfig by running the [get-credentials command](/cli/azure/arcappliance) then run the logs command. 
+If you are unsure of your appliance VM IP, there is also the option to use the kubeconfig. You can retrieve the kubeconfig by running the [get-credentials command](/cli/azure/arcappliance) then run the logs command.
+
+To retrieve the kubeconfig and log key then collect logs for Arc-enabled VMware from a different machine than the one used to deploy Arc resource bridge for Arc-enabled VMware:
 
    ```azurecli
-   az arcappliance get-credentials --resource-group my-rg-01 --name arb-name --credentials-dir c:\user\arbcreds
-   az arcappliance logs vmware --kubeconfig c:\user\arbcreds\kubeconfig --username usrnm1@domain --password vsexample --address vcenter.address
+az account set -s <subscription id>
+az arcappliance get-credentials -n <Arc resource bridge name> -g <resource group name> 
+az arcappliance logs vmware --kubeconfig kubeconfig --out-dir <path to specified output directory>
    ```
 
 ### Arc resource bridge is offline
 
-If the resource bridge is offline, this is typically due to a change in networking in the infrastructure, environment or cluster that stops the appliance VM from being able to function or communicate with its counterpart Azure resource. If you are unable to determine what has changed in the infrastructure, environment or cluster, you can attempt to reboot the appliance VM, collect logs and submit a support ticket for further investigation. 
+If the resource bridge is offline, this is typically due to a networking change in the infrastructure, environment or cluster that stops the appliance VM from being able to  communicate with its counterpart Azure resource. If you are unable to determine what changed, you can reboot the appliance VM, collect logs and submit a support ticket for further investigation. 
 
 ### Remote PowerShell isn't supported
 
@@ -48,7 +55,7 @@ In this release, all the parameters are specified at time of creation. To update
 
 ### Appliance Network Unavailable 
 
-If Arc resource bridge is experiencing a network communication problem or is offline, you may see an "Appliance Network Unavailable" error when trying to perform an action that interacts with the resource bridge or an extension operating on top of the bridge. In general, any network or infrastructure connectivity issue to the appliance VM may cause this error. This error can also surface as "Error while dialing dial tcp xx.xx.xxx.xx:55000: connect: no route to host" and this is typically a network communication problem. The problem could be that communication from the host to the Arc resource bridge VM needs to be opened with the help of your network administrator. It could be that there was a temporary network issue not allowing the host to reach the Arc resource bridge VM and once the network issue is resolved, you can retry the operation. You may also need to check that the appliance VM for Arc resource bridge isn't stopped. In the case of Azure Stack HCI, the host storage may be full which has caused the appliance VM to pause and the storage will need to be addressed. 
+If Arc resource bridge is experiencing a network problem, you may see an "Appliance Network Unavailable" error. In general, any network or infrastructure connectivity issue to the appliance VM may cause this error. This error can also surface as "Error while dialing dial tcp xx.xx.xxx.xx:55000: connect: no route to host". The problem could be that communication from the host to the Arc resource bridge VM needs to be opened over TCP port 22 with the help of your network administrator. It could be that there was a temporary network issue not allowing the host to reach the Arc resource bridge VM and once the network issue is resolved, you can retry the operation. You can also check that the appliance VM for Arc resource bridge isn't stopped or offline. In the case of Azure Stack HCI, the host storage may be full and the storage needs to be addressed. 
 
 ### Token refresh error
 

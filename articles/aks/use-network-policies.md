@@ -96,7 +96,7 @@ To use Azure Network Policy Manager, you must use the Azure CNI plug-in. Calico 
 
 The following example script creates an AKS cluster with system-assigned identity and enables network policy by using Azure Network Policy Manager.
 
->[!Note}
+>[!NOTE]
 > Calico can be used with either the `--network-plugin azure` or `--network-plugin kubenet` parameters.
 
 Instead of using a system-assigned identity, you can also use a user-assigned identity. For more information, see [Use managed identities](use-managed-identity.md).

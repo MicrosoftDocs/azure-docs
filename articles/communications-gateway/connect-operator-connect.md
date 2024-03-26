@@ -5,7 +5,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: integration
-ms.date: 02/16/2024
+ms.date: 03/22/2024
 ms.custom:
     - template-how-to-pattern
     - has-azure-ad-ps-ref
@@ -62,7 +62,7 @@ If you want to set up Teams Phone Mobile and you didn't select it when you deplo
 Before starting this step, check that the **Provisioning Status** field for your resource is "Complete".
 
 > [!NOTE]
->This step and the next step ([Assign an Admin user to the Project Synergy application](#assign-an-admin-user-to-the-project-synergy-application)) set you up as an Operator in the Teams Phone Mobile (TPM) and Operator Connect (OC) environments. If you've already gone through onboarding, go to [Find the Object ID and Application ID for your Azure Communication Gateway resource](#find-the-object-id-and-application-id-for-your-azure-communication-gateway-resource).
+>This step and the next step ([Assign an Admin user to the Project Synergy application](#assign-an-admin-user-to-the-project-synergy-application)) set you up as an Operator in the Teams Phone Mobile (TPM) and Operator Connect (OC) environments. If you've already gone through onboarding, go to [Find the Application ID for your Azure Communication Gateway resource](#find-the-application-id-for-your-azure-communication-gateway-resource).
 
 The Operator Connect and Teams Phone Mobile programs require your Microsoft Entra tenant to contain a Microsoft application called Project Synergy. Operator Connect and Teams Phone Mobile inherit permissions and identities from your Microsoft Entra tenant through the Project Synergy application. The Project Synergy application also allows configuration of Operator Connect or Teams Phone Mobile and assigning users and groups to specific roles.
 
@@ -71,14 +71,14 @@ To add the Project Synergy application:
 1. Check whether the Microsoft Entra ID (`AzureAD`) module is installed in PowerShell. Install it if necessary.
     1. Open PowerShell.
     1. Run the following command and check whether `AzureAD` appears in the output.
-       ```azurepowershell
+       ```powershell
        Get-Module -ListAvailable
        ```
     1. If `AzureAD` doesn't appear in the output, install the module.
         1. Close your current PowerShell window.
         1. Open PowerShell as an admin.
         1. Run the following command.
-            ```azurepowershell
+            ```powershell
             Install-Module AzureAD
             ```
         1. Close your PowerShell admin window.
@@ -88,7 +88,7 @@ To add the Project Synergy application:
 1. Scroll down to the Tenant ID field. Your tenant ID is in the box. Make a note of your tenant ID.
 1. Open PowerShell.
 1. Run the following cmdlet, replacing *`<TenantID>`* with the tenant ID you noted down in step 5.
-    ```azurepowershell
+    ```powershell
     Connect-AzureAD -TenantId "<TenantID>"
     New-AzureADServicePrincipal -AppId eb63d611-525e-4a31-abd7-0cb33f679599 -DisplayName "Operator Connect"
     ```
@@ -97,7 +97,7 @@ To add the Project Synergy application:
 
 The user who sets up Azure Communications Gateway needs to have the Admin user role in the Project Synergy application. Assign them this role in the Azure portal.
 
-1. In the Azure portal, navigate to **Enterprise applications** using the left-hand side menu. Alternatively, you can search for it in the search bar; it's under the **Services** subheading.
+1. In the Azure portal, go to **Microsoft Entra ID** and then **Enterprise applications** using the left-hand side menu. Alternatively, you can search for **Enterprise applications** in the search bar; it's under the **Services** subheading.
 1. Set the **Application type** filter to **All applications** using the drop-down menu.
 1. Select **Apply**.
 1. Search for **Project Synergy** using the search bar. The application should appear.
@@ -108,42 +108,40 @@ The user who sets up Azure Communications Gateway needs to have the Admin user r
 
 [!INCLUDE [communications-gateway-oc-configuration-ownership](includes/communications-gateway-oc-configuration-ownership.md)]
 
-## Find the Object ID and Application ID for your Azure Communication Gateway resource
+## Find the Application ID for your Azure Communication Gateway resource
 
-Each Azure Communications Gateway resource automatically receives a [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md), which Azure Communications Gateway uses to connect to the Operator Connect environment. You need to find the Object ID and Application ID of the managed identity, so that you can connect Azure Communications Gateway to the Operator Connect or Teams Phone Mobile environment in [Set up application roles for Azure Communications Gateway](#set-up-application-roles-for-azure-communications-gateway) and [Add the Application IDs for Azure Communications Gateway to Operator Connect](#add-the-application-ids-for-azure-communications-gateway-to-operator-connect).
+Each Azure Communications Gateway resource automatically receives a [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md), which Azure Communications Gateway uses to connect to the Operator Connect API. You need to find the  Application ID of the managed identity, so that you can connect Azure Communications Gateway to the Operator Connect API in [Set up application roles for Azure Communications Gateway](#set-up-application-roles-for-azure-communications-gateway) and [Add the Application IDs for Azure Communications Gateway to Operator Connect](#add-the-application-ids-for-azure-communications-gateway-to-operator-connect).
 
 1. Sign in to the [Azure portal](https://azure.microsoft.com/).
-1. In the search bar at the top of the page, search for your Communications Gateway resource.
-1. Select your Communications Gateway resource.
-1. Select **Identity**.
-1. In **System assigned**, copy the **Object (principal) ID**.
-1. Search for the value of **Object (principal) ID** with the search bar. You should see an enterprise application with that value under the **Microsoft Entra ID** subheading. You might need to select **Continue searching in Microsoft Entra ID** to find it.
-1. Make a note of the **Object (principal) ID**.
+1. If you don't already know the name of your Communications Gateway resource, search for **Communications Gateways** and note the name of the resource.
+1. Search for the name of your Communications Resource. You should see an enterprise application with that value under the **Microsoft Entra ID** subheading. You might need to select **Continue searching in Microsoft Entra ID** to find it.
 1. Select the enterprise application.
-1. Check that the **Object ID** matches the **Object (principal) ID** value that you copied.
+1. Check that the **Name** matches the name of your Communications Gateway resource.
 1. Make a note of the **Application ID**.
 
 ## Set up application roles for Azure Communications Gateway
 
 Azure Communications Gateway contains services that need to access the Operator Connect API on your behalf. To enable this access, you must grant specific application roles to the system-assigned managed identity for Azure Communications Gateway under the Project Synergy Enterprise Application. You created the Project Synergy Enterprise Application in [Add the Project Synergy application to your Azure tenant](#add-the-project-synergy-application-to-your-azure-tenant).
 
+You must carry out this step once for each Azure Communications Gateway resource that you want to use for Operator Connect or Teams Phone Mobile.
+
 > [!IMPORTANT]
 > Granting permissions has two parts: configuring the system-assigned managed identity for Azure Communications Gateway with the appropriate roles (this step) and adding the application ID of the managed identity to the Operator Connect or Teams Phone Mobile environment. You'll add the application ID to the Operator Connect or Teams Phone Mobile environment later, in [Add the Application IDs for Azure Communications Gateway to Operator Connect](#add-the-application-ids-for-azure-communications-gateway-to-operator-connect).
 
 Do the following steps in the tenant that contains your Project Synergy application.
 
-1. Check whether the Microsoft Entra ID (`AzureAD`) module is installed in PowerShell. Install it if necessary.
+1. Check whether the Microsoft Graph (`Microsoft.Graph`) module is installed in PowerShell. Install it if necessary.
     1. Open PowerShell.
-    1. Run the following command and check whether `AzureAD` appears in the output.
-       ```azurepowershell
+    1. Run the following command and check whether `Microsoft.Graph` appears in the output.
+       ```powershell
        Get-Module -ListAvailable
        ```
-    1. If `AzureAD` doesn't appear in the output, install the module.
+    1. If `Microsoft.Graph` doesn't appear in the output, install the module.
         1. Close your current PowerShell window.
         1. Open PowerShell as an admin.
         1. Run the following command.
-            ```azurepowershell
-            Install-Module AzureAD
+            ```powershell
+            Install-Module -Name Microsoft.Graph -Scope CurrentUser
             ```
         1. Close your PowerShell admin window.
 1. Sign in to the [Azure portal](https://ms.portal.azure.com/) as a Microsoft Entra Global Administrator.
@@ -152,19 +150,19 @@ Do the following steps in the tenant that contains your Project Synergy applicat
 1. Scroll down to the Tenant ID field. Your tenant ID is in the box. Make a note of your tenant ID.
 1. Open PowerShell.
 1. Run the following cmdlet, replacing *`<TenantID>`* with the tenant ID you noted down in step 5.
-    ```azurepowershell
-    Connect-AzureAD -TenantId "<TenantID>"
+    ```powershell
+    Connect-MgGraph -Scopes "Application.Read.All", "AppRoleAssignment.ReadWrite.All" -TenantId "<TenantID>"
     ```
-1. Run the following cmdlet, replacing *`<CommunicationsGatewayObjectID>`* with the Object ID you noted down in [Find the Object ID and Application ID for your Azure Communication Gateway resource](#find-the-object-id-and-application-id-for-your-azure-communication-gateway-resource).
-    ```azurepowershell
-    $commGwayObjectId = "<CommunicationsGatewayObjectID>"
+    If you're prompted to grant permissions for Microsoft Graph Command Line Tools, select **Accept** to grant permissions.
+1. Run the following cmdlet, replacing *`<CommunicationsGatewayName>`* with the name of your Azure Communications Gateway resource.
+    ```powershell
+    $acgName = "<CommunicationsGatewayName>"
     ```
 1. Run the following PowerShell commands. These commands add the following roles for Azure Communications Gateway: `TrunkManagement.Read`, `TrunkManagement.Write`, `partnerSettings.Read`, `NumberManagement.Read`, `NumberManagement.Write`, `Data.Read`, `Data.Write`.
-    ```azurepowershell
+    ```powershell
     # Get the Service Principal ID for Project Synergy (Operator Connect)
     $projectSynergyApplicationId = "eb63d611-525e-4a31-abd7-0cb33f679599"
-    $projectSynergyEnterpriseApplication = Get-AzureADServicePrincipal -Filter "AppId eq '$projectSynergyApplicationId'"
-    $projectSynergyObjectId = $projectSynergyEnterpriseApplication.ObjectId
+    $projectSynergyEnterpriseApplication = Get-MgServicePrincipal -Filter "AppId eq '$projectSynergyApplicationId'" # "Application.Read.All"
     
     # Required Operator Connect - Project Synergy Roles
     $trunkManagementRead = "72129ccd-8886-42db-a63c-2647b61635c1"
@@ -174,14 +172,31 @@ Do the following steps in the tenant that contains your Project Synergy applicat
     $numberManagementWrite = "752b4e79-4b85-4e33-a6ef-5949f0d7d553"
     $dataRead = "eb63d611-525e-4a31-abd7-0cb33f679599"
     $dataWrite = "98d32f93-eaa7-4657-b443-090c23e69f27"
-    
     $requiredRoles = $trunkManagementRead, $trunkManagementWrite, $partnerSettingsRead, $numberManagementRead, $numberManagementWrite, $dataRead, $dataWrite
-    
-    foreach ($role in $requiredRoles) {
-        # Assign the relevant Role to the managed identity for the Azure Communications Gateway resource
-        New-AzureADServiceAppRoleAssignment -ObjectId $commGwayObjectId -PrincipalId $commGwayObjectId -ResourceId $projectSynergyObjectId -Id $role
+
+    # Locate the Azure Communications Gateway resource by name
+    $acgServicePrincipal = Get-MgServicePrincipal -Filter ("displayName eq '$acgName'")
+
+    # Assign the required roles to the managed identity of the Azure Communications Gateway resource
+    $currentAssignments = Get-MgServicePrincipalAppRoleAssignment -ServicePrincipalId $acgServicePrincipal.Id
+    foreach ($appRoleId in $requiredRoles) {
+        $assigned = $currentAssignments | Where-Object { $_.AppRoleId -eq $AppRoleId }
+        if (-not $assigned) {
+            $params = @{
+                principalId = $acgServicePrincipal.Id
+                resourceId = $projectSynergyEnterpriseApplication.Id
+                appRoleId = $appRoleId
+            }
+            New-MgServicePrincipalAppRoleAssignment -ServicePrincipalId $acgServicePrincipal.Id -BodyParameter $params
+        }
     }
-    
+
+    # Check the assigned roles
+    Get-MgServicePrincipalAppRoleAssignment -ServicePrincipalId $acgServicePrincipal.Id
+    ```
+1. To end your current session, disconnect from Microsoft Graph.
+    ```powershell
+    Disconnect-MgGraph
     ```
 
 ## Provide additional information to your onboarding team
@@ -207,8 +222,8 @@ Go to the [Operator Connect homepage](https://operatorconnect.microsoft.com/) an
 ## Add the Application IDs for Azure Communications Gateway to Operator Connect
 
 You must enable Azure Communications Gateway within the Operator Connect or Teams Phone Mobile environment. This process requires configuring your environment with two Application IDs:
--  The Application ID of the system-assigned managed identity that you found in  [Find the Object ID and Application ID for your Azure Communication Gateway resource](#find-the-object-id-and-application-id-for-your-azure-communication-gateway-resource). This Application ID allows Azure Communications Gateway to use the roles that you set up in [Set up application roles for Azure Communications Gateway](#set-up-application-roles-for-azure-communications-gateway).
-- A standard Application ID for Azure Communications Gateway. This ID always has the value `8502a0ec-c76d-412f-836c-398018e2312b`.
+-  The Application ID of the system-assigned managed identity that you found in  [Find the Application ID for your Azure Communication Gateway resource](#find-the-application-id-for-your-azure-communication-gateway-resource). This Application ID allows Azure Communications Gateway to use the roles that you set up in [Set up application roles for Azure Communications Gateway](#set-up-application-roles-for-azure-communications-gateway).
+- A standard Application ID for an automatically created AzureCommunicationsGateway enterprise application. This ID is always `8502a0ec-c76d-412f-836c-398018e2312b`.
 
 To add the Application IDs:
 

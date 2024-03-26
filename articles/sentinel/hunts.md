@@ -61,6 +61,7 @@ The content hub offers threat campaign and domain-based solutions to hunt for sp
 
 1. Go to the **Content Hub**.
 1. Install a threat campaign or domain-based solution like the **Log4J Vulnerability Detection** or **Apache Tomcat**.
+
     :::image type="content" source="media/hunts/content-hub-solutions.png" alt-text="Screenshot shows the content hub in grid view with the Log4J and Apache solutions selected." lightbox="media/hunts/content-hub-solutions.png":::
 
 1. After the solution is installed, in Microsoft Sentinel, go to **Hunting**.
