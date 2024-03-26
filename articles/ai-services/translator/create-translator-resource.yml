@@ -54,7 +54,7 @@ procedureSection:
           * Only one free tier resource is available per subscription.
           * Document Translation is supported in paid tiers. The Language Studio only supports the S1 or D3 instance tiers. If you just want to try Document Translation, select the Standard S1 instance tier.
       - |
-        If you've created a multi-service resource, the links at the bottom of the **Basics** tab provides technical documentation regarding the appropriate operation of the service.
+        If you create a multi-service resource, the links at the bottom of the **Basics** tab provide technical documentation regarding the appropriate operation of the service.
       - |
         Select **Review + Create**.
       - |
