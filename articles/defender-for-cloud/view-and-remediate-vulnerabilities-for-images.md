@@ -27,7 +27,7 @@ If you are using Defender CSPM, first review and remediate vulnerabilities expos
 
 **To view vulnerabilities for a specific cluster, do the following:**  
 
-1. Open the **Recommendations** page, using the **>** arrow to open the sub-levels. If issues were found, you'll see the recommendation [Containers running in Azure should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e9acaf48-d2cf-45a3-a6e7-3caa2ef769e0). Select the recommendation.
+1. In Defender for Cloud, open the **Recommendations** page. If issues were found, you'll see the recommendation [Containers running in Azure should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e9acaf48-d2cf-45a3-a6e7-3caa2ef769e0). Select the recommendation.
 
     :::image type="content" source="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/running-image-recommendation-line.png" alt-text="Screenshot showing the recommendation line for running container images should have vulnerability findings resolved." lightbox="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/running-image-recommendation-line.png":::
 
@@ -71,7 +71,6 @@ Use these steps to remediate each of the affected images found either in a speci
 1. Check the recommendations page for the recommendation [Running container images should have vulnerability findings resolved](https://portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/KubernetesRuntimeVisibilityRecommendationDetailsBlade/assessmentKey/41503391-efa5-47ee-9282-4eff6131462c).
 1. If the recommendation still appears and the image you've handled still appears in the list of vulnerable images, check the remediation steps again.
 
-## Next steps
+## Next step
 
 - Learn how to [view and remediate vulnerabilities for registry images](view-and-remediate-vulnerability-assessment-findings.md).
-- Learn more about the Defender for Cloud [Defender plans](defender-for-cloud-introduction.md#protect-cloud-workloads)
