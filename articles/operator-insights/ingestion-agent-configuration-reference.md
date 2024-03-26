@@ -20,7 +20,7 @@ Configuration comprises three parts:
 
 This reference shows two pipelines: one with an MCC EDR source and one with an SFTP pull source.
 
-```
+```yaml
 # A unique identifier for this agent instance. Reserved URL characters must be percent-encoded. It's included in the upload path to the Data Product's input storage account.
 agent_id: agent01 
 # Config for secrets providers. We support reading secrets from Azure Key Vault and from the VM's local filesystem.
@@ -28,19 +28,22 @@ agent_id: agent01
 # A secret provider of type `key_vault` which contains details required to connect to the Azure Key Vault and allow connection to the Data Product's input storage account. This is always required.
 # A secret provider of type `file_system`, which specifies a directory on the VM where secrets are stored. For example for an SFTP pull source, for storing credentials for connecting to an SFTP server.
 secret_providers: 
-  - name: data_product_keyvault
-    provider:
-      type: key_vault
+  - name: data_product_keyvault_mi
+    key_vault:
       vault_name: contoso-dp-kv
-      auth:
+      managed_identity:
+        object_id: 22330f5b-4d7e-496d-bbdd-84749eeb009b
+  - name: data_product_keyvault_sp
+    key_vault:
+      vault_name: contoso-dp-kv
+      service_principal:
         tenant_id: ad5421f5-99e4-44a9-8a46-cc30f34e8dc7
-        identity_name: 98f3263d-218e-4adf-b939-eacce6a590d2
-        cert_path: /path/to/local/certkey.pkcs
+        client_id: 98f3263d-218e-4adf-b939-eacce6a590d2
+        cert_path: /path/to/local/certficate.p12
   - name: local_file_system
-    provider:
-      # The file system provider specifies a folder in which secrets are stored.
-      # Each secret must be an individual file without a file extension, where the secret name is the file name, and the file contains the secret only.
-      type: file_system
+    # The file system provider specifies a folder in which secrets are stored.
+    # Each secret must be an individual file without a file extension, where the secret name is the file name, and the file contains the secret only.
+    file_system:
       # The absolute path to the secrets directory
       secrets_directory: /path/to/secrets/directory
 pipelines:
@@ -63,22 +66,21 @@ pipelines:
 
 All pipelines require sink config, which covers upload of files to the Data Product's input storage account.
 
-```
+```yaml
 sink:
   # The container within the Data Product's input storage account. This *must* be exactly the name of the container that Azure Operator Insights expects. See the Data Product documentation for what value is required.
   container_name: example-container
   # Optional A string giving an optional base path to use in the container in the Data Product's input storage account. Reserved URL characters must be percent-encoded. See the Data Product for what value, if any, is required.
   base_path: base-path
-  # Optional. How often the sink should refresh its SAS token for the Data Product's input storage account. Defaults to 1h.  Examples: 30s, 10m, 1h, 1d.
-  sas_token_cache_period: 1h
-  auth:
-    type: sas_token
+  sas_token:
     # This must reference a secret provider configured above. 
-    secret_provider: data_product_keyvault 
+    secret_provider: data_product_keyvault_mi
     # The name of a secret in the corresponding provider.
     # This will be the name of a secret in the Key Vault.
     # This is created by the Data Product and should not be changed.
     secret_name: input-storage-sas
+    # Optional. How often the sink should refresh its SAS token for the Data Product's input storage account. Defaults to 1h.  Examples: 30s, 10m, 1h, 1d.
+    cache_period: 1h
   # Optional. The maximum number of blobs that can be uploaded to the Data Product's input storage account in parallel. Further blobs will be queued in memory until an upload completes. Defaults to 10.
   # Note: This value is also the maximum number of concurrent SFTP reads for the SFTP pull source.  Ensure your SFTP server can handle this many concurrent connections.  If you set this to a value greater than 10 and are using an OpenSSH server, you may need to increase `MaxSessions` and/or `MaxStartups` in `sshd_config`.
   maximum_parallel_uploads: 10
@@ -95,7 +97,7 @@ Combining different types of source in one agent instance isn't recommended in p
 
 ### MCC EDR source configuration
 
-```
+```yaml
 source:
   mcc_edrs:
     # The maximum amount of data to buffer in memory before uploading. Units are B, KiB, MiB, GiB, etc.
@@ -128,7 +130,7 @@ This configuration specifies which files are ingested from the SFTP server.
 
 Multiple SFTP pull sources can be defined for one agent instance, where they can reference either different SFTP servers, or different folders on the same SFTP server.
 
-```
+```yaml
 source:
   sftp_pull:
     server: Information relating to the SFTP session.
@@ -140,16 +142,15 @@ source:
       known_hosts_file: /path/to/known_hosts
       # The name of the user on the SFTP server which the agent will use to connect.
       user: sftp-user
-      auth:
+      # The form of authentication to the SFTP server. This can take the values 'password' or 'private_key'. The  appropriate field(s) must be configured below depending on which type is specified.
+      password:
         # The name of the secret provider configured above which contains the secret for the SFTP user.
         secret_provider: local_file_system
-        # The form of authentication to the SFTP server. This can take the values 'password' or 'ssh_key'. The  appropriate field(s) must be configured below depending on which type is specified.
-        type: password
-        # Only for use with 'type: password'. The name of the file containing the password in the secrets_directory folder
+        # Only for use with password authentication. The name of the file containing the password in the secrets_directory folder
         secret_name: sftp-user-password
-        # Only for use with 'type: ssh_key'. The name of the file containing the SSH key in the secrets_directory folder
+        # Only for use with private key authentication. The name of the file containing the SSH key in the secrets_directory folder
         key_secret: sftp-user-ssh-key
-        # Optional. Only for use with 'type: ssh_key'. The passphrase for the SSH key. This can be omitted if the key is not protected by a passphrase.
+        # Optional. Only for use with private key authentication. The passphrase for the SSH key. This can be omitted if the key is not protected by a passphrase.
         passphrase_secret_name: sftp-user-ssh-key-passphrase
     filtering:
       # The path to a folder on the SFTP server that files will be uploaded to Azure Operator Insights from.

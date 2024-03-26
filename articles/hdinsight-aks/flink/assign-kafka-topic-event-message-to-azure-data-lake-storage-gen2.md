@@ -1,9 +1,9 @@
 ---
 title: Write event messages into Azure Data Lake Storage Gen2 with Apache Flink® DataStream API
-description: Learn how to write event messages into Azure Data Lake Storage Gen2 with Apache Flink® DataStream API
+description: Learn how to write event messages into Azure Data Lake Storage Gen2 with Apache Flink® DataStream API.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 10/27/2023
+ms.date: 03/14/2024
 ---
 
 # Write event messages into Azure Data Lake Storage Gen2 with Apache Flink® DataStream API
@@ -22,11 +22,11 @@ Apache Flink uses file systems to consume and persistently store data, both for 
 
 ## Apache Flink FileSystem connector
 
-This filesystem connector provides the same guarantees for both BATCH and STREAMING and is designed to provide exactly once semantics for STREAMING execution. For more information, see [Flink DataStream Filesystem](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/connectors/datastream/filesystem)
+This filesystem connector provides the same guarantees for both BATCH and STREAMING and is designed to provide exactly once semantics for STREAMING execution. For more information, see [Flink DataStream Filesystem](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/connectors/datastream/filesystem).
 
 ## Apache Kafka Connector
 
-Flink provides an Apache Kafka connector for reading data from and writing data to Kafka topics with exactly once guarantees. For more information, see [Apache Kafka Connector](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/connectors/datastream/kafka)
+Flink provides an Apache Kafka connector for reading data from and writing data to Kafka topics with exactly once guarantees. For more information, see [Apache Kafka Connector](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/connectors/datastream/kafka).
 
 ## Build the project for Apache Flink
 
@@ -36,7 +36,7 @@ Flink provides an Apache Kafka connector for reading data from and writing data 
 <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <flink.version>1.16.0</flink.version>
+        <flink.version>1.17.0</flink.version>
         <java.version>1.8</java.version>
         <scala.binary.version>2.12</scala.binary.version>
         <kafka.version>3.2.0</kafka.version>
@@ -163,17 +163,17 @@ public class KafkaSinkToGen2 {
 
 **Submit the job on Flink Dashboard UI**
 
-We are using Maven to package a jar onto local and submitting to Flink, and using Kafka to sink into ADLS Gen2
+We are using Maven to package a jar onto local and submitting to Flink, and using Kafka to sink into ADLS Gen2.
 
 :::image type="content" source="./media/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2/submit-the-job-flink-ui.png" alt-text="Screenshot showing jar submission to Flink dashboard.":::
-:::image type="content" source="./media/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2/submit-the-job-flink-ui-2.png" alt-text="Screenshot showing job running on Flink dashboard.":::
+:::Image type="content" source="./media/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2/submit-the-job-flink-ui-2.png" alt-text="Screenshot showing job running on Flink dashboard.":::
 
 **Validate streaming data on ADLS Gen2**
 
 We are seeing the `click_events` streaming into ADLS Gen2
 
 :::image type="content" source="./media/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2/validate-stream-azure-data-lake-storage-gen2-1.png" alt-text="Screenshot showing ADLS Gen2 output.":::
-:::image type="content" source="./media/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2/validate-stream-azure-data-lake-storage-gen2-2.png" alt-text="Screenshot showing Flink click event output.":::
+:::Image type="content" source="./media/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2/validate-stream-azure-data-lake-storage-gen2-2.png" alt-text="Screenshot showing Flink click event output.":::
 
 You can specify a rolling policy that rolls the in-progress part file on any of the following three conditions:
 
