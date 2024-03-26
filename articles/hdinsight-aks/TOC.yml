@@ -128,7 +128,7 @@ items:
     - name: Configure Iceberg catalog
       href: ./trino/trino-add-iceberg-catalog.md
     - name: Configure sharded SQL connector
-      href: ./trino/rino-sharded-sql-connector.md
+      href: ./trino/trino-sharded-sql-connector.md
   - name: Cluster management
     items:
     - name: Trino configuration
