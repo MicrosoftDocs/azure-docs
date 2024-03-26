@@ -118,11 +118,11 @@ The following table shows a breakdown of the differences between container-level
 | Feature dependencies | No other features are a prerequisite or requirement for this feature to function. | Versioning is a prerequisite for this feature to be used. |
 | Enablement for existing accounts/container | This feature can be enabled at any time for existing containers. | Depending on the level of granularity, this feature might not be enabled for all existing accounts/containers. |
 | Account/container deletion | Once a time-based retention policy is locked on a container, containers may only be deleted if they're empty. | Once version-level WORM is enabled on an account or container level, they may only be deleted if they're empty.|
-| Feature availability | This feature is available for Blob Storage and ADLS Gen2. | This feature is only available for Blob Storage. |
+| Support for Azure Data Lake Storage Gen2 (storage accounts that have a hierarchical namespace enabled)| Container-level WORM policies are supported in accounts that have a hierarchical namespace.  | Version-level WORM policies are not yet supported in accounts that have a hierarchical namespace. |
 
-To learn more about container-level WORM, see [Container-Level WORM policies](). To learn more about version-level WORM, please visit [version-Level WORM policies]().
+To learn more about container-level WORM, see [Container-Level WORM policies](immutable-container-level-worm-policies.md). To learn more about version-level WORM, please visit [version-Level WORM policies](immutable-version-level-worm-policies.md).
 
-## Considerations for using Container-level WORM vs Version-level WORM
+## Container-level vs version-level WORM
 
 The following table helps you decide which type of WORM policy to use.
 
@@ -160,7 +160,7 @@ When you enable blob inventory, Azure Storage generates an inventory report dail
 For more information about blob inventory, see [Azure Storage blob inventory](blob-inventory.md).
 
 > [!NOTE]
-> You can't configure an inventory policy in an account if support for version-level immutability is enabled on that account, or if support for version-level immutability is enabled on the destination container that is defined in the inventory policy. 
+> You can't configure an inventory policy in an account if support for version-level immutability is enabled on that account, or if support for version-level immutability is enabled on the destination container that is defined in the inventory policy.
 
 ## Pricing
 
@@ -173,7 +173,6 @@ If you fail to pay your bill and your account has an active time-based retention
 ## Feature support
 
 This feature is incompatible with point in time restore and last access tracking. 
-
 Immutability policies aren't supported in accounts that have Network File System (NFS) 3.0 protocol or the SSH File Transfer Protocol (SFTP) enabled on them.
 
 Some workloads, such as SQL Backup to URL, create a blob and then add to it.   If a container has an active time-based retention policy or legal hold in place, this pattern won't succeed. See the Allow protected append blob writes for more detail.
@@ -183,6 +182,7 @@ For more information, see [Blob Storage feature support in Azure Storage account
 ## Next steps
 
 - [Data protection overview](data-protection-overview.md)
-- 
+- [Container-level WORM policies for immutable blob data](immutable-container-level-worm-policies.md)
+- [Version-level WORM policies for immutable blob data](immutable-version-level-worm-policies.md)
 - [Configure immutability policies for blob versions](immutable-policy-configure-version-scope.md)
 - [Configure immutability policies for containers](immutable-policy-configure-container-scope.md)
