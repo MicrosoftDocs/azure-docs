@@ -77,7 +77,7 @@ The following JSON shows the schema for the Network Watcher Agent extension. The
 
 | Name | Value / Example |
 | ---- | ---- |
-| apiVersion | 2022-11-01 |
+| apiVersion | 2023-03-01 |
 | publisher | Microsoft.Azure.NetworkWatcher |
 | type | NetworkWatcherAgentLinux |
 | typeHandlerVersion | 1.4 |
