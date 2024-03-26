@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article helps you understand billing and resource management scopes available in Azure and how to use the scopes in Cost Management and APIs.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/11/2024
+ms.date: 03/12/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -247,6 +247,9 @@ The following tables show how Cost Management features can be utilized by each r
 | **Cost Allocation Rules** | N/A – only applicable to Billing Account | N/A – only applicable to Billing Account | N/A – only applicable to Billing Account | N/A – only applicable to Billing Account |
 
 ## AWS scopes
+
+> [!NOTE]
+> The Connector for AWS in the Cost Management service retires on March 31, 2025. Users should consider alternative solutions for AWS cost management reporting. On March 31, 2024, Azure will disable the ability to add new Connectors for AWS for all customers. For more information, see [Retire your Amazon Web Services (AWS) connector](retire-aws-connector.md).
 
 After AWS integration is complete, see [setup and configure AWS integration](aws-integration-set-up-configure.md). The following scopes are available:
 

@@ -36,10 +36,8 @@
           href: vector-search-ai.md
     - name: MongoDB feature support
       href: compatibility.md
-    - name: High availability
-      href: high-availability.md
-    - name: Failover and disaster recovery
-      href: failover-disaster-recovery.md
+    - name: Reliability
+      href: /azure/reliability/reliability-cosmos-mongodb?toc=/azure/cosmos-db/mongodb/vcore/toc.json
     - name: Migration options
       href: migration-options.md 
     - name: Security
@@ -88,3 +86,6 @@
   items:
     - name: Solution accelerators
       href: ../../solutions.md?pivots=api-mongodb
+    - name: AI-Enhanced Advertisement Generation
+      href: ai-advertisement-generation.md
+      

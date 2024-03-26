@@ -2108,7 +2108,7 @@
 - name: Infrastructure automation
   items:
   - name: Overview
-    displayName: Infrastrucure automation overview
+    displayName: Infrastructure automation overview
     href: infrastructure-automation.md
   - name: User data
     href: user-data.md

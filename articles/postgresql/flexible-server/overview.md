@@ -85,8 +85,8 @@ One advantage of running your workload in Azure is global reach. Azure Database 
 
 | Region | Intel V3/V4/V5/AMD Compute | Zone-Redundant HA | Same-Zone HA | Geo-Redundant backup |
 | --- | --- | --- | --- | --- |
-| Australia Central | :heavy_check_mark: (v3/v4 only) | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| Australia Central 2 *| :heavy_check_mark: (v3/v4 only) | :heavy_check_mark: | :heavy_check_mark: | :x:|
+| Australia Central | :heavy_check_mark: (v3/v4 only) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Australia Central 2 *| :heavy_check_mark: (v3/v4 only) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Australia East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Australia Southeast | (v3/v4/v5 only) | :x: | :heavy_check_mark: | :heavy_check_mark: |
 | Brazil South | :heavy_check_mark: (v3 only) | :x: $ | :heavy_check_mark: | :x: |
