@@ -17,27 +17,9 @@ Azure Synapse Analytics provides a rich monitoring experience within the Azure p
 
 ## Resource utilization
 
-The following metrics are available for dedicated SQL pools (formerly SQL Data Warehouse). For dedicated SQL pools created in Azure Synapse workspaces, see [Use Azure Monitor with your Azure Synapse Analytics workspace](../monitoring/how-to-monitor-using-azure-monitor.md).
+For a list and details about the metrics that are available for dedicated SQL pools (formerly SQL Data Warehouse), see [Supported metrics for Microsoft.Synapse/workspaces/sqlPools](monitor-synapse-analytics-reference.md).
 
 These metrics are surfaced through [Azure Monitor](../../azure-monitor/data-platform.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json#metrics).
-
-| Metric Name | Description | Aggregation Type |
-| --- | --- | --- |
-| CPU percentage | CPU utilization across all nodes for the data warehouse | Avg, Min, Max |
-| Data IO percentage | IO Utilization across all nodes for the data warehouse | Avg, Min, Max |
-| Memory percentage | Memory utilization (SQL Server) across all nodes for the data warehouse | Avg, Min, Max |
-| Active Queries | Number of active queries executing on the system | Sum |
-| Queued Queries | Number of queued queries waiting to start executing | Sum |
-| Successful Connections | Number of successful connections (logins) against the database | Sum, Count |
-| Failed Connections: User Errors | Number of user failed connections (logins) against the database | Sum, Count |
-| Failed Connections: System Errors | Number of system failed connections (logins) against the database | Sum, Count |
-| Blocked by Firewall | Number of logins to the data warehouse which was blocked | Sum, Count |
-| DWU limit | Service level objective of the data warehouse | Avg, Min, Max |
-| DWU percentage | Maximum between CPU percentage and Data IO percentage | Avg, Min, Max |
-| DWU used | DWU limit * DWU percentage | Avg, Min, Max |
-| Cache hit percentage | (cache hits / (cache hits + cache miss)) * 100, where cache hits are the sum of all columnstore segments hits in the local SSD cache and cache miss is the columnstore segments misses in the local SSD cache summed across all nodes | Avg, Min, Max |
-| Cache used percentage | (cache used / cache capacity) * 100 where cache used is the sum of all bytes in the local SSD cache across all nodes and cache capacity is the sum of the storage capacity of the local SSD cache across all nodes | Avg, Min, Max |
-| Local `tempdb` percentage | Local `tempdb` utilization across all compute nodes - values are emitted every five minutes | Avg, Min, Max |
 
 Things to consider when viewing metrics and setting alerts:
 
