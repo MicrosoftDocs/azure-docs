@@ -9,6 +9,9 @@ ms.topic: how-to
 ms.date: 02/09/2024
 ---
 
+> [!NOTE]
+> [Azure Open AI On Your Data](../../openai/concepts/use-your-data.md) utilizes large language models (LLMs) to produce similar results to QnA Maker.
+
 # Migrate QnA Maker to Azure OpenAI on your data 
 
 QnA Maker was designed to be a cloud-based Natural Language Processing (NLP) service that allowed users to create a natural conversational layer over their data. This service is being retired, having been replaced by [custom question answering](../../language-service/question-answering/overview.md). AI runtimes however, are evolving due to the development of Large Language Models (LLMs), such as GPT-35-Turbo and GPT-4 offered by [Azure OpenAI](../../openai/overview.md), which can address many chat-based use cases. Use this article to learn how to migrate your existing QnA Maker projects to Azure OpenAI. 
