@@ -10,13 +10,13 @@ ms.custom: devx-track-azurecli
 ms.author: truptiparkar 
 author: truptiparkar7
 ms.reviewer: larryfr
-ms.date: 03/20/2024
+ms.date: 03/26/2024
 monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
 
 # Trigger applications, processes, or CI/CD workflows based on Azure Machine Learning events
 
-In this article, you learn how to set up event-driven applications, processes, or CI/CD workflows based on Azure Machine Learning events, such as failure notification emails or ML pipeline runs, when certain conditions are detected by [Azure Event Grid](../event-grid/index.yml).
+In this article, you learn how to set up event-driven applications, processes, or CI/CD workflows based on Azure Machine Learning events. For example, failure notification emails or ML pipeline runs, when certain conditions are detected using [Azure Event Grid](../event-grid/index.yml).
 
 Azure Machine Learning manages the entire lifecycle of machine learning process, including model training, model deployment, and monitoring. You can use Event Grid to react to Azure Machine Learning events, such as the completion of training runs, the registration and deployment of models, and the detection of data drift, by using modern serverless architectures. You can then subscribe and consume events such as run status changed, run completion, model registration, model deployment, and data drift detection within a workspace.
 
@@ -54,16 +54,16 @@ Azure Machine Learning provides events in the various points of machine learning
 
 ### Filter & subscribe to events
 
-These events are published through Azure Event Grid. Using Azure portal, PowerShell, or Azure CLI, customers can easily subscribe to events by [specifying one or more event types, and filtering conditions](../event-grid/event-filtering.md). 
+These events are published through Azure Event Grid. From the Azure portal, PowerShell, or Azure CLI, you can easily subscribe to events by [specifying one or more event types, and filtering conditions](../event-grid/event-filtering.md). 
 
-When setting up your events, you can apply filters to only trigger on specific event data. In the following example, for run status changed events, you can filter by run types. The event only triggers when the criteria are met. Refer to the [Azure Machine Learning Event Grid schema](../event-grid/event-schema-machine-learning.md) to learn about event data you can filter by. 
+When setting up your events, you can apply filters to only trigger on specific event data. In the following example, for run status changed events, you can filter by run types. The event only triggers when the criteria are met. For more information on the event data you can filter on, see the [Azure Machine Learning Event Grid schema](../event-grid/event-schema-machine-learning.md). 
 
-Subscriptions for Azure Machine Learning events are protected by Azure role-based access control (Azure RBAC). Only [contributor or owner](how-to-assign-roles.md#default-roles) of a workspace can create, update, and delete event subscriptions.  Filters can be applied to event subscriptions either during the [creation](/cli/azure/eventgrid/event-subscription) of the event subscription or at a later time. 
+Subscriptions for Azure Machine Learning events are protected by Azure role-based access control (Azure RBAC). Only [contributor or owner](how-to-assign-roles.md#default-roles) of a workspace can create, update, and delete event subscriptions. Filters can be applied to event subscriptions either during the [creation](/cli/azure/eventgrid/event-subscription) of the event subscription or at a later time. 
 
 
 1. Go to the Azure portal, select a new subscription or an existing one.
 1. Select the Events entry from the left navigation area, and then select **+ Event subscription**.
-1. Select the filters tab and scroll down to Advanced filters. For the **Key** and **Value**, provide the property types you want to filter by. Here you can see the event will only trigger when the run type is a pipeline run or pipeline step run.  
+1. Select the filters tab and scroll down to Advanced filters. For the **Key** and **Value**, provide the property types you want to filter by. Here you can see the event triggers when the run type is a pipeline run or pipeline step run.  
 
     :::image type="content" source="media/how-to-use-event-grid/select-event-filters.png" alt-text="filter events":::
 
@@ -80,9 +80,7 @@ Subscriptions for Azure Machine Learning events are protected by Azure role-base
   | `Microsoft.MachineLearningServices.DatasetDriftDetected` (preview) | `datadrift/{data.DataDriftId}/run/{data.RunId}` | `datadrift/4e694bf5-712e-4e40-b06a-d2a2755212d4/run/my_driftrun1_1550564444_fbbcdc0f` |
   | `Microsoft.MachineLearningServices.RunStatusChanged` | `experiments/{ExperimentId}/runs/{RunId}` | `experiments/b1d7966c-f73a-4c68-b846-992ace89551f/runs/my_exp1_1554835758_38dbaa94` | 
 
-+ **Advanced filtering**: Azure Event Grid also supports advanced filtering based on published event schema. Azure Machine Learning event schema details can be found in [Azure Event Grid event schema for Azure Machine Learning](../event-grid/event-schema-machine-learning.md).  Some sample advanced filterings you can perform include:
-
-  For `Microsoft.MachineLearningServices.ModelRegistered` event, to filter model's tag value:
++ **Advanced filtering**: Azure Event Grid also supports advanced filtering based on published event schema. Azure Machine Learning event schema details can be found in [Azure Event Grid event schema for Azure Machine Learning](../event-grid/event-schema-machine-learning.md). For `Microsoft.MachineLearningServices.ModelRegistered` event, to filter model's tag value:
 
   ```
   --advanced-filter data.ModelTags.key1 StringIn ('value1')
@@ -101,7 +99,7 @@ Applications that handle Machine Learning events should follow a few recommended
 > * Ignore fields you don't understand. This practice will help keep you resilient to new features that might be added in the future.
 > * Failed or cancelled Azure Machine Learning operations will not trigger an event. For example, if a model deployment fails Microsoft.MachineLearningServices.ModelDeployed won't be triggered. Consider such failure mode when design your applications. You can always use Azure Machine Learning SDK, CLI or portal to check the status of an operation and understand the detailed failure reasons.
 
-Azure Event Grid allows customers to build de-coupled message handlers, which can be triggered by Azure Machine Learning events. Some notable examples of message handlers are:
+Azure Event Grid allows customers to build decoupled message handlers, which can be triggered by Azure Machine Learning events. Some notable examples of message handlers are:
 * Azure Functions
 * Azure Logic Apps
 * Azure Event Hubs
@@ -116,7 +114,7 @@ Azure Event Grid allows customers to build de-coupled message handlers, which ca
 
     :::image type="content" source="./media/how-to-use-event-grid/select-event.png" alt-text="Screenshot showing the Event Subscription selection.":::
 
-1. Select the event type to consume. For example, the following screenshot has selected __Model registered__, __Model deployed__, __Run completed__, and __Dataset drift detected__:
+1. Select the event type to consume.
 
     :::image type="content" source="./media/how-to-use-event-grid/add-event-type-updated.png" alt-text="Screenshot of the Create Event Subscription form.":::
 
@@ -124,7 +122,7 @@ Azure Event Grid allows customers to build de-coupled message handlers, which ca
 
     ![Screenshot shows the Create Event Subscription pane with Select Event Hub open.](./media/how-to-use-event-grid/select-event-handler.png)
 
-Once you have confirmed your selection, select __Create__. After configuration, these events will be pushed to your endpoint.
+Once you confirm your selection, select __Create__. After configuration, these events will be pushed to your endpoint.
 
 
 ### Set up with the CLI
@@ -208,7 +206,7 @@ In this example, a simple Data Factory pipeline is used to copy files into a blo
 
     ![Screenshot shows the Logic App Create pane.](./media/how-to-use-event-grid/set-up-logic-app-for-adf.png)
 
-1. Once you have created the logic app, select __When an Event Grid resource event occurs__. 
+1. Once you create the logic app, select __When an Event Grid resource event occurs__. 
 
     ![Screenshot shows the Logic Apps Designer with Start with a common trigger options, including When an Event Grid resource event occurs.](./media/how-to-use-event-grid/select-event-grid-trigger.png)
 
