@@ -1,7 +1,7 @@
 ---
 title: Enable data partitioning for the DICOM service in Azure Health Data Services
-description: Encrypt your data with customer-managed keys (CMK) in the DICOM service in Azure Health Data Services. Get tips on requirements, best practices, limitations, and troubleshooting.
-author: mmitrik
+description: Learn how to enable data partitioning for efficient storage and management of medical images for the DICOM service in Azure Health Data Services.
+author: bcarthic
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
@@ -17,7 +17,7 @@ Although UIDs should be [unique across all contexts](http://dicom.nema.org/dicom
 
 ## Enable data partitions on initial deployment of the DICOM service
 
-You enable data partitions feature by selecting **Enable data partitions** when you deploy a new DICOM service. After data partioning is turned on, it can't be turned off. In addtion, data partitions can't be turned on for any DICOM service that has already been deployed.
+You enable data partitions feature by selecting **Enable data partitions** when you deploy a new DICOM service. After data partitioning is turned on, it can't be turned off. In addition, data partitions can't be turned on for any DICOM service that is already deployed.
 
 After the data partitions setting is enabled, the capability modifies the API surface of the DICOM server and makes any previous data accessible under the `Microsoft.Default` partition. 
 
@@ -40,22 +40,22 @@ GET /partitions
 
 | Name         | Required  | Type   | Description                     |
 | ------------ | --------- | ------ | ------------------------------- |
-| Content-Type | False     | string | `application/json` is supported |
+| Content-Type | false     | string | `application/json` is supported |
 
 #### Responses
 
 | Name              | Type                          | Description                           |
 | ----------------- | ----------------------------- | ------------------------------------- |
-| 200 (OK)          | [Partition](#partition)`[]`   | A list of partitions is returned.      |
+| 200 (OK)          | `[Partition] []`   | A list of partitions is returned.      |
 | 204 (No Content)  |                               | No partitions exist.                   |
 | 400 (Bad Request) |                               | Data partitions capability is disabled.   |
 
 ### STOW, WADO, QIDO, Delete, Export update and worklist APIs
 
-After partitions are enabled, STOW, WADO, QIDO, Delete, export, update and worklist requests must include a data partition URI segment after the base URI, with the form `/partitions/{partitionName}`, where `partitionName` is:
+After partitions are enabled, STOW, WADO, QIDO, delete, export, update, and worklist requests must include a data partition URI segment after the base URI, with the form `/partitions/{partitionName}`, where `partitionName` is:
 
  - Up to 64 characters long
- - Composed of any combination of alphanumeric characters, `.`, `-`, and `_`, to allow both DICOM UID and GUID formats, as well as human-readable identifiers.
+ - Any combination of alphanumeric characters, `.`, `-`, and `_`, to allow both DICOM UID and GUID formats, as well as human-readable identifiers.
 
 | Action  | Example URI                                                         |
 | ------- | ------------------------------------------------------------------- |
@@ -72,25 +72,19 @@ After partitions are enabled, STOW, WADO, QIDO, Delete, export, update and workl
 | ----------------- | --------------------------------------------------------- |
 | 400 (Bad Request) | Data partitions capability is disabled.                       |
 | 400 (Bad Request) | `PartitionName` value is missing in the route segment.      |
-| 400 (Bad Request) | Specified `PartitionName` {PartitionName} does not exist.   |
+| 400 (Bad Request) | Specified `PartitionName {PartitionName}` doesn't exist.   |
 
 ### Other APIs
 All other APIs, including [extended query tags](../how-to-guides/extended-query-tags.md), [operations](../how-to-guides/extended-query-tags.md#get-operation), and [change feed](change-feed.md) continue to be accessed at the base URI. 
 
 ## Manage data partitions
 
-The only management operation supported for partitions is an implicit creation during STOW and workitem create requests. If the partition specified in the URI doesn't exist, it's created implicitly and the response returns a retrieve URI including the partition path. 
+The only management operation supported for partitions is an implicit creation during STOW and workitem create requests. If the partition specified in the URI doesn't exist, the system creates it implicitly and the response returns a retrieve URI including the partition path. 
 
-## Limitations
 
- - After you enable data partitions, the capability can't be turned off.
- - Querying across partitions isn't supported.
- - Updating and deleting partitions isn't supported.
+## Partition definitions
 
-## Definitions
-
-### Partition
-A unit of logical isolation and data uniqueness.
+A partition is a unit of logical isolation and data uniqueness.
 
 | Name          | Type   | Description                                                                      |
 | ------------- | ------ | -------------------------------------------------------------------------------- |
