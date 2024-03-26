@@ -1,47 +1,49 @@
 ---
-title: How to deploy Mistral family of models with Azure AI Studio
+title: How to deploy Cohere family of models with Azure AI Studio
 titleSuffix: Azure AI Studio
-description: Learn how to deploy Mistral Large with Azure AI Studio.
+description: Learn how to deploy Cohere family of models with Azure AI Studio.
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 3/6/2024
-ms.reviewer: shubhirajMsft
-ms.author: mopeakande
-author: msakande
+ms.date: 
+ms.reviewer: 
+ms.author: 
+author:
 ms.custom: [references_regions]
 ---
 
-# How to deploy Mistral models with Azure AI Studio
+# How to deploy Cohere models with Azure AI Studio
 
 [!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 
-In this article, you learn how to use Azure AI Studio to deploy the Mistral Large model as a service with pay-as you go billing.
+In this article, you learn how to use Azure AI Studio to deploy the Cohere models as a service with pay-as you go billing.
 
-Mistral AI offers two categories of models in [Azure AI Studio](https://ai.azure.com):
-* Premium models: Mistral Large. These models are available with pay-as-you-go token based billing with Models as a Service in the AI Studio model catalog. 
-* Open models: Mixtral-8x7B-Instruct-v01, Mixtral-8x7B-v01, Mistral-7B-Instruct-v01, and Mistral-7B-v01. These models are also available in the AI Studio model catalog and can be deployed to dedicated VM instances in your own Azure subscription with Managed Online Endpoints.
+Cohere offers several models in [Azure AI Studio](https://ai.azure.com). These models are available with pay-as-you-go token based billing with Models as a Service. 
+* Cohere Command R 
+* Cohere Command R+
+* Cohere Embed v3 - English
+* Cohere Embed v3 - Multilingual
 
-You can browse the Mistral family of models in the [Model Catalog](model-catalog.md) by filtering on the Mistral collection.
+You can browse the Cohere family of models in the [Model Catalog](model-catalog.md) by filtering on the Cohere collection.
 
-## Mistral Large 
+## Models 
 
-In this article, you learn how to use Azure AI Studio to deploy the Mistral Large model as a service with pay-as-you-go billing.
+In this article, you learn how to use Azure AI Studio to deploy the Cohere models as a service with pay-as-you-go billing.
 
-Mistral Large is Mistral AI's most advanced Large Language Model (LLM). It can be used on any language-based task thanks to its state-of-the-art reasoning and knowledge capabilities.
+* Cohere Command R 
+(description needed)
+* Cohere Command R+
+(description needed)
+* Cohere Embed v3 - English
+(description needed)
+* Cohere Embed v3 - Multilingual
+(description needed)
 
-Additionally, mistral-large is:
-
-* Specialized in RAG. Crucial information isn't lost in the middle of long context windows (up to 32-K tokens).
-* Strong in coding. Code generation, review, and comments. Supports all mainstream coding languages.
-* Multi-lingual by design. Best-in-class performance in French, German, Spanish, and Italian - in addition to English. Dozens of other languages are supported.
-* Responsible AI. Efficient guardrails baked in the model and another safety layer with the `safe_mode` option.
-
-## Deploy Mistral Large with pay-as-you-go
+## Deploy with pay-as-you-go
 
 Certain models in the model catalog can be deployed as a service with pay-as-you-go, providing a way to consume them as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription.
 
-Mistral Large can be deployed as a service with pay-as-you-go, and is offered by Mistral AI through the Microsoft Azure Marketplace. Mistral AI can change or update the terms of use and pricing of this model.
+Above mentioend Cohere models can be deployed as a service with pay-as-you-go, and are offered by Cohere through the Microsoft Azure Marketplace. Cohere can change or update the terms of use and pricing of this model.
 
 ### Prerequisites
 
@@ -49,7 +51,7 @@ Mistral Large can be deployed as a service with pay-as-you-go, and is offered by
 - An [Azure AI hub resource](../how-to/create-azure-ai-resource.md).
 
     > [!IMPORTANT]
-    > For Mistral family models, the pay-as-you-go model deployment offering is only available with AI hubs created in **East US 2** and **France Central** regions.
+    > For Cohere family models, the pay-as-you-go model deployment offering is only available with AI hubs created in (to be added) regions.
 
 - An [Azure AI project](../how-to/create-projects.md) in Azure AI Studio.
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group.
@@ -62,7 +64,7 @@ Mistral Large can be deployed as a service with pay-as-you-go, and is offered by
 To create a deployment:
 
 1. Sign in to [Azure AI Studio](https://ai.azure.com).
-1. Select **Model catalog** from the **Explore** tab and search for *Mistral-large*. 
+1. Select **Model catalog** from the **Explore** tab and search for *Cohere*. 
 
     Alternatively, you can initiate a deployment by starting from your project in AI Studio. From the **Build** tab of your project, select **Deployments** > **+ Create**.
 
@@ -70,7 +72,7 @@ To create a deployment:
 
     :::image type="content" source="../media/deploy-monitor/mistral/mistral-deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with the pay-as-you-go option." lightbox="../media/deploy-monitor/mistral/mistral-deploy-pay-as-you-go.png":::
 
-1. Select the project in which you want to deploy your model. To deploy the Mistral-large model your project must be in the **East US 2** or **France Central** regions.
+1. Select the project in which you want to deploy your model. To deploy the Mistral-large model your project must be in the (to be added) regions.
 1. In the deployment wizard, select the link to **Azure Marketplace Terms** to learn more about the terms of use.
 1. You can also select the **Marketplace offer details** tab to learn about pricing for the selected model.
 1. If this is your first time deploying the model in the project, you have to subscribe your project for the particular offering. This step requires that your account has the **Azure AI Developer role** permissions on the Resource Group, as listed in the prerequisites. Each project has its own subscription to the particular Azure Marketplace offering of the model, which allows you to control and monitor spending. Select **Subscribe and Deploy**. Currently you can have only one deployment for each model within a project.
@@ -90,11 +92,11 @@ To create a deployment:
 1. You can return to the Deployments page, select the deployment, and note the endpoint's **Target** URL and the Secret **Key**, which you can use to call the deployment for chat completions using the [`<target_url>/v1/chat/completions`](#chat-api) API.
 1. You can always find the endpoint's details, URL, and access keys by navigating to the **Build** tab  and selecting **Deployments** from the Components section.
 
-To learn about billing for the Mistral AI model deployed with pay-as-you-go, see [Cost and quota considerations for Mistral Large deployed as a service](#cost-and-quota-considerations-for-mistral-large-deployed-as-a-service).
+To learn about billing for the Cohere models deployed with pay-as-you-go, see [Cost and quota considerations for Mistral Large deployed as a service](#cost-and-quota-considerations-for-mistral-large-deployed-as-a-service).
 
-### Consume the Mistral Large model as a service
+### Consume the Cohere models as a service
 
-Mistral Large can be consumed using the chat API.
+These models can be consumed using the chat API.
 
 1. On the **Build** page, select **Deployments**.
 
@@ -106,7 +108,7 @@ Mistral Large can be consumed using the chat API.
 
     For more information on using the APIs, see the [reference](#reference-for-mistral-large-deployed-as-a-service) section.
 
-### Reference for Mistral Large deployed as a service
+### Reference for models deployed as a service
 
 #### Chat API
 
@@ -121,7 +123,7 @@ Authorization: Bearer <TOKEN>
 Content-type: application/json
 ```
 
-#### Request schema
+#### Request schema (to be edited once API alignment done)
 
 Payload is a JSON formatted string containing the following parameters:
 
@@ -240,17 +242,17 @@ The following is an example response:
 
 | **Sample Type**       | **Sample Notebook**                             |
 |----------------|----------------------------------------|
-| CLI using CURL and Python web requests    | [webrequests.ipynb](https://aka.ms/mistral-large/webrequests-sample)|
-| OpenAI SDK (experimental)    | [openaisdk.ipynb](https://aka.ms/mistral-large/openaisdk)                                    |
-| LangChain      | [langchain.ipynb](https://aka.ms/mistral-large/langchain-sample)                                  |
-| Mistral AI     | [mistralai.ipynb](https://aka.ms/mistral-large/mistralai-sample)                                  |
-| LiteLLM        | [litellm.ipynb](https://aka.ms/mistral-large/litellm-sample) 
+| CLI using CURL and Python web requests    | (to be added)|
+| OpenAI SDK (experimental)    | (to be added)                                    |
+| LangChain      | (to be added)                                 |
+| Mistral AI     | (to be added)                                  |
+| LiteLLM        | (to be added)
 
 ## Cost and quotas
 
-### Cost and quota considerations for Mistral Large deployed as a service
+### Cost and quota considerations for models deployed as a service
 
-Mistral models deployed as a service are offered by Mistral AI through the Azure Marketplace and integrated with Azure AI Studio for use. You can find the Azure Marketplace pricing when deploying the model.
+Cohere models deployed as a service are offered by Cohere through the Azure Marketplace and integrated with Azure AI Studio for use. You can find the Azure Marketplace pricing when deploying the model.
 
 Each time a project subscribes to a given offer from the Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference; however, multiple meters are available to track each scenario independently.
 
