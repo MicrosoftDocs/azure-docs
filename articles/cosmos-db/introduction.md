@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB – Unified AI Database
-description: Azure Cosmos DB is a global multi-model database and ideal database for AI applications requiring speed, elasticity and availability with native support for NoSQL and relational data.
+description: Azure Cosmos DB is a global multi-model database and ideal database for AI applications requiring speed, elasticity and availability with native support for NoSQL, relational, and vector data.
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
