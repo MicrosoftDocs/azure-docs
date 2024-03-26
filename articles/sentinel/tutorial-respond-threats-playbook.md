@@ -277,7 +277,7 @@ To create an automation rule:
     1. If your workspace is not yet onboarded to the unified SOC platform, incidents can have two possible sources:
 
         - Incidents can be created inside Microsoft Sentinel
-        - Incidents can be be [imported from&mdash;and synchronized with&mdash;Microsoft Defender XDR](microsoft-365-defender-sentinel-integration.md). 
+        - Incidents can be [imported from&mdash;and synchronized with&mdash;Microsoft Defender XDR](microsoft-365-defender-sentinel-integration.md). 
 
         If you selected one of the incident triggers and you want the automation rule to take effect only on incidents sourced in Microsoft Sentinel, or alternatively in Microsoft Defender XDR, specify the source in the **If Incident provider equals** condition.
 
