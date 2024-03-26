@@ -368,6 +368,16 @@ With Cross Subscription Restore (CSR), you have the flexibility of restoring to 
 >- CSR is supported only for streaming/Backint-based backups and is not supported for snapshot-based backup.
 >- Cross Regional Restore (CRR) with CSR is not supported.
 
+**Cross Subscription Restore to a Private Endpoint enabled vault**
+
+To perform Cross Subscription Restore to a Private Endpoint enabled vault:
+
+1. In the *source Recovery Services vault*, go to the **Networking** tab.
+2. Go to the **Private access** section and create **Private Endpoints**.
+3. Select the *subscription* of the target vault in which you want to restore.
+4. In the **Virtual Network** section, select the **VNet** of the target VM that you want to restore across subscription.
+5. Create the **Private Endpoint** and trigger the restore process.
+
 **Azure RBAC  requirements**
 
 | Operation type | Backup operator | Recovery Services vault | Alternate operator |
@@ -404,15 +414,6 @@ Add the parameter `--target-subscription-id` that enables you to provide the tar
 
 ```
 
-### Cross Subscription Restore to a Private Endpoint enabled vault
-
-To perform Cross Subscription Restore to a Private Endpoint enabled vault:
-
-1. In the *source Recovery Services vault*, go to the **Networking** tab.
-2. Go to the **Private access** section and create **Private Endpoints**.
-3. Select the *subscription* of the target vault in which you want to restore.
-4. In the **Virtual Network** section, select the **VNet** of the target VM that you want to restore across subscription.
-5. Create the **Private Endpoint** and trigger the restore process.
 
 ## Next steps
 
