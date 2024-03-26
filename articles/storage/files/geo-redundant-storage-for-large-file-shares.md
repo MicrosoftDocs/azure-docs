@@ -13,7 +13,7 @@ ms.custom: references_regions
 
 Azure Files geo-redundancy for large file shares significantly improves capacity and performance for standard SMB file shares when using geo-redundant storage (GRS) and geo-zone redundant storage (GZRS) options. 
 
-Azure Files has offered 100 TiB standard SMB shares (with better performance) for years with locally redundant storage (LRS) and zone-redundant storage (ZRS). However, geo-redundant file shares had a 5TiB capacity limit and were sometimes throttled due to IO operations per second (IOPS) and throughput limits. Now, geo-redundant standard SMB file shares support up to 100TiB capacity with significantly improved IOPS and throughput limits.
+Azure Files has offered 100 TiB standard SMB shares for years with locally redundant storage (LRS) and zone-redundant storage (ZRS). However, geo-redundant file shares had a 5 TiB capacity limit and were sometimes throttled due to IO operations per second (IOPS) and throughput limits. Now, geo-redundant standard SMB file shares support up to 100 TiB capacity with significantly improved IOPS and throughput limits.
 
 ## Applies to
 | File share type | SMB | NFS |
