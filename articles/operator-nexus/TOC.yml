@@ -46,6 +46,8 @@
       href: concepts-security.md
     - name: Control Plane Resiliency
       href: concepts-rack-resiliency.md
+    - name: Access and Identity
+      href: concepts-security-access-identity.md
     - name: Route Policy
       expanded: false
       items:

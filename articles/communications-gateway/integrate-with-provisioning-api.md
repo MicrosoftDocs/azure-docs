@@ -48,7 +48,7 @@ Use the *Key concepts* and *Examples* information in the [API Reference](/rest/a
 
 ## Configure your BSS client to connect to Azure Communications Gateway
 
-The Provisioning API is available on port 443 of your Azure Communications Gateway's base domain.
+The Provisioning API is available on port 443 of the `provapi` subdomain of your Azure Communications Gateway's base domain (`provapi.<base-domain>:443`).
 
 The DNS record for this domain has a time-to-live (TTL) of 60 seconds. When a region fails, Azure updates the DNS record to refer to another region, so clients making a new DNS lookup receive the details of the new region. We recommend ensuring that clients can make a new DNS lookup and retry a request 60 seconds after a timeout or a 5xx response.
 
