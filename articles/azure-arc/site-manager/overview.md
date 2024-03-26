@@ -61,5 +61,5 @@ The suggested state for Azure Arc site manager managed sites is to have the stat
 
 :::image type="content" source="./media/overview/site-suggested-state.png" alt-text="Screenshot that shows Site manager green and suggested state.":::
 
-# What does it cost to use Azure Arc site manager?
+## What does it cost to use Azure Arc site manager?
 Site manager doesn't have any fee, so feel free to create and use as many sites as desired. However, the Azure services that integrated with sites and site manager might have a fee. Additionally, alerts used with site manager via monitor might have fees as well.
