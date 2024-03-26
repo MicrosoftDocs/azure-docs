@@ -64,7 +64,7 @@ You can set an explicit region using connection strings. [Learn more about conne
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Enable Code Optimizations](set-up-code-optimizations.md)
+> [Set up Code Optimizations](set-up-code-optimizations.md)
 
 
 ## Related links

@@ -283,7 +283,7 @@ items:
         items:
         - name: Overview
           href: insights/code-optimizations.md
-        - name: Enable
+        - name: Set up Code Optimizations
           href: insights/set-up-code-optimizations.md
         - name: View insights
           href: insights/view-code-optimizations.md

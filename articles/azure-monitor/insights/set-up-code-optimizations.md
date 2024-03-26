@@ -1,5 +1,5 @@
 ---
-title: Enable Code Optimizations (Preview)
+title: Set up Code Optimizations (Preview)
 description: Learn how to enable and set up Azure Monitor's Code Optimizations feature
 ms.topic: conceptual
 ms.service: azure-monitor
@@ -10,7 +10,7 @@ ms.date: 03/08/2024
 ms.reviewer: ryankahng
 ---
 
-# Enable Code Optimizations (Preview)
+# Set up Code Optimizations (Preview)
 
 Enabling Code Optimizations to identify and analyze CPU and memory bottlenecks in your web applications is a simple process in the Azure portal. In this guide, you learn how to:
 
