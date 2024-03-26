@@ -16,7 +16,7 @@ Application Gateway for Containers allows you to rewrite the URL of a client req
 
 ## Usage details
 
-URL Rewrites take advantage of [filters](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1beta1.HTTPURLRewriteFilter) as defined by Kubernetes Gateway API.
+URL Rewrites take advantage of [filters](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.HTTPURLRewriteFilter) as defined by Kubernetes Gateway API.
 
 ## Background
 
@@ -24,13 +24,12 @@ URL rewrite enables you to translate an incoming request to a different URL when
 
 The following figure illustrates an example of a request destined for _contoso.com/shop_ being rewritten to _contoso.com/ecommerce_. The request is initiated to the backend target by Application Gateway for Containers:
 
-[ ![A diagram showing the Application Gateway for Containers rewriting a URL to the backend.](./media/how-to-url-rewrite-gateway-api/url-rewrite.png) ](./media/how-to-url-rewrite-gateway-api/url-rewrite.png#lightbox)
-
+[![A diagram showing the Application Gateway for Containers rewriting a URL to the backend.](./media/how-to-url-rewrite-gateway-api/url-rewrite.png)](./media/how-to-url-rewrite-gateway-api/url-rewrite.png#lightbox)
 
 ## Prerequisites
 
-1. If following the BYO deployment strategy, ensure you have set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md)
-2. If following the ALB managed deployment strategy, ensure you have provisioned your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and provisioned the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
+1. If following the BYO deployment strategy, ensure you set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md).
+2. If following the ALB managed deployment strategy, ensure you provision your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and provision the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
 3. Deploy sample HTTP application
 
     Apply the following deployment.yaml file on your cluster to deploy a sample TLS certificate to demonstrate redirect capabilities.
@@ -41,10 +40,10 @@ The following figure illustrates an example of a request destined for _contoso.c
 
     This command creates the following on your cluster:
 
-    - a namespace called `test-infra`
-    - one service called `echo` in the `test-infra` namespace
-    - one deployment called `echo` in the `test-infra` namespace
-    - one secret called `listener-tls-secret` in the `test-infra` namespace
+    - A namespace called `test-infra`
+    - One service called `echo` in the `test-infra` namespace
+    - One deployment called `echo` in the `test-infra` namespace
+    - One secret called `listener-tls-secret` in the `test-infra` namespace
 
 ## Deploy the required Gateway API resources
 
@@ -54,7 +53,7 @@ The following figure illustrates an example of a request destined for _contoso.c
 
     ```bash
     kubectl apply -f - <<EOF
-    apiVersion: gateway.networking.k8s.io/v1beta1
+    apiVersion: gateway.networking.k8s.io/v1
     kind: Gateway
     metadata:
       name: gateway-01
@@ -92,7 +91,7 @@ The following figure illustrates an example of a request destined for _contoso.c
 
     ```bash
     kubectl apply -f - <<EOF
-    apiVersion: gateway.networking.k8s.io/v1beta1
+    apiVersion: gateway.networking.k8s.io/v1
     kind: Gateway
     metadata:
       name: gateway-01
@@ -173,7 +172,7 @@ Once the gateway is created, create an HTTPRoute resource for `contoso.com`.  Th
 
 ```bash
 kubectl apply -f - <<EOF
-apiVersion: gateway.networking.k8s.io/v1beta1
+apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
   name: rewrite-example

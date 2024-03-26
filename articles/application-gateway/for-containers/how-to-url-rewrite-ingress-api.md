@@ -28,18 +28,18 @@ The following figure illustrates a request destined for _contoso.com/shop_ being
 
 ## Prerequisites
 
-1. If following the BYO deployment strategy, ensure you have set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md)
-2. If following the ALB managed deployment strategy, ensure you have provisioned your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and provisioned the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
-3. Deploy sample HTTP application
+1. If following the BYO deployment strategy, ensure you set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md).
+2. If following the ALB managed deployment strategy, ensure you provision your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and provision the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
+3. Deploy sample HTTP application:<br>
   Apply the following deployment.yaml file on your cluster to create a sample web application to demonstrate path, query, and header based routing.  
   ```bash
   kubectl apply -f https://trafficcontrollerdocs.blob.core.windows.net/examples/traffic-split-scenario/deployment.yaml
   ```
   
   This command creates the following on your cluster:
-  - a namespace called `test-infra`
-  - two services called `backend-v1` and `backend-v2` in the `test-infra` namespace
-  - two deployments called `backend-v1` and `backend-v2` in the `test-infra` namespace
+  - A namespace called `test-infra`
+  - Two services called `backend-v1` and `backend-v2` in the `test-infra` namespace
+  - Two deployments called `backend-v1` and `backend-v2` in the `test-infra` namespace
 
 ## Deploy the required Ingress API resources
 

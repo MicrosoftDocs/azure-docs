@@ -51,7 +51,7 @@ A native document refers to the file format used to create the original document
 |Type|support and limitations|
 |---|---|
 |**PDFs**| Fully scanned PDFs aren't supported.|
-|**Text within images**| Digital images with imbedded text aren't supported.|
+|**Text within images**| Digital images with embedded text aren't supported.|
 |**Digital tables**| Tables in scanned documents aren't supported.|
 
 ***Document Size***

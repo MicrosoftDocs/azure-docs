@@ -2,7 +2,7 @@
 title: Configure Live Data in Container insights
 description: This article describes how to set up the real-time view of container logs (stdout/stderr) and events without using kubectl with Container insights.
 ms.topic: conceptual
-ms.date: 05/24/2022
+ms.date: 2/28/2024
 ms.custom: references_regions
 ms.reviewer: aul
 ---

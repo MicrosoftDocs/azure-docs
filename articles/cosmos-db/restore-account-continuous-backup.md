@@ -118,6 +118,7 @@ Before restoring the account, install the [latest version of Azure PowerShell](/
 
    ```azurepowershell
    Select-AzSubscription -Subscription <SubscriptionName>
+   ```
 
 ### <a id="trigger-restore-ps"></a>Trigger a restore operation for API for NoSQL account
 

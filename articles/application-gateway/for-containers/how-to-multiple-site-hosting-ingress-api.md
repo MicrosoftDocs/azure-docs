@@ -13,6 +13,7 @@ ms.author: greglin
 # Multi-site hosting with Application Gateway for Containers - Ingress API
 
 This document helps you set up an example application that uses the Ingress API to demonstrate hosting multiple sites on the same Kubernetes Ingress resource / Application Gateway for Containers frontend. Steps are provided to:
+
 - Create an [Ingress](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.27/#ingressrule-v1-networking-k8s-io) resource with two hosts.
 
 ## Background
@@ -23,24 +24,27 @@ Application Gateway for Containers enables multi-site hosting by allowing you to
 
 ## Prerequisites
 
-1. If you follow the BYO deployment strategy, ensure that you set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md)
-2. If you follow the ALB managed deployment strategy, ensure provisioning of your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and the Application Gateway for Containers resources via the [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
-3. Deploy sample HTTP application
-  Apply the following deployment.yaml file on your cluster to create a sample web application to demonstrate path, query, and header based routing.  
-  ```bash
-  kubectl apply -f https://trafficcontrollerdocs.blob.core.windows.net/examples/traffic-split-scenario/deployment.yaml
-  ```
+1. If you used the BYO deployment strategy, ensure that you set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md).
+2. If you used the ALB managed deployment strategy, ensure provisioning of your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and the Application Gateway for Containers resources via the [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
+3. Deploy sample HTTP application:<br>
+   Apply the following deployment.yaml file on your cluster to create a sample web application to demonstrate path, query, and header based routing.
+
+   ```bash
+   kubectl apply -f https://trafficcontrollerdocs.blob.core.windows.net/examples/traffic-split-scenario/deployment.yaml
+   ```
   
-  This command creates the following on your cluster:
-  - a namespace called `test-infra`
-  - two services called `backend-v1` and `backend-v2` in the `test-infra` namespace
-  - two deployments called `backend-v1` and `backend-v2` in the `test-infra` namespace
+   This command creates the following on your cluster:
+
+   - A namespace called `test-infra`
+   - Two services called `backend-v1` and `backend-v2` in the `test-infra` namespace
+   - Two deployments called `backend-v1` and `backend-v2` in the `test-infra` namespace
 
 ## Deploy the required Ingress resource
 
 # [ALB managed deployment](#tab/alb-managed)
 
 1. Create an Ingress
+
 ```bash
 kubectl apply -f - <<EOF
 apiVersion: networking.k8s.io/v1
@@ -77,7 +81,6 @@ spec:
 EOF
 ```
 
-
 # [Bring your own (BYO) deployment](#tab/byo)
 
 1. Set the following environment variables
@@ -91,6 +94,7 @@ FRONTEND_NAME='frontend'
 ```
 
 2. Create an Ingress
+
 ```bash
 kubectl apply -f - <<EOF
 apiVersion: networking.k8s.io/v1
@@ -130,11 +134,13 @@ EOF
 ---
 
 Once the ingress resource is created, ensure the status shows the hostname of your load balancer and that both ports are listening for requests.
+
 ```bash
 kubectl get ingress ingress-01 -n test-infra -o yaml
 ```
 
 Example output of successful Ingress creation.
+
 ```yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -199,6 +205,7 @@ curl -k --resolve contoso.com:80:$fqdnIp http://contoso.com
 ```
 
 Via the response we should see:
+
 ```json
 {
  "path": "/",
@@ -237,6 +244,7 @@ curl -k --resolve fabrikam.com:80:$fqdnIp http://fabrikam.com
 ```
 
 Via the response we should see:
+
 ```json
 {
  "path": "/",
