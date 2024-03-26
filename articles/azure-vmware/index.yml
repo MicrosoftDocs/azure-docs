@@ -23,19 +23,19 @@ highlightedContent:
       url: /azure/azure-vmware/introduction
     - title: Architecture and design 
       itemType: get-started
-      url: /azure/azure-vmware/plan-private-cloud-deployment
+      url: architecture-private-clouds.md
     - title: Implementation
       itemType: how-to-guide
-      url: /azure/azure-vmware/azure-vmware-solution-platform-updates
+      url: plan-private-cloud-deployment.md
     - title: Operation
       itemType: how-to-guide
-      url: /azure/azure-vmware/concepts-identity
+      url: using-run-command.md
     - title:  Third-party integration
       itemType: how-to-guide
-      url: /azure/azure-vmware/integrate-azure-native-services
+      url: configure-identity-source-vcenter.md
     - title: Migration
       itemType: how-to-guide
-      url: /azure/azure-vmware/concepts-migrate
+      url: ecosystem-migration-vms.md
     - title: Well-Architected Framework (WAF)
       itemType: concept
       url: /azure/well-architected/
@@ -49,7 +49,7 @@ highlightedContent:
 additionalContent:
   # Supports up to 3 sections
   sections:
-    - title: Overview, Quickstart, and tutorials
+    - title: Overview, Quickstart, tutorials, cost optimization
       items:
         # Card
         - title: Overview
@@ -97,30 +97,14 @@ additionalContent:
           - text: 8 - Delete a private cloud
             url: tutorial-delete-private-cloud.md 
         # Card
-        - title: Concepts
-          links: 
-          - text: Access and identity
-            url: architecture-identity.md
-          - text: API Management
-            url: architecture-api-management.md
-          - text: Hub and spoke
-            url: architecture-hub-and-spoke.md
-          - text: Internet connectivity design considerations
-            url: architecture-design-public-internet-access.md
-          - text: Network design considerations
-            url: architecture-network-design-considerations.md
-          - text: Networking and interconnectivity
-            url: architecture-networking.md
-          - text: Private clouds and clusters
-            url: architecture-private-clouds.md
-          - text: Run command
-            url: using-run-command.md
-          - text: Storage
-            url: architecture-storage.md
-          - text: Migrate
-            url: architecture-migrate.md
-
-    - title: Advanced configuration and integration
+        - title: Cost optimization
+          links:
+           - text: Enable Azure Hybrid Benefit for SQL Server in Azure VMware Solution
+             url: enable-sql-azure-hybrid-benefit.md
+           - text: Save costs with a reserved instance
+             url: reserved-instance.md
+      
+    - title: Advanced configuration, design consideration, and integration
       items:
         # Card
         - title: Configuration
@@ -145,6 +129,29 @@ additionalContent:
              url: configure-storage-policy.md
            - text: Create placement policy
              url: create-placement-policy.md
+        # Card
+        - title: Architecture and design
+          links: 
+          - text: Access and identity
+            url: architecture-identity.md
+          - text: API Management
+            url: architecture-api-management.md
+          - text: Hub and spoke
+            url: architecture-hub-and-spoke.md
+          - text: Internet connectivity design considerations
+            url: architecture-design-public-internet-access.md
+          - text: Network design considerations
+            url: architecture-network-design-considerations.md
+          - text: Networking and interconnectivity
+            url: architecture-networking.md
+          - text: Private clouds and clusters
+            url: architecture-private-clouds.md
+          - text: Run command
+            url: using-run-command.md
+          - text: Storage
+            url: architecture-storage.md
+          - text: Migrate
+            url: architecture-migrate.md
          # Card
         - title: Azure native integration
           links:
@@ -278,13 +285,9 @@ additionalContent:
             url: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-platform-automation-and-devops
           - text: Enterprise-Scale for Azure VMware Solution automation
             url: https://github.com/Azure/Enterprise-Scale-for-AVS
-        # Card
-        - title: Resources
+          # Card
+        - title: Infrastructure automation and management
           links:
-          - text: Well-Architected Framework (WAF)
-            url: /rest/api/avs
-          - text: Cloud Adoption Framework (CAF)
-            url: /cli/azure/vmware  
           - text: REST API
             url: /rest/api/avs
           - text: Azure CLI
@@ -297,7 +300,7 @@ additionalContent:
             url: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/vmware_private_cloud
           - text: Enterprise-Scale for Azure VMware Solution automation
             url: https://github.com/Azure/Enterprise-Scale-for-AVS
-        # Card
+          # Card
         - title: videos
           links:
           - text: Playlist
