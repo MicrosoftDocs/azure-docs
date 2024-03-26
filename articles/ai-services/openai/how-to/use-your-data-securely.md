@@ -107,7 +107,7 @@ When using the API, pass the `filter` parameter in each API request. For example
 
 Use the following sections to configure your resources for optimal secure usage. Even if you plan to only secure part of your resources, you still need to follow all the steps below. 
 
-This article describes the network settings as disable public network for Azure OpenAI, one Azure AI Search, one Storage Account. It is not supported to use selected network with IP rules, because the services IP addresses are dynamic.
+This article describes the network settings as disabling public network for Azure OpenAI, Azure AI Search and Storage Account. It is not supported to use selected network with IP rules, because the services IP addresses are dynamic.
 
 ## Create resource group
 
