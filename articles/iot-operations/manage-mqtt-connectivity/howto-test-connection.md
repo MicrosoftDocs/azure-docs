@@ -36,41 +36,43 @@ Before you begin, [install or deploy IoT Operations](../get-started/quickstart-d
 
 The first option is to connect from within the cluster. This option uses the default configuration and requires no extra updates. The following examples show how to connect from within the cluster using plain Alpine Linux and a commonly used MQTT client, using the service account and default root CA cert.
 
-```yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: mqtt-client
-  # Namespace must match IoT MQ BrokerListener's namespace
-  # Otherwise use the long hostname: aio-mq-dmqtt-frontend.azure-iot-operations.svc.cluster.local
-  namespace: azure-iot-operations
-spec:
-  # Use the "mqtt-client" service account which comes with default deployment
-  # Otherwise create it with `kubectl create serviceaccount mqtt-client -n azure-iot-operations`
-  serviceAccountName: mqtt-client
-  containers:
-    # Mosquitto and mqttui on Alpine
-  - image: alpine
-    name: mqtt-client
-    command: ["sh", "-c"]
-    args: ["apk add mosquitto-clients mqttui && sleep infinity"]
-    volumeMounts:
-    - name: mq-sat
-      mountPath: /var/run/secrets/tokens
-    - name: trust-bundle
-      mountPath: /var/run/certs
-  volumes:
-  - name: mq-sat
-    projected:
-      sources:
-      - serviceAccountToken:
-          path: mq-sat
-          audience: aio-mq # Must match audience in BrokerAuthentication
-          expirationSeconds: 86400
-  - name: trust-bundle
-    configMap:
-      name: aio-ca-trust-bundle-test-only # Default root CA cert
-```
+1. Create a file named `client.yaml` with the following configuration:
+
+    ```yaml
+    apiVersion: v1
+    kind: Pod
+    metadata:
+      name: mqtt-client
+      # Namespace must match IoT MQ BrokerListener's namespace
+      # Otherwise use the long hostname: aio-mq-dmqtt-frontend.azure-iot-operations.svc.cluster.local
+      namespace: azure-iot-operations
+    spec:
+      # Use the "mqtt-client" service account which comes with default deployment
+      # Otherwise create it with `kubectl create serviceaccount mqtt-client -n azure-iot-operations`
+      serviceAccountName: mqtt-client
+      containers:
+        # Mosquitto and mqttui on Alpine
+      - image: alpine
+        name: mqtt-client
+        command: ["sh", "-c"]
+        args: ["apk add mosquitto-clients mqttui && sleep infinity"]
+        volumeMounts:
+        - name: mq-sat
+          mountPath: /var/run/secrets/tokens
+        - name: trust-bundle
+          mountPath: /var/run/certs
+      volumes:
+      - name: mq-sat
+        projected:
+          sources:
+          - serviceAccountToken:
+              path: mq-sat
+              audience: aio-mq # Must match audience in BrokerAuthentication
+              expirationSeconds: 86400
+      - name: trust-bundle
+        configMap:
+          name: aio-ca-trust-bundle-test-only # Default root CA cert
+    ```
 
 1. Use `kubectl apply -f client.yaml` to deploy the configuration. It should only take a few seconds to start.
 
@@ -117,13 +119,14 @@ spec:
 
     The mosquitto client uses the same service account token and root CA cert to authenticate with the broker and subscribe to the topic.
 
-1. To use *mqttui*, the command is similar:
+1. You can also use mqttui to connect to the broker using the service account token. The `--insecure` flag is required because mqttui doesn't support TLS certificate chain verification with a custom root CA cert.
+
+    > [!CAUTION]
+    > Using `--insecure` is not recommended for production scenarios. Only use it for testing or development purposes.
 
     ```console
     mqttui --broker mqtts://aio-mq-dmqtt-frontend:8883 --username '$sat' --password $(cat /var/run/secrets/tokens/mq-sat) --insecure
     ```
-
-    With the above command, mqttui connects to the broker using the service account token. The `--insecure` flag is required because mqttui doesn't support TLS certificate chain verification with a custom root CA cert.
 
 1. To remove the pod, run `kubectl delete pod mqtt-client -n azure-iot-operations`.
 
@@ -166,9 +169,38 @@ For example, to create a K3d cluster with mapping the IoT MQ's default MQTT port
 k3d cluster create --port '8883:8883@loadbalancer'
 ```
 
-But for this method to work with IoT MQ, you must configure it to use a load balancer instead of cluster IP.
+But for this method to work with IoT MQ, you must configure it to use a load balancer instead of cluster IP. There are two ways to do this: create a load balancer or patch the existing default BrokerListener resource service type to load balancer.
 
-To configure a load balancer:
+#### Option 1: Create a load balancer
+
+1. Create a file named `loadbalancer.yaml` with the following configuration:
+
+    ```yaml
+    apiVersion: v1
+    kind: Service
+    metadata:
+        name: iotmq-public-svc
+    spec:
+        type: LoadBalancer
+        ports:
+        - name: mqtt1
+          port: 8883
+          targetPort: 8883
+        selector:
+          app: broker
+          app.kubernetes.io/instance: broker
+          app.kubernetes.io/managed-by: dmqtt-operator
+          app.kubernetes.io/name: dmqtt
+          tier: frontend
+    ```
+
+1. Apply the configuration to create a load balancer service:
+
+    ```bash
+    kubectl apply -f loadbalancer.yaml
+    ```
+
+#### Option 2: Patch the default load balancer
 
 1. Edit the `BrokerListener` resource and change the `serviceType` field to `loadBalancer`.
 
@@ -189,22 +221,23 @@ To configure a load balancer:
     aio-mq-dmqtt-frontend   LoadBalancer   10.43.107.11   XXX.XX.X.X    8883:30366/TCP   14h
     ```
 
-1. Use the external IP address to connect to IoT MQ from outside the cluster. If you used the K3d command with port forwarding, you can use `localhost` to connect to IoT MQ. For example, to connect with mosquitto client:
-
-    ```bash
-    mosquitto_pub --qos 1 --debug -h localhost --message hello --topic world --username client1 --pw password --cafile ca.crt --insecure
-    ```
-
-    In this example, the mosquitto client uses username/password to authenticate with the broker along with the root CA cert to verify the broker's TLS certificate chain. Here, the `--insecure` flag is required because the default TLS certificate issued to the load balancer is only valid for the load balancer's default service name (aio-mq-dmqtt-frontend) and assigned IPs, not localhost.
-
-1. If your cluster like Azure Kubernetes Service automatically assigns an external IP address to the load balancer, you can use the external IP address to connect to IoT MQ over the internet. Make sure to use the external IP address instead of `localhost` in the prior command, and remove the `--insecure` flag.
+1. You can use the external IP address to connect to IoT MQ over the internet. Make sure to use the external IP address instead of `localhost`.
 
     ```bash
     mosquitto_pub --qos 1 --debug -h XXX.XX.X.X --message hello --topic world --username client1 --pw password --cafile ca.crt
     ```
 
-    > [!WARNING]
-    > Never expose IoT MQ port to the internet without authentication and TLS. Doing so is dangerous and can lead to unauthorized access to your IoT devices and bring unsolicited traffic to your cluster.
+> [!WARNING]
+> Never expose IoT MQ port to the internet without authentication and TLS. Doing so is dangerous and can lead to unauthorized access to your IoT devices and bring unsolicited traffic to your cluster.
+
+> [!TIP]
+> You can use the external IP address to connect to IoT MQ from outside the cluster. If you used the K3d command with port forwarding option, you can use `localhost` to connect to IoT MQ. For example, to connect with mosquitto client:
+>
+> ```bash
+> mosquitto_pub --qos 1 --debug -h localhost --message hello --topic world --username client1 --pw password --cafile ca.crt --insecure
+> ```
+>
+> In this example, the mosquitto client uses username and password to authenticate with the broker along with the root CA cert to verify the broker's TLS certificate chain. Here, the `--insecure` flag is required because the default TLS certificate issued to the load balancer is only valid for the load balancer's default service name (aio-mq-dmqtt-frontend) and assigned IPs, not localhost. For more information on how to add localhost to the certificate's subject alternative name (SAN) to avoid using the insecure flag, see [Configure server certificate parameters](howto-configure-tls-auto.md#optional-configure-server-certificate-parameters).
 
 #### Use port forwarding
 
