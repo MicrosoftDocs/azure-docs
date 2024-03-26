@@ -116,7 +116,8 @@ To activate the customer subdomains in Microsoft 365, set up at least one user o
 ## Configure the customer tenant's call routing to use Azure Communications Gateway
 
 In the customer tenant, [configure a call routing policy](/microsoftteams/direct-routing-voice-routing) (also called a voice routing policy) with a voice route that routes calls to Azure Communications Gateway.
-- Set the PSTN gateway to the customer subdomains for Azure Communications Gateway (for example, `test.1-r1.<deployment-id>.commsgw.azure.com` and `test.1-r2.<deployment-id>.commsgw.azure.com`). This sets up _derived trunks_ for the customer tenant.
+
+- Set the PSTN gateway to the customer subdomains for Azure Communications Gateway (for example, `test.1-r1.<deployment-id>.commsgw.azure.com` and `test.1-r2.<deployment-id>.commsgw.azure.com`). This step sets up _derived trunks_ for the customer tenant, as described in the [Microsoft Teams documentation for creating trunks and provisioning users for multiple tenants](/microsoftteams/direct-routing-sbc-multiple-tenants#create-a-trunk-and-provision-users).
 - Don't configure any users to use the call routing policy yet.
 
 > [!IMPORTANT]
