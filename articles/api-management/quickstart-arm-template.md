@@ -7,7 +7,7 @@ ms.service: api-management
 ms.topic: quickstart-arm
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ms.author: danlep
-ms.date: 12/12/2023
+ms.date: 03/25/2024
 ---
 
 # Quickstart: Create a new Azure API Management service instance using an ARM template
@@ -54,7 +54,7 @@ More Azure API Management template samples can be found in [Azure Quickstart Tem
     - **Region**: select a location for the resource group. Example: **Central US**.
     - **Publisher Email**: enter an email address to receive notifications.
     - **Publisher Name**: enter a name you choose for the API publisher.
-    - **Sku**: accept the default value of **Developer**.
+    - **Sku**: accept the default value of **Developer**. Alternatively, choose another value.
     - **Sku Count**: accept the default value.
     - **Location**: accept the generated location for the API Management service.
 
@@ -63,7 +63,7 @@ More Azure API Management template samples can be found in [Azure Quickstart Tem
 1. Select **Review + Create**, then review the terms and conditions. If you agree, select **Create**.
 
     > [!TIP]
-    >  It can take between 30 and 40 minutes to create and activate an API Management service in the Developer tier.
+    >  It can take between 30 and 40 minutes to create and activate an API Management service in the Developer tier. Times vary by tier.
 
 1. After the instance has been created successfully, you get a notification:
 
