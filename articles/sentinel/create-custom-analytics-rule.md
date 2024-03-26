@@ -5,7 +5,7 @@ author: yelevin
 ms.author: yelevin
 ms.topic: how-to
 ms.custom: devx-track-arm-template
-ms.date: 05/28/2023
+ms.date: 03/26/2024
 ---
 
 # Create a custom analytics rule from scratch
@@ -114,22 +114,30 @@ In the Azure portal, stages are represented visually as tabs. In the Defender po
 
 ### Define the rule logic
 
-1. Paste the query you designed, built, and tested into the **Rule query** window. Every change you make in this window is instantly validated, so if there are any mistakes, you’ll see an indication right below the window.
+1. **Enter a query for your rule.**
 
-1. **Map entities**. This step is essential for detecting and investigating threats. Map the entity types recognized by Microsoft Sentinel onto fields in your query results. This mapping integrates the discovered entities into the [*Entities* field in your alert schema](security-alert-schema.md).
+   Paste the query you designed, built, and tested into the **Rule query** window. Every change you make in this window is instantly validated, so if there are any mistakes, you’ll see an indication right below the window.
 
-    For complete instructions on mapping entities, see [Map data fields to entities in Microsoft Sentinel](map-data-fields-to-entities.md).
+1. **Map entities.**
 
-1. **Surface custom details** in your alerts. By default, only the alert entities and metadata are visible in incidents without drilling down into the raw events in the query results. This step takes other fields in your query results and integrates them into the [*ExtendedProperties* field in your alerts](security-alert-schema.md), causing them to be displayed up front in your alerts, and in any incidents created from those alerts.
+   Entities are essential for detecting and investigating threats. Map the entity types recognized by Microsoft Sentinel onto fields in your query results. This mapping integrates the discovered entities into the [*Entities* field in your alert schema](security-alert-schema.md).
 
-    For complete instructions on surfacing custom details, see [Surface custom event details in alerts in Microsoft Sentinel](surface-custom-details-in-alerts.md).
+   For complete instructions on mapping entities, see [Map data fields to entities in Microsoft Sentinel](map-data-fields-to-entities.md).
 
-1. **Customize alert details**. This setting allows you to customize otherwise-standard alert properties according to the content of various fields in each individual alert. These customizations are integrated into the [*ExtendedProperties* field in your alerts](security-alert-schema.md). For example, you can customize the alert name or description to include a username or IP address featured in the alert.
+1. **Surface custom details in your alerts.**
 
-    For complete instructions on customizing alert details, see [Customize alert details in Microsoft Sentinel](customize-alert-details.md).
+   By default, only the alert entities and metadata are visible in incidents without drilling down into the raw events in the query results. This step takes other fields in your query results and integrates them into the [*ExtendedProperties* field in your alerts](security-alert-schema.md), causing them to be displayed up front in your alerts, and in any incidents created from those alerts.
+
+   For complete instructions on surfacing custom details, see [Surface custom event details in alerts in Microsoft Sentinel](surface-custom-details-in-alerts.md).
+
+1. **Customize alert details.**
+
+   This setting allows you to customize otherwise-standard alert properties according to the content of various fields in each individual alert. These customizations are integrated into the [*ExtendedProperties* field in your alerts](security-alert-schema.md). For example, you can customize the alert name or description to include a username or IP address featured in the alert.
+
+   For complete instructions on customizing alert details, see [Customize alert details in Microsoft Sentinel](customize-alert-details.md).
 
 
-1. **Schedule and scope the query**. 
+1. <a name="schedule-and-scope-the-query"></a>**Schedule and scope the query.** 
     1. Set the following parameters in the **Query scheduling** section:
 
         | Setting | Behavior |
@@ -172,67 +180,76 @@ In the Azure portal, stages are represented visually as tabs. In the Defender po
    >
    > For more information, see [Handle ingestion delay in scheduled analytics rules](ingestion-delay.md).
 
-1. **Set the threshold for creating alerts**. Use the **Alert threshold** section to define the sensitivity level of the rule. For example, set **Generate alert when number of query results** to **Is greater than** and enter the number 1000 if you want the rule to generate an alert only if the query returns more than 1000 results each time it runs. This is a required field, so if you don’t want to set a threshold – that is, if you want your alert to register every event – enter 0 in the number field.
+1. **Set the threshold for creating alerts.**
 
-#### Group events into alerts and rule suppression
+   Use the **Alert threshold** section to define the sensitivity level of the rule.
+   - Set **Generate alert when number of query results** to **Is greater than**, and enter the minimum number of events that need to be found over the time period of the query for the rule to generate an alert. 
+   - This is a required field, so if you don’t want to set a threshold&mdash;that is, if you want to trigger the alert for even a single event in a given time period&mdash;enter `0` in the number field.
 
-Under **Event grouping**, choose one of two ways to handle the grouping of **events** into **alerts**:
+1. **Set event grouping settings.** 
 
-  | Setting | Behavior |
-  | --- | --- |
-  | **Group&nbsp;all&nbsp;events into a single alert**<br>(default) | The rule generates a single alert every time it runs, as long as the query returns more results than the specified **alert threshold** above. The alert includes a summary of all the events returned in the results. |
-  | **Trigger an alert for each event** | The rule generates a unique alert for each event returned by the query. This is useful if you want events to be displayed individually, or if you want to group them by certain parameters&mdash;by user, hostname, or something else. You can define these parameters in the query. |
+   Under **Event grouping**, choose one of two ways to handle the grouping of **events** into **alerts**:
 
-Analytics rules can generate up to 150 alerts. If **Event grouping** is set to **Trigger an alert for each event**, and the rule's query returns *more than 150 events*, the first 149 events will each generate a unique alert (for 149 alerts), and the 150th alert will summarize the entire set of returned events. In other words, the 150th alert is what would have been generated if **Event grouping** had been set to **Group all events into a single alert**.
+   | Setting | Behavior |
+   | --- | --- |
+   | **Group&nbsp;all&nbsp;events into a single alert**<br>(default) | The rule generates a single alert every time it runs, as long as the query returns more results than the specified **alert threshold** above. This single alert summarizes all the events returned in the query results. |
+   | **Trigger an alert for each event** | The rule generates a unique alert for each event returned by the query. This is useful if you want events to be displayed individually, or if you want to group them by certain parameters&mdash;by user, hostname, or something else. You can define these parameters in the query. |
 
-#### Temporarily suppress rule after an alert is generated
+   Analytics rules can generate up to 150 alerts. If **Event grouping** is set to **Trigger an alert for each event**, and the rule's query returns *more than 150 events*, the first 149 events will each generate a unique alert (for 149 alerts), and the 150th alert will summarize the entire set of returned events. In other words, the 150th alert is what would have been generated if **Event grouping** had been set to **Group all events into a single alert**.
 
-- In the **Suppression** section, you can turn the **Stop running query after alert is generated** setting **On** if, once you get an alert, you want to suspend the operation of this rule for a period of time exceeding the query interval. If you turn this on, you must set **Stop running query for** to the amount of time the query should stop running, up to 24 hours.
+1. **Temporarily suppress rule after an alert is generated.** 
 
-#### Simulate the results of the query and logic settings
+   In the **Suppression** section, you can turn the **Stop running query after alert is generated** setting **On** if, once you get an alert, you want to suspend the operation of this rule for a period of time exceeding the query interval. If you turn this on, you must set **Stop running query for** to the amount of time the query should stop running, up to 24 hours.
 
-In the **Results simulation** area, select **Test with current data** and Microsoft Sentinel will show you a graph of the results (log events) the query would have generated over the last 50 times it would have run, according to the currently defined schedule. If you modify the query, select **Test with current data** again to update the graph. The graph shows the number of results over the defined time period, which is determined by the settings in the **Query scheduling** section.
+1. **Simulate the results of the query and logic settings.**
 
-Here's what the results simulation might look like for the query in the screenshot above. The left side is the default view, and the right side is what you see when you hover over a point in time on the graph.
+   In the **Results simulation** area, select **Test with current data** and Microsoft Sentinel will show you a graph of the results (log events) the query would have generated over the last 50 times it would have run, according to the currently defined schedule. If you modify the query, select **Test with current data** again to update the graph. The graph shows the number of results over the defined time period, which is determined by the settings in the **Query scheduling** section.
 
-:::image type="content" source="media/tutorial-detect-threats-custom/results-simulation.png" alt-text="Results simulation screenshots":::
+   Here's what the results simulation might look like for the query in the screenshot above. The left side is the default view, and the right side is what you see when you hover over a point in time on the graph.
 
-If you see that your query would trigger too many or too frequent alerts, you can experiment with the settings in the **Query scheduling** and **Alert threshold** [sections](#query-scheduling-and-alert-threshold) and select **Test with current data** again.
+   :::image type="content" source="media/tutorial-detect-threats-custom/results-simulation.png" alt-text="Results simulation screenshots":::
+
+   If you see that your query would trigger too many or too frequent alerts, you can experiment with the settings in the **Query scheduling** and **Alert threshold** [sections](#query-scheduling-and-alert-threshold) and select **Test with current data** again.
+
+1. **Select *Next: Incident settings >*.**
 
 ### Configure the incident creation settings
 
 In the **Incident settings** tab, choose whether Microsoft Sentinel turns alerts into actionable incidents, and whether and how alerts are grouped together in incidents.
 
-#### Incident settings
+1. **Enable incident creation.**
 
-In the **Incident settings** section, **Create incidents from alerts triggered by this analytics rule** is set by default to **Enabled**, meaning that Microsoft Sentinel will create a single, separate incident from each and every alert triggered by the rule.
+   In the **Incident settings** section, **Create incidents from alerts triggered by this analytics rule** is set by default to **Enabled**, meaning that Microsoft Sentinel will create a single, separate incident from each and every alert triggered by the rule.
 
-- If you don’t want this rule to result in the creation of any incidents (for example, if this rule is just to collect information for subsequent analysis), set this to **Disabled**.
+   - If you don’t want this rule to result in the creation of any incidents (for example, if this rule is just to collect information for subsequent analysis), set this to **Disabled**.
 
-- If you want a single incident to be created from a group of alerts, instead of one for every single alert, see the next section.
+     > [!IMPORTANT]
+     > If you onboarded Microsoft Sentinel to the unified SOC platform in the Microsoft Defender portal, and this rule is querying and creating alerts from Microsoft 365 or Microsoft Defender sources, you must set this setting to **Disabled**.
 
-#### Alert grouping
+   - If you want a single incident to be created from a group of alerts, instead of one for every single alert, see the next section.
 
-In the **Alert grouping** section, if you want a single incident to be generated from a group of up to 150 similar or recurring alerts (see note), set **Group related alerts, triggered by this analytics rule, into incidents** to **Enabled**, and set the following parameters.
+2. **Set alert grouping settings.**
 
-- **Limit the group to alerts created within the selected time frame**: Determine the time frame within which the similar or recurring alerts will be grouped together. All of the corresponding alerts within this time frame will collectively generate an incident or a set of incidents (depending on the grouping settings below). Alerts outside this time frame will generate a separate incident or set of incidents.
+   In the **Alert grouping** section, if you want a single incident to be generated from a group of up to 150 similar or recurring alerts (see note), set **Group related alerts, triggered by this analytics rule, into incidents** to **Enabled**, and set the following parameters.
 
-- **Group alerts triggered by this analytics rule into a single incident by**: Choose the basis on which alerts will be grouped together:
+   1. **Limit the group to alerts created within the selected time frame**: Determine the time frame within which the similar or recurring alerts will be grouped together. All of the corresponding alerts within this time frame will collectively generate an incident or a set of incidents (depending on the grouping settings below). Alerts outside this time frame will generate a separate incident or set of incidents.
 
-    | Option | Description |
-    | ------- | ---------- |
-    | **Group alerts into a single incident if all the entities match** | Alerts are grouped together if they share identical values for each of the mapped entities (defined in the [Set rule logic](#define-the-rule-query-logic-and-configure-settings) tab above). This is the recommended setting. |
-    | **Group all alerts triggered by this rule into a single incident** | All the alerts generated by this rule are grouped together even if they share no identical values. |
-    | **Group alerts into a single incident if the selected entities and details match** | Alerts are grouped together if they share identical values for all of the mapped entities, alert details, and custom details selected from the respective drop-down lists.<br><br>You might want to use this setting if, for example, you want to create separate incidents based on the source or target IP addresses, or if you want to group alerts that match a specific entity and severity.<br><br>**Note**: When you select this option, you must have at least one entity type or field selected for the rule. Otherwise, the rule validation will fail and the rule won't be created. |
+   1. **Group alerts triggered by this analytics rule into a single incident by**: Choose the basis on which alerts will be grouped together:
 
-- **Re-open closed matching incidents**: If an incident has been resolved and closed, and later on another alert is generated that should belong to that incident, set this setting to **Enabled** if you want the closed incident re-opened, and leave as **Disabled** if you want the alert to create a new incident.
+      | Option | Description |
+      | ------- | ---------- |
+      | **Group alerts into a single incident if all the entities match** | Alerts are grouped together if they share identical values for each of the mapped entities (defined in the [Set rule logic](#define-the-rule-query-logic-and-configure-settings) tab above). This is the recommended setting. |
+      | **Group all alerts triggered by this rule into a single incident** | All the alerts generated by this rule are grouped together even if they share no identical values. |
+      | **Group alerts into a single incident if the selected entities and details match** | Alerts are grouped together if they share identical values for all of the mapped entities, alert details, and custom details selected from the respective drop-down lists.<br><br>You might want to use this setting if, for example, you want to create separate incidents based on the source or target IP addresses, or if you want to group alerts that match a specific entity and severity.<br><br>**Note**: When you select this option, you must have at least one entity type or field selected for the rule. Otherwise, the rule validation will fail and the rule won't be created. |
 
-    > [!NOTE]
-    >
-    > **Up to 150 alerts** can be grouped into a single incident.
-    > - The incident will only be created after all the alerts have been generated. All of the alerts will be added to the incident immediately upon its creation.
-    >
-    > - If more than 150 alerts are generated by a rule that groups them into a single incident, a new incident will be generated with the same incident details as the original, and the excess alerts will be grouped into the new incident.
+   1. **Re-open closed matching incidents**: If an incident has been resolved and closed, and later on another alert is generated that should belong to that incident, set this setting to **Enabled** if you want the closed incident re-opened, and leave as **Disabled** if you want the alert to create a new incident.
+
+   > [!NOTE]
+   >
+   > **Up to 150 alerts** can be grouped into a single incident.
+   > - The incident will only be created after all the alerts have been generated. All of the alerts will be added to the incident immediately upon its creation.
+   >
+   > - If more than 150 alerts are generated by a rule that groups them into a single incident, a new incident will be generated with the same incident details as the original, and the excess alerts will be grouped into the new incident.
 
 # [Azure portal](#tab/azure)
 
