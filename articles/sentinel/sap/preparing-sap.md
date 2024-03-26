@@ -233,6 +233,7 @@ In the examples shown here, we will use the role name **/MSFTSEN/SENTINEL_CONNEC
 
 1. In the **Roles** tab, in the **Role Assignments** section, enter the full name of the role - `/MSFTSEN/SENTINEL_CONNECTOR` in our example - and press **Enter**.
 
+
     After pressing **Enter**, verify that the right-hand side of the **Role Assignments** section populates with data, such as **Change Start Date**.
 
 1. Select the **Profiles** tab, verify that a profile for the role appears under **Assigned Authorization Profiles**, and select **Save**.
@@ -245,7 +246,6 @@ The required authorizations are listed here by log type. Only the authorizations
 
 > [!TIP]
 > To create a role with all the required authorizations, deploy the SAP *NPLK900271* CR on the SAP system, or load the role authorizations from the [MSFTSEN_SENTINEL_CONNECTOR_ROLE_V0.0.27.SAP](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Sample%20Authorizations%20Role%20File) file. This CR creates the **/MSFTSEN/SENTINEL_CONNECTOR** role that has all the necessary permissions for the data connector to operate.
-> Alternatively, you can create a role that has minimal permissions by deploying the *NPLK900268* CR, or loading the role authorizations from the [MSFTSEN_SENTINEL_AGENT_BASIC_ROLE_V0.0.1.SAP](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Sample%20Authorizations%20Role%20File) file. This CR or authorizations file creates the **/MSFTSEN/SENTINEL_AGENT_BASIC** role. This role has the minimal required permissions for the data connector to operate. Note that if you choose to deploy this role, you might need to update it frequently.
 
 | Authorization Object | Field | Value |
 | -------------------- | ----- | ----- |

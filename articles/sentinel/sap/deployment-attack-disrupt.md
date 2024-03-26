@@ -14,7 +14,7 @@ ms.collection: usx-security
 
 Microsoft Defender XDR correlates millions of individual signals to identify active ransomware campaigns or other sophisticated attacks in the environment with high confidence. While an attack is in progress, Defender XDR disrupts the attack by automatically containing compromised assets that the attacker is using through automatic attack disruption. Automatic attack disruption limits lateral movement early on and reduces the overall impact of an attack, from associated costs to loss of productivity. At the same time, it leaves security operations teams in complete control of investigating, remediating, and bringing assets back online.
 
-This article describes how to deploy automatic attack disruption in the Microsoft Defender portal with the unified SOC platform and the Microsoft Sentinel solution for SAP applications. Deployment includes steps in both Microsoft Sentinel in the Azure portal, and in your SAP environment.
+When you add a new SAP system to Microsoft Sentinel, your default configuration includes attack disruption functionality in the unified SOC platform. This article describes how to deploy automatic attack disruption for existing SAP systems, including steps in both Microsoft Sentinel in the Azure portal, and in your SAP environment.
 
 For more information, see [Automatic attack disruption in Microsoft Defender XDR](/microsoft-365/security/defender/automatic-attack-disruption).
 
@@ -22,23 +22,32 @@ For more information, see [Automatic attack disruption in Microsoft Defender XDR
 
 ## Prerequisites
 
-- To deploy automatic attack disruption for SAP, make sure that have all the [prerequisites for deploying Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md).
+- To deploy automatic attack disruption for SAP in your existing system, make sure that you have all the [prerequisites for deploying Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md).
 
-## Add or update a SAP data connector agent
+## Update your SAP data connector agent
 
 Attack disruption for SAP requires that you have an agent with the latest version of the SAP data connector.
 
+Update your existing agent to the latest version manually. Automatic updates aren't supported for attack disruption. For more information, see [Manually update SAP data connector agent](update-sap-data-connector.md#manually-update-sap-data-connector-agent).
+
+> [!TIP]
+> If you need to add a new agent, attack disruption supports adding a new agent using the portal option only. For more information, see [Deploy the data connector agent container](deploy-data-connector-agent-container.md#deploy-the-data-connector-agent-container?tabs=managed-identity%2Cazure-portal).
+
+
+## Apply the MSFTSEN_SENTINEL_CONNECTOR_ROLE_WITH_RESPONSE SAP role to your SAP system
+
+Attack disruption is supported by the new **MSFTSEN_SENTINEL_RESPONSE** SAP role, which you must apply to your SAP system.
+
 Do one of the following:
 
-- **If you don't yet have an agent**, add a new one using the portal option only. For more information, see [Deploy the data connector agent container](deploy-data-connector-agent-container.md#deploy-the-data-connector-agent-container?tabs=managed-identity%2Cazure-portal).
+- Apply the role to your SAP system.
+- Apply the following permissions to your SAP system, which are included in the **MSFTSEN_SENTINEL_RESPONSE** role:
 
-- **If you have an existing agent**, update it manually to the latest version. Automatic updates aren't supported for attack disruption. For more information, see [Manually update SAP data connector agent](update-sap-data-connector.md#manually-update-sap-data-connector-agent).
+    PERMISSIONS ARE TBD
 
-## Reapply the MSFTSEN_SENTINEL_CONNECTOR_ROLE_V0.0.27.SAP role
+STEPS ARE TBD.
 
-Reapply the *MSFTSEN_SENTINEL_CONNECTOR_ROLE_V0.0.27.SAP* role to ensure that it includes permissions required for attack disruption. 
-
-For more information, see [Reapply the MSFTSEN_SENTINEL_CONNECTOR_ROLE_V0.0.27.SAP role](update-sap-data-connector.md#reapply-the-msftsen_sentinel_connector_role_v0.0.27.sap-role).
+For more information, see [Required ABAP authorizations](preparing-sap.md#required-abap-authorizations).
 
 ## Related content
 
