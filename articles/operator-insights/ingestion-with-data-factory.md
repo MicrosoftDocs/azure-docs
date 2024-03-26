@@ -71,7 +71,7 @@ To use the Data Product as the sink for a [Pipeline](/azure/data-factory/concept
 4. Create new Azure Blob Storage dataset
     - Select your output type
     - Set the linked service to the Data Product ingestion linked service created in the previous step
-    - The container name is the name of the data type the dataset is associated with
+    - Set the container name to the name of the data type the dataset is associated with.
     - Ensure the folder path includes at least one directory; files copied into the root of the container will not be correctly ingested
     - Set the other fields as appropriate for your data
 5. Follow the Azure Data Factory documentation (for example [Creating a pipeline with the UI](/azure/data-factory/concepts-pipelines-activities?tabs=data-factory#creating-a-pipeline-with-ui)) to create a pipeline with this new dataset as the sink
