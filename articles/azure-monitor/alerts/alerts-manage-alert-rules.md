@@ -99,7 +99,7 @@ To see the history of an alert rule, you must have a role with read permissions 
 
 1. Select an alert rule, and then select **History** on the left pane to see the history of when the alert rule triggered.
 
-    :::image type="content" source="media/alerts-manage-alert-rules/alert-rule-history.png" alt-text="Screenshot that shows the history button from the alerts rule page.":::
+    :::image type="content" source="media/alerts-manage-alert-rules/alert-rule-history.png" alt-text="Screenshot that shows the history button from the alerts rule page." lightbox="media/alerts-manage-alert-rules/alert-rule-history.png":::
 
 
 ## Manage metric alert rules with the Azure CLI
