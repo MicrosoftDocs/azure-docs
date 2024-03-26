@@ -11,8 +11,6 @@ ms.date: 03/08/2024
 ---
 
 # Connect to Azure Cosmos DB for MongoDB vCore from Azure Databricks
-[!INCLUDE[MongoDB vCore](./introduction.md)]
-
 This article explains you for connecting Azure Cosmos DB MongoDB vCore from Azure Databricks. It walks through basic Data Manipulation Language(DML) operations like Read, Filter, SQLs, Aggregation Pipelines and Write Tables using python code.
 
 ## Prerequisites
