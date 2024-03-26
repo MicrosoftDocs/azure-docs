@@ -23,8 +23,9 @@ In testing using real-world workload scenarios, Lightbits delivers up to 4.6X mo
 :::image type="content" source="media/oracle-third-party/lightbits.png" alt-text="This diagram compares IO2.Bc versus Lightbits Storage for Oracle using SLOB":::   
 
 The following table provides other inputs to help you to determine the appropriate disk type.
-| Parameter                   | Description                                                   |
-|-----------------------------|---------------------------------------------------------------|
+
+| Parameter                   | Description                   |
+|-----------------------------|------------------------------|
 | Other            | Flexible model at TiB granularity |
 | Provisioning Model          | Incremental snapshot for fast restore; Snapshot export for hardening. |
 | [BCDR](/azure/cloud-adoption-framework/scenarios/oracle-iaas/oracle-disaster-recovery-oracle-landing-zone)                        | Refer redundancy capabilities of Azure Elastic SAN in redundancy requirements. |
@@ -44,12 +45,12 @@ Apart from providing Oracle as DBaaS on Azure, [Tessell provides NVMe](https://w
 
 The following table provides other inputs to help you to determine the appropriate disk type.
 
-| Parameter                   | Description                 |
+| Other parameters                  |  DBaaS – A Managed service options for Oracle on Azure.                  |
 |-----------------------------|------------------------------|
-| Provisioning Model          | Flexible model at TiB granularity                             |
-| [BCDR](/azure/cloud-adoption-framework/scenarios/oracle-iaas/oracle-disaster-recovery-oracle-landing-zone)                        | Incremental snapshot for fast restore; Snapshot export for hardening. |
-| Redundancy & Scale Targets  | Refer to the redundancy capabilities of Azure Elastic SAN in redundancy requirements. |
-| Encryption                  | Encryption at rest is supported.                              |
+| Provisioning Model          | Upfront Provisioning                        |
+| [BCDR](/azure/cloud-adoption-framework/scenarios/oracle-iaas/oracle-disaster-recovery-oracle-landing-zone)  | Azure Snapshot, Backups, HA/DR  |
+| Redundancy & Scale Targets  | Out-of-the-box Multi-Availability Zone (AZ) HA and cross-region DR services   |
+| Encryption       | Azure Key Vault based & bring your own encryption          |
 
 
 ## Silk: Performance best practices for Oracle on Azure VMs  
@@ -59,9 +60,8 @@ Silk as a company rewriting the rules of the cloud to make businesses smarter, f
 
 The following table provides other inputs to help you to determine the appropriate disk type.
 
-| Other parameters         | Description                |
+| Other parameters         | SaaS offering                 |
 |--------------------------|----------------------------|
-| SaaS offering            |                                                                                                      |
 | Provisioning Model       | Per GB granularity, online resize & scale-up or out, thin provisioned, compressed, optional deduped |
 | BCDR                     | One-to-Many Multi-Zone and Multi-Region Replication, Instant zero footprint Snapshot, Clone, Revert, and Extract for AI / BI, Testing, or Back up |
 | Redundancy & Scale Targets | One-to-Many Multi-Zone and Multi-Region Replication                                                  |
