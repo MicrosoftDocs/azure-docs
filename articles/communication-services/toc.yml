@@ -716,18 +716,18 @@ items:
         href: concepts/pricing/teams-interop-pricing.md
     - name: Advanced audio and video
       items:    
-        - name: Rooms API for structured meetings 
-          href: concepts/rooms/room-concept.md      
-        - name: Recording
-          href: concepts/voice-video-calling/call-recording.md
-        - name: Music mode
-          href: concepts/voice-video-calling/music-mode.md
-          displayName: music mode, audio filters, calling
-        - name: Media access
-          href: concepts/voice-video-calling/media-access.md
-        - name: Simulcast
-          href: concepts/voice-video-calling/simulcast.md
-          displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
+      - name: Rooms API for structured meetings 
+        href: concepts/rooms/room-concept.md      
+      - name: Recording
+        href: concepts/voice-video-calling/call-recording.md
+      - name: Music mode
+        href: concepts/voice-video-calling/music-mode.md
+        displayName: music mode, audio filters, calling
+      - name: Media access
+        href: concepts/voice-video-calling/media-access.md
+      - name: Simulcast
+        href: concepts/voice-video-calling/simulcast.md
+        displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
     - name: Quality and Diagnostics
       items:
       - name: Optimizing call quality
