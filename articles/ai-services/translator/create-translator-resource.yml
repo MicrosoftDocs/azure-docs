@@ -111,10 +111,15 @@ procedureSection:
       To delete the resource:
 
         1. Search and select **Resource groups** in the Azure portal, and select your resource group.
+
         2. Select the resources to be deleted by selecting the adjacent check box.
+
         3. Select **Delete** from the top menu near the right edge.
+
         4. Enter *delete* in the **Delete Resources** dialog box.
+
         5. Select **Delete**.
+        
 
       To delete the resource group:
     steps: 
