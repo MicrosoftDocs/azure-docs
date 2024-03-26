@@ -60,6 +60,8 @@ items:
     href: concepts/harm-categories.md
   - name: Prompt Shields
     href: concepts/jailbreak-detection.md
+  - name: Groundedness detection
+    href: concepts/groundedness.md
 - name: Reference
   items:
   - name: Azure AI Content Safety REST API
