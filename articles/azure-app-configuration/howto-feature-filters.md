@@ -25,27 +25,33 @@ The Microsoft `FeatureManagement` libraries include the following built-in featu
 
 You can also create your own custom feature filters to enable features based on criteria that you define. The ways to implement a feature filter are different depending on the language of the `FeatureManagement` libraries you are using. For more details, please follow the tutorials in the next steps.
 
+In this article, you will learn how to add a custom feature filter for your feature flag.
+
 ## Add a custom feature filter for the feature flag
 
 1. If you don't have any feature flag, create a feature flag called *Beta* to the App Configuration store and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store using the Azure portal or the CLI, go to [Create a feature flag](./quickstart-azure-app-configuration-create.md#create-a-feature-flag).
 
 1. In the Azure portal, go to your configuration store and select **Feature manager**.
 
-    ![Screenshot of the Azure portal, selecting the Edit option for the **Beta** feature flag, under Feature manager.](./media/feature-filters/edit-beta-feature-flag.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of the Azure portal, selecting the Edit option for the **Beta** feature flag, under Feature manager.](./media/feature-filters/edit-beta-feature-flag.png)
 
 1. On the line with the **Beta** feature flag you created in the quickstart, select the context menu and then **Edit**.
 
 1. In the **Edit feature flag** pane that opens, check the **Enable feature flag** checkbox if it isn't already enabled. Then check the **Use feature filter** checkbox and select **Create**.
 
-    ![Screenshot of the Azure portal, filling out the form 'Edit feature flag'.](./media/feature-filters/edit-a-feature-flag.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of the Azure portal, filling out the form 'Edit feature flag'.](./media/feature-filters/edit-a-feature-flag.png)
 
 1. The pane **Create a new filter** opens. Under **Filter type**, select **Custom filter**.
 
-    ![Screenshot of the Azure portal, creating a new custom filter.](./media/feature-filters/add-custom-filter.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of the Azure portal, creating a new custom filter.](./media/feature-filters/add-custom-filter.png)
 
 1. Enter the name of your custom filter.
 
-    ![Screenshot of the Azure portal, entering name for the custom filter.](./media/feature-filters/add-custom-filter-name.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of the Azure portal, entering name for the custom filter.](./media/feature-filters/add-custom-filter-name.png)
 
 
     > [!TIP]
@@ -57,15 +63,19 @@ You can also create your own custom feature filters to enable features based on 
 
 1. The feature filter you created is now listed in the feature flag details. Select **Apply** to save the new feature flag settings.
 
-    ![Screenshot of the Azure portal, applying new custom filter.](./media/feature-filters/feature-flag-edit-apply-filter.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of the Azure portal, applying new custom filter.](./media/feature-filters/feature-flag-edit-apply-filter.png)
 
 1. On the **Feature manager** page, the feature flag now has a **Feature filter(s)** value of **1**.
 
-    ![Screenshot of the Azure portal, displaying updated feature flag.](./media/feature-filters/updated-feature-flag.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of the Azure portal, displaying updated feature flag.](./media/feature-filters/updated-feature-flag.png)
+
+Now, you sucessfully added a custom filter for your feature flag. The next step is to implement the feature filter by yourself through the Microsoft `FeatureManagement` libraries. You can define any rule you want to enable the feature flag. The `FeatureManagement` libraries will recognize the feature filter configuration and apply the rule for the feature flag. For more details, please follow the tutorials about how to implement a custom feature filter in the next steps.
 
 ## Next steps
 
-In this tutorial, you learn the basic concept of feature filter and how to add a custom feature filter for a feature flag.
+In this tutorial, you learn the basic concept of feature filter and how to add a custom filter for a feature flag.
 
 To learn how to implement a custom feature filter, continue to the following tutorial:
 
@@ -75,7 +85,7 @@ To learn how to implement a custom feature filter, continue to the following tut
 To learn more about the built-in feature filters, continue to the following tutorials:
 
 > [!div class="nextstepaction"]
-> [Enable features on a schedule](./howto-timewindowfilter.md)
+> [Enable features on a schedule](./howto-timewindow-filter.md)
 
 > [!div class="nextstepaction"]
 > [Roll out features to targeting audience](./howto-targetingfilter.md)

@@ -128,10 +128,10 @@
         - name: Enable features on a schedule
           items:
             - name: Overview
-              href: howto-timewindowfilter.md
+              href: howto-timewindow-filter.md
             - name: ASP.NET Core
-              href: howto-timewindowfilter-aspnet-core.md
-        - name: Roll out features to targeting audience
+              href: howto-timewindow-filter-aspnet-core.md
+        - name: Roll out features to targeted audience
           items:
             - name: Overview
               href: howto-targetingfilter.md

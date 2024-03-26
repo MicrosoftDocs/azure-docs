@@ -234,7 +234,7 @@ At this point, you can use the feature flag to enable or disable the `Beta` feat
     The feature filter screen will look like this.
 
     > [!div class="mx-imgBorder"]
-    > ![Conditional feature flag](./media/feature-flag-filter-enabled.png)
+    > ![Conditional feature flag](./media/feature-filters/add-targeting-filter.png)
 
     These settings result in the following behavior.
 
