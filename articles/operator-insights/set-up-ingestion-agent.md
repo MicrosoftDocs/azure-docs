@@ -49,7 +49,7 @@ Links to the current and previous releases of the agents are available below the
 The ingestion agent must be able to authenticate with the Azure Key Vault created by the Data Product to retrieve storage credentials. The method of authentication can either be:
 
 - Service principal with certificate credential. This must be used if the ingestion agent is running outside of Azure, such as an on-premises network. 
-- Managed identity. This can be used as an alternative to a service principal if the ingestion agent is running on an Azure VM, it removes the need to handle any credentials.
+- Managed identity. If the ingestion agent is running on an Azure VM, we recommend this method. It does not require handling any credentials (unlike a service principal).
 
 > [!IMPORTANT]
 > You may need a Microsoft Entra tenant administrator in your organization to perform this setup for you.

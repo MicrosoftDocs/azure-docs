@@ -41,7 +41,7 @@ You use Microsoft Entra ID to manage user-assigned managed identities. For more 
 
 Azure Operator Insights Data Products don't support system-assigned managed identities.
 
-Azure Operator Insights ingestion agents on Azure VMs support system-assigned managed identites, see [Use a managed identity for authentication](set-up-ingestion-agent.md#use-a-managed-identity-for-authentication).
+Azure Operator Insights ingestion agents on Azure VMs support system-assigned managed identities. See [Use a managed identity for authentication](set-up-ingestion-agent.md#use-a-managed-identity-for-authentication).
 
 ## Related content
 
