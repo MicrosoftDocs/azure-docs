@@ -1,11 +1,14 @@
 ---
-title: Regulatory compliance standards in Microsoft Defender for Cloud
-description: Learn about regulatory compliance standards in Microsoft Defender for Cloud
-ms.topic: conceptual
-ms.date: 11/27/2023
+title: Regulatory compliance in Defender for Cloud
+description: Learn about regulatory compliance standards and certification in Microsoft Defender for Cloud
+author: dcurwin
+ms.author: dacurwin
+ms.topic: concept-article
+ms.date: 03/26/2024
+#customer intent: As a cloud security professional, I want to understand how Defender for Cloud helps me meet regulatory compliance standards, so that I can ensure my organization is compliant with industry standards and regulations.
 ---
 
-# Regulatory compliance standards
+# Regulatory compliance standards in Microsoft Defender for Cloud
 
 Microsoft Defender for Cloud streamlines the regulatory compliance process by helping you to identify issues that are preventing you from meeting a particular compliance standard, or achieving compliance certification.
 
@@ -61,7 +64,53 @@ By default, when you enable Defender for Cloud, the following standards are enab
 - For **AWS**: [Microsoft Cloud Security Benchmark (MCSB)](concept-regulatory-compliance.md) and [AWS Foundational Security Best Practices standard](https://docs.aws.amazon.com/securityhub/latest/userguide/fsbp-standard.html).
 - For **GCP**: [Microsoft Cloud Security Benchmark (MCSB)](concept-regulatory-compliance.md) and **GCP Default**.
 
-## Next steps
+## Available regulatory standards
 
-- [Assign regulatory compliance standards](update-regulatory-compliance-packages.md)
-- [Improve regulatory compliance](regulatory-compliance-dashboard.md)
+The following regulatory standards are available in Defender for Cloud:
+
+| Standards for Azure subscriptions | Standards for AWS accounts | Standards for GCP projects |
+|--|--|--|
+| PCI DSS v4 | CIS AWS Foundations | CIS GCP Foundations |
+| SOC 2 Type 2 | CIS AWS Foundations | PCI DSS |
+| ISO 27001:2013 | PCI DSS | NIST 800-53 |
+| CIS Azure Foundations | AWS Foundational Security Best Practices | ISO 27001 |
+| NIST SP 800-53 R4 | AWS Well-Architected Framework | Brazilian General Personal Data Protection Law (LGPD) |
+| NIST SP 800-53 R5 | Brazilian General Personal Data Protection Law (LGPD) | California Consumer Privacy Act (CCPA) |
+| NIST SP 800 171 R2 | California Consumer Privacy Act (CCPA) | CIS Controls |
+| CMMC Level 3 | CRI Profile | CIS Google Cloud Platform Foundation Benchmark |
+| FedRAMP H | CSA Cloud Controls Matrix (CCM)  | CIS Google Kubernetes Engine (GKE) Benchmark |
+| FedRAMP M | GDPR | CIS Google Kubernetes Engine (GKE) Benchmark |
+| HIPAA/HITRUST | ISO/IEC 27001 | CRI Profile |
+| SWIFT CSP CSCF | ISO/IEC 27002 | CSA Cloud Controls Matrix (CCM) |
+| SWIFT CSP CSCF | NIST Cybersecurity Framework (CSF) | Cybersecurity Maturity Model Certification (CMMC) |
+| UK OFFICIAL and UK NHS | NIST SP 800-172 | FFIEC Cybersecurity Assessment Tool (CAT) |
+| Canada Federal PBMM | PCI-DSS | GDPR |
+| New Zealand ISM Restricted |  | ISO/IEC 27001 |
+| New Zealand ISM Restricted |  | ISO/IEC 27002 |
+| Australian Government ISM Protected |  | ISO/IEC 27017 |
+| RMIT Malaysia |  | NIST Cybersecurity Framework (CSF) |
+| Brazilian General Personal Data Protection Law (LGPD) |  | NIST SP 800-171 |
+| California Consumer Privacy Act (CCPA)  |  | NIST SP 800-172 |
+| CIS Controls | | PCI-DSS |
+| CIS Google Cloud Platform Foundation Benchmark | | Sarbanes Oxley Act (SOX)|
+| CIS Google Kubernetes Engine (GKE) Benchmark | | SOC 2 |
+| CIS Google Kubernetes Engine (GKE) Benchmark | | |
+| CRI Profile | | |
+| CSA Cloud Controls Matrix (CCM) | | |
+| Cybersecurity Maturity Model Certification (CMMC) | | |
+| FFIEC Cybersecurity Assessment Tool (CAT) | | |
+| GDPR | | |
+| ISO/IEC 27001 | | |
+| ISO/IEC 27002 | | |
+| ISO/IEC 27017 | | | 
+| NIST Cybersecurity Framework (CSF) | | |
+| NIST SP 800-171 | | |
+| NIST SP 800-172 | | |
+| PCI-DSS | | |
+| Sarbanes Oxley Act (SOX) | | |
+| SOC 2 | | |
+
+## Next step
+
+> [!div class="nextstepaction"]
+> [Assign regulatory compliance standards](update-regulatory-compliance-packages.md)
