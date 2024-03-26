@@ -39,9 +39,9 @@ This section includes steps to install the Istio add-on during cluster creation 
 
 If you enable the add-on without specifying a revision, a default supported revision is installed for you.
 
-If you wish to specify the revision instead:
+To specify a revision, perform the following steps.
 
-1. Use the `get-revisions` command in the [previous step](#get-available-istio-add-on-revisions) to check which revisions are available for different AKS cluster versions in a region.
+1. Use the [`az aks mesh get-revisions`][az-aks-mesh-get-revisions] command to check which revisions are available for different AKS cluster versions in a region.
 1. Based on the available revisions, you can include the `--revision asm-X-Y` (ex: `--revision asm-1-20`) flag in the enable command you use for mesh installation.
 
 ### Install mesh during cluster creation
