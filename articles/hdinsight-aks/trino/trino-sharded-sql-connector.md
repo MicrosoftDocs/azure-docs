@@ -12,14 +12,14 @@ The sharded SQL connector allows queries to be executed over data distributed ac
 
 ## Prerequisites 
 
-To connect to sharded SQL servers, you need the following:
+To connect to sharded SQL servers, you need:
 
    - SQL Server 2012 or higher, or Azure SQL Database.
    - Network access from the Trino coordinator and workers to SQL Server. Port 1433 is the default port.
 
 ### General configuration
 
-The connector can query multiple SQL servers as a single data source. Create a catalog properties file and use `connector.name=sharded-sql` to use sharded SQL connector .
+The connector can query multiple SQL servers as a single data source. Create a catalog properties file and use `connector.name=sharded-sql` to use sharded SQL connector.
 
 Configuration example:
 
@@ -34,7 +34,7 @@ shard-config-location=<path-to-sharding-schema>
 
 |Property|Description|
 |--------|-----------|
-|connector.name| Name of the connector For sharded SQL which should be `sharded_sqlserver`|
+|connector.name| Name of the connector For sharded SQL, which should be `sharded_sqlserver`|
 |connection-user| User name in SQL server|
 |connection-password| Password for the user in SQL server|
 |sharded-cluster| Required to be set to `TRUE` for sharded-sql connector|
@@ -44,7 +44,7 @@ shard-config-location=<path-to-sharding-schema>
 
 The connector uses user-password authentication to query SQL servers. The same user specified in the configuration is expected to authenticate against all the SQL servers.
 
-## Schema Definition
+## Schema definition
 
 Connector assumes a 2D partition/bucketed layout of the physical data across SQL servers. Schema definition describes this layout.
 Currently, only file based sharding schema definition is supported. 
@@ -57,13 +57,13 @@ The following JSON file describes the configuration for a Trino sharded SQL conn
 - **tables**: An array of objects, each representing a table in the database. Each table object contains:
   - **schema**: The schema name of the table, which corresponds to the database in the SQL server.
   - **name**: The name of the table.
-  - **sharding_schema**: The name of the sharding schema associated with the table, this acts as a reference to the `sharding_schema` described in the next steps.
+  - **sharding_schema**: The name of the sharding schema associated with the table, which acts as a reference to the `sharding_schema` described in the next steps.
 
 - **sharding_schema**: An array of objects, each representing a sharding schema. Each sharding schema object contains:
   - **name**: The name of the sharding schema.
   - **partitioned_by**: An array containing one or more columns by which the sharding schema is partitioned.
   - **bucket_count(optional)**: An integer representing the total number of buckets the table is distributed, which defaults to 1.
-  - **bucketed_by(optional)**: An array containing one or more columns by which the data is bucketed, note the partitioning and bucketing are hierarchical, i.e each partition is bucketed.
+  - **bucketed_by(optional)**: An array containing one or more columns by which the data is bucketed, note the partitioning and bucketing are hierarchical, which means each partition is bucketed.
   - **partition_map**: An array of objects, each representing a partition within the sharding schema. Each partition object contains:
     - **partition**: The partition value specified in the form `partition-key=partitionvalue`
     - **shards**: An array of objects, each representing a shard within the partition, each element of the array represents a replica, trino queries any one of them at random to fetch data for a partition/buckets. Each shard object contains:
@@ -137,13 +137,13 @@ This example describes:
 -  Shards are an array of `connectionUrl`. Each member of the array represents a replicaSet. During query execution, Trino selects a shard randomly from the array to query data.
 
 
-### Partition and Bucket Pruning
+### Partition and bucket pruning
 
 Connector evaluates the query constraints during the planning and performs based on the provided query predicates. This helps speed-up query performance, and allows connector to query large amounts of data.
 
 Bucketing formula to determine assignments using murmur hash function implementation described [here](https://commons.apache.org/proper/commons-codec/apidocs/src-html/org/apache/commons/codec/digest/MurmurHash3.html#line.388).
 
-### Type Mapping
+### Type mapping
 
 Sharded SQL connector supports the same type mappings as SQL server connector [type mappings](https://trino.io/docs/current/connector/sqlserver.html#type-mapping).
 
