@@ -254,17 +254,17 @@ The following Embeddings models are available with [Azure Government](/azure/azu
 
 ### Assistants (Preview)
 
-For Assistants you need a combination of a supported model, and a supported region. Certain tools and capabilities require the latest models. Some models are only available in Azure OpenAI studio and the API, and are unavailable in Azure AI studio.
+For Assistants you need a combination of a supported model, and a supported region. Certain tools and capabilities require the latest models. The following models are available in the Assistants API, SDK, Azure AI Studio and Azure OpenAI Studio..
 
 | Region | `gpt-35-turbo (0613)` | `gpt-35-turbo (1106)` | `gpt-4 (0613)` | `gpt-4 (1106)` | `gpt-4 (0125)` | 
 |-----|---|---|---|---|---|
 | Australia East | ✅ | ✅ | ✅ |✅ | |
-| East US (Azure OpenAI studio and API only) | ✅ | | | | ✅ |
+| East US  | ✅ | | | | ✅ |
 | East US 2 | ✅ |  | ✅ |✅ | |
-| France Central (Azure OpenAI studio and API only) | ✅ | ✅ |✅ |✅ |  |
-| Norway East (Azure OpenAI studio and API only) | |  | | ✅ |  |
+| France Central  | ✅ | ✅ |✅ |✅ |  |
+| Norway East | |  | | ✅ |  |
 | Sweden Central  | ✅ |✅ |✅ |✅| |
-| UK South (Azure OpenAI studio and API only) | ✅ |  ✅ | ✅ |✅ |✅ |
+| UK South  | ✅ |  ✅ | ✅ |✅ |✅ |
 
 
 For information on Provisioned Throughput Unit (PTU) availability, see [provisioned throughput](./provisioned-throughput.md). 
