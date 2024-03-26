@@ -26,7 +26,7 @@ The following are frequently asked questions and answers for Azure Arc site mana
 
 *Question:* Does site manager have a subscription or fee for usage?
 
-*Answer:* Site manager doesn't have any fee. However, the Azure services that it integrates with might have a fee.
+*Answer:* Site manager doesn't have any fee, so feel free to create and use as many sites as desired. However, the Azure services that integrated with sites and site manager might have a fee. Additionally, alerts used with site manager via monitor might have fees as well.
 
 *Question:* What regions are currently supported via site manager?
 

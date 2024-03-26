@@ -48,17 +48,11 @@ landingContent:
             url: how-to-view-alerts.md
           - text: How do I configure monitor?
             url: how-to-configure-monitor-site.md
-
-additionalContent:
-  # Supports up to 4 subsections
-  sections:
-    - title: Explore more
-      items:
-        # Card
-        - title: Azure Arc
-          summary: Learn more about Azure Arc.
-          href: ../overview.md
-        # Card
-        - title: Azure Monitor
-          summary: Learn more about Azure Monitor.
-          href: ../../azure-monitor/overview.md
+  - title: Explore more
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Learn more about Azure Arc.
+            url: ../overview.md
+          - text: Learn more about Azure Monitor.
+            url: ../../azure-monitor/overview.md
