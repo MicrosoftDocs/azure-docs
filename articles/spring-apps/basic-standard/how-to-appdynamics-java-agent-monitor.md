@@ -102,7 +102,7 @@ To activate an application through the Azure portal, use the following steps.
 
 1. Select **Environment variables** to add or update the variables used by your application.
 
-   :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-configuration-env.png" alt-text="Screenshot of the Azure portal showing the Configuration page for an app in an Azure Spring Apps instance, with the Environment variables tab selected." lightbox="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-configuration-env.png":::
+   :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-configuration-env.png" alt-text="Screenshot of the Azure portal that shows the Configuration page with the Environment variables tab selected." lightbox="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-configuration-env.png":::
 
 ## Automate provisioning
 

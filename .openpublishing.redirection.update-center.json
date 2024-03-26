@@ -1,0 +1,174 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/update-center/assessment-options.md",
+            "redirect_url": "/azure/update-manager/assessment-options",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/update-center/configure-wu-agent.md",
+            "redirect_url": "/azure/update-manager/configure-wu-agent",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/update-center/deploy-updates.md",
+            "redirect_url": "/azure/update-manager/deploy-updates",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/update-center/dynamic-scope-overview.md",
+            "redirect_url": "/azure/update-manager/dynamic-scope-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/update-center/enable-machines.md",
+            "redirect_url": "/azure/update-center/updates-maintenance-schedules",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/update-center/guidance-migration-automation-update-management-azure-update-manager.md",
+            "redirect_url": "/azure/update-manager/guidance-migration-automation-update-management-azure-update-manager",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/update-center/guidance-migration-azure.md",
+            "redirect_url": "/azure/update-manager/guidance-migration-azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/update-center/guidance-patching-sql-server-azure-vm.md",
+            "redirect_url": "/azure/update-manager/guidance-patching-sql-server-azure-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/update-center/index.yml",
+            "redirect_url": "/azure/update-manager/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/update-center/manage-arc-enabled-servers-programmatically.md",
+            "redirect_url": "/azure/update-manager/manage-arc-enabled-servers-programmatically",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/update-center/manage-dynamic-scoping.md",
+            "redirect_url": "/azure/update-manager/manage-dynamic-scoping",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/update-center/manage-multiple-machines.md",
+            "redirect_url": "/azure/update-manager/manage-multiple-machines",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/update-center/manage-update-settings.md",
+            "redirect_url": "/azure/update-manager/manage-update-settings",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/update-center/manage-updates-customized-images.md",
+            "redirect_url": "/azure/update-manager/manage-updates-customized-images",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/update-center/manage-vms-programmatically.md",
+            "redirect_url": "/azure/update-manager/manage-vms-programmatically",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/update-center/manage-workbooks.md",
+            "redirect_url": "/azure/update-manager/manage-workbooks",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/update-center/overview.md",
+            "redirect_url": "/azure/update-manager/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/update-center/periodic-assessment-at-scale.md",
+            "redirect_url": "/azure/update-manager/periodic-assessment-at-scale",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/update-center/prerequsite-for-schedule-patching.md",
+            "redirect_url": "/azure/update-manager/prerequsite-for-schedule-patching",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/update-center/query-logs.md",
+            "redirect_url": "/azure/update-manager/query-logs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/update-center/quickstart-on-demand.md",
+            "redirect_url": "/azure/update-manager/quickstart-on-demand",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/update-center/sample-query-logs.md",
+            "redirect_url": "azure/update-manager/sample-query-logs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/update-center/scheduled-patching.md",
+            "redirect_url": "/azure/update-manager/scheduled-patching",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/update-center/security-awareness-ubuntu-support.md",
+            "redirect_url": "/azure/update-manager/security-awareness-ubuntu-support",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/update-center/support-matrix.md",
+            "redirect_url": "/azure/update-manager/support-matrix",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/update-center/troubleshoot.md",
+            "redirect_url": "/azure/update-manager/troubleshoot",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/update-center/tutorial-assessment-deployment-using-policy.md",
+            "redirect_url": "/azure/update-manager/tutorial-assessment-deployment-using-policy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/update-center/tutorial-dynamic-grouping-for-scheduled-patching.md",
+            "redirect_url": "/azure/update-manager/tutorial-dynamic-grouping-for-scheduled-patching",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/update-center/update-manager-faq.md",
+            "redirect_url": "/azure/update-manager/update-manager-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/update-center/updates-maintenance-schedules.md",
+            "redirect_url": "/azure/update-manager/updates-maintenance-schedules",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/update-center/view-updates.md",
+            "redirect_url": "/azure/update-manager/view-updates",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/update-center/whats-new.md",
+            "redirect_url": "/azure/update-manager/whats-new",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/update-center/whats-upcoming.md",
+            "redirect_url": "/azure/update-manager/whats-upcoming",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/update-center/workbooks.md",
+            "redirect_url": "/azure/update-manager/workbooks",
+            "redirect_document_id": false
+        }
+    ]
+}
