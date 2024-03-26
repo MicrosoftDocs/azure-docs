@@ -27,7 +27,7 @@ description: Steps on how to integrate TelecomManager with Azure Communication S
   ### Configure `TelecomConnectionService`
   Add `TelecomConnectionService` to your App AndroidManifest.xml
   ```
-  <application android:hardwareAccelerated="true">
+  <application>
     ...
     <service
         android:name="com.azure.android.communication.calling.TelecomConnectionService"
