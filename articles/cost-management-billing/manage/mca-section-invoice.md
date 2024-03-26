@@ -229,7 +229,7 @@ In this example, the Netherlands VAT ID should be used. If the company in Belgiu
 
 Azure reservations with shared scope are applied to subscriptions in a single billing profile and aren't shared across billing profiles.
 
-:::image type="content" border="false" source="./media/mca-section-invoice/mca-reservations-benefits-by-bg.png" alt-text="Diagram showing reservation application for different billing account structures." lightbox="./media/mca-section/mca-reservations-benefits-by-bg.png":::
+:::image type="content" border="false" source="./media/mca-section-invoice/mca-reservations-benefits-by-bg.png" alt-text="Diagram showing reservation application for different billing account structures." lightbox="./media/mca-section-invoice/mca-reservations-benefits-by-bg.png":::
 
 In the above image, Contoso has two subscriptions. The Azure Reservation benefit is applied differently depending on how the billing account is structured. In the scenario on the left, the reservation benefit is applied to both subscriptions being billed to the engineering billing profile. In the scenario on the right, the reservation benefit is only applied to subscription 1 since it’s the only subscription being billed to the engineering billing profile.
 
