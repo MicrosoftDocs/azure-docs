@@ -61,12 +61,24 @@ You must create an *Account* for each group of subscribers that you manage with 
 1. In the sidebar, locate the **Number Management (Preview)** section and select **Accounts**. Select the **Account name**.
 1. Select **View numbers** to go to the number management page.
 1. To upload new numbers:
-    1. Select **Upload numbers**.
-    1. In **Add numbers**, add each number individually.
-    1. Select **Enable Azure Operator Call Protection**.
-    1. The **Custom SIP header value** is not used by Azure Operator Call Protection - leave it blank.
-    1. Select **Review and upload** and **Upload**.
-    1. When the order status is **Complete**, the numbers are available.
+    - To configure the numbers directly in the Number Management Portal:
+        1. Select **Manual input**.
+        1. Select **Enable Azure Operator Call Protection**.
+        1. The **Custom SIP header value** is not used by Azure Operator Call Protection - leave it blank.
+        1. Add the numbers in **Telephone Numbers**.
+        1. Select **Upload**.
+    - To upload a CSV containing multiple numbers:
+        1. Prepare a `.csv` file. It must use the headings shown in the following table, and contain one number per line (up to 10,000 numbers).
+
+            | Heading | Description  | Valid values |
+            |---------|--------------|--------------|
+            | `telephoneNumber`|The number to upload | E.164 numbers, including the country code |
+            | `accountName` | The account to upload the number to | The name of an account you've already created |
+            | `serviceDetails_azureOperatorCallProtection_enabled`| Whether Azure Operator Call Protection is enabled | `true` or `false`|
+
+        1. Select **File Upload**.
+        1. Select the `.csv` file that you prepared.
+        1. Select **Upload**.
 1. To remove numbers:
     1. Select the numbers.
     1. Select **Delete numbers**.
