@@ -46,7 +46,7 @@ Enabling large file shares when using geo-redundant storage (GRS) and geo-zone-r
 | Max throughput per share | Up to 60 MiB/s | Up to [storage account limits](./storage-files-scale-targets.md#storage-account-scale-targets) (150x increase) |
 
 ## Region availability
-Azure Files geo-redundancy for large file shares is generally available in the majority of geo-regions. Use the table below to see which regions are generally available (GA) or still in preview.
+Azure Files geo-redundancy for large file shares is generally available in the majority of regions that support geo-redundancy. Use the table below to see which regions are generally available (GA) or still in preview.
 
 | **Region** | **Availability** |
 |---------------|-------------------|
