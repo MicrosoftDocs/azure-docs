@@ -59,7 +59,7 @@ The ingestion agent must be able to authenticate with the Azure Key Vault create
 If the ingestion agent is running in Azure, we recommend managed identities. For more detailed information, see the [overview of managed identities](managed-identity.md#overview-of-managed-identities).
 
 > [!NOTE]
-> The ingestion agent runs on a standard Azure VM and supports both system-assigned and user-assigned managed identity. For multiple agents, a user-assigned managed identity is simpler as you can authorise the identity to the Data Product Key Vault for all VMs running the agent.
+> Ingestion agents on Azure VMs support both system-assigned and user-assigned managed identities. For multiple agents, a user-assigned managed identity is simpler because you can authorise the identity to the Data Product Key Vault for all VMs running the agent.
 
 1. Create or obtain a user-assigned managed identity, follow the instructions in [Manage user-assigned managed identities](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities). If you plan to use a system-assigned managed identity, do not create a user-assigned managed identity.
 1. Follow the instructions in [Configure managed identities for Azure resources on a VM using the Azure portal](/entra/identity/managed-identities-azure-resources/qs-configure-portal-windows-vm) according to the type of managed identity being used.
