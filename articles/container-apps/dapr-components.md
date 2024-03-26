@@ -31,40 +31,41 @@ The following table lists supported Dapr components in Azure Container Apps. Sup
 
 | Component | String | Support level |
 | --------- | ------ | ------------- |
-| Azure Blob Storage | `state.azure.blobstorage` |  |
-| Azure CosmosDB | `state.azure.cosmosdb` |  |
-| Azure Table Storage | `state.azure.tablestorage` |  |
+| Azure Blob Storage | `state.azure.blobstorage` | Tier 1 |
+| Azure CosmosDB | `state.azure.cosmosdb` | Tier 1 |
+| Azure Table Storage | `state.azure.tablestorage` | Tier 2 |
 
 ### Pub/sub components
 
 | Component | String | Support level |
 | --------- | ------ | ------------- |
-| Azure Service Bus | `pubsub.azure.servicebus` |  |
-| Azure Event Hubs | `pubsub.azure.eventhubs` |  |
+| Azure Service Bus | `pubsub.azure.servicebus` | Tier 1 |
+| Azure Event Hubs | `pubsub.azure.eventhubs` | Tier 2 |
 
 ### Binding components
 
 | Component | String | Support level |
 | --------- | ------ | ------------- |
-| Azure Storage Queues | `bindings.azure.storagequeues` |  |
-| Azure Service Bus Queues | `bindings.azure.servicebusqueues` |  |
-| Azure Blob Storage | `bindings.azure.blobstorage` |  |
-| Azure Event Hubs | `bindings.azure.eventhubs` |  |
-| Azure SignalR | `bindings.azure.signalr` |  |
-| Azure Event Grid | `bindings.azure.eventgrid` |  |
-| Azure CosmosDB | `bindings.azure.cosmosdb` |  |
+| Azure Storage Queues | `bindings.azure.storagequeues` | Tier 1 |
+| Azure Service Bus Queues | `bindings.azure.servicebusqueues` | Tier 1 |
+| Azure Blob Storage | `bindings.azure.blobstorage` | Tier 1 |
+| Azure Event Hubs | `bindings.azure.eventhubs` | Tier 2 |
+| Azure SignalR | `bindings.azure.signalr` | Tier 2 |
+| Azure Event Grid | `bindings.azure.eventgrid` | Tier 2 |
+| Azure CosmosDB | `bindings.azure.cosmosdb` | Tier 2 |
+| Cron | `bindings.cron` | Tier 1 |
 
 ### Secret store components
 
 | Component | String | Support level |
 | --------- | ------ | ------------- |
-| Azure Key Vault | `secretstores.azure.keyvault` |  |
+| Azure Key Vault | `secretstores.azure.keyvault` | Tier 1 |
 
 ### Configuration store components
 
 | Component | String | Support level |
 | --------- | ------ | ------------- |
-| Azure App Config | `configuration.azure.appconfig` |  |
+| Azure App Config | `configuration.azure.appconfig` | Tier 1 |
 
 ## Component schema
 
