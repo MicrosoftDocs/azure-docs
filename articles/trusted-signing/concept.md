@@ -1,5 +1,5 @@
 ---
-title: Signing concepts #Required; page title is displayed in search results. Include the brand.
+title: Trusted Signing concepts #Required; page title is displayed in search results. Include the brand.
 description: Describing signing concepts and resources in Trusted Signing #Required; article description that is displayed in search results. 
 author: microsoftshawarma #Required; your GitHub user alias, with correct capitalization.
 ms.author: rakiasegev #Required; microsoft alias of author; optional team alias.
@@ -47,26 +47,10 @@ Follow the H2 headings with a sentence about how the section contributes to the 
 ## Resource Types
 Trusted Signing has the following resource types: 
 
-*Code Signing Account – Logical container holding certificate profiles and considered the Trusted Signing resource. 
-*Certificate Profile – Template with the information that is used in the issued certificates, and a subresource to a Code Signing Account resource. 
+* Code Signing Account – Logical container holding certificate profiles and considered the Trusted Signing resource. 
+* Certificate Profile – Template with the information that is used in the issued certificates, and a subresource to a Code Signing Account resource. 
 
  
 In the below example structure, you notice that an Azure Subscription has a resource group and under that resource group you can have one or many Code Signing Account resources with one or many Certificate Profiles. This ability to have multiple Code Signing Accounts and Certificate Profiles is useful as the service supports Public Trust, Private Trust, VBS Enclave, and Test signing. 
 
-![Diagram of Azure Code Signing resource group and cert profiles](./media/trusted-signing-resource-structure.png)
-
-## [Section 2 heading]
-<!-- add your content here -->
-
-## [Section n heading]
-<!-- add your content here -->
-
-<!-- 4. Next steps
-Required. Provide at least one next step and no more than three. Include some 
-context so the customer can determine why they would click the link.
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
-
--->
+![Diagram of Azure Code Signing resource group and cert profiles.](./media/trusted-signing-resource-structure.png)

@@ -1,64 +1,42 @@
 ---
-title: Trusted Signing overview #Required; page title is displayed in search results. Include the brand.
-description: Learn how to sign with Trusted Signing #Required; article description that is displayed in search results. 
+title: What is Trusted Signing? #Required; page title is displayed in search results. Include the brand.
+description: Learn about the Trusted Signing service. #Required; article description that is displayed in search results. 
 author: microsoftshawarma #Required; your GitHub user alias, with correct capitalization.
 ms.author: rakiasegev #Required; microsoft alias of author; optional team alias.
 ms.topic: overview #Required; leave this attribute/value as-is.
 ms.service: azure-code-signing
-ms.date: 01/05/2024 #Required; mm/dd/yyyy format.
+ms.date: 03/21/2024 #Required; mm/dd/yyyy format.
 ms.custom: template-overview #Required; leave this attribute/value as-is.
 ---
 
-# What is Trusted Signing
+# What is Trusted Signing?
+Signing is often difficult to do – from obtaining certificates, to securing them, and operationalizing a secure way to integrate with build pipelines. 
 
-<!-- 2. Introductory paragraph ----------------------------------------------------------
+Trusted Signing (formerly Azure Code Signing) is a Microsoft fully managed end-to-end signing solution that simplifies the process and empowers 3rd party developers to easily build and distribute applications. This is part of Microsoft’s commitment to an open, inclusive, and secure ecosystem. 
 
-Required: The introductory paragraph helps customers quickly determine whether an article is
-relevant. Describe in customer-friendly terms what the service is and does, and why the customer
-should care. Keep it short for the intro. You can go into more detail later in the article. Many
-services add artwork or videos below the introduction.
+## Features
 
--->
+* Simplifies the signing process with an intuitive experience in Azure
+* Zero-touch certificate lifecycle management that is FIPS 140-2 Level 3 compliant.
+* Integrations into leading developer toolsets.
+* Supports Public Trust, Test, Private Trust, and CI policy signing scenarios.
+* Timestamping service. 
+* Content confidential signing – meaning digest signing that is fast and reliable – your file never leaves your endpoint. 
 
-[Introductory paragraph]
-TODO: Add your introductory paragraph
+## Resource structure
+Here’s a high-level overview of the service’s resource structure:
 
-<!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info
-directly into the article text.
+![Diagram of Azure Code Signing resource group and cert profiles.](./media/trusted-signing-resource-structure-overview.png)
 
---->
-
-<!-- 3. Article body ------------------------------------------------------------ Required: After
-the intro, you can develop your overview by discussing the features that answer the "Why should I
-care" question with a bit more depth. Be sure to call out any basic requirements and dependencies,
-as well as limitations or overhead. Don't catalog every feature, and some may only need to be
-mentioned as available, without any discussion.
-
--->
-
-[Article body]
-TODO: Add your article body
-
-<!-- Top tasks ------------------------------------------------------------------------------
-
-Suggested: An effective way to structure you overview article is to create an H2 for the top
-customer tasks you identified during the [planning process](../contribute/content-dev-plan.md) and
-describe how the product/service helps customers with that task.
-
-Create a new H2 for each task you list.
-
---->
-
-## \<Top task\>
-
-<!-- 5. Next steps ------------------------------------------------------------------------
-
-Required: In Overview articles, provide at least one next step and no more than three. Next steps in
-overview articles will often link to a quickstart. Use regular links; do not use a blue box link.
-What you link to will depend on what is really a next step for the customer. Do not use a "More info
-section" or a "Resources section" or a "See also section".
-
---->
+* You create a resource group within a subscription. You then create a Trusted Signing account within the resource group.
+* Two resources within an account:
+    *	Identity validation 
+    * Certificate profile 
+* Two types of accounts (depending on the SKU you choose):
+    * Basic 
+    * Premium
 
 ## Next steps
-TODO: Add your next step link(s)
+* [Learn more about the Trusted Signing resource structure.](concept.md)
+* [Learn more about the signing integrations.](how-to-signing-integrations.md)
+* [Get started with Trusted Signing.](quickstart.md) 
