@@ -606,7 +606,7 @@ To verify if the trusted service has been enabled from the Azure portal,
 
     :::image type="content" source="media/vnet/azure-portal-json-view.png" alt-text="A screenshot showing the JSON view option for resources in the Azure portal." lightbox="media/vnet/azure-portal-json-view.png":::
 
-1.  Choose your API version under **API versions**, for example `2023-10-01-preview` .
+1.  Choose the latest API version under **API versions**, for example `2023-10-01-preview` .
 
     :::image type="content" source="media/vnet/virtual-network-trusted-service.png" alt-text="A screenshot showing the trusted service is enabled." lightbox="media/vnet/virtual-network-trusted-service.png":::
 
