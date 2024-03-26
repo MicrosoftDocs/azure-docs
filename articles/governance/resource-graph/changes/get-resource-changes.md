@@ -1,5 +1,5 @@
 ---
-title: Get resource configuration changes (Preview)
+title: Get resource configuration changes
 description: Get resource configuration changes at scale
 author: iancarter-msft
 ms.author: iancarter
@@ -7,7 +7,7 @@ ms.date: 03/11/2024
 ms.topic: how-to
 ---
 
-# Get resource configuration changes (Preview)
+# Get resource configuration changes
 
 Resources change through the course of daily use, reconfiguration, and even redeployment. Most change is by design, but sometimes it isn't. You can:
 
