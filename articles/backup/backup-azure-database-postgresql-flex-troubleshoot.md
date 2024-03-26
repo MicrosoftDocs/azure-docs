@@ -12,7 +12,7 @@ ms.author: v-abhmallick
 
 This article provides the recommended actions to troubleshoot the issues you might encounter during the backup or restore of Azure Database for PostgreSQL - Flexible server.
 
-## Common backup and restore errors 
+## Common errors for the backup and restore operations
 
 ### PostgreSQLFlexOperationFailedUserError 
 
