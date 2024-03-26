@@ -60,8 +60,8 @@ const raisedHandChangedHandler = (event) => {
 const loweredHandChangedHandler = (event) => {
     console.log(`Participant ${event.identifier} lowered hand`);
 };
-raiseHandFeature.on('raisedHandChanged', raisedHandChangedHandler):
-raiseHandFeature.on('loweredHandChanged', loweredHandChangedHandler):
+raiseHandFeature.on('raisedHandEvent', raisedHandChangedHandler):
+raiseHandFeature.on('loweredHandEvent', loweredHandChangedHandler):
 ```
 The `raisedHandChanged` and `loweredHandChanged` events contain an object with the `identifier` property, which represents the participant's communication identifier. In the example above, we log a message to the console indicating that a participant has raised their hand.
 
