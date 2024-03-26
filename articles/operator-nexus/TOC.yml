@@ -38,7 +38,7 @@
     - name: Observability
       expanded: false
       items:
-        - name: Observabilty
+        - name: Observability
           href: concepts-observability.md
         - name: Metrics
           href: reference-operator-nexus-observability-metrics.md

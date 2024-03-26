@@ -1,19 +1,19 @@
 ---
 title: "Quickstart: Document Intelligence (formerly Form Recognizer) Java SDK (beta) | v3.1 | v3.0"
 titleSuffix: Azure AI services
-description: Form and document processing, data extraction, and analysis using Document Intelligence Java client library SDKs v3.1 or v3.0
+description: Form and document processing, data extraction, and analysis using Document Intelligence Java client library.
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: include
-ms.date: 12/19/2023
+ms.date: 03/25/2024
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD025 -->
 <!-- markdownlint-disable MD036 -->
 
 :::moniker range="doc-intel-4.0.0"
-[Client library](/java/api/overview/azure/ai-documentintelligence-readme?view=azure-java-preview&preserve-view=true) | [SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-documentintelligence/1.0.0-beta.1/index.html) | [REST API reference](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-02-29-preview&preserve-view=true) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-documentintelligence/1.0.0-beta.1) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-documentintelligence_1.0.0-beta.1/sdk/documentintelligence/azure-ai-documentintelligence/src/samples#examples) |[Supported REST API versions](../../sdk-overview-v4-0.md)
+[Client library](/java/api/overview/azure/ai-documentintelligence-readme?view=azure-java-preview&preserve-view=true) | [SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-documentintelligence/1.0.0-beta.2/index.html) | [REST API reference](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-02-29-preview&preserve-view=true) | [Package (Maven)](https://central.sonatype.com/artifact/com.azure/azure-ai-documentintelligence/1.0.0-beta.2) | [Samples]( https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-documentintelligence_1.0.0-beta.2/sdk/documentintelligence/azure-ai-documentintelligence/src/samples/README.md) |[Supported REST API versions](../../sdk-overview-v4-0.md)
 :::moniker-end
 
 :::moniker range="doc-intel-3.1.0"
@@ -24,7 +24,7 @@ ms.author: lajanuar
 [Client library](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable&preserve-view=true) | [SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0/index.html) | [REST API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer/4.0.0) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples)|[Supported REST API versions](../../sdk-overview-v3-0.md)
 :::moniker-end
 
-In this quickstart you'll, use the following features to analyze and extract data and values from forms and documents:
+In this quickstart, use the following features to analyze and extract data and values from forms and documents:
 
 * [**Layout**](#layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in documents, without the need to train a model.
 
@@ -128,7 +128,7 @@ Open the project's *build.gradle.kts* file in your IDE. Copay and past the follo
          mavenCentral()
      }
      dependencies {
-         implementation group: 'com.azure', name: 'azure-ai-documentintelligence', version: '1.0.0-beta.1'
+         implementation group: 'com.azure', name: 'azure-ai-documentintelligence', version: '1.0.0-beta.2'
 
      }
   ```
@@ -200,8 +200,6 @@ To interact with the Document Intelligence service, you need to create an instan
 
 :::moniker-end
 
-
-
 1. From the doc-intel-app directory, run the following command:
 
     ```console
@@ -222,7 +220,7 @@ To interact with the Document Intelligence service, you need to create an instan
     > * Open a PowerShell window in your project directory by holding down the Shift key and right-clicking the folder.
     > * Type the following command **New-Item DocIntelligence.java**.
 
-1. Open the `DocIntelligence.java` file and select one of the following code samples to copy and paste into your application:
+1. Open the `DocIntelligence.java` file. Copy and paste one of the following code samples into your application:
 
     * [**Layout**](#layout-model)
 
@@ -240,7 +238,7 @@ To interact with the Document Intelligence service, you need to create an instan
     > * Open a PowerShell window in your project directory by holding down the Shift key and right-clicking the folder.
     > * Type the following command **New-Item FormRecognizer.java**.
 
-1. Open the `FormRecognizer.java` file and select one of the following code samples to copy and paste into your application:
+1. Open the `FormRecognizer.java` file. Copy and paste one of the following code samples into your application:
 
     * [**Layout**](#layout-model)
 
@@ -296,8 +294,8 @@ public class DocIntelligence {
     String documentUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf";
     String modelId = "prebuilt-layout";
 
-    SyncPoller < OperationResult, AnalyzeResult > analyzeLayoutResultPoller =
-      client.beginAnalyzeDocumentFromUrl(modelId, documentUrl);
+    SyncPoller <AnalyzeResultOperation, AnalyzeResultOperation> analyzeLayoutResultPoller =
+      client.beginAnalyzeDocument(modelId, documentUrl);
 
     AnalyzeResult analyzeLayoutResult = analyzeLayoutPoller.getFinalResult().getAnalyzeResult();
 
@@ -500,7 +498,7 @@ Here's a snippet of the expected output:
   Cell 'NASDAQ', has row index 4 and column index 2.
 ```
 
-To view the entire output,visit the Azure samples repository on GitHub to view the [layout model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/v3-java-sdk-layout-output.md).
+To view the entire output, visit the Azure samples repository on GitHub to view the [layout model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/v3-java-sdk-layout-output.md).
 
 :::moniker-end
 
@@ -623,7 +621,7 @@ After you add a code sample to your application, navigate back to your main proj
 Analyze and extract common fields from specific document types using a prebuilt model. In this example, we analyze an invoice using the **prebuilt-invoice** model.
 
 > [!TIP]
-> You aren't limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. See [**model data extraction**](../../concept-model-overview.md#model-data-extraction).
+> You aren't limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the `analyze` operation depends on the type of document to be analyzed. See [**model data extraction**](../../concept-model-overview.md#model-data-extraction).
 
 > [!div class="checklist"]
 >
@@ -678,7 +676,7 @@ public class DocIntelligence {
         .buildClient();
 
       SyncPoller < OperationResult, AnalyzeResult > analyzeLayoutResultPoller =
-        client.beginAnalyzeDocumentFromUrl(modelId, invoiceUrl);
+        client.beginAnalyzeDocument(modelId, invoiceUrl);
 
       AnalyzeResult analyzeInvoiceResult = analyzeInvoicesPoller.getFinalResult().getAnalyzeResult();
 
@@ -1008,7 +1006,7 @@ Here's a snippet of the expected output:
   Invoice Date: 2019-11-15, confidence: 0.97
 ```
 
-To view the entire output, visit the Azure samples repository on GitHub to view the [prebuilt invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/v3-java-sdk-prebuilt-invoice-output.md)
+To view the entire output, visit the Azure samples repository on GitHub to view the [prebuilt invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/v3-java-sdk-prebuilt-invoice-output.md).
 
 :::moniker-end
 
