@@ -66,7 +66,7 @@ The Enterprise pricing plan uses for service discovery. For more information, se
 The *app instance* status represents every instance of the app. To view the status of a specific instance of a deployed app, select the **App instance** pane and then select the **App Instance Name** value for the app. The following status values appear:
 
 * **Status**: Indicates whether the instance is starting, running, terminating, or in failed state. 
-* **Discovery Status**: The registered status of the app instance in the Eureka server or Service Registry.
+* **Discovery Status**: The registered status of the app instance in the Eureka server or the Service Registry.
 
 :::image type="content" source="media/concept-app-status/apps-ui-instance-status.png" alt-text="Screenshot of the Azure portal showing the App instance Settings page with the Status and Discovery status columns highlighted." lightbox="media/concept-app-status/apps-ui-instance-status.png":::
 

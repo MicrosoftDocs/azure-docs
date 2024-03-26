@@ -20,7 +20,7 @@ ms.custom: devx-track-java
 
 Spring Boot Actuator brings production-ready features to your apps. You can effortlessly monitor your app, collect metrics, and understand the status or database activity with this tool. Most importantly, you can gain access to professional-grade tools without needing to build them from scratch.
 
-The actuator exposes vital operational data about your running application, like health status, metrics, information, and more by using the HTTP endpoints or Java Management Extensions (JMX), making it easy to interact with. Once integrated, it provides several default endpoints, and like other Spring modules, it's highly configurable and extendable.
+The actuator exposes vital operational data about your running application, like health status, metrics, information, and more by using the HTTP endpoints or Java Management Extensions (JMX), making it easy to interact with. Once integrated, it provides several default endpoints, and like other Spring modules, it's easily configurable and extendable.
 
 In Azure Spring Apps service instance, actuator is used for enriching metrics by using JMX. It can also work with Application Live View in Enterprise plan to help you get and interact with the data from apps.
 
@@ -50,7 +50,7 @@ By default, Spring Boot application exposes the `health` endpoint only.
 To observe the configuration and configurable environment, you need to enable `env` and `configprops` endpoints as well.
 
 1. Go to app **Overview** pane, select **Configuration** in the setting menu, and then go to the **Environment variables** configuration page.
-1. Add the following properties as in the "key:value" form. This environment opens the Spring Actuator endpoints `health`, `env`, and `configprops`.
+1. Add the following properties as in the "key:value" form. This environment opens the following Spring Actuator endpoints: `health`, `env`, and `configprops`.
 
    ```properties
    management.endpoints.web.exposure.include: health,env,configprops
