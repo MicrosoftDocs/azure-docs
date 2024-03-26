@@ -1,24 +1,18 @@
 ---
-title: Enable staged rollout of features for targeted audiences
+title: Roll out features to targeted audiences in an ASP.NET Core app
 titleSuffix: Azure App Configuration
-description: Learn how to enable staged rollout of features for targeted audiences.
+description: Learn how to enable staged rollout of features for targeted audiences in an ASP.NET Core app.
 ms.service: azure-app-configuration
 ms.devlang: csharp
 author: zhiyuanliang
 ms.author: zhiyuanliang
 ms.topic: how-to
-ms.date: 03/05/2024
+ms.date: 03/26/2024
 ---
 
-# Enable staged rollout of features for targeted audiences
+# Roll out features to targeted audiences in an ASP.NET Core app
 
-Targeting is a feature management strategy that enables developers to progressively roll out new features to their user base. The strategy is built on the concept of targeting a set of users known as the target audience. An audience is made up of specific users, groups, and a designated percentage of the entire user base.
-
-- The users can be actual user accounts, but they can also be machines, devices, or any uniquely identifiable entities to which you want to roll out a feature.
-
-- The groups are up to your application to define. For example, when targeting user accounts, you can use Microsoft Entra groups or groups denoting user locations. When targeting machines, you can group them based on rollout stages. Groups can be any common attributes based on which you want to categorize your audience.
-
-In this article, you learn how to roll out a new feature in an ASP.NET Core web application to specified users and groups, using `TargetingFilter` with Azure App Configuration.
+In this tutorial, you'll use the targeting filter to roll out a feature to targeted audience for your ASP.NET Core app. For more information about the targeting filter, please read this [article](./howto-targetingfilter.md).
 
 ## Prerequisites
 
@@ -206,53 +200,11 @@ At this point, you can use the feature flag to enable or disable the `Beta` feat
     > [!NOTE]
     > For Blazor applications, see [instructions](./faq.yml#how-to-enable-feature-management-in-blazor-applications-or-as-scoped-services-in--net-applications) for enabling feature management as scoped services.
 
-## Update the feature flag to use TargetingFilter
-
-1. In the Azure portal, go to your App Configuration store and select **Feature manager**.
-
-1. Select the context menu for the *Beta* feature flag that you created in the quickstart. Select **Edit**.
-
-    > [!div class="mx-imgBorder"]
-    > ![Edit Beta feature flag](./media/edit-beta-feature-flag.png)
-
-1. In the **Edit** screen, select the **Enable feature flag** checkbox if it isn't already selected. Then select the **Use feature filter** checkbox.
-
-1. Select the **Create** button.
-
-1. Select the **Targeting filter** in the filter type dropdown.
-
-1. Select the **Override by Groups** and **Override by Users** checkbox.
-
-1. Select the following options.
-
-    - **Default percentage**: 0
-    - **Include Groups**: Enter a **Name** of _contoso.com_ and a **Percentage** of _50_
-    - **Exclude Groups**: `contoso-xyz.com`
-    - **Include Users**: `test@contoso.com`
-    - **Exclude Users**: `testuser@contoso.com`
-
-    The feature filter screen will look like this.
-
-    > [!div class="mx-imgBorder"]
-    > ![Conditional feature flag](./media/feature-filters/add-targeting-filter.png)
-
-    These settings result in the following behavior.
-
-    - The feature flag is always disabled for user `testuser@contoso.com`, because `testuser@contoso.com` is listed in the _Exclude Users_ section.
-    - The feature flag is always disabled for users in the `contoso-xyz.com`, because `contoso-xyz.com` is listed in the _Exclude Groups_ section.
-    - The feature flag is always enabled for user `test@contoso.com`, because `test@contoso.com` is listed in the _Include Users_ section.
-    - The feature flag is enabled for 50% of users in the _contoso.com_ group, because _contoso.com_ is listed in the _Include Groups_ section with a _Percentage_ of _50_.
-    - The feature is always disabled for all other users, because the _Default percentage_ is set to _0_.
-
-1. Select **Add** to save the targeting filter.
-
-1. Select **Apply** to save these settings and return to the **Feature manager** screen.
-
-1. The **Feature filter** for the feature flag now appears as *Targeting*. This state indicates that the feature flag is enabled or disabled on a per-request basis, based on the criteria enforced by the *Targeting* feature filter.
-
 ## TargetingFilter in action
 
-To see the effects of this feature flag, build and run the application. Initially, the *Beta* item doesn't appear on the toolbar, because the _Default percentage_ option is set to 0.
+Follow the instructions in [Roll out features to targeted audiences](./howto-targeting-filter.md) to add a targeting filter with a set of targeting rules for the **Beta** feature flag you created in the [Quickstart](./quickstart-feature-flag-aspnet-core.md).
+
+To see the effects of added targeting filter to the feature flag, build and run the application again. Initially, the *Beta* item doesn't appear on the toolbar, because the _Default percentage_ option is set to 0.
 
 Now sign in as `test@contoso.com`, using the password you set when registering. The *Beta* item now appears on the toolbar, because `test@contoso.com` is specified as a targeted user.
 
@@ -271,3 +223,6 @@ Users with `contoso-xyz.com` email addresses won't see the *Beta* item. While 50
 
 > [!div class="nextstepaction"]
 > [Feature management overview](./concept-feature-management.md)
+
+> [!div class="nextstepaction"]
+> [Enable features on a schedule](./howto-timewindow-filter-aspnet-core.md)

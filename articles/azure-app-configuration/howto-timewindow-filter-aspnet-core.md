@@ -12,12 +12,12 @@ ms.date: 03/26/2024
 
 # Tutorial: Enable features on a schedule in an ASP.NET Core app
 
-In this tutorial, you'll use the time window filter to enable a feature flag on a schedule for your ASP.NET Core app.
+In this tutorial, you'll use the time window filter to enable a feature on a schedule for your ASP.NET Core app. For more information about the time window filter, please read this [article](./howto-timewindow-filter.md).
 
 ## Prerequisites
 
 - Follow the instructions in [Quickstart: Add feature flags to an ASP.NET Core app](./quickstart-feature-flag-aspnet-core.md) to create a web app with a feature flag.
-- Install the [`Microsoft.FeatureManagement.AspNetCore`](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore/) package of version **3.0.0** or later.
+- Update the [`Microsoft.FeatureManagement.AspNetCore`](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore/) package of version **3.0.0** or later.
 
 ## Use the time window filter
 
@@ -44,6 +44,9 @@ Relaunch the application. If your current time is earlier than the start time se
 Once the start time has passed, refresh your browser a few times. You will notice that the **Beta** menu item will now appear. This is because the **Beta** feature flag is now enabled by the time window filter.
 
 ## Next steps
+
+> [!div class="nextstepaction"]
+> [Feature management overview](./concept-feature-management.md)
 
 > [!div class="nextstepaction"]
 > [Enable staged rollout of features for targeted audiences](./howto-targetingfilter-aspnet-core.md)
