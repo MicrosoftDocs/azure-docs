@@ -17,7 +17,7 @@ For more information, see [Azure role-based access control (Azure RBAC)](../../r
 
 #### Built-in roles
 
-Azure Operator Nexus provides the following built-in role.
+Azure Operator Nexus provides the following built-in roles.
 
 | Role                                               | Description                                                                                                                                               |
 |----------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
