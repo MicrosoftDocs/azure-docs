@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 11/1/2023
 ---
 
-# Use Integrated Vector Database in Azure Cosmos DB for MongoDB vCore
+# Vector Database in Azure Cosmos DB for MongoDB vCore
 
 [!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
 
-Use the integrated vector database in Azure Cosmos DB for MongoDB vCore to seamlessly connect your AI-based applications with your data that's stored in Azure Cosmos DB. This integration can include apps that you built by using [Azure OpenAI embeddings](../../../ai-services/openai/tutorials/embeddings.md). The natively integrated vector database enables you to efficiently store, index, and query high-dimensional vector data that's stored directly in Azure Cosmos DB for MongoDB vCore. It eliminates the need to transfer your data to alternative vector databases and incur additional costs.
+Use the vector database in Azure Cosmos DB for MongoDB vCore to seamlessly connect your AI-based applications with your data that's stored in Azure Cosmos DB. This integration can include apps that you built by using [Azure OpenAI embeddings](../../../ai-services/openai/tutorials/embeddings.md). The natively integrated vector database enables you to efficiently store, index, and query high-dimensional vector data that's stored directly in Azure Cosmos DB for MongoDB vCore. It eliminates the need to transfer your data to alternative vector databases and incur additional costs.
 
 ## What is a vector database?
 
