@@ -7,7 +7,7 @@ author: mksuni
 ms.author: sumuth
 ms.topic: tutorial
 ms.date: 3/20/2024
-ms.custom: vc, devx-track-azurecli
+ms.custom: vc, devx-track-azurecli, innovation-engine, linux-related-content
 ---
 
 # Tutorial: Deploy WordPress app on AKS with Azure Database for MySQL - Flexible Server
@@ -16,7 +16,7 @@ ms.custom: vc, devx-track-azurecli
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://go.microsoft.com/fwlink/?linkid=2262843)
 
-In this tutorial, you deploy a scalable and secure WordPress application on an Azure Kubernetes Service (AKS) cluster with Azure Database for MySQL flexible server using the Azure CLI.
+In this tutorial, you deploy a scalable WordPress application secured via HTTPS on an Azure Kubernetes Service (AKS) cluster with Azure Database for MySQL flexible server using the Azure CLI.
 **[AKS](../../aks/intro-kubernetes.md)** is a managed Kubernetes service that lets you quickly deploy and manage clusters. **[Azure Database for MySQL flexible server](overview.md)** is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings.
 
 > [!NOTE]
@@ -138,7 +138,7 @@ Results:
 
 ## Create an Azure Database for MySQL flexible server instance
 
-Create an Azure Database for MySQL flexible server instance with the [az mysql flexible-server create](/cli/azure/mysql/flexible-server) command. A server can contain multiple databases. The following command creates a server using service defaults and variable values from your Azure CLI's local context:
+Azure Database for MySQL flexible server is a managed service that you can use to run, manage, and scale highly available MySQL servers in the cloud. Create an Azure Database for MySQL flexible server instance with the [az mysql flexible-server create](/cli/azure/mysql/flexible-server) command. A server can contain multiple databases. The following command creates a server using service defaults and variable values from your Azure CLI's local context:
 
 ```bash
 echo "Your MySQL user $MY_MYSQL_ADMIN_USERNAME password is: $MY_WP_ADMIN_PW" 
@@ -331,7 +331,7 @@ To add HTTPS, we're going to use Cert Manager. Cert Manager is an open source to
     kubectl create namespace cert-manager
     ```
 
-2. We can now install cert-manager. All resources are included in a single YAML manifest file. 
+2. We can now install cert-manager. All resources are included in a single YAML manifest file. Install the manifest file with the following command:
 
     ```bash
     kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.7.0/cert-manager.crds.yaml
@@ -514,9 +514,9 @@ Visit the website through the following URL:
 echo "You can now visit your web server at https://$FQDN"
 ```
 
-## Clean up the resources
+## Clean up the resources (optional)
 
-To avoid Azure charges, you should clean up unneeded resources. When you no longer need the cluster, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, container service, and all related resources. This tutorial cleans up resources for you.
+To avoid Azure charges, you should clean up unneeded resources. When you no longer need the cluster, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, container service, and all related resources. 
 
 > [!NOTE]
 > When you delete the cluster, the Microsoft Entra service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion](../../aks/kubernetes-service-principal.md#other-considerations). If you used a managed identity, the identity is managed by the platform and does not require removal.
