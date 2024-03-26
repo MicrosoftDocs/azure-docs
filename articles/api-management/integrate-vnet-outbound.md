@@ -18,8 +18,6 @@ When an API Management instance is integrated with a virtual network for outboun
 
 :::image type="content" source="./media/integrate-vnet-outbound/vnet-integration.svg" alt-text="Diagram of integrating API Management instance with a delegated subnet."  :::
 
-[!INCLUDE [api-management-availability-standard-v2](../../includes/api-management-availability-standard-v2.md)] 
-
 ## Prerequisites
 
 - An Azure API Management instance in the [Standard v2](v2-service-tiers-overview.md) pricing tier
