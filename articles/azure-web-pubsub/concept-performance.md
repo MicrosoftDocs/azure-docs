@@ -135,7 +135,7 @@ For **send to big group**, the outbound bandwidth becomes the bottleneck before 
 
 The routing cost is significant for sending message to many small groups. Currently, the Azure Web PubSub Service implementation hits the routing cost limit at Unit 50. Adding more CPU and memory doesn't help, so Unit 100 can't improve further by design. If you need more inbound bandwidth, need to scale up to use **Premium_P2**(unit >100).
 
-|   Send to small group     | Unit 1 | Unit 2 | Unit 10  | Uni 50 | Unit 100 | Unit 200 | Unit 500 | Unit 1000 | 
+|   Send to small group     | Unit 1 | Unit 2 | Unit 10  | Unit 50 | Unit 100 | Unit 200 | Unit 500 | Unit 1000 | 
 |---------------------------|-------|-------|--------|--------|---------|--------|---------|---------|
 | Connections               | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
 | Group member count        | 10    | 10    | 10     | 10     | 10 | 10     | 10     | 10 |
