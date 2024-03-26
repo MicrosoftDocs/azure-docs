@@ -18,7 +18,7 @@ Microsoft is recommending, the Azure [NC A100 v4-series](./nc-a100-v4-series.md)
 
 **After** **September 30th, any remaining** **tandard_NC6s_v3, Standard_NC12s_v3 and Standard_NC24s_v3 virtual machines (VMs) subscriptions will be set to a deallocated state. They'll stop working and no longer incur billing charges. The NCv3 will no longer be under SLA or have support included.** 
 
-_Note:_ _This retirement only impacts the virtual machine sizes in the original NCv3-series powered by NVIDIA V100 GPUs._ [See Standard_NC24rs_v3 retirement guide](https://aka.ms/nc24rsv3migrationguide)_._ _This retirement announcement doesn't apply to NCasT4 v3, and NC A100 v4 and NCads H100 v5 series virtual machines._ 
+Note: This retirement only impacts the virtual machine sizes in the original NCv3-series powered by NVIDIA V100 GPUs. [See Standard_NC24rs_v3 retirement guide](https://aka.ms/nc24rsv3migrationguide). This retirement announcement doesn't apply to NCasT4 v3, and NC A100 v4 and NCads H100 v5 series virtual machines.
 
 ## What action do I need to take before the retirement date? 
 
