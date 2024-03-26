@@ -136,6 +136,9 @@ spec:
     interval: 30s
   ```
 
+> [!NOTE] 
+> If you want to configure any other service or pod monitors, please follow the instructions [here](prometheus-metrics-scrape-crd.md/#create-a-pod-or-service-monitor).
+
 ### Import the Grafana Dashboard
 
 To import the grafana dashboards using the ID or JSON, follow the instructions to [Import a dashboard from Grafana Labs](../../managed-grafana/how-to-create-dashboard.md#import-a-grafana-dashboard). </br>
