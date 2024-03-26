@@ -102,11 +102,11 @@ For the most up-to-date information about region availability of Azure Arc-enabl
 
 Azure Arc-enabled VMware vSphere doesn't store/process customer data outside the region the customer deploys the service instance in.  
 
-## Azure Kubernetes Service (AKS) Arc on VMware
+## Azure Kubernetes Service (AKS) Arc on VMware (preview)
 
-Starting in March 2024, Azure Kubernetes Service (AKS) enabled by Azure Arc on VMware is available for public preview. AKS Arc on VMware enables you to use Azure Arc to create new Kubernetes clusters on VMware vSphere. For more information, see [What is AKS enabled by Arc on VMware?](/azure/aks/hybrid/aks-vmware-overview).
+Starting in March 2024, Azure Kubernetes Service (AKS) enabled by Azure Arc on VMware is available for preview. AKS Arc on VMware enables you to use Azure Arc to create new Kubernetes clusters on VMware vSphere. For more information, see [What is AKS enabled by Arc on VMware?](/azure/aks/hybrid/aks-vmware-overview).
 
-The following capabilities are available in the AKS on VMware preview:
+The following capabilities are available in the AKS Arc on VMware preview:
 
 - **Simplified infrastructure deployment on Arc-enabled VMware vSphere**: Onboard VMware vSphere to Azure using a single-step process with the AKS Arc extension installed.
 - **Azure CLI**: A consistent command-line experience, with [AKS Arc on Azure Stack HCI 23H2](/azure/aks/hybrid/aks-create-clusters-cli), for creating and managing Kubernetes clusters. Note that the preview only supports a limited set commands.
