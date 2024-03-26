@@ -1,15 +1,20 @@
 ---
 title: Migrate your Microsoft Sentinel alert-trigger playbooks to automation rules | Microsoft Docs
 description: This article explains how (and why) to take your existing playbooks built on the alert trigger and migrate them from being invoked by analytics rules to being invoked by automation rules.
-author: yelevin
-ms.author: yelevin
 ms.topic: how-to
-ms.date: 05/09/2023
+author: batamig
+ms.author: bagol
+ms.date: 03/14/2024
+appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+ms.collection: usx-security
+
 ---
 
 # Migrate your Microsoft Sentinel alert-trigger playbooks to automation rules
 
 This article explains how (and why) to take your existing playbooks built on the alert trigger and migrate them from being invoked by **analytics rules** to being invoked by **automation rules**.
+
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 ## Why migrate
 
@@ -34,11 +39,11 @@ Finally, the ability to invoke playbooks from analytics rules will be **deprecat
 
 ### Create an automation rule from an analytics rule
 
-1. From the main navigation menu, select **Analytics**.
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), select the **Configuration** > **Analytics** page. For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Configuration** > **Analytics**.
 
 1. Under **Active rules**, find an analytics rule already configured to run a playbook.
 
-1. Select **Edit**.
+1. Select **Edit**. <!--add screenshot if there's time-->
 
     :::image type="content" source="media/migrate-playbooks-to-automation-rules/find-analytics-rule.png" alt-text="Screenshot of finding and selecting an analytics rule.":::
 
@@ -58,7 +63,7 @@ Finally, the ability to invoke playbooks from analytics rules will be **deprecat
 
     :::image type="content" source="media/migrate-playbooks-to-automation-rules/select-playbook.png" alt-text="Screenshot of selecting playbook as action in automation rule wizard.":::
 
-1. Click **Apply**. You will now see the new rule in the automation rules grid.
+1. Select **Apply**. You will now see the new rule in the automation rules grid.
 
 1. Remove the playbook from the **Alert automation (classic)** section.
 
@@ -66,7 +71,7 @@ Finally, the ability to invoke playbooks from analytics rules will be **deprecat
 
 ### Create a new automation rule from the Automation portal
 
-1. From the main navigation menu, select **Automation**.
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), select the **Configuration** > **Analytics** page. For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Configuration** > **Analytics**.
 
 1. From the top menu bar, select **Create -> Automation rule**.
 
