@@ -242,7 +242,7 @@ The `--assignee` argument represents the service principal Azure Spring Apps use
 
 To link the private DNS zone with your Azure Spring Apps instance, you can use the Azure CLI. This step involves specifying your resource group, the Azure Spring Apps instance name, and the resource ID of the private DNS zone.
 
-1. Config the private dns zone with Azure Spring Apps using azure cli
+1. Config the private dns zone with Azure Spring Apps using azure cli. This configuration allows Azure Spring Apps to automatically create a virtual network link in the private DNS zone and manage the addition or removal of DNS "A" records as endpoints are assigned or unassigned.
 ```azurecli
 az spring private-dns-zone add \
    --resource-group $RESOURCE_GROUP \
@@ -251,7 +251,7 @@ az spring private-dns-zone add \
 ```
 
 
-2. Clean the private dns zone configured with Azure Spring Apps using azure cli
+1. (Optional) Clean the private dns zone configured with Azure Spring Apps using azure cli. If you wish to unlink your Azure Spring Apps instance from the private DNS zone and stop the automatic management of DNS "A" records, you can clean the configuration.
 ```azurecli
 az spring private-dns-zone clean \
    --resource-group $RESOURCE_GROUP \
