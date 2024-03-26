@@ -132,8 +132,8 @@ Workers are evaluated based on:
 
 10. Run the application and follow the on-screen instructions to Create a Job.
       - Once a job has been created the console application will let you know who scored the highest and has received the offer. To see the prompts sent to your OpenAI model and scores given to your workers and sent back to Job Router. Go to your Function and select the Monitor Tab and watch the logs as you are creating a job in the console application.
-      
-:::image type="content" source="./media/function-outpu.png" alt-text="Screenshot of Function Output.":::
+
+ :::image type="content" source="./media/function-outpu.png" alt-text="Screenshot of Function Output.":::
 
 ## Experimentation
 
