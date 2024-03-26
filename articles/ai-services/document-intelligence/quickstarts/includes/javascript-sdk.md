@@ -1,18 +1,18 @@
 ---
 title: "Quickstart: Document Intelligence (formerly Form Recognizer) JavaScript SDK (beta) | v3.1 | v3.0"
 titleSuffix: Azure AI services
-description: Form and document processing, data extraction, and analysis using Document Intelligence JavaScript client library SDKs v3.1 or v3.0
+description: Form and document processing, data extraction, and analysis using Document Intelligence JavaScript client library.
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: include
-ms.date: 12/19/2023
+ms.date: 03/25/2024
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD025 -->
 
 :::moniker range="doc-intel-4.0.0"
-[Client library](/javascript/api/overview/azure/ai-document-intelligence-rest-readme?view=azure-node-preview&preserve-view=true) | [REST API reference](https://westus.dev.cognitive.microsoft.com/docs/services/document-intelligence-api-2023-10-31-preview/operations/AnalyzeDocument) | [Package (npm)](https://www.npmjs.com/package/@azure-rest/ai-document-intelligence/v/1.0.0-beta.1) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/documentintelligence/ai-document-intelligence-rest/samples/v1-beta/javascript) |[Supported REST API versions](../../sdk-overview-v4-0.md)
+[Client library](/javascript/api/overview/azure/ai-document-intelligence-rest-readme?view=azure-node-preview&preserve-view=true) | [REST API reference](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2024-02-29-preview&preserve-view=true&tabs=HTTP) | [Package (npm)](https://www.npmjs.com/package/@azure-rest/ai-document-intelligence/v/1.0.0-beta.2) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/documentintelligence/ai-document-intelligence-rest/samples/v1-beta/javascript) |[Supported REST API versions](../../sdk-overview-v4-0.md)
 :::moniker-end
 
 :::moniker range="doc-intel-3.1.0"
@@ -24,7 +24,7 @@ ms.author: lajanuar
 [Client library](/javascript/api/%40azure/ai-form-recognizer/) | [SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0/index.html) | [REST API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/5.0.0) | [Samples](https://github.com/witemple-msft/azure-sdk-for-js/tree/26e85928088c6ee46ff9b357b2af8158b9da8b49/sdk/formrecognizer/ai-form-recognizer/samples/v4-beta/javascript) |[Supported REST API versions](../../sdk-overview-v3-0.md)
 :::moniker-end
 
-In this quickstart you'll, use the following features to analyze and extract data and values from forms and documents:
+In this quickstart, use the following features to analyze and extract data and values from forms and documents:
 
 * [**Layout**](#layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in documents, without the need to train a model.
 
@@ -34,9 +34,9 @@ In this quickstart you'll, use the following features to analyze and extract dat
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/).
 
-* The latest version of [Visual Studio Code](https://code.visualstudio.com/) or your preferred IDE. For more information, *see* [Node.js in Visual Studio Code](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial)
+* The latest version of [Visual Studio Code](https://code.visualstudio.com/) or your preferred IDE. For more information, *see* [Node.js in Visual Studio Code](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial).
 
-* The latest LTS version of [Node.js](https://nodejs.org/)
+* The latest `LTS` version of [Node.js](https://nodejs.org/).
 
 * An Azure AI services or Document Intelligence resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Document Intelligence resource, in the Azure portal, to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
@@ -73,11 +73,12 @@ In this quickstart you'll, use the following features to analyze and extract dat
  4. Install the `ai-document-intelligence` client library and `azure/identity` npm packages:
 
     ```console
-    npm i @azure-rest/ai-document-intelligence@1.0.0-beta.1
+    npm i @azure-rest/ai-document-intelligence@1.0.0-beta.2
 
     ```
 
-    * Your app's `package.json` file is updated with the dependencies.
+    Your app's `package.json` file is updated with the dependencies.
+
 :::moniker-end
 
 :::moniker range="doc-intel-3.1.0"
@@ -123,7 +124,7 @@ Recognizer `endpoint`.
 
 :::moniker-end
 
-1. Open the `index.js` file in Visual Studio Code or your favorite IDE and select one of the following code samples to copy and paste into your application:
+1. Open the `index.js` file in Visual Studio Code or your favorite IDE. Copy and paste one of the following code samples into your application:
 
     * [**Layout**](#layout-model)
 
@@ -157,7 +158,7 @@ Extract text, selection marks, text styles, table structures, and bounding regio
 async function main() {
     const client = DocumentIntelligence(endpoint, new AzureKeyCredential(key));
 
-    const poller = await client.beginAnalyzeDocumentFromUrl("prebuilt-layout", formUrl);
+    const poller = await client.beginAnalyzeDocument("prebuilt-layout", formUrl);
 
 const {
         pages,
@@ -288,7 +289,7 @@ Tables:
 - Extracted table: 3 columns, 5 rows (15 cells)
 ```
 
-To view the entire output, visit the Azure samples repository on GitHub to view the [layout model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/v3-javascript-sdk-layout-output.md)
+To view the entire output, visit the Azure samples repository on GitHub to view the [layout model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/v3-javascript-sdk-layout-output.md).
 
 :::moniker-end
 
@@ -297,7 +298,7 @@ To view the entire output, visit the Azure samples repository on GitHub to view 
 In this example, we analyze an invoice using the **prebuilt-invoice** model.
 
 > [!TIP]
-> You aren't limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. See [**model data extraction**](../../concept-model-overview.md#model-data-extraction).
+> You aren't limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the `analyze` operation depends on the type of document to be analyzed. See [**model data extraction**](../../concept-model-overview.md#model-data-extraction).
 
 > [!div class="checklist"]
 >
@@ -370,13 +371,16 @@ After you add a code sample to your application, run your program:
 
 ```javascript
 
- const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure/ai-form-recognizer");
+ const {
+    AzureKeyCredential,
+    DocumentAnalysisClient
+} = require("@azure/ai-form-recognizer");
 
-  // set `<your-key>` and `<your-endpoint>` variables with the values from the Azure portal.
-      const key = "<your-key>";
-      const endpoint = "<your-endpoint>";
+// set `<your-key>` and `<your-endpoint>` variables with the values from the Azure portal.
+const key = "<your-key>";
+const endpoint = "<your-endpoint>";
 // sample document
-    invoiceUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf"
+invoiceUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf"
 
 async function main() {
     const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(key));
@@ -396,6 +400,20 @@ async function main() {
             console.log("- Page", page.pageNumber, `(unit: ${page.unit})`);
             console.log(`  ${page.width}x${page.height}, angle: ${page.angle}`);
             console.log(`  ${page.lines.length} lines, ${page.words.length} words`);
+
+            if (page.lines && page.lines.length > 0) {
+                console.log("  Lines:");
+
+                for (const line of page.lines) {
+                    console.log(`  - "${line.content}"`);
+
+                    // The words of the line can also be iterated independently. The words are computed based on their
+                    // corresponding spans.
+                    for (const word of line.words()) {
+                        console.log(`    - "${word.content}"`);
+                    }
+                }
+            }
         }
     }
 
@@ -449,7 +467,7 @@ Here's a snippet of the expected output:
     Amount: 100
 ```
 
-To view the entire output, visit the Azure samples repository on GitHub to view the [prebuilt invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/v3-javascript-sdk-prebuilt-invoice-output.md)
+To view the entire output, visit the Azure samples repository on GitHub to view the [prebuilt invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/v3-javascript-sdk-prebuilt-invoice-output.md).
 
 ::: moniker-end
 
@@ -467,35 +485,56 @@ const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure/ai-form-r
 async function main() {
     const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(key));
 
-    const poller = await client.beginAnalyzeDocumentFromUrl("prebuilt-invoice", invoiceUrl);
+    const poller = await client.beginAnalyzeDocument("prebuilt-invoice", invoiceUrl);
 
     const {
-        pages,
-        tables
-    } = await poller.pollUntilDone();
+    documents: [document],
+  } = await poller.pollUntilDone();
 
-    if (pages.length <= 0) {
-        console.log("No pages were extracted from the document.");
-    } else {
-        console.log("Pages:");
-        for (const page of pages) {
-            console.log("- Page", page.pageNumber, `(unit: ${page.unit})`);
-            console.log(`  ${page.width}x${page.height}, angle: ${page.angle}`);
-            console.log(`  ${page.lines.length} lines, ${page.words.length} words`);
-        }
+
+  if (document) {
+    const {
+      vendorName,
+      customerName,
+      invoiceDate,
+      dueDate,
+      items,
+      subTotal,
+      previousUnpaidBalance,
+      totalTax,
+      amountDue,
+    } = document.fields;
+
+    // The invoice model has many fields. For details, *see* [Invoice model field extraction](../../concept-invoice.md#field-extraction)
+    console.log("Vendor Name:", vendorName && vendorName.value);
+    console.log("Customer Name:", customerName && customerName.value);
+    console.log("Invoice Date:", invoiceDate && invoiceDate.value);
+    console.log("Due Date:", dueDate && dueDate.value);
+
+    console.log("Items:");
+    for (const item of (items && items.values) || []) {
+      const { productCode, description, quantity, date, unit, unitPrice, tax, amount } =
+        item.properties;
+
+      console.log("-", (productCode && productCode.value) || "<no product code>");
+      console.log("  Description:", description && description.value);
+      console.log("  Quantity:", quantity && quantity.value);
+      console.log("  Date:", date && date.value);
+      console.log("  Unit:", unit && unit.value);
+      console.log("  Unit Price:", unitPrice && unitPrice.value);
+      console.log("  Tax:", tax && tax.value);
+      console.log("  Amount:", amount && amount.value);
     }
 
-    if (tables.length <= 0) {
-        console.log("No tables were extracted from the document.");
-    } else {
-        console.log("Tables:");
-        for (const table of tables) {
-            console.log(
-                `- Extracted table: ${table.columnCount} columns, ${table.rowCount} rows (${table.cells.length} cells)`
-            );
-        }
-    }
+    console.log("Subtotal:", subTotal && subTotal.value);
+    console.log("Previous Unpaid Balance:", previousUnpaidBalance && previousUnpaidBalance.value);
+    console.log("Tax:", totalTax && totalTax.value);
+    console.log("Amount Due:", amountDue && amountDue.value);
+  } else {
+    throw new Error("Expected at least one receipt in the result.");
+  }
 }
+
 
 main().catch((error) => {
     console.error("An error occurred:", error);
