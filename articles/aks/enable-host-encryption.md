@@ -2,6 +2,7 @@
 title: Enable host-based encryption on Azure Kubernetes Service (AKS)
 description: Learn how to configure a host-based encryption in an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
+ms.subservice: aks-security
 ms.date: 07/17/2023 
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
