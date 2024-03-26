@@ -4,7 +4,7 @@ description: Learn the app status categories in Azure Spring Apps
 author: KarlErickson
 ms.service: spring-apps
 ms.topic: conceptual
-ms.date: 03/30/2022
+ms.date: 03/26/2024
 ms.author: karler
 ms.custom: devx-track-java
 ---
@@ -59,7 +59,7 @@ The provisioning state is accessible only from the CLI. The status is reported a
 
 The app registration status shows the state in service discovery. Azure Spring Apps in Basic/Standard plan uses Eureka for service discovery. For more information on how the Eureka client calculates the state, see [Eureka's health checks](https://cloud.spring.io/spring-cloud-static/Greenwich.RELEASE/multi/multi__service_discovery_eureka_clients.html#_eureka_s_health_checks). 
 
-The Enterprise pricing plan uses [Tanzu Service Registry](how-to-enterprise-service-registry.md) for service discovery.
+The Enterprise pricing plan uses for service discovery. For more information, see [Use Tanzu Service Registry](how-to-enterprise-service-registry.md)
 
 ## App instances status
 

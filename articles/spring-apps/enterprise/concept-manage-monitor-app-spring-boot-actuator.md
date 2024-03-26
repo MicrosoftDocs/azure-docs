@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: conceptual
-ms.date: 05/06/2022
+ms.date: 03/26/2024
 ms.custom: devx-track-java
 ---
 
@@ -41,7 +41,7 @@ To add the actuator to a Maven-based project, add the `Starter` dependency:
 </dependencies>
 ```
 
-Note that this configuration holds true for any Spring Boot version as versions are outlined in the Spring Boot Bill of Materials (BOM).
+This configuration holds true for any Spring Boot version as versions are outlined in the Spring Boot Bill of Materials (BOM).
 
 ### Configure actuator endpoint
 
@@ -64,7 +64,7 @@ To view all the endpoints built-in and related configurations, see the [Exposing
 
 ## Secure actuator endpoint
 
-When you open the app to public, these actuator endpoints are exposed to public as well. To hide all endpoints, set `management.endpoints.web.exposure.exclude=*`, because `exclude` property takes precedence over the `include` property. Note that this action might block Application Live View in Enterprise plan, or other apps or tools relying on the actuator HTTP endpoint.
+When you open the app to public, these actuator endpoints are exposed to public as well. To hide all endpoints, set `management.endpoints.web.exposure.exclude=*`, because `exclude` property takes precedence over the `include` property. This action might block Application Live View in Enterprise plan, or other apps or tools relying on the actuator HTTP endpoint.
 
 In the Enterprise plan, you can disable public endpoint of apps and configure VMware Spring Cloud Gateway to disable actuator access from public. For more informarion, see [Configure VMware Spring Cloud Gateway](./how-to-configure-enterprise-spring-cloud-gateway.md) 
 
