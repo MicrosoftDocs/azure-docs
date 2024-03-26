@@ -18,7 +18,7 @@ This article provides the recommended actions to troubleshoot the issues you mig
 
 **Error code**: PostgreSQLFlexOperationFailedUserError 
 
-**Cause**: Resource isn't in a valid state to perform the backup operation because the server isn't ready for long term retention. 
+**Cause**: Resource isn't in a valid state to perform the backup operation. 
 
 **Recommended action**: Validate if the PostgreSQL - Flexible server has the following properties in its resource JSON script: `"state": "Ready"`. If not present, wait for the state to change or fix the PostgreSQL - Flexible server properties to make it ready for backup. 
 
@@ -26,7 +26,7 @@ This article provides the recommended actions to troubleshoot the issues you mig
 
 **Error code**: PostgreSQLFlexOperationFailedUserError 
 
-**Cause**: Resource group isn't found because the server isn't ready for long term retention.
+**Cause**: Resource group isn't found.
 
 **Recommended action**: Stop protection for the backup instance to avoid failures. 
 
@@ -34,7 +34,7 @@ This article provides the recommended actions to troubleshoot the issues you mig
 
 **Error code**: PostgreSQLFlexOperationFailedUserError 
 
-**Cause**: Resource isn't found because the server isn't ready for long term retention.
+**Cause**: Resource isn't found.
 
 **Recommended action**: Stop protection for the backup instance to avoid failures. 
 
