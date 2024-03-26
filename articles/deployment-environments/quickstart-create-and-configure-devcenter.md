@@ -22,7 +22,7 @@ The following diagram shows the steps to configure a dev center for Azure Deploy
 
 :::image type="content" source="media/quickstart-create-and-configure-devcenter/steps-configure-devcenter.png" alt-text="Diagram showing the stages required to configure a dev center for Deployment Environments." lightbox="media/quickstart-create-and-configure-devcenter/steps-configure-devcenter-expanded.png"::::::
 
-You need to perform the steps in this quickstart and then [create a project](quickstart-create-and-configure-projects.md) before you can [create a deployment environment](quickstart-create-access-environments.md). Alternatively to creating these resources manually, you can also follow this quickstart to [deploy the dev center and project using an ARM template](./quickstart-create-devcenter-and-project-arm.md).
+You need to perform the steps in this quickstart and then [create a project](quickstart-create-and-configure-projects.md) before you can [create a deployment environment](quickstart-create-access-environments.md). Alternatively to creating these resources manually, you can also follow this quickstart to [deploy the dev center and project using an ARM template](./quickstart-create-dev-center-project-azure-resource-manager.md).
 
 ## Prerequisites
 
