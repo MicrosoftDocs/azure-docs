@@ -5,10 +5,9 @@ services: service-fabric
 author: athinanthny
 manager: chackdan
 ms.service: service-fabric
-ms.workload: multiple
 ms.topic: sample
 ms.date: 12/06/2017
-ms.author: atsenthi 
+ms.author: atsenthi
 ---
 
 # Update an application using the Service Fabric CLI

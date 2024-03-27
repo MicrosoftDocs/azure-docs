@@ -5,7 +5,6 @@ services: virtual-machines
 author: ju-shim
 ms.service: virtual-machines
 ms.subservice: confidential-computing
-ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 12/20/2021
 ms.author: jushiman

@@ -3,11 +3,9 @@ title: SAP HANA availability across Azure regions | Microsoft Docs
 description: An overview of availability considerations when running SAP HANA on Azure VMs in multiple Azure regions.
 author: msjuergent
 manager: patfilot
-tags: azure-resource-manager
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.workload: infrastructure
 ms.date: 06/19/2023
 ms.author: juergent
 ---

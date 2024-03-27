@@ -4,11 +4,10 @@ titleSuffix: Microsoft Cost Management
 description: Describes how to use associated billing tenants to manage billing across tenants and move subscriptions in different tenants.
 author: bandersmsft
 ms.reviewer: amberb
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/15/2022
+ms.date: 03/21/2024
 ms.author: banders
 ---
 
@@ -65,7 +64,7 @@ Before assigning roles, make sure you [add a tenant as an associated billing ten
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for **Cost Management + Billing**.  
-    :::image type="content" source="./media/manage-billing-across-tenants/billing-search-cost-management-billing.png" alt-text="Screenshot showing Search in the Azure portal for cost management + billing" lightbox="./media/manage-billing-across-tenants/billing-search-cost-management-billing.png" :::
+    :::image type="content" source="./media/manage-billing-across-tenants/billing-search-cost-management-billing.png" alt-text="Screenshot showing Search in the Azure portal for Cost Management + Billing." lightbox="./media/manage-billing-across-tenants/billing-search-cost-management-billing.png" :::
 1. Select **Access control (IAM)** on the left side of the page.
 1. On the Access control (IAM) page, select **Add** at the top of the page.  
     :::image type="content" source="./media/manage-billing-across-tenants/access-management-add-role-assignment-button.png" alt-text="Screenshot showing access control page while assigning roles." lightbox="./media/manage-billing-across-tenants/access-management-add-role-assignment-button.png" :::

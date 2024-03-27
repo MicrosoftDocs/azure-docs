@@ -16,8 +16,6 @@ ms.topic: how-to
 
 This article describes how you can create users within an Azure Database for PostgreSQL flexible server instance.
 
-> [!NOTE]  
-> Microsoft Entra authentication for Azure Database for PostgreSQL flexible server is currently in preview.
 
 Suppose you want to learn how to create and manage Azure subscription users and their privileges. In that case, you can visit the [Azure role-based access control (Azure RBAC) article](../../role-based-access-control/built-in-roles.md) or review [how to customize roles](../../role-based-access-control/custom-roles.md).
 

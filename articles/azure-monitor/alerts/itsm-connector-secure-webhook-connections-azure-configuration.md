@@ -1,10 +1,10 @@
 ---
 title: 'IT Service Management Connector: Secure Webhook in Azure Monitor - Azure configurations'
 description: This article shows you how to configure Azure to connect your ITSM products or services with Secure Webhook in Azure Monitor to centrally monitor and manage ITSM work items.
+ms.author: abbyweisberg
 ms.topic: conceptual
 ms.date: 06/19/2023
 ms.reviewer: nolavime
-
 ---
 
 # Configure Azure to connect ITSM tools by using Secure Webhook
@@ -36,7 +36,7 @@ You can do this step by using the same [PowerShell commands](../alerts/action-gr
 
 After your application is registered with Microsoft Entra ID, you can create work items in your ITSM tool based on Azure alerts by using the Secure Webhook action in action groups.
 
-Action groups provide a modular and reusable way of triggering actions for Azure alerts. You can use action groups with metric alerts, activity log alerts, and Log Analytics alerts in the Azure portal.
+Action groups provide a modular and reusable way of triggering actions for Azure alerts. You can use action groups with metric alerts, activity log alerts, and log search alerts in the Azure portal.
 
 To learn more about action groups, see [Create and manage action groups in the Azure portal](../alerts/action-groups.md).
 

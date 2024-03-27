@@ -3,11 +3,10 @@ title:  View payment history
 description: This article describes how to view your payment history for a Microsoft Customer Agreement.
 author: bandersmsft
 ms.reviewer: lishepar
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/15/2022
+ms.date: 03/21/2024
 ms.author: banders
 ---
 

@@ -7,8 +7,8 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.topic: quickstart
 ms.devlang: azurecli
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.date: 01/31/2024
+ms.custom:
+ms.date: 01/30/2024
 ---
 
 # Tutorial: Use a VPN to access the payShield manager for your payment HSM

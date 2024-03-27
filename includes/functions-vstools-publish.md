@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 06/15/2022
+ms.date: 01/30/2024
 ms.author: glenga
 ms.custom: devdivchpfy22
 ---
@@ -25,10 +25,11 @@ ms.custom: devdivchpfy22
     | ------------ |  ------- | -------------------------------------------------- |
     | **Name** | Globally unique name | Name that uniquely identifies your new function app. Accept this name or enter a new name. Valid characters are: `a-z`, `0-9`, and `-`. |
     | **Subscription** | Your subscription | The Azure subscription to use. Accept this subscription or select a new one from the drop-down list. |
-    | **[Resource group](../articles/azure-resource-manager/management/overview.md)** | Name of your resource group |  The resource group in which you want to create your function app. Select an existing resource group from the drop-down list or select **New** to create a new resource group.|
+    | **[Resource group](../articles/azure-resource-manager/management/overview.md)** | Name of your resource group |  The resource group in which you want to create your function app. Select **New** to create a new resource group. You can also choose an existing resource group from the drop-down list. |
     | **[Plan Type](../articles/azure-functions/functions-scale.md)** | Consumption | When you publish your project to a function app that runs in a [Consumption plan](../articles/azure-functions/consumption-plan.md), you pay only for executions of your functions app. Other hosting plans incur higher costs. |
     | **Location** | Location of the app service | Choose a **Location** in a [region](https://azure.microsoft.com/regions/) near you or other services your functions access. |
     | **[Azure Storage](../articles/azure-functions/storage-considerations.md)** | General-purpose storage account | An Azure storage account is required by the Functions runtime. Select **New** to configure a general-purpose storage account. You can also choose an existing account that meets the [storage account requirements](../articles/azure-functions/storage-considerations.md#storage-account-requirements).  |
+    | **[Application Insights](../articles/azure-functions/functions-monitoring.md)** | Application Insights instance | You should enable Application Insights integration for your function app. Select **New** to create a new instance, either in a new or in an existing Log Analytics workspace. You can also choose an existing instance.  |
 
     :::image type="content" source="./media/functions-vstools-publish/functions-vs-function-app.png" alt-text="Screenshot of Create App Service dialog.":::
 

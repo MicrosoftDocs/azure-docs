@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 02/02/2024
+ms.date: 02/07/2024
 ms.author: greglin
 ms.custom: template-tutorial, devx-track-azurecli
 ---
@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Create a resource group
 
@@ -125,7 +125,7 @@ In this tutorial, you:
 - Created new AKS cluster with the AGIC add-on enabled
 - Deployed a sample application by using AGIC for ingress on the AKS cluster
 
-To learn more about AGIC, see [What is Application Gateway Ingress Controller?](ingress-controller-overview.md) and [Disable and re-enable AGIC add-on for your AKS cluster](ingress-controller-disable-addon.md)
+To learn more about AGIC, see [What is Application Gateway Ingress Controller](ingress-controller-overview.md) and [Disable and re-enable AGIC add-on for your AKS cluster](ingress-controller-disable-addon.md).
 
 To learn how to enable application gateway ingress controller add-on for an existing AKS cluster with an existing application gateway, advance to the next tutorial.
 

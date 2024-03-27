@@ -7,10 +7,13 @@ author: jushiman
  ms.topic: include
  ms.date: 12/08/2023
 ms.author: jushiman
- ms.custom: include file
+ms.custom: include file, linux-related-content
 ---
 
 ## Supported distributions and drivers
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
 
 ### NVIDIA CUDA drivers
 

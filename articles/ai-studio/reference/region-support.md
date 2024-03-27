@@ -5,7 +5,7 @@ description: This article lists Azure AI Studio feature availability across clou
 manager: nitinme
 ms.service: azure-ai-studio
 ms.topic: conceptual
-ms.date: 12/11/2023
+ms.date: 02/26/2024
 ms.reviewer: deeikele
 ms.author: eur
 author: eric-urban
@@ -41,6 +41,7 @@ Azure AI Studio is currently available in preview in the following Azure regions
 - UK South
 - West Europe
 - West US
+- West US 3
 
 ### Azure Government regions
 

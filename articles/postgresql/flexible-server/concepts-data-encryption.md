@@ -22,7 +22,7 @@ Azure Database for PostgreSQL flexible server uses [Azure Storage encryption](..
 
 Data encryption with customer-managed keys for Azure Database for PostgreSQL flexible server is set at the server level. For a given server, a customer-managed key, called the key encryption key (KEK), is used to encrypt the service's data encryption key (DEK). The KEK is an asymmetric key stored in a customer-owned and customer-managed [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)) instance. The Key Encryption Key (KEK) and Data Encryption Key (DEK) are described in more detail later in this article.
 
-Key Vault is a cloud-based, external key management system. It's highly available and provides scalable, secure storage for RSA cryptographic keys, optionally backed by FIPS 140-2 Level 2 validated hardware security modules (HSMs). It doesn't allow direct access to a stored key but provides encryption and decryption services to authorized entities. Key Vault can generate the key, import it, or have it transferred from an on-premises HSM device.
+Key Vault is a cloud-based, external key management system. It's highly available and provides scalable, secure storage for RSA cryptographic keys, optionally backed by [FIPS 140 validated](/azure/key-vault/keys/about-keys#compliance) hardware security modules (HSMs). It doesn't allow direct access to a stored key but provides encryption and decryption services to authorized entities. Key Vault can generate the key, import it, or have it transferred from an on-premises HSM device.
 
 ## Benefits
 
@@ -149,11 +149,11 @@ Avoid issues while setting up customer-managed data encryption during restore or
 
 - On the restored/replica server, you can change the customer-managed key and\or Microsoft Entra identity used to access Azure Key Vault in the data encryption settings. Ensure that the newly created server is given list, wrap and unwrap permissions to the key stored in Key Vault.
 
--  Don't revoke the original key after restoring, as at this time we don't support key revocation after restoring CMK enabled server to another server
+- Don't revoke the original key after restoring, as at this time we don't support key revocation after restoring CMK enabled server to another server
 
 ## Using Azure Key Vault Managed HSM
 
-**Hardware security modules (HSMs)** are hardened, tamper-resistant hardware devices that secure cryptographic processes by generating, protecting, and managing keys used for encrypting and decrypting data and creating digital signatures and certificates. HSMs are tested, validated and certified to the highest security standards including FIPS 140-2 and Common Criteria. Azure Key Vault Managed HSM (Hardware Security Module) is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using FIPS 140-2 Level 3 validated HSMs. 
+**Hardware security modules (HSMs)** are hardened, tamper-resistant hardware devices that secure cryptographic processes by generating, protecting, and managing keys used for encrypting and decrypting data and creating digital signatures and certificates. HSMs are tested, validated and certified to the highest security standards including FIPS 140 and Common Criteria. Azure Key Vault Managed HSM (Hardware Security Module) is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using [FIPS 140 Level 3 validated HSMs](/azure/key-vault/keys/about-keys#compliance).
 
 You can pick **Azure Key Vault Managed HSM** as key store when creating new Azure Database for PostgreSQL flexible server instances in Azure portal with Customer Managed Key (CMK) feature, as alternative to **Azure Key Vault**.  The prerequisites in terms of user defined identity and permissions are same as with Azure Key Vault, as already listed [above](#requirements-for-configuring-data-encryption-for-azure-database-for-postgresql-flexible-server).  More information on how to create Azure Key Vault  Managed HSM, its advantages and differences with shared Azure Key Vault based certificate store, as well as how to import keys into AKV Managed HSM is available [here](../../key-vault/managed-hsm/overview.md). 
 

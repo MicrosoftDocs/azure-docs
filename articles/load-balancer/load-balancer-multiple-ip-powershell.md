@@ -6,7 +6,6 @@ services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 06/27/2023
 ms.author: mbender
 ms.custom: template-how-to, devx-track-azurepowershell, engagement-fy23

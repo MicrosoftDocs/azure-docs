@@ -3,7 +3,7 @@ title: Reliability in Azure Container Instances
 description: Find out about reliability in Azure Container Instances
 author: anaharris-ms
 ms.author: anaharris
-ms.topic: overview
+ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: container-instances
 ms.date: 11/29/2022

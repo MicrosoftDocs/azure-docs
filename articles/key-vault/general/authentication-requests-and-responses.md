@@ -2,14 +2,13 @@
 title: Authentication, requests and responses
 description: Learn how Azure Key Vault uses JSON-formatted requests and responses and about required authentication for using a key vault.
 services: key-vault
-author: mbaldwin
+author: msmbaldwin
 manager: msmbaldwin
-tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 01/20/2023
+ms.date: 01/30/2024
 ms.author: mbaldwin
 
 ---
@@ -32,7 +31,6 @@ Here are the URL suffixes used to access each type of object
 |Secrets|/secrets|
 |Certificates| /certificates|
 |Storage account keys|/storageaccounts
-||
 
 Azure Key Vault supports JSON formatted requests and responses. Requests to the Azure Key Vault are directed to a valid Azure Key Vault URL using HTTPS with some URL parameters and JSON encoded request and response bodies.
 

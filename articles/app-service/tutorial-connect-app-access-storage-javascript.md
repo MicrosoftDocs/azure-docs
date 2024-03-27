@@ -6,7 +6,6 @@ author: rwike77
 manager: CelesteDG
 ms.service: app-service
 ms.topic: tutorial
-ms.workload: identity
 ms.date: 07/31/2023
 ms.author: ryanwi
 ms.reviewer: stsoneff

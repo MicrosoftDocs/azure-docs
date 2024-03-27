@@ -2,7 +2,8 @@
 title: Upgrade Azure Kubernetes Service (AKS) node images
 description: Learn how to upgrade the images on AKS cluster nodes and node pools.
 ms.topic: article
-ms.custom: devx-track-azurecli, linux-related-content
+ms.custom: devx-track-azurecli
+ms.subservice: aks-upgrade
 ms.date: 03/28/2023
 ---
 
@@ -175,4 +176,3 @@ az aks nodepool show \
 [az-aks-upgrade]: /cli/azure/aks#az_aks_upgrade
 [az-aks-show]: /cli/azure/aks#az_aks_show
 [upgrade-operators-guide]: /azure/architecture/operator-guides/aks/aks-upgrade-practices
-

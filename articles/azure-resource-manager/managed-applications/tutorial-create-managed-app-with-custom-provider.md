@@ -222,7 +222,7 @@ az account set --subscription <subscriptionID>
 az group create --name $resourceGroup --location eastus
 
 # Get object ID of your identity
-userid=$(az ad user show --upn-or-object-id example@contoso.org --query objectId --output tsv)
+userid=$(az ad user list --upn example@contoso.org --query [0].id --output tsv)
 # Get role definition ID for the Owner role
 roleid=$(az role definition list --name Owner --query [].name --output tsv)
 
