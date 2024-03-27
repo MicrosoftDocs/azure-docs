@@ -4,11 +4,10 @@ description: Learn how to relocate Azure Virtual Network to another region
 author: anaharris-ms
 ms.author: anaharris
 ms.reviewer: anaharris
-ms.date: 01/25/2023
+ms.date: 03/13/2024
 ms.service: virtual-network
 ms.topic: concept
-ms.custom:
-  - subject-relocation
+ms.custom: subject-relocation, devx-track-azurepowershell
 ---
 
 
@@ -37,6 +36,17 @@ However, can also choose to move your virtual network with Azure Resource Mover.
 To learn how to move your virtual network using Resource Mover, see [Move Azure VMs across regions](/azure/resource-mover/tutorial-move-region-virtual-machines).
 
 ## Prerequisites
+
+- Identify any dependent resources that are also associated with the virtual network, such as:
+
+- [Network Peering](/azure/virtual-network/virtual-network-peering-overview)
+  - [Load Balancer](/azure/load-balancer/load-balancer-overview)
+  - [User Defined Routes (UDR)](/azure/virtual-network/virtual-networks-udr-overview#user-defined)
+  - [NAT gateway](/azure/nat-gateway/nat-overview)
+  - [DDOS Protection Plan](/azure/ddos-protection/)
+  - [Network Security Group (NSG)](./relocation-virtual-network-nsg.md)
+  - [Reserved private IP address (public static IP address)](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip)
+  - [Application Security Groups (ASG)](/azure/virtual-network/application-security-groups)
 
 - Confirm that your virtual network is in the source Azure region.
 
@@ -110,8 +120,6 @@ To plan for your relocation of an Azure Virtual Network, you must understand whe
 
 ## Prepare
 
-1. Remove any virtual network peers. Virtual network peerings can't be re-created, and they'll fail if they're still present in the template. In the [Redeploy](#redeploy) section, you'll reconfigure peerings at the target virtual network.
-
 1. Move the diagnostic storage account that contains Network Watcher NSG logs. To learn how to move a storage account, see [Relocate Azure Storage Account to another region](./relocation-storage-account.md).
 
 1. [Relocate the Network Security Groups(NSG)](./relocation-virtual-network-nsg.md).
@@ -119,13 +127,14 @@ To plan for your relocation of an Azure Virtual Network, you must understand whe
 1. Disable [DDoS Protection Plan](/azure/ddos-protection/manage-ddos-protection). 
 
 
-
 ### Export and modify a template
+
 
 # [Portal](#tab/azure-portal)
 
 **To export the virtual network and deploy the target virtual network by using the Azure portal:**
 
+1. Remove any virtual network peers. Virtual network peerings can't be re-created, and they'll fail if they're still present in the template. In the [Redeploy](#redeploy) section, you'll reconfigure peerings at the target virtual network.
 1. Sign in to the [Azure portal](https://portal.azure.com), and then select **Resource Groups**.
 1. Locate the resource group that contains the source virtual network, and then select it.
 1. Select **Automation** > **Export template**.
@@ -272,6 +281,9 @@ To plan for your relocation of an Azure Virtual Network, you must understand whe
 
 
 **To export the virtual network and deploy the target virtual network by using PowerShell:**
+
+
+1. Remove any virtual network peers. Virtual network peerings can't be re-created, and they'll fail if they're still present in the template. In the [Redeploy](#redeploy) section, you'll reconfigure peerings at the target virtual network.
 
 1. Sign in to your Azure subscription with the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command, and then follow the on-screen directions:
     
@@ -452,6 +464,10 @@ To plan for your relocation of an Azure Virtual Network, you must understand whe
 1. Enable Connection Monitor by following the guidelines in ([Migrate to Connection monitor from Network performance monitor](/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor)).  
 
 1. Enable the DDoS Protection Plan. After the move, the auto-tuned policy thresholds for all the protected public IP addresses in the virtual network are reset.
+
+    - (Optional) Reconfigure the Network security Group (NSG), Application Security Group (ASG) and User Defined Route (UDR) to the target virtual Network subnet which was previously associated to source virtual Network subnet and now moved to target region.
+    - (Optional) Reconfigure the NAT-Gateway to the target virtual Network subnet which was previously associated to source virtual Network subnet and now moved to target region.
+    - (Optional) Diagnostic settings: Reconfigure the diagnostic setting for the target virtual network to send the logs to log analytic workspace/storage account/event hub which was relocated as mentioned in prepare. 
 
 # [PowerShell](#tab/azure-powershell)
 

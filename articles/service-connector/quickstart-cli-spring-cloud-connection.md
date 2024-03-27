@@ -22,7 +22,7 @@ Service Connector lets you quickly connect compute services to cloud services, w
 
 - At least one application hosted by Azure Spring Apps in a [region supported by Service Connector](./concept-region-support.md). If you don't have one, [deploy your first application to Azure Spring Apps](../spring-apps/enterprise/quickstart.md).
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 - Version 2.37.0 or higher of the Azure CLI. To upgrade to the latest version, run `az upgrade`. If using Azure Cloud Shell, the latest version is already installed.
 

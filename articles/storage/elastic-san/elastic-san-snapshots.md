@@ -3,9 +3,9 @@ title: Backup Azure Elastic SAN volumes (preview)
 description: Learn about snapshots (preview) for Azure Elastic SAN, including how to create and use them.
 author: roygara
 ms.service: azure-elastic-san-storage
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: conceptual
-ms.date: 02/13/2024
+ms.date: 03/11/2024
 ms.author: rogarana
 ---
 
@@ -147,10 +147,62 @@ az elastic-san volume snapshot delete -g "resourceGroupName" -e "san_name" -v "v
 
 ## Export volume snapshot
 
-Elastic SAN volume snapshots are automatically deleted when the volume is deleted. If you need your snapshot's data to persist beyond deletion, export them to managed disk snapshots. The export process will take time and will depend on the size of the snapshot. You can check how much is left before completion by checking the CompletionPercentage property of the managed disk snapshot. Once you export an elastic SAN snapshot to a managed disk snapshot, the managed disk snapshot begins to incur billing charges. Elastic SAN snapshots don't have any extra billing associated with them, they only consume your elastic SAN's capacity.
+Elastic SAN volume snapshots are automatically deleted when the volume is deleted. For your snapshot's data to persist beyond deletion, export them to managed disk snapshots. Exporting a volume snapshot to a managed disk snapshot takes time, how much time it takes depend on the size of the snapshot. You can check how much is left before completion by checking the `CompletionPercentage` property of the managed disk snapshot.
 
-Currently, you can only export snapshots using the Azure portal. The Azure PowerShell module and the Azure CLI can't be used to export snapshots.
+### Billing implications
+
+Elastic SAN snapshots don't have any extra billing associated with them, they only consume your elastic SAN's capacity. Once you export an elastic SAN snapshot to a managed disk snapshot, the managed disk snapshot begins to incur billing charges.
+
+# [Portal](#tab/azure-portal)
 
 1. Navigate to your elastic SAN and select **Volume snapshots**.
 1. Select a volume group, then select the snapshot you'd like to export.
 1. Select Export and fill out the details, then select **Export**.
+
+# [PowerShell](#tab/azure-powershell)
+
+Replace the variables in the following script, then run it:
+
+```azurepowershell
+$elasticSanName = <nameHere>
+$volGroupName = <nameHere>
+$region = <yourRegion>
+$rgName = <yourResourceGroupName>
+$elasticSanSnapshotName = <ElasticSanSnapshotName>
+$newSnapName = <NameOfNewSnapshot>
+
+$elasticSanVolumeSnapshotResourceId = (Get-AzElasticSanVolumeSnapshot -ElasticSanName $elasticSanName -ResourceGroupName $rgName -VolumeGroupName $volGroupName -name $elasticSanSnapshotName).Id
+
+$snapshotconfig = New-AzSnapshotConfig -Location $region -AccountType Standard_LRS -CreateOption CopyFromSanSnapshot -ElasticSanResourceId $elasticSanVolumeSnapshotResourceId
+New-AzSnapshot -ResourceGroupName $rgName -SnapshotName $newSnapName -Snapshot $snapshotconfig;
+```
+
+
+# [Azure CLI](#tab/azure-cli)
+
+Replace the variables in the following script, then run it:
+
+```azurecli
+region=<yourRegion>
+rgName=<ResourceGroupName>
+sanName=<yourElasticSANName>
+vgName=<yourVolumeGroupName>
+sanSnapName=<yourElasticSANSnapshotName>
+diskSnapName=<nameForNewDiskSnapshot>
+
+snapID=$(az elastic-san volume snapshot show -g $rgName -e $sanName -v $vgName -n $sanSnapName --query 'id' |  tr -d \"~)
+
+az snapshot create -g $rgName --name $diskSnapName --elastic-san-id $snapID --location $region
+```
+
+
+---
+
+## Create volumes from disk snapshots
+
+Currently, you can only use the Azure portal to create Elastic SAN volumes from managed disks snapshots. The Azure PowerShell module and the Azure CLI can't be used to create Elastic SAN volumes from managed disk snapshots. Managed disk snapshots must be in the same region as your elastic SAN to create volumes with them.
+
+1. Navigate to your SAN and select **volumes**.
+1. Select **Create volume**.
+1. For **Source type** select **Disk snapshot** and fill out the rest of the values.
+1. Select **Create**.

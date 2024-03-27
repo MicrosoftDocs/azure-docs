@@ -19,7 +19,7 @@ ms.date:     01/29/2024
 The Dalsv6-series and Daldsv6-series utilize AMD's 4th Generation EPYC<sup>TM</sup> 9004 processor in a multi-threaded configuration with up to 320 MB L3 cache. The Dalsv6 and Daldsv6 VM series provides 2GiBs of RAM per vCPU and are optimized for workloads that require less RAM per vCPU than standard VM sizes. The Dalsv6-series can reduce costs when running non-memory intensive applications, including web servers, gaming, video encoding, AI/ML, and batch processing. 
 
 > [!NOTE]
-> The new Dalsv6 and Daldsv6 VM series will only work on OS images that are tagged with NVMe support.  If your current OS image is not supported for NVMe, you’ll see an error message. NVMe support is available in 50+ of the most popular OS images, and we continuously improve the OS image coverage. Please refer to our up-to-date lists for information on which OS images are tagged as NVMe supported.  For more information on NVMe enablement, see our [FAQ](https://learn.microsoft.com/azure/virtual-machines/enable-nvme-faqs).
+> The new Dalsv6 and Daldsv6 VM series will only work on OS images that are tagged with NVMe support.  If your current OS image is not supported for NVMe, you’ll see an error message. NVMe support is available in 50+ of the most popular OS images, and we continuously improve the OS image coverage. Please refer to our up-to-date lists for information on which OS images are tagged as NVMe supported.  For more information on NVMe enablement, see our [FAQ](./enable-nvme-faqs.yml).
 >
 >  The new Dalsv6 and Daldsv6 VM series virtual machines public preview now available. For more information and to sign up for the preview, please visit our [announcement](https://techcommunity.microsoft.com/t5/azure-compute-blog/public-preview-new-amd-based-vms-with-increased-performance/ba-p/3981351) and follow the link to the [sign-up form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR9RmLSiOpIpImo4Q01A_jJlUM1ZSRVlYU04wMUJQVjNQRFZHQzdEVFc1VyQlQCN0PWcu). This is an opportunity to experience our latest innovation. 
 
@@ -28,7 +28,7 @@ The Dalsv6-series and Daldsv6-series utilize AMD's 4th Generation EPYC<sup>TM</s
 Dalsv6-series VMs utilize AMD's 4th Generation EPYC<sup>TM</sup> 9004 processors that can achieve a boosted maximum frequency of 3.7GHz. These virtual machines offer up to 96 vCPU and 192 GiB of RAM. These VM sizes can reduce cost when running non-memory intensive applications. The new VMs with no local disk provide a better value proposition for workloads that do not require local temporary storage. 
 
 > [!NOTE]
-> For frequently asked questions, see [Azure VM sizes with no local temp disk](https://learn.microsoft.com/azure/virtual-machines/azure-vms-no-temp-disk). 
+> For frequently asked questions, see [Azure VM sizes with no local temp disk](./azure-vms-no-temp-disk.yml). 
 
 
 Dalsv6-series virtual machines do not have any temporary storage thus lowering the price of entry. You can attach Standard SSD, Standard HDD, and Premium SSD disk types. You can also attach Ultra Disk storage based on its regional availability. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/pricing/details/managed-disks/). 

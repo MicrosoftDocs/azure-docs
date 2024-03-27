@@ -73,21 +73,25 @@ This table contains the networking parameters.
 > | `network_name`                   | The name of the network                                               | Optional  |                              |       
 > | `network_arm_id`                 | The Azure resource identifier for the virtual network                 | Optional  | For brown-field deployments  |
 > | `network_address_space`          | The address range for the virtual network                             | Mandatory | For green-field deployments  |
+> |                                  |                                                                       |           |                              |
 > | `admin_subnet_address_prefix`    | The address range for the `admin` subnet                              | Mandatory | For green-field deployments  |
 > | `admin_subnet_arm_id`	           | The Azure resource identifier for the `admin` subnet                  | Mandatory | For brown-field deployments  |
 > | `admin_subnet_name`              | The name of the `admin` subnet                                        | Optional  |                              |
 > | `admin_subnet_nsg_name`          | The name of the `admin`network security group                         | Optional	 |                              |
 > | `admin_subnet_nsg_arm_id`        | The Azure resource identifier for the `admin` network security group  | Mandatory | For brown-field deployments  |
+> |                                  |                                                                       |           |                              |
 > | `db_subnet_address_prefix`       | The address range for the `db` subnet                                 | Mandatory | For green-field deployments  |
 > | `db_subnet_arm_id`	             | The Azure resource identifier for the `db` subnet                     | Mandatory | For brown-field deployments  |
 > | `db_subnet_name`                 | The name of the `db` subnet                                           | Optional  |                              |
 > | `db_subnet_nsg_name`             | The name of the `db` network security group                           | Optional	 |                              |
 > | `db_subnet_nsg_arm_id`           | The Azure resource identifier for the `db` network security group     | Mandatory | For brown-field deployments  |
+> |                                  |                                                                       |           |                              |
 > | `app_subnet_address_prefix`      | The address range for the `app` subnet                                | Mandatory | For green-field deployments  |
 > | `app_subnet_arm_id`	             | The Azure resource identifier for the `app` subnet                    | Mandatory | For brown-field deployments  |
 > | `app_subnet_name`                | The name of the `app` subnet                                          | Optional  |                              |
 > | `app_subnet_nsg_name`            | The name of the `app` network security group                          | Optional  |                              |
 > | `app_subnet_nsg_arm_id`          | The Azure resource identifier for the `app` network security group    | Mandatory | For brown-field deployments  |
+> |                                  |                                                                       |           |                              |
 > | `web_subnet_address_prefix`      | The address range for the `web` subnet                                | Mandatory | For green-field deployments  |
 > | `web_subnet_arm_id`	             | The Azure resource identifier for the `web` subnet                    | Mandatory | For brown-field deployments  |
 > | `web_subnet_name`                | The name of the `web` subnet                                          | Optional  |                              |
@@ -203,13 +207,13 @@ This table defines the parameters used for defining the key vault information.
 > | `create_transport_storage`         | If defined, create storage for the transport directories.               | Optional    |                                                                                                                                                       |
 > | `export_install_path`              | If provided, export mount path for the installation media.              | Optional    |                                                                                                                                                       |
 > | `export_transport_path`            | If provided, export mount path for the transport share.                 | Optional    |                                                                                                                                                       |
+> | `install_always_create_fileshares` | Always create file shares.                                              | Optional    |                                                                                                                                                       |
 > | `install_private_endpoint_id`      | Azure resource ID for the `install` private endpoint.                   | Optional    | For existing endpoints                                                                                                                                |
-> | `transport_private_endpoint_id`    | Azure resource ID of the key vault's private endpoint                   | Optional    |                                                                                                                                                       |
 > | `install_volume_size`              | Defines the size (in GB) for the `install` volume.                      | Optional    |                                                                                                                                                       |
 > | `NFS_provider`                     | Defines what NFS back end to use.                                       | Optional    | The options are `AFS` for Azure Files NFS or `ANF` for Azure NetApp Files, `NONE` for NFS from the SCS server, or `NFS` for an external NFS solution. |
+> | `transport_private_endpoint_id`    | Azure resource ID of the key vault's private endpoint                   | Optional    |                                                                                                                                                       |
 > | `transport_volume_size`            | Defines the size (in GB) for the `transport` volume.                    | Optional    |                                                                                                                                                       |
 > | `use_AFS_for_installation_media`   | If provided, uses AFS for the installation media.                       | Optional    |                                                                                                                                                       |
-> | `install_always_create_fileshares` | Always create file shares.                                              | Optional    |                                                                                                                                                       |
 
 ### Azure Files NFS support
 
