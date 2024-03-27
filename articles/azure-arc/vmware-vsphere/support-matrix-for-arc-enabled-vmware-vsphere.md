@@ -38,7 +38,7 @@ You need a vSphere account that can:
 
 This account is used for the ongoing operation of Azure Arc-enabled VMware vSphere and the deployment of the Azure Arc resource bridge VM.
 
->[!Note]
+>[!Important]
 > If there are any changes to the credentials of the vSphere account after onboarding, follow these [steps](./administer-arc-vmware.md#updating-the-vsphere-account-credentials-using-a-new-password-or-a-new-vsphere-account-after-onboarding) to update the credentials in Arc Resource Bridge and VMware cluster extension. 
 
 ### Resource bridge resource requirements
