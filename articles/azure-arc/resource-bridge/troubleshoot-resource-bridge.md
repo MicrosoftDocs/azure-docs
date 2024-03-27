@@ -95,6 +95,10 @@ Arc resource bridge consists of an appliance VM that is deployed to the on-premi
 
 To fix this, the credentials in the appliance VM need to be updated. For more information, see [Update credentials in the appliance VM](maintenance.md#update-credentials-in-the-appliance-vm).
 
+### Private Link is unsupported
+
+Arc resource bridge does not support private link. If you are using private link on a different Azure Arc product, such as Azure Arc-enabled servers, you must provide Arc resource bridge with a different DNS server and deploy Arc resource bridge on a different network segment than the one being used for private link. 
+
 ## Networking issues
 
 ### Back-off pulling image error
