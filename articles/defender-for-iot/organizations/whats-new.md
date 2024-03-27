@@ -16,16 +16,6 @@ Features released earlier than nine months ago are described in the [What's new 
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
-## March 2024
-
-|Service area  |Updates  |
-|---------|---------|
-| **OT License** | [OT trial license increased](#ot-trial-license-increased)|
-
-### OT trial license increased
-
-The trial version of Defender for IoT license is increased to 90 days. For more information on trial versions, see [Start a Microsoft Defender for IoT trial](getting-started.md).
-
 ## February 2024
 
 |Service area  |Updates  |
